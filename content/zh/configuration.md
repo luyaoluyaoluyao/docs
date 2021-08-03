@@ -1,80 +1,80 @@
 ---
-title: "Configurations"
-parent: "project-settings"
+title: "配置"
+parent: "项目设置"
 tags:
   - "studio pro"
-  - "configurations"
-  - "configuration"
+  - "配置"
+  - "配置"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A configuration is a group of settings that are applied when running your app locally. To access configurations, open the **App Explorer** > **App** > **Settings** > the **Configuration** tab.
+配置是在本地运行应用时应用的一组设置。 要访问配置，请打开 **App Explorer** > **App** > **设置** > **配置** 选项卡。
 
-You can define any number of configurations. The active configuration, as in, the one that will be used when running your application, is determined by the drop-down in the toolbar of Studio Pro.
+您可以定义任何数目的配置。 运行应用程序时将使用的活动配置 由Studio Pro工具栏下拉决定.
 
-You can use configurations to have different database settings for different people working on your app. Maybe one person has SQL Server on their computer and the other has PostgreSQL. You can also have a shared configuration for connecting to a database server that you both have access to.
-
-{{% alert type="warning" %}}
-
-When you are deploying your application to a server or the Mendix cloud you will have to configure settings  there. For more information, see [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy).
-
-{{% /alert %}}
-
-## 2 Configuration Settings
-
-A configuration contains the following:
-
-* **Name** – the name of the configuration
-* [Database tab](#database)
-* [Server tab](#server)
-* [Constants tab](#constants)
-* [Custom tab](#custom)
-
-### 2.1 Database {#database}
-
-The **Database** tab has the following settings:
-
-* **Type** – the type of database in which the end-user data of your application is stored
-* **URL (not for built-in database)** – the URL of the database server that contains your app
-* **Database name (called Database SID for Oracle)** – the name of the database that contains your app
-* **Use integrated security (only for SQL Server)** – with SQL Server you can use integrated security to gain access to the database. This means that your Windows credentials are used to sign in to SQL Server. If you disable integrated security you can enter a user name and password manually.
-* **User name (not for built-in database)** – the user name that is used to sign in to the database server. If you use integrated security, no user name has to be specified.
-* **Password (not for built-in database)** – the password that is used to sign in to the database server. If you use integrated security, no password has to be specified.
-
-### 2.2 Server {#server}
-
-The **Server** tab has the following settings:
-
-* **Application root URL** – this URL points to the root of your application as it should be accessible by end-users. This setting is also used in the published WSDL files for the address where your published web services can be called.
-* **Runtime port** – in this setting you can fill in the HTTP port through which a browser accesses the server on which your application is running. Multiple concurrently running servers on the same computer should use different HTTP port numbers. Default: *8080*
-* **Runtime port security** – determines whether the runtime HTTP port will be open to other machines or just to the current machine (localhost).
-* **Admin port** – this port number is used to communicate with the server. Multiple concurrently running servers on the same computer should use different server admin port numbers. Default: *8090*
-* **Admin port security** –  determines whether the admin port will be open to other machines or just to the current machine (localhost).
-* **Java heap** – in this setting you can specify the maximum Java heap memory size. There following options are available:
-  * **Default** – use the default heap memory size of the installed Java virtual machine.
-  * **Custom** – use the value of the **Maximum size (in MB)** setting.
-* **Maximum size (in MB)** – when you set the Java heap setting to *Custom*, you can specify the amount of heap memory that is available for the Java virtual machine on which you deploy your application.
-* **Extra JVM parameters** – here you can enter extra parameters for the Java virtual machine on which you deploy your application. Note: use with care. If the parameters are invalid, the Java VM might not start.
-
-### 2.3 Constants {#constants}
-
-Constants have a default value that you can override per configuration. You only need to add a constant here if you want a different value than the default value. An example is specifying different web service locations for different configurations.
-
-### 2.4 Custom {#custom}
-
-You can use custom server settings to configure the Runtime beyond the standard possibilities offered by Studio Pro.
+您可以使用配置来为在您的应用上工作的不同人员设置不同的数据库设置。 也许一个人在他们的计算机上有 SQL Server 和 PostgreSQL 您也可以有一个共享配置来连接到您都有访问权限的数据库服务器。
 
 {{% alert type="warning" %}}
 
-Only use this functionality if you know exactly what you are doing. Wrong values can prevent the Runtime from starting.
+当您将您的应用程序部署到服务器或Mendix 云端时，您将必须在那里配置设置。 欲了解更多信息，请参阅 [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Each custom setting consists of a name and a value. For example, to enable persistent sessions you add a custom setting with name `PersistentSessions` and value `true`.
+## 2 个配置设置
 
-For settings overview, see [Runtime Customization](custom-settings).
+配置包含以下内容：
 
-## 3 Read More
+* **名称** - 配置名称
+* [数据库标签](#database)
+* [服务器选项卡](#server)
+* [常数选项卡](#constants)
+* [自定义标签](#custom)
 
-* [App Settings](project-settings)
+### 2.1 数据库 {#database}
+
+**数据库** 标签有以下设置：
+
+* **输入** - 存储您应用程序最终用户数据的数据库类型
+* **URL (内置数据库除外)** - 包含您应用程序的数据库服务器的 URL
+* **数据库名称 (Oracle的数据库ID)** - 包含您应用的数据库名称
+* **使用集成安全(仅用于 SQL Server)** - 使用 SQL 服务器，您可以使用集成安全访问数据库。 这意味着您的 Windows 凭据被用于登录 SQL Server。 如果您禁用集成安全性，您可以手动输入用户名和密码。
+* **用户名(不是内建数据库的用户名)** - 用于登录到数据库服务器的用户名。 如果您使用集成安全，不必指定用户名。
+* **密码(不是内置数据库的密码)** - 用于登录到数据库服务器的密码。 如果您使用集成安全，不需要指定密码。
+
+### 2.2 服务器 {#server}
+
+**服务器** 标签有以下设置：
+
+* **应用程序根URL** - 这个URL指向您的应用程序的根目录，因为最终用户应该可以访问。 此设置也用于已发布的 WSDL 文件用于您已发布的网页服务调用地址。
+* **运行时端口** - 在此设置中，您可以填写一个 HTTP 端口，通过该端口浏览器访问您的应用程序正在运行的服务器。 多个同时运行在同一计算机上的服务器应该使用不同的 HTTP 端口。 默认： *8080*
+* **运行时端口安全** - 决定运行时HTTP端口是对其他机器打开还是仅对当前机器打开(localhost)。
+* **管理端口** - 此端口用于与服务器通信。 多个同时运行在同一计算机上的服务器应该使用不同的服务器管理端口。 默认： *8090*
+* **管理端口安全** — 决定管理端口是对其他机器打开还是仅对当前机器打开(localhost)。
+* **Java 堆** — — 在这个设置中，您可以指定Java 堆内存的最大值。 以下选项可用：
+  * **默认** - 使用已安装的 Java 虚拟机的默认堆内存大小。
+  * **自定义** - 使用 **最大大小的值(MB)** 设置。
+* **最大尺寸(MB)** - 当您设置 Java 堆设置为 *自定义*和 您可以指定您部署应用程序的 Java 虚拟机可用的堆内存量。
+* **额外的 JVM 参数** - 这里你可以输入你部署应用程序的 Java 虚拟机的额外参数。 注： 谨慎使用。 如果参数无效，Java VM可能无法启动。
+
+### 2.3 常量 {#constants}
+
+常数有一个默认值，您可以每个配置覆盖。 如果你想要一个不同于默认值的值，你只需要在这里添加一个常数。 一个例子是为不同配置指定不同的 web 服务位置。
+
+### 2.4 自定义 {#custom}
+
+您可以使用自定义服务器设置来配置Studio Pro提供的标准可能性以外的运行时间。
+
+{{% alert type="warning" %}}
+
+只有当您确切知道正在做什么时，才使用此功能。 错误的值可以阻止运行时间。
+
+{{% /报警 %}}
+
+每个自定义设置包含一个名称和一个值。 例如，为了启用持续会话，您添加了一个名为 `持久会话` 和值 `true` 的自定义设置。
+
+关于设置概述，请参阅 [运行时间自定义](custom-settings)。
+
+## 3 阅读更多
+
+* [应用设置](项目设置)
