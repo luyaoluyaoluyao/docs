@@ -1,66 +1,70 @@
 ---
-title: "Troubleshooting DOM Changes"
+title: "DOM の変更のトラブルシューティング"
 parent: "moving-from-7-to-8"
 menu_order: 10
-description: "This document explains the updated DOM structure for Mendix 8, and what that means for app's CSS."
+description: "このドキュメントでは、Mendix 8 用の更新された DOM 構造と、アプリの CSS に何を意味するのかについて説明します。"
 tags:
   - "DOM"
-  - "Widgets"
-  - "Themes"
-  - "Classes"
+  - "ウィジェット"
+  - "テーマ"
+  - "クラス"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Among other improvements to the client in Mendix 8,  the HTML of Mendix applications has also been updated. These changes make widgets more accessible, more consistent, and give you a cleaner markup to work with.
+Mendix 8 のクライアントのその他の改良の中で、Mendix アプリケーションの HTML も更新されました。 これらの変更により、ウィジェットにアクセスしやすく、一貫性があり、よりクリーンなマークアップを行うことができます。
 
-However, these updates might impact your styling. The appearance of your application may be affected, as the widgets' Document Object Model structure has been updated. This reference guide will outline the differences between Mendix 7 and 8 as they pertain to the DOM and CSS. This document is only relevant for apps which employ custom CSS or modify existing Atlas UI CSS.
+ただし、これらのアップデートはスタイリングに影響する可能性があります。 ウィジェットの Document Object Model 構造が更新されたため、アプリケーションの外観が影響を受ける可能性があります。 このリファレンスガイドでは、DOM と CSS に関連する、Mendix 7 と 8 の違いについて概説します。 このドキュメントは、カスタム CSS を使用したり、既存の Atlas UI CSS を変更したりするアプリにのみ関連します。
 
-## 2 Updating Atlas
+## 2 アトラスの更新
 
-When you upgrade to Mendix 8, DOM structure changes will also alter the correlating Sass styling files. This could make some of your styling not work as expected anymore. To make your styling compatible with Mendix 8, see [Troubleshoot Atlas UI Changes when Migrating to Mendix 8](migration-atlas).
+Mendix 8 にアップグレードすると、DOM 構造の変更により Sass のスタイルファイルも変更されます。 これにより、あなたのスタイルの一部が期待どおりに動作しなくなる可能性があります。 Mendix 8とスタイリングを互換性があるようにするには、 [Mendix 8への移行時のアトラスUIの変更のトラブルシューティング](migration-atlas) を参照してください。
 
-## 3 Streamlined Custom Themes
+## 合理化されたカスタムテーマ3個
 
-Before Mendix 8, the client provided a large amount of default styling if your app lacked a theme. This made building your own theme difficult, as you needed to override the default styling. As of Mendix 8, all styling has been moved to AtlasUI. Now, building your own theme from scratch requires significantly less work.
+Mendix 8より前に、アプリにテーマがない場合、クライアントは大量のデフォルトスタイルを提供しました。 これにより、デフォルトのスタイルを上書きする必要があるため、独自のテーマを構築することが困難になりました。 Mendix 8の時点で、すべてのスタイリングはアトラスUIに移動しました。 今、自分のテーマをゼロから構築するには、大幅に少ない作業が必要です。
 
-If you have already built your own theme from scratch in an earlier version of Mendix, you might depend on the default styling (specifically the Bootstrap files and the **mxui.css** file) not included in Mendix 8 applications by default. For this case, Mendix provides legacy **mxui.css** and Bootstrap files with defaults in this [GitHub repository](https://github.com/mendix/legacy-mxui-css). Download files from this repository to enable your custom theme.
+If you have already built your own theme from scratch in an earlier version of Mendix, you might depend on the default styling (specifically the Bootstrap files and the **mxui.css** file) not included in Mendix 8 applications by default. この場合、Mendixはレガシー **mxui.css** とBootstrapファイルをこの [GitHubリポジトリ](https://github.com/mendix/legacy-mxui-css)で提供します。 カスタムテーマを有効にするには、このリポジトリからファイルをダウンロードしてください。
 
 {{% alert type="info" %}}
-If you get an error message `CE6103: We detected that you are not using Atlas UI for your theme. Please check 'Troubleshooting DOM  Changes' to ensure your theme is fully compliant with Mendix 8. Right-click to see more options`, you can clear the message by right-clicking it and selecting **Mark as Resolved**.
+エラーメッセージが表示された場合 `CE6103:テーマにAtlas UIを使用していないことを検出しました。 テーマがMendix 8に完全に準拠していることを確認するには、「DOM Changesのトラブルシューティング」を確認してください。 右クリックして`オプションを表示するには、右クリックして **解決済みとしてマーク** を選択することで、メッセージをクリアできます。
 {{% /alert %}}
 
-## 4 Focus-Specific Class Removed
+## フォーカス特有の4クラスが削除されました
 
-Before Mendix 8, the client frequently applied `mx-focus` to the element receiving focus and removed `mx-focus` when the element lost focus. Because all supported browsers now have proper support for the `:focus` pseudo-class, these reapplications are no longer necessary.  For more information on `:focus`, see Mozilla’s [:focus documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus).
+Mendix 8 より前に、クライアントは `mx-focus` をフォーカスを受け取っている要素に頻繁に適用し、要素がフォーカスを失ったときに `mx-focus` を削除しました。 サポートされているすべてのブラウザーが `:focus` 疑似クラスを適切にサポートしているため、これらの再アプリケーションはもはや必要ありません。  `:four`の詳細については、Mozillaの [:focus documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus) を参照してください。
 
-If your are using `mx-focus` in your theme, you should replace it with `:focus`.
+テーマに `mx-focus` を使用している場合は、 `:focus`に置き換える必要があります。
 
-Code such as this:
+以下のようなコードを入力してください。
 
 ```css
 .mx-listview-item.mx-focus {
-    /* your styling */
+    /* スタイリング */
 }
 ```
 
-Should be changed to:
+変更する必要があります:
 
 ```css
 .mx-listview-item:focus {
-    /* your styling */
+    /* スタイリング */
 }
 ```
 
-## 5 Data Grid Markup Updates
+## 5つのデータグリッドマークアップの更新
 
-We made a number of updates to the data grid markup. Previously, the data grid was split into two separate tables: one containing the header and one containing the data. This made the data grid less accessible, because screen readers show these as two separate tables. Now the two tables have been merged into a single table. Furthermore, the `div` wrapping the two tables has been removed.
+データグリッドのマークアップをいくつかアップデートしました。 以前は、データ グリッドは、ヘッダーを含むテーブルと データを含むテーブルの 2 つに分割されていました。 これにより、スクリーンリーダーはこれらを2つの別個のテーブルとして表示するため、データグリッドにアクセスできなくなりました。 二つのテーブルが一つのテーブルに統合されました。 さらに、2つのテーブルをラップしている `div` が削除されました。
 
-Another data grid markup change is that the `div` containing the toolbar and the `div` containing the paging bar (both part of the control bar) are now in a logical order. Previously, additional CSS was needed to display them in the right order, and additional JavaScript was needed to dictate a logical tab behavior. The current structure now falls in line with [Web Content Accessibility Guidelines 2.1's criterion 1.3.2](https://www.w3.org/TR/WCAG21/#meaningful-sequence) by having [the DOM order follow the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html).
+もう1つのデータ グリッドのマークアップの変更点は、ツール バーを含む `div` と ページ バー (コントロールバーの一部) を含む `div` が論理的な順序であることです。 以前は、適切な順序でそれらを表示するために追加の CSS が必要でした。論理的なタブの動作を指示するには、追加の JavaScript が必要でした。 現在の構造は、
 
-With new accessibility features implemented, now `div` containing pagination section (inside of control bar) has appropriate `role` attribute set. Buttons inside of this `div`, including the `div` itself, now has translatable `aria-label` attributes which can be set from Modeler's `System Texts` page with category name `Accessibility`. New `span` and `caption` elements added as a sibling to *`buttons` for pagination* and `thead` respectively. They are only visible to screen readers.
+Web Content Accessibility Guidelines 2に沿っています。 の基準 1.3.2 [](https://www.w3.org/TR/WCAG21/#meaningful-sequence) は [DOM 順序をビジュアルの順序](https://www.w3.org/TR/WCAG20-TECHS/C27.html) に従うようにします。</p> 
 
-This is the current markup of the data grid (unchanged code omitted):
+新しいアクセシビリティ機能が実装され、ページネーションセクション (コントロールバー内) を含む `div` に適切な `ロール` 属性が設定されました。 Buttons inside of this `div`, including the `div` itself, now has translatable `aria-label` attributes which can be set from Modeler's `System Texts` page with category name `Accessibility`. 新しい `スパン` と `キャプション` 要素は、それぞれページネーション用の *`ボタン` と* `thead` の兄弟として追加されました。 彼らはスクリーンリーダーにのみ表示されます。 
+
+これはデータ グリッドの現在のマークアップです(変更されていないコードが省略されています):
+
+
 
 ```html
 <div class="mx-grid mx-datagrid mx-name-grid1">
@@ -93,34 +97,43 @@ This is the current markup of the data grid (unchanged code omitted):
 </div>
 ```
 
-Additionally, a number of additional classes on the table have been removed, as they are easily accessed using element names.
 
-If you were styling your data grid in this way:
+さらに、要素名を使用して簡単にアクセスできるため、テーブル上の多数の追加クラスが削除されました。 
+
+このようにしてデータグリッドをスタイリングしている場合:
+
+
 
 ```css
 .mx-datagrid .mx-datagrid-head-table {
     // your styling
 }
-.mx-datagrid .mx-datagrid-body-table .mx-datagrid-body tr td {
+.mx-datagrid .mx-datagrid-body-table .mx-datagrid-body tr {
     // your styling
 }
 ```
 
-You should rewrite the data grid styling using these guidelines:
+
+これらのガイドラインを使用してデータグリッドのスタイルを書き換える必要があります。
+
+
 
 ```css
 .mx-datagrid thead {
     // your styling
 }
 
-.mx-datagrid tbody tr td {
+.mx-datagrid tbody tr {
     // your styling
 }
 ```
 
-## 6 List View Markup Changes
 
-The markup for list view widgets has also been changed. To simplify the styling, the following classes have been removed:
+
+
+## マークアップ一覧表示の変更
+
+リストビューウィジェットのマークアップも変更されました。 スタイリングを簡素化するために、以下のクラスが削除されました。
 
 * `mx-list`
 * `mx-listview-list`
@@ -129,11 +142,13 @@ The markup for list view widgets has also been changed. To simplify the styling,
 * `mx-listview-search-input`
 * `mx-listview-clear-button`
 
-For list views that are not in a select page for a reference or reference set selector,  the list view's `mx-listview-selectable` has been removed. The unneeded `div` elements with class `mx-listview-content` around the contents of each list view item have also been removed.
+参照セットセレクターまたは参照セットセレクターの選択ページにないリストビューの場合。 リストビューの `mx-listview-selectable` が削除されました。 不要な `div` 要素で、クラス `mx-listview-content` が各リストビューアイテムの内容を囲んでも削除されました。
 
-The order of the list view search bar's DOM elements has been corrected to be consistent with the visual order. The `div` element around the search input field has been removed.
+リストビュー検索バーの DOM 要素の順序は、視覚的な順序と一致するように修正されました。 検索入力フィールドを囲む `div` 要素が削除されました。
 
-If you were styling your list view widgets this way:
+リスト表示ウィジェットのスタイリングをこちらの方法で行っている場合：
+
+
 
 ```css
 .mx-listview-item {
@@ -147,7 +162,10 @@ If you were styling your list view widgets this way:
 }
 ```
 
-You should rewrite your list view styling using these guidelines :
+
+次のガイドラインを使用して、リストビューのスタイルを変更する必要があります。
+
+
 
 ```css
 .mx-listview li {
@@ -161,32 +179,46 @@ You should rewrite your list view styling using these guidelines :
 }
 ```
 
-## 7 Scroll Container Markup Changes
 
-All classes starting with `mx-layoutcontainer` have been removed from scroll containers, as they are redundant with their `mx-scrollcontainer` counterparts.
 
-## 8 Link Button Markup Changes
 
-The markup for link buttons has been made more consistent with other buttons:
+## 7つのスクロールコンテナのマークアップの変更点
+
+`mx-layoutcontainer` で始まるすべてのクラスは、スクロールコンテナから削除されています。これは、 `mx-scrollcontainer` と重複しているためです。
+
+
+
+## 8 リンクボタンのマークアップの変更
+
+リンクボタンのマークアップは他のボタンとより一貫性があります:
+
+
 
 ```html
 <a href="#" class="mx-link mx-name-actionButton1">
     <span class="glyphicon glyphicon-euro"></span>
-    Link button
+    リンクボタン
 </a>
 ```
 
-## 9 Input Widgets Markup Changes
 
-Every input widget has an implicit form group structure wrapped around it. Before recent changes, an input widget’s DOM structure could appear disorganized depending on its settings. Now, the form group structure ensures that the input widget is properly aligned inside the data view and properly labeled.
 
-### 9.1 Vertical and Horizontal Classes on DataView
 
-Previously, data view was rendering `form-horizontal` class on it when **Form orientation** was set to **Horizontal** and no such class if this option was set to **Vertical**. Now, `form-horizontal` or `form-vertical` are added on **Horizontal** and **Vertical** options respectively.
+## インプットウィジェットマークアップの変更
 
-This makes it easier to style forms (and inputs in them) with different orientations by targeting a class in your CSS selector. If you were previously relying on the presence or absence of `form-horizontal,` now you can simplify your CSS selectors by using `form-vertical`.
+すべての入力ウィジェットには、それを包み込んだ暗黙のフォームグループ構造があります。 最近の変更前に、入力ウィジェットのDOM構造は設定に応じて無秩序に見える可能性があります。 これでフォーム グループ 構造により、入力ウィジェットがデータ ビュー内で適切に整列され、適切にラベル付けされます。
 
-This is how the DOM structure of the data view widget is organized now:
+
+
+### DataView上の9.1 垂直方向と水平方向のクラス
+
+Previously, data view was rendering `form-horizontal` class on it when **Form orientation** was set to **Horizontal** and no such class if this option was set to **Vertical**. `フォーム水平` または `フォーム垂直` が **水平** オプションと **垂直** オプションにそれぞれ追加されます。 
+
+これにより、CSS セレクター内のクラスをターゲットにすることで、さまざまな方向でフォーム(および入力)のスタイルを簡単に設定できます。 If you were previously relying on the presence or absence of `form-horizontal,` now you can simplify your CSS selectors by using `form-vertical`.
+
+データビューウィジェットの DOM 構造は以下のように整理されています。
+
+
 
 ```html
 <div class="mx-dataview [form-horizontal or form-vertical]">
@@ -202,9 +234,14 @@ This is how the DOM structure of the data view widget is organized now:
 </div>
 ```
 
-### 9.2 Form Group Structure
+
+
+
+### 9.2 フォームグループ構造
 
 Previously, if widget had the **Show caption** option set to **No**, form group structure was missing `form-group` class on its top level `div`:
+
+
 
 ```html
 <div class="mx-name-textBox4 [...]" [...]>
@@ -212,7 +249,10 @@ Previously, if widget had the **Show caption** option set to **No**, form group 
 </div>
 ```
 
-Now, the `form-group` class stays in place with extra `no-columns` class:
+
+これで、 `フォームグループ` クラスは、余分な `列なし` クラスでそのまま使用できます。
+
+
 
 ```html
 <div class="form-group no-columns mx-name-textBox4 [...]" [...]>
@@ -220,11 +260,14 @@ Now, the `form-group` class stays in place with extra `no-columns` class:
 </div>
 ```
 
-If you have made custom styles using `.form-group` before, this might be a breaking change as `.form-group`  matches with more elements now. You can now target form groups and elements inside them on only horizontal or only vertical forms using `.form-horizontal .form-group` or `.form-vertical .form-group` respectively.
 
-### 9.3 Input Widget Type Classes
+If you have made custom styles using `.form-group` before, this might be a breaking change as `.form-group`  matches with more elements now. You can now target form groups and elements inside them on only horizontal or only vertical forms using `.form-horizontal .form-group` or `.form-vertical .form-group` respectively. 
 
-Form groups now have special class name depending on their widget type:
+
+
+### 9.3 ウィジェットタイプクラス
+
+フォームグループにウィジェットの種類に応じて特別なクラス名が追加されました:
 
 * `.mx-checkbox`
 * `.mx-datepicker`
@@ -235,9 +278,13 @@ Form groups now have special class name depending on their widget type:
 * `.mx-textarea`
 * `.mx-textbox`
 
-### 9.4 Examples of Form Group Layout
 
-The vertical form group input widget now has a label, input control, and an optional validation message on the same level:
+
+### 9.4 フォームグループレイアウトの例
+
+垂直方向のフォーム グループ入力ウィジェットには、同じレベルのラベル、入力コントロール、およびオプションの検証メッセージが表示されるようになりました。
+
+
 
 ```html
 <div class="form-group mx-name-textBox4 [...]" [...]>
@@ -254,7 +301,10 @@ The vertical form group input widget now has a label, input control, and an opti
 </div>
 ```
 
-The horizontal form group input widget now has a label with `col-sm-{labelWith}`and `div.col-sm-{12-labelWith}`. Its label also has input control and an optional validation message inside:
+
+水平フォームグループ入力ウィジェットに `col-sm-{labelWith}`と `div.col-sm-{12-labelWith}` のラベルが追加されました。 そのラベルには、入力コントロールとオプションの検証メッセージも含まれています。
+
+
 
 ```html
 <div class="form-group mx-name-textBox4 [...]" [...]>
@@ -272,7 +322,10 @@ The horizontal form group input widget now has a label with `col-sm-{labelWith}`
 </div>
 ```
 
-This is the structure of an input widget, in either a horizontal or vertical data view, with **Show label** set to **No**. The input widget has an input control and an optional validation message:
+
+これは、水平または垂直のデータビューの入力ウィジェットの構造です。 **ラベル表示** が **いいえ** に設定されています。 入力ウィジェットには、入力コントロールとオプションの検証メッセージがあります。
+
+
 
 ```html
 <div class="form-group mx-name-textBox4 [...]" [...]>
@@ -287,52 +340,76 @@ This is the structure of an input widget, in either a horizontal or vertical dat
 </div>
 ```
 
-### 9.5 Read-Only Controls
 
-Previously, non-editable input controls of input widgets with **Read-only style** set to **Text** could have been rendered using a `p` or a `label` element with a `form-control-static` class on them.
 
-Read-only controls with **Read-only style** set to **Text** are now rendered as the following:
+
+### 9.5 読み取り専用コントロール
+
+以前は **読み取り専用スタイル** を **テキスト** に設定した入力ウィジェットの編集不可能な入力コントロールは、 `p` または `ラベル` 要素に `フォームコントロール静的な` クラスを使用してレンダリングされていた可能性があります。 
+
+**読み取り専用スタイル** を **テキスト** に設定した読み取り専用コントロールが次のようにレンダリングされるようになりました。
+
+
 
 ```html
-<div class="form-control-static">value</div>
+<div class="form-control-static">値</div>
 ```
 
-### 9.6 Input Widgets Structure
 
-Previously, some input widgets had a wrapper element surrounding their control.
 
-These redundant wrappers have been removed, and now bare controls are rendered wherever possible (except radio buttons in a radio buttons group, in which each individual control is wrapped in a `div`).
 
-### 9.7 Examples of Input Controls
+### 9.6 入力ウィジェット構造
 
-A few examples of various input controls are listed below.
+以前は、入力ウィジェットにはコントロールを囲むラッパー要素がありました。 
 
-Text box:
+これらの冗長なラッパーは削除され、可能な限り裸のコントロールがレンダリングされます(ラジオボタングループ内のラジオボタンを除く)。 は、個々のコントロールを `div` でラップします。
+
+
+
+### 9.7 入力コントロールの例
+
+さまざまな入力制御の例を以下に示します。
+
+テキスト ボックス:
+
+
 
 ```html
 <input class="form-control" type="text" id="123_abc" />
 ```
 
-Text area:
+
+テキスト領域:
+
+
 
 ```html
 <textarea class="form-control mx-textarea-input mx-textarea mx-textarea-input-noresize"></textarea>
 ```
 
-Check box:
+
+チェックボックス:
+
+
 
 ```html
 <input type="checkbox" value="" />
 ```
 
-Check box when **Label position** is set to **After control** (in this case the label on the form group is not shown):
+
+**ラベルの位置** が **コントロール後** に設定されている場合チェックボックスをオンにします(この場合、フォームグループのラベルは表示されません):
+
+
 
 ```html
 <input type="checkbox" id="123_abc" value="" />
-<label for="123_abc">Label</label>
+<label for="123_abc">ラベル</label>
 ```
 
-Radio buttons:
+
+ラジオボタン: 
+
+
 
 ```html
 <div role="radiogroup" id="123_abc" aria-labelledby="123_abc-label">
@@ -355,7 +432,10 @@ Radio buttons:
 </div>
 ```
 
-Drop-down:
+
+ドロップダウン:
+
+
 
 ```html
 <select class="form-control">
@@ -366,30 +446,39 @@ Drop-down:
 </select>
 ```
 
-## 10 Date Picker Widget Changes
+
+
+
+## 10 日付選択ウィジェットの変更
+
+
 
 ### 10.1 Input
 
-The following changes have been made to the date picker input widget:
+日付ピッカー入力ウィジェットに以下の変更が加えられました:
 
-* The classes `mx-dateinput` and `mx-dateinput-input` have been removed in favor of the new `mx-compound-control` class
-* The `mx-compound-control` class was introduced for input widgets made up of more than one element, such as a widget with a button next to the input
-* The inner `<div>` element with class `mx-dateinput-input-wrapper` around the input was removed
-* The `<button>` element was placed after the input in the DOM to match the visual order
+* `mx-dateinput` クラスと `mx-dateinput-input` は新しい `mx-compound-control` クラスに代わって削除されました
+* 複数の要素で構成された入力ウィジェットに `mx-compound-control` クラスが導入されました。 例えば、入力の隣にボタンがあるウィジェットなど。
+* 内部の `<div>` クラス `mx-date-input-wrapper` のある要素が、入力の周りに削除されました。
+* `<button>` 要素は、視覚的な順序に合わせてDOMの入力の後に配置されました。
 
-### 10.2 Calendar
 
-Because the calendar pop-up window is no longer implemented using the Dojo framework, several changes were made to the calendar pop-up window's internal structure:
 
-* All classes starting with `dijit` have been removed
-* The outermost `<div>` element now has the class `mx-calendar`
-* The `<td>` elements, which represent the days in the calendar view, get the following classes:
-    * `mx-calendar-day-month-current`, `mx-calendar-day-month-previous` or `mx-calendar-day-month-next`: depending on whether the day falls in the current, previous, or next month
-    * `mx-calendar-day-selected`: if the day is currently selected in the date picker for which the calendar was opened
-    * `mx-calendar-day-active`:  if the day currently has the focus
-* The `<span>` elements inside the `<td>` and `<th>` elements have been removed
+### 10.2 カレンダー
 
-The month header now has the following structure:
+道場フレームワークを使用してカレンダーポップアップウィンドウが実装されていないため、カレンダーポップアップウィンドウの内部構造にいくつかの変更が加えられました。
+
+* `dijit` で始まるすべてのクラスが削除されました
+* 一番外側の `<div>` 要素にクラス `mx-calendar` が追加されました
+* `<td>` 要素は、カレンダービューで日付を表します。次のクラスを取得します： 
+      * `mx-calendar -day-month -current`, `mx-calendar -day-month-next` または `mx-calendar -day-month-next`: 日が現在、前、来月に該当するかどうかによって異なります
+    * `mx-calendar-day-selected`: カレンダーを開いた日付ピッカーで現在日が選択されている場合。
+    * `mx-calendar-day-active`: その日が現在フォーカスされている場合
+* `<span>` 要素の `<td>` と `<th>` 要素が削除されました
+
+月ヘッダーに次の構造が追加されました。
+
+
 
 ```html
 <div class="mx-calendar-month-header">
@@ -418,7 +507,10 @@ The month header now has the following structure:
 </div>
 ```
 
-The year switcher now has the following structure:
+
+今年のスイッチャーの構造は次のとおりです。
+
+
 
 ```html
 <div class="mx-calendar-year-switcher">
@@ -428,33 +520,42 @@ The year switcher now has the following structure:
 </div>
 ```
 
-## 11 Reference Selector and Input Reference Set Selector Markup Changes
 
-The following changes have been made to the reference selector markup:
 
-* The classes `mx-referenceselector` and `mx-referencesetselector` have been removed from the main `<div>` element in favor of the new `mx-compound-control` class, which was introduced for input widgets made up of more than one element (one common input widget with multiple elements is a button next to an input element).
 
-The following changes have been made to the input reference set selector markup:
+## 11 リファレンスセレクタと入力リファレンスセットセレクタの変更点
 
-* The form group will now get the class `mx-referenceselector` or `mx-inputreferencesetselector` (note the `input` prefix) instead
-* The inner `<div>` element (sharing a class ending with `-input-wrapper`) around the input was removed
-* The `<button>` elements have been placed after the input in the DOM to match the visual order
+参照セレクタのマークアップには、次の変更が加えられました。
 
-## 12 DropDownButton Widget Cleanup
+* `mx-referenceselector` と `mx-referencesetselector` のクラス `<div>` は新しい `mx-compound-control` クラスを支持している要素から削除されました。 これは、複数の要素で構成される入力ウィジェットに導入されました(複数の要素を持つ共通の入力ウィジェットは、入力要素の隣にあるボタンです)。
 
-The following changes have been made to the `DropDownButton` widget:
+次のような変更が入力リファレンスセットセレクターマークアップに加えられました。 
 
-* The class `mx-list` has been removed from the list of terms in the dialog box
-* The class `mx-dropdown` has been removed from the dialog box, as it has nothing to do with drop-down in the search input
+* フォーム グループは、クラス `mx-referenceselector` または `mx-inputreferencesetselector` ( `input` 接頭辞に注意) を代わりに取得します。
+* 入力周辺の内部 `<div>` 要素 ( `-input-wrapper`で終わるクラスを共有する) が削除されました
+* `<button>` 要素は、視覚的な順序に合わせてDOM内の入力の後に配置されています
 
-## 13 File Manager and Image Uploader Widget Changes
 
-Previously, file manager and image uploader widgets were rendered differently on desktop and mobile browsers. On desktop these widgets rendered as an easy-to-style custom HTML snippet, while on mobile they manifested as difficult-to-style native file input.
 
-File manager and image uploader widgets have been changed for consistency. Now, they always shows the same HTML structure. Also, these widgets' DOM structure has been made more consistent with other compound widgets (like the reference selector and date picker).
+## 12 DropDownButton ウィジェットのクリーンアップ
 
-Now, file manager and image uploader widgets are always represented as a `div`  element with `mx-compound-control` class on it. Also, the `mx-fileinput` class has been moved to the form group. Inside of the `div`, there is an input with `form-control` class. This input represents a filename of currently selected file. The class `mx-wrapped-label` is gone from the input. Next to the input, there are one of two buttons for uploading and downloading the current file. These buttons have the same classes as before.
+`DropDownButton` ウィジェットに以下の変更が行われました。
 
-## 14 Read More
+* クラス `mx-list` がダイアログボックスの用語リストから削除されました
+* クラス `mx-dropdown` は、検索入力のドロップダウンとは何の関係もないので、ダイアログボックスから削除されました
 
-* [Troubleshoot Atlas UI Changes](migration-atlas)
+
+
+## 13 ファイルマネージャーと画像アップローダーウィジェットの変更
+
+以前は、ファイルマネージャと画像アップローダーのウィジェットはデスクトップとモバイルのブラウザーで異なるレンダリングを行っていました。 デスクトップでは、これらのウィジェットは簡単なスタイルのカスタム HTML スニペットとしてレンダリングされ、モバイルではスタイル間のネイティブファイル入力が困難であることが明らかになりました。
+
+ファイルマネージャと画像アップローダーウィジェットが一貫性を保つように変更されました。 これで、これらは常に同じHTML構造を表示します。 また、これらのウィジェットの DOM 構造は、他の複合ウィジェット(参照セレクタや日付ピッカーなど)とより一致しています。
+
+現在、ファイルマネージャと画像アップローダーのウィジェットは常に `div`  要素として表現され、その上に `mx-compound-control` クラスがあります。 また、 `mx-fileinput` クラスがフォーム グループに移動されました。 `div`の中には、 `form-control` クラスの入力があります。 この入力は現在選択されているファイルのファイル名を表します。 クラス `mx-wrapped-label` は入力から消えます。 入力の横には、現在のファイルをアップロードおよびダウンロードするための2つのボタンの1つがあります。 これらのボタンは以前と同じクラスを持っています。
+
+
+
+## 14 もっと読む
+
+* [アトラスのUI変更のトラブルシューティング](migration-atlas)
