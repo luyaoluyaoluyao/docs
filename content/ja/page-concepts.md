@@ -1,35 +1,35 @@
 ---
-title: "Page Concepts"
-parent: "pages"
+title: "ページコンセプト"
+parent: "ページ"
 menu_order: 5
-description: "Basic information on how pages are structured and ways to create an application flow."
+description: "ページがどのように構造化され、アプリケーションフローを作成する方法に関する基本的な情報。"
 tags:
-  - "Visibility"
-  - "editability"
-  - "Example"
-  - "Tags"
+  - "公開範囲"
+  - "編集性"
+  - "例"
+  - "タグ"
 ---
 
-## Introduction
+## はじめに
 
-The documentation in this section describes the basic concepts that you need when working with pages in your app. It also helps you to create a flow which makes use of Mendix features.
+このセクションのドキュメントでは、アプリケーションのページを操作するときに必要な基本的な概念について説明します。 また、Mendix機能を利用するフローを作成するのにも役立ちます。
 
-### [Conditions](conditions)
+### [条件](conditions)
 
-This page describes how pages can be made dynamic by setting conditions, based on context, to decide whether a specific element is shown.
+このページでは、コンテキストに基づいて条件を設定し、特定の要素を表示するかどうかを決定することで、ページを動的にする方法について説明します。
 
-### [Data Sources](data-sources)
+### [データソース](データソース)
 
-This page describes how data can be retrieved and used in data and list views.
+このページでは、データを取得して、データビューとリストビューで使用する方法について説明します。
 
-### [On Click Event](on-click-event)
+### [クリックイベント](on-click-event)
 
-This page describes how to trigger a microflow when clicking a widget.
+このページでは、ウィジェットをクリックしたときにマイクロフローをトリガーする方法を説明します。
 
-### [Opening Pages](opening-pages)
+### [ページを開く](opening-pages)
 
-This page describes how to open pages, how to ensure that the page displays the right information, and other things to bear in mind when designing your flow through the app.
+このページでは、ページを開く方法、ページに適切な情報が表示されるようにする方法について説明します。 アプリを通じてフローを設計する際に考慮すべきことがあります
 
-### [Starting Microflows](starting-microflows)
+### [マイクロフローを開始中](starting-microflows)
 
-This page describes all the different ways in which microflows can be triggered within a page.
+このページでは、ページ内でマイクロフローをトリガーするすべての異なる方法について説明します。
