@@ -1,6 +1,6 @@
 ---
-title: "Page Break (Document Template)"
-parent: "document-templates"
+title: "分页(文档模板)"
+parent: "文档模板"
 tags:
   - "studio pro"
 aliases:
@@ -8,19 +8,19 @@ aliases:
   - /refguide/page-break-(document-template).html
 ---
 
-## 1 Introduction
+## 1 导言
 
-When inserting a page break, the current page will be cut off after the break and widgets below the break will be inserted in a new page.
+当插入一个页面断开时， 休息结束后当前页面将被切断，休息下面的部件将被插入一个新的页面。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918135.png)
 
-A page break.
+页面断开。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Common Properties
+## 2 公共属性
 
 {{% snippet file="refguide/name-property.md" %}}
 
