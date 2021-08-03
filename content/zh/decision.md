@@ -1,76 +1,76 @@
 ---
-title: "Decision"
-parent: "decisions"
+title: "决 定"
+parent: "经济及社会理事会"
 menu_order: 3
 tags:
   - "studio pro"
-  - "decision"
-  - "exclusive split"
+  - "决 定"
+  - "专用拆分"
 aliases:
   - /refguide/exclusive-split.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-A decision is an element that makes a choice based on a condition and follows one and only one of the outgoing sequence flows. For example, you need to use a decision to show different order forms for the customers with different grades, or to prevent a blocked customer from making orders.
+一项决定是一项根据一项条件作出选择的要素，它遵循的是一项只是一项外向顺序流量。 例如，您需要使用决定为不同级别的客户显示不同的订单表单， 或阻止被屏蔽的客户订单。
 
-## 2 Properties
+## 2 属性
 
-An example of decision properties is represented in the image below:
+决策属性的示例在下面的图像中显示：
 
 {{% image_container width="50%" %}}
 ![](attachments/decisions/decision-properties.png)
 {{% /image_container %}}
 
-The decision properties pane consists of the following sections:
+决策属性窗格由以下部分组成：
 
-* [Common](#common)
+* [常用的](#common)
 
-### 2.1 Common {#common}
+### 2.1 普通的 {#common}
 
-#### 2.1.1 Caption
+#### 2.1.1 标题
 
-For more information, see the [Caption](microflow-element-common-properties#caption) section in *Common Properties*.
+欲了解更多信息，请参阅 *常见属性* 中的 [标题](microflow-element-common-properties#caption) 部分。
 
-#### 2.1.2 Decision Type
+#### 2.1.2 决定类型
 
-**Decision type** defines whether an expression or a rule is used to define conditions of the decision. Possible decision types are described in the table below:
+**决策类型** 定义了是否使用表达式或规则来定义决定的条件。 以下表格介绍了可能的决定类型：
 
-| Option                    | Description                                                                                                                                                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Expression](#expression) | Expressions can be used to create or change an object or a variable based on logic.                                                                                                                                                                                              |
-| [Rule](#rule)             | A rule is a special kind of microflow, the outcomes of which can be used in a decision instead of calling a sub-microflow and using the return variable of that sub-microflow. The idea is that complicated decisions can be consolidated in rules and reused in various places. |
+| 选项                 | 描述                                                                            |
+| ------------------ | ----------------------------------------------------------------------------- |
+| [表达式](#expression) | 表达式可以用来创建或更改基于逻辑的对象或变量。                                                       |
+| [规 则](#rule)       | 规则是一种特殊类型的微流， 其结果可以用于决策，而不是调用子微流和使用该子微流的返回变量。 这样做的想法是，复杂的决定可以合并到规则中，并在各地重新使用。 |
 
-##### 2.1.2.1 Expression {#expression}
+##### 2.1.2.1 表达式 {#expression}
 
-If the **Type** property is set to **Expression**, the expression entered here is used to define the condition of the decision. For more information on expressions, see [Microflow Expressions](expressions).
+如果 **类型** 属性已设置为 **表达式**, 这里输入的表达式用于定义决定的条件。 关于表达式的更多信息，见 [微流程表达式](expressions)。
 
-The expression should result in a Boolean or an enumeration.
+表达式应产生布尔值或枚举。
 
-For the expression resulting in a Boolean, two flows are possible: **true** and **false**. For example, you can use the expression resulting in a Boolean if you want to check whether a customer's email is verified or not.
+对于导致布尔值的表达式，可能会有两流： **true** and **false**。 例如，如果您想要检查客户的电子邮件是否已经验证，您可以使用生成布尔值的表达式。
 
-The number of conditions available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* condition available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
+枚举类型的条件数取决于相应的枚举值。 还有计数可用的 *空* 条件：如果计数参数或对象的属性未分配， 带标题 **(空)** 的序列流被遵循。
 
-If you want to open a different order form per customer grade you can use a decision. The microflow parameter is *Customer*. Depending on what grade the customer has, a different sequence flow is followed and a different order form is opened. If an end-user needs to select a customer grade but does not do that, the flow labelled **(empty)** is followed and an error message is shown to the end-user.
+如果您想要打开每个客户等级不同的订单表，您可以使用决定。 微流程参数是 *客户*。 根据客户的等级，遵循不同的序列流和打开不同的订单表。 如果最终用户需要选择客户等级，但不这样做， 标签为 **(空)** 的流程被关注，并且向最终用户显示了一个错误消息。
 
 {{% image_container width="400" %}}
 ![](attachments/decisions/decision-example.png)
 {{% /image_container %}}
 
-Since you want to go in a different direction for each value of the enumeration, you only need to use the attribute containing the enumeration. So the expression in the example above is`$Customer/Grade`.
+由于你想要对枚举的每个值采取不同的方向，你只需要使用包含枚举的属性。 所以上面示例中的表达式是`$Customer/ 等级`.
 
-##### 2.2.2.2 Rule {#rule}
+##### 2.2.2.2 规则 {#rule}
 
-If the **Type** property is set to **Rule**, a [rule](rules) can be selected to define the condition of the decision. You can use the outcome of the rule for the decision instead of calling a sub-microflow and using the return variable of that sub-microflow.
+如果 **类型** 属性已设置为 **规则**, a [规则](rules) 可选用来界定决定的条件。 您可以将规则的结果用于决策，而不是调用子微流和使用该子微流的返回变量。
 
-The properties of the **Rule** decision type are the following ones:
+**规则** 决策类型的属性是以下类型：
 
-* **Rule** – allows you to select a rule.
+* **规则** - 允许您选择一条规则。
 
-* **Parameter** – for each parameter of the rule an argument needs to be specified using [expressions](expressions). For example, a rule that determines whether a customer deserves a certain status will have a customer object as a parameter.
+* **参数** - 规则的每个参数需要使用 [表达式](expressions) 指定参数。 例如，确定客户是否应享有某种地位的规则将以客户对象作为参数。
 
     {{% image_container width="350" %}} ![](attachments/decisions/rule-properties.png)  {{% /image_container %}}
 
-#### 2.1.3 Error Handling Type
+#### 2.1.3 错误处理类型
 
 For more information, see the [Error Handling Type](microflow-element-common-properties#error-handling) section in *Common Properties*.
