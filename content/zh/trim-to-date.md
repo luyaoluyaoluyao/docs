@@ -1,157 +1,153 @@
 ---
-title: "Trim to Date"
-parent: "expressions"
+title: "修剪到日期"
+parent: "表达式"
 menu_order: 120
 tags:
   - "studio pro"
-  - "trim to date"
-  - "expression"
-  - "expressions"
+  - "修剪到日期"
+  - "表达式"
+  - "表达式"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/trim-to-date.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
-
-These are functions to round off dates to different time units.
+这些职能是将日期轮到不同的时间单位。
 
 ## 2 trimToSeconds
 
-This function is used to trim the date to seconds, rounding off all milliseconds to zero.
+此函数用于将日期分割为秒，将所有毫秒四舍五入为零。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 值        | 类型    |
+| -------- | ----- |
+| 应该修剪的日期。 | 日期和时间 |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                       | Type          |
-| ------------------------------------------- | ------------- |
-| The same date, but rounded down to seconds. | Date and time |
+| 值               | 类型    |
+| --------------- | ----- |
+| 同一日期，但是四舍五入到秒数。 | 日期和时间 |
 
-### 2.3 Example
+### 2.3 例子
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51.387':
+例如，您有一个变量 `$myDate` 表示'08-06-2008:12:51.387'：
 
 ```java
-trimToSeconds($myDate)
+trimTosec($myDate)
 ```
 
-The output is:
+输出为：
 
 ```java
-'Sun Jun 08 10:12:51 CEST 2008'
+'Sun 08 10:12:51 CEST 2008'
 ```
 
 ## 3 trimToMinutes
 
-This function is used to trim the date to minutes, rounding off all (milli)seconds to zero.
+此函数用于将日期缩减为分钟，四舍五入到零。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 值        | 类型    |
+| -------- | ----- |
+| 应该修剪的日期。 | 日期和时间 |
 
-### 3.2 Output
+### 3.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                       | Type          |
-| ------------------------------------------- | ------------- |
-| The same date, but rounded down to minutes. | Date and time |
+| 值               | 类型    |
+| --------------- | ----- |
+| 同一日期，但四舍五入到分钟数。 | 日期和时间 |
 
-### 3.3 Example
+### 3.3 示例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+例如，你有一个变量 `$myDate` 表示'08-06-2008 10:12:51'：
 
 ```java
 trimToMinutes($myDate)
 ```
 
-The output is:
+输出为：
 
 ```java
-'Sun Jun 08 10:12:00 CEST 2008'
+'Sun 08 10:12:00 CEST 2008'
 ```
 
 ## 4 trimToHours[UTC]
 
-This function is used to trim the date to hours, rounding off all minutes to zero.
+此函数用于将日期缩减为小时数，从所有分钟四舍五入为零。
 
-`trimToHours` uses the user's time zone, and `trimToHoursUTC` uses the UTC time zone.
+`修剪时长` 使用用户的时区 `修剪时区` 使用的 UTC 时区
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 值        | 类型    |
+| -------- | ----- |
+| 应该修剪的日期。 | 日期和时间 |
 
-### 4.2 Output
+### 4.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                     | Type          |
-| ----------------------------------------- | ------------- |
-| The same date, but rounded down to hours. | Date and time |
+| 值                | 类型    |
+| ---------------- | ----- |
+| 同一日期，但是四舍五入到小时数。 | 日期和时间 |
 
-### 4.3 Example
+### 4.3 例子
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+例如，你有一个变量 `$myDate` 表示'08-06-2008 10:12:51'：
 
 ```java
 trimToHours($myDate)
 ```
 
-The output is:
+输出为：
 
 ```java
-'Sun Jun 08 10:00:00 CEST 2008'
+'Sun 08 10:00:00 CEST 2008'
 ```
 
-## 5 trimToDays[UTC]
+## 5 个三维天[UTC]
 
-This function is used to trim the date to days, rounding off all hours to zero.
+此函数用于修剪日期到天数，四舍五入到零。
 
-`trimToDays` uses the user's time zone, and `trimToDaysUTC` uses the UTC time zone.
+`trim Today` 使用用户的时区。 `trimToDaysUTC` 使用UTC 时区。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 值        | 类型    |
+| -------- | ----- |
+| 应该修剪的日期。 | 日期和时间 |
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                    | Type          |
-| ---------------------------------------- | ------------- |
-| The same date, but rounded down to days. | Date and time |
+| 值              | 类型    |
+| -------------- | ----- |
+| 同一日期，但四舍五入到数日。 | 日期和时间 |
 
-### 5.3 Example
+### 5.3 实例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+例如，你有一个变量 `$myDate` 表示'08-06-2008 10:12:51'：
 
 ```java
-trimToDays($myDate)
+天数($myDate)
 ```
 
-The output is:
+输出为：
 
 ```java
 'Sun Jun 08 00:00:00 CEST 2008'
@@ -159,72 +155,72 @@ The output is:
 
 ## 6 trimToMonths[UTC]
 
-This function is used to trim the date to months, rounding off all days to zero.
+此函数用于将日期缩减为几个月，四舍五入为零。
 
-`trimToMonths` uses the user's timezone and `trimToMonthsUTC` uses the UTC timezone.
+`修整月` 使用用户的时区和 `修整月` 使用的 UTC 时区。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 值        | 类型    |
+| -------- | ----- |
+| 应该修剪的日期。 | 日期和时间 |
 
-### 6.2 Output
+### 6.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                      | Type          |
-| ------------------------------------------ | ------------- |
-| The same date, but rounded down to months. | Date and time |
+| 值               | 类型    |
+| --------------- | ----- |
+| 同一日期，但四舍五入为几个月。 | 日期和时间 |
 
-### 6.3 Example
+### 6.3 示例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+例如，你有一个变量 `$myDate` 表示'08-06-2008 10:12:51'：
 
 ```java
 trimToMonths($myDate)
 ```
 
-The output is:
+输出为：
 
 ```java
-'Sun Jun 01 00:00:00 CEST 2008'
+'Sun Jun 01:00:00:00 CEST 2008'
 ```
 
-## 7 trimToYears[UTC]
+## 7 季度[UTC]
 
-This function is used to trim the date to years, rounding off all months and days to zero.
+此函数用于将日期缩短到年份，四舍五入到零。
 
-`trimToYears` uses the user's time zone, and `trimToYearsUTC` uses the UTC time zone.
+`修剪年` 使用用户的时区。 `修剪年` 使用的 UTC 时区。
 
-### 7.1 Input Parameters
+### 7.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 值        | 类型    |
+| -------- | ----- |
+| 应该修剪的日期。 | 日期和时间 |
 
-### 7.2 Output
+### 7.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                     | Type          |
-| ----------------------------------------- | ------------- |
-| The same date, but rounded down to years. | Date and time |
+| 值               | 类型    |
+| --------------- | ----- |
+| 同一日期，但是四舍五入到数年。 | 日期和时间 |
 
-### 7.3 Example
+### 7.3 示例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+例如，你有一个变量 `$myDate` 表示'08-06-2008 10:12:51'：
 
 ```java
-trimToYears($myDate)
+季度($myDate)
 ```
 
-The output is:
+输出为：
 
 ```java
-'Tue Jan 01 00:00:00 CEST 2008'
+'Tue Jan 01:00:00:00 CEST 2008'
 ```
