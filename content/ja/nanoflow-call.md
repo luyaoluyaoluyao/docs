@@ -8,6 +8,10 @@ tags:
   - "nanoflowを呼べ"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/nanoflow-call.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 {{% alert type="warning" %}}
@@ -75,4 +79,4 @@ tags:
 
 ## 4つの共通セクション {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
