@@ -1,124 +1,120 @@
 ---
-title: "Text"
-parent: "common-widgets"
+title: "テキスト"
+parent: "コモンウィジェット"
 menu_order: 10
 tags:
   - "studio pro"
-  - "text"
-  - "text widget"
-  - "common widget"
+  - "テキスト"
+  - "テキストウィジェット"
+  - "共通ウィジェット"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+テキストウィジェットには、必要に応じてパラメータを含めることができるテキストが表示されます。 すべての属性はこの属性の値に置き換えられます。 例えば、 [データ ビュー](data-view) にテキストウィジェットを配置し、パラメータを追加することで、ユーザーに挨拶メッセージを表示できます。
 
-The text widget displays a text which can contain parameters if necessary. Every attribute is replaced with the value of this attribute. For example, you can show a greeting message to a user by placing a text widget in a [data view](data-view) and adding parameters to it.
+![テキストウィジェット](attachments/common-widgets/text.png)
 
-![Text Widget](attachments/common-widgets/text.png)
+空のコンテナに入力し始めると、Studio Pro は自動的にテキストウィジェットを生成してテキストを表示します。
 
-If you start typing in any empty container, Studio Pro will automatically generate a text widget to display your text.
+## 2つのプロパティ
 
-## 2 Properties
+以下の画像にテキストプロパティの例を示します。
 
-An example of text properties is represented in the image below:
-
-{{% image_container width="300" %}}![Text Properties](attachments/common-widgets/text-properties.png)
+{{% image_container width="300" %}}![テキストのプロパティ](attachments/common-widgets/text-properties.png)
 {{% /image_container %}}
 
-Text properties consist of the following sections:
+テキストプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Caption {#caption}
+#### 2.3.1 図表番号 {#caption}
 
-**Caption** defines a text that will be shown. The caption can contain parameters that are written between braces, for example, {1}.
+**図表番号** は表示されるテキストを定義します。 図表番号には、たとえば、 {1} のように、括弧間で書かれたパラメータを含めることができます。
 
-For more information on using parameters, see the [Parameters]() section below.
+パラメータの使用に関する詳細は、以下の [パラメータ](#parameters) セクションを参照してください。
 
-#### 2.3.2 Parameters {#parameters}
+#### 2.3.2 パラメータ {#parameters}
 
-Parameters are attributes the value of which will be displayed. To view **Parameters**, do one of the following:
+パラメータは、その値が表示される属性です。 **パラメータ**を表示するには、次のいずれかを実行します。
 
-* Double-click the **Caption** setting in properties
+* プロパティの **図表番号** 設定をダブルクリックします。
 
 *  Double-click the text widget on the page and click **Edit** in the **General** section > **Caption**:
 
-    ![Opening Parameters](attachments/common-widgets/caption-edit-button.png)
+    ![パラメータを開く](attachments/common-widgets/caption-edit-button.png)
 
-Parameters have the following settings:
+パラメータには以下の設定があります:
 
-* **Index** – an identification number of a parameter
+* **Index** - パラメータの識別番号
 
-* **Attribute (path)** – an attribute a value of which will be displayed
+* **属性 (path)** - 値が表示される属性
 
-*  **Format** – a format in which an attribute value will be displayed
+*  **書式** - 属性値を表示するフォーマット
 
-    ![Parameter Settings](attachments/common-widgets/parameter-settings.png)
+    ![パラメーターの設定](attachments/common-widgets/parameter-settings.png)
 
-##### 2.3.2.1 Adding New Parameters
+##### 2.3.2.1 新しいパラメータの追加
 
-To use parameters, do the following:
+パラメータを使用するには、次の操作を行います。
 
-1. Place the **Text** widget must be placed in a context of an entity, as in, inside a [data widget](data-widgets).
+1. **テキスト** ウィジェットを、 [データ ウィジェット](data-widgets) 内側のように、エンティティのコンテキスト内に配置する必要があります。
 
-2. Double-click the **Caption** setting in the text widget properties.
+2. テキストウィジェットのプロパティで **図表番号** 設定をダブルクリックします。
 
-3.  In the **Edit Caption** dialog box > **Parameters** section click **New**:
+3.  **図表番号の編集** ダイアログ ボックス > **パラメータ** セクションで **新規作成**:
 
-    ![Adding New Parameter](attachments/common-widgets/adding-parameter.png)
+    ![新しいパラメータの追加](attachments/common-widgets/adding-parameter.png)
 
-4. In the **Edit Template Parameter** dialog box, click **Select**, choose an attribute and confirm your choice.
+4. **テンプレートパラメータの編集** ダイアログボックスで、 **を選択**をクリックし、属性を選択して選択を確定します。
 
 5.  In the **Caption** setting, write the text you would like to display and type **Index** of the parameter you would like to include. In the example below, to include a full name of your customer and a number of unread messages, you need to use indexes {1} for the *FullName* attribute, and {2} for the *NrOfUnread* attribute:
 
-    ![Parameter Example](attachments/common-widgets/parameters-example.png)
+    ![パラメータの例](attachments/common-widgets/parameters-example.png)
 
-##### 2.3.2.2 Performing Other Actions on Parameters
+##### 2.3.2.2 パラメータに対するその他のアクションの実行
 
-In addition to adding new parameters, you can perform the following actions on parameters:
+新しいパラメータの追加に加えて、パラメータに対して以下のアクションを実行できます。
 
-* **Delete** – to delete a parameter click Delete or press <kbd>Delete</kbd> on your keyboard
+* **削除** – パラメータを削除するには、削除をクリックするか、キーボードの <kbd>削除</kbd> を押します
 
-* **Edit** – double-click a parameter to edit it or click Edit
+* **編集** – パラメータをダブルクリックして編集するか、編集をクリックします
 
 * **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
 
 *  **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
 
-    ![Parameter Actions](attachments/common-widgets/parameter-actions.png)
+    ![パラメーターアクション](attachments/common-widgets/parameter-actions.png)
 
-#### 2.3.3 Render Mode
+#### 2.3.3 レンダリングモード
 
-The render mode determines how the text will be displayed.
+レンダリングモードでは、テキストの表示方法を決定します。
 
-| Value                 | Description                                                                                                                                                               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text  *(default)*     | The text will be rendered inline with the previous/next texts on a page (`<span>` tag in HTML).                                                                     |
-| Paragraph             | The text will be rendered as a separate paragraph (`<p>` tag in HTML).                                                                                              |
-| Heading 1 - Heading 6 | The text will be rendered as a selected heading (for example, `<h1>` tag in HTML). **Heading 1** is the largest type of heading, **Heading 6** is the smallest one. |
+| 値               | 説明                                                                                                  |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| テキスト  *(デフォルト)* | テキストは、ページ上の前/次のテキストとともにインラインでレンダリングされます (`<span>` HTMLのタグ)。                                   |
+| 段落              | テキストは別の段落としてレンダリングされます (`<p>` HTMLのタグ)。                                                       |
+| 見出し 1 - 見出し 6   | テキストは選択された見出しとしてレンダリングされます (例えば、HTMLの `<h1>` タグ)。 **見出し1** は見出しの最大タイプです。 **見出し6** は最も小さいものです。 |
 
-### 2.4 Visibility Section {#visibility}
+### 2.4 表示セクション {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Common Widgets](common-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
