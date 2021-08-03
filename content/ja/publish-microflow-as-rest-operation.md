@@ -1,5 +1,5 @@
 ---
-title: "REST オペレーションとしてマイクロフローを公開"
+title: "REST 操作としてマイクロフローを公開"
 parent: "published-rest-services"
 menu_order: 30
 description: "REST 操作としてマイクロフローを公開する方法"
@@ -9,6 +9,12 @@ tags:
   - "操作"
   - "リソース"
 ---
+
+{{% alert type="info" %}}
+
+この機能はバージョン7.15.0で導入されました。
+
+{{% /alert %}}
 
 ## 1つの紹介
 
