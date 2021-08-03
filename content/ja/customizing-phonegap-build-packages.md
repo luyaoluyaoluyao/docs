@@ -1,22 +1,22 @@
 ---
-title: "Customizing Local Build Packages"
-category: "Mobile Development"
+title: "ローカルビルドパッケージのカスタマイズ"
+category: "モバイル開発"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="warning" %}}
-Building hybrid apps in the cloud uses the PhoneGap Build service from Adobe. Because Adobe no longer maintains this service, building hybrid apps in the cloud and publishing them to app stores is no longer possible.
+クラウドでハイブリッドアプリを構築するには、AdobeのPhoneGap Build サービスを使用します。 Adobeはこのサービスを維持できないため、ハイブリッドアプリをクラウドで構築し、アプリストアに公開することはできなくなりました。
 
-To build a hybrid app and publish it, see [How to Build a Mendix Hybrid App Locally](/howto8/mobile/build-hybrid-locally) for information on local building.
+ハイブリッドアプリを構築して公開するには、ローカルビルディングに関する情報については、 [ローカルでMendixハイブリッドアプリを構築する方法](/howto8/mobile/build-hybrid-locally) を参照してください。
 
-To publish your app in an app store, we recommend you build native iOS apps instead. For more information, see [How to Build Native Apps](/howto/mobile/build-native-apps).
+アプリストアでアプリを公開するには、代わりにネイティブのiOSアプリを構築することをお勧めします。 詳細については、 [Native Appsのビルド方法](/howto/mobile/build-native-apps) を参照してください。
 {{% /alert %}}
 
-## 2 Downloading the PhoneGap Package
+## 2 PhoneGap パッケージのダウンロード
 
-To download the local build  package, publish your app for mobile app stores through the Developer Portal. At the **Build Mobile App Store Packages** page, under **How should the device packages be built?**, choose the non-default option **I will manage the build process manually myself**. Click the green button to download the local build package.
+ローカルビルドパッケージをダウンロードするには、開発者ポータルからモバイルアプリストア用のアプリを公開します。 At the **Build Mobile App Store Packages** page, under **How should the device packages be built?**, choose the non-default option **I will manage the build process manually myself**. 緑色のボタンをクリックして、ローカルビルドパッケージをダウンロードします。
 
-## 3 Customizing the Local Build Package
+## 3 ローカルビルドパッケージのカスタマイズ
 
-You can customize the local build package to suit your use case. Once you have customized your app according to your needs, you can build your app locally using the Cordova CLI or XCode by following [How to Build a Mendix Hybrid App Locally](/howto8/mobile/build-hybrid-locally).
+使用事例に合わせてローカルビルドパッケージをカスタマイズできます。 あなたのニーズに合わせてアプリをカスタマイズしたら。 [Mendix Hybrid App をローカルにビルドする方法](/howto8/mobile/build-hybrid-locally) に従うことで、Cordova CLI または XCode を使用してアプリケーションをローカルにビルドできます。
