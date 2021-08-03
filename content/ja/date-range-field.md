@@ -1,27 +1,46 @@
 ---
-title: "Date Range Field"
-parent: "report-widgets"
+title: "日付範囲フィールド"
+parent: "report-date-パラメータ"
+tags:
+  - "studio pro"
 ---
 
+## 1つの紹介
 
-A date range field can be placed inside a date range selector to enable the end user to select a period in a date range. The begin and end of the selected period are stored in the from and to field of the date range selector.
+**日付範囲** は、エンドユーザーが日付範囲を選択しやすくするために、 [日付パラメータ](report-date-parameter) の中に配置できます。 「from」と「to」を指定するのではなく レポート日付パラメーターは、選択した期間の日付と日付で更新されます。
 
-## Appearance Property
+日付範囲フィールドを追加するには、ウィジェットを右クリックし、ポップアップメニューから **追加** を選択します。
 
-### Label
+![日付範囲フィールドをレポート日付パラメータに追加](attachments/report-widgets/add-field.png)
 
-The value of the label property is the text that's displayed beside the date range field.
+## 2 日付範囲フィールドのプロパティ
 
-## Behavior Property
+日付範囲フィールドのプロパティの例を以下の画像に示します。
 
-### Type
+{{% image_container width="300" %}}![ストラクチャモードの日付範囲フィールド](attachments/report-widgets/date-range-field-properties.png)
+{{% /image_container %}}
 
-The type determines the way in which the end user can select a range.
+日付範囲フィールドのプロパティは [一般](#general) セクションのみです。
 
-| Type    | Behavior                                                                                                                                                                                                |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Year    | The parameter is in the year that's chosen by the end user in this date range field.                                                                                                                    |
-| Month   | The parameter is in the month that's chosen by the end user in this date range field.                                                                                                                   |
-| Week    | The parameter is in the week that's chosen by the end user in this date range field.                                                                                                                    |
-| Period  | A date range field of type period lets the end user choose one of the following periods: last week, this week, next week, last month, this month, next month, last quarter, this quarter, next quarter. |
-| Quarter | The parameter is in the quarter that's chosen by the end user in this date range field.                                                                                                                 |
+### 2.1 一般セクション{#general}
+
+#### 2.1.1 ラベル
+
+**ラベル** プロパティは、日付範囲フィールドの横に表示されるテキストを指定します。
+
+#### 2.1.2 Type
+
+**Type** は、エンドユーザーが選択できる範囲の種類を決定します。
+
+| タイプ                              | 動作                                                        | 例             | Range                            |
+| -------------------------------- | --------------------------------------------------------- | ------------- | -------------------------------- |
+| 年                                | エンドユーザーがカレンダーの年を選択できるようにします。<sup><small>[1]</small></sup> | 2019          | 2019年1月1日から2019年12月31日まで         |
+| 四半期<sup><small>[2]</small></sup> | エンドユーザーが年の4分の1を選択できるようにします。                               | 2019 > 2      | 2019年4月1日~2019年6月30日             |
+| ヶ月<sup><small>[2]</small></sup>  | エンドユーザーが年の月を選択できるようにします。                                  | 2019 > 5月     | 2019 年 5 月 1 日から 2019 年 5 月 31 日 |
+| 週<sup><small>[2]</small></sup>   | エンドユーザーが年の週を選択できるようにします。                                  | 2019 > 第 19 週 | 2019 年 5 月 5 日から 2019 年 5 月 12 日 |
+| 期間<sup><small>[2]</small></sup>  | *期間日付範囲項目は非推奨です。 日付範囲の他のタイプのフィールドのいずれかを使用することをお勧めします。*    |               |                                  |
+
+| **メモ**                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <sup><small>[1]</small></sup> 年は **Minの間です。 年** と **最大 [** ] レポート 日付 パラメータ [ウィジェットで指定された年](report-date-parameter) (含む)                                                                                                                                                                                                 |
+| <sup><small>[2]</small></sup> You also need to add a **Year** date range field if you use a date range field of this type.<br />– The end-user will need to choose the year before they can choose a date range field of this type.<br />– The end-user can only choose one of these types, plus the year. |
