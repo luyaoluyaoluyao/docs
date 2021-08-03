@@ -1,6 +1,9 @@
 ---
 title: "管理应用签名密钥"
-category: "移动开发"
+category: "移动设备"
+menu_order: 21
+tags:
+  - "studio pro"
 ---
 
 ## 1 导言
@@ -8,6 +11,10 @@ category: "移动开发"
 若要创建移动应用，您需要特定平台的应用签名密钥。 移动应用程序在发布前由其开发者用数字签名。 这些签名被应用商店和设备用来验证应用是真实的。
 
 根据您想要攻击的平台，您需要创建所需的签名密钥。 以下章节描述了(每个平台)如何创建这些密钥。
+
+●{% alert type="warning" %}} 在云端构建混合应用使用来自Adobe的 PhoneGap 构建服务。 因为Adobe不再维持这种服务，所以在云端构建混合应用并将其发布到应用商店已经不可能。
+
+此文档中提到PhoneGap 构建的部分将很快更新，并附有说明。 {{% /报警 %}}
 
 ## 2 iOS{#ios}
 
@@ -17,7 +24,7 @@ category: "移动开发"
 
 ### 2.1 在苹果Mac上
 
-如果您有 Apple Mac 可用， 在 [证书管理](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html) 上查看苹果开发者文档以了解如何获取 iOS 签名证书和发行版配置文件的信息。 接着，请参阅苹果文档在 [上如何创建所需的分布配置文件](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html)。 最后，请检查此部分的结尾，了解如何 [上传签名密钥文件到 Adobe PhoneGap 构建](managing-app-signing-keys)。
+如果您有 Apple Mac 可用， 在 [证书管理](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html) 上查看苹果开发者文档以了解如何获取 iOS 签名证书和发行版配置文件的信息。 接着，请参阅苹果文档在 [上如何创建所需的分布配置文件](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html)。 最后，请检查此部分的结尾，了解如何 [上传签名密钥文件到 Adobe PhoneGap 构建](managing-app-signing-keys#uploading-keys)。
 
 ### 2.2 其他平台
 
@@ -27,7 +34,7 @@ category: "移动开发"
 
 1.  下载 [Windows](https://www.openssl.org/community/binaries.html) OpenSSL 并安装它。 您只需要下载并安装 **Win32 OpenSSL Light** 软件包(获取列表顶部的最新版本)。
     *   如果安装过程抱怨缺失的 VC++ 可再分配的库包，取消安装， 并首先从相同的软件包列表中下载并安装 **Visual C++ 2008 Redistributable** (您将被重定向到微软下载页面)。 安装 OpenSSL 到例如 *C:\OpenSSL* (请注解此目录，因为你将需要步骤3)。
-2.  打开命令提示符。 在大多数系统中，您需要以管理员身份执行此操作(右键单击Windows起始菜单链接，然后选择 **作为管理员**)。
+2.  打开命令行接口，如命令提示符。 在大多数系统中，您需要以管理员身份执行此操作(右键单击Windows起始菜单链接，然后选择 **作为管理员**)。
 3.  用您刚刚安装的 OpenSSL 程序生成私钥。 将 `C:\OpenSSL` 替换为步骤1 中安装 OpenSSL 的地方。 私钥文件存储在 `out` 参数之后指定的位置。 下面的示例将会将文件存储在您的C根目录中：驱动器 (您可以将其更改为任何您想要的文件, 只需选择一个方便的地点，并跟踪文件的存储地点： `"C:\OpenSSL\bin\openssl"。 xe” genrsa out "C:\private.key" 2048`。 命令将输出“生成 RSA 私钥，2048 位长调制”和大量点和加号信号。
 4.  生成证书签名请求(CSR)。 文件再次存储在同一个文件夹中，但可以放置在任何地方。 确保指向之前步骤创建的私钥文件： `"C:\OpenSSL\bin\openssl"。 xe" req -new -key "C:\private.key" out "C:\ios.csr"`. 该命令将打印一些文本，然后询问您与您身份相关的几个信息。 只有 **通用名称** 是相关的。 填写您自己的名字，这样在上传给苹果开发者会员中心后，证书可以轻松地认证。
 
@@ -51,7 +58,7 @@ category: "移动开发"
 
 一旦你拥有证书文件，你需要获得一个分发文件。 Apple Developer Member Center允许您定义应用标识符、测试设备，最后是发行版配置。 欲了解更多信息，请检查苹果文档如何 [维护标识符、设备和配置文件](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html)。
 
-### 2.4 上传密钥到 Adobe PhoneGap 版本
+### 2.4 上传密钥到 Adobe PhoneGap 版本 {#uploading-keys}
 
 一旦您下载了签名证书( *)。 er* 文件), 您需要将签名证书从 *.cer* 转换为 *.p12*. 使用 OpenSSL 执行以下步骤：
 
@@ -96,6 +103,4 @@ Android 应用程序可以在没有签名的情况下开发并部署到 Android 
 1. 转到 **签名密钥** 标签，然后点击 **在 **Android** 下添加一个密钥**
 2. 选择密钥存储文件，填写密钥的标题，并填写你在前一步骤中注意到的别名。
 3. 上传密钥存储文件后，解锁密钥。 点击按键右侧的黄色锁图标并填写密钥和密钥密码。 您的构建作业现在可以使用该密钥。
-4. 在 [开发者门户](https://sprintr.home.mendix.com/index.html)中，导航到 **部署 > 移动应用程序**, 然后点击 **手机发布** 按钮。 然后点击 **开始PhoneGap 构建作业** 按钮。
-5. 一旦应用程序首次构建完毕，请返回 [Adobe PhoneGap 构建](https://build.phonegap.com/)。 点击您的应用名称查看其构建详情。
-6. 在 **构建** 标签下，在安卓构建下拉菜单中选择您的密钥。 这将使用密钥自动重建应用程序。 从现在起， [开发者门户](https://sprintr.home.mendix.com/index.html) 将自动使用此密钥来构建应用程序。
+4. 在 [开发者门户](https://sprintr.home.mendix.com/index.html)中，导航到 **部署** > **移动应用程序**然后点击 **发布移动App Stores** 按钮 然后点击 **开始PhoneGap 构建作业** 按钮。
