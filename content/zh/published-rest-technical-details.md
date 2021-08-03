@@ -1,41 +1,41 @@
 ---
-title: "Technical Details of Published REST"
-parent: "published-rest-services"
+title: "已发布REST 的技术详细信息"
+parent: "已发布的rest-service"
 menu_order: 40
-description: "Landing page for technical details about aspects of Published REST"
+description: "登录页面获取已发布REST 各个方面的技术详细信息"
 tags:
-  - "HTTP Request"
-  - "Published REST"
-  - "Request Routing"
+  - "HTTP 请求"
+  - "发布的REST"
+  - "请求路由"
   - "JSON Schema"
   - "Swagger"
   - "OpenApi"
-  - "Documentation"
-  - "custom authentication"
+  - "文件"
+  - "自定义身份验证"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This section of the Published REST documentation describes more technical aspects of the published REST capabilities of Mendix.
+已发表的REST 文档的这一节描述了Mendix 已出版的REST 能力的更多技术方面。
 
-You can use published REST without knowing any of the details here. These documents allow you to further customize and troubleshoot Mendix published REST services.
+您可以使用发布的REST 而不知道这里的任何细节。 这些文档允许您进一步定制和疑难解答已发布的 REST 服务。
 
-## 2 Technical Documentation for Mendix Published REST
+## Mendix 发布的 REST 2 技术文档
 
-### 2.1 [Published REST Routing](published-rest-routing)
+### 2.1 [已发布REST 路由](published-rest-routing)
 
-This page shows how an incoming HTTP request is processed and which operation will be executed for a given request.
+此页显示传入的 HTTP 请求是如何处理的，以及为某个特定请求执行哪个操作。
 
-It can be used both for troubleshooting, and to aid in designing your published REST service.
+它既可以用于排除故障，也可以帮助设计您已发布的REST 服务。
 
 ### 2.2 [JSON Schema](published-rest-service-json-schema)
 
-Technical details of the JSON Schema which is created to support import and export mappings for an OpenApi (Swagger) documentation page.
+为 OpenApi (Swagger) 文档页面的进出口映射而创建的 JSON 方案的技术细节。
 
-### 2.3 [OpenAPI 2.0 Documentation](open-api)
+### 2.3 [OpenAPI 2.0 文档](open-api)
 
-Technical details of the *swagger.jso* file which is created to describe the published REST service on an OpenApi (Swagger) documentation page.
+*swagger.jso* 文件的技术细节，这个文件是为了在一个 OpenApi (Swagger) 文档页面描述已发布的REST 服务而创建的。
 
-### 2.4 [Parameters for the Custom Authentication Microflow](published-rest-authentication-parameter)
+### 2.4 [自定义认证微流程参数](published-rest-authentication-parameter)
 
-Describes the parameters which are passed to a microflow which is performing custom authentication for a published REST service.
+描述传递到正在对已发布的REST 服务进行自定义认证的微流程的参数。
