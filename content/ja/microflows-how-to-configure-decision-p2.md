@@ -1,92 +1,92 @@
 ---
-title: "Step 2: Embed the Microflow in Your App"
+title: "ステップ 2: マイクロフローをアプリに埋め込み"
 parent: "microflows-how-to-configure-decision"
-description: "This how to describes the process of configuring a decision in in Mendix Studio."
+description: "ここでは、Mendix Studio で決定を構成するプロセスを説明します。"
 menu_order: 20
 tags:
-  - "studio"
-  - "microflows"
-  - "decision"
-  - "pages"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "決定"
+  - "ページ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In the [previous step](microflows-how-to-configure-decision-p1), you have configured microflows and decisions with enumeration attribute type and Boolean attribute type, now you can validate the microflows by adding them to pages. This how-to explains how you can add microflows with decisions to pages in Mendix Studio.
+[前のステップ](microflows-how-to-configure-decision-p1)では、列挙属性型とブール型の属性型を持つマイクロフローと決定を設定しています。 これでページに追加することでマイクロフローを検証できます この方法では、Mendix Studio のページに決定を伴うマイクロフローを追加する方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Embed the created microflows with decisions to your page
+* 作成したマイクロフローをページに埋め込みます。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-To start this tutorial, make sure you have completed the following prerequisites:
+このチュートリアルを開始するには、以下の前提条件を満たしていることを確認してください。
 
-* [Step 1: Build the Domain Model & Configure a Microflow](microflows-how-to-configure-decision-p1)
+* [ステップ 1: ドメイン モデルを構築 & マイクロフローを構成する](microflows-how-to-configure-decision-p1)
 
-## 3 Embedding the Microflow to Pages
+## 3 ページにマイクロフローを埋め込み
 
-After microflows are created, you can add them to pages to run them in your app.
+マイクロフローが作成されたら、それらをページに追加してアプリケーションで実行できます。
 
-### 3.1 Embedding the Microflow Having a Decision with Attribute of the Enumeration Type {#embedding-decision-enumeration}
+### 3.1 マイクロフローの埋め込み 列挙型の属性を持つ決定 {#embedding-decision-enumeration}
 
-To embed the microflow with a decision (the attribute of the enumeration type) to pages, do the following:
+エニュメレーションタイプの属性を決定するマイクロフローをページに埋め込むには、次の手順を実行します。
 
-1. Create a page for the existing customers details and name it *Customer_details*. For more information on creating pages, see the [Creating a New Page](/studio8/page-editor) section in *Pages*.
+1. 既存の顧客の詳細ページを作成し、 *Customer_details* に名前を付けます。 ページの作成に関する詳細は、 [ページ](/studio8/page-editor) の *新規ページ* の作成セクションを参照してください。
 2.  In **Toolbox** > **Widgets** > **Data Containers**, find **Data View**.
 
     ![](attachments/microflows-how-to-configure-decision/data-view.png)
 
-3. Drag and drop **Data View** to the page.
-4.  In the **Properties** tab for the **DATA VIEW**, do the following:<br/> a. Set **Data Source** to **Context.**<br/> b. Set **Entity** to **Customer**.
+3. **Data View** をページにドラッグ&ドロップします。
+4.  **DATA VIEW** の **プロパティ**タブで、以下の操作を行います:<br/> a. **Data Source** を **Context に設定します。**<br/> b. **エンティティ** を **顧客** に設定します。
 
     ![](attachments/microflows-how-to-configure-decision/data-view-properties.png)
 
 5. In **Toolbox**>**Widgets** >**Buttons** find **Create Object**, drag and drop it inside the data view container (it is named **New** by default).
-6.  You are going to create a new page that will be opened when a user clicks the **New** button. Open the **Properties** tab for the created button and do the following:<br/> a. Set **Customer** as **Entity** in the **Events** section.<br/> b. Click **Select Page**.<br/>
+6.  ユーザーが **New** ボタンをクリックしたときに開かれる新しいページを作成します。 作成されたボタンの **プロパティ** タブを開き、以下の操作を行います:<br/> a. **イベント** セクションの **顧客** に **エンティティ** を設定します。<br/> b. **Select Page** をクリックします。<br/>
 
     ![](attachments/microflows-how-to-configure-decision/create-button-properties.png) <br/>
 
-    c. In the **Select Page** dialog box, click **New** page.<br/> d. In the **Create new page** dialog box, fill out the title of the page, for example, *New_customer*. <br/> e. Tick **Pre-fill page contents based on the Customer entity** and click **Create**.
+    C **ページの選択** ダイアログボックスで、 **新規** ページをクリックします。<br/> d. **新規ページの作成** ダイアログボックスで、ページのタイトルを入力します。たとえば、 *新規_顧客* です。 <br/> e. 顧客エンティティに基づいて、 **事前にページの内容を入力する** を選択し、 **作成** をクリックします。
 
     ![](attachments/microflows-how-to-configure-decision/pre-fill-contents.png)
 
-    The page with customer details is generated.
+    顧客詳細ページが生成されます。
 7. Return to the **Customer_details** page, and in **Toolbox**>**Widgets** >**Data Containers**, find **List View**, drag and drop it to the page.
-8. Open **Properties** for the list view and set **Customer** as **Data Source**>**Entity**.
-9.  In the **Toolbox** > **Building Blocks** > **Lists** select **List 4**, drag and drop it to the list view.
+8. リスト ビューの **プロパティ** を開き、 **顧客** を **データ ソース**>**エンティティ** として設定します。
+9.  **Toolbox** > **Building Blocks** > **List** select **List 4**リストビューにドラッグ&ドロップします。
 
     ![](attachments/microflows-how-to-configure-decision/list-view-list4.png)
 
-10. Delete the following elements from the list view:<br/> a. The **TEXT** widget with the subtitle. <br/> b. The **IMAGE** widget.<br/>
-11. Open the **Properties** of the **Details** button, and do the following:<br/> a. Set **Events**>**On Click Action** to **Microflow**.<br/> b. Click **Select microflow** and set **Show_grade_specific_page**.
+10. 次の要素をリストビューから削除します。<br/> a. サブタイトルの**TEXT**ウィジェット。 <br/> b. **イメージ** ウィジェット。<br/>
+11. **詳細** ボタンの **プロパティ** を開き、以下の操作を行います:<br/> a. Set **Events**>**On Click Action** to **Microflow**.<br/> b. **Select microflow** and set **Show_grade_specific_page**.
 
     ![](attachments/microflows-how-to-configure-decision/details-button-microflow.png)
 
-Congratulations! Now when the end-user clicks **Details**, the form for the corresponding customer grade will be opened.
+おめでとうございます エンドユーザーが **詳細**をクリックすると、対応する顧客グレードのフォームが開かれます。
 
-You can now [preview your app](/studio8/publishing-app) or publish it.
+[アプリを](/studio8/publishing-app) プレビューするか、公開できます。
 
-### 3.2 Embedding the Microflow Having a Decision with the Attribute of the Boolean Type
+### 3.2 マイクロフローの埋め込み ブール型の属性を持つ決定を持つ
 
-To embed the microflow with a decision (the attribute of the Boolean type), do the following:
+マイクロフローを決定(ブール型の属性)で埋め込むには、次の手順を実行します。
 
-1. You need to add an option to mark a customer as blocked. To do this, open the **New_customer** page created in the previous section. For more information, see [Embedding the Microflow Having a Decision with Attribute of the Enumeration Type](#embedding-decision-enumeration).
-2. In **Toolbox** > **Widgets** > **Input Elements** select **Radio Buttons**, drag and drop this widget into the **Data view** container.
-3.  In the **Properties** for the radio buttons, click **Data Source** > **Attribute** and select **Blocked Boolean**. This is how it should look like on your page:
+1. 顧客をブロックとしてマークするオプションを追加する必要があります。 これを行うには、前のセクションで作成された **New_customer** ページを開きます。 詳細については、 [マイクロフローの埋め込み 列挙型の属性を持つ](#embedding-decision-enumeration) を参照してください。
+2. In **Toolbox** > **Widgets** > **Input Elements** select **Radio Buttons**, このウィジェットを **データビュー** コンテナにドラッグ&ドロップします。
+3.  ラジオボタンの **プロパティ** で、 **Data Source** > **Attribute** をクリックし、 **Blocked Boolean** を選択します。 以下のようにあなたのページに表示されます。
 
     ![](attachments/microflows-how-to-configure-decision/new-customer-page-blocked-attribute.png)
 
-4. Now you will add the microflow to pages. Open the page **Order_form_for_bronze_customers.**
+4. これで、ページにマイクロフローを追加します。 **Order_form_for_bronze_customers ページを開きます。**
 5.  In **Toolbox** > **Widgets** > **Data Containers**, find **Data View**.
 
     ![](attachments/microflows-how-to-configure-decision/data-view.png)
 
-6.  Drag and drop **Data View** to the page.
+6.  **Data View** をページにドラッグ&ドロップします。
 
     ![](attachments/microflows-how-to-configure-decision/data-view-select-data-view-source.png)
 
-7.  In the **Properties** of the data view, do the following:<br/> a. Set **Data Source** to **Context.**<br/> b. Set **Entity** to **Customer**.
+7.  データビューの **プロパティ** で、以下の操作を行います:<br/> a. **Data Source** を **Context に設定します。**<br/> b. **エンティティ** を **顧客** に設定します。
 
     ![](attachments/microflows-how-to-configure-decision/data-view-properties.png)
 
@@ -94,15 +94,15 @@ To embed the microflow with a decision (the attribute of the Boolean type), do t
 
     ![](attachments/microflows-how-to-configure-decision/call-microflow-button-in-data-view.png)
 
-9. Click the **Call Microflow** button to view its properties.
-10. In the **Properties** tab, select the **Customers_status_check microflow**.
+9. **Call Microflow** ボタンをクリックして、そのプロパティを表示します。
+10. **プロパティ** タブで、 **Customers_status_check microflow** を選択します。
 
     ![](attachments/microflows-how-to-configure-decision/call-microflow-button-selected-microflow.png)
 
-11. Change the **Caption** from **Microflow** to **Place Order**.
+11. **図表番号** を **マイクロフロー** から **注文**に変更します。
 12. Open the page **Order_form_for_silver_customers** and repeat steps 4-11.
-13. Open the page **Order_form_for_gold_customers** and repeat steps 4-11.
+13. **Order_form_for_gold_customers** ページを開き、手順 4-11 を繰り返します。
 
-Congratulations! Now when the end-user clicks **Place order**, only customers who are not blocked will be able to proceed. If a customer is blocked, they will get an error message.
+おめでとうございます エンドユーザーが **注文**をクリックすると、ブロックされていない顧客のみが続行できます。 顧客がブロックされると、エラーメッセージが表示されます。
 
-You can preview and/or publish your app. For more information on how to preview and publish an app, see [Previewing & Publishing Your App](/studio8/publishing-app).
+アプリをプレビューおよび/または公開できます。 アプリをプレビューして公開する方法については、 [プレビューする & アプリを公開する](/studio8/publishing-app) を参照してください。
