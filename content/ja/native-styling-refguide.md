@@ -15,7 +15,7 @@ tags:
 
 ## 1つの紹介
 
-このリファレンスガイドでは、ネイティブモバイルアプリでMendixが使用するスタイル要素をコンテキスト化します。 Mendixのウィジェットのクラスとスタイルプロパティについて説明します。 ネイティブスタイリングの基本を学ぶには [Native Mobile Styling](/howto/mobile/native-styling) の実装方法と、 [Mendix Native Mobile App のスタイル設定方法](/howto/mobile/how-to-use-native-styling) を参照してください。
+このリファレンスガイドでは、ネイティブモバイルアプリでMendixが使用するスタイル要素をコンテキスト化します。 Mendixのウィジェットのクラスとスタイルプロパティについて説明します。 ネイティブスタイリングの基本を学ぶには [Native Mobile Styling](/howto8/mobile/native-styling) の実装方法と、 [Mendix Native Mobile App のスタイル設定方法](/howto8/mobile/how-to-use-native-styling) を参照してください。
 
 Mendix アプリは、ページがどのように見えるかを決定するためにレイアウトを使用します。 ネイティブモバイルアプリの場合は、ネイティブレイアウトを使用してナビゲーションや設定をネイティブ機能に最適化したものに簡単に統合できます。 レイアウトの詳細については、 [レイアウト](layout) を参照してください。
 
@@ -80,7 +80,7 @@ export const com_mendix_widget_native_badge_Badge = (Badge = {
 });
 ```
 
-自分のクラスを作成するための詳細情報 [独自のクラスの作成](/howto/mobile/how-to-use-native-styling#creating-your-own-classes) セクションの *Style Your Mendix Native Mobile App* を参照してください。 このドキュメントでは、カスタムクラスをデザインプロパティとして使用する方法も説明しています。
+自分のクラスを作成するための詳細情報 [独自のクラスの作成](/howto8/mobile/how-to-use-native-styling#creating-your-own-classes) セクションの *Style Your Mendix Native Mobile App* を参照してください。 このドキュメントでは、カスタムクラスをデザインプロパティとして使用する方法も説明しています。
 
 ## 3つのデータウィジェット {#understanding-data-widgets}
 
@@ -158,7 +158,7 @@ export const com_mendix_widget_native_badge_Badge = (Badge = {
 | `画像`                | これにはすべての ImageStyle プロパティがあります。 |                                                                                                                                                                                      |
 | `imageDisabled`     | `イメージ` と同じプロパティ                 | 画像にクリックアクションがあり、アクションが実行できない、またはアクション中に無効になっている場合、 `イメージ` スタイルを上書きします。                                                                                                               |
 
-すべての静的なイメージスタイルをスタイル化するためのデフォルトのクラスは、 `Image` という名前です。 モデルから読み込まれた画像は、以下の `Image Viewer` セクションで説明されているように、 [NativeDynamicImage](#image-viewer) でスタイル付けされていることに注意してください。
+すべての静的なイメージスタイルをスタイル化するためのデフォルトのクラスは、 `Image` という名前です。 モデルから読み込まれた画像は、 `ImageViewer` の [Image Viewer](#image-viewer) セクションで説明されているように、format@@4 ImageViewer format@@5 でスタイル付けされていることに注意してください。
 
 ### 4.3 ページタイトル
 
@@ -242,7 +242,7 @@ The `col`, `colFitToContent`, `col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `
 
 すべてのページタイトルにスタイルを適用するデフォルトのクラスは、 `Container` と命名されます。
 
-### 5.2 タブコンテナ
+### 5.2 タブコンテナ {#tab-container}
 
 タブコンテナは、複数のタブページに分類された情報を表示するために使用されます。 タブコンテナは、デバイスのスクリーンスペースを超える情報を表示するのに役立ちます。 これは、デフォルトのタブコンテナウィジェットがアプリ内でどのように見えるかです。
 
@@ -526,7 +526,7 @@ Studio Pro v8.11 以降、ドロップダウン ウィジェットには、 `use
 
 画像ビューアは、画像を表示するために使用することができます。 このウィジェットは上記の [イメージ](#image) ウィジェットと同じスタイルプロパティと構造をサポートしています。
 
-すべての画像視聴者にスタイルを適用するデフォルトのクラスは、  `NativeDynamicImage` という名前です。
+すべての画像ビューアをスタイル付けするデフォルトのクラスは、  `ImageViewer` という名前です。
 
 ## 8ボタンウィジェット
 
@@ -626,7 +626,7 @@ Studio Pro v8.11 以降、ドロップダウン ウィジェットには、 `use
 
 ## アドオンウィジェット11個
 
-アドオンウィジェットは [Native Mobile Resources](/appstore/modules/native-mobile-resources) モジュールを介して配布され、Mendix Studio Proには同梱されません。 他のアドオンウィジェットは、他のアプリからページをインポートするモジュールだけでなく、アプリテンプレートを介して配布されることもあります。
+アドオンウィジェットは [Native Mobile Resources](/appstore/modules/native-mobile-resources) モジュールを介して配布され、Mendix Studio Proには同梱されません。 他のアドオンウィジェットは、他のプロジェクトからページをインポートするモジュールと同様に、アプリテンプレートを介して配布されることもあります。
 
 ### 11.1 Activity Indicator {#activity-indicator}
 
@@ -1316,47 +1316,7 @@ export myCarouselStyle = {
 
 全てのポップアップメニューをスタイル付けするデフォルトのクラスは、 `com_mendix_widget_native_caroussel_カルーセル` という名前です。
 
-### 11.26 署名 {#signature}
-
-format@@0 ウィジェットでは、署名を描画して保存できます。 署名ウィジェットは以下のようになります:
-
-{{% image_container width="350" %}}![signature](attachments/native-styling-refguide/signature.png){{% /image_container %}}
-
-ウィジェットのスタイルプロパティは以下のように構成されています:
-
-```xml
-<container>
-    <signature/>
-    <buttonWrapper>
-        <Button>
-            <Caption>Clear</Caption>
-        </Button>
-        <Button>
-            <Caption>Save</Caption>
-        </Button>
-    </buttonWrapper>
-</container>
-```
-
-| 要素                     | スタイルのプロパティ                     | 説明                                      |
-| ---------------------- | ------------------------------ | --------------------------------------- |
-| `コンテナ`                 | これにはすべての ViewStyle プロパティがあります。 |                                         |
-| `コンテナ`                 | `penColor`                     | これはストロークの色を変更します。                       |
-| `buttonWrapper`        | これにはすべての ViewStyle プロパティがあります。 |                                         |
-| `buttonClearContainer` | これにはすべての ViewStyle プロパティがあります。 |                                         |
-| `buttonClearContainer` | `rippleColor`                  | これは、Androidのリップルの色を変更します。               |
-| `buttonClearContainer` | `activeOpacity`                | iOS でタッチが有効な場合、不透明度が変更されます。             |
-| `buttonClearContainer` | `underlayColor`                | タッチが iOS でアクティブになっている場合、アンダーレイの色が変わります。 |
-| `ボタンClearCaption`      | これにはすべての TextStyle プロパティがあります。 |                                         |
-| `SaveContainer`        | これにはすべての ViewStyle プロパティがあります。 |                                         |
-| `SaveContainer`        | `rippleColor`                  | これは、Androidのリップルの色を変更します。               |
-| `SaveContainer`        | `activeOpacity`                | iOS でタッチが有効な場合、不透明度が変更されます。             |
-| `SaveContainer`        | `underlayColor`                | タッチが iOS でアクティブになっている場合、アンダーレイの色が変わります。 |
-| `buttonSaveCaption`    | これにはすべての TextStyle プロパティがあります。 |                                         |
-
-すべてのテキストボックスにスタイルを設定するデフォルトのクラスは、 `com_mendix_widget_native_signature_Signature_Signature` という名前です。
-
-### 11.27 折れ線
+### 11.26 折れ線
 
 [ライン チャート](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/line-chart-native) ウィジェットは、静的および動的なデータセットに基づいてスケーラブルなライン グラフをレンダリングします。
 
@@ -1437,9 +1397,9 @@ format@@0 ウィジェットでは、署名を描画して保存できます。 
 
 すべての折れ線グラフウィジェットをスタイル化するデフォルトのクラスは、 `com_mendix_widget_native_linechart_LineChart` という名前です。
 
-### 11.28 棒グラフ
+### 11.27 棒グラフ
 
-棒グラフウィジェットは、静的および動的なデータセットに基づいて水平方向の棒グラフをレンダリングします。
+[棒グラフ](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/bar-chart-native) ウィジェットは、静的および動的なデータセットに基づいて水平方向の棒グラフをレンダリングします。
 
 ウィジェットは次の要素で構成されています。
 
@@ -1524,6 +1484,6 @@ format@@0 ウィジェットでは、署名を描画して保存できます。 
 
 ## 12 続きを読む
 
-* [Mendixネイティブモバイルアプリのスタイル設定](/howto/mobile/how-to-use-native-styling)
-* [ネイティブモバイルスタイルの実装方法](/howto/mobile/native-styling)
+* [Mendixネイティブモバイルアプリのスタイル設定](/howto8/mobile/how-to-use-native-styling)
+* [ネイティブモバイルスタイルの実装方法](/howto8/mobile/native-styling)
 * [デザインプロパティドキュメント](/apidocs-mxsdk/apidocs/design-properties)
