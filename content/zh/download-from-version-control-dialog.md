@@ -1,50 +1,47 @@
 ---
-title: "Download From Version Control Server Dialog"
-parent: "dialogs"
+title: "从版本控制服务器下载"
+parent: "版本控制-菜单"
+menu_order: 60
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/download-from-team-server-dialog.html
+  - /refguide/download-from-team-server-dialog.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-Use the **Download from Version Control Server** dialog box to download an app from an SVN version control server.
-
-![](attachments/download-from-version-control-server-dialog/download-from-version-control-server-dialog-original.png)
+使用 **从版本控制服务器下载…** 菜单项从版本控制服务器下载应用 (例如) [团队服务器](/developerportal/collaborate/team-server) 如果您正在编辑应用程序， 应用程序将被关闭(在提示保存任何更改后)，新下载的应用程序将使用当前版本的Studio Pro打开.
 
 {{% alert type="info" %}}
+如果已下载的应用程序是用不同版本的 Mendix 创建的，您将被问及是否可以转换为当前版本。
 
-You can use the [Open App](open-app-dialog) dialog box to download and open an app from Team Server. However, you will need to use this option if you want to download a second copy of an app (and development line) you already have on disk.
+您也可以使用 [打开应用对话框](open-app-dialog) 从团队服务器下载并打开一个应用程序。 然而，仍然存在着这种情况。 如果您想要下载您已经在磁盘上的应用程序(和开发线)的第二个副本，您将需要使用此选项。
+{{% /报警 %}}
 
-{{% /alert %}}
+![从版本控制服务器对话框下载](attachments/version-control-menu/download-from-version-control-server.png)
 
-To open the **Download from Version Control Server** dialog box, go to **Project > More Versioning > Download from Version Control Server**.
+## 2 您的应用存放在哪里？
 
-## 2 Where Is Your App Stored?
+如果 **启用私有版本控制** (要么为 SVN 或 Git 或同时为 Git ) 设置在应用程序 [首选项](preferences-dialog#enable), 您可以在 **Mendix 团队服务器** 或 **私人服务器** 之间选择。 如果未启用，您将只能从Mendix 团队服务器中选择一个应用程序。
 
-Use this setting to select the location where your app is stored. You can choose between the Team Server or an SVN server other than the Team Server.
+### 2.1 Mendix 团队服务器
 
-### 2.1 Mendix Team Server
+使用 **团队服务器应用程序** 下拉菜单选择您想要下载的应用程序。
 
-In the **Team Server App** drop-down list, select the Team Server app you wish to open, and then choose the development line you want to download in the **Development line** drop-down list.
+关于Mendix Team Server的更多信息，请参阅 [Team Server](/developerportal/collaborate/team-server)。
 
-![](attachments/download-from-version-control-server-dialog/download-from-version-control-server.png)
+### 2.2 私人服务器
 
-For more information about the Mendix Team Server, see [Team Server](team-server).
+在 **应用程序存储库地址** 中输入您私有的 SVN 服务器的 URL，并点击 **连接**。
 
-For more information about development lines, see [Version Control Concepts](version-control).
+![从版本控制服务器对话框下载](attachments/version-control-menu/download-from-private-server.png)
 
-### 2.2 Private Server
+## 3 发展线
 
-In the **App repository address** field, enter the repository address of the app you want to open and click **Connect** to load the development lines from the repository. Then choose the development line you want to download in the **Development line** drop-down list.
+选择您想要下载的 **开发行**。
 
-![](attachments/download-from-version-control-server-dialog/download-from-private-server.png)
+欲了解更多有关开发行的信息，请参阅 [版本控制](version-control)。
 
-{{% alert type="info" %}}
+## 4 个应用目录
 
-This option is only available when support for other servers is enabled in the [Preferences](preferences-dialog#enabled) dialog box.
-
-{{% /alert %}}
-
-## 3 Disk Location
-
-In the **Project directory** field, choose the directory where you want to store the downloaded app. The suggested name includes the name of the development line (**main** or the name of the branch line).
+选择要下载应用程序的 **应用目录**。 建议的名称包括开发行的名称(*主* 或分支行的名称)， 但如果你想要的话，你可以更改这个。
