@@ -1,53 +1,52 @@
 ---
-title: "Studio Pro 9 Guide"
-description: "Mendix Studio Pro Guide のさまざまなセクションでは、Mendix Platformの機能と機能の詳細が説明されています。"
-tags:
-  - "studio pro"
+title: "Mendix 製品の命名ガイド"
+draft: true
 ---
 
-## 1つの紹介
+## このガイドの目的
 
-The *Mendix Studio Pro 9 Guide* covers important topics concerning [Studio Pro](modeling), the [Mendix Runtime](runtime), and other components of the Mendix Platform.
+このガイドでは、メインのMendix製品名、その他のMendix用語、および現在MendixプラットフォームUIで使用されているパートナー用語について説明します。 [Mendix ドキュメント](https://docs.mendix.com/), および [Mendix プラットフォーム評価ガイド](https://www.mendix.com/evaluation-guide/welcome).
 
-Studio Pro 9 をインストールする前に、 [システム要件](system-requirements) をお読みください。 Studio Pro のインストール方法については、 [Mendix Studio Pro のインストール方法](/howto/general/install) を参照してください。
+このガイドの目的は、使用法、大文字化に関するガイドラインを提供することです。 必要に応じて、重要な詳細や [用語履歴](terminology-history) についての記述と同様に綴ります。 これらのガイドラインを提供し、適用することは、使用に関する全社的な合意に達することです。
 
-Studio Pro バージョン 8 を使用している場合は、 [Mendix Studio Pro 8 から 9 へ移動](moving-from-8-to-9) をお勧めします。
+このガイドの目的は、各学期に定義を提供することではありません。 用語の詳細は、必要な場所を明確にするためにここでのみ説明されています。 製品定義は Mendix ドキュメントおよび Mendix プラットフォームの評価ガイドで確認できます。 メンテナンスのためには複製も要約もありません
 
-さまざまなMendixアクションの実行に関するステップバイステップガイドを探している場合は、 [Studio Pro 9 How-to's](/howto) を参照してください。
+このガイドに含まれる期間については、すでにMendix Platform UI、Mendix Documentation、および/またはMendix Platform 評価ガイドに表示されている必要があります。
 
-## 2 Studio Pro Functionality
+以下の理由により、このガイドに期間が含まれていない場合があります。
 
-Studio Proでは、アプリの作成、テスト、および実行ができます。
+* 具体的な利用ガイドラインや決定はありません(少なくともまだ)
+* Mendixのブランドではなく、一般的な用語です(例えば、「ドメインモデル」、「ページ」、「テンプレート」、「レイアウト」など)。
+* これは内部のみの用語です（例えば、アプリケーションの名前や専門用語はR&D チームでのみ使用されます）
+* この用語は、使用ガイドライン(例えば、ドキュメント内の大文字化)を必要とするためにUI内で一意に機能しません。
+* 用語が古くなっています (意味, それの使用が決定されています; 例については、 [用語歴史](terminology-history) を参照してください)
+* この用語は顧客向けのリソースでは使用しないでください
 
-### 2.1 Modeling
+{{% alert type="warning" %}}
+このガイドは、製品のロードマップや社内業務についての洞察を与えるべきではありません。
+{{% /alert %}}
 
-アプリのモデリングは、アプリを作成するプロセスであり、ページの作成、ロジックの追加、セキュリティの設定などが含まれます。 アプリのモデリングに使用できる機能の詳細については、 [App Modeling](modeling) を参照してください。
+## このガイドのセクション
 
-### 2.2 テスト
+*製品名指定ガイド* は以下のドキュメントに分かれています:
 
-アプリケーションのテストに関しては、 最初に何をテストするかを決定する必要があります:外部サービスとの統合、アプリロジック(マイクロフロー)など。 アプリケーションのテスト方法の詳細については、 [テスト](/howto/testing) を参照してください。
+* [主な製品名](main-product-names)
+* [その他のMendix利用規約](other-terms)
+* [ストラテジックパートナー利用規約](strategic-partner-terms)
+* [用語集履歴](terminology-history)
 
-### 2.3 デプロイ
+## 各学期以下
 
-Studio Pro を使用すると、アプリケーションをローカルまたはデフォルト環境で実行して表示できます。
+必要に応じて詳細とクロスリファレンス。
 
-アプリケーションをデプロイするためのオプションの詳細については、 [Deployment](/developerportal/deploy) を参照してください。
+{{% alert type="info" %}}
+使用のためのガイドライン
+{{% /alert %}}
 
-## 3 バージョン管理
+{{% alert type="success" %}}
+使用例
+{{% /alert %}}
 
-[Version Control](version-control) allows you to manage your app development, work on multiple development lines, as well as collaboratively work with [Mendix Studio](/studio).  Studio Pro がどのようにアプリケーションのバージョン管理を行うかについて詳しくはこちら [クラウドにデプロイした App](using-version-control-in-studio-pro#versioning-project) の *Studio Pro でバージョンコントロールを使用する* セクションを参照してください。
+## メンテナンス中 & このガイドの更新
 
-## 4 Mendix Runtime
-
-[Mendix Runtime](runtime) は、Studio Pro で作成されたアプリケーションモデルを実行します。 同じバージョン番号を使用しているため、Studio Pro 9 ガイドに含まれています。
-
-## 5 モバイル
-
-モバイルアプリの開発では、ネイティブのモバイルアプリとハイブリッドアプリを作成でき、Studio Proの重要な部分を作成できます。 詳細については、 [モバイル](mobile) を参照してください。
-
-## ガイドカテゴリ6個
-
-*Studio Pro 9 ガイド* は次のカテゴリに分類されます:
-
-{{% category_block %}}
-
+このガイドは部門間で共同でメンテナンス、更新することができます。 その意味で、標準的なドキュメントワークフローが適用されます:ガイドを更新するために。 [pull request](https://github.com/mendix/docs/tree/development/content/product-naming) を送ってください (詳細は、 [ドキュメントにコントリビュートする方法](/developerportal/community-tools/contribute-to-the-mendix-documentation) を参照してください)。 プルリクエストは関連するステークホルダーと共にレビューされ、必要なドキュメントの更新が行われます。
