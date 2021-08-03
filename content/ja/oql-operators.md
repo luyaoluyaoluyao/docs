@@ -1,8 +1,6 @@
 ---
 title: "OQL演算子"
 parent: "oql-expression"
-tags:
-  - "studio pro"
 ---
 
 
@@ -25,6 +23,6 @@ tags:
 | `IN`     | サブクエリ内の値または式値のリストに一致します。                                                                                                                                                               | `City IN (SELECT Name FROM City WHERE Country = 'Gelre')` `City IN ('Losdun', 'Die Haghe', 'Haagambacht')`                                                                                         |
 | `EXISTS` | サブクエリを実行するときに、任意の行が存在するかテストします。                                                                                                                                                        | `EXISTS (SELECT ID FROM City WHERE City = 'Losdun')` オブジェクトが存在する場合は true を返します                                                                                                                     |
 | `NOT`    | このキーワードに続く式の値を反転させます。                                                                                                                                                                  | `NOT City = 'Rotterdam'` は、ロッテルダムにないすべてのオブジェクトを返します。                                                                                                                                               |
-| `ケース`    | 1つ以上の条件を評価し、可能な式を返します。                                                                                                                                                                 | [OQL ケース式](oql-case-expression) を参照してください。                                                                                                                                                         |
+| `ケース`    | 1つ以上の条件を評価し、可能な式を返します。                                                                                                                                                                 | [このページ](oql-case-expression) をご覧ください。                                                                                                                                                              |
 | `OR`     | この演算子の周りの式が true を返した場合は true を返します。                                                                                                                                                   | `price = 9.80 OR price = 9.70` は、price が 9.80 の場合は true を返し、price が 9.60 の場合は false を返します。                                                                                                         |
 | `AND`    | 両辺の式が true を返した場合に true を返します。                                                                                                                                                         | `price = 9.80 AND amount = 1` は、値が 9 の場合は true を返します。 価格が9.70、金額が1の場合は0、金額が1の場合はfalse、金額が9.80、金額が2の場合はfalse。                                                                                       |
