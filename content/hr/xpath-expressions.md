@@ -1,8 +1,6 @@
 ---
 title: "XPath Expressions"
-parent: "xpath-constraints"
-tags:
-  - "studio pro"
+parent: "\"xpath-constraints\"#"
 ---
 
 ## 1 Overview
@@ -63,7 +61,7 @@ However, it is strongly recommended not to use the notation above. This is becau
 
 For information on the available functions, see [XPath Constraint Functions](xpath-constraint-functions).
 
-## 4 Exist-Expressions {#exist}
+## 4 Exist-Expressions
 
 The last type of expression is the exist-expression, which can be used to check whether a specific association is filled or not.
 
