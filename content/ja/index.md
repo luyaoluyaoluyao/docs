@@ -1,5 +1,5 @@
 ---
-title: "Studio 8 ガイド"
+title: "Studio 9 ガイド"
 tags:
   - "スタジオ"
   - "web modeler"
@@ -7,13 +7,13 @@ tags:
 
 {{% alert type="warning" %}}
 
-**Studio 8 ガイド** では、Mendix 8 バージョンに対応する Mendix Studio 機能について説明しています。 最新のStudio機能と機能について説明します。
+**Studio 9 ガイド** では、Mendix バージョン 9 に対応する Mendix Studio 機能について説明しています。 最新のStudio機能と機能について説明します。
 
 {{% /alert %}}
 
 ## 1つの紹介
 
-Mendix Platformには [Mendix Studio](general) と [Mendix Studio Pro](/refguide8/modeling)が含まれています。 Studio は、コードのない、ウェブベースのアプリケーション開発環境です。 コーディングやソフトウェア開発の経験を最小限に抑えて、ビジネス開発者やユーザーがWebやモバイルアプリケーションを作成できるようになります。
+Mendix Platformには [Mendix Studio](general) と [Mendix Studio Pro](/refguide/modeling)が含まれています。 Studio は、コードのない、ウェブベースのアプリケーション開発環境です。 コーディングやソフトウェア開発の経験を最小限に抑えて、ビジネス開発者やユーザーがWebやモバイルアプリケーションを作成できるようになります。
 
 Studio では、以下の操作を行うことができます。
 
@@ -24,16 +24,16 @@ Studio では、以下の操作を行うことができます。
 
 ## 2つのガイドカテゴリー
 
-*Studio 8 Guide* は次のカテゴリに分類されます:
+*Studio 9 ガイド* は次のカテゴリに分類されます:
 
 * [一般情報](general)
 * [ページ](page-editor)
-* [ドメインモデル](domain-models)
+* [データの操作](work-with-data)
 * [ナビゲーションドキュメント](navigation)
 * [マイクロフロー](マイクロフロー)
+* [ワークフロー](workflows)
 * [プレビュー中 & アプリを公開](publishing-app)
 * [チェック](チェック)
 * [テーマのカスタマイズ](theme-customizer)
 * [設定](設定)
-* [データの操作](work-with-data)
 * [コラボレーション](collaboration)
