@@ -1,29 +1,29 @@
 ---
-title: "Working with Data"
+title: "データの操作"
 menu_order: 30
-description: "Describes how to work with data in Mendix Studio."
+description: "Mendix Studio でデータを扱う方法を説明します。"
 tags:
-  - "studio"
-  - "data"
-  - "working with data"
-  - "work with data"
+  - "スタジオ"
+  - "データ"
+  - "データを使って"
+  - "データを操作する"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In Mendix Studio, you work with data in various ways. For example, you create your own data and use it on pages and in microflows; you can start an app uploading your data from a spreadsheet, or use data from other apps in your organization.
+Mendix Studioでは、さまざまな方法でデータを扱います。 たとえば、独自のデータを作成し、ページやマイクロフローで使用します。 スプレッドシートからデータをアップロードするアプリを起動したり、組織内の他のアプリのデータを使用したりできます。
 
-Using data in Studio can be divided into the following:
+Studio でデータを使用すると、以下に分類できます。
 
-* **Working with your own data** – working with the data that you have created.
-  * **Creating and managing data in the domain model** – the domain model is a visual editor where you work with data. The domain model is a data model that describes the information in your application domain in an abstract way. It is central to the architecture of your application. For more information on the domain model and how to work with it, see [Domain Model](domain-models).
-  * **Starting with your own data** – with Studio, you can also build an app starting with your own data. To do that, you need to use the **App from a spreadsheet** app template where you can import a Microsoft Excel spreadsheet. Data from the spreadsheet will be automatically converted to entities, attributes, and associations. For more information on the **App from a spreadsheet**, see [Starting With Your Own Data](start-with-data).
-* **Working with external data** – if your organization has a Data Hub license, you can connect external data from other apps in your organization to your app and use this data locally. For more information, see [Data Hub in Studio](data-hub-in-studio).
-* **Showing and controlling data** – you can show data through pages, and control what data to retrieve and show through microflows and pages. With [microflows](microflows), you can retrieve object/list of objects. On [pages](page-editor), you can show data using data containers ([data view](page-editor-data-view-list-view#data-view-properties), [list view](page-editor-data-view-list-view#list-view-properties), or [data grid](page-editor-data-grid)) and other widgets on pages. Finally, you can control what data is shown on pages and microflows using [data filters](data-filters).
+* **ご自身のデータの操作** – 作成したデータの操作。
+  * **ドメインモデルでのデータの作成と管理** – ドメインモデルは、データを扱うビジュアルエディターです。 ドメインモデルは、アプリケーションドメイン内の情報を抽象的な方法で記述するデータモデルです。 それはあなたのアプリケーションのアーキテクチャの中心です。 ドメインモデルの詳細と操作方法については、 [Domain Model](domain-models) を参照してください。
+  * **ご自身のデータ** から始めて、Studio では独自のデータから始めてアプリを構築することもできます。 そのためには、スプレッドシート **アプリの** テンプレートを使用して、Microsoft Excelスプレッドシートをインポートする必要があります。 スプレッドシートからのデータは、エンティティ、属性、関連付けに自動的に変換されます。 スプレッドシート **からの**アプリの詳細については、 [自分のデータで開始](start-with-data) を参照してください。
+* **外部データの操作** – 組織がデータハブのライセンスを持っている場合 組織内の他のアプリからの外部データをアプリに接続し、このデータをローカルで使用できます。 詳細については、 [Studio のデータ ハブ](data-hub-in-studio) を参照してください。
+* **データの表示と制御** - ページを介してデータを表示し、マイクロフローとページを介して取得および表示するデータを制御することができます。 [microflow](microflows)を使用すると、オブジェクトのオブジェクト/リストを取得できます。 On [pages](page-editor), you can show data using data containers ([data view](page-editor-data-view-list-view#data-view-properties), [list view](page-editor-data-view-list-view#list-view-properties), or [data grid](page-editor-data-grid)) and other widgets on pages. 最後に、 [データ フィルター](data-filters) を使用して、ページとマイクロフローに表示されるデータを制御できます。
 
-## 2 Main Documents in This Category
+## このカテゴリ内の2つのメインドキュメント
 
-* [Domain Model](domain-models)
-* [Starting With Your Own Data](start-with-data)
-* [Data Hub in Studio](data-hub-in-studio)
-* [Data Filters](data-filters)
+* [ドメインモデル](domain-models)
+* [あなた自身のデータから開始](start-with-data)
+* [Studio のデータハブ](data-hub-in-studio)
+* [データフィルタ](data-filters)
