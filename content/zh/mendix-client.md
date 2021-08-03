@@ -1,221 +1,221 @@
 ---
-title: "Mendix Client"
-category: "Mendix Runtime"
-description: "A description of the Mendix Client part of the runtime and how it functions"
+title: "Mendix 客户端"
+category: "Mendix 运行时间"
+description: "运行时间的 Mendix 客户端部分及其如何运作的描述"
 menu_order: 20
 tags:
-  - "runtime"
-  - "mendix client"
-  - "offline-first"
-  - "browser"
+  - "运行时间"
+  - "mendix 客户端"
+  - "离线前"
+  - "浏览器"
   - "javascript"
   - "nanoflows"
-  - "widgets"
-  - "launch"
+  - "小部件"
+  - "启动"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix Client runs on the end-user's device and handles the interface between the end-user and the app. Sometimes it can run completely independently of the Runtime Server and perform all processing locally. Mostly, it interacts with the Runtime Server to get or update shared data, or perform additional application logic.
+Mendix 客户端运行在最终用户的设备上，并处理最终用户和应用程序之间的接口。 有时它可以完全独立于运行时服务器并在本地执行所有处理。 大多数情况下，它与 Runtime 服务器交互，以获取或更新共享数据，或执行附加应用程序逻辑。
 
-This description of the Mendix Client is based on using the Runtime Server of an app running in the cloud. You can also run Mendix locally for testing, but this is conceptually the same.
+Mendix 客户端的这种描述是基于使用运行于云端的应用程序的 Runtime Server。 您也可以在本地运行 Mendix 进行测试，但这在概念上是一样的。
 
-## 2 Description {#description}
+## 2 个描述 {#description}
 
-The Mendix Client is a part of every application built with Mendix: web, mobile, and hybrid.
+Mendix 客户端是由Mendix构建的每个应用程序的一部分：web、mobile和混合物。
 
-For **web applications**, Mendix Client acts as a single page application. This means that all paging is handled by the Mendix Client, rather than being separate pages served using different URLs. Mendix Client is bootstrapped by loading a `mxui.js` script from an HTML page provided by the *theme*.
+对于 **web 应用程序**, Mendix 客户端作为单一页面应用程序。 这意味着所有分页都由 Mendix 客户端处理，而不是使用不同的 URL作为单独的网页。 Mendix 客户端是通过从 *主题提供的 HTML 页面加载一个 `mxui.js` 脚本来启动的。*
 
-For **mobile applications** Mendix Client acts as a React Native application. This means that apps created by Mendix consist of two parts: a *wrapper* and a *bundle*. The wrapper is a native iOS or Android application that loads the bundle and exposes platform functionality to it. The bundle includes Client Core, Pluggable Widgets, and application-specific resources like nanoflows and pages.
+对于 **移动应用程序** Mendix 客户端作为React本地应用。 这意味着由 Mendix 创建的应用由两个部分组成： *包装* 和 *捆绑*。 包装器是一个原生的 iOS 或 Android 应用程序，它加载捆包并显示平台功能。 捆包包括客户端核心、插件小部件和应用程序专用资源，如nanoflows和页面。
 
-The three supported types of wrappers for mobile applications are as follows:
+支持移动应用程序的三种包装类型如下：
 
-* [Make It Native app](getting-the-make-it-native-app)
-* [Custom Developer apps](/howto/mobile/how-to-devapps)
-* [Native apps](/howto/mobile/deploying-native-app)
+* [使它成为本机应用](getting-the-make-it-native-app)
+* [自定义开发者应用](/howto/mobile/how-to-devapps)
+* [本机应用](/howto/mobile/deploying-native-app)
 
 The first two of these load a bundle dynamically, while the last one includes a pre-packaged bundle that can be [updated](/howto/mobile/how-to-ota) later.
 
-A **Hybrid application**, for most purposes, can be treated as an app running in a browser. In this case, however, the browser is embedded in a mobile application and has access to some features of a mobile device through [Cordova](https://cordova.apache.org/) plugins. We recommend that you use a native mobile app rather than a hybrid app if you want to make Mendix apps which run on mobile devices.
+**混合应用程序**，对于大多数用途来说，可以被视为一个在浏览器中运行的应用程序。 然而，在这种情况下， 浏览器嵌入移动应用程序中，可以通过 [Cordova](https://cordova.apache.org/) 插件访问移动设备的某些功能。 我们建议您使用原生移动应用，而不是混合应用，如果您想要制作在移动设备上运行的Mendix 应用程序。
 
-Below is a chart showing the components of the Mendix Client. Each of the components is described below the chart.
+下面是显示Mendix 客户端组件的图表。 每个组件在下图表中说明。
 
-![The makeup of the Mendix Client](attachments/runtime/mendix-client.png)
+![Mendix 客户端的组成](attachments/runtime/mendix-client.png)
 
-### 2.1 Client Core
+### 2.1 客户核心。
 
-This can be seen as the interpreter of the client. It uses the client config and client state to decide how to process a request from the end-user. The client core controls the various processes which need to take place to service the request. These processes include data fetching and manipulation, client-side expressions, and navigation.
+这可以被视为客户端的解释器。 它使用客户端配置和客户端状态来决定如何处理最终用户的请求。 客户核心控制为满足请求而需要进行的各种过程。 这些过程包括数据获取和操作、客户端表达式和导航。
 
-The client core is written in JavaScript.
+客户端核心由 JavaScript 编写。
 
-Mendix apps do not modify the client core, all logic is held in the model. However, each patch version of Mendix comes with its own version of the client core.
+Mendix 应用程序不修改客户端核心，所有逻辑都保存在模型中。 但是，每个补丁版本的 Mendix 都有自己的客户核心版本。
 
-### 2.2 Widgets
+### 2.2 部件
 
-These are the fundamental building blocks of the Mendix Client. All the actions which the client takes are controlled by widgets. They are responsible for what is displayed on pages, and how user input is managed. There is a more detailed description of widgets in [Widgets](#widgets), below.
+这些是Mendix 客户端的基本组成部分。 客户端采取的所有行动都由小部件控制。 他们负责页面上显示的内容以及用户输入的管理方式。 在 [小部件](#widgets)下面有一个更详细的小部件描述。
 
-### 2.3 Javascript Actions
+### 2.3 Javascript 操作
 
-This runs custom JavaScript, added by the app developer, which is held as JavaScript actions in the client config.
+这将运行自定义的 JavaScript ，这是由应用程序开发者添加的，作为客户端配置中的 JavaScript 动作。
 
-### 2.4 UI Layer
+### 2.4 界面图层
 
-The UI layer performs navigation, resource loading, and platform integration. It is responsible for building the page which is presented to the end-user in response to the actions of the Mendix Client, using the correct language and other locale settings.
+界面图层进行导航、资源加载和平台集成。 它负责根据Mendix 客户的行动建立向最终用户提供的网页。 使用正确的语言和其他语言设置。
 
-### 2.5 HTTPS Server
+### 2.5 HTTPS 服务器
 
-The HTTPS server serves pages, widgets, and javascript actions, held in the model, to the end-user of the app.
+HTTPS 服务器服务于在模型中持有的页面、小部件和javascript动作，服务于应用程序的最终用户。
 
-### 2.6 Logic
+### 2.6 原理
 
-This runs client-side logic which is defined in the nanoflows in the model.
+这将运行客户端逻辑，模型中定义为 nanoflows 。
 
-### 2.7 Platform APIs
+### 2.7 平台 APIs
 
-These are functions of the environment in which the Mendix Client is running. In most cases this will be a function of a mobile device such as the camera or GPS location, but it can also include making calls to Mendix Native APIs or browser functions such as accessing an image file.
+这些是Mendix 客户端运行环境的功能。 在大多数情况下，这将是摄像头或GPS位置等移动设备的函数。 但它也可以包括拨打Mendix Native API或浏览器函数，如访问图像文件。
 
-### 2.8 Client Config
+### 2.8 客户配置
 
-This is the static data which is needed by the Mendix Client. For a browser-based client, this data is held online, with the Runtime Server. For native mobile apps, this is held locally on the device.
+这是Mendix 客户端需要的静态数据。 对于基于浏览器的客户端，该数据与运行时服务器在线保存。 对于本机移动应用，这是在本地设备上进行的。
 
-These include the initial environment (for example, the browser shell page) needed to start the Mendix Client, Cascading Style Sheets (css files) which define the app’s theme, and JavaScript files which define client-side logic.
+这些包括启动Mendix 客户端所需的初始环境 (例如浏览器外壳页面) 定义应用程序主题的级层样式表(ss文件)和定义客户端逻辑的 JavaScript 文件。
 
-### 2.9 Data API
+### 2.9 数据 API
 
-This allows the Mendix Client to fetch and manipulate data in offline storage or the Mendix Runtime.
+这允许Mendix 客户端获取和操纵离线存储或 Mendix Runtime中的数据。
 
-### 2.10 Object Cache
+### 2.10 对象缓存
 
-This holds and manages objects which are being used by the Mendix Client in memory – for example non-persistable objects, new objects, and objects returned by the Runtime Server to be displayed on a page. It also holds changes to attributes and associations for these objects.
+这将持有和管理Mendix 客户端在内存中正在使用的对象 - 例如不可持续的物体。 新的对象和 Runtime 服务器返回的对象显示在一个页面上。 它还对这些物体的属性和协会进行了修改。
 
-State handling will perform garbage collection to ensure that memory is released when it is no longer needed.
+国家处理将进行垃圾收集，以确保在不再需要时释放记忆。
 
-### 2.11 Offline Storage
+### 2.11 离线存储
 
-This is permanent storage, usually on a mobile device, where data can be stored for apps which are running in offline mode. It differs from the temporary object storage in that data here is not lost at the end of a session, but is kept until it can be synced to the Runtime Server.
+这是永久性存储，通常是在移动设备上，在移动设备上可以为正在离线模式下运行的应用存储数据。 它不同于临时对象存储空间，因为在会话结束时数据不会丢失。 但一直保持到它可以同步到 Runtime 服务器。
 
-### 2.12 State/Sync/Session
+### 2.12 状态/同步
 
-This manages requests to the Runtime Server. Note that some actions in the Mendix Client will not require access to the Runtime Server. For example, if the Object Cache already has access to the required data in the temporary object storage, or if the app is written as “offline-first”.
+这管理到 Runtime 服务器的请求。 请注意，Mendix 客户端中的一些操作将不需要访问 Runtime 服务器。 例如，如果对象缓存已经有权访问临时对象存储中所需的数据。 或者如果应用被写为“离线优先”。
 
-For more information about the communication between the Mendix Client and the Runtime Server, see [Communication Patterns in the Mendix Runtime](communication-patterns).
+关于Mendix 客户端和 Runtime 服务器之间通信的更多信息，请参阅 [Mendix Runtime](communication-patterns) 中的通信模式。
 
-#### 2.12.1 State Handling
+#### 2.12.1 国家处理
 
-This communicates the current state of the app (held in the object cache) to the Runtime Server. As the state is held in the Mendix Client, the Runtime Server can be stateless. This ensures that it is easier to scale your app horizontally by adding more instances as any instance can handle any request.
+这将把应用程序的当前状态 (保存在对象缓存中) 传输到 Runtime 服务器。 由于状态是在 Mendix 客户端保存的，运行时服务器可能是无国籍的。 这将确保更容易通过添加更多实例来横向缩放您的应用，因为任何实例都可以处理任何请求。
 
-To avoid performance issues, the Mendix Client does not send the entire state to the runtime. State handling decides which parts of the state should be sent by analyzing the model during the deployment of the applications.
+为了避免性能问题，Mendix 客户端不会将整个状态发送到运行时间。 国家处理决定哪些部分应在应用部署过程中通过分析模型来发送。
 
-For more detailed information about state, see this blog: [https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/](https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/). This also includes a worked example where you can see, and duplicate for yourself, how state is passed to the Runtime Server.
+欲了解更多关于状态的详细信息，请查阅这个博客： [https://www.mendix.com/blog/the-art-of-state-part-1-introductionto-the-client-state/](https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/)。 这还包括一个可操作的示例，您可以在那里看到并为自己复制状态传递到运行服务器的方式。
 
-State handling is also responsible for garbage collection. If you want to know more about this aspect, see this blog: [https://www.mendix.com/blog/the-art-of-state-part-2-garbage-collection/](https://www.mendix.com/blog/the-art-of-state-part-2-garbage-collection/).
+国家处理也负责收集垃圾。 如果你想要更多地了解这个问题，请查看这个博客： [https://www.mendix.com/blog/the-art-of-state-part-2-garbage-collection/](https://www.mendix.com/blog/the-art-of-state-part-2-garbage-collection/)。
 
-#### 2.12.2 Synchronization
+#### 2.12.2 同步
 
-Where an app is “offline-first”, data created and changed in the app is stored locally until it is synchronized with the Runtime Server. This job is carried out by the synchronization process. This synchronizes the offline storage and object cache with the Runtime Server. For more information on offline-first apps and synchronization, see [Offline-First](offline-first).
+如果应用程序是“离线优先”，则在应用程序中创建和更改的数据将在本地存储，直到它与运行时服务器同步。 这项工作是通过同步过程进行的。 这将使离线存储和对象缓存与 Runtime 服务器同步。 欲了解离线第一个应用和同步的更多信息，请参阅 [离线第一个](offline-first)。
 
-#### 2.12.3 Session
+#### 2.12.3 会 议
 
-This ensures that any session with the runtime is kept alive and restored if necessary. It also acts as the authentication for all communications with the runtime which require it.
+这将确保运行时的任何会话都能保持存活并在必要时恢复。 它还作为所有需要的运行时间通信的认证。
 
-### 2.13 Runtime Server
+### 2.13 运行时服务器
 
-The Runtime Server waits for requests from the Mendix Client, processes the request, and returns the requested data, plus any additional state information where appropriate. This is done through a private API called *xas*.
+运行时服务器正在等待来自Mendix 客户端的请求，处理请求并返回请求的数据，以及任何相关的附加状态信息。 这是通过一个名为 *xas* 的私有API来完成的。
 
-It will also notify the Mendix Client when changes are made to the app, and allows developers to connect a debugger to the client to debug nanoflows.
+它还会在更改应用程序时通知Mendix 客户端， 并允许开发者将调试器连接到客户端以调试 nanoflow。
 
-Because all information is sent to the Mendix Client to build pages, everything in the Mendix Client is visible to the end-user. Security is carried out in the Runtime Server, which will only send information to the Mendix Client which the user is allowed to see.
+由于所有信息都被发送到Mendix 客户端来构建页面，因此Mendix 客户端的一切都是对最终用户可见的。 在 Runtime Server 中执行安全操作，它只会向Mendix 客户端发送用户可以看到的信息。
 
-For a description of the Runtime Server, see [Runtime Server](runtime-server).
+关于运行时服务器的描述，请参阅 [运行时服务器](runtime-server)。
 
-## 3 Widget s{#widgets}
+## 3 个小部件{#widgets}
 
-Mendix pages are constructed from individual widgets. A widget can be of one of the following types:
+Mendix 页面是从单个小部件构建的。 一个小部件可以是以下类型之一：
 
-* Core widget – part of the Mendix Client
-* Pluggable widget – based on React or React Native, written by the user or downloaded from the Marketplace
-* Custom widget – based on Dojo, written by the user or downloaded from the Marketplace
+* 核心部件 - Mendix 客户端的部分
+* 插件——基于 React 或 React Native, 由用户编写或从市场下载的
+* 自定义小部件 - 基于 Dojo，用户编写或从市场下载的
 
-These are described in the sections below.
+下文各节对此作了说明。
 
-### 3.1 Core Widgets
+### 3.1 核心部件
 
-Mendix has a number of core widgets which support the standard functions of Mendix pages. Core widgets are part of the core client. Most of these widgets have native and web implementations, though some are limited only to one platform.
+Mendix 有一些核心小部件支持Mendix 页面的标准功能。 核心小部件是核心客户端的一部分。 大多数这些小部件都有本地和网络实现，不过有些小部件仅限于一个平台。
 
-In native mobile applications an implementation based on React Native framework is used. In web applications, implementation is based on either React or Dojo. Widgets that use Dojo have some limitations, for example they cannot be used inside a [pluggable widget](/apidocs-mxsdk/apidocs/pluggable-widgets-property-types#widgets). These Dojo implementations are gradually being replaced.
+在本地移动应用程序中，使用了基于React本地框架的实现。 在 web 应用程序中，实现基于React 或 Dojo。 使用 Dojo 的小部件有一些限制，例如它们不能在 [插件中使用](/apidocs-mxsdk/apidocs/pluggable-widgets-property-types#widgets)。 这些道场实现正在逐步被替换。
 
-### 3.1 Pluggable Widgets
+### 3.1 插件部件
 
-You can also write your own widgets, called **Pluggable widgets**, in cases where Core widgets do not suffice. Pluggable widgets can be downloaded through the Marketplace. They are based on React (in web applications) or React Native (in native mobile applications) and are the recommended way of writing widgets. They replace Custom widgets, described below.
+你也可以在核心小部件不足的情况下写下你自己的小部件，称为 **插件**。 可通过市场下载插件。 它们是基于 React (网页应用程序) 或 React Native (本机移动应用程序) 的, 并且是推荐的编写小部件的方式。 它们替换下面描述的自定义部件。
 
-For more information, see [Pluggable Widgets API](/apidocs-mxsdk/apidocs/pluggable-widgets).
+欲了解更多信息，请参阅 [插件API](/apidocs-mxsdk/apidocs/pluggable-widgets)。
 
-### 3.2 Custom Widgets
+### 3.2 自定义部件
 
-You can also write **Custom widgets**. These are based on Dojo framework and run only in web applications. They have access to a different, more low-level, API than pluggable widgets. Custom widgets should only be used if you cannot create the functionality in a Pluggable widget.
+您也可以写入 **个自定义小部件**。 这些基于 Dojo 框架，仅在网络应用程序中运行。 他们可以使用不同的、低级的 API 和可插拔的小部件。 仅当您不能在 Pluggable 小部件中创建功能时，才能使用自定义小部件。
 
 ## 4 Mendix Client Startup
 
-When an end-user wants to use a Mendix app, they need to start up the client on their device before they can connect to the Runtime Server. The way this works depends on the method used to run the client. This can be one of the following:
+当最终用户想要使用 Mendix 应用程序时， 他们需要在设备上启动客户端，然后才能连接到 Runtime 服务器。 此操作的方式取决于运行客户端所使用的方法。 这可以是以下内容之一：
 
-* Browser
-* Native Mobile App
+* 浏览器
+* 原生移动应用程序
 
-How the Mendix Client is launched is described in the sections below.
+Mendix 客户端是如何启动的，在下面的章节中作了描述。
 
-### 4.1 Launching Mendix Client in a Browser
+### 4.1 在浏览器中启动 Mendix 客户端
 
-In a browser, the environment is built on an initial page, the "shell", on which code is bootstrapped.
+在浏览器中，环境是建立在初始页面“shell”上的，代码是引导的。
 
-#### 4.1.1 Launch Flow
+#### 4.1.1 发射流
 
-When the end-user launches an app in the browser, it triggers the following flow.
+当最终用户在浏览器中启动应用程序时，它会触发以下流程。
 
-1. The end-user enters the URL of the app in the browser.
+1. 最终用户在浏览器中输入应用程序的 URL。
 
-2. The browser loads the HTML web page ("shell").
+2. 浏览器加载HTML网页("shell")。
 
-3. The web page loads and starts the Mendix Client, together with the core widgets.
+3. 网页加载并启动Mendix 客户端以及核心部件。
 
-4. The Mendix Client loads any custom widgets.
+4. Mendix 客户端加载任何自定义小部件。
 
-5. The Mendix Client contacts the Runtime Server and authenticates the end-user.
+5. Mendix 客户端联系运行时服务器并验证最终用户。
 
-6. The Mendix Client gets any additional configuration required from the Runtime Server.
-
-
-    *The Mendix Client is now ready to start interacting with the end-user and will repeat the following steps for as long as the end-user’s session continues.*
-
-7. The Mendix Client loads the page definition.
-
-8. The Mendix Client loads pluggable widgets used on the page.
-
-9. The Mendix Client retrieves any data required from the Runtime Server.
-
-10. The Mendix Client builds the page.
-
-11. The Mendix Client displays the page to the end-user.
-
-12. The Mendix Client processes input from the end-user and repeats the steps above to show the correct page.
+6. Mendix 客户端获取运行时服务器所需的任何额外配置。
 
 
-#### 4.1.2 Location of Mendix Client Resources
+    *Mendix 客户端已准备好开始与最终用户互动，并且只要最终用户的会话继续，将重复以下步骤。*
 
-When the app is deployed, the static resources are placed in a structure referred to as the CDN. This includes the following:
+7. Mendix 客户端加载页面定义。
 
-* index.html – the initial HTML page which is loaded when the end-user starts the Mendix Client — this contains the client configuration and other static non-Mendix content (for example if Google analytics is added to the app)
-* mxui.js – the main Mendix Client code
-* app styling/Atlas – the app-specific css styling and static visual elements which define how a page is displayed
-* widgets – both native and web core widgets which are used by this app
-* page definitions – xml page definitions which tell the Mendix Client what the pages for this app look like
+8. 页面上使用的 Mendix 客户端加载插件。
 
-#### 4.1.3 Cookies
+9. Mendix 客户端从运行时服务器检索所需的任何数据。
 
-When the Mendix client is running, it creates a number of technical cookies to record information about the session. These expire at the end of the session, and can include:
+10. Mendix 客户端构建页面。
 
-* Device Type
+11. Mendix 客户端向最终用户显示页面。
+
+12. Mendix 客户程序从最终用户输入并重复上面的步骤来显示正确的页面。
+
+
+#### 4.1.2 Mendix 客户端资源的位置
+
+当应用被部署时，静态资源被放置在一个叫做CDN的结构中。 这包括以下方面：
+
+* 索引. tml - 当最终用户启动Mendix 客户端时加载的初始HTML页面——它包含客户端配置和其他静态非Mendix 内容(例如，如果谷歌分析被添加到应用程序中)
+* mxui.js — — Mendix 客户端的主要代码
+* 应用样式/阿特拉斯法——指定页面如何显示的应用特定的 css 样式和静态视觉元素
+* 小部件 — — — 本应用使用的本地和网络核心小部件
+* 页面定义 - xml 页面定义，这些定义告诉Mendix 客户端这个应用程序的页面是什么样的
+
+#### 4.1.3 Cookie
+
+当Mendix 客户端运行时，它会创建一些技术cookie来记录有关会话的信息。 会议将于届会结束时结束，可包括：
+
+* 设备类型
 * JSESSIONID
-* Profile
+* 个人信息
 * SessionTimeZoneOffset
 * \_\_VCAP\_ID\_\_
 * XASID
@@ -223,26 +223,26 @@ When the Mendix client is running, it creates a number of technical cookies to r
 * originURI
 * xasid
 
-### 4.2 Launching Native Mendix Client
+### 4.2 启动原生Mendix 客户端
 
-The flow when launching a native mobile app is different from launching in a browser. More information is stored locally as part of the app, and a native mobile app can even be designed to run “offline-first”, which means that it can still be run without any connection to the Runtime Server.
+本地移动应用启动时的流量不同于浏览器中的启动流量。 更多的信息作为应用的一部分存储在本地，本地移动应用甚至可以被设计为运行“离线优先”， 这意味着它仍然可以在没有任何连接到 Runtime 服务器的情况下运行。
 
-The flow described here is for production apps. During development, the flow is not the same. This enables you to do faster deployments and online debugging.
+这里描述的流程是用于生产应用。 在开发过程中，流量不是一样的。 这使您能够做更快的部署和在线调试。
 
-1. The end-user opens the app on their device. This is a project specific shell app, which runs natively on iOS or Android. It is released to the app store appropriate for the device. If a new version of the app is downloaded to the device, the app will behave as if the end-user has opened it for the first time, even if it was already open on their device.
+1. 最终用户在他们的设备上打开应用程序。 这是一个项目特定的 shell 应用，它本来就在 iOS 或 Android 上运行。 它发布到适合设备的应用商店。 如果应用程序的新版本已下载到设备， 即使最终用户已经在他们的设备上打开，应用的行为也会好像是第一次打开它。
 
-2. The shell app loads a native bundle. This is the equivalent of the Mendix Client resources used by the Mendix Client running in a browser. It contains, for example, the Mendix Client code and page definitions. However, it is held locally on the device rather than centrally with the Runtime Server.
+2. 外壳应用程序加载本机捆绑。 这相当于在浏览器中运行的 Mendix 客户端使用的 Mendix 客户端资源。 例如，它包含Mendix 客户端代码和页面定义。 然而，它是在当地安装的，而不是与运行时服务器集中安装的。
 
-3. If there is not a valid authentication token on the device, the Mendix Client contacts the Runtime Server and authenticates the end-user and gets any additional configuration required from the Runtime Server.
+3. 如果设备上没有有效的身份验证令牌， Mendix 客户端联系运行服务器并验证最终用户并获取运行服务器所需的任何额外配置。
 
-4. If this is the first time the app has been started, or the first time after an update to the app, the Mendix Client performs a synchronization with the Runtime Server.
+4. 如果这是第一次启动该应用，或是第一次更新该应用， Mendix 客户端执行与 Runtime 服务器的同步。
 
-5. The Mendix Client checks the resources stored in Visual Studio App Center for updates to the native bundle. This enables the app to keep up-to-date without needing to download new versions of the app from the app store.
+5. Mendix 客户端检查存储在 Visual Studio 应用中心的资源是否更新到本机捆绑。 这将使应用能够随时更新，无需从应用商店下载新版本的应用。
 
-    *The Mendix Client is now ready to start interacting with the end-user and will repeat the following steps for as long as the continues to run.*
+    *Mendix 客户端已准备好开始与最终用户互动，并且只要继续运行，将重复以下步骤。*
 
-6. The Mendix Client prepares a page using the data on the device.
+6. Mendix 客户端使用设备上的数据准备页面。
 
-7. The Mendix Client presents the page to the end-user.
+7. Mendix 客户端将页面展示给最终用户。
 
-8. The Mendix Client reacts to the end-user input.
+8. Mendix 客户端响应最终用户输入。
