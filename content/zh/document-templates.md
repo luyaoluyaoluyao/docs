@@ -1,9 +1,17 @@
 ---
 title: "文档模板"
-category: "桌面模型"
+parent: "资源"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "文档模板"
 aliases:
-  - /refguide7/Document+Templates.html
+  - /refguide8/Document+Templates.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/document-templates.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -13,7 +21,7 @@ aliases:
 此页面描述了什么样的文档模板以及什么样的部件可以放置在它们上。 如果你想要看到文档模板的属性，你可以检查文档 [文档模板](document-template) 本身。
 {{% /报警 %}}
 
-文档模板可能包含组件，也称为 _小部件_。 下面是所有小部件类别的概览：
+文档模板也包含组件，如 _个小部件_。 下面是所有部件的分类概述。 使用了以下类别：
 
 * [核心小部件](#core) 对于构建Mendix 中的文档模板至关重要。 这些是可以显示实体或单个实体列表的小部件
 * [布局小部件](#layout) 用于构建您的文档模板的布局
@@ -36,7 +44,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918138.png)
+![](attachments/document-templates/918138.png)
 
 显示带有描述和被引用的客户名称的订单列表的数据表。
 
@@ -50,7 +58,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918139.png)
+![](attachments/document-templates/918139.png)
 
 显示订单行信息的数据视图。
 
@@ -64,7 +72,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918137.png)
+![](attachments/document-templates/918137.png)
 
 显示商品名称和描述的模板网格。
 
@@ -72,17 +80,17 @@ aliases:
 
 ## 3 个布局部件 {#layout}
 
-布局小部件给表单提供结构。 他们不会显示数据，而是提供一个布局，您可以放置其他可以放置的小部件。
+布局小部件给予页面结构。 他们不会显示数据，而是提供一个布局，您可以放置其他可以放置的小部件。
 
 ### 3.1 表
 
-表格可以用来更改表单的布局。 它们有若干行和栏目，两者的交点被称为一个间。 每个单元格可以包含部件。 单元格在填充之前可以横向和纵向合并，以允许非对称布局。 表格可以在数据视图内外或模板类部件中使用。
+表格可以用来更改页面的布局。 它们有若干行和栏目，两者的交点被称为一个间。 每个单元格可以包含部件。 单元格在填充之前可以横向和纵向合并，以允许非对称布局。 表格可以在数据视图内外或模板类部件中使用。
 
 欲了解更多信息，请访问 [表 (文档模板)](table-document-template)。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918134.png)
 
 一个包括四行和三栏的表。 最后一行包含一个数据视图与另一个表。
 
@@ -96,7 +104,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918135.png)
+![](attachments/document-templates/918135.png)
 
 页面断开
 
@@ -114,13 +122,13 @@ aliases:
 
 ### 4.1 动态标签
 
-一个动态标签将用于相同的属性类型和表单生成器中的文本框。 它可以用来显示文本值。
+一个动态标签用于与页面编辑器中的文本框相同的属性类型。 它可以用来显示文本值。
 
 欲了解更多信息，请参阅 [动态标签 (文档模板)](dynamic-label-document-template)。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918131.png)
+![](attachments/document-templates/918131.png)
 
 链接到客户名称的动态标签。
 
@@ -134,7 +142,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918132.png)
+![](attachments/document-templates/918132.png)
 
 一个表格单元内的动态图像，显示预设的默认图像。
 
@@ -152,7 +160,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918130.png)
+![](attachments/document-templates/918130.png)
 
 带文本“客户名称”的标签。
 
@@ -172,7 +180,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918133.png)
+![](attachments/document-templates/918133.png)
 
 表单元格内的静态图像。
 
