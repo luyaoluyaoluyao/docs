@@ -1,23 +1,19 @@
 ---
-title: "System Texts"
-parent: "project"
+title: "システムテキスト"
+parent: "プロジェクト"
 tags:
   - "studio pro"
-  - "system text"
+  - "システムテキスト"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/system-texts.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+システム テキストは、サーバーまたはクライアントによってエンドユーザーに表示されるテキストです。 たとえば、数値を期待するフィールドに無効なテキストを入力するとします。 システムは、「この値は分数なしで数字にする必要があります」というメッセージを表示します。 このテキストは、システム テキスト エディタで他の言語に変更および翻訳することができます。
 
-System texts are texts that are shown to end-users by the server or the client. For example, if you enter invalid text into a field that expects a number, the system will give the message 'This value should be a number without fractions'. This text can be changed and translated to other languages in the system texts editor.
+## 2 言語
 
-## 2 Languages
+[App Settings](project-settings) では、アプリケーションの利用可能な言語を管理できます。 各言語ごとに、システムテキストの翻訳を指定できます。 翻訳を提供しない場合、テキストはデフォルト言語で表示されます。
 
-In the [project settings](project-settings) you can manage the available languages of your application. For each language you can specify the translation of the system texts. If you do not provide a translation the text will be shown in the default language.
+## 3つのパラメータ
 
-## 3 Parameters
-
-Some system texts have parameters that can be inserted into the text. For example, if you delete items in a data grid, the following question will appear: 'Delete {1} items?'. At the position of the text {1} the first parameter will be inserted. In this case, the parameter is the number of objects that are selected for deletion. You are not required to use the parameter and the text 'Delete these items?' would also be a valid text.
+一部のシステムテキストには、テキストに挿入できるパラメータがあります。 たとえば、データグリッドの項目を削除すると、次の質問が表示されます。「 {1} 項目を削除しますか?」。 テキスト {1} の位置に最初のパラメーターが挿入されます。 この場合、パラメータは削除のために選択されたオブジェクトの数です。 パラメータを使用する必要はありません。「これらのアイテムを削除しますか?」というテキストも有効なテキストになります。
