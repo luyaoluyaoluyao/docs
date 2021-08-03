@@ -1,100 +1,100 @@
 ---
-title: "Report Chart"
-parent: "report-widgets"
+title: "レポート チャート"
+parent: "レポートウィジェット"
 ---
 
 {{% alert type="info" %}}
 
-This widget was deprecated and is marked for removal in version 8.0.0.
+このウィジェットは非推奨で、バージョン 8.0.0 で削除するようにマークされています。
 
 {{% /alert %}}
 
-A report chart is used to display a dataset graphically as a set of vertical bars.
+レポートグラフは、データセットを縦棒のセットとしてグラフィカルに表示するために使用されます。
 
-For each object in the dataset one or more bars are displayed, depending on the defined Series of the report chart.
+データセット内の各オブジェクトには、レポート チャートの定義されている Series に応じて、1 つ以上のバーが表示されます。
 
-## Data Source Properties
+## データソースのプロパティ
 
-### Data Set
+### データセット
 
-The dataset determines which data will be shown in the report chart.
+データセットは、レポートチャートに表示するデータを決定します。
 
-## General Properties
+## 一般プロパティ
 
-### Aspect Ratio
+### アスペクト比
 
-This property determines the aspect ratio (width : height) of the report chart as the end user will see it.
+このプロパティにより、レポート グラフのアスペクト比 (幅 : 高さ) がエンドユーザーに表示されます。
 
-### Generate Report on Page Load
+### ページ読み込み時にレポートを生成する
 
-If this property is false, the report chart will not show its data until the user clicks [Report](report-button). This is especially useful if the report uses parameters that should be specified by the user.
+このプロパティがfalseの場合、レポートチャートはユーザーが [レポート](report-button)をクリックするまでデータを表示しません。 これは、レポートがユーザによって指定されるべきパラメータを使用する場合に特に便利です。
 
-## Chart Properties
+## グラフのプロパティ
 
-### Type
+### タイプ
 
-With this property you can choose the type of the report chart. The following types are avalailable.
+このプロパティでは、レポート グラフの種類を選択できます。 次のタイプが利用可能です。
 
-| Name           | Layout                             |
+| 名前             | レイアウト                              |
 | -------------- | ---------------------------------- |
 | VerticalBars   | ![](attachments/524337/688226.png) |
 | VerticalBars3D | ![](attachments/524337/688227.png) |
 | HorizontalBars | ![](attachments/524337/688228.png) |
-| Lines          | ![](attachments/524337/688229.png) |
-| Area           | ![](attachments/524337/688223.png) |
+| 行              | ![](attachments/524337/688229.png) |
+| エリア            | ![](attachments/524337/688223.png) |
 
-### Horizontal Axis Properties
-
-{{% alert type="warning" %}}
-
-If the chart type is HorizontalBars, the axisses are swapped, and these properties apply to the vertical axis instead of the horizontal axis.
-
-{{% /alert %}}
-
-### Caption
-
-This is the caption that end users see near the horizontal axis of the chart.
-
-### Data Set Column
-
-This property refers to the column of the dataset of which the value is displayed on the horizontal axis.
-
-### Format
-
-If the dataset column of the horizontal axis has type DateTime, through this property you can choose how the date is displayed.
-
-## Vertical Axis Properties
+### 水平軸プロパティ
 
 {{% alert type="warning" %}}
 
-If the chart type is HorizontalBars, the axisses are swapped, and these properties apply to the horizontal axis instead of the vertical axis.
+グラフの種類が HorizontalBar の場合、軸が交換され、これらのプロパティは水平軸ではなく垂直軸に適用されます。
 
 {{% /alert %}}
 
-### Caption
+### 図表番号
 
-This is the caption that end users see near the vertical axis of the chart.
+これは、エンドユーザーがチャートの水平軸の近くに表示するキャプションです。
 
-### Precision
+### データセット列
 
-If numbers are displayed on the vertical axis, this property indicates the number of positions that's displayed after the dot in these numbers.
+このプロパティは、水平軸に値が表示されるデータセットの列を指します。
 
-### Use Min/Max
+### 書式
 
-If this property is false, the minimum and maximum value of the vertical axis is automatically adapted to the values that are displayed in the vertical direction.
+水平軸の dataset 列が DateTime 型の場合、このプロパティで日付の表示方法を選択できます。
 
-If this property is true, the minimum and maximum value of the vertical axis are determined by the following properties.
+## 垂直軸のプロパティ
 
-### Minimum
+{{% alert type="warning" %}}
 
-Minimum value of the vertical axis. This is only used if property 'Use min/max' (described above) is true.
+グラフの種類が HorizontalBar の場合、軸が交換され、これらのプロパティは垂直軸ではなく水平軸に適用されます。
 
-### Maximum
+{{% /alert %}}
 
-Maximum value of the vertical axis. This is only used if property 'Use min/max' (described above) is true.
+### 図表番号
 
-## Common Properties
+これは、エンドユーザーがチャートの垂直軸の近くに表示するキャプションです。
 
-### Name, Class, Style
+### 精度
 
-For details, see [Common Widget Properties](common-widget-properties).
+垂直軸に数字が表示される場合、このプロパティはこれらの数字のドットの後に表示される位置の数を示します。
+
+### 最小/最大値を使用
+
+このプロパティが false の場合。 垂直軸の最小値と最大値は、垂直方向に表示される値に自動的に調整されます。
+
+このプロパティが true の場合、垂直軸の最小値と最大値は次のプロパティによって決定されます。
+
+### 最小
+
+垂直軸の最小値。 これは、プロパティ 'Use min/max' (上記) が true の場合にのみ使用されます。
+
+### 最大値
+
+垂直軸の最大値。 これは、プロパティ 'Use min/max' (上記) が true の場合にのみ使用されます。
+
+## 共通のプロパティ
+
+### 名前、クラス、スタイル
+
+詳細については、 [共通ウィジェットプロパティ](common-widget-properties) を参照してください。
