@@ -1,13 +1,19 @@
 ---
 title: "已发布的应用服务"
 parent: "集成"
+tags:
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [已发布的网页服务](published-web-services) 或 [已发布的REST 服务](published-rest-services) 代替。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-app-services.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
+
+{{% alert type="info" %}}
+应用程序服务已被弃用，并已在Studio Pro 9中删除。 使用 [已发布的网页服务](published-web-services) 或 [已发布的REST 服务](published-rest-services) 代替。
+{{% /报警 %}}
 
 可以通过 **文件** > **新文档** 创建应用服务。
 
