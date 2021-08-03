@@ -9,14 +9,11 @@ tags:
   - "entity"
   - "operations"
   - "expose"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-This feature was introduced in version 7.16.0.
-
-The option to generate **Patch** was introduced in version 7.17.0.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/generate-rest-resource.pdf).
 {{% /alert %}}
 
 ## 1 Introduction
