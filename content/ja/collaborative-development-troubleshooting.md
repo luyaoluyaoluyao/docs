@@ -1,87 +1,87 @@
 ---
-title: "Troubleshooting Collaborative Development"
-parent: "collaborative-development"
-description: "Describes troubleshooting for collaborative development between the Mendix Studio Pro and the Mendix Studio"
+title: "共同開発のトラブルシューティング"
+parent: "共同開発"
+description: "Mendix Studio Pro と Mendix Studio の共同開発に関するトラブルシューティングについて説明します。"
 tags:
   - "studio pro"
-  - "studio"
-  - "collaborative development"
-  - "troubleshooting"
-  - "troubleshoot"
+  - "スタジオ"
+  - "共同開発は"
+  - "トラブルシューティング"
+  - "トラブルシューティング"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Collaborative development allows users to share model changes with each other. This document will help you to troubleshoot issues that may occur during the process of sharing changes with Mendix Studio.
+共同開発により、ユーザーはモデルの変更を互いに共有することができます。 このドキュメントは、Mendix Studio で変更を共有するプロセス中に発生する可能性のある問題のトラブルシューティングに役立ちます。
 
-## 2 Concepts
+## 2つのコンセプト
 
-For concepts and definitions, see the [Concepts](version-control#concepts) section in *Version Control*.
+概念と定義については、 [バージョンコントロール](version-control#concepts) の *コンセプト* のセクションを参照してください。
 
-## 3 Studio Is Out of Sync {#out-of-sync}
+## 3 Studio が同期されていません {#out-of-sync}
 
-Normally, the Studio working copy is synchronized with Studio Pro when the Studio Pro user updates or commits. However, if a commit or an update happened outside Studio Pro (using Tortoise SVN or any other version control tool), Studio is temporarily out of sync. In this case you will get a warning:
+通常、Studio Pro ユーザーが更新またはコミットを行うと、Studio の作業コピーは Studio Pro と同期されます。 ただし、コミットやアップデートがStudio Pro以外で発生した場合(Tortoise SVNなどのバージョン管理ツールを使用)。 Studio は一時的に同期できません。 この場合、警告が表示されます:
 
 ![](attachments/collaborative-development-troubleshooting/changes-are-out-of-sync.png)
 
-You can do one of the following:
+次のいずれかを実行できます:
 
-1.  **Merge** (recommended)–  Studio Pro will try to merge the unsynchronized changes from Studio automatically. Your local changes (if any) will be combined with the Studio changes. The changes from Studio are stored in an automatically created branch to ensure that there no changes lost in the process. The branch is visible in the branch line manager. This process can result in one of the following: <br/>
+1.  **Merge** (推奨)– Studio Pro は、Studio からの同期されていない変更を自動的にマージしようとします。 ローカルの変更があれば、Studio の変更と組み合わされます。 Studio からの変更は自動的に作成されたブランチに保存され、プロセスに変更が失われないようにします。 ブランチはブランチマネージャーに表示されます。 このプロセスは、次のいずれかの結果をもたらす可能性があります: <br/>
 
-    a.  If the merge process finishes successfully (without conflicts) the created branch is merged to your working copy and you get the Studio changes. You need to review the merged changes and commit them to get Studio and Studio Pro in sync again. And afterwards you can delete the automatically-created branch.<br/>
+    a  マージ処理が正常に終了すると(競合なしに)、作成されたブランチが作業コピーにマージされ、Studio の変更が表示されます。 マージされた変更を確認し、それらをコミットして、Studio と Studio Pro の同期を再度取得する必要があります。 その後、自動的に作成されたブランチを削除できます。<br/>
 
-    b. If there are any merge conflicts found in the process, you need to resolve them and commit the changes afterwards. Once you resolve the conflicts and commit the changes, you can delete this automatically-created branch.<br/>
+    B プロセスにマージ競合が見つかった場合は、それらを解決し、その後変更をコミットする必要があります。 競合を解決して変更をコミットしたら、自動的に作成されたブランチを削除できます。<br/>
 
     ![](attachments/collaborative-development-troubleshooting/automatically-created-branch.png)
 
-2. **Resolve Later** –  the changes can be merged later. In the meantime, changes from Studio and the Team Server development line will not be kept in sync. In this case, the dialog will appear again when committing/updating/merging changes.
+2. **あとで解決** – 変更は後でマージすることができます。 一方、Studio と Team Server 開発ラインからの変更は同期されません。 この場合、変更のコミット/更新/マージ時にダイアログが再び表示されます。
 
-## 4 Failed Merging Studio Pro and Studio Changes
+## Studio Pro と Studio の変更の統合に失敗しました 4
 
-When a Studio enabled branch with a commit outside Studio Pro is being merged with a different line, you will see the following message:
+Studio Pro 外でコミットが有効になっている Studio が別の行とマージされている場合、以下のメッセージが表示されます。
 
 ![](attachments/collaborative-development-troubleshooting/cannot-merge-automatically.png)
 
-You can choose one of the following:
+次のいずれかを選択できます:
 
-1.  **Cancel Merge** (recommended) – you can cancel the process and try to synchronize with Studio first. Do the following:<br/> a.  Open the Studio enabled development line.<br/> b.  The warning described in the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section will be displayed.<br/>
+1.  **Merge** をキャンセル (推奨) – プロセスをキャンセルして、最初に Studio と同期してみることができます。 次の操作を行います:<br/> a.  Studio 対応の開発ラインを開きます。<br/> b.  [Studio Pro & Studio Are Out of Sync](#out-of-sync) セクションで説明されている警告が表示されます。<br/>
 
     ![](attachments/collaborative-development-troubleshooting/changes-are-out-of-sync.png)<br/>
 
-    c. Click **Merge** to synchronize the changes with Studio.<br/>
+    C **Merge** をクリックして変更を Studio と同期します。<br/>
 
-    d. Open the previous branch and do the merge again.
+    D 前のブランチを開き、再度マージを行います。
 
-2. **Merge Anyway** – the merge will continue without changes from Studio. In this case only the changes from Studio Pro will be included. Studio Pro and Studio will be out of sync, and you will need to resolve this issue later. See the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section.
+2. **Merge とにかく** – Studio からの変更なしにマージは続行されます。 この場合、Studio Pro からの変更のみが含まれます。 Studio Pro と Studio は同期されていないため、後でこの問題を解決する必要があります。 [Studio Pro & Studio Are Out of Sync](#out-of-sync) セクションを参照してください。
 
-## 5 The Repository Service Is Unavailable
+## 5 リポジトリサービスが利用できません
 
-During the **Update** operation, changes are requested from Studio and integrated into the current app.  There is an additional step **Retrieve branch status** in the update process. During this step, Studio changes are retrieved.
+**Update** の操作中、変更は Studio から要求され、現在のアプリに統合されます。  更新プロセスには追加のステップ **ブランチステータス** を取得します。 このステップでは、Studio の変更が取得されます。
 
 ![](attachments/collaborative-development-troubleshooting/retrieving-branch-status.png)
 
-If there are network or service issues, Studio Pro will not be able to contact the repository service and a warning message is displayed:
+ネットワークまたはサービスの問題がある場合、Studio Proはリポジトリサービスに接続できず、警告メッセージが表示されます。
 
 ![](attachments/collaborative-development-troubleshooting/changes-are-not-retrieved.png)
 
-You can do one of the following:
+次のいずれかを実行できます:
 
-1. **Cancel** (recommended) – the operation will be cancelled, you can try again later, when the network problems are solved.
+1. **キャンセル** (推奨) - ネットワークの問題が解決された場合、操作はキャンセルされます。後で再試行できます。
 
-2. **Proceed** – the update process will continue, but the changes from Studio will not be retrieved. Studio Pro and Studio will be out of sync, and you will need to resolve this issue later. See the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section.
+2. **** – 更新プロセスは継続されますが、Studio からの変更は取得されません。 Studio Pro と Studio は同期されていないため、後でこの問題を解決する必要があります。 [Studio Pro & Studio Are Out of Sync](#out-of-sync) セクションを参照してください。
 
-## 6 Another Operation Is in Progress
+## 6 他の操作が進行中です
 
-When your team members initiate a blocking operation (commit/update/merge a Studio enabled branch or switch a Studio enabled branch), and at the same you initiate a blocking operation as well, and you will see the dialog below:
+チームメンバーがブロック操作を開始したとき (スタジオが有効なブランチをコミット/更新/マージするか、スタジオが有効なブランチを切り替えます) それと同時にブロッキング操作も開始します。下のダイアログが表示されます。
 
 ![](attachments/collaborative-development-troubleshooting/another-operation-in-progress.png)
 
-You can do one of the following:
+次のいずれかを実行できます:
 
-1. **Cancel** (recommended) – the operation will be cancelled. We recommend you to do an update in a few minutes so that you get the latest changes and your working copy and Studio will be in sync.
-2. **Proceed** – the update process will continue, but the changes from Studio will not be retrieved. Studio Pro and Studio will be out of sync, and you will need to resolve this issue later. See the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section.
+1. **キャンセル** (推奨) – 操作はキャンセルされます。 数分で更新を行うことをお勧めします。これにより、最新の変更が得られ、作業コピーと Studio が同期されます。
+2. **** – 更新プロセスは継続されますが、Studio からの変更は取得されません。 Studio Pro と Studio は同期されていないため、後でこの問題を解決する必要があります。 [Studio Pro & Studio Are Out of Sync](#out-of-sync) セクションを参照してください。
 
-## 7 Read More
+## 7 続きを読む
 
-* [Version Control](version-control)
-* [Collaborative Development in Studio](/studio/collaborative-development)
+* [バージョン管理](version-control)
+* [Studio での共同開発](/studio/collaborative-development)
