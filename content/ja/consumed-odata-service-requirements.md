@@ -7,6 +7,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-odata-service-requirements.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 このドキュメントでは、消費される予定の OData サービスの要件について説明します。 これらの要件は、実行時にさらに検証されず、保持することが期待されます。 これらの要件が満たされない場合、エラーが発生する可能性があります。
@@ -26,7 +30,7 @@ Mendix アプリで使用される消費された OData サービスの要件は
 
 サービスでは、サポートされていない機能を示すために語彙注釈を使用できます。 以下の語彙のアノテーションがエンティティセットに認識されます:
 
-* **Countable** - `Countable="false"` に設定されたエンティティをマークすると、ユーザーがエンティティをアプリに追加できなくなります
+* **Countable** - `Countable="false"` に設定されたエンティティをマークすると、ユーザーがプロジェクトにエンティティを追加できなくなります
 * **フィルタ可能** - `Filterable="false"` は、すべてのプロパティをフィルタリング不可能として設定します。
 * **ソート可能** - エンティティセットを `Sortable="false"` はすべてのプロパティをソート不可能として設定します
 * Marking an entity set as `Filterable="false"` and `Sortable="false"` sets all properties as non-filterable and non-sortable; marking properties with the `NonFilterableProperties` annotation or the `NonSortableProperties` annotation sets specific attributes as non-filterable or non-sortable
@@ -35,13 +39,9 @@ Mendix アプリで使用される消費された OData サービスの要件は
 
 さらに、エンティティはキーで一意に識別できる場合にのみ使用できます。 キーは、次の条件が満たされている限り、1 つ以上のプロパティで構成できます。
 
-* プロパティは nullable にできません ( `isNullable="false"` が指定されている必要があります)。
-* Only the following types are allowed: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `Boolean`, `Decimal`, `Single`, `Double`, and `String`.
-* key プロパティの型が `String`の場合、長さが制限されていなければなりません。 これは、すべてのデータベースが文字列上で無制限の長さのインデックスをサポートしているわけではないからです。 コントラクトで `MaxLength` が指定されている場合に十分です。 ただし、 `MaxLength` が指定されていない場合、文字列の長さが制限されていることがわかります。 ドメインモデルで属性の最大長を指定することで、エンティティを使用できます。
-
-{{% alert type="info" %}}
-コントラクトで指定された最大長を持たないキーを持つエンティティを使用するこの機能は、バージョン 9.3.0 以降に適用されます。 Studio Pro の以前のバージョンでは、 `MaxLength` が指定されていることを確認するために、コントラクトを変更する必要があります。
-{{% /alert %}}
+* プロパティは nullable にすることはできません ( `isNullable="false"` を指定する必要があります)
+* Only the following types are allowed: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `Boolean`, `Decimal`, `Single`, `Double`, and `String`
+* 型が `String`の場合、 `MaxLength` を指定する必要があります。
 
 ### 3.2 属性
 
@@ -96,12 +96,20 @@ OData v4 navigation プロパティは、パートナーを持つ場合のみ関
 
 ## 4 Data Hub ライセンスの制限 {#license-limitations}
 
-Mendix Data Hubは別途ライセンスされた製品です。
+Mendix Data Hubは別途ライセンスされた製品です。 The type of license that you have determines the total number of data objects that can be requested from a consumed OData service *per day* for *each* runtime instance of an app.
 
-ライセンスがなければ、アプリケーションは各ランタイムインスタンスに対して1日あたり合計1000 個の OData オブジェクトを取得できます。 この制限を超えると、ユーザーがより多くのデータを取得しようとするとエラーが発生します。 1日あたりの消費されるオブジェクトの数は、Mendix Runtime スケジューラのタイムゾーンで真夜中にリセットされます (アプリで定義することができます [プロジェクト設定](project-settings#scheduled))。
+現在利用可能なデータハブライセンスには2種類あります。
 
-データハブのライセンスでは、アプリは制限されません。
+* **Data Hub** – 消費可能なOData オブジェクトの数に制限がない、 *デフォルト* ライセンスです。
 
-{{% alert type="info" %}}開発環境(およびStudiosから実行している場合)で実行されているアプリには、この制限はありません。 これは、データハブのライセンス制限なしにStudiosからアプリを実行できることを意味します。{{% /alert %}}
+* **Freemium** - ランタイムインスタンスごとに1日あたり合計1000個のODataオブジェクトを取得できます。 この制限を超えると、ユーザーがより多くのデータを取得しようとするとエラーが発生します。 1日あたりの消費されるオブジェクトの数は、Mendix Runtime スケジューラのタイムゾーンで真夜中にリセットされます (アプリで定義することができます [プロジェクト設定](project-settings#scheduled))。
 
-組織が持っているデータハブのライセンスの種類については、 [Mendix管理者](/developerportal/control-center/#company) またはデータハブ管理者にお問い合わせください。
+  {{% alert type="info" %}}Freemium Data Hub ライセンスは招待状のみに基づいて発行されます。 {{% /alert %}}
+  {{% alert type="info" %}}For Mendix 8.12.3 and later, apps running without a [Mendix license](/developerportal/deploy/licensing-apps-outside-mxcloud) (and also when running from the Studios) do not have this limitation. これは、データハブのライセンス制限なしに、Studio からアプリを実行できることを意味します。 {{% /alert %}}
+
+組織が持っているデータハブのライセンスの種類については、 [Mendix管理者](/developerportal/control-center/index#company) またはデータハブ管理者にお問い合わせください。
+
+
+### 4.1 地域開発
+
+地域開発は、フリーミウムモデルと同じライセンスの対象となります。 合計1000 個の OData オブジェクトを取得することができ、その後エラーが発生します。 アプリを再起動することでリセットすることができます。
