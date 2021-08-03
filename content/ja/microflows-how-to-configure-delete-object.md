@@ -1,96 +1,96 @@
 ---
-title: "Configure a Delete Object Action"
-category: "Microflows"
+title: "オブジェクトの削除アクションを設定する"
+category: "マイクロフロー"
 menu_order: 80
-description: "This how to describes the process of configuring a delete object action in a data view and a list view in Mendix Studio."
+description: "この方法では、データビューで削除オブジェクトアクションを設定し、Mendix Studio でリストビューを設定するプロセスを説明します。"
 tags:
-  - "studio"
-  - "page editor"
-  - "delete object"
-  - "list view"
-  - "data view"
-  - "how to"
+  - "スタジオ"
+  - "ページエディタ"
+  - "オブジェクトの削除"
+  - "リスト表示"
+  - "データビュー"
+  - "どうやって?"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can configure a delete object action in Mendix Studio.
+この方法では、Mendix Studio で削除オブジェクトアクションを設定する方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* configure the **Delete Object** action in a [list view](/studio8/page-editor-data-view-list-view#list-view-properties)
-* configure the **Delete Object** action in a [data view](/studio8/page-editor-data-view-list-view#data-view-properties)
+* **リスト ビュー** で [オブジェクト](/studio8/page-editor-data-view-list-view#list-view-properties) を削除する
+* **データビュー** で [オブジェクト](/studio8/page-editor-data-view-list-view#data-view-properties)を削除するアクションを設定する
 
-This how-to describes the following use case:  you would like to delete the customer's name from a list of customers.
+この方法では、以下のユースケースを説明します。顧客のリストから顧客名を削除する場合。
 
 {{% alert type="info" %}}
 
-You can configure the **Delete Object** on click action for such widgets as buttons or a static image. In this how-to, a **Delete** button is used as an example of a widget with **Delete Object** on click action. For more information, see the [Delete Object Action](/studio8/page-editor-widgets-events-section#delete-object-action) section in *Events Section*.
+ボタンや静止画像などのウィジェットのクリック操作で **Delete Object** を設定できます。 この方法では、 **Delete** ボタンをクリック操作で **Delete Object** を持つウィジェットの例として使用します。 詳細については、 [イベント セクション](/studio8/page-editor-widgets-events-section#delete-object-action) の *Object Action* のセクションを参照してください。
 
 {{% /alert %}}
 
-## 2 Configuring the Domain Model and Creating a Page
+## 2 ドメインモデルの設定とページの作成
 
 To list customers' names and to show a more detailed information under the list, you need to create an entity *Customer*, add attributes *Name* and *Address* to it, and then create a page where you will list names of customers.
 
-To configure the domain model and create a page, do the following:
+ドメインモデルを設定してページを作成するには、次の操作を行います。
 
-1. Open your [domain model](/studio8/domain-models).
+1. [ドメイン モデル](/studio8/domain-models) を開きます。
 
-2. Create an entity *Customer*. For more information on how to create an entity, see the [Adding New Entities](/studio8/domain-models) section in *Domain Models Overview*.
+2. エンティティ *顧客* を作成する。 エンティティの作成方法の詳細については、 [ドメインモデルの概要](/studio8/domain-models) の *新規エンティティの追加* セクションを参照してください。
 
 3.  For the **Customer** entity, create an attribute (for more information on how to create an attribute, see the [Adding New Attributes](/studio8/domain-models) section in *Domain Models Overview*) and do the following:<br/>
 
-    a. Set the **Name** of the attribute to *Name*.<br/>
+    a 属性の **名前** を *名前* に設定します。<br/>
 
-    b. Set the [Type](/studio8/domain-models-attributes) to **String**.<br/>
+    B [Type](/studio8/domain-models-attributes) に **String** を設定します。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/name-attribute.png)<br/>    
-   c. Click **Create** to add the new attribute.<br/>
+   C **Create** をクリックして新しい属性を追加します。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/customer-entity.png)
 
-4. Repeat step 3 to create an attribute *Address* of string type.
+4. 文字列型の属性 *アドレス* を作成するには、ステップ 3 を繰り返します。
 
-5.  Now you need a page where customers' names will be listed. Create a blank page and name it *Customers*. For more information on creating pages, see the [Creating a New Page](/studio8/page-editor) section in *Pages*.<br/>
+5.  今、あなたは顧客の名前が表示されるページが必要です。 空白のページを作成し、 *顧客* に名前を付けます。 ページの作成に関する詳細は、 [ページ](/studio8/page-editor) の *新規ページ* の作成セクションを参照してください。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/create-page.png)
 
-A new blank page is created.
+新しい空白ページが作成されます。
 
 ![](attachments/microflows-how-to-configure-delete-object/blank-page-created.png)
 
-## 3 Configuring a Delete Object Action in a List View
+## 3 リストビューでのオブジェクト削除アクションの設定
 
-Now you will configure a list view and will add a button with [**Delete Object** action](/studio8/page-editor-widgets-events-section#delete-object-action) that deletes the corresponding customer when a user clicks the button. Do the following:
+これでリストビューを構成し、ユーザーがボタンをクリックしたときに対応する顧客を削除する [**オブジェクト** アクション](/studio8/page-editor-widgets-events-section#delete-object-action) でボタンを追加します。 次の操作を行います:
 
-1. Open the page *Customers* that you have created.
+1. 作成したページ *顧客* を開きます。
 
-2.  In **Building Blocks** > **Lists** find **List 1**, drag and drop it to the page. This building block contains a list view in it by default.
+2.  **Building Blocks** > **Lists** find **List 1**, drag and drop it to the page. このBuilding Blockはデフォルトでリストビューを含んでいます。
 
     ![](attachments/microflows-how-to-configure-delete-object/list-1.png)
 
-3.  Now you need to configure the list view. Open the list view properties and do the following: <br/>
+3.  次に、リスト ビューを構成する必要があります。 リストビューのプロパティを開き、次の操作を行います。 <br/>
 
-    a.  Select **Database** as **Data Source**.<br/>
+    a  **データベース** を **データ ソース** として選択します。<br/>
 
-    b.  Set **Entity** to **Customer**.<br/>
+    B  **エンティティ** を **顧客** に設定します。<br/>
 
-    ![](attachments/microflows-how-to-configure-delete-object/list-view-properties.png) <br/> Now the list view is connected to the **Customer** entity. <br/>
+    ![](attachments/microflows-how-to-configure-delete-object/list-view-properties.png) <br/> 今、リスト ビューは、 **顧客** エンティティに接続されています。 <br/>
 
-4.  Select the text *Name* and do the following in **Properties**:<br/>
+4.  テキスト *名前* を選択し、 **プロパティ** で以下を行います:<br/>
 
-    a. In **Content**, delete the text *Name*.<br/>
+    a **コンテンツ**で、 *名前* というテキストを削除します。<br/>
 
-    b. Click **Add attribute** (or press <kbd>Ctrl</kbd> + <kbd>Space</kbd>) and select the **Name** attribute. <br/>
+    B **属性の追加** をクリックし(または <kbd>Ctrl</kbd> + <kbd>スペース</kbd>を押して)、 **Name** 属性を選択します。 <br/>
 
-    ![](attachments/microflows-how-to-configure-delete-object/text-content.png)<br/> Now the text widget is connected to the **Name** attribute, and will show you customers' names in a list.<br/>
+    ![](attachments/microflows-how-to-configure-delete-object/text-content.png)<br/> テキストウィジェットが **Name** 属性に接続され、リスト内の顧客名が表示されます。<br/>
 
-5.  Click the button displayed as an arrow and delete it.
+5.  矢印として表示されているボタンをクリックして削除します。
 
     ![](attachments/microflows-how-to-configure-delete-object/arrow-button.png)
 
-6.  In **Toolbox** > **Widgets** > **Buttons** find **Delete Object**, drag and drop it inside the container that is left from the arrow button.
+6.  In **Toolbox** > **Widgets** > **Buttons** find **Delete Object**, 矢印ボタンから左にあるコンテナ内にドラッグ&ドロップします。
 
     ![](attachments/microflows-how-to-configure-delete-object/container-for-the-delete-button.png)
 
@@ -98,76 +98,76 @@ Now you will configure a list view and will add a button with [**Delete Object**
 
     ![](attachments/microflows-how-to-configure-delete-object/delete-button-properties.png)
 
-You have created the page that lists customers' names. When an end-user clicks **Delete** in one of the lines, the customer who is selected in this line will be deleted from the app along with the customer's details. For more information, see the [Delete Object Action](/studio8/page-editor-widgets-events-section#delete-object-action) section in *Events Section*.
+顧客の名前を一覧表示するページを作成していること。 エンドユーザーが **削除** 行のいずれかの行をクリックしたとき。 この行で選択されたお客様は、お客様の詳細とともにアプリから削除されます。 詳細については、 [イベント セクション](/studio8/page-editor-widgets-events-section#delete-object-action) の *Object Action* のセクションを参照してください。
 
-## 4 Configuring a Delete Object Action in a Data View
+## 4 データビューでのオブジェクト削除アクションの設定
 
-You can also configure the [**Delete Object** action](/studio8/page-editor-widgets-events-section#delete-object-action) in a data view. In this case **Delete Object** will delete the connected object. To configure the data view and the **Delete** button on your page, do the following:
+データ ビューで [**Object** アクション](/studio8/page-editor-widgets-events-section#delete-object-action) を削除することもできます。 この場合、 **Delete Object** は接続されたオブジェクトを削除します。 データビューとページの **削除** ボタンを設定するには、以下を行います:
 
 1.  On the page named *Customers*, open the **Layout Grid** properties (use a breadcrumb at the bottom of the screen to select the layout grid).
 
     ![](attachments/microflows-how-to-configure-delete-object/breadcrumb.png)
 
-2.  In **Properties** > **Add Row**, click the button that adds a row below. You will use this row to place a data view there.
+2.  **プロパティ** > **行を追加**, 下に行を追加するボタンをクリックしてください。 この行を使用して、データビューを配置します。
 
     ![](attachments/microflows-how-to-configure-delete-object/add-row.png)
 
-3. In **Toolbox** > **Widgets** > **Data Containers**, find the data view widget, drag and drop it inside the column (that was added together with a new row).
+3. In **Toolbox** > **Widgets** > **Data Containers**, データビューウィジェットを見つけて、列内にドラッグ&ドロップします(新しい行と一緒に追加されました)。
 
-4.  Now you need to configure the data view. In **Properties** of the data view, do the following: <br/>
+4.  次に、データ ビューを構成する必要があります。 データ ビューの **プロパティ** で、次の操作を行います。 <br/>
 
-    a. Set **Data Source** to **List widget**.<br/>
+    a **データ ソース** を **リスト ウィジェット** に設定します。<br/>
 
-    b. Set **Widget** to **List View with entity Customer**. Now the data source for the data view is the list view that is placed on the same page.<br/>
+    B **ウィジェット** を **エンティティ顧客との一覧表示** に設定します。 現在、データ ビューのデータ ソースは、同じページに配置されているリスト ビューになります。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/data-view-list-widget.png)
 
-5. You need to fill the data view with data. In **Toolbox** >**Widgets** > **Typography**, select **Text**, drag and drop it inside the data view.
+5. データビューをデータで埋める必要があります。 In **Toolbox** >**Widgets** > **Typography**, select **Text**, drag and drop it inside the data view.
 
-6.  You will make a heading out of the **Text** widget you have just added. Open the **Properties** of the **Text** and do the following:<br/>
+6.  先ほど追加した **テキスト** ウィジェットから見出しを作成します。 **テキスト** の **プロパティ** を開き、次の操作を行います:<br/>
 
-    a. In **Content**, delete the word *Text* and type *Customer Details*.<br/>
+    a **コンテンツ**で、 *テキスト* という単語を削除し、 *Customer Details* と入力します。<br/>
 
-    b. Set **Render Mode** to **H4**. <br/>
+    B **レンダリングモード** を **H4** に設定します。 <br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/text-heading4.png)<br/>
 
-7. Now you will add a text box to display details of the selected customer. In **Widgets** > **Input Elements**, select **Text Box**, drag and drop it inside the data view content.
+7. 選択した顧客の詳細を表示するテキストボックスを追加します。 **ウィジェット** > **入力要素**で、 **テキストボックス**を選択し、データビューコンテンツ内にドラッグ&ドロップします。
 
 8.  Open the **Properties** of the **Text Box**, and in **Data Source**, set **Attribute** to **Name** (the label for the text box will be changed to **Name** automatically).
 
     ![](attachments/microflows-how-to-configure-delete-object/text-box-name.png)
 
-9. Repeat step 7 to add one more **Text Box** to the page.
+9. ステップ7を繰り返して、もう1つ **テキストボックス** をページに追加します。
 
 10. Open the **Properties** of the **Text Box**, and in **Data Source**, set **Attribute** to **Address** (the label for the text box will be changed to **Address** automatically).
 
     ![](attachments/microflows-how-to-configure-delete-object/text-box-address.png)
 
-11. In **Toolbox** > **Widgets** > **Buttons** find **Delete Object**, drag and drop it inside the data view.
+11. In **Toolbox** > **Widgets** > **Buttons** find **Delete Object**, データビューの中にドラッグ&ドロップします。
 
-12. The button is already preconfigured: its **On Click Action** is set to **Delete Object**, and **Caption** is set to **Delete**. But you will add some styling to it. Do the following:<br/>
+12. The button is already preconfigured: its **On Click Action** is set to **Delete Object**, and **Caption** is set to **Delete**. しかし、あなたはそれにいくつかのスタイリングを追加します。 次の操作を行います:<br/>
 
-    a. In the **General** section, set **Style** to **Danger**.<br/>
+    a **General** セクションで、 **Style** を **Danger** に設定します。<br/>
 
-    b. In the **Design** section, set **Align Self** to **Right**.<br/>
+    B **Design** セクションで、 **Align Self** を **Right** に設定します。<br/>
 
-You have configured the data view that will show you the customer's name and address once you select this customer in the list:
+リストでこの顧客を選択すると、顧客の名前と住所が表示されるデータビューを構成しました。
 
 ![](attachments/microflows-how-to-configure-delete-object/configured-page.png)
 
 The workflow for the **Delete** button in the data view (the red **Delete** button) is the following:
 
-1. An end-user selects a customer's name in the list.
+1. エンドユーザーは、リスト内の顧客の名前を選択します。
 
-2. The customer's details (name and address) are shown in the data view below.
+2. 顧客の詳細(名前と住所)は、以下のデータビューに表示されます。
 
-3. The user clicks **Delete**.
+3. ユーザーは **削除** をクリックします。
 
-4. Whole customer's record is deleted.
+4. 顧客のレコード全体が削除されます。
 
    ![](attachments/microflows-how-to-configure-delete-object/published-page-example.png)
 
-For more information on the delete object action, see the [Delete Object Action](/studio8/page-editor-widgets-events-section#delete-object-action) section in *Events Section*.
+削除オブジェクトアクションの詳細については、 [イベント セクション](/studio8/page-editor-widgets-events-section#delete-object-action) の *オブジェクトアクション* のセクションを参照してください。
 
-Congratulations! You have configured **Delete** buttons in the list view and in the data view. 
+おめでとうございます リスト ビューとデータ ビューで **削除** ボタンを設定しています。 
