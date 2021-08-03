@@ -1,12 +1,12 @@
 ---
 title: "Workflow Properties"
-parent: "workflows"
+category: "Workflows"
 menu_order: 10
 tags:
   - "workflow"
   - "workflows"
   - "workflow properties"
-  - "Studio Pro"
+  - "Studio"
 ---
 
 ## 1 Introduction
@@ -17,113 +17,79 @@ This document describes workflow properties. For details on what workflows are f
 
 Workflow properties consist of the following sections:
 
-* [Admin page](#admin-page)
-* [Common](#common)
-* [Data](#data)
-* [Display information](#display-info)
-* [Due date](#due-date)
 * [General](#general)
-* [Security](#security)
+* [Data](#data)
+* [Display Information](#display-info)
+* [Permissions](#permissions)
+* [Due Date](#due-date)
+* [Admin Page](#admin-page)
 
-### 2.1 Admin Page Section {#admin-page}
+### 2.1 General Section {#general}
 
-**Override admin page** is an optional page used for displaying an instance of the workflow to the workflow admin. This overrides a generic page used to display any workflow instances in the app, for example, when you have a **Show workflow admin page** set as an [on-click event](on-click-event#show-workflow-page) or as a [microflow action](show-workflow-page) and would like to override the page selected for this event/action.
+The **General** section contains information on the title and name of the workflow.
 
-If you generate the page using the templates in **Workflows Commons** module, these templates contain necessary data containers and associated context entity.
+![General Section](attachments/workflow-properties/general.jpg)
 
-### 2.2 Common Section {#common}
+The **General** section properties are described in the table below:
 
-#### 2.2.1 Name {#name}
+| Property | Description                                                                                                              |
+| -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Title    | Defines a title of the workflow that you see at the top of the working area.                                             |
+| Name     | The internal name of the workflow that must be unique. When referring to the workflow in the app you will use this name. |
 
-**Name** is the internal name of the workflow document. When referring to the workflow in the app you will use this name. It must be unique within the module, but you can have two workflows with the same name in different modules. When referring to the workflow, you will normally prepend the name of the module to ensure uniqueness and allow you to use workflows in other modules.
+### 2.2 Data Section {#data}
 
-You cannot change the **Name** of the workflow but you can change the [Caption](#general).
+The **Data** section contains information on what data context the workflow is using.
 
-#### 2.2.2 Documentation
+![Data Section](attachments/workflow-properties/data.jpg)
 
-**Documentation** allows you to describe your workflow to make it easier for people to use and modify it.
+**Workflow entity** is an entity that is used as a workflow context. This entity serves as input for the workflow and can hold the data added during the execution of the workflow. For example, for an expense approval process, it holds the amount to approve and the purpose.
 
-### 2.3 Data Section {#data}
+This entity should be of a workflow entity type. For more information, see the [Entities and Their Types](domain-models#entity-types) section in the *Domain Model*.
 
-**Workflow entity** is an entity that is used as a workflow context. It should be a [specialization](generalization-and-association) of the **Workflow Context** entity from the **System** module. For more information on workflow-related entities in the System module, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
+### 2.3 Display Information Section {#display-info}
 
-We recommend to keep the workflow entity "clean", meaning, to only have attributes on it that are important for the current instance of your workflow and add other data via associations:
+The **Display Information** section defines the workflow name and its description that are displayed in the running (published) app.
 
-![Domain Model Example](attachments/workflow-properties/domain-model-example.png)
+![Display Information Section](attachments/workflow-properties/display-information.jpg)
 
-### 2.4 Display Information Section {#display-info}
+The **Display Information** section properties are described in the table below:
 
-#### 2.4.1 Workflow Name
+| Property             | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Workflow Name        | **Workflow name** is displayed in the running app. The **Workflow name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FullName** attribute value from the **Employee Onboarding** data to display the name of the new employee. The expression should be return a string value.                                |
+| Workflow Description | **Workflow Description** is a description of the workflow displayed in the running app. The **Workflow name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FirstDay** attribute value from the **Employee Onboarding** data to display the start date of the new employee and assign them to a training group. |
 
-**Workflow name** is stored in the System module on the **Workflow** entity as an attribute and its data can be dynamically displayed in the running app. If you are using the **Workflow Commons** module, the **Workflow name** is used on preconfigured pages: the Admin Center and Workflow Admin page.
+### 2.4 Permissions Section {#permissions}
 
-The **Workflow name** can contain parameters that are written between braces, e.g. {1}.
+**Allowed roles** defines the [user role](settings-security#roles-and-permissions) that can trigger the workflow.
 
-For more information on using parameters, see the [Parameters](#parameters) section below.
+![Permissions Section](attachments/workflow-properties/permissions.jpg)
 
-#### 2.4.2 Workflow Description
-
-**Workflow description** is stored in the System module on the **Workflow** entity as an attribute and its data can be dynamically displayed in the running app. If you are using the **Workflow Commons** module, the **Workflow description** is used in page templates.
-
-The **Workflow description** can contain parameters that are written between braces, e.g. {1}.
-
-#### 2.4.3 Parameters {#parameters}
-
-Parameters are attributes the value of which will be displayed. For example, you can display the name of the new employee who is being onboarded using the **FullName**  parameter.
-
-To view **Parameters**, click the ellipsis icon next to the **Workflow name** or **Workflow description** in properties depending on where you would like to display these parameters.
-
-Parameters have the following settings:
-
-* **Index** – an identification number of a parameter
-* **Expression** – an XPath expression that will be displayed
-
-##### 2.4.3.1 Adding New Parameters
-
-To add a parameter to the **Workflow name** or the **Workflow description**, do the following:
-
-1. Click the ellipsis icon next to the **Workflow name** or the **Workflow description**.
-
-2. In the **Edit workflow name** dialog box > **Parameters** section, click the **New** button.
-
-3. In the **Template Parameter (String)** dialog box, specify the expression, and confirm your choice.
-
-    ![Specifying the Attribute](attachments/workflow-properties/specifying-attribute.png)
-
-    {{% alert type="info" %}}Make sure that the attribute you use in the expression is of the string type.{{% /alert %}}
-
-4. In the **Template** setting, write the text you would like to display and type **Index** of the parameter you would like to include. In the example below, to include a full name of the new hire being onboarded, you need to use {1} index:
-
-    ![Edit Workflow Name Dialog Box](attachments/workflow-properties/edit-workflow-name.png)
-
-##### 2.4.3.2 Performing Other Actions on Parameters
-
-In addition to adding new parameters, you can perform the following actions on parameters:
-
-* **Delete** – to delete a parameter click **Delete** or press <kbd>Delete</kbd> on your keyboard
-* **Edit** – double-click a parameter to edit it or click **Edit**
-* **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
-* **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
-
-### 2.5 Due Date Section {#due-date}
-
-**Due by** is stored in the System module on the **Workflow** entity as an attribute and its data can be dynamically displayed in the running app. For example, you can use it to set a deadline for the workflow and display it in your app. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the workflow. If you are using the **Workflow Commons** module, **Due by** is used in page templates.
-
-### 2.6 General Section {#general}
-
-**Caption** defines a title of the workflow. You cannot change the [Name](#name) of the workflow but you can change the **Caption**.
-
-### 2.7 Security Section {#security}
-
-**Allowed roles** defines which [module role](module-security#module-role) the user must have to be able to execute the workflow.
-
-{{% alert type="warning" %}}
-These roles are only checked when the workflow is executed from the client.
+{{% alert type="info" %}}
+This section is only displayed when the security is on. For more information, see [Security](settings-security).
 {{% /alert %}}
 
-For more information, see [Module Security](module-security).
+### 2.4 Due Date Section {#due-date}
+
+The **Due Date** section allows you to set a deadline for the workflow and keep track of it. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the workflow. For example, you can use this due date to show workflows that are overdue in a dashboard.
+
+![Due Date Section](attachments/workflow-properties/due-date.jpg)
+
+The **Due Date** section properties are described in the table below:
+
+| Property   | Description                                                                                                                                                                                                                                    |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| None       | No due date is set.                                                                                                                                                                                                                            |
+| Duration   | You can set the deadline for the workflow with the **Due In** option, which indicates the number of hours, days, or weeks the workflow is due in. Possible values of the property are the following ones:<br /><ul><li>Hour(s)</li><li>Day(s)</li><li>Week(s)</li> </ul> |
+| Expression | You can set a due date for the workflow writing an expression. For example, to set a due date to tomorrow, you can use `addDays([%CurrentDateTime%], 1)`. For more information on expressions, see [Expressions](expressions).                 |
+
+### 2.5 Admin Page Section {#admin-page}
+
+**Override Admin Page** is an optional page used for displaying all running workflows to the workflow admin. This overrides a generic page used to display any running workflow in the app, for example, when you have a **Show Workflow Page** set as an [on-click action](page-editor-widgets-events-section#show-workflow-page) or as a [microflow activity](microflows#microflow-workflow-activities) and would like to override the page selected for this event/activity.
+
+![Workflow Page Section](attachments/workflow-properties/workflow-page.jpg)
 
 ## 3 Read More
 
-* [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure)
 * [Workflows](workflows)
