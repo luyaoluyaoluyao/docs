@@ -2,8 +2,8 @@
 title: "Table (Document Template)"
 parent: "document-templates"
 aliases:
-  - /refguide/table-(document-template).html
-  - /refguide/Table+(document+template.html
+  - /refguide7/Table+(document+template.html
+  - /refguide7/table-(document-template).html
 ---
 
 ## 1 Introduction
@@ -14,7 +14,7 @@ Tables can be used both inside and outside the data view or templategrid widgets
 
 {{% alert type="info" %}}
 
-![](attachments/document-templates/918134.png)
+![](attachments/819203/918134.png)
 
 This table has four rows and three columns. The last row contains a data view with another table.
 
@@ -56,4 +56,4 @@ For details, see [Style](style).
 
 ## 4 Common Properties
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
