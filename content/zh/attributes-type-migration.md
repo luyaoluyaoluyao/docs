@@ -1,43 +1,43 @@
 ---
-title: "Attribute Type Migration"
-parent: "data-storage"
+title: "属性类型迁移"
+parent: "数据存储"
 menu_order: 10
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix allows you to change attribute and association types on existing domain models. This document explains the consequences of doing this.
+Mendix 允许您在现有域模型上更改属性和关联类型。 本文件解释了这样做的后果。
 
-## 2 Data Type Changes on Existing Attributes
+## 2 现有属性的数据类型变化
 
-### 2.1 Data Type Change Behavior
+### 2.1 数据类型变化行为
 
-If the type of an existing attribute is changed in Mendix Studio or Mendix Studio Pro, the existing attribute will usually be deleted and a new attribute will be created. For some attribute type changes Mendix tries to convert existing data in the database to the new type.
+如果在 Mendix Studio 或 Mendix Studio Pro中更改了现有属性的类型， 现有属性通常将被删除，新属性将被创建。 对于某些属性类型，Mendix 试图将数据库中的现有数据转换为新类型。
 
-If data should NOT be converted to the new type, you must remove the attribute in Studio or Studio Pro and create a new column (with the same name). If you change the type and rename the column, Mendix remembers the old column name and will try to convert the column values if possible.
+如果数据不应转换为新类型， 您必须移除Studio 或 Studio Pro 中的属性，并创建一个新列(具有相同名称)。 如果您更改类型并重命名列，Mendix 将重命名旧列名，然后尽可能尝试转换列值。
 
-### 2.2 Conversion Table
+### 2.2 换算表
 
-The table below shows, for each data type change, whether Mendix will convert the values.
+下表显示每个数据类型的变化，Mendix 是否会转换值。
 
-| Key                                    | Means                                                                                                                                                                                               |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **&#x2713;**                           | Conversion always possible.                                                                                                                                                                         |
-| **\*<sup><small>note</small></sup>** | Conversion is not always possible, or data will be changed during conversion. See related note for more information. If conversion is not possible, the behavior is the same as for "**X**", below. |
-| **X**                                  | Conversion not possible. The original column will be removed and a new column will be created with default values for the existing rows.                                                            |
+| 关键字                                  | 手段                                                           |
+| ------------------------------------ | ------------------------------------------------------------ |
+| **&#x2713;**                         | 转换始终是可能的。                                                    |
+| **\*<sup><small>笔记</small></sup>** | 转换并非总是可能的，或者在转换过程中数据会被更改。 更多信息见相关说明。 如果无法转换，行为与下面的“**X**”相同。 |
+| **X**                                | 无法转换。 原始列将被删除，新列将被创建，现有行默认值。                                 |
 
-![Table of conversions - click to enlarge](attachments/attributes-type-migration/conversion-table.png) (*Click the image to enlarge*)
+![转化表 - 点击扩展](attachments/attributes-type-migration/conversion-table.png) (*点击图像以扩大*)
 
-### 2.3 Manual Conversion
+### 2.3 手工转换
 
-Even if Mendix cannot convert the values of a specific column to another type, you can still manage that manually. Change the name of the attribute, for example append the text 'Deleted' to its name. Create a new attribute with the same name and the new data type. Look up each occurrence of the old (renamed) attribute in the whole model and change this to the new attribute. Be sure that there is no microflow or page anymore which refers to the old attribute.
+即使Mendix 不能将特定列的值转换为另一种类型，您仍然可以手动管理它。 更改属性的名称，例如将文本“已删除”附加到其名称。 创建具有相同名称和新数据类型的新属性。 查找整个模型中旧的(重命名)属性的每个出现情况并将其更改为新属性。 确保不再有微流程或页面提到旧属性。
 
-Create a microflow in which you retrieve all instances of the entity, loop through the instances and for each instance, read the value of the old attribute, convert the value, store it in the new attribute and commit the instance. Place a button on an administrator page which calls this microflow.
+创建一个微流程，您可以在其中检索实体的所有实例，通过实例循环和每个实例获取。 读取旧属性的值，转换值，将其存储在新属性中并提交实例。 在调用微流程的管理员页面上放置按钮。
 
-When you deploy, you have to run this microflow one time, after which you can remove both the microflow and the button pointing to it, and then you can also remove the old attribute.
+当您部署时，您必须一次运行这个微流。 之后您可以删除微流程和指向它的按钮，然后您也可以删除旧属性。
 
-## 3 Association Type Changes on Existing Associations
+## 现有关联的关联类型变化
 
-When you have a one-to-many association and change it into a one-to-one association, be aware that duplicate associations are not cleaned up in the database. For example, a one-to-many association from entity A to entity B allows multiple references: a1 to b1, a1 to b2, etc. One-to-one associations only allow a single reference per object: a1 to b1. Duplicate association entries like a1 to b2 are not cleaned up when you redeploy your app.
+当您有一对一的社团并将它更改为一对一社团时，请注意重复社团在数据库中没有被清除。 例如，从实体A到实体B的一对一的关联允许多个引用：a1至b1，a1至b2，等等。 一对一个协会只允许每个物体有单一参考值：a1至b1。 复制关联条目，如a1至b2，在重新部署您的应用时未被清除。
