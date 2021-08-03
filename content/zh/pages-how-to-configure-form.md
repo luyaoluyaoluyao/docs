@@ -46,9 +46,9 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
 
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
 
 * 请确保您的域模型配置如下：
 
@@ -72,7 +72,7 @@ tags:
 
     {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-form/button-properties.png){{% /image_container %}}
 
-3.  在 **选择页面** 对话框框中，点击 **新页面**。
+3.  在 **选择页面** 对话框中，点击右上角的加号图标。
 
 1.  在 **创建新页面** 对话框中，将 **标题** 设置为 **报告详细信息**并将 **布局** 设置为 **Atlas_default**。
 
@@ -84,19 +84,12 @@ tags:
 
 点击 **创建**。
 
-3
+7
 
-创建了带有表单(数据视图)的页面。 然而，数据视图的数据源被自动设置为 **列表部件**，您需要更改它。 选择数据视图并转到其属性。
-
-1
-
-将数据源从 **列表部件** 更改为 **Context**。
-
-2
-
-点击 **实体** 属性并设置 **检查报告** 实体：
+创建了带有表单(数据视图)的页面。 打开数据视图属性并确保数据源自动设置为 **Context** and **Entity** 设置为 **InspecttionReport**
 
       {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/data-view-source.png){{% /image_container %}} </ol>
+
 
 页面上的表单已配置：
 {{% image_container width="600" %}}![](attachments/pages-how-to-configure-form/data-view-configured.png){{% /image_container %}}
@@ -125,7 +118,7 @@ tags:
 
 4. To show only checklist items associated with the current inspection report, choose the **Checklist** entity over association (*Checklist_InspectionReport/Checklist*) in the **Select Entity** dialog box and click **Select**:
 
-    {{% image_container width="450" %}}![](attachments/pages-how-to-configure-form/data-grid-over-association.png){{% /image_container %}}
+    ![](attachments/pages-how-to-configure-form/data-grid-over-association.png)
 
 5. 由于页面的主要目的是显示信息，您不需要数据网格中的 **搜索** 部分。 打开数据网格属性 > **搜索** 部分并禁用 **启用搜索** 切换：
 
@@ -141,7 +134,7 @@ tags:
 
 9. 点击 **页面** 属性。
 
-10. 在 **选择页面** 对话框框中，点击 **新页面**。
+10. 在 **选择页面** 对话框中，点击右上角的加号图标。
 
 11. 在 **创建新页面** 对话框， 将 **标题** 设置为 **校验列表_详细信息** 和 **布局** 设置为 **弹出布局**。
 
@@ -183,8 +176,8 @@ tags:
 
 {{% /image_container %}}
 
-您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio8/publishing-app)。
+您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio/publishing-app)。
 
-例如，您也可以在页面细节上工作 将动态图像添加到检查报告列表中，以便在其名称旁边显示一个独特的公司标识。 关于动态图像的更多信息，见 [图像 & 文件](/studio8/page-editor-widgets-images-and-files)
+例如，您也可以在页面细节上工作 将动态图像添加到检查报告列表中，以便在其名称旁边显示一个独特的公司标识。 关于动态图像的更多信息，见 [图像 & 文件](/studio/page-editor-widgets-images-and-files)
 
 您也可以添加新的功能。 例如，你可以让视察员将图像附加到他们的报告。 欲了解更多信息，请参阅 [如何启用最终用户附加图像](pages-how-to-attach-images)。
