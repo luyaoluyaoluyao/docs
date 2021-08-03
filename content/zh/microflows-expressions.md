@@ -6,40 +6,44 @@ description: "描述Mendix Studio中可用的微流表达式。"
 tags:
   - "工作室"
   - "微流"
+  - "表达式"
+  - "表达式"
   - "设置值"
   - "变量"
 ---
 
 ## 1 导言
 
-本文档描述Mendix Studio中的微流程表达式。 表达式可以用来创建或更改基于逻辑的对象或变量。
+本文档描述Mendix Studio中的微流程表达式。 关于Studio Pro中微流程表达式的信息，见 [表达式](/refguide8/expressions) 在 *Studio Pro Guide* 中。
+
+表达式可以用来创建或更改基于逻辑的对象或变量。
 
 **表达式** 标签对于微流程中的以下活动是可用的：
 
-*  [结束事件](/refguide/end-event)
+*  结束事件
 *  [决 定](microflows-decision)
-*  [创建对象](/refguide/create-object)
-*  [更改对象](/refguide/change-object)
-*  [创建变量](/refguide/create-variable)
-*  [更改变量](/refguide/change-variable)
+*  创建对象
+*  更改对象
+*  创建变量
+*  更改变量
 
 ![](attachments/microflows-expressions/expression-tab.png)
 
-更多关于微流活动的设置和改变价值的信息 查看 [如何设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)。
+更多关于微流活动的设置和改变价值的信息 查看 [设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)
 
 ## 2 正在写入表达式
 
 有两种写表达式的方式：
 
-* 使用建议
-* 手动写入表达式
+* [使用建议](#suggestions)
+* [手动写入表达式](#manually)
 
-如果表达式中出现错误，则会显示含有解释的提示。
+如果表达式中出现错误，则将显示含有解释的错误消息。
 
 {{% image_container width="350" %}}![](attachments/microflows-expressions/expression-error.png)
 {{% /image_container %}}
 
-### 2.1 使用建议书写表达式
+### 2.1 使用建议书写表达式 {#suggestions}
 
 当您开始输入您的表达式时，建议列表似乎分为以下类别：
 
@@ -63,7 +67,7 @@ tags:
 
 {{% /报警 %}}
 
-### 2.2 手动写入表达式
+### 2.2 手动写入表达式 {#manually}
 
 如果您想手动写下表达式，请注意：
 
@@ -71,13 +75,13 @@ tags:
 * 使用斜线访问对象变量的属性和关联性。 例如， *$Customer/name*, *$Customer/级别* 指实体客户的属性名称和等级
 * Unit, Boolean, and relational types of expressions are available in Studio (for more information, see [Expression type](#expression-types) section)
 
-## 3 表达式示例
+### 2.3 表达式实例
 
 下面有两个例子说明如何使用表达方式。
 
-### 3.1 例1
+#### 2.3.1 例1
 
-您有一个 **[Decision](microflows-decision)** 并且您想要写一个表达式来检查客户等级是否为黄金和订单价格是否超过 100 (您可以在 **Decision** 之后配置折扣，如果此表达式为真的话：
+您有一个 [决定](microflows-decision) ，您想要写一个表达式来检查客户等级是否为黄金和订单价格超过100(您可以在 **决定** 之后配置折扣，如果此表达式为真的话：
 
 ![](attachments/microflows-expressions/example-decision.png)
 
@@ -85,31 +89,36 @@ tags:
 
 ![](attachments/microflows-expressions/expression-decision.png)
 
-### 3.2 例2
+#### 2.3.2 例2
 
-您添加了一个 **[Decision](microflows-decision)** 来检查对象是否存在(下面的示例是 *客户*) 您还要检查客户的名字是否与某个特定的名字相符(在下面的例子中，客户的名字是 *Mendix*)。 表达式将显示如下方式：
+您添加了 [决定](microflows-decision) 来检查对象是否存在(下面的示例是 *客户*) 您还要检查客户的名字是否与某个特定的名字相符(在下面的例子中，客户的名字是 *Mendix*)。 表达式将显示如下方式：
 
 ![](attachments/microflows-expressions/customer-empty-and-name-example.png)
 
-## 4 个表达式类型 {#expression-types}
+## 3 个表达式类型 {#expression-types}
 
 您可以在Studio中使用表达式的操作员列表如下：
 
-### 4.1 关系表达式
+### 3.1 关系表达式
 
-* [小于 ( <)](/refguide/relational-expressions)
-* [大于 ( >)](/refguide/relational-expressions)
-* [小于或等于 ( <= )](/refguide/relational-expressions)
-* [大于或等于 ( >= )](/refguide/relational-expressions)
-* [等于 ( = )](/refguide/relational-expressions)
-* [不等于 ( != )](/refguide/relational-expressions)
+您可以使用以下关系表达式：
 
-### 4.2 布尔表达式
+* [小于 ( <)](/refguide8/relational-expressions)
+* [大于 ( >)](/refguide8/relational-expressions)
+* [小于或等于 ( <= )](/refguide8/relational-expressions)
+* [大于或等于 ( >= )](/refguide8/relational-expressions)
+* [等于 ( = )](/refguide8/relational-expressions)
+* [不等于 ( != )](/refguide8/relational-expressions)
 
-* [和](/refguide/boolean-expressions)
-* [或](/refguide/boolean-expressions)
+### 3.2 Boolean Expressions
 
-## 5 阅读更多
+您可以使用以下布尔值表达式：
+
+* [和](/refguide8/boolean-expressions)
+* [或](/refguide8/boolean-expressions)
+
+## 4 阅读更多
 
 * [微型流动](微流)
 * [设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)
+* [表达式](/refguide8/expressions)
