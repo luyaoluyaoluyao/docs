@@ -1,22 +1,18 @@
 ---
-title: "XPath Year-from-DateTime"
-parent: "xpath-constraint-functions"
+title: "XPath 年从日期开始"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-year-from-datetime.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`从dateTime()` 函数从 `日期和时间取出年份` 属性，以便它可以用于比较一个值。
 
-The `year-from-dateTime()` function extracts the amount of years from a `Date and time` attribute so it can be used to compare to a value.
+## 2 个示例
 
-## 2 Example
-
-This query returns all the logs where the amount of years in `DateAttribute` is "2011" (for example, "2011-12-30"):
+此查询返回 `日期属性` 中年数为"2011" 的所有日志(例如，"2011-12-30")：
 
 ```java
-//Logging.Log[year-from-dateTime(DateAttribute) = 2011]
+//Logging.Log[年份从日期时间(DateAttribute) = 2011]
 ```
