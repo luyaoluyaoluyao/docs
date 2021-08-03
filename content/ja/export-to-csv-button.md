@@ -1,40 +1,40 @@
 ---
-title: "Export to CSV button"
-parent: "control-bar"
+title: "CSVボタンにエクスポート"
+parent: "コントロール バー"
 ---
 
 
-This button allows end-users to export the contents of the grid or reference set selector to a CSV file. Please note that constraints by use of search fields and sorting will also be exported.
+このボタンを使用すると、グリッドまたは参照セットセレクタの内容を CSV ファイルにエクスポートできます。 検索フィールドやソートによる制約もエクスポートされますのでご注意ください。
 
-The csv export function relies on a specific data retrieval method. As such, it is only available in list widgets that use the XPath data source.
+csv export 関数は、特定のデータ検索メソッドに依存します。 このため、XPath データソースを使用するリストウィジェットでのみ使用することができます。
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Formatting properties
+## 書式設定
 
-### Decimal separator
+### 小数点記号
 
-The string used to separate the fractional part from the whole part in Float, Currency and Decimal values.
+文字列は、Float、Currency、Decimal 値の一部全体から分数部分を分離するために使用されます。
 
-_Default value:_ .
+_デフォルト値:_.
 
-### Group separator
+### グループセパレーター
 
-The string used to separate groups of digits in large numbers.
+数字のグループを大きな数字で区切るために使用される文字列。
 
-_Default value:_ ,
+_デフォルト値:_,
 
-### Delimiter
+### 区切り文字
 
-The string used to delimit values in the resulting CSV file.
+結果のCSVファイルの値を区切るために使用される文字列。
 
-_Default value:_ ;
+_デフォルト値:_;
 
-## General properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -46,19 +46,19 @@ _Default value:_ ;
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-### Maximum number of rows
+### 行の最大数
 
-Indicates the maximum number of rows that can be present in the datagrid when exporting. Useful to prevent users from exporting large quantities of data, potentially placing a heavy load on the server.
+エクスポート時にデータグリッドに存在できる行の最大数を示します。 ユーザーが大量のデータをエクスポートするのを防ぐのに役立ちます。サーバーに負荷がかかる可能性があります。
 
-### Generate Excel seperator hint
+### Excel区切りヒントを生成
 
-If true, adds an extra line to the CSV file header that informs Excel what the seperator character is. This solves compatibility issues with Excel and localization.
+true の場合、CSV ファイルのヘッダーに行を追加し、区切り文字が何であるかを Excel に通知します。 これにより、Excelやローカライゼーションとの互換性の問題が解決されます。
 
-### Use grid date format
+### グリッドの日付フォーマットを使用
 
-If true, the date format of the column is used, otherwise a format that is recognized by Excel as a date is used (yyyy-MM-dd).
+true の場合、列の日付書式が使用されます。そうでなければ、Excel が日付として認識する書式が使用されます (yyyy-MM-dd)。
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
