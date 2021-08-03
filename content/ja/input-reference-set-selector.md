@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/input-reference-set-selector.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}The **input reference set selector** widget is not supported on native mobile pages.{{% /alert %}}
 
 ## 1 Introduction
@@ -57,27 +53,27 @@ Reference set selector properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Data Source Section {#data-source}
 
-{{% snippet file="refguide8/data-source-section-link.md" %}}
+{{% snippet file="refguide/data-source-section-link.md" %}}
 
 The attribute path specifies which attribute(s) of an associated entity is shown in the reference set selector. The path must follow one association, of type reference set, starting in the entity of the data view.
 
 ### 2.3 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.4 Editability Section {#editability}
 
-{{% snippet file="refguide8/editability-section-link.md" %}}
+{{% snippet file="refguide/editability-section-link.md" %}}
 
 ### 2.5 Events Section {#events}
 
 The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
 ### 2.6 General Properties {#general}
 
@@ -95,11 +91,11 @@ You can generate a new page to show by right-clicking the widget and selecting *
 
 ### 2.7 Label Section {#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
 ### 2.8 Selectable Objects Section {#selectable-objects}
 
-The properties in the Selectable objects section determine the objects from which the end user can make a selection. You can add an **XPath constraint**, or use a **Constrained by** path.
+The properties in the Selectable objects section determine the objects from which the end user can make a selection. As source, you can use **Database** or **XPath**. When using **XPath**, you can add an **XPath constraint**, or use a **Constrained by** path.
 
 For more information, see the [XPath](reference-selector#xpath-constraints) section of *Reference Selector*.
 
@@ -109,4 +105,4 @@ You cannot use a microflow to define selectable objects in an input reference se
 
 ### 2.9 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
