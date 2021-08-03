@@ -1,13 +1,19 @@
 ---
 title: "Published App Services"
 parent: "integration"
+tags:
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-App services have been deprecated in version 7.23.4 and are marked for removal. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-app-services.pdf).
 {{% /alert %}}
 
 ## 1 Introduction
+
+{{% alert type="info" %}}
+App services are deprecated and were removed in Studio Pro 9. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
+{{% /alert %}}
 
 An app service can be created via **File** > **New Document**.
 
