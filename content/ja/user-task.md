@@ -1,151 +1,151 @@
 ---
-title: "User Task"
-parent: "workflows"
+title: "ユーザータスク"
+parent: "ワークフロー"
 menu_order: 15
 tags:
-  - "workflow"
-  - "workflows"
-  - "user task"
-  - "task"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "ユーザータスク"
+  - "タスク"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-User task allows you to assign a workflow task to a certain user or a group of users.
+ユーザー タスクを使用すると、特定のユーザーまたはユーザーのグループにワークフロー タスクを割り当てることができます。
 
-For example, you can add filters and assign a task to users with the Manager role:
+たとえば、フィルタを追加し、マネージャーの役割を持つユーザーにタスクを割り当てることができます。
 
-![User Task Example](attachments/user-task/user-task.jpg)
+![ユーザータスクの例](attachments/user-task/user-task.jpg)
 
-When the workflow reaches the user task activity, the task is created and will be displayed in the Task inbox if you are using the **Workflow Commons** module:
+ワークフローがユーザー タスク アクティビティに達したとき **ワークフロー コモンズ** モジュールを使用している場合は、タスクが作成され、タスクの受信トレイに表示されます。
 
-![Task Inbox](attachments/user-task/task-inbox.jpg)
+![タスク受信トレイ](attachments/user-task/task-inbox.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-User task properties consist of the following sections:
+ユーザー タスク プロパティは、次のセクションで構成されます。
 
-* [Common](#common)
-* [Display information](#display-info)
-* [Due date](#due-date)
-* [Events](#events)
-* [General](#general)
-* [Outcomes](#outcomes)
-* [Security](#security)
-* [Task page](#task-page)
-* [User assignment](#user-assignment)
+* [一般的な](#common)
+* [情報を表示](#display-info)
+* [期限](#due-date)
+* [イベント](#events)
+* [全般](#general)
+* [成果](#outcomes)
+* [セキュリティ](#security)
+* [タスクページ](#task-page)
+* [ユーザーの割り当て](#user-assignment)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-**Name** is the internal name of the user task. When referring to the user task in the app you will use this name. It must be unique within the workflow, but you can have two user tasks with the same name in different workflows.
+**名前** はユーザータスクの内部名です。 アプリでユーザータスクを参照する場合は、この名前を使用します。 ワークフロー内で一意である必要がありますが、異なるワークフロー内で同じ名前を持つ2つのユーザ タスクを持つことができます。
 
-### 2.2 Display Information Section {#display-info}
+### 2.2 表示情報セクション {#display-info}
 
-#### 2.2.1 Task Name
+#### 2.2.1 タスク名
 
-**Task name** is stored in the System module on the **UserTask** entity as an attribute and its data can be dynamically displayed in the running app. If you are using the **Workflow Commons** module, the **Task name** is used in page templates and on preconfigured pages to identify the task.
+**タスク名** は、属性として **UserTask エンティティの** システムモジュールに格納され、実行中のアプリで動的にデータを表示することができます。 If you are using the **Workflow Commons** module, the **Task name** is used in page templates and on preconfigured pages to identify the task.
 
-For more information on using parameters, see the [Parameters](#parameters) section below.
+パラメータの使用に関する詳細は、以下の [パラメータ](#parameters) セクションを参照してください。
 
-#### 2.2.2 Task Description
+#### 2.2.2 タスクの説明
 
-**Task Description** is stored in the System module on the **UserTask** entity as an attribute and its data can be dynamically displayed in the running app. If you are using the **Workflow Commons** module, the **Task description** is used in page templates.
+**タスクの説明** は、属性として **UserTask** エンティティのシステム モジュールに格納され、実行中のアプリでそのデータを動的に表示することができます。 **ワークフロー コモンズ** モジュールを使用している場合は、 **タスク 説明** がページテンプレートに使用されます。
 
-The **Task description** can contain parameters that are written between braces, e.g. {1}.
+**タスクの説明** には、ブレース間で記述されたパラメータ、例えば {1} を含めることができます。
 
-#### 2.2.3 Parameters {#parameters}
+#### 2.2.3 パラメータ {#parameters}
 
-Parameters are attributes the value of which will be displayed. For example, you can display when the task is due using the **DueDate** parameter.
+パラメータは、その値が表示される属性です。 たとえば、 **DueDate** パラメータを使用してタスクが期限切れになった場合に表示できます。
 
 To view **Parameters**, click the ellipsis icon next to the **Task name** or **Task description** in properties depending on where you would like to display these parameters.
 
-Parameters have the following settings:
+パラメータには以下の設定があります:
 
-* **Index** – an identification number of a parameter
-* **Expression** – an XPath expression that will be displayed
+* **Index** - パラメータの識別番号
+* **式** - 表示される XPath 式
 
-##### 2.2.3.1 Adding New Parameters
+##### 2.2.3.1 新しいパラメータの追加
 
-To add a parameter to the **Task name** or the **Task description**, do the following:
+**タスク名** または **タスク説明**にパラメータを追加するには、次の操作を行います:
 
-1. Click the ellipsis icon next to the **Task  name** or the **Task description**.
+1. **タスク名** または **タスク説明** の横にある省略記号アイコンをクリックします。
 
-2. In the **Edit task name/description** dialog box > **Parameters** section, click the **New** button.
+2. **タスク名/説明の編集** ダイアログ ボックス > **パラメータ** セクションで、 **新規** ボタンをクリックします。
 
-3. In the **Template Parameter (String)** dialog box, specify the expression, and confirm your choice:
+3. **テンプレートパラメーター (文字列)** ダイアログボックスで式を指定し、選択を確認します。
 
-    ![Parameter Example](attachments/user-task/parameter-example.jpg)
+    ![パラメータの例](attachments/user-task/parameter-example.jpg)
 
-    {{% alert type="info" %}}Make sure that the attribute you use in the expression is of the string type.{{% /alert %}}
+    {{% alert type="info" %}}式で使用する属性が文字列型であることを確認してください。{{% /alert %}}
 
-4. In the **Template** setting, write the text you would like to display and type **Index** of the parameter you would like to include. For example, you can add a template for the **Task description** specifying the name of the workflow and what the workflow due date is :
+4. In the **Template** setting, write the text you would like to display and type **Index** of the parameter you would like to include. 例えば、 あなたは、ワークフローの名前とワークフローの期日を指定する **タスクの説明** のテンプレートを追加することができます:
 
-    ![Task Description Example](attachments/user-task/task-description-example.jpg)
+    ![タスクの説明例](attachments/user-task/task-description-example.jpg)
 
 
-##### 2.2.3.2 Performing Other Actions on Parameters
+##### 2.2.3.2 パラメータに対するその他のアクションの実行
 
-In addition to adding new parameters, you can perform the following actions on parameters:
+新しいパラメータの追加に加えて、パラメータに対して以下のアクションを実行できます。
 
-* **Delete** – to delete a parameter click **Delete** or press <kbd>Delete</kbd> on your keyboard
-* **Edit** – double-click a parameter to edit it or click **Edit**
+* **Delete** – パラメータを削除するには、 **Delete** をクリックするか、キーボードの <kbd>Delete</kbd> を押します
+* **編集** - パラメータをダブルクリックして編集するか、 **編集** をクリックします
 * **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
 * **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
 
-### 2.3 Due Date Section {#due-date}
+### 2.3 締切セクション {#due-date}
 
-**Due by** is stored in the System module on the **UserTask** entity as an attribute and its data can be dynamically displayed in the running app. For example, you can use it to set a deadline for the user task and display it in your app. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the user task. If you are using the **Workflow Commons** module, **Due by** is used in page templates and preconfigured dashboards.
+**期日は** によって **UserTask** エンティティのシステムモジュールに属性として格納され、実行中のアプリでそのデータを動的に表示することができます。 たとえば、ユーザータスクの期限を設定し、アプリに表示することができます。 ただし、これは自動リマインダーではなく、ユーザータスクを追跡するときに参照する期限です。 **ワークフロー コモンズ** モジュールを使用している場合は、 **** がページ テンプレートと事前設定されたダッシュボードで使用されます。
 
-### 2.4 Events Section {#events}
+### 2.4 イベントセクション {#events}
 
-**On Created** event allows you to select a microflow that is executed immediately after users have been determined for a newly created task instance. You can use this setting for a microflow that will send an email notification about the user task to the assigned users.
+**作成時** イベントでは、新規作成されたタスクインスタンスに対してユーザーが決定された直後に実行されるマイクロフローを選択できます。 この設定は、割り当てられたユーザーにユーザー タスクに関する電子メール通知を送信するマイクロフローに使用できます。
 
-### 2.5 General Section {#general}
+### 2.5 一般セクション {#general}
 
-**Caption** defines a title of the user task.
+**図表番号** では、ユーザータスクのタイトルを定義する。
 
-### 2.6 Outcomes Section {#outcomes}
+### 2.6 アウトカムセクション {#outcomes}
 
-The outcomes property allows you to create new outcomes for the user task. Outcomes are translated into different outgoing paths of the user task and can be referred to by other elements, such as a button. For example, you have a process when you need to approve or reject a request. One button on a [task page](#task-page) can refer to the **Approve** outcome of the user task, while another one can use the **Reject** outcome.
+アウトカムプロパティを使用すると、ユーザータスクの新しいアウトカムを作成できます。 結果は、ユーザータスクの異なる送信パスに変換され、ボタンなどの他の要素によって参照することができます。 たとえば、リクエストを承認または拒否する必要がある場合には、プロセスがあります。 One button on a [task page](#task-page) can refer to the **Approve** outcome of the user task, while another one can use the **Reject** outcome.
 
-### 2.7 Security Section {#security}
+### 2.7 セキュリティセクション {#security}
 
-**Allowed roles** defines which [module role](module-security#module-role) the user must have to be able to execute the user task.
+**Allowed roles** defines which [module role](module-security#module-role) ユーザがユーザータスクを実行できる必要があります。
 
 {{% alert type="info" %}}
 
-Only assigned users, which are defined in the [User Assignment Section](#user-assignment) below, will be able to see the user task and interact with it.
+以下の [ユーザー割り当てセクション](#user-assignment) で定義されている割り当てられたユーザーのみ。 ユーザーのタスクを表示し、それとやり取りすることができます。
 
 {{% /alert %}}
 
-### 2.8 Task Page Section {#task-page}
+### 2.8 タスクページセクション {#task-page}
 
-**Task page** is the page that an assigned user will use to inspect their task and complete it. You can also allow users to add comments or attachments on this page.
+**タスクページ** は、割り当てられたユーザが自分のタスクを検査して完了するために使用するページです。 このページにコメントや添付ファイルを追加できるようにすることもできます。
 
-If you generate the page using the templates in the **Workflows Commons** module, these templates contain necessary data containers and associated context entity.
+**Workflow Commons** モジュールのテンプレートを使用してページを生成する場合、これらのテンプレートには必要なデータコンテナと関連するコンテキストエンティティが含まれます。
 
-### 2.9 User Assignment Section {#user-assignment}
+### 2.9 ユーザ割り当てセクション {#user-assignment}
 
-#### 2.9.1 Assign User Task Using {#assign-user-task}
+#### 2.9.1 ユーザータスクの割り当て {#assign-user-task}
 
-**Assign user task using** allows you to manage what users will the task be assigned to. You can filter users using XPath or implement more flexible logic and add several checks using a microflow.
+**** を使用すると、タスクに割り当てられるユーザーを管理できます。 XPath を使用してユーザーをフィルタリングしたり、より柔軟なロジックを実装したり、マイクロフローを使用して複数のチェックを追加したりすることができます。
 
-Possible options of this property are described in the table below:
+このプロパティの可能なオプションについては、以下の表を参照してください。
 
-| Option    | Description                                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| XPath     | Allows you to filter users who should be assigned the user task. For example, you can assign a certain task only to users with the Manager user role. You can use attributes of the of the **User Entity** set in [Project Settings](project-settings#workflows).                                                                                                            |
-| Microflow | Allows you to assign the user task to certain users. Using microflow you can check, for example, which users have the right to approve user tasks and are currently not on vacation and assign the task only to users who passed the check.<br />The return type of the microflow should be the **User Entity** set in [Project Settings](project-settings#workflows). |
+| Option  | 説明                                                                                                                                                                                                                  |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| XPath   | ユーザータスクを割り当てるユーザーをフィルタリングできます。 たとえば、特定のタスクをマネージャのユーザロールを持つユーザにのみ割り当てることができます。 **プロジェクト設定** で設定された [ユーザーエンティティ](project-settings#workflows) の属性を使用できます。                                                              |
+| マイクロフロー | ユーザータスクを特定のユーザーに割り当てることができます。 マイクロフローを使用すると、例えば、 ユーザーのタスクを承認する権利があり、現在休暇中ではなく、チェックに合格したユーザーにのみタスクを割り当てる権利があります。<br />マイクロフローの戻り値の型は、 **プロジェクト設定** で設定された [ユーザーエンティティ](project-settings#workflows) である必要があります。 |
 
-#### 2.9.2 XPath Constraint
+#### 2.9.2 XPath 制約
 
-Specifies the expression used to assign the user task. This option is displayed only when the [Assign user task using](#assign-user-task) is set to **XPath**.
+ユーザータスクの割り当てに使用する式を指定します。 このオプションは、 [](#assign-user-task) を使用した **XPath** を使用してユーザータスクを割り当てる場合にのみ表示されます。
 
 #### 2.9.3 Microflow
 
-Specifies the microflow used to assign the user task. This option is displayed only when the [Assign user task using](#assign-user-task) is set to **Microflow**.
+ユーザータスクの割り当てに使用するマイクロフローを指定します。 このオプションは、 [](#assign-user-task) を使用してユーザー タスクを割り当てる **マイクロフロー** に設定されている場合にのみ表示されます。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Workflows](workflows)
+* [ワークフロー](workflows)
