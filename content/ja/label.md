@@ -1,59 +1,39 @@
 ---
 title: "ラベル"
 parent: "コモンウィジェット"
-menu_order: 30
-tags:
-  - "studio pro"
-  - "ラベル"
-  - "共通ウィジェット"
 ---
 
-## 1つの紹介
-
-{{% alert type="warning" %}}ラベルウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
 {{% alert type="warning" %}}
 
-入力ウィジェットについては、 [label プロパティ](text-box) を使用して、エンドユーザーへのウィジェットの目的を記述することをお勧めします。
+入力ウィジェットでは、より強力な [label プロパティ](text-box) を使用して目的を記述することをお勧めします。
 
-[テキスト ウィジェット](text) をより多くの機能を提供するために使用することもできます。 たとえば、パラメータを追加して、意味的に正しいHTMLを生成することができます。
+その他のすべてのテキストでは、 [テキスト ウィジェット](text) を使用して、例えばテキストテンプレートなどのより多くの機能を提供し、意味的に正しい HTML を生成します。
 
 {{% /alert %}}
 
-ラベルには静的テキストが表示され、ユーザーに特定のウィジェットの目的が表示されます。
+ラベルには静的なテキストが表示されます。これは、ユーザーに特定のウィジェットの目的を説明するための意図です。
 
-## 2つのプロパティ
+{{% alert type="info" %}}
 
-下記の画像には、ラベルプロパティの例が示されています。
+![](attachments/pages/label.png) レンダリングモードのヘッダーを持つセルに配置されたラベル。
 
-{{% image_container width="300" %}}![ラベルのプロパティ](attachments/common-widgets/label-properties.png)
-{{% /image_container %}}
+{{% /alert %}}
 
-ラベル プロパティは、次のセクションで構成されます。
+## 一般プロパティ
 
-* [一般的な](#common)
-* [デザインプロパティ](#design-properties)
-* [全般](#general)
-* [公開範囲](#visibility)
+{{% snippet file="refguide7/Caption+Property.md" %}}
 
-### 2.1 共通セクション {#common}
+## 表示プロパティ
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-### 2.2 デザインプロパティセクション {#design-properties}
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-{{% snippet file="refguide/design-section-link.md" %}}
+## 共通のプロパティ
 
-### 2.3 一般セクション {#general}
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-**一般** セクションには、 **図表番号** プロパティがあります。 **図表番号** は、ユーザーに表示されるテキストを定義します。
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-### 2.4 表示セクション {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 続きを読む
-
-* [ページ](page)
-* [一般的なウィジェット](コモンウィジェット)
-* [ページエディターで共通のプロパティ](common-widget-properties)
+{{% snippet file="refguide7/Style+Property.md" %}}
