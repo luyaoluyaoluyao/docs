@@ -1,281 +1,162 @@
 ---
-title: "Data grid"
-parent: "data-widgets"
+title: "データグリッド"
+parent: "グリッド"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "データグリッド"
+  - "グリッド"
+  - "データウィジェット"
 ---
 
-The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed. Using controls provided by the data grid you can browse, search and edit those objects.
+{{% alert type="warning" %}}データグリッドウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-{{% alert type="info" %}}
+## 1つの紹介
 
-![](attachments/pages/data-grid.png) A data grid showing accounts.
+データグリッドには、テーブル形式のオブジェクトのリストが表示されます。 たとえば、データ グリッドには、顧客の名前、成績、および顧客が発注したすべての注文が表示されます。
 
-{{% /alert %}}
+![](attachments/data-widgets/data-grid.png) データ グリッドによって提供されるコントロールを使用すると、それらのオブジェクトを閲覧、検索、編集できます。
 
-## Common Properties
+## 2つのコンポーネント
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+データ グリッドには、次のコンポーネントが含まれています。
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+1. [検索バー](search-bar) - エンドユーザーがデータグリッド内のオブジェクトを検索できるようにする
+2. [コントロールバー](control-bar) - ボタンを使用してデータグリッドに表示されるオブジェクトを制御できます
+3. [ソートバー](sort-bar) - エンドユーザーがデータグリッド内の項目をソートできるようにする
+4.  [グリッド列](columns) - エンドユーザーがデータグリッド列のプロパティを設定できます ![](attachments/data-widgets/data-grid-components.png)
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+## 3つのプロパティ
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+以下の画像では、データ グリッドのプロパティの例を示します。
 
-### General Properties
+{{% image_container width="250" %}}![](attachments/data-widgets/data-grid-properties.png)
+{{% /image_container %}}
 
-#### Show Control Bar Buttons
+データ グリッド プロパティは以下のセクションで構成されます。
 
-This property indicates whether the control bar buttons will be visible in the end user interface.
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-{{% alert type="warning" %}}
+### 3.1 一般的なセクション {#common}
 
-Even if the control bar buttons are invisible, there can still be a default button that is triggered by (double) clicking a row. For more information, see the property [Default Button Trigger](#dbt) and [Data Grid Buttons](control-bar).
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% /alert %}}
+### 3.2 データソースセクション {#data-source}
 
-_Default value:_ True
+データソースは、リストビューに表示するオブジェクトを決定します。 データソースに関する一般的な情報については、 [Data Sources](data-sources) を参照してください。
 
-#### Show Paging Buttons
+#### 3.2.1 Type
 
-This property indicates with the buttons to page through the information in the grid are visible. Only hide these buttons if you are sure that there will never be more objects than the number of rows of the grid.
+リストビューでは、次の種類のデータ ソースをサポートしています。
 
-_Default value:_ True
+* [データベースソース](database-source) – オブジェクトは直接データベースから取得されます。 データベースソースは [オフライン](offline-first) アプリケーションで使用できます。
+* [XPath ソース](xpath-source) - オブジェクトは直接データベースから取得されます
+* [Microflow source](microflow-source) – マイクロフローを実行してオブジェクトのリストを計算する
+* [関連のソース](association-source) - オブジェクトに到達するための関連に従います
 
-{{% snippet file="refguide7/Column+Width+Properties.md" %}}
+データベースと XPath ソースは、データベースからオブジェクトを取得し、検索とソートをサポートします。
 
-#### Number of Rows
+### 3.3 デザインプロパティセクション {#design-properties}
 
-With this property you can change the number of rows that will be shown in one page. See also the property 'Show empty rows'.
+{{% snippet file="refguide/design-section-link.md" %}}
 
-_Default value:_ 20
+### 3.4 一般セクション {#general}
 
-#### Show Empty Rows
+#### 3.4.1 コントロールバーボタンの表示 {#show-control-bar}
 
-If you choose to show empty rows there will always be the grid will always show the same number of rows (see 'Number of rows') even if there are less objects to show on the page.
-
-_Default value:_ False
-
-#### Selection Mode
-
-The selection mode determines whether and how the user can select items in the grid.
-
-| Value                         | Description                                                                                                                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No selection                  | The user cannot select items.                                                                                                                                                                                   |
-| Single selection              | The user can select a single item by clicking on it. Clicking another item will make that item the selection.                                                                                                   |
-| Single selection and maintain | The user can select one item at a time by clicking on it. Users cannot deselect an item. By default the first item will be selected and removing a selected item will autoselect a subsequent item.             |
-| Multi-selection               | The user can select multiple items by clicking the first one and holding the 'Ctrl' key while clicking on other items. Simply clicking an item will deselect all items and make the clicked item the selection. |
-| Simple multi-selection        | The user can select multiple items by simply clicking on them. This was the default multi-selection behavior prior to version 3.1.0.                                                                            |
-
-_Default value:_ Single selection
-
-#### Select First
-
-This property indicates whether the first item will be selected initially. This is especially useful if there is a data view listening to this grid.
-
-_Default value:_ False
-
-#### <a name="dbt"></a>Default Button Trigger
-
-The default button can be triggered by a single or a double click a row.
-
-| Value        | Description                                                                                                           |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| Single click | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click | A double click triggers the default button.                                                                           |
-
-_Default value:_ Double click
-
-#### Refresh Time (in Seconds)
-
-If the refresh time is non-zero, the data grid will refresh its contents every given number of seconds. For example, a task list could be refreshed every minute so that you know when new tasks arrive. By default the refresh time is zero and this means that the grid will not automatically refresh itself.
-
-_Default value:_ 0
-
-#### Tooltip Page
-
-A tooltip page is a page that appears when you hover your mouse over a row. The tooltip page should consist of a data view on the same entity as the data grid. Besides creating and connecting a tooltip page you also have to specify on which columns the tooltip will appear. See the property 'Show tooltip' of [data grid columns](columns).
-
-### Data Source Properties
-
-The data source determines which objects will be shown in the data grid. For general information about data sources, see [Data Sources](data-sources).
-
-#### Type
-
-The data grid supports the following types of data sources: [Database Source](database-source), [XPath Source](xpath-source), [Association Source](association-source), [Microflow Source](microflow-source). The database and XPath sources retrieve objects from the database and supports searching and sorting. The database source can also be used in [offline](offline) applications. The association source follows an association from the enclosing data view to get to the objects. Finally, the microflow source calculates the list of objects by executing a microflow.
-
-#### Other Properties
-
-See the corresponding data source for its properties:
-
-*   [Database source](database-source)
-*   [XPath source](xpath-source)
-*   [Microflow source](microflow-source)
-*   [Association source](association-source)
-
-### Visibility Properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
-
-## Components
-
-### Columns
-
-#### Common Properties
-
-#### Class Property
-
-The class property allows you to specify a cascading style sheet (CSS) class for the widget. This class will be applied to the widget in the browser and the widget will get the corresponding styling. The class should be a class from the theme that is used in the project. It overrules the default styling of the widget.
+このプロパティは、エンドユーザーインターフェイスでコントロールバーボタンが表示されるかどうかを示します。
 
 {{% alert type="warning" %}}
-
-Note that the styling is applied in the following order:
-
-1.  Default styling defined by the theme the project uses.
-2.  The 'Class' property of the widget.
-3.  The 'Style' property of the widget.
-
+コントロールバーボタンが表示されない場合でも、行をクリックすることによってトリガーされる既定のボタンが残っている場合があります。 詳細については、プロパティ [Default Button Trigger](#default-button-trigger) および [Control Bar](control-bar) を参照してください。
 {{% /alert %}}
 
-#### Style Property
+デフォルト: *True*
 
-The style property allows you to specify additional CSS styling. If a class is also specified, this styling is applied _after_ the class.
+#### 3.4.2 ページングバーを表示 {#show-paging-bar}
 
-{{% alert type="info" %}}
+このプロパティを使用すると、ページングバーの表示方法を変更できます。
 
-background-color:blue; This will result in a blue background
+| 値          | 説明                                                                    |
+| ---------- | --------------------------------------------------------------------- |
+| はい (合計数)   | ページングバーが表示され、 **最後のページ** ボタンとオブジェクトの合計数が含まれます。                        |
+| はい (合計数なし) | ページングバーが表示されます( **** ボタンを除く)。 また、ページ番号が代わりに表示されるため、オブジェクトの総数は表示されません。 |
+| いいえ        | ページングボタンは表示されません。                                                     |
 
-{{% /alert %}}
-
-#### Data Source Properties
-
-##### Attribute (path)
-
-The attribute (path) property specifies the attribute's value that will be displayed in this column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity, in which case we speak of an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
-
-#### Formatting Properties
-
-##### Enumeration Format (Only for Attributes of Type Enumeration)
-
-A column connected to an attribute of type enumeration can show its contexts as text (default) or as image.
-
-| Value | Description                               |
-| ----- | ----------------------------------------- |
-| Text  | Show the caption text of the enumeration. |
-| Image | Show the image of the enumeration value.  |
-
-##### Decimal Precision (Only for Decimal Attributes)
-
-The precision of a value is defined the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
-
-_Default value:_ 2
-
-##### Group Digits (Only for Numeric Attributes)
-
-For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end user will see these groups, or not.
-
-_Default value:_ False
-
-##### Date Format (Only for Attributes of Type DateTime)
-
-The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
-
-Possible values: 'Date', 'Time', 'Date and time' and 'Custom'.
-
-_Default value:_ Date
-
-If you choose 'Custom' as the date format (see above) the custom date format determines the way date and/or time are formatted. The custom date format is a string that follows the rules in this table,
-
-| Symbol | No.  | Example   | Description                             |
-| ------ | ---- | --------- | --------------------------------------- |
-| G      | 1    | AD        | Era                                     |
-| y      | 1..n | 2010      | Year                                    |
-| M      | 1..2 | 09        | Month                                   |
-| M      | 3    | Sept      |                                         |
-| M      | 4    | September |                                         |
-| w      | 1..2 | 27        | Week of Year                            |
-| D      | 1..3 | 93        | Day of Year                             |
-| a      | 1    | AM        | AM or PM                                |
-| h      | 1..2 | 11        | Hour (1-12)                             |
-| H      | 1..2 | 13        | Hour (0-23)                             |
-| k      | 1..2 | 10        | Hour (1-24)                             |
-| K      | 1..2 | 0         | Hour (0-11)                             |
-| m      | 1..2 | 59        | Minute, use one or two for zero padding |
-| s      | 1..2 | 12        | Second, use one or two for zero padding |
-
-{{% alert type="info" %}}
-
-| Format                           | Example output                        |
-| -------------------------------- | ------------------------------------- |
-| `EEEE d MMMM yyy G, h:mm a ss's` | Tuesday 29 March 2011 AD, 1:37 PM 48s |
-| `h:mm a`                         | 1:37 PM                               |
-| `yyy D KK:mm`                    | 2011 88 01:26                         |
-| `EEEE MMMM d yyy`                | Tuesday March 29 2011                 |
-| `EEE, MMM d, ''yy`               | Wed, Jul 4, '01                       |
-
-{{% /alert %}}
-
-#### General Properties
-
-##### Caption
-
-The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Translatable Texts](translatable-texts).
-
-##### Editable
-
-The editable property indicates whether the values of the column will be editable inline, as in, without opening a page with a data view. In-line editing allows the data grid to behave like you would expect from a spreadsheet application.
-
-##### Aggregate Function
-
-The values in a column can be aggregated in several ways. The aggregate function determines the way in which the values are aggregated. The aggregate will be shown at the bottom of the column that precedes by the aggregate caption (see below).
-
-| Value   | Description                                |
-| ------- | ------------------------------------------ |
-| None    | Do not aggregate the values in the column. |
-| Average | Show the average of the values.            |
-| Minimum | Show the smallest value.                   |
-| Maximum | Show the largest value.                    |
-| Sum     | Show the sum of the values.                |
-| Count   | Show the count of the values.              |
+デフォルト: *はい (合計)*
 
 {{% alert type="warning" %}}
-
-Note that all objects will be taken into account, and not just the ones on the current page.
-
+コントロールバーを非表示にすると、ページングボタンも非表示になります。 詳細については、 [コントロールバーボタン](#show-control-bar) を参照してください。
 {{% /alert %}}
 
-##### Aggregate Caption
+#### 3.4.3 行数 {#number-of-rows}
 
-The aggregate caption is the text that appears in front of the computed value. This is a translatable text. See [Translatable Texts](translatable-texts).
+このプロパティを使用すると、1ページに表示される行数を変更できます。 プロパティ「空の行を表示」も参照してください。
 
-{{% alert type="info" %}}
+デフォルト: *20*
 
-'Total' could be an aggregate caption for a column that shows the sum of the values.
+#### 3.4.4 空の行を表示 {#show-empty-rows}
 
-{{% /alert %}}
+空の行を表示することを選択すると、ページに表示するオブジェクトが少なくても、グリッドは常に同じ行数を表示します ('行数' を参照)。
 
-##### Show Tooltip
+デフォルト: *False*
 
-This property determines whether the tooltip page is shown as the mouse is hovered over this column. The tooltip page can be configured on the data grid.
+#### 3.4.5 選択モード {#selection-mode}
 
-_Default value:_ False
+選択モードでは、ユーザーがグリッド内の項目を選択できるかどうかと方法を決定します。
 
-### Control Bar
+| 値               | 説明                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| 選択されていません       | ユーザーはアイテムを選択できません。                                                                                      |
+| 単一選択  *(デフォルト)* | ユーザーはそれをクリックして単一の項目を選択することができます。 別の項目をクリックすると、その項目が選択されます。                                              |
+| 単一選択と維持         | ユーザーは、それをクリックすることによって、一度に1つの項目を選択できます。 ユーザは項目を選択解除できません。 デフォルトでは、最初の項目が選択され、選択された項目が自動的に選択されます。         |
+| 複数選択            | 最初の項目をクリックし、「Ctrl」キーを押しながら他の項目をクリックすることで複数項目を選択できます。 単にアイテムをクリックすると、すべてのアイテムの選択が解除され、クリックしたアイテムが選択されます。 |
+| 単純な複数選択         | ユーザーは、単にそれらをクリックすることによって複数の項目を選択することができます。                                                              |
 
-The control bar of the template grid, data grid, and reference set selector allows you to manipulate the objects displayed by means of buttons. By default, both grids will be created with a new, edit, and delete button in the control bar. The control bar can also include a number of selection options and spreadsheet export buttons, as well as microflow buttons for custom actions.
+#### 3.4.6 最初に選択 {#select-first}
 
-See [Control Bar](control-bar).
+このプロパティは、最初の項目が最初に選択されるかどうかを示します。 この機能は、グリッドをリッスンしているデータビューがある場合に特に便利です。
 
-### Search Bar (for the Database and XPath Data Source Types)
+デフォルト: *False*
 
-The search bar contains search fields that allow the end-user to quickly find the information he or she needs.
+#### 3.4.7 デフォルトのボタントリガー {#default-button-trigger}
 
-See [Search Bar](search-bar).
+既定のボタンは、1行またはダブルクリックでトリガーできます。
 
-### Sort Bar (for the Database and XPath Data Source Types)
+| 値                 | 説明                                                            |
+| ----------------- | ------------------------------------------------------------- |
+| シングルクリック          | ワンクリックで既定のボタンがトリガーされます。 これはユーザーが行を選択できるようにするために組み合わせて使用できません。 |
+| *をダブルクリック（デフォルト）* | ダブルクリックするとデフォルトのボタンがトリガーされます。                                 |
 
-The sort bar contains a number of sort items. Each sort item specifies what attribute to sort on and in what direction (ascending or descending). First the contents of the grid will be sorted on the first item; if two rows are the same with respect to this sort item the second item will be used et cetera. For example, if you have sort items for name and age and two people have the same name they will be sorted on their age.
+#### 3.4.8 リフレッシュ時間 (秒) {#refresh-time}
 
-See [Sort Bar](sort-bar).
+更新時間がゼロ以外の場合、データグリッドは指定された秒数ごとに内容を更新します。 たとえば、新しいタスクがいつ到着したかを知るために、タスクリストを毎分更新することができます。 デフォルトではリフレッシュ時間はゼロで、グリッドは自動的にリフレッシュされません。
+
+デフォルト: *0 0*
+
+#### 3.4.9 ツールチップページ {#tooltip-page}
+
+ツールチップページは、行の上にマウスをポイントしたときに表示されるページです。 ツールチップページはデータ グリッドと同じエンティティのデータ ビューで構成する必要があります。 ツールチップページの作成と接続に加えて、ツールチップが表示される列を指定する必要があります。 [データ グリッド 列](columns) のプロパティ 'ツールチップを表示' を参照してください。
+
+### 3.5 可視性セクション {#visibility}
+
+{{% snippet file="refguide/visibility-section-link.md" %}}
+
+## 4具体的なアクションの実行
+
+データ グリッドでアクションを実行するには、ページでアクションを選択して右クリックします。 可能なアクションのリストが開きます。 **データ ソースの選択**, **表示される条件の編集**など、このリストからいくつかのアクションがあります。 は、プロパティを設定するための迅速な方法です。次のアクションは、実行できる特定のアクションです。
+
+* **エンティティに移動** – ドメインモデルを開き、データソースとして使用されるエンティティをハイライトします
+* **データ ソースのマイクロフロー** に移動します。この動作は、マイクロフローがデータ ソースとして設定されている場合にのみ表示されます。
+* **ツールチップページに移動** - プロパティで [ツールチップページ](#tooltip-page) として選択されたページを開く
+
+## 5 続きを読む
+
+* [ページ](page)
+* [データウィジェット](data-widgets)
+* [データソース](データソース)
+* [ページエディターで共通のプロパティ](common-widget-properties)
+* [グリッド列](columns) 
