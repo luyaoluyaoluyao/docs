@@ -1,178 +1,178 @@
 ---
-title: "Suppression Rules"
+title: "禁止ルール"
 parent: "errors-pane"
 menu_order: 10
-description: "Describes suppression rules for warnings in Studio Pro."
+description: "Studio Pro で警告の抑制ルールについて説明します。"
 tags:
   - "Studio Pro"
-  - "consistency errors"
-  - "checks"
-  - "warnings"
+  - "整合性エラー"
+  - "チェック"
+  - "警告"
 ---
 
-## 1 Introduction {#intro}
+## 1つの紹介 {#intro}
 
-When you work on an app, Studio Pro performs consistency checks, which may result in warnings. Warnings identify issues that are not critical, but point to something that might be a problem. These warnings are shown in the **Errors** pane.
+アプリケーションで作業すると、Studio Proは一貫性のチェックを行い、警告が表示される可能性があります。 警告は、重要ではなく、問題になる可能性のある問題を特定します。 これらの警告は **エラー** ペインに表示されます。
 
-![Warnings in the Errors pane](attachments/suppression-rules/errors-pane-with-warnings.png)
+![エラーペイン内の警告](attachments/suppression-rules/errors-pane-with-warnings.png)
 
-While warnings can be valuable, there are some situations where you might want to disable them, such as the following ones:
+警告は貴重ですが、以下のように、無効にしたい場合があります。
 
-* You made a deliberate choice in your app that leads to a warning, and you know this will not lead to problems.
-* You are using an Marketplace module that contains warnings and you do not want to change the Marketplace module.
-* The number of warnings is so large that the **Warnings** tab is not usable anymore, and you want to temporarily disable some of them.
+* あなたは警告につながるあなたのアプリで慎重に選択しました、そしてあなたはこれが問題につながらないことを知っています。
+* 警告が含まれている Marketplace モジュールを使用しており、Marketplace モジュールを変更したくない場合があります。
+* 警告の数が多すぎるため、 **警告** タブはもう使用できません。 一部を一時的に無効にしたいのです
 
-With **Suppression rules** it is possible to disable warnings. You can [suppress warnings](#suppress-warning) from the **Errors** pane and [manage them](#managing-rules) via the **Suppression rules** option. It is also possible to [suppress warnings for all Marketplace modules](#suppress-appstore-warnings).
+**抑制ルール** では警告を無効にすることができます。 You can [suppress warnings](#suppress-warning) from the **Errors** pane and [manage them](#managing-rules) via the **Suppression rules** option. [すべての Marketplace モジュール](#suppress-appstore-warnings) の警告を抑制することも可能です。
 
-## 2 Suppression Rule Logic {#suppression-rules-logic}
+## 2 抑圧ルールのLogic {#suppression-rules-logic}
 
-Suppression rules are for one user and for one instance of an app. The warnings that you suppress are not shared between users or apps, so warnings will not be suppressed for your team members working on the same app.
+抑制ルールは、1人のユーザーと1つのアプリのインスタンスに対応しています。 この警告はユーザーまたはアプリ間で共有されません 同じアプリを使っているチームメンバーは警告を抑えることはできません
 
-Suppression rules are stored locally in the app directory, in a file called *project-settings.user.json*. When committing your changes to the Team Server, Studio Pro will ignore this file.
+抑制ルールは、 *project-settings.user.json* というファイルの中に、appディレクトリにローカルに保存されます。 Team Serverに変更を反映すると、Studio Proはこのファイルを無視します。
 
-![The settings file shown in Windows Explorer](attachments/suppression-rules/windows-explorer-showing-settings-files.png)
+![Windows エクスプローラに表示される設定ファイル](attachments/suppression-rules/windows-explorer-showing-settings-files.png)
 
-However, it is possible to export and import suppression rules manually. For more information on how to export and import warning, see [Exporting Your Suppression Rules](#export) and [Importing Your Suppression Rules](#import) sections.
+ただし、抑制ルールを手動でエクスポートおよびインポートすることは可能です。 警告のエクスポートとインポートの方法については、 [抑制ルール](#export) と [抑制ルール](#import) のセクションのインポートを参照してください。
 
-## 3 Suppressing a Warning in the Errors Pane {#suppress-warning}
+## 3 エラーペインで警告を抑制する {#suppress-warning}
 
-From the **Errors** pane, you can suppress a warning for a document, a module, or the entire app:
+**エラー** ペインから、ドキュメント、モジュール、またはアプリ全体の警告を抑制できます。
 
-![Suppressing a Warning](attachments/suppression-rules/suppressing-warning.png)
+![警告を抑制する](attachments/suppression-rules/suppressing-warning.png)
 
-### 3.1 Suppressing a Warning for a Specific Document
+### 3.1 特定の文書に対する警告の禁止
 
-To suppress a warning for a specific document only, do the following:
+特定のドキュメントのみの警告を抑制するには、次の操作を行います。
 
-1. Right-click the warning you would like to suppress.
-2. Select **Suppress this warning** > **For the document {Document name}**.
+1. 抑制したい警告を右クリックします。
+2. **この警告を抑制する** > **ドキュメントについては {Document name}** を選択してください。
 
-The warning is only suppressed for the specific document. If the same warning appears in another document (for example, on another page), it will still be displayed for that document.
+この警告は、特定の文書についてのみ抑制されます。 同じ警告が別のドキュメント(例えば、別のページ)に表示された場合でも、そのドキュメントに対して表示されます。
 
-### 3.2 Suppressing a Warning for a Specific Module
+### 3.2 特定のモジュールに対する警告を抑制する
 
-To suppress a warning for a specific module, do the following:
+特定のモジュールの警告を抑制するには、次の操作を行います。
 
-1. Right-click the warning you would like to suppress.
-2. Select **Suppress this warning** > **For the module {Module name}**.
+1. 抑制したい警告を右クリックします。
+2. **この警告を抑制する** > **モジュール {Module name}については** を選択してください。
 
-The warning is suppressed for the whole module. If the same warning appears in another module, it will still be displayed for that module.
+モジュール全体で警告が抑制されます。 同じ警告が別のモジュールに表示された場合でも、そのモジュールに対して表示されます。
 
-### 3.3 Suppress a Warning for the Entire App
+### 3.3 アプリ全体に対する警告を抑制する
 
-To suppress a warning for the entire app, do the following:
+アプリ全体の警告を抑制するには、次の手順を実行します。
 
-1. Right-click the warning you would like to suppress.
-2. Select **Suppress this warning** > **For the entire project**.
+1. 抑制したい警告を右クリックします。
+2. **この警告を抑制する** > **プロジェクト全体の**.
 
-The warning is suppressed for the whole app and the list of warnings is updated in the **Errors** pane.
+警告はアプリ全体で抑制され、警告のリストは **エラー** ペインで更新されます。
 
-For more information on how to edit or delete a suppression rule, see the [Managing Suppression Rules](#managing-rules) section.
+抑制ルールを編集または削除する方法についての詳細は、 [抑制ルール](#managing-rules) のセクションを参照してください。
 
-## 4 Managing Suppression Rules {#managing-rules}
+## 4 抑制ルール {#managing-rules}
 
-You can add, edit, delete, export, or import suppression rules. You can also suppress warnings from the Marketplace.
+抑制ルールの追加、編集、削除、エクスポート、またはインポートができます。 マーケットプレイスからの警告を抑制することもできます。
 
 {{% alert type="info" %}}
-After modifying suppression rules, click **OK** to close the **Manage Suppression Rules** dialog box and apply changes.
+抑制ルールを変更したら、 **OK** をクリックして **抑制ルールの管理** ダイアログボックスを閉じ、変更を適用します。
 {{% /alert %}}
 
-### 4.1 Suppressing Marketplace Warnings {#suppress-appstore-warnings}
+### 4.1 マーケットプレースの警告を抑制する {#suppress-appstore-warnings}
 
-To suppress Marketplace warnings, do the following:
+マーケットプレイスの警告を抑制するには、以下を行ってください。
 
-1.  Click the **Suppression rules** button in the **Errors** pane.
-2. In the **Manage Suppression Rules** dialog box, check the **Suppress warnings from Marketplace modules** option.
-3. Click **OK** to apply the new setting.
+1.  **エラー** ペインの **抑制ルール** ボタンをクリックします。
+2. **抑制ルール** の管理ダイアログボックスで、 **マーケットプレイスモジュールからの警告を抑制する** オプションをチェックします。
+3. **OK** をクリックして、新しい設定を適用します。
 
-Warnings from Marketplace modules are suppressed.
+Marketplace モジュールからの警告は抑制されます。
 
-### 4.2 Adding a Rule
+### 4.2 ルールの追加
 
-For more advanced cases, you may want to manually add a new rule. This gives you full control over the settings that the rule uses, when deciding which warnings to suppress.
+より高度な場合は、手動で新しいルールを追加することができます。 これにより、抑制する警告を決定する際に、ルールが使用する設定を完全に制御できます。
 
-To manually add a new rule, follow the steps below:
+手動で新しいルールを追加するには、以下の手順に従ってください。
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2. In the **Manage Suppression Rules** dialog box, select the **New** button.
+1. **エラー** ペインの **抑制ルール** ボタンをクリックします。
+2. **抑制ルールの管理** ダイアログボックスで、 **新規** ボタンを選択します。
 3.  In the **Add Suppression Rule** dialog box, set the necessary options to add the rule (for more information on settings, see the [Rule Setting](#rule-settings) section.
 
-    ![Rules window - add suppression](attachments/suppression-rules/new-warning-window.png)
+    ![ルールウィンドウ - 抑制を追加](attachments/suppression-rules/new-warning-window.png)
 
-4. Confirm your choice by clicking **OK**.
-5. Click **OK** in the **Manage Suppression Rules** dialog box to save your changes.
+4. **OK** をクリックして選択を確認します。
+5. **抑制ルール** ダイアログボックスの **OK** をクリックして変更を保存します。
 
-The suppression rule is created.
+抑制ルールが作成されます。
 
-### 4.3 Editing a Rule
+### 4.3 ルールの編集
 
-To edit an existing rule, follow the steps below:
+既存のルールを編集するには、以下の手順に従ってください:
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.  In the **Manage Suppression Rules** dialog box, select the **Edit** button.
+1. **エラー** ペインの **抑制ルール** ボタンをクリックします。
+2.  **抑制ルールの管理** ダイアログボックスで、 **** ボタンを選択します。
 3.  In the **Edit Suppression Rule** dialog box, edit options to change the rule (for more information on settings, see the [Suppression Rule Settings](#rule-settings) section.
 
-    ![Rule settings window](attachments/suppression-rules/rule-settings-window.png)
+    ![ルール設定ウィンドウ](attachments/suppression-rules/rule-settings-window.png)
 
-4. Confirm your choice by clicking **OK**.
-5. Click **OK** in the **Manage Suppression Rules** dialog box to save your changes.
+4. **OK** をクリックして選択を確認します。
+5. **抑制ルール** ダイアログボックスの **OK** をクリックして変更を保存します。
 
-The suppression rule is edited.
+抑制ルールが編集されます。
 
-### 4.4 Deleting a Rule
+### 4.4 ルールの削除
 
-To delete the existing rule, follow the steps below:
+既存のルールを削除するには、以下の手順に従ってください。
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.   In the **Manage Suppression Rules** dialog box, click the **Delete** button.
+1. **エラー** ペインの **抑制ルール** ボタンをクリックします。
+2.   **抑制ルールの管理** ダイアログボックスで、 **削除** ボタンをクリックします。
 
-The suppression rule is deleted.
+抑制ルールが削除されます。
 
-### 4.5 Importing Suppression Rules {#import}
+### 4.5 抑制ルールのインポート {#import}
 
-To import suppression rules, do the following:
+抑制ルールをインポートするには、次の操作を行います。
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.  In the **Manage Suppression Rules** dialog box, select the **Import** button.
-3. Browse to the folder where you would like to import (the file extension that you are importing must be *.suppressions.json*).
-4. Click **Open** to select the file.
-5.  In a confirmation pop-up window, click **OK** to dismiss it:
+1. **エラー** ペインの **抑制ルール** ボタンをクリックします。
+2.  **抑制ルールの管理** ダイアログボックスで、 **インポート** ボタンを選択します。
+3. インポートするフォルダを参照します (インポートするファイル拡張子は *.suppressions.json* である必要があります)。
+4. **** をクリックしてファイルを選択します。
+5.  確認ポップアップウィンドウで、 **OK** をクリックして閉じます。
 
-    ![Import rules confirmation](attachments/suppression-rules/confirmation-dialog-after-rules-imported.png)
+    ![ルールのインポートの確認](attachments/suppression-rules/confirmation-dialog-after-rules-imported.png)
 
-6. Click **OK** in the **Manage Suppression Rules** dialog box.
+6. **抑制ルールの管理** ダイアログボックスの **OK** をクリックします。
 
-The list of warnings is updated.
+警告のリストが更新されました。
 
-### 4.6 Exporting Your Suppression Rules {#export}
+### 4.6 あなたの抑制ルールのエクスポート {#export}
 
-To export your suppression rules, do the following:
+抑制ルールをエクスポートするには、次の手順を行います。
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.  In the **Manage Suppression Rules** dialog box, select the **Export** button.
-3. Browse to the folder where you wish to export the rules (by default the file name is `<your app name>.suppressions.json`).
+1. **エラー** ペインの **抑制ルール** ボタンをクリックします。
+2.  **抑制ルールの管理** ダイアログボックスで、 **書き出し** ボタンを選択します。
+3. ルールをエクスポートするフォルダを参照します(デフォルトでは、ファイル名は `<your app name>.suppressions.json` です)。
 
-4. Click the **Save** button to save the exported rules.
-5.  In a confirmation pop-up window, click **OK** to dismiss it:
+4. **Save** ボタンをクリックして、エクスポートしたルールを保存します。
+5.  確認ポップアップウィンドウで、 **OK** をクリックして閉じます。
 
-    ![Export rules confirmation](attachments/suppression-rules/confirmation-dialog-after-rules-exported.png)
+    ![ルールのエクスポートの確認](attachments/suppression-rules/confirmation-dialog-after-rules-exported.png)
 
-6. Click **OK** in the **Manage Suppression Rules** dialog box.
+6. **抑制ルールの管理** ダイアログボックスの **OK** をクリックします。
 
-Your suppression rules are exported. Another user can [import](#import) that file to use the same suppression rules.
+抑制ルールがエクスポートされます。 別のユーザーは [同じ抑制ルールを使用するファイルを](#import) インポートできます。
 
-## 5 Suppression Rule Settings {#rule-settings}
+## 5つの抑制ルールの設定 {#rule-settings}
 
-The table below describes the available settings:
+以下の表は利用可能な設定について説明しています。
 
-| Setting      | Description                                                                                                                                                                                                               |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Module       | Suppresses warnings within the selected module. When **(All)** is selected, the rule applies to all modules.                                                                                                              |
-| Document     | Suppresses warnings within the selected document. When **(All)** is selected, the rule applies to all documents in the selected module. **Note**: to select a particular document, you first need to select a **Module**. |
-| Suppress for | Allows you to suppress a warning for a specific *error code* or for *all* warnings.                                                                                                                                       |
-| Value        | Only displayed when the **Error code** option is selected in the **Suppress for** selector above. You can type in a specific error code, for example **CW1234**, to suppress only this specific warning.                  |
+| 設定     | 説明                                                                                                                                                       |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| モジュール  | 選択したモジュール内の警告を抑制します。 **(All)** が選択されている場合、ルールはすべてのモジュールに適用されます。                                                                                          |
+| ドキュメント | 選択したドキュメント内の警告を抑制します。 **(すべて)** を選択すると、選択したモジュール内のすべてのドキュメントにルールが適用されます。 **メモ**: 特定のドキュメントを選択するには、最初に **モジュール** を選択する必要があります。                            |
+| 非表示:   | 特定の *エラーコード* または *すべての* 警告を抑制できます。                                                                                                                       |
+| 値      | Only displayed when the **Error code** option is selected in the **Suppress for** selector above. この特定の警告だけを抑制するために、 **CW1234**などの特定のエラーコードを入力することができます。 |
 
-## 6 Read More {#read-more}
+## 6もっと読む {#read-more}
 
 * [Errors Pane](errors-pane)
-* [Consistency Errors](consistency-errors)
+* [整合性エラー](一貫性エラー)
