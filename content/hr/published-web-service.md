@@ -1,7 +1,13 @@
 ---
 title: "Published Web Service"
 parent: "published-web-services"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-web-service.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -23,9 +29,7 @@ See [Operations](operations).
 
 If set to 'yes', incoming requests will be validated against the WSDL.
 
-Note that when this property was introduced in Mendix 5.8.0, behavior changed slightly in this respect. Primitive values already used to be validated in all cases, but now we're validating the entire incoming XML message. To not break old web service requests that may not validate against the WSDL but that did not cause actual issues, we do not turn this feature on by default when converting projects made in older versions. This does however mean that if you want to validate primitives again, you must turn this feature on.
-
-_Default value:_ Yes
+Default: *Yes*
 
 ### 3.2 Authentication
 
@@ -38,12 +42,6 @@ This is the value of the targetNamespace attribute in the published WSDL file fo
 It is important to correctly configure the target namespace before publishing your WSDL to third parties. Changing it later might break the third-party applications that call your published web services.
 
 ### 3.4 Generated XML
-
-{{% alert type="info" %}}
-
-The **Generated XML** feature was introduced in version 7.13.0.
-
-{{% /alert %}}
 
 Select **Include tags for associations** if you need to include tags for associations in XML. This is usually not necessary, and support for this will be removed in a future version.
 
