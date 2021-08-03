@@ -1,26 +1,26 @@
 ---
-title: "Table cell"
-parent: "table"
+title: "表格单元格"
+parent: "表"
 ---
 
 
-Each section of a table row or column is called a cell. Cells can contain a wide variety of widgets.
+表列或列的每个部分被称为单元格。 单元可以包含多种小部件。
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 常规属性
 
-### Cell type
+### 单元格类型
 
-Indicates the type of the cell. Two types are supported:
+显示单元格的类型。 支持两种类型：
 
-| Value  | Description                                                  |
-| ------ | ------------------------------------------------------------ |
-| Normal | Normal cell containing data (<td>).     |
-| Header | Header cell containing captions (<th>). |
+| 值   | 描述                                      |
+| --- | --------------------------------------- |
+| 普通的 | 含有数据的普通单元格(<td>).  |
+| 标题  | 包含标题的标题单元格 (<th>). |
 
-_Default value:_ Normal
+_默认值：_ 普通值
