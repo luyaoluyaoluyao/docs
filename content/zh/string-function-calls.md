@@ -1,31 +1,14 @@
 ---
 title: "String Function Calls"
 parent: "expressions"
-menu_order: 80
 description: "Describes the functions for converting and inspecting strings in Mendix."
-tags:
-  - "studio pro"
-  - "string function calls"
-  - "expression"
-  - "expressions"
 ---
 
 ## 1 Introduction
 
-This document describes functions that are used to convert and inspect [strings](data-types). Note that these functions never change the string itself, they only return a new value.
+These are functions to convert and inspect [strings](data-types). Note that these functions never change the string itself, they only return a new value.
 
 Strings are surrounded by quotes. If the string contains a quote, it should be escaped by another quote. For example: `'this isn''t funny'`.
-
-For a great deep-dive look into string functions call, check out this video:
-
-<img
-  style="width: 100%; margin: auto; display: block;"
-  class="vidyard-player-embed"
-  src="https://play.vidyard.com/EpVivdyB4i1jGvc8J9yXkt.jpg"
-  data-uuid="EpVivdyB4i1jGvc8J9yXkt"
-  data-v="4"
-  data-type="inline"
- />
 
 ## 2 toLowerCase
 
@@ -33,29 +16,18 @@ Converts all characters in the string to lowercase.
 
 ### 2.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+* String to convert
+* Type: string
 
 ### 2.2 Output
 
-The output is described in the table below:
-
-| Value                               | Type   |
-| ----------------------------------- | ------ |
-| The same string, but all lowercase. | String |
-
-### 2.3 Example
-
-If you use the following input:
+Same string, only all lowercase.
 
 ```java
 toLowerCase('thisISmyString')
 ```
 
-The output is the following:
+returns:
 
 ```java
 'thisismystring'
@@ -67,29 +39,18 @@ Converts all characters in the string to uppercase.
 
 ### 3.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+* String to convert
+* Type: string
 
 ### 3.2 Output
 
-The output is described in the table below:
-
-| Value                               | Type   |
-| ----------------------------------- | ------ |
-| The same string, but all uppercase. | String |
-
-### 3.3 Example
-
-If you use the following input:
+Same string, only all uppercase.
 
 ```java
 toUpperCase('thisISmyString')
 ```
 
-The output is the following:
+returns:
 
 ```java
 'THISISMYSTRING'
@@ -101,29 +62,19 @@ Determines the length of a string.
 
 ### 4.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+* A string
+* Type: string
 
 ### 4.2 Output
 
-The output is described in the table below:
-
-| Value                | Type    |
-| -------------------- | ------- |
-| Length of the string | Integer |
-
-### 4.3 Example
-
-If you use the following input:
+* Length of the string
+* Type: integer
 
 ```java
 length('thisismystring')
 ```
 
-The output is the following:
+returns:
 
 ```java
 14
@@ -135,46 +86,45 @@ Retrieves a substring of a string. Note that the first character of a string is 
 
 ### 5.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                       | Type    |
-| ------------------------------------------- | ------- |
-| Subject                                     | String  |
-| Start position of the substring             | Integer |
-| Desired length of the result **(optional)** | Integer |
+* Subject
+   * Type: string
+* Start position of the substring
+   * Type: integer
+* Desired length of the result (optional)
+   * Type: integer
 
 ### 5.2 Output
 
-The output is described in the table below:
+A part of the original string, starting at the start position with a length equal to the desired length. It will return a sub-string starting at the start position and ending at the end of the string.
 
-| Value                                                                                                                                                                                                                                   | Type   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| A part of the original string, starting at the start position with a length equal to the desired length. If no desired length is specified, will return a substring starting at the start position and ending at the end of the string. | String |
-
-### 5.3 Example
-
-If you use the following input:
+* Type: string
 
 ```java
 substring('thisismystring', 6)
 ```
 
-The output is the following:
+returns:
 
 ```java
 'mystring'
 ```
 
-Another example of an input is:
+If a third parameter is given, it will limit the returned number of characters to that amount:
 
 ```java
-substring('mendixapp', 6,3)
+substring('thisismystring', 6, 2)
 ```
 
-The output is the following:
+returns:
 
 ```java
-'app'
+'my'
+```
+
+If this third parameter is too big, the function will throw an error saying it is out of range, so make sure to limit it. This is an example with use of the length function:
+
+```java
+'substring('thisismystring', 0, min(length('thisismystring') - 1, 20))'
 ```
 
 ## 6 find
@@ -183,31 +133,24 @@ Finds the position of the first occurrence of the substring in the string.
 
 ### 6.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Original string, the string that you want to search in | String  |
-| Substring that you want to search for                  | String  |
-| Start location to begin the search from **(optional)** | Integer |
+* Original string, the string that you want to search in
+    * Type: string
+* Substring that you want to search for
+    * Type: string
+* Start location to begin the search from (optional)
+    * Type: integer
 
 ### 6.2 Output
 
-The output is described in the table below:
+The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string.
 
-| Value                                                                                                                                         | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string. | Integer |
-
-### 6.3 Example
-
-If you use the following input:
+* Type: integer
 
 ```java
 find('thisismystring', 'my')
 ```
 
-The output is:
+returns:
 
 ```java
 6
@@ -225,13 +168,13 @@ returns:
 -1
 ```
 
-Another example of an input is:
+With the third parameter:
 
 ```java
 find('thisismystring', 'i', 5)
 ```
 
-The output is:
+returns:
 
 ```java
 11
@@ -243,55 +186,48 @@ Finds the position of the last occurrence of a substring in the original string.
 
 ### 7.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Original string, the string that you want to search in | String  |
-| Substring that you want to search for                  | String  |
-| Start location to begin the search from **(optional)** | Integer |
+* Original string, the string that you want to search in
+    * Type: string
+* Substring that you want to search for
+    * Type: string
+* Last location to be searched (optional)
+    * Type: integer
 
 ### 7.2 Output
 
-The output is described in the table below:
+The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string.
 
-| Value                                                                                                                                         | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string. | Integer |
-
-### 7.3 Example
-
-If you use the following input:
+* Type: Integer
 
 ```java
 findLast('thisismystring', 't')
 ```
 
-The output is:
+returns:
 
 ```java
 9
 ```
 
-Another example of an input where a substring does not occur in the original string:
+Substring that doesn't occur in the original string:
 
 ```java
 findLast('thisismystring', 'yourstring')
 ```
 
-The output is:
+returns:
 
 ```java
 -1
 ```
 
-An example of an input with the third parameter:
+With the third parameter:
 
 ```java
 findLast('thisismystring', 'i', 5)
 ```
 
-The output is:
+returns:
 
 ```java
 4
@@ -301,7 +237,7 @@ The output is:
 
 Determines whether the original string (first parameter) contains a substring (second parameter).
 
-For example, this expression:
+This expression:
 
 ```java
 contains('stringtosearchin', 'stringtosearchfor')
@@ -313,44 +249,36 @@ is equivalent to the following expression:
 find('stringtosearchin', 'stringtosearchfor') != -1
 ```
 
-The example below shows searching for an empty variable or empty string, where `$param = ''`:
+Searching for an empty variable or empty string, like this expression where `$param = ''`:
 
 ```java
 contains('stringtosearchin', $param)
 ```
 
-The input above will return `true`.
+will return true.
 
 {{% alert type="warning" %}}
-This function is case-sensitive.
+This function is case-senstive.
 {{% /alert %}}
 
 ### 8.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+* Original string, the string that you want to search in
+    * Type: string
+* Substring that you want to search for
+    * Type: string
 
 ### 8.2 Output
 
-The output is described in the table below:
+Whether the original string contains the substring.
 
-| Value                                               | Type    |
-| --------------------------------------------------- | ------- |
-| Whether the original string contains the substring. | Boolean |
-
-### 8.3 Example
-
-If you use the following input:
+* Type: Boolean
 
 ```java
 contains('thisismystring', 'my')
 ```
 
-The output is:
+returns:
 
 ```java
 true
@@ -362,30 +290,22 @@ Determines whether a string starts with the specified substring.
 
 ### 9.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+* Original string, the string that you want to search in
+    * Type: string
+* Substring that you want to search for
+    * Type: string
 
 ### 9.2 Output
 
-The output is described in the table below:
+Whether the original string starts with the substring.
 
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Whether the original string starts with the substring. | Boolean |
-
-### 9.3 Example
-
-If you use the following input:
+* Type: Boolean
 
 ```java
 startsWith('thisismystring', 'this')
 ```
 
-The output is:
+returns:
 
 ```java
 true
@@ -397,30 +317,22 @@ Determines whether a string ends with the specified substring.
 
 ### 10.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+* Original string, the string that you want to search in
+    * Type: string
+* Substring that you want to search for
+    * Type: string
 
 ### 10.2 Output
 
-The output is described in the table below:
+Whether the original string ends with the substring.
 
-| Value                                                | Type    |
-| ---------------------------------------------------- | ------- |
-| Whether the original string ends with the substring. | Boolean |
-
-### 10.3 Example
-
-If you use the following input:
+* Type: Boolean
 
 ```java
 endsWith('thisismystring', 'ring')
 ```
 
-The output is:
+returns:
 
 ```java
 true
@@ -432,29 +344,20 @@ Removes all the whitespace at the beginning and end of a string.
 
 ### 11.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value    | Type   |
-| -------- | ------ |
-| A string | String |
+* A string
+* Type: string
 
 ### 11.2 Output
 
-The output is described in the table below:
+Same string but without spaces at the beginning and end.
 
-| Value                                                    | Type   |
-| -------------------------------------------------------- | ------ |
-| Same string but without spaces at the beginning and end. | String |
-
-### 11.3 Example
-
-If you use the following input:
+* Type: string
 
 ```java
 trim(' this is my string     ')
 ```
 
-The output is:
+returns:
 
 ```java
 'this is my string'
@@ -466,43 +369,33 @@ Checks to see if a string matches a given regular expression.
 
 ### 12.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                       | Type   |
-| --------------------------- | ------ |
-| String to try and match     | String |
-| Regular expression to match | String |
-
-{{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
-{{% /alert %}}
+* String to try and match
+    * Type: string
+* Regular expression to match
+    * Type: string
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+Please note that this function call uses a regular expression language provided by the current platform:
 
 * When used inside a [microflow](microflow) – Java's regular expressions (for details, see [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* When used inside [conditional formatting](conditions) – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
 
 {{% /alert %}}
 
 ### 12.2 Output
 
-The output is described in the table below:
+Whether the string matches or not.
 
-| Value                              | Type    |
-| ---------------------------------- | ------- |
-| Whether the string matches or not. | Boolean |
+* Type: Boolean
 
-### 12.3 Example
-
-This input below tests to see whether the string contains only numbers:
+This examples tests to see whether the string contains only numbers
 
 ```java
 isMatch('234hello6432', '^([0-9]+)$')
 ```
 
-The output is:
+returns:
 
 ```java
 False
@@ -510,14 +403,14 @@ False
 
 In `isMatch()`, the regex is implicitly anchored at `^` and `$`.
 
-**Other Examples**
+For example:
 
-* `isMatch('NLG 123.45', '[0-9]')` returns `false`
-* `isMatch('NLG 123.45', '.*[0-9].*')` returns `true`
+* `isMatch('NLG 123.45', '[0-9]')` returns false
+* `isMatch('NLG 123.45', '.*[0-9].*')` returns true
 
 NB searching an empty string:
 
-* `isMatch('', '.*[0-9].*')` returns `false`
+* `isMatch('', '.*[0-9].*')` returns false
 
 ## 13 replaceAll
 
@@ -525,56 +418,45 @@ Replaces all occurrences of a regular expression with another string.
 
 ### 13.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                                                                                                                                                                                                           | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The string to search in                                                                                                                                                                                                                         | String |
-| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | String |
-| The string to be substituted for each match (this does not support backreferences, substitutions, or captures)                                                                                                                                  | String |
-
-{{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
-{{% /alert %}}
+* The string to search in
+    * Type: string
+* The regular expression to match
+    * Type: string
+* The replacement value
+    * Type: string
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+Please note that this function call uses a regular expression language provided by the current platform:
 
 * When used inside [microflows](microflows) – Java's regular expressions (for details, see [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* When used inside [conditional formatting](conditions) – JavaScript's regular expressions (for details, see [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
 
 {{% /alert %}}
 
 ### 13.2 Output
 
-The output is described in the table below:
+The original string, with all occurrences of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned.
 
-| Value                                                                                                                                                                                     | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The original string, with all occurrences of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned. | String |
-
-### 13.3 Example
-
-If you use the following input:
+* Type: string
 
 ```java
 replaceAll('this is a string with 75 some numbers 234 thrown in', '([0-9])', 'NUMBER')
 ```
 
-The output is:
+returns:
 
 ```java
 'this is a string with NUMBERNUMBER some numbers NUMBERNUMBERNUMBER thrown in'
 ```
 
-Another example of an input of the following:
+no matches:
 
 ```java
 replaceAll('this is a string with no numbers thrown in', '([0-9])', 'NUMBER')
 ```
 
-And the output is that there are no matches for the input:
+returns:
 
 ```java
 'this is a string with no numbers thrown in'
@@ -586,44 +468,33 @@ Replaces the first occurrence of the regular expression with a replacement strin
 
 ### 14.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                                                                                                                                                                                                                                           | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The string to search in                                                                                                                                                                                                                         | String |
-| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | String |
-| The string to be substituted for each match (this does not support backreferences, substitutions, or captures)                                                                                                                                  | String |
-
-{{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
-{{% /alert %}}
+* The string to search in
+    * Type: string
+* The regular expression to match
+    * Type: string
+* The replacement value
+    * Type: string
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+Please note that this function call uses a regular expression language provided by the current platform:
 
 * When used inside a [microflow](microflow) – Java's regular expressions (for details, see [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* When used inside [conditional formatting](conditions) – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
 
 {{% /alert %}}
 
 ### 14.2 Output
 
-The output is described in the table below:
+The original string, with all occurrences of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned.
 
-| Value                                                                                                                                                                                          | Type   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The original string, with the first occurrence of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned. | String |
-
-### 14.3 Example
-
-If you use the following input:
+* Type: string
 
 ```java
 replaceFirst('this is a string with 75 some numbers 234 thrown in', '([0-9])', 'NUMBER')
 ```
 
-The output is:
+returns:
 
 ```java
 'this is a string with NUMBER5 some numbers 234 thrown in'
@@ -635,54 +506,44 @@ The `+` operator can be used to concatenate two strings or a string and a number
 
 ### 15.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value            | Type                          |
-| ---------------- | ----------------------------- |
-| First parameter  | String, integer/long, decimal |
-| Second parameter | String, integer/long, decimal |
-
-{{% alert type="info" %}}
+* First parameter
+    * Type: string, integer/long, float, or decimal
+* Second parameter
+    * Type: string, integer/long, float, or decimal
 
 At least one of the parameters must be of type string.
 
-{{% /alert %}}
-
 ### 15.2 Output
 
-The output is described in the table below:
+A new string that is the literal concatenation of the two input parameters.
 
-| Value                                                                       | Type   |
-| --------------------------------------------------------------------------- | ------ |
-| A new string that is the literal concatenation of the two input parameters. | String |
+* Type: string
 
-### 15.3 Example
-
-An example of an input to combine two strings can be the following:
+To combine two strings:
 
 ```java
 'foo' + 'bar'
 ```
 
-The output is:
+returns:
 
 ```java
 'foobar'
 ```
 
-An example of an input to combine a string and a number can be the following:
+To combine a string and a number:
 
 ```java
 4.73 + ' kilometers'
 ```
 
-The output is:
+returns:
 
 ```java
 '4.73 kilometers'
 ```
 
-## 16 urlEncode {#urlEncode}
+## 16 <a name="urlEncode"></a>urlEncode
 
 Converts a string to be used in a URL. This function is useful when you want to use the string as part of the URL.
 
@@ -694,29 +555,18 @@ For example:
 
 ### 16.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+* String to convert
+* Type: string
 
 ### 16.2 Output
 
-The output is described in the table below:
-
-| Value                    | Type   |
-| ------------------------ | ------ |
-| The string, URL-encoded. | String |
-
-### 16.3 Example
-
-If you use the following input:
+The string, URL-encoded.
 
 ```java
 urlEncode('Hello, world!')
 ```
 
-The output is:
+returns:
 
 ```java
 'Hello%2C+world%21'
@@ -728,29 +578,18 @@ Converts a string back from a URL. The opposite of [urlEncode](#urlEncode).
 
 ### 17.1 Input Parameters
 
-The input parameters are described in the table below:
-
-| Value                           | Type   |
-| ------------------------------- | ------ |
-| A URL-encoded string to convert | String |
+* A URL-encoded string to convert
+* Type: string
 
 ### 17.2 Output
 
-The output is described in the table below:
-
-| Value                    | Type   |
-| ------------------------ | ------ |
-| The string, URL-decoded. | String |
-
-### 17.3 Example
-
-If you use the following input:
+The string, URL-decoded.
 
 ```java
 urlDecode('Hello%2C+world%21')
 ```
 
-The output is:
+returns:
 
 ```java
 'Hello, world!'
