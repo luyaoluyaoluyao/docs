@@ -1,53 +1,27 @@
 ---
 title: "Expressions"
-menu_order: 55
-description: "Describes the microflow expressions available in Mendix Studio."
+parent: "application-logic"
+menu_order: 30
+description: "Describes the expressions that can be used in Mendix for a variety of purposes (for example, to change a member of an object based on logic)."
 tags:
-  - "studio"
-  - "microflow"
+  - "studio pro"
   - "expressions"
-  - "expression"
-  - "set value"
-  - "variable"
+  - "microflow expressions"
 aliases:
-  - /studio/microflows-expressions.html
+  - /refguide/microflow-expressions.html
 ---
 
 ## 1 Introduction
 
 Expressions changes a value based on a function or combination of functions.
 
-You can use expressions for workflows, pages, and microflows. The expressions are usually used to configure a condition for a certain activity or property, for example, a condition for a decision in a microflow or a workflow.
+Named items (for example, objects, lists, or variables) can be called in an expression by inserting the name of the item and adding a dollar sign (for example,  `$customer` could refer to an object named `customer`).
 
-You can use expressions for the following elements in a workflow:
+Attributes and associations of objects are accessed using a slash (for example, the **Name** attribute of the customer object is referred to as `$customer/Name`, and the **CRM.Customer_Order** association of the customer object is referred to as `$customer/CRM.Customer_Order`).
 
-* [Decision](workflows-general-activities)
-* **Due date** property of a [workflow](workflow-properties) and a [user task](workflows-user-task)
+Attributes of associated objects can be accessed using multiple slashes (for example, the **Number** attribute of a single associated **CRM.Order** is referred to as `$customer/CRM.Customer_Order/CRM.Order/Number`).
 
-Expressions can be used in the following properties on a page:
-
-* Conditional editability of a widget
-* Conditional visibility of a widget
-* **Content** property of a [text widget](page-editor-widgets-text)
-
-Expressions can be used for the following activities in a microflow:
-
-*  Change Object
-*  Change Variable
-*  Create Object
-*  Create Variable
-*  [Decision](microflows-decision)
-*  End Event
-
-For more information on setting and changing values for microflow activities, see [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value).
-
-## 2 Writing an Expression
-
-Named items in microflows and workflows (for example, objects, lists, or variables) can be called in an expression by inserting the name of the item and adding a dollar sign (for example,  `$Customer` could refer to an object named `Customer`).
-
-Attributes and associations of objects are accessed using a slash (for example, the **Name** attribute of the customer object is referred to as `$Customer/Name`).
-
-You can use brackets to determine the priority and associativity of calculations. For example, the **SellingPrice** is being calculated based on the default **Price** and **Discount** attributes:
+You can combine functions in an expression. In this case, you can use brackets to determine the priority and associativity of calculations. For example, the **SellingPrice** is being calculated based on the default **Price** and **Discount** attributes:
 
 ```
 $CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
@@ -55,139 +29,152 @@ $CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
 
 Arithmetic functions (subtraction, dividing, and multiplying) are being combined here.
 
-You cannot type plain text in an expression, text needs the be written with single quotation marks (`'`) around it. For example, if you would like to return a string `Mendix`, you need to write it as `'Mendix'`.
+### 1.1 Example
 
-You can use a list of suggestions to help you write an expression. Use <kbd>Ctrl</kbd> + <kbd>Space</kbd> shortcut to display this list. Suggestions can be divided into the following categories:
+For example, you have an object called **package** with two attributes: `weight` (decimal) and `shippingCosts` (decimal). If the weight of a package is less than one kilogram, there are no shipping costs. Otherwise, the shipping costs are €5.00. The expression for changing the `shippingCosts` attribute is:
 
-* **Variables and their attributes** – variables or attributes that are available in a current microflow, on a page, or in a workflow
-* **Enumeration values** – values of [enumeration type of attributes](domain-models-enumeration) that can be used in an expression
-* **Functions** – operations you can use in an expression (for more information, see the [Expression Types](#expression-types) section below)
-* **Keywords** – key phrases or words that you can use in an expression (for example, `empty` – a value that can be used to check if a variable is empty)
-* **Booleans** – true or false keywords
-* **Operators** – code elements that perform logical or mathematical operations; you can use Boolean or relational expressions (for more information, see the [Expression Types](#expression-types) section below)
+```
+if $package/weight < 1.00 then 0.00 else 5.00`
+```
 
-If there is an errors in the expression, the place where the error is, is highlighted red and an error message is shown when you hover over it.  In some cases there are quick fixes available to quickly solve the issue.
+### 1.2 Regular Expressions
 
-![](attachments/expressions/expression-error.png)
+[Regular Expression](regular-expressions) resource documents cannot be used in expressions. However, the format of regular expressions, sub-expressions, and quantifiers used in regular expression strings is the same as the ones described in the [Expression](regular-expressions#expression) section of *Regular Expressions*.
 
+## 2 Unary Expressions
 
-### 2.3  Expression Examples
+* [Unary minus ( - )](unary-expressions)
 
-Examples that illustrate how expressions can be used are described below.
+## 3 Arithmetic Expressions
 
-#### 2.3.1 Example 1
+* [Multiplication ( * )](arithmetic-expressions)
+* [Division ( div or : )](arithmetic-expressions)
+* [Modulo ( mod )](arithmetic-expressions)
+* [Addition ( + )](arithmetic-expressions)
+* [Subtraction ( - )](arithmetic-expressions)
 
-You have a [Decision](microflows-decision) in a microflow and you would like to write an expression that checks whether the customer grade is gold and the price of the order is more than 100 (you can configure a discount after the **Decision** that is allowed if this expression is true):
+## 4 Relational Expressions
 
-![](attachments/expressions/example-decision.png)
+* [Less than ( < )](relational-expressions)
+* [Greater than ( > )](relational-expressions)
+* [Less than or equal to ( <= )](relational-expressions)
+* [Greater than or equal to ( >= )](relational-expressions)
+* [Is equal to ( = )](relational-expressions)
+* [Is not equal to ( != )](relational-expressions)
 
-The expression will look the following way:
+## 5 Special Checks
 
-![](attachments/expressions/expression-decision.png)
+* [Checking for an empty object](special-checks)
+* [Checking for an empty object member](special-checks)
+* [`isNew`](special-checks) – checks whether an object is new
 
-#### 2.3.2 Example 2
+## 6 Boolean Expressions
 
-You add a [Decision](microflows-decision) to a microflow to check if an object (in the example below the object is *Customer*) exists. And you also check if the Customer's name matches a particular one (in the example below Customer's name is *Mendix*). The expression will look the following way:
+* [and](boolean-expressions)
+* [or](boolean-expressions)
+* [not](boolean-expressions)
 
-![](attachments/expressions/customer-empty-and-name-example.png)
+## 7 If Expressions
 
-#### 2.3.3 Example 3
+* [if](if-expressions) – performs a conditional action
 
-You have a [user task](workflows-user-task) in a workflow and would like to add a **Due Date** as a reminder that the user task should be done by the day after tomorrow. You can write the following expression for it:
+## 8 Mathematical Function Calls
 
-![User Task Expression](attachments/expressions/user-task-due-date.png)
+* [`max`](mathematical-function-calls) – the maximum of a list of numbers
+* [`min`](mathematical-function-calls) – the minimum of a list of numbers
+* [`round`](mathematical-function-calls) – the rounding of a floating-point number, optionally to a specified precision
+* [`random`](mathematical-function-calls) – random number generation
+* [`floor`](mathematical-function-calls) – the rounding of a floating-point number down
+* [`ceil`](mathematical-function-calls) – the rounding of a floating-point number up
+* [`pow`](mathematical-function-calls) – the exponentiation
+* [`abs`](mathematical-function-calls) – the absolute value
 
-## 3 Expression Types {#expression-types}
+## 9 String Function Calls
 
-The list of expressions that are used in Studio the most is represented below. For the full list of available expressions, see [Expressions](/refguide/expressions) in the *Studio Pro Guide*.
+* [`toUpperCase`](string-function-calls) – converts the string to upper-case
+* [`toLowerCase`](string-function-calls) – converts the string to lower-case
+* [`length`](string-function-calls) – the string length
+* [`substring`](string-function-calls) – gets a part of a string
+* [`find`](string-function-calls) – gets a sub-string position
+* [`findLast`](string-function-calls) – gets the last sub-string position
+* [`contains`](string-function-calls) – contains the sub-string
+* [`startsWith`](string-function-calls)  – determines whether a string starts with the specified sub-string
+* [`endsWith`](string-function-calls) – determines whether a string ends with the specified sub-string
+* [`trim`](string-function-calls) – removes the leading and trailing whitespace
+* [`isMatch`](string-function-calls) – matches a regular expression
+* [`replaceAll`](string-function-calls) – replaces the occurrences of a sub-string
+* [`replaceFirst`](string-function-calls) – replaces the first occurrence of a sub-string
+* [`String concatenation ( + )`](string-function-calls) – concatenates strings
+* [`urlEncode`](string-function-calls) – converts a string to be used in a URL
+* [`urlDecode`](string-function-calls) – converts a string back from a URL
 
-### 3.1 Unary Expressions
+## 10 Date Creation
 
-* [Unary minus ( - )](/refguide/unary-expressions)
+* [`dateTime`](date-creation) – creating a date value using the server's calendar
+* [`dateTimeUTC`](date-creation) – creating a date value using the UTC calendar
 
-### 3.2 Arithmetic Expressions
+## 11 Between Date Function Calls
 
-* [Multiplication ( * )](/refguide/arithmetic-expressions)
-* [Division ( div or : )](/refguide/arithmetic-expressions)
-* [Modulo ( mod )](/refguide/arithmetic-expressions)
-* [Addition ( + )](/refguide/arithmetic-expressions)
-* [Subtraction ( - )](/refguide/arithmetic-expressions)
+* [`millisecondsBetween`](between-date-function-calls) – the milliseconds between two dates
+* [`secondsBetween`](between-date-function-calls) – the seconds between two dates
+* [`minutesBetween`](between-date-function-calls) – the minutes between two dates
+* [`hoursBetween`](between-date-function-calls) – the hours between two dates
+* [`daysBetween`](between-date-function-calls) – the days between two dates
+* [`weeksBetween`](between-date-function-calls) – the weeks between two dates
+* [`calendarMonthsBetween`](between-date-function-calls) - the months between two dates
+* [`calendarYearsBetween`](between-date-function-calls) - the years between two dates
 
-### 3.3 Relational Expressions
+## 12 Add Date Function Calls
 
-* [Less than ( < )](/refguide/relational-expressions)
-* [Greater than ( > )](/refguide/relational-expressions)
-* [Less than or equal to ( <= )](/refguide/relational-expressions)
-* [Greater than or equal to ( >= )](/refguide/relational-expressions)
-* [Is equal to ( = )](/refguide/relational-expressions)
-* [Is not equal to ( != )](/refguide/relational-expressions)
+* [`addMilliseconds`](add-date-function-calls) – adds milliseconds to a date
+* [`addSeconds`](add-date-function-calls) – adds seconds to a date
+* [`addMinutes`](add-date-function-calls) – adds minutes to a date
+* [`addHours`](add-date-function-calls) – adds hours to a date
+* [`addDays`](add-date-function-calls) – adds days to a date
+* [`addDaysUTC`](add-date-function-calls) – adds days to a date using the UTC calendar
+* [`addWeeks`](add-date-function-calls) – adds weeks to a date
+* [`addWeeksUTC`](add-date-function-calls) – adds weeks to a date using the UTC calendar
+* [`addMonths`](add-date-function-calls) – adds months to a date
+* [`addMonthsUTC`](add-date-function-calls) – adds months to a date using the UTC calendar
+* [`addYears`](add-date-function-calls) – adds years to a date
+* [`addYearsUTC`](add-date-function-calls) – adds years to a date using the UTC calendar
 
-### 3.5 Boolean Expressions
+## 13 Trim to Date
 
-* [and](/refguide/boolean-expressions)
-* [or](/refguide/boolean-expressions)
-* [not](/refguide/boolean-expressions)
+* [`trimToSeconds`](trim-to-date) – trims to seconds
+* [`trimToMinutes`](trim-to-date) – trims to minutes
+* [`trimToHours`](trim-to-date) – trims to hours
+* [`trimToHoursUTC`](trim-to-date) – trims to hours using the UTC calendar
+* [`trimToDays`](trim-to-date) – trims to days
+* [`trimToDaysUTC`](trim-to-date) – trims to days using the UTC calendar
+* [`trimToMonths`](trim-to-date) – trims to months
+* [`trimToMonthsUTC`](trim-to-date) – trims to months using the UTC calendar
+* [`trimToYears`](trim-to-date) – trims to years
+* [`trimToYearsUTC`](trim-to-date) – trims to years using the UTC calendar
 
-### 3.6 Mathematical Function Calls
+## 14 To String
 
-* [`max`](/refguide/mathematical-function-calls) – the maximum of a list of numbers
-* [`min`](/refguide/mathematical-function-calls) – the minimum of a list of numbers
-* [`round`](/refguide/mathematical-function-calls) – rounds a number to a certain precision
-* [`random`](/refguide/mathematical-function-calls) – random number generation
-* [`floor`](/refguide/mathematical-function-calls) – the rounding of a floating-point number down
-* [`ceil`](/refguide/mathematical-function-calls) – the rounding of a floating-point number up
-* [`pow`](/refguide/mathematical-function-calls) – the exponentiation
-* [`abs`](/refguide/mathematical-function-calls) – the absolute value
+See [To String](to-string) for details.
 
-### 3.7 String Function Calls
+## 15 Parse Integer
 
-* [`toUpperCase`](/refguide/string-function-calls) – converts the string to upper-case
-* [`toLowerCase`](/refguide/string-function-calls) – converts the string to lower-case
-* [`length`](/refguide/string-function-calls) – the string length
-* [`substring`](/refguide/string-function-calls) – gets a part of a string
-* [`find`](/refguide/string-function-calls) – gets a sub-string position
-* [`findLast`](/refguide/string-function-calls) – gets the last sub-string position
-* [`contains`](/refguide/string-function-calls) – contains the sub-string
-* [`startsWith`](/refguide/string-function-calls)  – determines whether a string starts with the specified sub-string
-* [`endsWith`](/refguide/string-function-calls) – determines whether a string ends with the specified sub-string
-* [`trim`](/refguide/string-function-calls) – removes the leading and trailing whitespace
-* [`replaceAll`](/refguide/string-function-calls) – replaces the occurrences of a sub-string
-* [`replaceFirst`](/refguide/string-function-calls) – replaces the first occurrence of a sub-string
-* [`String concatenation ( + )`](/refguide/string-function-calls) – concatenates strings
+See [Parse Integer](parse-integer) for details.
 
-### 3.8 Date Creation
+## 16 Parse & Format Decimal Function Calls
 
-* [`dateTime`](/refguide/date-creation) – creating a date value using the server's calendar
+* [`parseDecimal`](parse-and-format-decimal-function-calls) – converts a string to a decimal
+* [`formatDecimal`](parse-and-format-decimal-function-calls) – converts a decimal to a string
 
-### 3.9 Between Date Function Calls
+## 17 Parse & Format Date Function Calls
 
-* [`millisecondsBetween`](/refguide/between-date-function-calls) – the milliseconds between two dates
-* [`secondsBetween`](/refguide/between-date-function-calls) – the seconds between two dates
-* [`minutesBetween`](/refguide/between-date-function-calls) – the minutes between two dates
-* [`hoursBetween`](/refguide/between-date-function-calls) – the hours between two dates
-* [`daysBetween`](/refguide/between-date-function-calls) – the days between two dates
-* [`weeksBetween`](/refguide/between-date-function-calls) – the weeks between two dates
-* [`calendarMonthsBetween`](/refguide/between-date-function-calls) - the months between two dates
-* [`calendarYearsBetween`](/refguide/between-date-function-calls) - the years between two dates
+* [`parseDateTime[UTC]`](parse-and-format-date-function-calls) – converts a string to a date value
+* [`formatDateTime[UTC]`](parse-and-format-date-function-calls) – converts a date value to a string
+* [`formatTime[UTC]`](parse-and-format-date-function-calls) – converts the time part of a date value to a string
+* [`formatDate[UTC]`](parse-and-format-date-function-calls) – converts the date part of a date value to a string
+* [`dateTimeToEpoch`](parse-and-format-date-function-calls) – converts a date to a long
+* [`epochToDateTime`](parse-and-format-date-function-calls) – converts a long to a date
 
-### 3.10 Add Date Function Calls
+## 18 Enumerations in Expressions
 
-* [`addMilliseconds`](/refguide/add-date-function-calls) – adds milliseconds to a date
-* [`addSeconds`](/refguide/add-date-function-calls) – adds seconds to a date
-* [`addMinutes`](/refguide/add-date-function-calls) – adds minutes to a date
-* [`addHours`](/refguide/add-date-function-calls) – adds hours to a date
-* [`addDays`](/refguide/add-date-function-calls) – adds days to a date
-* [`addWeeks`](/refguide/add-date-function-calls) – adds weeks to a date
-* [`addMonths`](/refguide/add-date-function-calls) – adds months to a date
-* [`addYears`](/refguide/add-date-function-calls) – adds years to a date
-
-### 3.11 Parse & Format Decimal Function Calls
-
-* [`formatDecimal`](/refguide/parse-and-format-decimal-function-calls) – converts a decimal to a string
-
-## 4 Read More
-
-* [Microflows](microflows)
-* [Workflows](workflows)
-* [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value)
-* [Expressions](/refguide/expressions)
+* [`getCaption`](enumerations-in-expressions) – gets the caption of an enumeration value in current language
+* [`getKey`](enumerations-in-expressions) – gets the technical name of an enumeration value
