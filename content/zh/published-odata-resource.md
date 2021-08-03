@@ -1,96 +1,96 @@
 ---
-title: "Published OData Resource"
-parent: "published-odata-services"
+title: "发布的 OData 资源"
+parent: "已发布的 odata 服务"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes the properties of a published OData resource.
+本文件介绍已发布的OData资源的属性。
 
-For an overview of OData services, see [Published OData Services](published-odata-services).
+OData服务的概述，见 [已发布的OData服务](published-odata-services)。
 
-## 2 Adding or Editing a Resource
+## 添加或编辑资源
 
-### 2.1 Add a Resource
+### 2.1 增加资源
 
-Click **Add** in the **Resources** pane of the **Published OData Service** window to open the **Select Entity** window. Select an entity to publish and click **Select**.
+点击 **在 **资源** 中添加** 在 **发布的 OData 服务** 窗口中打开 **选择实体** 窗口。 选择要发布的实体并点击 **选择**。
 
-An alternative way to add a resource is by right-clicking an entity in the **Domain Model** and choosing **Expose as OData resource**. You will be asked to select a published OData service, or create a new one.
+添加资源的另一种方式是右键单击 **域模型中的实体** 并选择 **作为OData资源**。 您将被要求选择已发布的 OData 服务，或创建一个新服务。
 
-### 2.2 Edit a Resource
+### 2.2 编辑资源
 
-In the **Entitiies** pane of the **Published OData Service** window, select a resource and click **Edit** to display the **Edit published resource** window.
+在 **个实体** 个已发布的 **OData 服务的窗格** 窗口， 选择一个资源并点击 **编辑** 以显示 **编辑已发布的资源** 窗口
 
-It is possible to select another **Entity** or view the entity in the domain model by clicking **Show**.
+可以选择另一个 **实体** 或通过点击 **显示** 来查看域模型中的实体。
 
-You can see the location where the resource will be published in **Example of location**.
+您可以在 **位置示例** 中看到资源发布的位置。
 
-In the **Public documentation** tab, you can provide a summary and a description of the exposed entity.
-
-{{% alert type="info" %}}
-
-[IBM DB2](db2) does not support read-isolated data retrieval operations that are non-blocking in a multi-user environment. Therefore, the data retrieved by OData might not be 100% consistent if the same data rows are modified concurrently by another user.
-
-{{% /alert %}}
-
-## 3 Selecting Exposed Attributes and Associations {#exatass}
-
-When you have selected an entity in the list to the left, its published attributes and associations are shown in the list to the right. In this list, you can add, edit, delete and move these attributes and associations.
+在 **公开文档** 标签页中，您可以提供一个被曝光实体的摘要和描述。
 
 {{% alert type="info" %}}
 
-The **System.ID** attribute is used as a key in OData services and must always be checked.
+[IBM DB2](db2) 不支持在多用户环境中不被屏蔽的只读数据检索操作。 因此，如果同一数据行由另一用户同时修改的话，OData收集的数据可能不会完全一致。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Attributes of published entities are **Nillable** by default. This means that if their value is empty then they will be encoded as explicit nulls in the OData content. If **Nillable** is unchecked for an attribute, the attribute cannot be empty (as this will result in a runtime error).
+## 3 选择公开的属性和关联 {#exatass}
+
+当您在左边的列表中选择一个实体时，其已发布的属性和关联会显示在右边的列表中。 在此列表中，您可以添加、编辑、删除和移动这些属性和关联。
+
+{{% alert type="info" %}}
+
+**System.ID** 属性被用作OData服务中的密钥，必须始终被检查。
+
+{{% /报警 %}}
+
+默认情况下，已发布实体的属性是 **Nillaable**。 这意味着，如果他们的值是空的，他们将被编码为 OData 内容中的明确空值。 如果 **Nillable** 未选中属性，属性不能为空 (因为这会导致运行时发生错误)。
 
 {{% alert type="info" %}}
 
 Attributes of type **Binary** cannot be exported through OData services except for the **Contents** field of the **System.FileDocument** attribute.
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 4 Mapping from Internal Names to Exposed Names
+## 从内部名称映射到被曝光的名称
 
-Use **Exposed entity name** in the **Edit published resource** window to customize the name of the resource that is exposed to the outside world. The default is the name of the exposed entity in the domain model. The **Exposed entity name** must start with a letter followed by letters or digits with a maximum length of 480 characters.
-
-{{% alert type="info" %}}
-
-Location URIs must be unique. Exposing two different resources at the same location will result in a consistency error.
-
-{{% /alert %}}
-
-Attributes and associations can be customized in the same way by clicking **Edit** in the list on the right.
-
-For associations, the exposed name is the name given to the navigation property (which is the property referring to the associated object(s)). The default is the same as the name of the association in the domain model.
+在 **编辑发布的资源** 窗口中使用 **暴露的实体名称** 来自定义对外部世界暴露的资源名称。 默认值是域模型中曝光实体的名称。 **暴露的实体名称** 必须以字母或数字开头，最大长度为480个字符。
 
 {{% alert type="info" %}}
 
-When names have been customized in this way, the name of the entity, attribute, or association as defined in the domain model will not be exposed to the outside world. For all OData communication, the exposed name is used.
+位置 URI 必须是唯一的。 在同一地点暴露两种不同的资源将导致一致性错误。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-These features make it easier to refactor the domain model without affecting external APIs.
+可以通过单击右侧列表中的 **编辑** 来自定义属性和关联。
 
-## 5 Exposed Set Name
+对相关联而言，暴露名称是给航行属性的名称(这是指相关物体的属性)。 默认值与域模型中的关联名称相同。
 
-It is possible to customize the name of the entity set that is displayed in the **Exposed set name** field of the **Edit published resource** window. This forms the last part of the URL of the resource as given in the **Example of location**.
+{{% alert type="info" %}}
 
-Default: *{Entity name}s*
+当名称以这种方式被定制时，实体名称、属性， 或域模型中定义的关联不会接触外部世界。 所有OData通讯都使用暴露名称。
 
-## 6 Use Paging
+{{% /报警 %}}
 
-The **Use paging** option is used to set a maximum number of objects per response and include a link to the next set of objects. A client such as [Tableau](https://www.tableau.com) is able use this to display progress and automatically continue to follow the links until all the data is retrieved. The memory usage of the clients can be improved if paging is set to a reasonable page size.
+这些功能使得在不影响外部API的情况下更容易重新计算域模型。
 
-Default: *No*
+## 5个曝光集名称
 
-Setting **Use paging** to **Yes** may result in inconsistency in the retrieved data because the data will not be retrieved in a single transaction. As an example, sorting on the **Age** attribute in an entity called **Customer** and retrieving customers set to 1000 objects per page. If a customer is deleted between two calls, then the customer with **Age** 23 at position 1001 then moves to position 1000. This means that the object that would be the first item on the second page is moved to the first page and is no longer retrieved. Similarly, data inserted between calls can result in a duplication of the data. This option should only be used when this kind of inconsistency is acceptable.
+可以自定义显示在 **编辑已发布资源** 窗口的 **曝光设定名称** 字段中的实体集。 这将形成 **位置示例** 中给定的资源的 URL 的最后一部分。
 
-## 7 Page Size
+默认: *{Entity name}s*
 
-When **Use paging** is set to **Yes**, the number of objects per page can be set in **Page size**.
+## 6 使用分页
 
-Default: *10000*
+**使用分页** 选项来设置每个响应的最大对象数，并包含一个链接到下一组对象。 像 [Tableau](https://www.tableau.com) 这样的客户端能够使用它来显示进度，并且自动继续关注链接，直到所有数据都被检索。 如果分页设置为合理的页面尺寸，客户端的内存使用可以改进。
+
+默认： *否*
+
+设置 **使用分页** 到 **是,** 可能导致检索到的数据不一致, 因为数据将不会在一次交易中检索。 例如， 在名为 **客户** 的实体中按 **时代** 属性排序，并检索客户每页为 1000 个对象。 如果客户在两次通话之间被删除，那么客户 **Age** 23处位置1001，然后移动到1000处。 这意味着将成为第二页第一项的对象已移动到第一页，不再检索。 同样，在通话之间插入的数据可能导致数据重复。 只有在这种不一致可以接受的情况下才应使用这种办法。
+
+## 7 页大小
+
+当 **使用分页** 设置为 **是**, 每页的对象数量可以设置在 **页面大小**
+
+默认： *10000*
