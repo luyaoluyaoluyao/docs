@@ -8,6 +8,10 @@ tags:
   - "プロパティ"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page-properties.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 このドキュメントでは、ページ プロパティについて説明します。 どのページにどのようなウィジェットを配置できるかの詳細については、 [ページ](pages) を参照してください。
@@ -30,11 +34,11 @@ tags:
 
 ### 2.1 共通セクション {#common}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide8/comon-section-link.md" %}}
 
 ### 2.2 デザイナーセクション {#designer}
 
-{{% snippet file="refguide/designer-properties.md" %}}
+{{% snippet file="refguide8/designer-properties.md" %}}
 
 ### 2.3 一般セクション {#general}
 
