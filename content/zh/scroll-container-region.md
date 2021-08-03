@@ -1,31 +1,31 @@
 ---
-title: "Scroll Container Region"
-parent: "scroll-container"
+title: "滚动容器区域"
+parent: "滚动容器"
 ---
 
 
-A scroll container region is part of a [Scroll Container](scroll-container), and defines a content area.
+滚动容器区域是 [卷容器](scroll-container)的一部分，定义了内容区域。
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 常规属性
 
-### Width (only for left and right region)
+### 宽度 (仅适用于左侧和右侧区域)
 
-Whether the width value of the region is defined in pixels or as a percentage of its parent's width.
+区域的宽度值是以像素为单位还是以其上级宽度的百分比来定义的。
 
-### Width value (only for left and right region)
+### 宽度值(仅适用于左侧和右侧区域)
 
-The width of the region, either in pixels or a percentage, depending on the value of the width property.
+根据宽度属性的值，以像素或百分比表示区域的宽度。
 
-### Height (only for top and bottom region)
+### 高度 (仅适用于顶部区域和底部区域)
 
-Whether the height value of the region is defined in pixels or as a percentage of its parent's height.
+区域的高度值是以像素为单位还是以上级高度的百分比来定义的。
 
-### Height value (only for top and bottom region)
+### 高度值(仅适用于顶部和底部区域)
 
-The height of the region, either in pixels or a percentage, depending on the value of the height property.
+视高度属性的值而定，无论是像素，还是百分比。
