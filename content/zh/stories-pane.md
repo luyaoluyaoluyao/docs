@@ -1,7 +1,7 @@
 ---
 title: "故事面板"
 parent: 视图菜单
-menu_order: 60
+menu_order: 50
 description: "描述Mendix Studio Pro中的故事窗格。"
 tags:
   - "Studio Pro"
@@ -9,9 +9,13 @@ tags:
   - "故事窗格"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/stories-pane.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
-对于已启用的版本控制应用(带有团队服务器或其他SVN服务器的应用) **故事** 窗格显示当前 [Sprint](/developerportal/collaborate/planning-development) 的故事和任务。 故事、 任务和冲压是在开发者门户中创建和管理的。 关于故事的更多信息，请参阅 [故事](/developerportal/collaborate/stories)。 欲了解更多关于任务的信息，请在 *故事* 中的 [添加任务到故事](/developerportal/collaborate/stories#adding) 部分。
+对于版本控制启用的项目 (团队服务器或其他SVN服务器的项目) **故事** 窗格显示当前 [Sprint](/developerportal/collaborate/planning-development) 的故事和任务。 故事、 任务和冲压是在开发者门户中创建和管理的。 关于故事的更多信息，请参阅 [故事](/developerportal/collaborate/stories)。 欲了解更多关于任务的信息，请在 *故事* 中的 [添加任务到故事](/developerportal/collaborate/stories#adding) 部分。
 
 在 **故事** 窗格中，您可以查看当前的故事和任务，显示或隐藏已完成的故事， 打开他们的详细信息，改变故事和任务的状态，并打开与故事相关的文档。
 
