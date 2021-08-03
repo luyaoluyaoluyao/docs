@@ -1,74 +1,40 @@
 ---
 title: "Simple Menu Bar"
 parent: "menu-widgets"
-menu_order: 2
-tags:
-  - "studio pro"
 ---
 
-{{% alert type="warning" %}}The simple menu bar widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+The simple menu bar widget shows a configured menu in the form of a horizontal or vertical bar with images and captions. Items cannot have subitems; the menu structure can only have one level. The [menu items](menu-item) points to either the page or the microflow that will opened or started when the item is clicked.
 
-A simple menu bar shows menu items of a [navigation profile](navigation#profiles) or in a [menu](menu) document in the form of a horizontal or vertical bar. These items are determined by the [Menu source](#menu-source) and are either configured in the [Navigation](navigation) or a [Menu](menu).
+{{% alert type="info" %}}
 
-Sub-items of menu items are not displayed by this widgets, that means the menu structure can only have one level. For more information on menu items and their properties, see [Menu](menu).
+![](attachments/pages/simple-menu-bar-horizontal.png)
 
-![Simple Menu Bar](attachments/menu-widgets/simple-menu-bar.png)
+{{% /alert %}}{{% alert type="info" %}}
 
-## 2 Properties
+![](attachments/pages/simple-menu-bar-vertical.png)
 
-An example of a simple menu bar properties is represented in the image below:
+{{% /alert %}}
 
-{{% image_container width="250" %}}![Simple Menu Bar Properties](attachments/menu-widgets/simple-menu-bar-properties.png)
-{{% /image_container %}}
+## Common Properties
 
-Menu bar properties consist of the following sections:
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-* [Common](#common)
-* [Design properties](#design)
-* [General](#general)
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-### 2.1 Common Section {#common}
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+## General Properties
 
-### 2.2 Design Properties Section {#design}
+{{% snippet file="refguide7/Menu+Source+Properties.md" %}}
 
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.3 General Section {#general}
-
-#### 2.3.1 Menu Source {#menu-source}
-
-The items that are shown in the menu widget are determined by the **Menu source**. Possible menu sources are described in the table below:
-
-| Value                           | Description                                                                                |
-| ------------------------------- | ------------------------------------------------------------------------------------------ |
-| Project navigation  *(default)* | The menu items are taken from one of the profiles defined in the [Navigation](navigation). |
-| Menu document                   | The menu items are taken from a [menu](menu) document.                                     |
-
-#### 2.3.2 Profile
-
-Only available when the [Menu source](#menu-source) is set to **Project navigation**. The **Profile** property specifies what [Navigation profile](navigation#profiles) is used for the widget.
-
-Default: *Responsive*
-
-#### 2.3.3 Menu
-
-Only available when the [Menu source](#menu-source) is set to **Menu document**. The **Menu** property specifies what [Menu](menu) document is used for the widget.
-
-#### 2.3.4 Orientation
+### Orientation
 
 This property determines how the simple menu bar is laid out.
 
-| Orientation             | Description                                                                       |
-| ----------------------- | --------------------------------------------------------------------------------- |
-| Horizontal  *(default)* | The menu items are next to each other and the images are above the captions.      |
-| Vertical                | The menu items are underneath each other and the images are next to the captions. |
+| Orientation | Description                                                                       |
+| ----------- | --------------------------------------------------------------------------------- |
+| Horizontal  | The menu items are next to each other and the images are above the captions.      |
+| Vertical    | The menu items are underneath each other and the images are next to the captions. |
 
-## 3 Read More
-
-* [Page](page)
-* [Menu Widgets](menu-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+_Default value:_ Horizontal
