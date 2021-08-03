@@ -1,44 +1,44 @@
 ---
-title: "Authentication Widgets"
-parent: "pages"
+title: "认证小部件"
+parent: "页面"
 menu_order: 55
 tags:
-  - "authentication"
-  - "widgets"
+  - "身份认证"
+  - "小部件"
   - "studio pro"
-  - "login"
-  - "password"
+  - "登录"
+  - "密碼"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Authentication widgets are used to sign users in and log them out.
+身份验证小部件用于登录用户并注销它们。
 
-Use a [navigation profile setting](navigation#authentication) to direct users to the correct authentication page.
+使用 [导航配置](navigation#authentication) 来将用户引导到正确的身份验证页面。
 
-The **Authentication widgets** category contains the following widgets:
+**身份验证小部件** 类别包含以下小部件：
 
-* [Login ID text box](login-id-text-box) – allows users to provide a login id for authentication
+* [登录 ID 文本框](login-id-text-box) - 允许用户提供登录ID进行身份验证
 
-    ![Login ID Text Box Example](attachments/authentication-widgets/logid-id-example.png)
+    ![登录 ID 文本框示例](attachments/authentication-widgets/logid-id-example.png)
 
-* [Password text box](password-text-box) – allows users to provide a password for authentication
+* [密码文本框](password-text-box) - 允许用户提供验证密码
 
-    ![Password Text Box Example](attachments/authentication-widgets/password-text-box-example.png)
+    ![密码文本框示例](attachments/authentication-widgets/password-text-box-example.png)
 
-* [Sign-in button](sign-in-button) – sends a user’s login id and password to the server for authentication ![Sign-In Button Example](attachments/authentication-widgets/sign-in-button-example.png)
+* [登录按钮](sign-in-button) - 将用户的登录ID和密码发送到服务器进行身份验证 ![登录按钮示例](attachments/authentication-widgets/sign-in-button-example.png)
 
-* **Sign-out button** – signs the currently signed-in user out. The sign-out button is a button with an on-click event set to **Sign out**. For more information on on-click events, see the [On Click Event & Events Section](on-click-event). For details on button properties. see [Button Properties](button-properties).
+* **登出按钮** - 签署当前已登录的用户。 退出按钮是一个按钮，点击事件设置为 **退出**。 关于点击事件的更多信息，见 [点击事件 & 事件部分](on-click-event) 关于按钮属性的详细信息。 查看 [按钮属性](button-properties)。
 
-* [Validation message](validation-message) – informs a user about authentication failures if any
+* [验证消息](validation-message) - 如果有任何验证失败通知用户
 
-    ![Validation Message Example](attachments/authentication-widgets/validation-message-example.png)
+    ![验证消息示例](attachments/authentication-widgets/validation-message-example.png)
 
-## 2 Performing Basic Functions
+## 2 执行基本函数
 
-{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performancing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Pages](pages)
+* [页](page)
+* [页 次](页面)
