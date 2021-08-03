@@ -11,9 +11,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-**已发布的REST service** 功能已引入7.10.0版本。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-services.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
@@ -66,6 +64,6 @@ tags:
 
 ## 6 个示例
 
-**如何使用Mendix 本地发布REST**
+**如何在Studio Pro 8中发布REST**
 
-{{% youtube HzrFkv0U4n8 %}}
+{{% youtube Ff_P84NOcZk %}}
