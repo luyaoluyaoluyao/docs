@@ -1,19 +1,24 @@
 ---
 title: "Version Control Menu"
 parent: "menus"
-description: "Describes the Version Control menu in Studio Pro."
+description: "Describes the Project Menu in Studio Pro."
 menu_order: 40
 tags:
   - "Studio Pro"
-  - "version control"
+  - "project menu"
   - "top bar"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/version-control-menu.pdf).
+{{% /alert %}}
+
 ## 1 Introduction
 
-In the **Version Control** menu, you can view and/or manipulate settings that are connected to version control. For example, you can view the history of the current development line.
+In the **Version Control** menu you can view and/or manipulate settings that are connected to the version control. For example, you can view the history of the current development line.
 
-![Version Control Menu](attachments/version-control-menu/version-control-menu.png)
+{{% image_container width="300" %}}![Version Control Menu](attachments/version-control-menu/version-control-menu.png)
+{{% /image_container %}}
 
 ## 2 Update
 
@@ -33,11 +38,11 @@ The **History** option shows the history of committed revisions of the app. For 
 
 ## 6 Download from Version Control Server
 
-The **Download from Version Control Server** option downloads an app from the Team Server or another private server. This creates a local working copy of the app for development. For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
+The **Download from Version Control Server** option downloads an app from the Team Server or another SVN server. This creates a local working copy of the app for development. For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
 
 ## 7 Upload to Version Control Server
 
-The **Upload to Version Control Server** option uploads a local app to a new or existing Team Server repository, or to another private server. This is only possible if the app is not yet version controlled. For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
+The **Upload to Version Control Server** option uploads a local app to a new or existing Team Server repository, or to another SVN server. This is only possible if the app is not yet version controlled. For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
 
 ## 8 Manage Branch Lines
 
@@ -51,9 +56,9 @@ The **Merge Changes Here** option allows you to merge changes that were committe
 
 The **Reverse Merge Changes** option allows locally rolling back changes that were committed to the version control repository. These local changes can then be committed as a new revision.
 
-## 11 Revert All Changes
+## 11 Revert All Changes {#revert-all}
 
-The **Revert All Changes** option allows rolling back all local changes, both in the app and in files on disk, that have been introduced since the last commit.
+The **Revert All Changes** option allows rolling back all local changes, both in the project and in files on disk, that have been introduced since the last commit.
 
 ## 12 Add Snapshot of Data
 
