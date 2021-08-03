@@ -8,8 +8,13 @@ tags:
   - "查询"
   - "参数"
   - "日期和时间格式"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+**已发布的REST service** 功能已引入7.10.0版本。
+
+{{% /报警 %}}
 
 [已发布的REST 操作](published-rest-operation) 的规格包括实现操作的微流程。 这个微流可能需要来自请求的查询字符串的参数。
 
