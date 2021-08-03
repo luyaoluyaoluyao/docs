@@ -1,76 +1,47 @@
 ---
-title: "Group Box"
+title: "Group box"
 parent: "container-widgets"
-menu_order: 30
-tags:
-  - "studio pro"
-  - "group box"
-  - "container widget"
-  - "widget"
 ---
 
-{{% alert type="warning" %}}The group box widget is not supported on native mobile pages.{{% /alert %}}
-
-## 1 Introduction
 
 A group box can be used to visually group related widgets together. Group boxes are displayed as a frame around nested widgets with an optional header. Group boxes can be configured to collapse and expand dynamically.
 
-![](attachments/container-widgets/group-box.jpg)
+{{% alert type="info" %}}
 
-## 2 Properties
+![](attachments/16713857/16843974.jpg) An empty group box.
 
-An example of group box properties is represented in the image below:
+{{% /alert %}}
 
-{{% image_container width="300" %}}![Group Box Properties](attachments/container-widgets/group-box-properties.png)
-{{% /image_container %}}
+## Common properties
 
-Group box properties consist of the following sections:
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-### 2.1 Common Section {#common}
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+## General properties
 
-### 2.2 Design Properties Section {#design-properties}
+### Show header
 
-{{% snippet file="refguide/design-section-link.md" %}}
+Toggle whether a header is shown above the group box.
 
-### 2.3 General Section {#general}
+_Default value:_ True
 
-#### 2.3.1 Show Header
+### Caption
 
-**Show Header** defines whether a header is shown above the group box.
+The text of the header. This property is only applicable if the header is visible.
 
-Default: *True*
+_Default value:_ Group box
 
-#### 2.3.2 Caption
+### Collapsible
 
-This property is only displayed when the **Show Header** option is enabled. It defines the caption that is shown in the header.
+This property specifies whether the group box can be collapsed by clicking the header and if so, whether it starts collapsed or expanded. This property is only applicable if the header is visible.
 
-Default: *Group box*
+_Default value:_ Yes (start expanded)
 
-#### 2.3.3 Collapsible
+## Visibility properties
 
-This property specifies whether the group box can be collapsed by clicking the header and if so, whether it is displayed collapsed or expanded. This property is only displayed when the **Show Header** is enabled.
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-Possible values of this property are the following:
-
-* **Yes (start expanded)**  *(default)* – the elements inside the group box will be initially displayed and can be collapsed when a user clicks a minus icon in the header
-* **Yes (start collapsed)** – the elements inside the group box will be initially hidden and can be expanded when a user clicks a plus icon in the header
-* **No** – group box elements are always displayed and the group box cannot be collapsed
-
-### 2.4 Visibility Section {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 Read More
-
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
-
-
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
