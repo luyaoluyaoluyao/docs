@@ -1,57 +1,57 @@
 ---
-title: "Password Text Box"
-parent: "authentication-widgets"
+title: "密码文本框"
+parent: "认证小部件"
 tags:
   - "studio pro"
-  - "password text box"
-  - "authentication widget"
-  - "authentication"
+  - "密码文本框"
+  - "身份验证小部件"
+  - "身份认证"
 ---
 
 {{% alert type="warning" %}}The **Password text box** widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Password text box** is a widget that provides a password for authentication:
+**密码文本框** 是一个为身份验证提供密码的部件：
 
-![Password Text Box](attachments/authentication-widgets/password-text-box.png)
+![密码文本框](attachments/authentication-widgets/password-text-box.png)
 
-The **Password text box** should be placed on a page together with  with a [Login ID text box](login-id-text-box) and a [Sign-in button](sign-in-button).
+**密码文本框** 应该与 [登录ID文本框](login-id-text-box) 和 [登录按钮](sign-in-button) 一起放在页面上。
 
-## 2 Properties
+## 2 属性
 
-An example of password text box properties is represented in the image below:
+下面的图像显示了密码框属性的示例：
 
 {{% image_container width="250" %}}![](attachments/authentication-widgets/password-text-box-properties.png)
 {{% /image_container %}}
 
-Password text box properties consist of the following sections:
+密码框属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Label](#label)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [标签](#label)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Placeholder
+#### 2.3.1 占位符
 
-A **Placeholder** shows a text when an end-user has not entered any text yet. It can be used to give a hint to the end-user on what information should be entered in the field.
+**占位符** 显示了当最终用户尚未输入任何文本时的文本。 它可以用来向最终用户说明应在实地输入哪些信息。
 
-### 2.4 Label Section {#label}
+### 2.4 标签部分 {#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Login ID Text Box](login-id-text-box)
-* [Sign-In Button](sign-in-button)
+* [页](page)
+* [登录 ID 文本框](login-id-text-box)
+* [登录按钮](sign-in-button)
