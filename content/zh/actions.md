@@ -1,84 +1,76 @@
 ---
-title: "Actions"
-parent: "published-app-services"
-tags:
-  - "studio pro"
+title: "行动"
+parent: "已发布的应用服务"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/actions.pdf).
-{{% /alert %}}
+应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [已发布的网页服务](published-web-services) 或 [已发布的REST 服务](published-rest-services) 代替。
+{{% /报警 %}}
 
-## 1 Introduction
+提供应用服务的实际微流程动作。 注意一旦应用程序服务版本被设置为消耗品， 它的参数和返回类型不再可编辑，因为它们是应用服务合同的一部分。
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
-{{% /alert %}}
+在常规选项卡中，您可以设置与动作对应的微流程。 当微流设置时，参数标签将自动填充。
 
-Actions provide the actual microflow actions of the app service. Once an app service version is set to **Consumable**, its parameters and return type are no longer editable, as they are part of the app service contract.
+操作页面有以下标签：
 
-In the **General** tab, you can set the microflow that corresponds to the action. When the microflow is set, the **Parameters** tab will be filled automatically.
-
-An action page has the tabs below.
-
-## 2 General
+## A. 概况
 
 ![](attachments/16713720/16843926.png)
 
-### 2.1 Name
+### 名称
 
-This is the name of the action the consumer will see in their toolbox.
+这是消费者在工具箱中看到的动作名称。
 
-### 2.2 Icon
+### 图标
 
-This is the icon that belongs to the action. An icon can be selected from any image documents in the app. A new icon can be added to an image document if it is not available yet.
+这是属于该动作的图标。 可以从项目中的任何图像文档中选择一个图标。 如果图像文档尚不可用，可以添加新的图标到图像文档中。
 
-### 2.3 Microflow
+### 微流
 
-This defines which microflow will be executed when this action is called.
+定义调用此动作时将执行哪个微流。
 
-### 2.4 Description
+### 描述
 
-This describes the action. The consumer will see this description in their overview.
+描述该动作。 消费者将查看他们的概述。
 
-## 3 Parameters
+## 参数
 
-![](attachments/16713720/16843923.png)
+### ![](attachments/16713720/16843923.png)
 
-### 3.1 Microflow Parameter
+### 微流程参数
 
-This defines the name of the parameter in the microflow.
+定义微流中参数的名称
 
-### 3.2 Type
+### 类型
 
-This defines the type of the parameter.
+定义参数类型。
 
-### 3.3 Can Be Empty
+### 可以为空
 
-This defines whether a value can be empty as an input parameter.
+定义一个值是否可以作为输入参数为空。
 
-### 3.4 Action Parameter
+### 动作参数
 
-This defines the name of the parameter in the app service action call. This is initially copied from the microflow parameter name, but it can be modified. There are three reserved parameter names that are not allowed to be used:
+定义应用服务动作调用参数的名称。 这首先是从微流程参数名称复制的，但可以修改。 有三个保留参数名称不允许使用： **用户名** **密码** 和 **appservicelocation** (大小写不敏感)。
 
-* *username*
-* *password*
-* *appservicelocation* (case insensitive)
-
-### 3.5 Exposed Attributes & Associations
+### 曝光属性和关联
 
 ![](attachments/16713720/16843922.png)
 
-A button is available for complex types (for example, an entity from your domain model) in order to define whether to include the attribute in an entity as well as to define whether an attribute can be empty as an input.
+复杂类型的按钮（例如域名模型中的实体）可用。 定义是否包含或排除一个实体中的属性，并定义一个属性作为输入是否为空。
 
-## 4 Return Type
+## 退货类型
 
-This defines what kind of object will be returned by the action. This can be a simple type (like an integer or string), or a complex type (for example, an entity from your entity model).
+定义该动作将返回的对象类型。 这可以是一种简单的类型(例如一个整数或字符串)，也可以是一种复杂的类型(例如在您实体模式下的实体中)
 
-### 4.1 Can Be Empty
+### 可以为空
 
-This defines whether the return value can be empty.
+定义返回值是否为 **空**。
 
-For example, an **empty** ReturnObject is disallowed here:
+{{% alert type="info" %}}
 
 ![](attachments/16713720/16843921.png)
+
+应用服务操作返回类型选项卡。 这里不允许 **空的** 返回对象。
+
+{{% /报警 %}}
