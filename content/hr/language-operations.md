@@ -9,10 +9,6 @@ tags:
   - "translatable text"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/language-operations.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 When creating an app in multiple languages, there are a number of tasks which you may want to carry out on all the texts in the app, or in a specific module.
@@ -30,7 +26,7 @@ When creating an app in multiple languages, there are a number of tasks which yo
 
 In the **Selection** section of the dialog box, you can select the modules that you want to manage.
 
-For each module, you can see the number of translatable texts which have been entered in each language which contains items. The gray columns indicate languages which are not selected in the project, but which contain translated texts. This enables you to remove a language from the project but still have access to the existing texts.
+For each module, you can see the number of translatable texts which have been entered in each language which contains items. The gray columns indicate languages which are not selected in the app, but which contain translated texts. This enables you to remove a language from the app but still have access to the existing texts.
 
 ## 3 Performing Operations
 
