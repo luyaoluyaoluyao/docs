@@ -1,74 +1,74 @@
 ---
-title: "Common Runtime & Java Errors"
-parent: "runtime-java"
+title: "常见运行时间 & Java 错误"
+parent: "跑步java"
 menu_order: 3
 tags:
-  - "runtime"
-  - "java"
+  - "运行时间"
+  - "贾瓦"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Once your application starts performing poorly, becomes unstable or even worse: crashes, the first thing to do is check your application log for hints on what could be causing this. If there are any **FATAL** or **CRITICAL** log lines in there, immediately start working on resolving them. Any **ERROR** log line should be treated as such as well, so you should always strive to get rid of them.
+一旦您的应用程序运行不好，就会变得不稳定，甚至更糟：崩溃， 第一件事是检查您的应用程序日志以了解可能造成这种情况的原因。 如果有 **FATAL** 或 **CRITICAL** 日志行, 立即开始解决它们的工作。 任何 **错误的** 日志行也应该被当作这样的行处理，因此你应该始终努力去除它们。
 
-## 2 Common Errors
-Some of the more common errors you can find in the application log that can cause your application to go down are the topic of this article. Let’s dive right in.
+## 2 常见错误
+您在应用程序日志中发现的一些更常见的错误可能会导致您的应用程序倒退，这是本篇文章的主题。 让我们马上开始吧。
 
-### 2.1 java.lang.StackOverflowError
+### 2.1 java.lang.StackOverflow错误
 
-Your application is not going to recover from one of these bad boys. When you encounter one of these while running your Mendix application it is practically always going to be caused by an infinite loop. You can easily recreate this by creating a microflow called *Microflow* with a single microflow call action and selecting the microflow called *Microflow*. The infinite loop will crash your app and produce a stack overflow error.
+您的应用程序不会从这些坏男孩中恢复。 当你在运行Mendix 应用程序时遇到其中一个应用程序时，它实际上总是由一个无限循环引起的。 您可以轻松地通过创建一个叫做 *微流程* 的微流程并选择一个叫做 *微流程* 的微流程来重新创建它。 无限循环会崩溃您的应用并产生堆栈溢出错误。
 
-### 2.2 java.lang.OutOfMemoryError: Java heap space
+### 2.2 java.lang.OutOfMemory错误：Java 堆空间
 
-This is an error you run into when the JVM Heap tells you "Enough is enough. I can’t fit all of this into my memory." Which usually means that the application has become unstable and should be restarted before it crashes and that you also have a real problem to solve.
+当JVM Heap 告诉你“足够”时，你遇到了一个错误。 我无法将所有这一切都放入我的记忆中。” 这通常意味着应用程序已经变得不稳定并且应该在崩溃前重新启动，您也有一个真正的问题需要解决。
 
-The following things can cause this error:
+以下内容可能会导致此错误：
 
-*   Memory leak
-    *   Introduced by developer, custom code
-    *   A bug in Mendix Runtime
-    *   A bug in a Java library used by custom code of the developer or by the Mendix Runtime
-    *   A bug in Java Runtime
-*   Massive creation of objects (for example, by retrieving 1 trillion entities in a single microflow at once)
-*   Configuration issue or sizing issue
+*   内存溢出
+    *   由开发者介绍，自定义代码
+    *   Mendix 运行时出现错误
+    *   一个 Java 库中的错误，由开发者的自定义代码或 Mendix Runtime 使用
+    *   Java Runtime 中的错误
+*   大规模创建物体（例如，一次性检索1万亿个实体）
+*   配置问题或大小问题
 
-A memory leak should look like the garbage collector stops running. See the first half of the graph here for an example:
+内存泄漏似乎像垃圾收集器正在运行。 下面的图表前半部分举一个示例：
 
 ![](attachments/mendix-runtime-java-errors/2.jpg)
 
-It is advisable to always take a look at the Object Cache (Mendix objects in the Heap) graph to see if it resembles the Heap. For example:
+最好总是看一下物体缓存(Heap中的Mendix 对象)，看它是否类似于Heap。 例如：
 
 ![](attachments/mendix-runtime-java-errors/3.jpg)
 
-This looks quite healthy.
+这看来是相当健康的。
 
-If you see the Object Cache going up indefinitely you might have introduced a memory leak yourself and it would be best to immediately analyze your application to see if that could be the case.
+如果你看到天体缓存无限期升级，你可能引入了一个内存泄漏，最好是立即分析你的应用程序，以确定是否会出现这种情况。
 
-On the other hand, if it looks like the graph below there is much bigger chance you are dealing with a bug outside of your control (for example, Mendix Runtime) that is causing a memory leak.
+另一方面， 如果它看起来像下面的图形，那么你处理一个超出你控制范围的错误的机会就更大了(例如)。 Mendix Runtime) 正在造成内存泄漏。
 
 ![](attachments/mendix-runtime-java-errors/4.jpg)
 
-### 2.3 java.lang.OutOfMemoryError: GC overhead limit exceeded
+### 2.3 java.lang.OutOfMemory错误：超过GC的间接费用限制
 
-Such a cryptic description. But it is quite simple really. This is the JVM telling you “I am taking an excessive amount of time collecting garbage (by default 98% of all CPU time) and am recovering very little memory (by default <=2% of the total Heap size) each time. Let me just stop your application now, so you can figure out what’s wrong before it crashes.”
+这种加密描述。 但这实际上是相当简单的。 这是JVM告诉您，“我要花太多的时间收集垃圾(默认占所有CPU时间的98%)，每次恢复的内存非常小(默认值为 <=2%)。 让我现在就停止你的应用程序，以便你能够在它崩溃之前找出什么问题。”
 
-The most common causes for this error are:
+造成这一错误的最常见原因是：
 
-1.  Mostly: creating a lot of objects in a short amount of time.
-2.  Sometimes: creating a lot of objects in rapid succession.
-3.  Rarely: something else.
+1.  大多：在短时间内创建大量对象。
+2.  有时：快速连续创建许多对象。
+3.  稀有：别的东西。
 
-If you want to reproduce this error, do something like this:
+如果您想要重现此错误，请做这样的事情：
 
 ![](attachments/mendix-runtime-java-errors/common-errors.png)
 
-Eventually, memory will run low because of all the account being created, which is when the garbage collector will try to free up memory. It won’t be able to do this, so that all these Account objects are still alive. After a while, it will return the error.
+由于正在创建的所有帐户，内存最终将运行低，这就是垃圾收集器将尝试释放内存。 它将无法做到这一点，因此所有这些帐户对象仍然存在。 一段时间后，它将返回错误。
 
-That concludes this list of some of the more common errors in the application log that can cause your application to go down. But there is one more item to share. While it is not an error in the error log, it might match some of the symptoms outlined.
+这个列表结束了应用程序日志中一些更常见的错误，这些错误可能会导致您的应用程序退出。 但还有一个项目需要分享。 虽然它不是错误日志中的错误，但它可能与概述的一些症状相符。
 
-### 2.4 Lack of Resources on the Application Server
+### 2.4 应用程序服务器上缺少资源
 
-If you see the grey *committed* line peak into the white part of the *Application node operating system memory* graph, your app node needs more memory. Upgrading to a larger container is strongly recommended in this case. See the following graph for an example of this problem:
+如果你看到了 *灰色承诺的* 行峰到 *应用程序节点操作系统内存的白色部分* 图形， 您的应用节点需要更多内存。 在这种情况下，强烈建议升级到更大的容器。 请参阅下面的图表以了解这个问题的例子：
 
 ![](attachments/mendix-runtime-java-errors/6.jpg)
 
