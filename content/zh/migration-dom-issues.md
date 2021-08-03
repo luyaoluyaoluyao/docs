@@ -1,42 +1,42 @@
 ---
-title: "Troubleshooting DOM Changes"
-parent: "moving-from-7-to-8"
+title: "故障排除DOM更改"
+parent: "从 7-8 移动"
 menu_order: 10
-description: "This document explains the updated DOM structure for Mendix 8, and what that means for app's CSS."
+description: "此文档解释了更新的 Mendix 8 的DOM结构以及这对应用的 CSS 意味着什么。"
 tags:
   - "DOM"
-  - "Widgets"
-  - "Themes"
-  - "Classes"
+  - "小部件"
+  - "主题"
+  - "班级"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Among other improvements to the client in Mendix 8,  the HTML of Mendix applications has also been updated. These changes make widgets more accessible, more consistent, and give you a cleaner markup to work with.
+Mendix 8中客户端的其他改进，Mendix 应用程序的HTML也已更新。 这些更改使得部件更容易访问、更加一致，并且使您能够使用更清洁的标记。
 
-However, these updates might impact your styling. The appearance of your application may be affected, as the widgets' Document Object Model structure has been updated. This reference guide will outline the differences between Mendix 7 and 8 as they pertain to the DOM and CSS. This document is only relevant for apps which employ custom CSS or modify existing Atlas UI CSS.
+然而，这些更新可能会影响到您的搭配。 您的应用程序的外观可能会受到影响，因为部件的文档对象模型结构已更新。 本参考指南将概述Mendix 7和8之间与DOM和CSS有关的差异。 此文档仅适用于使用自定义的 CSS 或修改现有的 Atlas UI CSS 的应用。
 
-## 2 Updating Atlas
+## 2 更新阿特拉斯系统
 
-When you upgrade to Mendix 8, DOM structure changes will also alter the correlating Sass styling files. This could make some of your styling not work as expected anymore. To make your styling compatible with Mendix 8, see [Troubleshoot Atlas UI Changes when Migrating to Mendix 8](migration-atlas).
+升级到 Mendix 8 时，DOM 结构更改也会更改相关的 Sass 样式文件。 这可能会使你的样式无法继续正常工作。 要使您的样式与 Mendix 8 兼容，请参阅 [Troubleshoot Atlas UI 更改，迁移到 Mendix 8](migration-atlas)。
 
-## 3 Streamlined Custom Themes
+## 3 个简化的自定义主题
 
-Before Mendix 8, the client provided a large amount of default styling if your app lacked a theme. This made building your own theme difficult, as you needed to override the default styling. As of Mendix 8, all styling has been moved to AtlasUI. Now, building your own theme from scratch requires significantly less work.
+在 Mendix 8 之前，如果您的应用程序没有主题，客户端提供了大量的默认样式。 这就使您难以构建自己的主题，因为您需要覆盖默认风格。 从Mendix 8开始，所有样式都已移动到AtlasUI。 现在，从头开始构建您自己的主题需要的工作要少得多。
 
-If you have already built your own theme from scratch in an earlier version of Mendix, you might depend on the default styling (specifically the Bootstrap files and the **mxui.css** file) not included in Mendix 8 applications by default. For this case, Mendix provides legacy **mxui.css** and Bootstrap files with defaults in this [GitHub repository](https://github.com/mendix/legacy-mxui-css). Download files from this repository to enable your custom theme.
+如果您已经在早些版本的Mendix中从零开始构建了您自己的主题， 您可能依赖于默认样式(具体来说是 Bootstrap 文件和 **mxui)。 默认 Mendix 8 应用程序中不包含 ss** 文件。 对于这种情况，Mendix 提供了遗留的 **mxui.css** 和 Bootstrap文件，默认为 [GitHub 仓库](https://github.com/mendix/legacy-mxui-css)。 从这个仓库下载文件以启用您的自定义主题。
 
 {{% alert type="info" %}}
-If you get an error message `CE6103: We detected that you are not using Atlas UI for your theme. Please check 'Troubleshooting DOM  Changes' to ensure your theme is fully compliant with Mendix 8. Right-click to see more options`, you can clear the message by right-clicking it and selecting **Mark as Resolved**.
-{{% /alert %}}
+如果您收到错误消息 `CE6103: 我们检测到您的主题没有使用 Atlas UI 。 请检查'疑难解答DOM更改'，以确保您的主题完全符合Mendix 8。 右键单击查看更多选项`，您可以通过右键单击它并选择 **标记为已解决的** 来清除消息。
+{{% /报警 %}}
 
-## 4 Focus-Specific Class Removed
+## 4 个焦点特定类已删除
 
-Before Mendix 8, the client frequently applied `mx-focus` to the element receiving focus and removed `mx-focus` when the element lost focus. Because all supported browsers now have proper support for the `:focus` pseudo-class, these reapplications are no longer necessary.  For more information on `:focus`, see Mozilla’s [:focus documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus).
+Mendix 8之前，客户端经常将 `mx-focus` 应用于接收焦点的元素，并删除 `mx-focus` 当元素失去焦点时。 因为所有支持的浏览器现在都对 `:focus` 伪类有适当的支持，因此这些重新应用已不再必要。  关于 `:focus`的更多信息，见 Mozilla [:focus 文档](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus)。
 
-If your are using `mx-focus` in your theme, you should replace it with `:focus`.
+如果你在主题中使用 `mx-focus` ，你应该替换为 `:focus`。
 
-Code such as this:
+像这样代码：
 
 ```css
 .mx-listview-item.mx-focus {
@@ -44,7 +44,7 @@ Code such as this:
 }
 ```
 
-Should be changed to:
+应更改为:
 
 ```css
 .mx-listview-item:focus {
@@ -52,15 +52,15 @@ Should be changed to:
 }
 ```
 
-## 5 Data Grid Markup Updates
+## 5 数据网格标记更新
 
-We made a number of updates to the data grid markup. Previously, the data grid was split into two separate tables: one containing the header and one containing the data. This made the data grid less accessible, because screen readers show these as two separate tables. Now the two tables have been merged into a single table. Furthermore, the `div` wrapping the two tables has been removed.
+我们对数据网格标记进行了一些更新。 以前，数据网分成两个单独的表格：一个是标头的，另一个是载有数据。 这就减少了数据网格的可访问性，因为屏幕阅读器将它们作为两个单独的表格显示。 现在这两个表格已合并为一个表格。 此外， `div` 包装两个表格已被移除。
 
-Another data grid markup change is that the `div` containing the toolbar and the `div` containing the paging bar (both part of the control bar) are now in a logical order. Previously, additional CSS was needed to display them in the right order, and additional JavaScript was needed to dictate a logical tab behavior. The current structure now falls in line with [Web Content Accessibility Guidelines 2.1's criterion 1.3.2](https://www.w3.org/TR/WCAG21/#meaningful-sequence) by having [the DOM order follow the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html).
+另一个数据网格标记变化是，包含工具栏的 `div` 和包含分页栏的 `div` 现在都是逻辑顺序。 以前，需要额外的 CSS 来以正确的顺序显示它们，需要额外的 JavaScript 来决定逻辑标签行为。 目前的结构符合 [Web Content Accessibility Guidelines 2。 第 1.3.2 条标准](https://www.w3.org/TR/WCAG21/#meaningful-sequence) 表示了 [DOM订单跟随了视觉顺序](https://www.w3.org/TR/WCAG20-TECHS/C27.html)
 
-With new accessibility features implemented, now `div` containing pagination section (inside of control bar) has appropriate `role` attribute set. Buttons inside of this `div`, including the `div` itself, now has translatable `aria-label` attributes which can be set from Modeler's `System Texts` page with category name `Accessibility`. New `span` and `caption` elements added as a sibling to *`buttons` for pagination* and `thead` respectively. They are only visible to screen readers.
+随着新辅助功能的实施，现在 `div` 包含分页部分 (控制栏内) 有适当的 `角色` 属性集。 此 `div`的内置按钮，包括 `div` 本身. 现在有可翻译的 `aria-label` 属性可以从Modeler设置 `System Texts` 页面具有类别名称 `Accessibility` 新的 `shart` and `标题` 元素作为兄弟添加到 *`按钮` 分别用于分页* 和 `thead`。 只显示屏幕阅读器。
 
-This is the current markup of the data grid (unchanged code omitted):
+这是数据网格的当前标记(不改变代码省略)：
 
 ```html
 <div class="mx-grid mx-datagrid mx-name-grid1">
@@ -70,22 +70,22 @@ This is the current markup of the data grid (unchanged code omitted):
         <div ... role="navigation" aria-label="Pagination(translatable text)">
             <button ...  aria-label="Go to first page(translatable text)"> </button>
             <button ... aria-label="Go to previous page(translatable text)"></button>
-            <div ... aria-hidden="true">1 to 20 of 132</div> 
-                <span class="sr-only">Currently showing(translatable text) 1 to 20 of 132</span>
+            <div ... aria-hidden="true">1 到 20 of 132</div> 
+                <span class="sr-only">当前显示(可翻译文本) 1 到 20 of 132</span>
             <button ... aria-label="Go to next page(translatable text)"></button>
             <button ... aria-label="Go to last page(translatable text)"></button>
         </div>
-        ...
+...
     </div>
     <div class="mx-grid-content">
         <table>
-            <caption class="sr-only">Caption</caption>
+            <caption class="sr-only">标题</caption>
             <colgroup>...</colgroup>
             <thead>
                 <tr class="mx-name-head-row"></tr>
             </thead>
             <tbody>
-                <tr class="mx-name-index-0" >...</tr>
+                <tr class="mx-name-index-0" >. 。</tr>
             </tbody>
             <tfoot></tfoot>
         </table>
@@ -93,9 +93,9 @@ This is the current markup of the data grid (unchanged code omitted):
 </div>
 ```
 
-Additionally, a number of additional classes on the table have been removed, as they are easily accessed using element names.
+此外，表格上的一些其他类已被删除，因为它们很容易使用元素名称访问。
 
-If you were styling your data grid in this way:
+如果您以这种方式将您的数据网格样式：
 
 ```css
 .mx-datagrid .mx-datagrid-head-table {
@@ -106,87 +106,87 @@ If you were styling your data grid in this way:
 }
 ```
 
-You should rewrite the data grid styling using these guidelines:
+您应该使用这些准则重写数据网格样式：
 
 ```css
-.mx-datagrid thead {
-    // your styling
+.mx-datagrid thead 然后
+    // 你的样式
 }
 
-.mx-datagrid tbody tr td {
-    // your styling
+.mx-datagrid tbody tr tr power
+    // 你的样式
 }
 ```
 
-## 6 List View Markup Changes
+## 6 列表视图标记更改
 
-The markup for list view widgets has also been changed. To simplify the styling, the following classes have been removed:
+列表视图部件的标记也已更改。 为了简化风格，已删除以下类：
 
 * `mx-list`
-* `mx-listview-list`
-* `mx-listview-striped`
+* `mx列表视图列表`
+* `mx-listview-striked`
 * `mx-listview-item`
-* `mx-listview-search-input`
-* `mx-listview-clear-button`
+* `mx-listview-search 输入`
+* `mx-listview-clearing 按钮`
 
-For list views that are not in a select page for a reference or reference set selector,  the list view's `mx-listview-selectable` has been removed. The unneeded `div` elements with class `mx-listview-content` around the contents of each list view item have also been removed.
+对于不在选择页面中的参考或参考设置选择器的列表视图。 列表视图的 `mx-listview-selected` 已被删除。 不需要的 `div` 元素与类 `mx-listview-content` 围绕每个列表视图项的内容也已被删除。
 
-The order of the list view search bar's DOM elements has been corrected to be consistent with the visual order. The `div` element around the search input field has been removed.
+列表视图搜索栏的DOM元素的顺序已更正为符合视觉顺序。 搜索输入字段周围的 `div` 元素已被删除。
 
-If you were styling your list view widgets this way:
+如果您的列表视图小部件以这种方式样式：
 
 ```css
-.mx-listview-item {
-    // Your styling
+.mx-listview-items volume
+    // 你的样式
+
+x-listview-search-inputing inputes 然后再输入
+    // 您的样式
 }
-.mx-listview-search-input input {
-    // Your styling
-}
-.mx-listview-clear-button {
-    // Your styling
+x-listview-clear-clear-butor Power
+    // 你的样式
 }
 ```
 
-You should rewrite your list view styling using these guidelines :
+您应该使用这些准则重写您的列表视图样式：
 
 ```css
-.mx-listview li {
-    // Your styling
+.mx-listview li vol
+    // 你的样式
 }
-.mx-listview-searchbar input {
-    // Your styling
+x-listview-searchbar输入
+    // 您的样式
 }
-.mx-listview-searchbar button {
-    // Your styling
+x-listview-searchbar 按钮 &#
+    // 你的样式
 }
 ```
 
-## 7 Scroll Container Markup Changes
+## 7 滚动容器标记更改
 
-All classes starting with `mx-layoutcontainer` have been removed from scroll containers, as they are redundant with their `mx-scrollcontainer` counterparts.
+以 `mx-layoutcontainer` 为起点的所有类已从滚动容器中删除，因为它们与 `mx-scrollcontainer` 对应的类是多余的。
 
-## 8 Link Button Markup Changes
+## 8 链接按钮标记更改
 
-The markup for link buttons has been made more consistent with other buttons:
+链接按钮的标记与其他按钮更加一致：
 
 ```html
 <a href="#" class="mx-link mx-name-actionButton1">
     <span class="glyphicon glyphicon-euro"></span>
-    Link button
+    链接按钮
 </a>
 ```
 
-## 9 Input Widgets Markup Changes
+## 9 输入小部件标记更改
 
-Every input widget has an implicit form group structure wrapped around it. Before recent changes, an input widget’s DOM structure could appear disorganized depending on its settings. Now, the form group structure ensures that the input widget is properly aligned inside the data view and properly labeled.
+每个输入小部件都有一个隐含的表单组结构包裹。 在最近的更改之前，一个输入小部件的 DOM 结构可能会根据其设置而失调。 现在，表单组结构确保输入小部件在数据视图中正确对齐并适当标记。
 
-### 9.1 Vertical and Horizontal Classes on DataView
+### 9.1 数据视图上的垂直和水平类
 
-Previously, data view was rendering `form-horizontal` class on it when **Form orientation** was set to **Horizontal** and no such class if this option was set to **Vertical**. Now, `form-horizontal` or `form-vertical` are added on **Horizontal** and **Vertical** options respectively.
+上次， 当 **表单方向** 设置为 **水平** 时，数据视图会渲染 `格式-水平` 类，如果将此选项设置为 **垂直** 则没有此类。 现在， `form-水平` or `form-垂直` 将分别添加到 **水平** 和 **垂直** 选项。
 
-This makes it easier to style forms (and inputs in them) with different orientations by targeting a class in your CSS selector. If you were previously relying on the presence or absence of `form-horizontal,` now you can simplify your CSS selectors by using `form-vertical`.
+这就更容易通过在您的 CSS 选择器中选择一个类来为不同方向的表单风格(和输入它们)。 如果你以前依赖于 `表面水平的存在或不存在，` 现在您可以通过使用 `表单垂直` 来简化您的 CSS 选择器。
 
-This is how the DOM structure of the data view widget is organized now:
+这是数据视图部件的DOM结构现在是如何组织的：
 
 ```html
 <div class="mx-dataview [form-horizontal or form-vertical]">
@@ -202,9 +202,9 @@ This is how the DOM structure of the data view widget is organized now:
 </div>
 ```
 
-### 9.2 Form Group Structure
+### 9.2 表格组结构
 
-Previously, if widget had the **Show caption** option set to **No**, form group structure was missing `form-group` class on its top level `div`:
+之前, 如果小部件有 **显示标题** 选项设置为 **没有**, 表单组结构缺失 `表单组` 顶级类 `div`
 
 ```html
 <div class="mx-name-textBox4 [...]" [...]>
@@ -212,127 +212,127 @@ Previously, if widget had the **Show caption** option set to **No**, form group 
 </div>
 ```
 
-Now, the `form-group` class stays in place with extra `no-columns` class:
+现在， `form-group` 类与额外 `无列` 类保持不变：
 
 ```html
-<div class="form-group no-columns mx-name-textBox4 [...]" [...]>
+<div class="form-group no allies mx-name-textBox4 [...]" [...]>
     <INPUT-WIDGET />
 </div>
 ```
 
-If you have made custom styles using `.form-group` before, this might be a breaking change as `.form-group`  matches with more elements now. You can now target form groups and elements inside them on only horizontal or only vertical forms using `.form-horizontal .form-group` or `.form-vertical .form-group` respectively.
+如果您之前使用 `.form-group` 自定义样式，这可能是一个像 `一样的突破性变化。 orm-group`  现在匹配更多元素。 您现在可以只在水平或只在使用 `的垂直表单上对目标表单组和元素。 orm-水平.form-group` or `.form-垂直.form-group`
 
-### 9.3 Input Widget Type Classes
+### 9.3 输入部件类型类
 
-Form groups now have special class name depending on their widget type:
+表单组现在有特殊类名，取决于他们的小部件类型：
 
-* `.mx-checkbox`
-* `.mx-datepicker`
-* `.mx-dropdown`
+* `.mx复选框`
+* `.mx-日期选择器`
+* `.mx-下拉列表`
 * `.mx-inputreferencesetselector`
-* `.mx-radiobuttongroup`
-* `.mx-referenceselector`
+* `.mx-radiobutongra`
+* `.mx引用选择器`
 * `.mx-textarea`
-* `.mx-textbox`
+* `.mx-文本框`
 
-### 9.4 Examples of Form Group Layout
+### 9.4 表组布局实例
 
-The vertical form group input widget now has a label, input control, and an optional validation message on the same level:
+垂直表单组输入小部件现在有一个标签、输入控制和可选的验证消息在同一级：
 
 ```html
 <div class="form-group mx-name-textBox4 [...]" [...]>
     <label class="control-label" for="123_abc">
-        Caption
+        标题
     </label>
 
     <INPUT-CONTROL/>
-    <!-- OR for readonly style text -->
-    <div class="form-control-static">value</div>
+    <！ - 或者，只读样式文本 -->
+    <div class="form-control-static">值</div>
 
-    <!-- optional: validation message -->
+    <！ - 可选：验证消息 -->
     <div class="alert alert-danger mx-validation-message">checkboom</div>
 </div>
 ```
 
-The horizontal form group input widget now has a label with `col-sm-{labelWith}`and `div.col-sm-{12-labelWith}`. Its label also has input control and an optional validation message inside:
+水平表单组输入小部件现在有标签 `col-sm-{labelWith}`和 `div.col-sm-{12-labelWith}` 它的标签还包含输入控制和可选的验证消息：
 
 ```html
 <div class="form-group mx-name-textBox4 [...]" [...]>
     <label class="control-label col-sm-4" for="123_abc">
-        Caption
+        标题
     </label>
     <div class="col-sm-8">
         <INPUT-CONTROL/>
-        <!-- OR for readonly style text -->
-        <div class="form-control-static">value</div>
+        <！ - 或者，只读样式文本 -->
+        <div class="form-control-static">值</div>
 
-        <!-- optional: validation message -->
+        <！ - 可选：验证消息 -->
         <div class="alert alert-danger mx-validation-message">checkboom</div>
     </div>
 </div>
 ```
 
-This is the structure of an input widget, in either a horizontal or vertical data view, with **Show label** set to **No**. The input widget has an input control and an optional validation message:
+这是在水平或垂直数据视图中输入部件的结构。 使用 **显示标签** 设置为 **没有**。 输入小部件有一个输入控制和一个可选的验证消息：
 
 ```html
 <div class="form-group mx-name-textBox4 [...]" [...]>
-    <!-- A form group without a label is still a form-group -->
+    <！ - 一个没有标签的表单组仍然是一个表单组 -->
 
     <INPUT-CONTROL/>
-    <!-- OR for readonly style text -->
-    <div class="form-control-static">value</div>
+    <！ - 或者，只读样式文本 -->
+    <div class="form-control-static">值</div>
 
-    <!-- optional: validation message -->
+    <！ - 可选：验证消息 -->
     <div class="alert alert-danger mx-validation-message">checkboom</div>
 </div>
 ```
 
-### 9.5 Read-Only Controls
+### 9.5 只读控制
 
-Previously, non-editable input controls of input widgets with **Read-only style** set to **Text** could have been rendered using a `p` or a `label` element with a `form-control-static` class on them.
+上次， 有 **只读样式** 的输入小部件不可编辑的输入控制设置为 **文本** 可以使用一个 `p` 或一个 `标签` 包含一个 `表单控制静态` 类的元素呈现出来。
 
-Read-only controls with **Read-only style** set to **Text** are now rendered as the following:
+使用 **只读样式** 设置为 **文本** 的只读控制现在呈现如下所示：
 
 ```html
-<div class="form-control-static">value</div>
+<div class="form-control-static">值</div>
 ```
 
-### 9.6 Input Widgets Structure
+### 9.6 输入部件结构
 
-Previously, some input widgets had a wrapper element surrounding their control.
+以前，一些输入小部件有一个围绕其控制的包装元素。
 
-These redundant wrappers have been removed, and now bare controls are rendered wherever possible (except radio buttons in a radio buttons group, in which each individual control is wrapped in a `div`).
+这些多余的包装器已被移除，现在只要有可能即可放置控制(无线电按钮组中的无线电按钮除外)。 每个单独的控制被包装在一个 `div` 中。
 
-### 9.7 Examples of Input Controls
+### 9.7 投入控制实例
 
-A few examples of various input controls are listed below.
+下面列出了各种输入控制的几个例子。
 
-Text box:
+文本框：
 
 ```html
 <input class="form-control" type="text" id="123_abc" />
 ```
 
-Text area:
+文本区域：
 
 ```html
 <textarea class="form-control mx-textarea-input mx-textarea mx-textarea-input-noresize"></textarea>
 ```
 
-Check box:
+检查框：
 
 ```html
 <input type="checkbox" value="" />
 ```
 
-Check box when **Label position** is set to **After control** (in this case the label on the form group is not shown):
+当 **标签位置** 设置为 **控制后** 时选中复选框(在这种情况下，表格组上的标签未显示)：
 
 ```html
 <input type="checkbox" id="123_abc" value="" />
-<label for="123_abc">Label</label>
+<label for="123_abc">标签</label>
 ```
 
-Radio buttons:
+单选按钮：
 
 ```html
 <div role="radiogroup" id="123_abc" aria-labelledby="123_abc-label">
@@ -355,7 +355,7 @@ Radio buttons:
 </div>
 ```
 
-Drop-down:
+下拉：
 
 ```html
 <select class="form-control">
@@ -366,30 +366,30 @@ Drop-down:
 </select>
 ```
 
-## 10 Date Picker Widget Changes
+## 10 日期选择器部件更改
 
 ### 10.1 Input
 
-The following changes have been made to the date picker input widget:
+对日期选择器输入小部件作了以下更改：
 
-* The classes `mx-dateinput` and `mx-dateinput-input` have been removed in favor of the new `mx-compound-control` class
-* The `mx-compound-control` class was introduced for input widgets made up of more than one element, such as a widget with a button next to the input
-* The inner `<div>` element with class `mx-dateinput-input-wrapper` around the input was removed
-* The `<button>` element was placed after the input in the DOM to match the visual order
+* 类 `mx-dateinput` and `mx-dateinput-input` 已经被移除，以利于新的 `mx-compound-control` 类
+* `mx-compound-control` 类被引入用于由多个元素组成的输入小部件， 例如输入旁边按钮的小部件
+* 内核 `<div>` 含有类的元素 `mx-dateinput-input-wrapper` 围绕输入被删除
+* `<button>` 元素在 DOM 输入后被放置以匹配视觉顺序
 
-### 10.2 Calendar
+### 10.2 日历
 
-Because the calendar pop-up window is no longer implemented using the Dojo framework, several changes were made to the calendar pop-up window's internal structure:
+由于日历弹出窗口不再使用 Dojo 框架实现，因此对日历弹出窗口的内部结构进行了几次更改：
 
-* All classes starting with `dijit` have been removed
-* The outermost `<div>` element now has the class `mx-calendar`
-* The `<td>` elements, which represent the days in the calendar view, get the following classes:
-    * `mx-calendar-day-month-current`, `mx-calendar-day-month-previous` or `mx-calendar-day-month-next`: depending on whether the day falls in the current, previous, or next month
-    * `mx-calendar-day-selected`: if the day is currently selected in the date picker for which the calendar was opened
-    * `mx-calendar-day-active`:  if the day currently has the focus
-* The `<span>` elements inside the `<td>` and `<th>` elements have been removed
+* 所有以 `dijit` 开头的类已被删除
+* 最远的 `<div>` 元素现在有类 `mx-日历`
+* 代表日历视图中的天数的 `<td>` 元素获得以下类：
+    * `mx-calendar-day month-your current`, `mx-calendar-day-play-play-play-three` or `mx-calendar-day-month-through`: 取决于当日、上月还是下个月
+    * `mx-calendar-day已选择`: 如果当前日期选择器已打开日历的日期
+    * `mx-calendar-day activity`: 如果当前的日子有焦点
+* `<span>` 内在 `<td>` 和 `<th>` 元素已被删除
 
-The month header now has the following structure:
+月份标题现在有以下结构：
 
 ```html
 <div class="mx-calendar-month-header">
@@ -400,16 +400,16 @@ The month header now has the following structure:
         <div class="mx-calendar-month-current">
             <div class="mx-calendar-month-spacer">
                 <div>January</div>
-                ...
+...
             </div>
             <div class="mx-calendar-month-label">June</div>
         </div>
         <span class="glyphicon glyphicon-chevron-down"/>
 
-        <!-- only rendered when the month dropdown is clicked -->
+        <！ - 仅在单击下拉菜单时渲染——>
         <div class="mx-calendar-month-dropdown-options">
             <div>January</div>
-            ...
+...
         </div>
     </div>
     <button class="mx-calendar-month-next">
@@ -418,7 +418,7 @@ The month header now has the following structure:
 </div>
 ```
 
-The year switcher now has the following structure:
+年切换器现在具有以下结构：
 
 ```html
 <div class="mx-calendar-year-switcher">
@@ -428,33 +428,33 @@ The year switcher now has the following structure:
 </div>
 ```
 
-## 11 Reference Selector and Input Reference Set Selector Markup Changes
+## 11 参考选择器和输入参考集选择器标记更改
 
-The following changes have been made to the reference selector markup:
+已对参考选择器标记作了下列更改：
 
-* The classes `mx-referenceselector` and `mx-referencesetselector` have been removed from the main `<div>` element in favor of the new `mx-compound-control` class, which was introduced for input widgets made up of more than one element (one common input widget with multiple elements is a button next to an input element).
+* `mx-referenceselector` and `mx-referencesetselector` 已经从主 `<div>` 元素支持新的 `mx-compound-control` 类， 它是为由多个元素组成的输入小部件引入的(一个包含多个元素的常用输入小部件是一个旁边的按钮)。
 
-The following changes have been made to the input reference set selector markup:
+对输入参考集选择器标记作了以下更改：
 
-* The form group will now get the class `mx-referenceselector` or `mx-inputreferencesetselector` (note the `input` prefix) instead
-* The inner `<div>` element (sharing a class ending with `-input-wrapper`) around the input was removed
-* The `<button>` elements have been placed after the input in the DOM to match the visual order
+* 表单组现在将获得类 `mx-referenceselector` or `mx-inputreferesetselector` (注意 `输入` 前缀)
+* 內部的 `<div>` 元素(共享一个以 `-input-wrapper`结尾的类被删除)
+* `<button>` 元素已经放置在输入DOM后以匹配视觉顺序
 
-## 12 DropDownButton Widget Cleanup
+## 12个DropDown按钮小部件清理
 
-The following changes have been made to the `DropDownButton` widget:
+已对 `DropButton` 小部件作了以下更改：
 
-* The class `mx-list` has been removed from the list of terms in the dialog box
-* The class `mx-dropdown` has been removed from the dialog box, as it has nothing to do with drop-down in the search input
+* 类 `mx-list` 已从对话框中的条目列表中删除
+* 类 `mx-down` 已从对话框中删除，因为它与搜索输入中的下拉没有什么关系。
 
-## 13 File Manager and Image Uploader Widget Changes
+## 13 个文件管理器和图像上传器小部件更改
 
-Previously, file manager and image uploader widgets were rendered differently on desktop and mobile browsers. On desktop these widgets rendered as an easy-to-style custom HTML snippet, while on mobile they manifested as difficult-to-style native file input.
+以前，文件管理器和图像上传器部件在桌面和移动浏览器上呈现出不同的形式。 这些小部件在桌面上呈现为一个简单风格的自定义 HTML 代码片断，而在移动上，它们显示为难于风格的本地文件输入。
 
-File manager and image uploader widgets have been changed for consistency. Now, they always shows the same HTML structure. Also, these widgets' DOM structure has been made more consistent with other compound widgets (like the reference selector and date picker).
+文件管理器和图像上传器部件已更改以保持一致性。 现在，他们总是显示相同的 HTML 结构。 此外，这些小部件的DOM结构与其他复合部件更加一致(例如参考选择器和日期选择器)。
 
-Now, file manager and image uploader widgets are always represented as a `div`  element with `mx-compound-control` class on it. Also, the `mx-fileinput` class has been moved to the form group. Inside of the `div`, there is an input with `form-control` class. This input represents a filename of currently selected file. The class `mx-wrapped-label` is gone from the input. Next to the input, there are one of two buttons for uploading and downloading the current file. These buttons have the same classes as before.
+现在，文件管理器和图像上传器部件总是作为一个 `div`  元素，其上传类为 `mx-compound-control` 类。 另外， `mx-filefinput` 类已被移动到表单组。 在 `div`中，有一个 `表单控制` 类的输入. 此输入代表当前选定文件的文件名。 类 `mx-包装标签` 来自输入。 在输入旁边，有两个按钮之一用于上传和下载当前文件。 这些按钮与以前相同的类。
 
-## 14 Read More
+## 14 阅读更多
 
-* [Troubleshoot Atlas UI Changes](migration-atlas)
+* [疑难解答图集界面更改](migration-atlas)
