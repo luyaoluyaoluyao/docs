@@ -1,34 +1,34 @@
 ---
-title: "Chart Advanced Cheat Sheet"
+title: "チャート詳細チートシート"
 parent: "chart-widgets"
 menu_order: 20
 tags:
-  - "Charts"
-  - "Advanced"
+  - "グラフ"
+  - "高度な設定"
   - "Studio Pro"
-  - "Layout Controls"
-  - "Data Properties"
-  - "Series Properties"
+  - "レイアウトコントロール"
+  - "データのプロパティ"
+  - "系列のプロパティ"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This reference describes advanced configuration settings for the chart widget.
+このリファレンスでは、チャートウィジェットの詳細な構成設定について説明します。
 
-Standard charts provide the most common settings through the widget configuration. Additional settings can be set via the Advanced settings.
+標準チャートは、ウィジェットの設定を通じて最も一般的な設定を提供します。 追加設定は詳細設定から行うことができます。
 
-This cheat sheet with JSON snippets will provide some samples of advance configuration.
+JSONスニペットを備えたこのチートシートは、事前設定のサンプルを提供します。
 
-The full reference can be found at [https://plot.ly/javascript/](https://plot.ly/javascript/). The chart widgets support plotly.js version 1.47.4.
+完全なリファレンスは [https://plot.ly/javascript/](https://plot.ly/javascript/) にあります。 グラフウィジェットは、plotly.js バージョン 1.47.4 をサポートしています。
 
-When the advanced configuration does not suffice have a look at the [Any Chart](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) widget in the Marketplace.
+詳細設定で十分でない場合は、マーケットプレイスの [チャート](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) ウィジェットを参照してください。
 
-## 2 Layout (All Charts) {#layout-all}
+## 2 レイアウト (すべてのグラフ) {#layout-all}
 
-Layout controls the general appearance of the chart. The chart is customized by adding JSON properties to the layout.
+レイアウトは、チャートの一般的な外観を制御します。 チャートはレイアウトにJSONプロパティを追加することでカスタマイズされます。
 
-Below is a basic configuration.
+以下は基本的な構成です。
 
 ``` json
 {
@@ -53,11 +53,11 @@ Below is a basic configuration.
 }
 ```
 
-To use the layout snippet above, replace all lines labeled *// {some text} properties* with actual properties specific to the element.
+上記のレイアウトスニペットを使用するには、 *// {some text} プロパティ* とラベルされたすべての行を要素固有の実際のプロパティに置き換えます。
 
-### 2.1 Legend
+### 2.1 レジェンド
 
-The legend properties below are added to the layout configuration to apply custom style to it.
+カスタムスタイルを適用するために、以下の凡例プロパティがレイアウト構成に追加されます。
 
 ``` json
 {
@@ -82,9 +82,9 @@ The legend properties below are added to the layout configuration to apply custo
 }
 ```
 
-You can change the position of the legend by modifying the properties as shown below.
+次のようにプロパティを変更することで、凡例の位置を変更できます。
 
-**Right:**
+**右:**
 
 ``` json
 {
@@ -92,9 +92,9 @@ You can change the position of the legend by modifying the properties as shown b
 }
 ```
 
-**Left:**
+**左:**
 
-Adjust x for long series names or Y-axis ticks.
+xを長い系列名またはY軸ティックに合わせて調整します。
 
 ``` json
 {
@@ -106,7 +106,7 @@ Adjust x for long series names or Y-axis ticks.
 }
 ```
 
-**Top:**
+**上:**
 
 ``` json
 {
@@ -118,21 +118,21 @@ Adjust x for long series names or Y-axis ticks.
 }
 ```
 
-**Bottom:**
+**下部:**
 
-Adjust y to -0.2 for long X-axis ticks.
+長いX軸ティックの場合、yを-0.2に調整します。
 
 ``` json
 {
   "showlegend": true,
   "legend": {
-    "orientation": "h",
+    "オリエンテーション": "h",
     "y": "auto"
   }
 }
 ```
 
-**Inside:**
+**内部:**
 
 ``` json
 {
@@ -143,7 +143,7 @@ Adjust y to -0.2 for long X-axis ticks.
 }
 ```
 
-**None:**
+**なし:**
 
 ``` json
 {
@@ -151,13 +151,13 @@ Adjust y to -0.2 for long X-axis ticks.
 }
 ```
 
-![Legend configurations](attachments/charts/advanced-layout-legend.gif)
+![凡例の構成](attachments/charts/advanced-layout-legend.gif)
 
-More options can be found here: [Legend configurations](https://plot.ly/javascript/reference/#layout-legend).
+詳細なオプションはこちら: [凡例の設定](https://plot.ly/javascript/reference/#layout-legend).
 
-### 2.2 Axes
+### 2.2 軸
 
-The axes properties apply to charts with x and y axes. They can be configured as:
+軸のプロパティは、x 軸と y 軸のグラフに適用されます。 次のように設定できます:
 
 ``` json
 {
@@ -184,13 +184,13 @@ The axes properties apply to charts with x and y axes. They can be configured as
 }
 ```
 
-![Axes configurations](attachments/charts/axes.gif)
+![軸の構成](attachments/charts/axes.gif)
 
-More options can be found here: [Axes configurations](https://plot.ly/javascript/reference/#layout-xaxis).
+その他のオプションはこちらでご覧いただけます: [軸設定](https://plot.ly/javascript/reference/#layout-xaxis).
 
-### 2.3 Multiple Y Axes
+### 2.3 複数の Y 軸
 
-These properties apply to charts with more than one Y axis. They can be configured as:
+これらのプロパティは、複数の Y 軸を持つグラフに適用されます。 次のように設定できます:
 
 ``` json
 {
@@ -213,15 +213,15 @@ These properties apply to charts with more than one Y axis. They can be configur
 }
 ```
 
-The layout properties above should be used with the corresponding [data properties](#multiple-y-axes-data-properties).
+上記のレイアウト プロパティは、対応する [データ プロパティ](#multiple-y-axes-data-properties) で使用する必要があります。
 
-![Multiple Y axes configurations](attachments/charts/multiple-y.gif)
+![複数のY軸の構成](attachments/charts/multiple-y.gif)
 
-More options can be found here: [Multiple Y axes configurations](https://plot.ly/javascript/multiple-axes/).
+より多くのオプションがここにあります: [複数のY軸設定](https://plot.ly/javascript/multiple-axes/).
 
-### 2.4 Multiple X Axes
+### 2.4 複数の X 軸
 
-These properties apply to charts with more than one X axis. They can be configured as:
+これらのプロパティは、1 つ以上の X 軸のグラフに適用されます。 次のように設定できます:
 
 ``` json
 {
@@ -250,38 +250,38 @@ These properties apply to charts with more than one X axis. They can be configur
 }
 ```
 
-The layout properties above should be used with the corresponding [data properties](#multiple-x-axes-data-properties).
+上記のレイアウト プロパティは、対応する [データ プロパティ](#multiple-x-axes-data-properties) で使用する必要があります。
 
-![Multiple X axes configurations](attachments/charts/multiple-x.gif)
+![複数の X 軸の構成](attachments/charts/multiple-x.gif)
 
-More options can be found here: [Multiple X axes configurations](https://plot.ly/javascript/multiple-axes/).
+より多くのオプションがここにあります: [複数のX軸構成](https://plot.ly/javascript/multiple-axes/).
 
-### 2.5 Math LaTeX Formulas
+### 2.5 Math LaTeX 数式
 
-Titles, axes and series can contain complex mathematical expressions.
+タイトル、軸、系列は複雑な数式を含むことができます。
 
-![Math formula](attachments/charts/math-formula.png)
+![数式：](attachments/charts/math-formula.png)
 
 ```
 $\sqrt{(n_\text{c}(t|{T_\text{early}}))}$
 ```
 
-Add the following to the index.html of the theme:
+テーマのindex.htmlに以下を追加します。
 
 ``` javascript
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 ```
 
-More information on LatTex Syntax is available here: https://en.wikibooks.org/wiki/LaTeX/Mathematics.
+LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org/wiki/LaTeX/Mathematics.
 
-### 2.6 Title
+### 2.6 タイトル
 
-The title appears above the chart. It can be configured as:
+タイトルはチャートの上に表示されます。 次のように設定できます:
 
 ``` json
 {
   "title": "CHART TITLE",
-  "titlefont": {
+  "titlef": {
     "family": "Droid Sans, Droid Serif, sans-serif",
     "size": 20,
     "color": "black"
@@ -289,13 +289,13 @@ The title appears above the chart. It can be configured as:
 }
 ```
 
-![Title configurations](attachments/charts/title.gif)
+![タイトルの構成](attachments/charts/title.gif)
 
-More options can be found here: [Title configurations](https://plot.ly/javascript/reference/#layout-title).
+他のオプションはこちらでご覧いただけます: [タイトル設定](https://plot.ly/javascript/reference/#layout-title).
 
-### 2.7 Color
+### 2.7 色
 
-Sets the the background color of a graph.
+グラフの背景色を設定します。
 
 ``` json
 {
@@ -303,9 +303,9 @@ Sets the the background color of a graph.
 }
 ```
 
-### 2.8 Margin
+### 2.8 証拠金
 
-Creates space around the chart.
+グラフの周りにスペースを作成します。
 
 ``` json
 {
@@ -320,13 +320,13 @@ Creates space around the chart.
 }
 ```
 
-![ Margin configurations ](attachments/charts/margin.gif)
+![ マージン構成 ](attachments/charts/margin.gif)
 
-More options can be found here: [Margin configurations](https://plot.ly/javascript/reference/#layout-margin).
+オプションの詳細はこちら: [マージン設定](https://plot.ly/javascript/reference/#layout-margin).
 
-### 2.9 Tooltip
+### 2.9 ツールチップ
 
-A small pop-up box that appears when the user moves the mouse pointer over a chart data point.
+グラフデータポイントの上にマウスポインタを移動すると、小さなポップアップボックスが表示されます。
 
 ``` json
 {
@@ -344,13 +344,13 @@ A small pop-up box that appears when the user moves the mouse pointer over a cha
 }
 ```
 
-![Tooltip configurations](attachments/charts/tooltip.gif).
+![ツールチップの設定](attachments/charts/tooltip.gif).
 
-More options can be found here: [Tooltip configurations](https://plot.ly/javascript/reference/#layout-hovermode).
+オプションの詳細はこちら: [ツールチップ設定](https://plot.ly/javascript/reference/#layout-hovermode).
 
-### 2.10 Fonts
+### 2.10 フォント
 
-Sets a global font at the root level which will be applied to all chart elements. Or set a font for specific elements.
+すべてのチャート要素に適用されるルートレベルにグローバルフォントを設定します。 または、特定の要素のフォントを設定します。
 
 ``` json
 {
@@ -377,13 +377,13 @@ Sets a global font at the root level which will be applied to all chart elements
 }
 ```
 
-### 2.11 Range Mode
+### 2.11 範囲モード
 
-Sets how the range of a given axis should be displayed.
+指定した軸の表示範囲を設定します。
 
-**normal:**
+**普通:**
 
-Sets the range based on the plotted values, adjusting to fit them.
+プロットされた値に基づいて範囲を設定します。
 
 ```json
 {
@@ -392,11 +392,11 @@ Sets the range based on the plotted values, adjusting to fit them.
   }
 }
 ```
-![Range mode](attachments/charts/normal.gif)
+![範囲モード](attachments/charts/normal.gif)
 
-**nonnegative:**
+**否定的ではない:**
 
-Shows only positive values, the range is based on the plotted positive values.
+正の値のみを表示し、範囲はプロットされた正の値に基づいています。
 
 ```json
 {
@@ -406,11 +406,11 @@ Shows only positive values, the range is based on the plotted positive values.
 }
 ```
 
-![Range mode](attachments/charts/nonnegative.gif)
+![範囲モード](attachments/charts/nonnegative.gif)
 
 **tozero:**
 
-This is the default range mode in charts. Both positive and negative ranges for the axes will start from the zero mark.
+これはチャートのデフォルトの範囲モードです。 軸の正と負の両方の範囲は、ゼロマークから始まります。
 
 ```json
 {
@@ -420,12 +420,12 @@ This is the default range mode in charts. Both positive and negative ranges for 
 }
 ```
 
-![Range mode](attachments/charts/tozero.gif)
+![範囲モード](attachments/charts/tozero.gif)
 
 {{% alert type="info" %}}
-When **fill** for the series is set to something other than *none*, the Y-axis range is forced to start from zero (*tozero*). For example:
+When **fill** for the series is set to something other than *none*, the Y-axis range is forced to start from zero (*tozero*). 例:
 
-**Layout**
+**レイアウト**
 
 ```json
 {
@@ -435,7 +435,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 }
 ```
 
-**Data**
+**データ**
 
 ```json
 {
@@ -444,17 +444,17 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 ```
 {{% /alert %}}
 
-![Range mode](attachments/charts/rangemode-note.gif)
+![範囲モード](attachments/charts/rangemode-note.gif)
 
-More options can be found here: [range mode configurations](https://plot.ly/javascript/reference/#layout-yaxis-rangemode).
+その他のオプションはこちらでご覧いただけます: [レンジモード設定](https://plot.ly/javascript/reference/#layout-yaxis-rangemode).
 
-## 3 Data/Series Properties {#data-series}
+## 3 データ/シリーズプロパティ {#data-series}
 
-These properties are applied to specific types of chart only. For each chart, data properties are distinct. They make the chart appear as its supposed to be.
+これらのプロパティは、特定の種類のグラフにのみ適用されます。 チャートごとに、データプロパティが異なります。 彼らは、チャートがあるはずのように見えるようにします。
 
-### 3.1 Lines
+### 3.1 行
 
-A mode and line configuration can be added in the **Advanced** configuration of the series.
+モードと行の設定は、シリーズの **Advanced** 設定で追加できます。
 
 ![Line styles](attachments/charts/line-styles.png)
 
@@ -496,15 +496,15 @@ A mode and line configuration can be added in the **Advanced** configuration of 
 ]
 ```
 
-### 3.2 Combine Chart Types
+### 3.2 複合グラフの種類
 
-The type of a series can be changed. For example, you can make a bar series into a line series:
+系列の種類を変更できます。 たとえば、棒グラフの系列を行列にすることができます。
 
-![Column chart data properties](attachments/charts/combine-list-bar.gif)
+![グラフのデータのプロパティ](attachments/charts/combine-list-bar.gif)
 
-### 3.3 Pie Chart
+### 3.3 円グラフ
 
-Displays a circular graph divided into slices to illustrate numerical proportion.
+円形のグラフをスライスに分割して数字の割合を示します。
 
 ``` json
 {
@@ -512,13 +512,13 @@ Displays a circular graph divided into slices to illustrate numerical proportion
 }
 ```
 
-![Pie chart data properties](attachments/charts/pie-chart.png)
+![円グラフデータのプロパティ](attachments/charts/pie-chart.png)
 
-More options can be found here: [Pie chart data properties](https://plot.ly/javascript/reference/#pie).
+その他のオプションはこちらでご覧いただけます: [円グラフデータプロパティ](https://plot.ly/javascript/reference/#pie).
 
-### 3.4 Fill
+### 3.4 塗りつぶし
 
-Displays a line chart with the areas below the lines filled with colors.
+線の下の色で塗りつぶされた線グラフを表示します。
 
 ``` json
 {
@@ -533,15 +533,15 @@ Displays a line chart with the areas below the lines filled with colors.
 }
 ```
 
-![Area chart data properties](attachments/charts/area-chart.png)
+![エリアチャートデータのプロパティ](attachments/charts/area-chart.png)
 
-More options can be found here: [Area chart data properties](https://plot.ly/javascript/reference/#area).
+その他のオプションはこちらでご覧いただけます: [エリアチャートデータプロパティ](https://plot.ly/javascript/reference/#area).
 
-### 3.5 Time Series
+### 3.5 時系列数
 
-The example below shows how you can set up filter buttons to filter a chart by time.
+以下の例は、時間ごとにチャートをフィルタするためのフィルタボタンを設定する方法を示しています。
 
-![Line chart data properties](attachments/charts/time-series-filters.png).
+![折れ線グラフのデータ プロパティ](attachments/charts/time-series-filters.png).
 
 ``` json
 {
@@ -585,11 +585,11 @@ The example below shows how you can set up filter buttons to filter a chart by t
 }
 ```
 
-See more properties here: [Range Selector](https://plot.ly/javascript/reference/#layout-xaxis-rangeselector).
+詳細はこちらをご覧ください: [範囲選択](https://plot.ly/javascript/reference/#layout-xaxis-rangeselector).
 
-### 3.6 Multiple Y Axes Data Properties {#multiple-y-axes-data-properties}
+### 3.6 複数の Y 軸データプロパティ {#multiple-y-axes-data-properties}
 
-Displays two different Y axes with different scales, according to the ranges of the datasets.
+データセットの範囲に応じて、異なるスケールを持つ 2 つの異なるY軸を表示します。
 
 ``` json
 [
@@ -605,11 +605,11 @@ Displays two different Y axes with different scales, according to the ranges of 
 ]
 ```
 
-![Multiple Y axes properties](attachments/charts/data-multiple-y.png)
+![複数の Y 軸のプロパティ](attachments/charts/data-multiple-y.png)
 
-### 3.7 Multiple X Axes Data Properties {#multiple-x-axes-data-properties}
+### 3.7 複数の X 軸データプロパティ {#multiple-x-axes-data-properties}
 
-Displays two different X axes with different scales.
+異なるX軸を異なるスケールで表示します。
 
 ``` json
 [
@@ -626,11 +626,11 @@ Displays two different X axes with different scales.
 ]
 ```
 
-![Multiple X axes properties](attachments/charts/data-multiple-x.png).
+![複数の X 軸のプロパティ](attachments/charts/data-multiple-x.png).
 
-## 4 Configurations Options (All Charts) {#config-options}
+## 4 構成オプション (すべてのグラフ) {#config-options}
 
-The following configuration options are available in all charts (presented here as an example with formatting for the `nl` `locale`):
+以下の設定オプションは、すべてのチャートで利用できます (ここでは、 `nl` `ロケール` の書式設定の例として表示されます):
 
 ```json
 {
