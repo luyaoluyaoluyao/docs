@@ -1,8 +1,6 @@
 ---
-title: "XPathSum"
+title: "XPath sum"
 parent: "xpath-query-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
