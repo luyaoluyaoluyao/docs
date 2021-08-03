@@ -1,203 +1,203 @@
 ---
-title: "Page"
-parent: "pages"
+title: "ページ"
+parent: "ページ"
 menu_order: 10
 tags:
   - "studio pro"
-  - "page"
-  - "properties"
+  - "ページ"
+  - "プロパティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="info" %}}
 
-This document describes basic functions you can perform in the page editor and its modes. For details on what pages are for and what kind of widgets can be placed on them, see [Pages](pages).
+このドキュメントでは、ページエディタとそのモードで実行できる基本的な機能について説明します。 どのページにどのようなウィジェットを配置できるかの詳細については、 [ページ](pages) を参照してください。
 
 {{% /alert %}}
 
-Pages define the end-user interface of a Mendix application. Every page is based on a [layout](layout). A page fills the "gaps" defined by a layout with widgets such as the [data view](data-view) and [data grid](data-grid).
+PagesはMendixアプリケーションのエンドユーザーインターフェイスを定義します。 すべてのページは [レイアウト](layout) に基づいています。 [データ ビュー](data-view) や [データ グリッド](data-grid) などのウィジェットでレイアウトによって定義された "ギャップ" をページに埋めます。
 
-## 2 Performing Basic Functions
+## 2 基本機能の実行
 
-You can perform the following basic function when working in the page editor:
+ページエディタで作業する場合、次の基本機能を実行できます。
 
-* Open a page
-* Create a page
-* Delete a page
-* Add elements on a page
-* View element properties
-* Arrange elements on a page
+* ページを開く
+* ページを作成
+* ページを削除
+* ページに要素を追加
+* 要素のプロパティを表示
+* ページ上の要素を整列
 
-### 2.1 Opening a Page
+### 2.1 ページを開く
 
-To open a page in Studio Pro, do the following:
+Studio Pro でページを開くには、次の操作を行います。
 
-1. In the [App Explorer](project-explorer), open a module where this page is located.
+1. [App Explorer](project-explorer)で、このページがあるモジュールを開きます。
 
-2. Navigate to the page's location inside the module. A page can be listed as an individual element or be included in the **Pages** folder:
+2. モジュール内のページの場所に移動します。 ページは個々の要素としてリストすることも、 **Pages** フォルダーに含めることもできます:
 
     ![](attachments/page/project-explorer-pages.png)
 
-3. Select a page you want to open and double-click it.
+3. 開くページを選択してダブルクリックします。
 
-The selected page is opened.
+選択したページが開きます。
 
-### 2.2 Creating a Page
+### 2.2 ページの作成
 
-To create a new page, do the following:
+新しいページを作成するには、次の操作を行います。
 
 1.  In the [App Explorer](project-explorer), right-click the module or a folder you want to create a page in and select **Add page**:
 
     ![](attachments/page/add-page.png)
 
 
-2.  In the **Create Page** dialog box, fill in the **Page name** and select a **Navigation layout**.
+2.  **ページの作成** ダイアログボックスで、 **ページ名** を入力し、 **ナビゲーションレイアウト** を選択します。
 
     ![](attachments/page/create-page.png)
 
 3. Click **OK**.
 
-A new page is created.
+新しいページが作成されます。
 
-### 2.3 Deleting a Page
+### 2.3 ページの削除
 
-To delete a page, do the following:
+ページを削除するには、次の操作を行います。
 
-1. In the [App Explorer](project-explorer), select a page you would like to delete and right-click it.
-2. In the displayed list, select **Delete** and confirm your choice by clicking **Delete** in the pop-up dialog.
+1. [App Explorer](project-explorer)で、削除したいページを選択し、右クリックします。
+2. 表示されたリストで、 **Delete** を選択し、ポップアップダイアログの **Delete** をクリックして選択を確認します。
 
-The selected page is deleted.
+選択したページが削除されます。
 
-### 2.4 Adding Elements on a Page {#add-elements}
+### 2.4 ページに要素を追加する {#add-elements}
 
-The way you can add an element on a page depends on a mode you are editing your page in. For more information on modes, see the [Page Editor Modes](#page-editor-modes) section.
+ページに要素を追加する方法は、ページを編集するモードによって異なります。 モードの詳細については、 [ページエディターモード](#page-editor-modes) セクションを参照してください。
 
-In **Structure mode**, there are several ways to add an element on a page:
+**構造モード**では、ページに要素を追加する方法がいくつかあります。
 
-1.  Through the **Toolbox**:
+1.  **ツールボックス**:
 
-    1. Open the **Toolbox** and select **Widgets** or **Building blocks** tab there.
+    1. **Toolbox** を開き、そこで **ウィジェット** または **Building blocks** タブを選択します。
 
         ![](attachments/page/toolbox.png)
 
-    2. Select an element you would like to add and drag and drop this element on your page.
+    2. この要素を追加したい要素を選択し、ページにドラッグ&ドロップします。
 
-2. Through the menu at the top of the page:
+2. ページ上部のメニューから
 
-    1. Do one of the following:
+    1. 次のいずれかを実行します。
 
-        i. Select frequently-used widgets (a data view, a data grid, a template grid, or a list view).
+        I. 頻繁に使用されるウィジェット(データビュー、データグリッド、テンプレートグリッド、またはリストビュー)を選択します。
 
-        ii. Click **Add widget**  or **Add building block**, find an element in a list and click **Select**.
+        ii. **Add ウィジェット**  または **Add building block**をクリックし、リスト内の要素を見つけて、 **Select** をクリックします。
 
         ![](attachments/page/top-menu.png)
 
-    2. Click a drop-zone on a page to position an element.
+    2. ページ上のドロップゾーンをクリックして、要素を配置します。
 
-3. By right-clicking a drop-zone:<br/>
+3. ドロップゾーンを右クリックすると：<br/>
 
-    a. Right-click a drop-zone you want to insert an element in.<br/>
+    a 要素を挿入するドロップゾーンを右クリックします。<br/>
 
-    b. Select between adding a widget or a building block.<br/>
+    B ウィジェットまたはBuilding Blockを追加するかを選択します。<br/>
 
     {{% image_container width="400" %}}![](attachments/page/adding-widget-in-drop-zone.png)
  {{% /image_container %}}<br/>
 
-    c. Select an element you would like to add and confirm your choice by clicking **Select**.
+    C 追加したい要素を選択し、 **** をクリックして選択を確認します。
 
-In **Design mode**, you can add elements though the Toolbox. Do the following:
+**デザインモード**では、ツールボックスに要素を追加できます。 次の操作を行います:
 
-1. Open the **Toolbox** and select **Widgets** or **Building blocks** tab there.
-2. Select an element you would like to add and drag and drop this element on your page.
+1. **Toolbox** を開き、そこで **ウィジェット** または **Building blocks** タブを選択します。
+2. この要素を追加したい要素を選択し、ページにドラッグ&ドロップします。
 
-### 2.5 Viewing Element Properties {#view-properties}
+### 2.5 ビューイングエレメントのプロパティ {#view-properties}
 
-To view properties of an element, do one of the following:
+要素のプロパティを表示するには、次のいずれかを実行します。
 
-1. Select an element and open **Properties** pane to view its properties.
-2. Right-click an element and select **Properties** from the list of options that opens.
-3. Double-click an element.
+1. 要素を選択し、 **プロパティ** ペインを開いて、そのプロパティを表示します。
+2. 要素を右クリックし、表示されるオプションのリストから **プロパティ** を選択します。
+3. 要素をダブルクリックします。
 
-### 2.6 Arranging Elements on a Page {#arrange-elements}
+### 2.6 ページに要素を配置 {#arrange-elements}
 
-To cut/copy/paste you can use the following shortcuts:
+切り取り/コピー/貼り付けするには、次のショートカットを使用できます。
 
 * <kbd>Ctrl</kbd> + <kbd>Z</kbd> /  <kbd>Ctrl</kbd> + <kbd>C</kbd> / <kbd>Ctrl</kbd> + <kbd>V</kbd>
 * <kbd>Cmd</kbd> + <kbd>Z</kbd> /  <kbd>Cmd</kbd> + <kbd>C</kbd> / <kbd>Cmd</kbd> + <kbd>V</kbd>
 
 {{% alert type="info" %}}
 
-You can cut/copy/paste elements on a page to different apps in Studio Pro if they have the same Mendix version. However, you cannot cut/copy/paste the whole page.
+同じMendixバージョンがある場合は、ページ上の要素をStudio Proの異なるアプリケーションに切り取り/コピー/貼り付けできます。 ただし、ページ全体をカット/コピー/ペーストすることはできません。
 
-You cannot cut/copy/paste from Studio Pro to Studio.
+Studio Pro から Studio に切り取り/コピー/貼り付けはできません。
 
 {{% /alert %}}
 
-To delete an element from a page, select this element and press <kbd>Delete</kbd> or right-click an element and select **Delete** in a drop-down menu.
+ページから要素を削除するには この要素を選択し、 <kbd>Delete</kbd> を押すか、要素を右クリックし、ドロップダウン メニューで **Delete** を選択します。
 
-## 3 Page Editor Modes {#page-editor-modes}
+## 3ページエディタモード {#page-editor-modes}
 
-There are two different ways to edit your page:
+ページを編集するには2つの方法があります:
 
-* [Structure Mode](#structure-mode), the default editor which clearly shows the relationship between page elements, together with additional information about each element
+* [構造モード](#structure-mode)、ページ要素間の関係を明確に示すデフォルトのエディタ、および各要素に関する追加情報。
 * [Design Mode](#design-mode), a WYSIWYG (**W**hat **Y**ou **S**ee **I**s **W**hat **Y**ou **G**et) editor which better reflects what the page will look like when it is published
 
-You can switch to the WYSIWYG editor from the default editor by clicking the **Design mode** button in the page editor. You can return to the structural editor by clicking **Structure mode**.
+ページエディタの **デザインモード** ボタンをクリックすると、デフォルトエディタからWYSIWYGエディタに切り替えることができます。 構造モード **** をクリックすると、構造エディタに戻ることができます。
 
-![Design mode and Structure mode buttons](attachments/page/design-mode.png)
+![デザインモードとストラクチャーモードボタン](attachments/page/design-mode.png)
 
-Both modes allow you to edit your page by doing the following:
+両方のモードでは、次の操作を行ってページを編集できます:
 
-* Dragging widgets from the **Toolbox** pane onto the page
-* Dragging widgets, and their contents, from one place on the page to another
-* Viewing and editing properties of each widget in the **Properties** pane
-* Opening a **Properties** dialog box from the menu you get when you right-click the widget
+* ウィジェットを **Toolbox** ペインからページにドラッグします
+* ウィジェットとその内容をページ上のある場所から別の場所にドラッグする
+* **プロパティ** ペイン内の各ウィジェットのプロパティの表示と編集
+* ウィジェットを右クリックしたときに表示されるメニューから **プロパティ** ダイアログボックスを開く
 
-### 3.1 Structure Mode {#structure-mode}
+### 3.1 ストラクチャーモード {#structure-mode}
 
-In **Structure mode**, the page widgets are laid out so that it is easy to see the logical relationship between them. It has the following features which are not available in Design mode:
+**構造モード**では、ページのウィジェットがレイアウトされ、それらの論理的な関係を見やすくなります。 デザインモードでは使用できない以下の機能があります:
 
-* You can zoom a page in or out using the **Zoom** drop-down menu in the top-right corner of a page
+* ページの右上隅にある **ズーム** ドロップダウンメニューを使用して、ページをズームインまたはズームアウトできます。
 
-* Widgets are shown with additional information easily visible – for example, data sources for data views and the width assigned to columns
+* ウィジェットは追加情報とともに表示されます。たとえば、データ ビューのデータ ソースや列に割り当てられた幅などです。
 
-    ![Frequently-used widgets](attachments/page/structure-mode-info.png)
+    ![よく使用されるウィジェット](attachments/page/structure-mode-info.png)
 
-* Each widget has a drop-zone before/above and after/below it – this makes it easier to place widgets correctly when they appear close together in Design mode
+* 各ウィジェットには、ドロップゾーンの前/上/下にドロップゾーンがあります。これにより、デザインモードでまとめて表示されたときにウィジェットを正しく配置することが容易になります。
 
-* Right-click a drop-zone allows you to insert a widget into it
+* ドロップゾーンを右クリックすると、ウィジェットを挿入できます
 
-* There is a menu at the top of the page of data widgets – these cannot be dragged, but are positioned by clicking a drop-zone after selecting the widget
+* データウィジェットのページ上部にメニューがあります。これらはドラッグできません。 しかし、ウィジェットを選択した後にドロップゾーンをクリックすることで配置されます。
 
-    ![Frequently-used widgets](attachments/page/frequently-used.png)
+    ![よく使用されるウィジェット](attachments/page/frequently-used.png)
 
-* Widgets are shown without styling applied to them, but you can see which widgets do have styling applied via the class or style property by clicking the **Show styles** button (available for Web page templates and layouts only).
+* ウィジェットはスタイルを適用せずに表示されます しかし、 **スタイルを表示** ボタン(ウェブページテンプレートとレイアウトのみで利用可能)をクリックすることで、どのウィジェットがクラスまたはstyleプロパティでスタイリングを適用しているかを確認できます。
 
-    ![Show styles button](attachments/page/show-styles.png)
+    ![スタイルボタンを表示](attachments/page/show-styles.png)
 
-### 3.2 Design Mode {#design-mode}
+### 3.2 デザインモード {#design-mode}
 
-In **Design mode**, the page is laid out as it will appear when published so that it is easy to see the spatial relationship between the elements.
+**デザインモード**で ページは公開時に表示されるように配置されています 要素間の空間的な関係を見やすくするためです
 
-For example, the example page shown in [Structure Mode](#structure-mode), above, will look like this in **Design mode** for a desktop:
+例えば、上記の [構造モード](#structure-mode)に表示されている例では、デスクトップの **デザインモード** でこのようになります。
 
-![Design mode page as displayed on a tablet](attachments/page/design-mode-example.png)
+![タブレットに表示されるデザインモードのページ](attachments/page/design-mode-example.png)
 
-It has the following features which are not available in **Structure mode**:
+**ストラクチャーモード** では使用できない以下の機能があります:
 
-* The widgets are shown as they will be on the page – for example two text widgets which are laid out vertically in structural mode may actually be laid out horizontally when the app is published, and this will be reflected in Design mode
-* The page layout can be seen for different device modes – for example phone or browser by clicking the appropriate device mode button:
+* ウィジェットはページに表示されるように表示されます – 例えば、構造モードで垂直にレイアウトされた2つのテキストウィジェットは、アプリが公開されると実際には水平にレイアウトされる可能性があります。 これはデザインモードに反映されます
+* ページレイアウトは、異なるデバイスモードで見ることができます – 例えば、電話やブラウザは、適切なデバイスモードボタンをクリックすることによって:
 
-    ![Show styles button](attachments/page/design-factor.png)
+    ![スタイルボタンを表示](attachments/page/design-factor.png)
 
-* The widgets have design properties and CSS classes and styles applied to them so you can see what they will look like
-* Toggle showing conditionally-visible widgets in the top bar:
+* ウィジェットにはデザインプロパティとCSSクラスとスタイルが適用されており、どのように見えるかを確認できます。
+* 上部のバーに条件付きで表示されているウィジェットを表示するかどうかを切り替えます。
 
-    ![Show conditional visibility](attachments/page/conditional-visibility.jpg)
+    ![条件付き表示を表示](attachments/page/conditional-visibility.jpg)
 
 
-## 4 Read More
+## 4 続きを読む
 
-* [Pages](pages)
-* [Page Properties](page-properties)
+* [ページ](ページ)
+* [ページのプロパティ](page-properties)
