@@ -1,96 +1,98 @@
 ---
-title: "Loop"
-category: "Microflows"
+title: "循环"
+category: "微型流动"
 menu_order: 30
-description: "Describes a loop in Mendix Studio."
+description: "在 Mendix Studio 中描述一个循环。"
 tags:
-  - "studio"
-  - "microflow"
-  - "loop"
-  - "loops"
+  - "工作室"
+  - "微流"
+  - "循环"
+  - "循环"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A loop is used to iterate over a list of object and perform actions on each item of the list when building [microflows](microflows). For example, you can retrieve a list of orders from your database, then loop over this list and mark orders as processed. For more details on use cases, see the [Configuring a Loop](#loop-example) section.
+当构建 [微流](microflows) 时，循环用于在对象列表上进行迭代并对列表中的每个项目进行操作。 例如，您可以从数据库检索订单清单，然后循环到这个列表并标记已处理的订单。 欲了解更多详情，请见第 [3 循环示例](#loop-example) 部分。
 
-The loop is visualized as a frame. The flow inside the loop is executed for each object. That means, if you add more than one activity to the loop, the full flow gets executed on each item. For example, you can add a loop that will prevent orders from processing if the order is not paid:
+循环被视为一个帧。 循环中的流程是为每个对象执行的。 这意味着，如果您将多个活动添加到循环中，那么每个项目都会执行完整的流程。 例如，您可以添加一个循环，防止在客户被阻止时处理订单。
 
 ![](attachments/microflows-loop/loop.png)
 
-The loop can contain all types of elements used in microflows, except for start and end events. Additionally, only a loop can contain [break events](/refguide8/break-event) and [continue events](/refguide8/continue-event). A break event is used in loops only to stop iterating over a list of objects and continue with the rest of the flow in a microflow. A continue event is used in loops only to stop the current iteration and start the iteration of the next object.
+循环可以包含微流其他部分使用的所有类型元素，但启动和停止事件除外。 此外，只有循环可以包含 [中断事件](/refguide/break-event) 和 [继续事件](/refguide/continue-event)。 休息活动只用于循环中停止在对象列表上的迭代，然后在微流中继续其它流程。 继续事件仅用于停止当前的迭代和开始下一个对象的迭代。
 
-## 2 Loop Properties
+## 2 循环属性
 
-Loop properties consists of the **Data Source** section and are described below:
+循环属性由 **数据源** 部分组成，描述如下：
 
-* **Loop Over** – a variable that is a list of items you will loop through
+* **环绕** — 一个变量是你将循环的项目列表
 
-*  **Loop Variable Name** – refers to the name of the list item that is currently being worked on
+*  **循环变量名称** — — 指目前正在处理的列表项的名称
 
-    {{% image_container width="350" %}}![Data Source Properties of a Loop](attachments/microflows-loop/loop-properties.png)
+    {{% image_container width="350" %}}![循环的数据源属性](attachments/microflows-loop/loop-properties.png)
     {{% /image_container %}}
 
-## 3 Configuring a Loop {#loop-example}
+## 3 个循环示例 {#loop-example}
 
-A straightforward use-case is where you retrieve a list of orders from your database, loop over this list, and mark orders as processed as a result.
+让我们研究一个直截了当的使用案例，在这个案例中，您从数据库中检索了一个订单列表。 在这个列表上循环，并将订单标记为处理结果。
 
-![Loop Example](attachments/microflows-loop/loop-example.png)
+![循环示例](attachments/microflows-loop/loop-example.png)
 
-Make sure you have the following prerequisites:
+请确保您有以下前提条件：
 
-1. [Create an entity](domain-models#adding-new-entities) in your domain model and name it *Order*.
-2. [Create an attribute](domain-models#adding-new-attributes) of the Boolean type for this entity to indicate the status of an order and name this attribute *Processed*.
-3. [Create a microflow](microflows#creating-new-microflow).
+1. [在您的域模型中创建一个实体](domain-models#adding-new-entities) 并命名它 *订单*。
+2. [为这个实体创建布尔类型的属性](domain-models#adding-new-attributes) ，以表明订单状态并命名此属性 *已处理*。
+3. [创建微流](microflows#creating-new-microflow)。
 
-To start the use-case, do the following:
+要开始使用情况，请做以下操作：
 
-1. Open a microflow you want to add a loop to.
+1. 打开您想要添加循环的微流程。
 
-2. First of all, you need to get the list of orders to loop over. Do the following: <br />
+2. 首先，我们需要获得我们将循环的订单清单。 执行以下操作： <br />
 
-    a. In the **Toolbox**, select **Retrieve**, drag and drop it to the microflow. <br />
+    a. 在 **工具箱**, 选择 **检索**, 拖放它到微流程。 <br />
 
-    b. In **Properties** > the **Data Source** section, select **From Database**, and set *Order* as an entity for this activity. (The **Range** property is set to **All** by default): <br />
+    b. 会议文件。 在 **属性** > 中， **数据源** 部分 从数据库中选择 ****, 并设置 *订单* 为此活动的实体。 ( **范围** 属性已设置为 **默认所有** 属性)<br />
 
-    {{% image_container width="350" %}}![Retrieve Object Properties](attachments/microflows-loop/retrieve-properties.png)
+    {{% image_container width="350" %}}![检索对象属性](attachments/microflows-loop/retrieve-properties.png)
     {{% /image_container %}}
 
-3. As you have retrieved the list of orders you can work on, you now need to create a loop and logic for it. Do the following: <br />
+3. 随着我们检索了我们可以处理的订单清单，我们将为此创造一个循环和逻辑。 执行以下操作： <br />
 
-    a. In the **Toolbox**, select **Loop**, drag and drop it to the microflow. <br />
+    a. 在 **工具箱**, 选择 **循环**, 拖放它到微流程。 <br />
 
-    ![Loop is Added](attachments/microflows-loop/loop-added.png)<br />
+    ![循环已添加](attachments/microflows-loop/loop-added.png)<br />
 
-    b. In **Properties**, set **OrderList** as **Loop Over** (**Loop Variable Name** is set automatically). So, you have selected the list of objects to loop over. <br />
+    b. 会议文件。 在 **属性**, 将 **订单列表** 设置为 **循环** (**循环变量名称** 自动设置)。 我们已经选择了该实体，并将在其对象列表上循环. <br />
 
-    {{% image_container width="350" %}}![Loop Properties in an Example](attachments/microflows-loop/loop-properties-in-example.png)
+    {{% image_container width="350" %}}![在示例中循环属性](attachments/microflows-loop/loop-properties-in-example.png)
      {{% /image_container %}}
 
-4. Now you can add the activity that will change the status of each order to *Processed*. This means that the activities you add inside the loop will be performed on each object (each order). Do the following:<br />
+4. 现在我们可以添加将每个订单状态更改为 *处理过* 的活动。 这意味着您在循环中添加的活动将在每个对象上执行(每个订单)。 执行以下操作：<br />
 
-    a. In the **Toolbox**, select **Change Object**, drag and drop it inside the loop .<br />
+    a. 在 **Toolbox**中，选择 **更改对象**，拖放到循环中。<br />
 
-    b. In **Properties** > the **Data Source** section for the **Change Object** activity, set **Object** to **Order**.<br/>
+    b. 会议文件。 在 **属性** > 中， **数据源** 部分 **更改对象** 活动 将 **对象** 设置为 **订单**。<br/>
 
-    c. When the **Change Members** option appears, click **Add New Value**.<br />
+    b. 会议文件。 当 **更改成员** 选项出现时，点击 **添加新值**。<br />
 
-    ![Change Object Properties in Loop Example](attachments/microflows-loop/change-object-properties.png)
+    ![更改循环示例中的对象属性](attachments/microflows-loop/change-object-properties.png)
 
-5. In the **Change value** dialogue window, do the following:<br />
+5. 在 **更改对话窗口值** 中，执行以下操作：<br />
 
-    a. Set **Select an Attribute or Association** to **Processed (Boolean)**.<br />
+    a. 将 **选择一个属性或关联** 到 **已处理的 (布尔)**.<br />
 
-    b. In the **Expressions** tab, set the **New value** of this attribute by typing in *true*. <br />
+    b. 会议文件。 在 **表达式** 标签页中，通过输入 *true* 设置此属性的 **新值** <br />
 
-    ![Example of Change Value Dialogue Window](attachments/microflows-loop/change-value-dialogue-example.png)
+    ![变化价值对话窗口示例](attachments/microflows-loop/change-value-dialogue-example.png)
 
-    c. Click **Add** to save the changes.
+    b. 会议文件。 点击 **添加** 保存更改。
 
-This video shows the process of configuring the example above:
+查看视频并配置上面的示例：
 
-<video width="768" height="432" controls src="attachments/microflows-loop/loop-example-video.mp4">VIDEO</video> As a result, you have a list of orders retrieved to your microflow, and a loop that iterates over this list. The activity inside the loop sets the status of each order to processed.
+<video width="768" height="432" controls src="attachments/microflows-loop/loop-example-video.mp4">视频</video>
 
-## 4 Read More
+因此，我们有一个从微流中检索到的订单清单和一个循环，它们在这个列表上反复。 循环中的活动设置每个订单的状态。
 
-* [Microflows](microflows)
+## 4 阅读更多
+
+* [微型流动](微流)
