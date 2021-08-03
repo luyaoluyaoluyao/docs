@@ -1,129 +1,126 @@
 ---
-title: "Show Fields Only When Certain Conditions Are Met"
-category: "Pages"
-description: "Describes how to set conditional visibility in Mendix Studio."
+title: "特定の条件が満たされたときのみフィールドを表示"
+category: "ページ"
+description: "Mendix Studioで条件付き表示を設定する方法を説明します。"
 menu_order: 30
 tags:
-  - "studio"
-  - "pages"
-  - "how to"
-  - "visibility"
-  - "visible"
+  - "スタジオ"
+  - "ページ"
+  - "どうやって?"
+  - "可視性"
+  - "表示"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you show fields to your end-users only when certain conditions are met, which can be achieved by setting conditional visibility.
+この方法では、条件付き可視性を設定することで、特定の条件が満たされた場合にのみ、エンドユーザーにフィールドを表示する方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Make fields visible only when an end-user chooses a certain attribute value
-* Make fields visible for a certain user role only
-* View fields are visible only under certain conditions
+* エンドユーザーが特定の属性値を選択したときにのみフィールドを表示する
+* 特定のユーザーロールに対してのみフィールドを表示する
+* 表示フィールドは特定の条件下でのみ表示されます
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-You have a web shop and you would like to show a field with a billing address only when a customer unchecks the **Billing address is the same as delivery address** option (it is checked by default):
+You have a web shop and you want to show a field with a billing address only when a customer unchecked the **Billing address is the same as delivery address** option (it is checked by default):
 
-![Billing Address Is the Same As Delivery Address](attachments/pages-how-to-set-visibility/billing-address-same.png)
+![請求先住所は配送先住所と同じです](attachments/pages-how-to-set-visibility/billing-address-same.png)
 
-You also have a page called **Product Overview** which lists products and you would like to make the **Edit** button in the list visible to Administrators and Sales managers only:
+また、 **製品概要** というページがあり、リストの **編集** ボタンを管理者および営業マネージャーのみに表示するようにします。
 
 {{% image_container width="450" %}}
 
-![List of Products](attachments/pages-how-to-set-visibility/list-of-products.png)
+![商品一覧](attachments/pages-how-to-set-visibility/list-of-products.png)
 
 {{% /image_container %}}
 
-The domain model looks the following way:
+ドメインモデルは次のようになります:
 
 {{% image_container width="550" %}}
 
-![Domain Model](attachments/pages-how-to-set-visibility/domain-model.png)
+![ドメインモデル](attachments/pages-how-to-set-visibility/domain-model.png)
 
 {{% /image_container %}}
 
-You have the following user roles:
+次のユーザーロールがあります:
 
-![User Roles](attachments/pages-how-to-set-visibility/user-roles.png)
+![ユーザーの役割](attachments/pages-how-to-set-visibility/user-roles.png)
 
-For more information on how to enable security and configure user roles, see [How to Secure Your App and Configure Access to Its Functionality](security-how-to-configure-roles).
+セキュリティを有効にし、ユーザーロールを設定する方法の詳細については、 [アプリのセキュリティを確保し、その機能へのアクセスを設定する方法](security-how-to-configure-roles) を参照してください。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with conditional visibility. For more information, see [Conditional Visibility Section](/studio8/page-editor-widgets-visibility-section).
-* Enable security and add user roles to your app. For more information, see [How to Secure Your App and Configure Access to Its Functionality](security-how-to-configure-roles).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
+* 条件付きの可視性で自分自身をよく理解する。 詳細については、 [条件付き表示セクション](/studio/page-editor-widgets-visibility-section) を参照してください。
+* セキュリティを有効にし、ユーザーロールをアプリに追加します。 詳細については、 [アプリを保護し、その機能へのアクセスを構成する方法](security-how-to-configure-roles) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
-## 3 Setting Condition for a Billing Address
+## 3 請求先住所の条件の設定
 
-*Conditional visibility* is a set of properties that allows you to show widgets only when certain conditions are met.
+*条件付き可視性* は、特定の条件が満たされたときにのみウィジェットを表示できるプロパティのセットです。
 
-The visibility of the billing address depends whether the customer checks that the billing address is different from the delivery address. In your domain model, you have an attribute of the Boolean type called **BillingAddressSame**, so when it is set to *false*, the billing address should be visible. This means that the visibility of the billing address depends on the value of the **BillingAddressSame** attribute, so the conditional visibility is *attribute-based*.
+請求先住所の可視性は、顧客が請求先住所と異なることを確認するかどうかによって異なります。 In your domain model, you have an attribute of the Boolean type called **BillingAddressSame**, so when it is set to *false*, the billing address should be visible. This means that the visibility of the billing address depends on the value of the **BillingAddressSame** attribute, so the conditional visibility is *attribute-based*.
 
 {{% alert type="info" %}}
 
-Attribute-based conditional visibility can be set only for widgets that are inside data containers (a data view, list view, or data grid).
+属性ベースの条件付き可視性は、データコンテナ内にあるウィジェット(データビュー、リストビュー、またはデータグリッド)にのみ設定できます。
 
 {{% /alert %}}
 
-To set conditional visibility for the **Billing Address** field, do the following:
+**Billing Address** フィールドに条件付き表示を設定するには、以下を行ってください:
 
-1. Open the page where the customers specify their details:
+1. 顧客が自分の詳細を指定するページを開きます:
 
-    ![Customer Details](attachments/pages-how-to-set-visibility/customer-page.png)
+    ![顧客詳細](attachments/pages-how-to-set-visibility/customer-page.png)
 
-2. Select the **Billing Address** field and go to its properties.
+2. **請求先住所** フィールドを選択し、そのプロパティに移動します。
 
-3. In **Conditional Visibility** section, click the **Attribute-Based** property:
+3. **条件付き可視性** セクションで、 **データに基づいて** プロパティを切り替え、 **属性** プロパティをクリックします。
 
-    {{% image_container width="250" %}}![Conditional Visibility Section](attachments/pages-how-to-set-visibility/conditional-visibility-section.png){{% /image_container %}}
+    ![データに基づいて表示](attachments/pages-how-to-set-visibility/visible-based-on-data.png)
 
-4. In the **Select Attribute** dialog box, choose the **BillingAddressSame** attribute and click **Select**.
+4. **属性の選択** ダイアログボックスで、 **BillingAddressSame** 属性を選択し、 **Select** をクリックします。
 
-5. The **Attribute Values** property is now displayed in properties. Untick the *True* value as it does not meet the conditions you would like to set, and leave the **False** value selected:
+5. **属性値** プロパティがプロパティに表示されるようになりました。 Untick the *True* value as it does not meet the conditions you would like to set, and leave the **False** value selected.
 
-    {{% image_container width="250" %}}![Attribute-Based Visibility](attachments/pages-how-to-set-visibility/attribute-based-visibility-set.png){{% /image_container %}}
 
-Good job! If you [preview your app](/studio8/publishing-app), you will see that the billing address is only shown when you untick the  **Billing address is the same as delivery address** option.
+よくできました！ If you [preview your app](/studio/publishing-app), you will see that the billing address is only shown when you untick the  **Billing address is the same as delivery address** option.
 
-## 4 Showing an Element to Certain User Roles Only
+## 4 特定のユーザーロールにのみ要素を表示する
 
- You have a list of products with the **Edit** button. You have three user roles in your app: **Administrators**, **Sales_Managers**, and **Customers**, and you would like to show this button only to Administrators and Sales managers only, hiding it from customers. For more information, on how to create user roles, see [How to Secure Your App and Configure Access to Its Functionality](security-how-to-configure-roles).
+ **編集** ボタンを持つ製品のリストがあります。 アプリには3つのユーザロールがあります: **管理者**、 **Sales_Managers**、および **顧客**、 そして、このボタンを管理者と営業マネージャーのみに表示し、顧客から非表示にします。 ユーザーロールの作成方法については、 [アプリのセキュリティ保護とその機能へのアクセスの構成](security-how-to-configure-roles) を参照してください。
 
-To show an element only to a certain user role, do the following:
+特定のユーザーロールにのみ要素を表示するには、次の操作を行います。
 
-1. Open the **Product Overview** page with the list of products and select the **Edit** button:
+1. **製品概要** ページを開き、 **** ボタンを選択します。
 
     {{% image_container width="450" %}}![List of Products](attachments/pages-how-to-set-visibility/list-of-products.png){{% /image_container %}}
 
-2. Open its properties and in **Conditional Visibility** section toggle the **Role-Based** property:
+2. プロパティを開き、 **条件付き可視性** セクションで **ロールに基づいて** プロパティを切り替えます。
 
-    {{% image_container width="250" %}}![Role-Based Property](attachments/pages-how-to-set-visibility/role-based-property.png){{% /image_container %}}
+3. アプリケーションで利用可能なロールのリストは、 **ロール** プロパティに表示されます。 **顧客** のロールのチェックを外します:
 
-3. A list of roles available in your app is displayed in the **Roles** property. Untick the **Customer** role:
+    ![選択されていない役割](attachments/pages-how-to-set-visibility/unselected-roles.png)
 
-    {{% image_container width="250" %}}![Unselected Roles](attachments/pages-how-to-set-visibility/unselected-roles.png){{% /image_container %}}
+よくできました！ **編集** ボタンは、 **管理者** および **Sales_Manager** のユーザロールのみに表示されます。
 
-Well done! Now the **Edit** button will only be shown to **Administrator** and **Sales_Manager** user roles only.
+## 条件付き可視性を持つ3つの項目を表示
 
-## 3 Viewing Fields With Conditional Visibility
+ページのどの要素が条件付き可視性を持っているかを簡単に見つけるには、それらを強調表示できます。 条件付き表示のウィジェットを表示するには、次の操作を行います。
 
-To easily find which elements on your page have conditional visibility, you can highlight them. To show widgets with conditional visibility, do the following:
+1. ページを開きます。
 
-1. Open the page.
-
-2. Click the eye icon in the top-left corner of the page:
+2. ページの左上隅にある目のアイコンをクリックします。
 
     {{% image_container width="250" %}}![Eye Icon](attachments/pages-how-to-set-visibility/eye-icon.png){{% /image_container %}}
 
-Widgets with conditional visibility are highlighted:
+条件付き表示のウィジェットがハイライト表示されます:
 
-![Highlighted Widget](attachments/pages-how-to-set-visibility/highlighted-widget.png)
+![ハイライトされたウィジェット](attachments/pages-how-to-set-visibility/highlighted-widget.png)
 
-Congratulations! You set several conditions for your widgets and you learnt how to view these widgets on a page to find them easily.
+おめでとうございます ウィジェットにいくつかの条件を設定し、これらのウィジェットを簡単に見つけられるようにページで表示する方法を学びました。
 
-You can now preview your app and test the conditions that you have set: when the Billing address is being shown and which user roles can see the **Edit** button. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
+アプリをプレビューし、設定した条件をテストすることができます: 請求先住所が表示されている場合と、どのユーザーロールが **編集** ボタンを表示できます。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio/publishing-app) を参照してください。
