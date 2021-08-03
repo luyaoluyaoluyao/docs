@@ -1,36 +1,31 @@
 ---
-title: "CORS Settings for Published REST Services"
-parent: "published-rest-service"
+title: "发布的REST 服务的 CORS 设置"
+parent: "已发布的rest-service"
 menu_order: 60
-description: "Additional options for controlling access to a published REST service"
+description: "控制已发布的REST 服务访问的其他选项"
 tags:
   - "CORS"
-  - "security"
-  - "origin"
-  - "domain"
-  - "access"
+  - "安全"
+  - "来源"
+  - "域"
+  - "访问"
+  - "studio pro"
 ---
 
-{{% alert type="info" %}}
+## 1 导言
 
-The CORS settings feature was introduced in Mendix version 7.18.0.
+跨源资源共享(CORS) 使用额外的 HTTP 头来告诉浏览器允许从不同来源(域)的服务器访问选定的资源。
 
-{{% /alert %}}
+当您在 [已发布的REST 服务](published-rest-service)中启用CORS 时，默认允许所有服务器上的所有网站访问您的服务。 **CORS 设置** 对话框允许您在更详细的级别上配置此类型的访问权限。
 
-## 1 Introduction
+## 2 允许的来源
 
-Cross-Origin Resource Sharing (CORS) uses additional HTTP headers to tell a browser to give access to selected resources from a server in a different origin (domain).
+您可以在此指定哪些网站允许访问您的服务。 您可以选择 **所有**，或指定一个包含逗号分隔的主机名列表的常数。
 
-When you enable CORS in a [published REST service](published-rest-service), by default all websites on all servers are allowed to access your service. The **CORS Settings** dialog box allows you to configure this type of access on a more detailed level.
+## 3 个最大年龄
 
-## 2 Allowed Origins
+在这里您可以在检查是否有新的 CORS 设置之前选择允许浏览器记住这些设置的时间。 较长的时间对性能是好的，因为浏览器执行的请求较少。 然而，如果您更改 CORS 设置，这些更改将不会在所有浏览器中生效，直到这段时间过去。
 
-Here you can specify which websites are allowed to access your service. You can either select **All**, or specify a constant that contains a comma-separated list of host names.
+## 4 允许凭据
 
-## 3 Max Age
-
-Here you can choose how long a browser is allowed to remember these settings before checking whether there are new CORS settings. A longer time is good for performance, because the browser will perform fewer requests. However, if you change the CORS settings, these changes will not take effect in all browsers until this time has passed.
-
-## 4 Allow Credentials
-
-Check this box to indicate that the browser is allowed to send cookies, authorization headers, and/or client certificates to this service.
+选中此框以表明允许浏览器发送cookies、授权信头和/或客户端证书到此服务。
