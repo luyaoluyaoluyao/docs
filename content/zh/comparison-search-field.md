@@ -1,35 +1,35 @@
 ---
-title: "Comparison Search Field"
-parent: "search-bar"
+title: "比较搜索字段"
+parent: "搜索栏"
 ---
 
 
-## Common Properties
+## 公共属性
 
-{{% snippet file="refguide7/Search+Field+Caption+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Caption+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Type+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Type+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Default+Value+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Default+Value+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Custom+Date+Format+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Custom+Date+Format+Property.md" %}}
 
-{{% snippet file="refguide7/Custom+Date+Format+Tokens.md" %}}
+{{% snippet file="refguid7/Custom+Date+Format+Tokens.md" %}}
 
 {{% snippet file="refguide7/Search+Field+Placeholder+Property.md" %}}
 
-## General Properties
+## 常规属性
 
-{{% snippet file="refguide7/Search+Field+Attribute+Path+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Attribute+Path+Property.md" %}}
 
 {{% snippet file="refguide7/Search+Field+Comparison+Property.md" %}}
 
-### Date comparisons and the influence of the default value
+### 日期比较和默认值的影响
 
-It is possible to search on date attributes using equality. What happens with the time component belonging to the date is dependent on the default value of the comparison search field.
+使用平等来搜索日期属性是可能的。 时间组件属于日期时发生的情况取决于比较搜索字段的默认值。
 
-| Default value         | Search query                                                                                                     |  | Result example (input: August 4, 2100)                               |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------- |  | -------------------------------------------------------------------- |
-| None                  | Search field is empty. Represents a 24 hour date range starting at midnight of the specified date.               |  | Search between August 4, 0:00 - August 5, 0:00                       |
-| [%CurrentDateTime%]   | Search field shows the current date. Represents a 24 hour date range starting at the _current time_.             |  | Search between August 4, <current time> and August 5, <current time> |
-| [%BeginOfCurrentDay%] | Search field shows the current date. Represents a 24 hour date range starting at midnight of the specified date. |  | Search between August 4, 0:00 - August 5, 0:00                       |
+| 默认值                   | 搜索查询                                  |  | 结果示例 (输入：8月4日, 2100)                           |
+| --------------------- | ------------------------------------- |  | ---------------------------------------------- |
+| 无                     | 搜索字段为空。 表示从指定日期午夜开始的24小时日期范围。         |  | 搜索8月4日0:00 - 8月5日0:00                          |
+| [%CurrentDateTime%]   | 搜索字段显示当前日期。 表示从 _当前时间_ 开始的 24 小时日期范围。 |  | 在8月4日之间搜索 <current time> 和8月5日， <current time> |
+| [%BeginOfCurrentDay%] | 搜索字段显示当前日期。 表示从指定日期午夜开始的24小时日期范围。     |  | 搜索8月4日0:00 - 8月5日0:00                          |
