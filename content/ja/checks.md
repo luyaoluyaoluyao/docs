@@ -1,70 +1,66 @@
 ---
-title: "Checks"
-description: "Describes checks during publishing process in Mendix Studio."
+title: "チェック"
+description: "Mendix Studioのパブリッシングプロセス中のチェックについて説明します。"
 menu_order: 70
 tags:
-  - "studio"
-  - "app viewing"
-  - "checks"
-  - "errors"
-  - "consistency errors"
+  - "スタジオ"
+  - "アプリの表示"
+  - "チェック"
+  - "エラー"
+  - "整合性エラー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix Studio checks your app for consistency in real-time, for example, it checks if any necessary properties of elements are missing. Such checks help you build an app that will function properly.
+Mendix Studioは、アプリケーションの一貫性をリアルタイムでチェックします。たとえば、必要な要素のプロパティがないかどうかをチェックします。 このようなチェックは、正常に機能するアプリを構築するのに役立ちます。
 
-If your app passes the check, the **Checks** button will have a green check mark and the app will be ready to be [previewed or published](publishing-app): ![Passed Check](attachments/checks/passed-check.jpg)
+アプリがチェックに合格した場合、 **チェック** ボタンに緑色のチェックマークが表示され、アプリは [プレビューまたは公開](publishing-app)の準備ができます。 ![合格チェック](attachments/checks/passed-check.jpg)
 
-If the app does not pass the check, you see the **Checks** button goes red with the number of failed checks – [consistency errors](consistency-errors). If you click the button, a **Checks** panel with the list of errors will open and the elements that did not pass the check will be highlighted. This list can be seen as a to-do list that you need to complete before your app can be [previewed or published](publishing-app).
+アプリがチェックに合格しない場合 **小切手** ボタンは、失敗した小切手の数と赤色になります – [一貫性エラー](consistency-errors)。 ボタンをクリックすると、 エラー一覧の **チェック** パネルが開き、チェックに合格しなかった要素がハイライトされます。 このリストは、アプリが [プレビューまたは公開](publishing-app)される前に完了する必要があるTo-Doリストとして見ることができます。
 
 ![](attachments/checks/checks-button.png)
 
 {{% alert type="info" %}}
 
-**Preview** and **Publish** become available only when the app is fully consistent and all checks have been solved.
+**プレビュー** と **公開** は、アプリが完全に一貫しており、すべてのチェックが解決された場合にのみ利用可能になります。
 
 {{% /alert %}}
 
-## 2 Viewing Checks and Interacting with the Checks Panel {#viewing-checks}
+## チェックパネルとの相互作用と確認を表示する {#viewing-checks}
 
-If your app has consistency errors, the **Checks** button will have the red border and the number of errors will be indicated on the button. To display consistency errors for your app and view the impacted elements in it, you can do the following:
+アプリに一貫性エラーがある場合。 **チェック** ボタンは赤い枠線になり、エラーの数はボタンに表示されます。 アプリの一貫性エラーを表示し、影響を受ける要素を表示するには、次の手順を実行します。
 
-1. Click the **Checks** button or press the <kbd>C</kbd> shortcut to open the **Checks** panel:
-
-    ![](attachments/checks/checks-button-red.png)
-
-    The panel with the list of consistency errors appears at the bottom of the screen. For more information on the **Checks** panel, see the [Checks Panel Overview](#checks-panel-overview) section below.
+1. **Checks** ボタンをクリックするか、 <kbd>C</kbd> ショートカットを押して、 **Checks** パネルを開きます。 一貫性エラーのリストが表示されたパネルが画面下部に表示されます。 **チェック** パネルの詳細については、以下の [チェックパネルの概要](#checks-panel-overview) セクションを参照してください。
 
     ![](attachments/checks/checks-panel.png)
 
-4. To view the exact place and element that the error refers to in the corresponding editor, click the row in the **Checks** panel (you can click any place of the row, the whole row is responsive), and the element that failed a check will be displayed and highlighted.
+4. 対応するエディタでエラーが参照している正確な場所と要素を表示するには、次の手順を実行します。 **チェック** パネルの行をクリックします（行の任意の場所をクリックできます） 行全体が応答します)、チェックに失敗した要素が表示されハイライトされます。
 
-5. To close the panel, either click the close button in the top-right corner of the panel, click **Checks** in the top-right corner of Studio, or press <kbd>C</kbd> .
+5. パネルを閉じるには、パネルの右上隅にある閉じるボタンをクリックします。 Studio の右上隅にある **チェック** をクリックするか、 <kbd>C</kbd> を押します。
 
-To sort the errors, click the column header in the panel. Thus, you can sort errors in ascending or descending order by **Message**, **Code**, **Module**, **Document**, or **Element**. For more information on items displayed in the **Checks** panel, see the [Checks Panel Overview](#checks-panel-overview) section.
+エラーをソートするには、パネルの列ヘッダーをクリックします。 Thus, you can sort errors in ascending or descending order by **Message**, **Code**, **Module**, **Document**, or **Element**. **Checks** パネルに表示されるアイテムの詳細については、 [Checks Panel Overview](#checks-panel-overview) セクションを参照してください。
 
 {{% alert type="info" %}}
 
-If there are no consistency errors, the **Checks** panel will be empty and **Preview** and **Publish** buttons will be clickable.
+一貫性エラーがない場合。 **チェック** パネルは空になり、 **プレビュー** と **公開** ボタンがクリック可能になります。
 
 {{% /alert %}}
 
-## 3 Checks Panel Overview {#checks-panel-overview}
+## 3つのチェックパネルの概要 {#checks-panel-overview}
 
 ### {#checks-panel-overview}
 
-The **Checks** panel is represented as a table and shows you a list of consistence errors. This prevents your app from functioning in an incorrect way and being published (for example, if you do not specify an entity for the data view, your app cannot function correctly). For more information on consistency errors, see [Consistency Errors](consistency-errors).
+**チェック** パネルはテーブルとして表され、一貫性のあるエラーのリストを表示します。 これにより、あなたのアプリが誤った方法で機能し、公開されるのを防ぎます（例えば、 データビューのエンティティを指定しない場合、アプリは正しく機能できません。 一貫性エラーの詳細については、 [一貫性エラー](consistency-errors) を参照してください。
 
-The items displayed in the table of the **Checks** panel are described below.
+**チェック** パネルの表に表示されるアイテムは以下に示されています。
 
-| Item     | Description                                                                                                                                                                                                    |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Message  | Contains an explanation of the error and an error code. If an error has documentation and an explanation how to fix it, the error code is underlined and clickable, and the corresponding documentation opens. |
-| Module   | Indicates the module where the error is found.                                                                                                                                                                 |
-| Document | Indicates the place of your app where the error is found (for example, a page, a microflow).                                                                                                                   |
-| Element  | Indicated the exact element that is faulty (button, activity, etcetera ).                                                                                                                                      |
+| 項目     | 説明                                                                               |
+| ------ | -------------------------------------------------------------------------------- |
+| メッセージ  | エラーとエラーコードの説明が含まれています。 エラーにドキュメントと修正方法がある場合、エラーコードは下線とクリック可能になり、対応するドキュメントが開きます。 |
+| モジュール  | エラーが見つかったモジュールを示します。                                                             |
+| ドキュメント | エラーが見つかったアプリケーションの場所 (ページ、マイクロフローなど) を示します。                                      |
+| 要素     | 欠陥のある正確な要素（ボタン、アクティビティなど）を示しました。                                                 |
 
-## 4 Main Documents in This Category
+## このカテゴリ内の4つのメインドキュメント
 
-* [Consistency Errors](consistency-errors) – provides information on what consistency errors are and how to fix them
+* [一貫性エラー](consistency-errors) - 一貫性エラーが何であるかとそれらの修正方法に関する情報を提供します。
