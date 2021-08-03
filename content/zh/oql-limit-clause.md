@@ -1,52 +1,52 @@
 ---
-title: "OQL Limit Clause"
+title: "OQL 限制条款"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-With the `LIMIT` clause a portion of the result of a query can be returned.
+使用 `LIMIT` 条款，可以返回查询结果的一部分。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-[ LIMIT number ] [ OFFSET number ]
+[ 有限编号] [ OFFSET number ]
 ```
 
-### 2.1 LIMIT
+### 2.1 极限
 
-`LIMIT` specifies how many rows must be returned.
+`LIMIT` 指定必须返回多少行。
 
 ### 2.2 OFFSET
 
-`OFFSET` specifies how many rows must be skipped before returning the result rows.
+`OFFSET` 指定返回结果行之前必须跳过多少行。
 
-## 3 Examples
+## 3 个示例
 
-This query retrieves the first ten customers, sorted by their last name:
+此查询获取前十个客户，按其姓氏排序：
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-ORDER BY LastName
+从销售处选择姓氏。客户
+按姓氏
 LIMIT 10
 ```
 
-This query retrieves all customers, except the first ten, sorted by their last name:
+此查询检索所有客户，但前十个客户，按其姓氏排序：
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-ORDER BY LastName
+从销售处选择姓氏。客户
+按姓氏排列的订单
 OFFSET 10
 ```
 
-This query retrieves the 11th to 20th customer, sorted by their last name:
+此查询获取第11至20个客户，按其姓氏排序：
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-ORDER BY LastName
-LIMIT 10 OFFSET 10
+从销售处选择姓氏。客户
+按姓氏
+限定名 10 开关10
 ```
