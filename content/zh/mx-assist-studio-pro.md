@@ -1,23 +1,69 @@
 ---
-title: "Mendix 助手"
-parent: "studio-pro-overview"
-description: "描述Mendix Assistance in Mendix Studio Pro。"
+title: "MxAssist逻辑箱"
+parent: "微流"
+description: "在Mendix Studio Pro中描述MxAssist逻辑箱。"
 tags:
   - "studio pro"
   - "mendix 帮助"
   - "AI"
   - "助理"
+  - "mx 辅助逻辑bot"
+  - "logic bot"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/mx-assist-studio-pro.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
-Mendix Assist指借助人工智能和机器学习（ML）来帮助开发者开发应用的Mendix 平台能力。 所谓的AIAD援助发展方案。 Mendix Assist的目的是帮助发展团队以更快、更一致和更高质量的方式制作和提供Mendix 应用程序。
+MxAssist逻辑机器人是一个AI驱动的虚拟开发商机器人，帮助您在 Mendix Studio Pro中模拟和配置应用程序逻辑(microflows)。 它根据已经设计的活动、参数和其他与环境有关的信息，就微流中的下一个最佳活动提供了具体的建议。
 
-Mendix 辅助设备由作为虚拟合作开发者机器人的不同功能组成， 每一种专门用于应用程序生命周期开发的某个域或阶段。 目前，Mendix Assist包括以下虚拟合作开发者机器人：
+MxAssist逻辑箱是使用机器学习分析来构建超过1 200万个匿名应用程序逻辑(微流)*—*是与Mendix*一起构建的，*以检测和学习微流中的最佳做法模式。
 
-* **MxAssist逻辑箱** — — 帮助您模型并配置Mendix Studio Pro中的微流。 基于已经在特定微流中配置的活动和参数，它为您提供了关于微流中下一个最佳活动的相关建议。 它是利用用Mendix构建的1 200多万个匿名应用程序逻辑（微流程）的机器学习分析来建立的。 它利用深入的学习来探测和学习微型流动中的最佳做法模式。 欲了解更多信息，请访问 [MxAssistic Bot](mx-assist-logic-bot)。
-* **MxAssist性能箱** — — 帮助您检查您的应用程序对抗Mendix 开发最佳做法检测和确定开发反模式和 在许多情况下，自动修复它们。 该机器人是利用对数千个匿名Mendix 应用程序的统计分析来建立的，目的是学习共同的反模式以及Mendix Expert Services 在发展微流方面的最佳做法。 域模型、 页面、 安全等 欲了解更多信息，请参阅 [MxAssist性能机器人](mx-assist-performance-bot)。
+MxAssist逻辑箱的主要功能如下：
 
-## 2 次阅读更多
+* **下一个最好的行动建议** - 它建议在40多个不同的选项中进行前五个最好的活动，精确度为95%。
+* **自动配置** — — 它不仅提供下一个最佳操作，而且通过预先填充此操作的参数使开发进一步自动化。
+* **上下文建议** - 它以不同方式产生上下文. 包括在微流程中左和右边的“查找”，当开发者插入新的活动或决定中流时； 并通过使用它所来自的页面推断上下文.
+* **精确度高** - 模型的不断改进和训练使精度水平从95%提高到较高水平。
 
-* [首选项](preferences-dialog)
+## 2 MxAssist逻辑箱设置
+
+要访问MxAssist逻辑箱的设置，请打开 **编辑** > **首选项** > **MxAssist逻辑箱** 部分。 欲了解更多信息，请参阅 [首选项](preferences-dialog)。
+
+在 **MxAssist逻辑箱** 部分中，您可以设置以下内容：
+
+* **启用 MxAssist逻辑箱** - 开启或关闭MxAssist逻辑箱。
+
+* **为系统变量显示建议** - 启用后，MxAssist逻辑机器人将为系统对象提出建议(例如： 它可以建议您更改这些对象，如 **当前用户** 或 **当前会话**：
+
+  ![系统变量建议](attachments/mx-assist-studio-pro/mx-assist-system-variables.png)
+
+欲了解更多关于首选项的信息，请参阅 [首选项](preferences-dialog)。
+
+## 使用MxAssist逻辑箱构建微流
+
+MxAssist逻辑箱默认启用，并在 [微流程](/refguide8/microflows) 的流中显示为蓝色点。 当你悬停在点上时出现了一只弓箭头：
+
+{{% image_container width="350" %}}![Logic Bot Icon](attachments/mx-assist-studio-pro/mendix-assist-icon.png){{% /image_container %}}
+
+但是可以在不使用 MxAssist逻辑箱的情况下定期将元素添加到微流中。 MxAssist逻辑箱帮助您更快地添加元素到微流中，因为它提供了一个最相关活动的简短列表。
+
+若要使用 MxAssist逻辑机器人，请执行以下操作：
+
+1. 点击bow-tie 查看下一个最佳行动建议：
+
+    {{% image_container width="350" %}}![Logic Bot Recommendations](attachments/mx-assist-studio-pro/mx-assist-recommendations.png){{% /image_container %}}
+
+2. 点击推荐活动之一将其插入微流。
+
+3. 在 **属性** 对话框中，配置选定的活动/事件。
+
+活动/事件已添加到您的微流程中。
+
+如果您没有在五个建议列表中看到所需的活动或元素。 您可以点击 **添加其他元素** 并选择一个活动、循环、决定、合并或对象类型决定。
+
+## 4 阅读更多
+
+* [微型流动](微流)
