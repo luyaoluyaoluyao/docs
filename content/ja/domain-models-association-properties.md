@@ -1,6 +1,6 @@
 ---
-title: "関連"
-parent: "domain-models"
+title: "関連のプロパティ"
+category: "ドメインモデル"
 description: "Mendix Studioの関連プロパティについて説明します。"
 tags:
   - "スタジオ"
@@ -9,12 +9,14 @@ tags:
 
 ## 1つの紹介
 
-関連付けはエンティティ間の関係を記述します。 ドメイン モデルでは、関連は、2 つのエンティティ間の線または矢印によって表されます。
+関連付けはエンティティ間の関係を記述します。 ドメイン モデルでは、関連付けは、2 つのエンティティ間の線または矢印で表されます。
 
 Mendix Studio では、関連付けには次のプロパティがあります。
 
 * [名前](#name)
+
 * [多重度](#multiplicity)
+
 *  [動作を削除](#delete-behavior)
 
    {{% image_container width="300" %}}![](attachments/domain-models-association-properties/association-properties.png)
@@ -46,10 +48,6 @@ Mendix Studio では、関連付けには次のプロパティがあります。
 
 型が1対多または多対多の場合、多重度の方向を交換できます。 この場合、関連付けの所有者を変更します。
 
-{{% alert type="info" %}}
-根底にある関連、所有権、および多重性の理由の詳細については、 [Studio Pro Guide](/refguide8/associations#intro) の *Associations* の *はじめに* セクションを参照してください。
-{{% /alert %}}
-
 ## 4 動作の削除 {#delete-behavior}
 
 削除動作は、オブジェクトが削除されたときに関連するオブジェクトに何が起こるかを定義します。 以下のオプションは、関連付けの各端に設定できます。
@@ -60,7 +58,7 @@ Mendix Studio では、関連付けには次のプロパティがあります。
 | {name of entity} 個のオブジェクトを削除する                                              | オブジェクトが削除されると、関連するオブジェクトも削除されます。                                                                                                                                    |
 | {name of entity} オブジェクトが {name of other entity} オブジェクトに関連付けられていない場合にのみ削除します | オブジェクトは他のオブジェクトと関連付けられていない場合にのみ削除できます。 <br />他のエンティティのオブジェクトに関連付けられているオブジェクトを削除しようとするときに、エンドユーザーにエラーメッセージを指定することもできます。 例: 「コースが関連付けられているため、この場所を削除することはできません。 |
 
-削除動作設定の例 see [7 Delete Behavior](/howto8/data-models/create-a-basic-data-layer#delete-behavior) in *How to Create a Basic Data Layer* in *Mendix Studio Pro How-to’s*.
+削除動作設定の例 see [7 Delete Behavior](/howto/data-models/create-a-basic-data-layer#delete-behavior) in *How to Create a Basic Data Layer* in *Mendix Studio Pro How-to’s*.
 
 
 ## 5 Cross-Module Associations {#cross-module-associations}
