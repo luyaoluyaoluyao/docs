@@ -1,203 +1,203 @@
 ---
-title: "Page"
-parent: "pages"
+title: "页"
+parent: "页面"
 menu_order: 10
 tags:
   - "studio pro"
-  - "page"
-  - "properties"
+  - "页面"
+  - "属性"
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="info" %}}
 
-This document describes basic functions you can perform in the page editor and its modes. For details on what pages are for and what kind of widgets can be placed on them, see [Pages](pages).
+此文档描述了您可以在页面编辑器及其模式中执行的基本功能。 关于哪些页面的详细信息以及哪些小部件可以放置在它们上，参见 [页面](pages)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Pages define the end-user interface of a Mendix application. Every page is based on a [layout](layout). A page fills the "gaps" defined by a layout with widgets such as the [data view](data-view) and [data grid](data-grid).
+页面定义Mendix 应用程序的最终用户接口。 每个页面都基于 [布局](layout)。 A page fills the "gaps" defined by a layout with widgets such as the [data view](data-view) and [data grid](data-grid).
 
-## 2 Performing Basic Functions
+## 2 执行基本函数
 
-You can perform the following basic function when working in the page editor:
+您可以在页面编辑器中执行以下基本功能：
 
-* Open a page
-* Create a page
-* Delete a page
-* Add elements on a page
-* View element properties
-* Arrange elements on a page
+* 打开页面
+* 创建页面
+* 删除页面
+* 在页面上添加元素
+* 查看元素属性
+* 在页面上安排元素
 
-### 2.1 Opening a Page
+### 2.1 打开页
 
-To open a page in Studio Pro, do the following:
+要在 Studio Pro中打开一个页面, 请执行以下操作：
 
-1. In the [App Explorer](project-explorer), open a module where this page is located.
+1. 在 [App Explorer](project-explorer)中，打开此页面所在的模块。
 
-2. Navigate to the page's location inside the module. A page can be listed as an individual element or be included in the **Pages** folder:
+2. 在模块中导航到页面的位置。 一个页面可以作为单独元素列出或包含在 **页面** 文件夹中：
 
     ![](attachments/page/project-explorer-pages.png)
 
-3. Select a page you want to open and double-click it.
+3. 选择一个您想要打开的页面并双击它。
 
-The selected page is opened.
+所选页面已打开。
 
-### 2.2 Creating a Page
+### 2.2 创建页
 
-To create a new page, do the following:
+要创建一个新页面，请执行以下操作：
 
-1.  In the [App Explorer](project-explorer), right-click the module or a folder you want to create a page in and select **Add page**:
+1.  在 [App Explorer](project-explorer)右键单击模块或您想要创建页面的文件夹，并选择 **添加页面**
 
     ![](attachments/page/add-page.png)
 
 
-2.  In the **Create Page** dialog box, fill in the **Page name** and select a **Navigation layout**.
+2.  在 **创建页面** 对话框，填写 **页面名称** 并选择一个 **导航布局**
 
     ![](attachments/page/create-page.png)
 
 3. Click **OK**.
 
-A new page is created.
+新页面已创建。
 
-### 2.3 Deleting a Page
+### 2.3 删除页
 
-To delete a page, do the following:
+若要删除一个页面，请执行以下操作：
 
-1. In the [App Explorer](project-explorer), select a page you would like to delete and right-click it.
-2. In the displayed list, select **Delete** and confirm your choice by clicking **Delete** in the pop-up dialog.
+1. 在 [App Explorer](project-explorer)中，选择一个你想要删除的页面并右击它。
+2. 在显示的列表中，点击 **删除** 并通过点击 **删除弹出对话框中的** 来确认您的选择。
 
-The selected page is deleted.
+所选页面已删除。
 
-### 2.4 Adding Elements on a Page {#add-elements}
+### 2.4 在页面上添加元素 {#add-elements}
 
-The way you can add an element on a page depends on a mode you are editing your page in. For more information on modes, see the [Page Editor Modes](#page-editor-modes) section.
+您在页面上添加元素的方式取决于您正在编辑页面的模式。 关于模式的更多信息，请参阅 [页面编辑模式](#page-editor-modes) 部分。
 
-In **Structure mode**, there are several ways to add an element on a page:
+在 **结构模式**, 有几种方式在页面上添加元素：
 
-1.  Through the **Toolbox**:
+1.  通过 **工具箱**:
 
-    1. Open the **Toolbox** and select **Widgets** or **Building blocks** tab there.
+    1. 打开 **工具箱** 并选择 **小部件** 或 **建筑块** 选项卡。
 
         ![](attachments/page/toolbox.png)
 
-    2. Select an element you would like to add and drag and drop this element on your page.
+    2. 选择一个你想要添加和拖放此元素的元素到你的页面。
 
-2. Through the menu at the top of the page:
+2. 通过页面顶部的菜单：
 
-    1. Do one of the following:
+    1. 做以下一件：
 
-        i. Select frequently-used widgets (a data view, a data grid, a template grid, or a list view).
+        一. 导言 选择经常使用的部件(数据视图，数据网格，模板网格，或列表视图)。
 
-        ii. Click **Add widget**  or **Add building block**, find an element in a list and click **Select**.
+        ii. 点击 **添加小部件**  或 **添加建筑块**, 在列表中找到一个元素, 然后点击 **选择**。
 
         ![](attachments/page/top-menu.png)
 
-    2. Click a drop-zone on a page to position an element.
+    2. 点击一个页面上的投放区域来放置元素。
 
-3. By right-clicking a drop-zone:<br/>
+3. 通过右键单击下拉区：<br/>
 
-    a. Right-click a drop-zone you want to insert an element in.<br/>
+    a. 右键点击你想要插入一个元素的下拉区域。<br/>
 
-    b. Select between adding a widget or a building block.<br/>
+    b. 会议文件。 在添加小部件或构建块之间进行选择。<br/>
 
     {{% image_container width="400" %}}![](attachments/page/adding-widget-in-drop-zone.png)
  {{% /image_container %}}<br/>
 
-    c. Select an element you would like to add and confirm your choice by clicking **Select**.
+    b. 会议文件。 点击 **选择** 来选择一个要添加和确认您选择的元素。
 
-In **Design mode**, you can add elements though the Toolbox. Do the following:
+在 **设计模式**，您可以通过工具箱添加元素。 执行以下操作：
 
-1. Open the **Toolbox** and select **Widgets** or **Building blocks** tab there.
-2. Select an element you would like to add and drag and drop this element on your page.
+1. 打开 **工具箱** 并选择 **小部件** 或 **建筑块** 选项卡。
+2. 选择一个你想要添加和拖放此元素的元素到你的页面。
 
-### 2.5 Viewing Element Properties {#view-properties}
+### 2.5 视图元素属性 {#view-properties}
 
-To view properties of an element, do one of the following:
+要查看某个元素的特性，请执行以下之一：
 
-1. Select an element and open **Properties** pane to view its properties.
+1. 选择一个元素并打开 **属性** 窗格以查看其属性。
 2. Right-click an element and select **Properties** from the list of options that opens.
-3. Double-click an element.
+3. 双击一个元素。
 
-### 2.6 Arranging Elements on a Page {#arrange-elements}
+### 2.6 安排页面上的元素 {#arrange-elements}
 
-To cut/copy/paste you can use the following shortcuts:
+要剪切/复制/粘贴，您可以使用以下快捷方式：
 
 * <kbd>Ctrl</kbd> + <kbd>Z</kbd> /  <kbd>Ctrl</kbd> + <kbd>C</kbd> / <kbd>Ctrl</kbd> + <kbd>V</kbd>
 * <kbd>Cmd</kbd> + <kbd>Z</kbd> /  <kbd>Cmd</kbd> + <kbd>C</kbd> / <kbd>Cmd</kbd> + <kbd>V</kbd>
 
 {{% alert type="info" %}}
 
-You can cut/copy/paste elements on a page to different apps in Studio Pro if they have the same Mendix version. However, you cannot cut/copy/paste the whole page.
+如果Studio Pro 中的不同应用拥有相同的 Mendix 版本，您可以在页面上剪切/复制/粘贴元素。 然而，您不能剪切/复制/粘贴整个页面。
 
-You cannot cut/copy/paste from Studio Pro to Studio.
+您不能从Studio Pro 剪切/复制/粘贴到Studio。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-To delete an element from a page, select this element and press <kbd>Delete</kbd> or right-click an element and select **Delete** in a drop-down menu.
+从页面删除元素， 选择此元素并按 <kbd>删除</kbd> 或右键单击某个元素并选择 **在下拉菜单中删除**
 
-## 3 Page Editor Modes {#page-editor-modes}
+## 3 页编辑器模式 {#page-editor-modes}
 
-There are two different ways to edit your page:
+编辑您的页面有两种不同的方式：
 
-* [Structure Mode](#structure-mode), the default editor which clearly shows the relationship between page elements, together with additional information about each element
-* [Design Mode](#design-mode), a WYSIWYG (**W**hat **Y**ou **S**ee **I**s **W**hat **Y**ou **G**et) editor which better reflects what the page will look like when it is published
+* [结构模式](#structure-mode)，默认编辑器清楚显示页面元素之间的关系，以及关于每个元素的附加信息
+* [设计模式](#design-mode), A WYSIWYG (**W**hat **Y**ou **S**ee **I**s **W**hat **Y**ou **G**et) 编辑，这些编辑更好地反映了当页面发布时它将看起来像的
 
-You can switch to the WYSIWYG editor from the default editor by clicking the **Design mode** button in the page editor. You can return to the structural editor by clicking **Structure mode**.
+您可以通过点击页面编辑器中的 **设计模式** 按钮从默认编辑器切换到 WYSIWYG 编辑器。 您可以通过点击 **结构模式** 返回到结构编辑器。
 
-![Design mode and Structure mode buttons](attachments/page/design-mode.png)
+![设计模式和结构模式按钮](attachments/page/design-mode.png)
 
-Both modes allow you to edit your page by doing the following:
+这两种模式允许您通过以下方式编辑您的页面：
 
-* Dragging widgets from the **Toolbox** pane onto the page
-* Dragging widgets, and their contents, from one place on the page to another
-* Viewing and editing properties of each widget in the **Properties** pane
-* Opening a **Properties** dialog box from the menu you get when you right-click the widget
+* 从 **工具箱** 窗格拖动部件到页面
+* 拖动小部件及其内容，从页面上的一个地方到另一个地方
+* 在 **属性** 窗格中查看和编辑每个部件的属性
+* 当你右键单击小部件时，从菜单中打开 **属性** 对话框
 
-### 3.1 Structure Mode {#structure-mode}
+### 3.1 结构模式 {#structure-mode}
 
-In **Structure mode**, the page widgets are laid out so that it is easy to see the logical relationship between them. It has the following features which are not available in Design mode:
+在 **结构模式**</strong> 中，页面小部件已经被放置，这样就很容易看到它们之间的逻辑关系。 它有下列在设计模式中不可用的功能：
 
-* You can zoom a page in or out using the **Zoom** drop-down menu in the top-right corner of a page
+* 您可以在页面右上角使用 **缩放** 下拉菜单缩放页面
 
-* Widgets are shown with additional information easily visible – for example, data sources for data views and the width assigned to columns
+* 小部件可以轻松看到更多的信息——例如，数据视图的数据源和分配给列的宽度
 
-    ![Frequently-used widgets](attachments/page/structure-mode-info.png)
+    ![常用部件](attachments/page/structure-mode-info.png)
 
-* Each widget has a drop-zone before/above and after/below it – this makes it easier to place widgets correctly when they appear close together in Design mode
+* 每个小部件之前/上面和之后/下都有一个拖放区域——这使得当小部件在设计模式下关闭时更容易正确地放置这些小部件
 
-* Right-click a drop-zone allows you to insert a widget into it
+* 右键单击一个拖放区域允许您将一个部件插入它
 
-* There is a menu at the top of the page of data widgets – these cannot be dragged, but are positioned by clicking a drop-zone after selecting the widget
+* 数据部件页面顶部有一个菜单——这些不能拖动， 但在选择小部件后通过单击拖放区域
 
-    ![Frequently-used widgets](attachments/page/frequently-used.png)
+    ![常用部件](attachments/page/frequently-used.png)
 
-* Widgets are shown without styling applied to them, but you can see which widgets do have styling applied via the class or style property by clicking the **Show styles** button (available for Web page templates and layouts only).
+* 小部件显示时不适用于它们的样式。 但你可以看到哪些小部件通过类或样式属性应用了样式，点击 **显示样式** 按钮(仅供网页模板和布局使用)。
 
-    ![Show styles button](attachments/page/show-styles.png)
+    ![显示样式按钮](attachments/page/show-styles.png)
 
-### 3.2 Design Mode {#design-mode}
+### 3.2 设计模式 {#design-mode}
 
-In **Design mode**, the page is laid out as it will appear when published so that it is easy to see the spatial relationship between the elements.
+在 **设计模式**， 这个页面将在发布时出现，这样就很容易看到各个要素之间的空间关系。
 
-For example, the example page shown in [Structure Mode](#structure-mode), above, will look like this in **Design mode** for a desktop:
+例如，上面 [结构模式](#structure-mode)的示例页面将在 **桌面设计模式** 中看起来就像这样：
 
-![Design mode page as displayed on a tablet](attachments/page/design-mode-example.png)
+![平板电脑上显示的设计模式页面](attachments/page/design-mode-example.png)
 
-It has the following features which are not available in **Structure mode**:
+它有以下功能在 **结构模式** 中不可用：
 
-* The widgets are shown as they will be on the page – for example two text widgets which are laid out vertically in structural mode may actually be laid out horizontally when the app is published, and this will be reflected in Design mode
-* The page layout can be seen for different device modes – for example phone or browser by clicking the appropriate device mode button:
+* 小部件将显示在页面上 — — 例如，在结构模式下垂直布局的两个文本小部件可能在应用程序发布时被水平布局， 这将会在设计模式中显示
+* 页面布局可以用于不同的设备模式 — — 例如手机或浏览器，点击适当的设备模式按钮：
 
-    ![Show styles button](attachments/page/design-factor.png)
+    ![显示样式按钮](attachments/page/design-factor.png)
 
-* The widgets have design properties and CSS classes and styles applied to them so you can see what they will look like
-* Toggle showing conditionally-visible widgets in the top bar:
+* 小部件有设计属性和 CSS 类和样式应用于它们，这样你就可以看到它们看起来像样的
+* 切换显示顶部栏中有条件可见的部件：
 
-    ![Show conditional visibility](attachments/page/conditional-visibility.jpg)
+    ![显示条件可见性](attachments/page/conditional-visibility.jpg)
 
 
-## 4 Read More
+## 4 阅读更多
 
-* [Pages](pages)
-* [Page Properties](page-properties)
+* [页 次](页面)
+* [页面属性](page-properties)
