@@ -1,95 +1,95 @@
 ---
-title: "Querying Over Self-References"
-parent: "associations"
+title: "自己参照についてのクエリ"
+parent: "関連"
 menu_order: 20
 tags:
-  - "query"
-  - "self-reference"
-  - "association"
-  - "domain model"
+  - "クエリ"
+  - "自己参照"
+  - "関連"
+  - "ドメインモデル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Sometimes, you want to create a more generic domain model to allow more flexibility in the type and structure of your data. In this case, you often turn to using inheritance or self references to allow for simple yet efficiently designed models. This makes building your microflows and application logic much easier, but it can become challenging to query the correct objects: especially when you are using a self-reference.
+場合によっては、データの型と構造により柔軟性を高めるために、より一般的なドメインモデルを作成したい場合があります。 この場合、継承または自己参照を使用して、シンプルでありながら効率的に設計されたモデルを可能にすることがよくあります。 これにより、マイクロフローとアプリケーションロジックの構築がはるかに簡単になります。 しかし、正しいオブジェクトをクエリすることは難しくなります:特に自己参照を使用している場合。
 
-## 2 The Example
+## 2例
 
-This example is for an implementation of folders on a computer, where one folder can contain several subfolders.
+この例は、1つのフォルダに複数のサブフォルダを含めることができるコンピュータ上のフォルダの実装です。
 
 ![](attachments/associations/query-over-example-structure.png)
 
-To implement this, a self-reference to **Folder** is used. The self-reference is an association called **Folder_SubFolder**. This allows you to build a folder structure with unlimited numbers and levels of folders.
+これを実装するには、 **フォルダ** への自己参照が使用されます。 自己参照は **Folder_SubFolder** と呼ばれる関連です。 これにより、無制限の数とレベルのフォルダ構造を構築できます。
 
 {{% alert type="info" %}}
-The association in this case is a one-to-many association, but the same techniques apply to many-to-many or one-to-one associations.
+この場合の協会は一対一の協会ですが、同じ技術が多対多または一対一の協会に適用されます。
 {{% /alert %}}
 
 ![](attachments/associations/self-reference-domain-model.png)
 
 If we create our folder functionality in a module called **QueryOver**, the association **Folder_SubFolder** is described in two ways in the domain model:
 
-| Name             | Type      | Owner   | Parent           | Child            |
-| ---------------- | --------- | ------- | ---------------- | ---------------- |
-| Folder_Subfolder | Reference | Default | QueryOver.Folder | QueryOver.Folder |
+| 名前               | タイプ | 所有者   | 親             | 子要素           |
+| ---------------- | --- | ----- | ------------- | ------------- |
+| Folder_Subfolder | 参照  | デフォルト | クエリオーバーの倍率を変更 | クエリオーバーの倍率を変更 |
 
-* Multiplicity: One 'Folder' object is associated with multiple 'Folder' objects
+* 乗算: 1 つの 'フォルダ' オブジェクトは、複数の 'フォルダ' オブジェクトに関連付けられています
 
-The **Child** is the **Owner** of the association - in other words, the association is always updated through the child.
+**Child** は 関連付けの **オーナー** です。言い換えれば、関連付けは子プロセスを通じて常に更新されます。
 
 ![](attachments/associations/query-over-association.png)
 
-There are six folders in the example above, and the database is structured and the attributes filled as shown below. In the **Folder_SubFolder** table, the **ChildFolderID** is shown on the left as it is the owner of the association.
+上記の例には6つのフォルダがあり、データベースは構造化されており、以下に示すように属性が入力されています。 **Folder_SubFolder** テーブルでは、 **ChildFolderID** が関連付けの所有者であるため、左側に表示されます。
 
 ![](attachments/associations/query-over-example-database.png)
 
-For more information on how domain models are implemented in databases, see the [Implementation](domain-model#implementation) section of *Domain Model*.
+ドメインモデルがデータベースにどのように実装されるかについての詳細は、 [Domain Model](domain-model#implementation) の *実装* セクションを参照してください。
 
-### 2.1 Retrieving the SubFolder(s) (Children) from a Folder (Parent)
+### 2.1 サブフォルダ(子)をフォルダ(親)から取得する
 
-If you have the $ChosenFolder object available in your microflow you can easily retrieve the subfolder(s). Each association has a right side (parent in the association) and a left side (child or owner of the association).  The platform reads each association and determines whether the parent is equal to the $ChosenFolder.
+microflow で $ChosenFolder オブジェクトを使用している場合は、サブフォルダを簡単に取得できます。 各協会には右側(協会内の親)と左側(協会内の子または所有者)があります。  プラットフォームは各関連付けを読み込み、親が $ChosenFolder と等しいかどうかを決定します。
 
-This is implemented using the following XPath constraint: `[QueryOver.Folder_SubFolder=$ChosenFolder]`. The XPath constraint is read from right to left, with the resulting Folder(s) being the result. This is key to how you should interpret which direction you are following the association.
+これは以下の XPath 制約を使用して実装されます: `[QueryOver.Forder_SubFolder=$ChosenFolder]`. XPath 制約は右から左へ読み込まれ、結果のフォルダが結果となります。 これは、あなたがどの方向に関連付けられているかを解釈するための鍵です。
 
 {{% image_container width="400" %}}
 ![](attachments/associations/query-over-retrieve-normal.png)
 {{% /image_container %}}
 
-If the $ChosenFolder object has **Code** `202002141322015` and **Name** `SubFolder2` we have chosen the folder with **ID** `3`. The two folders in the left-hand table, highlighted in orange, will be returned. The platform applies the constraint by default on the right/parent side of the association and returns the relevant ChildFolder(s).
+If the $ChosenFolder object has **Code** `202002141322015` and **Name** `SubFolder2` we have chosen the folder with **ID** `3`. オレンジ色で強調表示されている左側のテーブルの2つのフォルダが返されます。 プラットフォームは、関連するChildFolder(s)を返すため、デフォルトでは制約を関連付けることができます。
 
 ![](attachments/associations/query-over-retrieve-normal-tables.png)
 
-### 2.2 Retrieving the Parent Folder from a Folder
+### 2.2 フォルダから親フォルダを取得
 
-When you have the $ChosenFolder object available and you want to retrieve its ParentFolder (the folder next higher in the hierarchy, for example given **SubFolder2** you want to retrieve **MainFolder**) from the database, it becomes more complicated.
+使用可能な $ChosenFolder オブジェクトを持っていて、ParentFolder を取得したい場合 (階層内の次の上のフォルダー) 例えば、format@@0 **SubFolder2** データベースから **MainFolder**を取得すると、より複雑になります。
 
-Use the expression `[reversed ()]` to instruct Mendix to read the constraint in the reverse direction to that which it would normally use.
+[reversed ()] `[reversed ()]` を使用して、Mendix が通常使用する逆方向の制約を読み取るように指示します。
 
 {{% alert type="info" %}}
-`[reversed()]` only applies to one association. If you have multiple associations they will continue to be interpreted the normal way. See [Creating More Complex Queries](#more-complex), below.
+`[reversed()]` は 1 つの関連付けにのみ適用されます。 複数の関連付けがある場合、彼らは通常の方法で解釈され続けます。 下記の [より複雑なクエリの作成](#more-complex)を参照してください。
 
-The `[reversed()]` expression can only be applied on self-references. When an association is between two different object types, the platform will be able to determine the direction of the join automatically.
+`[reversed()]` 式は自己参照にのみ適用できます。 2 つの異なるオブジェクトタイプ間の関連付けがある場合、プラットフォームは自動的に結合の方向を決定することができます。
 {{% /alert %}}
 
- In our example, we want to find the folder which is the parent of $ChosenFolder. Now, the query becomes `[QueryOver.Folder_SubFolder [reversed ()]=$ChosenFolder]`. Instead of reading the association from right to left (Parent to Child), the association is read from left to right.
+ 例では、 $ChosenFolder の親フォルダを探します。 クエリは `[QueryOver.Forder_SubFolder [reversed ()]=$ChosenFolder]` になります。 関連付けを右から左へ(親から子へ)読むのではなく、関連付けは左から右へ読み取られます。
 
 {{% image_container width="400" %}}
 ![](attachments/associations/query-over-retrieve-reversed.png)
 {{% /image_container %}}
 
-If the $ChosenFolder object has **Code** `202002141322015` and **Name** `SubFolder2` we have chosen the folder with **ID** `3`. The folder in the right-hand table, highlighted in orange, will be returned. The platform applies the constraint in reverse, on the left/child side of the association and returns the relevant ParentFolder.
+If the $ChosenFolder object has **Code** `202002141322015` and **Name** `SubFolder2` we have chosen the folder with **ID** `3`. オレンジ色でハイライトされた右側のテーブルのフォルダが返されます。 プラットフォームは、制約を逆方向に適用し、関連するParentFolderを返します。
 
 ![](attachments/associations/query-over-retrieve-reversed-tables.png)
 
-### 2.3 Creating More Complex Queries {#more-complex}
+### 2.3 より複雑なクエリの作成 {#more-complex}
 
-The previous example was a simple one. However the `[reversed()]` expression can be used in more complicated queries.
+前の例は単純な例でした。 しかし、 `[reversed()]` 式はより複雑なクエリで使用できます。
 
-Say, for example, that each folder can contain multiple files, associated with the folder over the association **File_Folder**.
+たとえば、各フォルダが複数のファイルを含めることができるとします。関連付け **File_Folder** 上のフォルダに関連付けられています。
 
 ![](attachments/associations/query-over-extended-domain-model.png)
 
-You want to retrieve all the files in the parent folder of the folder object $ChosenFolder.
+フォルダオブジェクト $ChosenFolder の親フォルダ内のすべてのファイルを取得します。
 
 Use the constraint `[QueryOver.File_Folder/QueryOver.Folder/QueryOver.Folder_SubFolder [reversed ()]=$ChosenFolder]` to return all the **File** objects associated with the **Folder** which is associated (as parent) with the **Folder** which is the same as **$ChosenFolder**.
 
@@ -97,17 +97,17 @@ Use the constraint `[QueryOver.File_Folder/QueryOver.Folder/QueryOver.Folder_Sub
 
 If the $ChosenFolder object is `SubFolder2`, you will retrieve all the **File** objects associated with `MainFolder` over the association **File_Folder**.
 
-## 3 Associations to Specializations
+## 専門分野に関連する3つの関連
 
-In the special case of self-reference when a one-to-many association is with a specialization of itself, you cannot retrieve [by association](retrieve#source).
+自己参照の特殊なケースでは、1対多の関連付けがそれ自体の専門化である場合、アソシエーション [によって](retrieve#source)を取得することはできません。
 
-Here is an example inheritance:
+ここに継承例があります。
 
 ![](attachments/associations/limitation.png)
 
-In this example, a list of **Specializations** cannot be retrieved when using a standard by-association retrieve in a microflow if the input is the specialization.
+この例では、 **Specializations** のリストは、入力が専門分野である場合、マイクロフロー内の標準的なバイアソシエーション取得を使用している場合には取得できません。
 
-However, there is a workaround for this limitation: The list of Specializations can be retrieved with a Java action using the Java API. This Java action needs two parameters: the **Specialization** and a Boolean **Reverse** via this code snippet:
+ただし、この制限に対する回避策があります。Java API を使用する Java アクションで専門性のリストを取得できます。 このJavaアクションには、次の2つのパラメータが必要です: **専門化** と **リバース** このコードスニペットを介して:
 
 ```
 public class RetrieveAsAssociatedWithB extends CustomJavaAction<java.util.List<IMendixObject>>
@@ -136,7 +136,7 @@ public class RetrieveAsAssociatedWithB extends CustomJavaAction<java.util.List<I
 ```
 
 {{% alert type="info" %}}
-Be sure to import `com.mendix.core.Core` so you are able to execute `Core.retrieveByPath(..)` in this code snippet.
+必ず `com.mendix.core.Core` をインポートして、このコードスニペットで `Core.retrievByPath(..)` を実行できるようにしてください。
 {{% /alert %}}
 
-When setting the `Reverse` Boolean to true and using the `Specialization` object as the input, the returned list will contain all the generalizations associated to the specialization.
+`Reverse` Boolean を true に設定し、 `Specialization` オブジェクトを入力として使用する場合。 返されたリストには専門化に関連するすべての一般化が含まれています。
