@@ -1,75 +1,82 @@
 ---
-title: "DateTime Handling FAQ"
-parent: "date-and-time-handling"
+title: "日期时间处理常见问题"
+parent: "日期和时间处理"
 notoc: true
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
 
-In this FAQ we'll answer some Frequently Asked Questions about DateTime.
+此页面针对一些关于日期时间的常见问题解答。
 
-### What is DateTime in terms of computer programs? (MUST READ)
+## 2 计算机程序的日期是什么？
 
-A DateTime is nothing more than a number to a computer. This number represents the amount of seconds (or milliseconds) since 1970-01-01 00:00:00 UTC. It's beyond the scope of this FAQ to explain why this date was universally chosen but you can find this by searching for Unix Epoch or reading [http://en.wikipedia.org/wiki/Unix_time](http://en.wikipedia.org/wiki/Unix_time).
+日期时间不过是计算机的一个数字。 这个数字表示1970-01-01:00:00 UTC 以来的秒数(或毫秒)。 这个常见问题解答了为什么这个日期被普遍选择，但你可以通过搜索Unix Epoch或阅读 [http://来找到这个日期，这超出了这个常见问题解答范围。 ikipedia.org/wiki/Unix_time](http://en.wikipedia.org/wiki/Unix_time)。
 
-This also means there is NO timezone information stored in a DateTime itself. It is important to keep this in mind when reasoning about dates and times. For things such as comparing DateTime objects, nothing concerning localization or timezones is done. Only when formatting time, which means as much as making it readable to humans, or for operations such as getting the beginning of the day, timezones come into play.
+这也意味着在日期时间本身中存储无时区信息。 在对日期和时间进行解释时，必须铭记这一点。 对于比较日期时间对象等事项，没有任何地方化或时区的操作。 仅当格式化时间时，这意味着让它可以读取给人类， 或者对于诸如开始白天之类的操作，时区开始运行。
 
-### What is the purpose of the Default time zone setting in project settings?
+## 3 在应用程序设置中设置默认时区的目的是什么？
 
-The default time zone determines the time zone for newly created users and also sets a time zone for users that do not have a time zone when the server starts. If your application is only used in one time zone, setting this as the default will make sure that the users of your application never have to worry about setting their time zone. You should probably not use the default time zone setting for projects where people log in from multiple time zones because it will rarely be correct.
+默认时区决定新创建的用户的时区，并为服务器启动时没有时区的用户设置时区。 如果您的应用程序仅在一个时区内使用， 将此设置为默认设置您的应用程序的用户不必担心设置他们的时区。 您可能不应该使用人们从多个时区登录的应用程序的默认时区设置，因为它很少正确。
 
-### What is the purpose of setting a time zone for a user?
+## 4 设置用户时区的目的是什么？
 
-The time zone setting for a user defines under what time zone operations are performed for this user on the **server**, for example when a Microflow formats a DateTime value as a String to get the current hour of the day. Note that this is different from operations in the users browser. Unfortunately it is not possible for browsers to operate under a different time zone than **either** the one of the browsers computer **or** the UTC time zone. This means that users should set their time zone to the one their browser runs on, or they might notice discrepancies in what is displayed in their browser and (for example) generated documents or formatted strings. Note that if you do **not** set a timezone to a user, the server sometimes only knows the offset from UTC that the browser reports of the **current** moment, which can lead to unexpected results when dealing with dates in a different period of the year after a Daylight Savings Time adjustment.
+用户的时区设置定义了该用户在 **服务器**上进行的时区操作， 例如，当微流将日期时间值格式化为一个字符串来获取当日小时时。 请注意，这与用户浏览器中的操作不同。 很不幸，浏览器不可能在不同于 **的时区内运行，** 浏览器计算机之一 **或** 的 UTC 时区。 这意味着用户应将其时区设置为其浏览器运行的时区。 或者他们可能注意到在其浏览器中显示的内容以及(例如)生成的文件或格式化字符串中的差异。 请注意，如果您做 **不是** 设置时区给用户， 服务器有时只知道浏览器报告的 **当前** 时间的 UTC 偏移量， 在夏令时间调整后的一年的不同时期处理日期可能会导致意外的结果。
 
-### How is Daylight Savings Time (DST) handled?
+## 5 夏令时(DST)是如何处理的？
 
-Just like a regular timezone. If you are in Eastern Standard Time (EST, which is UTC -5) normally then you are in Eastern Daylight Time (EDT, which is UTC -4) during the summer. This is of course all handled automatically, but note that you really ARE in a different timezone in summer.
+就像普通时区。 如果您在东部标准时间(EST) 通常是 UTC -5，然后您将在夏季东部夏令时间(EDT, 是 UTC -4)。 当然所有这一切都是自动处理的，但请注意你在夏天的不同时区里真的是ARE。
 
-### I planned a scheduled event at 02:00 using server time and set it to repeat every day. Now my local DST changed and scheduled events are starting to run an hour off. Why?
+## 6 我计划在 02:00 使用服务器时间 & 将它设置为重复每天。 为什么我的本地DST 更改 & 为什么计划中的事件开始运行一小时结束？
 
-This can be confusing but is expected. The scheduling of scheduled events is interval-based and not time-based. Notice that the original date of the scheduled event is still at your previous timezone (before the DST period changed), the scheduled event is simply repeating itself every 24 hour, which might mean that you will see a change in the local time it runs at, because during DST shifts a day may take 25 hours or 23 hours. This will cause a temporary shift for as long as the DST change lasts.
+这种情况可能令人困惑，但是可以预料。 排定活动的时间安排是间隔时间而不是时间性的。 请注意，预定活动的原始日期仍然在您的上一个时区(变更期间之前)， 排定的事件每24小时重复一次， 这可能意味着你会看到它运行的当地时间的变化， 因为在STS班期间，一天可能需要25小时或23小时。 这将导致暂时转移，只要STS变化持续下去。
 
-### What if I plan it in UTC?
+## 7 如果我在UTC中计划了什么？
 
-This will be less ambiguous because it will always run at the same time in UTC, but you will still see these changes because your timezone changes its relative position to UTC.
+这将不太含糊，因为它总是同时运行在UTC中。 但您仍然会看到这些更改，因为您的时区会将其相对位置更改为UTC。
 
-### But I really need to run scheduled events at 02:00 local time, always! How do I do this?
+## 8 但我真的需要在 02:00 当地时间运行计划中的事件。总是！ 如何做？
 
-Currently you can work around this issue by scheduling 2 events that are running at 02:00 in both DST periods. In the Microflow you can check what DST you're currently in and either execute the rest of the Microflow or not.
+目前您可以通过在两个DST 周期内在 02:00时运行的2个事件来解决这个问题。 在 Microflow 中，您可以检查您目前正在使用的DST ，或者执行Microflow的其余部分。
 
-### How is a non-localized date supposed to work?
+## 9 非本地化日期如何支持工作？
 
-Per attribute of type DateTime you can specify whether you want the date and time to be localized. Both localized and non-localized attributes are stored in UTC but only localized attributes are shown in the time zone of the user when displaying (or picking) their value, for example in the client or in generated documents. Use non-localized attributes if you are not interested in the time component (for example, birthdays) or if you want a date to look exactly the same all over the world. Otherwise, the date could shift because of time zone differences: a date and time early in the morning on April 2nd in Europe will be on April 1st in the USA.
+每个类型 **日期和时间的属性** 可以指定您是否想要将日期和时间本地化。 本地化属性和非本地化属性都存储在UTC 中，但只有本地化属性在用户时区显示时显示（或选择）他们的值。 例如在客户端或生成的文档中。 如果您对时间组件不感兴趣，使用非本地化属性 (例如) 如果你想要一个日期看上去与全世界完全相同。 否则， 这一日期可能因时区差异而改变：4月2日早上欧洲的日期和时间将是4月1日美国的日期。
 
-### If I assign a non-localized date the value of token: `[%CurrentDateTime%]` what should I be seeing in the client if I am in EST? It is currently 14:15 (EST), should I see that time or 19:15?
+## 10 如果我指定了一个非本地化的日期 `[%CurrentDateTime%]`, 如果我是在无害环境技术中，我应该在客户端看到什么？
 
-You should see 19:15, the non-localized date will always show as UTC time. The current DateTime is simply a moment in time and obviously happens at the same moment everywhere on earth, but for non localized dates it would be displayed as UTC.
+目前是14:15，我是否可以看到这段时间或19:15？
 
-### As a user I press a Microflow button and want to compare a non-localized date attribute with a localized date attribute. What should the platform do in case of this expression: `($entity/localizeddate > $entity/nonlocalizeddate)`, for example with a localizeddate at 14:00 EST and the nonlocalizeddate at 14:15 UTC?
+您应该查看 19:15 ，未本地化的日期将总是以 UTC 时间显示。 当前的日期时间只是一个时间，显然发生在地球上任何地方的同一时间， 但对于非本地化的日期，它将显示为 UTC 。
 
-It will simply compare the UTC values of the dates. See a previous question where we said that non-localized date is purely a display setting. So in this case 14:00 EST is greater than 14.15 UTC, because it really compares 19:00 UTC with 14:15 UTC.
+## 11 当我按下微流按钮 & 想要将非本地化日期属性与本地化日期属性进行比较 平台在 `($entity/本地化日期 > $entity/非本地化日期)的情况下应该做些什么` 表达式， 对于位于14:00 EST & 非本地化日期的14:15 UTC的示例？
 
-### What if I want to do it differently?
+它将只是比较日期的 UTC 值。 查看前一个问题，我们说未本地化的日期纯粹是一个显示设置。 所以，在这种情况下，EST大于14.15 UTC，因为它真的比较了 19:00 UTC 和 14:15 UTC。
 
-If you want to compare times of the day between different time zones, so you would like a localized date at 14.00 EST to be SMALLER than a non-localized date at 14:15 UTC, then you will have to format the dates as a string or integer and compare the times that way. Note that the actual moment 14:15 UTC will occur sooner than 14.00 EST and you should really be wondering why you're doing this.
+## 12 如果我想做什么呢？
 
-### What should be the outcome (and why) if I run the following expression in EST: `[%BeginOfCurrentDay%] > [%BeginOfCurrentDayUTC%]` ?
+如果您想要在不同时区之间比较当天的时间，因此您想要在14个时区上一个本地化的日期。 0 EST to be SMALLER than a unlocalized date at 14:15 UTC 然后您将必须将日期格式化为字符串或整数并比较这种方式的时间。 请注意，当前时间 14:15 UTC 将在 14.00EST 之前发生，您应该真的想知道您为什么要这样做。
 
-It depends on when you run this statement. Usually it will return true because the beginning of the current day in UTC is sooner (so smaller) than the begin of the current day in EST. However, if you run this when the day already changed in UTC time but not in EST time (so between midnight and 05:00 UTC, or 19:00 and midnight EST) then it will return false, because the begin of the current day will be a day later in the UTC timezone.
+## 13 如果我在EST运行以下表达式，结果应该是什么： `[%BeginOfCurrentDay%] > [%BeginOfCurrentDayUTC%]`？
 
-### If I am comparing something with a `[%CurrentDateTime%]` token in a DataGrid, which time should it use as a constraint for a localized and for a non-localized date? So if I do an XPath with the following constraint `[LocalDateAttr > [%CurrentDateTime%]` or the following constraint `[NotLocalDateAttr > [%CurrentDateTime%]` what should I expect in the result when it is 12:10pm in boston ET? Should it show all records with a date after 12:10 or all records after 17:10?
+这取决于你何时执行此声明。 通常情况下，它会返回真，因为当前UTC 中的开始时间早于当前无害环境技术中的开始时间(太小)。 然而，如果您在当天已经在UTC 时间内发生变化，但不在EST 时间内运行(这样在午夜到05:00 UTC 之间) 或19:00和午夜EST，然后返回错误， 因为当前日的开始时间将在UTC 时区晚于一天。
 
-Whether something is a local date or not is irrelevant in this case. Note that there is no UTC variant of the`
-[%CurrentDateTime%]` token because this wouldn't make any sense, a moment in time is the same everywhere in the world, even if it may be displayed differently depending on the place. To answer the question, this is yes to both. It will show all records after 12:10 EST (for the localized dates) which is the same as 17:10 UTC (which is how your non-localized dates would show), but these times are the same.
+## 14 如果我在数据网格中将某些问题与 `[%CurrentDateTime%]` 令牌进行比较 对于一个非本地化日期的本地化 & 应该使用哪个时间作为约束？
 
-### I would like to plan an event at the start of office hours in a different time zone. How would I do this?
+所以，如果我做一个 XPath 具有以下约束 `[LocalDateAttr > [%CurrentDateTime%]` 或以下约束 `[NotLocalDateAttr > [%CurrentDateTime%]` 当它是 12:10pm in Boston ET时，我应该期望什么结果？ 是否显示日期在 12:10 之后的所有记录或在 17:10 之后的所有记录？
 
-You can do this by parsing your time string (for example: 2013-01-01 09:00:00) with a certain format and time zone set, using Java actions.
+在这种情况下，什么是本地日期是无关紧要的。 请注意，`
+[%CurrentDateTime%]` 没有一个 UTC 变体，因为这没有任何意义。 世界各地的时间是一样的，即使根据不同地点的不同表现方式也是如此。 要回答问题，这两者都是肯定的。 它将显示12:10 EST (适合本地化日期)后的所有记录，与 17:10 UTC (这是您未本地化日期显示的方式)， 但这些时间是一样的。
 
-### What does the setting Scheduled event time zone do?
+## 15 我如何在不同时区办公时间开始时规划活动？
 
-A scheduled event also needs a time zone to operate in, just like when a user would run a Microflow you might encounter operations that require a time zone. The setting for Scheduled event time zone defines which time zone this is. Note that this is independent of when a scheduled event is scheduled to RUN, which can be planned at the server's time or UTC.
+您可以通过使用指定格式和时区来解析您的时间字符串(例如：2013-01-01 09:00:00)，使用 Java 动作来做到这一点。
 
-### How are DateTimes in XML that have no timezone information treated?
+## 16 设置预定事件时区是什么？
 
-If a DateTime is encountered in XML that is processed using an XML-To-Domain mapping and specifies no timezone, before Mendix 5.13 the DateTime would be interpreted as if it was in the server's timezone. After Mendix 5.13 this DateTime is interpreted as if it was in UTC, making it more inline with all the other DateTime operations and less error prone. The location of the machine running the server won't affect any operations anymore. This may however change behavior.
+预定的活动也需要时区才能在 就像一个用户运行微流程一样，您可能会遇到需要时区的操作。 预定事件时区的设置定义了哪个时区。 请注意，这是独立于预定事件被安排到RUN的时候，这个事件可以在服务器的时间或UTC 中进行规划。
+
+## 17 XML中的日期时间如何处理无时区信息？
+
+如果在 XML 中遇到日期时间, 使用 XML-To-Domain 映射处理, 指定没有时间区, 这个日期时间被解释为是UTC。 运行服务器的机器位置不会影响任何操作。
