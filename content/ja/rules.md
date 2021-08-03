@@ -1,29 +1,29 @@
 ---
-title: "Rules"
-parent: "resources"
+title: "ルール"
+parent: "リソース"
 menu_order: 30
 tags:
-  - "Microflow"
+  - "マイクロフロー"
   - "Nanoflow"
-  - "Decision"
+  - "決定"
   - "Logic"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A rule is a special kind of microflow. Its result should be an enumeration or a Boolean and it can be used in a [decision](decision) to make a decision based on that result. The idea is that complicated decisions can be consolidated in rules and reused in various places.
+ルールは特別な種類のマイクロフローです。 結果は列挙型または Boolean 型で、その結果に基づいて決定を行うために [の決定](decision) で使用できます。 複雑な決断をルールにまとめて、さまざまな場所で再利用できるという考え方です。
 
-## 2 Differences from Microflows
+## 2マイクロフローとの違い
 
-Rules are very similar to microflows; see the documentation on [Microflows](microflows) for more information on how to build a rule. There are only a few differences between rules and microflows:
+ルールはマイクロフローと非常によく似ています。ルールの作成方法の詳細については、 [Microflow](microflows) のドキュメントを参照してください。 ルールとマイクロフローにはいくつかの違いがあります。
 
-*   A rule can only be used in a decision
-*   The return type has to be Boolean or enumeration
-*   A rule cannot change data in the database; the actions to create, delete, change and rollback objects are not available in rules
-*   A rule cannot interact with the client; the actions to show or close forms, show messages, send validation feedback and download files are not available in rules
-*   A rule cannot call web services, generate documents or import XML
+*   ルールは意思決定にのみ使用できます
+*   戻り値の型はブール値または列挙値でなければなりません
+*   ルールはデータベース内のデータを変更できません。ルールでは、オブジェクトを作成、削除、変更、ロールバックするアクションは使用できません。
+*   ルールはクライアントとやり取りできません。 フォームの表示/閉じるアクション、メッセージの表示、検証フィードバックの送信、ファイルのダウンロードはルールでは利用できません
+*   ルールはWebサービスを呼び出したり、ドキュメントを生成したり、XMLをインポートすることはできません。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Microflows](microflows)
-* [Decision](decision)
+* [マイクロフロー](マイクロフロー)
+* [決定](決定)
