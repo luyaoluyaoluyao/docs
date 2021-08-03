@@ -1,149 +1,149 @@
 ---
-title: "Model Changes When Security Is Enabled in Studio"
-parent: "security"
-description: "Describes checks and changes in the app when security is enabled in Mendix Studio."
+title: "工作室启用安全时的模型更改"
+parent: "安全"
+description: "描述在 Mendix Studio 启用安全时对应用程序的检查和更改。"
 tags:
   - "studio pro"
-  - "security"
-  - "studio"
+  - "安全"
+  - "工作室"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes the process of model changes that are applied automatically when security is enabled in Mendix Studio. For more information on security settings in Studio, see [Security, Roles & Permissions](/studio/settings-security) in the *Studio Guide*.
+本文档描述在Mendix Studio启用安全时自动应用的模型更改过程。 关于工作室安全设置的更多信息，请在 *工作室指南*中查看 [安全性，角色 & 权限](/studio/settings-security)
 
-Users can enable security from Studio. While the Studio user simply clicks the **Enable Security** button, as a result, security is set to **Production** for the app and a number of checks and changes (if necessary) are performed automatically.
+用户可以启用工作室的安全性。 工作室用户只需点击 **启用 Security** 按钮，结果就可以了。 安全性已设置为 **为应用程序生产** ，并且自动执行一些检查和更改(如果需要)。
 
-## 2 Process Overview
+## 2 流程概述
 
-When security is enabled, a number of checks and changes are done at several levels.
+当启用安全性时，将在几个层面上进行一些检查和修改。
 
-1. Studio checks if security is enabled. If security is set to **Prototype/demo** or **Production**, the process stops. If security is off, steps described below are executed.
-2. The [Mendix SSO](/appstore/modules/mendix-sso) module is set up if the app does not have it yet (for more information on this process, see the [Modules Set Up](#module-set-up) section). If the Mendix SSO module has been already installed for this app, the process stops.
-3. Studio does checks and changes (if necessary) to [demo users](demo-users) , [module roles](module-security) , and [user roles](user-roles) (for more information on this process, see the [Module Roles and Demo Users Set Up](#module-roles-and-demo-users) section).
-4. Studio sets access rules for entities (and their attributes and associations), if entities do not have access rules yet (for more information on this process, see the [Entity Access Set Up](#entity-access) section).
-5. Studio checks if the *login.html* file exists, backs it up, and replaces it with a new version (for more information on this process, see the [File Set Up](#file-set-up) section).
-6. Studio does checks and changes (if necessary) at the [App Security](project-security) level (for more information on this process, see the [App Security Level Set Up](#project-security-level) section).
+1. 工作室检查是否启用了安全。 如果安全设置为 **质子类型/演示** 或 **Production**, 进程就会停止。 如果安全被关闭，则执行下面所述的步骤。
+2. 如果应用程序还没有设置了 [Mendix SSO](/appstore/modules/mendix-sso) 模块 (关于此过程的更多信息) 见 [模块已设置](#module-set-up) 部分)。 如果Mendix SSO模块已经为此应用安装，进程就停止。
+3. 工作室检查并更改 [演示用户](demo-users) , [模块角色](module-security) , 和 [用户角色](user-roles) (关于此过程的更多信息) 请参阅 [模块角色和演示用户设置](#module-roles-and-demo-users) 部分)。
+4. 工作室为实体(及其属性和协会)设置访问规则， 如果实体还没有访问规则(关于此过程的更多信息，请参阅 [实体访问设置](#entity-access) 部分)。
+5. 工作室检查是否有 *登录。 tml* 文件存在、备份并替换为新版本(关于此进程的更多信息)。 查看 [文件设置](#file-set-up) 部分)。
+6. 工作室在 [应用安全](project-security) 级别上检查和更改(如果必要) (关于此过程的更多信息) 查看 [应用安全等级设置](#project-security-level) 部分)。
 
 {{% alert type="info" %}}
 
-If security has already been set to **Prototype/demo** or **Production** in Studio Pro, these settings may be incompatible (too advanced) with Studio roles and permissions settings. In this case, you will not be able to edit roles and permissions in Studio. For more information on security settings in Studio, see [Security, Roles & Permissions](/studio/settings-security) in the *Studio Guide*.
+如果安全已设置为 **Prototype/demo** or **Production** in Studio Pro, 这些设置可能与 Studio 角色和权限设置不兼容(太高级)。 在这种情况下，您将无法编辑工作室中的角色和权限。 关于工作室安全设置的更多信息，请在 *工作室指南*中查看 [安全性，角色 & 权限](/studio/settings-security)
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 3 Modules Set Up {#module-set-up}
+## 3个模块设置 {#module-set-up}
 
-When security is enabled in Studio, the Mendix SSO module is set up. This module enables single sign-on and user management in your app.
+当工作室启用安全时，将设置Mendix SSO模块。 此模块用于在您的应用程序中启用单个登录和用户管理。
 
-To enable single sign-on the following checks and changes are performed:
+为了启用单点登录，进行以下检查和更改：
 
-1. The Mendix SSO startup microflow (MendixSSO.MendixSSO_AfterStartup) is created. For more information on possible outcomes of this process, see the [App Security Level Set Up](#project-security-level) section.
-2. *login.html* file is checked and changed if necessary. For more information, see the [File Set Up](#file-set-up) section.
+1. Mendix SSO 启动微流程(MendixSSO.MendixSSO_AfterStartup) 已创建。 关于此进程可能结果的更多信息，请参阅 [应用安全等级设置](#project-security-level) 部分。
+2. *login.html* 文件已选中并在必要时更改。 欲了解更多信息，请参阅 [文件设置](#file-set-up) 部分。
 
-The Mendix SSO module also adds user management to your app. With user management you can manage app users.
+Mendix SSO模块也将用户管理添加到您的应用中。 通过用户管理，您可以管理应用用户。
 
-{{% alert type="info" %}}If your app already has the Mendix SSO module installed, you will not be able to enable security from Studio. You can only set security manually in Studio Pro meeting the following requirements:
+●{% alert type="info" %}}如果您的应用已经安装Mendix SSO模块，您将无法启用工作室安全性。 您只能在Studio Pro 中手动设置安全性，满足以下要求：
 
-* Security should be set to **Production** <br/>
-* The Mendix SSO module should be set up to enable single sign on
+* 安全应该设置为 **生产** <br/>
+* Mendix SSO模块应设置以启用单个登录
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 4 Module Roles and Demo Users Set Up {#module-roles-and-demo-users}
+## 4个模块角色和演示用户设置 {#module-roles-and-demo-users}
 
-After the **After startup** microflow is set up, Studio checks if the *Administrator* role, the *User* role, and *demo users* exist and creates them when necessary:
+在 **启动后** 微流程设置后，Studio 检查 *管理员* 角色 *用户* 角色，以及 *演示用户* 存在并在必要时创建它们：
 
-1.  Studio checks if the Administrator role and the User role exist at the **App** level. If they do not exist, they will be created.
+1.  工作室检查管理员角色和用户角色是否存在于 **App** 级上。 如果它们不存在，它们将被创建。
 
     ![](attachments/studio-security-enabled/project-security-user-roles.png)
 
-2.  After that, Studio checks if the Administrator and the User roles exist in each module of your app and if they are linked to the corresponding app roles.
+2.  在此之后， 工作室检查应用程序每个模块中是否存在管理员和用户角色，以及他们是否与相应的应用程序角色链接。
 
     ![](attachments/studio-security-enabled/module-roles.png)
 
-    Possible outcomes of this check are the following:<br/> a. If the model has two or more module roles in one module that are connected to the Administrator app role or the User app role, then it will be Studio incompatible. Studio will not change anything in these roles, but roles and permissions will not be editable in Studio.<br/> b. If the model has one module role connected to the Administrator app role or the User app role, Studio checks if the name of the module role is identical to the app role. If the names are different, Studio disconnects this module role from the app role, creates a new one with the name identical to the app role name, and links it to the app role.<br/> c. If the model has no module roles connected to the Administrator app role or the User app role, Studio creates these roles. <br/> d. If the module role exists, its name is identical to the app role, but it is not linked to this app role, Studio creates a new module role, names it *Administrator_1* or *User_1*, and links it to the corresponding app role.<br/>
+    此检查的可能结果如下：<br/> a。 如果模型在一个模块中有两个或多个模块角色与管理员应用程序角色或用户应用程序角色相关联， 然后工作室将不兼容。 工作室不会改变这些角色，但角色和权限在工作室中不可编辑。<br/> b. 如果模型有一个模块角色连接到管理员应用角色或用户应用角色 工作室检查模块角色的名称是否与应用角色相同。 如果名称不同，Studio会断开此模块角色与应用角色的连接 创建一个与应用角色名称相同的新角色，并将其链接到应用角色。<br/> c. 如果模型没有与管理员应用程序角色或用户应用程序角色相关联的模块角色，Studio将创建这些角色。 <br/> d. 如果模块角色存在，其名称与应用角色相同 但它没有链接到此应用角色，Studio创建一个新的模块角色 名称 *管理员_1* 或 *User_1*并将其链接到相应的应用程序角色。<br/>
 
-    {{% alert type="info" %}}Studio links the Administrator role from the System module to the Administrator role on the app level. *Every other app role* created from Studio, including the original User app role, will be linked to the User module role for the System module.
-    {{% /alert %}}
+    {{% alert type="info" %}}Studio links the Administrator role from the System module to the Administrator role on the app level. *从工作室创建的其他应用角色* 。 包括原始用户应用角色，将被链接到系统模块的用户模块角色。
+    {{% /报警 %}}
 
-3. Studio links the Administrator role at the app level to MendixSSO.Administrator and Administration.Administrator (if they exist, if not, Studio will not do any linking). The User role at the app level is linked to MendixSSO.User, and Administration.User (if they exist, if not, Studio will not do any linking). All other Mendix Marketplace modules will remain unchanged.
+3. 工作室将管理员在应用程序一级的角色连接到 MendixSSO.Administrator 和 Administration.Administrator (如果它们存在，Studio 将不进行任何链接)。 应用程序一级的用户角色是连接到 MendixSSO.User 和 Administration.User (如果它们存在，Studio 将不进行任何链接)。 所有其他Mendix Marketplace模块将保持不变。
 
-    Every other user role created in Studio will be linked to the MendixSSO.User and the Administration.User in the MendixSSO and Administration modules correspondingly.
+    在Studio中创建的其他用户角色将被链接到MendixSSO。用户和 Administration.User MendixSSO 以及相应的管理模块。
 
-4. Studio checks if demo users named *demo_administrator* and *demo_user* exist, and if not, Studio creates them.
+4. 工作室检查是否存在名为 *demo_administrator* and *demo_user* 的演示用户，如果不存在，工作室是否创建他们。
 
 {{% alert type="warning" %}}
 
 If Administrator and User roles already exist and are [compatible with Studio](#studio-compatible), they will get access to all microflows, nanoflows, pages, and entities (including entities' attributes and associations).
 
-All newly created roles get access to all pages, microflows, nanoflows, and entities (including their attributes and associations) that are in Studio, except for Marketplace pages, microflows, and entities (with their attributes and associations).
+所有新创建的角色都可以访问工作室中的所有页面、微流、纳夫洛和实体(包括其属性和协会)。 但市场网页、微流和实体（及其属性和协会）除外。
 
-Also, all new pages, microflows, and entities (with their attributes and associations) that are created in Studio will be accessible for all existing app roles by default.
+此外，所有新网页、微流和微流。 在工作室创建的实体(具有他们的属性和关联)将默认对所有现有的应用程序角色都可以访问。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 5 Entity Access Set Up {#entity-access}
+## 5个实体访问设置 {#entity-access}
 
-When you enable security, Studio creates access rules for all entities (and their attributes and associations) that do not have them. The following access rules settings are applied:
+当您启用安全性时，工作室为没有权限的所有实体 (及其属性和关联) 创建访问规则。 以下访问规则设置已应用：
 
-*   A description is added to **Documentation** of an **Access Rule** stating that it has been generated by Studio
+*   描述已添加到 **文档** 一个 **访问规则** ，其中表示它是由工作室生成的
 
     ![](attachments/studio-security-enabled/start-up-microflow.png)
 
-*  All roles in the current module, except anonymous roles, get *create* and *delete* rights for entities. The following rules are created for attributes and associations of these entities:
+*  当前模块中的所有角色，除了匿名角色，获得 *创建* 和 *删除实体的* 权限。 为这些实体的属性和协会制定了下列规则：
 
-  *  All roles in the current module, except anonymous roles, have *read* and *write* access for attributes
+  *  当前模块中的所有角色，除了匿名角色，都有 *读取* 和 *写入* 属性访问权限
 
-     {{% alert type="info" %}}There are cases where entities inherit from System.Image or System.FileDocument. Some of those inherited attributes cannot be set to read/write, so they are set to read-only.
-     {{% /alert %}}
+     {{% alert type="info" %}}There are cases where entities inherit from System.Image or System.FileDocument. 其中一些继承属性不能设置为读/写，因此它们被设置为只读。
+     {{% /报警 %}}
 
-* All roles in the current module, except anonymous roles, have *read* and *write* access for associations if the entity is the association owner
+* 当前模块中的所有角色，但匿名角色除外。 如果关联实体是关联所有者，则有 *读取* 和 *写入* 对关联的访问
 
 {{% alert type="info" %}}
 
-The rules described above are created if you create an entity in Studio.
+如果您在 Studio 中创建一个实体，上述规则将被创建。
 
-If you copy-paste an entity, the access rules of the original entity are copied as much as possible. However, if you have a generalization on an entity and you copy it to another app, the generalization is removed.
+如果您复制粘贴一个实体，则将尽可能复制原始实体的访问规则。 然而，如果您对某个实体有一个概括性并且您将其复制到另一个应用程序，则将会移除。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 6 File Set Up {#file-set-up}
+## 6 个文件设置 {#file-set-up}
 
-As the last stage, Studio applies the changes *login.html* file in your app.
+作为最后一个阶段，Studio在您的应用程序中应用 *login.html* 文件。
 
-If the *login.html* file exist, Studio backs it up in the same folder under the name *login_backup_year-month-day_hour-minute.html*, indicating the date and time of the backup. Studio also creates a new file under the name *login.html*
+如果存在 *login.html* 文件，Studio 将其备份在同一个文件夹中，名为 *login_backup_year-month-Day_hour-minute。 tml*, 表示备份的日期和时间。 Studio还创建了一个名为 *login.html的新文件*
 
-If the *login.html* file does not exist, Studio creates it under the name *login.html*
+如果 *login.html* 文件不存在，Studio将其创建于 *login.html*
 
-This procedure enables single sign-on and allows existing users to automatically sign in to your app using their Mendix accounts.
+此程序允许单个登录，并允许现有用户使用Mendix账户自动登录您的应用程序。
 
-## 7 App Security Level Set Up {#project-security-level}
+## 7 个应用安全等级已设置 {#project-security-level}
 
-On the **App** level, Studio does the following:
+在 **App** 级别上，Studio 做以下工作：
 
-1. The **App Security** is set to **Production**.
+1. **App Security** 已设置为 **Production**。
 
-2.  Studio checks if the **After startup** microflow exists in **App** > **Settings** > **Runtime**.
+2.  工作室检查 **启动后** 微流程是否存在于 **App** > **设置** > **运行时**。
 
     ![](attachments/studio-security-enabled/start-up-microflow.png)
 
-    There are two possible outcomes of this check:<br/> a. If the model does not contain any **After startup** microflow, the *MendixSSO.MendixSSO_AfterStartup* microflow is used.<br/> b. If the model contains the **After startup** microflow, Studio creates *CallBothStartupMicroflows* microflow in the same place as the existing one. *CallBothStartupMicroflows* will call the *MendixSSO.MendixSSO_AfterStartup* microflow first, then it will call the microflow that already existed in the app.
+    此检查可能有两个结果：<br/> a。 如果模型不包含任何 **在启动** microflow后， *MendixSSO.MendixSSO_AfterStartup* microflow 被使用。<br/> b. 如果模型包含 **在启动** 微流程后，Studio 创建 *CallBothStartupMicroflow* 微流程与现有的微流程。 *CallBothStartupMicroflow* 将先调用 *MendixSSO.MendixSSO_AfterStartup* microflow，然后它将调用已经存在于应用程序中的微流程。
 
-## 8  Studio Compatibility {#studio-compatible}
+## 工作室兼容性 {#studio-compatible}
 
-Studio Pro security settings are compatible with Studio (that means that roles and permissions can be edited in Studio), when all of the following criteria are met:
+Studio Pro 安全设置与 Studio 兼容(这意味着角色和权限可以在Studio中编辑) 当符合以下所有标准时：
 
-* The Mendix SSO module has been installed
-* The security level has been be set to production
-* Demo users have been enabled
-* Demo users must have the correct name: identical to the app role name, but with the *demo_* prefix (for example, demo_user)
-* Demo users must have exactly one user role connected to them
-* User roles must have a demo user connected to them
-* User roles must have exactly one module role per module connected to them (Studio does not check System or Marketplace modules)
-* Module roles do not have more than one user role connected to them
+* Mendix SSO 模块已安装
+* 安全等级已设置为生产
+* 演示用户已启用
+* 演示用户必须有正确的名字：与应用角色名称相同，但使用 *demo_* 前缀 (例如，demo_user)
+* 演示用户必须只有一个用户角色连接到他们上
+* 用户角色必须有一个演示用户连接
+* 用户角色必须只有一个模块角色，每个模块连接到他们(Studio不检查系统或市场模块)
+* 模块角色中没有多个用户角色被连接
 
-## 9 Read More
+## 9 阅读更多
 
-* [Security, Roles & Permissions](/studio/settings-security)
-* [App Security](project-security)
-* [Module Security](module-security)
+* [安全性，角色 & 权限](/studio/settings-security)
+* [应用安全](项目安全)
+* [模块安全](module-security)
