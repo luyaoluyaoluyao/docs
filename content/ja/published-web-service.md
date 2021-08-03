@@ -5,10 +5,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-web-service.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This document describes the properties of a published web service. If you want a general overview of how Mendix publishes microflows as web services, see [Published Web Services](published-web-services).
@@ -71,7 +67,7 @@ When you do check **Include tags for associations**, the XML looks like this:
 
 ### 3.5 Export WSDL File & Export XML Schema Definition
 
-By using this button, you can save the generated WSDL file, and its XML schema definition on your local hard drive. You can do this already before running your project, unlike when you download it from `http://localhost:8080/ws-doc/` .
+By using this button, you can save the generated WSDL file, and its XML schema definition on your local hard drive. You can do this already before running your app, unlike when you download it from `http://localhost:8080/ws-doc/` .
 
 ### 3.6 Documentation
 
