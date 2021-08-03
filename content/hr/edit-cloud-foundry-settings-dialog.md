@@ -1,53 +1,52 @@
 ---
-title: "Edit Cloud Foundry Settings"
-parent: "run-menu"
+title: "Edit Cloud Foundry Settings Dialog"
+parent: "dialogs"
 tags:
   - "Cloud Foundry"
   - "Deploy"
-  - "studio pro"
 ---
 
 ## 1 Introduction
 
-The **Edit Cloud Foundry Settings** menu option allows you to specify the information necessary for deploying your app to a Cloud Foundry instance.
+Use this dialog to specify the information necessary for deploying your app to a Cloud Foundry instance.
 
 {{% alert type="info" %}}
-More information on deploying to Cloud Foundry can be found in [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy).
+
+For more information on deploying to Cloud Foundry, see [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy) in *Developer Portal Guide*.
+
 {{% /alert %}}
 
-## 2 Entering Credentials
+## 2 Entering credentials
 
-The first step in configuring your app for Cloud Foundry deployment is to enter the account information of the Cloud Foundry account you wish to use.
-
-![Enter Cloud Foundry Credentials](attachments/run-menu/cloud-foundry-credentials.png)
+The first step in configuring your app for Cloud Foundry deployment is to enter the account information of the Cloud Foundry instance you wish to use.
 
 Enter the details on the screen, as described below, then click **Next** to validate the specified credentials and show the next configuration step.
 
-### 2.1 API Endpoint
+### 2.1 API endpoint
 
-The URL defining the **API endpoint** of the Cloud Foundry platform that will be used for deployment.
+This is the URL defining the **API endpoint** of the Cloud Foundry platform that will be used for deployment.
 
 ### 2.2 User Name
 
-The **User name** of your Cloud Foundry account.
+This is the **User name** of your Cloud Foundry account.
 
 ### 2.3 Password
 
-The **Password** of your Cloud Foundry account.
+This is the **Password** of your Cloud Foundry account.
 
-## 3 Selecting the Cloud Foundry App
+Pressing the 'Next' button will validate the specified credentials and show the next configure step.
 
-The second step allows you to select an existing app, or create a new app, in the Cloud Foundry organization. This is where your Mendix app will be deployed.
+## 3 Selecting the Cloud Foundry app
 
-![Enter Settings for Cloud Foundry App](attachments/run-menu/cloud-foundry-app-settings.png)
+The second step allows you to select an app in the Cloud Foundry instance to which your Mendix app will be deployed.
 
 ### 3.1 Organization
 
-Select the **Organization** you want to use. If no organizations are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Mendix Studio Pro.
+Select the **Organization** you want to use. If no organizations are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Desktop Modeler.
 
 ### 3.2 Space
 
-Select the **Space** you want to use. Note that the space you want to use must already be configured in your Cloud Foundry account; it is not possible to create a new one from within Mendix Studio Pro.
+Select the **Space** you want to use.  If no spaces are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Desktop Modeler.
 
 ### 3.3 App
 
@@ -55,16 +54,13 @@ Either **Select existing app** if you want to use an existing app environment, o
 
 #### 3.3.1 Select Existing App
 
-If you **Select existing app** you will be able to choose the correct app from a drop-down list.
+If you **Select existing app** you will be able to choose the correct app in a drop-down list.
 
 #### 3.3.2 Create New App
 
-If you **Create new app** you will need to do the following:
+If you **Create new app**, you need to select the **Domain** in which the app will run in the drop-down list, and then enter the **App name** for the app.
 
-1. Select the **Domain** in which the app will run from the drop-down.
-2. Enter the **App name** for the app.
-
-The URL for your app will be {App name}.(Domain).
+The URL for your app will be {App name}.(Domain)
 
 ### 3.4 Buildpack
 
