@@ -9,8 +9,13 @@ tags:
   - "origin"
   - "domain"
   - "access"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+The CORS settings feature was introduced in Mendix version 7.18.0.
+
+{{% /alert %}}
 
 ## 1 Introduction
 
