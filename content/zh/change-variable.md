@@ -1,50 +1,50 @@
 ---
-title: "Change Variable"
-parent: "variable-activities"
+title: "更改变量"
+parent: "可变活动"
 tags:
   - "studio pro"
-  - "change variable"
-  - "variable"
-  - "variable activities"
+  - "更改变量"
+  - "变量"
+  - "可变活动"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-Change variable allows you to change the value of an existing variable. For example, if you have a *$Discount* variable that gives customers a 50% discount on certain items, you can change this variable and assign a new value to it. You can use this value to give new customers a bigger discount:
+更改变量允许您更改现有变量的值。 例如，如果您有一个 *$Discount* 变量给予客户50%的折扣。 您可以更改此变量并赋予它一个新值。 您可以使用此值给新客户一个更大的折扣：
 
-![Change Variable](attachments/variable-activities/change-variable.png)
+![更改变量](attachments/variable-activities/change-variable.png)
 
 
 
-## 2 Properties
+## 2 属性
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
 
-![Change Variable Properties](attachments/variable-activities/change-variable-properties.png)
+![更改变量属性](attachments/variable-activities/change-variable-properties.png)
 
-The **Change variable** properties pane consists of the following sections:
+**更改变量** 属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-### 3.1 Variable
+### 3.1 变量
 
-The variable which you want to change the value of.
+你想要更改值的变量。
 
-### 3.2 Value
+### 3.2 价值
 
-The new value for the variable. The value is entered using an [expression](expressions). The type of the expression must be the same as the type of the selected variable.
+变量的新值。 值是使用 [表达式](expressions) 输入的。 表达式的类型必须与所选变量的类型相同。
 
-## 4 Common Section {#common}
+## 4 共同部分 {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 阅读更多
 
-* [Activities](activities)
+* [活动](活动)
