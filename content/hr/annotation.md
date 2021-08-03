@@ -1,18 +1,14 @@
 ---
 title: "Annotation"
-parent: "application-logic"
+parent: "microflows-and-nanoflows"
 menu_order: 60
 tags:
   - "studio pro"
   - "annotation"
   - annotation flow
 aliases:
-  - /refguide8/annotation-flow.html
+  - /refguide/annotation-flow.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/annotation.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
