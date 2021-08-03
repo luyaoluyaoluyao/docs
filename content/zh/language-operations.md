@@ -9,6 +9,10 @@ tags:
   - "可翻译文本"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/language-operations.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 创建多语言应用程序时， 您可能想要在应用或在某个特定模块的所有文本上执行一些任务。
@@ -26,7 +30,7 @@ tags:
 
 在对话框的 **选择** 部分中，您可以选择您想要管理的模块。
 
-对于每个模块，您可以看到包含项目的每种语言输入的可翻译文本数量。 灰色列表示应用程序中没有选择但包含翻译文本的语言。 这使您能够从应用中删除语言，但仍然可以访问现有文本。
+对于每个模块，您可以看到包含项目的每种语言输入的可翻译文本数量。 灰色列表示项目中没有选择但含有翻译文本的语言。 这使您可以从项目中删除语言，但仍然可以访问现有文本。
 
 ## 3 执行业务
 
