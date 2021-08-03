@@ -1,32 +1,32 @@
 ---
-title: "Enumeration Values"
-parent: "enumerations"
+title: "列挙値"
+parent: "列挙型"
 ---
 
-An [enumeration](enumerations) has one or more enumeration values. Each value represents one of the options.
+[列挙型](enumerations) には、1 つ以上の列挙型の値があります。 各値はオプションのいずれかを表します。
 
-## Properties
+## プロパティー
 
 {{% alert type="info" %}}
 
-The name of an enumeration value must be a technical name without spaces and special characters. On the other hand, the caption of an enumeration value can any character. For example, an enumeration value can have 'InProgress' as its name and 'In progress' as its caption.
+列挙値の名前は、スペースと特殊文字を含まない技術的な名前でなければなりません。 一方、列挙値のキャプションは任意の文字を使用できます。 例えば、列挙値はその名前として「InProgress」、キャプションとして「In progress」を持つことができます。
 
 {{% /alert %}}
 
-### Caption
+### 図表番号
 
-The caption of an enumeration value is the text that the end user sees for this enumeration value. This is a translatable text. See [Translatable Texts](translatable-texts).
+列挙値のキャプションは、エンドユーザーがこの列挙値に対して見るテキストです。 これは翻訳可能なテキストです。 [翻訳可能なテキスト](translatable-texts) を参照してください。
 
-### Name
+### 名前
 
-The name of an enumeration value is the technical name of the value which is used to refer to the enumeration value in your model.
+列挙値の名前は、モデル内の列挙値を参照するために使用される値の技術的な名前です。
 
 {{% alert type="warning" %}}
 
-The name of an enumeration value is also used to store the enumeration value in the data database. That is why changing the Name of an enumeration value is not allowed; it would invalidate the data in your database. The caption, however, can be changed without problems and this is the text that the end user gets to see.
+列挙値の名前は、列挙値をデータデータベースに格納するためにも使用されます。 そのため、列挙値の名前を変更することはできません。データベース内のデータは無効になります。 ただし、キャプションは問題なく変更でき、これはエンドユーザーが見るために取得するテキストです。
 
 {{% /alert %}}
 
-## Image
+## 画像
 
-The image of an enumeration value is used when the values for an attribute (of which the type is the enumeration) are displayed in a data grid column of which the enumeration format is 'Image'. See the documentation on [data grid columns](columns).
+列挙値のイメージは、列挙形式が 'Image' のデータ グリッド列に属性(型が列挙型)の値が表示されるときに使用されます。 [データ グリッド 列](columns) のドキュメントを参照してください。
