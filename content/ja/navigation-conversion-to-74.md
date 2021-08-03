@@ -1,37 +1,37 @@
 ---
-title: "Solving Issues with Navigation Profile Conversion to 7.4"
-parent: "project"
-description: "Describes requirements and possible fixes for navigation profile conversion from Mendix versions 7.2 and 7.3 to Mendix 7.4."
+title: "ナビゲーションプロファイル変換で問題を解決する"
+parent: "プロジェクト"
+description: "Mendix バージョン7.2および7.3からMendix 7.4へのナビゲーションプロファイル変換のための要件と可能な修正について説明します。"
 ---
 
-## 1 Changes in 7.4 for Profiles
+## 1 プロフィールの変更点 7.4
 
-In Mendix versions 7.2 and 7.3, there was no exact separation between hybrid tablet and hybrid phone profiles. The only separation was the logical meaning of a profile name like "MyTabletProfile" and "MyPhoneProfile." In Mendix version 7.4, the separation of hybrid profiles by device type was introduced. This makes profiles easier to understand and work with.
+Mendixバージョン7.2および7.3では、ハイブリッドタブレットとハイブリッド電話プロファイルの間で正確な分離はありませんでした。 唯一の分離は、「MyTabletProfile」や「MyPhoneProfile」のようなプロファイル名の論理的な意味であった。 Mendix バージョン 7.4 では、デバイス タイプ別のハイブリッド プロファイルの分離が導入されました。 これにより、プロファイルが理解しやすくなり、作業が容易になります。
 
-Also, to prevent confusion while working with profiles, having more than one profile of a specific type is not permitted. This restriction allows us to omit the profile name.
+また、プロファイルを操作している間の混乱を防ぐために、特定のタイプの複数のプロファイルを持つことは許可されていません。 この制限により、プロファイル名を省略できます。
 
-## 2 Conversion Process
+## 2 変換プロセス
 
-For projects based on Mendix 7.1 and below, conversion to Mendix 7.4 is seamless.
+Mendix 7.1 以下に基づくプロジェクトでは、Mendix 7.4 への変換はシームレスです。
 
-In Mendix versions 7.2 and 7.3, miltiple profiles with different names and same types were possible. So, before converting from these versions, be sure to check the list of navigation profiles in your project and make sure they fulfill certain requirements.
+Mendixバージョン7.2および7.3では、異なる名前と同じタイプのmiltileプロファイルが可能でした。 したがって、これらのバージョンから変換する前に、必ずプロジェクト内のナビゲーションプロファイルのリストを確認し、特定の要件を満たしていることを確認してください。
 
-## 3 Hybrid App Profiles Requirements
+## 3 ハイブリッドアプリのプロファイル要件
 
-In order to convert your project from Mendix versions 7.2 and 7.3 to 7.4, make sure these requirements are fulfilled:
+Mendix バージョン 7.2 および 7.3 から 7.4 にプロジェクトを変換するには、以下の要件が満たされていることを確認してください。
 
-* The  list of profiles must contain the following:
-    * A maximum of one profile of the **browser tablet** type
-    * A maximum of one profile of the **browser phone** type
-    * A maximum of two profiles of the **hybrid mobile app online** type
-    * A maximum of two profiles of the **hybrid mobile app offline** type
+* プロファイルのリストには、次のものを含める必要があります:
+    * **ブラウザタブレット** タイプの最大プロファイル数
+    * **ブラウザの電話** タイプの最大プロファイル数
+    * オンライン **ハイブリッドモバイルアプリ** タイプの最大2つのプロファイル
+    * **ハイブリッド・モバイル・アプリのオフライン** タイプの最大2つのプロファイル
 
-* If you have two profiles of the **hybrid mobile app online** type, then make sure that one of them has the word "tablet" in its name and the second one has the word "phone" in its name
-    * They will then be converted to the correct types in 7.4
-    * Please note that it is not possible to have two hybrid online profiles for tablet or phone
+* オンラインの **ハイブリッドモバイルアプリ** タイプの2つのプロファイルがある場合 そのうちの1人が「タブレット」という言葉を持っていることを確認してください そして2人目は「電話」という言葉を持っています
+    * それらは7.4で正しい型に変換されます。
+    * タブレットまたは携帯電話用のハイブリッドオンラインプロフィールを2つ持つことはできませんのでご注意ください。
 
-* If you have two profiles of the **hybrid mobile app offline** type, then make sure that one of them has the word "tablet" in its name and the second one has the word "phone" in its name
-    * They will then be converted to the correct types in 7.4
-    * Please note that it is not possible to have two hybrid offline profiles for tablet or phone
+* **ハイブリッド・モバイル・アプリ** タイプのプロファイルがオフラインの場合。 そのうちの1人が「タブレット」という言葉を持っていることを確認してください そして2人目は「電話」という言葉を持っています
+    * それらは7.4で正しい型に変換されます。
+    * タブレットまたは携帯電話用のハイブリッドオフラインプロファイルを2つ持つことはできませんのでご注意ください
 
-After opening your project in Mendix 7.4, make sure that your hybrid profiles are converted correctly.
+Mendix 7.4でプロジェクトを開いたら、ハイブリッドプロファイルが正しく変換されていることを確認してください。
