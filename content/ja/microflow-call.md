@@ -1,102 +1,102 @@
 ---
-title: "Microflow Call"
-parent: "action-call-activities"
+title: "マイクロフロー通話"
+parent: "action-call-activity"
 tags:
   - "studio pro"
-  - "microflow call"
-  - "call microflow"
-  - "action call activities"
+  - "マイクロフロー・コール"
+  - "マイクロフローを呼び出します。"
+  - "アクションコール アクティビティ"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Microflow call** activity can be used to call a [microflow](microflows).
+**マイクロフロー コール** のアクティビティは [マイクロフロー](microflows) を呼び出すために使用できます。
 
 {{% image_container width="200" %}}
-![Call Microflow](attachments/action-call-activities/microflow-call.png)
+![マイクロフローに発信](attachments/action-call-activities/microflow-call.png)
 {{% /image_container %}}
 
-Arguments can be passed to the microflow and the result can be stored.
+引数はマイクロフローに渡すことができ、結果を格納することができます。
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Microflow Call Properties](attachments/action-call-activities/microflow-call-properties.png)
+![マイクロフローの呼び出しプロパティ](attachments/action-call-activities/microflow-call-properties.png)
 
-The **Microflow call** properties pane consists of the following sections:
+**マイクロフロー コール** プロパティ ペインは次のセクションで構成されています。
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Microflow
+### 3.1 マイクロフロー
 
-The microflow that is called by this activity.
+この活動によって呼び出されるマイクロフロー。
 
-### 3.2 Parameters
+### 3.2 パラメータ
 
-Depending on the selected microflow, you will see a list of its parameters in a table. Parameters pass data to the activity.
+選択したマイクロフローに応じて、テーブルにパラメーターのリストが表示されます。 パラメータはアクティビティにデータを渡します。
 
-#### 3.2.1 Name
+#### 3.2.1 名前
 
-The name of the parameter that is read-only.
+読み取り専用のパラメータ名です。
 
-#### 3.2.2 Type
+#### 3.2.2 タイプ
 
-The type of the parameter that is read-only. For more information on possible types of parameters, see [Data Types](data-types).
+読み取り専用のパラメータのタイプ。 パラメータの型についての詳細は、 [Data Types](data-types) を参照してください。
 
-#### 3.2.3 Argument {#argument}
+#### 3.2.3 引数 {#argument}
 
-The **Edit parameter value** button allows you to edit the argument value. For each parameter of the microflow, you need to supply an argument of the same type. The values of the arguments are expressed using [expressions](expressions). There is a difference in the way argument values are passed to a sub-microflow:
+**パラメータ値** を編集ボタンで、引数の値を編集できます。 マイクロフローの各パラメータについては、同じ型の引数を指定する必要があります。 引数の値は [式](expressions) を使用して表されます。 引数の値がサブマイクロフローに渡される方法には違いがあります。
 
-  * Lists and objects are passed as references (meaning, if the list/object is changed in a sub-microflow, the original list/object is altered)
-  * Primitive types (strings, numbers, etc.) are passed as values (meaning, they are immutable, and not changeable via sub-microflows)
-
-{{% alert type="warning" %}}
-When used inside a nanoflow in an offline profile, only primitives and non-persistable entities that have no associations with persistable entities are allowed as arguments for the call. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
-{{% /alert %}}
-
-### 3.3 Task Queue
+  * リストとオブジェクトは参照として渡されます (つまり、サブマイクロフローでリスト/オブジェクトが変更された場合、元のリスト/オブジェクトが変更されます)
+  * 原始的な型 (文字列、数値など) は値として渡されます (意味は不変で、サブマイクロフローでは変更できません)
 
 {{% alert type="warning" %}}
-You cannot execute microflows in a task queue when calling them from a nanoflow.
+オフラインプロファイルでナノフロー内で使用される場合 呼び出しの引数として、持続可能エンティティとの関連がないプリミティブと非永続エンティティのみが許可されます。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 {{% /alert %}}
 
-If you want a microflow to call a microflow to run in the background using a task queue, then you need to do the following:
+### 3.3 タスクキュー
 
-1. Check **Execute this Microflow in a Task Queue**.
-2. Identify which task queue it should run in in **Select Task Queue**.
+{{% alert type="warning" %}}
+タスクキューでマイクロフローを実行することはできません。
+{{% /alert %}}
 
-For more information about task queues, see [Task Queue](task-queue).
+タスクキューを使用してバックグラウンドで実行するマイクロフローをマイクロフローに呼び出したい場合は、次の手順を実行する必要があります。
 
-### 3.4 Return Type
+1. チェック **タスク キュー** でこのマイクロフローを実行します。
+2. **タスクキュー**で実行するタスクキューを特定します。
 
-This read-only property indicates whether you will retrieve a variable, object or list.
+タスクキューの詳細については、 [タスクキュー](task-queue) を参照してください。
 
-### 3.5 Use Return Value
+### 3.4 返品タイプ
 
-This property determines if the returned value from the called microflow should be available in the rest of the current microflow or nanoflow. If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
+この読み取り専用プロパティは、変数、オブジェクト、またはリストを取得するかどうかを示します。
 
-### 3.6 Variable Name, Object Name, or List Name {#name}
+### 3.5 戻り値を使用
 
-The name of the variable, list, or object returned by the activity.
+このプロパティは、現在のマイクロフローまたはナノフローの残りの部分で、呼び出されたマイクロフローから返される値を使用できるかどうかを決定します。 If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
 
-## 4 Microflow Calls in Offline-First Apps
+### 3.6 変数名、オブジェクト名、リスト名 {#name}
 
-It is possible to perform a microflow call from an offline-first app. However, it works a bit differently than in online applications. For more information on the differences, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+アクティビティによって返される変数、リスト、またはオブジェクトの名前。
 
-## 5 Common Section {#common}
+## オフラインファーストアプリ4個のマイクロフロー通話
+
+オフラインファーストアプリからマイクロフローの呼び出しを実行することができます。 しかし、それはオンラインアプリケーションとは少し異なる動作します。 違いの詳細については、 [Offline-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
+
+## 5つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
