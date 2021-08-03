@@ -1,10 +1,49 @@
 ---
 title: "ウィジェットのレポート"
 parent: "ページ"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "ウィジェットのレポート"
+  - "レポート"
+  - "ウィジェット"
+  - "データセット"
 ---
 
-レポートを使用すると、データベースデータにレポートを作成できます。 レポートは、集計された情報を作成するために使用されます (例えば、顧客あたりの総売上高)。
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/report-widgets.pdf) をクリックしてください。
+{{% /alert %}}
 
-データ グリッドとレポート グリッドの違いは、レポート グリッドに表示されているデータがデータベースに保存されていないことです。 レポートが作成されるたびに、データはデータベースから取得されます。 レポートウィジェットのデータは、 [Datasets](data-sets) によって提供される。
+{{% alert type="warning" %}}レポートウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-レポートは [ページ](page) に [レポート グリッド](report-grid) ウィジェットを使用するか、 [レポート チャート](report-chart) ウィジェットを使用してグラフィカルなフォームで表形式で表示できます。 If the [Data Set](data-sets) corresponding to the report contains parameters, these can be specified by the user via the [Report Parameter](report-parameter) and [Report Date Parameter](report-date-parameter) widgets. すべてのレポートパラメータは任意であるため、すべてのパラメータを指定する義務はありません。
+## 1つの紹介
+
+レポート ウィジェットを使用すると、データベース データからレポートを作成できます。 レポートは主に集計された情報(例えば、顧客あたりの総売上高)を表示するために使用されます。
+
+**レポート ウィジェット** カテゴリには、次のウィジェットが含まれています:
+
+* [Report grid](report-grid) – displays data in a form of a table; the data for the reporting widgets is provided by a [Data set](data-sets)
+
+    ![レポート グリッドの例](attachments/report-widgets/report-grid-example.png)
+
+* [レポート パラメータ](report-parameter) - エンドユーザーがレポートに表示されるデータをフィルタリングするために使用される [データ セット](data-sets) のパラメータを指定することができます
+
+    ![レポートパラメータの例](attachments/report-widgets/report-parameter-example.png)
+
+* [レポート日付パラメータ](report-date-parameter) - エンドユーザーが [データセット](data-sets)の DateTime パラメータを指定できるようにする レポートに表示されるデータをフィルタリングするために使用されます
+
+    ![レポート日付パラメータの例](attachments/report-widgets/report-date-parameter-example.png)
+
+* [レポート ボタン](report-button) - エンドユーザーがボタンをクリックしたときにレポートを生成する
+
+    ![レポート生成ボタンの例](attachments/report-widgets/generate-report-button-example.png)
+
+
+## 2 基本機能の実行
+
+{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [ページ](ページ)
