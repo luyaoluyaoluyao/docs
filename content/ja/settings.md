@@ -1,10 +1,16 @@
 ---
 title: "設定"
 parent: "consed-app-services"
+tags:
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 既存のアプリサービスを利用するには、 [ウェブサービス](consumed-web-services) を使用してください。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/settings.pdf) をクリックしてください。
+{{% /alert %}}
+
+{{% alert type="info" %}}
+App サービスは非推奨となり、Studio Pro 9 で削除されました。 既存のアプリサービスを利用するには、 [ウェブサービス](consumed-web-services) を使用してください。
 {{% /alert %}}
 
 設定画面には、アプリサービスのバージョン、アイコン、および簡単な説明が表示されます。 「アクション」、「設定」、「ドキュメント」の3つのタブが選択可能です。
