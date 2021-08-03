@@ -1,22 +1,18 @@
 ---
-title: "Project Security"
+title: "App Security"
 parent: "security"
 menu_order: 10
 tags:
   - "studio pro"
   - "security"
-  - "project security"
+  - "app security"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/project-security.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
-In the **Project Security**, you can switch security on or off for the whole project. You can also configure security settings related to the project, such as user roles, administrator credentials, demo users, anonymous users, and password policy. To be able to configure, for example, [security per module](module-security) or [access rule for entities](access-rules), you need to switch the project security on first.
+In **App Security**, you can switch security on or off for the whole app. You can also configure security settings related to the app, such as user roles, administrator credentials, demo users, anonymous users, and password policy. To be able to configure, for example, [security per module](module-security) or [access rule for entities](access-rules), you need to switch the app security on first.
 
-To configure the project security, open **Project Explorer** > **Project** > **Security**, and the dialog box will open:
+To configure the app security, open **App Explorer** > **App** > **Security**, and the dialog box will open:
 
 ![](attachments/project-security/project-security-dialog.png)
 
@@ -26,7 +22,7 @@ For more general information on security, see [Security](security).
 
 ## 2 Security Level {#security-level}
 
-The security level defines if security is switched off or on for the project and which security settings need to be configured.
+The security level defines if security is switched off or on for the app and which security settings need to be configured.
 
 | Security level | The way security is applied                                                          | Security settings to be configured                                                                     |
 | -------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
@@ -45,7 +41,7 @@ For different security levels different settings are available. Find the list of
 | Setting Name                        | Security Off | Prototype/Demo Security                                         | Production Security                                             |
 | ----------------------------------- | ------------ | --------------------------------------------------------------- | --------------------------------------------------------------- |
 | [Check security](#check-security)   | N/A          | N/A                                                             | Available, see the [Check Security](#check-security) section.   |
-| [Project status](#project-status)   | N/A          | Available, see the [Project Status](#project-status) section.   | Available, see the [Project Status](#project-status) section.   |
+| [App status](#app-status)           | N/A          | Available, see the [App Status](#app-status) section.           | Available, see the [App Status](#app-status) section.           |
 | [Module status](#module-status)     | N/A          | Available, see the [Module Status](#module-status) section.     | Available, see the [Module Status](#module-status) section.     |
 | [User roles](#user-roles)           | N/A          | Available, see the [User roles](#user-roles) section.           | Available, see the [User roles](#user-roles) section.           |
 | [Administrator](#administrator)     | N/A          | Available, see the [Administrator](#administrator) section.     | Available, see the [Administrator](#administrator) section.     |
@@ -59,14 +55,14 @@ If the security level is set to **Production**, you can specify whether the cons
 
 When **Check Security** is enabled, for each user role Studio Pro checks which forms are accessible, either directly in the menu bar or indirectly by following forms and microflows. For each of those forms, Studio Pro checks whether referred attributes and associations are accessible for the current user role. If not, an error is added to the error list. These errors are only shown if there are no other consistency errors.
 
-### 2.3 Project Status {#project-status}
+### 2.3 App Status {#app-status}
 
-The project status indicates the security status for the current project security level.
+The app status indicates the security status for the current app security level.
 
-| Project status | Description                                                                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Complete       | All security settings for the current security level have been configured.                                                                          |
-| Incomplete     | Some security settings for the current security level need to be configured. For more information, see the [Module Status](#module-status) section. |
+| App status | Description                                                                                                                                         |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Complete   | All security settings for the current security level have been configured.                                                                          |
+| Incomplete | Some security settings for the current security level need to be configured. For more information, see the [Module Status](#module-status) section. |
 
 ## 3 Module Status {#module-status}
 
@@ -82,7 +78,7 @@ A user role aggregates a number of access rights on data, pages, and microflows.
 
 ## 5 Administrator {#administrator}
 
-In the **Administrator** tab of **Project Security**, you can change the default credentials and a user role for the Administrator user. For more information, see [Administrator](administrator).
+In the **Administrator** tab of **App Security**, you can change the default credentials and a user role for the Administrator user. For more information, see [Administrator](administrator).
 
 ## 6 Demo Users {#demo-users}
 
