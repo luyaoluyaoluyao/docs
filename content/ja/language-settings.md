@@ -1,212 +1,212 @@
 ---
-title: "Language Settings"
-parent: "translatable-texts"
+title: "言語設定"
+parent: "translatable-text"
 menu_order: 10
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
-  - "add language"
-  - "date format"
-  - "completeness"
+  - "翻訳"
+  - "言語"
+  - "翻訳可能なテキスト"
+  - "言語を追加"
+  - "日付の形式"
+  - "完全さ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix is designed to be used by users in multiple languages. The **Languages** tab of the **App Settings** allows you to select which languages your app will support.
+Mendixは、ユーザーが複数の言語で使用するように設計されています。 **App Settings** の **Languages** タブでは、アプリがサポートする言語を選択できます。
 
 ![](attachments/language/01_project_settings.png)
 
-You can reach this tab in two ways:
+次の2つの方法でこのタブにアクセスできます:
 
-1. Select the menu option **Language > Language Settings…**.
-2. Open the **App{Name} > Settings** dialog box from the [App Explorer](project-explorer) and select the **Language** tab.
+1. メニューオプション **言語 > 言語設定…** を選択します。
+2. **App{Name} > Settings** ダイアログボックスを [App Explorer](project-explorer) から開き、 **Language** タブを選択します。
 
-## 2 Setting Default Language
+## 2 標準言語の設定
 
-There must be a default app language. Select the **Default language** from the drop-down list. This will contain all languages which have been added to your app. It is recommended that you do this when you start developing your app.
+デフォルトのアプリ言語が必要です。 ドロップダウン リストから **既定の言語** を選択します。 これにはアプリに追加されたすべての言語が含まれます。 アプリの開発を開始する際には、これを行うことをお勧めします。
 
-Setting the default language has two functions:
+デフォルト言語の設定には2つの関数があります:
 
-* It sets the language which will be displayed to the end-user if the end-user is not associated with a Language entity, or if the end-user's language is not enabled in the app
-* It sets the language which will be used if there is no translation of a translatable text in the end-user's language, even if the app has the language enabled
+* エンドユーザーが言語エンティティに関連付けられていない場合、エンドユーザーに表示される言語を設定します。 または、エンドユーザーの言語がアプリで有効になっていない場合
+* エンドユーザーの言語に翻訳可能なテキストの翻訳がない場合に使用される言語を設定します たとえアプリの言語が有効になっていたとしても
 
-The initial default language is *English, United States*.
+初期設定言語は *英語、アメリカ合衆国* です。
 
-## 3 Adding Languages
+## 3 言語の追加
 
 You can add as many languages as you like from the list of supported languages by clicking **Add**, selecting the desired language, and clicking **OK**.
 
 ![](attachments/language/add-language.png)
 
-Most languages will be added with an empty dictionary, although some translations have already been set up in the Dutch dictionary.
+ほとんどの言語は空の辞書で追加されますが、一部の翻訳はオランダ語辞書で既に設定されています。
 
-## 4 Advanced Language Settings{#advanced}
+## 4つの高度な言語設定{#advanced}
 
-You can set each language in your app to have additional settings.
+アプリの言語ごとに追加設定を行うことができます。
 
-![Edit Language](attachments/language/edit-language.png)
+![言語を編集](attachments/language/edit-language.png)
 
-### 4.1 Check Completeness
+### 4.1 完全性の確認
 
 If you check the **Check completeness** box, you will get a warning (or error) message in the [Errors pane](errors-pane) for every text which has no entry in this language's dictionary.
 
-If this is the default language, the **Check completeness** box will be checked and you will not be able to uncheck it.
+これがデフォルト言語の場合、 **完全性をチェックする** ボックスがチェックされ、チェックを外すことはできません。
 
-### 4.2 Custom Date and Time Formatting
+### 4.2 日付と時刻の書式設定
 
-You can set a custom format for the following:
+以下のようにカスタム書式を設定できます。
 
-* **Date format**
-* **Time format**
-* **Date and time format**
+* **日付の形式**
+* **時刻の形式**
+* **日付と時刻の形式**
 
-Type a format string in the relevant box and you will see an example of how a date will be formatted underneath.
+該当するボックスにフォーマット文字列を入力すると、下に日付がどのようにフォーマットされるかの例が表示されます。
 
-Click **Edit…** to open a dialog box which will provide a full reference for the format string:
+**編集…** をクリックして、フォーマット文字列の完全な参照を提供するダイアログボックスを開きます:
 
-![Date edit dialog](attachments/language/date-format.png)
+![日付編集ダイアログ](attachments/language/date-format.png)
 
-## 5 List of Supported Languages
+## サポートされる言語の5つのリスト
 
-The most up-to-date list of supported languages in your version of Studio Pro is the one in the add languages menu. The list below is provided to enable you to quickly evaluate if Mendix supports your desired language.
+Studio Pro のバージョンでサポートされている言語の最新のリストは、format@@0 メニューの 1 つです。 Mendixがご希望の言語をサポートしているかどうかを迅速に評価するために、以下のリストが提供されています。
 
-| Language                      | Country                | Locale     | Available Since |
-| ----------------------------- | ---------------------- | ---------- | --------------- |
-| Albanian                      | Albania                | sq_AL      | 9.0.5           |
-| Amharic                       | Ethiopia               | am_ET      | 9.2.0           |
-| Arabic                        | Algeria                | ar_DZ      | 9.0.5           |
-| Arabic                        | Bahrain                | ar_BH      | 9.0.5           |
-| Arabic                        | Egypt                  | ar_EG      | 9.0.5           |
-| Arabic                        | Iraq                   | ar_IQ      | 9.0.5           |
-| Arabic                        | Jordan                 | ar_JO      | 9.0.5           |
-| Arabic                        | Kuwait                 | ar_KW      | 9.0.5           |
-| Arabic                        | Lebanon                | ar_LB      | 9.0.5           |
-| Arabic                        | Libya                  | ar_LY      | 9.0.5           |
-| Arabic                        | Morocco                | ar_MA      | 9.0.5           |
-| Arabic                        | Oman                   | ar_OM      | 9.0.5           |
-| Arabic                        | Qatar                  | ar_QA      | 9.0.5           |
-| Arabic                        | Saudi Arabia           | ar_SA      | 9.0.5           |
-| Arabic                        | Sudan                  | ar_SD      | 9.0.5           |
-| Arabic                        | Syria                  | ar_SY      | 9.0.5           |
-| Arabic                        | Tunisia                | ar_TN      | 9.0.5           |
-| Arabic                        | United Arab Emirates   | ar_AE      | 9.0.5           |
-| Arabic                        | Yemen                  | ar_YE      | 9.0.5           |
-| Armenian                      | Armenia                | hy_AM      | 9.2.0           |
-| Belarusian                    | Belarus                | be_BY      | 9.0.5           |
-| Bengali                       | Bangladesh             | bn_BD      | 9.3.0           |
-| Bengali                       | India                  | bn_IN      | 9.3.0           |
-| Bulgarian                     | Bulgaria               | bg_BG      | 9.0.5           |
-| Catalan                       | Spain                  | ca_ES      | 9.0.5           |
-| Chinese (Simplified)          | China                  | zh_CN      | 9.0.5           |
-| Chinese (Simplified)          | Singapore              | zh_SG      | 9.0.5           |
-| Chinese (Traditional)         | Hong Kong              | zh_HK      | 9.0.5           |
-| Chinese (Traditional)         | Taiwan                 | zh_TW      | 9.0.5           |
-| Croatian                      | Croatia                | hr_HR      | 9.0.5           |
-| Czech                         | Czech Republic         | cs_CZ      | 9.0.5           |
-| Dari                          | Afghanistan            | fa_AF      | 9.2.0           |
-| Danish                        | Denmark                | da_DK      | 9.0.5           |
-| Dutch                         | Belgium                | nl_BE      | 9.0.5           |
-| Dutch                         | Netherlands            | nl_NL      | 9.0.5           |
-| English                       | Australia              | en_AU      | 9.0.5           |
-| English                       | Canada                 | en_CA      | 9.0.5           |
-| English                       | India                  | en_IN      | 9.0.5           |
-| English                       | Ireland                | en_IE      | 9.0.5           |
-| English                       | Malta                  | en_MT      | 9.0.5           |
-| English                       | New Zealand            | en_NZ      | 9.0.5           |
-| English                       | Philippines            | en_PH      | 9.0.5           |
-| English                       | Singapore              | en_SG      | 9.0.5           |
-| English                       | South Africa           | en_ZA      | 9.0.5           |
-| English                       | United Kingdom         | en_GB      | 9.0.5           |
-| English                       | United States          | en_US      | 9.0.5           |
-| Estonian                      | Estonia                | et_EE      | 9.0.5           |
-| Finnish                       | Finland                | fi_FI      | 9.0.5           |
-| French                        | Belgium                | fr_BE      | 9.0.5           |
-| French                        | Canada                 | fr_CA      | 9.0.5           |
-| French                        | France                 | fr_FR      | 9.0.5           |
-| French                        | Luxembourg             | fr_LU      | 9.0.5           |
-| French                        | Switzerland            | fr_CH      | 9.0.5           |
-| German                        | Austria                | de_AT      | 9.0.5           |
-| German                        | Germany                | de_DE      | 9.0.5           |
-| German                        | Luxembourg             | de_LU      | 9.0.5           |
-| German                        | Switzerland            | de_CH      | 9.0.5           |
-| Greek                         | Cyprus                 | el_CY      | 9.0.5           |
-| Greek                         | Greece                 | el_GR      | 9.0.5           |
-| Hebrew                        | Israel                 | iw_IL      | 9.0.5           |
-| Hindi                         | India                  | hi_IN      | 9.0.5           |
-| Hungarian                     | Hungary                | hu_HU      | 9.0.5           |
-| Icelandic                     | Iceland                | is_IS      | 9.0.5           |
-| Indonesian                    | Indonesia              | in_ID      | 9.0.5           |
-| Irish                         | Ireland                | ga_IE      | 9.0.5           |
-| Italian                       | Italy                  | it_IT      | 9.0.5           |
-| Italian                       | Switzerland            | it_CH      | 9.0.5           |
-| Japanese (Gregorian calendar) | Japan                  | ja_JP      | 9.0.5           |
-| Japanese (Imperial calendar)  | Japan                  | ja_JP_JP | 9.0.5           |
-| Khmer                         | Cambodia               | km_KH      | 9.0.5           |
-| Kinyarwanda                   | Rwanda                 | rw_RW      | 9.3.0           |
-| Korean                        | South Korea            | ko_KR      | 9.0.5           |
-| Lao                           | Laos                   | lo_LA      | 9.0.5           |
-| Latvian                       | Latvia                 | lv_LV      | 9.0.5           |
-| Lithuanian                    | Lithuania              | lt_LT      | 9.0.5           |
-| Macedonian                    | Macedonia              | mk_MK      | 9.0.5           |
-| Malay                         | Malaysia               | ms_MY      | 9.0.5           |
-| Maltese                       | Malta                  | mt_MT      | 9.0.5           |
-| Mongolian                     | Mongolia               | mn_MN      | 9.2.0           |
-| Myanmar (Burmese)             | Myanmar                | my_MM      | 9.0.5           |
-| Nepali                        | Nepal                  | ne_NP      | 9.2.0           |
-| Norwegian (Bokmål)            | Norway                 | no_NO      | 9.0.5           |
-| Norwegian (Nynorsk)           | Norway                 | no_NO_NY | 9.0.5           |
-| Pashto                        | Afghanistan            | ps_AF      | 9.2.0           |
-| Persian (Farsi)               | Iran                   | fa_IR      | 9.2.0           |
-| Persian (Farsi)               | Tajikistan             | fa_TJ      | 9.2.0           |
-| Polish                        | Poland                 | pl_PL      | 9.0.5           |
-| Portuguese                    | Brazil                 | pt_BR      | 9.0.5           |
-| Portuguese                    | Portugal               | pt_PT      | 9.0.5           |
-| Punjabi                       | Pakistan               | pa_PK      | 9.3.0           |
-| Punjabi                       | India                  | pa_IN      | 9.3.0           |
-| Romanian                      | Romania                | ro_RO      | 9.0.5           |
-| Russian                       | Russia                 | ru_RU      | 9.0.5           |
-| Serbian (Cyrillic)            | Bosnia and Herzegovina | sr_BA      | 9.0.5           |
-| Serbian (Cyrillic)            | Serbia and Montenegro  | sr_CS      | 9.0.5           |
-| Sinhala                       | Sri Lanka              | si_LK      | 9.3.0           |
-| Slovak                        | Slovakia               | sk_SK      | 9.0.5           |
-| Slovenian                     | Slovenia               | sl_SI      | 9.0.5           |
-| Somali                        | Somalia                | so_SO      | 9.2.0           |
-| Spanish                       | Argentina              | es_AR      | 9.0.5           |
-| Spanish                       | Bolivia                | es_BO      | 9.0.5           |
-| Spanish                       | Chile                  | es_CL      | 9.0.5           |
-| Spanish                       | Colombia               | es_CO      | 9.0.5           |
-| Spanish                       | Costa Rica             | es_CR      | 9.0.5           |
-| Spanish                       | Dominican Republic     | es_DO      | 9.0.5           |
-| Spanish                       | Ecuador                | es_EC      | 9.0.5           |
-| Spanish                       | El Salvador            | es_SV      | 9.0.5           |
-| Spanish                       | Guatemala              | es_GT      | 9.0.5           |
-| Spanish                       | Honduras               | es_HN      | 9.0.5           |
-| Spanish                       | Mexico                 | es_MX      | 9.0.5           |
-| Spanish                       | Nicaragua              | es_NI      | 9.0.5           |
-| Spanish                       | Panama                 | es_PA      | 9.0.5           |
-| Spanish                       | Paraguay               | es_PY      | 9.0.5           |
-| Spanish                       | Peru                   | es_PE      | 9.0.5           |
-| Spanish                       | Puerto Rico            | es_PR      | 9.0.5           |
-| Spanish                       | Spain                  | es_ES      | 9.0.5           |
-| Spanish                       | United States          | es_US      | 9.0.5           |
-| Spanish                       | Uruguay                | es_UY      | 9.0.5           |
-| Spanish                       | Venezuela              | es_VE      | 9.0.5           |
-| Swedish                       | Sweden                 | sv_SE      | 9.0.5           |
-| Swahili                       | Kenya                  | sw_KE      | 9.2.0           |
-| Swahili                       | Rwanda                 | sw_RW      | 9.2.0           |
-| Swahili                       | Tanzania               | sw_TZ      | 9.2.0           |
-| Swahili                       | Uganda                 | sw_UG      | 9.2.0           |
-| Tagalog                       | Philippines            | tl_PH      | 9.2.0           |
-| Tamil                         | India                  | ta_IN      | 9.3.0           |
-| Tamil                         | Sri Lanka              | ta_LK      | 9.3.0           |
-| Tamil                         | Singapore              | ta_SG      | 9.3.0           |
-| Thai (Western digits)         | Thailand               | th_TH      | 9.0.5           |
-| Thai (Thai digits)            | Thailand               | th_TH_TH | 9.0.5           |
-| Turkish                       | Turkey                 | tr_TR      | 9.0.5           |
-| Ukrainian                     | Ukraine                | uk_UA      | 9.0.5           |
-| Urdu                          | India                  | ur_IN      | 9.2.0           |
-| Urdu                          | Pakistan               | ur_PK      | 9.2.0           |
-| Vietnamese                    | Vietnam                | vi_VN      | 9.0.5           |
-| Welsh                         | Wales                  | cy_GB      | 9.0.5           |
+| 言語                   | 国                | ロケール         | 以下から利用可能： |
+| -------------------- | ---------------- | ------------ | --------- |
+| アルバニア語               | アルバニア            | sq_AL        | 9.0.5     |
+| Amharic              | Ethiopia         | am_ET        | 9.2.0     |
+| アラビア文字               | Algeria          | ar_DZ        | 9.0.5     |
+| アラビア文字               | Bahrain          | ar_BH        | 9.0.5     |
+| アラビア文字               | エジプト             | ar_EG        | 9.0.5     |
+| アラビア文字               | イラク共和国           | ar_IQ        | 9.0.5     |
+| アラビア文字               | Jordan           | ar_JO        | 9.0.5     |
+| アラビア文字               | Kuwait           | ar_KW        | 9.0.5     |
+| アラビア文字               | Lebanon          | ar_LB        | 9.0.5     |
+| アラビア文字               | リビア              | ar_LY        | 9.0.5     |
+| アラビア文字               | モロッコ             | ar_MA        | 9.0.5     |
+| アラビア文字               | Oman             | ar_OM        | 9.0.5     |
+| アラビア文字               | Qatar            | ar_QA        | 9.0.5     |
+| アラビア文字               | サウジアラビア          | ar_SA        | 9.0.5     |
+| アラビア文字               | Sudan            | ar_SD        | 9.0.5     |
+| アラビア文字               | シリア語             | ar_sy        | 9.0.5     |
+| アラビア文字               | Tunisia          | ar_TN        | 9.0.5     |
+| アラビア文字               | アラブ首長国連邦         | ar_AE        | 9.0.5     |
+| アラビア文字               | イエメン語            | ar_YE        | 9.0.5     |
+| アルメニア語               | アルメニア            | hy_AM        | 9.2.0     |
+| ベラルーシ語               | ベラルーシ共和国         | be_BY        | 9.0.5     |
+| ベンガル語                | バングラデシュ(バングラデシュ) | bn_BD        | 9.3.0     |
+| ベンガル語                | インド              | bn_IN        | 9.3.0     |
+| ブルガリア語               | ブルガリア共和国         | bg_SG        | 9.0.5     |
+| カタロニア語               | スペイン             | ca_ES        | 9.0.5     |
+| 中国語 (簡体字)            | 中国               | zh_CN        | 9.0.5     |
+| 中国語 (簡体字)            | シンガポール           | zh_SG        | 9.0.5     |
+| 中国語 (繁体字)            | 香港               | zh_HK        | 9.0.5     |
+| 中国語 (繁体字)            | 台湾               | zh_TW        | 9.0.5     |
+| クロアチア語               | クロアチア            | 時間_時間        | 9.0.5     |
+| チェコ語                 | Czech Republic   | cs_CZ        | 9.0.5     |
+| Dari                 | アフガニスタンformat@@0 | fa_AF        | 9.2.0     |
+| デンマーク語               | デンマーク            | da_DK        | 9.0.5     |
+| オランダ語                | ベルギー             | nl_BE        | 9.0.5     |
+| オランダ語                | オランダ             | nl_NL        | 9.0.5     |
+| 日本語                  | オーストラリア          | ja_AU        | 9.0.5     |
+| 日本語                  | カナダ              | en_CA        | 9.0.5     |
+| 日本語                  | インド              | en_IN        | 9.0.5     |
+| 日本語                  | アイルランド           | en_IE        | 9.0.5     |
+| 日本語                  | Malta            | number@@0    | 9.0.5     |
+| 日本語                  | ニュージーランド         | number@@0    | 9.0.5     |
+| 日本語                  | フィリピン            | pH(_P)       | 9.0.5     |
+| 日本語                  | シンガポール           | sg           | 9.0.5     |
+| 日本語                  | 南アフリカ            | ja_ZA        | 9.0.5     |
+| 日本語                  | イギリス             | ja_JP        | 9.0.5     |
+| 日本語                  | アメリカ             | ja_JP        | 9.0.5     |
+| エストニア語               | エストニア共和国         | et_EE        | 9.0.5     |
+| フィンランド語              | フィンランド           | fi_FI        | 9.0.5     |
+| フランス語                | ベルギー             | fr_BE        | 9.0.5     |
+| フランス語                | カナダ              | fr_CA        | 9.0.5     |
+| フランス語                | フランス             | fr_FR        | 9.0.5     |
+| フランス語                | Luxembourg       | fr_LU        | 9.0.5     |
+| フランス語                | スイス              | fr_CH        | 9.0.5     |
+| ドイツ語                 | オーストリア           | de_AT        | 9.0.5     |
+| ドイツ語                 | ドイツ              | de_DE        | 9.0.5     |
+| ドイツ語                 | Luxembourg       | de_LU        | 9.0.5     |
+| ドイツ語                 | スイス              | de_CH        | 9.0.5     |
+| ギリシア語                | キプロス             | y(_C)        | 9.0.5     |
+| ギリシア語                | ギリシャ             | el_GR        | 9.0.5     |
+| ヘブライ文字               | Israel           | iw_IL        | 9.0.5     |
+| ヒンディー語               | インド              | hi_IN        | 9.0.5     |
+| ハンガリー語               | ハンガリー            | hu_HU        | 9.0.5     |
+| Icelandic            | アイスランド共和国        | is_IS        | 9.0.5     |
+| インドネシア語              | インドネシア           | in_ID        | 9.0.5     |
+| アイルランド語              | アイルランド           | ga_IE        | 9.0.5     |
+| イタリア語                | イタリア             | it_IT        | 9.0.5     |
+| イタリア語                | スイス              | it_CH        | 9.0.5     |
+| 和暦（グレゴリオ暦）           | 日本               | ja_JP        | 9.0.5     |
+| 日本人（<unk> ）          | 日本               | ja_JP_JP   | 9.0.5     |
+| Khmer                | Cambodia         | km_KH        | 9.0.5     |
+| Kinyarwanda          | Rwanda           | rw_RW        | 9.3.0     |
+| Korean               | 韓国               | ko_KR        | 9.0.5     |
+| Lao                  | ラオス              | lo_LA        | 9.0.5     |
+| ラトビア語                | ラトビア             | lv_LV        | 9.0.5     |
+| リトアニア語               | リトアニア            | lt_LT        | 9.0.5     |
+| マケドニア語               | マケドニア            | mk_MK        | 9.0.5     |
+| マレー語                 | マレーシア            | ms_MY        | 9.0.5     |
+| Maltese              | Malta            | mt_MT        | 9.0.5     |
+| モンゴル語                | Mongolia         | mn_MB        | 9.2.0     |
+| Myanmar (Burmese)    | Myanmar          | my_MM        | 9.0.5     |
+| Nepali               | ネパール共和国          | ne_NP        | 9.2.0     |
+| ノルウェー語 (Bokma°l)     | ノルウェー            | no_NO        | 9.0.5     |
+| Norwegian (Nynorsk)  | ノルウェー            | no_NO_NY   | 9.0.5     |
+| Pashto               | アフガニスタンformat@@0 | ps_AF        | 9.2.0     |
+| ペルシャ語(Farsi)         | イラン              | fa_IR        | 9.2.0     |
+| ペルシャ語(Farsi)         | Tajikistan       | fa_TJ        | 9.2.0     |
+| ポーランド語               | ポーランド            | pl_PL        | 9.0.5     |
+| ポルトガル語               | ブラジル             | pt_BR        | 9.0.5     |
+| ポルトガル語               | ポルトガル            | pt_PT        | 9.0.5     |
+| Punjabi              | パキスタン共和国         | pa_PK        | 9.3.0     |
+| Punjabi              | インド              | pa_IN        | 9.3.0     |
+| ルーマニア語               | ルーマニア            | ro_RO        | 9.0.5     |
+| ロシア語                 | ロシア              | ru_RU(_R)  | 9.0.5     |
+| セルビア語 (キリル文字)        | ボスニア・ヘルツェゴビナ     | sr_BA        | 9.0.5     |
+| セルビア語 (キリル文字)        | セルビアとモンテネグロ      | sr_CS        | 9.0.5     |
+| シンハラ語                | スリランカ            | si_LK        | 9.3.0     |
+| スロバキア語               | スロバキア            | sk_SK        | 9.0.5     |
+| Slovenian            | Slovenia         | sl_SI        | 9.0.5     |
+| Somali               | Somalia          | そうする(_S)     | 9.2.0     |
+| スペイン語                | アルゼンチン           | es_AR        | 9.0.5     |
+| スペイン語                | Bolivia          | es_BO        | 9.0.5     |
+| スペイン語                | チリ               | es_CL        | 9.0.5     |
+| スペイン語                | コロンビア            | es_CO        | 9.0.5     |
+| スペイン語                | コスタリカ            | CR(_CR)      | 9.0.5     |
+| スペイン語                | ドミニカ共和国          | DO(_D)       | 9.0.5     |
+| スペイン語                | Ecuador          | es_EC        | 9.0.5     |
+| スペイン語                | El Salvador      | sv           | 9.0.5     |
+| スペイン語                | グアテマラ共和国         | gd_GT_(_G) | 9.0.5     |
+| スペイン語                | Honduras         | es_HN        | 9.0.5     |
+| スペイン語                | メキシコ             | MX           | 9.0.5     |
+| スペイン語                | Nicaragua        | es_NI        | 9.0.5     |
+| スペイン語                | Panama           | PA           | 9.0.5     |
+| スペイン語                | Paraguay         | es_PY        | 9.0.5     |
+| スペイン語                | ペルー              | PE           | 9.0.5     |
+| スペイン語                | Puerto Rico      | es_PR        | 9.0.5     |
+| スペイン語                | スペイン             | es_ES        | 9.0.5     |
+| スペイン語                | アメリカ             | e_US         | 9.0.5     |
+| スペイン語                | Uruguay          | es_UY        | 9.0.5     |
+| スペイン語                | ベネズエラ            | e_VE         | 9.0.5     |
+| スウェーデン語              | スウェーデン           | sv_SE        | 9.0.5     |
+| スワヒリ語                | ケニア              | sw_KE        | 9.2.0     |
+| スワヒリ語                | Rwanda           | sw_RW        | 9.2.0     |
+| スワヒリ語                | Tanzania         | sw_TZ        | 9.2.0     |
+| スワヒリ語                | Uganda           | sw_UG        | 9.2.0     |
+| Tagalog              | フィリピン            | pH(_P)       | 9.2.0     |
+| Tamil                | インド              | 入力(_E)       | 9.3.0     |
+| Tamil                | スリランカ            | LK           | 9.3.0     |
+| Tamil                | シンガポール           | SG(_SG)      | 9.3.0     |
+| タイ (Western Digital) | Thailand         | TH_TH        | 9.0.5     |
+| タイ語（タイ語の数字）          | Thailand         | TH_TH_TH   | 9.0.5     |
+| トルコ語                 | トルコ              | tr_TR        | 9.0.5     |
+| ウクライナ語               | ウクライナ            | uk_UA        | 9.0.5     |
+| ウルドゥー語               | インド              | ur_IN        | 9.2.0     |
+| ウルドゥー語               | パキスタン共和国         | ur_PK        | 9.2.0     |
+| Vietnamese           | Vietnam          | vi_VN        | 9.0.5     |
+| ウェールズ語               | ウェールズ語           | cy_GB        | 9.0.5     |
