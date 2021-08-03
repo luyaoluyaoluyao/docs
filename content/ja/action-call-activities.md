@@ -1,24 +1,24 @@
 ---
-title: "Action Call Activities"
-parent: "activities"
+title: "アクション通話アクティビティ"
+parent: "アクティビティ"
 menu_order: 30
 tags:
   - "studio pro"
-  - "action call"
-  - "action call activities"
+  - "アクション通話"
+  - "アクションコール アクティビティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The following are the action call activities you can use in your microflow or nanoflow:
+以下は、マイクロフローまたはナノフローで使用できるアクションコールアクティビティです。
 
-![Action Call Activities](attachments/action-call-activities/action-call-activities.png)
+![アクション通話アクティビティ](attachments/action-call-activities/action-call-activities.png)
 
 * [Java action call](java-action-call) *(only in microflows)* – calls a Java action
-* [JavaScript action call](javascript-action-call) *(only in nanoflows)* – calls a JavaScript action
-* [Microflow call](microflow-call) – calls a microflow
+* [JavaScript アクション コール](javascript-action-call) *(nanoflowsのみ)* – JavaScript アクションを呼び出します。
+* [マイクロフローコール](microflow-call) – マイクロフローを呼び出す
 
-## 2 Read More
+## 2 続きを読む
 
-* [Activities](activities)
-* [Call Nanoflow](nanoflow-call)
+* [アクティビティ](アクティビティ)
+* [Nanoflowに発信](nanoflow-call)
