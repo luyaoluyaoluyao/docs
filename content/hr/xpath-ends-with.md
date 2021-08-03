@@ -1,8 +1,6 @@
 ---
-title: "XPath Ends-With"
+title: "XPath ends-with"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1 Overview
