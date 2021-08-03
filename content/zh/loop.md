@@ -1,43 +1,43 @@
 ---
-title: "Loop"
-parent: "microflows-and-nanoflows"
+title: "循环"
+parent: "微流和微流法"
 menu_order: 80
 tags:
   - "studio pro"
-  - "loop"
-  - "iterate over"
-  - "for each"
-  - "while"
+  - "循环"
+  - "迭代结束"
+  - "为每一个"
+  - "时"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A loop is used to execute repeated actions and is visualized as a frame. For each iteration, the flow inside the loop is executed. The loop can be configured to iterate over a list or be based on a Boolean expression. For more information, see the [Loop Type Property](#loop-type) section below.
+循环用于执行重复的行动，并可视化为一个框架。 对于每次迭代，循环内的流程都会被执行。 循环可以配置为在列表上迭代或基于布尔表达式。 欲了解更多信息，请参阅下面的 [循环类型属性](#loop-type) 部分。
 
-The loop can contain all types of elements used in microflows, except for [start events](start-event) and [end events](end-event). Only a loop can contain [break events](break-event) and [continue events](continue-event).
+循环可以包含微流中使用的所有类型元素，但 [开始事件](start-event) 和 [结束事件](end-event) 除外。 只有循环可以包含 [中断事件](break-event) 和 [继续事件](continue-event)。
 
-## 2 Loop Type Property {#loop-type}
+## 2 循环类型属性 {#loop-type}
 
-The two loop types are described below.
+下面介绍了两种循环类型。
 
-### 2.1 For Each (Item in the List) {#for-each}
+### 2.1 每一项（清单上的物品） {#for-each}
 
-This is the default type when creating a new loop activity, and it can be used to iterate over a list of objects. The list can be configured by setting the **Iterate over** property to a list in your flow scope, and for each object in the list, the flow inside the loop will be executed. The iterator (which looks the same as a parameter) represents the current object in the list for each iteration, and it can be renamed by setting **Loop object name**. This object is shown in black, and the entity type of the object is in blue.
+这是创建新循环活动时的默认类型，它可以用来在对象列表中迭代。 可以通过在您的流程范围内设置 **迭代到** 属性来配置列表。 对于列表中的每个对象，循环内的流程将被执行。 迭代器 (看起来与参数相同) 代表每次迭代列表中的当前对象， 并且可以通过设置 **循环对象名称** 来重命名它。 此对象以黑色显示，而对象的实体类型是蓝色。
 
 ![](attachments/loop/foreach-loop-edit-form.png)
 
-For example, if you have a list of objects of the **OrderLine** entity and you want to set the purchase date for every object, you can use a loop with a change activity in it that sets the purchase date:
+例如， 如果您有 **订单行** 实体的对象列表并且您想为每个对象设置购买日期， 您可以使用一个循环，并在循环中设置购买日期：
 
 ![](attachments/loop/foreach-loop.png)
 
-### 2.1 While (Condition Is True) {#while}
+### 2.1 在(条件是真) {#while}
 
-This loop type repeats the flow inside the loop many times until some condition evaluates to `false`. This condition is evaluated before each execution of the loop body. Typically, a **While** loop is used when it is impossible to determine the exact number of loop iterations in advance.
+此循环类型多次重复循环中的流程，直到某些条件评估为 `false`。 此条件在循环实体的每次执行之前进行评估。 典型的情况是，当无法事先确定循环迭代的确切次数时， **则使用** 循环。
 
-You can provide a description for the loop or the condition by setting the **Caption** field. The loop condition can be entered as an [expression](expressions) in the **Expression** editor, and it should result in a Boolean value. The **While** keyword is shown in blue, and the **Caption** is shown underneath in black.
+您可以通过设置 **标题** 字段来提供循环或条件的描述。 The loop condition can be entered as an [expression](expressions) in the **Expression** editor, and it should result in a Boolean value. **同时显示** 个关键字， **标题** 下面以黑体显示。
 
 ![](attachments/loop/while-loop-edit-form.png)
 
-For example, if you want to [log](log-message) numbers between 1 and 5, you can use a loop with a condition that checks whether a **Counter** [variable](variable-activities) is less than or equal to 5. Inside the loop, you would log the **Counter** value and add 1 to the **Counter** variable in order for the loop to stop executing when the **Counter** is greater than 5:
+例如，如果你想要 [日志](log-message) 个数字介于 1 到 5 之间。 您可以使用循环，条件是检查 **计数器** [变量](variable-activities) 是否小于或等于 5。 循环内， 您将记录 **个计数器** 值，并将1添加到 **计数器** 变量，以便循环停止执行 **计数器** 大于 5 时：
 
 ![](attachments/loop/while-loop.png)
