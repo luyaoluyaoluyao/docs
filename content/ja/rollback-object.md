@@ -1,97 +1,97 @@
 ---
-title: "Rollback Object"
-parent: "object-activities"
+title: "オブジェクトをロールバックする"
+parent: "object-activity"
 menu_order: 70
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The rollback object action can be used to undo changes (that have not been committed) made to the object in the part of the flow preceding the activity. Furthermore, it deletes objects that have been created but never committed.
+ロールバック・オブジェクト・アクションを使用すると、アクティビティより前のフローの部分でオブジェクトに加えられた変更(コミットされていない)を取り消すことができます。 さらに、作成されたがコミットされていないオブジェクトを削除します。
 
 {{% alert type="info" %}}
-When the rollback object action is performed in a sub-microflow, it rolls back the changes in its parent microflow as well as the sub-microflow.
+ロールバック・オブジェクト・アクションがサブ・マイクロフローで実行されると、その親マイクロフローとサブ・マイクロフローの変更がロールバックされます。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of rollback object properties is represented in the image below:
+ロールバックオブジェクトのプロパティの例を以下の画像に示します。
 
-![rollback object properties](attachments/object-activities/rollback-properties.png)
+![ロールバックオブジェクト プロパティ](attachments/object-activities/rollback-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The rollback object properties pane consists of the following sections:
+rollback オブジェクトのプロパティペインは、次のセクションで構成されます。
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action{#action}
+## 3つのアクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Object
+### 3.1 オブジェクト
 
-**Object** defines the object that needs to be rolled back.
+**オブジェクト** はロールバックが必要なオブジェクトを定義します。
 
-### 3.2 Refresh in Client
+### 3.2 クライアントで更新
 
-This setting defines how changes are reflected in the pages presented to the end-user.
+この設定では、エンドユーザーに表示されるページに変更が反映される方法を定義します。
 
-Default: *No*
+デフォルト: *いいえ*
 
 {{% alert type="info" %}}
-To make pages of a Mendix app efficient, many widgets display values from an attribute of an object which is cached on the page. Attributes in widgets which use cached data are *always* reflected in the client even if they are not committed and irrespective of the value of **Refresh in client**.
+Mendix アプリのページを効率的にするために、多くのウィジェットはページにキャッシュされたオブジェクトの属性から値を表示します。 Attributes in widgets which use cached data are *always* reflected in the client even if they are not committed and irrespective of the value of **Refresh in client**.
 
 If a widget is only updated when a [data source](data-sources) is loaded, then rollbacks will only be seen if they are committed and **Refresh in client** is set to *Yes*.
 
-When testing your app, ensure that the desired data is being displayed by the widgets you have chosen.
+アプリをテストする際は、選択したウィジェットで希望するデータが表示されていることを確認してください。
 {{% /alert %}}
 
-#### 3.2.1 Microflow Is Called from the Client in an Online App
+#### 3.2.1 マイクロフローは、オンラインアプリでクライアントから呼び出されます
 
-If **Refresh in client** is set to *No*, the rollback is not reflected in the client.
+**Refresh in client** が *No*に設定されている場合、ロールバックはクライアントに反映されません。
 
-If set to *Yes*, the object is refreshed across the client, which includes reloading the relevant [data sources](data-sources).
+*はい*に設定すると、関連する [データ ソース](data-sources) の再ロードを含む、オブジェクトはクライアント全体でリフレッシュされます。
 
-#### 3.2.2 Microflow Is Called in an Offline, Native, or Hybrid App
+#### 3.2.2 マイクロフローはオフライン、ネイティブ、またはハイブリッドアプリで呼び出されます
 
-When inside a microflow that is called from an offline, native, or hybrid app, the **Refresh in client** option is ignored and functions as if it was set to **No**.
+オフライン、ネイティブ、またはハイブリッドアプリから呼び出されるマイクロフロー内の場合 **クライアントの** オプションは無視され、 **いいえ** に設定されているかのように機能します。
 
-For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 
-#### 3.2.3 Action Is in a Nanoflow
+#### 3.2.3 アクションはNanoflow にあります
 
 When inside a [nanoflow](nanoflows), the rollback object action reloads [data sources](data-sources) as if **Refresh in client** was set to *Yes*.
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 What Does Rollback Do?
+## 5ロールバックは何をしますか?
 
 {{% alert type="info" %}}
-A rollback action in a microflow or nanoflow is not the same as the rollback option on an [Error Event](error-event#errors-in-microflows) in a microflow.
+マイクロフローまたはナノフローのロールバックアクションは、マイクロフローの [Error Event](error-event#errors-in-microflows) のロールバックオプションと同じではありません。
 
-A rollback from an error event does not trigger any rollback events, and does not reflect whether changes to objects have been committed.
+error イベントからのロールバックはロールバックイベントをトリガーせず、オブジェクトへの変更がコミットされているかどうかは反映されません。
 {{% /alert %}}
 
-Pressing a **Cancel** button or triggering a rollback activity will initiate the rollback events.
+**キャンセル** ボタンを押すか、ロールバックアクティビティをトリガーすると、ロールバックイベントが開始されます。
 
-* **Events**: all before and after events are executed
-    * If any before-rollback event returns false, an exception can be thrown
-    * If an exception occurs during an event, all the applied changes are reverted with the default error handling behavior
-    * Changes made prior to the rollback will be kept
-* **Database**: there is no database communication happening during this event unless it is specified in a before- or after-create event
-* **Result**: an object with the state **Instantiated** will be removed, and an object with any other state will be reverted back to the values it had during the last commit
+* **イベント**: すべてのイベントが実行される前後のイベント
+    * before-rollback イベントが false を返した場合、例外を投げることができます。
+    * イベント中に例外が発生した場合、デフォルトのエラー処理動作で適用されたすべての変更が元に戻されます。
+    * ロールバック前に行われた変更は保持されます
+* **データベース**: beforeまたはafter-create イベントで指定されていない限り、このイベントではデータベース通信が行われません。
+* **結果**: 状態のオブジェクト **インスタンス化** が削除されます。 そして、他の状態を持つオブジェクトは、最後のコミット時に与えられた値に戻されます。
 
 ![](attachments/object-activities/18582170.png)
