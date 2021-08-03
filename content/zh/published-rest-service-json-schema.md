@@ -14,9 +14,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-对 *JSON Schema* 的支持已被添加到版本 7.14.0 中。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-service-json-schema.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
@@ -53,11 +51,9 @@ OpenApi schema包含实体参数和返回类型的定义。 如果已配置的�
 | Autonumber | `• “type”：“整数”、“格式”：“int64”}`                    |
 | 二进制文件      | `• “type”: "string", "格式": "binary" }`           |
 | Boolean    | `{ "type": "boolean" }`                          |
-| 货币         | `· "type": "number" }`                           |
 | 日期和时间      | `• “type”: "string", "格式": "date-time" }`        |
 | 小数         | `· "type": "number" }`                           |
 | 枚举数        | `● "type": "string", "enum": ["男性", "Female"] }` |
-| 浮点数        | `· "type": "number" }`                           |
 | 哈希字符串      | `欧共体：“type”：“string”}`                           |
 | 整数         | `• “type”：“整数”、“格式”：“int32”}`                    |
 | 长          | `• “type”：“整数”、“格式”：“int64”}`                    |
@@ -125,4 +121,3 @@ OpenApi schema包含实体参数和返回类型的定义。 如果已配置的�
 | 枚举数     | `· "type": "file" }`    |
 | 整数/经度   | `· "type": "整数" }`      |
 | 字符串     | `· "type": "file" }`    |
-| 浮点数     | `· "type": "number" }`  |
