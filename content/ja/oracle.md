@@ -1,49 +1,49 @@
 ---
 title: "Oracle"
-parent: "data-storage"
+parent: "データストレージ"
 menu_order: 60
 tags:
   - "studio pro"
-  - "database"
-  - "oracle"
+  - "データベース"
+  - "オラクル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-There are some minor differences in how Mendix behaves when using an Oracle database in comparision to using a PostgreSQL database. This document describes these differences.
+PostgreSQLデータベースを使用する際の比較でOracleデータベースを使用する際のMendixの動作には、いくつかのマイナーな違いがあります。 この文書では、これらの違いについて説明します。
 
-## 2 Setting Up a User for Mendix
+## 2 Mendixのユーザー設定
 
-When setting up an integration with an Oracle backend we recommend that you create a user/schema with the appropriate privileges. In Mendix, we use a single user to update the schema-structure (for example, tables and indices) and to execute DML statements. The former is done when Mendix is starting up and synchronizing the model with the storage structure, and the latter is done in normal runtime operations.
+Oracle バックエンドとの統合を設定する場合は、適切な権限を持つユーザー/スキーマを作成することをお勧めします。 Mendix では、単一のユーザーを使用してスキーマ構造 (テーブルやインデックスなど) を更新し、DML 文を実行します。 前者はMendixが起動し、ストレージ構造とモデルを同期するときに行われます。 後者は通常の実行時操作で行われます
 
-When setting-up perform the following steps:
+設定時は、次の手順を行ってください:
 
-1. Create a new user and schema for Mendix with the profile "DEFAULT".
-2. Grant the user the following privileges:
+1. "DEFAULT" プロファイルを使用してMendixの新しいユーザーとスキーマを作成します。
+2. ユーザーに次の権限を付与します。
 
-   * CREATE SESSION
+   * セッションを作成
 
-   * CREATE SEQUENCE
+   * SEQUENCEを作成
 
-   * CREATE TABLE This will ensure that the account has sufficient privileges to create the structure needed to represent the domain model and to create, query, and modify data.
-3. Ensure that the user has been granted enough quotas to create the resources they need, or give them an unlimited grant (for example, `GRANT UNLIMITED TABLESPACE TO mendix` where `mendix` is the user/schema that you have created).
+   * CREATE TABLE これは、ドメインモデルを代表して作成するために必要な構造を作成するために、アカウントに十分な権限があることを保証します。 データを問い合わせて変更します
+3. ユーザーに必要なリソースを作成するための十分な割り当てが与えられていること、または無制限の許可を与えていることを確認してください（例えば、 `mendix` で、 `mendix` はあなたが作成したユーザー/スキーマです)。
 
 {{% alert type="info" %}}
-During the creation of the Mendix database, the number of structural modifications made will depend on the size of your domain model. If this number is quite large, or if there is a large structural change, it may be prudent to increase the value of `OPEN_CURSORS`.
+Mendix データベースの作成中、行われる構造変更の数は、ドメインモデルのサイズによって異なります。 この数値が非常に大きい場合、または大きな構造変化がある場合。 `OPEN_CURSORS` の値を増やすことが賢明かもしれない。
 {{% /alert %}}
 
-## 2 Unlimited and Very Long Strings
+## 2本の文字列が無制限、非常に長いです
 
-The majority of differences between PostgreSQL and Oracle are in how they handle very long, or unlimited length, strings.
+PostgreSQLとOracleの違いの大部分は、文字列の長さが非常に長く、または無制限にどのように扱うかにあります。
 
-### 2.1 Comparison Functions
+### 2.1 比較関数
 
-Oracle does not support unlimited strings or strings with a specified size greater than 2000 characters when using the equal (`=`) or not equal (`!=`) operators in XPath constraints. However, it does support functions including `contains()`, `starts-with()`, and `ends-with()`.
+Oracle does not support unlimited strings or strings with a specified size greater than 2000 characters when using the equal (`=`) or not equal (`!=`) operators in XPath constraints. しかし、 `contains()`、 `starts-with()`、 および `ends-with()` を含む関数をサポートしています。
 
-### 2.2 Sorting, Grouping, and Aggregating
+### 2.2 並べ替え、グループ化、集計化
 
-It is not possible to sort, group, or use aggregate functions such as `count()` on unlimited strings or strings with a specified length greater than 2000 characters. This is because such long or unlimited strings are implemented with the data type CLOB. Consider decreasing the length of the string attribute or removing it from data grids.
+ソート、グループ化はできません または、 `count()` のような無制限の文字列や、2000文字を超える指定された長さの文字列に対して集計関数を使用します。 これは、このような長い文字列または無制限の文字列が CLOB データ型で実装されているためです。 文字列属性の長さを減らすか、データグリッドから削除することを検討してください。
 
-### 2.3 Selecting DISTINCT Attribute
+### 2.3 DISTINCT 属性の選択
 
-Selecting DISTINCT attributes of the string type with a size greater than 2000 characters is not supported by Mendix due to a known Oracle limitation of selecting DISTINCT columns with a CLOB data type. If you run into this limitation, you may encounter an exception in the logs with a message like this: **Error Msg = ORA-06502: PL/SQL: numeric or value error: character string buffer too small**.
+2000文字を超える文字列タイプのDISTINCT属性を選択することは、CLOBデータ型を持つDISTINCTカラムを選択するというOracleの既知の制限により、Mendixではサポートされていません。 この制限に遭遇した場合 次のようなメッセージを含むログに例外が発生することがあります: **Error Msg = ORA-06502: PL/SQL: 数値または値エラー: 文字列バッファが小さすぎます**.
