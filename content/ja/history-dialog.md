@@ -1,47 +1,47 @@
 ---
-title: "History"
+title: "沿革"
 parent: "version-control-menu"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Use the **History** dialog box to look at all the changes that have been committed to a development line of an app. This dialog box is also used when selecting a revision to merge from, create a branch line off of, or create a deployment archive of.
+**履歴** ダイアログボックスを使用して、アプリケーションの開発ラインにコミットされているすべての変更を確認します。 このダイアログボックスは、マージ対象のリビジョンを選択したり、展開のアーカイブを作成したりするときにも使用されます。
 
 ![](attachments/history-dialog/history-dialog.png)
 
-## 2 Revisions
+## 2つのリビジョン
 
-Each line in the grid represents a revision in the repository. For each revision the following information is shown:
+グリッド内の各行は、リポジトリ内のリビジョンを表します。 各リビジョンについて以下の情報が表示されます。
 
-* **Revision** number – the number of the revision in the repository. Revision numbers do not have to be consecutive if there is also activity in other development lines. Revision numbers are unique for a whole repository.
-* **Changes** – a visual summary of the changes in the selected revision. It shows whether there are model changes, disk changes and whether there was a change in Studio Pro version that was used to commit the revision (green arrow up). Hover over this column to get a textual summary.
-* **Author** – the person who committed this revision.
-* **Date** – the date of the commit.
-* **Time** – the time of the commit.
-* **Message** – the user entered message of the commit. If the message is long, you can more easily read it in the Message tab page below.
+* **Revision** number – リポジトリ内のリビジョンの数。 他の開発ラインでも動作がある場合、リビジョン番号は連続する必要はありません。 リビジョン番号はリポジトリ全体で一意です。
+* **変更点** – 選択したリビジョンの変更の概要。 モデルの変更があるかどうかを示します。 ディスクの変更と、リビジョンをコミットするために使用された Studio Pro バージョンに変更があったかどうか(緑色の矢印)。 テキストの概要を取得するには、この列にカーソルを合わせます。
+* **著者** – この修正をコミットした人。
+* **Date** – コミットの日付。
+* **時間** – コミットの時刻。
+* **メッセージ** – コミットのメッセージを入力したユーザ。 メッセージが長い場合は、下のメッセージタブでより簡単に読むことができます。
 
-By selecting a revision in this grid, the tab pages below it will be filled with information about this revision.
+このグリッドでリビジョンを選択すると、下のタブページにこのリビジョンに関する情報が表示されます。
 
-## 3 Message
+## 3件のメッセージ
 
-This tab page shows the message a Studio Pro user entered when they committed these changes.
+このタブページには、これらの変更をコミットしたときに入力されたStudio Proユーザーが表示されます。
 
-## 4 Related Stories
+## 4つの関連記事
 
-This tab page shows a list of stories that are related to the changes.
+このタブページには、変更に関連するストーリーの一覧が表示されます。
 
-## 5 Changes in Model
+## 5 モデルの変化
 
-This tab page shows a list of documents that were changed in the selected revision. From here you can quickly jump to the changed documents, assuming they still exist in the current version. The Mendix model version that was used to commit the revision is also shown.
+このタブページには、選択したリビジョンで変更されたドキュメントの一覧が表示されます。 ここから、現在のバージョンにまだ存在すると仮定して、変更されたドキュメントにすばやくジャンプできます。 リビジョンをコミットするために使用された Mendix モデルのバージョンも表示されます。
 
-## 6 Changes on Disk
+## 6 ディスク上の変更
 
-This tab page shows a list of the files that were changed on disk. You see whether files were added, deleted or modified.
+このタブページには、ディスク上で変更されたファイルの一覧が表示されます。 ファイルが追加されたか、削除されたか、変更されたかを確認します。
 
-## 7 Read More
+## 7 続きを読む
 
-* [Version Control](version-control)
-* [Stories Pane](stories-pane)
+* [バージョン管理](version-control)
+* [ストーリーペイン](stories-pane)
