@@ -1,128 +1,128 @@
 ---
-title: "Runtime Server"
-category: "Mendix Runtime"
-description: "A description of the Runtime Server and how it functions"
+title: "运行时服务器"
+category: "Mendix 运行时间"
+description: "运行时服务器及其如何运作的描述"
 menu_order: 10
 tags:
-  - "runtime"
-  - "runtime server"
-  - "stateless"
-  - "database"
-  - "java"
-  - "microflows"
+  - "运行时间"
+  - "运行时服务器"
+  - "无国籍人"
+  - "数据库"
+  - "贾瓦"
+  - "微流"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Runtime Server is the part of the Mendix runtime which executes microflows and connects to files, the relational database, and any other required services. It received requests from the Mendix Client, and provides data in response.
+运行时服务器是 Mendix 运行时的一部分，它执行微流程并连接到文件、关系数据库和任何其他所需服务。 它收到了Mendix 客户的要求，并提供了相应的数据。
 
-This description of the Runtime Server is based on an app running in the cloud. You can also run Mendix locally for testing, but this is conceptually the same.
+此Runtime Server的描述是基于在云端运行的应用程序。 您也可以在本地运行 Mendix 进行测试，但这在概念上是一样的。
 
-## 2 Description
+## 2 个描述
 
-The Runtime Server is deployed to the cloud (see [Runtime Deployment](runtime-deployment) for more information) and waits for requests from the Mendix Client or a call from another app or service. It processes the request and returns the requested data, plus any additional state information where appropriate. For details of how this communication takes place, see [Communication Patterns in the Mendix Runtime](communication-patterns). The Runtime Server itself is stateless, which allows it to be efficiently scaled to multiple instances.
+运行时服务器已部署到云端(详情请参阅 [运行时部署](runtime-deployment) )，并等待Mendix 客户端的请求或来自另一个应用或服务的呼叫。 它处理请求并归还请求的数据，酌情加上任何补充的国家信息。 关于此通信发生方式的详细信息，请参阅 [Mendix Runtime](communication-patterns) 中的通信模式。 运行时服务器本身是无状态的，它允许它被有效地缩放到多个实例。
 
-Below is a chart showing the components of the Runtime Server. Each of the components is described below the chart.
+下面是一个显示运行时服务器组件的图表。 每个组件在下图表中说明。
 
-![The makeup of the Runtime Server](attachments/runtime/runtime-server.png)
+![运行时服务器的组成](attachments/runtime/runtime-server.png)
 
 ### 2.1 M2ee
 
-M2ee is used to launch the Runtime Server when your app is deployed to the cloud. Once the Runtime Server is running, m2ee can be used to connect back to the Runtime Server, issuing commands like setting log levels, asking how many users are logged in, showing currently running actions inside the application, or even telling it to shut itself down.
+当您的应用被部署到云端时，M2e将用于启动运行服务器。 Runtime 服务器运行后，m2e可以用来重新连接到 Runtime 服务器，发出命令，如设置日志等级。 询问有多少用户登录，显示当前程序内的操作，甚至告诉它关闭自己。
 
-M2ee communicates with the Runtime Server through authenticated POST requests, in JSON format, which are sent to the administration port of the Runtime Server.
+M2ee 通过认证的 POST 请求，以JSON 格式与 Runtime 服务器通信，然后发送到 Runtime 服务器的管理端口。
 
-### 2.2 Runtime Core
+### 2.2 运行核心：
 
-This is an interpreter written in Java and Scala, which uses the app model to decide how to process a request from the Mendix Client or a request from an external service, and controls the various processes which need to take place to service the request.
+这是一个在 Java 和 Scala 中写入的解释器。 使用应用程序模型来决定如何处理来自 Mendix 客户端的请求或来自外部服务的请求， 并控制满足请求所需的各种程序。
 
-### 2.3 Project Model
+### 2.3 项目模型
 
-This contains the model which defines how the app behaves, including domain models, microflows, import mappings etc. This is what the runtime core interprets to run the app.
+这包含定义应用程序如何操作的模型，包括域模型、微流、导入映射等。 这是运行程序的核心解释。
 
-### 2.4 Temporary Object Storage
+### 2.4 临时对象存储
 
-This holds objects which are being used in the Runtime Server but which are not yet committed to the database. These might be committed in the future (for example, if they are new or changed objects), or may remain uncommitted (for example, if they are non-persistable objects).
+此处包含正在 Runtime 服务器中使用但尚未提交数据库的对象。 今后可能作出这些承诺（例如，如果它们是新的或改变的物体）。 或可能仍未承付（例如，如果是不可承付的物件）。
 
-### 2.5 File Storage Manager
+### 2.5 文件存储管理器
 
-This controls retrieving and storing non-relational data. In particular it retrieves the data associated with FileDocument entities.
+它控制非关联数据的检索和存储。 特别是，它检索与 FileDocument 实体相关联的数据。
 
-### 2.6 File Storage
+### 2.6 文件存储
 
-This is where files are stored which are part of the data used by the app. In particular it contains the value of *FileDocument* objects, including images, which are binary objects that need to be stored outside the database to avoid size and performance restrictions.
+这是存储作为应用程序所使用数据一部分的文件的地方。 特别是它包含 *FileDocument* 对象的值，包括图像， 它是需要存储在数据库之外以避免大小和性能限制的二进制物体。
 
-### 2.7 Database Synchronization
+### 2.7 数据库同步
 
-Database Synchronization is initiated when an app is started. It manages changes to the database structure which need to be applied to the database when an app is deployed after the Domain Model in the app is updated. For example, if a new attribute is added to an entity, the database structure will need to be updated to support this.
+当应用程序启动时，数据库同步将启动。 它管理数据库结构的更改，这些更改需要在应用程序的域名模型更新后部署应用到数据库中。 例如，如果一个新属性被添加到一个实体，数据库结构将需要更新以支持这一点。
 
-This activity is carried out by the cluster leader instance if there is more than one instance of the Runtime Server. While this activity takes place, all other instances will pause until the database synchronization is complete.
+如果Runtime 服务器有多个实例，这个活动是由集群领导实例执行的。 此活动发生时，所有其他实例都将暂停，直到数据库同步完成。
 
-### 2.8 External Service Calls
+### 2.8 对外服务电话
 
-This manages calls to external services to obtain data. An app can make calls to multiple external services, using a variety of different API formats, for example OData or REST.
+这管理到外部服务获取数据的呼叫。 一个应用可以调用多个外部服务，使用不同的 API 格式，例如OData 或 REST 。
 
-### 2.9 External Service
+### 2.9 外部服务
 
-This is a service which provides data to the app. A service could be another Mendix app accepting external service requests, or a third-party service such as SAP or Google Maps.
+这是一个为应用程序提供数据的服务。 服务可以是接受外部服务请求的另一个Mendix 应用，也可以是第三方服务，例如SAP或谷歌地图。
 
-### 2.10 Relational Database
+### 2.10 关系数据库
 
-This is the database (or sometimes the schema of a shared database) which holds the objects as defined in the domain model(s) in the app.
+这是一个数据库（或有时是一个共享数据库的图表），它存有应用中域模型所定义的对象。
 
-### 2.11 Query Executor
+### 2.11 查询执行者
 
-This manages the CRUD (create, read, update, and delete) operations for retrieving and storing data in the relational database which is bound to the app. The operations are performed using SQL which is tailored to the underlying database.
+这管理连接到应用程序的关系数据库中用于检索和存储数据的 CRUD (创建、读取、更新和删除) 操作。 操作是使用 SQL 执行的，而SQL 是专门为基础数据库设计的。
 
-Where queries are not formatted in SQL, the query executor will convert them from their original format (XPath or OQL for example).
+如果查询未以 SQL 格式格式，查询执行器将从原始格式 (XPath 或 OQL for example) 转换。
 
-It also applies the security which is set within the app.
+它还适用应用内设定的安全。
 
-### 2.12 Object Manager
+### 2.12 对象管理器
 
-This manages the objects which are maintained in the Runtime Server (non-persistable, new, and changed objects) and ensures that they are passed back to the Mendix Client at the end of the request.
+这管理运行服务器上的对象(不可持续，新的，) 并更改对象，确保它们在请求结束时返回Mendix 客户端。
 
-### 2.13 Microflow Engine
+### 2.13 微流程引擎
 
-This runs the logic which is defined in the microflows in the app model.
+这将运行在应用程序模型微流程中定义的逻辑。
 
-### 2.14 Scheduler
+### 2.14 调度器
 
-The scheduler triggers microflow actions at preconfigured times, or intervals.
+调度程序会在预配置的时间或间隔中触发微流动作。
 
-### 2.15 License Server
+### 2.15 许可服务器
 
-This is a service which provides information about the license which is being used to run the app. The license being used defines how many named users can be added to the app, and how many users can use the app simultaneously.
+这是一个提供正在运行应用程序的许可证信息的服务。 正在使用的许可证定义了可以添加多少指定用户到应用程序，以及多少用户可以同时使用这个应用程序。
 
-### 2.16 Custom Java
+### 2.16 自定义 Java
 
-This runs custom Java which is held as Java actions in the app model.
+这将运行自定义的 Java ，在应用程序模型中被当作Java 动作。
 
 ### 2.17 Mendix Client API
 
-This receives requests from the Mendix Client, decodes them and passes them to the Runtime Core or the Object Manager, and formats a response to the Mendix Client once the request has been processed. The Mendix Client API is known as *xas* (XML Application Server).
+这将接收Mendix 客户端的请求，将它们分解并传递到运行时核心或对象管理器， 并在请求处理后格式化Mendix 客户端的响应。 Mendix 客户端 API 称为 *xas* (XML 应用程序服务器)。
 
-### 2.18 Custom Request Handler
+### 2.18 自定义请求处理程序
 
-This is a request handler added to the app using the com.mendix.core.Core#addRequestHandler(…) API call.
+这是一个使用 com.mendix.core.core.Core#addRequestHandler(…)添加到应用程序的请求处理程序 API 调用。
 
-### 2.19 External Service Requests
+### 2.19 外部服务请求
 
-This receives requests from other services, decodes them and passes them to the Runtime Core or Object Manager, and formats a response to the service once the request has been processed. These requests can be:
+接受其他服务的请求，解码并将其传递到运行时核心或对象管理器， 并在请求处理后格式化对服务的响应。 这些请求可以是：
 
-* Webservice – this exposes microflows via a SOAP interface
-* REST – this exposes microflows via a REST endpoint
-* OData – this exposes entity data as an OData endpoint
-* Other – these are metadata interfaces including WSDL and Swagger
+* Webservice - 这将透过SOAP接口暴露微流
+* REST - 这将通过REST 端点暴露微流
+* OData——这将显示实体数据为 OData 端点
+* 其他 — 这些是元数据接口，包括WSDL 和 Swagger
 
-### 2.20 HTTPS Server
+### 2.0 HTTPS 服务器
 
-This decodes HTTPS requests from Mendix Clients or other services and passes them to the Runtime Server.
+解码来自 Mendix 客户端或其他服务的 HTTPS 请求，并将它们传递到 Runtime 服务器。
 
 ### 2.21 Mendix Client
 
-This is the browser or device which allow the end-user to interact with the app. This can be a web browser, such as Chrome, or a mobile device, such as an iPhone. It typically has a screen, pointer device, and input device to allow end-users to use the app.
+这是允许最终用户与应用交互的浏览器或设备。 这可以是一个 Web 浏览器，如Chrome 或移动设备，如iPhone 。 它通常有屏幕、指针设备和输入设备，允许最终用户使用应用程序。
 
-The Runtime Server communicates with the Mendix Client using a private API called *xas*.
+运行时服务器使用名为 *xas* 的私有API与Mendix 客户端通信。
 
-For a description of the Mendix Client, see [Mendix Client](mendix-client).
+Mendix 客户端的描述，请参阅 [Mendix 客户端](mendix-client)。
