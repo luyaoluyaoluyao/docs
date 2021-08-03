@@ -1,71 +1,67 @@
 ---
-title: "User Roles"
+title: "ユーザーの役割"
 parent: "project-security"
 menu_order: 10
 tags:
   - "studio pro"
-  - "user role"
-  - "project security"
-  - "security"
+  - "ユーザーロール"
+  - "アプリのセキュリティ"
+  - "セキュリティ"
 aliases:
-  - /refguide8/user-role.html
+  - /refguide/user-role.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/user-roles.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+ユーザーロールは、データ、フォーム、およびマイクロフローに関する多くのアクセス権を集約します。 アプリケーションのエンドユーザーは、管理者によって1つまたは複数のユーザー ロールに割り当てられ、これらのユーザー ロールが示すすべてのアクセス権を取得します。
 
-A user role aggregates a number of access rights on data, forms, and microflows. An end-user of the application is assigned one or more user roles by an administrator, and gets all access rights that these user roles represent.
+各ユーザーロールには、1つ以上の [モジュールロール](module-security#module-role)があります つまり、そのユーザロールを持つユーザは、それらのモジュールロールに対して定義されたすべてのアクセス権を持つことになります。 典型的なユーザーロールには、 **System.User** モジュールロールと少なくとも1つの他のモジュールロールがあります。
 
-Every user role has one or more [module roles](module-security#module-role), which means that users with that user role have all the access rights that are defined for those module roles. A typical user role has the **System.User** module role and at least one other module role.
+ユーザロールとモジュールロールの区別の目的はモジュールを自己完結させることです (定義または使用されているアプリとは独立して) 異なるアプリで再利用したり、マーケットプレイスに公開したりできるようにします。
 
-The purpose of the distinction between user roles and module roles is to make a module self-contained (independent from the project in which it is defined or used), so that it can be reused in different projects and/or published to the Marketplace.
+アプリケーションのエンドユーザーは、モジュールロールではなくユーザーロールのみが表示されます。
 
-End-users of your application only see the user roles and not the module roles.
-
-To access user roles, open **Project Security** > **User roles** tab:
+ユーザーロールにアクセスするには、 **App Security** > **ユーザー ロール** タブを開きます。
 
 ![](attachments/user-roles/user-roles-example.png)
 
-## 2 User Role Properties
+## 2 ユーザーロールのプロパティ
 
-Double-click the user role to open its properties.
+ユーザーロールをダブルクリックしてプロパティを開きます。
 
-The user role has the following properties:
+ユーザーロールには、次のプロパティがあります。
 
-*  [General properties](#general)
-*  [User management properties](#user-management)
+*  [一般プロパティ](#general)
+*  [ユーザー管理のプロパティ](#user-management)
 
 ![](attachments/user-roles/user-role-properties.png)
 
-### 2.1 General Properties {#general}
+### 2.1 一般プロパティ {#general}
 
-General properties of user roles are described in the table below:
+ユーザーロールの一般的なプロパティについては、以下の表を参照してください。
 
-| Property       | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name           | The name property defines the name of the user role. This name is shown to end-users who can create or edit user accounts in the application.                                                                                                                                                                                                                               |
-| Documentation  | In this property you can document additional information about the user role. This information is shown to end-users who can create or edit user accounts in the application.                                                                                                                                                                                               |
-| Module roles   | A list of module roles of which the access rights are accumulated in the user role. An end-user that is assigned a user role gets all access rights of the module roles of that user role.                                                                                                                                                                                  |
-| Check security | This specifies whether the consistency of security settings is checked for this user role. You can choose to not check security for a user role. For example, user roles that are used only for web service users do not need to be checked because they never sign in to the client. For more information on the security check, see [Project Security](project-security). |
+| 属性          | 説明                                                                                                                                                                                                                 |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 名前          | name プロパティは、ユーザー ロールの名前を定義します。 この名前は、アプリケーションでユーザーアカウントを作成または編集できるエンドユーザーに表示されます。                                                                                                                                  |
+| ドキュメント      | このプロパティでは、ユーザー ロールに関する追加情報をドキュメントできます。 この情報は、アプリケーションでユーザーアカウントを作成または編集できるエンドユーザーに表示されます。                                                                                                                          |
+| モジュールの役割    | ユーザーロールにアクセス権が蓄積されるモジュールロールのリスト。 ユーザロールに割り当てられたエンドユーザは、そのユーザロールのモジュールロールのすべてのアクセス権を取得します。                                                                                                                          |
+| セキュリティを確認する | セキュリティ設定の一貫性がこのユーザー ロールにチェックされるかどうかを指定します。 ユーザーロールのセキュリティをチェックしないように選択できます。 例えば、 Webサービスユーザーにのみ使用されるユーザーロールは、クライアントにサインインすることがないため、チェックする必要はありません。 セキュリティチェックの詳細については、 [App Security](project-security) を参照してください。 |
 
-### 2.2 User Management Properties {#user-management}
+### 2.2 ユーザー管理プロパティ {#user-management}
 
-A user role can be allowed to manage users with a number of other user roles (including itself), called manageable roles. This means that end-users who have this user role, can create, view, edit and delete users with at most the manageable user roles.
+ユーザーロールは、管理可能なロールと呼ばれる他のユーザーロール(自身を含む)を持つユーザーを管理することができます。 これは、このユーザーロールを持つエンドユーザーが、管理可能なユーザーロールを持つユーザーを作成、表示、編集、削除できることを意味します。
 
-| Value    | Description                                                                                                                                                                                                                                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| All      | End-users with this user role can manage all users and grant all user roles. Usually this option should only be configured for an administrator.                                                                                                                                                                                |
-| Selected | End-users with this user role can manage users that have at most the selected user roles, and can grant only the selected user roles. Select **(No user roles)** to only manage users without a user role (for example, newly created users). If nothing is selected, end-users with this user role cannot manage users at all. |
+| 値    | 説明                                                                                                                                                                               |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| すべて  | このユーザーロールを持つエンドユーザーは、すべてのユーザーを管理し、すべてのユーザーロールを許可できます。 通常、このオプションは管理者のためにのみ設定する必要があります。                                                                                           |
+| 選択済み | このユーザーロールを持つエンドユーザーは、選択したユーザーロールを持つユーザーを管理でき、選択したユーザーロールのみを許可できます。 **(ユーザロールなし)** を選択すると、ユーザロールを持たないユーザ(新しく作成したユーザなど)のみを管理できます。 何も選択されていない場合、このユーザーロールを持つエンドユーザーは全くユーザーを管理できません。 |
 
-Internally, user manangement properties are translated into entity access rules for **System.User**. This means that they are not applied in microflows that do not check entity access.
+内部的には、ユーザー manangement プロパティは **System.User** のエンティティアクセス ルールに変換されます。 これは、エンティティアクセスをチェックしないマイクロフローには適用されないことを意味します。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Project Security](project-security)
-* [Administrator](administrator)
-* [Demo Users](demo-users)
-* [Anonymous Users](anonymous-users)
-* [Password Policy](password-policy)
+* [アプリのセキュリティ](project-security)
+* [管理者](管理者)
+* [デモユーザー](demo-users)
+* [匿名ユーザー](anonymous-users)
+* [パスワードポリシー](password-policy)
