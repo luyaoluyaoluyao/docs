@@ -9,10 +9,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/event-handlers.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Event handlers define microflows that handle certain events related to the entity. Depending on the chosen moment and type, a microflow is executed before or after creating, committing, deleting, or rolling back an object.
@@ -35,7 +31,7 @@ For example, say your **Customer** entity has a **Postcode** attribute and you w
 
 ![Example of adding a before commit event handler to the Customer entity](attachments/domain-model/customer-event-handlers.png)
 
-For more information on using event handlers for data validation, see [How To Set Up Data Validation](/howto8/data-models/setting-up-data-validation).
+For more information on using event handlers for data validation, see [How To Set Up Data Validation](/howto/data-models/setting-up-data-validation).
 
 ## 2 Properties
 
@@ -105,5 +101,5 @@ Default: *Yes*
 
 ## 3 Read More
 
-* [How to Denormalize Data to Improve Performance](/howto8/data-models/denormalize-data-to-improve-performance)
-* [How To Set Up Data Validation](/howto8/data-models/setting-up-data-validation)
+* [How to Denormalize Data to Improve Performance](/howto/data-models/denormalize-data-to-improve-performance)
+* [How To Set Up Data Validation](/howto/data-models/setting-up-data-validation)
