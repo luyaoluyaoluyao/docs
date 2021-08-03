@@ -1,47 +1,47 @@
 ---
-title: "History"
-parent: "version-control-menu"
+title: "历史记录"
+parent: "版本控制-菜单"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Use the **History** dialog box to look at all the changes that have been committed to a development line of an app. This dialog box is also used when selecting a revision to merge from, create a branch line off of, or create a deployment archive of.
+使用 **历史记录** 对话框来查看所有已经承诺给应用程序开发行的更改。 此对话框也用于选择要从中合并的版本，创建分支线，或创建部署归档。
 
 ![](attachments/history-dialog/history-dialog.png)
 
-## 2 Revisions
+## 2 次修订
 
-Each line in the grid represents a revision in the repository. For each revision the following information is shown:
+网格中的每一行代表版本库中的一个版本。 每次修订都显示以下信息：
 
-* **Revision** number – the number of the revision in the repository. Revision numbers do not have to be consecutive if there is also activity in other development lines. Revision numbers are unique for a whole repository.
-* **Changes** – a visual summary of the changes in the selected revision. It shows whether there are model changes, disk changes and whether there was a change in Studio Pro version that was used to commit the revision (green arrow up). Hover over this column to get a textual summary.
-* **Author** – the person who committed this revision.
-* **Date** – the date of the commit.
-* **Time** – the time of the commit.
-* **Message** – the user entered message of the commit. If the message is long, you can more easily read it in the Message tab page below.
+* **版本** 数字 — 版本库中的版本号. 如果在其他开发项目中也有活动，则修订数字不必是连续的。 版本号对整个仓库是唯一的。
+* **更改** — — 所选修订版本中的更改的视觉摘要。 它显示了是否有模型变更。 磁盘更改以及用于提交修订版本的 Studio Pro 版本是否有更改(绿色箭头)。 悬停此列以获取文本摘要。
+* **作者** — — 进行此修订的人。
+* **日期** - 提交日期。
+* **时间** - 提交时间。
+* **消息** - 用户输入了提交的消息。 如果消息长了，您可以更容易地在下面的消息选项卡页面阅读它。
 
-By selecting a revision in this grid, the tab pages below it will be filled with information about this revision.
+通过在此网格中选择一个版本，下面的标签页将会填充关于此版本的信息。
 
-## 3 Message
+## 3 條消息
 
-This tab page shows the message a Studio Pro user entered when they committed these changes.
+此标签页显示了一个 Studio Pro 用户在执行这些更改时输入的消息。
 
-## 4 Related Stories
+## 4 个相关故事
 
-This tab page shows a list of stories that are related to the changes.
+此标签页显示与更改相关的故事列表。
 
-## 5 Changes in Model
+## 5 模型中的变化
 
-This tab page shows a list of documents that were changed in the selected revision. From here you can quickly jump to the changed documents, assuming they still exist in the current version. The Mendix model version that was used to commit the revision is also shown.
+此标签页显示在所选版本中被更改的文档列表。 从这里您可以快速跳转到更改过的文档，假定它们在当前版本中仍然存在。 还显示用于提交版本的 Mendix 模型版本。
 
-## 6 Changes on Disk
+## 6 盘上的更改
 
-This tab page shows a list of the files that were changed on disk. You see whether files were added, deleted or modified.
+此标签页显示磁盘上更改的文件列表。 您看到是否添加、删除或修改了文件。
 
-## 7 Read More
+## 7 阅读更多
 
-* [Version Control](version-control)
-* [Stories Pane](stories-pane)
+* [版本控制](version-control)
+* [故事面板](stories-pane)
