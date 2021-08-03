@@ -1,70 +1,74 @@
 ---
-title: "Dynamic Label (Document Template)"
-parent: "document-templates"
+title: "ダイナミックラベル (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Dynamic+label+(document+template).html
-  - /refguide7/dynamic-label-(document-template).html
+  - /ja/refguide/Dynamic+label+(document+template).html
+  - /ja/refguide/dynamic-label-(document-template).html
 ---
 
+## 1つの紹介
 
-A dynamic label would be used for the same kind of attributes as a text box from the form builder. It can be used to display a text value.
-
-{{% alert type="info" %}}
-
-![](attachments/819203/918131.png) A dynamic label linking to a customer name.
-
-{{% /alert %}}
-
-## Appearance Properties
-
-### Style
-
-See [Style](style)
-
-### Render XHTML
-
-If you set the property 'Render XHTML' to true, the attribute connected to this label is assumed to contain XHTML and will be rendered as such. This is useful when you want to incorporate rich text in a document template. This property can only be true for attributes of type String.
-
-The contents MUST be valid XHTML to render without errors.
-
-_Default value:_ False
-
-### Decimal Precision (Only for Decimal Attributes)
-
-The precision of a value is defined by the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point) that will be rendered in the widget.
-
-_Default value:_ 2
-
-### Group Digits (Only for Numeric Attributes)
-
-For ease of reading, numbers with many digits in front of the decimal separator may be divided into groups using a delimiter. This property defines whether the end user will see these groups, or not.
-
-_Default value:_ False
-
-### Date Format (Only for Attributes of the DateTime Type)
-
-The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application. Alternatively, as of version 2.5.3 you can completely customize the format of the date and/or time by supplying a date format string.
-
-Possible values: 'Date', 'Time', 'Date and time' and in 2.5.3 'Custom'.
-
-_Default value:_ Date
-
-### Custom Date Format (Only for Attributes of the DateTime Type)
-
-If you choose 'Custom' as the date format (see above) the custom date format determines the way date and/or time are formatted. The custom date format is a string that follows the rules described in [http://download.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html](http://download.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html).
+動的なラベルは、ページエディタのテキストボックスと同じ種類の属性に使用されます。 テキスト値を表示するために使用できます。
 
 {{% alert type="info" %}}
 
-The custom date format `EEE, MMM d, yy` results in the following text `Wed, Jul 4, 01`
+![](attachments/document-templates/918131.png)
+
+顧客名にリンクする動的ラベル。
 
 {{% /alert %}}
 
-## Common Properties
+## 外観のプロパティ
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 2.1 スタイル
 
-## Data Source Properties
+詳細は [スタイル](style) を参照してください。
 
-### Attribute (Path)
+### 2.2 XHTMLをレンダリング
 
-The attribute (path) property specifies which attribute will be shown in the dynamic label.
+プロパティ 'Render XHTML' を true に設定した場合 このラベルに接続されている属性は XHTML を含むと仮定され、そのようにレンダリングされます。 これは、リッチテキストをドキュメントテンプレートに組み込む場合に便利です。 このプロパティは String 型の属性にのみ当てはまります。
+
+内容はエラーなしでレンダリングするには有効でなければなりません。
+
+デフォルト: *False*
+
+### 2.3 小数点以下の桁数の精度（小数点以下のみ）
+
+値の精度は、その値を表すために使用される数字によって定義されます。 このプロパティは、ウィジェットでレンダリングされる小数点以下の桁数を示します。
+
+デフォルト: *2*
+
+### 2.4 グループ桁（数値属性のみ）
+
+読みやすいように、小数点以下の桁が多い数字は、区切り文字を使ってグループに分けることができます。 このプロパティは、エンドユーザーがこれらのグループを表示するかどうかを定義します。
+
+デフォルト: *False*
+
+### 2.5 日付フォーマット (タイプ **日付と時刻** の属性のみ)
+
+日付の書式は、日付の部分、時間の部分、または両方を表示するかどうかを決定します。 日付と時刻の部分がどのようにフォーマットされるかは、アプリケーションを使用しているユーザーのローカライズによって異なります。
+
+可能な値は次のとおりです。
+
+* **Date** *(default)*
+* **時刻**
+* **日付と時刻**
+* **カスタム** (詳細は以下を参照)
+
+### 2.6 カスタム日付フォーマット (タイプ **日付と時刻** の属性のみ)
+
+日付書式として **Custom** を選択した場合(上記参照)、このプロパティは属性値のフォーマット方法を決定します。 カスタム日付フォーマットは、以下の表で見つかった任意のシンボルを組み合わせることができる文字列です。 句読点は文字通りレンダリングされます。
+
+{{% snippet file="refguide/custom-date-format-tokens.md" %}}
+
+## 3つの一般的なプロパティ
+
+{{% snippet file="refguide/name-property.md" %}}
+
+## 4 データソースのプロパティ
+
+### 4.1 属性 (パス)
+
+属性 (path) プロパティは、動的ラベルに表示される属性を指定します。
