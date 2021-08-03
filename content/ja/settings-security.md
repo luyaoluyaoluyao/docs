@@ -15,37 +15,25 @@ tags:
 
 [役割と権限](#roles-and-permissions) はセキュリティの重要な部分です。アプリのさまざまな部分へのアクセスを制限または許可するために使用できる機器です。 例えばページやマイクロフローなどです
 
-## 2 セキュリティを有効にする {#enabling-security}
+## 2 セキュリティの概要 {#overview}
 
-セキュリティがデフォルトでアプリで有効になっているかどうかは、アプリのタイプとバージョンによって異なります。 次のケースに出くわすことができます:
+デフォルトでアプリでセキュリティが有効になっているかどうか セキュリティがStudio Proで有効になっているかどうかと、そこでの設定方法によって異なります。 次のケースに出くわすことができます:
 
-1. Mendix バージョン 7.23 の開発者ポータルでアプリが作成された場合。 またはそれ以上の場合は、Studio でセキュリティを有効にして、 [ロールとパーミッション](#roles-and-permissions) を表示および編集できます。 バージョンの詳細については、 [Studio Ranges & Mendix Versionsを参照してください](general-versions)
+1. Studio Proのアプリのセキュリティーは **オフ** です。 In this case, you can either enable it via **App Settings**>**Roles and Permissions** >the **Enable Security** button, or you will be prompted to enable security, when you try to [publish the app](publishing-app).
 
-2. アプリが開発者ポータルで作成され、Mendixバージョンが7.23以下の場合。 、またはプライベートコンテンツとしてラベル付けされている、またはあなたの会社向けにチームによってカスタマイズされています セキュリティ状態は、Studio Pro:<br/> aに依存します。  Studio Pro でセキュリティがオフの場合は、Studio でセキュリティを有効にできます。 この場合、 [アプリを公開](publishing-app)しようとすると、セキュリティを有効にするように求められます。 <br/>
+    {{% image_container width="300" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png) {{% /image_container %}}
 
-    {{% image_container width="400" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png)
- {{% /image_container %}}<br/>
+    {{% alert type="info" %}}セキュリティを有効にすると、アプリ全体で有効になります。 Studio Proに表示されているモデルには、チェックと変更が適用されています。 これらのチェックと変更に関する技術的な情報については、 [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide/studio-security-enabled).{{% /alert %}}
 
-    B If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide8/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
+2. セキュリティはStudio Proで **プロダクション** レベルに設定され、設定はStudioと互換性があります。 この場合、Studio で **ロールと権限** を表示および編集できます。 (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
 
     ![](attachments/settings-security/roles-and-permissions-screen.png)
 
-    C If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are not compatible with Studio, you can view (not edit) **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide8/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
+3. セキュリティはStudio Proで **プロトタイプ/デモ** または **プロダクション** レベルに設定されており、設定はStudioと互換性がありません。 この場合、Studio で **ロールと権限** のみ表示できますが、編集できません。 (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
 
     ![](attachments/settings-security/security-read-only.png)
 
 
-セキュリティを有効にする必要がある場合は、次のいずれかを実行します。
-
-* 上記のポップアップダイアログで **セキュリティを有効にする** をクリックすると、セキュリティが自動的に設定されます。 その後、 [ロールと権限](#roles-and-permissions) を使用してアプリへのアクセスを制限または許可できます。
-
-*  **アプリ設定** > **ロールとアクセス許可** を開き、 **セキュリティを有効にする** をクリックします。
-
-    ![役割と権限画面](attachments/settings-security/enabling-security.png)
-
-{{% alert type="info" %}}
-セキュリティを有効にすると、アプリ全体で有効になります Studio Proに表示されているモデルには、チェックと変更が適用されています。 これらのチェックと変更に関する技術的な情報については、 [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide8/studio-security-enabled) を参照してください。
-{{% /alert %}}
 
 ## 3つのロールと権限 {#roles-and-permissions}
 
@@ -66,19 +54,26 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
 アプリユーザーの管理についての詳細は、 [App Users の管理](#managing-app-users) セクションを参照してください。
 
-**ロールと権限** 画面は以下の3つのタブで構成されます:
+新しいページ/microflow/workflow が作成されると、Studio のデフォルトのパーミッションが設定されます。 つまり、アプリ内の既存のロールはすべて、新しく作成されたドキュメントにアクセスできます。
+
+{{% alert type="warning" %}}
+ページ/microflow/workflow がコピー&ペーストされている場合、新しいドキュメントに対して Studio のデフォルトのパーミッションが設定されます。 その文書の権限を確認することをお勧めします。
+{{% /alert %}}
+
+**ロールと権限** 画面は以下のタブで構成されます。
 
 * ロール
 * ページアクセス
 * マイクロフローアクセス
+* ワークフローアクセス
 
 **ロール** タブにはすべてのロールが表示され、アクセスできるページ数とマイクロフロー数が表示されます。
 
-**ページ アクセス** および **マイクロフロー アクセス** タブには、すべての pages/microflow が行に表示されるテーブルが含まれています。 すべてのロールが列に配置されます。
+The **Page Access**,  **Microflow Access**, and **Workflow Access** tabs contain a table where all pages/microflows/workflows are listed in rows, and all roles are placed in columns.
 
-ページまたはマイクロフローへのアクセスを特定のロールのみ許可できます。ページまたはマイクロフローへのロールへのアクセスを許可するには、適切なボックスを選択します。
+特定のロールのみがページ、マイクロフロー、またはワークフローにアクセスできます。ロールへのアクセスを許可する適切なボックスを選択します。
 
-すべてのページまたはマイクロフローを選択/選択解除するには、ユーザー ロールの横にある省略記号アイコンをクリックします。
+すべてのページ、マイクロフロー、またはワークフローを選択/選択解除するには、ユーザー ロールの横にある **その他のオプション** (楕円形) アイコンをクリックします。
 
 結果として、各ロールに固有の行列を取得します。
 
@@ -106,7 +101,7 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
 1.  **ロールと権限** > **ロール** タブを開きます。
 
-2.  **その他のオプション** アイコンをクリックし、 **編集** を選択します。
+2.  **その他のオプション** (楕円形) アイコンをクリックし、 **編集** を選択します。
 
     ![](attachments/settings-security/edit-role-option.png)
 
@@ -138,21 +133,25 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
 {{% /alert %}}
 
-### 3.4 特定のページ/マイクロフローへのアクセス権の設定
+### 3.4 特定のページ/マイクロフロー/ワークフローへのアクセスを設定する
 
-アプリ内の特定の pages/microflow へのアクセスを設定するには 2 つの方法があります。
+アプリ内の特定の pages/microflows/workflow のアクセスを変更するには 2 つの方法があります。
 
-1.  To set access via **Roles and Permissions**, do the following:<br/> 1.1  Open **Roles and Permissions** > **Page**/**Microflow Access** tab.<br/> 1.2 Find the user role in the column and tick the box next to a page/microflow to open access for it, or untick – to restrict access. 以下の例では、ユーザーのページアクセスが制限されています。<br/>
+1.  **ロールと権限**でアクセスを設定するには、以下を行います。
+    2.  **ロールと権限を開く** > **ページ**/**Microflow/Workflow Access** タブ。
+    3.   列内のユーザーロールを見つけて、ページ/microflow/workflow の横のボックスにチェックを入れ、アクセスを開きます。 またはチェックを外すとアクセスが制限されます。 たとえば、ユーザーロールのページアクセスを制限できます。
 
     ![](attachments/settings-security/page-access-example.png)
 
-2.  このページ/マイクロフローのプロパティを介してページ/マイクロフローへのアクセスを設定するには、以下を行ってください: <br/> 2.1 ページ/マイクロフローを開きます。<br/> 2.2. **プロパティ** > **アクセス権限** セクションと tick/untick **許可されるロール** に移動してアクセスを許可/制限します。<br/>
+2.  このページ/マイクロフロー/ワークフローのプロパティを介してページ/マイクロフローへのアクセスを設定するには、次の手順を実行します。
+    3.  ページ/マイクロフロー/ワークフローを開きます。
+    4.  **プロパティ** > **アクセス権限** セクションと tick/untick **許可されるロール** に移動してアクセスを許可/制限します。
 
-    ![](attachments/settings-security/permissions-section.png)
+        {{% image_container width="300" %}}![](attachments/settings-security/permissions-section.png){{% /image_container %}}
 
 ## 4デモユーザー {#demo-users}
 
-デモユーザーは、アプリケーションに存在する各ユーザーロールのデモです。 デモユーザーを使用して、各ユーザーのロールに対するアプリの見た目を確認できます。 技術的な情報については、 [Demo Users](/refguide8/demo-users) を参照してください。
+デモユーザーは、アプリケーションに存在する各ユーザーロールのデモです。 デモユーザーを使用して、各ユーザーのロールに対するアプリの見た目を確認できます。 技術的な情報については、 [Demo Users](/refguide/demo-users) を参照してください。
 
 ### 4.1 ロールのテスト {#testing-your-roles}
 
@@ -162,7 +161,7 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
 2. 画面の右側にあるユーザーアイコンをクリックします。
 
-    ![](attachments/settings-security/user-icon.png)
+    {{% image_container width="400" %}}![](attachments/settings-security/user-icon.png){{% /image_container %}}
 
 4. 表示されたメニューバーで、デモユーザーを選択すると、アプリが対応するロールの観点から表示されます。
 
@@ -198,13 +197,15 @@ Mendixアカウントを使用してアプリのエンドユーザーにデフ�
 ![アップグレードが必要です](attachments/settings-security/upgrade.png)
 {{% /image_container %}}
 
-特別なサービスにより、アプリユーザーを管理することができます。 **Auto-Upgrade** をクリックすると、このサービスの最新バージョンへのアップグレードは自動的に行われます。
+特別なサービスにより、アプリユーザーを管理することができます。 2020年4月1日現在のサービスを改善しました。 **自動アップグレード** をクリックすると、このアップグレードは自動的に行われます。
+
+自動アップグレードしない場合は心配する必要はありません。アプリはセキュリティ保護され実行されます。 ただし、アップグレードするまで、新しいバージョンのアプリを公開することはできません。
 
 自動アップグレードに失敗した場合は、Studio Proでサービスがカスタマイズされたことを意味します。 この場合は、Studio Pro の手動アップグレードのみが可能です。
 
-サービスがチームメンバーによってStudio Proでカスタマイズされていることを自動アップグレードが検出した場合。 Studio Proの手動アップグレードが最初に実行されることが通知されます。
+サービスがチームメンバーによってStudio Proでカスタマイズされていることを自動アップグレードが検出した場合。 Studio Proの手動アップグレードが最初に実行されることが通知されます。 Studio Pro でサービスをアップグレードする方法についての詳細は、 [AppCloudServices から Mendix SSO へのアップグレード](/developerportal/deploy/upgrading-to-mendix-sso-from-acs) を参照してください。
 
 ## 7 続きを読む
 
-* [セキュリティ](/refguide8/security)
-* [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide8/studio-security-enabled)
+* [セキュリティ](/refguide/security)
+* [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide/studio-security-enabled)
