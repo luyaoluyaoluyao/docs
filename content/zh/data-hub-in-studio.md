@@ -1,144 +1,144 @@
 ---
-title: "Data Hub in Studio"
-category: "Working with Data"
+title: "工作室中的数据中心"
+category: "使用数据"
 menu_order: 30
-description: "Describes the Data Hub Catalog usage in Mendix Studio."
+description: "描述Mendix Studio中的数据中心目录使用情况。"
 tags:
-  - "studio"
-  - "data hub"
-  - "data hub catalog"
-  - "external entities"
+  - "工作室"
+  - "数据中心"
+  - "数据枢纽目录"
+  - "外部实体"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Every organization has apps containing valuable data that can be used in other applications too. [Mendix Data Hub](/data-hub/) enables you to use data from other apps without having to deal with complex far-from-ideal solutions, such as exporting data, duplicating it, or building complex technical integrations. With Data Hub, all you need to do is just search for the data, select it, and use it.
+每个组织都有包含宝贵数据的应用，也可以用于其他应用程序。 [Mendix Data Hub](/data-hub/) 使您能够使用来自其他应用的数据，而不必处理复杂的远离理想的解决方案。 例如输出数据、复制数据或建立复杂的技术一体化。 有了数据枢纽，您需要做的只是搜索数据，选择并使用它。
 
-Mendix Data Hub is the central hub in the organization that enables you to discover, connect to, and use shared data from different apps in your organization. It also ensures that data is used consistently throughout your organization.
+Mendix Data Hub 是本组织的中心中心，使您能够发现， 在您的组织中连接并使用来自不同应用的共享数据。 它还确保数据在整个组织内得到一致使用。
 
-Shared data is registered as a *service* in the [Data Hub Catalog](/data-hub/data-hub-catalog/). Through the **Data Hub** tab in Studio, you can access data from the Data Hub Catalog. You can find external entities coming from the service, add them to your app together with their attributes and associations, and use them locally. The properties of entities, attributes, and associations will be read-only.
+共享数据在 [数据集目录](/data-hub/data-hub-catalog/) 中注册为 *服务*。 通过 Studio的 **数据枢纽** 标签，您可以访问数据枢纽目录中的数据。 您可以找到来自服务的外部实体。将它们添加到您的应用以及他们的属性和关联，并且在本地使用。 实体、属性和协会的属性将是只读的。
 
-For example, you have an *Employee Onboarding app* containing information on what devices should be assigned to a new employee. Your organization also has a *Company's HR* app which has all the data on employees. With the Data Hub functionality, you will be able to use (consume) data from the *HR app* in your *Employee Onboarding app* instead of having to duplicate the data and keep it in sync manually.
+例如，您有一个 *员工上岗应用程序* 包含了哪些设备应该分配给新员工的信息。 您的组织也有一个 *公司的 HR* 应用程序，它拥有所有的员工数据。 Data Hub 函数. 您将能够在您的 *员工在线应用程序* 中使用 *HR 应用程序* 的 (消费) 数据，而不是需要复制数据并手动保持同步。
 
 For more information on how to use data in your app, see the [Selecting External Entities on Pages](#select-external-entities) section.
 
 {{% alert type="info" %}}
-You can access Data Hub if your organization has a Data Hub license.
-{{% /alert %}}
+如果您的组织拥有数据中心许可，您可以访问数据中心。
+{{% /报警 %}}
 
-## 2 Selecting External Entities on Pages {#select-external-entities}
+## 2 在页面上选择外部实体 {#select-external-entities}
 
-The entities which are available through the Data Hub Catalog are called *external entities* as they are coming from an external source (*a source app*).
+通过 Data Hub 目录可用的实体被称为 *外部实体* ，因为它们来自外部来源(*一个源应用程序*)。
 
-You can select external entities as a data source for data containers (a data view, list view, or data grid) on a page. To select an external entity, do the following:
+您可以选择外部实体作为数据容器的数据源 (数据视图，列表视图或数据网格)。 要选择一个外部实体，请执行以下操作：
 
-1. Open the **Properties** of the data container.
-2. Click the **Entity** property.
-3. In the **Select Entity** dialog box, you can search for external entities in the Data Hub Catalog and use them on your page. There are two ways to discover entities, you can do one of the following:
-    1. **Search for a specific service or entity name** – enter a search term in the search field to find an entity you would like to add:
+1. 打开数据容器的 **属性**。
+2. 点击 **实体** 属性。
+3. 在 **选择实体** 对话框中，您可以在数据集目录中搜索外部实体并在您的页面上使用它们。 发现实体有两种方法，您可以做以下一种：
+    1. **搜索特定服务或实体名称** - 在搜索字段中输入搜索词以找到您想要添加的实体：
 
         {{% image_container width="400" %}}![Searching for an Entity](attachments/data-hub-in-studio/searching-for-entity.png){{% /image_container %}}
 
-    2. **Browse through available data** – click the **Data Hub** section and browse through available services and entities:
+    2. **浏览可用数据** - 点击 **数据中心** 部分并浏览现有服务和实体：
 
         {{% image_container width="400" %}}![Selecting an Entity](attachments/data-hub-in-studio/selecting-entity.png){{% /image_container %}}
 
-3. Click **Select**.
+3. 点击 **选择**。
 
-The selected external entity will be added to your domain model automatically together with all integration and security settings. ![Domain Model](attachments/data-hub-in-studio/domain-model-example.png)
+所选外部实体将与所有集成和安全设置一起自动添加到您的域模型。 ![域模型](attachments/data-hub-in-studio/domain-model-example.png)
 
-When you [publish your app](publishing-app), you can see that the data from the external entity is shown in your app.
+当你 [发布你的应用程序](publishing-app), 你可以看到来自外部实体的数据显示在你的应用程序中。
 
-When you [preview your app](publishing-app), you will see data from the external entities, except for external entities from services that require authentication credentials. In this case you have to publish your app to see the data.
+当你 [预览你的应用程序](publishing-app), 你会看到来自外部实体的数据。 但需要认证证书的服务中的外部实体除外。 在这种情况下，您必须发布您的应用才能查看数据。
 
-### 2.1 The Data Hub Tab
+### 2.1 数据枢纽标签
 
-The **Data Hub** tab of the **Select Entity** dialog box shows you a list of services that expands to a list of entities available for your organization:
+**数据枢纽** 标签 **选择实体** 对话框向您展示了扩展到您组织可用实体列表的服务列表：
 
-![Data Hub Section Diagram](attachments/data-hub-in-studio/data-hub-tab-diagram.png)
+![数据枢纽部分图表](attachments/data-hub-in-studio/data-hub-tab-diagram.png)
 
-In the **Data Hub** tab, you can do the following:
+在 **数据集** 标签中，您可以做以下工作：
 
-* **Search** – when you enter a search term, you will get a list of services and entities available for your organization, as well as entities and services that are already used in your app.
+* **搜索** - 当您输入一个搜索词时，您将获得一个可供您组织使用的服务和实体列表。 以及您应用中已经使用的实体和服务。
 
-    {{% alert type="info" %}} In Studio, you can discover services that are published to a **Production** environment. {{% /alert %}}
+    {{% alert type="info" %}} In Studio, you can discover services that are published to a **Production** environment. {{% /报警 %}}
 
-* **Filter out Studio incompatible services** – some services require authentication that is not compatible with Studio, you can use them only in Studio Pro. You can view all services, or filter out only compatible ones. Choose one of the following options in the drop-down menu:
+* **过滤Studio不兼容的服务** — — 一些服务需要与Studio不兼容的身份验证。 您只能在 Studio Pro中使用它们。 您可以查看所有服务，或者只过滤兼容的服务。 在下拉菜单中选择以下选项之一：
 
-    * **All Services** – all services will be shown in the **Data Hub** tab.
-    * **Studio Compatible Services** – only services that are compatible with Studio are displayed in the **Data Hub** tab.
+    * **所有服务** - 所有服务将显示在 **数据中心** 选项卡。
+    * **Studio Compatible Services** - 只有与 Studio 兼容的服务会显示在 **Data Hub** 选项卡中。
 
-* **View services used by your app** – services that are already used in your app are marked with a green check-mark.
+* **查看您的应用所使用的服务** - 已经在您的应用中使用的服务被标记为绿色的检查标记。
 
-* **Update services** – when a new version of the service is available, you can update it. However, it is best to check out the changes made to the service in the Data Hub Catalog first.
+* **更新服务** - 当有新版本的服务时，您可以更新它。 然而，最好先检查数据枢纽目录中服务的变化。
 
     {{% image_container width="500" %}}![Update Available](attachments/data-hub-in-studio/service-update.png){{% /image_container %}}
 
-    Click the drop-down menu to choose the following options:
+    点击下拉菜单选择以下选项：
 
-    * **Update Now** – allows you to update the service to a new version.
-    * **Show Changes** – takes you to the Data Hub Catalog where you can check what has been changed in the service.
+    * **现在更新** - 允许您更新服务到新版本。
+    * **显示更改** - 将您带到数据中心目录，在那里您可以检查服务中发生了什么变化。
 
-* **View external entities available within the service** – you can expand the service information to see which external entities are available.
+* **查看服务中可用的外部实体** - 您可以扩展服务信息以查看哪些外部实体可用。
 
-* **View information on the service** – a service name and version number. Click the information icon to view the following information on the service:
+* **查看服务** - 服务名称和版本号。 点击信息图标查看服务上的以下信息：
 
-    * **Service name** – the name of the shared data source registered in the Data Hub Catalog.
+    * **服务名称** — — 在数据集目录中注册的共享数据源的名称。
 
-    * **Version** – every service has a version number. When you consume data from a service, you consume from a specific version of a service published to an environment. New versions of a service are issued if changes are made.
+    * **版本** - 每个服务都有一个版本号。 当您消耗某个服务的数据时，您将消耗某个特定版本的服务发布到环境中。 如果更改，将发布新版本的服务。
 
-    * **Last Updated** – indicated the date when the service was last updated.
+    * **上次更新** - 指明上次更新服务的日期。
 
-    * **Technical Owner** – links to the technical owner of the service (by default this is the owner who registered the service, but this can be changed in the Data Hub Catalog).
+    * **技术所有者** -- 与服务技术所有者的链接 (默认情况下，这是注册服务的所有者) 但这可以在数据集目录中改变)。
 
-    * **Business Owner** – links to the business owner of the data that the service connects to.
+    * **企业所有者** — — 链接到服务连接到的数据的企业所有者。
 
-    * **Contact** – contact of the business owner.
+    * **联系** - 与企业所有者联系。
 
-    * **View in Data Hub Catalog** – a link to the Data Hub Catalog of your organization.
+    * **在数据枢纽目录中查看** - 一个链接到您组织的数据枢纽目录。
 
         {{% image_container width="300" %}}![Service Information](attachments/data-hub-in-studio/service-information.jpg){{% /image_container %}}
 
 
-## 3 External Entity Properties
+## 3 个外部实体属性
 
-External entities are colored *purple* in the domain model:
+外部实体在域模型中彩色 *紫色*
 
-![External Entity](attachments/data-hub-in-studio/external-entity.png)
+![外部实体](attachments/data-hub-in-studio/external-entity.png)
 
-When you add external entities to your app, it is possible to make local changes to the entity, such as change its name. However, these changes are limited and will only apply to your app. Most of the properties of external entities are read-only as they are defined in the source app (this ensures that you will not accidently change the data in the source app):
+当您添加外部实体到您的应用程序时，可以对实体进行本地更改，例如更改它的名称。 然而，这些更改是有限的，只适用于您的应用。 外部实体的大多数属性都是只读的，因为它们是在源应用程序中定义的(这确保您不会意外更改源应用程序中的数据)：
 
-![External Entity Properties](attachments/data-hub-in-studio/external-entity-properties.png)
+![外部实体属性](attachments/data-hub-in-studio/external-entity-properties.png)
 
-### 3.1 External Entity Attributes
+### 3.1 外部实体属性
 
-You can rename external entity attributes to better fit your app structure. It will still be the same attribute containing the same data, meaning that this change will be local to your app and not affect the source app. All other properties, except the **Name** property, are read-only.
+您可以重命名外部实体属性以更好地适应您的应用结构。 它仍将是包含相同数据的属性。 表示此更改将是您的应用的本地且不会影响源应用。 除了 **名称** 属性之外，所有其他属性都是只读的。
 
-![Properties of External Entity Attribute](attachments/data-hub-in-studio/external-attribute-properties.png)
+![外部实体属性属性](attachments/data-hub-in-studio/external-attribute-properties.png)
 
-External attributes may have limitations that you can see in their properties. Limitation are added by the external service owner to indicate the features that are not supported. For example, if there are limitations on an attribute, you will not be able to use it in filters and/or sort on it on pages and in microflows.
+外部属性可能有您可以在其属性中看到的限制。 限制由外部服务所有者添加，以表示不支持的功能。 例如，如果对某一属性有限制， 您将无法在页面和微流中过滤和/或排序。
 
 {{% image_container width="250" %}}![Attribute with Limitations](attachments/data-hub-in-studio/attribute-with-limitations.jpg){{% /image_container %}}
 
 {{% alert type="info" %}}
 
-You cannot delete attributes of external entities.
+您不能删除外部实体的属性。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 3.2 External Entity Associations
+### 3.2 外部实体协会
 
-If you add two entities from the same service that have an association in the source app, this association will be added automatically.
+如果您从同一服务中添加两个在源应用程序中具有关联的实体，这个关联将自动添加。
 
-You can create and edit associations only between a local entity and an external one. However, the association should always point **to** the external entity and not **from** it. That is why creating many-to-many associations between local and external entities is not possible.
+您只能在本地实体和外部实体之间创建和编辑关联。 然而，该协会应该始终把 **指向** 外部实体，而不是 **指向** 指向它。 这就是为什么不可能在地方和外部实体之间建立多对多个联系的原因。
 
-For example, you can create an association from a local entity **Order** to an external entity **Customer**:
+例如，您可以创建一个从本地实体 **订单** 到外部实体 **客户** 的关联：
 
-![External Association Example](attachments/data-hub-in-studio/association-example.png)
+![外部联系示例](attachments/data-hub-in-studio/association-example.png)
 
-You cannot change or delete this association. It is also not possible to create an association between two external entities that do not have an association in the source app.
+您不能更改或删除此关联。 在源应用中没有联系的两个外部实体之间也不可能建立联系。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Data Hub](/data-hub/)
-* [Data Hub Catalog](/data-hub/data-hub-catalog/)
+* [数据中心](/data-hub/)
+* [数据集目录](/data-hub/data-hub-catalog/)
