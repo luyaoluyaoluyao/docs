@@ -1,102 +1,102 @@
 ---
-title: "Change Object"
-parent: "object-activities"
+title: "オブジェクトの変更"
+parent: "object-activity"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The change object activity can be used to change the members of an object. This can be done with or without committing and with or without events.
+変更オブジェクトのアクティビティは、オブジェクトのメンバを変更するために使用できます。 これは、コミットの有無にかかわらず、イベントの有無にかかわらず実行できます。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of change object properties is represented in the image below:
+変更されたオブジェクトのプロパティの例を以下の画像に示します。
 
-![change object properties](attachments/object-activities/change-properties.png)
+![オブジェクトのプロパティを変更](attachments/object-activities/change-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The change object properties pane consists of the following sections:
+変更オブジェクトのプロパティペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Object
+### 3.1 オブジェクト
 
-**Object** defines the object that is changed.
+**オブジェクト** は変更されたオブジェクトを定義します。
 
-### 3.2 Commit
+### 3.2 コミット
 
-**Commit** defines the way the object is committed. See the section [How Commits Work](committing-objects#how-commits-work) in *Commit Object(s)* for more information on committing.
+**コミット** はオブジェクトがコミットされる方法を定義します。 コミットの詳細については、 [コミットの動作](committing-objects#how-commits-work) のセクション *コミットオブジェクト* を参照してください。
 
-| Option                     | Description                                                                                     |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| Yes with event handlers    | The object is saved in the database and the [event handlers](event-handlers) are triggered      |
-| Yes without event handlers | The object is saved in the database, but the [event handlers](event-handlers) are not triggered |
-| No *(default)*             | The object is changed without being saved in the database                                       |
+| Option        | 説明                                                            |
+| ------------- | ------------------------------------------------------------- |
+| イベントハンドラでははい  | オブジェクトがデータベースに保存され、 [イベントハンドラ](event-handlers) がトリガーされます。     |
+| はい、イベントハンドラなし | オブジェクトはデータベースに保存されますが、 [イベントハンドラ](event-handlers) がトリガーされません。 |
+| *なし（デフォルト）*   | このオブジェクトはデータベースに保存されずに変更されます                                  |
 
-#### 3.2.1 Use Cases for Setting Commit
+#### 3.2.1 コミットを設定するための使用例
 
-If a flow is triggered from a data view (for example by the 'on change' of an text field) you often do not want to commit the changes you make to the data view object yet. The end-user can press the Save or Cancel button to commit or rollback the changes.
+データビューからフローがトリガーされた場合 (たとえばテキストフィールドの「変更時」など)、まだデータビューオブジェクトに加えた変更を反映したくないことがよくあります。 エンドユーザーは、format@@0またはformat@@1ボタンを押して、変更をコミットまたはロールバックできます。
 
-However, if the flow is triggered from a data grid button that just performs an operation on a selection you will want to commit the changes to avoid losing them.
+ただし、 データグリッドボタンからフローがトリガーされた場合、選択範囲で操作を実行するだけで、変更を反映して損失を避けることができます。
 
-#### 3.2.2 Commits in Nanoflows
+#### 3.2.2 Nanoflow内のコミット
 
-Nanoflows do not support committing changes without events. Committing while running in an online app sends a commit request to the Mendix Runtime and runs the events. If a change object action is used in an offline app, the changes are committed to the offline database.
+Nanoflowはイベントなしでのコミット変更をサポートしていません。 オンラインアプリで実行中にコミットすると、Mendix Runtimeにコミットリクエストが送信され、イベントが実行されます。 変更オブジェクトアクションがオフラインアプリで使用されている場合、変更はオフラインデータベースに反映されます。
 
-### 3.3 Refresh in Client{#refresh-in-client}
+### 3.3 クライアントで{#refresh-in-client} を更新
 
-This setting defines whether data sources are rerun after data is committed to the database.
+この設定では、データがデータベースにコミットされた後にデータソースを再実行するかどうかを定義します。
 
-Default: *No*
+デフォルト: *いいえ*
 
 {{% alert type="info" %}}
-To make pages of a Mendix app efficient, many widgets display values from an attribute of an object which is cached on the page. Attributes in widgets which use cached data are *always* reflected in the client even if they are not committed and irrespective of the value of **Refresh in client**.
+Mendix アプリのページを効率的にするために、多くのウィジェットはページにキャッシュされたオブジェクトの属性から値を表示します。 Attributes in widgets which use cached data are *always* reflected in the client even if they are not committed and irrespective of the value of **Refresh in client**.
 
 If a widget is only updated when a [data source](data-sources) is loaded, then changes will only be seen if changes are committed and **Refresh in client** is set to *Yes*.
 
-When testing your app, ensure that the desired data is being displayed by the widgets you have chosen.
+アプリをテストする際は、選択したウィジェットで希望するデータが表示されていることを確認してください。
 {{% /alert %}}
 
-#### 3.3.1 Microflow is Called from the Client in an Online App
+#### 3.3.1 マイクロフローは、オンラインアプリでクライアントから呼び出されます
 
-If **Refresh in client** is set to *No*, the change is not reflected in the client.
+クライアント **の更新** が *いいえ*に設定されている場合、変更はクライアントに反映されません。
 
-If set to *Yes*, the object is refreshed across the client, which includes reloading the relevant [data sources](data-sources).
+*はい*に設定すると、関連する [データ ソース](data-sources) の再ロードを含む、オブジェクトはクライアント全体でリフレッシュされます。
 
-#### 3.3.2 Microflow is Called in an Offline, Native, or Hybrid App
+#### 3.3.2 マイクロフローはオフライン、ネイティブ、またはハイブリッドアプリで呼び出されます
 
-When inside a microflow that is called from an offline, native, or hybrid app, the **Refresh in client** option is ignored and functions as if it was set to **No**.
+オフライン、ネイティブ、またはハイブリッドアプリから呼び出されるマイクロフロー内の場合 **クライアントの** オプションは無視され、 **いいえ** に設定されているかのように機能します。
 
-For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 
-#### 3.3.3 Action is in a Nanoflow
+#### 3.3.3 アクションは Nanoflow にあります
 
-The **Refresh in client** option is not available when change object is used in a [nanoflow](nanoflows). In this case, the refresh behavior depends on the **Commit type** option. It always reflects the changed attribute values in the client, including [visibility](common-widget-properties#visibility-properties).
+**クライアントの更新** オプションは、 [nanoflow](nanoflows) で変更オブジェクトが使用されている場合は使用できません。 この場合、更新の動作は **コミット タイプ** オプションに依存します。 これは [visibility](common-widget-properties#visibility-properties) を含む、クライアントの変更された属性値を常に反映します。
 
 If **Commit type** is set to *Yes*, the object is refreshed across the client as if **Refresh in client** was set to *Yes*.
 
-### 3.4 Change Members
+### 3.4 メンバーの変更
 
-You can specify a list of changes to apply to the object. Values for members are specified with [expressions](expressions) and must be of the same type as the member.
+オブジェクトに適用する変更のリストを指定できます。 メンバーに対する値は [式](expressions) で指定され、メンバーと同じ型でなければなりません。
 
-For a reference set association, it is also possible to add and remove an association (instead of only setting the member). For **add**, an object or a list of objects can be added to the currently associated objects. For **remove**, an object or a list of objects can be removed from the currently associated objects.
+参照セットの関連付けについては、(メンバの設定だけではなく)関連付けの追加と削除を行うこともできます。 **add**では、オブジェクトまたはオブジェクトのリストを現在関連付けられているオブジェクトに追加できます。 **remove**では、現在関連するオブジェクトからオブジェクトまたはオブジェクトのリストを削除できます。
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
