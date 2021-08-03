@@ -22,7 +22,7 @@ tags:
 アプリ設定のウィジェットの概要には、次のタイプのウィジェットが含まれています。
 
 * Marketplace widgets that are Studio approved, which are either, widgets that have been added by default when you created your app, or widgets you can download from the [Marketplace](/appstore/) to your app directly from Studio (for more information on widgets, see [Widgets](page-editor-widgets))
-* ローカルウィジェット – Studio Proでユーザーが作成したウィジェット (Studio Proでローカルウィジェットを自分で作成できます。 詳細については、 [カスタムウィジェット開発](/howto7/widget-development/) を参照してください。
+* ローカルウィジェット – Studio Proでユーザーが作成したウィジェット (Studio Proでローカルウィジェットを自分で作成できます。 詳細については、 [カスタムウィジェット開発](/howto8/extensibility/widget-development) を参照してください。
 
 App Settings では、次の列が表示されます。
 
