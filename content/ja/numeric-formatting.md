@@ -1,37 +1,37 @@
 ---
-title: "Numeric Formatting"
-parent: "consumed-web-services"
+title: "数値の書式設定"
+parent: "consed-web-services"
 tags:
   - "studio pro"
 ---
 
-## 1 Behavior in Your Mendix Application
+## Mendix アプリケーションでの行動
 
-A number will be translated into XML untouched, except that any trailing zeroes will be stripped and the representation will always be in non-scientific notation. The rounding mode used is configured in the [App Settings](project-settings).
+数値はそのままXMLに変換されますが、ゼロの末尾が削除され、その表現は常に非科学的表記になります。 使用される丸めモードは [アプリ設定](project-settings) で設定されています。
 
-## 2 XML Schema Facets
+## 2 XML スキーマファセット
 
-How numbers in XML should be represented can be specified in an XSD (or WSDL) by using schema facets.
+XML 内の数値をどのように表現するかは、スキーマファセットを使用して XSD (または WSDL) で指定することができます。
 
-Mendix currently supports `totalDigits` and `fractionDigits` for numeric elements:
+Mendixは現在、数値要素の `totalDigits` と `fractionDigits` をサポートしています:
 
-* `totalDigits` -  defines the maximum number of digits in the number (excluding the dot and minus sign)
-*  `fractionDigits` - defines the maximum number of digits after the decimal dot
+* `totalDigits` - 数値の最大桁数を定義します (ドットとマイナス記号を除く)
+*  `fractionDigits` - 小数点以下の最大桁数を定義する
 
-This means that if a number is encountered that does not match the required output format,  it will be rounded it so it does match. If it is not possible to represent the number correctly by formatting the number, then it will simply be put in the XML as is. For example, an XSD specifies a maximum amount of digits of 3, but the number is 1000.
+これは、必要な出力フォーマットに一致しない数値が発生した場合、一致するように丸められることを意味します。 数値をフォーマットすることで正しく表現できない場合は、そのままXMLに入れられます。 例えば、XSD は最大桁数 3 を指定しますが、その数は 1000 です。
 
-Mendix does not enforce compliance to these restrictions unless **Validate against WSDL** is enabled in web service calls or **Validate against schema** is enabled in XML export actions.
+Mendixは、Webサービス呼び出しで **WSDL に対して検証** が有効化されているか、XMLエクスポートアクションで **スキーマに対して検証** が有効化されている場合を除き、これらの制限へのコンプライアンスを強制しません。
 
-| Orginal Value | Total Digits | Fraction Digits | Formatted Value       | Comment                                             |
-| ------------- | ------------ | --------------- | --------------------- | --------------------------------------------------- |
-| 20.0055       | 3            | Undefined       | 20                    |                                                     |
-| 20.0055       | Undefined    | 3               | 20.006                |                                                     |
-| 0.0           | Undefined    | Undefined       | 0                     |                                                     |
-| 110.9555      | 5            | 3               | 110.96                |                                                     |
-| -110.9555     | 5            | 3               | -110.96               |                                                     |
-| 0.0000001     | Undefined    | 6               | 0                     |                                                     |
-| 99.99         | 3            | Undefined       | 100                   |                                                     |
-| 99.99         | 2            | Undefined       | 99.99                 | Not possible to format correctly, so left untouched |
-| 999.99        | 2            | 1               | 999.99                | Not possible to format correctly, so left untouched |
-| 1.19E-17      | Undefined    | Undefined       | 0.0000000000000000119 |                                                     |
+| 臓器値       | 合計桁数 | 分数の数字 | フォーマットされた値            | コメント                     |
+| --------- | ---- | ----- | --------------------- | ------------------------ |
+| 20.0055   | 3    | 未定義   | 20                    |                          |
+| 20.0055   | 未定義  | 3     | 20.006                |                          |
+| 0.0       | 未定義  | 未定義   | 0                     |                          |
+| 110.9555  | 5    | 3     | 110.96                |                          |
+| -110.9555 | 5    | 3     | -110.96               |                          |
+| 0.0000001 | 未定義  | 6     | 0                     |                          |
+| 99.99     | 3    | 未定義   | 100                   |                          |
+| 99.99     | 2    | 未定義   | 99.99                 | 正しくフォーマットできません。そのまま残ります。 |
+| 999.99    | 2    | 1     | 999.99                | 正しくフォーマットできません。そのまま残ります。 |
+| 1.19E-17  | 未定義  | 未定義   | 0.0000000000000000119 |                          |
 
