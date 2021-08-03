@@ -1,217 +1,217 @@
 ---
-title: "Search Bar"
-parent: "grids"
+title: "搜索栏"
+parent: "格子"
 menu_order: 40
 tags:
   - "studio pro"
-  - "search bar"
-  - "comparison search field"
-  - "drop down search field"
-  - "range search field"
-  - "grid"
+  - "搜索栏"
+  - "比较搜索字段"
+  - "下拉搜索字段"
+  - "范围搜索字段"
+  - "网格"
 aliases:
-  - /refguide/comparison-search-field.html
+  - /refguide/comparon-search-field.html
   - /refguide/drop-down-search-field.html
   - /refguide/range-search-field.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-The search bar contains search fields that allow the end-user to quickly find the information they need in a [data grid](data-grid) or [template grid](template-grid).
+搜索栏包含搜索字段，让最终用户能够在 [数据网格](data-grid) 或 [模板网格中快速找到他们所需要的信息](template-grid)。
 
-To add a search field to the search bar, right-click within the search bar in your data grid and choose **Add search field** > [Type of the search field](#search-field-type).
+将搜索字段添加到搜索栏， 在您的数据网格中的搜索栏中右键单击并选择 **添加搜索字段** > [搜索字段类型](#search-field-type)
 
 ![](attachments/data-widgets/add-search-field.png)
 
-## 2 Search Field Types {#search-field-type}
+## 2种搜索字段类型 {#search-field-type}
 
-There are three different types of search fields that can be used for different kinds of information:
+有三种不同类型的搜索字段可以用于不同类型的信息：
 
-* **Comparison** – Search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: AutoNumber, Date and Time, Integer, Long, String, Decimal.
-* **Drop-down** – Search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: Boolean, Enumerations, Associations.
-* **Range** –  This will apply a filter based on whether the search term falls between the values of two selected attributes. Possible attribute types: AutoNumber, Date and Time, Integer, Long, Decimal.
+* **比较** - 通过比较搜索结果与给定的搜索词进行过滤。 如果搜索值匹配属性值，此对象将是搜索结果的一部分。 可能的属性类型：自动编号、 日期和时间、 Integer、 Long、 String, Decimal
+* **下拉** -- 搜索结果是通过将其与给定的搜索词进行比较来筛选的。 如果搜索值匹配属性值，此对象将是搜索结果的一部分。 可能的属性类型：布尔值、 枚举、 关联。
+* **范围** - 这将应用一个基于搜索词是否在两个选定属性的值之间的过滤器。 可能的属性类型：AutoNumber, Date and Time, Integer, Long, Decimal
 
 {{% alert type="info" %}}
-You cannot change the type of a search field, you will need to delete it and then add a new one of a different type.
-{{% /alert %}}
+您不能更改搜索字段的类型，您需要删除它，然后添加一个不同类型的新字段。
+{{% /报警 %}}
 
-## 3 Search Field Properties {#search-field-properties}
+## 3 个搜索字段属性 {#search-field-properties}
 
-Search field properties depend on the type of the search field.
+搜索字段属性取决于搜索字段的类型。
 
-An example of drop-down search field properties properties is represented in the image below:
+下拉搜索字段属性的示例在下面的图像中表示：
 
-{{% image_container width="250" %}}![Search Field Properties](attachments/data-widgets/search-field-properties.png)
+{{% image_container width="250" %}}![搜索字段属性](attachments/data-widgets/search-field-properties.png)
 {{% /image_container %}}
 
-Search field properties consist of the following sections:
+搜索字段属性由以下部分组成：
 
-* [Common](#common)
-* [General](#general)
+* [常用的](#common)
+* [A. 概况](#general)
 
-### 3.1 Common Section {#common}
+### 3.1 共同部分 {#common}
 
-Properties as **Name**, **Caption**, and **Type** are common for most of the widgets. {{% snippet file="refguide/common-section-link.md" %}}
+属性为 **名称**, **标题**, 和 **类型** 是大多数小部件常见的。 {{% snippet file="refguide/common-section-link.md" %}}
 
-However, there are additional properties that are described in the sections below.
+然而，下文各节介绍了其他一些财产。
 
-#### 3.1.1 Custom Date Format
+#### 3.1.1 自定义日期格式
 
-**Custom date format** is only available when you select an attribute of *Date and Time* type in the [**Attribute (path)**](#attribute-path) property. This property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally. The **Format example** will show you a date example.
-
-{{% alert type="info" %}}
-
-Search input formatting must be an exact day. Custom date formatting is not limited.
-
-{{% /alert %}}
-
-{{% snippet file="refguide/custom-date-format-tokens.md" %}}
-
-#### 3.1.2 Placeholder Text
-
-**Placeholder text** is only available when you select an attribute of *Date and Time* type in the [**Attribute (path)**](#attribute-path) property.
-
-The placeholder text is shown if the date attribute is empty. It can be used to give the end-user a hint as to the expected format.
-
-### 3.2 General Section {#general}
-
-#### 3.2.1 Attribute (Path) {#attribute-path}
+**只有当您选择 *日期和时间属性时才能使用自定义日期格式</strong>* 类型在 [**属性(路径)**](#attribute-path) 属性。 此属性决定如何格式化属性。 自定义日期格式是一个字符串，允许下面表格中的任何符号组合。 任何标点都将以字面形式呈现。 **格式示例** 将向您展示一个日期示例。</p>
 
 {{% alert type="info" %}}
 
-This property is available for **Comparison** and **Drop-down** search fields.
+搜索输入格式必须是准确的日期。 自定义日期格式不受限制。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Many input widgets (like text boxes and drop-down widgets) can be connected to the following:
+{{% snippet file="refguide/custom-date-form-tokens.md" %}}
 
-* An attribute of the entity of the data view that contains the widget; in this case, the widget is connected to an attribute
-* An attribute of an entity associated with the data view entity by following one or more associations of the reference type through the domain model; in this case, the widget is connected to an attribute path
+#### 3.1.2 占位符文本
 
-In the first case, we say the widget is connected to an attribute, and in the second case it is connected to an attribute path.
+**占位符文本** 只有当您选择 *日期和时间属性时* 类型在 [**属性(路径)**](#attribute-path) 属性时才可用。
 
-You can edit attributes presented in input widgets over a path.
+如果日期属性为空，则显示占位符文本。 它可以用来向最终用户说明预期的格式。
 
-#### 3.2.2 Comparison
+### 3.2 一般部分 {#general}
 
-{{% alert type="info" %}}
-
-This property is available for **Comparison** and **Drop-down** search fields.
-
-{{% /alert %}}
-
-The value entered by the end user (or the default value in the case of hidden and read-only search fields) is compared to the value of the attribute of each of the objects in the grid. If the match succeeds, the object will be part of the search result. There are different ways in which the attribute value and the entered value can be compared. In the third column below you see the type of search field for which the comparison operator is allowed.
-
-| Value             | Description                                                        | Search Field Types                      | Date Input Query           |
-| ----------------- | ------------------------------------------------------------------ | --------------------------------------- | -------------------------- |
-| Contains          | Does the attribute value contain the entered value?                | Text (attribute must be of type String) |                            |
-| Starts with       | Does the attribute value start with the entered value?             | Text (attribute must be of type String) |                            |
-| Greater           | Is the attribute value greater than the entered value?             | Text, Date                              | > date + 1 day             |
-| Greater or equal  | Is the attribute value greater than or equal to the entered value? | Text, Date                              | > date                     |
-| Equal *(default)* | Is the attribute value the same as the entered value?              | Text, Date, Drop-down                   | >= date and < date + 1 day |
-| Not equal         | Is the attribute value not the same as the entered value?          | Text, Date, Drop-down                   | != date                    |
-| Smaller or equal  | Is the attribute value smaller than or equal to the entered value? | Text, Date                              | < date + 1 day             |
-| Smaller           | Is the attribute value smaller than the entered value?             | Text, Date                              | < date                     |
+#### 3.2.1 属性(路径) {#attribute-path}
 
 {{% alert type="info" %}}
 
-For **Drop-down** search fields:  there is no limit on the number of drop-down selection options, thus a selected attribute can have an unlimited amount of unique values. However, having thousands of options which must be retrieved from the server will slow page loading considerably on older browsers. Initially hiding the search bar which contains the drop-down search field can improve page loading performance on first load.
+此属性可用于 **比较** 和 **下拉** 搜索字段。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-**Date comparisons and the influence of the default value**
+许多输入小部件 (如文本框和下拉小部件) 可以连接到以下方面：
 
-It is possible to search on date attributes using equality. What happens with the time component belonging to the date is dependent on the default value of the comparison search field.
+* 包含小部件的数据视图实体属性；在此情况下，小部件与属性连接
+* 一个与数据视图实体相关联的实体的属性，通过域模型跟踪一个或多个参考类型的协会； 在这种情况下，小部件已连接到属性路径
 
-| Default value         | Search query                                                                                                     |  | Result example (input: August 4, 2100)                               |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------- |  | -------------------------------------------------------------------- |
-| None                  | Search field is empty. Represents a 24 hour date range starting at midnight of the specified date.               |  | Search between August 4, 0:00 - August 5, 0:00                       |
-| [%CurrentDateTime%]   | Search field shows the current date. Represents a 24 hour date range starting at the _current time_.             |  | Search between August 4, <current time> and August 5, <current time> |
-| [%BeginOfCurrentDay%] | Search field shows the current date. Represents a 24 hour date range starting at midnight of the specified date. |  | Search between August 4, 0:00 - August 5, 0:00                       |
+在第一种情况下，我们说小部件与属性相连，在第二种情况下，小部件与属性路径相连。
 
-### 3.3 Allow Multi-Select
+您可以通过路径编辑输入小部件中显示的属性。
 
-{{% alert type="info" %}}
-
-This property is available for **Drop-down** search fields.
-
-{{% /alert %}}
-
-If this property is set to 'Yes', the resulting drop-down allows you to select multiple values instead of just one. When searching all records match for which the corresponding attribute is equal to one of the selected values. For example, you can search for all orders with status 'Submitted' or 'In progress'.
-
-### 3.4 XPath Constraint
+#### 3.2.2 比较
 
 {{% alert type="info" %}}
 
-This property is available for **Drop-down** search fields.
+此属性可用于 **比较** 和 **下拉** 搜索字段。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-If the 'drop-down' search field is connected to an attribute of an associated entity (as opposed to the grid entity itself) the XPath constraint can be used to limit objects shown in the drop-down.
+最终用户输入的值(或在隐藏和只读搜索字段的情况下的默认值)与网格中每个对象的属性值进行比较。 如果比赛成功，对象将成为搜索结果的一部分。 有不同的方法可以比较属性值和输入的值。 在下面的第三列中，您看到了允许比较操作员的搜索字段类型。
 
-{{% alert type="info" %}}
-
-Let us say you have a grid showing bicycles. In the domain model the bicycle has an association to the shops where you can buy those bicycles. You can add a search field to the grid allowing the end-user to select a shop by name. The XPath can then be used to limit the shops to those that are in a given country. `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
-
-{{% /alert %}}
-
-### 3.5 Sort Order
-
-{{% alert type="info" %}}
-
-This property is available for **Drop-down** search fields.
-
-{{% /alert %}}
-
-The sort order specifies the order in which the items in the drop-down search field are shown. You can sort on multiple attributes in both directions (ascending and descending). If no sort order is specified, the drop-down search field sorts on the displayed attribute.
-
-Default: *No sort order*
-
-### 3.6 Lower Bound
+| 值         | 描述             | 搜索字段类型         | 日期输入查询        |
+| --------- | -------------- | -------------- | ------------- |
+| 包含        | 属性值是否包含输入的值？   | 文本(属性必须是类型字符串) |               |
+| 开始于       | 属性值以输入值开始吗？    | 文本(属性必须是类型字符串) |               |
+| 大于        | 属性值是否大于输入值？    | 文本，日期          | > 日期 + 1 天    |
+| 大于或等于     | 属性值是否大于或等于输入值？ | 文本，日期          | > 日期          |
+| 等于 *(默认)* | 属性值与输入值相同吗？    | 文本，日期，下拉       | >=日期<日期 + 1 天 |
+| 不等于       | 属性值与输入值不同吗？    | 文本，日期，下拉       | != 日期         |
+| 较小或等于     | 属性值是否小于或等于输入值？ | 文本，日期          | < 日期 + 1 天    |
+| 较小的       | 属性值是否小于输入值？    | 文本，日期          | < 日期          |
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+对于 **下拉** 搜索字段：下拉选择选项的数量没有限制。 因此，所选属性可以拥有无限数量的唯一值。 然而，拥有数以千计的必须从服务器检索的选项将大大减缓旧浏览器的页面负载速度。 初始隐藏包含下拉搜索字段的搜索栏可以提高首次下载页面的性能。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-This attribute (path) determines the lower bound of the range.
+**日期比较和默认值的影响**
 
-### 3.7 Lower Bound Operator
+使用平等来搜索日期属性是可能的。 时间组件属于日期时发生的情况取决于比较搜索字段的默认值。
 
-{{% alert type="info" %}}
+| 默认值                   | 搜索查询                                  |  | 结果示例 (输入：8月4日, 2100)                           |
+| --------------------- | ------------------------------------- |  | ---------------------------------------------- |
+| 无                     | 搜索字段为空。 表示从指定日期午夜开始的24小时日期范围。         |  | 搜索8月4日0:00 - 8月5日0:00                          |
+| [%CurrentDateTime%]   | 搜索字段显示当前日期。 表示从 _当前时间_ 开始的 24 小时日期范围。 |  | 在8月4日之间搜索 <current time> 和8月5日， <current time> |
+| [%BeginOfCurrentDay%] | 搜索字段显示当前日期。 表示从指定日期午夜开始的24小时日期范围。     |  | 搜索8月4日0:00 - 8月5日0:00                          |
 
-This property is available for **Range** search fields.
-
-{{% /alert %}}
-
-The lower bound operator determines whether the comparison with the lower bound is inclusive (>=) or not (>). It can be either 'Greater' or 'Greater or equal'.
-
-Default: *Greater*
-
-### 3.8 Upper Bound
+### 3.3 允许多选
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+此属性可用于 **下拉** 搜索字段。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-This attribute (path) determines the upper bound of the range.
+如果这个属性设置为“是”，由此产生的下拉下拉允许您选择多个值，而不只是一个。 当搜索所有匹配的记录时，相应的属性等于所选值之一。 例如，您可以搜索所有订单的状态为“提交”或“正在进行中”。
 
-### 3.9 Upper Bound Operator
+### 3.4 XPath 约束
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+此属性可用于 **下拉** 搜索字段。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The upper bound operator determines whether the comparison with the upper bound is inclusive (<=) or not (<). It can be either 'Smaller' or 'Smaller or equal'.
+如果“下拉”搜索字段连接到关联实体的属性(相对于网格实体本身)，则可以使用 XPath 约束来限制下拉中显示的对象。
 
-Default: *Smaller*
+{{% alert type="info" %}}
 
-## 4 Read More
+让我们说你有一个网格显示自行车。 在网域模型中，自行车与商店有一个关联，您可以购买这些自行车。 您可以将搜索字段添加到网格中，允许最终用户选择一个商店的名称。 然后可以使用 XPath 将商店限制在指定国家的商店。 `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
 
-* [Data Grid](data-grid)
-* [Template Grid](template-grid)
+{{% /报警 %}}
+
+### 3.5 排序顺序
+
+{{% alert type="info" %}}
+
+此属性可用于 **下拉** 搜索字段。
+
+{{% /报警 %}}
+
+排序顺序指定了下拉搜索字段中各项的显示顺序。 您可以在两个方向排序多个属性 (升序和降序)。 如果没有指定排序顺序，显示属性上的下拉搜索字段排序。
+
+默认： *无排序顺序*
+
+### 3.6 下限
+
+{{% alert type="info" %}}
+
+此属性可用于 **范围** 搜索字段。
+
+{{% /报警 %}}
+
+此属性 (路径) 决定范围的下限。
+
+### 3.7 下限运算符
+
+{{% alert type="info" %}}
+
+此属性可用于 **范围** 搜索字段。
+
+{{% /报警 %}}
+
+下限操作员决定与下限的比较是否包含(>=) (>)。 它可以是“更大的”，也可以是“更大的或者平等的”。
+
+默认值： *提高*
+
+### 3.8 上边框
+
+{{% alert type="info" %}}
+
+此属性可用于 **范围** 搜索字段。
+
+{{% /报警 %}}
+
+此属性 (路径) 决定范围的上限。
+
+### 3.9 上端边界运算符
+
+{{% alert type="info" %}}
+
+此属性可用于 **范围** 搜索字段。
+
+{{% /报警 %}}
+
+上限的操作者决定与上限的比较是否兼容(<=) (<)。 它可以是“小人”，也可以是“小人和平等人”。
+
+默认： *较小的*
+
+## 4 阅读更多
+
+* [数据网格](数据网格)
+* [模板网格](template-grid)
