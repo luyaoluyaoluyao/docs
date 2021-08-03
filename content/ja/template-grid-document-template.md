@@ -1,61 +1,57 @@
 ---
-title: "Template Grid (Document Template)"
-parent: "document-templates"
+title: "テンプレートグリッド (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/Template+Grid+(document+template).html
-  - /refguide8/template-grid-(document-template).html
+  - /ja/refguide/Template+Grid+(document+template).html
+  - /refguide/template-grid-(document-template).html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/template-grid-document-template.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
-
-The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. The template grid has a lot in common with the data grid. The main difference is that the objects are shown in templates (a sort of small data view) instead of rows.
+テンプレート グリッドには、タイル ビュー内のオブジェクトのリストが表示されます。 例えば、テンプレートグリッドに製品のリストを表示できます。 テンプレート グリッドにはデータ グリッドと多くの共通点があります。 主な違いは、オブジェクトが行の代わりにテンプレート(小さなデータビューの一種)に表示されることです。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918137.png)
 
-A template grid showing products with name, description, and image.
+名前、説明、画像を持つ製品を示すテンプレートグリッド。
 
 {{% /alert %}}
 
-## 2 Components
+## 2つのコンポーネント
 
-### 2.1 Sort Bar
+### 2.1 ソートバー
 
-See [Sort Bar](sort-bar).
+[ソート バー](sort-bar) を参照してください。
 
-## 3 Appearance Properties
+## 3つの外観プロパティ
 
-### 3.1 Enable Striping
+### 3.1 ストライプを有効にする
 
-With striping enabled you can set the contents of even and uneven template grid rows individually. This way you can create a striping effect by varying color for the 2 different row styles.
+ストライピングを有効にすると、均一で不均一なテンプレートグリッド行の内容を個別に設定できます。 この方法で、2つの行スタイルに色を変えてストライピング効果を作成できます。
 
-### 3.2 Number of Columns
+### 3.2 カラム
 
-This defines the amount of columns the template grid will contain.
+テンプレートグリッドに含まれる列の量を定義します。
 
-## 4 Common Properties
+## 4つの一般的なプロパティ
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
 
-## 5 Data Source Properties
+## 5つのデータソースのプロパティ
 
-The data source properties determine which objects will be shown in the template grid. The list of objects in the template grid is constrained by the following mechanisms:
+データ ソースのプロパティは、テンプレート グリッドに表示されるオブジェクトを決定します。 テンプレート グリッド内のオブジェクトのリストは、以下のメカニズムによって制約されます。
 
-1.  For top-level template grids, the objects passed in the microflow calling the document export action are shown.
-2.  For nested template grids, if an entity path is used, only the objects reachable by following the path from the containing object are shown.
-3.  For nested template grids, if a microflow is used, the objects returned by the microflow are shown.
+1.  トップレベルのテンプレート グリッドには、ドキュメントのエクスポートアクションを呼び出すマイクロフローで渡されたオブジェクトが表示されます。
+2.  ネストされたテンプレート グリッドの場合、エンティティ パスが使用されている場合、含まれているオブジェクトからパスをたどることで到達可能なオブジェクトのみが表示されます。
+3.  ネストされたテンプレートグリッドの場合、マイクロフローが使用されると、マイクロフローによって返されるオブジェクトが表示されます。
 
-### 5.1 Entity (Path)
+### 5.1 エンティティ (パス)
 
-The entity (path) property specifies from which entity instances will be shown in the template grid. A top-level template grid is always connected to an entity. A nested template grid can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path can follow associations irrespective of type and ownership.
+エンティティ (path) プロパティは、テンプレート グリッドに表示されるエンティティインスタンスを指定します。 トップレベルテンプレートグリッドは常にエンティティに接続されます。 ネストされたテンプレート グリッドは、エンティティまたは含むデータ ビューのエンティティから始まるエンティティ パスに接続することができます。 エンティティパスは、タイプと所有権に関係なく関連付けに従うことができます。
 
-### 5.2 Microflow
+### 5.2 マイクロフロー
 
-When a nested template grid is connected to an entity, a microflow is needed to retrieve the data. The input parameter of these microflows is always the object of the containing data view and the output is a list of objects with the type of the nested template grid.
+ネストされたテンプレート グリッドがエンティティに接続されている場合、データを取得するためにマイクロフローが必要になります。 これらのマイクロフローの入力パラメータは常に含まれているデータビューのオブジェクトであり、出力はネストされたテンプレート グリッドの型を持つオブジェクトのリストです。
