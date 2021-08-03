@@ -4,38 +4,38 @@ parent: "page-resources"
 menu_order: 40
 tags:
   - "studio pro"
-  - "building block"
-  - "page resource"
+  - "Building block"
+  - "ページリソース"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Building blocks are components that can be re-used to streamline the page creation process. By pre-configuring and styling building blocks, users can easily click together interfaces without having to worry about the details of styling guidelines or user experience.
+Building Blocksはページ作成プロセスを合理化するために再利用できるコンポーネントです。 構築ブロックの事前設定とスタイル設定により、ユーザーは、スタイリングガイドラインやユーザーエクスペリエンスの詳細を気にすることなく、インターフェイスを簡単にクリックできます。
 
-Building blocks are stored in the app's [UI resources package](ui-resources-package). This keeps them in sync with the app theme, and provides a handy place to consolidate all design-related data.
+Building Blocksはアプリの [UI resources パッケージ](ui-resources-package) に格納されます。 これにより、アプリのテーマと同期させることができ、デザインに関連するすべてのデータを統合するのに便利な場所が提供されます。
 
-To create a building block, simply right-click a widget anywhere in your app in Studio Pro and select **Create building block**. The widget along with its contents will be added as a new building block. The building block will now automatically appear in the **Building blocks** tab of the **Toolbox**.
+Building Blockを作成するには、Studio Proのアプリ内の任意の場所でウィジェットを右クリックし、 **Building Blockの作成** を選択します。 ウィジェットの内容とともに、新しいBuilding Blockとして追加されます。 Building Blockは **Toolbox** の **Building Blocks**タブに自動的に表示されます。
 
-As the purpose of building blocks is to facilitate design rather than functionality, building blocks should be devoid of references to other documents. This is to prevent users from facing confusing errors when using building blocks in their pages. It also mitigates the chance of errors when importing building blocks from a different app.
+Building Blockの目的は、機能ではなく設計を容易にすることであるため、Building Blockは他の文書への参照を欠いている必要があります。 これは、ユーザーが自分のページにBuilding Blockを使用しているときに混乱してエラーに直面することを防ぐためです。 また、別のアプリからBuilding Blockをインポートする際のエラーの可能性も軽減します。
 
-## 2 Common Properties
+## 2つの一般的なプロパティ
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-## 3 Designer Properties
+## デザイナープロパティ
 
 {{% snippet file="refguide/designer-properties.md" %}}
 
-## 4 General Properties
+## 4つの一般プロパティ
 
-### 4.1 Display Name
+### 4.1 表示名
 
-The display name determines the name of the building block that will appear in the toolbox.
+表示名は、ツールボックスに表示されるBuilding Blockの名前を決定します。
 
-### 4.2 Image
+### 4.2 画像
 
-The image selected will appear in the **Building Blocks** tab of Studio's **Toolbox**. Selecting a representative image will allow users to easily distinguish between building blocks. If left blank, Studio will display a generic default image. Any image selected will be scaled down to 200x200 pixels.
+選択された画像は、Studio の **Toolbox** の **Building Blocks** タブに表示されます。 代表的な画像を選択すると、ユーザーはビルディングブロックを簡単に区別できます。 空白の場合、Studio は一般的なデフォルト画像を表示します。 選択された画像は200x200ピクセルに縮小されます。
 
-### 4.3 Documentation URL
+### 4.3 ドキュメントURL
 
-The documentation URL can be used to link to a documentation page for the building block. These links will appear in the **Building Blocks** tab of Studio's **Toolbox**.
+ドキュメント URL は、ビルド ブロックのドキュメント ページにリンクするために使用できます。 これらのリンクはStudioの **ツールボックス** の **Building Blocks**タブに表示されます。
