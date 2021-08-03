@@ -10,6 +10,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/javascript-actions.pdf) をクリックしてください。
+{{% /alert %}}
+
 {{% alert type="warning" %}}
 このアクティビティは **Nanoflows** でのみ使用できます。
 {{% /alert %}}
@@ -20,17 +24,17 @@ JavaScriptアクションを使用すると、アプリケーションの機能�
 
 {{% alert type="info" %}}
 
-Each JavaScript action defined in Mendix Studio Pro corresponds to a file *{JavaScript action name}.js* in the subdirectory **javascriptsource{module name}/actions/** in your app directory.
+Each JavaScript action defined in Mendix Studio Pro corresponds to a file *{JavaScript action name}.js* in the subdirectory **javascriptsource{module name}/actions/** in your project directory.
 
 The skeletons of these *.js* files are generated automatically when you save an action, and those JavaScript actions can immediately be edited in the embedded code editor.
 
 {{% /alert %}}
 
-JavaScript アクションの作成、構成、使用方法については、 [JavaScript アクション](/howto/extensibility/build-javascript-actions) の作成方法を参照してください。
+JavaScript アクションの作成、構成、使用方法については、 [JavaScript アクション](/howto8/extensibility/build-javascript-actions) の作成方法を参照してください。
 
 ## 2つの一般設定
 
-**App Explorer** で JavaScript アクションをダブルクリックすると、JavaScript アクションの設定が表示されます。
+**Project Explorer** で JavaScript アクションをダブルクリックすると、JavaScript アクションの設定が表示されます。
 
 {{% image_container width="400" %}}![javascript settings](attachments/javascript-actions/javascript-action-settings-no-para.png){{% /image_container %}}
 
@@ -77,11 +81,11 @@ JavaScript アクションでサポートされているパラメータ型につ
 
 #### 2.2.3 カテゴリ
 
-カテゴリを使用して、 [JavaScript Action Call](javascript-action-call) でパラメータを区別します。 カテゴリは、アプリケーションにいくつかのパラメータがある場合にパラメータの論理グループを作成するのに便利です。 カテゴリを指定しない場合、パラメータは **Input** グループに表示されます。
+カテゴリを使用して、 [JavaScript Action Call](javascript-action-call) でパラメータを区別します。 カテゴリは、プロジェクトにいくつかのパラメータがある場合にパラメータの論理グループを作成するのに便利です。 カテゴリを指定しない場合、パラメータは **Input** グループに表示されます。
 
 #### 2.2.4 説明
 
-いくつかのパラメータを持つアプリの場合、説明はパラメータの正確な目的を思い出させる役に立ちます。 説明では、アプリのコラボレーターにパラメータを記述することもできます。 説明には、大文字と小文字、数字、および記号の両方を含めることができます。
+いくつかのパラメータを持つプロジェクトの場合、説明はパラメータの正確な目的を思い出させる役割を果たします。 また、説明では、プロジェクトのコラボレーターにパラメーターを記述することもできます。 説明には、大文字と小文字、数字、および記号の両方を含めることができます。
 
 ### 2.3 返品タイプ
 
@@ -129,7 +133,7 @@ JavaScript アクションを公開するには、カテゴリが必要です。
 
 ## 6 コード
 
-**コード** タブでは、Studio Pro から離れずに JavaScript アクションコードを編集できます。 エディタは [モナコエディタ](https://microsoft.github.io/monaco-editor/index.html)をベースにしています。 構文強調やコード補完などの機能を提供します。 このコードはモダンな JavaScript (ES8 / ES2017) で記述でき、 `async` のような関数を `await` や `Promise` で使用できます。
+**コード** タブでは、Studio Pro から離れずに JavaScript アクションコードを編集できます。 エディタは [モナコエディタ](https://microsoft.github.io/monaco-editor/index.html)をベースにしています。 構文強調やコード補完などの機能を提供します。 Mendixバージョンから 8. そしてその上に コードはモダンなJavaScript(ES8 / ES2017)で書くことができ、 `async` のような関数を `await` や `Promise` で使うことができます。 コードは移調され、実行するためにポリフィルされます(Internet Explorer 11でも)。
 
 コードには、インポート リスト、追加のコード ブロック、ユーザー コード ブロックの 3 つのセクションがあります。 追加されたすべてのコードは、これらのブロックのいずれかに移動する必要があります。 JavaScriptアクション設定のデプロイまたは更新時にテンプレートコードを再生成すると、ブロック外のコードが失われます。
 
@@ -168,6 +172,6 @@ export async function Hello(message) {
 
 * [JavaScript アクションコール](javascript-action-call)
 * [Nanoflows](ナノフロー)
-* [JavaScriptアクションをビルド](/howto/extensibility/build-javascript-actions)
+* [JavaScriptアクションをビルド](/howto8/extensibility/build-javascript-actions)
 * [Java アクションコール](java-action-call)
 * [マイクロフロー通話](microflow-call)
