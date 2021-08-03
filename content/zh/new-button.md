@@ -1,17 +1,17 @@
 ---
-title: "Create Button"
-parent: "button-widgets"
+title: "创建按钮"
+parent: "按钮小部件"
 ---
 
 {{% alert type="info" %}}
 
-This button was removed in Mendix 7.17. Use a normal [Action button](action-button) with the **Create object** action instead.
+此按钮已在 Mendix 7.17中删除。 使用普通的 [动作按钮](action-button) **创建对象** 动作代替。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-When the user presses the **Create** button, the Mendix application will create a new object and open a page to edit the new object.
+当用户按下 **创建** 按钮时， Mendix 应用程序将创建一个新对象并打开一个页面来编辑新对象。
 
-## Button Properties
+## 按钮属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -19,11 +19,11 @@ When the user presses the **Create** button, the Mendix application will create 
 
 {{% snippet file="refguide7/Image+Property.md" %}}
 
-{{% snippet file="refguide7/Render+Mode+Property.md" %}}
+{{% snippet file="refguid7/Render+Mode+Property.md" %}}
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -33,20 +33,20 @@ When the user presses the **Create** button, the Mendix application will create 
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## General Properties
+## 常规属性
 
-### Page
+### 页
 
-This property specifies the page that is opened when the end user presses this button. The end user can use this page to edit the newly created object before it is saved. This page should contain a data view connected to the same entity as this button.
+此属性指定了当终端用户按此按钮时打开的页面。 终端用户在保存之前可以使用此页面编辑新创建的对象。 此页面应包含一个连接到此按钮相同实体的数据视图。
 
-See [Opening Pages](opening-pages).
+查看 [打开页面](opening-pages)。
 
-### Entity (Path)
+### 实体(路径)
 
-Specifies which type of object will be created when the button is clicked. It is possible to create an object which has an association to an object in an enclosing data view or to the object passed as the page parameter. The association will be set automatically when the new object is created. Only one to one or one to many associations are supported.
+指定点击按钮时要创建的对象类型。 它可以创建一个具有关联到附件数据视图中的对象或作为页面参数传递的对象的对象。 创建新对象时将自动设置关联。 许多社团只支持一对一或一对。
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Extended.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Extened.md" %}}
