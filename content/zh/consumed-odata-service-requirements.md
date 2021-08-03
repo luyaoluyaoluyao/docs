@@ -7,6 +7,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-odata-service-requirements.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 本文件说明将要消耗的OData服务的要求。 这些要求在运行时没有得到进一步核实，预计将予以维持。 如果这些要求没有得到满足，就可能产生错误。
@@ -26,7 +30,7 @@ Mendix 应用所使用的耗氧物质服务的要求如下：
 
 词汇注释可以在服务中用于表示不支持的功能。 实体集识别以下词汇表注释：
 
-* **可计数** -- 将实体设置为 `Countable="false"` 阻止用户将实体添加到应用程序中
+* **计数** -- 将实体设置标记为 `Countable="false"` 阻止用户将实体添加到项目
 * **可过滤** -- 将实体设置为 `Filterable="false"` 将所有属性设置为 不可过滤。
 * **可排序** -- 将实体设置为 `Sortable="false"` 将所有属性设置为不可排序。
 * 将一个实体设置为 `Filterable="false"` and `Sortable="false"` 将所有属性设置为不可过滤和不可排序； 用 `NonFilterableProperties标记属性` 注解或 `NonSortableProperties` 注解设置特定属性为不可过滤或不可排序。
@@ -35,13 +39,9 @@ Mendix 应用所使用的耗氧物质服务的要求如下：
 
 此外，一个实体只有在用钥匙识别出来的情况下才能使用。 只要满足以下条件，密钥可以由一个或多个属性组成：
 
-* 属性不能为空(因此他们必须有 `isNullable="false"` 指定)。
-* 只允许以下类型： `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `布尔`, `十进制`, `单一`, `双倍`和 `字符串`。
-* 如果密钥属性的类型是 `字符串`, 它必须有一个限定的长度 (最大) 。 这是因为并非所有数据库都支持无限长度字符串的索引。 如果合同中指定了 `MaxLength` 就足够了。 然而，如果合同中没有指定一个 `MaxLength` ，您知道该字符串的长度是有限的， 您仍然可以通过指定域模型中属性的最大长度来使用该实体。
-
-{{% alert type="info" %}}
-使用含有合同中没有规定最大长度的密钥的实体的这一特征适用于9.3.0及以上版本。 在以前版本的Studio Pro中，您必须更改合同以确保指定 `MaxLength`。
-{{% /报警 %}}
+* 属性不能为空(因此他们必须有 `isNullable="false"`
+* 只允许以下类型： `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `布尔`, `十进制`, `单一`, `双精度`和 `字符串`
+* 如果类型是 `字符串`, 必须指定 `MaxLength`
 
 ### 3.2 属性
 
@@ -96,12 +96,20 @@ OData v4 导航属性只有在有伙伴的情况下才能作为一个社团使�
 
 ## 4 数据集许可限制 {#license-limitations}
 
-Mendix Data Hub 是一个单独的许可产品。
+Mendix Data Hub 是一个单独的许可产品。 The type of license that you have determines the total number of data objects that can be requested from a consumed OData service *per day* for *each* runtime instance of an app.
 
-没有许可证，应用可以在每个运行时每日总共检索1000OData物体。 超过这一限制后，用户试图检索更多数据时将发生错误。 每天消耗的物品数量在午夜在 Mendix Runtime 调度器时区重置(可以在应用程序 [Project 设置](project-settings#scheduled) 中定义)。
+目前有两种类型的 Data Hub 许可：
 
-有数据集许可，应用不受限制。
+* **Data Hub** - 这是 *默认的* 许可证，但不限制可以消耗的 OData 对象的数量。
 
-{{% alert type="info" %}}Apps running in development environments (and also when running from the Studios) do not have this limitation. 这意味着您可以在没有数据集许可限制的情况下从 Studios 运行您的应用程序。{%/提醒 %}}
+* **Freemium** - 这使您能够为每个运行时的每日总共检索1000耗氧物质物体。 超过这一限制后，用户试图检索更多数据时将发生错误。 每天消耗的物品数量在午夜在 Mendix Runtime 调度器时区重置(可以在应用程序 [Project 设置](project-settings#scheduled) 中定义)。
 
-请联系您的 [Mendix Admin](/developerportal/control-center/#company) 或Data Hub Admin 来找出您的组织拥有哪种类型的数据集许可协议。
+  ●{% alert type="info" %}}Freemium Data Hub 许可证只是在邀请的基础上签发。 {{% /报警 %}}
+  {{% alert type="info" %}}For Mendix 8.12.3 and later, apps running without a [Mendix license](/developerportal/deploy/licensing-apps-outside-mxcloud) (and also when running from the Studios) do not have this limitation. 这也意味着您可以从工作室运行您的应用而不受数据集许可限制。 {{% /报警 %}}
+
+请联系您的 [Mendix Admin](/developerportal/control-center/index#company) 或Data Hub Admin 来找出您的组织拥有哪种类型的数据集许可协议。
+
+
+### 4.1 地方发展
+
+当地开发必须获得与自由金属模型相同的许可证。 您有能力检索总共1000个OData对象，然后将发生错误。 可以通过重启应用来重置它。
