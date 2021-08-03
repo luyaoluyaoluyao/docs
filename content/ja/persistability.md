@@ -1,37 +1,37 @@
 ---
-title: "Persistability"
-parent: "entities"
+title: "永続性"
+parent: "エンティティ"
 menu_order: 20
 tags:
-  - "domain model"
-  - "entity"
-  - "persistability"
-  - "persistable"
-  - "non-persistable"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "永続性"
+  - "永続的な"
+  - "非永続性"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Persistable** property of an entity in the domain model defines whether an object can be committed to the database.
+ドメイン モデル内のエンティティの **持続可能な** プロパティで、オブジェクトがデータベースにコミットできるかどうかが定義されます。
 
-Persistable entities are colored blue in the domain model. Non-persistable entities are colored orange. The **Customer** entity in the image below is persistable, while **ProductQueryResults** is non-persistable.
+持続可能エンティティはドメインモデルで青色に色付けされます。 非持続可能エンティティはオレンジ色になります。 以下の画像の **顧客** エンティティは永続可能ですが、 **ProductQueryResults** は永続可能です。
 
-![Picture of a persistable and a non-persistable entity](attachments/domain-model/persistable-vs-non-persistable.png)
+![永続的で非永続的なエンティティの写真](attachments/domain-model/persistable-vs-non-persistable.png)
 
-## 2 Persistable Entities {#persistable}
+## 2つの持続可能エンティティ {#persistable}
 
-When an entity is declared persistable, a database table is created for the entity.
+持続可能と宣言されたエンティティは、エンティティに対してデータベーステーブルが作成されます。
 
-Committing an object of this entity type results in a row being inserted into the table. The attribute and association values for the object are saved in the database as well.
+このエンティティタイプのオブジェクトをコミットすると、テーブルに行が挿入されます。 オブジェクトの属性と関連付け値もデータベースに保存されます。
 
-### 2.1 Autocommitted Objects
+### 2.1 自動コミットオブジェクト
 
-Usually, a rollback reverts changes in memory since the last commit.
+通常、ロールバックは前回のコミット以降のメモリの変更を元に戻します。
 
-However, performing a rollback on persistable autocommitted objects or objects with the state "NEW" deletes the row corresponding with this object from the database table for the associated entity. See [Object Activities](object-activities) for more information about autocommitted objects.
+ただし、 状態「NEW」を持つ永続的な自動コミットオブジェクトまたはオブジェクトに対してロールバックを実行すると、関連するエンティティのデータベーステーブルから、このオブジェクトに対応する行が削除されます。 自動コミットオブジェクトの詳細については、 [Object Activities](object-activities) を参照してください。
 
-## 3 Non-Persistable Entities {#non-persistable}
+## 非持続可能エンティティ（3つ） {#non-persistable}
 
-Non-persistable entities are stored in the runtime memory and never get committed to the database. Therefore, they have no table in the database.
+非持続可能エンティティはランタイムメモリに保存され、データベースにコミットすることはありません。 そのため、データベースにはテーブルがありません。
 
-Committing non-persistable entities records the current attribute values and association values in memory, allowing a rollback to revert to these values.
+永続性のないエンティティをコミットすると、メモリ内の現在の属性値と関連付け値が記録され、ロールバックしてこれらの値に戻ります。
