@@ -1,146 +1,146 @@
 ---
 title: "Navigation"
-parent: "project"
+parent: "项目"
 menu_order: 20
-description: "Describes the concept of navigation in apps and the properties of a profile."
+description: "描述应用中的导航概念和配置文件的属性。"
 tags:
   - "studio pro"
   - "navigation"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. The **Navigation** document can be found by expanding the **App** node in the **App Explorer**. It defines the navigation structure of the application for users. It also allows you to set the home page of your application and to define the menu structures that can be used in [menu widgets](menu-widgets).
+本文档描述Mendix 应用程序中的导航概念和配置文件的属性。 **导航** 文档可以通过扩展 **App** 在 **App Explorer** 中的节点找到。 它定义了用户应用的导航结构。 它还允许您设置应用程序的主页，并定义可在 [菜单小部件](menu-widgets) 中使用的菜单结构。
 
 ![](attachments/navigation/navigation-profile-properties.png)
 
-A user's home page can vary based on their [user roles](user-roles).
+用户的主页可以根据他们的 [用户角色](user-roles) 而变化。
 
 ## 2 Profiles {#profiles}
 
-At the heart of the navigation model in Mendix, these are the available profiles:
+Mendix导航模型的核心是可用配置：
 
-* Responsive
-* Hybrid tablet app online
-* Hybrid tablet app offline
-* Hybrid phone
-* Hybrid phone app offline
-* Tablet web
-* Phone web
-* Native phone
+* 响应性
+* 混合平板电脑在线应用
+* 混合平板电脑离线应用
+* 混合电话
+* 混合手机应用程序离线了
+* 平板电脑网络
+* 手机网络
+* 本机电话
 
-Users that access the app via a particular device type are automatically redirected to the homepage of the appropriate profile based on the profile type (for details, see the [Redirection to Profiles](#redirection) section below).
+通过特定设备类型访问应用程序的用户会根据配置文件类型自动重定向到适当配置文件的主页(详细信息) 查看 [重定向到](#redirection) 部分。
 
-The device type of the currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use `$currentDeviceType` to perform different actions based on the device type. A typical example is to show different pages based on the device type.
+当前登录用户的设备类型在 [微流](microflows) 中可用， `$currentDeviceType` 变量。 此变量的类型是 [枚举](enumerations) `系统。 eviceType`, 它有值 `Phone`, `平板电脑`, 和 `桌面`. 您可以使用 `$currentDeviceType` 根据设备类型执行不同的操作。 一个典型的例子是显示基于设备类型的不同页面。
 
-### 2.1 Responsive
+### 2.1 回应
 
-Every app always has one profile of a Responsive type which cannot be deleted. This is the default profile used by a Mendix app. This profile can be used to make web applications.
+每个应用总是有一个不能删除的响应类型的配置文件。 这是Mendix 应用程序使用的默认配置文件。 此配置文件可以用于制作网页应用程序。
 
 ### 2.2 Hybrid Profiles {#hybrid-profiles}
 
-A Mendix app can be installed on a tablet or phone as an app by creating a [local build](/howto8/mobile/build-hybrid-locally) hybrid package. Hybrid profiles can be accessed from such a locally built app. Hybrid app profiles are determined by device type (phone or tablet) and by the offline accessibility feature enabled (online or offline). If no profile exists with the requested combination, an error will be displayed in the app.
+Mendix 应用可以通过创建 [本地版本的](/howto8/mobile/build-hybrid-locally) 混合软件，在平板电脑或手机上安装。 可以从这种本地构建的应用程序访问混合配置文件。 混合应用配置文件由设备类型(电话或平板电脑)和离线辅助功能(在线或离线)决定。 如果请求的组合不存在配置文件，则在应用程序中显示错误。
 
-Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline First](offline-first).
+混合离线应用旨在允许用户继续使用他们的Mendix 应用程序，即使他们没有互联网连接。 然而，适用某些限制。 关于运行离线设备配置文件的影响概述，请参阅 [离线设备第一](offline-first)。
 
-Four different hybrid profiles are available:
+有四种不同的混合配置：
 
-* Hybrid tablet app online
-* Hybrid tablet app offline
-* Hybrid phone
-* Hybrid phone app offline
+* 混合平板电脑在线应用
+* 混合平板电脑离线应用
+* 混合电话
+* 混合手机应用程序离线了
 
-### 2.3 Tablet Web
+### 2.3 平板电脑网络
 
-All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the Tablet web type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
+从平板电脑上的浏览器访问Mendix 应用程序的所有用户都会自动被重定向到平板电脑网络类型的配置文件。 如果此类型的配置文件不存在，用户将被重定向到响应配置文件。 此配置文件可以用于制作网页应用程序。
 
-### 2.4 Phone Web
+### 2.4 电话
 
-All the users accessing the Mendix app from a browser on a phone will automatically be redirected to a profile of the Phone web type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
+通过手机浏览器访问Mendix 应用程序的所有用户都会自动被重定向到手机网络类型的配置文件。 如果此类型的配置文件不存在，用户将被重定向到响应配置文件。 此配置文件可以用于制作网页应用程序。
 
-### 2.5 Native Phone
+### 2.5 本地电话
 
-A Mendix app can be installed on a phone as a native application which has the benefit of a more responsive UI. The app will also be [offline-first](offline-first), which means all the data is stored on the phone and only synchronized with the server on request.
+Mendix 应用程序可以安装在手机上，作为一个本机应用程序，这个应用程序具有更响应性的UI。 应用程序也将是 [离线的](offline-first)， 这意味着所有数据都存储在手机上，只能应请求与服务器同步。
 
-You are required to enable anonymous users in your app's security settings and include anonymous user roles on native login pages. This is because there is no built-in login screen in the native profile; login pages are modeled as regular native pages.
+您需要在应用的安全设置中启用匿名用户，并在本地登录页面包含匿名用户角色。 这是因为在本机配置文件中没有内置的登录屏幕；登录页面被建成正常的本地页面。
 
-## 3 Redirection to Profiles {#redirection}
+## 3 重定向到配置文件 {#redirection}
 
-Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the `User-Agent` string that is sent by the device. The default configuration for this redirection is as follows:
+Mendix Runtime 自动将用户重定向到适当设备类型的主页。 通过检查设备发送的 `用户代理` 字符串来做到这一点。 此重定向的默认配置如下：
 
-| User-Agent String Regular Expression                  | Device Type |
-| ----------------------------------------------------- | ----------- |
-| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
-| Android&#124;iPad                                     | Tablet      |
-| _(other)_                                             | Responsive  |
+| 用户代理字符串正则表达式                                      | 设备类型 |
+| ------------------------------------------------- | ---- |
+| Android.*手机&#124;iPhone&#124;iPod&#124;BlackBerry | 电话   |
+| Android&#124;iPad                                 | 平板电脑 |
+| _(其他)_                                            | 响应性  |
 
-To configure the regular expressions used to match phone or tablet users, see [Runtime Customization](custom-settings).
+要配置用于匹配手机或平板电脑用户的正则表达式，请参阅 [运行时间自定义](custom-settings)。
 
-It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are the names of the profiles, which are Responsive, Tablet, Phone, HybridTablet, and HybridPhone. For example:
+在访问 Mendix 应用程序时，还可以通过添加 `配置` 查询字符串参数来强制客户端使用特定的配置文件。 可能的值是个人资料的名称，这些资料是响应、表格、电话、超桥板和HybridPhone。 例如：
 
 `https://myapp.mendixcloud.com/index.html?profile=Responsive`
 
-## 4 Navigation Profile Properties {#properties}
+## 4 个导航配置文件属性 {#properties}
 
-A profile can be added with the **Add navigation profile** button. Only one profile per type is allowed. While adding the profile, it is possible to copy the settings from an existing profile.
+可以使用 **添加导航配置** 按钮添加一个配置文件。 每个类型只允许一个配置文件。 在添加配置文件时，可以从现有配置文件复制设置。
 
 ![](attachments/navigation/add-navigation-profile.png)
 
-### 4.1 General
+### 4.1 概况
 
-#### 4.1.1 Application Title
+#### 4.1.1 申请标题
 
-This specifies the application title. This title is shown in the title bar of the browser.
+这指定了应用程序标题。 此标题显示在浏览器的标题栏中。
 
-#### 4.1.2 Application Icon
+#### 4.1.2 应用图标
 
-This specifies the application icon. This icon is shown as favicon in the title bar and bookmarks of the browser. It can only be set in the Responsive profile, but will also be used by the other browser profiles.
+此选项指定了应用程序图标。 此图标显示为浏览器标题栏和书签中的图标。 它只能设置在响应式配置文件中，但也会被其他浏览器配置文件使用。
 
-### 4.2 Home Pages
+### 4.2 首页
 
-#### 4.2.1 Default Home Page
+#### 4.2.1 默认主页
 
-The default home page indicates which [page](page) or [microflow](microflow) is opened after a user signs in. If role-based home pages (see below) are specified for one of the [user roles](user-roles) of the user, then that home page will be used instead.
+默认主页显示用户登录后打开了 [页](page) 或 [微流](microflow)。 如果基于角色的主页(见下面)被指定为用户的 [个用户角色](user-roles) 。 然后这个主页将被使用。
 
-#### 4.2.2 Role-Based Home Pages
+#### 4.2.2 基于角色的主页
 
-By using role-based home pages, you can show different home pages for different users. If a user logs in, the first role-based home page of which the user role matches the user role of the user is displayed. If no match is found, the default home page is used.
+使用基于角色的主页可以为不同的用户显示不同的主页。 如果用户登录，则显示第一个基于角色的主页，这个用户角色与用户角色匹配。 如果找不到匹配，则使用默认主页。
 
-For each role-based home page, you can specify the user role it applies to and the target (page or microflow) that will be opened.
+对于每个基于角色的主页，您可以指定它适用于的用户角色和将要打开的目标 (页面或微流程)。
 
-### 4.3 Authentication {#authentication}
+### 4.3 身份验证 {#authentication}
 
-If an [anonymous user](anonymous-users) tries to access a resource to which the user has no access, the configured [sign-in page](authentication-widgets) will be displayed, prompting the user to sign in.
+如果一个 [匿名用户](anonymous-users) 试图访问一个用户无法访问的资源 已配置 [登录页面](authentication-widgets) 将会显示, 促使用户登录.
 
-If the sign-in page is set to none, a built-in pop-up window will appear instead. The page title is translatable and may be overridden.
+如果登录页面设置为零，则将出现一个内置弹出窗口。 页面标题是可翻译的，可能被覆盖。
 
-### 4.4 Menu
+### 4.4 菜单
 
-Each device type contains a default menu. You can use these menus in [menu widgets](menu-widgets). Defining the menu for a device type works the same as when editing a menu document. For more details, see [Menu](menu).
+每个设备类型包含一个默认菜单。 您可以在 [菜单小部件](menu-widgets) 中使用这些菜单。 定义设备类型的菜单与编辑菜单文档时相同。 欲了解更多详情，请见 [菜单](menu)。
 
 {{% alert type="warning" %}}
-If [security](project-security) is enabled, the menu will only show the items to which the user has access.
-{{% /alert %}}
+如果启用 [security](project-security) ，菜单将只显示用户可以访问的项目。
+{{% /报警 %}}
 
-### 4.5 Profile Buttons
+### 4.5 配置按钮
 
-#### 4.5.1 Change Profile Type
+#### 4.5.1 更改配置文件类型
 
-Allows for changing the [profile type](navigation).
+允许更改 [配置文件类型](navigation)。
 
-#### 4.5.2 Delete
+#### 4.5.2 删除
 
-This deletes the profile. If [menu widgets](menu-widgets) are still referring to the profile, errors will appear. It is possible to undo the deletion of a profile.
+这将删除配置文件。 如果 [菜单小部件](menu-widgets) 仍然指的是个人资料，错误将会出现。 删除配置文件是可能的。
 
-#### 4.5.2 Synchronization Configuration {#customize}
+#### 4.5.2 同步配置 {#customize}
 
-Only available on profiles supporting offline synchronization.
+仅在支持离线同步的配置文件上可用。
 
-This opens the **Customize offline synchronization** dialog box that is used for overriding offline synchronization settings for specific entities. For each entity the download setting is shown. A default is automatically determined by analyzing the model, but can be overridden in which case the setting will appear in boldface. For more details on the settings and when to use them, see the [Offline-First Reference Guide](offline-first#customizable-synchronization).
+打开 **个性化离线同步** 对话框，用于覆盖特定实体的离线同步设置。 每个实体都显示下载设置。 默认通过分析模型自动确定，但可以覆盖在这种情况下设置将以黑体显示。 关于设置和何时使用的更多详细信息，请参阅 [离线第一参考指南](offline-first#customizable-synchronization)。
 
 ![](attachments/navigation/customize-offline-synchronization.png)
 
-## 5 Read More
+## 5 阅读更多
 
-* [App Explorer](project-explorer)
-* [Navigation Tree](navigation-tree)
+* [应用浏览器](project-explorer)
+* [导航树](navigation-tree)
