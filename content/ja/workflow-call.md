@@ -1,56 +1,56 @@
 ---
-title: "Workflow Call"
-parent: "workflow-activities"
+title: "ワークフローコール"
+parent: "workflow activities"
 menu_order: 40
 tags:
   - "studio pro"
-  - "call workflow"
-  - "workflow call"
+  - "コールワークフロー"
+  - "ワークフローコール"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Workflow call** activity can be used to call and trigger a [workflow](workflows).
+**ワークフローコール** のアクティビティは、 [ワークフロー](workflows) の呼び出しとトリガーに使用できます。
 
 ![](attachments/call-workflow/workflow-call.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of Workflow call properties is represented in the image below:
+ワークフロー呼び出しプロパティの例を以下の画像に示します。
 
 ![](attachments/call-workflow/workflow-call-properties.jpg)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The **Workflow call** properties pane consists of the following sections:
+**ワークフロー コール** プロパティ ペインは、次のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Workflow {#workflow}
+### 3.1 ワークフロー {#workflow}
 
-The workflow that is called by this activity.
+このアクティビティによって呼び出されるワークフロー。
 
-### 3.2 Context Object
+### 3.2 コンテキストオブジェクト
 
-The object which you want to use as a context. It should be of the entity type set in the [Workflow](#workflow) property.
+コンテキストとして使用するオブジェクト。 [ワークフロー](#workflow) プロパティで設定されているエンティティタイプである必要があります。
 
-### 3.3 Variable Name, Object Name, or List Name {#name}
+### 3.3 変数名、オブジェクト名、またはリスト名 {#name}
 
-The name of the variable, list, or object returned by the activity.
+アクティビティによって返される変数、リスト、またはオブジェクトの名前。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
