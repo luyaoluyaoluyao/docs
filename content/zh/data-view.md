@@ -1,127 +1,133 @@
 ---
-title: "Data view"
-parent: "data-widgets"
+title: "数据视图"
+parent: "数据部件"
+menu_order: 10
 tags:
-  - "Page"
-  - "Display"
-  - "widget"
-  - "object"
+  - "页面"
+  - "数据视图"
+  - "小部件"
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The data view is a central component of Mendix applications. It is the starting point for showing the contents of exactly one object. For example, if you want to show the details of a single customer, you can use a data view to do this. The data view typically contains input widgets like text boxes with labels. In more complex screens, a data view can contain tab controls per topic (for example, address and payment information) and data views and data grids for related objects (for example, order history or wish list).
+数据视图是显示一个对象内容的起点。 例如，如果您想要显示单个程序项的详细信息，您可以使用数据视图来做这件事：
 
-{{% alert type="info" %}}
+![](attachments/data-widgets/data-view-example-structure-mode.png)
 
-![](attachments/pages/data-view.png)
+在一个更复杂的示例中，数据视图可以包含客户信息和 [标签容器](tab-container) 每个特定主题（例如，） 有嵌套数据网格的相关对象：
 
-A more advanced data view with a tab control and a data grid inside.
+![](attachments/data-widgets/data-view-complex-example.png)
 
-{{% /alert %}}
+## 2 个数据视图页脚
 
-## 2 Components
+数据视图的页脚是数据视图底部的部分，它常常包含确认或取消更改的按钮。
 
-### 2.1 Data View Contents Area
+## 3 属性
 
-The data view contents area is where all the layout and input widgets go. Often the contents area contains a table with two columns: the first column showing labels and the second column containing input widgets. Other layouts are possible, as you can see in the examples above.
+下面的图像是数据视图属性的示例：
 
-### 2.2 Data View Footer
+{{% image_container width="250" %}}![](attachments/data-widgets/data-view-properties.png)
+{{% /image_container %}}
 
-The footer of the data view is the section at the bottom of the data view that often contains buttons to confirm or cancel the page. However, arbitrary widgets are allowed. The footer will stick to the bottom if the data view is the only top-level widget.
+数据视图属性由以下部分组成：
 
-## 3 Common Properties
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [编辑性](#editability)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 3.1 共同部分 {#common}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 3.2 数据源部分 {#data-source}
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+数据源决定在数据视图中显示哪些对象。 关于数据源的更多信息，请参阅 [数据源](data-sources)。
 
-## 4 General Properties
+数据视图支持以下类型的数据源：上下文、微流、纳米光和监听部件。
 
-### 4.1 Form Orientation
+| 数据源类型  | 描述                                                                                                                                                                                                                                                                       |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 二. 背景  | 一个数据源来确定无论您从哪里打开页面都会传递选中的对象。 例如，当您在microflow中添加 **显示页面** 活动时，您选择要通过的页面和对象。 (关于微流的更多信息，见 [微流](microflows)。) 这意味着当页面在微流中打开时， 此类型的对象被提供，并将显示在页面上的数据视图中。 <br />如果数据视图嵌套在另一个数据部件内， 您可以指定一个实体路径，在上下文对象中开始并遵循一个或多个关联。 关于上下文源的更多信息，请参阅 [上下文源](context-source)。<br /> |
+| 微流     | 一个运行选中微流并显示返回值的数据源。 关于微流程源的更多信息，见 [微流程源](microflow-source)。                                                                                                                                                                                                              |
+| 纳诺夫low | 一个运行选中的 nanoflow 并显示返回值的数据源。 关于纳米源的更多信息，见 [纳米源](nanoflow-source)。                                                                                                                                                                                                        |
+| 监听小部件  | 一个数据源，允许数据视图在同一页面的列表小部件中显示详细信息。 关于监听小部件源的更多信息，见 [监听小部件源](microflow-source)。                                                                                                                                                                                              |
 
-With this property, you can specify the position of the input widget labels inside the data view. If the orientation is horizontal, the labels will be placed next to the input widgets. If the orientation is vertical, the labels will be placed above the input widgets.
+### 3.3 设计属性部分{#design-properties}
 
-Note that form groups are responsive and the labels may be placed above input widgets, even if the orientation is set to horizontal, depending on the viewport size. Also, note that a data view with a vertical orientation cannot be nested inside a data view with a horizontal orientation. In that case, the form groups will be rendered horizontally, regardless of the value of the orientation property.
+{{% snippet file="refguide/design-section-link.md" %}}
 
-_Default value:_ Horizontal
+### 3.4 可编辑性部分 {#editability}
 
-### 4.2 Label Width (Weight)
+#### 3.4.1 可编辑 {#editable}
 
-If the form orientation is set to horizontal, this property can be used to specify the width of the input widget labels inside the data view. The width is specified using column weights from the [Bootstrap grid system](http://getbootstrap.com/css/#grid). For more details, see [Layout Grid](layout-grid).
+可编辑的属性表示整个数据视图是否可编辑。
 
-_Default value:_ 3
+| 值          | 描述                                                     |
+| ---------- | ------------------------------------------------------ |
+| 否          | 数据视图是可以编辑的：每个小部件都是可以根据自己的可编辑属性进行编辑的(除代码片段之外的数据视图的默认值)。 |
+| 从代码片段调用继承的 | 将代码片段调用包含数据容器的内容设置为 **是** 或 **否** (代码片段内数据视图的默认值)。     |
+| 否          | 数据视图不可编辑：数据视图内没有可编辑的部件。                                |
 
-### 4.3 Show Footer
+#### 3.4.2 只读样式
 
-With this property, you can specify whether you want the footer of the data view to be visible. The footer of nested data views is always invisible, regardless of the value of this property.
+此属性决定输入部件是如何渲染的，如果它们是只读的。
 
-_Default value:_ True
+| 值         | 描述                  |
+| --------- | ------------------- |
+| 控制 *(默认)* | 该部件已显示但禁用，所以无法修改该值。 |
+| 文本        | 小部件被文本表示值所取代。       |
 
-### 4.4 Empty Entity Message
+{{% alert type="info" %}}Read-only style is not supported on native mobile pages.{{% /alert %}}
 
-If this message is specified, a data view that receives no source data will show this message instead of its content. Otherwise, the data view will show its static content and disabled input widgets. This property is a translatable text. For more details, see [Translatable Texts](translatable-texts).
+### 3.5 一般部分 {#general}
 
-There are a number of ways a data view can end up without source data. For instance, a data view with a **Listen to widget** data source will remain empty until an object is selected in the target grid. In this scenario, **Empty entity message** can be used to guide the user to select an item from the grid.
+#### 3.5.1 表格方向
 
-_Default value:_ empty
+使用此属性，您可以在数据视图中指定输入小部件标签的位置。 如果方向是水平的，标签将放在输入小部件旁边。 如果方向是垂直的，标签将放在输入部件上面。
 
-## 5 Editability Properties
+注意表单组具有响应性，标签可能放在输入部件上面，请注意, 即使方向设置为水平, 取决于视图大小. 另外，请注意，具有垂直方向的数据视图不能嵌套在具有水平方向的数据视图内。 在这种情况下，无论方向属性的价值如何，表格组都将横向呈现。
 
-### 5.1 Editable
+默认值： *水平*
 
-The editable property indicates whether the data view as a whole is editable or not. If the data view is not editable, no widget inside the data view will be editable. On the other hand, if the data view is editable, each widget is determined to be editable based on its own editable property.
+#### 3.5.2. 标签宽度 (权重)
 
-_Default value:_ True
+如果表格方向设置为水平, 此属性可以用于指定数据视图中输入小部件标签的宽度。 宽度是使用来自 [Bootstrap 网格系统](http://getbootstrap.com/css/#grid) 的列权重指定的。 欲了解更多详情，请参阅 [布局网格](layout-grid)。
 
-### 5.2 Read-Only Style
+默认： *3*
 
-This property determines how input widgets are rendered if read-only.
+#### 3.5.3 显示页脚
 
-| Value   | Description                                                            |
-| ------- | ---------------------------------------------------------------------- |
-| Control | The widget is displayed but disabled, so the value cannot be modified. |
-| Text    | The widget is replaced by a textual representation of the value.       |
+使用此属性，您可以指定您是否希望数据视图的页脚可见。 嵌套数据视图的页脚总是不可见的，不管这个属性的价值如何。
 
-*Default value:* Control
+默认： *True*
 
-## 6 Data Source Properties
+#### 3.5.4 空实体消息
 
-The data source determines which object will be shown in the data view. For general information about data sources, see [Data Sources](data-sources).
+如果指定此消息，则不接收源数据的数据视图将显示此消息而不是其内容。 否则，数据视图将显示其静态内容并禁用输入部件。 此属性是一个可翻译的文本。 欲了解更多详情，请参阅 [语言菜单](translatable-texts)。
 
-### 6.1 Type
+数据视图有多种方式可以最终在没有源数据的情况下完成。 例如， 一个带有 **监听小部件的数据视图** 数据源将保持空，直到在目标网格中选择一个对象。 在这个场景中， **空实体消息** 可以用来引导用户从网格中选择一个项目。
 
-The data view supports the following types of data source: context, microflow, and listen to widget. Whatever data source you select, the data view will always return one single object.
+默认： *为空*
 
-### 6.2 Entity, Microflow, Listen To Widget
+### 3.6 可见性科 {#visibility}
 
-See the corresponding data source for specific properties:
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-* [Context source](entity-path-source) - either a page parameter or a surrounding data element
-* [Microflow source](microflow-source) - a microflow returning only one object
-* [Listen to widget source](listen-to-grid-source) - any widget returning only one object
+## 4 执行特定操作
 
-### 6.3 Use Schema
+要在数据视图上执行操作，请在页面上选择并右键单击它。 可能的动作列表已打开。 此列表中的一些动作，例如 **选择数据源**, **编辑可见条件**这是设置属性的快速方式，下面是您可以执行的特定动作：
 
-{{% alert type="info" %}}
+* **转到实体** — 打开一个域模型并突出显示一个实体被用作数据源
+* **转到数据源** **microflow **-这个动作仅在微流程设置为数据源并打开这个微流程时显示
+* **转到数据源 nanoflow** - 这个动作仅在将nanoflow 设置为数据源并打开这个nanoflow 时显示
 
-This property has been deprecated in version 7.2.0 and is marked for removal in version 8.0.0.
+## 5 阅读更多
 
-{{% /alert %}}
-
-Curently this has no effect.
-
-## 7 Visibility Properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
-
-## 8 Read More
-
-* [Entities](entities)
-* [Associations](associations)
+* [页](page)
+* [数据部件](data-widgets)
+* [数据源](数据来源)
+* [页面编辑器中常见的属性](common-widget-properties)
