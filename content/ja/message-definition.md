@@ -1,42 +1,42 @@
 ---
-title: "Message Definition"
-parent: "message-definitions"
+title: "メッセージ定義"
+parent: "メッセージ定義"
 ---
 
 {{% alert type="info" %}}
 
-This feature was introduced in version 7.10.0.
+この機能はバージョン7.10.0で導入されました。
 
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-Message definitions define the messages that are sent from and to your app. Defining your messages allows you to create import and export mappings for them.
+メッセージ定義は、アプリから送信されるメッセージを定義します。 メッセージを定義することで、インポートとエクスポートのマッピングを作成できます。
 
-A message definition can be used for both JSON and XML, and it can be used for both single objects and lists of objects.
+メッセージ定義は JSON と XML の両方に使用することができ、単一のオブジェクトとオブジェクトのリストの両方に使用することができます。
 
-## 2 General
+## 2つの全般
 
-### 2.1 Name
+### 2.1 名前
 
-The name of the message definition.
+メッセージ定義の名前
 
-### 2.2 Entity
+### 2.2 エンティティ
 
-Select an entity on which to base the message definition. Using this message definition, you will be able to export and import this entity type and lists of this entity type.
+メッセージ定義をベースにするエンティティを選択します。 このメッセージ定義を使用すると、このエンティティタイプとこのエンティティタイプのリストをエクスポートしてインポートすることができます。
 
-### 2.3 Structure
+### 2.3 構造
 
-The structure tree shows the attributes and some of the associations of the entity. Check all the attributes and associations that are part of the message.
+構造ツリーには、エンティティの属性と関連性が表示されます。 メッセージの一部であるすべての属性と関連性をチェックします。
 
-The **External name** is the name of the XML node or the JSON property. By default, it's the name of the attribute (for attributes) or entity (for associations). When the occurrence is `0..*`, it's the external item name plus the letter `s`.
+**外部名** は XML ノードまたは JSON プロパティの名前です。 デフォルトでは、属性(属性用)またはエンティティ(関連付け用)の名前です。 発生が `0..*`の場合は、外部アイテム名と文字 `s` を加えます。
 
-The **External item name** is only relevant for XML, and only when the occurrence is `0..*`. It is used for the XML node that represents a single item. By default, it's the entity name.
+**外部アイテム 名** は XML にのみ関係し、発生が `0..*` の場合にのみ関係します。 単一のアイテムを表す XML ノードに使用されます。 デフォルトではエンティティ名です。
 
-As an **Example value**, you can specify a typical value for an attribute. When you use the message definition in a published REST service, this value shows up in the [interactive documentation](published-rest-services#interactive-documentation). Note that you specify a date/time value in the format `year-month-day` or `year-month-day hour:minute:second`.
+**例 値**として、属性の典型的な値を指定できます。 公開された REST サービスでメッセージの定義を使用すると、この値は [対話型ドキュメント](published-rest-services#interactive-documentation) に表示されます。 `年` または `年月日時間:分:秒`の形式で日付/時刻の値を指定することに注意してください。
 
-The **Documentation** of an entity, attribute, or association also shows up in the [interactive documentation](published-rest-services#interactive-documentation).
+エンティティ、属性、またはアソシエーションの **ドキュメント** は、 [対話型ドキュメント](published-rest-services#interactive-documentation) にも表示されます。
 
-## 3 Documentation
+## 3 ドキュメント
 
-Use the **Documentation** to describe what the message definition is used for.
+メッセージの定義を記述するには、 **ドキュメント** を使用します。
