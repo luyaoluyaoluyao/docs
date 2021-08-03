@@ -1,8 +1,6 @@
 ---
-title: "XPath Min"
+title: "XPath min"
 parent: "xpath-query-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1 Overview
