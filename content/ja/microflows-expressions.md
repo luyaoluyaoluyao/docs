@@ -1,124 +1,124 @@
 ---
-title: "Microflow Expressions"
-category: "Microflows"
+title: "マイクロフロー式"
+category: "マイクロフロー"
 menu_order: 40
-description: "Describes the microflow expressions available in Mendix Studio."
+description: "Mendix Studio で利用可能なマイクロフロー式について説明します。"
 tags:
-  - "studio"
-  - "microflow"
-  - "expressions"
-  - "expression"
-  - "set value"
-  - "variable"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "表現"
+  - "表現"
+  - "値を設定"
+  - "変数"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes microflow expressions in Mendix Studio. For information on microflow expressions in Studio Pro, see [Expressions](/refguide8/expressions) in the *Studio Pro Guide*.
+このドキュメントでは、Mendix Studio でのマイクロフロー式について説明します。 Studio Pro のマイクロフロー式の詳細については、 [Studio Pro ガイド](/refguide8/expressions) の *式* を参照してください。
 
-Expressions can be used to create or change an object or a variable based on logic.
+式は、ロジックに基づいてオブジェクトや変数を作成または変更するために使用できます。
 
-The **Expression** tab is available for the following activities in a microflow:
+**式** タブは、以下のような活動に対応しています。
 
-*  End Event
-*  [Decision](microflows-decision)
-*  Create Object
-*  Change Object
-*  Create Variable
-*  Change Variable
+*  イベントを終了
+*  [決定](microflows-decision)
+*  オブジェクトを作成
+*  オブジェクトの変更
+*  変数を作成
+*  変数の変更
 
 ![](attachments/microflows-expressions/expression-tab.png)
 
-For more information on setting and changing values for microflow activities, see [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value).
+マイクロフローアクティビティの設定と値の変更の詳細については、 see [Set & Change a Value for different Activities in the Microflow](microflows-setting-and-changing-value).
 
-## 2 Writing an Expression
+## 2 式を書く
 
-There are two ways of writing an expression:
+式を書くには2つの方法があります。
 
-* [Using suggestions](#suggestions)
-* [Writing expressions manually](#manually)
+* [候補の使用](#suggestions)
+* [式を手動で書く](#manually)
 
-If an error appears in the expression, error messages with explanations will be displayed.
+式にエラーが表示されると、説明付きのエラーメッセージが表示されます。
 
 {{% image_container width="350" %}}![](attachments/microflows-expressions/expression-error.png)
 {{% /image_container %}}
 
-### 2.1 Writing an Expression Using Suggestions {#suggestions}
+### 2.1 提案を使って式を書く {#suggestions}
 
-When you start typing your expression, a list of suggestions appears divided into the following categories:
+式を入力し始めると、次のカテゴリに分けられた候補の一覧が表示されます:
 
-* **Suggestions from your microflow** – variables or attributes that you have created or retrieved in your microflow
-* **Enumeration values** – values of [enumeration type of attributes](domain-models-enumeration) that can be used in an expression
-* **Keywords** – key phrases or words that you can use in an expression
-* **Booleans** – true or false expressions
-* **Operators** – code elements that perform logical or mathematical operations. You can use Boolean or relational expressions (for more information, see the [Expression Types](#expression-types) section below)
+* **マイクロフローからの提案** – マイクロフローで作成または取得した変数または属性
+* **列挙値** - 式で使用できる [列挙タイプ](domain-models-enumeration) の値
+* **キーワード** - 表現で使用できるキーフレーズまたは単語
+* **Boolean** – true または false の表現
+* **演算子** – 論理演算または数学演算を実行するコード要素。 ブール式またはリレーショナル式を使用できます (詳細については、 [式タイプ](#expression-types) セクションを参照してください)
 
 ![](attachments/microflows-expressions/expressions-list.png)
 
-To write an expression using suggestions, do the following:
+提案を使用して式を書くには、次の操作を行います:
 
-1. Browse through the list of suggestions and select the element for your expression with a mouse or a keyboard.
-2. Select an element from the list.
-4. Click **Add** when the expression is completed.
+1. 候補のリストを参照し、マウスまたはキーボードを使用して式の要素を選択します。
+2. リストから要素を選択します。
+4. 式が完了したら、 **Add** をクリックします。
 
 {{% alert type="info" %}}
 
-To call the list of suggestions, press <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+候補の一覧を呼び出すには、 <kbd>Ctrl</kbd> + <kbd>スペース</kbd> を押します
 
 {{% /alert %}}
 
-### 2.2 Writing an Expression Manually {#manually}
+### 2.2 手動で式を書く {#manually}
 
-If you want to write the expression manually, pay attention to the following:
+手動で表現を記述したい場合は、次の点に注意してください。
 
-* Variables in the microflow can be called in an expression by inserting the dollar sign followed by the name of the variable. For example, *$Customer* refers to the variable *Customer*
-* Attributes and associations of object variables are accessed using a slash. For example, *$Customer/Name*, *$Customer/Grade* refer to the attributes Name and Grade of the entity Customer
-* Unary, Boolean, and relational types of expressions are available in Studio (for more information, see the [Expression Types](#expression-types) section)
+* マイクロフロー内の変数は、ドル記号と変数の名前を挿入することで、式内で呼び出すことができます。 例えば、 *$Customer* は変数 *を参照します顧客*
+* オブジェクト変数の属性と関連付けはスラッシュを使用してアクセスします。 例えば、 *$Customer/Name*, *$Customer/Grade* エンティティの名前とグレードを参照します
+* Studio では、Unary、Boolean、およびリレーショナル型の式が使用できます (詳細については、 [式タイプ](#expression-types) セクションを参照してください)
 
-### 2.3  Expression Examples
+### 2.3 式の例
 
-Below are two examples that illustrate how expressions can be used.
+以下に、式の使用方法を示す2つの例を示します。
 
-#### 2.3.1 Example 1
+#### 2.3.1 例 1
 
-You have a [Decision](microflows-decision) and you want to write an expression that checks whether the customer grade is gold and the price of the order is more than 100 (you can configure a discount after the **Decision** that is allowed if this expression is true):
+[Decision](microflows-decision) があり、顧客の成績が金で、注文の価格が100を超えているかどうかをチェックする式を書く必要があります (この式がtrueの場合に許可される **Decision** の後に割引を設定できます):
 
 ![](attachments/microflows-expressions/example-decision.png)
 
-The expression will look the following way:
+式は次のようになります:
 
 ![](attachments/microflows-expressions/expression-decision.png)
 
-#### 2.3.2 Example 2
+#### 2.3.2 例 2
 
-You add a [Decision](microflows-decision) to check if an object (in the example below the object is *Customer*) exists. And you also check if the Customer's name matches a particular one (in the example below Customer's name is *Mendix*). The expression will look the following way:
+オブジェクト(以下の例では、 [顧客](microflows-decision) )が存在するかどうかをチェックするために、 *決定*を追加します。 また、お客様の名前が特定の名前と一致するかどうかも確認します(下の例では、お客様の名前は *Mendix* です)。 式は次のようになります:
 
 ![](attachments/microflows-expressions/customer-empty-and-name-example.png)
 
-## 3 Expression Types {#expression-types}
+## 3 式のタイプ {#expression-types}
 
-A list of the operators you can use in expressions in Studio can be found below:
+Studio で式で使用できる演算子のリストは以下のとおりです。
 
-### 3.1 Relational Expressions
+### 3.1 リレーショナル表現
 
-You can use the following relational expressions:
+次のリレーショナル式を使用できます。
 
-* [Less than ( < )](/refguide8/relational-expressions)
-* [Greater than ( > )](/refguide8/relational-expressions)
-* [Less than or equal to ( <= )](/refguide8/relational-expressions)
-* [Greater than or equal to ( >= )](/refguide8/relational-expressions)
-* [Is equal to ( = )](/refguide8/relational-expressions)
-* [Is not equal to ( != )](/refguide8/relational-expressions)
+* [より小さい ( <)](/refguide8/relational-expressions)
+* [( > ) より大きい](/refguide8/relational-expressions)
+* [以上 ( <= )](/refguide8/relational-expressions)
+* [以上 ( >= )](/refguide8/relational-expressions)
+* [( = ) と等しいです](/refguide8/relational-expressions)
+* [等しくない ( != )](/refguide8/relational-expressions)
 
 ### 3.2 Boolean Expressions
 
-You can use the following Boolean expressions:
+次のブール式を使用できます。
 
-* [and](/refguide8/boolean-expressions)
-* [or](/refguide8/boolean-expressions)
+* [と](/refguide8/boolean-expressions)
+* [または](/refguide8/boolean-expressions)
 
-## 4 Read More
+## 4 続きを読む
 
-* [Microflows](microflows)
-* [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value)
-* [Expressions](/refguide8/expressions)
+* [マイクロフロー](マイクロフロー)
+* [Set & Change a value for different activities in the Microflow](microflows-setting-and-changing-value)
+* [式](/refguide8/expressions)
