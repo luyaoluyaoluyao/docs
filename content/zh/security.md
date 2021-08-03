@@ -1,65 +1,65 @@
 ---
-title: "Security"
-parent: "project-explorer"
+title: "安全"
+parent: "项目浏览器"
 tags:
   - "studio pro"
-  - "security"
+  - "安全"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Security in Mendix has two sides: you want different people to see different parts of your application and you want to prevent unauthorized access. Both of these can be managed from Studio Pro. Access to forms, data and microflows can be limited to authorized users.
-
-{{% alert type="info" %}}
-Security in Mendix does not include scanning files that end-users upload or download from your application for viruses and malware. For more information, see the [Scanning Uploaded Files for Malicious Content](/howto/security/best-practices-security#scanning-for-malicious-content) section in *How to Implement Best Practices for App Security*.
-{{% /alert %}}
-
-## 2 Security Levels
-
-If you want full security, you need to explicitly give access to forms, entities, microflows, and workflows before someone can access them. By default, no one can access anything. To make it easier to create prototypes and demos there are security levels that require less security settings than are needed for a production system.
-
-See [App Security](project-security) for a description of the security levels.
-
-## 3 Project vs. Module Security
-
-At the level of a project some global settings can be specified: the security level, the administrator account and whether or not to allow anonymous access.
-
-See [App Security](project-security).
-
-Most of the security settings take place at the module level. This has the advantage that a module can specify its own security and can be distributed and reused in other projects. Access to forms, entities, microflows, workflows, and datasets can be configured.
-
-See [Module Security](module-security).
-
-## 4 User Roles vs. Module Roles {#user-role}
-
-An end-user in a Mendix application has one or more user roles. These roles can be assigned from within the client when creating or editing a user. User roles are at the level of a project and can be edited in [App Security](project-security).
-
-See [User Roles](user-roles).
-
-Each module defines its own set of module roles and you only have to specify security within a module in terms of those module roles. An e-mail module maybe has two module roles, one for normal user and one for an administrator; other modules may have just one or more than two module roles depending on the requirements for those modules.
-
-See [Module Role](module-security#module-role).
-
-A user role is a combination of module roles. A user that signs into the system gets the access rights of all of his or her user roles and indirectly to the module roles that are contained by those user roles.
+Mendix 的安全有两个方面：你想让不同的人看到你应用程序的不同部分，你想防止未经授权的访问。 这两项都可以从 Studio Pro进行管理。 表格、数据和微流可仅限于经授权的用户。
 
 {{% alert type="info" %}}
+Mendix 的安全不包括扫描最终用户上传或从您的应用程序下载病毒和恶意软件的文件。 更多信息 查看 [扫描上传文件以获取恶意内容](/howto/security/best-practices-security#scanning-for-malicious-content) 部分 *如何实现应用安全的最佳做法*。
+{{% /报警 %}}
 
-Let us say you have a project with two modules: System and ProjectManagement (PM). The PM module has three module roles: TeamMember, TeamLeader and Administrator. And let us say that in this case, we only need two user roles because we do not need the distinction between team leaders and administrators. You define those two user roles and assign module roles to them. The table below shows which module roles are contained within the user roles. Note that you always need at least the User role in System.
+## 2 个安全级别
 
-| User Role 'TeamMember'       | User Role 'TeamLeader'          |
-| ---------------------------- | ------------------------------- |
-| System.User                  | System.User                     |
-| ProjectManagement.TeamMember | ProjectManagement.TeamLeader    |
-|                              | ProjectManagement.Administrator |
+如果你想要完全的安全性，你需要明确授权访问表单、实体、微流和工作流，然后才能访问它们。 默认情况下，任何人都不能访问任何东西。 为了更容易创建原型和样板，有些安全等级比生产系统需要的安全设置要少。
 
-{{% /alert %}}
+请参阅 [App Security](project-security) 以了解安全级别。
 
-## 5 Entity Access vs. Page Access
+## 3 个工程与模块安全
 
-Per entity you can specify who can read or write what members (attributes and associations) under what circumstances. Using XPath constraints you can express powerful security behavior; for example, "an employee can only see orders created by the department he is a part of".
+在一个项目中，可以指定一些全局设置：安全等级。 是否允许匿名访问。
 
-Per page you can specify who can open it from navigation. The menu bar is optimized so that only pages that the user has access to are visible.
+查看 [App Security](project-security)。
 
-A combination of entity access and a page access is necessary because entities can also be accessed from microflows and custom widgets. Furthermore, you can express more advanced security through entity access.
+大多数安全设置都发生在模块一级。 这种做法的优点是，一个模块可以指定自己的安全性，并且可以在其他项目中分发和重新使用。 可以配置表格、实体、微流、工作流和数据集的访问权限。
 
-See [Entity Access](module-security).
+查看 [Module Security](module-security)。
+
+## 4 个用户角色与模块角色 {#user-role}
+
+Mendix 应用程序的最终用户有一个或多个用户角色。 创建或编辑用户时，这些角色可以从客户端内部分配。 用户角色处于项目级别，可以在 [App Security](project-security) 中编辑。
+
+查看 [用户角色](user-roles)。
+
+每个模块都定义了自己的模块角色，您只需在模块中指定这些模块角色的安全性。 电子邮件模块可能有两个模块，一个是普通用户，一个是管理员； 其他模块可能只具有一个或两个以上模块的角色，这取决于这些模块的要求。
+
+查看 [Module Role](module-security#module-role)。
+
+用户角色是模块角色的组合。 登录到系统的用户可获得其所有用户角色的访问权，并间接获得这些用户角色所包含的模块角色。
+
+{{% alert type="info" %}}
+
+让我们说你有一个有两个模块的项目：系统管理(PM)。 方案管理单元有三个单元：团队成员、队长和管理员。 让我们在这种情况下说， 我们只需要两个用户角色，因为我们不需要区分团队领导和管理员。 您定义了这两个用户角色，并将模块角色分配给他们。 下表显示哪些模块角色包含在用户角色中。 请注意，您总是需要至少系统中的用户角色。
+
+| 用户角色“团队成员” | 用户角色 '团队领导'   |
+| ---------- | ------------- |
+| 系统用户       | 系统用户          |
+| 项目管理。团队成员  | 项目管理。团队领导者    |
+|            | Administrator |
+
+{{% /报警 %}}
+
+## 5 实体访问与页面访问
+
+每个实体你可以指定谁可以在什么情况下阅读或写入成员 (属性和关联)。 使用 XPath 约束，您可以表达强大的安全行为； 例如，“雇员只能看到他所属的部门创建的订单”。
+
+每页你可以指定谁可以从导航中打开它。 菜单栏是最优化的，以便只有用户可以访问的页面才能看到。
+
+实体访问和页面访问相结合是必要的，因为实体也可以从微流和自定义小部件访问。 此外，您可以通过实体访问来表达更高级的安全性。
+
+查看 [实体访问](module-security)。
