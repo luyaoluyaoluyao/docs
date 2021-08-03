@@ -1,23 +1,23 @@
 ---
-title: "Consumed App Services"
-parent: "integration"
+title: "アプリを利用したサービス"
+parent: "統合"
 ---
 
 {{% alert type="info" %}}
-App services have been deprecated in version 7.23.4 and are marked for removal. Use a [consumed web service](consumed-web-services) to consume existing app services.
+アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 既存のアプリサービスを利用するには、 [ウェブサービス](consumed-web-services) を使用してください。
 {{% /alert %}}
 
-App services are a way of connecting Mendix applications to each other. An app service can be imported and its content can be used. As for now, app services provide the following content:
+アプリサービスは、Mendixアプリケーションを互いに接続する方法です。 アプリサービスをインポートし、コンテンツを使用することができます。 現在のところ、アプリサービスは以下の内容を提供しています。
 
-*   Microflow actions
-*   Domain model entities
+*   マイクロフローアクション
+*   ドメインモデルエンティティ
 
-In the project explorer, an app service can be selected in the 'Add' context menu on a module. See [Select app service](select-app-service) for more information.
+プロジェクトエクスプローラでは、モジュールの「追加」コンテキストメニューからアプリサービスを選択できます。 詳細は [Select app service](select-app-service) を参照してください。
 
-See the [Settings](settings) page for more information on document options.
+ドキュメントオプションの詳細については、 [設定](settings) ページを参照してください。
 
-App service actions are directly available in Microflows. If a new activity is added, new app service actions are shown below the standard microflow actions.
+アプリサービスのアクションは、Microflowsで直接利用できます。 新しいアクティビティが追加された場合、標準のマイクロフローアクションの下に新しいアプリサービスアクションが表示されます。
 
 ![](attachments/16713703/16843891.png)
 
-An app service action may require parameters, and usually it supplies a return value. The return value can be used in the rest of the microflow. Parameters and return values can be an object or a list type; the entities which are accepted by the app service are included in the domain model of the app service.
+appサービスアクションはパラメータを必要とし、通常は戻り値を提供します。 戻り値は、残りのマイクロフローで使用できます。 パラメータと戻り値は、オブジェクトまたはリストの型にすることができます。 アプリサービスで受け入れられるエンティティは、アプリサービスのドメインモデルに含まれます。
