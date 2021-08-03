@@ -10,6 +10,10 @@ tags:
   - "图像属性"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/button-properties.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 按钮可以执行各种动作，如调用微流程或nanoflow 或打开一个页面。
@@ -23,7 +27,6 @@ tags:
 
 按钮属性由以下部分组成：
 
-* [辅助功能](#accessibility) (只有当 [渲染模式](#RenderMode) 链接时才适用于网页按钮)
 * [常用的](#common)
 * [设计属性](#design)
 * [事件](#events)
@@ -31,50 +34,27 @@ tags:
 * [项目](#items) (仅适用于下拉按钮)
 * [可见性](#visibility)
 
-### 2.1 无障碍科 {#accessibility}
+### 2.1 共同部分 {#common}
 
-{{% alert type="info" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
-只有在 [渲染模式](#RenderMode) 链接时，才会显示网页按钮 **辅助功能** 部分。
+### 2.2 设计属性科 {#design}
 
-{{% /报警 %}}
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-#### 2.1.1 角色类型 {#RoleType}
+### 2.3 事件科 {#events}
 
-**角色类型** 属性决定了 `aria-角色` 属性值将与按钮的 HTML呈现出来。 `Aria-role` 属性可以用来提高可用性。 因为像屏幕阅读器这样的设备解释它们并向最终用户显示角色的语义。 可能的备选办法如下：
+{{% snippet file="refguide8/events-section-link.md" %}}
 
-* 按钮(默认)
-* 复选框
-* 链接
-* 菜单项
-* 菜单项复选框
-* 菜单项广播
-* 选项
-* 收音机
-* 交换机
-* Tab
+### 2.4 一般部分 {#general}
 
-### 2.2 共同部分 {#common}
-
-{{% snippet file="refguide/common-section-link.md" %}}
-
-### 2.3 设计财产科 {#design}
-
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.4 事件部分 {#events}
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.5 一般部分 {#general}
-
-#### 2.5.1 标题 {#caption}
+#### 2.4.1 标题 {#caption}
 
 **标题** 属性定义了将显示在按钮上的文本。 标题可以包含括号之间写入的参数，例如 {1}。
 
-欲了解更多关于使用参数的信息，请参阅下面的 [参数](#parameters) 部分。
+欲了解更多关于使用参数的信息，请参阅下面的 [参数]() 部分。
 
-#### 2.5.2 参数 {#parameters}
+#### 2.4.2 参数 {#parameters}
 
 参数是将显示的属性值。 要查看 **参数**，请执行以下操作之一：
 
@@ -94,7 +74,7 @@ tags:
 
     ![参数设置](attachments/button-widgets/button-parameter-settings.png)
 
-##### 2.5.2.1 添加新参数
+##### 2.4.2.1 添加新参数
 
 若要添加参数，请执行以下操作：
 
@@ -112,7 +92,7 @@ tags:
 
     ![参数示例](attachments/button-widgets/button-parameter-example.png)
 
-##### 2.5.2.2 对参数采取其他行动
+##### 2.4.2.2 在参数上执行其他操作
 
 除了添加新参数外，您还可以对参数执行以下操作：
 
@@ -126,11 +106,11 @@ tags:
 
     ![参数操作](attachments/button-widgets/button-parameter-actions.png)
 
-#### 2.5.3 工具提示
+#### 2.4.3 工具提示
 
 **Tooltip** 属性决定了文本最终用户将会在鼠标悬停在按钮上时出现的工具提示中看到。 工具提示文本可以翻译。 关于可翻译文本的更多信息，见 [语言菜单](translatable-texts)。 如果未指明工具提示, 当悬停在按钮上时不会显示工具提示。
 
-#### 2.5.4 图标 {#icon}
+#### 2.4.4 图标 {#icon}
 
 **图标** 属性决定了将显示在按钮标题前面的图标。 可能的备选办法是：
 
@@ -140,7 +120,7 @@ tags:
 
 Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是它们是可以缩放的。 在高分辨率屏幕上看得很清楚，其颜色可以通过更改字体颜色而改变。 图像图标的优点是它可以有多个颜色。
 
-#### 2.5.5 渲染模式 {#RenderMode}
+#### 2.4.5 渲染模式
 
 定义按钮向最终用户显示的方式。 可能的备选办法如下：
 
@@ -149,7 +129,7 @@ Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是
 
 *默认渲染模式：* 按钮
 
-#### 2.5.6 按钮样式
+#### 2.4.6 按钮样式
 
 **按钮风格** 属性应用了一个预定义的样式按钮。 可能的备选办法如下：
 
@@ -161,13 +141,13 @@ Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是
 * 警告
 * 危险
 
-#### 2.5.7 行动期间的残疾情况
+#### 2.4.7 行动期间禁用
 
 此属性仅在 **调用微流程** 或 **调用nanoflow** 被选定为 [点击事件](on-click-event) 时才显示。 选择 **在动作过程中禁用** 禁用按钮直到动作完成或失败。
 
 默认： *true*
 
-### 2.6 物项部分 {#items}
+### 2.5 物品部分 {#items}
 
 {{% alert type="info" %}}
 
@@ -181,7 +161,7 @@ Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是
 
 * 使用 **创建对象** 事件只在您有足够权限时才显示。 欲了解更多信息，请参阅 [Security](security)。
 
-* **注销** 事件不会显示给匿名用户。 关于不同安全等级和匿名用户的更多信息，请参阅 [App Security](project-security) and [匿名用户](anonymous-users)。
+* **注销** 事件不会显示给匿名用户。 关于不同安全等级和匿名用户的更多信息，请参阅 [Project Security](project-security) and [匿名用户](anonymous-users)。
 
 
 {{% /报警 %}}
@@ -195,7 +175,7 @@ Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是
     ![项目属性](attachments/button-widgets/items-properties.png)
 
 
-#### 2.6.1 增加新项目
+#### 2.5.1 增加新项目
 
 若要将项目添加到下拉按钮，请执行以下操作：
 
@@ -214,9 +194,9 @@ Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是
 
 
 
-### 2.7 可见性科 {#visibility}
+### 2.6 可见性科 {#visibility}
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
+{{% snippet file="refguide8/visibility-section-link.md" %}}
 
 ## 3 阅读更多
 
