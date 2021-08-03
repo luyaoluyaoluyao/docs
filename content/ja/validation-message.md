@@ -1,53 +1,49 @@
 ---
-title: "Validation Message"
-parent: "authentication-widgets"
+title: "検証メッセージ"
+parent: "認証ウィジェット"
 tags:
   - "studio pro"
-  - "validation message"
-  - "authentication widget"
-  - "authentication"
+  - "検証メッセージ"
+  - "認証ウィジェット"
+  - "認証"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-message.pdf).
-{{% /alert %}}
+{{% alert type="warning" %}}バリデーションメッセージウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-{{% alert type="warning" %}}The validation message widget is not supported on native mobile pages.{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+**検証メッセージ** のウィジェットは、ページに認証失敗メッセージを表示します:
 
-The **Validation message** widget displays an authentication failure message on a page:
+![検証メッセージウィジェット](attachments/authentication-widgets/validation-message.png)
 
-![Validation Message Widget](attachments/authentication-widgets/validation-message.png)
+ 以下の両方の条件が満たされている場合にのみ、エンドユーザーに表示されます。
 
- It is only displayed to an end-user when both of the following conditions are met:
+1.  サインインボタンの **検証メッセージ ウィジェット** プロパティで選択された検証メッセージ。 このプロパティの詳細については、 [サインインボタン](sign-in-button#validation-message-widget) の *メッセージウィジェット* のセクションを参照してください。
+2.  無効な資格情報を入力したエンドユーザーである認証に失敗します。
 
-1.  The validation message selected in the **Validation message widget** property of a sign-in button. For more information on this property, see the [Validation Message Widget](sign-in-button#validation-message-widget) section in *Sign-In Button*.
-2.  An authentication fails, that is the end-user entered invalid credentials.
+## 2つのプロパティ
 
-## 2 Properties
+検証メッセージプロパティの例は以下の画像で表されています:
 
-An example of validation message properties is represented in the image below:
-
-{{% image_container width="300" %}}![Validation Message Properties](attachments/authentication-widgets/validation-message-properties.png)
+{{% image_container width="300" %}}![検証メッセージのプロパティ](attachments/authentication-widgets/validation-message-properties.png)
 {{% /image_container %}}
 
-Validation message properties consist of the following sections:
+検証メッセージのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Login ID Text Box](login-id-text-box)
-* [Password Text Box](password-text-box)
-* [Sign-In Button](sign-in-button)
+* [ページ](page)
+* [ログインIDテキストボックス](login-id-text-box)
+* [パスワードのテキストボックス](password-text-box)
+* [サインインボタン](sign-in-button)
