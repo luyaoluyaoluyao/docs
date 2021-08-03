@@ -9,10 +9,6 @@ tags:
   - "common widget"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 The text widget displays a text which can contain parameters if necessary. Every attribute is replaced with the value of this attribute. For example, you can show a greeting message to a user by placing a text widget in a [data view](data-view) and adding parameters to it.
@@ -37,11 +33,11 @@ Text properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 General Section {#general}
 
@@ -49,7 +45,7 @@ Text properties consist of the following sections:
 
 **Caption** defines a text that will be shown. The caption can contain parameters that are written between braces, for example, {1}.
 
-For more information on using parameters, see the [Parameters]() section below.
+For more information on using parameters, see the [Parameters](#parameters) section below.
 
 #### 2.3.2 Parameters {#parameters}
 
@@ -115,7 +111,7 @@ The render mode determines how the text will be displayed.
 
 ### 2.4 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Read More
 
