@@ -1,70 +1,66 @@
 ---
-title: "To String"
-parent: "expressions"
+title: "到字符串"
+parent: "表达式"
 menu_order: 130
 tags:
   - "studio pro"
-  - "to string"
-  - "expression"
-  - "expressions"
+  - "到字符串"
+  - "表达式"
+  - "表达式"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/to-string.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Intriduction
-
-Basic functions to convert values of various data types to string.
+将各种数据类型的值转换为字符串的基本函数。
 
 ## 2 toString
 
-Converts the specified value to a string representation.
+将指定的值转换为字符串表示.
 
-If you need full control over the output format, consider using the data type specific format functions. For example, for decimal, use [formatDecimal](parse-and-format-decimal-function-calls).
+如果您需要完全控制输出格式，请考虑使用数据类型的特定格式函数。 例如，对于小数点，使用 [格式小数组](parse-and-format-decimal-function-calls)。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                         | Type                                                                                                                                                                                                                                                          |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A value that should be converted to a string. | Integer/Long, Decimal, Date and time, Boolean and Enumeration.<br />In case of enumeration, the expression returns the key of the enumeration value, not the caption. More information, see [Enumerations in expressions](enumerations-in-expressions). |
+| 值          | 类型                                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------------- |
+| 应转换为字符串的值。 | 整数/Long、十进制、日期和时间、布尔和枚举。<br />在枚举的情况下，表达式返回枚举值的键值，而不是标题。 更多信息，见表达式中的 [枚举](enumerations-in-expressions)。 |
 
-### 2.2 Example
+### 2.2 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 toString(1.4)
 ```
 
-The output is:
+输出为：
 
 ```java
 '1.4'
 ```
 
-If you type in an input with a Date and time type:
+如果您输入了日期和时间类型的输入：
 
 ```java
 toString(dateTime(2007))
 ```
 
-The output is:
+输出为：
 
 ```java
 'Mon Jan 01 00:00:00 CET 2007'
 ```
 
-If you type in an input with a Boolean:
+如果您输入了一个布尔输入：
 
 ```java
 toString(true)
 ```
 
-The output is:
+输出为：
 
 ```java
-'true'
+“true”
 ```
