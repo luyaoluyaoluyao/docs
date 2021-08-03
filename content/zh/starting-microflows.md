@@ -1,128 +1,128 @@
 ---
-title: "Starting Microflows"
-parent: "page-concepts"
+title: "启动微流"
+parent: "页面概念"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix allows for microflows to be triggered in pages by a variety of widgets. These widgets share a set of properties that determine the conditions in which the microflow is run. Listed below are all the widgets that can directly trigger microflows. Also listed are the events that will cause the microflow to trigger, in addition to the object that can be passed to the triggered microflow.
+Mendix 允许各种小部件在页面触发微流。 这些小部件共享一组属性来决定微流运行的条件。 下面列出了所有可直接触发微流的小部件。 还列出了会导致微流触发的事件，以及可传递到触发微流的物体。
 
-| Widget                                                          | Event/Property | Available Parameter                                                                                     |
-| --------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
-| Action button (data view)                                       | On click       | Data view object                                                                                        |
-| Data view                                                       | Data source    | Object of the data view containing this data view                                                       |
-| Action button (grid)<sup><a name="ref1" href="#fn1">1</a></sup> | On click       | Grid selection or clicked row (as an object or as a list, depending on the [selection mode](data-grid)) |
-| Reference set selector                                          | On change      | Data view object                                                                                        |
-| Input widget<sup><a name="ref2" href="#fn2">2</a></sup>         | On change      | Data view object                                                                                        |
-| Input widget                                                    | On enter       | Data view object                                                                                        |
-| Input widget                                                    | On leave       | Data view object                                                                                        |
-| Image viewer                                                    | On click       | Image viewer object                                                                                     |
-| Action button                                                   | On click       | Enclosing data view object, if available                                                                |
-| Reference selector                                              | Data source    | Data view object                                                                                        |
+| 小部件                                                     | 事件/属性 | 可用参数                                    |
+| ------------------------------------------------------- | ----- | --------------------------------------- |
+| 动作按钮 (数据视图)                                             | 点击时   | 数据视图对象                                  |
+| 数据视图                                                    | 数据源   | 包含此数据视图的数据视图对象                          |
+| 动作按钮 (网格)<sup><a name="ref1" href="#fn1">1</a></sup>    | 点击时   | 网格选择或单击行(作为对象或列表，取决于 [选择模式](data-grid)) |
+| 参考设置选择器                                                 | 更改时   | 数据视图对象                                  |
+| Input widget<sup><a name="ref2" href="#fn2">2</a></sup> | 更改时   | 数据视图对象                                  |
+| Input widget                                            | 输入时   | 数据视图对象                                  |
+| Input widget                                            | 请假    | 数据视图对象                                  |
+| 图像查看器                                                   | 点击时   | 图像查看器对象                                 |
+| 动作按钮                                                    | 点击时   | 关闭数据视图对象，如果可用                           |
+| 参考选择器                                                   | 数据源   | 数据视图对象                                  |
 
 <small><sup><a name="fn1" href="#ref1" title="Jump back to footnote 1 in the text.">1</a></sup> The following grid widgets have grid action buttons: *data grid*; *template grid*; and *reference set selector*.</small><br/>
 <small><sup ><a name="fn2" href="#ref2" title="Jump back to footnote 2 in the text.">2</a></sup> The following widgets are input widgets: *check box*; *date picker*; *drop-down*; *text area*; and *text box*.</small>
 
-## 2 Microflow
+## 2 微流
 
-This is the microflow that will be executed. Its parameters should match the available arguments.
+这是将要执行的微流。 其参数应该匹配可用的参数。
 
 {{% alert type="success" %}}
 
-You can create a new microflow by clicking 'Select...' and then 'New'. Modeler will generate a microflow with parameters matching all available arguments. If a parameter is not used it can simply be deleted.
+您可以点击“选择...”然后点击“新建”来创建一个新的微流。 建模器将生成一个与所有可用参数匹配的微流程。 如果没有使用参数，它可以简单地删除。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 3 Microflow arguments
+## 3 微流程参数
 
-The arguments sent to the microflow are automatically configured based on the parameters of the selected microflow and the available arguments. Which arguments are available depends on the widget calling the microflow. For a full listing consult the table above. Additionally, if the widget calling a microflow is contained inside a nested data view, then the object of the enclosing data view is also available.
+发送到微流程的参数是根据选定的微流程参数和可用参数自动配置的。 哪些参数可用取决于调用微流程的小部件。 清单全文请参阅上表。 此外，如果调用微流的小部件包含在嵌套数据视图中，那么也可以使用内嵌数据视图的对象。
 
 {{% alert type="info" %}}
 
-For Mendix version 7.19.0 and above, in addition to passing the object of the enclosing data view, objects from the data views above that one all the way up to the top of page can also be passed.
+Mendix 版本 7.19。 及以上, 除了传递附上数据视图的对象。 以上数据视图中的对象也可以传递到页面顶部。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The arguments available to a data or template grid control bar button are determined by the selection mode of the grid and the parameters of the selected microflow. Single selection results in the selected object being passed to the microflow if the microflow has an object parameter. If the microflow has an object list parameter, all the pages will be passed instead, ignoring the selection. Simple multi-selection allows for both all pages and selection, which defaults to selection. This can be configured via the drop-down menu in the microflow settings page.
+数据或模板网格控制栏按钮可用的参数由网格选择模式和选定微流参数决定。 如果微流有对象参数，单选中的对象会被传递到微流中。 如果microflow 有对象列表参数，则所有页面都会被传递，忽略选择。 简单的多选区允许所有页面和选区，这些页面和选区默认选择。 这可以通过下拉菜单在微流设置页面进行配置。
 
-## 4 Execution
+## 4 执行
 
-### 4.1 Microflow Call Type
+### 4.1 微流程呼叫类型
 
-This property indicates whether the connected microflow is executed synchronously or asynchronously. With synchronously executed microflows the microflow is started and the client waits for the result. With asynchronously called microflows the microflow is started on the server but the client does not wait for the result. It will check the server every ten seconds to see whether the microflow is done executing.
+此属性表示所连接的微流是同步还是异步执行。 通过同步执行微流，微流开始了，客户等待结果。 由于异步被称为微流，微流在服务器上开始，但客户端不会等待结果。 它将每十秒检查服务器，检查是否执行微流程。
 
 {{% alert type="warning" %}}
 
-Set the duration only to asynchronous if you experience problems. Sometimes if a request takes too long to handle, the request will be sent again by an (impatient) proxy server.
+如果您遇到问题，请将持续时间设置为异步状态。 有时如果请求处理时间过长，请求将再次由一个(不耐烦的)代理服务器发送。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-| Value        | Description                                                                                                |
-| ------------ | ---------------------------------------------------------------------------------------------------------- |
-| Synchronous  | The client waits until the microflow is done executing.                                                    |
-| Asynchronous | The client executes the microflow and starts polling to determine whether the microflow is done executing. |
+| 值   | 描述                     |
+| --- | ---------------------- |
+| 同步  | 客户端等待完成微流程。            |
+| 异步的 | 客户执行微流并开始投票，以确定微流是否执行。 |
 
-_Default value_: Synchronous
+_默认值_: 同步
 
-### 4.2 Show Progress Bar
+### 4.2 显示进度条
 
-This property indicates whether a progress bar is shown during the execution of the microflow. The message shown in the progress bar can be set with the 'Progress message' property.
+此属性表示在执行微流过程中是否显示进度条. 在进度条中显示的消息可以使用 '进度消息' 属性。
 
-| Value        | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| None         | No progress bar is shown.                                                       |
-| Non-Blocking | A progress bar is shown, but the end user can continue working.                 |
-| Blocking     | A progress bar is shown and the end user must wait until the microflow is done. |
+| 值    | 描述                  |
+| ---- | ------------------- |
+| 无    | 没有显示进度栏。            |
+| 非屏蔽的 | 显示进度栏，但最终用户可以继续工作。  |
+| 屏蔽中  | 显示进度栏，最终用户必须等待完成微流。 |
 
-### 4.3 Progress Message
+### 4.3 进度信息
 
-The progress message is shown along with the progress bar if the progress bar is either non-blocking or blocking (see above).
+如果进度条是非屏蔽或屏蔽的，进度条会与进度条一起显示（见上文）。
 
-## 5 Confirmation
+## 5 确认
 
-If a microflow is triggered by a button you have the option to ask for confirmation before proceeding with the microflow. This is useful in cases where an operation modifies or deletes a lot of data or when it takes a lot of time to complete. The user will be prompted with a question whether he/she wants to continue with this operation.
+如果微流程被按键触发，您可以在继续微流程之前请求确认。 在操作修改或删除大量数据或需要很多时间才能完成的情况下，这是有用的。 用户将会收到一个是否想要继续此操作的问题。
 
-Note: the title of the confirmation pop-up is determined by a system text (category 'Message dialog title').
+注意：确认弹出窗口的标题是由系统文本决定的('消息对话框标题')。
 
-### 5.1 Ask Confirmation
+### 5.1 询问确认
 
-Here you can specify whether you want to ask for confirmation or not.
+您可以在这里指定您是否要请求确认。
 
-_Default value_: No
+_默认值_: 否
 
-### 5.2 Question
+### 5.2 问题
 
-This is the question that you want to show to the user. For example, "Are you sure you want to empty the trash can?".
+这是您想要向用户显示的问题。 例如，"您确定要清空回收站？"。
 
-### 5.3 Proceed Button Caption
+### 5.3 按钮标题
 
-This is the caption for the button that proceeds with the execution of the microflow. For example, "Empty trash can"
+这是在执行微流时继续使用的按钮的标题。 例如，"清空垃圾桶"
 
-### 5.4 Cancel Button Caption
+### 5.4 取消按钮标题
 
-This is the caption for the button that cancels the execution of the microflow. For example, "Cancel".
+这是取消微流程执行的按钮的标题。 例如，“取消”。
 
-## 6 Advanced
+## 6 高级版
 
-### 6.2 Maintain Selection After Microflow (Only for Grid Microflow Buttons)
+### 6.2 微流程后保持选择 (仅限网格微流程按钮)
 
-This property specifies whether the selection of the data or template grid should be maintained after executing the microflow.
+此属性指定数据或模板网格的选择是否在执行微流后保持。
 
-_Default value:_ No
+_默认值：_ 否
 
-### 6.2 Abort on Validation Errors
+### 6.2 验证错误时中止
 
-For microflows that are used within a data view, you can specify whether you want to perform page validations before executing the microflow. There are two kind of page validations:
+对于数据视图中使用的微流，您可以指定在执行微流之前是否要进行页面验证。 有两种页面验证：
 
-1.  Required: the input field must be given a value.
-2.  Maximum length: the input field must not exceed a given length.
+1.  必填：输入字段必须具有一个值。
+2.  最大长度：输入字段不能超过给定长度。
 
-By using this property you can perform page validations _before_ executing the microflow. If the validations fail, the microflow will not be executed.
+By using this property you can perform page validations _before_ executing the microflow. 如果验证失败，微流将不会被执行。
 
-| Value                | Description                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------- |
-| Yes                  | This will prevent the microflow from executing on all validation errors.                    |
-| Only for this widget | This will prevent the microflow from executing on validation errors of the specific widget. |
-| No                   | The microflow will always be executed.                                                      |
+| 值      | 描述                  |
+| ------ | ------------------- |
+| 否      | 这将防止在所有验证错误时执行微流。   |
+| 仅限此小部件 | 这将防止微流在特定部件验证错误时执行。 |
+| 否      | 微流总是被执行。            |
 
-_Default value:_ Yes
+_默认值：_ 是
