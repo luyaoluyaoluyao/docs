@@ -1,10 +1,17 @@
 ---
 title: "选择元素"
 parent: "映射文档"
+tags:
+  - "studio pro"
 aliases:
-  - /refguid7/Select++Elements.html
+  - /refguid8/Select++Elements.html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/select--elements.pdf)。
+{{% /报警 %}}
+
+## 1 导言
 
 对于 [导入](import-mappings)and [导出映射](export-mappings) 您需要指定您想要映射的元素结构。 您在 **选择schema 元素** 窗口中这样做。 此屏幕的示例显示如下。
 
@@ -16,7 +23,7 @@ aliases:
 2.  如果源为 XML schema ，然后选择映射的根元素。 这是通过为 XML schema 或 **请求部分** 选择 **起始于** 元素来完成的。 **从** 开始列出XML schema中的根元素。 您可以选择一个根元素作为您映射的基础。 如果源代码为 Web 服务操作， **请求部分** 列出请求部分的标题和正文元素。 如果一个操作有多个参数，它们也会在请求部分中列出。 **请求部分** 只适用于导出映射。
 3.  最后，在下面的树勘探器中选择特定的元素。 通常你不需要映射整个源，因为它们可能相当大。
 
-{{% alert type="success" %}}
+{{% alert type="info" %}}
 
 如果使用的schema源的内容改变，映射文档不再与schema匹配，并且显示一致性错误。 此一致性错误很容易通过右键点击一致性错误本身并选择“通过从方案进行更新解决”来解决。
 
@@ -24,7 +31,7 @@ aliases:
 
 {{% /报警 %}}
 
-## 规则和限制
+## 2 规则和限制
 
 牢记选择元素的下列规则和限制：
 
@@ -42,13 +49,13 @@ aliases:
 
 当导入映射时，您可以跳过层次结构中的元素，但仍然选择儿童。 当您对中间元素中存储的信息不感兴趣时，您可以这样做。
 
-{{% alert type="success" %}}
+{{% alert type="info" %}}
 
 您可能会遇到选择元素的复选框。 如果你在复选框上悬停鼠标，你会看到哪条规则或限制阻止你更改复选框值。 例如，您可能需要先选择一个父节点，然后才能选择子节点。
 
 {{% /报警 %}}
 
-## 召集职能
+## 3 召集职能
 
 {{% alert type="info" %}}
 
