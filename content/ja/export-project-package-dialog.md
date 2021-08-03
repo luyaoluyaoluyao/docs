@@ -1,47 +1,45 @@
 ---
-title: "Export an App Package"
-parent: "dialogs"
+title: "アプリパッケージのエクスポート"
+parent: "ファイルメニュー"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "エクスポートアプリ"
+  - "アプリパッケージをエクスポート"
 ---
 
-## 1 Introduction
-With this dialog box, you can export a Mendix project package (*.mpk*) from the Mendix Modeler. You can export a project package for backup purposes or to share it with other Mendix developers. This is useful if you want to give someone the entire application, or if you need to provide a test app when submitting a ticket.
+## 1つの紹介
+You can export an app package (*.mpk*) from Mendix Studio Pro for backup purposes or to share it with other Mendix developers. これは、誰かにアプリ全体を渡したい場合や、チケットを送信する際にテストアプリを提供する必要がある場合に便利です。
 
-To open the **Export Project Package** dialog box, open your project in the Mendix Modeler and then go to **File > Export Project Package**.
+[アプリパッケージのインポート](import-project-package-dialog) を使用して、アプリパッケージを再度新しいアプリにインポートすることができます。
 
-![](attachments/export-a-project-package/export-project-package-dialog.png)
+パッケージをエクスポートする **ファイル** メニュー > **アプリパッケージのエクスポート** を開き、 **アプリパッケージのエクスポート** ダイアログボックスで関連するオプションを選択します:
 
-## 2 Package Destination
+![アプリパッケージダイアログウィンドウのエクスポート](attachments/file-menu/export-project-package.png)
 
-In the **Package destination** field, enter the location of the package file. The default location is a folder named **packages** inside the project directory.
+ 選択できるオプションの詳細については、以下のセクションを参照してください。
 
-## 3 Export Data
+## 2宛先
 
-You can export a Mendix project package without data or with a database snapshot included. If you include a database snapshot, you need to select whether you include an existing snapshot or you include a new snapshot.
+パッケージをエクスポートするフォルダを指定できます。 デフォルトの場所は、appディレクトリ内の *packages* という名前のフォルダです。
 
-### 3.1 No Data
+## 3つのデータをエクスポート
 
-If you select **No data**, the project package will be exported without data included. After you click **Export**, the package will be exported to the selected package destination.
+Mendix アプリパッケージは Mendix パッケージファイル (*.mpk* ) にエクスポートできます。  組み込みのデプロイメントデータベースとアップロードされたファイルをエクスポートするか、データなしでエクスポートするかを選択できます。 次のいずれかのオプションを選択できます:
 
-### 3.2 Existing Snapshot
+* **データなし** – データなしでパッケージがエクスポートされます。
 
-If you select **Existing snapshot**, the existing database snapshot will be included in the export. After you click **Export**, the package with the existing snapshot will be exported to the selected package destination.
+* **既存のスナップショット** - このオプションは、エクスポートアプリパッケージに既存のデータベーススナップショットを含みます
 
-{{% alert type="info" %}}
+    {{% alert type="info" %}}このオプションはスナップショットがすでに作成されている場合にのみ使用できます。 必要に応じて、 **バージョンコントロール** > **データのスナップショットを追加** を介してスナップショットを作成できます。
+    {{% /alert %}}
 
-This option is only available when a snapshot is already present. Snapshots can be created via **Project** > **More Versioning** > **Add Snapshot of Data**.
+* **現在のデータベースからの新しいスナップショット** - データベースから新しいスナップショットを作成し、エクスポートに含めます
 
-{{% /alert %}}
+    {{% alert type="info" %}}このオプションは、アプリをローカルで実行した後、少なくとも一度は使用できます。 アプリを初めて実行するときにローカルデータベースが作成されるからです。
+    {{% /alert %}}
 
-### 3.3 New Snapshot from Current Database
+## 4 続きを読む
 
-If you select **New snapshot from current database**, a new snapshot will be created from the database and included in the export. After you click **Export**, the package with the new snapshot database will be exported to the selected package destination.
-
-{{% alert type="info" %}}
-
-This option becomes available after you run the app locally at least once, because a local database will be created when running the app for the first time.
-
-{{% /alert %}}
-
-## 4 Read More
-
-* [Import Project Package](import-project-package-dialog)
+* [アプリパッケージをインポート](import-project-package-dialog)
+* [バージョン管理メニュー](version-control-menu)
