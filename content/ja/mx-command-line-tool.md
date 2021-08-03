@@ -1,122 +1,122 @@
 ---
-title: "mx Command-Line Tool"
-category: "General Info"
+title: "mx コマンドラインツール"
+category: "一般情報"
 menu_order: 50
-description: "Describes the options of the mx command-line tool"
+description: "mx コマンドラインツールのオプションについて説明します"
 tags:
   - "mx"
-  - "project"
-  - "command-line"
-  - "tool"
+  - "プロジェクト"
+  - "コマンド"
+  - "ツール"
   - "mx"
   - "studio pro"
-  - "windows"
+  - "ウィンドウ"
   - "linux"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **mx tool** is a Windows and Linux command-line tool that can be used to do useful things with your Mendix app.
+**mx ツール** は、Mendix アプリで役立つことを行うために使用できる Windows および Linux のコマンドラインツールです。
 
-## 2 Location
+## 2つの場所
 
-Mendix Studio Pro comes with the mx command-line tool. The executable `mx.exe` file can be found in the same folder that contains `studiopro.exe` (for example, *C:\Program Files\Mendix\8.1.0.58215\modeler\mx.exe*).
+Mendix Studio Proには、mxコマンドラインツールが付属しています。 実行可能ファイル `mx.exe` ファイルは、 `studiopro.exe` を含む同じフォルダにあります(例えば、 *C:\Program Files\Mendix\8.1.0.58215\modeler\mx.exe*)。
 
-## 3 mx Tool Options
+## 3 mx ツールオプション
 
-The mx tool enables the options described below.
+mxツールは、以下で説明するオプションを有効にします。
 
-### 3.1 mx convert Command
+### 3.1 mx 変換コマンド
 
-The `mx convert` command converts the app(s) to a specific Studio Pro version. For example, if you are using the mx command-line tool for Mendix version 8.1.0.58215, then `mx convert` will convert the app to that version.
+`mx convert` コマンドは、アプリを特定の Studio Pro バージョンに変換します。 たとえば、Mendix バージョン 8.1.0 の mx コマンドラインツールを使用している場合。 8215, そして `mx convert` はアプリをそのバージョンに変換します。
 
-The input can be a single file, directory, or multiple files.
+入力には、単一のファイル、ディレクトリ、または複数のファイルを指定できます。
 
 {{% alert type="info" %}}
-The mx tool can only upgrade your app, but you cannot use it to downgrade the version.
+mxツールはアプリのアップグレードのみ可能ですが、バージョンをダウングレードするために使用することはできません。
 {{% /alert %}}
 
-#### 3.1.1 Usage
+#### 3.1.1 使用法
 
-Use the following command pattern for `mx convert`:
+`mx convert` には、次のコマンドパターンを使用します:
 
-`mx convert [OPTIONS] INPUT... OUTPUT`
+`mx convert [OPTIONS] INPUT... 出力`
 
-The `OPTIONS` are described in the table below:
+`オプション` は以下の表に記述されています。
 
-| Option               | Shortcut | Result                                                                                                                                                                                                                   |
-| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `--help`             | `-h`     | Displays the help text and exits.                                                                                                                                                                                        |
-| `--in-place`         | `-p`     | Converts the current app directory. Use this option to convert a folder containing a Mendix app. Otherwise, `mx convert` will convert *.mpk* files.                                                                      |
-| `--skip-error-check` | `-s`     | Does not check for errors. Use this option to disable app error-checking during the conversion. When omitted, the tool will report on the number of errors, warnings, and deprecations in the app and do the conversion. |
+| Option               | ショートカット | 結果                                                                                               |
+| -------------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| `--help`             | `-h`    | ヘルプ テキストと終了位置を表示します。                                                                             |
+| `--in-place`         | `-p`    | 現在のアプリディレクトリを変換します。 Mendixアプリを含むフォルダを変換するには、このオプションを使用します。 それ以外の場合、 `mx 変換` は *.mpk* ファイルを変換します。 |
+| `--skip-error-check` | `-s`    | エラーをチェックしません。 変換中にアプリのエラーチェックを無効にするには、このオプションを使用します。 省略すると、このツールはアプリ内のエラー、警告、非推奨の数を報告し、変換を行います。  |
 
-For `INPUT...`, enter one or more *.mpk* files or one directory that needs to be converted.
+`INPUT...`には、1 つ以上の *.mpk* ファイルまたは変換が必要なディレクトリを入力します。
 
-For `OUTPUT`, enter the output location for the converted results. Mind the following:
+`OUTPUT`の場合、変換結果の出力場所を入力します。 以下の点に留意してください。
 
 * When `INPUT...` is a single file, `OUTPUT` can be a single file or directory; otherwise, `OUTPUT` must be a directory.
 * When using the `--in-place` option, the `INPUT...` folder will also be used as the `OUTPUT` folder, so you do not need to specify a separate `OUTPUT` folder
 
-#### 3.1.2 Examples
+#### 3.1.2 例
 
-Examples of commands are described in the table below:
+以下の表にコマンドの例を示します。
 
-| Example                                                                                                                                                                                                                                                      | Result                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `mx convert --in-place C:\MxProjects\App-main`                                                                                                                                                                                                             | Converts the app in folder `C:\MxProjects\App-main` to a specific Studio Pro version which the mx tool is bundled with. |
-| ``mx convert C:\Mendix\App1.mpk C:\Mendix\App2.mpk C:\Mendix\ConvertedProjects\` | Converts the *App1.mpk* and *App2.mpk* app packages that are in the *C:\Mendix\* folder and puts the results in the``C:\Mendix\ConvertedProjects\` folder. |                                                                                                                           |
-| ``mx convert --skip-error-check C:\Mendix\Packages\ C:\Mendix\ConvertedPackages\` | Converts all app packages in the``C:\Mendix\Packages\` folder to the `C:\Mendix\ConvertedPackages\` folder without checking for errors.                  |                                                                                                                           |
+| 例                                                                                                                                                                                                                                                            | 結果                                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| `mx convert --in-place C:\MxProjects\App-main`                                                                                                                                                                                                             | フォルダ内のアプリ `C:\MxProjects\App-main` を mx ツールにバンドルされている特定の Studio Pro バージョンに変換します。 |
+| ``mx convert C:\Mendix\App1.mpk C:\Mendix\App2.mpk C:\Mendix\ConvertedProjects\` | Converts the *App1.mpk* and *App2.mpk* app packages that are in the *C:\Mendix\* folder and puts the results in the``C:\Mendix\ConvertedProjects\` folder. |                                                                                    |
+| ``mx convert --skip-error-check C:\Mendix\Packages\ C:\Mendix\ConvertedPackages\` |エラーを確認せずに``C:\Mendix\Packages\`フォルダ内のすべてのアプリケーション・パッケージを`C:\Mendix\ConvertedPackages\`フォルダに変換します。                                                         |                                                                                    |
 
-#### 3.1.3 Return Codes
+#### 3.1.3 戻りコード
 
-Return codes are described in the table below:
+返品コードは以下の表に記載されています。
 
-| Exit Code | Description                                             |
-| --------- | ------------------------------------------------------- |
-| 0         | The conversion was successful.                          |
-| 1         | An internal error occurred.                             |
-| 2         | There is something wrong with the command-line options. |
-| 3         | Converting failed.                                      |
+| 終了コード | 説明                    |
+| ----- | --------------------- |
+| 0     | 変換に成功しました。            |
+| 1     | 内部エラーが発生しました          |
+| 2     | コマンドラインオプションに問題があります。 |
+| 3     | 変換できませんでした。           |
 
 ### 3.2 mx create-project Command
 
-The `mx create-project` command creates a new app in the Studio Pro. The app version depends on the version the tool was bundled with. For example, if you are using the mx tool for Studio Pro version 8.1.0.58215,  `mx create project` will create a new app in that version.
+`mx create-project` コマンドにより、Studio Pro に新しいアプリケーションが作成されます。 アプリのバージョンは、ツールがバンドルされたバージョンによって異なります。 たとえば、Studio Pro バージョン 8.1.0 の mx ツールを使用している場合です。 8215,  `mx create project` は、そのバージョンで新しいアプリを作成します。
 
-#### 3.2.1 Usage
+#### 3.2.1 使用法
 
-Use the following command pattern: `mx create-project [OPTIONS] [TEMPLATE-MPK-FILE]`
+次のコマンドパターンを使用します: `mx create-project [OPTIONS] [TEMPLATE-MPK-FILE]`
 
-The `OPTIONS` are described in the table below:
+`オプション` は以下の表に記述されています。
 
-| Option           | Default Value     | Result                                                                                                                                               |
-| ---------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app-name`       | App               | Assigns the specified app name to the app.                                                                                                           |
-| `output-dir`     | Current directory | The directory in which to create the project.                                                                                                        |
-| `language-code`  | Optional          | The default language of the app.                                                                                                                     |
-| `sprintr-app-id` | Optional          | Associates the app [feedback features](/developerportal/collaborate/feedback) with the provided [Developer Portal app](/developerportal/apps-list/). |
+| Option           | デフォルト値    | 結果                                                                                                      |
+| ---------------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| `アプリ名`           | アプリ       | 指定したアプリ名をアプリに割り当てます。                                                                                    |
+| `output-dir`     | 現在のディレクトリ | プロジェクトを作成するディレクトリ。                                                                                      |
+| `言語コード`          | 省略可能      | アプリのデフォルト言語。                                                                                            |
+| `sprintr-app-id` | 省略可能      | [フィードバック機能](/developerportal/collaborate/feedback) を [開発者ポータルアプリ](/developerportal/apps-list/) に関連付けます。 |
 
-`TEMPLATE-MPK-FILE` is an optional path to a Mendix app package (*.mpk*) file. If this argument is omitted, the app is created with a default empty project template.
+`TEMPLATE-MPK-FILE` は Mendix アプリパッケージ (*.mpk*) へのオプションのパスです。 この引数が省略されると、デフォルトの空のプロジェクトテンプレートでアプリが作成されます。
 
-#### 3.2.2 Examples
+#### 3.2.2 例
 
-Examples of commands are described in the table below:
+以下の表にコマンドの例を示します。
 
-| Example                                                                           | Result                                                                                                          |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `mx create-project`                                                               | Creates an app in the current folder using all the default parameters.                                          |
-| `mx create-project --app-name "MyFirstApp" --output-dir "C:/Projects/MyFirstApp"` | Creates an app named `MyFirstApp` in the *C:/Projects/MyFirstApp* folder using all the default parameters.      |
-| `mx create-project "C:/Templates/ExpenseReportTemplate.mpk"`                      | Creates an app with the default parameters from a template located at *C:/Templates/ExpenseReportTemplate.mpk*. |
+| 例                                                                                 | 結果                                                                                |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `mx create-project`                                                               | すべてのデフォルトパラメータを使用して、現在のフォルダにアプリを作成します。                                            |
+| `mx create-project --app-name "MyFirstApp" --output-dir "C:/Projects/MyFirstApp"` | `C:/Projects/MyFirstApp` フォルダ内の *MyFirstApp* という名前のアプリを、すべてのデフォルトパラメータを使用して作成します。 |
+| `mx create-project "C:/Templates/ExpenseReportTemplate.mpk"`                      | *C:/Templates/ExpenseReportTemplate.mpk* にあるテンプレートからデフォルトのパラメータを持つアプリを作成します。      |
 
-#### 3.2.3 Return Codes
+#### 3.2.3 返品コード
 
-Return codes are described in the table below:
+返品コードは以下の表に記載されています。
 
-| Exit Code | Description                                             |
-| --------- | ------------------------------------------------------- |
-| 0         | The app creation was successful.                        |
-| 1         | An internal error occurred.                             |
-| 2         | There is something wrong with the command-line options. |
+| 終了コード | 説明                    |
+| ----- | --------------------- |
+| 0     | アプリの作成に成功しました。        |
+| 1     | 内部エラーが発生しました          |
+| 2     | コマンドラインオプションに問題があります。 |
 
-### 3.3 Undocumented Options
+### 3.3 文書化されないオプション
 
-The mx tool contains options that are not described in this document. Those are for internal Mendix usage and are not officially supported. This might change in the future, but these options can be used only at your own risk.
+mx ツールには、このドキュメントで説明されていないオプションが含まれています。 これらは内部Mendix用で、公式にはサポートされていません。 これは将来的に変更される可能性がありますが、これらのオプションは自己責任でのみ使用できます。
