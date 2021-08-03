@@ -1,7 +1,7 @@
 ---
-title: "Module Status"
-parent: "project-security"
+title: "模块状态"
+parent: "项目安全"
 ---
 
 
-The module status overview shows the security status for each module. It shows the total number of items for which security needs to be configured, as well as the number of items for which security has been configured already. At the 'Prototype / demo' security level, the status of form access and microflow access is shown. Additionally, at the 'Production' security level, the status of entity access and dataset access (if applicable) is shown.
+模块状态概述显示每个模块的安全状态。 它显示安全需要配置的项目总数， 以及已经配置了安全的项目数量。 在“原型/demo”安全等级，显示表单访问和微流访问的状态。 此外，在“生产”安全层面，显示了实体存取和数据集（如果适用的话）存取的状况。
