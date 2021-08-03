@@ -1,164 +1,164 @@
 ---
-title: "Configure a Navigation Bar"
-description: "This how-to describes the process of configuring a navigation bar in Mendix Studio."
+title: "配置导航栏"
+description: "这个操作可以描述在 Mendix Studio 中配置导航栏的过程。"
 menu_order: 15
 tags:
-  - "studio"
+  - "工作室"
   - "navigation"
-  - "how to"
-  - "navigation bar"
+  - "如何处理"
+  - "导航栏"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This how-to explains how to configure a navigation bar for your app such as creating menu items and sub-items.
+如何为您的应用配置导航栏，如创建菜单项和子项。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* Setting a page as home page
-* Create new menu bar items and sub-items
+* 设置页面为主页
+* 创建新的菜单栏项目和项目
 
-This how-to describes the following use case:
+如何描述下面的用例：
 
-You would like to configure a menu bar for your app.
+您想要为您的应用配置一个菜单栏。
 
-In Studio, the navigation bar is build in most page templates and is available on pages either as a sidebar or top bar. The configured menu bar will look the following way:
+在Studio中，导航栏是在大多数页面模板中构建的，可以作为侧边栏或顶栏在页面上使用。 已配置的菜单栏将显示以下方式：
 
-![Configured Menu](attachments/navigation-how-to-configure/navigation-previewed.png)
+![配置菜单](attachments/navigation-how-to-configure/navigation-previewed.png)
 
-Currently you have a page called **Home_web** that is set as a home page by default. Your navigation document currently looks the following way:
+目前您有一个叫做 **Home_Web** 的页面被设置为默认主页，并且也被设置为主菜单项。 您的导航文档目前看起来如下方式：
 
-![Navigation Default](attachments/navigation-how-to-configure/navigation-default.png)
+![导航默认](attachments/navigation-how-to-configure/navigation-default.png)
 
-You have several pages that you would like to add to the navigation:
+您有好几个您想要添加到导航的页面：
 
-* **Employees** – a page that lists all employees in your company and should be a home page
+* **员工** - 一个列出您公司中所有员工的页面，并且应该是默认主页
 
-* **New_Employee** – a page for creating a new employee
+* **新员工** — — 创建一个新员工的页面
 
-* **Job_Details** – contains a list with such details as employee's position, department, income; you would like to keep this page together with other two pages listed below under one menu item called  **Employee_Details**
+* **Job_Detail** — — 包含雇员的位置、部门和收入等详细信息的列表； 您想要将此页面与以下一个菜单项下面列出的其他两个页面保持在一起，这个菜单项叫做  **Employeee_Detail**
 
-* **Personal_Info** – contains a list with personal employee information, such as full name, emergency contacts, address; should be a menu sub-item of the **Employee_Details** menu item
+* **Personal_Info** — 包含一个包含个人信息的列表，如全名、紧急联系人、地址； 应该是 **Employeee_Detail** 菜单项的菜单项
 
-* **Documents** – contains a list with employee files, such as employment contract, medical insurance; should be a menu sub-item of the **Employee_Details** menu item
+* **文档** — 包含雇员档案的列表，如就业合同、医疗保险； 应该是 **Employeee_Detail** 菜单项的菜单项
 
-## 2 Prerequisites
+## 2 个前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+在启动此操作之前，请确保您已完成以下前提条件：
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with navigation document terms. For more information, see [Navigation Document](/studio8/navigation).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
+* 熟悉导航文档条款。 欲了解更多信息，请参阅 [导航文档](/studio/navigation)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
 
-## 3 Creating Menu Items and Sub-Items
+## 3 创建菜单项和子项
 
-### 3.1 Setting the Employees Page as the Home Page {#employees-page}
+### 3.1 将员工页面设置为默认主页 {#employees-page}
 
-Currently the **Home_web** page is set as the home page for your app. However, you would like to set the **Employees** page as the home page instead. Do the following:
+目前 **Home_web** 页面被设置为您的应用的主页。 然而，你想把 **员工** 页面设置为主页。 执行以下操作：
 
-1. Click the **Navigation Document** icon in the left menu bar.
+1. 点击左侧菜单栏中的 **导航文档** 图标。
 
-2. Select the **Home** menu item:
+2. 打开导航编辑器属性 > **默认主页**。
 
-    ![Default Navigation](attachments/navigation-how-to-configure/navigation-default.png)
+3. 点击 **页面** 属性来选择一个不同的页面：
 
-3. Open its properties. The property **Set as Homepage** is enabled by default for the **Home** menu item. You need to change the page that is currently selected in properties for it. Do the following:
+    ![默认主页](attachments/navigation-how-to-configure/default-home-page.png)
 
-    1.  Click the **Page** property to change the page that is currently set as home page:
+4. 在 **选择页面** 对话框中，选择 **员工** 然后点击 **选择**。
 
-        ![Home Page Properties](attachments/navigation-how-to-configure/home-page-properties.png)
+5. Now you need to set the **Employees** page for the **Home** menu item otherwise it will not show in your navigation tree. 点击 **首页** 菜单项并打开其属性。
 
-    3. In the **Select Page** dialog box, choose **Employees** and click **Select**.
+6. 点击 **页面** 属性：
 
-        ![Select Page Dialog Box](attachments/navigation-how-to-configure/select-page-dialog.png)
+    ![主菜单项](attachments/navigation-how-to-configure/home-menu-item.png)
 
-You have changed the page that was selected as the home page by default and set the **Employees** page as the new home page for your app.
+7. 在 **选择页面** 对话框中，选择 **员工** 然后点击 **选择**。
 
-### 3.2 Creating Menu Item for the New Employee Page
+您已设置 **员工** 页面为您的应用的新的默认首页。
 
-The **New_Employee** page contains a form with the details of the new employee, this means that it contains a data view that expects an *Employee* object. Thus, when creating a menu item for it, you need to pass this object.
+### 3.2 为新员工页面创建一个菜单项
 
-To create the menu item for the **New_Employee** page, do the following:
+**新员工** 页面包含一个包含新员工详细信息的表单， 这意味着它包含一个需要 *员工* 对象的数据视图。 因此，在为其创建菜单项时，您需要通过此对象。
 
-1. Click a plus at the bottom of the navigation tree to create a menu item:
+要为 **新员工** 页面创建菜单项，请做以下操作：
 
-    {{% image_container width="350" %}}![Adding Menu Item](attachments/navigation-how-to-configure/adding-menu-item.png){{% /image_container %}}
+1. 点击导航树底部的加号来创建菜单项：
 
-2. Open the new menu item properties and do the following:
+    ![添加菜单项](attachments/navigation-how-to-configure/adding-menu-item.png)
 
-    1.  Set the **On Click Action** to **Page**.
+2. 打开新菜单项属性，执行以下操作：
 
-    2. Toggle the **Create Object** option to pass the *Employee* object to the page.
+    1.  将 **单击动作** 设置为 **页面**。
 
-    3. Click the **Entity** property to set the needed entity.
+    2. 切换 **创建对象** 选项来将 *员工* 对象传递到页面。
 
-        ![Create Object](attachments/navigation-how-to-configure/create-object.png)
+    3. 点击 **实体** 属性来设置所需的实体。
 
-    4. In the **Select Entity** dialog box, choose **Employee** and click **Select**.
+        ![创建对象](attachments/navigation-how-to-configure/create-object.png)
 
-    5. Click the **Page** property.
+    4. 在 **选择实体** 对话框中，选择 **员工** 然后点击 **选择**。
 
-    6. In the **Select Page** dialog box, choose **New_Employee** page and click **Select**:
+    5. 点击 **页面** 属性。
 
-         ![Select New Employee Page](attachments/navigation-how-to-configure/select-new-employee-page.png)
+    6. 在 **选择页面** 对话框框中，选择 **新员工** 页面并点击 **选择**。
 
-    7. In the **Caption** property, delete the *Navigation item* caption and type in *New Employee*.
+    7. 在 **标题** 属性中，删除 *导航项* 标题和类型 *新员工*.
 
-    8. Click the **Icon** property to set the icon for the menu item.
+    8. 点击 **图标** 属性来设置菜单项的图标。
 
-    9. In the **Select icon** dialog box, search for the *plus* icon and click **Select**:
+    9. 在 **选择图标** 对话框中，搜索 *加* 图标并点击 **选择**
 
-         ![Select Plus Icon](attachments/navigation-how-to-configure/plus-icon.png)
+         ![选择 Plus 图标](attachments/navigation-how-to-configure/plus-icon.png)
 
-Good job! You have added a menu item for the **New Employee** page to your navigation:
+干得好！ 您已将 **新员工** 页面的菜单项添加到您的导航中：
 
-![New Menu Item Created](attachments/navigation-how-to-configure/new-menu-item-created.png)
+![创建新菜单项](attachments/navigation-how-to-configure/new-menu-item-created.png)
 
-Click **Preview** in the top-right corner to [preview your app](/studio8/publishing-app) and test how the navigation menu looks like: ![Previewed Menu Items](attachments/navigation-how-to-configure/previewed-menu-items.png)
+点击 **在右上角预览** 到 [预览您的应用程序](/studio/publishing-app) 并测试导航菜单的形式： ![预览菜单项](attachments/navigation-how-to-configure/previewed-menu-items.png)
 
-### 3.3 Create a Menu Item for the Employee_Details Page and Configuring Its Sub-Items
+### 3.3 为Employeee_Detail页面创建一个菜单项并配置其子项
 
-You would like to place **Job_Details**, **Personal_Info**, and **Documents** pages under one menu-item named **Employee Details**, which means that they will be opened by menu sub-items.
+您想要放置 **Job_Detail**, **Personal_Info**, 和 **文档** 页面在一个菜单项下，名称为 **员工详细信息**这意味着它们将被菜单项打开。
 
-First, you need to create the menu item that will encompass three menu sub-items. Do the following:
+首先，您需要创建包含三个菜单子项的菜单项。 执行以下操作：
 
-1. Click a plus at the bottom of the navigation tree to create a menu item.
+1. 点击导航树底部的加号来创建菜单项。
 
-2. Open the new menu item properties and do the following:
+2. 打开新菜单项属性，执行以下操作：
 
-    1. In the **Caption** property, delete the *Navigation item* caption and type in *Employee Details*.
-    2. Click the **Icon** property to set the icon for the menu item.
-    3. In the **Select icon** dialog box, search for the *user* icon and click **Select**.
+    1. 在 **标题** 属性中，删除 *导航项* 标题和类型 *员工详细信息*。
+    2. 点击 **图标** 属性来设置菜单项的图标。
+    3. 在 **选择图标** 对话框中，搜索 *用户* 的图标并点击 **选择**。
 
 3. Click a plus *next to* the **Employee Details** menu item to create a sub-item for it:
 
-    ![Creating Menu Sub-Item](attachments/navigation-how-to-configure/creating-menu-sub-item.png)
+    ![创建菜单子项](attachments/navigation-how-to-configure/creating-menu-sub-item.png)
 
-4. Open its properties and do the following:
+4. 打开其属性并执行以下操作：
 
-    1. Set the **On Click Action** to **Page**.
+    1. 将 **单击动作** 设置为 **页面**。
 
-    2. Click the **Page** property.
+    2. 点击 **页面** 属性。
 
-    3. In the **Select Page** dialog box, choose **Job_Details** page and click **Select**.
+    3. 在 **选择页面** 对话框框中，选择 **Job_details** 页面并点击 **选择**。
 
-    4. In the **Caption** property, delete the *Navigation item* caption and type in *Job Details*:
+    4. 在 **标题** 属性中，删除 *导航项* 标题和类型 *作业详细信息*
 
-        ![Properties of Job Details Menu Sub-Item](attachments/navigation-how-to-configure/job-details-menu-item-properties.png)
+        ![作业细节菜单项的属性](attachments/navigation-how-to-configure/job-details-menu-item-properties.png)
 
-    5. Repeat steps 1-4 to create a menu sub-item to open the **Personal_Info** page and name this sub-item *Personal Info*.
+    5. 重复步骤1-4来创建一个菜单分项，打开 **Personal_Info** 页面并命名此分项 *个人信息*。
 
-    6. Repeat steps 1-4 to create a menu sub-item to open the **Documents** page and name this sub-item *Documents*.
+    6. 重复步骤1-4来创建一个菜单分项，打开 **文档** 页并命名此分项目 *文档*
 
-    7. The order of sub-items looks the following way now: **Documents**, **Personal Info**, **Job Details**. Drag and drop them to rearrange the order in the following way: **Job Details**, **Personal Info**, **Documents**.
+    7. 分项目的顺序如下所示： **文档**, **个人信息**, **作业详细信息**。 拖放它们以以下方式重新排列顺序： **作业详细信息**， **个人信息**, **文档**.
 
-You have configured the sub-menu items for the **Employee Details** menu item.
+您配置了 **员工详细信息** 菜单项的子菜单项。
 
-Congratulations! You created and configured navigation for your app:
+恭喜！ 您为您的应用创建和配置了导航：
 
-![Configured Navigation](attachments/navigation-how-to-configure/configured-navigation.png)
+![已配置导航](attachments/navigation-how-to-configure/configured-navigation.png)
 
-[Preview your app](/studio8/publishing-app) to see how the navigation menu is displayed:
+[预览您的应用程序](/studio/publishing-app) 以查看导航菜单是如何显示的：
 
-![Previewed Navigation](attachments/navigation-how-to-configure/navigation-previewed.png)
+![预览导航](attachments/navigation-how-to-configure/navigation-previewed.png)
 
