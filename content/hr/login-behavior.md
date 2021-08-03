@@ -5,13 +5,14 @@ description: "Describes default and customized login behavior in Runtime."
 tags:
   - "Runtime"
   - "login"
+  - "studio pro"
 ---
 
 ## 1 Default Login Behavior
 
-A user is blocked after three consecutive bad login attempts, regardless of the time between the login attempts. The failed login count is reset after a successful login attempt or when a blocked user is unblocked.
+A user is blocked after 3 consecutive bad login attempts, regardless of the time between the login attempts. The failed login count is reset after a successful login attempt or when a blocked user is unblocked. Blocking users only occurs when the project security level is set to 'Production'.
 
-Users are unblocked each time the cluster manager runs, and at that point, the failed login count is also reset to 0. By default, the cluster manager runs every five minutes. This interval can be changed using the [custom setting](custom-settings) `ClusterManagerActionInterval`.
+Users are unblocked each time the cluster manager runs, and at that point, the failed login count is also reset to 0. By default, the cluster manager runs every 5 minutes. This interval can be changed using the [Runtime customization](custom-settings) `ClusterManagerActionInterval` setting.
 
 {{% alert type="warning" %}}
 The cluster manager does more than just unblocking users. For example, it also removes expired sessions. So, changing this interval has a broader impact.
