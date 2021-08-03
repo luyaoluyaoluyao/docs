@@ -1,18 +1,18 @@
 ---
-title: "Configure a Decision"
-category: "Microflows"
+title: "決定を設定する"
+category: "マイクロフロー"
 menu_order: 60
-description: "This how-to describes the process of configuring a decision in Mendix Studio."
+description: "この方法では、Mendix Studio で決定を設定するプロセスを説明します。"
 tags:
-  - "studio"
-  - "microflows"
-  - "decision"
-  - "domain model"
-  - "how to"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "決定"
+  - "ドメインモデル"
+  - "どうやって?"
 ---
 
-The following how-to’s will guide you through the process of configuring a decision in Mendix Studio:
+以下の方法でMendix Studioで意思決定の設定方法をご案内します:
 
-* [Step 1: Build the Domain Model & Configure a Microflow](microflows-how-to-configure-decision-p1)
-* [Step 2: Embed the Microflow in Your App](microflows-how-to-configure-decision-p2)
+* [ステップ 1: ドメイン モデルを構築 & マイクロフローを構成する](microflows-how-to-configure-decision-p1)
+* [ステップ 2: マイクロフローをアプリに埋め込み](microflows-how-to-configure-decision-p2)
 
