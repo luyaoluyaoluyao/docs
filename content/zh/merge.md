@@ -1,14 +1,19 @@
 ---
-title: "Merge"
-parent: "splits"
+title: "合并"
+parent: "经济及社会理事会"
+menu_order: 1
+tags:
+  - "studio pro"
+  - "合并"
+  - "经济及社会理事会"
 ---
 
-A merge can be used to combine multiple sequence flows into one sequence flow. Imagine a situation where the flow has been separated in the part preceding the merge to execute specific actions. After this the same action needs to be executed for all the separated flows. In this situation a merge can be used to avoid redundancy.
+## 1 导言
 
-{{% alert type="info" %}}
+合并可以用来将流量合并成一个流量。 如果您先前拆分微流流流(例如) 对于这些分开的流量，需要执行一项和相同的行动， 您可以合并两个(或更多)路径。
 
-You have a situation where the microflow has been separated in two flows according to certain conditions. In one flow the status of the order is set to complete and in the other the status is set to incomplete. After this you want to retrieve all associated order lines (to for instance aggregate the prices into a total) for the two flows. You can use a merge to combine the two flows so you can suffice with only one activity for the retrieval.
+例如，你有一种情况，微流按照某些条件分成两种流量。 在一个流中，订单状态设置为完成，另一个状态设置为不完整。 在此之后您想要检索所有相关的订单行，以便将价格合计到两个流量的总和。 您可以使用合并来合并两个流量，这样您只能使用一个活动来检索订单行。
 
-![](attachments/819203/917943.png)
+![](attachments/decisions/merge.png)
 
-{{% /alert %}}
+
