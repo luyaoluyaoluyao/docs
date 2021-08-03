@@ -11,6 +11,10 @@ tags:
   - "action call"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/javascript-action-call.pdf).
+{{% /alert %}}
+
 {{% alert type="warning" %}}
 This activity can only be used in **Nanoflows**.
 {{% /alert %}}
@@ -74,11 +78,11 @@ The name of the variable, list, or object returned by the activity. If it is an 
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
 
 ## 5 Read More
 
 * [JavaScript Actions](javascript-actions)
-* [Build JavaScript Actions](/howto/extensibility/build-javascript-actions)
+* [Build JavaScript Actions](/howto8/extensibility/build-javascript-actions)
 * [Nanoflows](nanoflows)
 * [Java Action Call](java-action-call)
