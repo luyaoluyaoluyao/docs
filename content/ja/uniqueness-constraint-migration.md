@@ -1,106 +1,78 @@
 ---
-title: "Uniqueness Constraint Migration"
-parent: "data-storage"
+title: "ユニークな制約の移行"
+parent: "データストレージ"
 menu_order: 30
-tags:
-  - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The uniqueness validation constraint is usually handled in the database. This enables stateless clustering, a higher number of concurrent users, and above load applications to be handled efficiently.
+アプリケーションの開発とデプロイメントの改善を容易にするために、Mendix 7の前のMendix Runtimeでデータ検証を処理しました。 これは、新しいバージョンのドメインモデルでより厳密な検証ルールが追加されても、古いデータが変更されないままデータベースに残る可能性があることを意味しました。
 
-The following rules can be validated in the database:
+Mendix 7は、ステートレスなクラスタリング、並行ユーザの数が多いこと、および上記のロードアプリケーションに焦点を当てています。 効率的な理由から、いくつかのデータ検証はアプリケーションデータベースによって処理されます。 つまり、データベース内のデータは常にバリデーションルールに従う必要があります。 データの作成後に検証をより厳密にしてもです
 
-* Unique rules on entity attributes
-* The *many side* of one-to-many associations, and *both sides* of one-to-one associations
+このドキュメントでは、これらの変更がプロジェクトに与える影響を概説します。 また、ドメインモデルの検証に変更をデプロイする際に、既存のデータを移行する方法についても説明します。 最後に、アプリケーションに変更を加えていない場合でも、既に現在の検証ルールと互換性がない可能性があります。 このドキュメントでは、既存のデータが既存のプロジェクトモデルに準拠していることを確認し、Mendix 7でデータベース制約を使用してデプロイできるようにする方法について説明します。
 
-However, it is also possible to do data validation in the runtime and to add uniqueness validation to the database later, when it already contains data. If you apply stricter rules at a later date, the data in your database will have to comply with your new validation rules.
+次のルールは、Mendix 7のデータベースでも検証されます。
 
-This document discusses:
+* エンティティ属性のユニークルール
+* 一対一の団体の「多い」側、一対一の団体の双方。
 
-* the impact on your projects of adding a database uniqueness constraint
-* how you can migrate your existing data when you make changes to your domain model validations
-* how you can ensure your existing data, which may be incompatible with your current validation rules, complies with your existing project model so that you can deploy in Mendix with database constraints
+移行ツールキットは、データベース内のデータとモデルで定義されているバリデーションルールの間の矛盾を修正するのに役立ちます。
 
-A migration toolkit is available to help you fix any inconsistencies between data in your database and validation rules defined in your model.
+## 2つのユニーク属性
 
-For more information about the setting for *Uniqueness Validation*, see [Project Settings](project-settings).
-
-## 2 Unique Attributes
-
-### 2.1 Effect of Runtime Uniqueness Validation
-
-If your Mendix app uses runtime validation, you can change an entity and add a unique validation rule on an attribute without affecting the current data. For example, you could indicate in your domain model that an insurance number should be unique for a person in the database because you wanted to use it to uniquely identify someone.
+Mendixの以前のバージョンでは、エンティティを変更し、現在のデータに影響を与えることなく属性に固有の検証ルールを追加できます。 例えば、 ドメインモデルでは保険番号がデータベースの人に固有のものであることを示すことができます それを使って誰かを特定したかったからです
 
 ![](attachments/datastorage/attr-uniq-validation-rule.PNG)
 
-Applying the validation rule does not affect people that were already stored in the database before you deployed the new version of the app with the stricter data model. The insurance number is checked for uniqueness only for new people compared to existing people.
+バリデーションルールを適用することは、より厳格なデータモデルでアプリの新しいバージョンをデプロイする前に、データベースにすでに保存されている人には影響しませんでした。 保険番号は、他の人と比較して、新しい人のための唯一の一意性のためにチェックされます。
 
-The advantage of this is that the stricter model does not affect the current data. The disadvantage is that it is easy to make wrong assumptions about the uniqueness of data in the database. For example, logic in a microflow could depend on unique insurance numbers, and the presence of old data with duplicate insurance numbers could easily be overlooked.
+これの利点は、より厳しいモデルが現在のデータに影響を与えないことでした。 でも欠点はデータベース内の一意のデータを 間違えるのは 簡単だということです たとえば、マイクロフローのロジックは、固有の保険番号に依存する可能性があります。 保険番号が重複している古いデータの存在は容易に見落とされる可能性がある
 
-### 2.2 Current Situation for Uniqueness Validation
-
-Using runtime validation for uniqueness has been deprecated. However, until it is removed, we are providing a Runtime setting that, if set to **Database**, will enforce the unique validation rules on a database level.
+Mendix 7の将来のバージョンでは、このような状況はもう許されません。 トランジションとして、 **Database**に設定されている場合、ランタイム設定を提供します。 データベースレベルで一意の検証ルールを強制します
 
 ![](attachments/datastorage/uniqueness-validation-setting.PNG)
 
-We highly recommend setting this radio button to **Database**. This will prepare your app for future versions of Mendix. If the radio button remains set to **Runtime**, a deprecation warning will appear:
+このラジオボタンを **Database** に設定することを強くお勧めします。 これにより、Mendixの将来のバージョンに向けてアプリが準備されます。 ラジオボタンが **Runtime**に設定されたままの場合、非推奨の警告が表示されます。
 
 ![](attachments/datastorage/deprecation-warning.PNG)
 
-### 2.3 Effect of Database Uniqueness Validation
+**データベース** を選択する効果は、属性(既存のルールまたは新しいルール)に固有の検証ルールを持つモデルをデプロイする場合です。 影響を受けるエンティティの既存のすべてのオブジェクトは、属性の一意性がチェックされます。 同じ保険番号を持つ複数の人がある場合は、Modelerからデプロイする場合にエラーが表示されます。 Mendix クラウドにアプリをデプロイすると、アプリは起動せず、ログにエラーが書き込まれます。
 
-The effect of selecting **Database** is that when you deploy a model with unique validation rules on attributes (existing rules or new rules), all the existing objects for the affected entity will be checked for the uniqueness of the attribute. If there are multiple people with the same insurance number then:
+![](attachments/datastorage/modeler-startup-error.PNG)
 
-* if you deploy the app from Studio Pro, an error will be shown on deployment
-* if you deploy the app from a deployment package (for example in the Mendix cloud), the app will not start and errors will be written to the log
+ただし、データベースの一意性検証オプションが有効になっている場合、特殊な属性に対する一意の検証ルールの定義は許可されません。
 
-![](attachments/datastorage/startup-error.png)
-
-### 2.4 Limitations on Using Database Uniqueness Validation
-
-There are limitations on using database uniqueness validation if you are using an entity which is a specialization of another (generalization) entity.
-
-With the database uniqueness validation option enabled, you cannot define the unique validation rule in the specialization entity for attributes which come from the generalization of this entity. If you do this, a consistency error is reported, as in this image:
+特殊化で定義された固有の検証ルールを持つ特別な属性については、この画像のように、適切な整合性エラーが報告されます。
 
 ![](attachments/datastorage/unique-validation-rule-unresolved.png)
 
-You can, however, define a unique validation rule for attributes which are added in the specialized entity.
-
----
-
-For example, you have two entities:
-
-* a general entity **Employee** with the attribute **EmployeeNumber**
-* a specialized entity **SalesEmployee**, based on *Employee* with the attribute **EmailAddress**.
-
-Each *SalesEmployee* will have an *EmployeeNumber* as that is in the *Employee* entity. However, you cannot set a validation rule in the *SalesEmployee* entity to make *EmployeeNumber* unique.
-
-You can, however, set a validation rule to make *EmailAddress* unique, as that attribute only appears in the *SalesEmployee* entity.
-
----
-
-You can resolve this issue simply, by moving unique validation rules of these attributes to the generalization entity where the attribute it defined.
+これらの一意の検証関連の不承認エラーは、特殊な属性の一意の検証ルールを一般化エンティティに移動することによって単純に解決することができます。
 
 ![](attachments/datastorage/unique-validation-rule-resolved.png)
 
-## 3 Unique Associations
+## 3つのユニークな関連
 
-A comparable situation occurs for associations. Consider the following example:
+提携に匹敵する状況が発生します。 次の例を考えてみましょう:
 
 ![](attachments/datastorage/one-to-many-assoc.PNG)
 
-Initially, the domain model contains a one-to-many association between **Address** and **Person**. This means that a Person can have multiple addresses. After some time, the data structure is changed, because logic has been added to the app that only allows one Address per Person. Proper data modeling prescribes changing the association into a one-to-one association. New data will reflect the updated association properly.
+ドメインモデルは最初に、 **アドレス** と **人** の間の1対多の関連付けを含んでいます。 つまり、Person は複数のアドレスを持つことができます。 しばらくすると、1人あたり1つのアドレスしか使用できないロジックがアプリに追加されたため、データ構造が変更されました。 適切なデータモデリングでは、関連付けを1対1の関連付けに変更することが規定されています。 新しいデータは更新された関連付けを正しく反映します。
 
 ![](attachments/datastorage/one-to-one-assoc.PNG)
 
-Existing association data in the database must also adhere to the updated one-to-one association. This is checked at deployment. If a person has multiple addresses, the model will not deploy, and an error will be given in Studio Pro or in the logs of deployment in the (Mendix) cloud:
+Mendix 7.3から、データベース内の既存の関連データも更新された1対1の関連付けに準拠することを強制します。 これはデプロイ時にもチェックされます。 個人が複数のアドレスを持っている場合、モデルはデプロイされません。 そして、Modelerまたは(Mendix)クラウドでのデプロイのログにエラーが表示されます。
 
-![](attachments/datastorage/startup-error-assoc.png)
+![](attachments/datastorage/modeler-startup-error-assoc.PNG)
 
-We enforce this new stricter association on existing data in order to avoid easily overlooked mistakes that result in returning only a single address per person (where in fact they still have multiple addresses in the database). The Mendix Platform consistently returned the same address each run, but other addresses would be dormant entries in the database.
+私たちは、1人あたり1つのアドレス(実際にはデータベースに複数のアドレスが存在する場合)のみを返すような見過ごされやすい間違いを避けるために、この新しい厳格な関連付けを既存のデータに適用します。 Mendix Platformは、実行ごとに一貫して同じアドレスを返しますが、他のアドレスはデータベース内の休止状態のエントリになります。
 
-## 4 Help with Migration
+## 4 移行のヘルプ
 
-To help with migrating your old data, Mendix has developed a migration toolkit. For details on this, please contact [Mendix Support](http://support.mendix.com).
+古いデータの移行を支援するために、Mendix 6とMendix 7の移行ツールキットを開発しました。
+
+{{% alert type="warning" %}}
+MigrationToolkit は PostgreSQL データベースのみを使用するアプリケーション向けに設計されています。
+{{% /alert %}}
+
+詳細については、 [Mendix Support](http://support.mendix.com) までお問い合わせください。
