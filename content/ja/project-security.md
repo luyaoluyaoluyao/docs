@@ -1,98 +1,98 @@
 ---
-title: "App Security"
-parent: "security"
+title: "アプリのセキュリティ"
+parent: "セキュリティ"
 menu_order: 10
 tags:
   - "studio pro"
-  - "security"
-  - "app security"
+  - "セキュリティ"
+  - "アプリのセキュリティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In **App Security**, you can switch security on or off for the whole app. You can also configure security settings related to the app, such as user roles, administrator credentials, demo users, anonymous users, and password policy. To be able to configure, for example, [security per module](module-security) or [access rule for entities](access-rules), you need to switch the app security on first.
+**App Security**では、アプリ全体のセキュリティをオンまたはオフに切り替えることができます。 また、ユーザーロール、管理者資格情報、デモユーザー、匿名ユーザー、パスワードポリシーなど、アプリに関連するセキュリティ設定を構成することもできます。 例えば、 [モジュールごとのセキュリティ](module-security) または [エンティティのアクセスルール](access-rules)を設定することができます。 まずアプリのセキュリティを切り替える必要があります
 
-To configure the app security, open **App Explorer** > **App** > **Security**, and the dialog box will open:
+アプリのセキュリティを設定するには、 **App Explorer** > **App** > **Security**を開くと、ダイアログボックスが開きます。
 
 ![](attachments/project-security/project-security-dialog.png)
 
 {{% alert type="info" %}}
-For more general information on security, see [Security](security).
+セキュリティに関する一般的な情報については、 [セキュリティ](security) を参照してください。
 {{% /alert %}}
 
-## 2 Security Level {#security-level}
+## 2つのセキュリティレベル {#security-level}
 
-The security level defines if security is switched off or on for the app and which security settings need to be configured.
+セキュリティレベルは、アプリのセキュリティがオフになっているか、またはオンになっているか、どのセキュリティ設定を構成する必要があるかを定義します。
 
-| Security level | The way security is applied                                                          | Security settings to be configured                                                                     |
-| -------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Off            | No security is applied. Users do not have to sign in and can access everything.      | None                                                                                                   |
-| Prototype/demo | Security is applied to signing in, forms, and microflows. Users can access all data. | Administrator and anonymous access, user roles, security for forms and microflows.                     |
-| Production     | Full security is applied.                                                            | Administrator and anonymous access, user roles, security for forms, microflows, entities, and reports. |
+| セキュリティレベル  | セキュリティの適用方法                                               | セキュリティ設定を構成する                                      |
+| ---------- | --------------------------------------------------------- | -------------------------------------------------- |
+| オフ         | セキュリティは適用されません。 ユーザーはサインインする必要はなく、すべてにアクセスできます。           | なし                                                 |
+| プロトタイプ/デモ  | セキュリティは、署名、フォーム、およびマイクロフローに適用されます。 ユーザーはすべてのデータにアクセスできます。 | 管理者と匿名アクセス、ユーザロール、フォームやマイクロフローのセキュリティ。             |
+| Production | 完全なセキュリティが適用されます。                                         | 管理者と匿名アクセス、ユーザロール、フォームのセキュリティ、マイクロフロー、エンティティ、レポート。 |
 
 {{% alert type="warning" %}}
-For all licensed Mendix Cloud nodes, you need to use the **Production** security level and configure all security settings accordingly. Security levels **Off** and **Prototype/demo** are only allowed when testing locally, when deploying a Free App, and in cloud environments outside the Mendix Cloud which are specifically set up with **Development mode**.
+すべてのMendix Cloudノードでは、 **本番** セキュリティレベルを使用し、それに応じてすべてのセキュリティ設定を構成する必要があります。 Security levels **Off** and **Prototype/demo** are only allowed when testing locally, when deploying a Free App, and in cloud environments outside the Mendix Cloud which are specifically set up with **Development mode**.
 {{% /alert %}}
 
-### 2.1 Settings Availability for Different Security Levels
+### 2.1 異なるセキュリティレベルの設定
 
-For different security levels different settings are available. Find the list of all security settings and their availability per security level in the table below:
+さまざまなセキュリティレベルでは、さまざまな設定が利用可能です。 以下の表に、すべてのセキュリティ設定とセキュリティレベルごとの可用性のリストを表示します。
 
-| Setting Name                        | Security Off | Prototype/Demo Security                                         | Production Security                                             |
-| ----------------------------------- | ------------ | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| [Check security](#check-security)   | N/A          | N/A                                                             | Available, see the [Check Security](#check-security) section.   |
-| [App status](#app-status)           | N/A          | Available, see the [App Status](#app-status) section.           | Available, see the [App Status](#app-status) section.           |
-| [Module status](#module-status)     | N/A          | Available, see the [Module Status](#module-status) section.     | Available, see the [Module Status](#module-status) section.     |
-| [User roles](#user-roles)           | N/A          | Available, see the [User roles](#user-roles) section.           | Available, see the [User roles](#user-roles) section.           |
-| [Administrator](#administrator)     | N/A          | Available, see the [Administrator](#administrator) section.     | Available, see the [Administrator](#administrator) section.     |
-| [Demo users](#demo-users)           | N/A          | Available, see the [Demo users](#demo-users) section.           | Available, see the [Demo users](#demo-users) section.           |
-| [Anonymous users](#anonymous-users) | N/A          | Available, see the [Anonymous users](#anonymous-users) section. | Available, see the [Anonymous users](#anonymous-users) section. |
-| [Password policy](#password-policy) | N/A          | Available, see the [Password policy](#password-policy) section. | Available, see the [Password policy](#password-policy) section. |
+| 設定名                            | セキュリティオフ | プロトタイプ/デモセキュリティ                                         | 本番セキュリティ                                                |
+| ------------------------------ | -------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| [セキュリティを確認する](#check-security) | 該当なし     | 該当なし                                                    | 利用可能な場合は、 [セキュリティチェック](#check-security) セクションを参照してください。 |
+| [アプリの状態](#app-status)          | 該当なし     | 利用可能な場合は、 [App Status](#app-status) セクションを参照してください。     | 利用可能な場合は、 [App Status](#app-status) セクションを参照してください。     |
+| [モジュールの状態](#module-status)     | 該当なし     | 利用可能な場合は、 [モジュールステータス](#module-status) のセクションを参照してください。 | 利用可能な場合は、 [モジュールステータス](#module-status) のセクションを参照してください。 |
+| [ユーザーロール](#user-roles)         | 該当なし     | 利用可能な場合は、 [ユーザー ロール](#user-roles) セクションを参照してください。       | 利用可能な場合は、 [ユーザー ロール](#user-roles) セクションを参照してください。       |
+| [管理者](#administrator)          | 該当なし     | 利用可能です。 [管理者](#administrator) セクションを参照してください。           | 利用可能です。 [管理者](#administrator) セクションを参照してください。           |
+| [デモユーザー](#demo-users)          | 該当なし     | 利用可能で、 [デモユーザー](#demo-users) セクションを参照してください。            | 利用可能で、 [デモユーザー](#demo-users) セクションを参照してください。            |
+| [匿名ユーザー](#anonymous-users)     | 該当なし     | 利用可能な場合は、 [匿名ユーザ](#anonymous-users) セクションを参照してください。     | 利用可能な場合は、 [匿名ユーザ](#anonymous-users) セクションを参照してください。     |
+| [パスワードポリシー](#password-policy)  | 該当なし     | [パスワード ポリシー](#password-policy) セクションを参照してください。          | [パスワード ポリシー](#password-policy) セクションを参照してください。          |
 
-### 2.2 Check Security {#check-security}
+### 2.2 セキュリティを確認 {#check-security}
 
-If the security level is set to **Production**, you can specify whether the consistency of security settings should be checked.
+セキュリティレベルが **Production**に設定されている場合、セキュリティ設定の一貫性をチェックするかどうかを指定できます。
 
-When **Check Security** is enabled, for each user role Studio Pro checks which forms are accessible, either directly in the menu bar or indirectly by following forms and microflows. For each of those forms, Studio Pro checks whether referred attributes and associations are accessible for the current user role. If not, an error is added to the error list. These errors are only shown if there are no other consistency errors.
+**セキュリティをチェックする** が有効になっている場合、各ユーザーロールにStudio Proがアクセス可能なフォームをチェックします。 メニューバーで直接、または、以下のフォームやマイクロフローで間接的に行うことができます。 これらのフォームごとに、Studio Proは参照された属性と関連性が現在のユーザー ロールに対してアクセス可能かどうかをチェックします。 そうでない場合は、エラーリストにエラーが追加されます。 これらのエラーは、他の一貫性エラーがない場合にのみ表示されます。
 
-### 2.3 App Status {#app-status}
+### 2.3 アプリのステータス {#app-status}
 
-The app status indicates the security status for the current app security level.
+アプリのステータスは、現在のアプリのセキュリティレベルのセキュリティステータスを示します。
 
-| App status | Description                                                                                                                                         |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Complete   | All security settings for the current security level have been configured.                                                                          |
-| Incomplete | Some security settings for the current security level need to be configured. For more information, see the [Module Status](#module-status) section. |
+| アプリの状態   | 説明                                                                                           |
+| -------- | -------------------------------------------------------------------------------------------- |
+| Complete | 現在のセキュリティレベルのすべてのセキュリティ設定が構成されています。                                                          |
+| 未完了      | 現在のセキュリティレベルの一部のセキュリティ設定を構成する必要があります。 詳細については、 [モジュールステータス](#module-status) のセクションを参照してください。 |
 
-## 3 Module Status {#module-status}
+## 3モジュールステータス {#module-status}
 
-The **Module Status** tab shows the security status for each module. It shows the total number of items for which security needs to be configured, as well as the number of items for which security has been configured already.
+**モジュール ステータス** タブには、各モジュールのセキュリティ状況が表示されます。 セキュリティを設定する必要がある項目の合計数を表示します。 セキュリティがすでに設定されている項目の数と同様に。
 
-At the **Prototype/demo** security level, the status of page access and microflow access is shown.
+**プロトタイプ/デモ** のセキュリティレベルには、ページアクセスとマイクロフローアクセスのステータスが表示されます。
 
-Additionally, at the **Production** security level, the status of entity access and dataset access (if applicable) is shown.
+さらに、 **** のセキュリティレベルでは、エンティティアクセスとデータセットアクセスのステータスが表示されます(該当する場合)。
 
-## 4 User Roles {#user-roles}
+## 4人のユーザーロール {#user-roles}
 
-A user role aggregates a number of access rights on data, pages, and microflows. An end-user of the application is assigned one or more user roles by an administrator, and gets all access rights that these user roles represent. For more information, see [User Roles](user-roles).
+ユーザーロールは、データ、ページ、およびマイクロフローに関する多くのアクセス権を集約します。 アプリケーションのエンドユーザーは、管理者によって1つまたは複数のユーザー ロールに割り当てられ、これらのユーザー ロールが示すすべてのアクセス権を取得します。 詳細については、 [ユーザー ロール](user-roles) を参照してください。
 
-## 5 Administrator {#administrator}
+## 5管理者 {#administrator}
 
-In the **Administrator** tab of **App Security**, you can change the default credentials and a user role for the Administrator user. For more information, see [Administrator](administrator).
+**App Security** の **管理者**タブで 管理者ユーザーのデフォルトの資格情報とユーザーロールを変更できます。 詳細については、 [管理者](administrator) を参照してください。
 
-## 6 Demo Users {#demo-users}
+## 6人のデモユーザー {#demo-users}
 
-Demo users are a demonstration of each [user role](user-roles) existing in your app. You can use demo users to test what your app looks like for each user role or to demonstrate your app to other people. For more information, see [Demo Users](demo-users).
+デモユーザーは、アプリ内に存在するそれぞれの [ユーザーロール](user-roles) のデモです。 デモユーザーを使用して、各ユーザーのロールに対してアプリがどのように見えるかをテストしたり、他のユーザーにアプリを見せることができます。 詳細については、 [Demo Users](demo-users) を参照してください。
 
-## 7 Anonymous Users {#anonymous-users}
+## 7人の匿名ユーザー {#anonymous-users}
 
-Anonymous users allow end-users access your application without having to sign in. You can restrict the data that anonymous users can access by assigning a specific user role to them. For more information, see [Anonymous Users](anonymous-users).
+匿名ユーザは、エンドユーザがサインインせずにアプリケーションにアクセスできるようにします。 特定のユーザーロールを割り当てることで、匿名ユーザーがアクセスできるデータを制限できます。 詳細については、 [匿名ユーザ](anonymous-users) を参照してください。
 
-## 8 Password Policy {#password-policy}
+## 8パスワードポリシー {#password-policy}
 
-Specify the password requirements when users create their accounts and set passwords for them. For example, you can set the minimum length of the password, if it must contain digits or an upper case characters. For more information, see [Password Policy](password-policy).
+ユーザーが自分のアカウントを作成し、パスワードを設定するときにパスワードの要件を指定します。 たとえば、パスワードに数字または大文字を含める必要がある場合は、パスワードの最小長さを設定できます。 詳細については、 [Password Policy](password-policy) を参照してください。
 
-## 9 Read More
+## 9 続きを読む
 
-* [Security](security)
-* [Module Security](module-security)
+* [セキュリティ](セキュリティ)
+* [モジュールのセキュリティ](module-security)
