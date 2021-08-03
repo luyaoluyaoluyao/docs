@@ -1,40 +1,40 @@
 ---
-title: "Placeholder"
-parent: "layout"
+title: "プレースホルダー"
+parent: "レイアウト"
 menu_order: 10
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A **placeholder** can be used in two ways:
+**プレースホルダー** は 2 つの方法で使用できます:
 
-* In a [layout](layout) to define a "gap" that can be filled in a [page](page) based on that layout
-* In a layout that defines the layout as a master layout
+* [レイアウト](layout) で、そのレイアウトに基づいて [ページ](page) に記入できる "ギャップ" を定義します。
+* レイアウトをマスターレイアウトとして定義するレイアウト
 
-Each placeholder is colored blue with its name displayed in the middle of it. The placeholder named **Main** is always shown in a darker shade of blue.
+各プレースホルダは青色で表示され、その名前は中央に表示されます。 **Main** という名前のプレースホルダは、常に濃い青色で表示されます。
 
-For example, the image below shows two placeholders, **Main** and **Other** positioned within a layout grid.
+例えば、下の画像は、レイアウト グリッド内に配置された **メイン** と **その他の** の 2 つのプレースホルダを示しています。
 
 {{% image_container width="400" %}}
-![Two placeholders in a layout grid. One is labeled 'Main', and one is labeled 'Other'](attachments/layout/placeholder.png)
+![レイアウト グリッドに 2 つのプレースホルダがあります。 1つは「Main」、1つは「Other」とラベル付けされています](attachments/layout/placeholder.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of placeholder properties is represented in the image below:
+次の画像にプレースホルダー プロパティの例を示します。
 
-![Properties pane for a placeholder](attachments/layout/placeholder-properties.png)
+![プレースホルダのプロパティペイン](attachments/layout/placeholder-properties.png)
 
-A placeholder has a single section, **Misc** and a single property, **Name**.
+プレースホルダには、 **その他** と単一のプロパティ **名前** があります。
 
-### 2.1 Name
+### 2.1 名前
 
-Unlike most other widgets, the name of a placeholder carries a special significance. A layout contains one or more placeholders and one of these placeholders must be named **Main**.
+他のほとんどのウィジェットとは異なり、プレースホルダの名前には特別な意味があります。 レイアウトには1つ以上のプレースホルダが含まれており、これらのプレースホルダの1つには **メイン**という名前を付ける必要があります。
 
-The placeholder name is used to map page contents from one layout to the other when switching layouts or creating a new page.
+プレースホルダ名は、レイアウトを切り替えたり、新しいページを作成したりする際に、あるレイアウトから別のレイアウトにページの内容をマップするために使用されます。
 
-When a user switches a page from one layout to another, the placeholder names will be used to map the content of the page to the new layout. For every placeholder that has content in the current layout, Studio Pro will search for a placeholder with the same name in the new one. As the **Main** placeholder is mandatory, the user can always be assured that any page content placed in this placeholder will be retained. Any content in placeholders not present in the new layout will be moved above the canvas, from where it can be placed in the placeholders in the new page.
+ユーザーがあるレイアウトから別のレイアウトにページを切り替えたとき。 プレースホルダ名を使用して、ページのコンテンツを新しいレイアウトにマップします。 現在のレイアウトにコンテンツを含むすべてのプレースホルダについて、Studio Proは新しいレイアウトに同じ名前のプレースホルダを検索します。 **メイン** プレースホルダは必須であるため、このプレースホルダに配置されたページコンテンツは常に保持されます。 新しいレイアウトに存在しないプレースホルダ内のコンテンツはキャンバスの上に移動されます。 から新しいページのプレースホルダに配置できます。
 
-Because of this, user experience can be improved significantly if all of a project's layouts adhere to the same or a similar naming scheme. This will ensure layouts can be alternated freely without having to consider the effect on the content of each individual placeholder.
+このため、プロジェクトのすべてのレイアウトが同じまたは同様の命名方式に準拠すると、ユーザエクスペリエンスが大幅に改善されます。 これにより、各プレースホルダの内容に対する影響を考慮することなく、レイアウトを自由に交互に切り替えることができます。
 
-The placeholder naming scheme also has an impact on [page templates](page-templates). When creating a new page, the template will map its content based on the names of the placeholders in its preview layout. Consequently, a template might describe the content for a placeholder that is not available in the selected layout. To prevent this, a compatible layout is automatically pre-selected when clicking a page template in the create new page dialog. If an incompatible layout is then selected manually, all the content for the missing placeholders will be discarded. 
+プレースホルダー 命名スキームは [ページ テンプレート](page-templates) にも影響します。 新しいページを作成するとき、テンプレートはプレビューレイアウトのプレースホルダの名前に基づいてコンテンツをマップします。 したがって、テンプレートは選択したレイアウトで使用できないプレースホルダのコンテンツを記述する場合があります。 これを防ぐために、新しいページの作成ダイアログでページ テンプレートをクリックすると、互換性のあるレイアウトが自動的に事前に選択されます。 互換性のないレイアウトが手動で選択されている場合、欠落しているプレースホルダのすべてのコンテンツは破棄されます。 
