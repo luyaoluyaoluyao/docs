@@ -1,65 +1,25 @@
 ---
 title: "导航树"
 parent: "菜单部件"
-menu_order: 3
-tags:
-  - "studio pro"
 ---
 
-●{% alert type="warning" %}}本机移动页面不支持导航树小部件。{{% /提醒 %}}
 
-## 1 导言
+导航树小部件以树的形式显示一个配置的菜单。 项目可以有子项目，在这种情况下，主项目可以扩大。 导航树的菜单结构可以有三个层次。 最后， [菜单项](menu-item) 指向页面或点击项目时打开或开始的微流程。
 
-导航树以树的形式显示 [导航配置](navigation#profiles) 或 [菜单中的菜单项](menu) 文档。 这些项目是由 [菜单源](#menu-source) 决定的，它们要么在 [导航](navigation) 中配置，要么是 [菜单](menu)。
+{{% alert type="info" %}}
 
-导航树的菜单结构可以有三个级别，这意味着菜单项可以有子项。 关于菜单项及其属性的更多信息，见 [菜单](menu)。
+![](attachments/pages/navigation-tree.png)
 
-![导航树](attachments/menu-widgets/navigation-tree.png)
+{{% /报警 %}}
 
-## 2 属性
+## 公共属性
 
-下面的图像显示了导航树属性的示例：
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-{{% image_container width="250" %}}![导航树属性](attachments/menu-widgets/navigation-tree-properties.png)
-{{% /image_container %}}
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-导航树属性由以下部分组成：
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-* [常用的](#common)
-* [设计属性](#design)
-* [A. 概况](#general)
+## 常规属性
 
-### 2.1 共同部分 {#common}
-
-{{% snippet file="refguide/common-section-link.md" %}}
-
-### 2.2 设计属性科 {#design}
-
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.3 一般部分 {#general}
-
-#### 2.3.1 菜单源 {#menu-source}
-
-菜单部件中显示的项目由 **菜单源** 决定。 可能的菜单来源见下表：
-
-| 值           | 描述                               |
-| ----------- | -------------------------------- |
-| 项目导航 *(默认)* | 菜单项取自 [导航](navigation) 中定义的配置文件。 |
-| 菜单文档        | 菜单项取自一个 [菜单文档](menu)。            |
-
-#### 2.3.2 简介
-
-只有在 [菜单源](#menu-source) 设置为 **项目导航** 时才可用。 **配置** 属性指定了哪些 [导航配置文件](navigation#profiles) 用于该部件。
-
-默认： *响应性*
-
-#### 2.3.3 菜单
-
-只有在 [菜单源](#menu-source) 设置为 **菜单文档** 时才可用。 **菜单** 属性指定了什么 [菜单](menu) 文档用于小部件。
-
-## 3 阅读更多
-
-* [页](page)
-* [菜单部件](菜单部件)
-* [页面编辑器中常见的属性](common-widget-properties)
+{{% snippet file="refguide7/Menu+Source+Properties.md" %}}
