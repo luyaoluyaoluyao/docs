@@ -1,5 +1,5 @@
 ---
-title: "テキストウィジェット"
+title: "テキスト"
 parent: "page-editor-widgets"
 description: "Mendix Studioでタイポグラフィウィジェットを説明します。"
 menu_order: 40
@@ -13,7 +13,10 @@ tags:
 
 ## 1つの紹介
 
-Text is a group of [widgets](page-editor-widgets) that consists of **[Text, Paragraph, Headings (H1-H6)](#text-widget)**, and the [**Page Title**](#page-title-widget). これらはエンドユーザーにテキスト情報を表示するために使用されます。
+テキストは、 [テキスト、段落、見出し(H1-H6)](page-editor-widgets) 、 [ページタイトル](#text-widget)で構成される [ウィジェット](#page-title-widget)のグループです。 これらはエンドユーザーにテキスト情報を表示するために使用されます。 たとえば、テキスト段落を表示できます。
+
+{{% image_container width="350" %}}![](attachments/page-editor-widgets-text/paragraph-example.png)
+{{% /image_container %}}
 
 ## 2 テキスト、段落、見出し一般プロパティ {#text-widget}
 
@@ -36,7 +39,7 @@ You can use **Text**, **Paragraph**, or **Heading** widgets to display a text to
 
 **コンテンツ** を構成し、属性を追加するには、次の操作を行います:
 
-1. Place the widget (**Text**, **Paragraph**, or **Heading**) inside a data container (a list view or a data view) and set an entity for the list view/data view. 詳細については、 [Data View & List View Properties](page-editor-data-view-list-view) を参照してください。 これは、選択した図形の属性をテキストに挿入できるようにするために必要です。
+1. Place the widget (**Text**, **Paragraph**, or **Heading**) inside a data container (a list view or a data view) and set an entity for the list view/data view. 詳細については、 [Data View & List View](page-editor-data-view-list-view) を参照してください。 これは、選択した図形の属性をテキストに挿入できるようにするために必要です。
 
 2.  Open **Properties** of the **Text**, **Paragraph**, or **Heading**, delete the default text in the **General** section > **Content** and start typing the message you want to show to the end-user.
 
@@ -90,11 +93,15 @@ You can use **Text**, **Paragraph**, or **Heading** widgets to display a text to
 
 {{% /alert %}}
 
-## 4デザインセクション {#input-elements-design}
+## 4 条件付き表示セクション
 
-**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
+{{% snippet file="studio/visibility-section-link.md" %}}
 
-## 5 続きを読む
+## 5デザインセクション {#input-elements-design}
+
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
+
+## 6もっと読む
 
 * [ページ](page-editor)
 * [ウィジェット](page-editor-widgets)
