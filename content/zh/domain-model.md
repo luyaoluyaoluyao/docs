@@ -1,51 +1,66 @@
 ---
-title: "Domain Model"
-category: "Desktop Modeler"
+title: "域模型"
+category: "应用程序模型"
+menu_order: 30
 tags:
-  - "domain model"
-  - "entity"
-  - "association"
-  - "annotation"
+  - "域模型"
+  - "实体"
+  - "关联"
+  - "注释"
+  - "studio pro"
 ---
 
+## 1 导言
 
-The domain model is a data model that describes the information in your application domain in an abstract way. It is central to the architecture of your application. The domain model consists of [entities](entities) and their relations represented by [associations](associations).
+**域模型** 是一个抽象描述您应用程序使用的信息(或 *数据*)的模型。 它是您应用程序架构的核心。 每个 [模块](modules) 有自己的域模型来描述该模块中使用的数据。 应用程序中的所有模块都可以使用应用程序中所有域模型的数据。
 
-Here is a domain model that defines customers and orders. The line between them is an association. The words 'Customer' and 'Order' are the names of the entities. The words below the entity names are the attributes of the entities.
+一个域模型由 [个实体](entities) 组成，它们与其他实体的关系由 [associations](associations) 代表。 您还可以将 [个注释](annotations) 添加到您的域模型中，以解释如何使用它。
 
-![](attachments/domain-model-editor/917531.png)
+下面是定义客户和订单的域模型。 实体名称是 `客户` 和 `订单`。 它们之间的界线是一个协会。 `订单客户`。 一个客户可以有很多订单，但每个订单是针对一个客户的。 Within the boxes representing the entities you can see the [attributes](attributes) of the entities together with the [type](attributes#type) of data they hold. 还有 [个不可持续的](persistability) 实体。 `ProductQueryResult`, 用于记录从单独的产品系统检索到的产品信息。
 
-## Components
+![带结构注释的域模型](attachments/domain-model/annotated-domain-model.png)
 
-*   [Entities](entities)
-*   [Associations](associations)
-*   [Annotations](annotations)
+| 元素     | 显示                                                                         |
+| ------ | -------------------------------------------------------------------------- |
+| 批注     | 解释域模型某个方面的评论                                                               |
+| 实体名称   | 如何在数据库中引用 [实体](entities)                                                   |
+| 事件处理器  | 已为此实体设置一个或多个 [事件处理程序](event-handlers)                                      |
+| 图片     | 帮助识别该实体的图像                                                                 |
+| 验证规则   | 已为此属性设置一个或多个 [验证规则](validation-rules)                                      |
+| 计算的值   | An indication that the value of this [attribute](attributes) is calculated |
+| 一个     | 表示该实体中的一个与该实体在社团另一端的数量有关。                                                  |
+| 关联名称   | 如何在数据库中引用 [关联](associations)                                               |
+| 多      | 表示其中许多实体与协会另一端的实体数量有关。                                                     |
+| 关联所有者  | 没有箭头的社团结束表明这个实体 [拥有](associations#ownership) 个社团(这两个社团也可以拥有社团)             |
+| 属性名称   | 如何在数据库中引用此属性                                                               |
+| 属性类型   | 此属性中存储的数据的 [类型](attributes#type)                                           |
+| 不可持续实体 | 这是一个没有存储在数据库中但仅暂时存储在应用程序内的实体                                               |
 
-## Technical Appendix
+## 2 执行 {#implementation}
 
-In the database every entity is stored in one separate table and has columns for the attributes defined in the Modeler, the system attributes and a unique identifier for the object. If an entity has specializations there is also a column indicating which specialization the object belongs to. An association is stored in a cross-table with the identifiers (ID) of both objects.
+在数据库中，每个实体都存储在一个单独的表中，并且有用于Studio Pro 定义的属性的列(计算出来的属性除外)， 系统属性和唯一的对象标识符。 如果某一实体具有专业性，也有一列注明该对象属于哪一种专业化。 一个协会存放在一个带有这两个物体的标识符(ID)的交叉表中。
 
-Take a look at the following domain model.
+查看下面的域模型。
 
-![](attachments/domain-model-editor/917890.png)
+![](attachments/domain-model/customer-order.png)
 
-The entity 'Customer' is stored in the table 'module$customer' which is shown below. Take note of the 'system$owner' and 'system$changedby' columns which contain the IDs of the 'User' objects from the 'System' module.
+实体“客户”存储在下面显示的表格 '模块$customer' 中。 注意来自'系统' 模块的 'system$owner' 和 'system$changedby' 列，其中包含 'User' 对象的 ID。
 
-| id | createddate             | changeddate             | system$owner | system$changedby | fullname   |
-| -- | ----------------------- | ----------------------- | ------------ | ---------------- | ---------- |
-| 1  | 2006-10-24 08:10:45.053 | 2009-11-27 09:56:45.099 | 66           | 29               | Steve Jobs |
-| 3  | 2007-09-30 09:56:45.099 | 2008-04-01 08:10:45.053 | 66           | 34               | Bill Gates |
+| id | 创建日期                    | 更改日期                    | 系统$owner | 系统$changedby | fullname |
+| -- | ----------------------- | ----------------------- | -------- | ------------ | -------- |
+| 1  | 2006-10-24 08:10:45.053 | 2009-11-27 09:56:45.099 | 66       | 29           | 史蒂夫作业    |
+| 3  | 2007-09-30 09:56:45.099 | 2008-04-01 08:10:45.053 | 66       | 34           | 比尔盖茨门    |
 
-The association 'Order_Customer' is stored in the table 'module$order_customer' which is shown below. Both columns contain IDs of the associated objects.
+关联'Order_Customer'被存储在下表'模块$order_customer'中，如下所示。 两列都包含相关对象的ID。
 
-| module$orderid | module$customerid |
-| -------------- | ----------------- |
-| 8              | 1                 |
-| 5              | 3                 |
+| 模块$orderid | 模块$customerid |
+| ---------- | ------------- |
+| 8          | 1             |
+| 5          | 3             |
 
-The entity 'Order' is stored in the table 'module$order' which is shown below. It is similar to the table of the entity 'Customer'. However all system attributes have been disabled and are not stored in the table.
+实体'订单'被存储在下面显示的表格 '模块$order'。 它类似于实体的“客户”表。 然而，所有系统属性已被禁用，未存储在表中。
 
-| id | number | date                    |
-| -- | ------ | ----------------------- |
-| 5  | 5      | 2009-11-27 09:56:45.099 |
-| 8  | 8      | 2008-04-01 08:10:45.053 |
+| id | 数字 | 日期                      |
+| -- | -- | ----------------------- |
+| 5  | 5  | 2009-11-27 09:56:45.099 |
+| 8  | 8  | 2008-04-01 08:10:45.053 |
