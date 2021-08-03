@@ -1,88 +1,88 @@
 ---
-title: "Sidebar Toggle"
-parent: "layout"
+title: "サイドバーの切り替え"
+parent: "レイアウト"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-{{% alert type="info" %}}Sidebar toggles are not supported on native mobile pages, as scroll container regions are not supported.{{% /alert %}}
+{{% alert type="info" %}}サイドバー トグルはネイティブのモバイルページではサポートされていません。スクロールコンテナ領域はサポートされていません。{{% /alert %}}
 
-A **sidebar toggle** is a button that when pressed will make either a left or a right region of a [scroll container](scroll-container) appear or disappear. This makes it possible to create a sidebar that is hidden by default and can be shown by clicking the button.
+**サイドバーのトグル** は、押されたときに、 [スクロールコンテナ](scroll-container) の左または右のリージョンが表示されるか消えるボタンです。 これにより、デフォルトで非表示になっているサイドバーを作成することができ、ボタンをクリックすることで表示することができます。
 
 {{% alert type="info" %}}
-You can only have one sidebar toggle in a scroll container, and the behavior of the sidebar toggle is configured in the [scroll container region](scroll-container#region) properties.
+スクロールコンテナ内でサイドバーを1つのみ切り替えることができます そして、サイドバーのトグルの動作は、 [スクロールコンテナリージョン](scroll-container#region) プロパティで設定されます。
 {{% /alert %}}
 
-For example, the image below shows for an example layout that uses the sidebar toggle to hide and make visible the **Left** region of the **Scroll Container**.
+例えば、 下のイメージは、サイドバーのトグルを使用して **左** 領域を非表示にし、 **スクロールコンテナー**を表示する例を示しています。
 
 ![](attachments/layout/sidebar-toggle-button.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of sidebar toggle properties is represented in the image below:
+以下の画像にサイドバーのトグルプロパティの例を示します。
 
 {{% image_container width="250" %}}![](attachments/layout/sidebar-toggle-properties.png)
 {{% /image_container %}}
 
-Sidebar toggle properties consist of the following sections:
+サイドバーのトグルプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Caption {#caption}
+#### 2.3.1 図表番号 {#caption}
 
-The **Caption** property defines a text that will be shown on the sidebar toggle.
+**図表番号** プロパティは、サイドバーの切り替えに表示されるテキストを定義します。
 
-#### 2.3.3 Tooltip
+#### 2.3.3 ツールチップ
 
-The **Tooltip** property determines a text end-users will see in the tooltip that appears when they hover over the sidebar toggle. The tooltip text is translatable. For more information on translatable texts, see [Language Menu](translatable-texts). If the tooltip is not specified, no tooltip will be shown when hovering over the sidebar toggle.
+**Tooltip** プロパティは、サイドバーの切り替えにカーソルを合わせたときに表示されるテキストの終了ユーザーを決定します。 ツールチップテキストは翻訳可能です。 翻訳可能なテキストの詳細については、 [言語メニュー](translatable-texts) を参照してください。 ツールチップが指定されていない場合、サイドバー切り替えの上にマウスポインタを置くと、ツールチップは表示されません。
 
-#### 2.3.4 Icon {#icon}
+#### 2.3.4 アイコン {#icon}
 
-The **Icon** property determines the icon that will be shown in front of the caption of the sidebar toggle. Possible options are:
+**アイコン** プロパティは、サイドバー切り替えのキャプションの前に表示されるアイコンを決定します。 利用可能なオプションは次のとおりです。
 
-* No icon
+* アイコンなし
 * Glyphicon
-* (Bitmap) image
+* (ビットマップ) 画像
 
-Glyphicons come from the Bootstrap Halflings collection. The advantages of a glyphicon over a bitmap image are that they are scalable, look sharp on high-resolution screens, and their color can be changed by changing the font color. The advantage of an image icon is that it can have multiple colors.
+グリフはBootstrapのHalfingsコレクションから来ています。 ビットマップ画像を超えるグリヒコンの利点は、それらがスケーラブルであることです。 高解像度の画面でシャープに見えるしフォントの色を変えることで色を変えることができます 画像アイコンの利点は、複数の色を持つことができることです。
 
-#### 2.3.5 Render Mode
+#### 2.3.5 レンダリングモード
 
-Defines the way the sidebar toggle will be shown to the end-user. Possible options are the following:
+エンドユーザーにサイドバーを表示する方法を指定します。 利用可能なオプションは次のとおりです:
 
-* **Button** – the widget will be rendered as a button
-* **Link** – the widget will be rendered as a hyperlink
+* **ボタン** - ウィジェットはボタンとしてレンダリングされます
+* **リンク** - ウィジェットはハイパーリンクとしてレンダリングされます
 
-*Default render mode:* Button
+*デフォルトレンダリングモード:* ボタン
 
-#### 2.3.6 Button Style
+#### 2.3.6 ボタンスタイル
 
-The **Button style** property applies a predefined styling to the sidebar toggle. Possible options are the following:
+**ボタン スタイル** プロパティは、サイドバーのトグルに定義済みのスタイルを適用します。 利用可能なオプションは次のとおりです:
 
-* Default
-* Inverse
-* Primary
-* Info
-* Success
-* Warning
-* Danger
+* デフォルト
+* 反転
+* プライマリ（プライマリ）
+* 情報
+* 成功
+* 警告
+* 危険
 
-### 2.4 Visibility Section{#visibility}
+### 2.4 可視性セクション{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
