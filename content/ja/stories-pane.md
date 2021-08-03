@@ -1,7 +1,7 @@
 ---
 title: "ストーリーペイン"
 parent: 表示メニュー
-menu_order: 60
+menu_order: 50
 description: "Mendix Studio Pro でストーリーペインを説明します。"
 tags:
   - "Studio Pro"
@@ -9,9 +9,13 @@ tags:
   - "ストーリーペイン"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/stories-pane.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
-バージョン管理が有効になっているアプリ (Team Serverまたは他のSVNサーバーを持つアプリ) **ストーリー** ペインには、現在の [スプリント](/developerportal/collaborate/planning-development) のストーリーとタスクが表示されます。 ストーリー、タスク、スプリントは開発者ポータルで作成および管理されます。 ストーリーの詳細については、 [ストーリー](/developerportal/collaborate/stories) を参照してください。 タスクの詳細については、 [ストーリー](/developerportal/collaborate/stories#adding) の *ストーリー*にタスクを追加するformat@@4セクションを参照してください。
+バージョン管理が有効になっているプロジェクト (Team Serverまたは他のSVNサーバーを持つプロジェクト) の場合。 **ストーリー** ペインには、現在の [スプリント](/developerportal/collaborate/planning-development) のストーリーとタスクが表示されます。 ストーリー、タスク、スプリントは開発者ポータルで作成および管理されます。 ストーリーの詳細については、 [ストーリー](/developerportal/collaborate/stories) を参照してください。 タスクの詳細については、 [ストーリー](/developerportal/collaborate/stories#adding) の *ストーリー*にタスクを追加するformat@@4セクションを参照してください。
 
 **ストーリー** ペインでは、現在のスプリントのストーリーとタスクを表示、完了したストーリーを表示または非表示にできます。 彼らの詳細を開き、ストーリーとタスクの状況を変更し、ストーリーに関連する文書を開きます。
 
