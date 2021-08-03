@@ -1,50 +1,50 @@
 ---
-title: "System Actions"
-category: "Workflows"
+title: "系统操作"
+category: "工作流"
 menu_order: 40
 tags:
-  - "workflow"
-  - "workflows"
-  - "call microflow"
+  - "工作流"
+  - "工作流"
+  - "调用微流"
 ---
 
-## 1 Introduction
+## 1 导言
 
-System actions in workflows consist of a **Call microflow** action that is used to call a selected [microflow](microflows).
+工作流中的系统动作包括 **调用微流** 动作，用于调用选定的 [微流](microflows)。
 
 ![](attachments/workflows-system-actions/call-microflow-example.jpg)
 
-## 2 Call Microflow Properties
+## 2 调用微流程属性
 
-An example of **Call microflow** properties is represented in the image below:
+**调用 microflow** 属性的示例在下面的图像中表示：
 
-![Call Microflow Properties](attachments/workflows-system-actions/call-microflow-properties.jpg)
+![调用微流程属性](attachments/workflows-system-actions/call-microflow-properties.jpg)
 
-Call microflow properties consist of the following sections:
+调用微流程属性由以下部分组成：
 
-* [General](#general)
-* [Parameters](#parameters)
-* [Outcomes](#outcomes)
+* [A. 概况](#general)
+* [参数](#parameters)
+* [成果](#outcomes)
 
-### 2.1 General Section {#general}
+### 2.1 一般部分 {#general}
 
-The **General** section allows you to define a caption for the action and to select a microflow.
+**常规** 部分允许您定义一个动作的字幕并选择一个微流。
 
-The section properties are described in the table below:
+下表说明了该节属性：
 
-| Property  | Description                                                                                                                                        |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Caption   | The **Caption** describes what happens in this element. It is displayed in the workflow editor to make the workflow easier to read and understand. |
-| Microflow | The microflow that is called by this element.                                                                                                      |
+| 财产 | 描述                                              |
+| -- | ----------------------------------------------- |
+| 标题 | **标题** 描述了这个元素中发生的情况。 它显示在工作流编辑器中，使工作流更容易读取和理解。 |
+| 微流 | 这个元素所调用的微流。                                     |
 
-### 2.3 Parameters Section {#parameters}
+### 2.3 参数部分 {#parameters}
 
-Parameters pass data to the element. Currently the parameters can only be selected and configured in Studio Pro. For more information, see [Call Microflow](/refguide/call-microflow).
+参数传递数据到元素。 当前参数只能在 Studio Pro中选择和配置。 欲了解更多信息，请参阅 [通话微流程](/refguide/call-microflow)。
 
-### 2.2 Outcomes Section {#outcomes}
+### 2.2 成果科 {#outcomes}
 
-**Outcomes** depends on the return value of the microflow. For example, for the Boolean, you have **true** and **false** outcomes, while for the enumeration – an outcome per each enumeration value and an empty one when the value is unassigned.
+**结果** 取决于微流程的返回值。 例如，对于布尔值，您有 **真实** 和 **false** 结果。 当计数时 - 每个计数值的结果和未分配值时的空结果。
 
-## 3 Read More
+## 3 阅读更多
 
-* [General Activities](workflows-general-activities)
+* [一般活动](workflows-general-activities)
