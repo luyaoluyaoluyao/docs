@@ -1,95 +1,152 @@
 ---
-title: "Workflow Properties"
-category: "Workflows"
+title: "工作流属性"
+parent: "工作流"
 menu_order: 10
 tags:
-  - "workflow"
-  - "workflows"
-  - "workflow properties"
-  - "Studio"
+  - "工作流"
+  - "工作流"
+  - "Workflow 属性"
+  - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes workflow properties. For details on what workflows are for and what kind of elements you can use there, see [Workflows](workflows).
+此文档描述了工作流属性。 关于什么是工作流以及你可以在那里使用哪种元素的详细信息，请参阅 [工作流](workflows)。
 
-## 2 Workflow Properties
+## 2 工作流属性
 
-Workflow properties consist of the following sections:
+Workflow 属性由以下部分组成：
 
-* [General](#general)
-* [Data](#data)
-* [Display Information](#display-info)
-* [Permissions](#permissions)
-* [Due Date](#due-date)
-* [Admin Page](#admin-page)
+* [管理页面](#admin-page)
+* [常用的](#common)
+* [数据](#data)
+* [显示信息](#display-info)
+* [截止日期](#due-date)
+* [A. 概况](#general)
+* [安全](#security)
 
-### 2.1 General Section {#general}
+### 2.1 管理页部分 {#admin-page}
 
-The **General** section contains information on the title and name of the workflow.
+**覆盖管理页面** 是一个可选的页面，用于在工作流管理员中显示一个工作流实例。 这将覆盖用于在应用程序中显示任何工作流实例的通用页面，例如： 当您有一个 **显示工作流管理页面** 设置为 [点击事件](on-click-event#show-workflow-page) 或为 [微流动作](show-workflow-page) 设置为此事件/动作所选择的页面。
 
-![General Section](attachments/workflow-properties/general.jpg)
+如果您使用 **Workflows Commons** 模块中的模板生成页面，这些模板包含必要的数据容器和相关的上下文实体。
 
-The **General** section properties are described in the table below:
+### 2.2 共同部分 {#common}
 
-| Property | Description                                                                                                              |
-| -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Title    | Defines a title of the workflow that you see at the top of the working area.                                             |
-| Name     | The internal name of the workflow that must be unique. When referring to the workflow in the app you will use this name. |
+#### 2.2.1 名称 {#name}
 
-### 2.2 Data Section {#data}
+**名称** 是工作流文档的内部名称。 当在应用程序中使用 Workflow 时，您将使用此名称。 它在模块中必须是唯一的，但你可以在不同模块中有两个具有相同名称的工作流。 当提及工作流时， 您通常将在模块名称前面填写，以确保唯一性，并允许您在其他模块中使用 Workflow
 
-The **Data** section contains information on what data context the workflow is using.
+您不能更改工作流的 **名称** ，但您可以更改 [标题](#general)。
 
-![Data Section](attachments/workflow-properties/data.jpg)
+#### 2.2.2 文件
 
-**Workflow entity** is an entity that is used as a workflow context. This entity serves as input for the workflow and can hold the data added during the execution of the workflow. For example, for an expense approval process, it holds the amount to approve and the purpose.
+**文档** 允许您描述您的工作流，使人们更容易使用和修改它。
 
-This entity should be of a workflow entity type. For more information, see the [Entities and Their Types](domain-models#entity-types) section in the *Domain Model*.
+### 2.3 数据科 {#data}
 
-### 2.3 Display Information Section {#display-info}
+**Workflow entity** 是一个被用作工作流环境的实体。 It should be a [specialization](generalization-and-association) of the **Workflow Context** entity from the **System** module. 关于系统模块中与工作流程相关实体的更多信息， 查看系统模块</a> 部分中的
+工作流实体 *工作流* 中。 </p> 
 
-The **Display Information** section defines the workflow name and its description that are displayed in the running (published) app.
+我们建议保持工作流实体“清洁”，意思是， 只有对当前工作流实例很重要的属性并通过关联添加其他数据：
 
-![Display Information Section](attachments/workflow-properties/display-information.jpg)
+![域名模型示例](attachments/workflow-properties/domain-model-example.png)
 
-The **Display Information** section properties are described in the table below:
 
-| Property             | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Workflow Name        | **Workflow name** is displayed in the running app. The **Workflow name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FullName** attribute value from the **Employee Onboarding** data to display the name of the new employee. The expression should be return a string value.                                |
-| Workflow Description | **Workflow Description** is a description of the workflow displayed in the running app. The **Workflow name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FirstDay** attribute value from the **Employee Onboarding** data to display the start date of the new employee and assign them to a training group. |
 
-### 2.4 Permissions Section {#permissions}
+### 2.4 显示信息部分 {#display-info}
 
-**Allowed roles** defines the [user role](settings-security#roles-and-permissions) that can trigger the workflow.
 
-![Permissions Section](attachments/workflow-properties/permissions.jpg)
 
-{{% alert type="info" %}}
-This section is only displayed when the security is on. For more information, see [Security](settings-security).
-{{% /alert %}}
+#### 2.4.1 工作流名称
 
-### 2.4 Due Date Section {#due-date}
+**Workflow name** 存储在系统模块上 **Workflow** 实体作为一个属性，其数据可以动态显示在运行的应用程序中。 如果您正在使用 **工作流共享** 模块， **工作流名称** 用于预配置的页面：管理中心和工作流管理页面 
 
-The **Due Date** section allows you to set a deadline for the workflow and keep track of it. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the workflow. For example, you can use this due date to show workflows that are overdue in a dashboard.
+**工作流程名称** 可以包含括号之间写入的参数，例如 {1}。
 
-![Due Date Section](attachments/workflow-properties/due-date.jpg)
+欲了解更多关于使用参数的信息，请参阅下面的 [参数](#parameters) 部分。
 
-The **Due Date** section properties are described in the table below:
 
-| Property   | Description                                                                                                                                                                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None       | No due date is set.                                                                                                                                                                                                                            |
-| Duration   | You can set the deadline for the workflow with the **Due In** option, which indicates the number of hours, days, or weeks the workflow is due in. Possible values of the property are the following ones:<br /><ul><li>Hour(s)</li><li>Day(s)</li><li>Week(s)</li> </ul> |
-| Expression | You can set a due date for the workflow writing an expression. For example, to set a due date to tomorrow, you can use `addDays([%CurrentDateTime%], 1)`. For more information on expressions, see [Expressions](expressions).                 |
 
-### 2.5 Admin Page Section {#admin-page}
+#### 2.4.2 工作流描述
 
-**Override Admin Page** is an optional page used for displaying all running workflows to the workflow admin. This overrides a generic page used to display any running workflow in the app, for example, when you have a **Show Workflow Page** set as an [on-click action](page-editor-widgets-events-section#show-workflow-page) or as a [microflow activity](microflows#microflow-workflow-activities) and would like to override the page selected for this event/activity.
+**Workflow description** 存储在系统模块上 **Workflow** 实体作为一个属性，其数据可以动态显示在运行的应用程序中。 如果您正在使用 **工作流共享** 模块， **工作流描述** 将被用于页面模板。 
 
-![Workflow Page Section](attachments/workflow-properties/workflow-page.jpg)
+**工作流程描述** 可以包含在括号之间写入的参数，例如 {1}。
 
-## 3 Read More
 
-* [Workflows](workflows)
+
+#### 2.4.3 参数 {#parameters}
+
+参数是将显示的属性值。 例如，您可以显示使用 **Fullname**  参数登陆的新员工的姓名。
+
+要查看 **参数**, , 单击 **工作流名称** 或 **工作流描述** 旁边的椭圆图标，取决于您想要在哪里显示这些参数。 
+
+参数有以下设置：
+
+* **索引** — — 一个参数的识别号码
+* **表达式** - 将显示的 XPath 表达式
+
+
+
+##### 2.4.3.1 添加新参数
+
+要将 **工作流名称** 或 **工作流描述**添加参数，请执行以下操作：
+
+1. 点击 **工作流程名称** 或 **工作流程描述** 旁边的椭圆图标。
+
+2. 在 **编辑工作流名称** 对话框 > **参数** 部分，点击 **新** 按钮。 
+
+3. 在 **模板参数(String)** 对话框中，指定表达式并确认您的选择。 
+   
+   ![指定属性](attachments/workflow-properties/specifying-attribute.png)
+   
+   ●{% alert type="info" %}}请确保您在表达式中使用的属性是字符串类型的。{%/提醒 %}}
+
+4. 在 **模板** 设置中 写入您想要显示的文本并输入 **索引** 你想要包含的参数. 在下面的示例中，要包含新租户的全名，您需要使用 {1} 索引：
+   
+   ![编辑工作流名称对话框](attachments/workflow-properties/edit-workflow-name.png)
+
+
+
+##### 2.4.3.2 在参数上采取其他行动
+
+除了添加新参数外，您还可以对参数执行以下操作：
+
+* **删除** - 若要删除参数，请点击 **删除** 或按 <kbd>删除</kbd> 键盘上
+* **编辑** — 双击一个参数来编辑它或点击 **编辑**
+* **向上移动** - 在参数列表中移动参数并更改其索引， 点击 **向上移动**
+* **向下移动** - 在参数列表中向下移动参数并更改其索引， 点击 **向下移动**
+
+
+
+### 2.5 截止日期部分 {#due-date}
+
+**到期的** 被存储在系统模块上 **Workflow** 实体作为一个属性，其数据可以动态显示在运行的应用程序中。 例如，您可以使用它来设定工作流程的截止日期并在您的应用程序中显示它。 然而，这并不是自动提醒，而是在跟踪工作流程时你提到的最后期限。 如果您正在使用 **工作流共享** 模块， **到期于** 的页面模板中使用。 
+
+
+
+### 2.6 一般部分 {#general}
+
+**标题** 定义了工作流程的标题。 您不能更改工作流的 [名称](#name) ，但您可以更改 **标题**。
+
+
+
+### 2.7 警卫科 {#security}
+
+**允许的角色** 定义了用户必须能够执行工作流程的 [模块角色](module-security#module-role)
+
+{{% alert type="warning" %}}
+
+这些角色仅在从客户端执行工作流时才会被检查。 
+
+{{% /报警 %}}
+
+欲了解更多信息，请参阅 [Module Security](module-security)。
+
+
+
+## 3 阅读更多
+
+* [如何配置工作室专业版员工上岗流程的工作流](/howto/logic-business-rules/workflow-how-to-configure)
+* [工作流](workflows)
