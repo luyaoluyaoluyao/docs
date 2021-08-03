@@ -1,20 +1,20 @@
 ---
-title: "OQL LENGTH"
+title: "OQLの長さ"
 parent: "oql-functions"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `LENGTH` function returns the length of a string value.
+`LENGTH` 関数は文字列値の長さを返します。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
-LENGTH ( expression )
+LENGTH ( 式 )
 ```
 
-`expression` specifies an expression of type string.
+`式` は文字列の式を指定します。
