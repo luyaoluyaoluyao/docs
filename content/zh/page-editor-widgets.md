@@ -1,115 +1,115 @@
 ---
-title: "Widgets"
-category: "Pages"
-description: "Describes widgets in Mendix Studio."
+title: "小部件"
+category: "页 次"
+description: "在 Mendix Studio 中描述小部件。"
 tags:
-  - "studio"
-  - "page editor"
-  - "pages"
-  - "widgets"
+  - "工作室"
+  - "页面编辑器"
+  - "页面"
+  - "小部件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Widgets are single user-interface elements that can be configured. Examples of widgets can be a container, a drop-down menu, or different kinds of buttons.
+小部件是可以配置的单个用户界面元素：例如，下拉菜单或不同类型的按钮。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets/widgets-examples.png)
 {{% /image_container %}}
 
-Widgets in Studio are grouped by category and can be classified by their origin.
+工作室中的部件按类别分组，并可按其来源分类。
 
-## 2 Viewing Widgets
+## 2 视图小部件
 
-To view widgets in Mendix Studio, do the following:
+要在 Mendix Studio 中查看小部件，请执行以下操作：
 
-1. Click the **Pages** icon in the left menu bar.
+1. 点击左侧菜单栏中的 **页面** 图标。
 
-2. In the displayed list of app pages, select the page you want to open and click it.
+2. 在显示的应用页面列表中，选择您想要打开的页面并单击它。
 
-3. In the **Toolbox** tab, **Widgets** are opened by default.
+3. 在 **工具箱** 标签页中， **小部件** 默认打开.
 
    ![](attachments/page-editor-widgets/toolbox-widgets.png)
 
-## 3 Quick Configuration of Widget Properties {#quick-config}
+## 3 个部件属性快速配置 {#quick-config}
 
-Quick configuration of properties is available for most of non-custom widgets. This means that their properties can be configured in a pop-up window when adding these widgets on a page.
+大多数非自定义部件都可以快速配置属性。 这意味着当在页面上添加这些小部件时，他们的属性可以在弹出窗口中配置。
 
-Once you drag and drop a widget, a small pop-up window appears next to it. You can set the properties that are necessary for the widget to function without resulting in [consistency errors](consistency-errors) as well as other frequently used properties to help you configure the widget quickly. However, you can configure all properties from the **Properties** tab at all times.
+一旦你拖放小部件，它旁边就会出现一个小的弹出窗口。 您可以设置小部件运行所必需的属性，而不会导致 [一致性错误](consistency-errors) 以及其他常用属性来帮助您快速配置小部件。 然而，您可以随时从 **属性** 标签中配置所有属性。
 
-For example, quickly configuring the data source of a data grid helps you avoid consistency errors when previewing or publishing your app, and you can configure the rest of the properties later.
+例如，快速配置数据网格的数据源可以帮助您在预览或发布您的应用时避免一致性错误， 您可以稍后配置其余属性。
 
 ![](attachments/page-editor-widgets/quick-config.png)
 
-The pop-up window disappears once you start interacting with the page or the menu items, for example, if you start clicking elements on the page or if you open **Toolbox**, **Properties**, **Buzz**. To access the quick configuration pop-up window again, click the gear icon in the top-right corner of the widget:
+当您开始与页面或菜单项交互时，弹出窗口将会消失。 如果您开始点击页面上的元素，或者如果您打开 **Toolbox**， **属性**, **Buzz**。 要再次访问快速配置弹出窗口，请点击小部件右上角的装备图标：
 
 ![](attachments/page-editor-widgets/quick-widget-icon.png)
 
-## 4 Widgets by Category {#widget-categories}
+## 4 个小部件 {#widget-categories}
 
-Widgets of Studio are divided into categories that you can see when you open the **Widgets** tab.
+工作室的小部件被分为当您打开 **小部件** 标签页时可以看到的类别。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets/widgets-categories.png)
 {{% /image_container %}}
 
-Widget categories are described in the table below:
+下面的表格描述了小部件类别：
 
-| Widget Category                                        | Description                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data Containers                                        | Contains a [data view](page-editor-data-view-list-view) (the starting point for showing the contents of one object),  [list view](page-editor-data-view-list-view) (the starting point for showing the contents of list of objects), and a [data grid](page-editor-data-grid) (shows a list of objects in a table format). |
-| [Structure](page-editor-widgets-structure)             | Contains pre-set layout grids with a specific number of columns and widgets for controlling the placing widgets.                                                                                                                                                                                                           |
-| [Input Elements](page-editor-widgets-input-elements)   | Contains elements that can be used for inputting data.                                                                                                                                                                                                                                                                     |
-| [Text](page-editor-widgets-text)                       | Contains text display widgets.                                                                                                                                                                                                                                                                                             |
-| [Images & Files](page-editor-widgets-images-and-files) | Contains widgets that help you display images, upload or/and download files and images.                                                                                                                                                                                                                                    |
-| [Buttons](page-editor-widgets-buttons)                 | Contains a variety of buttons for placing on a page.                                                                                                                                                                                                                                                                       |
-| [Menus](/refguide8/menu-widgets)                       | Contains menu creation widgets. Currently, these widgets can be configured only in Studio Pro.                                                                                                                                                                                                                             |
-| Add-ons                                                | Contains all custom widgets previously installed in the app. If widgets cannot be matched to the Marketplace profile they will be shown in the add-ons.                                                                                                                                                                    |
-| Charts                                                 | Contains different charts. This category consist of the [Marketplace widgets](#app-store-widgets).                                                                                                                                                                                                                         |
-| Display                                                | Contains widgets which display changing elements on a page, for example a map, or a progress bar. This category consists of the [Marketplace widgets](#app-store-widgets).                                                                                                                                                 |
-| List view Controls                                     | Contains controls for the list view. This category consist of the [Marketplace widgets](#app-store-widgets).                                                                                                                                                                                                               |
+| 小部件类别                                      | 描述                                                             | 链接到更多详细文档                                                                                   |
+| ------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| 数据容器                                       | 包含数据视图 (显示一个对象内容的起点) 列表视图(显示对象列表内容的起点) 和一个数据网格 (显示一个表格式的对象列表)。 | [数据视图 & 列表视图属性](page-editor-data-view-list-view)<br />[数据网格属性](page-editor-data-grid) |
+| [结构](page-editor-widgets-structure)        | 包含预设的布局网格，包含一定数量的列和小部件来控制放置部件。                                 | [结构部件](page-editor-widgets-structure)                                                       |
+| [输入元素](page-editor-widgets-input-elements) | 包含可以用于输入数据的元素。                                                 | [输入元素部件](page-editor-widgets-input-elements)                                                |
+| [文本](page-editor-widgets-text)             | 包含文本显示部件。                                                      | [文本部件](page-editor-widgets-text)                                                            |
+| [图像](page-editor-widgets-images)           | 包含图像显示部件。                                                      | [图像部件](page-editor-widgets-images)                                                          |
+| [按钮](page-editor-widgets-buttons)          | 包含了放置在页面上的各种按钮。                                                | [按钮部件](page-editor-widgets-buttons)                                                         |
+| [Menus](/refguide/menu-widgets)            | 包含菜单创建部件。 目前，这些部件只能在 Studio Pro中配置。                            | [菜单部件](/refguide/menu-widgets) 在 *Studio Pro 指南*                                            |
+| 附加组件                                       | 包含之前安装在应用程序中的所有自定义小部件。 如果部件无法与市场匹配，它们将会显示在附加组件中。               |                                                                                             |
+| 图表                                         | 包含不同的图表。 此类别由市场部件组成。                                           | 第 [部分 4 个小部件（按起源分类](#widgets-by-origin)                                                     |
+| 显示                                         | 包含在页面上显示变化元素的小部件，例如地图或进度栏。 此类别由市场部件组成。                         | 第 [部分 4 个小部件（按起源分类](#widgets-by-origin)                                                     |
+| 列表视图控制                                     | 包含列表视图的控件。 此类别由市场部件组成。                                         | 第 [部分 4 个小部件（按起源分类](#widgets-by-origin)                                                     |
 
-## 5 Widgets by Origin {#widgets-by-origin}
+## 5 部件 {#widgets-by-origin}
 
-Widgets in Studio can be divided by origin as shown in the table below:
+工作室的小部件可以按原产地划分，如下表所示：
 
-| Type                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                               | Origin                                                                                                                              |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Default widgets                              | Widgets that are included into your app by default and do not have the information icon in the top-right corner.                                                                                                                                                                                                                                                                                                          | Apps created in the Developer Portal (for more information on the Developer Portal, see [Developer Portal](/developerportal/index)) |
-| Marketplace widgets<a name="app-store-widgets"></a> | Widgets that you can download to your app directly from Studio. Some Marketplace widgets are already part of the app. Such widgets have the information icon in the top-right corner of widgets in the **Toolbox**. <br />For more information on the Marketplace, see [Marketplace Overview](/appstore/general/app-store-overview).                                                                                | [Marketplace](/appstore/)                                                                                                           |
-| Local widgets                                | Either widgets that are a part of an app template, or widgets created by your or your team locally via Studio Pro. For more information on developing widgets, see the [Custom Widget Development](/howto8/extensibility/widget-development) how-to's. As a rule local widgets will be listed in the **Add-ons** category. For more information on categories, see the [Widgets by Category](#widget-categories) section. | Apps created in the  Developer Portal/Studio Pro                                                                                    |
+| 类型    | 描述                                                                                                                                                                                 | 始发地                                                             |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| 默认小部件 | 默认情况下包含在您的应用程序的小部件，在右上角没有信息图标。                                                                                                                                                     | 在开发者门户中创建的应用。 关于开发者门户网站的更多信息，见 [开发者门户](/developerportal/index)。 |
+| 市场部件  | 您可以直接从工作室下载到应用的小部件。 某些应用市场小部件已经在您的应用中。 这种小部件的信息图标在 **工具箱** 窗口小部件右上角。 <br />欲了解更多关于市场的信息，见 [市场概览](/appstore/general/app-store-overview)。                                      | [市场](/appstore/)                                                |
+| 本地小部件 | 作为应用程序模板一部分的小部件，或由您或您的团队通过Studio Pro在本地创建的小部件。 关于开发小部件的更多信息，请参阅 [自定义小部件开发](/howto7/widget-development/)。 作为规则本地小部件将被列入 **附加组件** 类别。 欲了解分类的更多信息，请参阅 [3 类小部件](#widget-categories) 类。 | 开发者门户网站/Studio Pro 中创建的应用程序                                     |
 
-## 6 Adding the Marketplace Widgets
+## 添加市场小部件
 
-You can add the Marketplace widgets to your app by downloading them directly in the **Widgets** tab in Studio. These widgets are a subset of all widgets available in the app store: you can only download the ones that are approved for use in Studio. You can also update them if an update is available.
+您可以直接在工作室的 **小部件** 标签中下载市场小部件，从而将其添加到您的应用中。 这些小部件是市场上所有可用的小部件的子集：您只能下载已批准在工作室使用的小部件。 如果有更新，您也可以更新。
 
-To add an Marketplace widget, do the following:
+要添加市场小部件，请执行以下操作：
 
-1. Open the **Widgets** tab.
+1. 打开 **小部件** 标签页。
 
-2.  Do one of the following: <br />
+2.  做以下一件： <br />
 
-    a. Find a category with the **View App Store widgets** option and click it.  <br />
+    a. 使用 **查看 App Store 小部件** 选项查找一个分类并点击它。  <br />
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets/view-app-store-widgets.png)
  {{% /image_container %}}<br />
 
-    b.  Start typing the name of the category or of a specific widget in the **Search** field. <br />
+    b. 会议文件。  在 **搜索** 字段中开始输入类别或特定部件的名称。 <br />
 
     ![](attachments/page-editor-widgets/slider.png)
 
-3.  Click the cloud icon to download the widget and add it to your app.
+3.  点击云图标下载小部件并将其添加到您的应用中。
 
     ![](attachments/page-editor-widgets/app-store-download.png)
 
-The widget is now added to your app, you can simply drag and drop it to the page to use it. You can also view settings of this widget in the **App Settings**.  For more information on managing widgets in your app, see [Settings](settings).
+小部件现在被添加到您的应用中，您可以简单地拖放到页面上来使用。 您也可以在 **应用设置** 中查看此部件的设置。  关于您应用中管理小部件的更多信息，请参阅 [设置](settings)。
 
 {{% alert type="info" %}}
 
-Some similar widgets are packaged together: downloading one of these widgets will cause a number of other widgets to be downloaded as well. For example, downloading a line chart will give you all chart widgets.
+一些类似的小部件被包装在一起：下载其中一个小部件也会导致其他小部件被下载。 例如，下载一行图将会给您所有的图表部件。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 7 Read More
+## 7 阅读更多
 
-* [Pages](page-editor)
-* [Settings](settings)
-* [Marketplace Overview](/appstore/general/app-store-overview)
+* [页 次](page-editor)
+* [设置](设置)
+* [市场概览](/appstore/general/app-store-overview)
