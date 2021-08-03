@@ -1,33 +1,29 @@
 ---
-title: "XPath Sum"
+title: "XPathSum"
 parent: "xpath-query-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-sum.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`sum()` 関数は引数の合計を返します。
 
-The `sum()` function returns the sum of its argument.
+関数は引数として XPath クエリを必要とします。
 
-The function requires an XPath query as argument.
+関数は、集計するクエリ内の列を指定する必要があります。
 
-The function must specify a column in the query to aggregate.
+クエリは数値型の属性を指定する必要があります。
 
-The query must specify an attribute that has a numeric type.
+## 2つの例
 
-## 2 Examples
-
-This query returns the sum of the total prices of all placed orders:
+このクエリは、すべての注文の合計価格の合計を返します:
 
 ```java
 sum(//Sales.Order/TotalPrice)
 ```
 
-This query returns the sum of the total prices of all the orders placed by a customer named "Jansen":
+このクエリは、「Jansen」という名前の顧客によって発注されたすべての注文の合計価格の合計を返します。
 
 ```java
 sum(//Sales.Order[Sales.Customer_Order/Sales.Customer/Name = 'Jansen']/TotalPrice)
