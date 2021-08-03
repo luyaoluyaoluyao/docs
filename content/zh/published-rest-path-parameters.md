@@ -2,17 +2,15 @@
 title: "已发布REST 路径参数"
 parent: "已发布的rest-service"
 menu_order: 30
-#description: " "
 tags:
   - "已发布 REST"
   - "路径参数"
   - "数据和时间"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**已发布的REST service** 功能已引入7.10.0版本。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-path-parameters.pdf)。
 {{% /报警 %}}
 
 在 [已发布的 REST 操作](published-rest-operation) 中的操作路径指定了操作的最后部分 (URL)。
