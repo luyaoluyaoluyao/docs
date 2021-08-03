@@ -1,94 +1,105 @@
 ---
 title: "布尔表达式"
 parent: "表达式"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "表达式"
+  - "表达式"
+  - "Boolean"
 ---
 
-### 布尔表达式
-
-
-
-布尔表达式可以用于执行逻辑操作，如检查是否保留两个条件。
-
-## 和
-
-组合两个布尔表达式，只返回 True，如果两个表达式都值为 True。
-
 {{% alert type="info" %}}
-
-```java
-(6 > 4) and (3 < 5)
-```
-
-因为两个表达式都为 True 而评估为 True。
-
-```java
-('hello' = 'hallo') (3 < 5)
-```
-
-评估为 False ，因为只有第二个表达式是 True。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/boolean-expressions.pdf)。
 {{% /报警 %}}
 
-## 或
+## 1 导言
 
-组合两个布尔表达式，如果至少有一个表达式评价为 True，则返回 True。
+布尔表达式可以用来执行返回真或假的逻辑操作。
 
-{{% alert type="info" %}}
+## 2 和
 
-给出一个域实体实例的名称为“$product”，它有一个整数属性“价格”，其值为“3”，另一个整数属性“推荐价格”，其值为“2”， 以下表达式：
+如果两个表达式都是真实的， `和` 操作员将检查两个布尔表达式，并且只返回 `true`。
 
-```java
-($product/价格 < $product/推荐价格: 2) 或 ($product/价格 > 0)
-```
+### 2.1 实例
 
-将返回 True，因为至少有一个表达式评价为 True (第二个表达式精确)。 请注意，如果两个语句都为 True，则表达式仍然返回 True。
+下面的例子说明表达式返回的价值：
 
-下面的示例返回 False, 因为两个表达式都对应到False:
+* 如果您使用以下输入：
 
-```java
-('hello' = 'nothello') 或('byebye' = 'stilllnotbyebye')
-```
+    ```java
+    (6 > 4) and (3 < 5)
+    ```
 
-{{% /报警 %}}
+    输出为 `true` ，因为两个表达式都是 `true`。
 
-## 不是
+* 如果您使用以下输入：
 
-函数“不是”否定指定的布尔表达式。
+    ```java
+    ('hello' = 'hallo') (3 < 5)
+    ```
 
-### Input
+    输出为 `false`，因为只有第二个表达式是 `true`。
+
+## 3 或
+
+`或` 操作员合并了两个布尔值表达式，并返回 `true` 如果至少一个表达式是真。
+
+### 3.1 实例
+
+下面的例子说明表达式返回的价值：
+
+* 您有一个名为 *产品* 的实体具有整数类型的 *价格* 属性。 *价格* 属性等于 3，您还有另一个属性名为 *推荐价格* 等于2。
+
+    如果您使用以下输入：
+
+    ```java
+    ($product/价格 < $product/推荐价格: 2) 或 ($product/价格     > 0)
+    ```
+
+    表达式将返回 `true` ，因为至少一个表达式是真的(第二个表达式)。 请注意，如果两个语句都是真实的，则表达式仍然返回 `true`。
+
+* 如果您使用以下输入：
+
+    ```java
+    ('hello' = 'nothello') 或('byebye' = 'stilllnotbyebye')
+    ```
+
+    表达式将返回 `false`，因为这两个表达式都是假的。
+
+## 4 不是
+
+`不是` 操作员否定指定的布尔表达式。
+
+### 4.1 Input
 
 布尔型表达式。
 
-### 产出
+### 4.2 产出
 
-返回指定表达式的否定。 如果表达式值为 True，它返回 False；否则它返回 True。
+返回指定表达式的否定。 如果表达式评估为 `true`, 它返回 `fals`; 反之亦然。
 
-{{% alert type="info" %}}
+### 4.3 实例
 
-```java
-not('hello' = 'hallo')
+下面的例子说明表达式返回的价值：
 
-```
+* 如果您使用以下输入：
 
-返回：
+    ```java
+    not('hello' = 'hallo')
 
-```java
-true
+    ```
 
-```
+    表达式将返回 `true`。
 
-和
 
-```java
-not(true)
+* 如果您使用以下输入：
 
-```
+    ```java
+    not(true)
+    ```
 
-返回：
+    表达式将返回 `false`。
 
-```java
-false
 
-```
 
-{{% /报警 %}}
