@@ -1,20 +1,34 @@
 ---
 title: "Java Actions"
-category: "Desktop Modeler"
+parent: "resources"
+menu_order: 10
 description: "Describes using Java Actions to extend the functionality of your Mendix app."
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/java-actions.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
-With Java actions you can extend the functionality of your application in situations where it would be hard to implement this functionality in microflows. You can call a Java action from a microflow using the [Java Action Call](java-action-call).
+With Java actions you can extend the functionality of your application in situations where it would be hard to implement this functionality in microflows. You can call a Java action from a microflow using the [Java action call](java-action-call).
 
 {{% alert type="info" %}}
-
-Each Java action defined in the Modeler corresponds to a file *{name of Java action}.java* in the subdirectory *javasource{module name}/actions* of the project directory.
-
-The skeletons of these *.java* files are generated automatically when you deploy for Eclipse (in the **Project** menu). For more information about creating the Java code in these files, see [Java Programming](java-programming).
-
+Each Java action defined in Studio Pro corresponds to a file *{name of Java action}.java* in the subdirectory *javasource/{module name}/actions* of the project directory. The skeletons of these *.java* files are generated automatically when you deploy for Eclipse (in the **Project** menu). For more information about creating the Java code in these files, see [Java Programming](java-programming).
 {{% /alert %}}
+
+For a deep-dive look into this Java actions, check out this video:
+
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://videoshare.mendix.com/watch/rof7aUB6Hom4et6qQU7FuT?.jpg"
+  data-uuid="rof7aUB6Hom4et6qQU7FuT?"
+  data-v="4"
+  data-type="inline"
+ />
 
 ## 2 General
 
@@ -28,7 +42,7 @@ A Java action has zero or more parameters. Parameters are the means by which you
 
 Each parameter has a name, type, category, and description.
 
-Use categories to keep the parameters apart in the [Java Action Call](java-action-call). If you do not specify a category, the parameter will appear in the **Input** group.
+Use categories to keep the parameters apart in the [Java action call](java-action-call). If you do not specify a category, the parameter will appear in the **Input** group.
 
 See [Data Types](data-types) for the possible standard parameter types. When the type is an Object or List, you must also select its Entity type, which can be either a specific entity or a type parameter. The type parameter postpones the selection of the actual entity type until the Java action is used in a microflow. This allows your Java action to accept a (list of) Mendix object(s) of an arbitrary entity type.
 
@@ -49,25 +63,23 @@ The **Microflow** parameter type allows users of Java actions to pass a microflo
 
 #### 2.2.3 Import Mapping Type
 
-The **Import mapping** parameter type allows users of Java actions to pass an import mapping into a Java action. In the generated Java action template code, this type is represented as a string (as in, the name of the import mapping).
-
-{{% alert type="info" %}}
-
-The Import mapping parameter type was introduced in Mendix 7.2.0.
-
-{{% /alert %}}
+The **Import mapping** parameter type allows you to pass an import mapping into a Java action. In the generated Java action template code, this type is represented as a string (as in, the name of the import mapping).
 
 #### 2.2.4 Export Mapping Type
 
-The **Export mapping** parameter type allows users of Java Actions to pass an export mapping into a Java action. In the generated Java action template code, this type is represented as a string (the name of the export mapping).
+The **Export mapping** parameter type allows you to pass an export mapping into a Java action. In the generated Java action template code, this type is represented as a string (the name of the export mapping).
 
-{{% alert type="info" %}}
+#### 2.2.5 String Template Type {#string-template-type}
 
-The Export mapping parameter type was introduced in version 7.2.0.
+The **String template** parameter type allows you to pass a string template into a Java action. In the generated Java action template code, this type is represented as a `IStringTemplate`.
 
-{{% /alert %}}
+The template can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, and so on.
 
-#### 2.2.5 Return Type
+For each parameter in the template, define a microflow expression, the value of which will be inserted at the position of the parameter.
+
+In the generated code, the `IStringTemplate` type provides methods for the evaluation of the passed string template using default or custom logic.
+
+#### 2.2.6 Return Type
 
 The return type determines the type of the data that the Java action returns. It corresponds with the return type of the `executeAction()` method in the *.java* file of the Java action. You can use the result of a Java action in the microflow in which you call it. See [Data Types](data-types) for the possible return types.
 
@@ -85,7 +97,7 @@ By selecting the **Expose as microflow action** option, it is possible to expose
 
 The caption and category of the microflow action are required, but the icon is optional. When no icon is selected, the default Java action icon is used.
 
-The recommended size for the icon is 16x16.
+The recommended size for the icon is 16x16 pixels.
 
 ## 5 Documentation
 
