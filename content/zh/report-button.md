@@ -1,40 +1,40 @@
 ---
-title: "Generate Report Button"
-parent: "report-widgets"
+title: "生成报告按钮"
+parent: "报告小部件"
 menu_order: 40
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-You can set a [report grid](report-grid) to automatically generate the report when the page is loaded. However, if a report page has parameter widgets, you must also add a **Generate report button** widget so that the end-user can regenerate the report after specifying the parameter(s).
+您可以设置一个 [报告网格](report-grid) 当页面加载时自动生成报告。 然而，如果报告页面有参数小部件， 您还必须添加 **生成报告按钮** 小部件，以便最终用户能够在指定参数之后重新生成报告。
 
-The reports are generated when the end-user clicks the generate report button.
+当最终用户点击生成报告按钮时生成报告。
 
-## 2 Report Parameter Properties
+## 2 报告参数属性
 
-An example of generate report button properties is represented in the image below:
+生成报表按钮属性的实例在下面的图像中显示：
 
-{{% image_container width="300" %}}![Report parameter in structure mode](attachments/report-widgets/generate-report-button-properties.png)
+{{% image_container width="300" %}}![在结构模式中报告参数](attachments/report-widgets/generate-report-button-properties.png)
 {{% /image_container %}}
 
-Generate report button properties consist of the following sections:
+生成报表按钮属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section{#general}
+### 2.3 一般部分{#general}
 
-#### 2.3.1 Caption
+#### 2.3.1 标题
 
-**Caption** is the string that the end-user sees on the button that generates reports with the chosen parameters.
+**标题** 是最终用户在生成带有所选参数的报告的按钮上看到的字符串。
