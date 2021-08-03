@@ -12,13 +12,13 @@ tags:
 
 ## 1つの紹介
 
-ループは、オブジェクトのリストを反復処理し、 [microflow](microflows) を構築するときにリストの各項目に対してアクションを実行するために使用されます。 たとえば、データベースから注文のリストを取得し、次にこのリストをループし、処理済みとして注文をマークできます。 ユースケースの詳細については、 [ループの設定](#loop-example) セクションを参照してください。
+ループは、オブジェクトのリストを反復処理し、 [microflow](microflows) を構築するときにリストの各項目に対してアクションを実行するために使用されます。 たとえば、データベースから注文のリストを取得し、次にこのリストをループし、処理済みとして注文をマークできます。 詳細については、 [3 Loop Example](#loop-example) を参照してください。
 
-ループはフレームとして視覚化されます。 ループ内のフローは、オブジェクトごとに実行されます。 つまり、ループに複数のアクティビティを追加すると、各項目に対してフルフローが実行されます。 たとえば、注文が支払われていない場合に注文が処理されないようにするループを追加できます。
+ループはフレームとして視覚化されます。 ループ内のフローは、オブジェクトごとに実行されます。 つまり、ループに複数のアクティビティを追加すると、各項目に対してフルフローが実行されます。 たとえば、顧客がブロックされている場合に注文が処理されないようにループを追加できます。
 
 ![](attachments/microflows-loop/loop.png)
 
-ループには、開始イベントと終了イベントを除く、マイクロフローで使用されるすべてのタイプの要素を含めることができます。 さらに、ループのみが [break events](/refguide8/break-event) と [continue events](/refguide8/continue-event) を含めることができます。 break イベントはループ内で使用されるのは、オブジェクトのリストの反復を停止し、マイクロフロー内の残りのフローを継続するためだけです。 continue イベントは、現在の反復を停止し、次のオブジェクトの反復を開始するためにのみループで使用されます。
+ループには、開始イベントと停止イベントを除き、マイクロフローの他の部分で使用されるすべてのタイプの要素を含めることができます。 さらに、ループのみが [break events](/refguide/break-event) と [continue events](/refguide/continue-event) を含めることができます。 break イベントはループ内で使用されるのは、オブジェクトのリストの反復を停止し、マイクロフロー内の残りのフローを継続するためだけです。 continue イベントは、現在の反復を停止し、次のオブジェクトの反復を開始するためにのみループで使用されます。
 
 ## 2 つのループプロパティ
 
@@ -31,9 +31,9 @@ Loop プロパティは **データ ソース** セクションで構成され�
     {{% image_container width="350" %}}![ループのデータ ソースのプロパティ](attachments/microflows-loop/loop-properties.png)
     {{% /image_container %}}
 
-## 3 ループの設定 {#loop-example}
+## 3つのループ例 {#loop-example}
 
-簡単なユースケースは、データベースから注文リストを取得する場所です。 このリストをループし、結果として処理された注文をマークします。
+データベースから注文リストを取得する簡単なユースケースを検討しましょう。 このリストをループし、結果として処理された注文をマークします。
 
 ![ループ例](attachments/microflows-loop/loop-example.png)
 
@@ -51,23 +51,23 @@ Loop プロパティは **データ ソース** セクションで構成され�
 
     a **ツールバー**で **取得**を選択し、マイクロフローにドラッグ&ドロップします。 <br />
 
-    B In **Properties** > the **Data Source** section, select **From Database**, and set *Order* as an entity for this activity. ( **Range** プロパティはデフォルトで **All** に設定されています): <br />
+    B In **Properties** > the **Data Source** section, select **From Database**, and set *Order* as an entity for this activity. ( **Range** プロパティはデフォルトで **All** に設定されています。<br />
 
     {{% image_container width="350" %}}![オブジェクトのプロパティを取得](attachments/microflows-loop/retrieve-properties.png)
     {{% /image_container %}}
 
-3. 作業できる注文のリストを取得したので、ループとロジックを作成する必要があります。 次の操作を行います: <br />
+3. 注文のリストを取得したので、そのためのループとロジックを作成します。 次の操作を行います: <br />
 
     a **Toolbox**で **Loop**を選択し、マイクロフローにドラッグ&ドロップします。 <br />
 
     ![ループが追加されました](attachments/microflows-loop/loop-added.png)<br />
 
-    B **プロパティ**で、 **OrderList** を **Loop Over** に設定します(**Loop Variable Name** は自動的に設定されます)。 そのため、ループするオブジェクトのリストを選択していることになります。 <br />
+    B **プロパティ**で、 **OrderList** を **Loop Over** に設定します(**Loop Variable Name** は自動的に設定されます)。 エンティティを選択し、そのオブジェクトのリストをループします。 <br />
 
     {{% image_container width="350" %}}![例のループプロパティ](attachments/microflows-loop/loop-properties-in-example.png)
      {{% /image_container %}}
 
-4. これで、各注文のステータスを *処理済*に変更するアクティビティを追加できます。 つまり、ループ内で追加したアクティビティは、各オブジェクト(順序ごと)に対して実行されます。 次の操作を行います:<br />
+4. これで、各注文のステータスを *処理済み*に変更するアクティビティを追加できます。 つまり、ループ内で追加したアクティビティは、各オブジェクト(順序ごと)に対して実行されます。 次の操作を行います:<br />
 
     a **Toolbox**で **Change Object**を選択し、ループ内にドラッグ&ドロップします。<br />
 
@@ -87,9 +87,11 @@ Loop プロパティは **データ ソース** セクションで構成され�
 
     C **追加** をクリックして変更を保存します。
 
-このビデオは、上記の例を構成するプロセスを示しています。
+上記の例を設定するプロセスでビデオをチェックしてください。
 
-<video width="768" height="432" controls src="attachments/microflows-loop/loop-example-video.mp4">ビデオ</video> 結果として、microflow に取得した注文のリストと、このリストを反復するループがあります。 ループ内のアクティビティでは、処理する各注文のステータスが設定されます。
+<video width="768" height="432" controls src="attachments/microflows-loop/loop-example-video.mp4">ビデオ</video>
+
+結果として、microflow に取得された注文のリストと、このリストを繰り返すループがあります。 ループ内のアクティビティでは、処理する各注文のステータスが設定されます。
 
 ## 4 続きを読む
 
