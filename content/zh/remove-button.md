@@ -1,17 +1,17 @@
 ---
-title: "Remove button"
-parent: "control-bar"
+title: "删除按钮"
+parent: "控制栏"
 ---
 
-The remove button is a button specifically made for the reference set selector. With this button the end-user can remove objects that have been added to the reference set selector.
+移除按钮是专门为参考集选择器设置的按钮。 使用此按钮，最终用户可以删除已添加到参考集选择器的对象。
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -21,10 +21,10 @@ The remove button is a button specifically made for the reference set selector. 
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
