@@ -1,7 +1,13 @@
 ---
 title: "OQL Order by Clause"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-order-by-clause.pdf).
+{{% /alert %}}
 
 The ORDER BY clause specifies the sort order used on columns returned in a SELECT statement. Multiple columns can be specified. Columns are ordered in the sequence of the items in the ORDER BY clause. This clause can include items that do not appear in the SELECT clause, except when SELECT DISTINCT is specified or when an GROUP BY clause exists. When UNION is used, the column names or aliases must be those specified in the SELECT clause of the first part of the query.
 
@@ -35,5 +41,5 @@ ORDER BY LastName DESC
 ```
 
 {{% alert type="info" %}}
-For details on the default ordering behavior of NULL values, see the [NULL Values Order Behavior](ordering-behavior#null-ordering-behavior) section of *Order By Behavior*.
+For default ordering behavior of NULL values, see the [NULL Values Order Behavior](ordering-behavior#null-ordering-behavior) section of *Order By Behavior*.
 {{% /alert %}}
