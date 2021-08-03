@@ -1,27 +1,46 @@
 ---
-title: "Date Range Field"
-parent: "report-widgets"
+title: "日期范围"
+parent: "报告日期参数"
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
 
-A date range field can be placed inside a date range selector to enable the end user to select a period in a date range. The begin and end of the selected period are stored in the from and to field of the date range selector.
+**日期范围** 可以放入 [报告日期参数](report-date-parameter) 以使最终用户更容易选择日期范围。 而不是必须指明起始日期和迄今为止的日期。 报告日期参数随后与所选时间段的起始日期和日期一起更新。
 
-## Appearance Property
+要添加日期范围字段，右键单击小部件并从弹出菜单中选择 **添加字段**。
 
-### Label
+![将日期范围字段添加到报告日期参数](attachments/report-widgets/add-field.png)
 
-The value of the label property is the text that's displayed beside the date range field.
+## 2 日期范围字段属性
 
-## Behavior Property
+下面的图像显示了日期范围域属性的示例：
 
-### Type
+{{% image_container width="300" %}}![在结构模式下的日期范围字段](attachments/report-widgets/date-range-field-properties.png)
+{{% /image_container %}}
 
-The type determines the way in which the end user can select a range.
+日期范围字段属性只有一个 [常规部分](#general)。
 
-| Type    | Behavior                                                                                                                                                                                                |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Year    | The parameter is in the year that's chosen by the end user in this date range field.                                                                                                                    |
-| Month   | The parameter is in the month that's chosen by the end user in this date range field.                                                                                                                   |
-| Week    | The parameter is in the week that's chosen by the end user in this date range field.                                                                                                                    |
-| Period  | A date range field of type period lets the end user choose one of the following periods: last week, this week, next week, last month, this month, next month, last quarter, this quarter, next quarter. |
-| Quarter | The parameter is in the quarter that's chosen by the end user in this date range field.                                                                                                                 |
+### 2.1 一般部分{#general}
+
+#### 2.1.1 标签
+
+**标签** 属性指定了在日期范围字段旁边显示的文本。
+
+#### 2.1.2 Type
+
+**输入** 来决定最终用户可以选择的范围类型。
+
+| 类型                                | 行为                                        | 示例          | Range                 |
+| --------------------------------- | ----------------------------------------- | ----------- | --------------------- |
+| 年份                                | 允许最终用户选择日历年。<sup><small>[1]</small></sup> | 2019        | 2019年1月1日至2019年12月31日 |
+| 四分之一<sup><small>[2]</small></sup> | 允许最终用户选择一年的四分之一。                          | 2019 > 2    | 2019年4月1日至2019年6月30日  |
+| 月<sup><small>[2]</small></sup>    | 允许最终用户选择一年的一个月。                           | 2019 > May  | 2019年5月1日至2019年5月31日  |
+| 周<sup><small>[2]</small></sup>    | 允许最终用户选择该年的一个星期。                          | 2019 > 19 周 | 2019年5月5日至2019年5月12日  |
+| 期间<sup><small>[2]</small></sup>   | *期间日期范围字段被废弃。 建议您使用其他类型的日期范围字段。*          |             |                       |
+
+| **注**                                                                                                                                        |
+| -------------------------------------------------------------------------------------------------------------------------------------------- |
+| <sup><small>[1]</small></sup> 这一年将在 **分钟之间。 年份** 和 **最大值。 年** (包括) 在 [报告日期参数](report-date-parameter) 小部件中指定的。                                |
+| <sup><small>[2]</small></sup> 如果您使用此类型的日期范围字段，您还需要添加一个 **年** 日期范围字段。<br />- 最终用户需要选择一年才能选择这种类型的日期范围。<br />- 最终用户只能选择其中一种类型，加上年度。 |
