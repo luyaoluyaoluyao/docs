@@ -8,10 +8,6 @@ tags:
   - "data grid"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/columns.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Grid columns allow you to set properties for a [data grid](data-grid) or [reference set selector](reference-set-selector) column.
@@ -32,7 +28,7 @@ Grid column properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Data Source Section {#data-source}
 
@@ -76,7 +72,7 @@ These are the possible values:
 
 If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
 
-{{% snippet file="refguide8/custom-date-format-tokens.md" %}}
+{{% snippet file="refguide/custom-date-format-tokens.md" %}}
 
 ### 2.4 General Section {#general}
 
