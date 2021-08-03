@@ -1,9 +1,6 @@
 ---
 title: "アプリ署名キーの管理"
-category: "モバイル"
-menu_order: 21
-tags:
-  - "studio pro"
+category: "モバイル開発"
 ---
 
 ## 1つの紹介
@@ -11,10 +8,6 @@ tags:
 モバイルアプリを作成するには、プラットフォーム固有のアプリ署名キーが必要です。 モバイルアプリは、出版前にその開発者によってデジタル署名で署名されています。 これらの署名は、アプリが本物であることを確認するために、アプリストアとデバイスの両方で使用されます。
 
 ターゲットとするプラットフォームに応じて、必要な署名キーを作成する必要があります。 次のセクションでは、これらのキーを作成する方法について説明します。
-
-{{% alert type="warning" %}} クラウドでハイブリッドアプリを構築するには、AdobeのPhoneGap Build サービスを使用します。 Adobeはこのサービスを維持できないため、ハイブリッドアプリをクラウドで構築し、アプリストアに公開することはできなくなりました。
-
-このドキュメントの PhoneGap ビルドに言及している部分は、すぐに手順で更新されます。 {{% /alert %}}
 
 ## 2 iOS{#ios}
 
@@ -24,7 +17,7 @@ Apple Macを利用できるようにするのは便利ですが、必須では�
 
 ### 2.1 Apple Mac の場合
 
-Apple Mac をお持ちの場合 iOS の署名証明書と配布プロファイルを取得する方法については、 [証明書管理](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html) の Apple 開発者向けマニュアルを参照してください。 次に、必要な配布プロファイルを作成する方法は [の Apple ドキュメント](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) を参照してください。 最後に、署名キーファイルを [Adobe PhoneGap Build](managing-app-signing-keys#uploading-keys) にアップロードする方法については、このセクションの最後を確認してください。
+Apple Mac をお持ちの場合 iOS の署名証明書と配布プロファイルを取得する方法については、 [証明書管理](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingCertificates/MaintainingCertificates.html) の Apple 開発者向けマニュアルを参照してください。 次に、必要な配布プロファイルを作成する方法は [の Apple ドキュメント](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) を参照してください。 最後に、署名キーファイルを [Adobe PhoneGap Build](managing-app-signing-keys) にアップロードする方法については、このセクションの最後を確認してください。
 
 ### 2.2 他のプラットフォーム
 
@@ -34,7 +27,7 @@ Apple Mac をお持ちの場合 iOS の署名証明書と配布プロファイ�
 
 1.  [OpenSSL for Windows](https://www.openssl.org/community/binaries.html) をダウンロードしてインストールします。 **Win32 OpenSSL Light** パッケージをダウンロードしてインストールするだけです(リストの一番上に最新バージョンを入手してください)。
     *   セットアッププロセスが不足している VC++ 再配布可能ライブラリパッケージに不満がある場合は、インストールをキャンセルします。 そして、同じパッケージ一覧から **Visual C++ 2008 Redistributable** をダウンロードしてインストールします (Microsoft のダウンロードページにリダイレクトされます)。 例えば、 *C:\OpenSSL* をインストールします (ステップ3で必要になるので、このディレクトリに注意してください)。
-2.  コマンドプロンプトなどのコマンドラインインターフェイス(CLI)を開きます。 ほとんどのシステムでは、管理者としてこれを行う必要があります(Windowsのスタートメニューのリンクを右クリックし、 **管理者として実行**を選択します)。
+2.  コマンドプロンプトを開きます。 ほとんどのシステムでは、管理者としてこれを行う必要があります(Windowsのスタートメニューのリンクを右クリックし、 **管理者として実行**を選択します)。
 3.  インストールしたばかりの OpenSSL プログラムで秘密鍵を生成します。 `C:\OpenSSL` を、手順 1 で OpenSSL をインストールした場所に置き換えます。 秘密キーファイルは、 `-out` パラメータの後に指定された場所に保存されます。 The following example will store the file in the root directory of your C: drive (you can change this to anything you want, just select a convenient place and keep track of where the file is stored): `"C:\OpenSSL\bin\openssl.exe" genrsa -out "C:\private.key" 2048`. このコマンドは、「RSA 秘密鍵の生成、2048 bit の長さのモジュール」と、たくさんのドットとプラス記号を出力します。
 4.  証明書署名リクエスト (CSR) を生成します。 ファイルは再び同じフォルダに保存されますが、どこにでも配置できます。 Make sure to point to the private key file that was created in the previous step: `"C:\OpenSSL\bin\openssl.exe" req -new -key "C:\private.key" -out "C:\ios.csr"`. コマンドはいくつかのテキストを印刷し、あなたの身元に関連するいくつかの異なる情報を求めます。 **Common Name** のみが関連します。 Apple Developer Member Centerにアップロードした後、証明書が後で簡単に認識されるように、自分の名前を入力してください。
 
@@ -58,7 +51,7 @@ Apple Mac をお持ちの場合 iOS の署名証明書と配布プロファイ�
 
 証明書ファイルを入手したら、配布プロファイルを取得する必要があります。 Apple Developer Member Center では、アプリケーション識別子、テストデバイス、そして最後に配布プロファイルを定義できます。 詳細については、 [識別子、デバイス、プロファイル](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) を維持する方法についての Apple ドキュメントを参照してください。
 
-### 2.4 Adobe PhoneGap ビルドにキーをアップロード {#uploading-keys}
+### 2.4 Adobe PhoneGap ビルドにキーをアップロード
 
 Once you have downloaded the signing certificate (a *.cer* file), you need to convert the signing certificate from a *.cer* to a *.p12*. OpenSSL を以下の手順で使用します:
 
@@ -70,7 +63,7 @@ Once you have downloaded the signing certificate (a *.cer* file), you need to co
 
 Android アプリは、アプリに署名せずに Android デバイスに展開できます。 ただし、アプリストアに公開するには、署名済みのアプリが必要です。 これにはキーストアを生成し、Adobe PhoneGap Buildにアップロードする必要があります。
 
-### 3.1 キーストアの生成 {#generating-a-keystore}
+### 3.1 キーストアの生成
 
 Android 用のキーストアを生成するには、次の手順に従います。
 
@@ -103,4 +96,6 @@ Android 用のキーストアを生成するには、次の手順に従います
 1. **署名キー** タブに移動し、 **** の下の **Android** をクリックします。
 2. キーストアファイルを選択し、キーのタイトルを入力し、前のステップで説明したエイリアスを入力します。
 3. キーストアファイルをアップロードした後、キーのロックを解除します。 キーの右側にある黄色いロックアイコンをクリックし、キーストアとキーパスワードの両方を入力します。 これでキーはビルドジョブで使用できるようになりました。
-4. In the [Developer Portal](https://sprintr.home.mendix.com/index.html), navigate to **Deploy > Mobile app**, and click the **Publish for Mobile App Stores** button. 次に、 **PhoneGap Build ジョブ** ボタンをクリックします。
+4. In the [Developer Portal](https://sprintr.home.mendix.com/index.html), navigate to **Deploy > Mobile app**, and click the **Publish for Mobile s** button. 次に、 **PhoneGap Build ジョブ** ボタンをクリックします。
+5. アプリが初めてビルドされたら、 [Adobe PhoneGap ビルド](https://build.phonegap.com/) に戻ります。 アプリの名前をクリックするとビルドの詳細が表示されます。
+6. **ビルド** タブで、Android ビルドドロップダウンメニューでキーを選択します。 キーを使用してアプリを自動的に再構築します。 これからは、 [Developer Portal](https://sprintr.home.mendix.com/index.html) がこのキーを自動的に使用してアプリをビルドします。
