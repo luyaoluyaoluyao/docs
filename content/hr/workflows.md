@@ -1,11 +1,11 @@
 ---
 title: "Workflows"
-description: "Describes the workflows in Mendix Studio."
-menu_order: 15
+parent: "application-logic"
+menu_order: 20
 tags:
   - "workflow"
   - "workflows"
-  - "Studio"
+  - "Studio Pro"
 ---
 
 {{% alert type="warning" %}}
@@ -14,147 +14,148 @@ This functionality is in Beta. For more information on Beta products, see [Mendi
 
 ## 1 Introduction
 
-Workflow is a visual language in Mendix Studio and Mendix Studio Pro that allows you to to solve your business problems that involve processes. It is fully integrated with other visual languages, such as the microflow editor and page editor.
+Workflow is a visual language in Mendix Studio and Studio Pro that allows you to build extendable processes. It is fully integrated with other visual languages, such as the microflow editor and page editor.
 
-The main difference between workflows and [microflows](microflows) is a waiting aspect – the workflow is paused until it gets an input from an end-user. For example, an employee sends a travel request (triggering the start of the workflow) and then the workflow is paused until a manager approves the request by clicking a button.
+## 2 Workflow Elements
 
-To view the workflows of your app in Studio, click the **Workflows** icon in the left menu bar:
+A workflow is composed of elements that you can drag and drop on a path. Below is a categorized overview of all elements. The following categories are used:
 
-![Workflow Icon](attachments/workflows/workflow-icon.jpg)
+* [General](#general)
+* [User tasks](#user-tasks)
+* [System actions](#system)
 
-Workflows are a visual way of processing logic in your application. A workflow looks like a flow chart. On a new workflow a *start event* (a starting point of the workflow) and an *end event* (an endpoint of the workflow) are created by default. You can add various activities to a flow of a workflow that is called a *path*.
+### 2.1 General {#general}
 
-![Workflow Example](attachments/workflows/workflow-example.jpg)
+Elements in the general category help you control the workflow path, for example, add parallel paths or end them.
 
-## 2 Workflow App Template
+The elements of this category are described in the table below:
 
-You can use workflow-specific app templates as a starting point for using workflows. For example, you can configure an approval request form for end-users based on which the app is be created. It contains preconfigured elements, such as dashboards, admin pages, dashboards, and a workflow that you can afterwards customize even more. You can discover these templates when creating a new app.
+| Graphic                                                     | Element                           | Description                                                                                                                                                                                                                                                                                        |
+| ----------------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Start Event](attachments/workflows/start-event.png)       | Start event                       | The starting point of a workflow. Workflows are triggered either by the [Call workflow](on-click-event#call-workflow) on-click event on pages or by the [Workflow call](workflow-call) action in microflows. <br />Click the start event to open [workflow properties](workflow-properties). |
+| ![Decision](attachments/workflows/decision.png)             | [Decision](decision-in-workflows) | Makes a choice based on a condition and follows one and only one of the outgoing paths.                                                                                                                                                                                                            |
+| ![Parallel Split](attachments/workflows/parallel-split.png) | [Parallel split](parallel-split)  | Adds two parallel paths to your workflow.                                                                                                                                                                                                                                                          |
+| ![Jump Activity](attachments/workflows/jump.png)            | [Jump](jump-activity)             | Allows you to jump to other activities in the workflow.                                                                                                                                                                                                                                            |
+| ![End event](attachments/workflows/end-event.png)           | End event                         | Ends the path of the workflow                                                                                                                                                                                                                                                                      |
+
+{{% alert type="info" %}}
+You can add customized activities to this section if you use the **Expose as a workflow action** setting in microflows. For more information see the [Expose as Workflow Action](microflow#expose-as-workflow-action) section in *Microflow Properties*.
+{{% /alert %}}
+
+### 2.2 User Tasks {#user-tasks}
+
+[User task](user-task) – a central element in a workflow that allows you to assign a task to a certain user or a group of users using filters or microflows.
+
+![User Task](attachments/workflows/user-task.png)
+
+### 2.3 System Actions {#system}
+
+[Call microflow](call-microflow) activity calls a selected microflow.
+
+![Call Microflow](attachments/workflows/call-microflow.png)
 
 ## 3 Performing Basic Functions
 
 You can perform the following basic functions when working on workflows:
 
-* [Open a workflow](#open)
-* [Create a workflow](#create)
-* [Duplicate a workflow](#duplicate)
-* [Copy and paste a workflow](#copy-paste)
-* [Delete a workflow](#delete)
-* [Add elements to a workflow](#add-elements)
+* Open a workflow
+* Create a workflow
+* Delete a workflow
+* Add elements to a workflow
+* View element properties
 
-### 3.1 Opening a Workflow {#open}
+### 3.1 Opening a Workflow
 
-To open a workflow in Studio, do the following:
+To open a workflow in Studio Pro, do the following:
 
-1. Click the workflow icon in the left menu bar.
-
-2. In the displayed list of workflows, select the one you want to open and click it:
-
+1. In the [Project Explorer](project-explorer), open a module where this workflow is located.
+2. Navigate to the workflow’s location inside the module and double-click the workflow.
 
 The selected workflow is opened.
 
-### 3.2 Adding a Workflow {#create}
+### 3.2 Adding a Workflow
 
-To add a workflow to your app in Studio, do the following:
+To add a workflow to your app, do the following:
 
-1. Click the workflow icon in the left menu bar.
+1. In the [Project Explorer](project-explorer), right-click the module or a folder you want to create a page in and select **Add workflow**:
 
-2. Select the module you would like to add a new workflow to and click the plus icon next to this module:
+    ![Add Workflow](attachments/workflows/add-workflow.jpg)
 
-    ![New Workflow](attachments/workflows/new-workflow.jpg)
+2. In the **Add workflow** dialog box, fill in Name and click **OK**:
 
-    For more information on what modules are, see [Domain Model](domain-models).
-
-3. In the **Create new workflow** dialog box, fill in the name of the workflow and select a workflow entity (for more information on type of entities, see the [Entities and Their Types](domain-models#entity-types) section in *Domain Model*):
-
-    ![Create New Workflow](attachments/workflows/create-new-workflow.jpg)
-
-4. Click **Create**.
+    ![Adding Workflow](attachments/workflows/add-workflow-dialog.jpg)
 
 The workflow is created.
 
-### 3.3 Duplicating a Workflow {#duplicate}
+### 3.3 Deleting a Workflow
 
-To duplicate a workflow, do the following:
+To delete a workflow, do the following:
 
-1. Click the **Workflows** icon in the left menu bar.
-
-2. In the side panel, click the ellipsis icon and select **Duplicate** in the drop-down menu:
-
-    ![Duplicate a Workflow](attachments/workflows/duplicate.jpg)
-
-The workflow is duplicated.
-
-### 3.4 Copying and Pasting a Workflow {#copy-paste}
-
-To copy and paste a workflow, do the following:
-
-1. Click the **Workflows** icon in the left menu bar.
-
-2. In the side panel, click the ellipsis icon and select **Copy to clipboard** in the drop-down menu:
-
-    ![Copy a Workflow](attachments/workflows/copy.jpg)
-
-3. Open the Studio app where you want to paste the workflow and press <kbd>Ctrl</kbd> +<kbd>V</kbd> or <kbd>Cmd</kbd> +<kbd>V</kbd>.
-
-Your workflow is pasted. For more information on copy/paste function in Studio, see the [Copy/Paste Workflows, Pages, Microflows, and Enumerations](general#copy-paste-documents) section in *General Info*.
-
-### 3.5 Deleting a Workflow {#delete}
-
-To delete a workflow in Studio, do one of the following:
-
-1. Open the workflow you want to delete and follow the steps below:
-    1. Open the **Properties** tab.
-    2. Click **Delete** at the bottom of the **Properties** tab.
-2. Click the workflows icon in the left menu bar and do the following:
-    1. In the side panel, click the ellipsis icon and select **Delete** in the drop-down menu:
+1. In the [Project Explorer](project-explorer), select a workflow you would like to delete and right-click it.
+2. In the displayed list, select **Delete** and confirm your choice by clicking **Delete** in the pop-up dialog.
 
 The selected workflow is deleted.
 
-### 3.6 Adding Elements to a Workflow {#add-elements}
+### 3.4 Adding Elements to a Workflow
 
 To add an element to a workflow, do the following:
 
-1. Open the **Toolbox** tab.
-2. Select an element you would like to add and drag and drop this element in the workflow path.
+1. Open the **Toolbox**.
+2. Select an element you would like to add and drag and drop this element in the working area.
 
 The selected element is added.
 
-## 4 Toolbox Elements
+### 3.5 Viewing Element Properties
 
-The **Toolbox** tab contains elements that you can drag and drop on a path. Below is a categorized overview of all elements. The following sections are used:
+To view properties of an element, do one of the following:
 
-* [General](#general)
-* [User actions](#user-actions)
-* [System actions](#system)
+1. Select an element and open **Properties** pane to view its properties.
+2. Right-click an element and select **Properties** from the list of options that opens.
+3. Double-click an element.
 
-### 4.1 General {#general}
+## 4 Workflow Entities in the System Module {#workflow-entities}
 
-Elements in the **General** section help you control the workflow path, for example, add parallel paths or end them:
+There are several workflow-related entities in the System module of your app, some of which can be used in in an XPath and expressions, and some are there as basic entities that are internally only (for example, by the Runtime).
 
-![General Section](attachments/workflows/general.jpg)
+You can find the following workflow-related entities in the System module:
 
-The elements of this section are described in the table below:
+* **WorkflowDefinition** – Represents your workflow in the database. It contains two attributes, where **Name** and **Title** are **Name** and **Title** properties of the workflow and **Obsolete** is a Boolean that is marked as true when you delete your workflow. In this case, the workflow still stays in the database (and you will still be able to create reports with it), but Mendix marks that it does not exist anymore. For more information on properties, see [Workflow Properties](workflow-properties).
+* **WorkflowTaskDefinition** – Represents your [user tasks](user-task) and [system activities](call-microflow) in the database. It contains two attributes, where **Name** is a **Name** property of the user task or a system activity, and **Obsolete** is a Boolean that is marked as true when you delete a user task/system activity from your workflow. They still stay in the database (and you will still be able to create reports with them), but Mendix marks that they do not exist anymore.
+* **WorkflowInstance** – A representation of a running workflow, so every time when the new workflow is started, the Runtime creates a new instance.
+* **WorkflowTaskInstance** –  A representation of a running user task or a system activity, so every time when the new user task/system activity is started, the Runtime creates a new instance.
+* **WorkflowUserTask** - a specialization of **WorkflowTaskInstance**. This entity is created when the Runtime executes the user task and an end-user chooses an action (for example, clicks an **Approve** button to approve a request). This entity can be used for workflow overview pages and in an application logic.
+* **WorkflowSystemTask** – a specialization of **WorkflowTaskInstance**. This entity is created when the Runtime executes the system activity (**Call microflow**) and is used to show that the microflow has been executed.
+* **WorkflowContext** – a basic entity for the objects that will be used as context for the workflow. The specialization of this entity is used as a **Workflow entity** in its properties. For more information on properties, see [Workflow Properties](workflow-properties).
+* **WorkflowVersion** – This System entity is used for versioning and for the internal administration in the Runtime. When you add an activity and run your workflow, a new version will be created.
 
-| Element                                                       | Description                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Start event                                                   | The starting point of a workflow. Workflows are triggered either by the [Call workflow](page-editor-widgets-events-section#call-workflow) on-click event on pages or by the [Workflow call](microflows#microflow-workflow-activities) action in microflows. <br />Click the start event to open [workflow properties](workflow-properties). |
-| [Decision](workflows-general-activities#decision)             | Makes a choice based on a condition and follows one and only one of the outgoing paths.                                                                                                                                                                                                                                                           |
-| [Jump activity](workflows-general-activities#jump)            | Allows you to jump to other activities in the workflow.                                                                                                                                                                                                                                                                                           |
-| [Parallel split](workflows-general-activities#parallel-split) | Adds two or more parallel paths to your workflow.                                                                                                                                                                                                                                                                                                 |
-| [End activity](workflows-general-activities#end)              | Ends the path of the workflow                                                                                                                                                                                                                                                                                                                     |
+## 5 Workflow Variables
 
-### 4.2 User Actions {#user-actions}
+Workflows have dedicated variables that can be used in an XPath and Expressions inside the Workflow editor.
 
-[User task](workflows-user-task) – a central element in a workflow that allows you to assign a task to a certain user or a group of users using filters or microflows.
+The list of variables is described below:
 
-![User Actions](attachments/workflows/user-actions.jpg)
+* `$workflowData` – an instance of the workflow entity that is configured for a specific workflow (usually a specialization of **System.WorkflowContext**)
+* `$workflow` – an instance of a currently running workflow (**System.WorkflowInstance**)
 
-### 4.3 System Actions {#system}
+For more information on workflow-related entities in the System module, see the [Workflow Entities in the System Module](#workflow-entities) section above.
 
-[Call microflow](workflow-system-actions) activity calls a selected microflow. You can use this activity to add application logic to the path of the workflow that does not need user interaction.
+For example, you can use these variables as parameters in the **Task name** and **Task description** properties of a user task. For more information, see [User Task](user-task).
 
-![System Actions](attachments/workflows/system-actions.jpg)
+## 6 Workflow-Specific Activities in Microflows
 
-## 5 Read More
+You can add workflow-related activities to your microflows. For more information on these activities, see [Workflow Activities](workflow-activities).
 
-* [Workflow Properties](workflow-properties)
+## 7 Workflow-Specific On-Click Events on Pages
+
+You can trigger workflows or user tasks from pages via specific on-click events configured on widgets. For more details, see [On Click Event & Events Section](on-click-event).
+
+## 8 Workflow Commons Module
+
+The **Workflow Commons** module is a workflow specific module that has preconfigured page templates, pages, dashboards, etc. It can save you a lot of time during development. You can either download it from the Marketplace or use one of the app templates when creating a new app in the Developer Portal. These templates already contain the **Workflows Commons** module.
+
+For more information on how to configure the **Workflow Commons** in an existing app, see [Adding a Workflow to an Existing App: Setting Up the Basics](/refguide/workflow-setting-up-app).
+
+## 9 Read More
+
+* [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure)
+* [Adding a Workflow to an Existing App: Setting Up the Basics](/refguide/workflow-setting-up-app)
