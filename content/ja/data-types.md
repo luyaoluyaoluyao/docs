@@ -1,23 +1,32 @@
 ---
-title: "Data Types"
-category: "Desktop Modeler"
+title: "データ型："
+category: "アプリモデリング"
+menu_order: 60
+tags:
+  - "studio pro"
 ---
 
+## 1つの紹介
 
-Throughout the Modeler the same set of data types are used. The exception is the type of [attributes](attributes), which is more specific with regard to storage in the database. In general, an attribute type maps to the data type with the same name. The exceptions are mentioned in the table below.
+Studio Pro 全体では、同じデータ型セットが使用されます。 例外は [属性](attributes)の型で、データベース内のストレージに関してより具体的です。 一般に、属性型は同じ名前のデータ型にマップされます。 例外は以下の表に記載されています。
 
-Mendix supports the following data types:
+## 2種類のデータ型に対応しています
 
-| Name          | Description                                                                                                                                                              | Examples                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| Boolean       | A truth value.                                                                                                                                                           | `true` and `false`                    |
-| Binary        | Binary data such as files and images.                                                                                                                                    |                                       |
-| Date and time | A point in time consisting of a date and a time component accurate up to milliseconds.                                                                                   | Thursday, 12 February 2015, 14:50:36  |
-| Decimal       | A high-precision fractional number. The Decimal type can be used for high-precision calculations. Use this type to represent amounts of money for example.               | 3.14, 738000000000.00000001           |
-| Enumeration   | One of the values of the given [enumeration](enumerations).                                                                                                              | Red, Green, Blue; Todo, Running, Done |
-| Integer/Long  | A whole number between -(2^63) and 2^63 - 1. The attribute types AutoNumber, Integer and Long map to this data type.                                                     | -42, 0, 123                           |
-| Float         | ***The Float type is deprecated. Use the high-precision Decimal type instead.*** A fractional number. The attribute types Float and Currency both map to this data type. | -3.45, 0.0, 43.21                     |
-| List          | A list of objects of a specific [entity](entities).                                                                                                                      |                                       |
-| Nothing       | No value. Can only be used as the return type of a [microflow](microflows).                                                                                              |                                       |
-| Object        | A single object of a specific [entity](entities).                                                                                                                        |                                       |
-| String        | A piece of text that can contain letters, numbers, spaces and other characters. The attribute types String and HashString both map to this data type.                    | 'Hello World!'; 'Desiderius Erasmus'  |
+Mendixは以下のデータ型をサポートしています。
+
+| 名前      | 説明                                                                                          | 例                                    |
+| ------- | ------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Boolean | 真実の価値。                                                                                      | `true` と `false`                     |
+| バイナリ    | ファイルや画像などのバイナリデータ。                                                                          |                                      |
+| 日付と時刻   | 日付と時刻成分で構成される時間内のポイント。最大ミリ秒精度。                                                              | 2015年2月12日(木) 14:50:36               |
+| 小数点以下桁数 | 高精度の小数。 10 進数型は高精度の計算に使用できます。 このタイプを使用すると、例えば金額を表示できます。 小数点の前に 20 桁まで、その後は 8 桁までの桁数を指定できます。 | 3.14, 738000000000.00000001          |
+| 列挙型     | 与えられた [列挙値](enumerations) の値の一つ。                                                            | 赤, 緑, 青; Todo, Running, Done         |
+| 整数      | -(2^63) と 2^63 - 1 の間の整数。 属性タイプのAutoNumber、整数、およびこのデータ型へのロングマップ。                            | -42, 0, 123                          |
+| リスト     | 特定の [エンティティ](entities) のオブジェクトのリスト。                                                         |                                      |
+| なし      | 値がありません。 [マイクロフロー](microflows) の戻り値の型としてのみ使用できます。                                           |                                      |
+| オブジェクト  | 特定の [エンティティ](entities)の単一のオブジェクト。                                                           |                                      |
+| 文字列     | 文字、数字、スペース、その他の文字を含めることができるテキスト。 属性タイプ **String** と **ハッシュ文字列** は、どちらもこのデータ型にマップされます。       | 'Hello World!'; 'Desiderius Erasmus' |
+
+ある種類から別の種類にデータを変更する場合（例えば、 メッセージの一部として数字をテキストボックスに表示するには、通常、これを行うには式を使用する必要があります。 利用可能な情報については、 [式](expressions) を参照してください。
+
+例外として、Integer/Long をDecimal に変換します。ここでは、10 進数が期待される場所に Integer/Long を指定すると、暗黙的に変換されます。
