@@ -1,283 +1,161 @@
 ---
-title: "Relational Expressions"
+title: "Relational expressions"
 parent: "expressions"
-menu_order: 30
-description: "Describes relational expressions in Mendix."
-tags:
-  - "studio pro"
-  - "relational expression"
-  - "expressions"
 ---
 
-## 1 Introduction
+Relational expressions allow the user to compare variables and base changes and actions upon that information. The return type of such expressions is always boolean.
 
-Relational expressions allow users to compare values and to make changes and perform actions based upon that information. The return type of such expressions is always Boolean.
+## Less than ( < )
 
-## 2 Less Than ( < )
+Determines whether the first value is less than the second value. Result is of type Boolean.
 
-This expression determines whether the first value is less than the second value.
+### Input parameters
 
-### 2.1 Input Parameters
+The values be any of the following types, but the two values should be in the same category (for example, both numbers):
 
-Possible values are described in the table below:
-
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
-
-{{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
-
-### 2.2 Output
-
-The output is described in the table below:
-
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
-
-### 2.3 Example
-
-If you use the following input:
+*   String
+*   Numeric (Integer/Long, Decimal, Float)
+*   DateTime
 
 ```java
 4<3
 ```
 
-the output is:
+returns:
 
 ```java
 False
 ```
-## 3 Greater Than ( > )
+## Greater than ( > )
 
-This expression determines whether the first value is greater than the second value.
+Determines whether the first value is greater than the second value. Result is of type Boolean.
 
-### 3.2 Input Parameters
+### Input parameters
 
-Possible values are described in the table below:
+The values be any of the following types, but the two values should be in the same category (for example, both numbers):
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
-
-{{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
-
-### 3.3 Output
-
-The output is described in the table below:
-
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
-
-### 3.4 Example
-
-If you use the following input:
+*   String
+*   Numeric (Integer/Long, Decimal, Float)
+*   DateTime
 
 ```java
 4>3
 ```
 
-the output is:
+returns:
 
 ```java
 True
 ```
-## 4 Less Than or Equal To ( <= )
+## Less than or equal to ( <= )
 
-This expression determines whether the first value is less than or equal to the second value.
+Determines whether the first value is less than or equal to the second value. Result is of type Boolean.
 
-### 4.1 Input Parameters
+### Input parameters
 
-Possible values are described in the table below:
+The values be any of the following types, but the two values should be in the same category (for example, both numbers):
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+*   String
+*   Numeric (Integer/Long, Decimal, Float)
+*   DateTime
 
-{{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+```java
+6<=3
+```
 
-### 4.2 Output
+returns:
 
-The output is described in the table below:
+```java
+False
+```
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+and
 
-### 4.3 Examples
+```java
+3<=3
+```
 
-The examples below illustrate which value the expression returns:
+returns:
 
-* If you use the following input:
+```java
+True
+```
 
-    ```java
-    6<=3
-    ```
+## Greater than or equal to ( >= )
 
-    the output is:
+Determines whether the first value is greater than or equal to the second. Result is of type Boolean.
 
-    ```java
-    False
-    ```
+### Input parameters
 
-* If you use the following input:
+The values be any of the following types, but the two values should be in the same category (for example, both numbers):
 
-    ```java
-    3<=3
-    ```
-
-    the output is:
-
-    ```java
-    True
-    ```
-
-## 5 Greater Than or Equal To ( >= )
-
-Determines whether the first value is greater than or equal to the second.
-
-### 5.1 Input Parameters
-
-Possible values are described in the table below:
-
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
-
-{{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
-
-### 5.2 Output
-
-The output is described in the table below:
-
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
-
-### 5.3 Example
-
-If you use the following input:
+*   String
+*   Numeric (Integer/Long, Decimal, Float)
+*   DateTime
 
 ```java
 4>=3
 ```
 
-the output is:
+returns:
 
 ```java
 True
 ```
 
-## 6 Is Equal To ( = )
+## Is equal to ( = )
 
-This expression determines whether the two values are equal.
+Determines whether the two values are equal. Result is of type Boolean.
 
-### 6.1 Input Parameters
-
-Possible values are described in the table below:
-
-| Value      | Type                                                             |
-| ---------- | ---------------------------------------------------------------- |
-| Two values | String                                                           |
-| Two values | Numeric (Integer/Long, Decimal)                                  |
-| Two values | Date and time                                                    |
-| Two values | Domain entity; equality is checked based on the ID of the object |
-
-{{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
-
-### 6.2 Output
-
-The output is described in the table below:
-
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
-
-### 6.3 Examples
-
-The examples below illustrate which value the expression returns:
-
-* If you use the following input:
-
-    ```java
-    "mystring" = "myotherstring"
-    ```
-
-    the output is:
-
-    ```java
-    False
-    ```
-
-* If you use the following input:
-
-    ```java
-    dateTime(2007) = dateTime(2007)
-    ```
-
-    the output is:
-
-    ```java
-    True
-    ```
-
-## 7 Is Not Equal To ( != )
-
-Determines whether the two values are not equal.
-
-### 7.1 Input Parameters
+### Input parameters
 
 The values be any of the following types, but the two values should be in the same category (for example, both numbers):
 
-Possible values are described in the table below:
+*   String
+*   Numeric (Integer/Long, Decimal, Float)
+*   DateTime
+*   Domain Entity. Equality is checked based on the ID of the object.
 
-| Value      | Type                                                      |
-| ---------- | --------------------------------------------------------- |
-| Two values | String                                                    |
-| Two values | Numeric (Integer/Long, Decimal)                           |
-| Two values | Date and time                                             |
-| Two values | Object; equality is checked based on the ID of the object |
+```java
+"mystring" = "myotherstring"
+```
 
-{{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+returns:
 
-### 7.2 Output
+```java
+False
+```
 
-The output is described in the table below:
+or with a DateTime:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+```java
+dateTime(2007) = dateTime(2007)
+```
 
-### 7.3 Example
+returns:
 
-If you use the following input:
+```java
+True
+```
+
+## Is not equal to ( != )
+
+Determines whether the two values are not equal. Result is of type Boolean.
+
+### Input parameters
+
+The values be any of the following types, but the two values should be in the same category (for example, both numbers):
+
+*   String
+*   Numeric (Integer/Long, Decimal, Float)
+*   DateTime
+*   Object. Equality is checked based on the ID of the object.
 
 ```java
 "mystring" != "mystring"
 ```
 
-the output is:
+returns:
 
 ```java
 False
