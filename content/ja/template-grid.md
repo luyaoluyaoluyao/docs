@@ -1,185 +1,167 @@
 ---
-title: "Template Grid"
-parent: "grids"
+title: "テンプレートグリッド"
+parent: "グリッド"
 menu_order: 20
 tags:
   - "studio pro"
-  - "grid"
-  - "template grid"
-  - "data widgets"
+  - "グリッド"
+  - "テンプレートグリッド"
+  - "データウィジェット"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/template-grid.pdf).
-{{% /alert %}}
+{{% alert type="warning" %}}テンプレートグリッドウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-{{% alert type="warning" %}}The template grid widget is not supported on native mobile pages.{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
-
-A template grid shows a list of objects in a tile view. For example, a template grid can show a list of employees with their profile pictures. Using controls provided by the template grid you can browse, search, and manipulate those objects:
+テンプレート グリッドには、タイル ビュー内のオブジェクトのリストが表示されます。 例えば、テンプレートグリッドは、自分のプロフィール写真を持つ従業員のリストを表示できます。 テンプレートグリッドで提供されるコントロールを使用すると、それらのオブジェクトを閲覧、検索、操作できます。
 
 ![](attachments/data-widgets/template-grid.png)
 
-The template grid has a lot in common with a [data grid](data-grid). The main difference is that the objects are shown in templates instead of rows.
+テンプレート グリッドには [データ グリッド](data-grid) と多くの共通点があります。 主な違いは、オブジェクトが行の代わりにテンプレートで表示されることです。
 
-## 2 Components
+## 2つのコンポーネント
 
-### 2.1 Control Bar
+### 2.1 コントロール バー
 
-For more information, see [Control Bar](control-bar).
+詳細については、 [コントロール バー](control-bar) を参照してください。
 
-### 2.2 Search Bar
+### 2.2 検索バー
 
-**Search Bar** is only available for **Database** and **XPath** [data sources](#data-source). For more information on a search bar and its settings, see [Search Bar](search-bar).
+**検索バー** は **データベース** と **XPath** [データ ソース](#data-source) でのみ使用できます。 検索バーとその設定の詳細については、 [検索バー](search-bar) を参照してください。
 
-### 2.3 Sort Bar
+### 2.3 ソートバー
 
-**Sort Bar** is only available for **Database** and **XPath** [data sources](#data-source). For more information on a sort bar and its settings, see [Sort Bar](sort-bar).
+**ソートバー** は **データベース** と **XPath** [データ ソース](#data-source) でのみ使用できます。 ソートバーとその設定の詳細については、 [ソートバー](sort-bar) を参照してください。
 
-## 3 Properties
+## 3つのプロパティ
 
-An example of template grid properties is represented in the image below:
+次の画像にテンプレート グリッド プロパティの例を示します。
 
 {{% image_container width="250" %}}![](attachments/data-widgets/template-grid-properties.png)
 {{% /image_container %}}
 
-Template grid properties consist of the following sections:
+テンプレート グリッド プロパティは以下のセクションで構成されます。
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 3.1 Common Section {#common}
+### 3.1 一般的なセクション {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 3.2 Data Source Properties {#data-source}
+### 3.2 データソースのプロパティ {#data-source}
 
-The data source determines which objects will be shown in the template grid. For general information about data sources, see [Data Sources](data-sources).
+データソースは、テンプレート グリッドに表示されるオブジェクトを決定します。 データソースに関する一般的な情報については、 [Data Sources](data-sources) を参照してください。
 
 #### 3.2.1 Type
 
-The list view supports the following types of data sources:
+リストビューでは、次の種類のデータ ソースをサポートしています。
 
-* [Database source](database-source) – objects are retrieved directly form the database
-* [XPath source](xpath-source) – objects are retrieved directly form the database
-* [Microflow source](microflow-source) – calculates the list of objects by executing a microflow
-* [Association source](association-source) – follows an association to get to objects
+* [データベースソース](database-source) – オブジェクトが直接データベースから取得されます。
+* [XPath ソース](xpath-source) - オブジェクトは直接データベースから取得されます
+* [Microflow source](microflow-source) – マイクロフローを実行してオブジェクトのリストを計算する
+* [関連のソース](association-source) - オブジェクトに到達するための関連に従います
 
-The database and XPath sources retrieve objects from the database and supports searching and sorting.
+データベースと XPath ソースは、データベースからオブジェクトを取得し、検索とソートをサポートします。
 
-### 3.3 Design Properties Section {#design-properties}
+### 3.3 デザインプロパティセクション {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 3.4 General Section {#general}
+### 3.4 一般セクション {#general}
 
-#### 3.4.1 Show Control Bar {#show-control-bar}
+#### 3.4.1 コントロールバーを表示 {#show-control-bar}
 
-This property indicates whether the control bar will be visible in the end-user interface. The control bar also includes the paging buttons.
-
-{{% alert type="warning" %}}
-Even if the control bar is invisible there can still be a default button that is triggered by (double) clicking a row. See the property 'Default button trigger' and [grid buttons](control-bar) for more information.
-{{% /alert %}}
-
-Default: *True*
-
-#### 3.4.2 Show Paging Buttons {#show-paging-buttons}
+このプロパティは、エンドユーザーインターフェイスでコントロール バーが表示されるかどうかを示します。 コントロールバーにはページングボタンも含まれています。
 
 {{% alert type="warning" %}}
-This property is not available in Mendix 8.13 and above. Use the [Show Paging Bar](#show-paging-bar) property instead.
+コントロールバーが非表示の場合でも、行をクリックすることによってトリガーされる既定のボタンが残っている場合があります。 詳細については、プロパティ '既定のボタントリガー' と [グリッドボタン](control-bar) を参照してください。
 {{% /alert %}}
 
-This property indicates with the buttons to page through the information in the grid are visible. Only hide these buttons if you are sure that there will never be more objects than the number of rows of the grid. Note that hiding the control bar also hides the paging buttons.
+デフォルト: *True*
 
-Default: *True*
+#### 3.4.2 ページングバーを表示 {#show-paging-bar}
 
-#### 3.4.3 Show Paging Bar {#show-paging-bar}
+このプロパティを使用すると、ページングバーの表示方法を変更できます。
 
-{{% alert type="info" %}}
-This property was introduced in Mendix 8.13. It replaces the [Show Paging Buttons](#show-paging-buttons) property.
-{{% /alert %}}
+| 値          | 説明                                                                    |
+| ---------- | --------------------------------------------------------------------- |
+| はい (合計数)   | ページングバーが表示され、 **最後のページ** ボタンとオブジェクトの合計数が含まれます。                        |
+| はい (合計数なし) | ページングバーが表示されます( **** ボタンを除く)。 また、ページ番号が代わりに表示されるため、オブジェクトの総数は表示されません。 |
+| いいえ        | ページングボタンは表示されません。                                                     |
 
-With this property, you can change the way the paging bar is shown.
-
-| Value                     | Description                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Yes (with total count)    | The paging bar is shown, including the **Go to last page** button and the total count of objects.                                                      |
-| Yes (without total count) | The paging bar is shown (except for the **Go to last page** button). Also, the total count of objects is not shown, as page numbers are shown instead. |
-| No                        | The paging buttons are not shown.                                                                                                                      |
-
-Default: *Yes (with total count)*
+デフォルト: *はい (合計)*
 
 {{% alert type="warning" %}}
-Hiding the control bar also hides the paging buttons. For details, see [Show Control Bar](#show-control-bar).
+コントロールバーを非表示にすると、ページングボタンも非表示になります。 詳細については、 [コントロール バー](#show-control-bar) を参照してください。
 {{% /alert %}}
 
-#### 3.4.4 Number of Rows {#number-of-rows}
+#### 3.4.3 行数 {#number-of-rows}
 
-With this property you can change the number of rows of templates that will be shown on one page.
+このプロパティでは、1ページに表示されるテンプレートの行数を変更できます。
 
-Default: *3*
+デフォルト: *3*
 
-#### 3.4.5 Number of Columns {#number-of-columns}
+#### 3.4.4 列数 {#number-of-columns}
 
-With this property you can change the number of templates that will be shown next to each other in one row.
+このプロパティを使用すると、1行に隣接して表示されるテンプレートの数を変更できます。
 
-Default: *2*
+デフォルト: *2*
 
-#### 3.4.6 Style Template {#style-template}
+#### 3.4.5 Style Template {#style-template}
 
-The style template property allows you to choose from three different styling of the template grid. These stylings depend on your theme package.
+スタイル テンプレート プロパティを使用すると、テンプレート グリッドの 3 つの異なるスタイルから選択できます。 これらのスタイリングはあなたのテーマパッケージに依存します。
 
-#### 3.4.7 Selection Mode {#selection-mode}
+#### 3.4.6 選択モード {#selection-mode}
 
-The selection mode determines whether and how the user can select items in the grid.
+選択モードでは、ユーザーがグリッド内の項目を選択できるかどうかと方法を決定します。
 
-| Value                         | Description                                                                                                                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No selection                  | The user cannot select items.                                                                                                                                                                                   |
-| Single selection  *(default)* | The user can select a single item by clicking on it. Clicking another item will make that item the selection.                                                                                                   |
-| Single selection and maintain | The user can select one item at a time by clicking on it. Users cannot deselect an item. By default the first item will be selected and removing a selected item will autoselect a subsequent item.             |
-| Multi-selection               | The user can select multiple items by clicking the first one and holding the 'Ctrl' key while clicking on other items. Simply clicking an item will deselect all items and make the clicked item the selection. |
-| Simple multi-selection        | The user can select multiple items by simply clicking on them.                                                                                                                                                  |
+| 値               | 説明                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| 選択されていません       | ユーザーはアイテムを選択できません。                                                                                      |
+| 単一選択  *(デフォルト)* | ユーザーはそれをクリックして単一の項目を選択することができます。 別の項目をクリックすると、その項目が選択されます。                                              |
+| 単一選択と維持         | ユーザーは、それをクリックすることによって、一度に1つの項目を選択できます。 ユーザは項目を選択解除できません。 デフォルトでは、最初の項目が選択され、選択された項目が自動的に選択されます。         |
+| 複数選択            | 最初の項目をクリックし、「Ctrl」キーを押しながら他の項目をクリックすることで複数項目を選択できます。 単にアイテムをクリックすると、すべてのアイテムの選択が解除され、クリックしたアイテムが選択されます。 |
+| 単純な複数選択         | ユーザーは、単にそれらをクリックすることによって複数の項目を選択することができます。                                                              |
 
-#### 3.4.8 Select First {#select-first}
+#### 3.4.7 最初に選択 {#select-first}
 
-This property indicates whether the first item will be selected initially. This is especially useful if there is a data view listening to this grid.
+このプロパティは、最初の項目が最初に選択されるかどうかを示します。 この機能は、グリッドをリッスンしているデータビューがある場合に特に便利です。
 
-Default: *False*
+デフォルト: *False*
 
-#### 3.4.9 Default Button Trigger {#default-button-trigger}
+#### 3.4.8 デフォルトのボタントリガー {#default-button-trigger}
 
-The default button can be triggered by a single or a double click a row.
+既定のボタンは、1行またはダブルクリックでトリガーできます。
 
-| Value                    | Description                                                                                                           |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| Single click             | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click *(default)* | A double click triggers the default button.                                                                           |
+| 値                 | 説明                                                            |
+| ----------------- | ------------------------------------------------------------- |
+| シングルクリック          | ワンクリックで既定のボタンがトリガーされます。 これはユーザーが行を選択できるようにするために組み合わせて使用できません。 |
+| *をダブルクリック（デフォルト）* | ダブルクリックするとデフォルトのボタンがトリガーされます。                                 |
 
-#### 3.4.10 Refresh Time (in Seconds) {#refresh-time}
+#### 3.4.9 リフレッシュ時間 (秒) {#refresh-time}
 
-If the refresh time is non-zero, the template grid will refresh its contents every given number of seconds. For example, a task list could be refreshed every minute so that you know when new tasks arrive. By default the refresh time is zero and this means that the grid will not automatically refresh itself.
+更新時間がゼロでない場合、テンプレートグリッドは指定された秒数ごとに内容をリフレッシュします。 たとえば、新しいタスクがいつ到着したかを知るために、タスクリストを毎分更新することができます。 デフォルトではリフレッシュ時間はゼロで、グリッドは自動的にリフレッシュされません。
 
-Default: *0*
+デフォルト: *0 0*
 
-### 3.5 Visibility Section {#visibility}
+### 3.5 可視性セクション {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 4 Performing Specific Actions
+## 4具体的なアクションの実行
 
-To perform actions on a template grid, select it on a page and right-click it. The list of possible actions opens. While some actions from this list, such as **Select data source**, **Edit condition for visible**, are a quick way to set the properties, the following actions are specific actions that you can perform:
+テンプレートグリッドでアクションを実行するには、ページで選択して右クリックします。 可能なアクションのリストが開きます。 **データ ソースの選択**, **表示される条件の編集**など、このリストからいくつかのアクションがあります。 は、プロパティを設定するための迅速な方法です。次のアクションは、実行できる特定のアクションです。
 
-* **Go to entity** – opens a domain model and highlights an an entity that is used as the data source
-* **Go to data source** **microflow **– this action is only displayed when a microflow is set as the data source and opens this microflow
+* **エンティティに移動** – ドメインモデルを開き、データソースとして使用されるエンティティをハイライトします
+* **データソースに移動します** **microflow **– この動作は、マイクロフローがデータソースとして設定されている場合にのみ表示されます。
 
-## 5 Read More
+## 5 続きを読む
 
-* [Page](page)
-* [Data Widgets](data-widgets)
-* [Data Sources](data-sources)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [データウィジェット](data-widgets)
+* [データソース](データソース)
+* [ページエディターで共通のプロパティ](common-widget-properties)
