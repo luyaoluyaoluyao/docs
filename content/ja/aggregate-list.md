@@ -1,80 +1,80 @@
 ---
-title: "Aggregate List"
+title: "集計リスト"
 parent: "list-activities"
 menu_order: 1
 tags:
   - "studio pro"
-  - "Aggregate"
+  - "集計値"
   - "Sum"
-  - "Average"
-  - "Count"
-  - "Minimum"
-  - "Maximum"
+  - "平均"
+  - "カウント"
+  - "最小"
+  - "最大値"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Aggregate list** activity can be used to calculate aggregated values over a list of objects. The aggregated values supported by this activity are:
+**集計リスト** アクティビティは、オブジェクトのリスト上で集計値を計算するために使用できます。 このアクティビティでサポートされている集計値は次のとおりです。
 
-* average
-* count
-* maximum
-* minimum
+* 平均
+* カウント
+* 最大
+* 最小
 * sum
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of aggregate list properties is represented in the image below:
+集約リストのプロパティの例を以下の画像に示します。
 
-![aggregate list properties](attachments/list-activities/aggregate-list-properties.png)
+![集約リストのプロパティ](attachments/list-activities/aggregate-list-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The aggregate list properties pane consists of the following sections:
+集約リストプロパティペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 List
+### 3.1 リスト
 
-The name of the list to aggregate.
+集計するリストの名前。
 
-### 3.2 Function
+### 3.2 関数
 
-Defines which type of aggregation is applied.
+集計の種類を指定します。
 
-| Value   | Description                                                         |
-| ------- | ------------------------------------------------------------------- |
-| Average | The average of all values of an attribute from the list of objects. |
-| Count   | The total number of objects in the list.                            |
-| Minimum | The minimum of all values of an attribute from the list of objects. |
-| Maximum | The maximum of all values of an attribute from the list of objects. |
-| Sum     | The sum of all values of an attribute from the list of objects.     |
+| 値    | 説明                        |
+| ---- | ------------------------- |
+| 平均   | オブジェクトのリストから属性のすべての値の平均。  |
+| カウント | リスト内のオブジェクトの合計数。          |
+| 最小   | オブジェクトのリストから属性のすべての値の最小値。 |
+| 最大値  | オブジェクトのリストから属性のすべての値の最大値。 |
+| Sum  | オブジェクトのリストから属性のすべての値の合計。  |
 
-### 3.3 Attribute
+### 3.3 属性
 
-Defines which attribute of the objects in the list is used to aggregate over. This must be a numeric attribute (Long, Integer, or Decimal).
+リスト内のオブジェクトのどの属性を使用して集計を行うかを定義します。 これは数値属性（ロング、整数、または小数）でなければなりません。
 
 {{% alert type="info" %}}
-When using the 'Count' function it is not necessary to select an attribute, as it simply counts the number of objects in the list.
+'Count' 関数を使用する場合、リスト内のオブジェクト数をカウントするため、属性を選択する必要はありません。
 {{% /alert %}}
 
-### 3.4 Variable Name
+### 3.4 変数名
 
-The name of the variable in which the result of the aggregation is stored. This variable will have a numeric data type that depends on the selected function.
+集計の結果が格納される変数の名前。 この変数には、選択した関数に依存する数値データ型があります。
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
