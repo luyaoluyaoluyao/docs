@@ -1,5 +1,5 @@
 ---
-title: "Mendix 7 工作室指南"
+title: "工作室9指南"
 tags:
   - "工作室"
   - "web modeler"
@@ -7,7 +7,7 @@ tags:
 
 {{% alert type="warning" %}}
 
-**Studio 7 Guide** 描述与 Mendix 7.23.7 版本相对应的 Mendix Studio 功能。 关于最新功能和功能的详情，请参阅 [Studio 8 Guide](/studio)。
+**Studio 9 Guide** 描述与 Mendix 版本 9相对应的 Mendix Studio 功能。 它描述了最新的工作室功能和功能。
 
 {{% /报警 %}}
 
@@ -22,18 +22,18 @@ The Mendix Platform includes [Mendix Studio](general) in addition to [Mendix Stu
 * 视觉模型一个应用程序的交互和流控制
 * 利用您的企业设计语言创建不仅仅是品牌和主题的符合公司标准的吸引应用
 
-## 2 文档类别
+## 指南类别
 
-*Studio 7 指南* 分为以下类别：
+*Studio 9 指南* 分为以下类别：
 
 * [常规信息](general)
-* [域模型](域名模型)
 * [页 次](page-editor)
+* [使用数据](work-with-data)
 * [导航文档](navigation)
 * [微型流动](微流)
-* [数据过滤器](筛选器)
+* [工作流](workflows)
 * [正在预览 & 发布您的应用](publishing-app)
 * [检查](检查)
-* [一致性错误](一致性错误)
 * [主题自定义器](theme-customizer)
 * [设置](设置)
+* [合作](collaboration)
