@@ -5,17 +5,13 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/operations.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Provides the actual methods of which the webservice is composed.
 
 Looking at an operation in more detail, you can see that a microflow can be selected. When you select a microflow, the other fields will be automatically filled. These can be changed as needed.
 
-An operation has the following properties:
+An operation has the properties described below.
 
 ## 2 General
 
@@ -62,18 +58,14 @@ Defines the name of the parameter in the webservice call. This is initially copi
 Is available when the parameter is a list, and can be used to name the object in the list.
 
 {{% alert type="info" %}}
-
 The CountCarsAndHp operation. It takes a non-optional list of Vehicle as a parameter which is called VehicleList and consists of objects called Vehicle. This information is based on the microflow and entity model but can be modified.
-
-{{% /alert %}}{{% alert type="info" %}}
+{{% /alert %}}
 
 ![](attachments/16713701/918221.png)
 
 The microflow attached to the CountCarsAndHp operation. It takes a list of objects of the entity Vehicle as input and returns an object that holds the number of cars and the total amount of horsepower of those cars.
 
-{{% /alert %}}
-
-### 3.7 Exposed Attributes and Associations
+### 3.7 Exposed Attributes & Associations
 
 If you click 'Select...' in the parameter tab, you can select individual members of the entity that is being passed as a parameter. The toolbar buttons are available to help you quickly perform operations that would otherwise be laborious.
 
@@ -86,13 +78,11 @@ If you click 'Select...' in the parameter tab, you can select individual members
 | All nillable     | Checks the Nillable box on every expanded node and visible leaf node.                                                    |
 | All non-nillable | Unchecks the Nillable box on every expanded node and visible leaf node.                                                  |
 
-{{% alert type="info" %}}
-
 ![](attachments/16713701/16843878.png)
 
 Here you can select which members of the entity can be passed and/or are optional or nillable, as well as set their names. Note that checking Optional or Nillable on the root element has no effect; you should set these values in the operation editor.
 
-{{% /alert %}}{{% alert type="info" %}}
+{{% alert type="info" %}}
 
 The order of XML elements in the WSDL does not by definition reflect the order of attributes in entities in the domain model. The order of members in the dialog is the same as the order of elements in the WSDL (and can be different from the order of attributes in entities). This gives a better overview of the WSDL contract that is exposed from Mendix. The structure you see in the members dialog reflects the structure in the WSDL.
 
@@ -100,7 +90,7 @@ New attributes from entities will appear as new elements _below_ members that ar
 
 {{% /alert %}}{{% alert type="info" %}}
 
-If you expose the Password (hashed string) attribute of a System.User entity (or a specialization thereof), a warning appears that there is a risk that someone does a brute-force attack to obtain the original plain-text password. The risk is considerably less when you use a strong hashing algorithm (preferably 'BCrypt'). The hashing algorithm can be set in the Project settings.
+If you expose the Password (hashed string) attribute of a System.User entity (or a specialization thereof), a warning appears that there is a risk that someone does a brute-force attack to obtain the original plain-text password. The risk is considerably less when you use a strong hashing algorithm (preferably 'BCrypt'). The hashing algorithm can be set in the app settings.
 
 {{% /alert %}}
 
@@ -124,12 +114,8 @@ This determines if the element in the XML can be left out if the return value is
 
 This determines if the element in the XML is sent as nil if the return value is empty.
 
-Optional and Nillable cannot be checked both.
-
-{{% alert type="info" %}}
+Optional and Nillable cannot both be checked.
 
 ![](attachments/16713701/16843880.png)
 
 Here, you can see an optional Order entity set as the return type of the operation ReturnsOrder.
-
-{{% /alert %}}
