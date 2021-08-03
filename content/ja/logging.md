@@ -9,6 +9,8 @@ tags:
 
 Below we describe what the various log levels of the runtime will show as output. During development, these log levels can be set in the console (advanced -> set log levels), when deployed on a server, please refer to the [Deployment](/developerportal/deploy/mendix-cloud-deploy) pages.
 
+You can also set log levels to provide more or less information when testing locally using the console in Studio Pro. See [Configuring the Log Levels for Standard Log Messages](/howto/monitoring-troubleshooting/log-levels#standard-log-levels) in *How To Set Log Levels* for more information.
+
 ## 2 Log Levels
 
 ### 2.1 Critical
@@ -78,6 +80,7 @@ This list is currently incomplete and is being worked on.
 | ObjectManagement             | Logs errors relating to attempts to make associations to non-existent object                                                                                                                        |
 | OData Publish                | Log messages related to published OData services.                                                                                                                                                   |
 | QueryParser                  | Logs messages related to the parsing or interpretation of XPath and OQL queries.                                                                                                                    |
+| Queue                        | All actions related to Task Queues                                                                                                                                                                  |
 | REST Publish                 | Log messages related to published REST services.                                                                                                                                                    |
 | RequestStatistics            |                                                                                                                                                                                                     |
 | Services                     |                                                                                                                                                                                                     |
@@ -86,6 +89,7 @@ This list is currently incomplete and is being worked on.
 | StorageSwift                 |                                                                                                                                                                                                     |
 | WebServices                  | Traces SOAP call request and response contents.                                                                                                                                                     |
 | WebUI                        |                                                                                                                                                                                                     |
+| Workflow Engine              | Logs messages related to workflow executions, for example, lifecycle events, such as a start or an end of a workflow, execution of workflow actions, and errors that occur during the execution.    |
 
 ### 3.2 JSON{#json}
 
