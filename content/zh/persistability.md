@@ -1,28 +1,41 @@
 ---
 title: "Persistability"
 parent: "entities"
-menu_order: 10
+menu_order: 20
 tags:
   - "domain model"
   - "entity"
   - "persistability"
   - "persistable"
   - "non-persistable"
-  - "transient"
 ---
 
-The "persistable" property of an entity in the domain model defines whether an object can be stored in the database. This page describes what it means for an entity to be persistable and what the related term "transient" means.
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/persistability.pdf).
+{{% /alert %}}
 
-## 1 Persistable and Non-Persistable Properties
+## 1 Introduction
 
-When an entity is declared persistable, a database table is created for the entity. Committing an instance of such an entity results in a row being inserted into the table. Attribute and association information stored in this instance is saved in the database as well.
+The **Persistable** property of an entity in the domain model defines whether an object can be committed to the database.
 
-Performing a rollback on persistable auto-committed objects or objects with the state "NEW" deletes the row corresponding with this object from the database table for the associated entity. Otherwise, a rollback only reverts changes in memory since the last commit.
+Persistable entities are colored blue in the domain model. Non-persistable entities are colored orange. The **Customer** entity in the image below is persistable, while **ProductQueryResults** is non-persistable.
 
-Non-persistable entities cannot be stored in the database and hence have no associated database table. Committing non-persistable entities only stores the current attribute values and association values in memory, which allows for a rollback to revert to those values.
+![Picture of a persistable and a non-persistable entity](attachments/domain-model/persistable-vs-non-persistable.png)
 
-## 2 Transient Property
+## 2 Persistable Entities {#persistable}
 
-All objects associated with domain model entities are inherently transient when they are created in Mendix. In this context transient means they only exist in memory.
+When an entity is declared persistable, a database table is created for the entity.
 
-When an object is created, the database will not be accessed. The exception is when retrieving autonumber information when attributes of this type are present (autonumber attributes are only allowed for persistable entities). This means a transient object is eligible for garbage collection when not in use anymore.
+Committing an object of this entity type results in a row being inserted into the table. The attribute and association values for the object are saved in the database as well.
+
+### 2.1 Autocommitted Objects
+
+Usually, a rollback reverts changes in memory since the last commit.
+
+However, performing a rollback on persistable autocommitted objects or objects with the state "NEW" deletes the row corresponding with this object from the database table for the associated entity. See [Object Activities](object-activities) for more information about autocommitted objects.
+
+## 3 Non-Persistable Entities {#non-persistable}
+
+Non-persistable entities are stored in the runtime memory and never get committed to the database. Therefore, they have no table in the database.
+
+Committing non-persistable entities records the current attribute values and association values in memory, allowing a rollback to revert to these values.
