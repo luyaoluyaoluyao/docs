@@ -1,169 +1,169 @@
 ---
-title: "Performance Best Practices"
-description: "Describes Mendix best practices on optimizing an app performance."
-parent: "mx-assist-performance-bot"
+title: "业绩最佳做法"
+description: "描述优化应用性的Mendix 最佳做法。"
+parent: "mx-assist-performance bot"
 tags:
   - "studio pro"
-  - "performance"
-  - "performance bot"
-  - "mx assist"
-  - "mendix assist"
+  - "执行情况"
+  - "性能机器人"
+  - "mx 帮助"
+  - "mendix 帮助"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document outlines performance issues and Mendix best practices for optimizing an app performance.
+本文件概述了优化应用性能的性能问题和Mendix 最佳做法。
 
-## 2 Calculated Attributes Best Practices {#mxp001}
+## 2 计算出来的属性最佳做法 {#mxp001}
 
-<a name="mxp002"></a>When an object has calculated attributes, each time this object is changed or retrieved from the storage, its calculated attributes are computed by calling a microflow. If the logic behind calculated attributes retrieves other objects or executes Integration activities, it will result in an extra load (and delay) while the outcome of the logic is not used. Creating calculated attributes always affects performance, so you should evaluate whether it is necessary to use them. For more information on attributes, see [Attributes](attributes).
+<a name="mxp002"></a>当一个对象已经计算属性时，每次从存储中更改或检索该对象。 其计算出来的属性是通过调用微流程计算出来的。 如果计算出来的属性背后的逻辑检索其他对象或执行集成活动， 它将导致额外的负荷(和延迟)，而没有使用逻辑结果。 创建计算的属性总是会影响性能，所以您应该评估是否需要使用这些属性。 关于属性的更多信息，请参阅 [属性](attributes)。
 
-In most cases, the logic behind a calculated attribute is always executed when the object is used. It is executed whenever there is no retrieval schema for a Retrieve activity (which is the case with data grids). The logic behind calculated attributes is executed in the following elements:
+在大多数情况下，计算属性背后的逻辑总是在使用对象时执行。 当没有检索方案用于检索活动（数据网格就是这种情况）时执行它。 计算属性背后的逻辑在以下元素中执行：
 
-- Retrieve and change object activities in microflows
-- In UI widgets (for example, data views, custom widgets)
-- When an object is passed from the UI as a parameter to a microflow (for example, a button triggering a microflow).
+- 获取和更改微流中的对象活动
+- 在 UI 小部件 (例如数据视图，自定义小部件)
+- 当一个对象从UI作为参数传递到微流时(例如一个按钮触发微流)。
 
-There are two different performance issues with calculated attributes that you can easily fix:
+有两个不同的性能问题，您可以轻松地修复计算属性：
 
-1. [When you use calculated attributes on a page](#calculated-attribute-on-page)
-2. [When there are unused calculated attributes](#unused-calculated-attributes)
+1. [当您在一个页面上使用计算出来的属性](#calculated-attribute-on-page)
+2. [当有未使用的计算属性](#unused-calculated-attributes)
 
-### 2.1 Avoid Using Calculated Attributes on a Page {#calculated-attribute-on-page}
+### 2.1 避免在页面上使用计算出来的属性 {#calculated-attribute-on-page}
 
-Retrieve activities trigger the logic of calculated attributes, which can lead to database actions and microflow calls being executed (objects retrieving each other through calculated attributes).
+获取活动触发计算属性的逻辑， 它可以导致数据库动作和微流程调用(通过计算属性相互检索对象)。
 
-If data widgets (list view, data view, or data grid) on a page are using calculated attributes, this may affect the time to load and display the page.
+如果一个页面上的数据部件(列表视图，数据视图或数据网格)使用计算的属性， 这可能会影响加载和显示页面的时间。
 
-#### 2.1.1 Steps to Fix
+#### 2.1.1 修理步骤
 
-To fix the issue, do the following:
+为了解决这个问题，请做以下工作：
 
-1. In the domain model, change the attribute to be stored instead of calculated.
-2. Wherever the attribute is about to be committed to the database, calculate the value using the relevant microflow.
-
-{{% alert type="info" %}}
-
-You will also need to migrate any existing data, since when the attribute is changed to be stored, the database will only contain the default value for that data type.
-
-{{% /alert %}}
-
-### 2.2 Remove Unused Calculated Attributes {#unused-calculated-attributes}
-
-As Retrieve activities trigger the logic of calculated attributes, it could lead to an execution chain of database actions and microflow calls (objects retrieving each other through calculated attributes).
-
-If calculated attributes are not used, they can safely be removed to avoid redundant microflow calls.
-
-#### 2.2.1 Steps to Fix
-
-To fix the issue, delete the unused calculated attribute.
-
-## 3 Add an Index to Attributes in Sort Bars {#mxp003}
-
-[Sort bars](sort-bar) are used to sort items in data widgets. Sort bars can be used in three different types of data widgets:
-
-- Data grid
-- Template grid
-- Reference set selector
-
-Each sort item in the sort bar is sequentially utilized to order the data in the widget. Adding an [index](indexes) on the attributes used in sort items can make the sorting process faster, subsequently improve the performance of the page.
-
-There can be four operations performed on an entity: create, update, delete, and select. Entities, for which the number of create, update, and delete operations is much greater than the number of select operations can be called *write-intensive* because most operations mutate data in a database rather than select from it.
-
-Entities, for which the number of select operations is much greater than the number of create, update, and delete operations can be called *read-intensive* because most operations select data from the database. It is important to perform this optimization only on attributes belonging to entities which are predominantly *read-intensive*.
-
-As totally different best practices apply for read-intensive and write-intensive entities, it would be valuable to differentiate entities by the type of operations that are performed on the entities.
-
-### 3.1 Steps to Fix
-
-To fix the issue, add an index on attributes which are used as sort items in sort bars on pages.
-
-## 4 Avoid Committing Objects Inside a Loop with Create Object, Change Object, or Commit Activities {#mxp004}
-
-<a name="mxp005"></a>In a microflow, Mendix objects can be persisted to the database with three activities: the **Create object** activity, **Change object** activity, and **Commit** activity. For objects that are created or changed in a loop, it is not the best practice to commit them immediately in the loop, as this comes with an unnecessary performance overhead. Instead, it is recommended to perform a batch commit of several created/changed objects with the **Commit** activity outside of the loop to reduce database, application, and network overhead. For more information on **Create object**, **Change object**, and **Commit** activities, see [Create Object](create-object), [Change Object](change-object), and [Commit Object(s)](committing-objects).
-
-Committing lists of objects has the following benefits compared to individual commits:
-
-- The prepared statement of creating or modifying records in the database is explicitly reused by the JDBC driver and has the following benefits:
-    - The execution plan is cached
-    - The driver cares for a minimum of network overhead
-- For each database action that changes data the following actions are taken and added overhead:
-    - A savepoint is created before the action and released afterwards
-    - Auto-committed objects are retrieved from the database
-    - Auto-committed objects are stored to the database (if relevant)
-
-### 4.1 Steps to Fix for Create or Change Object Activities
-
-To fix the issue for **Create** or **Change object** activities inside the loop, do the following:
-
-1. Change the **Commit** option of a **Create**/**Change** object activity from *No* and make sure created/changed objects are available in a list.
-2. Commit the list after the loop when the iteration has finished or when number of objects in the list reaches 1000 to avoid excessive memory usage.
-
-### 4.2 Steps to Fix for the Commit Activity
-
-To fix the issue for the **Commit** activity, commit the list after the loop when the iteration has finished or when number of objects in the list reaches 1000 to avoid excessive memory usage.
-
-## 5 Convert Eligible Microflows to Nanoflows {#mxp006}
-
-Nanoflows are executed directly on an end-user's device or browser. This makes them ideal for offline usage. In contrast, microflows run in the Runtime server, thus involve usage of network traffic. Converting an eligible microflow to a nanoflow helps avoiding communication over networks and significantly boosts app performance. For more information on when to use on nanoflows and when to use them, see [Nanoflows](nanoflows).
-
-You can identify convertible microflows using the following criteria:
-
-- Microflows that have one or more of the following categories:
-    - Microflow has logic meant for offline applications.
-    - Microflow has logic for online applications but does not involve any database related actions like a committing **Create object**, **Commit**, **Retrieve**, and **Rollback** activities.
-    - Microflow has at-most one database related action. (Not the best practice)
-- Microflows that contain nanoflow-compatible activities. For information on activities supported by nanoflows, see [Activities](activities).
-- Microflow expressions do not contain the following variables: `$latestSoapFault`, `$latestHttpResponse`, `$currentSession`, `$currentUser`, `$currentDeviceType`. These variables are not supported by nanoflows.
-- As nanoflows are executed in the context of the current user, ensure that the microflow has only operations for which the current user is authorized. Otherwise the converted nanoflow will fail.
-
-### 5.1 Steps to Fix
-
-To fix the issue, do the following:
-
-1. Create a new nanoflow by right-clicking the module and selecting **Add nanoflow**.
-2. Replicate the same logic from the microflow. The new nanoflow must look almost identical to the microflow.
-3. Check usages of the microflow by right-clicking the microflow and selecting **Find usages**. Replace all usages with the newly created nanoflow.
-4. Delete the unused microflow. You can do this by selecting the microflow and pressing <kbd>Delete</kbd> or by right-clicking it and selecting **Delete**.
-
-## 6 Add Index to Attributes that Are Used in XPath Expressions {#mxp007}
-
-[XPath expressions](xpath) can take a long time to run depending on how many records the underlying entities contain. For read-intensive entities, it makes sense to add an index on the attributes used in XPath expressions. This can significantly boost performance of object retrieval from the database. XPath expressions can also be optimized by ordering them in such a way that the first class excludes as many items as possible. This can be achieved by using indexed attributes earlier in the expression. This will make the rest of the data set to join/filter as small as possible and reduce the load on the database.
-
-Note that XPath expressions can be used in three different places:
-
-- Access rules and entities
-- Source/Filter for lists and grids on pages
-- Retrieve actions in both microflows and Java actions
-
-### 6.1 Steps to Fix
-
-To fix the issue, do the following:
-
-1. Check if the underlying entity contains a substantial amount of records before adding an index (at least 10000 records).
-2. Add an index per each attribute used in the XPath expression only for scenarios where read-intensive operations are predominantly performed on the underlying entities.
+1. 在域模型中，更改要存储而不是计算的属性。
+2. 在哪里该属性将被用于数据库中，使用相关的微流计算值。
 
 {{% alert type="info" %}}
 
-This optimization may not be very beneficial for data types like Boolean and enumerations due to a limited number of possible values of these types. It is not recommended to add indexes for such types.
+您还需要迁移任何现有数据，因为当属性被更改为被存储时， 数据库将只包含该数据类型的默认值。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 7 Avoid Caching Non-Persistable Entities {#mxp008}
+### 2.2 删除未使用的计算属性 {#unused-calculated-attributes}
 
-A non-persistable object is an object that is considered temporary and only exists in the memory. It is an instance of a non-persistable entity. For more information on persistable and non-persistable entities, see [Persistablity](persistability). As these objects exist only in memory, caching them is not useful. On the one hand, it is redundant to create associations of non-persistable entities with System.Session or System.User persistable entities. On the other hand, it is important to cache objects which do not change very often but are used frequently in logic. This will help avoid the overhead of database communication. Persistable entities can be connected to the System.Session of the user and be used as a cache of outcomes. For more information on objects and caching, see [Objects & Caching](objects-and-caching).
+当获取活动触发计算属性的逻辑时， 它可能导致数据库动作和微流调用的执行链(通过计算属性相互检索对象)。
 
-You can use the following guidelines to decide whether caching is needed:
+如果不使用计算出来的属性，它们可以安全地被移除，以避免多余的微流调用。
 
-- Data does not change very often
-- Data is read very often
-- The volume of data is limited (usually less than 10 000 records)
-- The impact of using stale data is accepted
+#### 2.2.1 修理步骤
 
-### 7.1 Steps to Fix
+要解决这个问题，请删除未使用的计算属性。
 
-To fix the issue, do the following:
+## 3 在排序条中添加索引到属性 {#mxp003}
 
-1. For an entity that does not change very often, make it persistable if its objects are used frequently for your logic.
-2. If the above condition is not met, remove the association of the non persisted entity with System.User or System.Session.
+[排序条](sort-bar) 用于排序数据部件中的项目。 排序条可以用于三种不同类型的数据部件：
+
+- 数据网格
+- 模板网格
+- 参考设置选择器
+
+排序栏中的每个排序项都被顺序用来在部件中排序数据。 在排序项目中使用的属性上添加一个 [索引](indexes) 可以使排序过程更快，随后提高页面的性能。
+
+在一个实体上可以执行四个操作：创建、更新、删除和选择。 创建、更新数量的实体 并删除操作远远超过可调用的 *写密* 所选操作的数量，因为大多数操作都会在数据库中变换数据，而不是从数据库中选择。
+
+所选操作数量大大超过创建、更新数量的实体 并删除操作可以叫做 *读取密集* ，因为大多数操作从数据库中选择数据。 重要的是仅在属于主要是 *读取密集的* 的实体属性上执行此优化。
+
+由于读密和写密实体适用完全不同的最佳做法， 按实体所从事的业务类型区分实体将是有价值的。
+
+### 3.1 修理步骤
+
+为了解决这个问题，在页面按排序条条目的属性上添加索引。
+
+## 4 避免在循环中用创建对象、更改对象或提交活动 {#mxp004}
+
+<a name="mxp005"></a>在 microflow中，Mendix 对象可以通过三个活动持续到数据库： **创建对象** 活动。 **更改对象** 活动和 **提交** 活动 对于在循环中创建或改变的对象，将其立刻提交到循环中并不是最佳做法。 这涉及不必要的性能间接费用。 而是这样。 它建议在循环外面进行几次创建/更改的对象的批次承诺，并使用 **提交** 活动来减少数据库。 应用程序和网络间接费用。 关于 **创建对象**, **更改对象**和 **提交** 活动 参见 [创建对象](create-object), [更改对象](change-object), 和 [提交对象](committing-objects).
+
+与个人承诺相比，提交对象清单具有以下好处：
+
+- 数据库中创建或修改记录的已准备好的说明被JDBC驱动程序明确重新使用，具有以下好处：
+    - 执行计划已缓存
+    - 司机关心最小的网络开销。
+- 对于更改数据的每个数据库动作，将采取以下动作并添加间接费用：
+    - 保存点是在操作之前创建的，然后发布
+    - 从数据库中检索自动提交的对象
+    - 自动提交的对象被存储到数据库(如果相关)
+
+### 4.1 修理创建或更改对象活动的步骤
+
+若要修复 **的问题，请创建** 或 **更改循环中的对象** 的活动，请执行以下操作：
+
+1. 更改 **提交** 选项a **创建**/**更改** 对象活动从 *无* 并确保创建/更改对象在列表中可用。
+2. 当迭代完成或列表中对象数量达到1000时，在循环之后提交列表，以避免过多的内存使用。
+
+### 4.2 规定承诺活动的步骤
+
+修复 **提交** 活动的问题, 当迭代完成或列表中对象数量达到1000时，在循环结束后提交列表，以避免内存使用过多。
+
+## 5 将合格的微流转换成纳诺夫洛斯 {#mxp006}
+
+Nanoflow 直接在最终用户的设备或浏览器上执行。 这使它们更适合脱机使用。 与此相对照，微流运行于运行时服务器，因此涉及网络流量的使用。 将合格的微流转换为nanoflow 有助于避免网络上的通信并大大提高应用性能。 欲了解更多关于什么时候使用nanoflow以及什么时候使用它们的信息，请参阅 [Nanoflows](nanoflows)。
+
+您可以使用以下标准识别可兑换微流：
+
+- 2. 具有以下一个或多个类别的微额资金流：
+    - 微流具有离线应用的逻辑意义。
+    - Microflow 具有在线应用程序的逻辑，但不涉及任何与数据库相关的动作，如提交 **创建对象**， **提交**, **检索**, 和 **回滚** 活动
+    - 微流程最多有一个与数据库相关的操作。 (不是最佳做法)
+- 微流含有纳米但不兼容的活动。 欲了解纳米洛支持的活动信息，请参阅 [活动](activities)。
+- 微流程表达式不包含以下变量： `$latestSoapFault`, `$latestHttpResponse`, `$currentSession`, `$currentUser`, `$currentDeviceType`. nanoflow不支持这些变量。
+- 由于nanoflow 是在当前用户的情况下执行的，因此确保微流只有当前用户被授权的操作。 否则转换的nanoflow 将失败。
+
+### 5.1 修理步骤
+
+为了解决这个问题，请做以下工作：
+
+1. 右键单击模块并选择 **添加 nanoflow** 来创建新的 nanoflow 。
+2. 从微流中复制相同的逻辑。 新的纳米流必须看起来与微流几乎完全相同。
+3. 通过右键单击微流并选择 **查找用途** 来检查微流的用法。 用新创建的nanoflow替换所有用法。
+4. 删除未使用的微流。 您可以通过选择微流程并按 <kbd>删除</kbd> 或右键单击并选择 **删除** 来做到这一点。
+
+## 6 将索引添加到用于XPath 表达式的属性 {#mxp007}
+
+[XPath 表达式](xpath) 可能需要很长时间才能运行，这取决于底层实体包含多少记录。 对于读取密集实体来说，在XPath 表达式中使用的属性上添加一个索引是有意义的。 这将大大提高从数据库检索对象的性能。 XPath 表达式也可以通过按序排序，将尽可能多的项目排除在外。 这可以通过在表达式中早些时候使用索引属性来实现。 这将使数据集的其余部分尽可能小到加入/过滤，并减少数据库上的负荷。
+
+请注意，XPath 表达式可以在三个不同的地方使用：
+
+- 访问规则和实体
+- 页面列表和网格的源/过滤器
+- 获取微流和Java 动作中的操作
+
+### 6.1 修理步骤
+
+为了解决这个问题，请做以下工作：
+
+1. 在添加索引前检查底层实体是否包含大量记录(至少为 10000项记录)。
+2. 为 XPath 表达式中使用的每个属性添加索引，仅适用于主要在基础实体上执行的读密集操作的场景。
+
+{{% alert type="info" %}}
+
+这种优化可能对像布尔和枚举这样的数据类型不会非常有益，因为这些类型的可能值有限。 建议不要为此类类型添加索引。
+
+{{% /报警 %}}
+
+## 7 避免隐藏非持久实体 {#mxp008}
+
+不可持续的对象是一个被认为是临时的对象，仅存在于内存中。 这是一个不可持续的实体的例子。 欲了解关于可持久和不可持久实体的更多信息，请参阅 [可持久性](persistability)。 由于这些对象仅存在于内存中，缓存它们是没有用的。 一方面，建立系统化实体或系统化实体不可持续的实体协会是多余的。 另一方面，重要的是缓存那些不经常变化但经常被逻辑使用的物体。 这将有助于避免数据库通信的间接费用。 可持久的实体可以连接到用户的 System.Session 并被用作缓存结果。 关于对象和缓存的更多信息，见 [对象 & 缓存](objects-and-caching)。
+
+您可以使用以下指南来决定是否需要缓存：
+
+- 数据不会经常更改
+- 数据读取频率很高
+- 数据量有限(通常低于10 000项记录)
+- 使用陈旧数据的影响已被接受
+
+### 7.1 修理步骤
+
+为了解决这个问题，请做以下工作：
+
+1. 对于一个不会经常改变的实体，如果其对象经常被用于您的逻辑，它就可以持续存在。
+2. 如果不满足上述条件，请移除系统用户或系统用户的不稳定实体的关联。
 
