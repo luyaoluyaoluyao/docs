@@ -1,33 +1,33 @@
 ---
-title: "Annotation"
-parent: "microflows-and-nanoflows"
+title: "批注"
+parent: "微流和微流法"
 menu_order: 60
 tags:
   - "studio pro"
-  - "annotation"
-  - annotation flow
+  - "注释"
+  - 批注流程
 aliases:
   - /refguide/annotation-flow.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-An annotation is an element that can be used to put comments to a flow.
+注解是一个可以用来对流程进行注释的元素。
 
-In the example below, you use a **Show message** activity to warn end-users about unpaid orders with a pop-up message in the client. Later you want to extend this warning with an e-mail message send to the user. You can use an annotation as a reminder and put it above the current activity.
+在下面的示例中，您使用 **显示消息** 活动来警告最终用户关于未支付订单的警告，客户端中有一个弹出消息。 稍后您想要通过发送邮件给用户来扩展此警告。 您可以使用批注作为提醒，并将其置于当前活动之上。
 
 ![](attachments/anotation/anotation.png)
 
-## 2 Common Properties
+## 2 公共属性
 
-### 2.1 Caption
+### 2.1 标题
 
-For details, see [Common Properties](microflow-element-common-properties).
+欲了解详情，请参阅 [共同属性](microflow-element-common-properties)。
 
-## 3 Annotation Flow {#annotation-flow}
+## 3 批注流 {#annotation-flow}
 
-An annotation flow is a connection that can be used to link an annotation to a flow object(s).
+注流是一种连接，可用来将注解链接到一个流程对象 (s)。
 
-For example, this is an annotation flow linking an annotation and a **Microflow call** activity:
+例如，这是一个注解流程，将注解和 **微流程调用** 活动联系起来：
 
 ![](attachments/anotation/anotation-flow.png)
