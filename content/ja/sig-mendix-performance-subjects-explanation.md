@@ -1,82 +1,82 @@
 ---
-title: "SIG–Mendix Performance Subjects"
+title: "SIG–Mendix パフォーマンスの件名"
 category: "Mendix Runtime"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document outlines the communication patterns used by the Mendix Runtime environment for some typical application use cases.
+このドキュメントでは、Mendix Runtime環境で使用される通信パターンを、いくつかの典型的なアプリケーションユースケースで概説しています。
 
-These are the goals for this document:
+このドキュメントの目標は次のとおりです。
 
-*   Present information for assessing the quality of the Mendix Runtime environment regarding efficiency of communication
-*   Present information for determining the impact of their design decisions on communication efficiency and performance
+*   通信効率に関するMendix Runtime環境の品質を評価するための現在の情報
+*   設計上の意思決定が通信効率とパフォーマンスに及ぼす影響を決定するための情報
 
-This document was written to address the missing information required by SIG to assess the performance efficiency of communication of Mendix applications. The last section of the document outlines the SIG scoring on this subject and how this document addresses these requirements.
+この文書は、Mendixアプリケーションの通信性能効率を評価するためにSIGが必要とする欠落した情報に対処するために書かれました。 このドキュメントの最後のセクションでは、この主題に関するSIGのスコアリングと、このドキュメントがこれらの要件に対応する方法について概説しています。
 
-## 2 Outline of Communication Within the Mendix Runtime Environment
+## 2 Mendixランタイム環境におけるコミュニケーションの概要
 
-The Mendix Platform consists of the following components:
+Mendix プラットフォームは以下のコンポーネントで構成されています。
 
-*   Mendix Platform – completely integrated application platform-as-a-service (aPaaS) for designing, building, deploying, and managing apps
+*   Mendix Platform – アプリケーションの設計、構築、展開、管理のためのサービスとして完全に統合されたアプリケーション プラットフォーム (aPaaS)
 
-*   Developer Portal – web-based collaborative environment for design, development, and deployment of apps, managing users and environments, deploying apps to the cloud with a single click, and managing and monitoring their performance
+*   Developer Portal – アプリの設計、開発、デプロイのためのウェブベースのコラボレーション環境 ユーザーと環境の管理、ワンクリックでクラウドへのアプリのデプロイ、パフォーマンスの管理と監視
 
-*   Marketplace – a portal with hundreds of publicly available building blocks to speed up app development
+*   Marketplace – アプリ開発を加速するための数百の公開されたビルディングブロックを備えたポータル
 
-*   Mendix Modeler – multi-user modeling studio of the Mendix Platform
-*   Team Server – a central repository for managing application model versions
-*   Runtime environment – runs applications using a server part (Mendix Runtime) and a client part (Mendix Client)
-*   Build – creates deployment packages from artifacts such as models, style sheets, and custom Java classes
-*   MxID – a user management and provisioning service that applies the OpenID standard
+*   Mendix Modeler – Mendix Platformのマルチユーザーモデリングスタジオ
+*   Team Server - アプリケーションモデルのバージョンを管理するための中央リポジトリ
+*   ランタイム環境 – サーバ部品 (Mendix Runtime) とクライアント部品 (Mendix Client) を使用してアプリケーションを実行します。
+*   ビルド - モデル、スタイルシート、カスタムJavaクラスなどのアーティファクトからデプロイパッケージを作成します
+*   MxID – OpenID 標準を適用するユーザー管理およびプロビジョニングサービス
 
-The focus of this document is on the Mendix Runtime environment, more specifically the collaboration between the following parts:
+このドキュメントの焦点は、Mendix Runtime環境、より具体的には以下の部分間のコラボレーションです。
 
-*   Mendix Client – JavaScript client running in the browser of a user
-*   Mendix Runtime – Java/Scala runtime running on a server, responsible for executing microflow logic, business rules, and persisting objects
-*   RDBMS – where the data is persisted
-*   Optionally, a state store to share state between horizontally scaled runtime instances
+*   Mendix Client – ユーザーのブラウザで動作する JavaScript クライアント
+*   Mendix Runtime – Java/Scalaランタイムはサーバー上で実行され、マイクロフローロジック、ビジネスルール、および永続オブジェクトの実行を担当します
+*   RDBMS – データが永続する場所
+*   オプションで、水平方向にスケーリングされたランタイムインスタンス間で状態を共有するための状態ストア
 
-Communication between these components operates as follows:
+これらのコンポーネント間の通信は以下のように動作します。
 
-*   The Mendix Client issues two types of requests:
-    *   Static resources like pages, stylesheets, widgets, images, etc.
-    *   Application data-related communication, which includes CRUD commands on data and logic that may require data
-*   The Mendix Runtime communicates with different RDBMSs using SQL statements handled by a JDBC library
-    *   Application data is stored in a ER-model in an RDBMS
+*   Mendix クライアントは 2 種類のリクエストを発行します。
+    *   ページ、スタイルシート、ウィジェット、画像などの静的リソース。
+    *   データとデータを必要とするかもしれないロジック上のCRUDコマンドを含むアプリケーションデータ関連通信
+*   Mendix Runtime は、JDBC ライブラリによって処理される SQL ステートメントを使用して異なる RDBMS と通信します。
+    *   アプリケーションデータは、RDBMSのERモデルに格納されています
 
-## 3 Basic CRUD Communication Pattern
+## 3つの基本CRUD 通信パターン
 
-The core of most Mendix applications involves variations on the CRUD pattern – create, read, update, and delete data stored in Mendix entities.
+ほとんどのMendixアプリケーションのコアにはCRUDパターンのバリエーションが含まれています。Mendixエンティティに保存されたデータの作成、読み取り、更新、および削除です。
 
-This basic scenario can be modeled in Mendix using the following two pages:
+この基本的なシナリオは、以下の2つのページを使用してMendixでモデル化できます。
 
-* An overview page displaying a table of data for a specific entity, like this:
+* 以下のような特定のエンティティのデータテーブルを表示する概要ページです。
 
   ![](attachments/19202918/19399028.png)
 
-* A details page where a specific object of an entity can be edited, like this:
+* エンティティの特定のオブジェクトを以下のように編集できる詳細ページ:
 
   ![](attachments/19202918/19399029.png)
 
-  * This page can be reached from the first page using the New and Edit buttons
+  * このページは、新規および編集ボタンを使用して最初のページからアクセスできます。
 
 
-The following sections outline the actions involved when executing these pages. As stated earlier, this pattern can be seen in many Mendix applications, but the exact runtime result depends on many details and design decisions taken while building the application using the Mendix Modeler. More advanced data models and pages will result in more (complex) queries.
+次のセクションでは、これらのページを実行する際のアクションの概要を示します。 前述のように、このパターンは多くのMendixアプリケーションで見ることができます。 しかし、正確なランタイム結果は、Mendix Modelerを使用してアプリケーションを構築する際に取られる多くの詳細と設計の決定に依存します。 より高度なデータモデルとページは、より多くの(複雑な)クエリをもたらします。
 
-### 3.1 Read Object Required to Display Object Table
+### 3.1 オブジェクトテーブルを表示するために必要な読み取りオブジェクト
 
-Displaying a table of objects consists of the following steps:
+オブジェクトの表を表示するには、次のステップで構成されています。
 
-1. Getting the definition of the page (if not already cached by the browser).
-2. Getting the data to be displayed in the page.
-3. Updating the page.
+1. ページの定義を取得します (ブラウザーによってまだキャッシュされていない場合)。
+2. ページに表示するデータを取得します。
+3. ページを更新中です。
 
-A basic sequence diagram looks like this:
+基本的なシーケンス図は次のようになります。
 
 ![](attachments/19202918/19399030.png)
 
-The Mendix Client uses a REST-like protocol to request data from the Mendix Runtime. The following example shows what this looks like when requesting objects from the Employees entity:
+Mendix Client は、REST ライクなプロトコルを使用して、Mendix Runtime からデータを要求します。 以下の例は、Employees エンティティからオブジェクトを要求した場合のこれがどのように見えるかを示しています。
 
 ```json
 {
@@ -105,11 +105,11 @@ The Mendix Client uses a REST-like protocol to request data from the Mendix Runt
 }
 ```
 
-The XPath expression states what data is needed. This can be an entity—or just some attributes of an entities—as required by the application.
+XPath 条件式は、必要なデータを示します。 アプリケーションが要求するエンティティ、またはエンティティの属性に過ぎません。
 
-The schema section can be used to specify additional restrictions on what data is required (what attributes and how many records). This approach ensures that the amount of data transferred between Mendix Runtime and Mendix Client is minimized.
+スキーマセクションを使用して、必要なデータ(属性とレコード数)に関する追加の制限を指定することができます。 このアプローチにより、Mendix Runtime と Mendix Client 間で転送されるデータ量が最小限に抑えられます。
 
-This retrieve action results in two SQL queries – one to retrieve the data, and one to retrieve the total number of objects.
+アクションを取得すると、2つのSQLクエリになります。1つはデータを取得するクエリ、もう1つはオブジェクトの合計数を取得するクエリです。
 
 ```sql
  SELECT "myfirstmodule$employee"."id",
@@ -125,26 +125,26 @@ This retrieve action results in two SQL queries – one to retrieve the data, an
  FROM "myfirstmodule$employee"
 ```
 
-Depending on the data displayed and the domain model (usage of inheritance and row or attribute security), a retrieve may result in more queries or additional where clauses.
+表示されるデータとドメインモデル(継承と行または属性セキュリティの使用)によって異なります。 検索ではクエリが増えたりwhere節が増えたりするかもしれません
 
-The response of the Mendix Runtime to the Mendix Client is as follows:
+Mendix Runtime の Mendix クライアントへの応答は次のとおりです。
 
 ```json
 {"count":2,"mxobjects":[{"objectType":"MyFirstModule.Employee","guid":"281474976710757","attributes":{"Firstname":{"value":"peter1"},"DateOfBirth":{"value":-315622800000},"Jobtitle":{"value":"sales"},"Department":{"value":"sales"},"Lastname":{"value":"jones"&#125;&#125;},{"objectType":"MyFirstModule.Employee","guid":"281474976710657","attributes":{"Firstname":{"value":"piet"},"DateOfBirth":{"value":476406000000},"Jobtitle":{"value":"consultant"},"Department":{"value":"expert services"},"Lastname":{"value":"jansen"&#125;&#125;}]}
 ```
 
-### 3.2 Create New Object
+### 3.2 新しいオブジェクトを作成
 
-The typical create-new-object flow consists of these steps:
+一般的な create-new-object フローは以下の手順で構成されます。
 
-1. Instantiate a new object (the primary key is generated by the database, and Mendix Runtime keeps a cache of PKS).
-2. Get the edit form (if not already cached by the browser).
-3. Save the updated object in the Mendix Runtime.
-4. Commit the updated object to the database.
+1. 新しいオブジェクトをインスタンス化する (プライマリキーはデータベースによって生成され、Mendix Runtime は PKS のキャッシュを保持します)。
+2. 編集フォームを取得します(ブラウザーがまだキャッシュしていない場合)。
+3. 更新されたオブジェクトをMendix Runtimeに保存します。
+4. 更新されたオブジェクトをデータベースにコミットします。
 
 ![](attachments/19202918/19399031.png)
 
-Create a new object:
+新しいオブジェクトを作成:
 
 ```json
 {
@@ -161,7 +161,7 @@ Create a new object:
 }
 ```
 
-Save the object to the database:
+オブジェクトをデータベースに保存:
 
 ```json
 {
@@ -183,13 +183,13 @@ Save the object to the database:
 }
 ```
 
-Commit the updates to the database:
+データベースへの更新をコミット:
 
 ```java
 {"action":"commit","params":{"guid":"281474976710757"},"context":[],"profiledata":{"204ee6e9b5eddc0":25&#125;&#125;
 ```
 
-The commit will cause the Mendix Runtime to save the object to the RDBMS. Before the commit, the data is only kept in the Mendix Runtime to optimize performance and minimize impact on the database.
+commitによりMendix RuntimeがオブジェクトをRDBMSに保存されます。 コミット前に、データはMendix Runtimeにのみ保存され、パフォーマンスを最適化し、データベースへの影響を最小限に抑えます。
 
 ```sql
  INSERT INTO "myfirstmodule$employee" ("id",
@@ -206,32 +206,32 @@ The commit will cause the Mendix Runtime to save the object to the RDBMS. Before
  ?)
 ```
 
-### 3.3 Edit an Existing Object
+### 3.3 既存のオブジェクトを編集
 
-The typical edit-existing-object flow consists of these steps:
+一般的な編集-既存オブジェクトフローは以下の手順で構成されます。
 
-1. Select an object in a table of objects page (overview page).
-2. Get the edit form (if not already cached by the browser).
-3. Show object values already available in the browser in the form.
-4. Save the changed attributes of the object to the Mendix Runtime.
-5. Retrieve the object from the database.
-6. Validate the object changes.
-7. Commit the changes in the database.
+1. オブジェクトページ(概要ページ)のテーブルでオブジェクトを選択します。
+2. 編集フォームを取得します(ブラウザーがまだキャッシュしていない場合)。
+3. ブラウザで既に利用可能なオブジェクトの値をフォームに表示します。
+4. オブジェクトの変更された属性を Mendix Runtime に保存します。
+5. データベースからオブジェクトを取得します。
+6. オブジェクトの変更を検証します。
+7. データベースの変更をコミットします。
 
 ![](attachments/19202918/19399032.png)
 
-Save the changes to the database:
+変更をデータベースに保存します:
 
 ```java
 {"action":"change","params":{"281474976710757":{"Firstname":"peter1"&#125;&#125;,"context":[],"profiledata":{"204ee8bb633f9a0":25&#125;&#125;
 ```
 
-This will trigger the following actions on the database:
+これはデータベース上で次のアクションをトリガーします:
 
-*   Get the original object from the database
-*   Update the attribute changed by the user in the Runtime
+*   データベースから元のオブジェクトを取得する
+*   実行時にユーザーによって変更された属性を更新する
 
-The first step is required to determine all the data business logic and validations defined on the entity.
+最初のステップは、エンティティに定義されたすべてのデータビジネスロジックと検証を決定するために必要です。
 
 ```sql
  SELECT "myfirstmodule$employee"."id",
@@ -244,43 +244,43 @@ The first step is required to determine all the data business logic and validati
  WHERE "myfirstmodule$employee"."id" = (281474976710857)
 ```
 
-If all validations run correctly, the client can commit the changes to the database:
+すべてのバリデーションが正しく実行された場合、クライアントは変更をデータベースに反映できます:
 
 ```java
 {"action":"commit","params":{"guid":"281474976710757"},"context":[],"profiledata":{"204ee8ca8f775a0":20&#125;&#125;
 ```
 
-This will trigger the actual database update and commit.
+これにより実際のデータベースの更新とコミットがトリガーされます。
 
 ```sql
  UPDATE "myfirstmodule$employee"
  SET "dateofbirth" = ?
- WHERE "id" = ?
+ WRE "id" = ?
 ```
 
-### 3.4 Delete an Existing Object
+### 3.4 既存のオブジェクトを削除
 
-The typical delete flow consists of these steps:
+通常の削除フローは以下の手順で構成されています。
 
-1. Select an object in a table of objects (overview page).
-2. Send a delete request to the Mendix Runtime.
-3. Mendix Runtime validates the delete request.
-4. Mendix Runtime deletes object from database.
-5. Commit the changes in the database.
-6. Inform the client that the delete has succeeded.
-7. Refresh the data and update page.
+1. オブジェクトのテーブル(概要ページ)でオブジェクトを選択します。
+2. Mendix Runtimeに削除リクエストを送信します。
+3. Mendix Runtime は削除リクエストを検証します。
+4. Mendix Runtime はデータベースからオブジェクトを削除します。
+5. データベースの変更をコミットします。
+6. 削除が成功したことをクライアントに通知します。
+7. データを更新し、ページを更新します。
 
-The following sequence diagram outlines the typical delete scenario:
+次のシーケンス図は、一般的な削除シナリオの概要を示しています。
 
 ![](attachments/19202918/19399033.png)
 
-Delete the object:
+オブジェクトを削除:
 
 ```java
 {"action":"delete","params":{"guids":["281474976710757"]},"context":[],"profiledata":{"204eeae128284c0":323&#125;&#125;
 ```
 
-Get the object to enable the running of business logic, rules, and events before the actual deletion of the data:
+データを実際に削除する前に、ビジネス ロジック、ルール、およびイベントの実行を有効にするオブジェクトを取得します。
 
 ```sql
  SELECT "myfirstmodule$employee"."id",
@@ -293,44 +293,44 @@ Get the object to enable the running of business logic, rules, and events before
  WHERE "myfirstmodule$employee"."id" = (281474976710857)
 ```
 
-Delete the object from database:
+データベースからオブジェクトを削除:
 
 ```sql
-DELETE FROM "myfirstmodule$employee"
+"myfirstmodule$employee" から削除
 WHERE "id" = ?
 ```
 
-Refresh the data grid:
+データグリッドを更新:
 
 ```json
 {"action":"retrieve_by_xpath","params":{"xpath":"//MyFirstModule.Employee","schema":{"id":"a2916c7c-af2f-4267-a8e9-99604f045861","offset":0,"sort":[["Firstname","asc"]],"amount":20},"count":true,"aggregates":false},"context":[],"releaseids":["281474976710757"],"profiledata":{"204eeb2972550c0":28&#125;&#125;
 ```
 
-## 4 Executing Business Logic
+## 4 ビジネスロジックの実行
 
-The business logic is modeled using microflows in Mendix. The following sections present some typical  flows involving microflows.
+ビジネスロジックはMendixのマイクロフローを使用してモデル化されます。 次のセクションでは、マイクロフローを含む一般的な流れを示します。
 
-### 4.1 Displaying the Grid of Data Retrieved by Microflow
+### 4.1 マイクロフローによって取得されたデータのグリッドの表示
 
-A data grid on a page is often directly linked to an entity in the domain model. An alternative approach is to use a microflow to create a list of objects to be displayed in a data grid.
+ページ上のデータ グリッドは、多くの場合、ドメイン モデル内のエンティティに直接リンクされます。 別の方法として、microflow を使用して、データ グリッドに表示されるオブジェクトのリストを作成する方法があります。
 
-A microflow retrieving all objects from an entity can be modeled as follows:
+エンティティからすべてのオブジェクトを取得するマイクロフローは、次のようにモデル化できます。
 
 ![](attachments/19202918/19399034.png)
 
-In this situation, all objects are transported to the browser in one request. A user can page through all the objects without triggering communication to the Mendix Runtime.
+この場合、すべてのオブジェクトは1つのリクエストでブラウザに転送されます。 ユーザーは、Mendix Runtime との通信をトリガーすることなく、すべてのオブジェクトをページに移動できます。
 
-A high-level sequence diagram for this scenario looks like this:
+このシナリオの高レベルシーケンス図は次のようになります。
 
 ![](attachments/19202918/19399035.png)
 
-JSON action executed from Mendix Client to Mendix Runtime:
+Mendix Client から Mendix Runtime へ実行される JSON アクション:
 
 ```java
 {"action":"executeaction","params":{"actionname":"MyFirstModule.GetAllEmployees","applyto":"none"},"context":[],"profiledata":{"204f418ba05e7c0":55&#125;&#125;
 ```
 
-SQL statement executed on the database:
+データベース上で実行された SQL ステートメント:
 
 ```sql
 SELECT "myfirstmodule$employee"."id",
@@ -342,7 +342,7 @@ SELECT "myfirstmodule$employee"."id",
 FROM "myfirstmodule$employee"
 ```
 
-Response from the Mendix Runtime to the Mendix Client:
+Mendix Runtime から Mendix クライアントへの応答:
 
 ```json
 {"actionResult":[{"objectType":"MyFirstModule.Employee","guid":"281474976710657","attributes":{"Firstname":{"value":"piet"},"DateOfBirth":{"value":476406000000},"Jobtitle":{"value":"consultant"},"Department":{"value":"expert services"},"Lastname":{"value":"jansen"&#125;&#125;},{"objectType":"MyFirstModule.Employee","guid":"281474976710957","attributes":{"Firstname":{"value":"wee"},"DateOfBirth":{"value":1454886000000},"Jobtitle":{"value":"ewji"},"Department":{"value":"wew"},"Lastname":{"value":"ewfeew"&#125;&#125;},{"objectType":"MyFirstModule.Employee","guid":"281474976710958
@@ -350,58 +350,58 @@ Response from the Mendix Runtime to the Mendix Client:
 }]}
 ```
 
-## 5 Mendix Runtime Internals
+## Mendix Runtime Internals 5名
 
-As can be seen in the description of the CRUD scenario, the Mendix Platform ensures efficiency while running the application in a number of ways:
+CRUD シナリオの説明に見られるように、Mendix Platform は、アプリケーションをさまざまな方法で実行する際の効率を保証します。
 
-*   Only data required for user actions is involved in communication and processing
-*   An efficient transport protocol is used when communicating between different processes
-    * Terse JSON format between Mendix Client and Mendix Runtime
-    * Native SQL protocol for RDBMS communication
-*   Data already available in the Mendix Client is reused if possible (see the edit scenario where the data fetched for the data grid is reused in the edit form)
+*   通信と処理に関与するのはユーザーアクションに必要なデータのみです
+*   効率的なトランスポートプロトコルは、異なるプロセス間の通信に使用されます。
+    * Mendix Client と Mendix Runtime の間の JSON フォーマット
+    * RDBMS通信用のネイティブSQLプロトコル
+*   可能であれば、Mendix クライアントで既に利用可能なデータが再利用されます(編集フォームでデータグリッドにフェッチされたデータが再利用される編集シナリオを参照してください)。
 
-### 5.1 Data Transformation
+### 5.1 データ変換
 
-Data is transported between Mendix Client and database as required. The following transformation are applied when going full circle from Mendix Client to database and back again:
+必要に応じてMendixクライアントとデータベース間でデータが転送されます。 Mendix Client からデータベースへのフルサークルを行う場合、次の変換が適用されます。
 
-*   Data entered by a user in a form is stored in JavaScript objects
-*   For communication to the Mendix Runtime, JavaScript objects are serialized to JSON
-*   The Mendix Runtime transforms the JSON objects to java MxObjects
-*   MxObject properties are bound to SQL statement parameters as needed by SQL queries
-*   JDBC result set data is transformed to MxObjects
-*   MxObjects are serialized to JSON when send to the Mendix Client
+*   フォームにユーザーが入力したデータは JavaScript オブジェクトに保存されます
+*   Mendix Runtime との通信のため、JavaScript オブジェクトは JSON にシリアライズされます。
+*   Mendix Runtime は JSON オブジェクトを Java MxObjects に変換します
+*   MxObject プロパティは、SQL クエリで必要に応じて SQL ステートメントのパラメーターにバインドされます。
+*   JDBC 結果セットデータはMxObjectsに変換されます
+*   Mendix クライアントに送信すると、MxObjects は JSON にシリアライズされます。
 
-### 5.2 State
+### 5.2 状態
 
-To facilitate (horizontal) scalability, the Mendix Platform minimizes the state kept in the Mendix Runtime memory. The overall strategy is to only have dirty objects in memory, and other objects are cleaned up at the end of a request. Objects are considered dirty if they have been changed, but the changes have not yet been persisted to the RDBMS. The state is maintained per session.
+拡張性を(水平に)高めるために、Mendix PlatformはMendix Runtimeメモリに保存されている状態を最小限に抑えます。 全体的な戦略は、メモリ内の汚れたオブジェクトのみを持ち、リクエストの最後に他のオブジェクトがクリーンアップされることです。 オブジェクトが変更されている場合、オブジェクトは汚れているとみなされますが、変更は RDBMS にまだ継続されていません。 状態はセッションごとに維持されます。
 
 ![](attachments/19202918/19399036.png)
 
-### 5.3 Persistency
+### 5.3 永続性
 
-Mendix automatically takes care of the translation of an application-specific entity model (domain model) to a technical RDBMS specific ER-model. As illustrated in the read part of the CRUD scenarios, data retrieval is expressed by an XPath construct that is easy to understand. For example, to retrieve all employee objects, the following XPath can be used:
+Mendixは、アプリケーション固有のエンティティモデル(ドメインモデル)の翻訳を自動的にRDBMS特定のERモデルに処理します。 CRUD シナリオの読み取り部分に示されているように、データの取得は、わかりやすいように XPath 構文により表現されます。 例えば、すべての従業員オブジェクトを取得するには、以下の XPath を使用することができます:
 
 `//MyFirstModule.Employee`
 
-This XPath expression is processed in a number of steps to a database query:
+この XPath 条件式は、データベースクエリへの多数のステップで処理されます:
 
-1. XPath is translated to an internal OQL syntax. OQL is similar to SQL, but still expresses application data in terms of the application domain model entities, instead of technical tables.
-2. Additional required expressions are added to the OQL statement as specified in the domain model (for example, to add information from a superclass entity).
-3. Domain model security constraints are applies to the OQL statement.
-4. OQL is translated to SQL and executed through JDBC on the configured RDBMS.
+1. XPath は内部の OQL 構文に変換されます。 OQL は SQL に似ていますが、テクニカルテーブルではなく、アプリケーション ドメイン モデル エンティティの観点からアプリケーションデータを表現します。
+2. ドメインモデルで指定されている OQL ステートメントに追加され、必要な式が追加されます (たとえば、スーパークラスのエンティティからの情報を追加するなど)。
+3. ドメインモデルのセキュリティ制約は、OQL ステートメントに適用されます。
+4. OQLはSQLに変換され、設定されたRDBMSでJDBCを介して実行されます。
 
-### 5.4 Scalability
+### 5.4 スケーラビリティー
 
-The Mendix Runtime can run as a single process, or it can be horizontally scaled to facilitate more concurrent users and improve availability. In this scenario, multiple Mendix Modeler instances are running. These instances run independently, there will not be any communication between the processes.
+Mendix Runtime は単一のプロセスとして実行することも、水平方向にスケーリングすることで、より多くの同時実行ユーザーを容易にし、可用性を向上させることもできます。 このシナリオでは、複数の Mendix Modelerインスタンスが実行されています。 これらのインスタンスは独立して実行され、プロセス間の通信は行われません。
 
-#### 5.4.1 Single Instance
+#### 5.4.1 シングルインスタンス
 
-Within a single instance, the Scala Akka actor model is used to handle all processing in the Mendix Runtime efficiently. Using an actor model for concurrency has this benefit:  The number of concurrent users that can be processed is not limited by the amount of threads available, as threads are not allocated per request, but rather by processing responsibility
+単一のインスタンス内で、Scala Akka アクターモデルは、Mendix Runtime のすべての処理を効率的に処理するために使用される。 同時実行にアクターモデルを使用すると、次のような利点があります。処理できる同時実行ユーザーの数は、利用可能なスレッドの量によって制限されません。 スレッドはリクエストごとに割り当てられるのではなく、責任処理によって割り当てられます。
 
-To process Mendix Client requests received by the Mendix Runtime, the actions required are dispatched to an Akka actor. This actor has a dedicated thread pool. Every (microflow) action is handled by a separate message to the action dispatcher actor. This optimizes usage of threads for blocking actions. For example, if an action part of a microflow calls an external web service and is blocked waiting for a response, this only impacts the threadpool for the action dispatcher, not for the HTTP request handler.
+Mendix Runtime によって受信された Mendix Client リクエストを処理するには、必要なアクションが Akka アクターに送信されます。 このアクターには専用のスレッドプールがあります。 すべての(マイクロフロー)アクションは、アクションディスパッチャアクタに別のメッセージによって処理されます。 これにより、ブロックアクションのスレッドの使用が最適化されます。 例えば、マイクロフローのアクションの一部が外部のWebサービスを呼び出し、応答を待つのをブロックされている場合。 これは、HTTP リクエストハンドラではなく、アクションディスパッチャのスレッドプールにのみ影響します。
 
-#### 5.4.1 Multi-Instance
+#### 5.4.1 マルチインスタンス
 
-When running in a horizontally scaled scenario, Mendix Runtime state is coordinated via a Redis statestore. At the end of every request, all the dirty objects of a session are written to the Redis statestore. At the start of a new request, this state is read from the Redis statestore.
+水平方向にスケーリングされたシナリオで実行する場合、Mendix Runtime状態はRedis状態を介して調整されます。 すべてのリクエストが終わると、セッションの汚れたオブジェクトはすべてRedisステートストアに書き込まれます。 新しいリクエストが開始されると、この状態は Redis 状態から読み込まれます。
 
 ![](attachments/19202918/19399037.png)
