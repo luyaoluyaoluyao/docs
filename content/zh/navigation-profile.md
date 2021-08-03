@@ -1,67 +1,67 @@
 ---
-title: "Navigation Profile"
+title: "导航配置文件"
 parent: "navigation"
-description: "Describes the profile properties and profile buttons for Mendix version 7.4 and above."
+description: "描述Mendix 版本 7.4 及以上的配置文件属性和配置文件按钮。"
 ---
 
 {{% alert type="info" %}}
 
-For details on how this works in Mendix versions 7.0 and 7.1, see [Navigation Before Mendix Version 7.2](navigation-before-72). For 7.2 and 7.3, see [Navigation in Mendix Versions 7.2 and 7.3](navigation-in-72-and-73)
+关于Mendix 版本7.0 和7.1中如何工作的详细情况，请参阅 [Mendix 版本7.2](navigation-before-72)。 7.2和7.3, 见 [Mendix 版本 7.2和7.3](navigation-in-72-and-73)
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 1 Overview
+## 1 概览
 
-Management of profiles is available from the **Navigation** section of a project.
+配置文件管理可从项目的 **导航** 部分获得。
 
 ![](attachments/modeler-core/2018-03-01_17-29-32.png)
 
-A profile can be added with the **Add navigation profile** button. Only one profile per type is allowed. While adding the profile, it is possible to copy the settings from an existing profile.
+可以使用 **添加导航配置** 按钮添加一个配置文件。 每个类型只允许一个配置文件。 在添加配置文件时，可以从现有配置文件复制设置。
 
 ![](attachments/modeler-core/2018-03-01_17-31-42.png)
 
-## 2 Profile Properties
+## 2 个配置文件属性
 
-### 2.1 General
+### 2.1 概况
 
-#### 2.1.1 Application Title
+#### 2.1.1 申请标题
 
-This specifies the application title. This title is shown in the title bar of the browser.
+这指定了应用程序标题。 此标题显示在浏览器的标题栏中。
 
-### 2.2 Home Pages
+### 2.2 首页
 
-#### 2.2.1 Default Home Page
+#### 2.2.1 默认主页
 
-The default home page indicates which [page](page) or [microflow](microflow) is opened after a user signs in. If role-based home pages (see below) are specified for one of the [user roles](user-roles) of the user, then that home page will be used instead.
+默认主页显示用户登录后打开了 [页](page) 或 [微流](microflow)。 如果基于角色的主页(见下面)被指定为用户的 [个用户角色](user-roles) 。 然后这个主页将被使用。
 
-#### 2.2.2 Role-Based Home Pages
+#### 2.2.2 以角色为基础的主页
 
-By using role-based home pages, you can show different home pages for different users. If a user logs in, the first role-based home page of which the user role matches the user role of the user is displayed. If no match is found, the default home page is used.
+使用基于角色的主页可以为不同的用户显示不同的主页。 如果用户登录，则显示第一个基于角色的主页，这个用户角色与用户角色匹配。 如果找不到匹配，则使用默认主页。
 
-For each role-based home page, you can specify the user role it applies to and the target (page or microflow) that will be opened.
+对于每个基于角色的主页，您可以指定它适用于的用户角色和将要打开的目标 (页面或微流程)。
 
-### 2.3 Authentication
+### 2.3 身份验证
 
-If an [anonymous user](anonymous-users) tries to access a resource to which the user has no access, the configured [sign-in page](authentication-widgets) will be displayed, prompting the user to sign in.
+如果一个 [匿名用户](anonymous-users) 试图访问一个用户无法访问的资源 已配置 [登录页面](authentication-widgets) 将会显示, 促使用户登录.
 
-If the sign-in page is set to none, a built-in pop-up window will appear instead. The page title is translatable and may be overridden.
+如果登录页面设置为零，则将出现一个内置弹出窗口。 页面标题是可翻译的，可能被覆盖。
 
-### 2.4 Menu
+### 2.4 菜单
 
-Each device type contains a default menu. You can use these menus in [menu widgets](menu-widgets). Defining the menu for a device type works the same as when editing a menu document. For more details, see [Menu](menu).
+每个设备类型包含一个默认菜单。 您可以在 [菜单小部件](menu-widgets) 中使用这些菜单。 定义设备类型的菜单与编辑菜单文档时相同。 欲了解更多详情，请见 [菜单](menu)。
 
 {{% alert type="warning" %}}
 
-If [security](project-security) is enabled, the menu will only show the items to which the user has access.
+如果启用 [security](project-security) ，菜单将只显示用户可以访问的项目。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 3 Profile Buttons
+## 3 个配置文件按钮
 
-### 3.2 Change Profile Type
+### 3.2 更改简介类型
 
-Allows for changing the [profile type](navigation).
+允许更改 [配置文件类型](navigation)。
 
-### 3.3 Delete
+### 3.3 删除
 
-This deletes the profile. If [menu widgets](menu-widgets) are still referring to the profile, errors will appear. It is possible to undo the deletion of a profile.
+这将删除配置文件。 如果 [菜单小部件](menu-widgets) 仍然指的是个人资料，错误将会出现。 删除配置文件是可能的。
