@@ -1,40 +1,40 @@
 ---
-title: "Placeholder"
-parent: "layout"
+title: "占位符"
+parent: "布局"
 menu_order: 10
 ---
 
-## 1 Introduction
+## 1 导言
 
-A **placeholder** can be used in two ways:
+**占位符** 可以用两种方式：
 
-* In a [layout](layout) to define a "gap" that can be filled in a [page](page) based on that layout
-* In a layout that defines the layout as a master layout
+* 在 [布局](layout) 中定义一个可以在 [页面中填充的 "gap"](page) 基于那个布局的
+* 定义布局为主布局的布局
 
-Each placeholder is colored blue with its name displayed in the middle of it. The placeholder named **Main** is always shown in a darker shade of blue.
+每个占位符都有颜色蓝色，其名称在中间显示。 命名为 **Main** 的占位符总是出现在黑暗的蓝色阴影中。
 
-For example, the image below shows two placeholders, **Main** and **Other** positioned within a layout grid.
+例如，下面的图像显示了两个占位符， **主要** and **其他** 位于布局网格中。
 
 {{% image_container width="400" %}}
-![Two placeholders in a layout grid. One is labeled 'Main', and one is labeled 'Other'](attachments/layout/placeholder.png)
+![布局网格中的两个占位符。 一个被标记为“主要”，一个被标记为“其他”](attachments/layout/placeholder.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2 属性
 
-An example of placeholder properties is represented in the image below:
+占位符属性的示例在下面的图像中表示：
 
-![Properties pane for a placeholder](attachments/layout/placeholder-properties.png)
+![占位符的属性窗格](attachments/layout/placeholder-properties.png)
 
-A placeholder has a single section, **Misc** and a single property, **Name**.
+占位符有一个单独的章节， **Misc** 和单个属性， **名称**。
 
-### 2.1 Name
+### 2.1 名称
 
-Unlike most other widgets, the name of a placeholder carries a special significance. A layout contains one or more placeholders and one of these placeholders must be named **Main**.
+与大多数其他部件不同，占位符的名称具有特殊意义。 布局包含一个或多个占位符，其中一个占位符必须命名为 **Main**。
 
-The placeholder name is used to map page contents from one layout to the other when switching layouts or creating a new page.
+占位符名称用于在切换布局或创建新页面时从一个布局映射页面内容。
 
-When a user switches a page from one layout to another, the placeholder names will be used to map the content of the page to the new layout. For every placeholder that has content in the current layout, Studio Pro will search for a placeholder with the same name in the new one. As the **Main** placeholder is mandatory, the user can always be assured that any page content placed in this placeholder will be retained. Any content in placeholders not present in the new layout will be moved above the canvas, from where it can be placed in the placeholders in the new page.
+当用户切换页面从一个布局到另一个布局。 占位符名称将用于映射页面内容到新布局。 对于每个在当前布局中有内容的占位符，Studio Pro 将在新布局中寻找具有相同名称的占位符。 由于 **Main** 占位符是强制性的，用户总是可以确保放置在此占位符中的任何页面内容都将被保留。 在新布局中不存在的任何占位符中的内容将被移动到画布上面。 从哪里可以放置在新页面的占位符中。
 
-Because of this, user experience can be improved significantly if all of a project's layouts adhere to the same or a similar naming scheme. This will ensure layouts can be alternated freely without having to consider the effect on the content of each individual placeholder.
+因此，如果一个项目的所有布局都遵守同一个或类似的命名办法，用户体验就可以大大改善。 这将确保可以自由轮换布局，而不必考虑对每个占位者内容的影响。
 
-The placeholder naming scheme also has an impact on [page templates](page-templates). When creating a new page, the template will map its content based on the names of the placeholders in its preview layout. Consequently, a template might describe the content for a placeholder that is not available in the selected layout. To prevent this, a compatible layout is automatically pre-selected when clicking a page template in the create new page dialog. If an incompatible layout is then selected manually, all the content for the missing placeholders will be discarded. 
+占位符命名方案也会对 [页面模板](page-templates) 产生影响。 当创建一个新页面时，模板将根据预览布局中占位符的名称映射其内容。 因此，模板可以描述在选定布局中不可用的占位符的内容。 为了防止这种情况，当点击创建新页面对话框中的页面模板时，将自动预选兼容的布局。 如果您手动选择不兼容的布局，缺失占位符的所有内容将被丢弃。 
