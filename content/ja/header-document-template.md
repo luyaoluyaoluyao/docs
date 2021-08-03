@@ -1,31 +1,31 @@
 ---
-title: "Header (Document Template)"
-parent: "document-templates"
+title: "ヘッダー (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/header-(document-template).html
-  - /refguide/Header+(document+template).html
+  - /ja/refguide/header-(document-template).html
+  - /ja/refguide/Header+(document+template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When enabled, the header will be inserted at the top of every page. Other widgets can be put in the header.
+有効にすると、各ページの上部にヘッダーが挿入されます。 他のウィジェットはヘッダーに置くことができます。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918236.png)
 
-A header.
+ヘッダ。
 
 {{% /alert %}}
 
-For details on enabling the header from the properties of the document template itself, see the [Appearance Properties](document-template#appearance-properties) section of *Document Template*.
+ドキュメントテンプレート自体のプロパティからヘッダーを有効にする方法の詳細については、 [ドキュメント テンプレート](document-template#appearance-properties) の *外観 プロパティ* セクションを参照してください。
 
-For details on inserting page numbers, see [Static Label](static-label-document-template).
+ページ番号の挿入方法については、 [Static Label](static-label-document-template) を参照してください。
 
-## 2 Appearance
+## 2つの外観
 
 ### 2.1 TopMargin
 
-The amount of space between the top of the page and the header in inches.
+ページ上部とヘッダーの間のスペースをインチ単位で指定します。
