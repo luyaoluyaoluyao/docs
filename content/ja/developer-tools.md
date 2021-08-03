@@ -1,8 +1,8 @@
 ---
-title: "Developer Tool Recommendations"
-category: "General"
+title: "開発者ツールのおすすめ情報"
+category: "一般情報"
 menu_order: 60
-description: "Describes the best third-party tools to use when developing with Mendix."
+description: "Mendixで開発する際に使用する最適なサードパーティ製ツールについて説明します。"
 tags:
   - "Linux"
   - "GNU"
@@ -13,13 +13,14 @@ tags:
   - "SOAP"
   - "REST"
   - "Visual Studio Code"
+  - "studio pro"
 ---
 
-To make your development life a little easier, here is a list of helpful third-party tools that will speed up your app-development efforts:
+開発期間を少し簡単にするために、以下のようなサードパーティ製ツールのリストがあります。
 
-* [Linux m2ee scripts](https://github.com/mendix/m2ee-tools) – Mendix Runtime helper tools for GNU/Linux (for details on installation, see [Installing Mendix on GNU/Linux](https://github.com/mendix/m2ee-tools/blob/master/doc/README.md))
-* [Firefox DevTools](https://www.mozilla.org/en-US/firefox/developer/?utm_source=firebug&utm_medium=lp&utm_campaign=switch&utm_content=landingpage) – these developer tools replace [Firebug](https://getfirebug.com/), which is no longer being supported
-* [Selenium](https://www.seleniumhq.org/) – tools for automating web browsers
-* [Eclipse](http://www.eclipse.org/downloads/) – tools for writing and debugging Java actions (for more information, see [Using Eclipse](/refguide7/using-eclipse))
-* [SOAP UI](https://www.soapui.org/) – REST and SOAP testing tools (for details, see [How to Test Web Services Using SoapUI](/howto7/testing/testing-web-services-using-soapui))
-* [Visual Studio Code](https://code.visualstudio.com/) – a powerful code editor
+* [Linux m2eeスクリプト](https://github.com/mendix/m2ee-tools) – GNU/Linux用Mendix Runtime helper tools (インストールの詳細については、 [GNU/Linux上でMendixをインストールする](https://github.com/mendix/m2ee-tools/blob/master/doc/README.md) を参照してください)
+* [Firefox 開発ツール](https://www.mozilla.org/en-US/firefox/developer/?utm_source=firebug&utm_medium=lp&utm_campaign=switch&utm_content=landingpage) - これらの開発ツールは [Firebug](https://getfirebug.com/)を置き換えます。これらはもうサポートされていません。
+* [Selenium](https://www.seleniumhq.org/) – Webブラウザを自動化するためのツール
+* [Eclipse](http://www.eclipse.org/downloads/) – Java アクションの書き込みとデバッグのためのツール (詳細は、 [Eclipse の使用](/refguide/using-eclipse) を参照してください)
+* [SOAP UI](https://www.soapui.org/) – REST と SOAP テスト ツール (詳細については、 [SoapUI を使用して Web サービスをテストする方法](/howto/testing/testing-web-services-using-soapui) を参照してください)
+* [Visual Studio Code](https://code.visualstudio.com/) - 強力なコードエディター (特にテーマを維持するのに便利)
