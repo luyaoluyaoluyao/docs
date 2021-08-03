@@ -1,8 +1,6 @@
 ---
-title: "XPath 总和"
+title: "XPath 和"
 parent: "xpath-query函数"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
