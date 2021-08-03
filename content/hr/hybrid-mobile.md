@@ -1,7 +1,7 @@
 ---
 title: "Hybrid Mobile"
 category: "Mobile"
-menu_order: 3
+menu_order: 2
 tags:
   - "mobile"
   - "hybrid"
@@ -10,13 +10,16 @@ tags:
 
 ## 1 Introduction
 
-Hybrid mobile apps are deprecated as of Mendix 9. This means that hybrid mobile apps are still supported in Mendix 9 but their usage is discouraged. Accordingly, the creation of new hybrid navigation profiles is disabled.
+Mendix hybrid apps are web applications wrapped inside native app containers. The documents listed below will help you prepare, package, and customize your Mendix hybrid apps.
 
-For more information see this [Hybrid Mobile Apps Deprecation with Mendix 9](https://www.mendix.com/blog/hybrid-mobile-apps-deprecation-with-mendix-9/) blog entry.
+{{% alert type="warning" %}}
+Building hybrid apps in the cloud uses the PhoneGap Build service from Adobe. Unfortunately, Adobe no longer maintains this service. PhoneGap does not allow you to create  iOS 13 builds, but the Apple App Store requires builds be iOS 13 or higher. As a result, as of April 30th 2020, hybrid iOS apps built using the PhoneGap Build service are not being accepted on Apple's App Store. To publish your iOS app in the Apple App Store, we recommend you build native iOS apps instead. For more information, see [How to Build Native Apps](/howto8/mobile/build-native-apps).
+{{% /alert %}}
 
-For hybrid mobile documentation see these Mendix 8 documents:
+## 2 Documents in This Section
 
-* [Hybrid Mobile How To Documentation](/howto8/mobile/hybrid-mobile)
-* [Hybrid Mobile Reference Guide](/refguide8/hybrid-mobile)
-
-
+* [Configuring Hybrid Mobile Apps To Run Offline](configuring-hybrid-mobile-apps-to-run-offline)
+* [Customizing Hybrid Mobile Apps](customizing-hybrid-mobile-apps)
+* [Developing Hybrid Mobile Apps](developing-hybrid-mobile-apps)
+* [Managing App Signing Keys](managing-app-signing-keys)
+* [Packaging Hybrid Mobile Apps](packaging-hybrid-mobile-apps)
