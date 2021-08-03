@@ -1,19 +1,45 @@
 ---
-title: "Menu"
-parent: "pages"
+title: "メニュー"
+parent: "page-resources"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "メニュー"
+  - "メニュー項目"
+  - "ページリソース"
+aliases:
+  - /ja/refguide/menu-item.html
 ---
 
+## 1つの紹介
 
-A menu document defines a navigation menu that can be used by a [menu widget](menu-widgets). Typically the main menus for your application are defined in [device types](desktop-profile), while you use menu documents for auxiliary menus, for example, a side bar.
+メニュー ドキュメントは、 [メニュー ウィジェット](menu-widgets) で使用できるナビゲーション メニューを定義します。 通常、アプリケーションのメインメニューはデバイス タイプで定義されますが、サイドバーなどの補助メニューにメニュー ドキュメントを使用します。
 
-A menu consists of a list of menu items, which optionally contain sub-items. Depending on the widget a number of levels are allowed.
+メニューは、必要に応じてサブアイテムを含むメニューアイテムのリストで構成されます。 ウィジェットに応じて、いくつかのレベルが許可されます。
 
 {{% alert type="info" %}}
 
-If [security](project-security) is enabled, the menu will only show items that the user has access to.
+[security](project-security) が有効になっている場合、メニューには、ユーザーがアクセスできるアイテムのみが表示されます。
 
 {{% /alert %}}
 
-See also:
+## 2メニュー項目 {#menu-item}
 
-*   [Menu Item](menu-item)
+メニューはメニュー項目で構成されています。 メニューアイテムには数字サブアイテムを含めることができます。 メニューバーは2つのレベル、ナビゲーションツリー(3つのレベル)を深くすることができ、シンプルなメニューバーはサブアイテムを持つことはできません。
+
+### 2.1 メニューアイテムのプロパティ
+
+メニューアイテムまたはサブアイテムには、次の一般プロパティがあります。
+
+* 図表番号-図表番号は、 [メニュー ウィジェット](menu-widgets) に表示されるテキストです。 キャプションは翻訳可能なテキストです。 (詳細は、 [言語メニュー](translatable-texts) を参照してください。
+* アイコン – [メニュー](menu-widgets) のキャプションの横または上に表示されるグリヒコン (拡大/縮小時にシャープな特殊なフォント内の文字) または画像を選択できます。
+* 代替テキスト - 図表番号が指定されていない場合、代替テキストを指定できます。 これにより、スクリーンリーダーはアイコンの説明を発表することができます。
+* クリック – 項目がクリックされたときに実行されるアクション。 サブアイテムがあるメニューアイテムは、クリックイベントを持つことはできません。
+
+{{% alert type="info" %}}メニュー項目からデータビューのページを開く。 データビューのオブジェクトを取得するマイクロフローを設定し、そのページをターゲットとして開きます。 {% /alert %}}
+
+## 3 続きを読む
+
+* [ページ](ページ)
+* [メニューウィジェット](menu-widgets)
+
