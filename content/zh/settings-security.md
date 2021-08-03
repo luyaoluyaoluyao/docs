@@ -1,210 +1,192 @@
 ---
-title: "Security, Roles & Permissions"
-category: "Settings"
-description: "Describes security and roles and permissions in Mendix Studio."
+title: "安全性，角色 & 权限"
+category: "设置"
+description: "描述Mendix Studio中的安全以及角色和权限。"
 menu_order: 10
 tags:
-  - "studio"
-  - "security"
-  - "roles and permissions"
+  - "工作室"
+  - "安全"
+  - "角色和权限"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Security is a way of controlling access to your app. For example, you can decide who can access your app.
+安全是控制您应用访问权限的一种方式。 例如，您可以决定谁可以访问您的应用。
 
-[Roles and Permissions](#roles-and-permissions) are an important part of security – an instrument which you can use to restrict or grant access to different parts of your app, such as pages and microflows.
+[角色和权限](#roles-and-permissions) 是安全的一个重要部分——你可以用来限制或授予对应用的不同部分的访问权限， 例如页面和微流。
 
-## 2 Enabling Security {#enabling-security}
+## 2 有利于安全 {#enabling-security}
 
-Whether security is enabled for your app by default, depends on app's type and version. You can come across the following cases:
+您的应用是否默认启用安全性，取决于应用的类型和版本。 您可以遇到以下案例：
 
-1. If your app has been created in the Developer Portal with Mendix version 7.23.3 or above, you can enable security in Studio and view and edit [roles and permissions](#roles-and-permissions). For more information on versions, see [Studio Ranges & Mendix Versions](general-versions)
+1. 如果您的应用程序已经在 Developer Portal 中使用 Mendix 版本 7.23 创建。 或以上, 您可以启用工作室的安全性并查看和编辑 [角色和权限](#roles-and-permissions)。 关于版本的更多信息，请参阅 [Studio Ranges & Mendix 版本](general-versions)
 
-2. If your app has been created in the Developer Portal with Mendix version below 7.23.3, or has been labelled as private content, or has been customized by your team specifically for your company, the security state depends on Studio Pro:<br/> a.  If security is off in Studio Pro, then you can enable security in Studio. In this case, when you try to [publish the app](publishing-app), you will be prompted to enable security. <br/>
+2. 如果您的应用程序已经在开发者门户创建，版本低于7.23。 ，或被标记为私人内容，或由您的团队专门为您的公司定制， 安全状态取决于Studio Pro：<br/> a。  如果工作室专业版的安全性被关闭，您可以启用工作室的安全。 在这种情况下，当你试图 [发布应用程序](publishing-app)时，你将被提示启用安全性。 <br/>
 
     {{% image_container width="400" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png)
  {{% /image_container %}}<br/>
 
-    b. If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (For more information on what security settings are compatible with Studio, see the [Studio Compatibility](/refguide8/studio-security-enabled#studio-compatible) section in *Model Changes When Security Is Enabled in Studio*.)
+    b. 会议文件。 如果安全设置为 **Production** level in Studio Pro 并且设置与 Studio 兼容。 您可以在工作室查看和编辑 **角色和权限** (更多关于哪些安全设置与Studio兼容的信息) 查看 [Studio 兼容性](/refguide/studio-security-enabled#studio-compatible) 部分 *Model changes when Security is enabled in Studio*.)
 
     ![](attachments/settings-security/roles-and-permissions-screen.png)
 
-    c. If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are not compatible with Studio, you can view (not edit) **Roles and Permissions** in Studio. (For more information on security settings compatible with Studio, see the [Studio Compatibility](/refguide8/studio-security-enabled#studio-compatible) section in *Model Changes When Security Is Enabled in Studio*.)
+    b. 会议文件。 如果安全设置为 **Prototype/demo** or **Production** level in Studio Pro and 设置不兼容 Studio 您可以在工作室查看(未编辑) **角色和权限** (更多与工作室兼容的安全设置信息) 查看 [Studio 兼容性](/refguide/studio-security-enabled#studio-compatible) 部分 *Model changes when Security is enabled in Studio*.)
 
     ![](attachments/settings-security/security-read-only.png)
 
 
-If you need to enable security, do one of the following:
+如果您需要启用安全性，请执行以下操作之一：
 
-* Click **Enable Security** in the above-mentioned pop-up dialog, and security will be set up automatically for you. After that you can restrict or grant access to your app via [Roles and Permissions](#roles-and-permissions).
+* 点击 **在上述弹出式对话框中启用安全** ，安全将自动为您设置。 之后，您可以通过 [角色和权限](#roles-and-permissions) 来限制或授予您对您应用的访问权限。
 
-*  Open **App Settings** > **Roles and Permissions** and click **Enable Security**.
+*  打开 **应用程序设置** > **角色和权限** 然后点击 **启用安全**。
 
-    ![The Roles and Permissions Screen](attachments/settings-security/enabling-security.png)
-
-{{% alert type="info" %}}
-When you enable security, it is enabled for the whole app, and there are checks and changes applied to the model that are visible in Studio Pro. For more technical information on these checks and changes, see [Model Changes When Security Is Enabled in Studio](/refguide8/studio-security-enabled).
-{{% /alert %}}
-
-## 3 Roles and Permissions {#roles-and-permissions}
+    ![角色和权限屏幕](attachments/settings-security/enabling-security.png)
 
 {{% alert type="info" %}}
-In Studio Pro, advanced security settings can be applied. In this case, you will not be able to edit roles and permissions in Studio.
-{{% /alert %}}
+当您启用安全性时，它已为整个应用启用， Studio Pro中可以看到的模型的检查和更改。 欲了解更多关于这些检查和更改的技术信息，请参阅 [Model Changes when Security is enabled in Studio](/refguide/studio-security-enabled)。
+{{% /报警 %}}
 
-A role is a set of permissions that you can assign to a user. For example, you may want to give the *Administrator* full access to all pages and microflows. While for other users, you may choose to only grant access to certain pages and restrict access for microflows.
+## 3 角色和权限 {#roles-and-permissions}
 
-In apps created via the Developer Portal, there are two app roles:
+{{% alert type="info" %}}
+在 Studio Pro，高级安全设置可以应用。 在这种情况下，您将无法编辑工作室中的角色和权限。
+{{% /报警 %}}
 
-* Administrator
-* User
+角色是一组您可以分配给用户的权限。 例如，您可能想要给予 *管理员* 对所有页面和微流的完全访问。 对于其他用户，您可能只允许访问某些页面，并限制微流访问权限。
+
+在通过开发者门户创建的应用程序中，有两个应用程序角色：
+
+* 管理员
+* 用户
 
 {{% alert type="warning" %}}
-When security is enabled, these two app roles will have full access to your app. We recommend you to review permissions for the User role.
-{{% /alert %}}
+当启用安全性时，这两个应用程序的角色将可以完全访问您的应用程序。 我们建议您审查用户角色的权限。
+{{% /报警 %}}
 
-For more information on managing app users, see the [Managing App Users](#managing-app-users) section.
+欲了解更多管理应用用户的信息，请参阅 [管理应用用户](#managing-app-users) 部分。
 
-The **Roles and Permissions** screen consist of three tabs:
+**角色和权限** 屏幕由三个标签组成：
 
-* Roles
-* Page Access
-* Microflow Access
+* 角色
+* 页面访问
+* 微流程访问
 
-The **Roles** tab lists all roles and indicates the number of pages and microflows these roles can access.
+**角色** 标签列出了所有角色，并指出了页面数量和这些角色可以访问的微流。
 
-The **Page Access** and **Microflow Access** tabs contain a table where all pages/microflows are listed in rows, and all roles are placed in columns.
+**页面访问** and **微流程访问** 选项卡包含一个表格，所有页面/微流程都以行列出， 和所有角色都放在列中。 您可以决定一个特定角色可以访问哪个页面和微流：在每个文档的框中勾选/取消对它的访问限制。 要选择/取消选择所有文档，请点击用户角色旁边的 **个更多选项** 图标。
 
-You can allow only certain roles to access a page or microflow: select the appropriate box to grant access for a role to a page or microflow.
+因此，您将获得每个角色的特定矩阵。
 
-To select/deselect all pages or microflows click the ellipsis icon next to the user role.
+![页面访问选项卡示例](attachments/settings-security/page-access-tab.png)
 
-As a result, you will get a matrix specific for each role.
+### 3.1 创造新的作用
 
-![The Page Access Tab Example](attachments/settings-security/page-access-tab.png)
+要创建一个新的应用程序角色，请执行以下操作：
 
-### 3.1 Creating a New Role
+1. 打开 **角色和权限** > the **角色** 选项卡。
 
-To create a new app role, do the following:
-
-1. Open **Roles and Permissions** > the **Roles** tab.
-
-2.  Click **Add Role** in the right corner.
+2.  点击 **在右角添加角色**。
 
     ![](attachments/settings-security/add-role-button.png)
 
-3.  Specify the name of the new role in the **Create Role** dialog box and click **Create**.
+3.  在 **创建角色** 对话框窗口中指定新角色的名称并点击 **创建**。
 
-    ![Create Role Dialog Box](attachments/settings-security/create-role-dialog.png)
+    ![创建角色对话框](attachments/settings-security/create-role-dialog.png)
 
-The new role is created.
+新角色已创建。
 
-### 3.2 Editing Existing Roles
+### 3.2 编辑现有角色
 
-To edit an existing role, do the following:
+要编辑一个现有的角色，请执行以下操作：
 
-1.  Open **Roles and Permissions** > the **Roles** tab.
+1.  打开 **角色和权限** > the **角色** 选项卡。
 
-2.  Click the **More Options** icon and select **Edit**.
+2.  点击 **更多选项** 图标并选择 **编辑**。
 
     ![](attachments/settings-security/edit-role-option.png)
 
-3.  In the **Edit Role** pop-up dialog perform the changes, and click **Save**.
+3.  在 **编辑角色** 弹出式对话框执行更改，然后点击 **保存**。
 
     ![](attachments/settings-security/edit-role-dialog.png)
 
-The role has been edited.
+角色已被编辑。
 
-### 3.3 Deleting Roles
+### 3.3 删除角色
 
-To delete an existing role, do the following:
+要删除现有的角色，请做以下工作：
 
-1.  Open **Roles and Permissions** > the **Roles** tab.
+1.  打开 **角色和权限** > the **角色** 选项卡。
 
-2.  Click the **More Options** icon and select **Delete**.
+2.  点击 **更多选项** 图标并选择 **删除**。
 
     ![](attachments/settings-security/delete-role-option.png)
 
-3.  Confirm the deletion in the pop-up dialog.
+3.  在弹出对话框中确认删除。
 
     ![](attachments/settings-security/delete-role-dialog.png)
 
-The role has been deleted.
+角色已被删除。
 
 {{% alert type="info" %}}
 
-You cannot delete or edit the Administrator role.
+您不能删除或编辑管理员角色。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 3.4 Setting Access to Specific Pages/Microflows
+### 3.4 设置访问特定页面/微流
 
-There are two ways to set access for specific pages/microflows in your app:
+您的应用有两种方式设置特定页面/微流访问权限：
 
-1.  To set access via **Roles and Permissions**, do the following:<br/> 1.1  Open **Roles and Permissions** > **Page**/**Microflow Access** tab.<br/> 1.2 Find the user role in the column and tick the box next to a page/microflow to open access for it, or untick – to restrict access. In the example below, we have restricted page access for the User.<br/>
+1.  要通过 **角色和权限**设置访问权限，请执行以下操作：<br/> 1。 打开 **角色和权限** > **页面**/**微流程访问** 选项卡<br/> 1。 查找列中的用户角色，然后在页面/微流旁边的框中勾画它来打开访问权限。 或取消勾选 — — 以限制访问。 在下面的示例中，我们有限制用户访问页面的权限。<br/>
 
     ![](attachments/settings-security/page-access-example.png)
 
-2.  To set access for a page/microflow via properties of this page/microflow , do the following: <br/> 2.1 Open the page/microflow.<br/> 2.2. Go to **Properties** > the **Permissions** section and tick/untick **Allowed Roles** to grant/restrict access.<br/>
+2.  要设置通过此页面/微流程特性访问页面/微流程，请执行以下操作： <br/> 2.1 打开页面/微流程。<br/> 2.2. 转到 **属性** > 的 **权限** 节和 tick/untick **允许角色** 授予/限制访问权限。<br/>
 
     ![](attachments/settings-security/permissions-section.png)
 
-## 4 Demo Users {#demo-users}
+## 4 个演示用户
 
-Demo users are a demonstration of each user role existing in your app. You can use demo users to review how your app looks like for each user role. For more technical information, see [Demo Users](/refguide8/demo-users).
+演示用户是在您的应用程序中存在的每个用户角色的演示。 您可以使用演示用户查看您的应用程序对每个用户角色的外观。 欲了解更多技术信息，见 [演示用户](/refguide/demo-users)。
 
-### 4.1 Testing Your Roles {#testing-your-roles}
+### 4.1 测试你的角色 {#testing-your-roles}
 
-You can test how your app looks like for different roles the following way:
+您可以通过以下方式测试您的应用程序对不同角色的看起来是如何的：
 
-1. [Preview your app](publishing-app).
+1. [预览您的应用程序](publishing-app)。
 
-2. Click a user icon in the right side of the screen:
+2. 点击屏幕右侧的用户图标：
 
     ![](attachments/settings-security/user-icon.png)
 
-4. In the displayed menu bar, select a demo user and the app will be viewed from the perspective of the corresponding role.
+4. 在显示的菜单栏中，选择演示用户和应用将从相应角色的角度查看。
 
     ![](attachments/settings-security/select-user.png)
 
-## 5 Managing App Users {#managing-app-users}
+## 5 个管理应用程序用户 {#managing-app-users}
 
-You can assign the default or customized user roles for your app to app end-users with Mendix accounts. These are called **App Users** and once authorized, they can access your published app to use it, test it, and provide feedback.
+您可以为您的应用分配默认或自定义的用户角色给使用 Mendix 账户的最终用户。 这些被称为 **应用用户** 并且一旦授权，他们可以访问您已发布的应用来使用它，测试并提供反馈。
 
 {{% alert type="info" %}}
-You can manage App Users only after you publish your app.
-{{% /alert %}}
+您只能在发布您的应用程序后管理应用用户。
+{{% /报警 %}}
 
-To manage App Users, open **Roles and Permissions** and click **Manage Users** in the top-right of the screen:
+若要管理应用程序用户，请打开 **角色和权限** 并点击 **在屏幕右上角管理用户**：
 
 ![](attachments/settings-security/manage-users-button.png)
 
-You will be taken to the [App User Management](/developerportal/collaborate/general-settings#managing-app-users) page in the Developer Portal, where you can invite people to your app and manage their user roles.
+您将被带到开发者门户中的 [应用用户管理](/developerportal/collaborate/general-settings#managing-app-users) 页面 在哪里您可以邀请人们加入您的应用并管理他们的用户角色。
 
 {{% alert type="info" %}}
-People invited to join your team in the Developer Portal are not added as App Users automatically, so you will need to invite your team members if necessary.
-{{% /alert %}}
+被邀请加入开发者门户网站的人不会自动添加为应用用户， 如有必要，您需要邀请您的团队成员。
+{{% /报警 %}}
 
 {{% alert type="info" %}}
-If you have created a new user role on the **Roles and Permissions** page, you need to publish the app first to be able to see and assign this role in the Developer Portal.
-{{% /alert %}}
+如果您在 **角色和权限** 页面上创建了一个新的用户角色， 您需要首先发布应用程序才能在开发者门户中看到和分配此角色。
+{{% /报警 %}}
 
-## 6 Auto-Upgrade to the New Service {#upgrade}
+## 6 阅读更多
 
-When you try to publish your app, you may be notified that upgrade of the service that secures your app is required first:
-
-{{% image_container width="300" %}}
-![Upgrade Required](attachments/settings-security/upgrade.png)
-{{% /image_container %}}
-
-A special service makes it possible to manage your app users. The upgrade to the latest version of this service will be done automatically for you when you click **Auto-Upgrade**.
-
-If the automatic upgrade fails, this means, the service was customized in Studio Pro, and only manual upgrade in Studio Pro is possible in this case.
-
-If the auto-upgrade detects that the service was customized in Studio Pro by a team member, you will be notified that a manual upgrade in Studio Pro should be performed first.
-
-## 7 Read More
-
-* [Security](/refguide8/security)
-* [Model Changes When Security Is Enabled in Studio](/refguide8/studio-security-enabled)
+* [安全](/refguide/security)
+* [工作室启用安全时的模型更改](/refguide/studio-security-enabled)
