@@ -1,46 +1,42 @@
 ---
-title: "XML Inheritance & Choice"
-parent: "mapping-documents"
+title: "XML 继承 & 选择"
+parent: "映射文档"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xml-inheritance-and-choice.pdf).
-{{% /alert %}}
+## 1 按实体专业化获得对象
 
-## 1 Obtaining an Object by Entity specialization
+绘图文件中有两个特殊的XSD元素案例：选择和继承。
 
-There are two special cases for XSD elements in mapping documents: choice and inheritance.
+*   继承元素需要由某一类型或某一子类型的元素填充。
+*   一个选择要素需要用若干替代品中的一种来填写。
 
-*   An inheritance element needs to be filled by an element of a certain type or one of its subtypes.
-*   A choice element needs to be filled by exactly one of a number of alternatives.
+在 Mendix 中，继承权和选择权都是由实体专业化绘制的。
 
-In Mendix, both inheritance and choice are mapped by entity specialization.
+*   基础继承或选择元素已映射到一个常规化实体。 对于导出映射，基础映射包含如何获取Mendix 对象的设置 (来自参数) 按 [导出映射](export-mappings) 解释的 associ, microflow或key)。
+*   继承或选择的儿童要素按实体专业划分。 对于导出映射，您不能指定如何获取对象，因为它已经在基础映射元素中定义了一个级别。 然而，为了导入映射，您确实需要指定如何获取在 [导入映射](import-mappings) 中解释的Mendix 对象。
 
-*   The base inheritance or choice element is mapped to a generalization entity. For export mappings, the base mapping contains the setting on how to obtain the Mendix object (from parameter, by association, microflow, or key) as explained in [Export Mappings](export-mappings).
-*   Child elements of inheritance or choice are mapped by entity specialization. For export mappings, you cannot specify how to obtain an object because that is already defined one level up at the base mapping element. For import mappings however, you do need to specify how to obtain the Mendix object as explained in [Import Mappings](import-mappings).
+## 2 XML 继承权
 
-## 2 XML Inheritance
-
-In the image below, an example of an Export Mapping with inheritance is shown. For Import Mappings, the structure is the same, only the direction of the arrows is reversed. One _Persons_ object has a one-to-many association to _Person._ The person can be either a Customer or Employee.
+在下面的图像中显示了导出继承图示例。 导入映射的结构是相同的，只有箭头的方向被颠倒。 一个 _个人_ 对象与 _人有一对一的关联。_ 此人可以是客户或雇员。
 
 ![](attachments/16713728/16843946.png)
 
-For import mappings, mapping the incoming XML to a specific XSD type is defined by the attribute _xsi:type_. However, this attribute is optional. When the _xsi:type_ attribute is **not** present and the base type of the element is **not** abstract, that type will be used (in the example that is Person). If the base type does not have a mapping defined in the import mapping document, it will be skipped. When the base type is abstract, an error will be thrown.
+导入映射时，将传入的 XML 映射到指定的 XSD 类型由属性 _xsi：类型_ 定义. 然而，这个属性是可选的。 When the _xsi:type_ attribute is **not** present and the base type of the element is **not** abstract, that type will be used (in the example that is Person). 如果基础类型在导入映射文档中没有定义映射，它将被跳过。 当基本类型为抽象时，将出现错误。
 
-For export mappings, if the inheritance element is **optional** and an empty object is obtained for the element either via association or microflow, no element will be created. If the inheritance element is **nillable**, and an empty object is obtained for the element, the element will be created with the _xsi:type_ set to the first inheritance option in the mapping.
+用于导出映射， 如果继承元素是 **可选的** 并且通过关联或微流程获取到元素的空对象， 不会创建元素。 如果继承元素是 **nillable**, 并且该元素获得了一个空的对象, 元素将使用 _xsi：类型_ 设置为映射中的第一个继承选项。
 
-### 2.1 Selection of Request Part for Web Services in Export Mappings
+### 2.1 出口绘图中网络服务请求部分的选择
 
-[Select Elements](select--elements) describes how to select XML schema or WSDL elements to use in the mapping. If you use an export mapping to create a request body for a web service operation, you can select request parts if there are multiple request parameters. Inheritance elements are also supported as a request part.
+[选择元素](select--elements) 描述了如何选择 XML schema 或 WSDL 元素用于映射。 如果您使用导出映射创建请求机构的网页服务操作， 如果有多个请求参数，您可以选择请求部件。 继承内容也作为请求部分得到支持。
 
-When the root element is an inheritance element, you can only maps the entire body. Mapping individual request parameter is not possible in this case.
+当根元素是继承元素时，你只能映射整个正体。 在这种情况下，无法映射个别请求参数。
 
-## 3 XML Choice
+## 3 XML 选择
 
-The image below shows an Export Mapping with a choice element. The schema specifies a choice with two alternatives: an employee id or member ID. In this image, a base entity _Person_ is mapped to the choice element, to serve as a generalization for the choice options.
+下面的图像显示了一个选择元素的导出映射。 此schema指定了一种选择，有两种选择：雇员ID或成员 ID。 在这张图像中，基础实体 _人员_ 被映射到选择元素，作为选择选项的概括。
 
 ![](attachments/16713728/16843945.png)
 
-For exporting objects, **optionality** on choice elements is handled differently than for other elements because they do not explicitly occur in XML. There are two cases in which it is valid to export an empty object for a choice element: firstly, when the choice element itself is **optional** and secondly when at least one of the choice options is **optional**. In these cases no element will be created, otherwise an error is thrown. When one or more options of a choice element are **nillable** and at the choice element we export an empty object, Mendix throws an 'unsupported' error because it is impossible to determine which XML element should be sent with the _xsi:nil_ attribute.
+导出对象时，选择元素的 **可选性** 处理方式不同于其他元素，因为它们没有在XML中明确出现。 在两种情况下，导出一个空对象作为选择元素是有效的： 当选择元素本身是 **可选的** ，其次当至少有一个选项是 **可选的** 时。 在这些情况下，不会创建元素，否则会出现错误。 当一个或多个选择元素的选项是 **nillable** 时，在选择元素中，我们导出一个空对象， Mendix 扔出一个不支持的错误，因为无法确定哪些XML元素应该与 _xsi:nil_ 属性一起发送。
