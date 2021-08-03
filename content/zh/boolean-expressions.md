@@ -1,101 +1,94 @@
 ---
-title: "Boolean Expressions"
+title: "Boolean expressions"
 parent: "expressions"
-menu_order: 50
-tags:
-  - "studio pro"
-  - "expression"
-  - "expressions"
-  - "Boolean"
 ---
 
-## 1 Introduction
+### Boolean expressions
 
-Boolean expressions can be used to perform logical operations that return either true or false.
 
-## 2 and
 
-The `and` operator checks two Boolean expressions and only returns `true` if both of the expressions are true.
+Boolean expressions can be used to perform logical operations such as checking if two conditions hold.
 
-### 2.1 Examples
+## and
 
-The examples below illustrate which value the expression returns:
+Combines two Boolean expressions and only returns True if both of the expressions evaluate to True.
 
-* If you use the following input:
+{{% alert type="info" %}}
 
-    ```java
-    (6 > 4) and (3 < 5)
-    ```
+```java
+(6 > 4) and (3 < 5)
+```
 
-    The output is `true` because both of the expressions are `true`.
+evaluates to True because both of the expressions are True.
 
-* If you use the following input:
+```java
+('hello' = 'hallo') and (3 < 5)
+```
 
-    ```java
-    ('hello' = 'hallo') and (3 < 5)
-    ```
+evaluates to False, because only the second expression is True.
 
-    The output is `false`, because only the second expression is `true`.
+{{% /alert %}}
 
-## 3 or
+## or
 
-The `or` operator combines two Boolean expressions, and returns `true` if at least one of the expressions is true.
+Combines two Boolean expressions, and returns True if at least one of the expressions evaluates to True.
 
-### 3.1 Examples
+{{% alert type="info" %}}
 
-The examples below illustrate which value the expression returns:
+Given a domain entity instance with name "$product" that has an integer attribute "price" with value "3" and another integer attribute "recommendedPrice" with value "2", the following expression:
 
-* You have a entity called *product* that has the *price* attribute of the integer type. The *price* attribute equals 3, and you have another attribute called *recommendedPrice* that equals 2.
+```java
+($product/price < $product/recommendedPrice : 2) or ($product/price > 0)
+```
 
-    If you use the following input:
+will return True because at least one of the expressions evaluates to True (the second one, to be precise). Note that the expression would still return True if both statements had been True.
 
-    ```java
-    ($product/price < $product/recommendedPrice : 2) or ($product/price     > 0)
-    ```
+The following example returns False, because both expressions evaluate to False:
 
-    The expression will return `true` because at least one of the   expressions is true (the second one). Note that the expression would    still return `true` if both statements had been true.
+```java
+('hello' = 'nothello') or ('byebye' = 'stillnotbyebye')
+```
 
-* If you use the following input:
+{{% /alert %}}
 
-    ```java
-    ('hello' = 'nothello') or ('byebye' = 'stillnotbyebye')
-    ```
+## not
 
-    The expression will return `false`, because both expressions are false.
+The function 'not' negates the specified Boolean expression.
 
-## 4 not
-
-The `not` operator negates the specified Boolean expression.
-
-### 4.1 Input
+### Input
 
 An expression of type Boolean.
 
-### 4.2 Output
+### Output
 
-Returns the negation of the specified expression. If the expression evaluates to `true`, it returns `false`; and vice versa.
+Returns the negation of the specified expression. If the expression evaluates to True, it returns False; otherwise it returns True.
 
-### 4.3 Examples
+{{% alert type="info" %}}
 
-The examples below illustrate which value the expression returns:
+```java
+not('hello' = 'hallo')
 
-* If you use the following input:
+```
 
-    ```java
-    not('hello' = 'hallo')
+returns:
 
-    ```
+```java
+true
 
-    The expression will return `true` .
+```
 
+and
 
-* If you use the following input:
+```java
+not(true)
 
-    ```java
-    not(true)
-    ```
+```
 
-    The expression will return `false` .
+returns:
 
+```java
+false
 
+```
 
+{{% /alert %}}
