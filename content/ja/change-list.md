@@ -1,70 +1,70 @@
 ---
-title: "Change List"
+title: "変更リスト"
 parent: "list-activities"
 menu_order: 2
 tags:
   - "studio pro"
-  - "List"
+  - "リスト"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 
-Note that there are minor differences between the way this function works in microflows, and the way it works in nanoflows.
+この関数がマイクロフローでどのように動作するかには、微妙な違いがあることに注意してください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Change list** activity allows you to change a list by adding objects to, and removing objects from, it. The activity works directly on the list provided, in contrast to the [List operation](list-operation) activity.
+**リストの変更** アクティビティでは、オブジェクトを追加したり、オブジェクトを削除したりすることでリストを変更することができます。 このアクティビティは、 [リスト操作](list-operation) アクティビティとは対照的に、リスト上で直接動作します。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of change list properties is represented in the image below:
+変更リストのプロパティの例を以下の画像に示します。
 
-![change list properties](attachments/list-activities/change-list-properties.png)
+![リストのプロパティを変更](attachments/list-activities/change-list-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The change list properties pane consists of the following sections:
+変更リストプロパティペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 List
+### 3.1 リスト
 
-The name of the list to be changed.
+変更するリストの名前。
 
 ### 3.2 Type
 
-Defines the type of change that is applied to the list.
+リストに適用される変更のタイプを指定します。
 
-| Option          | Description                                                                                                                                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Add *(default)* | The object(s) in the value property are added to the list. See [notes](#notes) below for additional information.                                                                                                     |
-| Remove          | The object(s) in the value property are removed from the list. If there are duplicate objects in the list, then only one will be removed. If you ask to remove an object which isn't in the list, there is no error. |
-| Clear           | The list is emptied.                                                                                                                                                                                                 |
-| Replace         | The list is emptied and the object(s) in the value property are added to the list.                                                                                                                                   |
+| Option          | 説明                                                                                                         |
+| --------------- | ---------------------------------------------------------------------------------------------------------- |
+| *(デフォルト)* を追加する | value プロパティ内のオブジェクトがリストに追加されます。 詳細については、以下の [メモ](#notes) を参照してください。                                        |
+| 削除              | value プロパティ内のオブジェクトがリストから削除されます。 重複したオブジェクトがリストに存在する場合、削除されるのは1つだけです。 リストにないオブジェクトを削除するように求めた場合、エラーはありません。 |
+| クリア             | リストは空です。                                                                                                   |
+| 置換              | リストが空になり、value プロパティ内のオブジェクトがリストに追加されます。                                                                   |
 
-#### 3.2.1 Notes When Using the Add Type{#notes}
+#### 3.2.1 タイプ{#notes} を追加する際の注意
 
-If you do not want duplicates in your (microflow) list, you can either remove the object(s) first, or use the **Contains** [list operation](list-operation) to examine the list before adding the object(s).
+(microflow) リストに重複したくない場合は、最初にオブジェクトを削除できます。 または **** [リスト 操作](list-operation) を使用して、オブジェクトを追加する前にリストを調べます。
 
 {{% alert type="warning" %}}
-Currently, this works differently in **nanoflows** and **microflows**. In a **nanoflow** objects will *not* be added if they are already in the list whereas, in a **microflow**, the same object can be added multiple times.
+現在のところ、 **nanoflows** と **microflow** では、これは異なる動作をします。 In a **nanoflow** objects will *not* be added if they are already in the list whereas, in a **microflow**, the same object can be added multiple times.
 {{% /alert %}}
 
-### 3.3 Value
+### 3.3 値
 
-Value defines the objects that are used to change the list. The value is entered using an [expression](expressions). The expression must result in an object or list of objects of the same type of [entity](entities) as the input list.
+値はリストを変更するために使用されるオブジェクトを定義します。 [式](expressions) を使用して値を入力します。 式は、入力リストと同じタイプ [図形](entities) のオブジェクトまたはオブジェクトのリストを生成しなければなりません。
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
