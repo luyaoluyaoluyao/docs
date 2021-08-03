@@ -1,80 +1,66 @@
 ---
-title: "Create Branch Line Dialog"
-parent: "dialogs"
+title: "支線を作成"
+parent: "branch-line-manager-dialog"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "分岐線を作成"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Use this dialog box to create a new [branch line](version-control) in your application.
+**分岐線** の作成ダイアログ ボックスを使用して、 [分岐線](version-control#branches) を **分岐線 マネージャー** を介して作成します。
 
-![](attachments/create-branch-line-dialog/create-branch-line-dialog.png)
+![](attachments/version-control-menu/create-branch-line.png)
 
-A branch line allows independent development from other development lines. There are two main reasons for creating a branch line:
+**分岐線の作成** ダイアログボックスを表示するには、次の操作を行います:
 
-* To do maintenance development in the branch line on a version of your app that is running in production, while still keeping on developing in the main line
-* To start developing a very large feature that will take more than a day to develop in the branch line, without disturbing other development in the main line
+1. Open **Version Control** > **Manage Branch Lines**.
+2. **ブランチラインマネージャー**で、 **New** をクリックします。
 
-To open the **Create Branch Line** dialog box, go to **Project > More Versioning > Manage Branch Lines**, and click **New** in the **Branch Lines Manager** dialog box.
+**分岐線** の作成ダイアログボックスが表示されます。
 
-## 2 Create Branch From
+分岐線の管理方法の詳細については、 [Collaborative Development](collaborative-development#managing-branches) と *Branch Line Manager* の [](branch-line-manager-dialog) セクションを参照してください。 バージョン管理の詳細については、 [バージョンコントロール](version-control) を参照してください。
 
-**Create branch from** allows you to choose where you want to create the branch line from.  You can choose one of the following options:
+## 2 ブランチの作成
 
-* **Main line** – generally if you want to develop a large feature independently of the main line
-* **Branch line** – if you want to create a branch line from another branch line
-* **Tagged version** – probably if you are doing maintenance on a deployed version
+**** から分岐を作成すると、分岐ラインを作成したい分岐ラインを選択できます。 次のいずれかのオプションを選択できます:
 
-{{% alert type="warning" %}}
-
-We do not recommend you to use the **Branch line** option unless you have good reasons.
-
-{{% /alert %}}
+* <a name="main-line"></a>**メインライン** - メインラインとは独立して大きな機能を開発したい場合は、通常 *メインライン* を選択する必要があります。
+* <a name="branch-line"></a>**ブランチライン** - 他のブランチラインからブランチラインを作成することができます
+* <a name="tagged-version"></a>**タグ付けされたバージョン** - デプロイされたバージョンでメンテナンスを行っている場合は、 *タグ付けされたバージョン* を選択することをお勧めします。
 
 ## 3 Revision
 
-For the **Revision** field, click **Select** to select from which revision of the main line you want to create a branch line. Often, you want to choose the most recent version. You then develop some functionality in the branch line and merge it back to the main line when you are done.
+この設定は、 [からブランチを作成](#main-line) で [メインライン](#branch-line) または **ブランチライン** を選択した場合にのみ使用できます。
 
-{{% alert type="info" %}}
+メインラインまたはブランチラインを作成するブランチラインのリビジョンを選択します。 多くの場合、最新バージョンを選択したいと思うでしょう。
 
-This setting is only available when you select **Main line** or **Branch line** in the **Create branch from** field.
+## 4支線
 
+この設定は、 [ブランチの作成](#branch-line) で **ブランチライン** を選択した場合にのみ使用できます。
+
+別の分岐線を作成する分岐線を選択します。 私たちは、あなたが本線からのみ支線を作ることをお勧めしますが、場合によっては支線を分岐することが有用である場合があります。
+
+## タグ付けされた5バージョン
+
+この設定は、 [](#tagged-version) からブランチを作成する **で** タグ付けされたバージョン </strong> を選択した場合にのみ使用できます。
+
+ブランチラインを作成するタグ付けされたバージョンを選択します。 デプロイメント・アーカイブを作成するたびに、そのバージョンのアプリを常に参照できるようにタグが作成されます。
+
+## 6支店名
+
+新しいブランチラインの名前を入力します。
+
+{{% alert type="warning" %}}
+ブランチ名に特殊文字を含めることはできません(例: `@`, `$`, `#`)。
 {{% /alert %}}
 
-## 4 Branch Line
+## 既存の支線7本
 
-In the **Branch line** drop-down list, select from which branch line you want to create another branch line.
+ブランチライン名は一意でなければならないため、このオプションは既存のブランチラインを表示します。 同じ名前のブランチを誤って作成しないようにします。
 
-{{% alert type="info" %}}
+## 8 続きを読む
 
-This setting is only available when you select **Branch line** in the **Create branch from** field.
-
-{{% /alert %}}
-
-## 5 Tagged Version
-
-In the **Tagged version** drop-down list, select from which tagged version you want to create a branch line. Every time you create a deployment archive a tag is created so that you can always refer back to that version of the app.
-
-{{% alert type="info" %}}
-
-This setting is only available when you select **Tagged version** in the **Create branch from** field.
-
-{{% /alert %}}
-
-## 6 Branch Name
-
-Enter a name of the new **Branch line**.
-
-{{% alert type="info" %}}
-
-Branch names cannot include special characters (for example, `@`, `$`, `#`).
-
-{{% /alert %}}
-
-## 7 Existing Branch Name
-
-Since branch line names must be unique, the **Existing branch lines** are shown so that you do not accidentally create a branch line twice.
-
-## 8 Read More
-
-* [Version Control](version-control)
-* [Collaborative Development](collaborative-development)
+* [バージョン管理](version-control)
+* [共同開発](collaborative-development)
