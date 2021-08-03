@@ -1,95 +1,103 @@
 ---
-title: "Date Creation"
-parent: "expressions"
+title: "创建日期"
+parent: "表达式"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "表达式"
+  - "创建日期"
+  - "表达式"
 ---
 
-Date-type variables for a certain date can be created by using [parseDateTime](parse-and-format-date-function-calls). This takes a date string and a format string as parameters and returns a date-type variable. For more details, see [parseDateTime](parse-and-format-date-function-calls).
+## 1 导言
 
-String variables representing a date can be created with the `dateTime` and `dateTimeUTC` functions. The difference between these two functions is that `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. The system session runs as UTC by default, but this can be configured in the [Project Settings](project-settings).
+可以使用 `日期时间` 和 `日期时间` 函数创建日期。 它们之间的差别是  `日期时间` 使用函数调用中使用的会话日历， and `dateTimeUTC` 使用的 UTC 日历。 系统会话默认以 UTC 方式运行，但预定事件除外。 可以在 **App 设置** 的 [预定事件区](project-settings#scheduled) 部分中进行配置。
 
-These functions take between 1 and 6 input parameters and return a string. These represent, in order:
+此函数不接受变量或属性参数，只接受固定值。 若要使用参数创建日期，请使用 [parseDateTime](parse-and-format-date-function-calls#parsedatetime-utc) 功能。
 
-1. Years
-    * Type: integer, four digits, and greater than 1799
-2. Months
-    * Type: integer, between 1 and 12
-3. Days
-    * Type: integer, between 1 and 31
-4. Hours
-    * Type: integer, between 0 and 23
-5. Minutes
-    * Type: integer, between 0 and 59
-6. Seconds
-     * Type: integer, between 0 and 59
+## 2 个值
 
-One parameter:
+这些函数按以下顺序在1到6个输入值之间：
 
-```java
-dateTime(2007)
-```
+1. 年份(类型：整数、四位数字和大于1799)
+2. 月 (类型: 整数, 介于 1 到 12 之间
+3. 天 (类型：整数, 1到31之间)
+4. 小时(类型：整数, 0-23之间)
+5. 分钟(类型：整数，0至59之间)
+6. 秒(类型：整数, 0-59之间)
 
-returns:
+## 3 个示例
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+下面的例子说明表达式返回的价值：
 
-Two parameters:
+* 如果您指定一个值作为输入：
 
-```java
-dateTime(2007, 1)
-```
+    ```java
+    日期时间(2007年)
+    ```
 
-return:
+    表达式将返回以下输出：
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-Three parameters:
+* 如果您指定两个值作为输入：
 
-```java
-dateTime(2007, 1, 1)
-```
+    ```java
+    日期时间(2007年，1)
+    ```
 
-return:
+    表达式将返回以下输出：
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-Four parameters:
+* 如果您指定三个值作为输入：
 
-```java
-dateTime(2007, 1, 1, 1)
-```
+    ```java
+    日期时间(2007年，1，1)
+    ```
 
-return:
+    表达式将返回以下输出：
 
-```java
-"Mon Jan 01 01:00:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-Five parameters:
+* 如果您指定四个值作为输入：
 
-```java
-dateTime(2007, 1, 1, 1, 1)
-```
+    ```java
+    日期时间(2007年，1，1，1)
+    ```
 
-return:
+    表达式将返回以下输出：
 
-```java
-"Mon Jan 01 01:01:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 01:00:00 CET 2007"
+    ```
 
-Six parameters:
+* 如果您指定五个值作为输入：
 
-```java
-dateTime(2007, 1, 1, 1, 1, 1)
-```
+    ```java
+    日期时间(2007, 1, 1, 1)
+    ```
 
-return:
+    表达式将返回以下输出：
 
-```java
-"Mon Jan 01 01:01:01 CET 2007"
-```
+    ```java
+    "Mon Jan 01 01:01:00 CET 2007"
+    ```
+
+* 如果您指定6个值作为输入：
+
+    ```java
+    日期时间(2007年，1，1，1，1，1，1，1，1，1)
+    ```
+
+    表达式将返回以下输出：
+
+    ```java
+    "Mon Jan 01 01:01:01 CET 2007"
+    ```
