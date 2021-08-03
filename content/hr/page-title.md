@@ -1,19 +1,56 @@
 ---
-title: "Page title"
+title: "Page Title"
 parent: "common-widgets"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "page title"
+  - "common widgets"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page-title.pdf).
+{{% /alert %}}
 
-The page title widget shows the title of the [page](page) on which it is used. This can be the title defined on the page itself or the override title defined when showing a page.
+## 1 Introduction
 
-{{% alert type="success" %}}
+This widget displays a page title of the current page that is set in [page properties](page-properties#title).
+
+![Page Title Example](attachments/common-widgets/page-title-example.png)
+
+{{% alert type="info" %}}
 
 The page title widget makes it possible to embed the page title in a [layout](layout), as it will show the title of the page that uses the layout.
 
 {{% /alert %}}
 
-## Visibility properties
+## 2 Properties
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+An example of page title properties is represented in the image below:
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% image_container width="300" %}}![Page Title Properties](attachments/common-widgets/page-title-properties.png)
+{{% /image_container %}}
+
+Page title properties consist of the following sections:
+
+* [Common](#common)
+* [Design Properties](#design-properties)
+* [Visibility](#visibility)
+
+### 2.1 Common Section {#common}
+
+{{% snippet file="refguide8/common-section-link.md" %}}
+
+### 2.2 Design Properties Section {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 Visibility Section {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 Read More
+
+* [Page](page)
+* [Common Widgets](common-widgets)
+* [Properties Common in the Page Editor](common-widget-properties)
