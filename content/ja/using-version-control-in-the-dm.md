@@ -1,351 +1,351 @@
 ---
-title: "Using Version Control in the Desktop Modeler"
-category: "Version Control"
+title: "デスクトップモデラーでバージョン管理を使用する"
+category: "バージョン管理"
 menu_order: 10
-description: "How to work with version control and how to resolve some issues which may arise"
+description: "バージョン管理の使い方と、発生する可能性のあるいくつかの問題を解決する方法"
 tags:
-  - "Version Control"
-  - "Conflicts"
-  - "Resolve"
-  - "Merge"
-  - "Patch"
-  - "Branch"
-  - "Development"
+  - "バージョン管理"
+  - "競合"
+  - "解決"
+  - "結合"
+  - "パッチ"
+  - "ブランチ"
+  - "開発"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This reference guide describes how to use version control the Desktop Modeler. The theory behind how version control works in Mendix, and a definition of the concepts can be found in [Version Contol](version-control).
+このリファレンスガイドでは、Desktop Modelerのバージョン管理の使用方法について説明します。 バージョン管理の仕組みの背後にある理論は Mendix で、コンセプトの定義は [Version Contol](version-control) にあります。
 
-## 2 Starting a Project with Version Control
+## 2 バージョン管理を使ったプロジェクトの開始
 
-To start a new project with version control do the following:
+バージョン管理の新しいプロジェクトを開始するには、次の操作を行います。
 
-1. Choose **New Project...** in the Desktop Modeler.
-2. In the **App Settings** dialog, set **Enable online services** to *Yes*. This option creates a Team Server repository and a Developer Portal project.
-3. Change the **Project directory**, or leave the default suggested by the Desktop Modeler.
-4. Click **Create app**.
+1. Desktop Modelerで **New Project...** を選択します。
+2. **App Settings** ダイアログで、 **Enable online services** を *Yes* に設定します。 このオプションは、Team ServerリポジトリとDeveloper Portalプロジェクトを作成します。
+3. **プロジェクト ディレクトリ**を変更するか、Desktop Modelerが提案するデフォルトのままにします。
+4. **Create app** をクリックします。
 
-The app is created on the Team Server, and a working copy is created in the **Project directory**. This is opened in the Desktop Modeler so that you can start working immediately.
+チームサーバー上にアプリが作成され、 **プロジェクトディレクトリ** に作業コピーが作成されます。 これは、即座に作業を開始できるように、Desktop Modelerで開かれます。
 
 ![](attachments/modeler-core/2018-03-02_11-11-18.png)
 
-## 3 Joining a Project
+## 3 プロジェクトへの参加
 
-If there is already a Team Server enabled project, you can be invited to join it (see [Team](/developerportal/collaborate/team).
+すでにTeam Server対応のプロジェクトがある場合は、招待して参加することができます( [Team](/developerportal/collaborate/team) を参照)。
 
-Once you are a team member, providing you have been given a role with sufficient rights, you can work on the app by doing the following:
+チームメンバーになると、十分な権利を持つロールが与えられます。 次のように操作できます。
 
-1. Choose **Open project...** in the Desktop Modeler.
-2. Select *Mendix Team Server* as for **Where is your App stored?**.
-3. Choose your app from the **Team Server App** dropdown.
-4. Change the **Project directory**, or leave the default suggested by the Desktop Modeler.
-5. Click **Create app**.
+1. Desktop Modelerで **Open project...** を選択します。
+2. *Mendix Team Server* を **アプリはどこに保存されますか？**.
+3. **Team Server App** ドロップダウンからアプリを選択します。
+4. **プロジェクト ディレクトリ**を変更するか、Desktop Modelerが提案するデフォルトのままにします。
+5. **Create app** をクリックします。
 
-The project will be downloaded from the Team Server and opened in the Desktop Modeler.
+プロジェクトはチームサーバーからダウンロードされ、Desktop Modelerで開かれます。
 
 ![](attachments/modeler-core/open-new-team-server-app.png)
 
-## 4 Day-to-day Development
+## 日々の4つの開発
 
-Let us say you have a working copy of a project on disk. You make changes to the app and save them. Saved changes are not immediately visible to others. The documents, folders, and modules which have been changed can be identified by looking at the **status**.
+プロジェクトの作業コピーがディスク上にあるとしましょう。 アプリに変更を加え、保存します。 保存された変更は他のユーザーにはすぐには表示されません。 変更された文書、フォルダ、およびモジュールは、 **ステータス** を見ることで識別できます。
 
-When you are happy with a set of changes, you **commit** them to the repository. Others can then choose to update and retrieve those changes.
+一連の変更に満足している場合は、リポジトリに **** コミットします。 その後、それらの変更を更新して取得することを選択することができます。
 
-You can **update** your working copy with changes committed by others.
+他のユーザーによってコミットされた変更で作業コピーを **** 更新できます。
 
-You can also see a **history** of all the changes which have been committed, no matter who committed them.
+また、誰がコミットしたかに関係なく、コミットされたすべての変更の **履歴** を見ることができます。
 
-### 4.1 Status
+### 4.1 ステータス
 
-The status of your project is a summary of all the changes in your working copy when compared with the original. The Modeler shows the status both in the project explorer and in the **Changes** dock.
+プロジェクトのステータスは、オリジナルと比較した場合の作業コピーのすべての変更の概要です。 モデラーは、プロジェクトエクスプローラーと **変更** ドックの両方でステータスを表示します。
 
-The project explorer shows an icon in front of items (documents, folders and modules) that are changed in some way. The different icons indicate the different kinds of changes which have been made.
+プロジェクトエクスプローラには、何らかの方法で変更されたアイテム(ドキュメント、フォルダ、モジュール)の前にアイコンが表示されます。 異なるアイコンは、行われたさまざまな種類の変更を示しています。
 
-| Icon                               | Meaning                                                                                 |
-| ---------------------------------- | --------------------------------------------------------------------------------------- |
-| ![](attachments/524294/688173.png) | Nothing happened to this item. It is unchanged w.r.t. to the original.                  |
-| ![](attachments/524294/688172.png) | You modified this item (as in, document, folder or module).                             |
-| ![](attachments/524294/688175.png) | You added this item.                                                                    |
-| ![](attachments/524294/688174.png) | You moved this item to another position in the project tree.                            |
-| ![](attachments/524294/688164.png) | You deleted this item.                                                                  |
-| ![](attachments/524294/688165.png) | This item is conflicted. See [Dealing With Conflicts](#conflicts) for more information. |
+| アイコン                               | 意味                                                  |
+| ---------------------------------- | --------------------------------------------------- |
+| ![](attachments/524294/688173.png) | このアイテムに何も起こりませんでした。 変更しない w.r.t です。 オリジナルに          |
+| ![](attachments/524294/688172.png) | このアイテムを（内、ドキュメント、フォルダ、またはモジュールとして）修正しました。           |
+| ![](attachments/524294/688175.png) | このアイテムを追加しました。                                      |
+| ![](attachments/524294/688174.png) | このアイテムをプロジェクトツリー内の別の位置に移動しました。                      |
+| ![](attachments/524294/688164.png) | このアイテムを削除しました。                                      |
+| ![](attachments/524294/688165.png) | このアイテムは競合しています。 詳細は [競合への対処](#conflicts) を参照してください。 |
 
 {{% alert type="info" %}}
-There is only room for one icon and if a document is both modified and moved it is shown as modified.
+1 つのアイコンのみのスペースがあり、ドキュメントが変更されて移動されている場合、ドキュメントが変更されて表示されます。
 {{% /alert %}}
 
-For example, say that the microflow ChangePassword has been modified. Also a new folder called 'Flows' was added and all microflows were moved inside this folder. In the screenshot you can see that the folders and modules containing changes are depicted with a yellow icon, and the microflows which have been moved have a blue icon. This helps you to quickly see where in the project the changes are.
+たとえば、microflow ChangePassword が変更されたとします。 また、「Flows」という新しいフォルダが追加され、このフォルダ内にすべてのマイクロフローが移動されました。 スクリーンショットでは、変更を含むフォルダーとモジュールが黄色のアイコンで表示されていることが確認できます。 移動したマイクロフローには青いアイコンがついています これにより、プロジェクト内の変更箇所をすばやく確認できます。
 
 ![](attachments/modeler-core/2018-02-21_13-27-21.png)
 
-You can see the same information in the Changes Dock. In this case there is an entry for each *change* to an item. If a document is both modified and moved there are *two* lines for that document. The dock also shows items that were deleted, something the project explorer cannot do.
+変更ドックにも同じ情報が表示されます。 この場合、 *変更* ごとに項目があります。 ドキュメントが両方とも変更され移動されている場合、そのドキュメントには *2行* 行があります。 ドックには、削除されたアイテム、プロジェクトエクスプローラが行うことができないアイテムも表示されます。
 
 ![](attachments/modeler-core/2018-02-21_13-41-50.png)
 
 {{% alert type="info" %}}
-When you successfully commit your project, this becomes the new original and all the change information is removed from the project explorer and the changes dock.
+プロジェクトのコミットに成功したとき これが新しいオリジナルになり全ての変更情報がプロジェクト・エクスプローラと 変更ドックから削除されます
 {{% /alert %}}
 
-### 4.2 Committing
+### 4.2 コミット
 
-Sending changes to the repository is called *committing*. The idea is that you commit small, consistent pieces of work to the repository. We recommend you commit your changes often. Preferably, the versions in the repository are always error-free, the Modeler will warn against committing while there are errors in your project.
+リポジトリへの変更の送信は *コミット* と呼ばれます。 アイデアは、リポジトリに小さな一貫した作業をコミットすることです。 頻繁に変更をコミットすることをお勧めします。 好ましくは、リポジトリ内のバージョンは常にエラーなしで、Modelerはプロジェクトにエラーがある間、コミットに対して警告します。
 
 To commit your changes, click the **Commit** button in the *Changes* dock, or choose the **Project > Commit...** menu item.
 
-![Commit Button](attachments/modeler-core/commit-button.png)
+![コミットボタン](attachments/modeler-core/commit-button.png)
 
-In general, it is a good idea to commit after implementing one feature or fixing one bug. By committing often, your work is integrated with the work of others regularly. The benefits of committing often include:
+一般に、1つの機能を実装したり、1つのバグを修正したりした後にコミットすることをお勧めします。 頻繁にコミットすることによって、あなたの仕事は定期的に他の人の仕事と統合されます。 頻繁にコミットする利点は次のとおりです。
 
-* if any conflicts arise the changes are still fresh in your mind
-* revisions are easier to understand
-* if you ever need to revert something, you can revert a small chunk of work
+* もし衝突が起きたら変化はまだ新鮮だ
+* 改訂は理解しやすいのです
+* 何かを元に戻す必要がある場合は、小さな作業を元に戻すことができます
 
-Committing results in a new revision in the repository. You can add the following information in the Desktop Modeler when you perform a commit, and this will be attached to the newly created revision:
+リポジトリ内の新しいリビジョンで結果をコミットします。 コミットを実行するときに、Desktop Modelerに次の情報を追加することができ、これは新しく作成されたリビジョンに添付されます。
 
-* A textual message. This should be a summary of the changes you made
-* A list of Developer Portal stories that relate to the commit. A small commit will probably relate to one story. The Modeler shows stories that are in the current sprint and do not have a status of *Done*. Adding the story to the commit will not change the state of the Developer Portal story. Setting the status to 'Done' must be done manually and depends on your *definition of done*.
+* テキストメッセージ これはあなたが行った変更の概要である必要があります
+* コミットに関連するデベロッパーポータルのストーリーのリスト。 小さなコミットは、おそらく一つの物語に関連します。 モデラーは、現在のスプリントにあるストーリーを表示し、 *Done* のステータスを持っていません。 ストーリーをコミットに追加すると、デベロッパーポータルのストーリーの状態は変更されません。 ステータスを 'Done' に設定するには、手動で行う必要があります。 *done* の定義に依存します。
 
 ![](attachments/modeler-core/2018-02-21_13-50-03.png)
 
-The Modeler also attaches some information automatically:
+モデラーはまた、いくつかの情報を自動的に添付します:
 
-*   The person who committed (the *author*)
-*   The date and time of the commit
-*   The list of changed documents, folders, and modules along with the type of the change (for example *modify* or *add*)
-*   The version of the Modeler that was used to commit
+*   コミットした人 ( *作者*)
+*   コミットの日時
+*   変更されたドキュメント、フォルダ、モジュールのリストと変更の種類 ( *modify* や *add* など)
+*   コミットに使用されたモデラーのバージョン
 
-If you also changed Java source code, added widgets or made other changes that affect files other than the project file you will see a **Changes on disk** tab page that shows you what disk changes you are about to commit.
+Javaソースコードも変更した場合。 追加されたウィジェットまたはプロジェクト ファイル以外のファイルに影響を与えるその他の変更を加えた場合は、 **ディスク** タブのページで変更を加えて、コミットしようとしているディスクの変更を表示します。
 
-Committing is only allowed if your working copy is up to date with the repository. If someone else committed a change since the last time you updated, you will have to update first. This is because the revision you create with the commit should incorporate both your changes and the changes by the other person. Updating will combine the latest changes in the repository with your changes. After reviewing the result, and fixing any conflicts, you can commit again.
+コミットは、作業コピーがリポジトリと最新の場合にのみ許可されます。 前回更新した時点から他の誰かが変更をコミットした場合は、最初に更新する必要があります。 これは、コミットを使用して作成したリビジョンが、あなたの変更と他の人による変更の両方を組み込む必要があるためです。 更新により、リポジトリの最新の変更が変更と結合されます。 結果を確認し、競合を修正した後、再度コミットすることができます。
 
-### 4.3 Updating
+### 4.3 更新
 
-Updating retrieves the latest changes from the repository. You need to do this to incorporate any changes made by others that are not yet in your working copy before you can commit your changes to the repository. It is advisable to frequently update so that the number of changes you retrieve is small.
+更新は、リポジトリから最新の変更を取得します。 リポジトリに変更をコミットする前に、作業コピーにまだない他の人によって行われた変更を組み込むためにこれを行う必要があります。 取得した変更数が少ないように頻繁に更新することをお勧めします。
 
 To update the working copy of your app, click the **Update** button in the *Changes* dock, or choose the **Project > Update** menu item.
 
-![Update Button](attachments/modeler-core/update-button.png)
+![更新ボタン](attachments/modeler-core/update-button.png)
 
-Changes you receive from the repository when updating are combined with the changes you have made to your working copy (if any). Afterwards, your working copy will contain both your changes and the changes you received. As part of the update, the original of your working copy is updated as well.
+更新時にリポジトリから受け取った変更は、作業コピーに加えた変更(もしあれば)と結合されます。 その後、作業コピーには変更内容と受け取った変更の両方が含まれます。 アップデートの一環として、作業コピーのオリジナルも更新されます。
 
-For example, if the last time you updated you received all changes up to and including revision 40, this means that the original for your working copy is revision 40. Since you started making changes to your working copy, other people on your team have made another four commits (41, 42, 43 and 44). If you now update, you will receive those changes and 44 will be the new *original* to which your changes are compared.
+たとえば、前回更新した場合、リビジョン 40 までのすべての変更を受け取ったことになります。 作業コピーの原本はリビジョン40だ 作業コピーに変更を加え始めて以来、チームの他の人々はさらに4つのコミット(41、42、43、44)を行っています。 今アップデートすると、それらの変更を受け取り、44があなたの変更が比較される新しい *オリジナル* になります。
 
-Usually, combining your changes with the latest revision from the repository will be done automatically. For example, one person may add a form while you are changing a microflow. If the changes are too close, however, a conflict can arise. For example, if one of your team has changed the properties of the same data view which you have also changed. You will have to resolve such conflicts before you can commit. See section 6, [Dealing With Conflicts](#conflicts) for information on how to do this.
+通常、リポジトリからの最新のリビジョンと変更を組み合わせると自動的に行われます。 たとえば、ある人がマイクロフローを変更している間にフォームを追加することができます。 しかし、変更が近すぎると、競合が発生する可能性があります。 たとえば、いずれかのチームが、変更した同じデータビューのプロパティを変更した場合です。 コミットする前に、このような競合を解決する必要があります。 これを行う方法については、6章 [競合への対処](#conflicts) を参照してください。
 
-If your team is committing often you will have to update often. Frequent updating has the benefit that you receive fewer changes with each update, so integrating those changes with your work is easier.
+チームが頻繁にコミットしている場合は、頻繁に更新する必要があります。 頻繁なアップデートには、アップデートごとに少ない変更を受け取るメリットがありますので、これらの変更を作業と統合するのが簡単です。
 
-### 4.4 History
+### 4.4 履歴
 
-The *history* of the project is a list of all revisions that have been committed. To view the history of the project, click the **History** button in the *Changes* dock, or choose the **Project > More Versioning > History...** menu item.
+プロジェクトの *履歴* は、コミットされたすべてのリビジョンのリストです。 To view the history of the project, click the **History** button in the *Changes* dock, or choose the **Project > More Versioning > History...** menu item.
 
-![History Button](attachments/modeler-core/history-button.png)
+![履歴ボタン](attachments/modeler-core/history-button.png)
 
-The revisions are shown in reverse chronological order (newest is at top of list). The history form shows you revision number, date, time, author and message of each revision.
+リビジョンは、逆年代順に表示されます(最新のものはリストの先頭に表示されます)。 履歴フォームには、各リビジョンのリビジョン番号、日付、時刻、作成者、およびメッセージが表示されます。
 
-Select a revision to see additional details such as related Developer Portal stories, changed documents, Modeler version and changes on disk. Icons summarize the kinds of changes that happened in the project.
+リビジョンを選択すると、関連する開発者ポータルのストーリー、変更されたドキュメント、モデラーのバージョン、ディスク上の変更などの詳細が表示されます。 アイコンは、プロジェクトで起こった変更の種類をまとめたものです。
 
 ![](attachments/modeler-core/2018-02-21_14-06-46.png)
 
-## 5 Reverting Changes
+## 5 変更を元に戻す
 
-Changes that have not yet been committed can be reverted. Say, for example, that you have made a lot of changes to a form and you are not happy with the result. You can revert the form to the original: that is, the state of the form before you started making changes.
+まだ反映されていない変更は元に戻すことができます。 たとえば、フォームに多くの変更を行っていると、結果に満足していないことを言います。 元に戻すことができます。つまり、変更を開始する前のフォームの状態です。
 
-Deletes of documents, folders and modules can also be reverted. This will bring them back into the project. Note that you will get back the latest version you have *committed*. For example, if you commit, make some changes to a microflow, and then delete the microflow, reverting the delete will give you the microflow without the changes that you made.
+ドキュメント、フォルダ、モジュールの削除も元に戻すことができます。 これにより、彼らはプロジェクトに戻ります。 *コミットした*の最新バージョンを取り戻すことに注意してください。 たとえば、コミットする場合は、マイクロフローにいくつかの変更を加えてから、マイクロフローを削除します。 削除を元に戻すと、変更を加えずにマイクロフローを作成できます。
 
-You can revert changes in the *Changes* dock, or from the right-click menu on the document you want to revert.
+変更を元に戻すには、 *変更* ドック、または元に戻したいドキュメントの右クリックメニューから操作します。
 
-![Two ways of reverting](attachments/modeler-core/revertx2.png)
+![元に戻す2つの方法](attachments/modeler-core/revertx2.png)
 
-## 6 Dealing With Conflicts{#conflicts}
+## 6 競合への対処{#conflicts}
 
-If you update your app and the changes cannot be merged automatically you will receive a message telling you there are conflicts. A conflict arises when two changes cannot be combined.
+アプリを更新し、変更を自動的にマージできない場合は、競合があることを示すメッセージが表示されます。 二つの変更を組み合わせることができない場合、衝突が発生します。
 
-![Warning about conflicts](attachments/modeler-core/contains-conflicts.png)
+![競合に関する警告](attachments/modeler-core/contains-conflicts.png)
 
-There are two different sorts of conflict:
+競合の種類は 2 つあります:
 
-* Document conflicts
-* Project conflicts
+* ドキュメントの競合
+* プロジェクトの競合
 
-### 6.1 Resolving a Document Conflict
+### 6.1 ドキュメントの競合の解決
 
-Two changes in the same *document* that are really close to each other can cause a document conflict. For example, two people both change the properties of the same element on the page. The document will be marked as conflicted in the *Changes* dock. Conflicts have to be resolved before you can commit again.
+同じ *ドキュメント* 内の2つの変更が互いに本当に近い場合、ドキュメントの競合を引き起こす可能性があります。 例えば、二人ともページ上の同じ要素のプロパティを変更します。 ドキュメントは、 *変更* ドックで競合としてマークされます。 再度コミットする前に競合を解決する必要があります。
 
-Double-click a document to see which elements have conflicts. You can also see all the changes which have been made by you, and all the changes which were made by other people.
+ドキュメントをダブルクリックして、どの要素が競合しているかを確認します。 また、あなたが行ったすべての変更、および他の人によって行われたすべての変更を見ることができます。
 
-![Detailed document conflicts](attachments/modeler-core/document-changes.png)
+![詳細なドキュメントの競合](attachments/modeler-core/document-changes.png)
 
 For each *document* you can decide whether to accept the conflicted elements which are **mine** and discard the changes to those by the other person, or to accept the conflicted elements which are **theirs**, if their changes are more relevant.
 
-This decision applies to all the conflicts in the document; you cannot choose your version for some conflicted changes but their changes for others. Non-conflicting changes will be merged as normal.
+この決定はドキュメント内のすべての競合に適用されます。いくつかの競合する変更に対して、自分のバージョンを選択することはできませんが、他の変更に対しても適用されます。 競合しない変更は通常どおりマージされます。
 
 Ensure you are viewing changes for the whole project in the *Changes* dock, select the document which is conflicted, and use the required option from the **Tasks** dropdown.
 
-![Resolving a conflict using the changes dock](attachments/modeler-core/resolve-document-conflict.png)
+![変更ドックを使用して競合を解決する](attachments/modeler-core/resolve-document-conflict.png)
 
-For example, if you deleted a data view in a form and another person changes something inside that data view, you may choose to discard the changes of the other by clicking 'Use mine'.
+たとえば、フォーム内のデータビューを削除し、そのデータビュー内で別の人が何かを変更した場合などです。 「マイニングを使用」をクリックして、他の変更を破棄することを選択できます。
 
-Resolving a conflict will make the conflict go away but the document may, of course, still be marked as changed if there are changes to commit.
+競合を解決すると、競合は解消されますが、文書は可能性があります。 もちろんコミットに変更があれば変更されるとマークされています
 
-## 6.2 Resolving a Project Conflict
+## 6.2 プロジェクトの競合の解決
 
-Project conflicts are conflicts are conflicts at the level of the project. There are two cause for project conflicts:
+プロジェクトのコンフリクトは、プロジェクトのレベルでのコンフリクトです。 プロジェクトの競合には2つの原因があります:
 
-1.  One person deletes a document and the other makes a change inside that document.
-2.  Both people move a document but to different places in the project tree.
+1.  ある人がドキュメントを削除し、もう一方はそのドキュメント内で変更を行います。
+2.  両方の人は、ドキュメントを移動しますが、プロジェクトツリー内の別の場所に移動します。
 
-The involved document is marked as conflicted and you can see the reason in the details column of the *Changes* dock.
+関係するドキュメントは競合としてマークされており、理由は *変更* ドックの詳細欄に表示されます。
 
-![Example of project conflicts](attachments/modeler-core/project-conflicts.png)
+![プロジェクトの競合の例](attachments/modeler-core/project-conflicts.png)
 
 {{% alert type="info" %}}
-If a whole folder (or module) was *deleted* and another person changes a document inside that folder, the folder/module is restored and also marked as conflicted. This way you know that the intention was to delete that folder but it has been restored to show you the context of the changed document.
+フォルダ全体（またはモジュール）が *削除されていて、別の人がそのフォルダ内のドキュメントを変更した場合* フォルダ/モジュールが復元され、競合としてマークされます。 この方法では、そのフォルダを削除する意図があったことを知っているが、変更されたドキュメントのコンテキストを表示するために復元されています。
 {{% /alert %}}
 
-You can resolve a project conflict by choosing **Tasks > Use mine** or by deleting the involved documents or folders.
+プロジェクトの競合を解決するには、 **Tasks > Use mine** を選択するか、ドキュメントやフォルダを削除します。
 
-## 7 Using Branches
+## 7 ブランチの使用
 
-A repository can contain a number of development lines. Each development line offers independent development from the other development lines. In the simple case there is just one development line called the main line (called 'trunk' in subversion). All development then happens inside that one line.
+リポジトリには、いくつかの開発行を含めることができます。 各開発ラインは、他の開発ラインから独立した開発を提供します。 単純なケースでは、メインライン(subversionでは「trunk」と呼ばれる)と呼ばれる開発ラインが1つだけあります。 すべての開発はその一行の中で行われます。
 
 ![](attachments/524294/688156.png)
 
-It is often convenient to have more than one development line. For example, one development line for fixing bugs in the currently deployed version of your project and another line where you develop new functionality. If you then find a bug in the deployed version you can fix it in the corresponding development line irrespective of the state of the development line where new functionality is developed. See [Version Control](version-control) for more information about branches.
+複数の開発ラインを持つことは、しばしば便利です。 たとえば、現在デプロイされているバージョンのプロジェクトのバグを修正するための1つの開発ラインと、新しい機能を開発する別の行です。 デプロイされたバージョンでバグが見つかった場合は、新しい機能が開発された開発ラインの状態に関係なく、対応する開発ラインでバグを修正できます。 ブランチについての詳細は [バージョン コントロール](version-control) を参照してください。
 
-### 7.1 When to use a Branch
+### 7.1 ブランチをいつ利用するか
 
-#### 7.1.1 Patching a Deployed Application
+#### 7.1.1 デプロイ済みアプリケーションにパッチを適用する
 
-If you want to add some functionality to a deployed application or you want to fix a bug in it, you can do so without interfering with other development.
+デプロイされたアプリケーションにいくつかの機能を追加したい場合、またはバグを修正したい場合。 他の開発を邪魔することなくできるのです
 
-1. Determine the version of the deployed application. This information is in the Developer Portal. Alternatively, you can find the version in the metadata.json file in the **model** subfolder of your deployment package (mda) archive. For example, `"ModelVersion": "1.0.0.16"`
+1. デプロイされたアプリケーションのバージョンを決定します。 この情報は開発者ポータルにあります。 もしくは、デプロイパッケージ(mda)アーカイブの **モデル** サブフォルダにあるmetadata.jsonファイルのバージョンを見つけることもできます。 例えば、 `"ModelVersion": "1.0.0.16"`
 2. Choose **Project > More Versioning > Manage Branch Lines...** and create a branch based on the tag with the that version number as its name.
 
     ![](attachments/modeler-core/create-from-tag.png)
 
-3. Add the functionality or fix the bug in this newly created branch.
-4. Testing that things work as intended.
-5. Create a new deployment archive with a higher version number (increase patch or minor version).
+3. 機能を追加するか、新しく作成されたブランチのバグを修正してください。
+4. 物事が意図したように動作することをテストします。
+5. より高いバージョン番号を持つ新しいデプロイメント・アーカイブを作成します(パッチまたはマイナーバージョンを増やす)。
 
 {{% alert type="info" %}}
-We advise you to merge the fixed maintenance branch into the main line quickly, if required. If the merge is too complicated to be made automatically, because the main line has changed too much, you will know how to apply the fix by hand to the main line as the changes will still be fresh in your mind.
+必要に応じて、固定メンテナンスブランチをメインラインにすばやく統合することをお勧めします。 マージが複雑すぎる場合は、メインラインが大きすぎるため自動的に行うことができません。 変更はまだあなたの心の中で新鮮になるので、あなたは、メインラインに手で修正を適用する方法を知るでしょう。
 
-Of course, not all maintenance fixes need to be merged to the main line. Sometimes, it is a fix of something that was completely redesigned or eliminated in the main line. In this case, merging is unnecessary.
+もちろん、すべてのメンテナンス修正をメインラインに統合する必要はありません。 時には、メインラインで完全に再設計または削除されたものの修正です。 この場合、マージは不要です。
 {{% /alert %}}
 
-#### 7.1.2 Developing a New Feature Independently
+#### 7.1.2 独立した新機能の開発
 
-Another reason for creating a branch is to develop a big new feature without interfering with other development. This gives you the freedom to commit a half-implemented feature, possibly even with errors, while other people can still commit and update on the main line. Without using a branch line, you would have to constantly make sure that your project is error free and does not break other parts of the system.
+ブランチを作るもう一つの理由は、他の開発に干渉せずに大きな新機能を開発することです。 これにより、半実装された機能を、おそらくエラーであってもコミットする自由が与えられます。 他の人がメインラインでコミットしたり更新したりできます 分岐線を使用せずに あなたのプロジェクトがエラーフリーでシステムの他の部分を壊さないことを常に確認する必要があります
 
-Firstly, select **Project > More Versioning > Manage Branch Lines...** and create a branch from a revision of the main line.
+まず、 **プロジェクト > その他のバージョン > ブランチの管理...** を選択し、メインラインのリビジョンからブランチを作成します。
 
 ![](attachments/modeler-core/2018-02-28_13-50-39.png)
 
-Now work on the branch until the feature is done and commit the completed work.
+機能が完了するまでブランチで作業し、完了した作業をコミットします。
 
-When you want to merge the whole branch back to the main line to integrate the feature there. Do the following:
+ブランチ全体をメインラインにマージして機能を統合したい場合。 次の操作を行います:
 
-1. Open the main line.
-2. Choose **Project > More Versioning > Merge changes here**.
-3. Choose **Merge feature branch**.
+1. メインラインを開きます。
+2. 選択 **プロジェクト > その他のバージョン > Merge changes here**.
+3. **統合機能ブランチ** を選択します。
 
     ![](attachments/modeler-core/2018-02-28_14-05-23.png)
 
-4. Select the branch and click **Merge**.
-5. Resolve any conflicts and errors.
-6. Commit the new feature to the main line.
+4. ブランチを選択し、 **Merge** をクリックします。
+5. 競合やエラーを解決します。
+6. 新しい機能をメインラインにコミットします。
 
-You can delete the branch after merging it back, if you want.
+必要に応じて、ブランチをマージした後に削除できます。
 
-### 7.2 Working with Branches in the Desktop Modeler
+### 7.2 Desktop Modelerでのブランチの操作
 
-#### 7.2.1 Branching
+#### 7.2.1 ブランチ
 
-Development lines other than the main line are called branch lines. Our advice would be to develop new features in the *main line* and to use *branch lines* for fixing bugs in versions that have been deployed. This is the scenario the Modeler makes easy but other scenarios for more complex projects are supported as well.
+本線以外の開発線を分岐線と呼ぶ。 私たちのアドバイスは、 *メイン ライン* で新機能を開発し、デプロイされたバージョンのバグを修正するために *分岐線* を使用することです。 これはモデラーが容易にするシナリオですが、より複雑なプロジェクトに対しても他のシナリオがサポートされています。
 
 You can create branch lines from the Branch Line Manager which you can find at **Project > More Versioning > Manage Branch Lines...**.
 
 ![](attachments/modeler-core/2018-02-21_14-16-20.png)
 
-#### 7.2.2 Merging
+#### 7.2.2 マージ
 
-If you have multiple development lines, you sometimes want to port changes from one development line to another. For example, the fix that you made in a branch line for the production version should also be applied to the new 2.0 version you are developing in the main line. You can, of course, do this by hand but the Modeler can also help you by merging changes from one development line to another.
+複数の開発ラインがある場合は、ある開発ラインから別の開発ラインに変更を移植したい場合があります。 たとえば、本番バージョンのブランチラインで行った修正は、新しい2にも適用されます。 バージョンはメインラインで開発中です もちろん、これを手作業で行うこともできますが、Modelerはある開発ラインから別の開発ラインへの変更をマージするのにも役立ちます。
 
-Merging is always done while you have a working copy open. The merge will result in extra local changes in that working copy. It is advisable to commit local changes first before merging extra changes into a working copy. Otherwise, the uncommitted local changes and the changes caused by the merge will be combined and it is very hard to untangle them if you are unhappy with the merge. The Modeler will warn you if you have uncommitted changes.
+結合は、作業コピーを開いている間は常に行われます。 マージにより、作業コピーに追加のローカル変更が生じます。 追加の変更を作業コピーにマージする前に、最初にローカル変更をコミットすることをお勧めします。 そうでなければ、 コミットされていないローカル変更とマージによって引き起こされる変更が結合されます。マージに不満がある場合は、それらを解くことは非常に困難です。 モデラーは、変更を反映していない場合に警告します。
 
-Choose **Project > More Versioning > Merge Changes Here**.
+**プロジェクト > その他のバージョン > 変更をマージする ここ** を選択してください。
 
-Choose the appropriate *type of merge*, for example **Port fix**.
+適切な *マージの種類*を選択します。たとえば、 **ポートフィックス**。
 
 ![](attachments/modeler-core/2018-02-21_14-19-47.png)
 
-You can merge either a single revision, or a whole range of revisions, from one development line to another. If a branch line represents a big new feature that you want to integrate completely into the main line, you can merge all the revisions of the branch.
+1 つの開発ラインから別の開発ラインに、1 つのリビジョン、または全体のリビジョンのいずれかをマージできます。 分岐線がメインラインに完全に統合したい大きな新機能を表す場合。 を選択すると、すべてのリビジョンをマージできます。
 
 #### 7.2.3 Reverse Merging
 
-Reverting changes works for changes that have not been committed yet. Changes that have been committed can never be deleted. However, you can apply the changes 'in reverse' and commit that. This feature is called 'Reverse merging' in the Modeler.
+変更をリバートすると、まだ反映されていない変更に対して機能します。 コミットされた変更は、決して削除することはできません。 ただし、「逆に」変更を適用してコミットすることができます。 この機能はモデラーでは「リバースマージ」と呼ばれます。
 
-Choose **Project > More Versioning > Reverse Merge Changes...**
+**プロジェクト > その他のバージョンを選択 > 逆マージ変更...**
 
 ![](attachments/modeler-core/revert-committed-changes.png)
 
-After a reverse merge the project will look like the changes never happened; if you 'reverse merge' the adding of a form, the form will be deleted locally. Just like when you are doing a normal merge, conflicts can arise. In the example, if later commits change the added form, the reverse merge will result in a conflict. After resolving any problems, you can commit the results to the repository.
+逆マージ後、プロジェクトは変更が発生したことがないように見えます。 フォームの追加を逆にすると、フォームはローカルに削除されます。 通常のマージを行っているときと同じように、競合が発生する可能性があります。 例では、後で追加されたフォームをコミットすると、逆マージは競合になります。 問題を解決した後、結果をリポジトリにコミットできます。
 
-## 8 Versioning a Project Deployed to the Cloud
+## クラウドにデプロイされたプロジェクトの8バージョン
 
-### 8.1 Deploying Locally
+### 8.1 ローカルにデプロイする
 
-While developing you can deploy and run your app on your local machine by using the menu item **Run > Run Locally**. This allows you to test the app as it currently is stored on your local machine.
+開発中は、メニューアイテムを使用してローカルマシンでアプリをデプロイして実行することができます **実行 > ローカルで実行**. これにより、現在ローカルマシンに保存されているアプリをテストすることができます。
 
-### 8.2 Deploying Your Working Copy
+### 8.2 作業コピーをデプロイする
 
-When you deploy to the cloud, you can choose to use the version of the app stored on your local machine, the *working copy* and deploy that to the default environment. If you are using the Mendix Cloud, or other partner cloud (SAP BTP, for example), choose the menu item **Run > Run** to commit the version of the app stored on your local machine and deploy that to the default environment.
+クラウドにデプロイする場合、ローカルマシンに保存されているアプリのバージョンを選択できます。 *作業コピー* し、それをデフォルト環境にデプロイします。 Mendix Cloud、または他のパートナークラウド(SAP BTPなど)を使用している場合。 メニュー アイテムを選択します。 **実行 > 実行** ローカルマシンに保存されているアプリのバージョンをコミットし、デフォルト環境にデプロイします。
 
-### 8.3 Choosing a Specific Development Line and Revision
+### 8.3 特定の開発ラインと改訂の選択
 
-It is also possible to choose a specific development line and revision to deploy to the default environment, or to create a package from.
+また、特定の開発ラインとリビジョンを選択してデフォルト環境にデプロイしたり、パッケージを作成したりすることもできます。
 
-In this case, the Modeler will create a fresh checkout of the chosen revision. This means that any team member can always recreate this version of the deployment package. In other words, the Modeler does *not* rely on your local files for creating a versioned deployment package.
+この場合、モデラーは選択したリビジョンの新しいチェックアウトを作成します。 つまり、どのチームメンバーでも、このバージョンのデプロイパッケージを常に再作成できます。 言い換えれば、モデラーは ** バージョン管理されたデプロイメントパッケージを作成するためにローカルファイルに依存しません。
 
 {{% alert type="warning" %}}
-You can only create a versioned deployment package of changes that have been committed. If you have local changes that you want to deploy in a versioned deployment package, commit them first.
+コミットされた変更のバージョン管理パッケージのみを作成できます。 バージョン管理されたデプロイパッケージにデプロイするローカル変更がある場合は、最初にコミットします。
 {{% /alert %}}
 
-When it creates the package, the Modeler will also create a tag representing this version of your project. If you want to make modifications to this version later, independently of other development which has taken place, you can create a branch based on this tag. The name of the tag is a version number that you choose.
+パッケージが作成されると、Modelerはプロジェクトのこのバージョンを表すタグも作成します。 このバージョンを後で変更したい場合は、 他の開発とは関係なく、このタグに基づいてブランチを作成できます。 タグの名前は、選択したバージョン番号です。
 
-#### 8.3.1 Deploying a Specific Version to a Mendix Licensed Cloud Node
+#### 8.3.1 Mendix ライセンスクラウドノードに特定のバージョンをデプロイする
 
-If you are using the Mendix Cloud you can choose **Project > Deploy to Licensed Cloud Node** to dpeloy a specific version.
+Mendix Cloudを使用している場合は、 **Project > Deploy to Licensed Cloud Node** を選択して、特定のバージョンをdpeloy することができます。
 
 ![](attachments/modeler-core/2018-02-21_17-05-05.png)
 
-#### 8.3.2 Creating a Deployment Package from a Specific Version
+#### 8.3.2 特定のバージョンからデプロイパッケージを作成する
 
-If you are using a different hosting environment, you create a deployment package using the menu item **Project > Create Deployment Package...**.
+別のホスティング環境を使用している場合は、メニュー項目 **プロジェクト > デプロイメントパッケージを作成...** を使用してデプロイパッケージを作成します。
 
 ![](attachments/modeler-core/2018-02-28_13-44-04.png)
 
-## 9 Working Outside the Desktop Modeler
+## 9 デスクトップモデラーの外での作業
 
-The Modeler takes care of some file management automatically. If you add or remove custom widgets they are automatically added or removed from version control, too. Some files and directories (for example, deployment and releases directories) are automatically ignored so that they are not committed to version control.
+モデラーはファイル管理を自動的に行います。 カスタム ウィジェットを追加または削除すると、バージョン管理からも自動的に追加または削除されます。 バージョン管理に反映されないように、いくつかのファイルとディレクトリ (例えば、リリースディレクトリ) は自動的に無視されます。
 
-We advise you to always commit and update inside the Modeler because in this way useful metadata is added to your revisions. The Modeler has ways to recover from external updates or merges but it is best to not depend on that.
+私たちは常にModeler内でコミットし、更新することをお勧めします。この方法で有用なメタデータがリビジョンに追加されます。 Modelerは外部の更新やマージから回復する方法を持っていますが、それに依存しないことが最善です。
 
-### 9.1 TortoiseSVN and Subclipse{#tortoisesvn-subclipse}
+### 9.1 TortoiseSVN と Subclipse{#tortoisesvn-subclipse}
 
-If you are doing more advanced changes to files, like adding Java actions or resources to your project, you will have to install TortoiseSVN on your computer and perform some operations yourself. You can download it for free at [http://tortoisesvn.tigris.org/](http://tortoisesvn.tigris.org/) (choose version 1.7).
+Javaアクションやリソースをプロジェクトに追加するなど、ファイルにさらに高度な変更を行う場合。 TortoiseSVN をコンピュータにインストールし、自分で操作を行う必要があります。 無料で [http://tortoisesvn.tigris.org/](http://tortoisesvn.tigris.org/) (バージョン1.7を選択) からダウンロードできます。
 
-Also, if you are developing Java actions using Eclipse, we advise you to install Subclipse to help you with version control of Java files. You can download Subclipse from the Eclipse Marketplace inside Eclipse or from [http://subclipse.tigris.org/](http://subclipse.tigris.org/).
+また、Eclipseを使用してJavaアクションを開発している場合は、Javaファイルのバージョン管理を支援するSubclipseをインストールすることをお勧めします。 Eclipse 内の Eclipse マーケットプレイス、または [http://subclipse.tigris.org/](http://subclipse.tigris.org/) から Subclipse をダウンロードできます。
 
-### 9.2 Adding Files and Directories
+### 9.2 ファイルとディレクトリの追加
 
-If you add files or directories or delete files using Windows Explorer, the Modeler automatically adds or deletes these from version control, too.
+Windowsエクスプローラを使用してファイルやディレクトリを追加したり、ファイルを削除したりすると、モデラーはバージョン管理からも自動的に追加または削除します。
 
-Make sure you use the SVN export feature of TortoiseSVN if you are copying a directory that is already under version control into your project.
+バージョン管理下にあるディレクトリをプロジェクトにコピーする場合は、TortoiseSVN の SVN 書き出し機能を使用してください。
 
-### 9.3 Deleting Files and Directories
+### 9.3 ファイルとディレクトリの削除
 
-If you delete a file from your project, the Modeler will automatically also delete it from the Team Server.
+プロジェクトからファイルを削除すると、モデラーも自動的にチームサーバーから削除します。
 
-If you want to delete a whole directory, you will have to use the delete command of TortoiseSVN. You can execute this command by right-clicking the directory and choosing 'TortoiseSVN > Delete'.
+ディレクトリ全体を削除する場合は、TortoiseSVN の delete コマンドを使用する必要があります。 ディレクトリを右クリックし、「TortoiseSVN > 削除」を選択すると、このコマンドを実行できます。
