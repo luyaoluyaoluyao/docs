@@ -13,10 +13,6 @@ tags:
   - "commit"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-operation-parameter.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 When a client calls a published REST operation, it calls a URL with an optional query string and possibly a body. These parameters can be passed to the microflow and import mapping as query parameters, path parameters, body parameters, header parameters, and form parameters.
@@ -82,10 +78,3 @@ You can indicate whether the import mapping should commit the objects that it cr
 Provide a **Description** of the parameter. You can use [GitHub-flavored Markdown](gfm-syntax) for rich text.
 
 This is used in the service's [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation).
-
-{{% alert type="info" %}}
-The public documentation feature was introduced in version 8.3.0.
-{{% /alert %}}
-
-
-
