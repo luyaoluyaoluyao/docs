@@ -1,38 +1,79 @@
 ---
 title: "Java 行动电话"
 parent: "行动呼叫活动"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "Java"
+  - "java 动作调用"
+  - "动作呼叫"
 ---
 
 {{% alert type="info" %}}
-这种活动只能用于微流，而不能用于纳米流。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/java-action-call.pdf)。
+{{% /报警 %}}
+
+{{% alert type="warning" %}}
+此活动只能在 **微流** 中使用。
 {{% /报警 %}}
 
 ## 1 导言
 
-Java 动作调用活动可以调用 [Java 动作](java-actions)。 参数可以传递到操作中，结果可以存储在变量中。
+**Java 动作调用** 活动可以调用 [Java 动作](java-actions)。
 
-{{% alert type="info" %}}
+{{% image_container width="200" %}}
 
-关于所有活动共享的属性，请参阅 [Microflow 元素共同属性](microflow-element-common-properties) (例如标题)。 此页面仅描述该动作特定的属性。
+![Java 操作](attachments/action-call-activities/java-action-call.png)
 
-{{% /报警 %}}
+{{% /image_container %}}
 
-## 2 动作属性
+参数可以传递到操作中，结果可以存储。
 
-### 2.1 Java 操作
+## 2 属性
+
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
+
+![Java 动作调用属性](attachments/action-call-activities/java-action-call-properties.png)
+
+**Java 动作调用** 属性窗格由以下部分组成：
+
+* [行 动](#action)
+* [常用的](#common)
+
+## 3 行动科 {#action}
+
+属性窗格的 **动作** 部分显示与此活动相关的动作。
+
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
+
+You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+
+### 3.1 Java 行动
 
 此活动调用的 Java 动作。
 
-### 2.2 参数
+### 3.2 参数
 
-对于每个参数的 Java 动作，您必须提供一个相同类型的参数。 参数的值使用 [表达式](expressions) 表达。
+点击 **编辑参数旁边的** 以填写参数。
 
-## 3 个输出属性
+一个参数是您正在传递到 Java 操作的输入数据。 对于每一个 Java 动作参数，您必须提供一个相同类型的参数。
 
-### 3.1 返回类型
+使用 [表达式](expressions) 定义参数的值：
 
-返回类型是 Java 动作结果的 [数据类型](data-types)。 返回类型由 Java 动作定义。
+![参数](attachments/action-call-activities/argument-edit.png)
 
-### 3.2 变量名称
+### 3.3 退货类型
 
-Java 动作的结果将存储在具有此名称的变量中。
+此只读属性表示您是否将检索变量、对象或列表。 返回类型由 Java 动作定义。
+
+### 3.4 使用退货价值
+
+如果 **用户返回值** 设置为 *是* 您将被要求给返回值一个名称。
+
+### 3.5 变量名称、对象名称或列表名称
+
+Java 动作的结果将具有此名称。 标签表示结果是否为变量、 对象或列表。 如果它是对象或列表， **返回类型** 将表示正在返回的实体。
+
+## 4 共同部分 {#common}
+
+{{% snipet file="refguide8/microflow-common-section-link.md" %}}
