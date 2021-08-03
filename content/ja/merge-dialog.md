@@ -1,54 +1,65 @@
 ---
-title: "Merge Dialog"
-parent: "dialogs"
+title: "統合ダイアログ"
+parent: "version-control-menu"
+tags:
+  - "studio pro"
+  - "マージダイアログ"
+  - "マージ"
+  - "バージョン管理"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-With the **Merge** dialog box you can [merge](version-control) changes from a branch line to the main line. For example, a fix that you applied in a maintenance branch line can be merged back to the main line so that you do not have to apply the fix by hand again. Also if you completed developing a large feature in a separate branch line you can use merge to incorporate that feature into the main line.
+**マージ** ダイアログを使用すると、分岐ラインから [メインラインに](version-control#merge) 変更をマージできます。 例えば、 あなたがメンテナンスブランチに適用した修正は、再び手作業で修正を適用する必要がないように、メインラインに戻すことができます。 また、別のブランチラインで大きな機能の開発が完了した場合は、差し込み式を使用してメインラインにその機能を組み込むことができます。
 
 {{% alert type="warning" %}}
-
-Before continuing with the merge action, make sure that you are currently working in the development line that you want to merge to.
-
+マージアクションを続行する前に、マージしたい開発ラインで作業中であることを確認してください。
 {{% /alert %}}
 
-The following merge scenarios are supported:
+## SVNブランチの統合2
 
-## 2 Port Fix
+**Merge** ダイアログボックスにアクセスするには、 [Version Control](version-control-menu) > **Merge Changes Here**:
 
-This merge scenario allows you to merge a fix from a maintenance branch line to the main line. If you just want to merge a small fix, a single commit is often enough. It is, however, also possible to merge multiple commits at once.
+![統合ダイアログ](attachments/merge-dialog/merge-dialog.png)
 
-### 2.1 Branch Line
+次のマージシナリオがサポートされています:
 
-Choose the branch line from which you want to merge the fix.
+### 2.1 ポート修正
 
-### 2.2 One Revision / Multiple Revisions
+このマージシナリオでは、メンテナンスブランチからメインラインに修正をマージできます。 小さな修正をマージしたい場合は、単一のコミットで十分な頻度があります。 ただし、複数のコミットを一度にマージすることも可能です。
 
-Choose whether you want to merge just a single commit or a whole range of commits from the maintenance branch line. In the latter case both the start and end revisions must be selected. The start revision is the revision with the lowest number and the end revision is the revision with the highest number. In this case, all revisions that are contained within the specified range are merged.
+#### 2.1.1 支線
 
-## 3 Merge Feature Branch
+修正をマージする分岐線を選択します。
 
-This merge scenario allows you to merge a complete feature branch line to the main line.
+#### 2.1.2 1 リビジョン / 複数リビジョン
 
-### 3.1 Branch Line
+単一のコミットだけをマージするか、メンテナンスブランチラインから全体のコミットをマージするかを選択します。 後者の場合、開始と終了の両方のリビジョンを選択する必要があります。 開始リビジョンは最も低い番号のリビジョンで、終了リビジョンは最も高い番号のリビジョンです。 指定された範囲内に含まれるすべてのリビジョンがマージされることに注意してください。
 
-Choose the branch line that you want to merge. It is not necessary to select individual revisions in this case, because all revisions of the branch line are merged automatically.
+### 2.2 機能ブランチの結合
 
-## 4 Advanced Merge
+このマージシナリオでは、完全なフィーチャーブランチラインをメインラインにマージできます。
 
-While normally you would only merge (revisions of) a branch line to the main line, the advanced merge scenario offers the possibility to merge from the main line to a branch line, or from one branch line to another.
+#### 2.2.1 支線
 
- {{% alert type="warning" %}}
+マージする分岐線を選択します。 ブランチラインのすべてのリビジョンが自動的にマージされるため、この場合、個々のリビジョンを選択する必要はありません。
 
-This scenario may be used for merge actions that are only needed in exceptional circumstances. Use this option with caution.
+### 2.3 高度なマージ
 
-{{% /alert %}}
+このシナリオは、例外的な状況でのみ必要なマージアクションに使用できます。 注意してこのオプションを使用してください。
 
-### 4.1 Branch Line
+通常はブランチをメインラインにマージ(修正)するだけですが、 高度なマージシナリオでは、メインラインからブランチラインに、またはブランチラインから別のブランチにマージすることができます。
 
-Choose the branch line that you want to merge, or select **Main line** when you want to merge (revisions of) the main line to the current branch line.
+#### 2.3.1 支線
 
-### 4.2 Start / End Revision
+マージする分岐線を選択します または、メインラインを現在のブランチラインにマージ(リビジョン)する場合は、「メインライン」を選択します。
 
-Select the start revision (revision with the lowest number) and the end revision (revision with the highest number) of the range you want to merge. If you want to merge all commits of the selected branch line, simply select the first and the last revision of the branch. It is not necessary to select the **Create branch** revision.
+#### 2.3.2 開始/改訂終了
+
+マージする範囲の開始リビジョン (最小の番号のリビジョン) と終了リビジョン (最高の番号のリビジョン) を選択します。 選択したブランチ行のすべてのコミットをマージするには、ブランチの最初と最後のリビジョンを選択します。 「ブランチを作成」リビジョンを選択する必要はありません。
+
+## Gitブランチの統合
+
+Gitでのみサポートされている単純なブランチマージシナリオがあります。 ここでは、現在のブランチラインにマージする変更を指定する必要があります。
+
+![Git 用の統合ダイアログ](attachments/merge-dialog/merge-dialog-git.png)
