@@ -1,6 +1,6 @@
 ---
-title: "Static Image (Document Template)"
-parent: "document-templates"
+title: "静态图像 (文档模板)"
+parent: "文档模板"
 tags:
   - "studio pro"
 aliases:
@@ -8,32 +8,32 @@ aliases:
   - /refguide/static-image-(document-template).html
 ---
 
-## 1 Introduction
+## 1 导言
 
-A static image shows a predefined image. It can be put either inside or outside a data view or template grid.
+静态图像显示预定义图像。 它可以放置在数据视图或模板网格之内或之外。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918133.png)
 
-A static image inside a table cell.
+表单元格内的静态图像。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Appearance Properties
+## 2 外观属性
 
-### 2.1 Image
+### 2.1 图像
 
-This property defines the image that will appear in the document.
+此属性定义将显示在文档中的图像。
 
 ### 2.2 Width
 
-The width defines the width of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+宽度定义文档中图像的宽度。 这是以像素为单位设置的，使用文档模板中的 PPI ，这将被重新计算为实际打印大小。 可以设置宽度或高度；为了防止图像的扭曲，无法同时设置两者。
 
-### 2.3 Height
+### 2.3 高度
 
-The height defines the height of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+高度定义文档中图像的高度 这是以像素为单位设置的，使用文档模板中的 PPI ，这将被重新计算为实际打印大小。 可以设置宽度或高度；为了防止图像的扭曲，无法同时设置两者。
 
-## 3 Common Properties
+## 3 个公共属性
 
 {{% snippet file="refguide/name-property.md" %}}
