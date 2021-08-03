@@ -1,38 +1,38 @@
 ---
-title: "Anonymous Users"
-parent: "project-security"
+title: "匿名用户"
+parent: "项目安全"
 menu_order: 40
 tags:
   - "studio pro"
-  - "anonymous users"
-  - "project security"
-  - "security"
+  - "匿名用户"
+  - "项目安全"
+  - "安全"
 ---
 
-## 1 Introduction
+## 1 导言
 
-You can use anonymous users to allow end-users access your application without having to sign in. You can restrict the data that anonymous users can view and access by assigning a specific user role to them.
+您可以使用匿名用户来允许最终用户访问您的应用程序，而无需登录。 您可以通过赋予匿名用户角色来限制用户可以查看和访问的数据。
 
-## 2 Anonymous Users Properties
+## 2 个匿名用户属性
 
-Open **App Security** > the **Anonymous users** tab to access the properties:
+打开 **App Security** > **匿名用户** 选项卡访问属性：
 
 ![](attachments/anonymous-users/anonymous-users-tab.png)
 
-The properties of anonymous users are described in the table below:
+匿名用户的属性见下表：
 
-| Property              | Description                                                                                                                                                                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Allow anonymous users | When **Yes** is selected, anonymous users are allowed. End-users do not have to sign in to access the application. <br />When **No** is selected, anonymous users are not allowed. End-users have to sign in to access the application.                                                     |
-| Anonymous user role   | The user role that end-users of your application have when they are not signed in. This tells the application which role should be automatically applied to anonymous users who access the app. The **Allow anonymous users** property should be set to **Yes** to select an anonymous user role. |
+| 财产     | 描述                                                                                        |
+| ------ | ----------------------------------------------------------------------------------------- |
+| 允许匿名用户 | 当选择 **是** 时，允许匿名用户。 最终用户无需登录才能访问应用程序。 <br />如果选择了 **否** ，不允许匿名用户。 最终用户必须登录才能访问应用程序。 |
+| 匿名用户角色 | 您的应用程序的最终用户在未登录时具有的用户角色。 这将告诉应用程序应该自动应用于访问应用程序的匿名用户。 **允许匿名用户** 属性应该设置为 **是** 来选择匿名用户角色。  |
 
-## 3 Read More
+## 3 阅读更多
 
-* [App Security](project-security)
-* [User Roles](user-roles)
-* [Administrator](administrator)
-* [Demo Users](demo-users)
-* [Password Policy](password-policy)
+* [应用安全](项目安全)
+* [用户角色](user-roles)
+* [管理员](管理员)
+* [演示用户](demo-users)
+* [密码策略](password-policy)
 
 
 
