@@ -8,7 +8,12 @@ tags:
   - "例"
   - "グラフ"
   - "ウィジェット"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-any-cheat-sheet.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
@@ -18,7 +23,7 @@ tags:
 
 ### 2.1 折れ線グラフ {#line-chart}
 
-![LineChartProperties](attachments/pages/charts/line-chart2.png)
+![LineChartProperties](attachments/charts/line-chart2.png)
 
 ``` json
 [
@@ -37,7 +42,7 @@ tags:
 
 ### 2.2 バブルチャート
 
-![バブルチャートプロパティ](attachments/pages/charts/bubble-chart.png)
+![バブルチャートプロパティ](attachments/charts/bubble-chart.png)
 
 ``` json
 [ {
@@ -53,7 +58,7 @@ tags:
 
 ### 2.3 散布図
 
-![ScatterPlotProperties](attachments/pages/charts/scatter-plot.png)
+![ScatterPlotProperties](attachments/charts/scatter-plot.png)
 
 ``` json
 [ {
@@ -67,7 +72,7 @@ tags:
 
 ### 2.4 ヒートマップ
 
-![ヒートマッププロパティ](attachments/pages/charts/heat-map2.png)
+![ヒートマッププロパティ](attachments/charts/heat-map2.png)
 
 ``` json
 [ {
@@ -78,7 +83,7 @@ tags:
 
 ### 2.5 棒グラフ
 
-![BarChartProperties](attachments/pages/charts/bar-chart2.png)
+![BarChartProperties](attachments/charts/bar-chart2.png)
 
 ``` json
 [ {
@@ -91,7 +96,7 @@ tags:
 
 ### 2.6 棒グラフ
 
-![カラムチャートプロパティ](attachments/pages/charts/column-chart2.png)
+![カラムチャートプロパティ](attachments/charts/column-chart2.png)
 
 ``` json
 [ {
@@ -104,7 +109,7 @@ tags:
 
 ### 2.7円グラフ
 
-![PieChartProperties](attachments/pages/charts/pie-chart2.png)
+![PieChartProperties](attachments/charts/pie-chart2.png)
 
 ``` json
 [ {
@@ -116,7 +121,7 @@ tags:
 
 ### 2.8 ドーナツチャート
 
-![DoughNutChartProperties](attachments/pages/charts/doughnut-chart.png)
+![DoughNutChartProperties](attachments/charts/doughnut-chart.png)
 
 ```json
 [ {
@@ -129,7 +134,7 @@ tags:
 
 ### 2.9 エリアチャート
 
-![AreaChartProperties](attachments/pages/charts/area-chart2.png)
+![AreaChartProperties](attachments/charts/area-chart2.png)
 
 ``` json
 [ {
@@ -144,7 +149,7 @@ tags:
 
 ### 3.1 Histograms
 
-![ヒストグラムプロパティ](attachments/pages/charts/histogram.png)
+![ヒストグラムプロパティ](attachments/charts/histogram.png)
 
 ``` json
 [ {
@@ -155,7 +160,7 @@ tags:
 
 ### 3.2 ボックスチャート
 
-![BoxPlotProperties](attachments/pages/charts/box-plot.png)
+![BoxPlotProperties](attachments/charts/box-plot.png)
 
 ``` json
 [ {
@@ -166,7 +171,7 @@ tags:
 
 ### 3.3 2D ヒストグラム
 
-![2Dヒストグラムプロパティ](attachments/pages/charts/2d-histogram.png)
+![2Dヒストグラムプロパティ](attachments/charts/2d-histogram.png)
 
 ``` json
 [ {
@@ -180,7 +185,7 @@ tags:
 
 ### 4.1 バブルマップ
 
-![バブルマッププロパティ](attachments/pages/charts/bubble-map.png)
+![バブルマッププロパティ](attachments/charts/bubble-map.png)
 
 ``` json
 [ {
@@ -197,7 +202,7 @@ tags:
 
 ### 4.2 合唱マップ
 
-![ChoroplethMapProperties](attachments/pages/charts/choropleth-map.png)
+![ChoroplethMapProperties](attachments/charts/choropleth-map.png)
 
 #### 4.2.1 Choropleth マップデータ
 
@@ -222,7 +227,7 @@ tags:
 
 ### 4.3 スキャッターマップ
 
-![スキャッターマッププロパティ](attachments/pages/charts/scatter-map.png)
+![スキャッターマッププロパティ](attachments/charts/scatter-map.png)
 
 ``` json
 [ {
@@ -238,7 +243,7 @@ tags:
 
 ### 5.1 3Dサーフェスチャート
 
-![3DSurfacePlotProperties](attachments/pages/charts/3d-surface-plot.png)
+![3DSurfacePlotProperties](attachments/charts/3d-surface-plot.png)
 
 ``` json
 [ {
@@ -250,7 +255,7 @@ tags:
 
 ### 5.2 3D ライン チャート
 
-![3DLineChartProperties](attachments/pages/charts/3d-line-chart.png)
+![3DLineChartProperties](attachments/charts/3d-line-chart.png)
 
 ``` json
 [ {
@@ -264,7 +269,7 @@ tags:
 
 ### 5.3 3D スキャッターチャート
 
-![3DScatterPlotProperties](attachments/pages/charts/3d-scatter-plot.png)
+![3DScatterPlotProperties](attachments/charts/3d-scatter-plot.png)
 
 ``` json
 [ {
@@ -280,7 +285,7 @@ tags:
 
 ### 6.1 輪郭グラフ
 
-![ContourProperties](attachments/pages/charts/contour.png)
+![ContourProperties](attachments/charts/contour.png)
 
 ``` json
 [ {
@@ -291,7 +296,7 @@ tags:
 
 ### 6.2 時系列数
 
-![TimeSeriesProperties](attachments/pages/charts/time-series2.png)
+![TimeSeriesProperties](attachments/charts/time-series2.png)
 
 ``` json
 [ {
@@ -304,7 +309,7 @@ tags:
 
 ### 6.3 グラフ別グループ
 
-![GroupByChartProperties](attachments/pages/charts/group-by-chart.png)
+![GroupByChartProperties](attachments/charts/group-by-chart.png)
 
 ``` json
 [ {
@@ -317,7 +322,7 @@ tags:
 
 ### 6.4 対称エラーバー
 
-![ErrorBarプロパティ](attachments/pages/charts/error-bar.png)
+![ErrorBarプロパティ](attachments/charts/error-bar.png)
 
 ``` json
 [ {
@@ -333,7 +338,7 @@ tags:
 
 ### 6.5 極グラフ
 
-![PolarChartProperties](attachments/pages/charts/polar-chart.png)
+![PolarChartProperties](attachments/charts/polar-chart.png)
 
 ``` json
 [ {
@@ -346,7 +351,7 @@ tags:
 
 ### 6.6 Ternary Plot
 
-![TernaryPlotProperties](attachments/pages/charts/ternary-plot.png)
+![TernaryPlotProperties](attachments/charts/ternary-plot.png)
 
 #### 6.6.1 Ternary Plot データ
 
@@ -375,4 +380,4 @@ tags:
 
 * チャートの完全なドキュメントはこちらです: [https://plot.ly/javascript/](https://plot.ly/javascript/)
 * [任意のグラフウィジェット](charts-any-configuration)
-* [任意のグラフの使い方](/howto7/extensibility/charts-any-usage)
+* [任意のグラフの使い方](/howto8/front-end/charts-any-usage)
