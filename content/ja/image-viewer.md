@@ -5,10 +5,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image-viewer.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 An image viewer can be used to display an image or its thumbnail. For example, you can show a profile picture:
@@ -35,11 +31,11 @@ Image viewer properties consist of the following sections:
 
 ### 2.1 Common Section{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 Data Source Section {#data-source}
 
@@ -49,7 +45,7 @@ The **Entity (path)** property specifies which object will be shown in the image
 
 ### 2.4  Events Section {#events}
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
 ### 2.5 General Section{#general}
 
@@ -109,7 +105,7 @@ Default: *Thumbnail*
 
 ### 2.6 Visibility Properties{#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Read More
 
