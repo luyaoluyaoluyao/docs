@@ -1,41 +1,41 @@
 ---
-title: "OQL Where Clause"
+title: "OQL 条款位置"
 parent: "oql"
 tags:
   - "studio pro"
-  - "queries"
-  - "where"
+  - "查询"
+  - "位置"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `WHERE` clause specifies how the data being retrieved must be constrained.
+`WHERE` 条款具体规定了如何限制检索数据。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-WHERE <constraint>
+温度 <constraint>
 ```
 
-`<constraint>` is an expression for which the value always equals true. Expressions consist of simple comparisons using operators, functions, keywords or system variables.
+`<constraint>` 是一个表达式，其值总是等于真值。 表达式包括使用操作员、函数、关键字或系统变量进行简单比较。
 
-For more information, see [OQL Expressions](oql-expressions).
+欲了解更多信息，见 [OQL Expressions](oql-expressions)。
 
-## 3 Examples
+## 3 个示例
 
-This query retrieves all customers whose name is equal to "Jansen":
+此查询检索名称等于"Jansen"的所有客户：
 
 ```sql
-SELECT FirstName FROM Sales.Customer
+选择来自销售的名字。客户
 WHERE LastName = 'Jansen'
 ```
 
-This query retrieves all customers who live in "Rotterdam":
+此查询检索所有生活在鹿特丹的客户：
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-INNER JOIN Sales.Customer/Sales.Customer_Address/Sales.Address
-WHERE Sales.Address/City = 'Rotterdam'
+SELECT 姓来自 Sales.Customer
+INNER JOIN Sales.Customer_Address/Sales.Address
+WHERE Sales.Address/City = '鹿特丹'
 ```
