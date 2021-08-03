@@ -1,114 +1,114 @@
 ---
-title: "Drop-Down"
+title: "ドロップダウン"
 parent: "input-widgets"
 menu_order: 30
 tags:
-  - "Drop-down"
+  - "ドロップダウン"
   - "input"
-  - "page"
-  - "widget"
-  - "enumeration"
+  - "ページ"
+  - "ウィジェット"
+  - "列挙型"
   - "studio pro"
 aliases:
-  - /refguide/drop-down-widget.html
+  - /ja/refguide/drop-down-widget.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A **drop-down** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *enumeration*.
+**ドロップダウン** を使用して表示し、オプションで表示します。 **データ型** [列挙](data-types) の属性の値を編集することができます *列挙*。
 
-A drop-down must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the drop-down, between square brackets, and colored blue.
+ドロップダウンは [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、ドロップダウン、角括弧、青色の中に表示されます。
 
 {{% alert type="info" %}}
-A drop-down should not be confused with a [reference selector](reference-selector), which is used to select an [association](associations) to another object.
+ドロップダウンは、 [リファレンスセレクター](reference-selector)と混同しないでください。これは、別のオブジェクトへの [アソシエーション](associations) を選択するために使用されます。
 {{% /alert %}}
 
-For example, the following drop-down allows the end-user to see, and set, the **Region** to which a customer is allocated. The possible values for **Region** are held in an enumeration.
+たとえば、次のドロップダウンでは、エンドユーザーが顧客が割り当てられている **リージョン** を確認し、設定することができます。 **リージョン** の可能な値は列挙で保持されます。
 
 ![](attachments/drop-down/drop-down.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of drop-down properties is represented in the image below:
+ドロップダウン プロパティの例を以下の画像に示します。
 
 {{% image_container width="300" %}}![](attachments/drop-down/drop-down-properties.png)
 {{% /image_container %}}
 
-Drop-down properties consist of the following sections:
+ドロップダウンのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [全般](#general)
+* [ラベル](#label)
+* [検証](#validation)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 データソースセクション{#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 編集可能セクション{#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 イベントセクション{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 変更時{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 2.5.2 入口で
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
-
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
+on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 General Section{#general}
+#### 休暇中 2.5.3
 
-#### 2.6.1 Empty Option Caption
+on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
 
-Empty option caption is the text that is shown for the empty option in the drop-down shown to the end-user. This is a translatable text. For more details, see [Language Menu](translatable-texts).
+これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
 
-Adding a caption for the empty option improves the user experience of your application. It also helps end-users using a screen-reader to operate the application easily.
+{{% snippet file="refguide/events-section-link.md" %}}
+
+### 2.6 一般セクション{#general}
+
+#### 2.6.1 空のオプションの図表番号
+
+空のオプションキャプションは、エンドユーザーに表示されるドロップダウンで空のオプションに対して表示されるテキストです。 これは翻訳可能なテキストです。 詳細は [言語メニュー](translatable-texts) を参照してください。
+
+空のオプションにキャプションを追加すると、アプリケーションのユーザーエクスペリエンスが向上します。 また、スクリーンリーダーを使用するエンドユーザーがアプリケーションを簡単に操作できるようにします。
 
 For example, the drop-down that allows the end-user to select the region allocated to a customer, where the possible values for **Region** are held in an enumeration, could have the caption `Select a region`.
 
 ![](attachments/drop-down/select-a-region.png)
 
-### 2.7 Label Section{#label}
+### 2.7 ラベルセクション{#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.8 Validation Section{#validation}
+### 2.8 検証セクション{#validation}
 
 {{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+### 2.9 可視性セクション{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-*   [Data View](data-view)
-*   [Attributes](attributes)
+*   [データビュー](data-view)
+*   [属性](attributes)
