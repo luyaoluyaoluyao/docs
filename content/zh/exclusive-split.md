@@ -1,43 +1,43 @@
 ---
-title: "Exclusive Split"
-parent: "splits"
+title: "独家拆分"
+parent: "拆分"
 ---
 
-## 1 Introduction
+## 1 导言
 
-An exclusive split is an element that makes a choice based on a condition and follows (exactly) one of the outgoing sequence flows.
+独占分割是一个根据条件做出选择的元素，然后沿着(确切地)一个输出序列流量。
 
-## 2 Action Properties
+## 2 动作属性
 
-### 2.1 Type
+### 2.1 类型
 
-Type defines whether an expression or a rule is used to define the condition of the split.
+输入定义是否使用表达式或规则来定义分割的条件。
 
-| Option     | Description                                                       |
-| ---------- | ----------------------------------------------------------------- |
-| Expression | An expression is used to define the conditions for the direction. |
-| Rule       | A rule is used to define the conditions for the direction.        |
+| 选项  | 描述            |
+| --- | ------------- |
+| 表达式 | 表达式用于定义方向的条件。 |
+| 规 则 | 规则用来界定方向的条件。  |
 
-### 2.2 Expression
+### 2.2 表达式
 
-If the property 'Type' is set to 'Expression' the expression field can be used to define the condition of the split. The condition can be entered as an [expression](expressions). The expression should result in a boolean or an enumeration.
+如果属性设置为“表达式”，则表达式字段可以用于定义分割的条件。 条件可以输入为 [表达式](expressions)。 表达式应产生布尔值或枚举。
 
 {{% alert type="info" %}}
 
-If you want to open a different order form per member type you can use an exclusive split. The selected customer is a parameter with name SelectedCustomer to the microflow. For each enumeration value a different sequence flow is followed. If the enumeration has no value the sequence flow with the caption (empty) is followed.
+如果您想要打开每个会员类型不同的订单表，您可以使用独家分割。 选中的客户是一个参数，其名称为已选择的客户到微流。 每个枚举值都遵循不同的序列流。 如果枚举没有值, 则跟随标题(空)的序列流。
 
 ![](attachments/819203/918050.png)
 
-The expression entered is given below. Because you want to go a different direction for each enumeration you can suffice by just stating the attribute. `$SelectedCustomer/memberType`
+输入的表达式如下。 因为你想为每个枚举选择一个不同的方向，你只需说明属性就足够了。 `$SelectedCustomer/memberType`
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 2.3 Rule
+### 2.3 规 则
 
-If the property 'Type' is set to 'Rule', a [rule](rules) can be selected to define the condition of the split. For each parameter of the rule an argument needs to be specified using [expressions](expressions). For example, a rule that determines whether a customer deserves a certain status will have a customer object as a parameter.
+如果属性“类型”设置为“规则”，则可以选择 [规则](rules) 来定义分割的条件。 规则的每个参数需要使用 [表达式](expressions) 指定参数。 例如，确定客户是否应享有某种地位的规则将以客户对象作为参数。
 
-## 3 Common Properties
+## 3 个公共属性
 
-### 3.1 Caption
+### 3.1 标题
 
-See [Microflow Element Common Properties](microflow-element-common-properties).
+查看 [微流程元素共同属性](microflow-element-common-properties)。
