@@ -1,105 +1,105 @@
 ---
-title: "File Manager"
-parent: "file-widgets"
+title: "文件管理器"
+parent: "文件小部件"
 tags:
   - "studio pro"
-  - "file manager"
-  - "file widget"
-  - "widget"
+  - "文件管理器"
+  - "文件小部件"
+  - "小部件"
 ---
 
-{{% alert type="warning" %}}The file manager widget is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="warning" %}}。本地移动页面不支持文件管理器小部件。{{% /提醒 %}}
 
-## 1 Introduction
+## 1 导言
 
-A file manager is used to upload and/or download files.
+文件管理器用于上传和/或下载文件。
 
-![File Manager](attachments/file-widgets/file-manager.png)
+![文件管理器](attachments/file-widgets/file-manager.png)
 
-A file manager must be placed inside a data view connected to the entity that is either a **System.FileDocument** (or a specialization) or an [external entity](external-entities) with a `Contents` binary attribute.
-
-{{% alert type="info" %}}
-For an external entity to be used as a file source, it must be defined as a media element in the corresponding OData service. Such an element can be recognized by setting the `HasStream` attribute to `true` in its metadata.
-{{% /alert %}}
+文件管理器必须放置在连接到实体的 **系统的数据视图中。 ileDocument** (或专业化) 或 [外部实体](external-entities) 含有 `内容` 二进制属性。
 
 {{% alert type="info" %}}
-When uploading a file through the file manager, the FileDocument object will be committed immediately.
-{{% /alert %}}
+要将外部实体用作文件源，必须将其定义为相应OData服务中的媒体元素。 此元素可以通过在元数据中将 `HasStream` 属性设置为 `true` 来确认。
+{{% /报警 %}}
 
-## 2 Properties
+{{% alert type="info" %}}
+当通过文件管理器上传文件时，文件文件对象将立即执行。
+{{% /报警 %}}
 
-An example of file manager properties is represented in the image below:
+## 2 属性
 
-{{% image_container width="250" %}}![File Manager Properties](attachments/file-widgets/file-manager-properties.png)
+下面的图像是文件管理器属性的示例：
+
+{{% image_container width="250" %}}![文件管理器属性](attachments/file-widgets/file-manager-properties.png)
 {{% /image_container %}}
 
-File manager properties consist of the following sections:
+文件管理器属性由以下部分组成：
 
-* [Common](#common)
+* [常用的](#common)
 
-* [Design Properties](#design-properties)
+* [设计属性](#design-properties)
 
-* [Editability](#editability)
+* [编辑性](#editability)
 
-* [General](#general)
+* [A. 概况](#general)
 
-* [Label](#label)
+* [标签](#label)
 
-* [Visibility](#visibility)
+* [可见性](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Editability Section {#editability}
+### 2.3 可编辑部分 {#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.4 General Section {#general}
+### 2.4 一般部分 {#general}
 
 #### 2.4.1 Type
 
-The **Type** property indicates how the end-user will be able to use the file manager.
+**类型** 属性表示最终用户将如何使用文件管理器。
 
-| Value            | Description                                                      |
-| ---------------- | ---------------------------------------------------------------- |
-| Upload           | The file manager can only be used to upload a file.              |
-| Download         | The file manager can only be used to download a file.            |
-| Both *(default)* | The file manager can be used to both upload and download a file. |
+| 值          | 描述                |
+| ---------- | ----------------- |
+| 上传         | 文件管理器只能用于上传文件。    |
+| 下载         | 文件管理器只能用于下载文件。    |
+| 两者都 *(默认)* | 文件管理器可以同时上传和下载文件。 |
 
-#### 2.4.2 Max File Size (MB)
+#### 2.4.2 最大文件大小 (MB)
 
-**Max file size (MB)** determines the maximum size of files (in megabytes) that can be uploaded.
+**最大文件大小(MB)** 决定可上传的文件的最大大小(以兆字节为单位)。
 
-Default: *5*
+默认： *5*
 
-#### 2.4.3 Allowed Extensions
+#### 2.4.3 允许的扩展
 
-You can specify file extensions that users are allowed to upload. If no extension is specified, all file extensions are allowed. Separate multiple extensions by a semi-colon, for example, `txt;doc`
+您可以指定用户可以上传的文件扩展名。 如果没有指定扩展名, 则允许所有文件扩展名。 用半冒号分隔多个扩展，例如 `txt;doc`
 
-If a file with an extension that is not allowed is selected, a [system text](system-texts) for **File manager/image viewer** > **Error: incorrect file extension** will be shown below the file manager.
+如果选择了一个不允许的扩展名文件, a [系统文本](system-texts) for **File Manager/image viewer** > **错误：不正确的文件扩展名** 将显示在文件管理器下。
 
-#### 2.4.4 Show File in Browser
+#### 2.4.4 在浏览器中显示文件
 
-**Show file in browser** indicates whether a file will be shown in the browser instead of being downloaded.
+**在浏览器中显示文件** 表示是否会在浏览器中显示文件而不是下载。
 
-Default: *False*
+默认： *False*
 
-### 2.5 Label Section {#label}
+### 2.5 标签部分 {#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.6 Visibility Section {#visibility}
+### 2.6 可见性科 {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
-* [System Texts](system-texts)
+* [页](page)
+* [文件部件](文件小部件)
+* [页面编辑器中常见的属性](common-widget-properties)
+* [系统文本](system-texts)
