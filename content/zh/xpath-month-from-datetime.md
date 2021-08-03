@@ -1,22 +1,18 @@
 ---
-title: "XPath Month-From-DateTime"
-parent: "xpath-constraint-functions"
+title: "XPath 月-从日期时间"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-month-from-datetime.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`个月-日期时间()` 函数从 **日期和时间摘取月份值** 属性，以便它可以用来比较一个值。
 
-The `month-from-dateTime()` function extracts the month value from a **Date and time** attribute so it can be used to compare to a value.
+## 2 个示例
 
-## 2 Example
-
-This query returns all logs where the month value `DateAttribute` is 12 (December). For example, "2011-12-30":
+此查询返回月份值 `日期属性` 为12 (12月)的所有日志。 例如，“2011-2012-30”：
 
 ```java
-//Logging.Log[month-from-dateTime(DateAttribute) = 12]
+//Logging.log[月-从日期时间(DateAttribute) = 12]
 ```
