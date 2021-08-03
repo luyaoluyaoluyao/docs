@@ -1,123 +1,123 @@
 ---
-title: "Parse & Format Decimal Function Calls"
-parent: "expressions"
+title: "解析 & 小数点以下の関数呼び出しの書式設定"
+parent: "表現"
 menu_order: 150
 tags:
   - "studio pro"
-  - "expression"
+  - "表現"
   - "parsing"
-  - "formatting"
+  - "書式設定"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes parsing and formatting decimal function calls. For details on all the pattern possibilities, see [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html).
+このドキュメントでは、小数点以下の関数呼び出しの解析と書式設定について説明します。 すべてのパターンの可能性についての詳細は、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください。
 
 ## 2 parseDecimal
 
-Parses a string value to a decimal value. Takes optional parameters for the format and default values.
+文字列の値を小数値に変換します。 書式とデフォルト値のオプションパラメータを取得します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                                                                                                                                                          | Type             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Value to parse                                                                                                                                                                                 | String           |
-| Format for the input value based on the Java library `DecimalFormat` (for more information, see [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)) | String           |
-| Default value **(optional)**                                                                                                                                                                   | Decimal or empty |
+| 値                                                                                                                                                       | タイプ      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| 解析する値                                                                                                                                                   | 文字列      |
+| Java ライブラリに基づく入力値のフォーマット `DecimalFormat` (詳細は、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください) | 文字列      |
+| デフォルト値 **(任意)**                                                                                                                                         | 小数または空です |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                                                       | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The output is a decimal value that matches the supplied string value. If the value cannot be parsed (meaning, it does not match the format parameter or contains illegal characters), the default value will be returned. If no default value is provided, an error occurs. | Decimal |
+| 値                                                                                                                      | タイプ     |
+| ---------------------------------------------------------------------------------------------------------------------- | ------- |
+| 出力は、与えられた文字列の値に一致する10進数です。 値が解析できない場合 (意味、フォーマットパラメータと一致しないか、不正な文字が含まれています)、デフォルト値が返されます。 デフォルト値が指定されていない場合、エラーが発生します。 | 小数点以下桁数 |
 
-### 2.3 Example
+### 2.3 例
 
-The following examples demonstrate which output you get depending on input parameters:
+以下の例は、入力パラメータに応じてどの出力を取得するかを示しています。
 
-* `parseDecimal('3.45')` returns `3.45`
-* `parseDecimal('noDecimal', 5.05)` returns `5.05`
-* `parseDecimal('noDecimal', empty)` returns `empty`
-* `parseDecimal('3,241.98', '#,###.##')` returns `3241.98`
+* `parseDecimal ('3.45')` は、 `3.45` を返します。
+* `parseDecimal ('noDecimal', 5.05)` returns `5.05`
+* `parseDecimal('noDecimal', empty)` は `を空` を返します
+* `parseDecimal ('3,241.98', '#,###.##')` は `3241.98` を返します。
 
 ## 3 formatDecimal
 
-Converts a decimal value to a string value according to a specified format.
+小数を文字列値に指定された書式に従って変換します。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The functionality of formatDecimal depends on whether it is used in a microflow or a nanoflow.
+formatDecimal の機能は、マイクロフローで使用されるか、ナノレベルで使用されるかによって異なります。
 
-#### 3.1.1 Input Parameters in Microflows
+#### 3.1.1 マイクロフローの入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                                                                   | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Value to convert                                                                                                                                                                                                                                                                        | Decimal |
-| Format for the result based on the Java library `DecimalFormat` (for details, see [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html))                                                                                                        | String  |
-| Locale in which the results should be formatted **(optional)**. For the more information on supported values, see [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-). When omitted, the user configured locale is used. | String  |
+| 値                                                                                                                                                                                                        | タイプ     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| 変換する値                                                                                                                                                                                                    | 小数点以下桁数 |
+| Java ライブラリに基づく結果のフォーマット `DecimalFormat` (詳細については、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください)                                               | 文字列     |
+| 結果をフォーマットするロケール **(任意)**。 サポートされている値の詳細については、 [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-) を参照してください。 省略されると、ユーザーが設定したロケールが使用されます。 | 文字列     |
 
-#### 3.1.2 Input Parameters in Nanoflows
+#### 3.1.2 Nanoflow内のパラメータの入力
 
-In nanoflows, this function only takes a single parameter described below:
+nanoflowsでは、この関数は以下で説明した単一のパラメータのみを取ります。
 
-| Value            | Type    |
-| ---------------- | ------- |
-| Value to convert | Decimal |
+| 値     | タイプ     |
+| ----- | ------- |
+| 変換する値 | 小数点以下桁数 |
 
-### 3.2 Output
+### 3.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                     | Type   |
-| ----------------------------------------------------------------------------------------- | ------ |
-| A string representation of the decimal in the format specified by the `format` parameter. | String |
+| 値                                | タイプ |
+| -------------------------------- | --- |
+| `format` パラメータで指定された形式の小数の文字列表現。 | 文字列 |
 
-### 3.3 Microflow Examples
+### 3.3 マイクロフローの例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     formatDecimal(1234.56, '#,###.#')
     ```
 
-    the output is (depending on the language settings):
+    出力は (言語設定によって)
 
     ```java
-    '1,234.5' or '1.234,5'
+    '1,234.5' または '1.234,5'
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     formatDecimal(1234.56, '¤ #,##0.00')
     ```
 
-    the output is (depending on language settings):
+    出力は (言語設定によって)
 
     ```java
-    '€ 1.234,50' or '$ 1,234.50'
+    '€ 1.234,50' または '$ 1,234.50'
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     formatDecimal(0.56, '% ##0')
     ```
 
-    the output is
+    出力は
 
     ```java
     '% 56' 
     ```
 
-### 3.4 Nanoflow Examples
+### 3.4 Nanoflowの例
 
-In a nanoflow, this will format the decimal using the format appropriate to the user's locale.
+nanoflowでは、ユーザーのロケールに適した形式で小数をフォーマットします。
