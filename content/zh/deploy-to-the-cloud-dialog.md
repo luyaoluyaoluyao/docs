@@ -1,15 +1,11 @@
 ---
-title: "部署到云"
-parent: "应用菜单"
-tags:
-  - "studio pro"
+title: "部署到云对话框"
+parent: "对话框"
 ---
 
 ## 1 导言
 
-此菜单选项对话框创建一个版本化的部署包，并将其部署到您的 Mendix Cloud 环境中。
-
-![部署到云对话框](attachments/app-menu/deploy-to-the-cloud.png)
+使用此对话框创建版本部署包，并在Mendix Cloud中将其部署到您的环境。
 
 ## 2 发展线
 
@@ -17,15 +13,15 @@ tags:
 
 ## 3 修订版
 
-Choose the **Revision** of the selected development line for which you want to create a deployment package. 您可能不想要更新的一个原因是如果您想排除一些最近开发的功能。
+Choose the **Revision** of the selected development line for which you want to create a deployment package. 这不一定是最新的版本，因为您可能想要排除一些最近开发的功能。
 
 ## 4 个新版本
 
-为部署包选择一个 **新版本**。 该版本由四个数字组成：主要版本、次要版本、补丁和订正。 修订版本由您选择的 **修订版** 固定和决定。
+为部署包选择一个 **新版本**。 The version consists of four numbers: **Major** version, **Minor** version, **Patch**, and **Revision**. 修订版本由您选择的 **修订版** 固定和决定。
 
-您可以自由选择其它数字，但是最好用约定来进行编号。 主要版本通常含有主要的新特征或重写现有特征。 一个小版本包含小的新功能和修复。 补丁解决了一些小问题，不应更改应用程序的数据模型。 补丁发布应该可以与另一个补丁发布互换，但数据没有变化。
+您可以自由选择其它数字，但是最好用约定来进行编号。 主要版本通常含有主要的新特征或对现有特征的重写。 一个小版本包含小的新功能和修复。 补丁解决了一些小问题，不应更改应用程序的数据模型。 补丁发布应该可以与另一个补丁发布互换，但数据没有变化。
 
-Studio Pro 将向您展示您创建软件包的最新版本(如果有的话)。 您可以根据您使用的约定，增加主要、次要或补丁。
+桌面建模程序将向您展示您创建软件包的最新版本(如果有的话)。 您可以根据您使用的约定，增加大型、小型或补丁。
 
 ## 5 个描述
 
@@ -33,8 +29,7 @@ Studio Pro 将向您展示您创建软件包的最新版本(如果有的话)。 
 
 ## 6 个应用程序
 
-这将在 Mendix Cloud 中显示 **应用** 部署包。 这只是为了提供信息，您不能在这里更改目标。
+此字段在Mendix Cloud中显示 **App** ，部署包将被部署。 这是仅供参考－您不能在此更改 **App**。
 
 ## 7 个许可证用户
-
-这将显示此授权节点的 **许可协议**。
+此字段显示此授权节点的 **许可证**
