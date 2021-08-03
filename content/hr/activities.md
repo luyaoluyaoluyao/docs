@@ -1,6 +1,6 @@
 ---
 title: "Activities"
-parent: "application-logic"
+parent: "microflows-and-nanoflows"
 menu_order: 40
 tags:
   - "studio pro"
@@ -8,10 +8,6 @@ tags:
   - "nanoflows"
   - "activity"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/activities.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -105,3 +101,14 @@ Integration activities can be used to integrate with other systems, for example 
 | Graphic                                                                                 | Name                                                         | Description                                                                                  |
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
 | [![generate document](attachments/activities/generate-document.png)](generate-document) | [Generate document](generate-document) *(only in nanoflows)* | Allows you to create a document of a certain type based on a [template](document-templates). |
+
+## 10 Workflow Activities
+
+Workflow activities are used in relation to workflows and their user tasks.
+
+| Graphic                                                                  | Name                                           | Description                                                                                                                                                            |
+| ------------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](attachments/activities/complete-task.png)](complete-task)           | [Complete user task](complete-task)            | Sets which outcome the [user task](user-task) should follow. For example, this activity can be used to complete a user task using a microflow with custom validations. |
+| [![](attachments/activities/open-task-page.png)](show-task-page)         | [Show user task page](show-task-page)          | Opens a user task page specified in [user task properties](user-task).                                                                                                 |
+| [![](attachments/activities/open-workflow-page.png)](show-workflow-page) | [Show workflow admin page](show-workflow-page) | Opens a workflow overview page.                                                                                                                                        |
+| [![](attachments/activities/workflow-call.png)](workflow-call)           | [Workflow call](workflow-call)                 | Triggers the selected workflow.                                                                                                                                        |
