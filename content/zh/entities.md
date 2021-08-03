@@ -1,123 +1,181 @@
 ---
-title: "Entities"
-parent: "domain-model"
+title: "实体"
+parent: "域名模型"
+menu_order: 10
 tags:
-  - "domain model"
-  - "entity"
-  - "entities"
-  - "attribute"
-  - "validation rule"
-  - "even handler"
-  - "access rule"
+  - "域模型"
+  - "实体"
+  - "实体"
+  - "属性"
+  - "验证规则"
+  - "甚至处理器"
+  - "访问规则"
+  - "studio pro"
 ---
 
+## 1 导言
 
-An entity represents a class of real-world objects, such as customers, invoices, work items, etc. An instance of an entity is called an object. For example, the object representing the person 'Bob Marley' could be an instance of the entity 'Person'.
+一个实体通常代表一类现实对象，如客户、发票、CD等。 实体的实例称为对象。
 
-The properties or features of an entity are described using [attributes](attributes). An attribute represents a small piece of information about an entity, such as the name or birth date of a person.
+例如，代表裁谈会“Exodus”的对象可以是实体“CD”的实例。
 
-The domain model editor uses the following symbols for visualization on entities:
+![CD 实体示例](attachments/domain-model/example-entity.png)
 
-| Symbol                             | Description                                 |
-| ---------------------------------- | ------------------------------------------- |
-| ![](attachments/819203/917594.png) | This entity has one or more event handlers. |
+使用 [属性](attributes) 描述实体的属性或特征。 属性代表一个实体的一小部分信息，例如一个人的姓名或出生日期。
 
-{{% alert type="info" %}}
+例如，您有下面表格中的CD集：
 
-Let us say you have a collection of CDs like the one in the table below.
+| 标题       | 艺人                       |
+| -------- | ------------------------ |
+| 如何拆除原子弹位 | U2                       |
+| Exodus   | Bob Marley & The Wailers |
 
-| Title                           | Artist                   |
-| ------------------------------- | ------------------------ |
-| How to Dismantle an Atomic Bomb | U2                       |
-| Exodus                          | Bob Marley & The Wailers |
+表格中的行是CD。 两行的类型是 *CD* ，这是实体名称。 特殊的 CD 类似 *如何从乐队 *U2* 拆除Atomic Bomb* 被称为实体的对象 *CD*。 像标题和艺术家这样的特性被称为属性。
 
-The rows in the table are CDs. The type of the two rows is 'CD' and this is the entity name. A specific CD like 'How to Dismantle an Atomic Bomb' of the band U2 is called an object of the entity 'CD'. Characteristics like the title and artist are called attributes.
+## 2 个实体类型 {#entity-types}
 
-{{% /alert %}}
+实体类型定义了数据的处理方式和两种类型：
 
-## Components
+* [可持久实体](#persistable-entity)
+* [不可持续实体](#non-persistable-entity)
 
-*   [Attributes](attributes)
-*   [Associations](associations)
-*   [Validation Rules](validation-rules)
-*   [Event Handlers](event-handlers)
-*   [Indexes](indexes)
-*   [Access Rules](access-rules)
+![](attachments/domain-model/type-of-entities.jpg)
 
-## General Properties {#entities-general-properties}
-
-### Name
-
-The name property defines the name of the entity. This name is used to refer to the entity from forms, microflows, queries, constraints, etc.
-
-### Generalization
-
-An entity can be a more specialized version of a general entity. This means that the specialized entity has all the attributes, associations, events etcetera of the more general entity. Using the generalization property you can specify which entity is the generalization of the entity. For example, the Car entity has Vehicle as its generalization.
-
-The generalization specifies the entity of which this entity derives her properties (attributes, associations, events, etc.). This is used when entities have common attributes and can be generalized using a super entity. Using this feature it is possible to derive functionality from the System module like images from the entity 'Image' and files from the entity 'FileDocument'. In object oriented programming (OOP) the generic term for generalization and specialization is called inheritance.
 
 {{% alert type="info" %}}
+您也可以通过 [数据枢纽](data-hub-pane) 面板在您的应用中使用其他应用程序的数据源。 这些数据源在域模型中的表示为 *个外部实体* ，它们被显示为域模型中的紫色实体容器： ![虚拟实体示例](attachments/data-hub-pane/virtual-entity-example.png)
 
-This property can be used in a situation where one has an entity 'Student' and an entity 'Professor' which have some generic properties. They both have a name, telephone number and email address and can be a member of one or more courses. Both entities are generalized in the entity 'Member'. Contrary this means that the entity 'Member' can be specialized in the entity 'Student' and the entity 'Professor'. ![](attachments/domain-model-editor/917900.png)
+欲了解更多信息，请参阅 [外部实体](external-entities)。
+{{% /报警 %}}
 
-{{% /alert %}}
 
-### Image
+### 2.1 可持久实体 {#persistable-entity}
 
-The image property can be used to associate the entity with an image. In the domain model this image is visualized in the right-top corner of the entity representation. The image is also visible in entity selection windows and in the Connector. For instance, when selecting an entity for a data view.
+当一个实体被宣布为可持久实体时，将为该实体创建一个数据库表。 这些类型的实体在域模型中颜色 *蓝色*。 关于可持久实体的更多信息，请参阅 [可持久性](persistability)。
 
-### Persistable
 
-Define whether instances of this entity can be stored in the database. See [persistability](persistability) for more information about this property. Non-persistable entities are painted orange instead of blue to indicate the difference.
+
+### 2.2 非持久实体 {#non-persistable-entity}
+
+不可持续的实体被存储在运行时的内存中，永远不会被投入数据库。 这些类型的实体在域模型中彩色了 *橙色*。 关于可持久实体的更多信息，请参阅 [可持久性](persistability)。
+
+## 3 属性 {#properties}
+
+下面的图像是实体属性的示例：
+
+{{% image_container width="300" %}}![](attachments/domain-model/entity-properties.png)
+{{% /image_container %}}
+
+实体属性由以下部分组成：
+
+* [访问规则](#access-rules)
+* [文件](#documentation)
+* [A. 概况](#entities-general-properties)
+* [系统成员](#system-members)
 
 {{% alert type="info" %}}
+For more information, see the [Properties](external-entities#properties) section of *External Entities*.
+{{% /报警 %}}
 
-![](attachments/domain-model-editor/4325380.png)
+### 3.1 出入规则科 {#access-rules}
 
-{{% /alert %}}
+#### 3.1.1 准入规则
 
-## System Members Properties
+关于访问规则的更多信息，见 [访问规则](access-rules)。
 
-### Store 'createdDate'
+### 3.2 文件科 {#documentation}
 
-This property defines whether the entity contains the system attribute 'createdDate'. This is an attribute of type DateTime that stores the date and time when the object was created. The value of this attribute is automatically set by the server upon creating an object.
+#### 3.2.1 文件 {#documentation-property}
 
-| Option | Description                                                 |
-| ------ | ----------------------------------------------------------- |
-| True   | Entity contains the system attribute 'createdDate'.         |
-| False  | Entity does not contain the system attribute 'createdDate'. |
+这使您能够描述实体中可能对您或其他团队成员有用的某些方面。
 
-_Default value:_ False
+### 3.3 一般部分 {#entities-general-properties}
 
-### Store 'changedDate'
+#### 3.3.1 名称 {#name}
 
-This property defines whether the entity contains the system attribute 'changedDate'. This is an attribute of type DateTime that stores the most recent date and time when the object was changed.
+名称属性定义实体名称。 这个名称用来以表格、微流、查询、制约等形式指实体。
 
-| Option | Description                                                 |
-| ------ | ----------------------------------------------------------- |
-| True   | Entity contains the system attribute 'changedDate'.         |
-| False  | Entity does not contain the system attribute 'changedDate'. |
+名称只能在模块域模型中唯一的。 您可以有两个名称相同的实体，但它们必须在不同模块的域模型中。
 
-_Default value:_ False
+#### 3.3.2 概述 {#generalization}
 
-### Store 'owner'
+一个实体可以是一个更加专业化的普通实体。 这意味着专门实体拥有较一般实体的所有属性、协会、事件和其他特性。 使用一般化属性，您可以指定哪个实体是实体的一般化。 例如， **汽车** 实体可以拥有 **车辆** 作为其一般化。
 
-This property defines whether the entity has the system association 'owner'. This is an association to the system entity 'User' that (initially) stores a reference to the user that created the object. This association is automatically set by the server upon creating an object.
+一般性规定了一个特定实体从其中获取其特性的实体(属性、协会、事件和其他财产)。 当实体具有共同属性并且可以通过超级实体普遍化时，它就被使用。 在面向对象的编程(OOP)中，一般化和专业化的通用术语称为 **继承**。
 
-| Option | Description                                          |
-| ------ | ---------------------------------------------------- |
-| True   | Entity has the system association 'owner'.           |
-| False  | Entity does not have the system association 'owner'. |
+当一个拥有专门化的实体被检索时(例如，) 因此，该实体的专业化程度包括在数据网或微流中。 在检索到专业化之后，不包括其概括性。 使用上一个示例，如果检索了 **辆车** ， 结果的组将包含类型 **车辆** 和 **汽车** 的对象。 如果获取 **汽车** ，结果集中只包含 **汽车** 的对象。
 
-_Default value:_ False
+此功能的一个重要用途是从 **system** 模块中获取功能(例如) 来自 **图像的图像** 实体和来自 **FileDocument** 实体的图像。
 
-### Store 'changedBy'
+例如，这种财产可以在以下情况下使用。 您有一个 **学生** 实体和 **教授** 实体，这些实体有一些一般属性。 他们都有姓名、电话号码和电子邮件地址，可以参加一个或多个课程。 Both entities are *generalized* in the **Member** entity. 反过来说，这意味着 **个成员** 个实体是 *在 **学生** 和 **教授** 个实体中的专业*。
 
-This property defines whether the entity has the system association 'changedBy'. This is an association to the system entity 'User' that stores a reference to the user that most recently changed the object.
+![](attachments/domain-model/917900.png)
 
-| Option | Description                                              |
-| ------ | -------------------------------------------------------- |
-| True   | Entity has the system association 'changedBy'.           |
-| False  | Entity does not have the system association 'changedBy'. |
+欲了解更多信息和关于使用一般化或关联的相对优点的讨论，请参阅 [General alization vs 1-1 Associations](generalization-and-association)。
 
-_Default value:_ False
+#### 3.3.4 图像 {#image}
+
+图像属性可以用于将实体与图像关联起来。 在域模型中，该图像在实体代表的右上角可视化。 图像在实体选择窗口和连接器中也可见。 例如，当为数据视图选择实体时。
+
+#### 3.3.5 持久性
+
+定义此实体的实例是否可以存储在数据库中。 欲了解更多信息，请参阅 [可持久性](persistability)。
+
+### 3.4 系统成员属性{#system-members}
+
+#### 3.4.1 Store 'createdDate'
+
+此属性定义实体是否包含系统属性“创建日期”。 这是一个类型为 **的日期和时间** 的属性，它存储对象创建的日期和时间。 此属性的值由服务器在创建对象时自动设置。
+
+| 选项        | 描述               |
+| --------- | ---------------- |
+| 真的        | 实体包含系统属性“创建日期”。  |
+| 错误 *(默认)* | 实体不包含系统属性“创建日期”。 |
+
+#### 3.4.2 商店“改变日期”
+
+此属性定义实体是否包含系统属性“更改日期”。 这是一个类型为 **的日期和时间** 的属性，它存储了对象更改的最新日期和时间。
+
+| 选项        | 描述                |
+| --------- | ----------------- |
+| 真的        | 实体包含系统属性“更改日期”。   |
+| 错误 *(默认)* | 实体不包含系统属性 '更改日期'。 |
+
+{{% alert type="info" %}}
+“更改日期”属性仅在实际更改时更新。 只需更改和提交具有相同属性值的实体，不会更新“更改日期”。
+{{% /报警 %}}
+
+#### 3.4.3 商店“所有者”
+
+此属性定义了实体是否拥有系统协会“所有者”。 这是系统实体'用户'的一个关联，(最初)储存了创建对象的用户的参考。 此关联由服务器在创建对象时自动设置。
+
+| 选项         | 描述             |
+| ---------- | -------------- |
+| 真的         | 实体有系统协会“所有者”。  |
+| 错误  *(默认)* | 实体没有系统协会“所有者”。 |
+
+#### 3.4.4 商店“变更”
+
+此属性定义该实体是否有系统协会“变更”。 这是系统实体'用户'的一个关联，它存储了最近更改对象的用户的引用。
+
+| 选项        | 描述            |
+| --------- | ------------- |
+| 真的        | 实体有系统关联“更改”。  |
+| 错误 *(默认)* | 实体没有系统关联“更改”。 |
+
+## 实体对话框中的 4 个选项卡{#dialog-box}
+
+您也可以通过打开实体属性对话框编辑实体。
+
+![CD 实体示例](attachments/domain-model/example-entity.png)
+
+除了上述属性外，还有允许您编辑以下内容的标签：
+
+*   [属性](attributes)
+*   [社会联系](关联)
+*   [验证规则](validation-rules)
+*   [事件处理](event-handlers)
+*   [索引](indexes)
+*   [访问规则](access-rules)
+
+每个标签页的详细页面以获取更多信息。
