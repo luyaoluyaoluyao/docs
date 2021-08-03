@@ -1,10 +1,10 @@
 ---
-title: "Annotation Flow"
-parent: "common-elements"
+title: "注释流"
+parent: "常用元素"
 ---
 
-An annotation flow is a connection that can be used to link an annotation to a flow object(s).
+注流是一种连接，可用来将注解链接到一个流程对象 (s)。
 
-This is an annotation flow linking an annotation and a microflow call activity:
+这是一个注解流程，将注解和微流程呼叫活动连接起来：
 
 ![](attachments/819203/918062.png)
