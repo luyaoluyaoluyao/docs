@@ -1,17 +1,17 @@
 ---
-title: "OQL From Clause"
+title: "来自条款的 OQL"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `FROM` clause specifies the entities or other source from which the data must be retrieved. This clause starts with the `FROM` keyword, followed by an entity name. To select data from other entities, add these entities via the `JOIN` keywords. This syntax is a little more strict than the official `SQL FROM` clause syntax.
+`FROM` 条款指定了必须从中检索数据的实体或其他来源。 此条款始于 `FROM` 关键词，然后是实体名称。 要从其他实体中选择数据，请通过 `JOIN` 关键字添加这些实体。 此语法比官方的 `SQL FROM` 条款语法更加严格。
 
-## 2 Syntax
+## 2 种语法
 
-This is an example of the full syntax:
+这是完整语法的一个示例：
 
 ```sql
 FROM
@@ -27,24 +27,24 @@ FROM
     } [ ,...n ]
 ```
 
-### 2.1 entity_name
+### 2.1 实体名称
 
-`entity_name` specifies the entity from which data must be retrieved. The entity name can be optionally encapsulated in double quotes. If the entity name is a reserved OQL word (like `Order` or `Group`), double quotes are mandatory.
+`entity_name` 指定了必须从其中检索数据的实体。 实体名称可以在双引号中封装。 如果实体名称是一个保留的 OQL 单词(如 `订单` 或 `组`)，则必须使用双引号。
 
-### 2.2 ( sub_oql_query )
+### 2.2 (子_oql_查询)
 
-`( sub_oql_query )` specifies another OQL query from which data must be retrieved. This will be the source for the current query. The subquery must be placed within parentheses.
+`( sub_oql_quiry)` 指定另一个必须从其中检索数据的 OQL 查询。 这将是当前查询的来源。 子查询必须放在括号内。
 
-### 2.3 JOIN
+### 2.3 加入
 
-There are four different `JOIN` types supported:
+支持四种不同的 `JOIN` 类型：
 
-* `INNER JOIN`
-* `LEFT OUTER JOIN`
-* `RIGHT OUTER JOIN`
-* `FULL JOIN`
+* `InNER JOIN`
+* `从我们开始的游戏`
+* `右侧加入`
+* `完整的JOIN`
 
-The syntax is as follows:
+语法如下：
 
 ```sql
 { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } } JOIN
@@ -52,79 +52,79 @@ The syntax is as follows:
         [ ON <constraint> ]
 ```
 
-#### 2.3.1 entity_path
+#### 2.3.1 实体路径
 
-`entity_path` specifies the entity to join and the path from an earlier defined entity in the `FROM` clause to this entity.
+`entity_path` 指定了要加入的实体以及从 `FROM` 条款到此实体的早先定义实体的路径。
 
-The example path `Crm.Customer/Crm.Customer_Address/Crm.Address` defines a path from the entity **Crm.Customer** to a new entity **Crm.Address**.
+示例路径 `Crm.Customer/Crm.Customer_Address/Crm.Address` 定义了一个从实体 **Crm.客户** 到一个新实体 **Crm.Address**
 
-Similar to `entity_name`, double quotes can be used.
+与 `entity_name`相似，可以使用双引号。
 
-#### 2.3.2 \[ ON \<constraint\> \]
+#### 2.3.2 \[ on \<constraint\>\]
 
-`[ ON <constraint> ]` constrains the specified entity in the `JOIN` part of the `FROM` clause. The constraint syntax is similar to that of the `WHERE` clause. Only the entities and `FROM` aliases from the current and preceding `JOIN` elements can be used in the constraint.
+`[ 开启 <constraint> ]` 在 `JOIN` part of the `FROM` 条款中限制了指定的实体。 约束语法类似于 `WHERE` 条款。 Only the entities and `FROM` aliases from the current and preceding `JOIN` elements can be used in the constraint.
 
-Using constraints is optional – the system will generate the appropriate `JOIN` condition based on the specified `entity_path`.
+使用约束是可选的——系统将根据指定的 `entity_path` 生成适当的 `JOIN` 条件。
 
-#### 2.3.3 JOIN Types
+#### 2.3.3 加入类型
 
 ##### 2.3.3.1 INNER JOIN
 
-An `INNER JOIN` is the most common join operation between entities and represents the default join type. The query compares each row of entity A with each row of entity B to find all the pairs of rows that have an association and satisfy the `JOIN` predicate. If the association exists and the `JOIN` predicate is satisfied, the column values for each matched pair of rows of A and B are combined into a resulting row.
+`INNER JOIN` 是实体之间最常见的联合操作，代表默认的联合类型。 查询比较了实体A的每一行和实体B的每一行，以找到具有关联并满足 `JOIN` 预测的所有行对。 如果关联存在且 `JOIN` 上游已经满足， A 和 B 每对匹配行的列值合并为一个结果行。
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-[ INNER ] JOIN entity_path [ ON <constraint> ]
+[ INNER ] JOIN entity_path [ on <constraint>]
 ```
 
-##### 2.3.3.2 LEFT OUTER JOIN
+##### 2.3.3.2 最佳喷雾器
 
-A `LEFT OUTER JOIN` query compares each row of entity A with each row of entity B to find all pairs of rows which have an association and thus satisfy the `JOIN` predicate. When the association exists and the `JOIN` predicate is satisfied, column values for each matched pair of rows of A and B are combined into a resulting row.
+`从上到上的JOIN` 查询将实体A的每一行与实体B的每一行进行比较，以找到所有具有关联的行，从而满足 `JOIN` 的预测。 当关联存在且 `JOIN` 上游得到满足时， A和 B的每一对匹配行的列数值合并为一个结果行。
 
-However, in contrast to the `INNER JOIN` construction, the query will also return rows of entity A which do not match entity B. When columns of entity B are specified, these columns contain a null value for these rows.
+然而，与 `INNER JOIN` 构建形成对比。 查询还将返回与实体B不匹配的实体A的行数。 当实体B列被指定时，这些列包含这些行的空值。
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-LEFT [ OUTER ] JOIN entity_path [ ON <constraint> ]
+LEFT [ OUTER ] JOIN entity_path [ on <constraint>]
 ```
 
-##### 2.3.3.3 RIGHT OUTER JOIN
+##### 2.3.3右翼突击队员
 
-A `RIGHT OUTER JOIN` query compares each row of entity A with each row of entity B to find all pairs of rows which have an association and thus satisfy the `JOIN` predicate. If the association exists and the `JOIN` predicate is satisfied, the column values for each matched pair of rows of A and B are combined into a resulting row.
+`Right OUTER JOIN` 查询比较了实体A的每一行和实体B的每一行，以找到所有具有关联的行，从而满足 `JOIN` 预测。 如果关联存在且 `JOIN` 上游已经满足， A 和 B 每对匹配行的列值合并为一个结果行。
 
-However, in contrast to the `INNER JOIN` construction, rows from entity B that do not match entity A will also be returned. When columns of entity A are specified, these columns contain a null value for these rows.
+然而，与 `INNER JOIN` 构建不同，实体B中与实体A不匹配的行也将被还原。 实体A栏被指定时，这些栏目包含这些行的空值。
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-RIGHT [ OUTER ] JOIN entity_path [ ON <constraint> ]
+右[ OUTER ] JOIN entity_path [ on <constraint>]
 ```
 
-##### 2.3.3.4 FULL OUTER JOIN
+##### 2.3.3.4 完整的
 
-A `FULL OUTER JOIN` query compares each row of entity A with each row of entity B to find all pairs of rows which have an association and thus satisfy the `JOIN` predicate. When the association exists and the `JOIN` predicate is satisfied, column values for each matched pair of rows from A and B are combined into a result row.
+`完整的OUTER JOIN` 查询将实体A的每一行与实体B的每一行进行比较，以找到所有具有关联的行，从而满足 `JOIN` 的预测。 当关联存在且 `JOIN` 上游得到满足时， 从 A 和 B 的每对匹配行的列数值合并成一个结果行。
 
-However, in contrast to the `INNER JOIN` construction, data from entities that do *not* match will also be returned. For these rows, columns of missing entities will contain null values.
+然而，与 `INNER JOIN` 结构不同，来自不 *的实体的数据* 将会被还原。 对于这些行，缺失实体的列将包含空值。
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-FULL [ OUTER ] JOIN entity_path [ ON <constraint> ]
+完整的 [ OUTER ] JOIN entity_path [ on <constraint>]
 ```
 
-#### 2.3.4 Example
+#### 2.3.4 示例
 
-In this scenario, you are using a `LEFT OUTER JOIN` to get the records in table A that have no association in table B.
+在这种情况下， 您正在使用 `LEFT OUTER JOIN` 来获取表A中与表B没有关联的记录。
 
-For example, you have the entities **Customer** and **Order**, where a customer can have an association to multiple orders. You want to retrieve all the customers that have no orders at all.
+例如，您有实体 **客户** 和 **订单**，客户可以在其中有多个订单。 您想要检索所有没有订单的客户。
 
 ```sql
-SELECT 
-  Customer/Name as Name,
-  Customer/<anyotherattribute> as <anyotherattribute>
-FROM MyModule.Customer
-  LEFT OUTER JOIN Customer/MyModule.Customer_Order/MyModule.Order as Order
-WHERE Order/ID IS NULL
+选择 
+  客户名称，
+  客户名称，<anyotherattribute> 为 <anyotherattribute>
+从MyModule.客户
+  LEFT OUTER JOIN Customer/MyModule.Customer_Order/MyModule.order 为订单
+WHERE 订单/ID IS NULL
 ```
