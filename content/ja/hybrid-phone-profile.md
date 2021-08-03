@@ -1,15 +1,15 @@
 ---
-title: "Hybrid Phone Profile"
+title: "ハイブリッド電話のプロフィール"
 parent: "navigation-before-72"
-description: "Describes usage of the Hybrid Phone profile in a Mendix app for Mendix versions 7.0 and 7.1."
+description: "Mendix バージョン 7.0 および 7.1 の Mendix アプリで Hybrid Phone プロファイルの使用法について説明します。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+Mendix バージョン 7.2 および 7.3 での動作の詳細については、 [7.2 と 7.3 のナビゲーション](navigation-in-72-and-73) を参照してください。 Mendix バージョン 7.4 以上については、 [Navigation](navigation) を参照してください。
 
 {{% /alert %}}
 
-When the hybrid phone profile is enabled, a users who accesses the Mendix application from a PhoneGap hybrid application running on a phone device will automatically be redirected to this profile. If the hybrid phone profile is disabled, phone users will be redirected to the [hybrid tablet profile](hybrid-tablet-profile). If there is no hybrid tablet profile, the user will be redirected to the [desktop profile](desktop-profile).
+ハイブリッド電話プロファイルが有効な場合。 PhoneGap ハイブリッド・アプリケーションから Mendix アプリケーションにアクセスしたユーザーは、自動的にこのプロファイルにリダイレクトされます。 ハイブリッド電話プロファイルが無効になっている場合、携帯電話のユーザーは [ハイブリッド・タブレット プロファイル](hybrid-tablet-profile)にリダイレクトされます。 ハイブリッドタブレットプロファイルがない場合、ユーザーは [デスクトッププロファイル](desktop-profile)にリダイレクトされます。
 
 {{% snippet file="refguide7/Profile+properties.md" %}}
