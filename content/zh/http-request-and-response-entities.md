@@ -1,9 +1,6 @@
 ---
 title: "HttpRequest & HttpResponse System 实体"
 parent: "集成"
-menu_order: 45
-tags:
-  - "studio pro"
 ---
 
 ## 1 导言
