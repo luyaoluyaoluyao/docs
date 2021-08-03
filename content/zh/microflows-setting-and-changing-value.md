@@ -1,97 +1,97 @@
 ---
-title: "Set & Change a Value for Different Activities"
-category: "Microflows"
+title: "设置 & 更改微流中不同活动的值"
+category: "微型流动"
 menu_order: 50
-description: "Describes the process of setting the initial value for objects or variables in Mendix Studio."
+description: "描述在 Mendix Studio 中设置对象或变量初始值的过程。"
 tags:
-  - "studio"
-  - "microflow"
-  - "set value"
-  - "variable"
+  - "工作室"
+  - "微流"
+  - "设置值"
+  - "变量"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes how to set and change values for various activities in microflows of Mendix Studio.
+本文档描述如何设置和更改Mendix Studio微流中各种活动的值。
 
-You need to assign a value to an object/variable, when you configure the properties of the following activities:
+当您配置以下活动的属性时，您需要为对象/变量分配一个值：
 
-* **Create Object** –  you can create an object with this activity and provide initial values for properties of the object
-* **Create Variable** – you can create a variable and assign a value to it with this activity
+* **创建对象** - 您可以创建一个具有此活动的对象，并为对象的属性提供初始值
+* **创建变量** - 您可以创建一个变量并使用此活动为其分配一个值
 
-You can also change the value when you configure the following activities:
+您也可以在配置以下活动时更改值：
 
-* **Change Object** – can be used to change an existing object or properties of this object
-* **Change Variable** – change the value of an existing variable in the current microflow
+* **更改对象** - 可以用来更改此对象的现有对象或属性
+* **更改变量** - 更改当前微流程中现有变量的值。
 
-You can also configure a return value for the **End Event** – the location where the microflow will stop.
+您也可以为 **结束事件** 配置返回值——微流将停止的位置。
 
-For more information on the functions of these activities, see [Microflows](microflows).
+关于这些活动功能的更多信息，见 [微流](microflows)。
 
-## 2 Setting the Initial Value for Create Object and Changing the Value for Change Object
+## 2 设置创建对象的初始值和更改更改对象的值
 
- To set the initial value or change the value of an object, do the following:
+ 要设置对象的初始值或改变其值，请执行以下操作：
 
-1. Add the **Create Object**/**Change Object** activity to a microflow. For more information, see the [Adding New Event or Activity](microflows#adding-activity-to-microflow) section in *Microflows*.
-2. Click the activity to view its properties.
-3.  Select the data source for the activity, then click **Add New Value**
+1. 添加 **创建对象**/**将对象** 活动更改为微流程。 欲了解更多信息，见第 [4节，在 *Microflow* 中添加新事件或活动](microflows#adding-activity-to-microflow)。
+2. 点击活动查看其属性。
+3.  选择活动的数据源，然后点击 **添加新值**
 
     ![](attachments/microflows-setting-and-changing-value/add-new-value.png)
 
-4. In the **Set initial value**/**Change value dialog**, select an attribute or association.
-5.  Set the initial value (for **Create Object**) or assign a new value (for **Change Object**) in **Variables/Attributes**, **Constant**, or **Expression** tabs.  For more information on these tabs, see the [Common Elements](#set-value-common-elements) section.
+4. 在 **设置初始值**/**更改值对话框**中，选择一个属性或关联。
+5.  设置初始值 (用于 **创建对象**) 或分配一个新值 (用于 **更改对象**) 在 **变量/属性** **常量** 或 **表达式** 标签。  关于这些标签的更多信息，见第 [5节常见元素](#set-value-common-elements)。
 
     ![](attachments/microflows-setting-and-changing-value/set-initial-value-object-dialog.png)
 
-## 3 Setting the Initial Value for Create Variable and Changing the Value for Change Variable
+## 3 设置创建变量和更改变量值的初始值
 
-To set the initial value or change the value of a variable, do the following:
+要设置一个变量的初始值或改变其值，请执行以下操作：
 
-1. Add the **Create Variable**/**Change Variable** activity to a microflow. For more information on how to add an element to a microflow, see the [Adding New Event or Activity](microflows#adding-activity-to-microflow) section in *Microflows*.
-2. Click the activity to view its properties.
-3.  Select the data type for the activity, then click **Set initial value** / **Change value**
+1. 添加 **创建变量**/**将变量** 改为微流程。 欲了解更多信息，见第 [4节，在 *Microflow* 中添加新事件或活动](microflows#adding-activity-to-microflow)。
+2. 点击活动查看其属性。
+3.  选择活动的数据类型，然后点击 **设置初始值** / **更改值**
 
     ![](attachments/microflows-setting-and-changing-value/set-initial-value-var.png)
 
-4.  Set the initial value (for **Create Variable**) or assign a new value (for **Change Variable**) in **Variables / Attributes**, **Constant**, or **Expression** tabs.  For more information on these tabs, see section [Common Elements](#set-value-common-elements) section.
+4.  设置初始值 (用于 **创建变量**) 或分配一个新值 (用于 **更改变量**在 **变量/属性**中设置一个新值 **常量** 或 **表达式** 标签。  关于这些标签的更多信息，见第 [5节常见元素](#set-value-common-elements)。
 
     ![](attachments/microflows-setting-and-changing-value/change-value-var-dialog.png)
 
-## 4 Configuring the Return Value for an End Event
+## 4 配置结束事件返回值
 
-The return value is the value that is returned to the flow or a widget that called the current flow. To configure the return value, do the following:
+返回值是返回到流或调用当前流的小部件的值。 要配置返回值，请执行以下操作：
 
-1. Add the **End Event** to a microflow or select the existing end event. For more information, see the [Adding New Event or Activity](microflows#adding-activity-to-microflow) section in *Microflows*.
-2. Click the event to view its properties.
-3.  Set the **Returns** option to **Value**.
+1. 将 **结束事件** 添加到微流程或选择现有的结束事件。 欲了解更多信息，见第 [4节，在 *Microflow* 中添加新事件或活动](microflows#adding-activity-to-microflow)。
+2. 点击事件查看其属性。
+3.  将 **返回** 选项设置为 **值**.
 
     ![](attachments/microflows-setting-and-changing-value/end-event-returns-value-setting.png)
 
-4.  Select the data type, then click **Value** to configure it.
+4.  选择数据类型，然后点击 **值** 来进行配置。
 
     ![](attachments/microflows-setting-and-changing-value/configure-return-value.png)
 
-5.  Set the return value in **Variables/Attributes**, **Constant**, or **Expression** tabs. For more information, see the [Common Elements](#set-value-common-elements) section.
+5.  在 **变量/属性**中设置返回值。 **常量** 或 **表达式** 选项卡。 欲了解更多信息，请参阅第 [5 通用元素](#set-value-common-elements) 部分。
 
     ![](attachments/microflows-setting-and-changing-value/configure-retuen-value-dialog.png)
 
-## 5 Common Elements {#set-value-common-elements}
+## 5 共同要素 {#set-value-common-elements}
 
-You can see the following common elements when configuring the value:
+您可以在配置值时看到下列共同元素：
 
-* **Variables/Attributes** tab
-* **Constant** tab
-* **Expression** tab
+* **变量/属性** 标签
+* **常量** 标签
+* **表达式** 标签
 
-The functions of these tabs are described in the table below:
+下表说明了这些标签的功能：
 
-| Tab                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Variables/Attributes | Shows variables and attributes that match the type of an attribute, association, or variable that you want to create or change. <br />For example, when you select  an attribute of the type Decimal, variables of types Decimal and Integer will be shown in the tab. This happens because decimal can include whole numbers (integer). However, if you pick an attribute of the type Integer, variables of the type Decimal will not be shown, because the whole numbers (integer) cannot contain decimals.  For more information on attribute types, see [Attributes](domain-models-attributes).<br />**Note** The attribute of the type Long will be shown as Integer in microflows. |
-| Constant             | With this tab you can assign a new value selecting it from the values of an attribute of enumeration type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Expression           | With this tab you can assign an attribute, association, or variable different values, depending on what you write in the expression. For more information on expressions, see [Microflow Expressions](microflows-expressions).                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Tab   | 描述                                                                                                                                                                                                                                              |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 变化/属性 | 显示与您想要创建或更改的属性类型、关联或变量匹配的变量和属性。 <br />例如，当您选择十进制类型的属性时，小数和整数类型的变量将会在标签中显示。 这是因为十进制可以包含整数 (整数)。 然而，如果您选择整数类型的属性，将不会显示小数点的变量， 因为整数 (整数) 不能包含小数。  欲了解更多关于属性类型的信息，请参阅 [属性类型](domain-models-attributes)。<br />**备注** 长长类型的属性将作为整数显示在微流中。 |
+| 常数    | 使用此选项卡，您可以从枚举类型的属性中指定一个新值。                                                                                                                                                                                                                      |
+| 表达式   | 通过这个标签，您可以根据您在表达式中写的内容分配属性、关联性或变量不同的值。 欲了解更多信息，请参阅 [微流程表达式](microflows-expressions)。                                                                                                                                                            |
 
-## 6 Read More
+## 6 阅读更多
 
-* [Microflows](microflows)
-* [Microflow Expressions](microflows-expressions)
+* [微型流动](微流)
+* [微流程表达式](microflows-expressions)
