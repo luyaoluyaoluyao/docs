@@ -22,20 +22,43 @@ tags:
 
 您可以使用 **文本**, **段落**, 或 **标题** 小部件向最终用户显示文本。 在 **属性** > **常规**中，您可以输入将显示的文本， 定义是否包含属性值，并设置 [渲染模式](#render-mode)。
 
-### 2.1 内容 {#content}
+### 2.1 内容
 
-在 **内容**中，您定义了显示给最终用户的文本。 您也可以在这里显示动态数据：属性值和表达式结果。
-
-当添加属性时，属性值将显示给用户。 选择 **添加** > **属性** 或按 <kbd>Ctrl</kbd> + <kbd>空格</kbd> 来选择属性。  例如，当用户登录到帐户时，可以显示问候消息， *name* and *NumberOfmail* 是属性值：
+在 **内容**中，您定义了将显示的文本。 您也可以添加属性，属性值将显示给用户。 例如，当用户登录到帐户时，可以显示问候消息， *name* and *NumberOfmail* 是属性值：
 
 ![](attachments/page-editor-widgets-text/content-example.png)
 
-您也可以配置表达式并显示表达式结果(关于表达式的更多信息，请参阅 [表达式](expressions))。 选择 **添加** > **表达式结果** 以写一个表达式。 例如，您可以显示一个不含增值税的价格，并包含它：
+#### 2.1.1 配置内容而不添加属性
 
-![内容示例表达式](attachments/page-editor-widgets-text/content-example-expression.png)
+要配置 **Content** 而不添加属性，您可以做以下事情之一：
 
-要编辑 **内容**, 双击页面上的小部件。
+* 双击页面上的小部件并开始输入您想要显示给最终用户的文本；按 <kbd>输入</kbd> 保存更改
+* 打开小部件的 **属性** 删除 **常规部分中的默认文本** > **内容**并输入您想要向最终用户显示的消息
 
+#### 2.1.2 配置内容和添加属性
+
+要配置 **内容** 并添加属性，请执行以下操作：
+
+1. 放置小部件(**文本**, **段落**, 或 **在数据容器中的标题**(列表视图或数据视图)，并为列表视图/数据视图设置一个实体。 欲了解更多信息，见 [数据视图 & 列表视图](page-editor-data-view-list-view)。 这对于允许将选定实体的属性插入文本是必要的。
+
+2.  Open **Properties** of the **Text**, **Paragraph**, or **Heading**, delete the default text in the **General** section > **Content** and start typing the message you want to show to the end-user.
+
+    {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/content.png)
+    {{% /image_container %}}
+
+3. 要将属性值插入您的信息，请点击 **添加属性** 或按 <kbd>Ctrl</kbd> + <kbd>空格</kbd>。  可以插入的属性列表将被显示。
+
+4.  滚动到属性列表 (您也可以使用 <kbd>向上</kbd> 和 <kbd>向下</kbd> 箭头)，并选择您想要添加到 **文本** 的属性。
+
+    {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/list-of-attributes.png)
+    {{% /image_container %}}
+
+5. 输入文本的其余部分，并在需要时插入更多属性以完成您的消息。
+
+您已经配置了小部件的 **内容**。 如果你想要编辑它，你可以双击页面中的小部件； **编辑文本** 弹出式对话框将显示在其内容中具有属性的部件中。
+
+{{% image_container width="350" %}}![](attachments/page-editor-widgets-text/edit-text.png)
+{{% /image_container %}}
 
 ### 2.2 渲染模式 {#render-mode}
 
