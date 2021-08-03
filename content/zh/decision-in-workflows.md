@@ -1,50 +1,50 @@
 ---
-title: "Decision in Workflows"
-parent: "workflows"
+title: "关于工作流的决定"
+parent: "工作流"
 menu_order: 20
 tags:
-  - "workflow"
-  - "workflows"
-  - "decision"
+  - "工作流"
+  - "工作流"
+  - "决 定"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A decision is an element that makes a choice based on a condition and follows one and only one of the outgoing paths. For example, you need to use a decision to follow different paths when a new hire works remotely or when they work from the office:
+一项决定是一个根据一项条件作出选择的要素，它遵循的是一条唯一的一条出路。 例如，当新的雇用单位远距离工作或从办公室工作时，您需要使用决定来遵循不同的路径：
 
-![Decision Example](attachments/decision-in-workflows/decision-example.jpg)
+![决策示例](attachments/decision-in-workflows/decision-example.jpg)
 
-## 2 Properties
+## 2 属性
 
-Decision properties consist of the following sections:
+决策属性由以下部分组成：
 
-* [Common](#common)
-* [General](#general)
-* [Outcome](#outcome)
+* [常用的](#common)
+* [A. 概况](#general)
+* [成果](#outcome)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名称** 是元素的内部名称。 当提及应用程序中的元素时，您将使用此名称。 它在工作流中必须是唯一的，但你可以在不同的工作流中拥有两个名称相同的元素。
 
-### 2.2 General Section {#general}
+### 2.2 一般部分 {#general}
 
-#### 2.2.2 Caption
+#### 2.2.2 标题
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**标题** 描述了这个元素中发生的情况。 它显示在工作流元素中，使工作流更容易阅读和理解，而无需添加注释。
 
-#### 2.2.3 Condition
+#### 2.2.3 条件
 
-**Condition** is configured based on an [expression](expressions). The expression should result in a Boolean or an enumeration.
+**条件** 是根据 [表达式](expressions) 配置的。 表达式应产生布尔值或枚举。
 
-For the expression resulting in a Boolean, two paths are possible: **true** and **false**. For example, you can use the expression resulting in a Boolean to follow different paths whether a new employee is working from home or from the office (and either send their devices to the home address or set up a workstation in the office).
+对于导致布尔值的表达式，可能有两个路径： **true** and **false**。 例如， 您可以使用布尔值的表达式来跟随不同的路径，无论是新雇员正在家里工作，还是从办公室工作(或者将他们的设备发送到家里地址，或者在办公室里设置一个工作站)。
 
-The number of conditions available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* condition available: if the enumeration parameter or an attribute of an object is unassigned, the path with the caption **Empty** is followed. For example, you have several requests with a low or high priority. The ones with the high priority follow one path and should be approved by the Management team. Low priority requests follow a different path and can be approved by the Administration department. The requests that have no specified priority follow an Empty path where the user needs to assign the priority first.
+枚举类型的条件数取决于相应的枚举值。 还有可用的 *空* 条件：如果枚举参数或对象的属性未分配， 带标题的路径 **空** 被遵循。 例如，您有几个优先级较低或较高的请求。 那些具有高度优先地位的机构沿着一条道路走，应当得到管理小组的批准。 低优先级请求沿着不同的路径，可以由行政部门批准。 没有指定优先级的请求遵循用户需要先分配优先级的空路径。
 
-### 2.3 Outcomes Section {#outcome}
+### 2.3 成果科 {#outcome}
 
-**Outcomes** depends on the condition of the decision. For example, for the Boolean, you have **true** and **false** outcomes, and for the enumeration: an outcome per each enumeration value and an empty one when the value is unassigned.
+**结果** 取决于决定的条件。 例如，对于布尔值，您有 **真实** 和 **false** 结果。 枚举：每个枚举值的结果和未分配值的空值。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Parallel Split](parallel-split)
+* [并联拆分](parallel-split)
