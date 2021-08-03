@@ -1,20 +1,32 @@
 ---
 title: "Integration Activities"
 parent: "activities"
+menu_order: 60
+tags:
+  - "studio pro"
 ---
 
-## Call REST Service
+{{% alert type="warning" %}}
+These activities can only be used in **Microflows**.
+{{% /alert %}}
 
-See [Call Rest Action](call-rest-action).
+## 1 Introduction
 
-## Call Web Service
+When working with external services there are several microflow activities which enable you to call the service and perform mapping operations.
 
-See [Call Web Service Action](call-web-service-action).
+The activities described in this document are in the **Integration Activities** section of the **Toolbox**:
 
-## Import with Mapping
+{{% image_container width="40%" %}}
+![integration activities toolbox](attachments/integration-activities/integration-activities-toolbox.png)
+{{% /image_container %}}
 
-See [Import Mapping Action](import-mapping-action).
+The following are the integration activities you can use in your microflow:
 
-## Export with Mapping
+* [Call REST Service](call-rest-action) – calls a REST endpoint
+* [Call Web Service](call-web-service-action) – calls an imported web service operation
+* [Import Mapping](import-mapping-action) – imports data from an XML or JSON document into objects
+* [Export Mapping](export-mapping-action) – exports data from objects into XML or JSON documents, or a string variable
 
-See [Export Mapping Action](export-mapping-action).
+## 2 Read More
+
+* [Activities](activities)
