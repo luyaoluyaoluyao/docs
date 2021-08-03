@@ -1,74 +1,74 @@
 ---
-title: "Objects & Caching"
+title: "オブジェクト & キャッシュ"
 category: "Mendix Runtime"
-description: "This page describes how objects interact with each other within a runtime request."
+description: "このページでは、ランタイムリクエスト内でオブジェクトが相互に相互作用する方法について説明します。"
 tags:
-  - "runtime"
+  - "ランタイム:"
   - "MendixObject"
-  - "caching"
+  - "キャッシュ"
   - "context"
-  - "session"
-  - "request"
-  - "microflow"
+  - "セッション"
+  - "リクエスト"
+  - "マイクロフロー"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This page describes how objects get loaded from the database, in which cases objects are cached, when a cached object is retrieved, and what happens when an object gets changed and committed.
+このページでは、オブジェクトがキャッシュされている場合、データベースからオブジェクトが読み込まれる方法について説明します。 キャッシュされたオブジェクトが取得され、オブジェクトが変更されてコミットされたときに何が起こるかを確認します。
 
-The term "object" refers to an instance of a Mendix entity.
+「object」という用語はMendixエンティティのインスタンスを指します。
 
-## 2 Object Caching
+## 2 オブジェクトキャッシュ
 
-Mendix does not cache objects within Mendix Runtime over multiple requests. It does collect and keep a reference to objects changed within a request. In some retrieve actions, this object gets prevalence above the database, and in others it does not. This impacts the performance and the way the system works.
+Mendix は複数のリクエストに対して Mendix Runtime 内のオブジェクトをキャッシュしません。 リクエスト内で変更されたオブジェクトへの参照を収集し、保持します。 若干の検索アクションにおいて、この物体はデータベースの上で有病率を得、他の物体では有病率を得ません。 これはパフォーマンスとシステムの仕組みに影響します。
 
-## 3 Which Objects Are Tracked
+## 3どのオブジェクトがトラッキングされているか
 
-Only non-persistable objects, new objects, and changed objects are tracked. This means that they are kept in memory for the duration of the request at runtime. When the request has finished, the object state is returned to the client, or it is discarded in the case of non-client actions. As soon as an object is committed it will no longer be tracked, except for non-persistable objects. The same applies for the rollback of objects.
+永続化できないオブジェクト、新しいオブジェクト、および変更されたオブジェクトのみが追跡されます。 つまり、実行時のリクエストの間、メモリ内に保持されることになります。 リクエストが完了すると、オブジェクトの状態はクライアントに返されるか、クライアント以外のアクションの場合は破棄されます。 オブジェクトがコミットされるとすぐに、非持続可能オブジェクトを除いて、そのオブジェクトは追跡されなくなります。 オブジェクトのロールバックにも同じことが当てはまります。
 
-Unchanged existing objects are not tracked in a request scope. They will get tracked only if they get changed!
+変更されていない既存のオブジェクトはリクエストスコープで追跡されません。 彼らは変更された場合にのみ追跡されます!
 
 {{% alert type="warning" %}}
-The Mendix Runtime cannot return the object state to the client when the client does not have sufficient permissions to access that state. This means that if you trigger a microflow that changes but does not commit an object to which you have no read access, the change will be discarded at the end of the request.
+Mendix Runtime は、クライアントがその状態にアクセスするのに十分な権限を持っていない場合、オブジェクト状態をクライアントに返すことはできません。 これは、変更されたが、読み取りアクセス権がないオブジェクトをコミットしないマイクロフローをトリガーする場合に意味します。 変更はリクエストの最後に破棄されます。
 {{% /alert %}}
 
-## 4 Scope of Tracking
+## 4追跡範囲
 
-The objects are tracked in a request scope. A request scope is always smaller than a session scope and can be shared among contexts. When using the API `ISession.createContext()`, a new request scope is created along with the new context. When a context get cloned, the request scope is shared with the cloned context. Changes to the request scope are visible to all the cloned contexts.
+オブジェクトはリクエストスコープで追跡されます。 リクエストスコープは常にセッションスコープより小さく、コンテキスト間で共有できます。 API `ISession.createContext()`を使用する場合、新しいコンテキストとともに新しいリクエストスコープが作成されます。 コンテキストがクローンされると、リクエストスコープはクローンされたコンテキストと共有されます。 リクエストスコープへの変更は、複製されたすべてのコンテキストに表示されます。
 
-## 5 Actions
+## 5つのアクション
 
-### 5.1 Actions That Return Tracked Objects
+### 5.1 トラックしたオブジェクトを返すアクション
 
-Some actions will read an object from the request scope first. If it is not available there, they will be read from the database. These are the actions:
+いくつかのアクションは、リクエストスコープからオブジェクトを最初に読み込みます。 利用できない場合は、データベースから読み込まれます。 以下はアクションです：
 
- * Retrieve by path/retrieve by association (`Core.retrieveByPath([..])`)
- * Retrieve by ID/retrieve by list of IDs (`Core.retrieveId([..])` and `Core.retrieveIdList([..])`)
+ * 関連づけで取得 (`Core.retrievByPath([..])`)
+ * IDで取得/IDの一覧で取得 (`Core.retrieveId([..])` と `Core.retriveIdList([..])`)
 
-This means that if the object to be retrieved is tracked by the request scope (as it is either changed, new, or non-persistable), then calling these actions/APIs will return the object from the request scope.
+つまり、取得されるオブジェクトがリクエストスコープで追跡されている場合(変更されている場合)。 これらのアクション/APIを呼び出すと、リクエストスコープからオブジェクトが返されます。
 
-### 5.2 Action That Will Never Return Tracked Objects
+### 5.2 追跡されたオブジェクトを返さないアクション
 
-One action will always ignore the request scope and will always read objects from the database: retrieve by XPath (all variants).
+1つのアクションは常にリクエストスコープを無視し、常にデータベースからオブジェクトを読み込みます: XPath (すべてのバリアント) により取得します。
 
-This means that although the object might be tracked in the request scope as it is changed, a fresh copy of the object will be read from the database anyhow. Changes made to one of the copies of the same entity instance will not be visible on the other copies!
+これは、オブジェクトが変更された際にリクエストスコープで追跡される可能性があることを意味します。 新品のコピーはデータベースから読み込まれます 同じエンティティインスタンスのいずれかのコピーに加えられた変更は、他のコピーには表示されません。
 
-## 6 Impact
+## 6 影響
 
-### 6.1 Impact of This Behavior on Your Solutions
+### 6.1 この動作がお客様のソリューションに及ぼす影響
 
-If you have a few references to entity instances and you got these references via different ways, they might be copies of the same entity instance. Keep in mind that changes to one of the copies will not be reflected in the other copies.
+エンティティインスタンスへの参照がいくつかあり、異なる方法でこれらの参照を取得した場合。 同じ実体のコピーかもしれない いずれかのコピーへの変更は、他のコピーには反映されないことに注意してください。
 
-There is no clear way to identify this, so to ensure you have the latest version of the object, you should re-read the object as soon as you have committed changes to it to the database.
+これを識別する明確な方法はありませんので、最新バージョンのオブジェクトがあることを確認してください。 データベースに変更が加えられたらすぐにそのオブジェクトを読み直すべきだ
 
-### 6.2  Impact on Microflows
+### 6.2 マイクロフローへの影響
 
-This behavior impacts microflows in a similar way. Therefore, the best practice here is to reload an object as soon as you have committed changes to another reference of (potentially) the same object.
+この動作は、同様の方法でマイクロフローに影響を与えます。 したがって、ここでのベストプラクティスは、(潜在的に)同じオブジェクトの別の参照に変更をコミットしたときにすぐにオブジェクトを再ロードすることです。
 
-### 6.3 Impact of Using Non-Persistable Entities & Changed Entities in Microflows and Java Actions
-When a user calls a microflow from the client, a copy of the state is sent with the request to the runtime. This copy stays at the runtime and is updated by the runtime during processing of this request. After the request has finished processing, it will return to the client, which will update its client state with the information returned by the response.
+### 6.3 非持続可能エンティティの使用による影響 & マイクロフロー内の変更されたエンティティと Java アクション
+ユーザーがクライアントからマイクロフローを呼び出すと、ランタイムへのリクエストと共に状態のコピーが送信されます。 このコピーはランタイムに留まり、このリクエストの処理中にランタイムによって更新されます。 リクエストの処理が完了すると、クライアントに戻り、レスポンスによって返された情報をクライアントの状態に更新します。
 
-On the server side, this state can only be accessed by that request handling action. This means that it is no longer possible to query the state of a non-persistable entity when it is updated by another request, other than via the client (as the other request needed to return this non-persistable entity to the client, which in turn sends this with a subsequent request to the server).
+サーバー側では、この状態はそのリクエスト処理アクションによってのみアクセスできます。 これは、他のリクエストによって更新されたときに持続不可能なエンティティの状態を問い合わせることができなくなったことを意味します。 クライアント経由以外(この永続性のないエンティティをクライアントに返すために必要な他のリクエスト) これに続いてサーバーにリクエストを送ることになります
 
-When a request triggers an asynchronous action on the runtime, it gets the state as it was from the moment it was initiated. You can only track the action by the client and get its updated state when the asynchronous action is finished if this action was asynchronously executed by the client. When the asynchronous action is triggered on the runtime using a Java Action, the state updates can not be tracked by the client (similar to refresh, datavalidation and other instructions).
+リクエストがランタイム上で非同期アクションをトリガーすると、開始された瞬間から状態を取得します。 このアクションがクライアントによって非同期で実行された場合、非同期アクションが完了した場合にのみ、クライアントによってアクションを追跡し、更新された状態を取得できます。 Javaアクションを使用してランタイム上で非同期アクションがトリガーされた場合 状態の更新はクライアントによって追跡できません(更新、データ復元、その他の手順と同様)。
