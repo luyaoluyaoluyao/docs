@@ -1,18 +1,18 @@
 ---
-title: "Range Search Field"
-parent: "search-bar"
+title: "範囲検索フィールド"
+parent: "検索バー"
 ---
 
 
-Given an entity that contains a range, this search field is used to find all entities whose range overlaps with the specified value.
+範囲を含むエンティティを指定すると、範囲が指定された値と重複するすべてのエンティティを検索するために使用されます。
 
-Example: given an entity 'Festival' that has a 'Start' and an 'End' date, which Festivals take place at day X?
+例: 「開始」と「終了」の日付を持つエンティティ「フェスティバル」を与えられ、フェスティバルはX日に開催されますか？
 
-Datatypes supported by this search field are: Integer, Currency, Decimal, DateTime, Float, AutoNumber, Long.
+この検索フィールドでサポートされているデータ型は、整数、通貨、小数、日付時間、浮動小数点数、自動番号、長さです。
 
-You can specify whether the range boundaries are inclusive or exclusive using the Lower- and Upper bound operator.
+範囲境界を含めるか、排他するかを、下限と上限の境界演算子を使用して指定できます。
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Search+Field+Caption+Property.md" %}}
 
@@ -26,24 +26,24 @@ You can specify whether the range boundaries are inclusive or exclusive using th
 
 {{% snippet file="refguide7/Search+Field+Placeholder+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
-### Lower Bound
+### 下側のバウンド
 
-This attribute (path) determines the lower bound of the range.
+この属性 (path) は範囲の下限を決定します。
 
-### Lower Bound Operator
+### 低バウンド演算子
 
-The lower bound operator determines whether the comparison with the lower bound is inclusive (>=) or not (>). It can be either 'Greater' or 'Greater or equal'.
+The lower bound operator determines whether the comparison with the lower bound is inclusive (>=) or not (>). それは 'Greater' または 'Greater or or equal' のいずれかになります。
 
-_Default value_: Greater.
+_デフォルト値_: 大きい。
 
-### Upper Bound
+### 上側のバウンド
 
-This attribute (path) determines the upper bound of the range.
+この属性 (path) は範囲の上限を決定します。
 
-### Upper Bound Operator
+### 上位バウンド演算子
 
-The upper bound operator determines whether the comparison with the upper bound is inclusive (<=) or not (<). It can be either 'Smaller' or 'Smaller or equal'.
+The upper bound operator determines whether the comparison with the upper bound is inclusive (<=) or not (<). 「Smaller」または「Smaller」または「Smaller」のいずれかです。
 
-_Default value_: Smaller
+_デフォルト値_: 小さく
