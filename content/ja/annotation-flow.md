@@ -1,10 +1,10 @@
 ---
-title: "Annotation Flow"
-parent: "common-elements"
+title: "注釈フロー"
+parent: "共通要素"
 ---
 
-An annotation flow is a connection that can be used to link an annotation to a flow object(s).
+注釈フローは、注釈をフローオブジェクトにリンクするために使用できる接続です。
 
-This is an annotation flow linking an annotation and a microflow call activity:
+これは注釈とマイクロフロー呼び出しアクティビティをリンクする注釈フローです:
 
 ![](attachments/819203/918062.png)
