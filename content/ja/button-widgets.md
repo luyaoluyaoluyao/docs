@@ -7,11 +7,12 @@ tags:
   - "button widgets"
   - "buttons"
   - "widget"
+aliases:
+  - /refguide/action-button.html
+  - /refguide/drop-down-button.html
+  - /refguide/link-button.html
+  - /refguide/sign-out-button.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/button-widgets.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -26,6 +27,10 @@ Button widgets perform an action when clicked. They can be rendered as a button 
   * Link button
   * Close page button
   * Delete button
+  * Call workflow button
+    * Complete user task button
+  * Show user task page button
+  * Show workflow admin page button
   * Synchronize button ![Preconfigured Buttons](attachments/button-widgets/preconfigured-action-button.png)
 
 * **Drop-Down Button** – shows a list of items, an action is performed when one of the items is clicked. A pop-up window with a list of possible actions appears when an end-user clicks a drop-down button:
@@ -36,7 +41,7 @@ Button widgets perform an action when clicked. They can be rendered as a button 
 
 ## 2 Performing Basic Functions
 
-{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
 ## 3 Read More
 
