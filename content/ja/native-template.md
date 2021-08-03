@@ -1,66 +1,66 @@
 ---
-title: "Native Template"
-parent: "native-mobile"
+title: "ネイティブテンプレート"
+parent: "native-Mobile"
 menu_order: 12
 tags:
-  - "mobile"
-  - "template"
-  - "native"
+  - "モバイル"
+  - "テンプレート"
+  - "ネイティブ"
   - "iOS"
   - "Android"
-  - "reference guide"
+  - "リファレンスガイド"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A template is required when you build a Mendix native app: specifically the Native Template. In short, the Native Template describes the native dependencies your app needs, and it includes two native apps (one for iOS and one for Android) that can be independently built to create the finished apps. The Native Template works in conjunction with the Native Mobile Builder which configures it. For more information on the Native Mobile Builders' capabilities, see the [Native Mobile Builder Release Notes](/releasenotes/mobile/mendix-native-mobile-builder).
+Mendixネイティブアプリ、具体的にはNative Templateをビルドする場合にテンプレートが必要です。 要するに、Native Templateはアプリケーションが必要とするネイティブの依存関係について説明します。 そして、完成したアプリを作成するために独立して構築することができる2つのネイティブアプリ(iOS用とAndroid用の1つ)が含まれています。 Native Templateは、Native Mobile Builderと連携して動作します。 Native Mobile Builder の機能の詳細については、 [Native Mobile Builder リリースノート](/releasenotes/mobile/mendix-native-mobile-builder) を参照してください。
 
-The template also includes tooling to help put everything together. Specifically, the Native Template uses the React Native and Mendix auto-linking capabilities to link the native dependencies to platform-specific apps, and uses the Native Mobile toolkit which configures the platform-specific app with version numbers, app names, splash screens, and more.
+テンプレートには、すべてをまとめるためのツールも含まれています。 具体的には、Native Template は React Native と Mendix の自動リンク機能を使用して、ネイティブの依存関係をプラットフォーム固有のアプリケーションにリンクします。 およびNative Mobileツールキットを使用して、バージョン番号、アプリ名、スプラッシュスクリーンなどのプラットフォーム固有のアプリケーションを構成します。
 
-In addition, the Native Template helps create custom developer apps. These are apps that act like the Make It Native app but are tailored your app's specific needs. If you would like to build an app that uses bespoke functionality like custom native widgets see [How to Create a Custom Developer App](/howto/mobile/how-to-devapps).
+さらに、ネイティブテンプレートはカスタム開発者アプリを作成するのに役立ちます。 これらはMake It Nativeアプリのように機能しますが、アプリ固有のニーズに合わせて調整されたアプリです。 カスタム ネイティブ ウィジェットのような特注機能を使用するアプリケーションを構築したい場合は、 [カスタム 開発者アプリケーションを作成する方法](/howto/mobile/how-to-devapps) を参照してください。
 
-## 2 Location
+## 2つの場所
 
-The Native Template is hosted on [GitHub](https://github.com/mendix/native-template) and is publicly available.
+ネイティブテンプレートは [GitHub](https://github.com/mendix/native-template) でホストされており、公開されています。
 
 ## 3 Versioning
 
-Please note this key information regarding versioning:
+バージョン管理に関するこの重要な情報に注意してください:
 
-* A Native Template is versioned using [semantic versioning](https://semver.org/)
-* A Native Template version is closely related to the Mendix Studio Pro version of the app that is being built
-* Not using a matching version will lead to unexpected behavior
+* ネイティブテンプレートは [セマンティックバージョン管理](https://semver.org/)を使用してバージョン管理されています
+* ネイティブテンプレートバージョンは、ビルド中のアプリのMendix Studio Proバージョンと密接に関連しています。
+* 一致しないバージョンを使用すると、予期しない動作になります
 
-To determine which version of the Native Template you should use, do the following:
+使用すべきネイティブテンプレートのバージョンを特定するには、以下の手順を行ってください。
 
-1. Note which version of Studio Pro you are using, for example *9.0.0*.
-1. Navigate to the [Native Template mendix_version.json file](https://github.com/mendix/native-template/blob/master/mendix_version.json).
+1. どのバージョンの Studio Pro を使用しているか、例えば *9.0.0* に注意してください。
+1. [ネイティブテンプレートmendix_version.json ファイル](https://github.com/mendix/native-template/blob/master/mendix_version.json) に移動します。
 
-The keys represent the Mendix Studio Pro version. The `min` and `max` values are the minimum and maximum Native Template versions supported:
+キーはMendix Studio Proバージョンを表します。 `min` と `max` の値は、サポートされているネイティブテンプレートの最小および最大のバージョンです。
 
 {{% image_container width="200" %}}![Mendix Versions](attachments/native-template/mendix-version.png){{% /image_container %}}
 
-So like in the example shown above, in the case of Mendix Studio Pro 8.9.x you could choose any Native Template version from 4.0.0 to the latest. Ideally, you should choose the most recent supported version.
+上記の例のように、Mendix Studio Pro 8.9の場合のように。 4.0.0から最新のバージョンまで、任意のネイティブテンプレートを選択できます。 理想的には、サポートされている最新バージョンを選択する必要があります。
 
-## 4 Auto-Linking Dependencies
+## 依存関係の自動リンク4
 
-React Native modules are npm packages that include dependencies which must be linked with your platform-specific apps so that the React Native modules can be compiled with the apps.
+React Native モジュールは npm パッケージで、React Native モジュールをアプリケーションでコンパイルできるように、プラットフォーム固有のアプリケーションにリンクする必要があります。
 
-The Native Template fully supports the [React Native's CLI auto-linking capabilities](https://github.com/react-native-community/cli/blob/master/docs/autolinking). Libraries that are auto-linkable by default will be correctly linked to the platform-specific apps.
+Native Template は [React Nativeの CLI 自動リンク機能](https://github.com/react-native-community/cli/blob/master/docs/autolinking) を完全にサポートしています。 デフォルトで自動リンク可能なライブラリは、プラットフォーム固有のアプリに正しくリンクされます。
 
-For libraries that are not fully auto-linkable (those are usually libraries that require special initialization) we extended the default auto-linking capabilities. This process is limited to publicly known capabilities. We will expand the documentation when the API becomes public.
+完全に自動リンク可能ではないライブラリ(通常は特別な初期化を必要とするライブラリ)については、デフォルトの自動リンク機能を拡張しました。 このプロセスは公に知られている能力に限定されています。 APIが公開されると、ドキュメントを拡張します。
 
 ## 5 Native Mobile Toolkit
 
-The Native Mobile Toolkit is a Mendix-developed npm module that is used to facilitate the configuration requirements of platform-specific apps. It lets you define app features like versioning, package ID, splash screens, and more in a platform-agnostic way.
+Native Mobile Toolkit は Mendix で開発された npm モジュールで、プラットフォーム固有のアプリの設定要件を容易にします。 バージョン管理、パッケージ ID、スプラッシュ画面などのアプリ機能をプラットフォームに依存しない方法で定義できます。
 
-The configuration is written in JSON. The configuration file is versioned using an incremental number. The version is incremented when breaking changes are introduced.
+構成は JSON で記述されます。 設定ファイルは増分番号を使用してバージョン化されます。 改ざんの変更が導入されると、バージョンはインクリメントされます。
 
-The Native Mobile Toolkit includes conversion logic that allows conversion from an older config version to a newer one. This conversion happens in memory so that it does not conflict with custom implementations. The converted config is outputted in the terminal's console for further debugging.
+Native Mobile Toolkit には、古い設定バージョンから新しいバージョンへの変換を可能にするコンバージョンロジックが含まれています。 この変換 は、カスタム実装と競合しないようにメモリ内で行われます。 変換された設定は、さらにデバッグするために端末のコンソール に出力されます。
 
-### 5.1 Mobile Toolkit Configuration Structure
+### 5.1 モバイルツールキットの構成構造
 
-App-specific information is defined in a top level **config** file. The best way to derive possible config options is to configure an app initially with the Mendix Native Mobile Builder and note the configuration keys.
+アプリ固有の情報はトップレベルの **config** ファイルで定義されています。 設定オプションを導出する最善の方法は、最初にMendix Native Mobile Builderを使用してアプリを構成し、設定キーに注意することです。
 
 **<details><summary>To see the supported properties as of config version 2, click here.</summary>** These are the supported properties as of config version 2:
 
@@ -118,7 +118,7 @@ export interface Orientation {
 ```
 </details>
 
-**<details><summary>To see an example of a configured app, click here.</summary>** This is an example of a configured app:
+**<details><summary>設定されたアプリの例を見るには、ここをクリックしてください。</summary>** これは設定されたアプリの例です。
 
 ```
 {
@@ -192,9 +192,9 @@ export interface Orientation {
 </details>
 
 
-### 5.2 Assets
+### 5.2 アセット
 
-The Mobile Toolkit supports configuring splash screens and the icons for your app. Assets are expected to be saved relative to the root of the Native Template in a folder named **assets**.
+Mobile Toolkit では、スプラッシュ画面とアプリのアイコンの設定がサポートされています。 アセット名が **アセット**というフォルダにあるネイティブテンプレートのルートからの相対的なアセットが保存されることが予想されます。
 
 ```
 - assets
@@ -202,13 +202,13 @@ The Mobile Toolkit supports configuring splash screens and the icons for your ap
     - splashScreens
 ```
 
-#### 5.2.1 iOS Icons
+#### 5.2.1 iOS アイコン
 
-The icons' configuration needs to be defined in a versioned *JSON* formatted **config** file under **assets/icons/ios.json**.
+アイコンの設定は、 *assets/icons/ios.json* の **** 形式の **** ファイルで定義する必要があります。
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+filename で定義された実際のアセットファイルは **config** ファイルの横にあることが期待されます。
 
-The version is required and used for backwards compatibility purposes. Below you see the config using **version 1**:
+このバージョンは必須であり、後方互換性のために使用されます。 以下に、 **バージョン 1** を使用した設定を示します。
 
 ```
 interface IOSIconsConfig {
@@ -223,9 +223,9 @@ interface IOSIconsConfig {
 }
 ```
 
-**<details><summary>To see an example of all the keys required to successfully configure an app, click here.</summary>**
+**<details><summary>アプリの設定に必要なすべてのキーの例を見るには、ここをクリックしてください。</summary>**
 
-This is an example of all the keys required to successfully configure an app:
+これはアプリの設定に必要なすべてのキーの例です。
 
 ```
 {
@@ -362,13 +362,13 @@ This is an example of all the keys required to successfully configure an app:
 ```
 </details>
 
-#### 5.2.2 Android Icons
+#### 5.2.2 Android アイコン
 
-The icons' configuration needs to be defined in a versioned JSON-formatted **config** file under *assets/icons/android.json*.
+アイコンの設定は、 **assets/icons/android.json** のバージョンの JSON- *config* ファイルで定義する必要があります。
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+filename で定義された実際のアセットファイルは **config** ファイルの横にあることが期待されます。
 
-The version is required and used for backwards compatibility purposes. For now the config is on version 1:
+このバージョンは必須であり、後方互換性のために使用されます。 今のところ設定はバージョン1にあります:
 
 ```
 interface AndroidIconsConfig {
@@ -381,9 +381,9 @@ interface AndroidIconsConfig {
 }
 ```
 
-**<details><summary>To see an example of all the keys required to successfully configure an app, click here.</summary>**
+**<details><summary>アプリの設定に必要なすべてのキーの例を見るには、ここをクリックしてください。</summary>**
 
-This is an example of all the keys required to successfully configure an app:
+これはアプリの設定に必要なすべてのキーの例です。
 
 ```
 {
@@ -444,13 +444,13 @@ This is an example of all the keys required to successfully configure an app:
 ```
 </details>
 
-#### 5.2.3 iOS Splash Screens
+#### 5.2.3 iOS スプラッシュ画面
 
 The splash screen configuration needs to be defined in a versioned JSON-formatted **config** file under *assets/splashScreens/ios.json*.
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+filename で定義された実際のアセットファイルは **config** ファイルの横にあることが期待されます。
 
-The version is required and used for backwards compatibility purposes. For now the config is on version 1:
+このバージョンは必須であり、後方互換性のために使用されます。 今のところ設定はバージョン1にあります:
 
 ```
 interface AndroidSplashScreensConfig {
@@ -465,7 +465,7 @@ interface AndroidSplashScreensConfig {
 }
 ```
 
-Here is an example of the file with all required splash screens defined:
+必要なスプラッシュ画面がすべて定義されたファイルの例を次に示します:
 
 ```
 {
@@ -496,13 +496,13 @@ Here is an example of the file with all required splash screens defined:
 }
 ```
 
-#### 5.2.4 Android Splash Screens
+#### 5.2.4 Android Splash Screen
 
-The splash screen configuration needs to be defined in a versioned JSON-formatted **config** file *assets/splashScreens/android.json*.
+スプラッシュ画面の設定は、バージョン管理された JSON- **config** ファイル *assets/splashScreens/android.json* で定義する必要があります。
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+filename で定義された実際のアセットファイルは **config** ファイルの横にあることが期待されます。
 
-The version is required and used for backwards compatibility purposes. For now the config is on version 1:
+このバージョンは必須であり、後方互換性のために使用されます。 今のところ設定はバージョン1にあります:
 
 ```
 interface AndroidSplashScreensConfig{
@@ -515,7 +515,7 @@ interface AndroidSplashScreensConfig{
 }
 ```
 
-Here is an example of the file with all required splash screens defined:
+必要なスプラッシュ画面がすべて定義されたファイルの例を次に示します:
 
 ```
 {
@@ -540,63 +540,63 @@ Here is an example of the file with all required splash screens defined:
 }
 ```
 
-### 5.3 Configuring Firebase
+### 5.3 Firebase の設定
 
-Using Firebase requires special considerations. When enabling the Firebase capabilities via the Native Mobile Toolkit **config** file, the toolkit will look in the **assets/firebase** folder for the appropriate configuration files.
+Firebase の使用には特別な考慮が必要です。 When enabling the Firebase capabilities via the Native Mobile Toolkit **config** file, the toolkit will look in the **assets/firebase** folder for the appropriate configuration files.
 
-The files are looked up by name. The expected names per platform are the following:
+ファイルは名前で検索されます。 プラットフォームごとの期待される名前は次のとおりです。
 
-| Platform | Expected Name            |
+| プラットフォーム | 期待される名前                  |
 | -------- | ------------------------ |
 | Android  | google-services.json     |
 | iOS      | GoogleService-Info.plist |
 
-The Native Mobile Toolkit does not verify the validity of the provided configuration files. It only moves them to the correct location when configuring the app.
+Native Mobile Toolkit は提供された設定ファイルの妥当性を検証しません。 アプリを設定するときにのみ、正しい 場所に移動します。
 
-### 5.4 Running the Native Mobile Toolkit
+### 5.4 ネイティブモバイルツールキットの実行
 
-The Native Mobile Toolkit is a Node module included with Native Template. As such, it must be installed first by running `install` in the Native Template root directory. When building locally, you must run `npm install` when a new version of the Native Mobile Toolkit is released to ensure you are always running on the latest version.
+Native Mobile Toolkit は、Native Templateに含まれるNodeモジュールです。 そのため、ネイティブテンプレートのルートディレクトリに `install` を実行することで、最初にインストールする必要があります。 ローカルで建造する場合 Native Mobile Toolkitの新しいバージョンがリリースされた場合、常に最新バージョンで動作していることを確認するには、 `npm install` を実行する必要があります。
 
 {{% alert type="info" %}}
-The npm script expects that the Native Mobile Toolkit configuration files are at the root of the app, and named **config.json**. This is always the case when using the Mendix Native Mobile Builder to configure a local or a remote app.
+npm スクリプトは、Native Mobile Toolkit 設定ファイルがアプリケーションのルートにあり、 **config.json** と命名されることを期待します。 これは、Mendix Native Mobile Builderを使用してローカルまたはリモートアプリケーションを構成する場合に常に当てはまります。
 {{% /alert %}}
 
-To run the toolkit using the run script defined in **package.json**, run `npm run configure`.
+**package.json**で定義されている run script を使用してツールキットを実行するには、 `npm run configure` を実行します。
 
-#### 5.4.1 Specifying Custom Configuration Paths
+#### 5.4.1 カスタム設定パスの指定
 
-Having the configuration file relative to the root directory is not required for the toolkit, but is done for convenience. To specify a different configuration file path the toolkit can be executed using the following command:
+root ディレクトリからの相対的な設定ファイルは、toolkit では必要ありませんが、便宜上行われます。 異なる設定ファイルパスを指定するには、次のコマンドを使用してツールキットを実行できます。
 
 ```
 native-mobile-toolkit configure --config-path='./<name of the configuration>.json' --verbose
 ```
 
-## 6 Bundle Information
+## 6バンドル情報
 
-Mendix Native apps are based on React Native. When building your Mendix app using the Mendix Native Mobile Builder, your app is first compiled to Javascript code and static assets. Using React Native's Metro Bundler, the client code and assets are then compiled to platform specific React Native Bundles. These are finally moved to the correct location in Native Template before compiling the final apps.
+Mendix ネイティブアプリは React Native に基づいています。 Mendix Native Mobile Builderを使用してMendixアプリを構築する場合、アプリは最初にJavascriptコードと静的資産にコンパイルされます。 React NativeのMetro Bundlerを使用すると、クライアントコードとアセットがプラットフォーム固有のReact Native Bundlesにコンパイルされます。 最終的にアプリをコンパイルする前に、最終的にNative Templateの正しい場所に移動されます。
 
-This whole process is unified using a tool called MXBuild that is included with every installation of Mendix Studio Pro. For more information, see the [MxBuild Reference Guide](mxbuild).
+このプロセス全体は、Mendix Studio Proのすべてのインストールに含まれるMXBuildというツールを使用して統一されています。 詳細については、 [MxBuild リファレンスガイド](mxbuild) を参照してください。
 
-### 6.1 Using MxBuild to Build your Native App
+### 6.1 MxBuild でネイティブアプリをビルドする
 
-If for some reason you cannot use Mendix Native Mobile Builder to configure and build your app, for example when operating in a CI environment which lacks a display, you will have to explicitly have set up the correct Mendix Studio Pro version for the app you are building and then manually run MXBuild.
+何らかの理由でMendix Native Mobile Builderを使用してアプリを構成およびビルドできない場合。 例えば、ディスプレイがないCI環境で動作する場合など。 正しいMendix Studio Proバージョンをビルドしてから、MXBuildを手動で実行する必要があります。
 
-To do so:
+そうするには:
 
-1. Locate the required Studio Pro installation.
-1. Find the path to the executable **mxbuild.exe** and note it down.
-1.  Open a command line and run this command:
+1. 必要なStudio Proインストールを探します。
+1. 実行可能ファイル **mxbuild.exe** へのパスを探し、それをメモします。
+1.  コマンドラインを開き、次のコマンドを実行します。
 
     ```
     <path-to-mxbuild.exe> --java-home=DIRECTORY -java-exe-path=FILENAME --target=deploy --native-packager <path-to-the-app-mpr>
     ```
 
-This command does the following:
+このコマンドは以下の操作を行います:
 
-* Exports the web and native apps into the deployment folder as usual.
-* Runs the React Native metro bundler (note flag `--native-packager`) to create the RN bundles and assets for each platform in `/deployment/native/bundle`.
+* 通常どおり、Webおよびネイティブアプリをデプロイメントフォルダにエクスポートします。
+* React Native metro bundler (Note フラグ `--native-packager`) を実行して、 `/deployment/native/bundle` で各プラットフォームの RN バンドルとアセットを作成します。
 
-The bundle folder structure will look something like this:
+バンドルフォルダ構造は以下のようになります:
 
 ```
 - android
@@ -615,37 +615,37 @@ The bundle folder structure will look something like this:
         - index.ios.bundle
 ```
 
-### 6.2 Copying the Bundle to the Right Location
+### 6.2 バンドルを正しい場所にコピーする
 
-The created bundles need to be copied to the right place in the Native Template to be built:
+作成されたバンドルをビルドするには、ネイティブテンプレートの適切な場所にコピーする必要があります。
 
-* For Android, the content of the `bundle/android` reflects the exact folders the assets and bundles need to be copied to
-* For iOS, the content of the `bundle/iOS` folder needs to be simply copied to the `<native-template>/ios/Bundle` directory
+* Androidの場合、 `バンドル/アンドロイド` の内容は、アセットとバンドルをコピーする必要がある正確なフォルダを反映しています。
+* iOSの場合、 `バンドル/iOS` フォルダの内容を `<native-template>/ios/Bundle` ディレクトリにコピーする必要があります。
 
-## 7 Deriving the App' Native Dependencies
+## 7 アプリのネイティブ依存関係の提供
 
-Mendix Studio Pro 9 introduced Native Dependency resolution for pluggable widgets and Javascript actions. For more information, see [Declaring Native Dependencies ](/apidocs-mxsdk/apidocs/pluggable-widgets-native-dependencies). Prior to Studio Pro 9 Mendix Studio Pro was shipping with a set of core dependencies which are now are removed.
+Mendix Studio Pro 9 では、プラグイン可能なウィジェットと Javascript アクション用のネイティブ依存解像度が導入されました。 詳細については、 [ネイティブ依存性の宣言 ](/apidocs-mxsdk/apidocs/pluggable-widgets-native-dependencies) を参照してください。 Studio Pro 9 Mendix Studio Pro以前は、コアの依存関係が一連削除されるようになりました。
 
-As you develop, you may add more Mendix Studio Pro 9 compatible modules, widgets, and actions to your app. This means and more dependencies will be added that will also need be declared in your app's Native Template prior to building the native apps.
+開発に伴い、Mendix Studio Pro 9 互換モジュール、ウィジェット、アクションをアプリに追加できます。 これは、ネイティブアプリを構築する前にアプリのネイティブテンプレートにも宣言する必要がある依存関係 が追加されます。
 
-As this dependency management is required for your app's initial setup, we suggest you use the Mendix Native Mobile Builder to configure your app. The Mendix Native Mobile builder is capable of deriving required dependencies and linking them with your app's Native Template.
+アプリの初期設定には、この依存関係管理が必要ですので、Mendix Native Mobile Builderを使用してアプリを構成することをお勧めします。 Mendix Native Mobileビルダーは、必要な依存関係を引き出し、アプリのNative Templateとリンクすることができます。
 
-## 8 Continuous Integration Testing Guidelines
+## 8 継続的インテグレーションテストガイドライン
 
-In some advanced cases you might consider setting up continuous integration (CI) testing. This could be useful if you have multiple environments and prefer testing any nightly changes in acceptance before pushing to production.
+いくつかの高度なケースでは、継続的インテグレーション(CI)テストのセットアップを検討することができます。 これは、複数の環境があり、プロダクションにプッシュする前に受け入れの毎夜の変更をテストする ことを好む場合に便利です。
 
-We suggest you initially develop your app using the Mendix Native Mobile Builder until the native dependencies are stable. Having a CI in the early stages will lead to frustration, and flux dependencies will lead to unexpected crashes.
+ネイティブの依存関係が安定するまで、Mendix Native Mobile Builderを使用してアプリケーションを開発することをお勧めします。 CIを初期段階に置くことは不満につながり、フラックスの依存関係は予期せぬクラッシュにつながります。
 
-A CI environment needs to be able to do the following to successfully configure a Native Template for builds:
+ビルド用のネイティブテンプレートを正常に設定するには、CI 環境で以下を行う必要があります。
 
-* Check out the latest Mendix app from SVN
-* Check out your app's Native Template (the one used when configuring the app)
-* Run `mxbuild`
-* Set up the configuration and move assets as needed (this can be done with simple shell scripts or any other solution, and is the implementor's choice)
-* Run `npm i` and `npm run configure` to configure the app using Mendix Mobile Toolkit before the build.
+* SVN から最新の Mendix アプリをご覧ください
+* アプリのネイティブテンプレート（アプリの設定時に使用されるテンプレート）
+* `mxbuild` を実行する
+* 構成を設定し、必要に応じてアセットを移動します(これは単純なシェルスクリプトまたは他のソリューションで行うことができます。 そして実務者の選択です)
+* `npm i` と `npm run configure` を実行して、ビルドの前に Mendix Mobile Toolkit を使用してアプリを構成します。
 
-How to build the apps is a choice for the implementor. Mendix Native App Builder use App Center for convenience. There are multiple other solutions, on premise or as a service, that can be used for this purpose. We do not endorse one over the other.
+アプリを構築する方法は、実装者の選択肢です。 Mendixネイティブアプリビルダーは便宜上App Centerを使用しています。 この目的のために使用できる前提またはサービスとして、他にも複数の ソリューションがあります。 私たちは互いに支持しません。
 
-## 9 Read More
+## 9 続きを読む
 
-* [Offline First Reference Guide](offline-first)
+* [オフラインの最初の参照ガイド](offline-first)
