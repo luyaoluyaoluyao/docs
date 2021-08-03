@@ -1,52 +1,52 @@
 ---
-title: "Page Title"
-parent: "common-widgets"
+title: "ページタイトル"
+parent: "コモンウィジェット"
 menu_order: 50
 tags:
   - "studio pro"
-  - "page title"
-  - "common widgets"
+  - "ページタイトル"
+  - "共通ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This widget displays a page title of the current page that is set in [page properties](page-properties#title).
+このウィジェットは、 [ページ プロパティ](page-properties#title) で設定されている現在のページのページタイトルを表示します。
 
-![Page Title Example](attachments/common-widgets/page-title-example.png)
+![ページタイトルの例](attachments/common-widgets/page-title-example.png)
 
 {{% alert type="info" %}}
 
-The page title widget makes it possible to embed the page title in a [layout](layout), as it will show the title of the page that uses the layout.
+ページタイトルウィジェットは、 [レイアウト](layout)にページタイトルを埋め込むことができます。 レイアウトを使用するページのタイトルが表示されます。
 
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of page title properties is represented in the image below:
+以下の画像では、ページタイトルプロパティの例を示します。
 
-{{% image_container width="300" %}}![Page Title Properties](attachments/common-widgets/page-title-properties.png)
+{{% image_container width="300" %}}![ページタイトルのプロパティ](attachments/common-widgets/page-title-properties.png)
 {{% /image_container %}}
 
-Page title properties consist of the following sections:
+ページタイトルプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Visibility Section {#visibility}
+### 2.3 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Common Widgets](common-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
