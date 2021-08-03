@@ -1,23 +1,23 @@
 ---
-title: "Mendix Assist"
+title: "Mendix 助手"
 parent: "studio-pro-overview"
-description: "Describes Mendix Assist in Mendix Studio Pro."
+description: "描述Mendix Assistance in Mendix Studio Pro。"
 tags:
   - "studio pro"
-  - "mendix assist"
+  - "mendix 帮助"
   - "AI"
-  - "assistant"
+  - "助理"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix Assist refers to Mendix platform capabilities that leverage Artificial Intelligence (AI) and Machine Learning (ML) to assist developers in application development, the so-called AI-Assisted Development (AIAD). The purpose of Mendix Assist is to help development teams in modeling and delivering Mendix applications faster, more consistently, and with higher quality.
+Mendix Assist指借助人工智能和机器学习（ML）来帮助开发者开发应用的Mendix 平台能力。 所谓的AIAD援助发展方案。 Mendix Assist的目的是帮助发展团队以更快、更一致和更高质量的方式制作和提供Mendix 应用程序。
 
-Mendix Assist consists of different capabilities that act as a virtual co-developer bot, each specialized in a certain domain or stage of the application lifecycle development. Currently, Mendix Assist consists of the following virtual co-developer bots:
+Mendix 辅助设备由作为虚拟合作开发者机器人的不同功能组成， 每一种专门用于应用程序生命周期开发的某个域或阶段。 目前，Mendix Assist包括以下虚拟合作开发者机器人：
 
-* **MxAssist Logic Bot** – helps you model and configure microflows in Mendix Studio Pro. It gives you contextualized recommendations on the next best activity in your microflow based on the activities and parameters that are already configured in the specific microflow. It is built using machine learning     analysis of over twelve million anonymized application logics (microflows) built with Mendix. It uses deep learning to detect and learn the best practice patterns in microflows. For more information, see [MxAssist Logic Bot](mx-assist-logic-bot).
-* **MxAssist Performance Bot** – helps you inspect your app against Mendix development best practice detecting and pinpointing development anti-patterns and, in many cases, automatically fixing them. The bot is built using statistical analysis of thousands of anonymized Mendix apps to learn common anti-patterns as well as Mendix Expert Services best practices in the development of microflows, domain models, pages,     security, etc. For more information, see [MxAssist Performance Bot](mx-assist-performance-bot).
+* **MxAssist逻辑箱** — — 帮助您模型并配置Mendix Studio Pro中的微流。 基于已经在特定微流中配置的活动和参数，它为您提供了关于微流中下一个最佳活动的相关建议。 它是利用用Mendix构建的1 200多万个匿名应用程序逻辑（微流程）的机器学习分析来建立的。 它利用深入的学习来探测和学习微型流动中的最佳做法模式。 欲了解更多信息，请访问 [MxAssistic Bot](mx-assist-logic-bot)。
+* **MxAssist性能箱** — — 帮助您检查您的应用程序对抗Mendix 开发最佳做法检测和确定开发反模式和 在许多情况下，自动修复它们。 该机器人是利用对数千个匿名Mendix 应用程序的统计分析来建立的，目的是学习共同的反模式以及Mendix Expert Services 在发展微流方面的最佳做法。 域模型、 页面、 安全等 欲了解更多信息，请参阅 [MxAssist性能机器人](mx-assist-performance-bot)。
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Preferences](preferences-dialog)
+* [首选项](preferences-dialog)
