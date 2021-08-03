@@ -1,92 +1,93 @@
 ---
-title: "JSON Structures"
-parent: "integration"
+title: "JSON结构"
+parent: "集成"
+menu_order: 40
+tags:
+  - "studio pro"
 ---
 
-## 1 General
+## 1个一般事务人员
 
-A JSON structure document stores a JSON snippet, and converts it into a schema structure that can be used in [Import Mappings](import-mappings) and [Export Mappings](export-mappings) to convert JSON content to Mendix objects and vice versa.
+JSON结构文档存储一个 JSON 片段 并将其转换为可以用于 [导入映射](import-mappings) 和 [导出映射](export-mappings) 以将 JSON 内容转换为 Mendix 对象，反之亦然。
 
 ![](attachments/18450089/19398772.png)
 
 ### 1.1 JSON Snippet
 
-Contains text of the JSON snippet. Usually it is pasted from API documentation, or you can enter it manually for simple JSON.
+包含 JSON 代码片段的文本。 通常它是从 API 文档粘贴的，或者您可以手动输入它以获取简单的 JSON 文件。
 
 {{% alert type="info" %}}
 
-When you paste or modify the JSON snippet, it is automatically checked for validity. If the snippet is not valid, an exclamation mark appears above the snippet:
+当您粘贴或修改JSON代码片段时，它会自动检查是否有效。 如果代码片段无效，那么代码段上方会出现一个振动标记：
 
 ![](attachments/18450089/19398781.png)
 
-You cannot press "OK" without making the JSON valid.
+您不能按下"确定"，否则JSON无效。
 
-JSON snippets with `:`, `^`, or `|` in property names are currently not supported.
+{{% /报警 %}}
 
-{{% /alert %}}
+### 1.2 格式
 
-### 1.2 Format
-
-Formattings and whitespacing of JSON snippets that are found in API documentations may vary. You can paste JSON into the document without bothering about whitespaces. The button 'Format' formats the JSON snippet in such a way that it is canonical and readable. The semantic contents of the snippets are not changed.
+在 API 文档中发现的 JSON 代码片段的格式和空白可能各不相同。 您可以将JSON粘贴到文档中，而不会对空格抱怨。 按钮“格式”格式化JSON代码片段的格式，使其具有可读性。 代码片段的语义内容没有改变。
 
 {{% alert type="info" %}}
 
-Special unicode characters are encoded according to JSON standards. For example, if the original snippet contained a heart-shaped symbol (❤️), it is replaced by '\u2764'.
+特殊的 unicode 字符是根据JSON 标准编码的。 例如，如果原始代码片段包含一个心形符号 (:red_hear_selector:), 它将被替换为 '\u2764'。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 1.3 Structure
+### 1.3 结构
 
-Shows a tree structure with a schema that is parsed from the JSON snippet. The following columns are available:
+显示由 JSON 代码片段解析的架构。 以下列可用：
 
-* **Name** – this shows the name of a JSON element. If the JSON element does not have a name, it shows the element type within parentheses: (Object), (Array), (Wrapper) or (Value).
-* **Value** – this shows the original value of the element in the JSON snippet. It is used to make it easier to find back the original element in the snippet. It is not used in the rest of the model.
-* **Primitive Type** – shows the type of element after parsing.
-* **Occurrence** – shows the occurrence of the element. Typically JSON arrays have multiple occurrence (0..*) and JSON objects single occurrence (1).
-* **Custom name** – this column is editable. Often the name JSON objects or arrays can not be inferred from the snippet. For reference, you can modify the name of the JSON element. This name is important when you use Mapping documents based on the JSON schema. You will see this name in mapping elements, and it is used when you want to use "Map Automatically" to generate domain model entities and associations.
+* **名称** — 这显示一个 JSON 元素的名称。 如果JSON元素没有名称，它会在括号内显示元素类型：(对象)、(数组)、(wrapper)或(值)。
+* **值** - 这将显示JSON代码片段中元素的原始值。 它被用来更容易找到代码片段中的原始元素。 它不用于模型的其他部分。
+* **原始类型** - 在解析后显示元素的类型。
+* **出现** - 显示元素的发生。 通常JSON 数组有多次发生(0..*) 和 JSON 对象单次发生(1)。
+* **自定义名称** — — 此列是可编辑的。 通常无法从代码片段推导JSON对象或数组。 为了参考，您可以修改JSON元素的名称。 当您使用基于 JSON 模式的映射文档时，此名称是重要的。 您将在映射元素中看到此名称 当您想要使用“自动地图”生成域模型实体和关联时，它会被使用。
 
 {{% alert type="info" %}}
 
-When you modify the JSON snippet, you need to refresh the structure by clicking the 'Refresh' button. If you have not done so, an error will appear:
+当你修改JSON代码片段时，你需要点击“刷新”按钮来刷新结构。 如果您没有这样做，将出现一个错误：
 
 ![](attachments/18450089/19399140.png)
 
-You cannot press "OK" without updating the structure.
+您不能在不更新结构的情况下按“确定”。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 1.4 Documentation
+### 1.4 文件
 
-Documentation that describes the snippet.
+描述片段的文档。
 
-## 2 Parsing of the JSON Snippet
+## 解析JSON代码片段
 
-### 2.1 Simple JSON Objects
+### 2.1 简易JSON对象
 
-A simple JSON object is contained in curly braces (between '{' and '}'). It contains a comma-separated list of JSON properties. See the following example.
+一个简单的 JSON 对象包含在大括号中 ('{' and '} '之间)。 它包含一个逗号分隔的 JSON 属性列表。 见下面的例子。
 
 ![](attachments/18450089/19398772.png)
 
-Each JSON property is composed of a key ("name") and a value ("John"). If the value is between double quotes ("  "), it is considered a string, otherwise the type is derived from the value. The following JSON values are supported:
+每个JSON属性由一个密钥(“name”)和一个值(“John”)组成。 如果值介于双引号 (" ")，它被视为一个字符串，否则类型是从值中派生的。 支持以下JSON值：
 
-*   "string". Converted into an attribute of type String.
-*   123\. Converted into an attribute of type Integer.
-*   true or false. Converted into an attribute of type Boolean.
-*   "1985-04-12T23:20:50.52Z". Converted into an attribute of type DateTime.
-*   12.50\. Converted into an attribute of type Decimal.
+*   “字符串”。 转换为类型字符串的属性。
+*   123\. 转换为整数类型的属性。
+*   true或false。 转换为布尔型的属性。
+*   “1985-04-12T23:20:50.52Z”。 转换为类型 **日期和时间** 的属性。
+*   12.50\. 转换为小数型的属性。
 
-### 2.2 JSON Arrays
+### 2.2 JSON数组
 
-A JSON array is contained in square brackets (between `[` and `]`). It contains a comma-separated list of JSON values or JSON objects.
+JSON 数组包含在方括号中 ( `[` and `]` 之间)。 它包含一个逗号分隔的 JSON 值或JSON 对象列表。
 
-*   a JSON array can be the root of the JSON snippet.
+*   一个 JSON 数组可以是 JSON 代码段的根。
 
-*   a JSON array can be contained within a JSON object
+*   一个 JSON 数组可以包含 JSON 对象
 
-*   a JSON array can be contained within another JSON array.
+*   一个 JSON 数组可以包含在另一个 JSON 数组中。
 
 {{% alert type="info" %}}
 
-The first item of the array will be used to determine the type of the items in the array. Mixed arrays are unsupported. A mixed array is an array with entries of different data types (for example, string and integer). In the tree structure, a error will appear that you cannot use mixed arrays in your mappings.
+数组的第一个项目将用于确定数组中项目的类型。 混合数组不支持。 混合数组是一个包含不同数据类型（例如字符串和整数）的数组。 在树结构中出现错误，您不能在映射中使用混合数组。
 
-{{% /alert %}}
+{{% /报警 %}}
