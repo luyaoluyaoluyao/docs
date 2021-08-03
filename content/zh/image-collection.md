@@ -9,23 +9,27 @@ tags:
   - "图像收藏"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image-collection.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 如果你想要在应用程序中使用你自己的静态图像 例如，为了标记或给您的按钮一个独特的感觉，您需要将它们存储在您的应用中。 为了做到这一点，您创建了一个 **图像集** ，您可以在那里存储您的图像。
 
 关于如何在您的应用中使用图像的信息，请参阅 [图像](images)。
 
-记住，如果你想在几个应用中使用相同的自定义图像集，你可以导出和导入完整的图像集合， 使用他们的图像，使用 [导入 & 导出对象](/howto/integration/importing-and-exporting-objects)
+记住，如果你想在几个应用中使用相同的自定义图像集，你可以导出和导入完整的图像集合， 使用他们的图像，使用 [导入 & 导出对象](/howto8/integration/importing-and-exporting-objects)
 
 {{% alert type="warning" %}}
-您的应用程序中过多的大型静态图像可能导致性能问题。 如果您需要大量的图像， 您可以将它们存储在您的数据库中(见 [如何使用图像 & 文件](/howto/data-models/working-with-images-and-files) 获取更多信息)。
+您的应用程序中过多的大型静态图像可能导致性能问题。 如果您需要大量的图像， 您可以将它们存储在您的数据库中(见 [如何使用图像 & 文件](/howto8/data-models/working-with-images-and-files) 获取更多信息)。
 {{% /报警 %}}
 
 ## 2 正在添加图像收藏
 
 要添加图像集合，请做以下操作。
 
-1. 右键点击 **App Explorer** 中的一个模块。
+1. 右键点击 **工程资源管理器** 中的一个模块。
 2. 选择 **添加其他 > 图像收藏**：
 
     ![添加图像收藏](attachments/image-collection/add-collection.png)
