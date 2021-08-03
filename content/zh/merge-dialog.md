@@ -1,54 +1,65 @@
 ---
-title: "Merge Dialog"
-parent: "dialogs"
+title: "合并对话框"
+parent: "版本控制-菜单"
+tags:
+  - "studio pro"
+  - "合并对话框"
+  - "合并"
+  - "版本控制"
 ---
 
-## 1 Introduction
+## 1 导言
 
-With the **Merge** dialog box you can [merge](version-control) changes from a branch line to the main line. For example, a fix that you applied in a maintenance branch line can be merged back to the main line so that you do not have to apply the fix by hand again. Also if you completed developing a large feature in a separate branch line you can use merge to incorporate that feature into the main line.
+使用 **合并** 对话框，您可以 [合并](version-control#merge) 分支行到主行的更改。 例如， 你应用于维护分支线的修复可以合并到主线，这样你就不必再手动应用修复。 另外，如果您在一个单独的分支里完成了开发一个大的功能，您可以使用合并来将该功能并入主线。
 
 {{% alert type="warning" %}}
+在继续合并操作之前，请确保您目前正在您想要合并的开发线上工作。
+{{% /报警 %}}
 
-Before continuing with the merge action, make sure that you are currently working in the development line that you want to merge to.
+## 2 个合并的 SVN 分支
 
-{{% /alert %}}
+要访问 **合并** 对话框，打开 [版本控制](version-control-menu) > **在这里合并更改**:
 
-The following merge scenarios are supported:
+![合并对话框](attachments/merge-dialog/merge-dialog.png)
 
-## 2 Port Fix
+支持以下合并场景：
 
-This merge scenario allows you to merge a fix from a maintenance branch line to the main line. If you just want to merge a small fix, a single commit is often enough. It is, however, also possible to merge multiple commits at once.
+### 2.1 港口修复
 
-### 2.1 Branch Line
+这个合并场景允许您将一个修复从维护分支到主线。 如果你只想合并一个小的修复，那么单一的承诺常常就足够了。 然而，同时合并多项承诺也是可能的。
 
-Choose the branch line from which you want to merge the fix.
+#### 2.1.1 分行
 
-### 2.2 One Revision / Multiple Revisions
+选择您想要合并修复的分支行。
 
-Choose whether you want to merge just a single commit or a whole range of commits from the maintenance branch line. In the latter case both the start and end revisions must be selected. The start revision is the revision with the lowest number and the end revision is the revision with the highest number. In this case, all revisions that are contained within the specified range are merged.
+#### 2.1.2 一个修订版/多个修订版
 
-## 3 Merge Feature Branch
+选择你只想合并一个单项提交或从维护分支一系列提交。 在后一种情况下，必须选择起始和终的修订。 开始修订是数量最低的修订，而结束修订是数量最高的修订版本。 请注意，包含在指定范围内的所有修订都被合并。
 
-This merge scenario allows you to merge a complete feature branch line to the main line.
+### 2.2 合并特性处
 
-### 3.1 Branch Line
+此合并场景允许您合并完整的功能分支行到主线。
 
-Choose the branch line that you want to merge. It is not necessary to select individual revisions in this case, because all revisions of the branch line are merged automatically.
+#### 2.2.1 分线
 
-## 4 Advanced Merge
+选择您想要合并的分支行。 在这种情况下不必选择个别的修订，因为分支行的所有修订都是自动合并的。
 
-While normally you would only merge (revisions of) a branch line to the main line, the advanced merge scenario offers the possibility to merge from the main line to a branch line, or from one branch line to another.
+### 2.3 高级合并
 
- {{% alert type="warning" %}}
+这种情况只能用于在特殊情况下需要采取的合并行动。 请谨慎使用此选项。
 
-This scenario may be used for merge actions that are only needed in exceptional circumstances. Use this option with caution.
+通常情况下，你只会合并一个分支行到主行 高级合并情景提供了从主行到一个分支行或从一个分支行到另一个分支行的可能性。
 
-{{% /alert %}}
+#### 2.3.1 分线
 
-### 4.1 Branch Line
+选择您想要合并的分支行, 或者选择“主行”，当您想合并(修订)主行到当前分支行时。
 
-Choose the branch line that you want to merge, or select **Main line** when you want to merge (revisions of) the main line to the current branch line.
+#### 2.3.2 开始/结束修订
 
-### 4.2 Start / End Revision
+选择您想要合并的范围的起始版本(使用最低数量的版本)和终版本(使用最高数量的版本)。 如果您想要合并选定的分支行的所有提交，只需选择分支的第一次和最后一次修订。 不需要选择“创建分支”版本。
 
-Select the start revision (revision with the lowest number) and the end revision (revision with the highest number) of the range you want to merge. If you want to merge all commits of the selected branch line, simply select the first and the last revision of the branch. It is not necessary to select the **Create branch** revision.
+## 3 个合并Git分支
+
+仅支持 Git 的简单分支合并场景。 在这里，您必须指定您想要合并到当前分支行中的那些更改。
+
+![合并Git对话框](attachments/merge-dialog/merge-dialog-git.png)
