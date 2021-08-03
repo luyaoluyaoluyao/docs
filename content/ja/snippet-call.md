@@ -1,52 +1,52 @@
 ---
-title: "Snippet Call"
-parent: "common-widgets"
+title: "スニペット通話"
+parent: "コモンウィジェット"
 menu_order: 40
 tags:
   - "studio pro"
-  - snippet call", "common widget"
+  - スニペット呼び出し", "共通ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 The **Snippet call** widget allows you to use a [snippet](snippet) on a [page](page), a [layout](layout), or another snippet:
 
-![Snippet Call Example](attachments/common-widgets/snippet-call-example.png)
+![スニペット通話の例](attachments/common-widgets/snippet-call-example.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of snippet call properties is represented in the image below:
+以下の画像にスニペットコールプロパティの例を示します。
 
-{{% image_container width="300" %}}![Snippet Call Properties](attachments/common-widgets/snippet-call-properties.png)
+{{% image_container width="300" %}}![スニペットの呼び出しプロパティ](attachments/common-widgets/snippet-call-properties.png)
 {{% /image_container %}}
 
-Snippet call properties consist of the following sections:
+スニペットコールプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-This section contains the **Snippet** property, it shows the name of an actual snippet that will be displayed here.
+このセクションには **スニペット** プロパティがあり、ここに表示される実際のスニペットの名前が表示されます。
 
-## 3 Performing Specific Actions
+## 3 特定のアクションの実行
 
-To perform actions on a snippet call, select it on a page and right-click it. The list of possible actions opens. While some actions from this list, such as **Select snippet**, are a quick way to set the properties, the following actions are specific actions that you can perform:
+スニペット呼び出しでアクションを実行するには、ページでアクションを選択して右クリックします。 可能なアクションのリストが開きます。 **Select snippet**など、このリストからいくつかのアクションを実行します。 は、プロパティを設定するための迅速な方法です。次のアクションは、実行できる特定のアクションです。
 
-* **Show snippet** – opens a snippet selected for a snippet call
-* **Inline snippet** – turns the snippet call into widgets that the selected snippet consists of
+* **Show snippet** – スニペット通話用に選択されたスニペットを開く
+* **インラインスニペット** – 選択されたスニペットが以下のウィジェットにスニペットを変換します。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page](page)
-* [Common Widgets](common-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
