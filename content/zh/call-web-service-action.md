@@ -1,95 +1,55 @@
 ---
-title: "Call Web Service"
-parent: "integration-activities"
-tags:
-  - "studio pro"
-  - "integration activity"
-  - "call web service"
-menu_order: 20
+title: "Call Web Service Action"
+parent: "microflow-activities"
 ---
 
-{{% alert type="warning" %}}
- This activity can only be used in **Microflows**.
+{{% alert type="info" %}}
+This activity can only be used in microflows, not in nanoflows.
 {{% /alert %}}
 
 ## 1 Introduction
 
-The **Call web service** activity can be used to call one of the [imported web service](consumed-web-services) operations. You can specify whether or not to use authentication, what the request should look like and how the response of the web service should be handled.
+The call-web-service activity can be used to call one of the [imported web service](consumed-web-services) operations. You can specify whether or not to use authentication, what the request should look like and how the response of the web service should be handled.
 
-## 2 Properties
+## 2 Operation
 
-An example of call web service properties is represented in the image below:
+![](attachments/19202819/19399020.png)
 
-![call web service properties](attachments/integration-activities/call-web-service-properties.png)
-
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
-
-The call web service properties pane consists of the following sections:
-
-* [Action](#action)
-* [Common](#common)
-
-## 3 Action Section{#action}
-
-The **Action** section of the properties pane shows the action associated with this activity.
-
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
-
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
-
-The properties dialog box consists of five tabs:
-
-* [Operation](#operation)
-* [HTTP Headers](#http-headers)
-* [SOAP Request Header](#request-header)
-* [SOAP Request Body](#request-body)
-* [SOAP Response](#response)
-
-## 4 Operation Tab{#operation}
-
-![](attachments/integration-activities/operation-tab.png)
-
-### 4.1 Operation
+### 2.1 Operation
 
 **Operation** defines which operation of the web service is called.
 
-### 4.2 Override Location
+### 2.2 Override Location
 
 **Override location** defines whether to override the location where the web service is called.
 
 {{% alert type="info" %}}
 
-When calling a web service using a call web service activity, the location of the web service is determined as follows.
+When calling a web service using a call-web-service activity, the location of the web service is determined as follows.
 
-1.  If the location is overridden in the call web service activity, the location specified in that action is used.
+1.  If the location is overridden in the call-web-service activity, the location specified in that action is used.
 2.  If the service that defines the operation has a location constant defined, the value of that constant is used.
 3.  Otherwise, the location as specified in the WSDL of the imported web service is used.
 
 {{% /alert %}}
 
-### 4.3 Location
+### 2.3 Location
 
 **Location** defines the address of the web service if you override the location. The location needs to be entered using an [expression](expressions) which results in a valid URL string.
 
-### 4.4 Use Timeout on Request
+### 2.4 Use Timeout on Request
 
-This can be used to throw an exception when the web service takes too long to respond after connecting. After a set amount of time, an exception will be thrown and the microflow will roll back or go into your custom error handler.
+This can be used to throw an exception when the web service takes too long to respond after connecting. After a set amount of time, an exception will be thrown and the microflow will roll back or go into your custom error handler. Note that this does not change the connection timeout.
 
-Default value: *Yes*
+_Default value:_ No
 
-{{% alert type="warning" %}}
-It is recommended that you keep this set this to **Yes**. Most cloud infrastructure services (including those used by the Mendix Cloud) will close HTTP connections automatically if there is no traffic for a few minutes, even if your activity is still waiting for a response. This means that, if your activity calls a web service which takes a long time to respond, the connection may be closed without the activity being aware of this, and your activity will not receive a response. Under these circumstances, if **Use timeout on request** is set to **No**, your activity will get stuck waiting indefinitely for data to arrive.
-{{% /alert %}}
-
-Default: *No*
-
-### 4.5 Timeout
+### 2.5 Timeout
 
 **Timeout** specifies the timeout value in seconds.
 
-Default value: *300*
+_Default value:_ 30
 
-### 4.6 Validate Against WSDL
+### 2.6 Validate Against WSDL
 
 **Validate against wsdl** specifies whether the call action should validate the incoming and outgoing XML against the WSDL. Note that Mendix generates correct XML but the application data can cause the XML to become incorrect (for example fields that cannot be empty are empty in the data you're sending).
 
@@ -101,83 +61,73 @@ When consuming a WSDL that uses encoding, turning on validation will lead to a c
 
 Schema validation is not supported when you configure the [consumed web service](consumed-web-service) to send binary data as attachments.
 
-Default: *No*
+{{% alert type="info" %}}
+Support for schema validation using the [(optimized) implementation](project-settings#web-service-calls) was introduced in version 7.20.
+{{% /alert %}}
 
-### 4.7 Proxy Configuration
+_Default value:_ No
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+### 2.7 Proxy Configuration
+
+{{% alert type="info" %}}
+
+This feature was introduced in version 7.15.0.
+
+This feature is only available when you have configured web service calls to use the new (optimized) implementation in the [project's runtime settings](project-settings).
+
+{{% /alert %}}
+
+In almost all cases, you can ignore this setting. **Use project settings** is a good default value.
 
 If desired, you can configure whether to use a proxy for the request. These are the choices:
 
-* **Use app settings** – use whatever settings are defined at the app level (default)
-* **Override** – override the app-level settings for this action
-* **No proxy** – do not use a proxy for this action, even if there is a proxy configured at the app level
+* **Use project settings** – use whatever settings are defined at the project level (default)
+* **Override** – override the project-level settings for this action
+* **No proxy** – do not use a proxy for this action, even if there is a proxy configured at the project level
 
 When you select **Override**, you can configure dynamically whether to use a proxy. You then supply the host, port, username, and password settings for the proxy.
 
-### 4.8 Client certificate{#client-certificate}
+## 3 HTTP Headers
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+![](attachments/19202819/19399021.png)
 
-However, you can specify a client certificate to use for the request by selecting **Override**.
-
-The options are:
-
-* **Use app settings**(default) – use the settings that are defined at the app level
-* **Override** – override the app-level settings for this action
-
-When you select **Override**, you can configure which client certificate will be used. Click **Edit** to specify the **Client certificate identifier**. This identifier can be set in different places, depending on where you deploy the app:
-
-* When you deploy the app in the Mendix cloud, set the **Client certificate identifier** to the desired **WEB SERVICE CALL NAME** when [pinning a client certificate](/developerportal/deploy/certificates#outgoing-client-certificates).
-* When you deploy the app elsewhere, the identifier is set in the custom setting [ClientCertificateUsages](custom-settings#ca-certificates). For testing locally, this can be set as a custom server setting in a [Configuration](configuration#custom).
-
-When this identifier is not set for the environment where your app is deployed (either not pinned or not present in _ClientCertificateUsages_), the default settings will be used (as if **Use app settings** were selected).
-
-## 5 HTTP Headers Tab{#http-headers}
-
-![](attachments/integration-activities/http-headers-tab-call-web-service.png)
-
-### 5.1 Use HTTP Authentication
+### 3.1 Use HTTP Authentication
 
 Use HTTP authentication defines whether the basic authentication should be used.
 
-### 5.2 User Name
+### 3.2 User Name
 
 User name defines the user name that will be used to authenticate over HTTP. The user name needs to be entered using [expressions](expressions). The microflow expression should result in a string.
 
-### 5.3 Password
+### 3.3 Password
 
 Password defines the password that will be used to authenticate over HTTP. The password needs to be entered using [expressions](expressions). The microflow expression should result in a string.
 
-### 5.4 Custom HTTP Headers
+### 3.4 Custom HTTP Headers
 
 These custom headers are added to the HTTP request header. Each custom header is a pair of a key and a value (a microflow expression).
 
-## 6 SOAP Request Header Tab {#request-header}
+## 4 SOAP Request Header and SOAP Request Body
 
-For the request header, Studio Pro provides some common XML structures in a drop-down menu.
+![](attachments/19202819/19399022.png)
 
-## 7 SOAP Request Body Tab {#request-body}
+The XML for the request parts (header and body) can be generated in several ways that are described in the following sections.
 
-![](attachments/integration-activities/soap-request-body-tab.png)
-
-The XML for the request parts (header and body) can be generated in several ways, chosen through the dropdown at the top of the page, that are described in the following sections.
-
-### 7.1 Export Mapping for Entire Request
+### 4.1 Export Mapping for Entire Request
 
 Using this option, a single [Export Mapping](export-mappings) can be used to generate the XML for the request part. You can choose the export mapping to use for the request part and, if applicable, the object or list that you want to use as parameter for the mapping.
 
-### 7.2 Simple Expressions for Each Request Parameter
+### 4.2 Simple Expressions for Each Request Parameter
 
 This option for request parts can be used when all children of the XML element of the request part occur at most once and are primitive values. If that is not the case, this option is disabled and cannot be used.
 
 Using this option you need to supply an argument value for all elements of a primitive type (parameters). Argument values need to be entered using [expressions](expressions) resulting in the same data type as the parameter.
 
-![](attachments/integration-activities/request-parameter-option.png)
+![](attachments/19202819/requestParamOptNil.png)
 
-For primitive parameters (both optional and nillable) that do not have an export mapping, you can choose to send empty values by setting **Send empty values** to **Yes, as null**.
+For primitive parameters (both optional and nillable) that do not have an export mapping, you can now choose to send empty values as shown above in the image.
 
-### 7.3 Export Mappings for Each Request Parameter
+### 4.3 Export Mappings for Each Request Parameter
 
 This option can be used when all children of the XML element of the request part occur at most once. You need to supply an argument value for all top-level elements of the request (parameters). For simple parameters you can enter a microflow expression, for complex parameters you define a mapping.
 
@@ -185,41 +135,41 @@ This option can be used when all children of the XML element of the request part
 
 If a primitive request parameter is both optional and nillable, you need to select whether or not to send the empty values.
 
-*Default value*: do not send the empty values.
+_Default:_ do not send the empty values.
 
 {{% /alert %}}
 
-### 7.4 Custom Request Template
+### 4.4 Custom Request Template
 
-This option allows you to generate the XML for the request part using a template. The template defines the XML structure of the request part in plain text.
+This option allows you to generate the XML for the request part using a template. The template defines the XML structure of the request part in plain text. Parameters can be used by writing a number between braces, for example, '{1}'. For each parameter in the template you can specify its value using a [microflow expression](expressions) resulting in a String value.
 
-#### 7.4.1 String Template{#string-template}
+For the request header, the Modeler provides some common XML structures in the drop down menu.
 
-The template for the XML request can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. You can escape the opening brace (`{`), by using a double opening brace (`{{`).
+## 5 SOAP Response
 
-#### 7.4.2 Parameters
-
-For each parameter in the template, you can specify its value using a [microflow expression](expressions) resulting in a string value. This value will be inserted at the position of the parameter.
-
-## 8 SOAP Response Tab{#response}
-
-![](attachments/integration-activities/soap-response-tab.png)
+![](attachments/19202819/19399023.png)
 
 If the data type is a complex XML structure it can be mapped to entities using a [Import Mapping](import-mappings). If it is primitive data, it can be stored in a variable immediately. The response does not have to be used though; it can also be ignored if you are not interested in it.
 
-### 8.1 Mapping
+### 5.1 Import Mapping (for Complex XML Structures)
 
-If you are using complex XML structures you can choose the [Import Mapping](import-mappings) that will be used to transform the XML into objects.
+Here you can choose the [Import Mapping](import-mappings) that will be used to transform the XML into objects.
 
-### 8.2 If No Object Was Found
+### 5.2 If No Object Was Found
+
+{{% alert type="info" %}}
+
+This feature was introduced in version 7.17.0.
+
+{{% /alert %}}
 
 You can indicate what should happen **if not object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
 
-### 8.3 Parameter
+### 5.3 Parameter
 
 If the selected mapping requires a parameter, you can choose it here.
 
-### 8.4 Commit
+### 5.4 Commit
 
 Indicates whether the resulting objects should be committed to the database, and whether event handlers should be triggered.
 
@@ -229,28 +179,24 @@ Indicates whether the resulting objects should be committed to the database, and
 | Yes without events | The objects are saved in the database, but the [event handlers](event-handlers) are not triggered (default).                   |
 | No                 | The objects are created without being saved in the database. You will need a [commit action](committing-objects) to save them. |
 
-### 8.5 Range (If the Mapping Returns a List)
+### 5.5 Range (If the Mapping Returns a List)
 
 The range determines how many objects are mapped and returned.
 
-| Range  | Meaning                                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
-| All    | Map and return all objects.                                                                                         |
-| First  | Map and return only the first object. The result of the action will be a single object instead of a list.           |
-| Custom | Map and return a given number of objects (limit). The limit is a microflow expression that must result in a number. |
+| Range  | Meaning                                                                                                               |
+| ------ | --------------------------------------------------------------------------------------------------------------------- |
+| All    | Map and return all objects.                                                                                           |
+| First  | Map and return only the first object. The result of the action will be a single object instead of a list.             |
+| Custom | Map and return a given number of objects (limit). The limit is a microflow expression that should result in a number. |
 
-### 8.6 Store in Variable
+### 5.6 Store in Variable
 
-Choose whether to store the result of the operation in a variable, object, or list.
+Choose whether to store the result of the operation in a variable.
 
-### 8.7 Type
+### 5.7 Type
 
-The type of the output.
+The type of the output variable.
 
-### 8.8 Name
+### 5.8 Name
 
-The name for the output that will hold the result of the operation.
-
-## 9 Common Section{#common}
-
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+The name for the variable that will hold the result of the operation.
