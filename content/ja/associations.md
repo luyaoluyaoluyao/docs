@@ -1,83 +1,86 @@
 ---
 title: "関連"
-parent: "エンティティ"
-menu_order: 30
+parent: "ドメインモデル"
+menu_order: 20
 tags:
   - "ドメインモデル"
   - "関連"
+  - "studio pro"
 ---
 
-## 1つの紹介
-
-**関連** タブは、エンティティプロパティのタブであり、以下の設定があります。
-
-* [名前](#name)
-* [タイプ](#type)
-* [所有者](#owner)
-* [親/子要素](#parent-child)
-
-![](attachments/associations/dm-entity-properties-associations-tab.png)
-
-関連付けの詳細については、 [関連付けとプロパティ](association-properties) を参照してください。
-
-## 2名 {#name}
-
-関連付けの名前はフォーム、マイクロフロー、XPath 制約などから参照するために使用されます。
-
-## 3種類 {#type}
-
-このプロパティは、関連付けが参照(単一)であるか、参照セット (複数)であるかを定義します。
-
-| 値         | 説明                                                        |
-| --------- | --------------------------------------------------------- |
-| 参照        | 単一: 所有しているエンティティのオブジェクトは、ゼロまたは他のエンティティの 1 つのオブジェクトを参照します。 |
-| リファレンスセット | 複数: 所有しているエンティティのオブジェクトは、他のエンティティの 0 個以上のオブジェクトを参照します。    |
-
-* *デフォルト値*: 参照
-
 {{% alert type="info" %}}
-
-このプロパティの例は、以下の owner プロパティの例と組み合わせています。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/associations.pdf) をクリックしてください。
 {{% /alert %}}
 
-## 4 所有者 {#owner}
+## 1つの紹介 {#intro}
 
-このプロパティは、関連付けに1つまたは2つの所有者があるかどうかを定義します。 1つの所有者がいる場合、所有者は矢印の先頭に位置します。
+関連付けはエンティティ間の関係を記述します。 ドメイン モデルでは、関連付けは、2 つのエンティティ間の線または矢印で表されます。
 
-| 値     | 説明                   |
-| ----- | -------------------- |
-| デフォルト | 唯一のエンティティは、所有者(親)です。 |
-| 両方とも  | 両方のエンティティは所有者です。     |
+{{% alert type="info" %}}
+同じデータソースから2つの外部エンティティ間の関連付けは、元のアプリで定義されるため、モデルでエンティティが使用されると自動的に確立されます。 詳細については、 [外部エンティティ](external-entities#properties) の *Associations* セクションを参照してください。
+{{% /alert %}}
 
-* *デフォルト値*: デフォルト
+### 1.1 所有者 {#ownership}
 
-## 5種類の種類と所有者の多重性とナビゲーション性との関係
+関連付けの値は、アソシエーションの [所有者](association-member-properties#owner) であるエンティティのオブジェクトから参照し、編集する必要があります。 関連付け内の所有権は矢印によって表されます (矢印は方向を示しません)。 どちらか一方または両方のエンティティが関連付けの所有者になることができます。 あるエンティティが所有者である場合、所有者から他のエンティティを指す矢印があります。 両方のエンティティが所有者である場合、2つのエンティティの間に線がありますが、矢印はありません。 これは、矢印を制御することができる唯一の方法です。
 
-**Type** and **Owner** properties of an entity are related to **[Multiplicity](association-properties#multiplicity)** and **[Navigability](association-properties#navigability)** properties of an association. **Type** または **Owner**を変更すると、 **Multiplicity** と **Navigability** も変更されます。
+所有権がなぜ存在するのかを理解することが重要です。 オーナーシップは Mendix に実装されているので、最初のデザインにこだわるのではなく、リレーションシップを動的に変更することができます。 例えば、 [1対多のアソシエーション](#one-to-many) としてデザインし、デフォルトのオーナーシップを持つ [多対多のアソシエーション](#many-to-many)にする必要がある場合 Mendixがそれを処理するので、データベースを再構築する必要はありません。
 
-以下の表の **タイプ**/**オーナー** と **マルチプリシティー**/**ナビゲビリティ** の間で対応しています。
+### 1.2 多重性
 
-|                                                              | タイプ       | 所有者   |
-| ------------------------------------------------------------ | --------- | ----- |
-| **多重性**: 1対1 <br />**ナビゲーション性**: 利用不可                  | 参照        | 両方とも  |
-| **多重度**: 1対多 <br />**ナビゲーション**: 利用不可                   | 参照        | デフォルト |
-| **多重度**: 多対多 <br />**ナビゲーション性**: XオブジェクトはYオブジェクトを参照する  | リファレンスセット | デフォルト |
-| **多重度**: 多対多 <br />**ナビゲーション性**: X と Y オブジェクトは互いを参照します | リファレンスセット | 両方とも  |
+関連付けの [多重度](association-properties#multiplicity) (または参照オブジェクトの数) は、関連付けの両側の数 1 (`1`) または星 (`*`) で示されます。
 
-For more information on multiplicity and navigability, see section [2.3 Multiplicity](association-properties#multiplicity) and section [2.4 Navigability](association-properties#navigability) in *Associations and Their Properties*.
+In the example below, the arrow indicates that **Order** is the owner of the association, and the `1` and `*` indicate that one customer is associated with many orders:
 
-## 6 親/子要素 {#parent-child}
+![](attachments/associations/association-order-customer.png)
 
-親と子の設定には、関連付けの方向が表示されます。 親は、関連付けが開始されるエンティティを定義し、子は関連付けが終了するエンティティを定義します。
+{{% alert type="info" %}}
+持続可能エンティティと非持続可能エンティティの関連付けは、非持続可能エンティティで開始し、所有者が **デフォルト**でなければなりません。 持続可能で持続不可能なエンティティについての詳細は、 [持続可能性](persistability) を参照してください。
+{{% /alert %}}
 
-## 7つの関連例
+## 2 関連付けの作成 {#creating}
 
-**Order** エンティティから **Customer** エンティティへの関連付けを描画すると、以下の結果になります:
+関連付けを作成する最も簡単な方法は、 [ドメインモデル](domain-model)内の2つのエンティティ間の関連付けを描画することです。 デフォルトでは、関連付けの所有者/多数の側から始まり、関連付けの片側で終わる1対多の関連付けが作成されます。 関連付けは、アンダースコアを持つ2つのエンティティの名前を結合することによって名前が付けられます。 次のセクションで説明したように、関連付けを編集できます。
 
-![](attachments/domain-model-editor/918217.png)
+アプリの異なるモジュール内のエンティティ間の関連付けを作成することもできます。 この場合、協会を描画することはできません。 関連付けを所有するエンティティの **関連付け** タブで新しい関連付けを作成することで、別のモジュールのドメインモデル内のエンティティへの関連付けを作成できます。 アプリ内のエンティティを関連付けのターゲットとして選択することができます。 詳細については、 [関連タブプロパティ](association-member-properties) を参照してください。
 
-type プロパティにはデフォルト値の `Reference` があります。 この例では、顧客は複数の注文を持つことができ、注文は1つの顧客しか持つことができません。
+{{% alert type="info" %}}
+外部エンティティとローカルエンティティ間のみの関連付けを作成および編集できます。 ただし、外部エンティティをローカルエンティティとの関連付けの [所有者](association-member-properties#owner) にすることはできません。
+{{% /alert %}}
+
+{{% alert type="info" %}}
+2つの外部エンティティを接続する必要がある場合は、ローカルエンティティを追加し、このローカルエンティティを両方の外部エンティティに接続することを検討してください。 この場合、ローカルエンティティは両方のアソシエーションの所有者でなければなりません。
+{{% /alert %}}
+
+## 3つの関連付けの編集
+
+関連付けを編集するには2つの方法があります。
+
+### 3.1 関連付けを直接編集
+
+関連付け自体を編集できます。 この場合、多重度とナビゲーションを使用して関連付けを定義します。
+
+![](attachments/associations/edit-association.png)
+
+詳細については、 [関連プロパティ](association-properties) を参照してください。
+
+### 3.2 エンティティの関連付けから編集
+
+エンティティのメンバーとしてその関連付けを編集できます。 この場合、typeとownerを使用して関連付けを定義します。
+
+![](attachments/associations/edit-entity-association.png)
+
+詳細については、 [関連タブプロパティ](association-member-properties) を参照してください。
+
+## 4つの関連例 {#examples}
+
+### 4.1 1対多の協会 {#one-to-many}
+
+この例では、 **Order** エンティティから **Customer** エンティティへの関連付けを描画すると、次の結果になります:
+
+![](attachments/associations/association-order-customer.png)
+
+type プロパティにはデフォルト値 `リファレンス`があり、所有者 (注文エンティティ) は `デフォルト` です。 これは、 `1つの 'Customer' オブジェクトが複数の 'Order' オブジェクトに関連付けられているので、顧客が複数の注文を持つことができます。` しかし注文は1人の顧客しかいません
 
 XML では、これらのエンティティとその関連付けのインスタンスは以下のようになります (関連付けは **Order** 要素にのみ保存されていることに注意してください)。
 
@@ -96,11 +99,13 @@ XML では、これらのエンティティとその関連付けのインスタ�
 
 ```
 
-デフォルトの所有権を持つ多対多の関連付けは、関連を描画し、 `Type` プロパティを `Reference set` に設定することによって作成されます。
+### 4.2 デフォルトの所有権を持つ多くの関連付け {#many-to-many}
 
-In this example, a **Customer** can have multiple **Groups**, and a **Group** can have multiple **Customers**:
+デフォルトの所有権を持つ多対多の関連付けは、関連を描画し、typeプロパティを `参照セット` に設定し、所有者を `デフォルト`のままにすることによって作成されます。
 
-![](attachments/domain-model-editor/918127.png)
+In this example, a **Customer** can have multiple **Groups**, and a **Group** can have multiple **Customers**. これは、 `に多重度が設定されている場合と同じです。複数の 'グループ' オブジェクトが複数の '顧客' オブジェクト` に関連付けられており、 `'顧客' オブジェクトは 'グループ' オブジェクト` を参照します。
+
+![](attachments/associations/association-customer-group.png)
 
 XML では、これらのエンティティとその関連付けのインスタンスは以下のようになります (関連付けは **顧客** 要素にのみ保存されます)。
 
@@ -122,11 +127,13 @@ XML では、これらのエンティティとその関連付けのインスタ�
 
 ```
 
+### 4.3 ワンツーワン協会
+
 owner プロパティを `both` に設定することで、1 対 1 の関連付けが作成されます (typeプロパティはデフォルト値の `Reference` のままにします)。
 
-In this example, a **Customer** can have one **Profile**, and a **Profile** can have one **Customer**:
+In this example, a **Customer** can have one **Profile**, and a **Profile** can have one **Customer**. これは、 `1つの 'Customer' オブジェクトが1つの 'Profile' オブジェクト` に関連付けられているのと同じです。
 
-![](attachments/domain-model-editor/918128.png)
+![](attachments/associations/association-customer-profile.png)
 
 XML で これらのエンティティとその関連のインスタンスは以下のようになります (関連付けは **プロファイル** 要素と **顧客** 要素の両方に格納されていることに注意してください)。
 
@@ -147,11 +154,13 @@ XML で これらのエンティティとその関連のインスタンスは以
 
 ```
 
+### 4.4 二重所有権を持つ多数の協会
+
 オーナープロパティを `` に設定し、type プロパティを `参照集合` に設定することで、両方のエンティティがオーナーである多対多の関連付けを作成します。
 
-この例では、 **Accountant** は複数の **グループ** を持ち、 **グループ** は複数の **Accountants を持つことができます。**
+この例では、 **Accountant** は複数の **グループ** を持つことができ、 **グループ** は複数の **<unk>** を持つことができます。 これは、 `に多重度が設定されている場合と同じです。複数の「グループ」オブジェクトが複数の「会計」オブジェクト` に関連付けられており、 `「会計」と「グループ」オブジェクトが互いに参照している場合と同じです。`:
 
-{{% image_container width="500" %}}![](attachments/domain-model-editor/918125.png)
+{{% image_container width="500" %}}![](attachments/associations/association-accountant-group.png)
 {{% /image_container %}}
 
 XML で これらのエンティティとその関連付けのインスタンスは以下のようになります (関連付けは **Accountant** 要素と **Group** 要素の両方に格納されていることに注意してください)。
@@ -182,8 +191,3 @@ XML で これらのエンティティとその関連付けのインスタンス
 </Group>
 
 ```
-
-## 8 続きを読む
-
-* [関連付けとプロパティ](association-properties)
-* [エンティティ](エンティティ)
