@@ -8,10 +8,6 @@ tags:
   - "widget"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/file-manager.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}The file manager widget is not supported on native mobile pages.{{% /alert %}}
 
 ## 1 Introduction
@@ -20,7 +16,11 @@ A file manager is used to upload and/or download files.
 
 ![File Manager](attachments/file-widgets/file-manager.png)
 
-It must be placed inside a data view connected to the entity System.FileDocument or a specialization thereof.
+A file manager must be placed inside a data view connected to the entity that is either a **System.FileDocument** (or a specialization) or an [external entity](external-entities) with a `Contents` binary attribute.
+
+{{% alert type="info" %}}
+For an external entity to be used as a file source, it must be defined as a media element in the corresponding OData service. Such an element can be recognized by setting the `HasStream` attribute to `true` in its metadata.
+{{% /alert %}}
 
 {{% alert type="info" %}}
 When uploading a file through the file manager, the FileDocument object will be committed immediately.
@@ -49,15 +49,15 @@ File manager properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 Editability Section {#editability}
 
-{{% snippet file="refguide8/editability-section-link.md" %}}
+{{% snippet file="refguide/editability-section-link.md" %}}
 
 ### 2.4 General Section {#general}
 
@@ -91,11 +91,11 @@ Default: *False*
 
 ### 2.5 Label Section {#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
 ### 2.6 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Read More
 
