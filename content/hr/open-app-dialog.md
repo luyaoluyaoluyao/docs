@@ -1,26 +1,21 @@
 ---
-title: "Open Project"
+title: "Open App"
 parent: "file-menu"
 menu_order: 20
-description: "Describes the Open Project (app) flow and the Open App dialog box"
+description: "Describes the Open App flow and the Open App dialog box"
 tags:
   - "studio pro"
   - "open app"
-  - "open project"
 aliases:
-  - /refguide8/open-project-dialog.html
+  - /refguide/open-project-dialog.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/open-app-dialog.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
-To open a project in Mendix Studio Pro, do one of the following:
+To open an app in Mendix Studio Pro, do one of the following:
 
-* Open the **File** menu in the top bar > **Open Project**
-*  Click **Open App** on the Studio Pro landing page
+* Select **File** > **Open App**
+* Click **Open App** on the Studio Pro landing page
 
 The **Open App** dialog box will open, where you can select the app location:
 
@@ -46,7 +41,7 @@ For more information about development lines, see [Version Control](version-cont
 
 {{% alert type="info" %}}
 
-The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Advanced** > **Enable private version control**.
+The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Version Control** > **Enable private version control**.
 
 {{% /alert %}}
 
@@ -54,8 +49,8 @@ In the **App repository address** field, enter the address of the app you want t
 
 ### 2.3 Locally on Disk {#local}
 
-For opening an app you already have on disk, simply point to the project file.
+For opening an app you already have on disk, simply point to the app file.
 
 ## 3 Read More
 
-* [Import Project Package](import-project-package-dialog)
+* [Import App Package](import-project-package-dialog)
