@@ -1,90 +1,47 @@
 ---
 title: "Container"
 parent: "container-widgets"
-menu_order: 20
-tags:
-  - "studio pro"
-  - "container"
-  - "container widgets"
-  - "widget"
 ---
 
-## 1 Introduction
+A container widget can be used to style or simultaneously hide a group of widgets. In the browser, it is rendered as a simple `div` element by default. It is also possible to render a container as one of HTML5 sementic elements (for example, `section`, `main`, `article`, `nav`).
 
-A container is a layout element that can be used to simultaneously style, hide, drag, or delete a group of widgets placed in it:
+{{% alert type="info" %}}
 
-![Container Example](attachments/container-widgets/container.png)
+![](attachments/16713858/16843976.png) An empty container.
 
-In a browser, it is rendered as a simple `div` element by default. It is also possible to render a container as one of HTML5 semantic elements (for example, `section`, `main`, `article`, `nav`).
-
-## 2 Properties
-
-An example of container properties is represented in the image below:
-
-{{% image_container width="300" %}}![Container Properties](attachments/container-widgets/container-properties.png)
-{{% /image_container %}}
-
-Container properties consist of the following sections:
-
-* [Accessibility](#accessibility)
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Events](#events)
-* [Visibility](#visibility)
-
-### 2.1 Accessibility {#accessibility}
-
-#### 2.1.1 Hide for Screen Readers
-
-This property specifies whether to hide the container from screen readers or not.
-
-{{% alert type="info" %}} The container should not have any focusable elements inside such as input widgets, links, or buttons. These elements will cause the container to be announced by screen readers.
 {{% /alert %}}
 
-### 2.2 Common Section {#common}
+## Common properties
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-{{% snippet file="refguide/design-section-link.md" %}}
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-### 2.4 General Section {#general}
+## General properties
 
-#### 2.4.1 Render Mode
+### Render mode
 
-The **Render mode** determines which HTML5 tag will be used to show the container in the web browser.
+The render mode determines which HTML5 tag will be used to show the container in the web browser.
 
-| Value           | HTML Tag  |
-| --------------- | --------- |
-| Div *(default)* | `div`     |
-| Section         | `section` |
-| Article         | `article` |
-| Header          | `header`  |
-| Footer          | `footer`  |
-| Main            | `main`    |
-| Nav             | `nav`     |
-| Aside           | `aside`   |
-| Hgroup          | `hgroup`  |
-| Address         | `address` |
+| Value   | HTML Tag  |
+| ------- | --------- |
+| Div     | `div`     |
+| Section | `section` |
+| Article | `article` |
+| Header  | `header`  |
+| Footer  | `footer`  |
+| Main    | `main`    |
+| Nav     | `nav`     |
+| Aside   | `aside`   |
+| Hgroup  | `hgroup`  |
+| Address | `address` |
 
-{{% alert type="info" %}}Render mode is not supported on native mobile pages.{{% /alert %}}
+_Default value:_ Div
 
-### 2.5 Events Section {#events}
+## Visibility properties
 
-#### 2.5.1 On-Click {#on-click}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-The **On-click** property specifies the action that will be executed when the user clicks the container (either with their mouse pointer or by pressing the <kbd>Enter</kbd> or <kbd>Space</kbd> keys when the container is in focus).
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.6 Visibility Section {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 4 Read More
-
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
