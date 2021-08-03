@@ -1,308 +1,177 @@
 ---
-title: "Structure"
-parent: "page-editor-widgets"
-description: "Describes Structure widgets in Mendix Studio."
+title: "结构部件"
+parent: "页面编辑器部件"
+description: "描述Mendix Studio中的结构部件。"
 menu_order: 60
 tags:
-  - "studio"
-  - "page editor"
-  - "layout"
-  - "layout widgets"
-  - "structure widgets"
+  - "工作室"
+  - "页面编辑器"
+  - "布局"
+  - "布局部件"
+  - "结构部件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Structure widgets are widgets that allow you to provide structure to your page and group other widgets inside them.
+结构部件是允许您为您的页面提供结构并在其中分组其他部件的小部件。
 
-There are the following Structure widgets:
+布局小部件如下：
 
-* [Columns and Sidebars](#columns)
+* [列和侧栏](#columns)
+* [容器](#container-overview)
+* [组框](#group-box-overview)
+* [标签容器](#tab-container)
 
-* [Container](#container-overview)
+## 2 列和侧边栏{#columns}
 
-* [Group Box](#group-box-overview)
+**列** 和 **侧边栏** 小部件是预设列数的小部件。 此类别中的所有小部件都是基于一个 [布局网格](#layout-grid) ——一个用行和列构造你的页面的元素。
 
-* [Tab Container](#tab-container)
+## 3 布局网格概览 {#layout-grid}
 
-* [Snippet](#snippet)
+**布局网格** 有助于您配置一个页面并立即做出响应。 这意味着布局网格有内置行为来显示页面在不同设备上的外观。 在顶部栏中切换 **设备** 模式，以查看一个页面将如何显示在手机、 平板电脑或桌面上。
 
-    ![](attachments/page-editor-widgets-structure/structure-widgets.jpg)
-
-## 2 Columns and Sidebars{#columns}
-
-**Column** and **Sidebar** widgets are based on a [layout grid](#layout-grid) – a widget that structures your page with rows and columns. **Columns and Sidebars** are layout grid configurations with a pre-set number of columns.
-
-## 3 Layout Grid Overview {#layout-grid}
-
-The **Layout Grid** helps you to structure a page and make it responsive immediately. This means that a layout grid has a built-in behavior to show how a page will look like on different devices. Switch **Device** modes to see how a page will be displayed on a phone, tablet, or desktop:
-
-{{% image_container width="300" %}}![Device Modes](attachments/page-editor-widgets-structure/device-modes.png)
+{{% image_container width="350" %}}![设备模式](attachments/page-editor-widgets-structure/device-modes.png)
 {{% /image_container %}}
 
-Layout grid contains [columns](#column) and [rows](#row).
+布局网格包含 [列和行](#columns-and-rows)。
 
-A row consists of one or more columns that are placed next to each other in a responsive (desktop) view.
+一行包含在响应(桌面)视图中彼此放置的项目。
 
-![Row Example](attachments/page-editor-widgets-structure/row-example.png)
+![行示例](attachments/page-editor-widgets-structure/row-example.png)
 
-A column is a cell inside a row. You can place one or several widgets inside a column, for example, you can place two buttons inside it.
+列是行内的单元格。 您可以在列中放置一个或多个元素。例如，您可以在列中放置两个按钮。
 
-{{% image_container width="300" %}}![Column Example](attachments/page-editor-widgets-structure/column-example.png)
+{{% image_container width="400" %}}![列示例](attachments/page-editor-widgets-structure/column-example.png)
 {{% /image_container %}}
 
-For more information on rows and columns, see [Row Properties](#row) and [Column Properties](#column) sections.
+使用列对齐一行中的项目。  关于行和列的更多信息，见第 [2.2 行和列属性](#columns-and-rows) 部分。
 
-### 3.1 Layout Grid Properties {#layout-grid-properties}
+### 2.1 布局网格 {#layout-grid-properties}
 
-You can access the **Layout Grid** properties through the breadcrumb (for more information, see the [Breadcrumb](page-editor#breadcrumb) section in *Pages*). Layout grid properties consist of the following sections:
+您可以通过面包crumb 轨迹访问 **布局网格** 属性 (以获取更多信息)。 查看 **[Breadcrumb Trail](page-editor#breadcrumb)** section in *pages*)。 布局网格属性由以下部分组成：
 
-* [Expand](#expand-section)
+* [扩展](#expand-section)
+* [A. 概况](#general-section)
+* [设计](page-editor-widgets-design-section)
 
-* [General](#general-section)
+#### 2.1.1 扩展 {#expand-section}
 
-* [Design](page-editor-widgets-design-section)
+**展开** 章节 > **添加行** 允许您在选定的一行上方或下方添加一行，以创建更多的空间来放置小部件。
 
-    {{% image_container width="250" %}}![Layout Grid Properties](attachments/page-editor-widgets-structure/layout-grid-properties.png)
-    {{% /image_container %}}
+{{% image_container width="300" %}}![展开部分](attachments/page-editor-widgets-structure/layout-grid-expand-row.png)
+{{% /image_container %}}
 
-#### 3.1.1 Expand Section {#expand-section}
-
-The **Expand** section > **Add Row** allows you to add a row above or below the selected one to create more space to place widgets in.
+要添加一行，请在布局网格中选择一行，然后点击 **添加行** 中的一个按钮。 将插入与所选行完全相同的一行。
 
 {{% alert type="info" %}}
 
-A [row](#row) and a [column](#column) have the **Expand** section with the same setting.
+**行** and **列** 也有具有相同属性的 **扩展** 部分。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-To add a new row, do one of the following:
+#### 2.1.2 一般部分 {#general-section}
 
-1. Select the layout grid in the breadcrumb and in its **Properties** > **Add Row**, click one of the buttons to insert the row above or below.
-2. Select the row and in its **Properties** > **Add Row**, click one of the buttons to insert the row above or below.
-3. Select the column and in its **Properties** > **Add Row**, click one of the buttons to insert the row above or below.
+布局网格的 **常规** 部分包含 **全宽度** 属性。 启用此属性时，布局网格会占用容器的整个宽度。 当禁用时，布局网格将在您的页面中心有固定大小，根据您的设备自动调整。
 
-An empty row will be inserted.
+#### 2.1.3 设计科
 
-#### 3.1.2 General Section {#general-section}
+关于 **设计** 部分及其属性的信息，请参阅 [小部件中的设计部分](page-editor-widgets-design-section)。
 
-In the **General** section, you can set the width of the layout grid. You can choose one of the following:
+### 2.2 行和列属性 {#columns-and-rows}
 
-* **Full Width** – the layout grid takes the whole width of a container it is placed in
-* **Fixed Width** –  the layout  grid will have a fixed size in the center of your page, adjusted automatically according to your device
+**行** 和 **列** 属性由以下部分组成：
 
-#### 3.1.3 Design Section
+* [扩展](#expand-section)
+* [行布局](#row-layout)
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
-
-### 3.2 Row Properties {#row}
-
-*Row* properties consist of the following sections:
-
-* [Expand](#expand-section-row)
-
-* [Container Settings](#container-settings)
-
-* [General](#general-section-row)
-
-    {{% image_container width="250" %}}![Row Properties](attachments/page-editor-widgets-structure/row-sections.png)
-    {{% /image_container %}}
-
-#### 3.2.1 Expand Section {#expand-section-row}
-
-The **Expand** section > **Add Row** allows you to add a row above or below the selected one. For more details, see the [Expand Section](#expand-section) of the *layout grid*.
-
-#### 3.2.2 Container Settings Section {#container-settings}
-
-In the **Container Settings** section, you can set the width for the layout grid and choose between full width or fixed width.
-
-{{% alert type="info" %}}
-
-This property is the same as the property in the [General Section](#general-section) of the layout grid. For details, see the [General Section](#general-section).
-
-{{% /alert %}}
-
-#### 3.2.3 General Section {#general-section-row}
-
-In the **General** section of a row you can select the number of columns in it, align columns and add spacing between them. This section contain the following settings:
-
-* **Columns** – sets the number of columns in the row
-
-    * You can also set the number of columns in the working area: select one of the columns and click a plus icon on top of it to add a new column to the right
-
-        {{% image_container width="300" %}}![Adding New Column](attachments/page-editor-widgets-structure/adding-new-column.png){{% /image_container %}}
-
-* <a name="align-columns"></a>**Align Columns Vertically** – aligns all columns in the row vertically, you can select the following options:
-
-    {{% image_container width="280" %}}![](attachments/page-editor-widgets-structure/align-columns.png)
-    {{% /image_container %}}
-
-* **Spacing Between Columns** – when enabled, adds spacing between columns
-
-### 3.3 Column Properties {#column}
-
-Column properties consist of the following sections:
-
-* [Expand](#expand-section-column)
-
-* [General](#general-section-column)
-
-    {{% image_container width="250" %}}![Column Sections](attachments/page-editor-widgets-structure/column-sections.png)
-    {{% /image_container %}}
-
-#### 3.3.1 Expand Section {#expand-section-column}
-
-The Expand section of a column allows you to add a row or a column.
-
-
-##### 3.3.1.1 Add Row
-
-**Add Row** allows you to add a row above or below the selected one. For more details, see the [Expand Section](#expand-section) of the *layout grid*.
-
-##### 3.3.1.2 Add Column
-
-**Add Column** allows you to add a column to the left or to the right of the selected one.
-
-#### 3.3.2 General Section {#general-section-column}
-
-In the **General** section, you can set the column [width](#column-width) and [align](#align-column) an individual column.
-
-##### 3.3.2.1 Width {#column-width}
-
-You can set the column width for desktop, tablet, or phone by choosing the corresponding device mode:
-
-![](attachments/page-editor-widgets-structure/width-per-device.png)
-
-You can choose the following options:
-
-* **Auto-fill** – takes the available space for a column (for example, if there is one column, it will span the column for the whole row, and for two columns, it will divide the space equally between them)
-
-* **Auto-fit content** – automatically fits the size of the column to its content
-
-* **Manual** – allows you to manually set the size of the columns
-
-    * When you select **Manual** the slider appears that allows you to set the width of the column from 1 to 12:
-
-        ![](attachments/page-editor-widgets-structure/column-size.png)
-
-You can also resize columns manually in the working area: drag the column border to change its size.
-
-{{% image_container width="300" %}}
-![Resizing Column](attachments/page-editor-widgets-structure/resizing-column.png)
+{{% image_container width="300" %}}![行和列属性](attachments/page-editor-widgets-structure/row-and-column-sections.png)
 {{% /image_container %}}
 
-The **Width** property can be used to make your layout more flexible and adaptive to different types of devices.
+#### 2.2.1 扩展
 
-For example, you have a layout grid with one row and two columns: a picture is in one column, and a text with details is in another.
+**展开** 版块 **列** 和 **行** 与布局网格的 **扩展** 版块有相同的属性和功能。 欲了解详情，请参阅 *布局网格概览* 中的 [扩展部分](#expand-section)。
 
-For the *desktop* and *tablet*, you might want to set the first column with a picture to **Auto-fit content** and and the second one to **Auto-fill**, this way the first column will adjust to the size of the picture, while the second one will take the rest of the row:
+#### 2.2.2 行布局部分 {#row-layout}
 
-![Layout Example, Desktop](attachments/page-editor-widgets-structure/layout-example-desktop.png)
+在 **行布局** 部分中，您可以更改列的排列排列排列安排方式。 更改列数并选择它们在桌面、平板电脑和手机上显示的方式。
 
-For *phone*, it can be a good idea to place two columns one under another, setting them to **Manual** width of *12*. In this case, the second column will be automatically wrapped to another line:
+| 财产   | 描述                                              |
+| ---- | ----------------------------------------------- |
+| 桌面   | 更改桌面列的数量和宽度。                                    |
+| 平板电脑 | 更改平板电脑列的数量和宽度。 **绘图板** 布局可用的选项取决于 **桌面** 所选的选项。 |
+| 电话   | 更改手机列的数量和宽度。 **Phone** 布局可用的选项取决于 **桌面** 所选的选项。 |
 
- {{% image_container width="300" %}}
-![Layout Example, Phone](attachments/page-editor-widgets-structure/layout-example-phone.png)
+在下面的示例中 您可以看到您可以为不同类型的设备选择不同的行布局，并检查在您的应用程序中显示布局的方式。
+
+![不同设备的行布局](attachments/page-editor-widgets-structure/row-layout-scheme.png)
+
+## 4 容器概述 {#container-overview}
+
+**容器** 被用作布局元素，您可以同时放置部件或组小部件， 拖动或删除它们。 例如，您可以在一个容器中放置一个章节标题和输入小部件以填写程序细节， 然后将整个容器重新定位到页面上的不同位置。
+
+{{% image_container width="400" %}}![容器示例](attachments/page-editor-widgets-structure/container.png)
 {{% /image_container %}}
 
-##### 3.3.2.2 Align Vertically {#align-column}
+容器属性由 **设计** 部分组成。 欲知详情，请参阅小部件中的 [设计部分](page-editor-widgets-design-section)。
 
-The **Align Vertically** property overrides the [Align Columns Vertically](#align-columns) property on the row and sets alignment for an individual column.
+## 5 组框概述 {#group-box-overview}
 
-## 4 Container Overview {#container-overview}
+群组框用于群组小部件。 组框可以配置为使用内置的所有元素折叠或动态扩展。
 
-A **Container** is used as a layout element where you can place a widget or a group of widgets and simultaneously style, drag or delete them. For example, you can place a section title and input widgets for filling out program's details in one container, and subsequently reposition the whole container at once to a different location on the page.
-
-{{% image_container width="300" %}}![Container Example](attachments/page-editor-widgets-structure/container.png)
+{{% image_container width="400" %}}![组框示例](attachments/page-editor-widgets-structure/group-box.png)
 {{% /image_container %}}
 
-Container properties consist of the **Design** section. For information, see [Design Section](page-editor-widgets-design-section).
+### 5.1 组盒子属性
 
-## 5 Group Box Overview {#group-box-overview}
+组框属性由 **常规** 部分和 **设计** 部分组成。 关于 **设计** 部分及其属性的信息，请参阅 [小部件中的设计部分](page-editor-widgets-design-section)。
 
-A group box is used to group widgets together. The group box can be configured to collapse or expand dynamically with all the elements inside it.
+下面的表格描述了 **常规** 部分中可用的属性。
 
-{{% image_container width="300" %}}![Group Box Example](attachments/page-editor-widgets-structure/group-box.png)
+| 财产   | 描述                                                                                 |
+| ---- | ---------------------------------------------------------------------------------- |
+| 显示标题 | **显示标题** 定义是否在组框上方显示页眉。 <br />*此属性默认启用。*                                     |
+| 标题   | 此属性仅在 **显示页眉** 选项启用时才显示。 它定义了标题中显示的标题。                                             |
+| 可折叠的 | 此属性仅在 **显示页眉** 选项启用时才显示。 它确定了是否能够瓦解或扩大集团盒及其成分。 此属性的可能值如下：<ul><li>**是(开始扩展)** - 当用户点击顶部图标时，组框内的元素将会被初始扩展并折叠。</li><li>**是 (开始折叠)** - 当用户点击标题中的加号图标时，组框内的元素将会被首次折叠并被扩展 </li><li>**否** - 组框元素不能被扩展或折叠。</li></ul> |
+
+## 6 个标签容器概述 {#tab-container}
+
+制表符容器是用于显示按标签分类的信息的容器。 如果您想要显示的信息数量大于屏幕上的空间数量，这将是有用的。 例如，您可以在一个标签上显示客户列表，并在另一个标签上显示订单。
+
+{{% image_container width="400" %}}![标签容器示例](attachments/page-editor-widgets-structure/tab-container-example.png)
 {{% /image_container %}}
 
-### 5.1 Group Box Properties
+您可以在每个选项卡中放置小部件或小部件组，并在它们中单独配置信息。
 
-Group box properties consist of the **General** section and the **Design** section. For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+### 6.1 Tab Container General 属性
 
-Properties available in the **General** section are described in the table below.
+在 **常规** 部分中，您可以配置以下属性：
 
-| Property    | Description                                                                                                                                                                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Show Header | **Show Header** defines whether a header is shown above the group box. <br />*This property is enabled by default.*                                                                                                                |
-| Caption     | This property is only displayed when the **Show Header** option is enabled. It defines the caption that is shown in the header.                                                                                                          |
-| Collapsible | This property is only displayed when the **Show Header** option is enabled. It defines whether the group box and its elements can be collapsed or expanded. Possible values of this property are the following:<ul><li>**Yes (start expanded)** – the elements inside the group box will be initially expanded and can be collapsed when a user clicks a minus icon in the header</li><li>**Yes (start collapsed)** – the elements inside the group box will be initially collapsed and can be expanded when a user clicks a plus icon in the header </li><li>**No** – group box elements cannot be expanded or collapsed</li></ul> |
-
-## 6 Tab Container Overview {#tab-container}
-
-A tab container is a container that is used to show information categorized into tabs. This can be useful if the amount of information that you would like to display is larger than the amount of space on the screen. For example, you can show a list of customers on one tab, and orders on the other one.
-
-{{% image_container width="300" %}}![Tab Container Example](attachments/page-editor-widgets-structure/tab-container-example.png)
-{{% /image_container %}}
-
-You can place a widget or a group of widgets inside each tab and configure information in them separately.
-
-### 6.1 General Section
-
-In the **General** section, you can configure the following properties:
-
-*  **Tabs** – use radio buttons to switch from one tab to another; click the tab and drag it to change the order of tabs; click the **Edit** icon to open the tab properties and configure it (for more information, see section the [Tab Properties](#tab-properties) section)
+*  **标签** - 使用无线电按钮切换一个标签到另一个标签； 单击标签页并拖动它来更改标签顺序； 点击 **编辑** 图标打开标签属性并配置它(详情请参阅章节 [5)。 标签属性](#tab-properties))
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/tab-container-tabs-property.png)
     {{% /image_container %}}
 
-*  **Add New Tab** – adds a new tab to your tab container; tab properties will open automatically (for more information, see section the [Tab Properties](#tab-properties) section)
+*  **添加新标签** - 为您的标签容器添加一个新标签； 标签属性将自动打开(详细信息，参见 [5部分)。 标签属性](#tab-properties))
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/add-new-tab.png)
     {{% /image_container %}}
 
-### 6.2 Design Section
+### 6.2 制表容器设计属性
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+关于 **设计** 部分及其属性的信息，请参阅 [小部件中的设计部分](page-editor-widgets-design-section)。
 
-### 6.3 Tab Properties {#tab-properties}
+### 6.3 Tab 属性 {#tab-properties}
 
-Each tab has the following properties:
+每个标签具有以下属性：
 
-* **Caption** – defines the name of the tab; you can also edit the caption by double-clicking it in the page
+* **标题** - 定义标签的名称；您也可以在页面中双击它来编辑标题。
 
-*  **Default Tab** – defines which tab is active when the page is opened. If no tab is set as the default one, the first tab page will be shown. By default, none of the tabs are set as a default tab.
+*  **默认标签** - 定义打开页面时哪个标签处于活动状态。 如果没有标签被设置为默认标签，将显示第一个标签页。 默认情况下，没有一个标签被设置为默认标签。
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/tab-properties.png)
     {{% /image_container %}}
 
-## 7 Snippet Overview {#snippet}
+## 7 阅读更多
 
-Snippets define reusable elements of pages and are created in Studio Pro. By using snippets you can make changes in fewer places when you modify pages.
-
-For example, your team member in Studio Pro has created a snippet and added a customer form to it turning this form into a reusable page element. You can use this snippet on your pages in Studio too:
-
-{{% image_container width="500" %}}![](attachments/page-editor-widgets-structure/snippet-example.jpg)
-{{% /image_container %}}
-
-While you can call (use) snippets on your pages in Studio, you cannot create, change, or delete them. For more information on snippets in Studio Pro, see [Snippet](/refguide8/snippet).
-
-{{% alert type="info" %}}
-The **Snippet** widget is not displayed if your app does not contain any snippets.
-{{% /alert %}}
-
-To call a snippet and add it to your page, do the following:
-
-1. In the **Toolbox** > **Widgets**, find the **Snippet** widget and drag and drop it on your page.
-
-2. Open properties and click the **Snippet** property.
-
-3. In the **Select Snippet** dialog box, select a snippet you would like to use on your page and click **Select**.
-
-    ![](attachments/page-editor-widgets-structure/select-snippet.jpg)
-
-The snippet is added to your page.
-
-## 8 Read More
-
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [页 次](page-editor)
+* [小部件](页面编辑器部件)
