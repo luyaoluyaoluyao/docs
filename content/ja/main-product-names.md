@@ -1,105 +1,105 @@
 ---
-title: "Main Product Names"
+title: "主な製品名"
 menu_order: 1
 draft: true
 ---
 
-## Introduction
+## はじめに
 
-These are branded Mendix product names. However, they do not always need "Mendix" in front of them in the documentation.
+これらはMendixブランドの製品名です。 しかし、ドキュメントの前に必ずしも「Mendix」が必要ではありません。
 
-### Under Each Term
+### 各学期以下
 
-Details and cross-references where necessary.
+必要に応じて詳細とクロスリファレンス。
 
 {{% alert type="info" %}}
-Guidelines for usage.
+使用のためのガイドライン
 {{% /alert %}}
 
 {{% alert type="success" %}}
-Example usage.
+使用例
 {{% /alert %}}
 
 ## Mendix Cloud
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-## Mendix Cloud version {#mx-cloud-version}
+## Mendix Cloud バージョン {#mx-cloud-version}
 
-There are two versions of Mendix Cloud: v3 and v4.
+Mendix Cloudには、v3とv4の2つのバージョンがあります。
 
 {{% alert type="info" %}}
-Use a lower-case "v", except when beginning a sentence or heading.<br />
+文や見出しを始める場合を除き、小文字の "v" を使用します。<br />
 <br />
-Use "Mendix Cloud" before the version, except where the context is clear.
+コンテキストが明確である場合を除き、バージョンの前に "Mendix Cloud" を使用してください。
 {{% /alert %}}
 
 {{% alert type="success" %}}
-These are the main differences between Mendix Cloud v3 and v4.<br />
+これらはMendix Cloud v3とv4の主な違いです。<br />
 <br />
-V4 has much better security than v3.
+V4はv3よりもはるかに優れたセキュリティを備えています。
 {{% /alert %}}
 
-## Mendix Developer Portal {#devportal}
+## Mendix 開発者ポータル {#devportal}
 
-This term appears on the **My Apps** page in Studio Pro and in the **Back to the Developer Portal** button in Studio.
+この用語は、Studio Pro の **My Apps** ページと Studio の **開発者ポータルに戻る** ボタンに表示されます。
 
-The Developer Portal includes what is sometimes referred to as the "Cloud Portal," which is not an official term and is not used in the product UI or documentation (for more information, see [Terminology History](terminology-history)
+開発者ポータルには、「Cloud Portal」と呼ばれることもあります。 これは正式な用語ではなく、製品UIやドキュメントでは使用されません (詳細については) see [Terminology History](terminology-history)
 
 {{% alert type="info" %}}
-This term replaces "Sprintr," "Platform Portal," and "Mendix App Platform." These terms are not to be used in the product UI or documentation. For more information, see [Terminology History](terminology-history).<br />
+この用語は、「Sprinttr」、「プラットフォームポータル」、「Mendixアプリプラットフォーム」に代わるものです。 これらの用語は、製品UIやドキュメントでは使用されません。 詳細については、 [用語履歴](terminology-history) を参照してください。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-## Mendix Marketplace {#marketplace}
+## Mendix市場 {#marketplace}
 
 {{% alert type="info" %}}
-Capitalize in all instances, even when just writing "Marketplace."
+「マーケットプレイス」を書くだけの場合でも、すべてのインスタンスを大文字にします。
 {{% /alert %}}
 
 ## Mendix Platform {#platform}
 
-Describes Mendix as a product and encompasses all the products released by Mendix (as in, Studio Pro, Studio, Developer Portal, etc.).
+Mendixを製品として記述し、Mendixによってリリースされたすべての製品(例えば、Studio Pro、Studio、Developer Portalなど)を含みます。
 
 {{% alert type="info" %}}
-Capitalize "Platform" when used in "Mendix Platform."
+「Mendixプラットフォーム」で使用する場合は、「プラットフォーム」を大文字にしてください。
 {{% /alert %}}
 
 {{% alert type="success" %}}
-This is the power of the Mendix Platform.<br />
+これがMendixプラットフォームの力です。<br />
 <br />
-The platform includes Mendix Studio and our cloud hosting.
+このプラットフォームには、Mendix Studioとクラウドホスティングが含まれています。
 {{% /alert %}}
 
 ## Mendix Studio {#studio}
 
-The rebranded name for the [Web Modeler](terminology-history#wm) as of Mendix 8.
+Mendix 8 の [Web Modeler](terminology-history#wm) のリブランド名。
 
 {{% alert type="info" %}}
-"Studio" can be used where regular repetition is necessary in a doc. However, where possible, "Mendix" should be added to the product name.<br />
+「Studio」は、ドキュメント内で定期的な繰り返しが必要な場合に使用できます。 ただし、可能な場合は、製品名に「Mendix」を追加する必要があります。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ## Mendix Studio Pro {#pro}
 
-The rebranded name for the [Desktop Modeler](terminology-history#dm) as of Mendix 8.
+Mendix 8の [Desktop Modeler](terminology-history#dm) のリブランド名。
 
 {{% alert type="info" %}}
-"Studio Pro" can be used where regular repetition is necessary in a doc. However, where possible, "Mendix" should be added to the product name.<br />
+「Studio Pro」は、ドキュメント内で定期的な繰り返しが必要な場合に使用できます。 ただし、可能な場合は、製品名に「Mendix」を追加する必要があります。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-## Mendix Studios
+## Mendix Studio
 
 {{% alert type="info" %}}
-Where you are describing a feature applicable to both Mendix Studio and Studio Pro, use "Mendix Studio and Studio Pro." However, after you introduce the names of both products once and need to refer to them together again, use "the Mendix Studios."<br />
+Mendix StudioとStudio Proの両方に適用可能な機能を説明している場合は、"Mendix StudioとStudio Pro"を使用してください。 しかし、両方の製品の名前を一度紹介し、再びそれらを一緒に参照する必要がある後、「Mendix Studios」を使用してください。<br />
 <br />
-When you need to use one general product name in a diagram, it is fine to use just "Studios."<br />
+図で一般的な製品名を使用する必要がある場合は、「Studios」だけを使用しても構いません。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
