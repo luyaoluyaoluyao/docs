@@ -2,9 +2,13 @@
 title: "Table (Document Template)"
 parent: "document-templates"
 aliases:
-  - /refguide7/Table+(document+template.html
-  - /refguide7/table-(document-template).html
+  - /refguide8/table-(document-template).html
+  - /refguide8/Table+(document+template.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table-document-template.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -14,7 +18,7 @@ Tables can be used both inside and outside the data view or templategrid widgets
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918134.png)
 
 This table has four rows and three columns. The last row contains a data view with another table.
 
@@ -56,4 +60,4 @@ For details, see [Style](style).
 
 ## 4 Common Properties
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide8/name-property.md" %}}
