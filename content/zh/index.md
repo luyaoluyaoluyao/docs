@@ -1,11 +1,19 @@
 ---
-title: "Mendix 7 How-to's"
-notoc: true
-description: "Step-by-step guides on various Mendix topics that will teach you how to build and customize apps."
+title: "Strategic Partners Guide"
+description: "Documentation for IBM, SAP, and Siemens widgets written and maintained by Mendix"
+tags:
+  - "strategic partners"
+  - "ibm"
+  - "sap"
+  - "siemens"
 ---
 
-Browse the Mendix how-to's to find step-by-step guides that will teach you how to build and customize apps with Mendix.
+## 1 Introduction
 
-The *Mendix How-to's* are divided into the following categories:
+The *Mendix Strategic Partners Guide* provides documentation on widgets written and maintained by Mendix which support integration with IBM, SAP, and Siemens cloud platforms and services.
+
+## 2 Guide Categories
+
+The *Strategic Partners Guide* is divided into the following categories:
 
 {{% category_block %}}
