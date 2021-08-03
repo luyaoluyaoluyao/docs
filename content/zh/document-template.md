@@ -1,71 +1,70 @@
 ---
-title: "Document Template"
-parent: "document-templates"
+title: "文档模板"
+parent: "文档模板"
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
+
+此文档描述文档模板的属性。 如果你想要看到什么样的文档模板以及什么样的部件可以放置在它们上 您可以检查 [文档模板](document-templates) 概览文档。
+
+## 2 外观属性 {#appearance-properties}
+
+### 2.1 页格式
+
+页面格式决定文档模板所针对的页面大小。 例子有A4(竖直)和A5(景观)。 您也可以选择一个自定义页面格式并使用下面 [页面宽度](#width) and [页面高](#height) 的属性。
+
+### 2.2 页面宽度(英寸) {#width}
+
+文档模板所针对的页面宽度。 通过选择页面格式自动设置。 如果您更改它，页面格式将设置为“自定义”。
+
+### 2.3 页面高度 (英寸) {#height}
+
+文档模板所针对的页面高度。 通过选择页面格式自动设置。 如果您更改它，页面格式将设置为“自定义”。
+
+### 2.4 Pixels per Inch (PPI)
+
+像素密度用于根据像素值计算图像的大小。
+
+### 2.5 左/右/顶/底部边距 (英寸)
+
+幅度具体说明纸面边界与纸面内容之间的距离。
+
+### 2.6 在第一页显示页眉/页脚
+
+指示页眉和/或页脚是否也显示在第一页。
 
 {{% alert type="warning" %}}
+您必须使用页面断开小部件来表明您不再在第一个页面上。 无法在生成内容时计算。
+{{% /报警 %}}
 
-This document describes the properties of a document template. If you want to see what document templates are for and what kind of widgets can be placed on them, you can check the [Document Templates](document-templates) overview documentation.
+默认： *True。*
 
-{{% /alert %}}
+### 2.7 启用标题
 
-## Appearance Properties
+指示页面是否有显示在每个页面的页眉(可选的首页除外)。
 
-### Page format
+### 2.8 启用页脚
 
-The page format determines the size of the page you are targeting with the document template. Examples are A4 (portrait) and A5 (landscape). You can also choose a Custom page format and use the properties 'Page width' and 'Page height' below.
+指示页面是否有一个页脚显示在每个页面(可选的第一页除外)。
 
-### Page width (inch)
+## 3 个样式
 
-The width of the page you are targeting with the document template. Automatically set by choosing a page format. If you change it, the page format will be set to 'Custom'.
+欲了解详情，请见 [样式](style)。
 
-### Page height (inch)
+## 4 个公共属性
 
-The height of the page you are targeting with the document template. Automatically set by choosing a page format. If you change it, the page format will be set to 'Custom'.
+### 4.1 名称
 
-### Pixels per inch (PPI)
+文档模板的名称。 您可以通过 App Explorer 更改名称。
 
-The pixel density is used to calculate the size of images based on the pixel value.
+### 4.2 文件
 
-### Margin left/right/top/bottom (inch)
+文档模板文件。
 
-The margins specify the distance between the border of the paper and the contents on all sides.
+## 5 设计属性
 
-### Show header/footer on first page
+### 5.1 画布宽度
 
-Indicates whether the header and/or footer are also shown on the first page.
-
-{{% alert type="warning" %}}
-Note that you must use a page break widget to indicate you're no longer on the first page. This cannot be calculated while generating content.
-{{% /alert %}}
-
-_Default value_: True.
-
-### Enable header
-
-Indicates whether the page has a header that is displayed on each page (except optionally the first).
-
-### Enable footer
-
-Indicates whether the page has a footer that is displayed on each page (except optionally the first).
-
-## Style
-
-See [Style](style).
-
-## Common Properties
-
-### Name
-
-The name of the document template. You can change the name via the project explorer.
-
-### Documentation
-
-Documentation for the document template.
-
-## Designer Properties
-
-### Canvas width
-
-The canvas width determines the width of the canvas on which you are building the document template in the Modeler. This property has no effect on the application whatsoever.
+画布宽度决定了您正在工作室专业版中构建文档模板的画布宽度。 这种财产对任何应用都没有影响。
