@@ -1,30 +1,30 @@
 ---
-title: "WebSockets"
+title: "WebSocket"
 category: "Mendix Runtime"
-description: "A description of how to use websockets in the Mendix Runtime"
+description: "Mendix Runtime で websockets を使用する方法の説明"
 #menu_order: 99
 tags:
-  - "runtime"
+  - "ランタイム:"
   - "web socket"
   - "endpoint"
-  - "java"
+  - "ジャバ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The Mendix Runtime supports registering custom web socket endpoints using the `javax.websocket` API.
+Mendix Runtime は、 `javax.websocket` API を使用してカスタム Web ソケット エンドポイントの登録をサポートします。
 
-All you need to do is to use the method `Core.addWebSocketEndpoint(String path, Endpoint endpoint)` to register an instance of `javax.websocket.Endpoint` to respond to web socket requests on the given path.
+All you need to do is to use the method `Core.addWebSocketEndpoint(String path, Endpoint endpoint)` to register an instance of `javax.websocket.Endpoint` to respond to web socket requests on the given path. クライアントのセッション ID は、 `エンドポイント` の `onOpen` メソッドの `EndpointConfig` から取得できます。
 
 {{% alert type="info" %}}
-As with `Core#addRequestHandler`, adding a web socket end point only happens on the current cluster node. It is therefore a good practice to call it in an **After Startup** microflow.
+`Core#addRequestHandler`と同様に、Webソケットのエンドポイントの追加は現在のクラスタノードでのみ行われます。 したがって、 **起動後** のマイクロフローで呼び出すことをお勧めします。
 {{% /alert %}}
 
-Below is an example of how to register a websocket in your Mendix app.
+以下は、MendixアプリでWebSocketを登録する方法の例です。
 
-## 2 Example
+## 2つの例
 
-A simple implementation of an endpoint is shown below.
+以下に、エンドポイントの簡単な実装を示します。
 
 ```java
 import javax.websocket.CloseReason;
@@ -35,19 +35,25 @@ import javax.websocket.Session;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
+
+import com.mendix.core.Core;
 
 public class TestEndpoint extends Endpoint {
   Set<Session> sessions = new HashSet<>();
 
   @Override
   public void onOpen(Session session, EndpointConfig config) {
+    String sessionId = (String) config.getUserProperties().get("mxSessionId");
+    ISession mxSession = Core.getSessionById(UUID.fromString(sessionId));
+    String username = mxSession.getUserName();
     sessions.add(session);
     session.addMessageHandler(new MessageHandler.Whole<String>() {
       @Override
       public void onMessage(String message) {
         if ("test message".equals(message)) {
           try {
-            session.getBasicRemote().sendText("test response");
+            session.getBasicRemote().sendText("test response:" + username);
             session.close();
           } catch (IOException e) {
             e.printStackTrace();
@@ -71,7 +77,7 @@ public class TestEndpoint extends Endpoint {
 }
 ```
 
-If this endpoint is registered by calling `Core.addWebSocketEndpoint("/my-endpoint", new websockets.TestEndpoint());` then the following functionality is available at `ws://.../my-endpoint`:
+このエンドポイントが `Core.addWebSocketEndpoint("/my-endpoint", new websockets.TestEndpoint());` を呼び出して登録されている場合、次の機能は `ws://.../my-endpoint` で利用できます。
 
-* When a connection is established, the server will send the message `socket opened`
-* If the client sends the message `test message`, the server responds with `test response` and closes the web socket
+* 接続が確立されると、サーバーはメッセージ `を送信します`
+* クライアントがメッセージ `テスト メッセージ`を送信した場合、サーバーは `テスト応答で応答します: USERNAME` でウェブソケットを閉じます。
