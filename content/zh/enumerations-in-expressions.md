@@ -1,12 +1,25 @@
 ---
 title: "表达式的枚举数"
 parent: "表达式"
+menu_order: 170
+tags:
+  - "studio pro"
+  - "表达式"
+  - "枚举数"
+  - "表达式"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/enumerations-in-expressions.pdf)。
+{{% /报警 %}}
 
-枚举被引用了 <modulename>.<enumerationname>.<enumerationvalue>
+## 1 导言
 
-假设一个模块“订单处理”，在该模块中，枚举的“状态”被定义为两个可能的值：“开始”和“已完成”。 要在更改动作中将属性的值设置为“已完成”，请使用以下代码：
+枚举由 `<modulename>引用。<enumerationname>。<enumerationvalue>`。
+
+例如，您有一个名为 *订单处理*的模块， 枚举 *状态* 定义了两个可能的值： *开始* 和 *完成*。
+
+To set the value of an attribute in a change list, object, or variable activity to *completed*, use the following input:
 
 ```java
 已完成
@@ -21,34 +34,66 @@ parent: "表达式"
   OrderProcessing.Status.completed
 ```
 
-## 获取标题
+## 2 getCaption
 
-接受枚举值并返回此值的字幕。 标题是一个可翻译的字符串，这个函数的结果取决于当前的语言。
+`getCaption` 函数需要一个枚举值并返回此值的标题。 *标题* 是一个可翻译的字符串，这个函数的结果取决于当前语言。
 
-### 输入参数
+### 2.1 输入参数
 
-*   枚举值 类型：任何枚举值
+作为输入参数，您可以使用任何枚举的枚举值。
 
-### 产出
+### 2.2 产出
 
-当前语言中枚举值的标题。 类型：字符串
+产出情况见下表：
 
-```java
-getCaption($NewEntity/ TestEnum)
-```
+| 值            | 类型  |
+| ------------ | --- |
+| 当前语言中枚举值的标题。 | 字符串 |
 
-## getKey
+### 2.3 例子
 
-接受枚举值并返回此值的键 (在模型中的名称)。 密钥是枚举值的技术名称，语言是独立的。 还见 [枚举值](enumeration-values)。
-
-### 输入参数
-
-*   枚举值 类型：任何枚举值
-
-### 产出
-
-枚举值的 类型： 字符串
+如果您使用以下输入：
 
 ```java
-getKey($NewEntity/TestEnum)
+getCaption($Customer/成绩)
 ```
+
+输出可以是：
+
+```java
+Gouden
+```
+
+## 3 getKey
+
+`getKey` 函数需要枚举值并返回此值的密钥 (Studio Pro中称为 *Name*)。 密钥是枚举值的技术名称，语言是独立的。 欲了解更多信息，请参阅 [枚举](enumerations)。
+
+### 3.1 输入参数
+
+作为输入参数，您可以使用任何枚举的枚举值。
+
+### 3.2 产出
+
+产出情况见下表：
+
+| 值                | 类型  |
+| ---------------- | --- |
+| 当前语言的枚举值的键值(名称)。 | 字符串 |
+
+### 3.3 示例
+
+如果您使用以下输入：
+
+```java
+getKey($Customer/成绩)
+```
+
+输出可以是：
+
+```java
+金色
+```
+
+## 4 阅读更多
+
+* [枚举数](enumerations)
