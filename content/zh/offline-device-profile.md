@@ -1,13 +1,13 @@
 ---
-title: "Offline Device Profile"
-parent: "navigation-before-72"
-description: "Describes usage of the offline device profile in a Mendix app for Mendix versions 7.0 and 7.1."
+title: "离线设备配置文件"
+parent: "导航前-72"
+description: "描述Mendix 7.0和7.1版本的Mendix 应用程序中离线设备配置文件的使用情况。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+关于Mendix 版本7.2和7.3如何工作的详细情况，见 [导航在7.2和7.3](navigation-in-72-and-73)。 Mendix 版本 7.4 及以上版本，请参阅 [Navigation](navigation)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-As of Mendix 7.0.2, the offline device profile is replaced by the [hybrid phone profile](hybrid-phone-profile). All the settings from the offline device profile are automatically copied to the hybrid phone profile.
+从 Mendix 7.0.2 起，离线设备配置文件被 [混合手机配置文件](hybrid-phone-profile) 所取代。 所有离线设备配置文件的设置都自动复制到混合手机配置文件。
