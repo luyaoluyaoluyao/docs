@@ -1,77 +1,77 @@
 ---
-title: "Navigation List"
-parent: "container-widgets"
+title: "导航列表"
+parent: "容器部件"
 menu_order: 70
 tags:
   - "studio pro"
-  - "navigation list"
-  - "container widget"
-  - "widget"
+  - "导航列表"
+  - "容器部件"
+  - "小部件"
 ---
 
 {{% alert type="warning" %}}
-The navigation list widget is not supported on native mobile pages.
-{{% /alert %}}
+本地移动页面不支持导航列表小部件。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-A navigation list can be used to attach an action to an entire row when a user clicks this row. Such a row is called a navigation list item.
+当用户点击此行时，导航列表可以用来将动作附加到整个行。 此行称为导航列表项目。
 
-For example, clicking one row can open a page, clicking another one can execute a microflow.
+例如，单击一行可以打开页面，单击另一行可以执行微流。
 
-![Navigation List](attachments/container-widgets/navigation-list.png)
+![导航列表](attachments/container-widgets/navigation-list.png)
 
-## 2 Properties
+## 2 属性
 
-An example of navigation list properties is represented in the image below:
+导航列表属性的示例在下面的图像中显示：
 
-{{% image_container width="250" %}}![Navigation List Properties](attachments/container-widgets/navigation-list-properties.png)
+{{% image_container width="250" %}}![导航列表属性](attachments/container-widgets/navigation-list-properties.png)
 {{% /image_container %}}
 
-Navigation list properties consist of the following sections:
+导航列表属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [可见性](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Visibility Section {#visibility}
+### 2.3 可见科 {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Navigation List Item
+## 3 导航列表项
 
-A row in a navigation list is a navigation list item. You can set a separate **On click** event for each row of the navigation list.
+导航列表中的一行是一个导航列表项。 You can set a separate **On click** event for each row of the navigation list.
 
-### 3.1 Navigation List Item Properties
+### 3.1 导航列表项属性
 
-#### 3.1.1 Common Section
+#### 3.1.1 共同部分
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-#### 3.1.2 General Section
+#### 3.1.2 一般部分
 
-In the **General** section, you can set a specific on click event for each navigation list item. An on click event defines what action is performed when a user clicks a row. For more information on on click events, see [On Click Event & Events Section](on-click-event).
+在 **常规** 部分中，您可以设置每个导航列表项的单击事件。 点击事件定义了用户点击行时执行的操作。 关于点击事件的更多信息，见 [点击事件 & 事件部分](on-click-event)
 
 {{% alert type="info" %}}
 
-Microflows set as an on click event for a navigation list item have no **Execution**, **Confirmation**, or **Advanced** microflow settings. For more information on calling a microflow, see [On Click Event & Events Section](on-click-event#call-microflow).
+微流设置为单击导航列表项目的事件，但没有 **执行**， **确认**, 或 **高级** 微流程设置。 关于调用微流程的更多信息，见 [点击事件 & 事件部分](on-click-event#call-microflow)
 
-{{% /alert %}}
+{{% /报警 %}}
 
-#### 3.1.3 Visibility Section
+#### 3.1.3 可见性科
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 4 Read More
+## 4 阅读更多
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [容器部件](容器部件)
+* [页面编辑器中常见的属性](common-widget-properties)
