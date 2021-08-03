@@ -1,88 +1,112 @@
 ---
-title: "Layouts"
-parent: "pages"
+title: "布局"
+parent: "页面资源"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "布局部件"
+  - "布局"
+  - "页面模板"
+  - "页面"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Layouts specify what comes where. Each [page](page) is based on a layout. The layout contains widgets and structures that return on every page based on that layout. For example, it is common to put a menu bar widget in a layout so that the menu is visible on all pages.
+布局指定了什么位置。 每个 [页面](page) 基于一个布局。 布局包含基于该布局的每个页面返回的部件和结构。 例如，在布局中放置菜单栏小部件是常见的，以便菜单在所有页面上都可见。
 
-A layout consists of content and [placeholders](placeholder). The content is everything that should be present in every page that uses the layout, from navigation bars to sign-out buttons. Placeholders are empty areas that later form the canvas for any pages that make use of the layout. The layout content remains the same in every page, but the placeholders cover what is unique to every individual page.
+{{% image_container width="400" %}}
+![](attachments/layout/layout-example.png)
+{{% /image_container %}}
 
-Layouts can be based on other layouts, in which case the generic layout is referred to as the master layout. If a layout has a master layout, it can use the placeholders defined in the master to create a more specialized configuration. If a page is based on this specialized layout, it makes use of the placeholders defined in the new layout, ignoring those of the master layout.
+布局由内容和 [占位符](placeholder) 组成。 内容应该包含在每个页面中使用布局，从导航栏到签出按钮。 占位符是空的区域，后来形成画布使用布局的任何页面。 每个页面的布局内容保持不变，但是占位符覆盖每个页面独有的内容。
 
-![](attachments/16713875/16843991.png)
+布局可以基于其他布局，在这种情况下，通用布局称为主布局。 如果布局有主布局，它可以使用主定义的占位符来创建一个更专业化的配置。 如果一个页面基于这个专门布局， 它使用在新布局中定义的占位符，忽略主布局的占位符。 这个链条可以是必要的长度。 使用一个通用布局作为更具体的数据输入布局的主布局， 反过来，用作专门编辑用户布局的主布局。
 
-This chain can be as long as is necessary, with a generic layout used throughout the project  as a master layout for a more specific data input layout which is, in turn, used as a master layout for a specialized edit user layout.
-
-When opening a new page in the browser, the content found in the layouts is not reloaded if the layout is re-used by the new page. That is, if a user transitions from page A to page B, both of which use layout X, the placeholder content is refreshed, but the layout content is unaffected. This allows for navigation between pages without losing valuable input or performing a costly refresh on elements that do not require one. Example scenarios include a tab container that does not require the user to select the correct tab every time a new page is opened, or a sidebar menu with user input that should not be cleared after every single refresh.
-
-Mendix will intelligently detect if pages share a layout, so no user input is required. This also applies for nested layouts. If two pages have different layouts but those layouts share a common master layout, the sub-layout will reload, but the master layout will remain static.
-
-## 2 Placeholder Management<a name="phm"></a>
+当在浏览器中打开一个新页面时， 如果新页面重新使用布局，在布局中找到的内容不会被重新加载。 也就是说，如果用户从第A页过渡到第B页，两者都使用布局X， 占位符内容已刷新，但布局内容不受影响。 这允许在页面之间进行导航，同时不丢失宝贵的输入或对不需要的元素进行昂贵的刷新。 示例场景包括一个标签容器，不需要用户在每次打开新页面时选择正确的标签页， 或者每次刷新后不应清除用户输入的侧边栏菜单。
 
 {{% alert type="info" %}}
+Mendix 将智能检测页面共享布局，因此不需要用户输入。 这也适用于嵌套布局。 如果两个页面有不同的布局，但这些布局共享一个共同的主布局，子布局将重新加载，但主布局将保持静态状态。
+{{% /报警 %}}
 
-The method for mapping placeholders described in this section was introduced in Mendix 7.9.0. Older versions make use of the placeholder properties described in [6 Page Generation Properties](#pgp).
+## 2 属性
 
-{{% /alert %}}
+下面的图像是布局属性的示例：
 
-A layout contains one or more placeholders. One of these placeholders must be named **Main**, and it can be differentiated from the others by a darker shade of blue. Unlike most other widgets, the name of a placeholder carries a special significance. When a user switches a page from one layout to another, the placeholder names will be used to map the content of the page to the new layout. For every placeholder that has content in the current layout, the Modeler will search for a placeholder with the same name in the new one. As the Main placeholder is mandatory, the user can always be assured that at least some of the page content will be salvaged. Any content found in placeholders not present in the new layout will be moved above the canvas, where it can easily be redistributed over the new placeholders.
+{{% image_container width="250" %}}![布局属性窗格示例](attachments/layout/layout-properties.png)
+{{% /image_container %}}
 
-The placeholder naming scheme also has an impact on [page templates](page-templates). When creating a new page, the template will map its content based on the names of the placeholders in its preview layout. Consequently, a template might describe the content for a placeholder that is not available in the selected layout. To prevent this, a compatible layout is automatically pre-selected when clicking a page template in the create new page dialog. If an incompatible layout is then selected manually, all the content for the missing placeholders will be discarded.
+布局属性由以下部分组成：
 
-As a consequence of this behavior, user experience can be improved significantly if all of a project's layouts adhere to the same or a similar naming scheme. This will ensure layouts can be alternated freely without having to consider the effect on the content of each individual placeholder.
+* [常用的](#common)
+* [设计师](#designer)
+* [A. 概况](#general)
 
-## 3 Common Properties
+### 2.1 共同部分{#common}
 
-{{% snippet file="refguide7/Document+Name+Property.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Documentation+Property.md" %}}
+### 2.2 设计师部分{#designer}
 
-{{% snippet file="refguide7/Document+Class+Property.md" %}}
+#### 2.2.1 画布宽度
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+**画布宽度** 定义页面编辑器中页面的像素宽度。 它纯粹用于编辑目的；此属性对实际应用程序中页面宽度没有影响。
 
-## 4 Designer Properties
+默认值： *800*
 
-{{% snippet file="refguide7/Canvas+Width+Property.md" %}}
+#### 2.2.2 画布高度
 
-{{% snippet file="refguide7/Canvas+Height+Property.md" %}}
+**画布高度** 定义页面编辑器中首选的最小高度值。 它纯粹用于编辑目的；此属性对页面在实际应用程序中的高度没有影响。
 
-## 5 General Properties
+默认值： *600*
 
-### 5.1 Master Layout
+### 2.3 常规属性{#general}
 
-This property specifies the master layout on which the layout is based. If no master layout is specified, the layout contains a single widget (for example, a [scroll container](scroll-container)) that defines the structure of pages based on this layout. If a master layout is specified, this layout fills the gaps defined by the master layout. You can introduce new gaps in this layout by using [placeholders](placeholder).
+#### 2.3.1 平台
 
-### 5.1 Layout Type<a name="layout-type"></a>
+**只能在布局创建时设置平台**。
 
-Every layout has a layout type, which determines the purpose of the layout and how a page using the layout is opened.
+![添加新布局的对话框](attachments/layout/add-layout.png)
 
-| Layout Type         | Description                                                                                                                                                                 |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Responsive**      | Use this layout for pages that will work fine on all types of devices. The [layout grid](layout-grid) and other widgets make it possible to create responsive pages.        |
-| **Tablet specific** | Use this layout for pages on a tablet if the responsive option is not sufficient (for example, if different use cases with different user interfaces have to be supported). |
-| **Phone specific**  | Use this layout for pages on a phone if the responsive option is not sufficient (for example, if different use cases with different user interfaces have to be supported).  |
-| **Modal pop-up**    | Use this layout for pages that should appear as [modal pop-up windows](https://www.wikiwand.com/en/Modal_window).                                                           |
-| **Pop-up**          | Use this layout for pages that should appear as modeless pop-up windows.                                                                                                    |
+平台属性的值是：
 
-## 6 Page Generation Properties<a name="pgp"></a>
+* Web *(默认)* - 这些布局用于将显示在浏览器或混合移动应用程序中的页面
+* 原生——这些布局用于将显示在本机移动应用中的页面
 
-{{% alert type="warning" %}}
+对于现有布局来说，值是只读的。
 
-This section (along with the placeholder properties described below) was removed in Mendix 7.9.0 in favor of name-based placeholder mapping. For a full explanation, see [2 Placeholder Management](#phm).
+#### 2.3.2 主布局
 
-{{% /alert %}}
+**主布局** 指定此布局所基于的布局。 如果没有指定主布局，布局包含单个小部件 (例如) a [滚动容器](scroll-container))，定义基于此布局的页面结构。 如果指定了主布局，此布局将填补主布局定义的空白。 您可以通过使用 [占位符](placeholder) 在这个布局中引入新的空白。
 
-### 6.1 Main Placeholder
+#### 2.3.3 布局类型<a name="layout-type"></a>
 
-This property defines the placeholder in which the Modeler places the page content when generating a page. For example, when you generate an edit page for the edit button of a data grid, the resulting page will contain a data view in the gap of the main placeholder.
+**布局类型**, 决定布局的目的以及如何打开一个使用布局的页面。
 
-### 6.2 Save Button Placeholder
+##### 2.3.3.1 网络布局类型
 
-This property defines the placeholder in which the Modeler places the save button when generating a page. If no save button placeholder is defined, the save button is placed in the data view control bar if possible.
+| 布局类型       | 描述                                                          |
+| ---------- | ----------------------------------------------------------- |
+| **响应性**    | 在所有类型设备上都能正常工作的页面。                                          |
+| **绘图板特定的** | 将显示在平板电脑上的页面，因为响应选项没有在平板电脑上提供一个好的用户界面。                      |
+| **专用电话**   | 在手机上显示页面，因为响应选项没有在手机上提供一个好的用户界面。                            |
+| **弹出模式**   | 显示为 [模式弹出窗口](https://www.wikiwand.com/en/Modal_window) 的页面。 |
+| **弹出窗口**   | 显示为 *的页面* 弹出窗口。                                             |
 
-### 6.3 Cancel Button Placeholder
+##### 2.3.3.2 原生布局类型
 
-This property defines the placeholder in which the Modeler places the cancel button when generating a page. If no save button placeholder is defined, the cancel button is placed in the data view control bar if possible.
+| 布局类型     | 描述                                                            |
+| -------- | ------------------------------------------------------------- |
+| **默认设置** | 可用于所有目的的页面。                                                   |
+| **弹出窗口** | 页面从底部滑入并有一个密切的图标而不是头部中的背面图标。 当默认布局页面打开时，所有弹出页面都会被取消并从历史记录中删除。 |
+
+## 3 个布局部件
+
+布局可以包含以下部件：
+
+*   [布局网格](layout-grid)
+*   [滚动容器](scroll-container)
+*   [占位符](placeholder)
+*   [标题](标题)
+*   [侧边栏开关](sidebar-toggle-button)
+
+占位符、头和侧边栏切换是布局独特的，而布局网格和滚动容器也可以用于页面。
