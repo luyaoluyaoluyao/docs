@@ -1,31 +1,31 @@
 ---
-title: "JSON Schema for Published REST Operation"
+title: "公開されたREST操作のためのJSONスキーマ"
 parent: "published-rest-technical-details"
 menu_order: 20
-description: "Describes the JSON schemas for operation request bodies and operation results"
+description: "操作リクエストボディと操作結果のための JSON スキーマの説明"
 tags:
-  - "published REST"
+  - "公開された REST"
   - "JSON"
-  - "Schema"
-  - "operation"
-  - "request body"
+  - "スキーマ"
+  - "操作"
+  - "本文をリクエスト"
   - "result"
-  - "message definition"
+  - "メッセージの定義"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When you [publish a rest service](published-rest-services), an [OpenApi (Swagger) documentation page](published-rest-services#interactive-documentation) is generated for it. It includes a description of the structure of the messages that the service can receive and return. This structure is described using JSON Schema.
+[残りのサービス](published-rest-services)を公開すると、 [OpenApi (Swagger) ドキュメント ページ](published-rest-services#interactive-documentation) が生成されます。 これは、サービスが受信および返却できるメッセージの構造の説明を含みます。 この構造は JSON スキーマを使用して説明されています。
 
-Operations that have an import or export mapping defined on it will generate such a schema, but only for mappings that are based on [message definitions](message-definitions).
+インポートまたはエクスポートマッピングが定義されている操作は、スキーマを生成します。 しかし、 [メッセージ定義](message-definitions) に基づくマッピングのみ。
 
-The JSON schema is generated based on the rules documented here.
+JSON スキーマは、ここで説明されているルールに基づいて生成されます。
 
-## 2 Definitions
+## 2つの定義
 
-The OpenApi schema contains definitions for body parameters and return types. If a configured import or export mapping is based on a message definition, there will be a definition for it.
+OpenApi スキーマには、ボディパラメータとリターン型の定義が含まれています。 構成されたインポートまたはエクスポートマッピングがメッセージ定義に基づいている場合、その定義が存在します。
 
-### 2.1 Definition of a Message
+### 2.1 メッセージの定義
 
 ```json
 "#definition_name#": { 
@@ -36,36 +36,36 @@ The OpenApi schema contains definitions for body parameters and return types. If
 }
 ```
 
-By default, the definition name is the name of the message definition that the mapping is based on. You can choose your own definition name by setting the _Public name_ of a mapping.
+デフォルトでは、定義名はマッピングが基づいているメッセージ定義の名前です。 マッピングの _Public name_ を設定することで、独自の定義名を選択できます。
 
-### 2.2 Attribute
+### 2.2 属性
 
-The schema of an attribute depends on the attribute type:
+属性のスキーマは属性型によって異なります。
 
-| Attribute type | Attribute schema                                   |
-| -------------- | -------------------------------------------------- |
-| Autonumber     | `{ "type": "integer", "format": "int64" }`         |
-| Binary         | `{ "type": "string", "format": "binary" }`         |
-| Boolean        | `{ "type": "boolean" }`                            |
-| Date and time  | `{ "type": "string", "format": "date-time" }`      |
-| Decimal        | `{ "type": "number" }`                             |
-| Enumeration    | `{ "type": "string", "enum": ["Male", "Female"] }` |
-| Hashed string  | `{ "type": "string" }`                             |
-| Integer        | `{ "type": "integer", "format": "int32" }`         |
-| Long           | `{ "type": "integer", "format": "int64" }`         |
-| String         | `{ "type": "string" }`                             |
+| 属性タイプ      | 属性スキーマ                                             |
+| ---------- | -------------------------------------------------- |
+| Autonumber | `{ "type": "integer", "format": "int64" }`         |
+| バイナリ       | `{ "type": "string", "format": "binary" }`         |
+| Boolean    | `{ "type": "boolean" }`                            |
+| 日付と時刻      | `{ "type": "string", "format": "date-time" }`      |
+| 小数点以下桁数    | `{ "type": "number" }`                             |
+| 列挙型        | `{ "type": "string", "enum": ["Male", "Female"] }` |
+| ハッシュ文字列    | `{ "type": "string" }`                             |
+| 整数         | `{ "type": "integer", "format": "int32" }`         |
+| 長い順        | `{ "type": "integer", "format": "int64" }`         |
+| 文字列        | `{ "type": "string" }`                             |
 
-## 3 JSON Schema for an Operation Request Body
+## オペレーションリクエストボディ用の3つのJSONスキーマ
 
-When the operation has a body parameter, it has a schema. This schema refers to a definition when you have selected an import mapping based on a message definition.
+操作にbodyパラメータがある場合、スキーマがあります。 このスキーマは、メッセージ定義に基づいてインポートマッピングを選択したときに定義を参照します。
 
-If the parameter is an object:
+パラメータがオブジェクトの場合:
 
 ```json
 { "$ref": "#/definitions/#definition_name#"}
 ```
 
-If the parameter is a list:
+パラメータがリストの場合:
 
 ```json
 { 
@@ -74,29 +74,29 @@ If the parameter is a list:
 }
 ```
 
-If there is no import mapping, or the mapping is not based on a message definition:
+インポートマッピングが存在しないか、またはマッピングがメッセージ定義に基づいていない場合:
 
 ```json
 { "type": "file" }
 ```
 
-## 4 JSON Schema for an Operation Result
+## 操作結果のための 4 JSON スキーマ
 
-The result of an operation has a schema, too. The format of this depends on the type of result.
+操作の結果にもスキーマがあります。 この形式は結果の種類によって異なります。
 
-When there is no export mapping or the export mapping is not based on a message definition:
+エクスポートマッピングが存在しないか、エクスポートマッピングがメッセージ定義に基づいていない場合:
 
 ```json
 { "type": "file" }
 ```
 
-When the microflow returns an object:
+microflow がオブジェクトを返す場合:
 
 ```json
 { "$ref": "#/definitions/#definition_name#"}
 ```
 
-When the microflow returns a list:
+マイクロフローがリストを返した場合:
 
 ```json
 { 
@@ -105,15 +105,15 @@ When the microflow returns a list:
 }
 ```
 
-When the microflow returns a primitive, the schema depends on the type:
+マイクロフローがプリミティブを返すと、スキーマは型に依存します。
 
-| Microflow result | Schema                  |
-| ---------------- | ----------------------- |
-| Nothing          | (none)                  |
-| Binary           | `{ "type": "file" }`    |
-| Boolean          | `{ "type": "boolean" }` |
-| Date and time    | `{ "type": "file" }`    |
-| Decimal          | `{ "type": "number" }`  |
-| Enumeration      | `{ "type": "file" }`    |
-| Integer/Long     | `{ "type": "integer" }` |
-| String           | `{ "type": "file" }`    |
+| マイクロフローの結果 | スキーマ                    |
+| ---------- | ----------------------- |
+| なし         | (なし)                    |
+| バイナリ       | `{ "type": "file" }`    |
+| Boolean    | `{ "type": "boolean" }` |
+| 日付と時刻      | `{ "type": "file" }`    |
+| 小数点以下桁数    | `{ "type": "number" }`  |
+| 列挙型        | `{ "type": "file" }`    |
+| 整数         | `{ "type": "integer" }` |
+| 文字列        | `{ "type": "file" }`    |
