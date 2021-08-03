@@ -1,9 +1,6 @@
 ---
 title: "XML Schemas"
 parent: "統合"
-menu_order: 55
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
