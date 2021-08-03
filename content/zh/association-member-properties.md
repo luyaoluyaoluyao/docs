@@ -8,6 +8,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/association-member-properties.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 有两种方法来编辑 [关联](associations) 的属性。 此文档描述了您可以从实体属性中的 **关联** 标签中编辑的属性。 如果您想要编辑 [关联属性](association-properties)中描述的关联， 您可以点击 **编辑** 打开关联属性对话框。
