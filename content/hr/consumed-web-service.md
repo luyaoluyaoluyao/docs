@@ -5,10 +5,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-web-service.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This document describes the properties of an imported web service. For a general overview of imported web services, see [Consumed Web Services](consumed-web-services) overview documentation.
@@ -47,11 +43,9 @@ This part shows all the operations found in the WSDL. You can expand the list an
 Check **Send binary data as attachment (MTOM)** to enable MTOM (_Message Transmission Optimization Mechanism_): a method of efficiently sending binary data to and from Web services. Read more about it at [w3.org](https://www.w3.org/TR/soap12-mtom/).
 
 {{% alert type="warning" %}}
-
 Message optimization will only be applied when you use one or more export mappings to create the request body in the call web service action.
-
 {{% /alert %}}
 
-## 6 Calling consumed web services
+## 6 Calling Consumed Web Services
 
 For details on how to call a consumed web service, see [Call Web Service](call-web-service-action).
