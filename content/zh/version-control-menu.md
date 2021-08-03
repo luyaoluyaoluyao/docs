@@ -1,70 +1,65 @@
 ---
-title: "Version Control Menu"
+title: "版本控制菜单"
 parent: "menus"
-description: "Describes the Project Menu in Studio Pro."
+description: "在Studio Pro中描述版本控制菜单。"
 menu_order: 40
 tags:
   - "Studio Pro"
-  - "project menu"
-  - "top bar"
+  - "版本控制"
+  - "顶栏"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/version-control-menu.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+在 **版本控制** 菜单中，您可以查看和/或操纵连接到版本控制的设置。 例如，您可以查看当前开发线的历史。
 
-In the **Version Control** menu you can view and/or manipulate settings that are connected to the version control. For example, you can view the history of the current development line.
+![版本控制菜单](attachments/version-control-menu/version-control-menu.png)
 
-{{% image_container width="300" %}}![Version Control Menu](attachments/version-control-menu/version-control-menu.png)
-{{% /image_container %}}
+## 2 次更新
 
-## 2 Update
+**更新** 选项更新本地应用程序到对版本控制服务器的最新版本。
 
-The **Update** option updates the local app to the latest revision that was committed to the version control server.
+## 3 提交
 
-## 3 Commit
+**提交** 选项提交了所有本地对应用程序所作的更改，这些更改是自上次提交到版本控制服务器后发生的。 欲了解更多信息，请参阅 [提交](commit-dialog)。
 
-The **Commit** option commits all local changes made to the app since the previous commit to the version control server. For more information, see [Commit](commit-dialog).
+## 4 在磁盘上显示更改
 
-## 4 Show Changes on Disk
+**在磁盘上显示更改** 打开一个对话框，显示自上次提交以来磁盘上的哪些文件已被更改。
 
-**Show Changes on Disk** opens a dialog that shows which files on disk have been changed since the last commit.
+## 5 次历史
 
-## 5 History
+**历史** 选项显示应用程序已承诺的修订历史。 关于 **历史**的更多信息，见 [History](history-dialog)。
 
-The **History** option shows the history of committed revisions of the app. For more information on what is displayed in **History**, see [History](history-dialog).
+## 从版本控制服务器下载
 
-## 6 Download from Version Control Server
+**从 Version Control Server** 选项下载一个应用程序从团队服务器或另一个私人服务器。 这就创建了开发应用的本地工作副本。 更多信息显示在 **从版本控制服务器下载** 对话框中的设置。 查看 [从版本控制服务器下载](download-from-version-control-dialog)。
 
-The **Download from Version Control Server** option downloads an app from the Team Server or another SVN server. This creates a local working copy of the app for development. For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
+## 7上传到版本控制服务器
 
-## 7 Upload to Version Control Server
+**上传到版本控制服务器** 选项将本地应用程序上传到一个新的或现有的团队服务器仓库， 或到另一个私人服务器。 只有当应用程序尚未控制版本时才有可能。 关于在 **上传到版本控制服务器** 对话框中显示哪些设置的更多信息 查看 [上传到版本控制服务器](upload-to-version-control-dialog)。
 
-The **Upload to Version Control Server** option uploads a local app to a new or existing Team Server repository, or to another SVN server. This is only possible if the app is not yet version controlled. For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
+## 8 管理分支行
 
-## 8 Manage Branch Lines
+**管理分支行** 选项允许您管理版本控制服务器上的分支行，这些分支行可以用来与主行分开开发功能。 关于分支行管理员和创建新分支行的更多信息。 查看 [分支行管理器](branch-line-manager-dialog) 和 [创建分支行](create-branch-line-dialog)。
 
-The **Manage Branch Lines** option allows you to manage branch lines on the version control server that can be used to develop functionality separately from the main line. For more information on the Branch Line Manager and creating a new branch line, see [Branch Line Manager](branch-line-manager-dialog) and [Create Branch Line](create-branch-line-dialog).
+## 9 合并这里的更改
 
-## 9 Merge Changes Here
+**在这里合并** 选项允许您将在另一个开发行中进行的更改合并到目前在 Studio Pro中打开的开发行中。
 
-The **Merge Changes Here** option allows you to merge changes that were committed in another development line to the development line that is currently opened in Studio Pro.
+## 10 次反向合并更改
 
-## 10 Reverse Merge Changes
+**反向合并** 选项允许本地对版本控制仓库进行回滚更改。 然后可以将这些地方变化作为新的修订来进行。
 
-The **Reverse Merge Changes** option allows locally rolling back changes that were committed to the version control repository. These local changes can then be committed as a new revision.
+## 11 还原所有更改
 
-## 11 Revert All Changes {#revert-all}
+**还原所有更改** 选项允许回滚所有本地更改。 在应用程序和磁盘上的文件中，自上次提交以来已经引入了这个程序。
 
-The **Revert All Changes** option allows rolling back all local changes, both in the project and in files on disk, that have been introduced since the last commit.
+## 12 添加数据快照
 
-## 12 Add Snapshot of Data
+**添加数据快照** 选项可以创建一个内置数据库的快照，并将其添加到版本控制存储库。 这对于将测试数据添加到您的应用或用于演示目的特别有用。
 
-The **Add Snapshot of Data** option creates a snapshot of the built-in database and adds that to the version control repository. This is especially useful for adding test data to your app or for demo purposes.
-
-## 13 Read More
+## 13 阅读更多
 
 * [Studio Pro Overview](studio-pro-overview)
-* [Version Control](version-control)
+* [版本控制](version-control)
