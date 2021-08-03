@@ -1,44 +1,44 @@
 ---
-title: "Common Widgets"
-parent: "pages"
+title: "常见小部件"
+parent: "页面"
 menu_order: 20
 tags:
   - "studio pro"
-  - "common widgets"
-  - "widget"
+  - "常见小部件"
+  - "小部件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Common widgets category contain widgets that are commonly used. This category contains the following widgets:
+常见小部件类别包含通常使用的小部件。 此类别包含以下部件：
 
 
-*  [Text](text) – displays a text that can contain parameters:
+*  [文本](text) - 显示一个可以包含参数的文本：
 
     ![](attachments/common-widgets/text-widget-example.png)
 
-*  [Image](image) – displays static image:
+*  [图像](image) - 显示静态图像：
 
     ![](attachments/common-widgets/image-design-mode-example.png)
 
-* [Label](label) – displays static text (the functionality of this widget is outdated, we recommend using the label property of [input widgets](input-widgets) or a text widget instead)
+* [标签](label) - 显示静态文本(这个部件的功能已经过时) 我们建议使用 [输入小部件的标签属性](input-widgets) 或文本小部件)
 
-*  [Snippet Call](snippet-call) – allows you to use a snippet on another snippet, a page, or a layout
+*  [片段调用](snippet-call) - 允许您在另一个片段上使用片段、 页面或布局
 
     ![](attachments/common-widgets/snippet-call-design-mode-example.png)
 
-*  [Page Title](page-title) – displays page title set in [page properties](page-properties#title)
+*  [页面标题](page-title) - 在 [页面属性中显示页面标题](page-properties#title)
 
     ![](attachments/common-widgets/page-title-design-properties-example.png)
 
-## 2 Performing Basic Functions
+## 2 执行基本函数
 
-{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performancing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
+* [页](page)
 
-* [Pages](pages)
+* [页 次](页面)
 
   
