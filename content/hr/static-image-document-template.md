@@ -1,30 +1,43 @@
 ---
 title: "Static Image (Document Template)"
 parent: "document-templates"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Static+Image+(document+template).html
-  - /refguide7/static-image-(document-template).html
+  - /refguide8/Static+Image+(document+template).html
+  - /refguide8/static-image-(document-template).html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/static-image-document-template.pdf).
+{{% /alert %}}
 
-A static image shows a predefined image. It can be put either in- or outside a data view or templategrid.
+## 1 Introduction
 
-![](attachments/819203/918133.png) A static image inside a table cell.
+A static image shows a predefined image. It can be put either inside or outside a data view or template grid.
 
-## Appearance Properties
+{{% alert type="info" %}}
 
-### Image
+![](attachments/document-templates/918133.png)
+
+A static image inside a table cell.
+
+{{% /alert %}}
+
+## 2 Appearance Properties
+
+### 2.1 Image
 
 This property defines the image that will appear in the document.
 
-### Width
+### 2.2 Width
 
 The width defines the width of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
 
-### Height
+### 2.3 Height
 
 The height defines the height of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
 
-## Common Properties
+## 3 Common Properties
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide8/name-property.md" %}}
