@@ -1,13 +1,13 @@
 ---
-title: "Action Button"
-parent: "button-widgets"
+title: "アクションボタン"
+parent: "ボタン-ウィジェット"
 aliases:
   - /refguide7/link-button.html
 ---
 
-An action button can perform various actions such as calling a microflow or nanoflow or opening a page.
+アクション ボタンは、マイクロフローや nanoflow を呼び出したり、ページを開いたりするなど、さまざまなアクションを実行できます。
 
-## Button properties
+## ボタンのプロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -19,13 +19,13 @@ An action button can perform various actions such as calling a microflow or nano
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-### Disable during action (only for microflow actions)
+### アクション中に無効 (マイクロフローアクションの場合のみ)
 
-Disables the action button until the action is completed or failed.
+アクションが完了または失敗するまで、アクションボタンを無効にします。
 
-_Default value_ : false.
+_デフォルト値_ : false.
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -35,11 +35,11 @@ _Default value_ : false.
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Events properties
+## イベントのプロパティ
 
 {{% snippet file="refguide7/On+Click+Event+Action.md" %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
