@@ -1,40 +1,40 @@
 ---
-title: "Configure a Navigation Bar"
-description: "This how-to describes the process of configuring a navigation bar in Mendix Studio."
+title: "ナビゲーションバーの設定"
+description: "この方法では、Mendix Studio でナビゲーション バーを構成するプロセスを説明します。"
 menu_order: 15
 tags:
-  - "studio"
+  - "スタジオ"
   - "navigation"
-  - "how to"
-  - "navigation bar"
+  - "どうやって?"
+  - "ナビゲーションバー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how to configure a navigation bar for your app such as creating menu items and sub-items.
+この方法では、メニュー項目やサブ項目などのアプリケーションのナビゲーションバーを設定する方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Setting a page as home page
-* Create new menu bar items and sub-items
+* ページをホームページとして設定する
+* 新しいメニューバーアイテムとサブアイテムを作成
 
-This how-to describes the following use case:
+この方法では、次のようなユースケースを説明します。
 
-You would like to configure a menu bar for your app.
+アプリのメニューバーを設定します。
 
-In Studio, the navigation bar is build in most page templates and is available on pages either as a sidebar or top bar. The configured menu bar will look the following way:
+Studio では、ナビゲーションバーはほとんどのページテンプレートで構築され、ページ上でサイドバーまたはトップバーとして使用できます。 設定されたメニューバーは次のようになります:
 
-![Configured Menu](attachments/navigation-how-to-configure/navigation-previewed.png)
+![設定されたメニュー](attachments/navigation-how-to-configure/navigation-previewed.png)
 
-Currently you have a page called **Home_web** that is set as a home page by default. Your navigation document currently looks the following way:
+現在、デフォルトでホームページとして設定されている **Home_web** というページがあります。 現在のナビゲーションドキュメントは次のようになります:
 
-![Navigation Default](attachments/navigation-how-to-configure/navigation-default.png)
+![ナビゲーション デフォルト](attachments/navigation-how-to-configure/navigation-default.png)
 
-You have several pages that you would like to add to the navigation:
+ナビゲーションに追加したい複数のページがあります。
 
-* **Employees** – a page that lists all employees in your company and should be a home page
+* **Employees** - 会社のすべての従業員を一覧表示し、ホームページにする必要があります。
 
-* **New_Employee** – a page for creating a new employee
+* **新規_従業員** - 新規従業員を作成するためのページ
 
 * **Job_Details** – contains a list with such details as employee's position, department, income; you would like to keep this page together with other two pages listed below under one menu item called  **Employee_Details**
 
@@ -42,123 +42,123 @@ You have several pages that you would like to add to the navigation:
 
 * **Documents** – contains a list with employee files, such as employment contract, medical insurance; should be a menu sub-item of the **Employee_Details** menu item
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with navigation document terms. For more information, see [Navigation Document](/studio8/navigation).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* ナビゲーション文書の用語に慣れてください。 詳細については、 [ナビゲーションドキュメント](/studio8/navigation) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
-## 3 Creating Menu Items and Sub-Items
+## 3 メニュー項目とサブ項目を作成する
 
-### 3.1 Setting the Employees Page as the Home Page {#employees-page}
+### 3.1 従業員ページをホームページとして設定する {#employees-page}
 
-Currently the **Home_web** page is set as the home page for your app. However, you would like to set the **Employees** page as the home page instead. Do the following:
+現在、 **Home_web** ページがあなたのアプリのホームページとして設定されています。 ただし、 **Employees** ページをホームページとして設定する必要があります。 次の操作を行います:
 
-1. Click the **Navigation Document** icon in the left menu bar.
+1. 左のメニューバーの **ナビゲーション ドキュメント** アイコンをクリックします。
 
-2. Select the **Home** menu item:
+2. **ホーム** のメニュー アイテムを選択します:
 
-    ![Default Navigation](attachments/navigation-how-to-configure/navigation-default.png)
+    ![デフォルトのナビゲーション](attachments/navigation-how-to-configure/navigation-default.png)
 
-3. Open its properties. The property **Set as Homepage** is enabled by default for the **Home** menu item. You need to change the page that is currently selected in properties for it. Do the following:
+3. プロパティを開きます。 プロパティ **ホームページとして設定** は **ホーム** メニューアイテムでデフォルトで有効になっています。 プロパティで現在選択されているページを変更する必要があります。 次の操作を行います:
 
-    1.  Click the **Page** property to change the page that is currently set as home page:
+    1.  **ページ** プロパティをクリックして、現在ホームページとして設定されているページを変更します。
 
-        ![Home Page Properties](attachments/navigation-how-to-configure/home-page-properties.png)
+        ![ホームページのプロパティ](attachments/navigation-how-to-configure/home-page-properties.png)
 
-    3. In the **Select Page** dialog box, choose **Employees** and click **Select**.
+    3. **ページの選択** ダイアログボックスで、 **Employee** を選択し、 **Select** をクリックします。
 
-        ![Select Page Dialog Box](attachments/navigation-how-to-configure/select-page-dialog.png)
+        ![ページダイアログボックスを選択](attachments/navigation-how-to-configure/select-page-dialog.png)
 
-You have changed the page that was selected as the home page by default and set the **Employees** page as the new home page for your app.
+デフォルトでホームページとして選択されたページを変更し、 **従業員** ページをアプリの新しいホームページとして設定しました。
 
-### 3.2 Creating Menu Item for the New Employee Page
+### 3.2 新規従業員ページのメニューアイテムの作成
 
-The **New_Employee** page contains a form with the details of the new employee, this means that it contains a data view that expects an *Employee* object. Thus, when creating a menu item for it, you need to pass this object.
+The **New_Employee** page contains a form with the details of the new employee, this means that it contains a data view that expects an *Employee* object. したがって、メニュー項目を作成する場合は、このオブジェクトを渡す必要があります。
 
-To create the menu item for the **New_Employee** page, do the following:
+**新規_従業員** ページのメニュー項目を作成するには、次の操作を行います。
 
-1. Click a plus at the bottom of the navigation tree to create a menu item:
+1. ナビゲーション ツリーの下部にあるプラスをクリックして、メニュー アイテムを作成します:
 
     {{% image_container width="350" %}}![Adding Menu Item](attachments/navigation-how-to-configure/adding-menu-item.png){{% /image_container %}}
 
-2. Open the new menu item properties and do the following:
+2. 新しいメニュー アイテムのプロパティを開き、次の操作を行います:
 
-    1.  Set the **On Click Action** to **Page**.
+    1.  **on Click Action** を **Page** に設定します。
 
-    2. Toggle the **Create Object** option to pass the *Employee* object to the page.
+    2. **Create Object** オプションを切り替えて、 *Employee* オブジェクトをページに渡します。
 
-    3. Click the **Entity** property to set the needed entity.
+    3. 必要なエンティティを設定するには、 **Entity** プロパティをクリックします。
 
-        ![Create Object](attachments/navigation-how-to-configure/create-object.png)
+        ![オブジェクトを作成](attachments/navigation-how-to-configure/create-object.png)
 
-    4. In the **Select Entity** dialog box, choose **Employee** and click **Select**.
+    4. **図形の選択** ダイアログボックスで、 **Employee** を選択し、 **Select** をクリックします。
 
-    5. Click the **Page** property.
+    5. **ページ** プロパティをクリックします。
 
-    6. In the **Select Page** dialog box, choose **New_Employee** page and click **Select**:
+    6. **ページの選択** ダイアログボックスで、 **新規_従業員** ページを選択し、 **** を選択:
 
-         ![Select New Employee Page](attachments/navigation-how-to-configure/select-new-employee-page.png)
+         ![新しい従業員ページを選択](attachments/navigation-how-to-configure/select-new-employee-page.png)
 
-    7. In the **Caption** property, delete the *Navigation item* caption and type in *New Employee*.
+    7. **図表番号** プロパティで、 *ナビゲーション項目* 図表番号を削除し、 *新規従業員* と入力します。
 
-    8. Click the **Icon** property to set the icon for the menu item.
+    8. **アイコン** プロパティをクリックして、メニュー項目のアイコンを設定します。
 
-    9. In the **Select icon** dialog box, search for the *plus* icon and click **Select**:
+    9. **アイコンの選択** ダイアログボックスで、 *+* アイコンを検索し、 **Select**:
 
-         ![Select Plus Icon](attachments/navigation-how-to-configure/plus-icon.png)
+         ![プラスアイコンを選択](attachments/navigation-how-to-configure/plus-icon.png)
 
-Good job! You have added a menu item for the **New Employee** page to your navigation:
+よくできました！ ナビゲーションに **新規従業員** ページのメニュー アイテムを追加しました:
 
-![New Menu Item Created](attachments/navigation-how-to-configure/new-menu-item-created.png)
+![新しいメニューアイテムが作成されました](attachments/navigation-how-to-configure/new-menu-item-created.png)
 
-Click **Preview** in the top-right corner to [preview your app](/studio8/publishing-app) and test how the navigation menu looks like: ![Previewed Menu Items](attachments/navigation-how-to-configure/previewed-menu-items.png)
+右上の **プレビュー** をクリックして、 [アプリをプレビュー](/studio8/publishing-app) し、ナビゲーションメニューがどのように見えるかをテストします。 ![プレビューしたメニュー項目](attachments/navigation-how-to-configure/previewed-menu-items.png)
 
-### 3.3 Create a Menu Item for the Employee_Details Page and Configuring Its Sub-Items
+### 3.3 Employee_Details ページのメニュー項目を作成し、そのサブ項目を設定する
 
 You would like to place **Job_Details**, **Personal_Info**, and **Documents** pages under one menu-item named **Employee Details**, which means that they will be opened by menu sub-items.
 
-First, you need to create the menu item that will encompass three menu sub-items. Do the following:
+まず、3つのメニューサブアイテムを含むメニューアイテムを作成する必要があります。 次の操作を行います:
 
-1. Click a plus at the bottom of the navigation tree to create a menu item.
+1. ナビゲーションツリーの下部にあるプラスをクリックしてメニュー項目を作成します。
 
-2. Open the new menu item properties and do the following:
+2. 新しいメニュー アイテムのプロパティを開き、次の操作を行います:
 
-    1. In the **Caption** property, delete the *Navigation item* caption and type in *Employee Details*.
-    2. Click the **Icon** property to set the icon for the menu item.
-    3. In the **Select icon** dialog box, search for the *user* icon and click **Select**.
+    1. **図表番号** プロパティで、 *ナビゲーション項目* 図表番号を削除し、 *従業員の詳細* を入力します。
+    2. **アイコン** プロパティをクリックして、メニュー項目のアイコンを設定します。
+    3. **アイコンの選択** ダイアログボックスで、 *ユーザー* アイコンを検索し、 **選択** をクリックします。
 
-3. Click a plus *next to* the **Employee Details** menu item to create a sub-item for it:
+3. *の横の* **従業員の詳細** メニュー項目の横にある format@@4 をクリックして、サブ項目を作成します。
 
-    ![Creating Menu Sub-Item](attachments/navigation-how-to-configure/creating-menu-sub-item.png)
+    ![メニューサブ項目の作成](attachments/navigation-how-to-configure/creating-menu-sub-item.png)
 
-4. Open its properties and do the following:
+4. プロパティを開き、次の操作を行います。
 
-    1. Set the **On Click Action** to **Page**.
+    1. **on Click Action** を **Page** に設定します。
 
-    2. Click the **Page** property.
+    2. **ページ** プロパティをクリックします。
 
-    3. In the **Select Page** dialog box, choose **Job_Details** page and click **Select**.
+    3. **ページの選択** ダイアログボックスで、 **Job_Details** ページを選択し、 **Select** をクリックします。
 
-    4. In the **Caption** property, delete the *Navigation item* caption and type in *Job Details*:
+    4. **図表番号** プロパティで、 *ナビゲーション項目* 図表番号を削除し、 *ジョブ詳細* を入力します。
 
-        ![Properties of Job Details Menu Sub-Item](attachments/navigation-how-to-configure/job-details-menu-item-properties.png)
+        ![ジョブ詳細のプロパティ メニュー サブアイテム](attachments/navigation-how-to-configure/job-details-menu-item-properties.png)
 
-    5. Repeat steps 1-4 to create a menu sub-item to open the **Personal_Info** page and name this sub-item *Personal Info*.
+    5. ステップ1-4を繰り返し、メニューサブ項目を作成して **Personal_Info** ページを開き、このサブ項目 *個人情報*と名付けます。
 
-    6. Repeat steps 1-4 to create a menu sub-item to open the **Documents** page and name this sub-item *Documents*.
+    6. 手順 1-4 を繰り返して、メニュー サブ項目を作成し、 **ドキュメント** ページを開き、このサブ項目に *ドキュメント* という名前を付けます。
 
-    7. The order of sub-items looks the following way now: **Documents**, **Personal Info**, **Job Details**. Drag and drop them to rearrange the order in the following way: **Job Details**, **Personal Info**, **Documents**.
+    7. サブアイテムの順序は次のようになります: **ドキュメント**, **個人情報**, **作業詳細**. Drag and drop them to rearrange the order in the following way: **Job Details**, **Personal Info**, **Documents**.
 
-You have configured the sub-menu items for the **Employee Details** menu item.
+**従業員の詳細** メニューアイテムのサブメニューアイテムを構成していること。
 
-Congratulations! You created and configured navigation for your app:
+おめでとうございます アプリのナビゲーションを作成しました：
 
-![Configured Navigation](attachments/navigation-how-to-configure/configured-navigation.png)
+![ナビゲーションの設定](attachments/navigation-how-to-configure/configured-navigation.png)
 
-[Preview your app](/studio8/publishing-app) to see how the navigation menu is displayed:
+[アプリをプレビューする](/studio8/publishing-app) ナビゲーションメニューがどのように表示されるかを確認するには:
 
-![Previewed Navigation](attachments/navigation-how-to-configure/navigation-previewed.png)
+![プレビューナビゲーション](attachments/navigation-how-to-configure/navigation-previewed.png)
 
