@@ -1,55 +1,49 @@
 ---
-title: "分支行管理器"
-parent: "版本控制-菜单"
-menu_order: 80
-tags:
-  - "studio pro"
-  - "管理分支行"
-  - "分支行管理器"
+title: "分支行管理对话框"
+parent: "对话框"
 ---
 
 ## 1 导言
 
-**分支行管理器** 用于管理 [分支行](version-control#branches) 存储在版本控制服务器上的应用程序。 SVN 和 Git 版本控制的对话框看起来相同，只是一些小的差异：
-
-*  SVN对话框：
-
-    ![SVN 分支行管理器](attachments/version-control-menu/branch-line-manager.png)
-
-*  Git的对话框：
-
-    ![Git 分支行管理器](attachments/version-control-menu/git-branch-line-manager.png)
-
-要查看 **分支行管理器** 对话框，打开 **版本控制** > **管理分支行**。
+使用此对话框来创建和删除存储在版本控制服务器上的应用程序的 [分支行](version-control#branch-line)。
 
 分界线允许独立于其他发展线的发展。 创建分支线有两个主要原因：
 
-* 在正在生产中的应用程序版本上进行维护开发。 您可以在主行继续开发，同时修复分支行中的问题。
-* 开始开发一个非常庞大的功能，需要一天以上的时间。 通过在分支行中做到这一点，您可以在不扰乱主行中的其他发展的情况下进行半实现功能(甚至可能有错误)。
+* 在您正在生产的应用程序版本上的分支里进行维护开发， 同时继续在主线发展
+* 开始开发一个非常庞大的功能，需要一天以上的时间才能在分支线上发展。 不要扰乱主线上的其他发展
 
 ## 2 个位置
 
-使用此设置选择您应用存储的位置。 这可以是 [团队服务器](#team-server-app) 或 [私有的 SVN 或 Git 仓库](#byo-server-app)。
+使用此设置选择您应用存储的位置。 这可以是团队服务器，也可以是另一个SVN服务器。
 
-{{% alert type="warning" %}}
-此选项仅在 [首选项](preferences-dialog) 启用私有的 SVN 或 Git 服务器时有效。
+### 2.1 Mendix 团队服务器
+
+选择您想要管理分支行的团队服务器应用程序。 如果您有一个应用程序在桌面模式下打开，它将被自动选择。 然而，您也可以管理分支行，而不需要先打开一个应用，在这种情况下不会选择任何应用程序。
+
+欲了解更多信息，请访问 [团队服务器](team-server)。
+
+### 2.2 其他SVN服务器
+
+在 **SVN 仓库地址** 字段中 输入您想要管理的应用程序的地址并单击 **Connect** 从资源库中加载可用分支。
+
+{{% alert type="info" %}}
+
+此选项仅在 [首选项](preferences-dialog#enabled) 对话框中启用对其他 SVN 服务器的支持时才可用。
+
 {{% /报警 %}}
 
-### 2.1 团队服务器应用 {#team-server-app}
+## 3 正在创建分支行
 
-选择您想要管理分支行的团队服务器应用程序。 如果您在Studio Pro中打开了一个应用程序，它将被自动选择。 然而，您也可以管理分支行，而不需要先打开一个应用，在这种情况下不会选择任何应用程序。
+您可以通过单击分支行列表上面的 **新的** 来创建一个新的分支行。 这将显示一个新的对话框，您可以在其中指定新分支的属性。
 
-关于Mendix Team Server的更多信息，请参阅 [Team Server](/developerportal/collaborate/team-server)。
+欲了解更多信息，请参阅 [Create Branch Line Dialog](create-branch-line-dialog)。
 
-### 2.2 带给您自己的 (BYO) SVN 或 Git 服务器应用程序 {#byo-server-app}
+## 4 删除分支行
 
-在 **应用仓库地址** 字段中 输入您想要管理的应用程序的地址并单击 **Connect** 从资源库中加载可用分支。
+您可以通过选择现有分支行删除，然后单击 **删除**。
 
-## 3 管理分支行
+{{% alert type="warning" %}}
 
-在 **分支行管理器**，您可以创建和删除分支行，并启用和禁用应用程序的 Mendix Studio 。 关于如何执行这些行动的更多信息 查看 [管理工作室发展线](collaborative-development#managing-studio) 和 [管理发展线](collaborative-development#managing-branches) 部分在 *合作发展*
+一旦删除分支行，操作无法撤消。
 
-## 4 阅读更多
-
-* [版本控制](version-control)
-* [合作发展](collaborative-development)
+{{% /报警 %}}
