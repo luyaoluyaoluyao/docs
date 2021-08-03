@@ -1,21 +1,29 @@
 ---
 title: "Row (Document Template)"
 parent: "table-document-template"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Row+(document+template).html
-  - /refguide7/row-(document-template).html
+  - /refguide8/row-(document-template).html
+  - /refguide8/Row+(document+template).html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/row-document-template.pdf).
+{{% /alert %}}
+
+## 1 Introduction
 
 Rows are part of a table. They contain cells which in turn can contain other widgets.
 
-## Components
+## 2 Components
 
-### Cell
+### 2.1 Cell
 
-A cell of a row. See [Cell (document template)](cell-document-template)
+A cell of a row. For more information, see [Cell (Document Template)](cell-document-template).
 
-## Appearance Properties
+## 3 Appearance Properties
 
-### Condition for visible.
+### 3.1 Condition for Visible
 
-The condition for visible, as the name suggests, this property allows you to set a condition on which the row is visible to the end user. These conditions can be enumeration or boolean attributes of the entity of the data view.
+The condition for visible, as the name suggests, this property allows you to set a condition on which the row is visible to the end-user. These conditions can be enumeration or Boolean attributes of the entity of the data view.
