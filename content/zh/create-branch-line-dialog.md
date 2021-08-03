@@ -1,80 +1,66 @@
 ---
-title: "Create Branch Line Dialog"
-parent: "dialogs"
+title: "创建分支行"
+parent: "分支行管理器对话框"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "创建分支线"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Use this dialog box to create a new [branch line](version-control) in your application.
+使用 **创建分支行** 对话框来创建新的 [分支行](version-control#branches) 通过 **分支行管理器**
 
-![](attachments/create-branch-line-dialog/create-branch-line-dialog.png)
+![](attachments/version-control-menu/create-branch-line.png)
 
-A branch line allows independent development from other development lines. There are two main reasons for creating a branch line:
+要查看 **创建分支行** 对话框，请执行以下操作：
 
-* To do maintenance development in the branch line on a version of your app that is running in production, while still keeping on developing in the main line
-* To start developing a very large feature that will take more than a day to develop in the branch line, without disturbing other development in the main line
+1. 打开 **版本控制** > **管理分支行**。
+2. 在 **分支行管理器**，点击 **新**。
 
-To open the **Create Branch Line** dialog box, go to **Project > More Versioning > Manage Branch Lines**, and click **New** in the **Branch Lines Manager** dialog box.
+**创建分支行** 对话框已显示。
 
-## 2 Create Branch From
+关于如何管理分支线的更多信息 查看 [管理开发线](collaborative-development#managing-branches) 部分在 *合作发展* 和 [分支行管理器](branch-line-manager-dialog)。 关于版本控制的信息，请参阅 [版本控制](version-control)。
 
-**Create branch from** allows you to choose where you want to create the branch line from.  You can choose one of the following options:
+## 2 从创建分支
 
-* **Main line** – generally if you want to develop a large feature independently of the main line
-* **Branch line** – if you want to create a branch line from another branch line
-* **Tagged version** – probably if you are doing maintenance on a deployed version
+**从** 创建分支，允许您选择您想要创建分支的开发线。 您可以选择以下选项之一：
+
+* <a name="main-line"></a>**主行** - 通常你想要选择 *主行* 如果你想要开发一个独立于主行的大功能
+* <a name="branch-line"></a>**分支行** - 允许您从另一个分支线创建分支线
+* <a name="tagged-version"></a>**标记的版本** - 如果你正在对部署的版本进行维护，你可能想要选择一个 *标记的版本*
+
+## 3 修订版
+
+此设置仅在您选择 [主行](#main-line) 或 [分支行](#branch-line) 在 **从** 创建分支时有效。
+
+选择您想要创建分支行的主要行或分支行的修订内容。 您常常想选择最新版本。
+
+## 4 分支行
+
+此设置只有当您在 **从** 中选择 [分支行](#branch-line) 时才可用。
+
+选择你想要创建另一个分支行的分支行。 我们建议您只从主行创建分支线，但在某些情况下，分支线可能有用。
+
+## 5 个标记版本
+
+此设置仅在您选择 [标签版本](#tagged-version) **从** 创建分支时有效。
+
+选择您想要创建分支行的标签版本。 每次创建一个部署归档标签时，您都可以随时引用这个版本的应用程序。
+
+## 6 分支名称
+
+输入新分支行的名称。
 
 {{% alert type="warning" %}}
+分支名称不能包含特殊字符 (例如， `@`, `$`, `#`).
+{{% /报警 %}}
 
-We do not recommend you to use the **Branch line** option unless you have good reasons.
+## 7 现有分支行
 
-{{% /alert %}}
+由于分支行名必须是唯一的，此选项显示了现有分支行数。 这样你不会意外地创建一个具有相同名称的分支线。
 
-## 3 Revision
+## 8 阅读更多
 
-For the **Revision** field, click **Select** to select from which revision of the main line you want to create a branch line. Often, you want to choose the most recent version. You then develop some functionality in the branch line and merge it back to the main line when you are done.
-
-{{% alert type="info" %}}
-
-This setting is only available when you select **Main line** or **Branch line** in the **Create branch from** field.
-
-{{% /alert %}}
-
-## 4 Branch Line
-
-In the **Branch line** drop-down list, select from which branch line you want to create another branch line.
-
-{{% alert type="info" %}}
-
-This setting is only available when you select **Branch line** in the **Create branch from** field.
-
-{{% /alert %}}
-
-## 5 Tagged Version
-
-In the **Tagged version** drop-down list, select from which tagged version you want to create a branch line. Every time you create a deployment archive a tag is created so that you can always refer back to that version of the app.
-
-{{% alert type="info" %}}
-
-This setting is only available when you select **Tagged version** in the **Create branch from** field.
-
-{{% /alert %}}
-
-## 6 Branch Name
-
-Enter a name of the new **Branch line**.
-
-{{% alert type="info" %}}
-
-Branch names cannot include special characters (for example, `@`, `$`, `#`).
-
-{{% /alert %}}
-
-## 7 Existing Branch Name
-
-Since branch line names must be unique, the **Existing branch lines** are shown so that you do not accidentally create a branch line twice.
-
-## 8 Read More
-
-* [Version Control](version-control)
-* [Collaborative Development](collaborative-development)
+* [版本控制](version-control)
+* [合作发展](collaborative-development)
