@@ -1,8 +1,6 @@
 ---
 title: "XPath 最小值"
 parent: "xpath-query函数"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
