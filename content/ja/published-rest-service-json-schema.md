@@ -14,9 +14,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-*JSON スキーマ* のサポートは、バージョン 7.14.0 で追加されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-service-json-schema.pdf) をクリックしてください。
 {{% /alert %}}
 
 ## 1つの紹介
@@ -53,11 +51,9 @@ OpenApi スキーマには、ボディパラメータとリターン型の定義
 | Autonumber | `{ "type": "integer", "format": "int64" }`         |
 | バイナリ       | `{ "type": "string", "format": "binary" }`         |
 | Boolean    | `{ "type": "boolean" }`                            |
-| 通貨         | `{ "type": "number" }`                             |
 | 日付と時刻      | `{ "type": "string", "format": "date-time" }`      |
 | 小数点以下桁数    | `{ "type": "number" }`                             |
 | 列挙型        | `{ "type": "string", "enum": ["Male", "Female"] }` |
-| Float      | `{ "type": "number" }`                             |
 | ハッシュ文字列    | `{ "type": "string" }`                             |
 | 整数         | `{ "type": "integer", "format": "int32" }`         |
 | 長い順        | `{ "type": "integer", "format": "int64" }`         |
@@ -125,4 +121,3 @@ microflow がオブジェクトを返す場合:
 | 列挙型        | `{ "type": "file" }`    |
 | 整数         | `{ "type": "integer" }` |
 | 文字列        | `{ "type": "file" }`    |
-| Float      | `{ "type": "number" }`  |
