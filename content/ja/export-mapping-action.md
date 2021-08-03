@@ -9,13 +9,10 @@ tags:
 menu_order: 40
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/export-mapping-action.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can only be used in **Microflows**.
 {{% /alert %}}
+
 
 ## 1 Introduction
 
@@ -86,4 +83,4 @@ The name of the object or string which is the result of the activity.
 
 ## 4 Common Section{#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
