@@ -18,7 +18,7 @@ Mendix Assist是使用机器学习分析构建的，其中包括与Mendix建立�
 
 ## 2 Mendix 辅助概述
 
-Mendix Assist默认启用，并在一个 [微流程](microflows) 流中显示为蓝色点。 当你悬停在点上时，一只弓挂在点上。
+Mendix Assist默认启用，在 [微流](microflows) 中显示为蓝点. 当你悬停在点上时，一只弓挂在点上。
 
 ![](attachments/mx-assist/mendix-assist-icon.png)
 
@@ -33,7 +33,7 @@ Mendix Assist默认启用，并在一个 [微流程](microflows) 流中显示为
 {{% image_container width="350" %}}![](attachments/mx-assist/mx-assist-recommendations.png)
 {{% /image_container %}}
 
-Mendix Assists列出了特定微流中最有可能到不太可能的五项建议。 点击建议继续执行并将其插入微流。 欲了解更多信息，请参阅 [添加活动和元素的 Mendix Assist](#add-activities) 部分。
+Mendix Assists列出了特定微流中最有可能到不太可能的五项建议。 点击建议继续执行并将其插入微流。 欲了解更多信息，见第 [4节添加Mendix Assists活动和元素](#add-activities)。
 
 {{% alert type="info" %}}
 
@@ -45,11 +45,11 @@ Mendix Assists列出了特定微流中最有可能到不太可能的五项建议
 
 ![](attachments/mx-assist/info-dialog.png)
 
-以下选项可在信息对话框中使用：
+以下选项可在信息对话框窗口中使用：
 
-* **不再显示** - 禁用信息对话框(当您插入其他活动时不会再显示)
-* **了解更多** - 打开有关微流程活动的文档
-* **谢谢，我明白** — — 开启当前信息对话框
+* **不再显示** - 禁用信息对话窗口 (当您插入其他活动时不会再显示)
+* **Lean More** - 打开微流程活动文档
+* **谢谢，我明白** - 开启当前信息对话窗口
 
 ## 3 个设置
 
@@ -59,14 +59,15 @@ Mendix Assists列出了特定微流中最有可能到不太可能的五项建议
 
 Mendix Assist可用的设置如下表所示：
 
-| 设置          | 描述                                                     |
-| ----------- | ------------------------------------------------------ |
-| 菜单辅助功能开启/关闭 | 切换设置功能/禁用工具。                                           |
-| 信息对话是否开启/关闭 | 切换设置功能/禁用信息对话框。 **注意** 如果Mendix Assists 被关闭，信息对话框将被禁用。 |
+| 设置          | 描述                                                       |
+| ----------- | -------------------------------------------------------- |
+| 菜单辅助功能开启/关闭 | 点击滑块启用/禁用工具。                                             |
+| 信息对话是否开启/关闭 | 点击滑块启用/禁用信息对话窗口。 **注意** 如果Mendix Assists 被关闭，信息对话窗口将被禁用。 |
 
-您也可以通过点击 **Mendix Studio顶部菜单栏中的** 图标启用/禁用 Mendix Assist：
+您也可以通过单击Mendix Studio顶部栏中的信息图标启用/禁用 Mendix Assist。
 
-![](attachments/mx-assist/mx-assist-is-on.png)
+{{% image_container width="300" %}}![](attachments/mx-assist/info-icon-setting.png)
+{{% /image_container %}}
 
 {{% alert type="info" %}}
 如果您禁用Mendix Assist, 信息对话框也将被禁用。 当您重新启用 Mendix Assist, 信息对话框也会被重新启用。
@@ -74,7 +75,7 @@ Mendix Assist可用的设置如下表所示：
 
 ## 将活动和元素添加到Mendix Assistant {#add-activities}
 
-您可以使用 Mendix Assistant 添加各种活动。 视微流的复杂性和元素/活动而定。 它可以立即插入，或者您需要向Mendix Assist提供更多信息。 例如，如果您正在添加检查，您需要指定将选中的对象或变量， 和什么条件将被检查：如果对象存在或对象是真实的。 欲了解更多信息，请参阅 [添加检查](#add-check) 部分。
+您可以使用 Mendix Assistant 添加各种活动。 视微流的复杂性和元素/活动而定。 它可以立即插入，或者您需要向Mendix Assist提供更多信息。 例如，如果您正在添加检查，您需要指定将选中的对象或变量， 以及将检查的条件是什么：例如，对象是否存在，或者对象是否正确。 欲了解更多信息，见第 [4.2 节添加检查](#add-check)。
 
 ### 4.1 增加活动
 
@@ -95,7 +96,8 @@ Mendix Assist可用的设置如下表所示：
 
 添加检查意味着您将添加带有布尔属性类型的 **Decision** ：您的流程将被分割成一个标签 *true* 的流程，另一个标签为 *false* 欲了解更多信息，请参阅 [Decision](microflows-decision)。
 
-![](attachments/mx-assist/check-added.png)
+{{% image_container width="300" %}}![](attachments/mx-assist/check-added.png)
+{{% /image_container %}}
 
 {{% alert type="info" %}}
 
@@ -118,13 +120,13 @@ If you do not have a variable or/and the attributes of the Boolean type, this op
 
 {{% alert type="info" %}}
 
-检查选项的数量取决于您微流中布尔类型变量的数量和域模型中布尔类型属性的数量。 欲了解更多信息，请参阅 [域模型](domain-models) and [属性](domain-models-attributes)。 您还可以添加一个对象是否存在微流程。
+检查选项的数量取决于您微流中布尔类型变量的数量和域模型中布尔类型属性的数量。 欲了解更多信息，请参阅 [域模型](domain-models) and [属性类型](domain-models-attributes)。 您还可以添加一个对象是否存在微流程。
 
 {{% /报警 %}}
 
 ### 4.3 作出决定
 
-当您通过Mendix Assist添加决定时，这意味着您在microflow中添加具有枚举类型属性的决定。 欲了解更多信息，请参阅 [Decision](microflows-decision) and [属性](domain-models-attributes)。 这意味着，如果您没有具有枚举数据类型的参数， **添加决定** 将不会出现在建议中。
+当您通过Mendix Assist添加决定时，这意味着您在microflow中添加具有枚举类型属性的决定。 欲了解更多信息，请参阅 [Decision](microflows-decision) and [属性类型](domain-models-attributes)。 这意味着，如果您没有具有枚举数据类型的参数， **添加决定** 将不会出现在建议中。
 
 为了增加这一决定，请做以下工作：
 
@@ -139,7 +141,7 @@ If you do not have a variable or/and the attributes of the Boolean type, this op
 
 {{% alert type="info" %}}
 
-**添加决定** 的选项数量取决于您微流程中枚举数据类型的参数数量。 欲了解更多信息，请查看工作室中的 [域模型](domain-models) 和 [属性](domain-models-attributes)。
+**添加决定** 的选项数量取决于您微流程中枚举数据类型的参数数量。 欲了解更多信息，请查看工作室中的 [域模型](domain-models) 和 [属性类型](domain-models-attributes)。
 
 {{% /报警 %}}
 
