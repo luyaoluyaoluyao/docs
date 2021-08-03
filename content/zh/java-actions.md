@@ -1,92 +1,91 @@
 ---
-title: "Java Actions"
-category: "Desktop Modeler"
-description: "Describes using Java Actions to extend the functionality of your Mendix app."
+title: "Java 操作"
+parent: "资源"
+menu_order: 10
+description: "使用 Java 操作来扩展您的 Mendix 应用程序的功能。"
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-With Java actions you can extend the functionality of your application in situations where it would be hard to implement this functionality in microflows. You can call a Java action from a microflow using the [Java Action Call](java-action-call).
-
-{{% alert type="info" %}}
-
-Each Java action defined in the Modeler corresponds to a file *{name of Java action}.java* in the subdirectory *javasource{module name}/actions* of the project directory.
-
-The skeletons of these *.java* files are generated automatically when you deploy for Eclipse (in the **Project** menu). For more information about creating the Java code in these files, see [Java Programming](java-programming).
-
-{{% /alert %}}
-
-## 2 General
-
-### 2.1 Name
-
-The name of the Java action is used to refer to it from a call to it in a microflow. It is also the name of the generated *.java* file.
-
-### 2.2 Parameters
-
-A Java action has zero or more parameters. Parameters are the means by which you pass data into the Java action. In the Java code, you can access the values of the parameters.
-
-Each parameter has a name, type, category, and description.
-
-Use categories to keep the parameters apart in the [Java Action Call](java-action-call). If you do not specify a category, the parameter will appear in the **Input** group.
-
-See [Data Types](data-types) for the possible standard parameter types. When the type is an Object or List, you must also select its Entity type, which can be either a specific entity or a type parameter. The type parameter postpones the selection of the actual entity type until the Java action is used in a microflow. This allows your Java action to accept a (list of) Mendix object(s) of an arbitrary entity type.
-
-The other types supported by Java actions are described below.
-
-#### 2.2.1 Entity Type
-
-The **Entity** parameter type is a placeholder for an entity that will be filled in with the name of the entity when it is called in a microflow. Additionally, the entity type can be used to fill in a type parameter. In the generated Java action template code, this type is represented as a string.
-
-Common use cases include but are not limited to the following:
-
-* Mapping a query result to a certain entity type
-* Querying, searching, and filtering entities by type
-
-#### 2.2.2 Microflow Type
-
-The **Microflow** parameter type allows users of Java actions to pass a microflow into a Java action. In the generated Java action template code, this type is represented as a string (as in, the name of the microflow).
-
-#### 2.2.3 Import Mapping Type
-
-The **Import mapping** parameter type allows users of Java actions to pass an import mapping into a Java action. In the generated Java action template code, this type is represented as a string (as in, the name of the import mapping).
+使用 Java 操作，您可以在微流中很难实现此功能的情况下扩展您应用程序的功能。 您可以使用 [Java 动作调用](java-action-call) 从微流调用一个 Java 操作。
 
 {{% alert type="info" %}}
+Studio Pro 中定义的每一个 Java 动作对应文件 *{name of Java action}。 va* 在应用目录的子目录 *javasour/{module name}/actions*
 
-The Import mapping parameter type was introduced in Mendix 7.2.0.
+这些 *.java* 文件的骨架是在你部署的 Eclipse 时自动生成的( **App** 菜单)。 关于在这些文件中创建 Java 代码的更多信息，请参阅 [Java Programming](java-programming)。
+{{% /报警 %}}
 
-{{% /alert %}}
+## 2 概况
 
-#### 2.2.4 Export Mapping Type
+### 2.1 名称
 
-The **Export mapping** parameter type allows users of Java Actions to pass an export mapping into a Java action. In the generated Java action template code, this type is represented as a string (the name of the export mapping).
+Java 动作的名称用于在微流中调用它。 它也是生成的 *.java* 文件的名称。
 
-{{% alert type="info" %}}
+### 2.2 参数
 
-The Export mapping parameter type was introduced in version 7.2.0.
+Java 动作具有零或更多参数。 参数是将数据传递到 Java 动作的手段。 在 Java 代码中，您可以访问参数的值。
 
-{{% /alert %}}
+每个参数都有名称、类型、类别和描述。
 
-#### 2.2.5 Return Type
+在 [Java 动作](java-action-call) 中使用类别来保持参数的分离。 如果您没有指定类别，参数将出现在 **输入** 组中。
 
-The return type determines the type of the data that the Java action returns. It corresponds with the return type of the `executeAction()` method in the *.java* file of the Java action. You can use the result of a Java action in the microflow in which you call it. See [Data Types](data-types) for the possible return types.
+查看 [数据类型](data-types) 以获取可能的标准参数类型。 当类型为对象或列表时，您还必须选择它的实体类型 它可以是一个特定的实体或类型参数。 类型参数将实体类型的选择推迟到microflow中使用 Java 动作。 这允许您的 Java 动作接受任意实体类型的 Mendix 对象(列表)。
 
-As with parameters, the return type can also be an object or a list of some type parameter. The type parameter you choose for the return type must also be used by at least one of the Java action parameters.
+下面介绍了 Java 动作支持的其他类型。
 
-## 3 Type Parameters
+#### 2.2.1 实体类型
 
-A type parameter is a placeholder for an entity type which will be filled in with a specific entity when it is called in a microflow. Type parameters can be used when configuring the data type of a parameter, to allow users to pass an object or a list of an arbitrary entity type.
+**实体** 参数类型是一个实体的占位符，该实体在微流程中被调用时将被填写。 此外，实体类型可以用来填写类型参数。 在生成的 Java 动作模板代码中，此类型作为字符串表示.
 
-A Java action has zero or more type parameters. Each type parameter should have a unique name.
+3. 普通用途案例包括但不限于下列情况：
 
-## 4 Expose as Microflow Action
+* 映射查询结果到某个实体类型
+* 按类型查询、搜索和筛选实体
 
-By selecting the **Expose as microflow action** option, it is possible to expose the Java action as a microflow action. Exposing the Java action will make it appear in the the **Toolbox** window when editing a microflow in the category of your choice. When this action is used in a microflow, it will show the provided caption and icon.
+#### 2.2.2 微流类型
 
-The caption and category of the microflow action are required, but the icon is optional. When no icon is selected, the default Java action icon is used.
+**Microflow** 参数类型允许Java 动作的用户传递微流到 Java 动作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(例如在微流程的名称中)。
 
-The recommended size for the icon is 16x16.
+#### 2.2.3 导入映射类型
 
-## 5 Documentation
+**导入** 参数类型允许您将导入映射传入一个 Java 动作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(例如导入映射的名称)。
 
-In the **Documentation** tab of the Java action dialog box, you can document the Java action. The documentation is copied into the `Javadoc` of the class of the corresponding *.java* file.
+#### 2.2.4 出口映射类型
+
+**导出映射** 参数类型允许您将导出映射传入一个 Java 动作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(导出映射名称)。
+
+#### 2.2.5 字符串模板类型 {#string-template-type}
+
+**字符串模板** 参数类型允许您将一个字符串模板传入一个 Java 动作。 在生成的 Java 动作模板代码中，这种类型表示为 `IString模板`。
+
+模板可以包含数字括号之间的参数 (例如， `{1}`)。 第一个参数的数字是 `1`, 第二个 `2`, 等等。
+
+对于模板中的每个参数，定义一个微流程表达式，其值将插入参数的位置。
+
+在生成的代码中， `IString模板` 类型提供了使用默认或自定义逻辑来评估传递的字符串模板的方法。
+
+#### 2.2.6 返回类型
+
+返回类型决定了 Java 动作返回的数据类型。 它与 `executeAction()` 方法的返回类型相对应，在 *.java* 的 Java 文件中。 您可以使用 Java 动作的结果在您调用它的微流程中。 查看 [数据类型](data-types) 以获取可能的返回类型。
+
+与参数一样，返回类型也可以是对象或某种类型参数的列表。 您选择返回类型的类型参数也必须被至少一个 Java 动作参数使用。
+
+## 3 类型参数
+
+类型参数是实体类型的占位符，当它在微流中被调用时，它将被填入特定的实体。 在配置参数的数据类型时可以使用类型参数， 允许用户传递对象或任意实体类型列表。
+
+Java 动作具有零或更多类型参数。 每个类型参数应该有一个唯一的名称。
+
+## 作为微流程曝光。
+
+通过选择 **作为微流程操作** ，可以将Java 作为微流程动作暴露。 在编辑您选择的类别中的微流时，暴露Java 动作会使它出现在 **工具箱** 窗口中。 当这个动作在微流程中使用时，它将显示提供的字幕和图标。
+
+微流动作需要说明和类别，但图标是可选的。 当没有选择图标时，使用默认的 Java 动作图标。
+
+建议的图标大小为16x16像素。
+
+## 5 文件
+
+在 Java 动作对话框的 **文档** 标签中，您可以文档的 Java 操作。 文档已复制到对应的 *.java* 文件类的 `Javadoc` 中。
