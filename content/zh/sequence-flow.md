@@ -1,21 +1,21 @@
 ---
-title: "Sequence Flow"
-parent: "microflows-and-nanoflows"
+title: "序列流"
+parent: "微流和微流法"
 menu_order: 30
 tags:
   - "studio pro"
-  - "sequence flow"
-  - "microflow"
+  - "序列流"
+  - "微流"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A sequence flow is a flow that is shown an arrow that links elements (events, activities, decisions, etc.) with each other. Hereby it defines the order of execution. Flows always flow in one direction where elements follow each other up one by one. Decisions always lead to one direction, so it is not possible that multiple flows take place simultaneously.
+序列流是指显示一个将元素(事件、活动、决定等)相互连接的箭头。 在此定义了处决顺序。 流量总是向一个方向流动，各个元素相互跟踪。 决策总是导致一个方向，因此不可能同时进行多次流动。
 
-When you have two activities that you want to link together a sequence flow is used.
+当你有两个你想要连接到一起的活动时，会使用序列流。
 
 ![](attachments/sequence-flow/sequence-flow.png)
 
-## 2 Condition Value
+## 2 条件值
 
-The **Condition value** describes which direction should be followed based on the outcome of a [decision](decision) or an [object type decision](object-type-decision).
+**条件值** 描述了基于 [决定的结果](decision) 或一个 [对象类型决定](object-type-decision) 应该遵循哪个方向。
