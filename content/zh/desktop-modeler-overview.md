@@ -1,236 +1,236 @@
 ---
-title: "Desktop Modeler Overview"
-category: "Desktop Modeler"
-description: "Describes the Desktop Modeler in general: tabs, menus, shortcut keys."
+title: "桌面建模概览"
+category: "桌面模型"
+description: "一般描述桌面模型：标签、菜单、快捷键。"
 menu_order: 10
 tags:
-  - "desktop modeler"
+  - "桌面模组"
 aliases:
   - /refguide7/modeler.html
   - /refguide7/Modeler.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix Desktop Modeler is the tool for creating, viewing, and editing your Mendix applications. A Mendix app is called a [project](project) in the Modeler. A project consists of many documents that are grouped in [modules](modules) and folders. There are some project-level settings, but the core of the functionality is inside the modules. Examples of documents are [project settings](project-settings), [domain models](domain-model), [pages](pages), and [microflows](microflows). One Modeler instance can have only one project open at a time, but you can open two Modeler instances when necessary.
+Mendix 桌面模式是创建、查看和编辑Mendix 应用程序的工具。 Mendix 应用程序在模型中被称为 [项目](project)。 一个项目由许多文档组成，它们被归类为 [模块](modules) 和文件夹。 有一些项目级别的设置，但功能的核心在模块中。 文档实例有 [工程设置](project-settings), [域模型](domain-model), [页面](pages), 和 [微流](microflows)。 一个Moderr 实例一次只能打开一个项目，但必要时您可以打开两个Moderr 实例。
 
-This documentation describes the graphical user interface of the Modeler. The rest of the documentation follows the structure of the project explorer.
+此文档描述了模型的图形用户界面。 其余文件采用项目勘探员的结构。
 
 {{% alert type="success" %}}
 
-Press <kbd>F1</kbd> while in the Desktop Modeler to quickly jump to the right page in the documentation.
+在桌面建模时，按 <kbd>F1</kbd> 快速跳转到文档中的正确页面。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Dockable Window Panes {#dockable-panes}
+## 2 个可停靠窗口面板 {#dockable-panes}
 
-The Modeler supports a number of dockable window panes. You can close some panes to just show the ones you need at the moment, but you can always reopen them via the **View** menu.
+Modeler支持一些可停靠窗口面板。 您可以关闭一些窗格来显示您目前需要的窗格。 但您总是可以通过 **视图** 菜单重新打开它们。
 
-The table below describes all the available dockable window panes.
+下表说明所有可用的可停靠窗口窗口。
 
-| Pane                            | Description                                                                                                                                                                                                                                                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Breakpoints (via Debug Windows) | Shows all breakpoints in the project. You can enable/disable breakpoints from here.                                                                                                                                                                                                                                      |
-| Changes                         | For [Team Server](team-server) projects, this pane shows the local changes to the project since the last commit. You can commit changes, update to the latest revision and view the history from here.                                                                                                                   |
-| Connector                       | Shows what elements can be connected to the currently selected element. For example, when a button is a selected, the connector will show microflows that you can drag and drop onto the button to connect them.                                                                                                         |
-| Console                         | Shows the output of the Mendix Runtime while running an application.                                                                                                                                                                                                                                                     |
-| Debugger (via Debug Windows)    | This can be used to debug your application.                                                                                                                                                                                                                                                                              |
-| Documentation                   | Shows the documentation for the currently selected element (if applicable).                                                                                                                                                                                                                                              |
-| Error List                      | Shows the errors and warning currently in your project.                                                                                                                                                                                                                                                                  |
-| Find Results                    | Shows the results of the latest find action. You can search for text, for usages of an element (for example, attribute) and for unused items. There are two **Find Results** panes. If you lock the results of the first pane, the second one will be used for subsequent find operations until you unlock it.           |
-| Get Started                     | Shows useful resources for getting started with the Mendix Modeler.                                                                                                                                                                                                                                                      |
-| Project Explorer                | Shows the complete structure of your project including all documents inside the modules. By default the active document is always selected in the project explorer so you can quickly see where the document you are editing is in the tree. You can change this behavior in the **Edit** > **Preferences** window pane. |
-| Properties                      | Shows properties of the currently selected element. This is where a lot of editing in the Modeler takes place.                                                                                                                                                                                                           |
-| Stories                         | For [Team Server](team-server) enabled projects, this pane shows the stories of the current sprint.                                                                                                                                                                                                                      |
-| Toolbox                         | Shows the tools that can be used in the current editor. For example, in a page you can insert all kinds of widgets (for example, text box and data view) by dragging them from the **Toolbox** to your form.                                                                                                             |
-| Variables (via Debug Windows)   | You can view the current values of variables here when debugging your application.                                                                                                                                                                                                                                       |
+| 窗格                     | 描述                                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------ |
+| 断点 (通过 Debug Windows)  | 显示项目中的所有断点。 您可以从这里启用/禁用断点。                                                                             |
+| 更改                     | 对于 [团队服务器](team-server) 项目，这个面板显示自上次提交以来项目的本地变化。 您可以提交更改，更新到最新版本并从这里查看历史记录。                            |
+| 连接器                    | 显示可以连接到当前选中元素的元素。 例如，当一个按钮被选中时，连接器将显示微流，您可以拖放到按钮上来连接它们。                                                |
+| 控制台                    | 在运行应用程序时显示 Mendix 运行时间的输出。                                                                             |
+| 调试器 (通过 Debug Windows) | 这可以用于调试您的应用程序。                                                                                         |
+| 文件                     | 显示当前选中元素的文档(如果适用)。                                                                                     |
+| 错误列表                   | 显示当前项目中的错误和警告。                                                                                         |
+| 查找结果                   | 显示最新查找操作的结果。 您可以搜索文本，搜索元素的用法 (例如，属性) 和未使用的项目。 有两个 **查找结果** 窗格。 如果您锁定了第一个窗格的结果，第二个窗格将用于后续查找操作，直到您解锁它。   |
+| 开始                     | 显示使用 Mendix Modeler 启动的有用资源。                                                                           |
+| 项目浏览器                  | 显示您项目的完整结构，包括模块中的所有文档。 默认情况下，活动文档总是在项目浏览器中选择，因此您可以快速地看到您正在编辑的文档位于树上。 您可以在 **编辑** > **首选项** 窗口面板中更改此行为。 |
+| 属性                     | 显示当前选中元素的属性。 这是在建模中进行大量编辑的地方。                                                                          |
+| 故事                     | 对于 [团队服务器](team-server) 启用的项目，这个面板显示当前冲压的故事。                                                           |
+| 工具箱                    | 显示可用于当前编辑器的工具。 例如，在一个页面中，您可以插入所有类型的部件 (例如) 文本框和数据视图) 将它们从 **工具箱** 拖动到您的表单。                             |
+| 变量 (通过 Debug Windows)  | 当调试您的应用程序时，您可以在此查看当前变量的值。                                                                              |
 
-## 3 Document Tabs
+## 3 个文档标签
 
-Documents that you are viewing and/or editing at the moment are shown in tabs. You can have a number of tabs open, just like in a modern web browser. They can be closed, reordered, and shown side by side. Each document has its own save state and history/future. Undo and redo actions are unlimited.
+您正在查看和/或编辑的文档以标签显示。 您可以打开一些标签，就像在现代浏览器中一样。 他们可以关闭、重新排序和并肩显示。 每个文档都有自己的保存状态和历史/未来。 撤销和重做操作是无限制的。
 
 ## 4 Menus {#menus}
 
-Using items in the menu bar of the Modeler, you can create new projects, deploy and run them, search for text, and more.
+使用模型菜单栏中的项目，您可以创建新项目，部署和运行它们，搜索文本，等等。
 
-### 4.1 File Menu
+### 4.1 文件菜单
 
-| Menu Item              | Description                                                                                                                                                                                           | Shortcut Key                                      |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| New Document           | Creates a new document within the project that is currently open. You can choose the name, location and type of the document.                                                                         | <kbd>Ctrl</kbd> + <kbd>N</kbd>                    |
-| New Project            | Creates a new single-developer project. A single-developer project is simply a file (with the extension *.mpr* , which stands for "Mendix project") that is stored in the local file system.          | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> |
-| Open Project           | Opens an existing single-developer project (*.mpr*) or a project package (*.mpk*). See **New Project** above for information on single-developer projects.                                            | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
-| Recent Projects        | Shows a list of recently opened projects for quick opening.                                                                                                                                           |                                                   |
-| Save                   | Saves the changes in the currently active document tab.                                                                                                                                               | <kbd>Ctrl</kbd> + <kbd>S</kbd>                    |
-| Save All               | Saves the changes in all documents that are open.                                                                                                                                                     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |
-| Close                  | Closes the current document. You will be asked to save or discard changes when needed.                                                                                                                | <kbd>Ctrl</kbd> + <kbd>W</kbd>                    |
-| Close All              | Closes all document tabs. You will be asked to save or discard changes when needed.                                                                                                                   | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> |
-| Close Project          | Closes the currently open project and return to the start page.                                                                                                                                       |                                                   |
-| Export as Image        | Exports the current document as an image in the *.png* format. The following document types can be exported as images: forms, microflows, domain models, document templates, and XML mappings.        |                                                   |
-| Export Project Package | Exports the current app to a project package (*.mpk*) file. This is useful for example when you want to give someone the entire app, or when you need to provide a test app when submitting a ticket. |                                                   |
-| Import Project Package | Imports a project package that was created with the **Export Project Package** menu item.                                                                                                             |                                                   |
-| Exit                   | Closes the Modeler                                                                                                                                                                                    |                                                   |
+| 菜单项   | 描述                                                                       | 快捷键                                               |
+| ----- | ------------------------------------------------------------------------ | ------------------------------------------------- |
+| 新建文档  | 在当前打开的项目中创建一个新文档。 您可以选择文档的名称、位置和类型。                                      | <kbd>Ctrl</kbd> + <kbd>N</kbd>                    |
+| 新建项目  | 创建一个新的单开发者项目。 单一开发者项目只是一个文件(扩展名 *)。 pr* , 表示存储在本地文件系统中的“Mendix project”. | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> |
+| 打开项目  | 打开一个现有的单开发者项目 (*.mpr*) 或一个项目包 (*.mpk*)。 关于单开发者项目的信息，请参阅上面 **新项目**。       | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
+| 最近的项目 | 显示快速打开最近打开的项目列表。                                                         |                                                   |
+| 保存    | 保存当前活动文档选项卡中的更改。                                                         | <kbd>Ctrl</kbd> + <kbd>S</kbd>                    |
+| 全部保存  | 保存打开的所有文档中的更改。                                                           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |
+| 关闭    | 关闭当前文档。 您将被要求保存或放弃所需的更改。                                                 | <kbd>Ctrl</kbd> + <kbd>W</kbd>                    |
+| 全部关闭  | 关闭所有文档标签。 您将被要求保存或放弃所需的更改。                                               | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> |
+| 关闭项目  | 关闭当前打开的项目并返回起始页面。                                                        |                                                   |
+| 导出为图像 | 导出当前文档为 *.png* 格式的图像。 以下文档类型可以导出为图像：表格、微流、域模型、文档模板和XML映射。                |                                                   |
+| 导出工程包 | 导出当前应用到项目包 (*.mpk*) 文件。 例如，当你想要给他人整个应用程序时，这将是有用的， 或者提交工单时需要提供测试应用程序。     |                                                   |
+| 导入工程包 | 导入一个使用 **导出项目包** 菜单项创建的项目包。                                              |                                                   |
+| 退出    | 关闭Modeler                                                                |                                                   |
 
-### 4.2 Edit Menu
+### 4.2 编辑菜单
 
-| Menu Item            | Description                                                                                                                                                                                                                                                                                                                                                                            | Shortcut Key                                      |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| Undo                 | Undoes the last action in a document tab. Undo and redo actions are unlimited.                                                                                                                                                                                                                                                                                                         | <kbd>Ctrl</kbd> + <kbd>Z</kbd>                    |
-| Redo                 | Redoes the last action that was undone in a document tab.                                                                                                                                                                                                                                                                                                                              | <kbd>Ctrl</kbd> + <kbd>Y</kbd>                    |
-| Cut                  | Copies the selected element to the clipboard and delete it.                                                                                                                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>X</kbd>                    |
-| Copy                 | Copies the selected element to the clipboard.                                                                                                                                                                                                                                                                                                                                          | <kbd>Ctrl</kbd> + <kbd>C</kbd>                    |
-| Paste                | Pastes the contents of the clipboard in the current editor.                                                                                                                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>V</kbd>                    |
-| Delete               | Deletes the selected element.                                                                                                                                                                                                                                                                                                                                                          | <kbd>Delete</kbd>                                 |
-| Find                 | Searches the model for text. The following texts are searched: all texts that appear in the end user interface (captions of labels, buttons, etc); names and documentation of documents; entity, association, and attribute names and documentation; access rule documentation; form widget names; captions and documentation of microflow objects; variable definitions in microflow. | <kbd>Ctrl</kbd> + <kbd>F</kbd>                    |
-| Find Advanced        | Opens a dialog box that allows for advanced search operations. Examples are searching for any document type and searching for unused documents.                                                                                                                                                                                                                                        | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
-| Find Usages          | Opens the **Find Results** pane and displays usages of the selected object.                                                                                                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>   |
-| Next Find Result     | Highlights the next find result in the **Find Results** pane and open it in an editor.                                                                                                                                                                                                                                                                                                 | <kbd>F3</kbd>                                     |
-| Previous Find Result | Highlights the previous find result in the **Find Results** pane and open it in an editor.                                                                                                                                                                                                                                                                                             | <kbd>Shift</kbd> + <kbd>F3</kbd>                  |
-| Go to                | Quickly navigates to any document or domain model element in the project by typing a few letters and pressing <kbd>Enter</kbd>.                                                                                                                                                                                                                                                        | <kbd>Ctrl</kbd> + <kbd>G</kbd>                    |
-| Next Error           | Highlights the next error in the **Error List** pane and open it in an editor.                                                                                                                                                                                                                                                                                                         | <kbd>F8</kbd>                                     |
-| Previous Error       | Highlights the previous error result in the **Error List** pane and open it in an editor.                                                                                                                                                                                                                                                                                              | <kbd>Shift</kbd> + <kbd>F8</kbd>                  |
-| Preferences          | Opens the **Preferences** dialog box, where you can set your general, model, and advanced editing preferences.                                                                                                                                                                                                                                                                         |                                                   |
+| 菜单项     | 描述                                                                                              | 快捷键                                               |
+| ------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 撤消操作    | 撤销文档选项卡中的最后一个动作。 撤销和重做操作是无限制的。                                                                  | <kbd>Ctrl</kbd> + <kbd>Z</kbd>                    |
+| 重做      | 重做文档选项卡中撤消的最后一个操作。                                                                              | <kbd>Ctrl</kbd> + <kbd>Y</kbd>                    |
+| 剪辑      | 将选中的元素复制到剪贴板并删除。                                                                                | <kbd>Ctrl</kbd> + <kbd>X</kbd>                    |
+| 复制      | 将选中的元素复制到剪贴板。                                                                                   | <kbd>Ctrl</kbd> + <kbd>C</kbd>                    |
+| 粘贴      | 在当前编辑器中粘贴剪贴板的内容。                                                                                | <kbd>Ctrl</kbd> + <kbd>V</kbd>                    |
+| 删除      | 删除选中的元素。                                                                                        | <kbd>删除</kbd>                                     |
+| 查找      | 搜索文本模型。 搜索下列文本：出现在最终用户界面的所有文本(标签、按钮等字幕)；文件名称和文档； 实体、协会、属性名称和文件；访问规则文件；构件名称；微流物体的说明和文件；微流中的可变定义。 | <kbd>Ctrl</kbd> + <kbd>F</kbd>                    |
+| 查找高级版   | 打开允许高级搜索操作的对话框。 实例是搜索任何文件类型和搜索未使用的文件。                                                           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
+| 查找用法    | 打开 **查找结果** 窗格并显示选中对象的用法。                                                                       | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>   |
+| 下次查找结果  | 突出显示下一个在 **查找结果** 窗格中的结果，并在编辑器中打开它。                                                             | <kbd>F3</kbd>                                     |
+| 上一个查找结果 | 突出显示先前在 **查找结果** 窗格中找到结果，并在编辑器中打开它。                                                             | <kbd>Shift</kbd> + <kbd>F3</kbd>                  |
+| 转至      | 通过输入几个字母并按 <kbd>输入</kbd> 来快速导航到项目中的任何文档或域模型元素。                                                  | <kbd>Ctrl</kbd> + <kbd>G</kbd>                    |
+| 下一个错误   | 突出显示 **错误列表** 窗格中的下一个错误，并在编辑器中打开它。                                                              | <kbd>F8</kbd>                                     |
+| 上一个错误   | 高亮前一个错误导致 **错误列表** 窗格并在编辑器中打开它。                                                                 | <kbd>Shift</kbd> + <kbd>F8</kbd>                  |
+| 首选项     | 打开 **首选项** 对话框，您可以在哪里设置您的常规、模型和高级编辑首选项。                                                         |                                                   |
 
-### 4.3 View Menu
+### 4.3 查看菜单
 
-| Menu Item                   | Description                                                                                           | Shortcut Key   |
-| --------------------------- | ----------------------------------------------------------------------------------------------------- | -------------- |
-| Changes                     | Opens the dockable window pane [Changes](#dockable-panes).                                            |                |
-| Connector                   | Opens the dockable window pane [Connector](#dockable-panes).                                          |                |
-| Console                     | Opens the dockable window pane [Console](#dockable-panes).                                            |                |
-| Documentation               | Opens the dockable window pane [Documentation](#dockable-panes).                                      |                |
-| Error List                  | Opens the dockable window pane [Error List](#dockable-panes).                                         |                |
-| Find Results 1              | Opens the dockable window pane [Find Results 1](#dockable-panes).                                     |                |
-| Find Results 2              | Opens the dockable window pane [Find Results 2](#dockable-panes).                                     |                |
-| Project Explorer            | Opens the dockable window pane [Project Explorer](#dockable-panes).                                   |                |
-| Properties                  | Opens the dockable window pane [Properties](#dockable-panes).                                         |                |
-| Stories                     | Opens the dockable window pane [Stories](#dockable-panes).                                            |                |
-| Toolbox                     | Opens the dockable window pane [Toolbox](#dockable-panes).                                            |                |
-| Debug Windows > Breakpoints | Opens the dockable window pane [Breakpoints](#dockable-panes).                                        |                |
-| Debug Windows > Debugger    | Opens the dockable window pane [Debugger](#dockable-panes).                                           |                |
-| Debug Windows > Variables   | Opens the dockable window pane [Variables](#dockable-panes).                                          |                |
-| Full Screen                 | Temporarily hides all dockable window panes so that the tabbed documents can be shown in full screen. | <kbd>F11</kbd> |
-| Reset Layout                | Resets the layout of the Modeler to factory defaults.                                                 |                |
+| 菜单项        | 描述                                   | 快捷键            |
+| ---------- | ------------------------------------ | -------------- |
+| 更改         | 打开可停靠窗口窗格 [更改](#dockable-panes)。     |                |
+| 连接器        | 打开可停靠窗口窗格 [连接器](#dockable-panes)。    |                |
+| 控制台        | 打开可停靠窗口面板 [控制台](#dockable-panes)。    |                |
+| 文件         | 打开可停靠窗口面板 [文档](#dockable-panes)。     |                |
+| 错误列表       | 打开可停靠窗口面板 [错误列表](#dockable-panes)。   |                |
+| 查找结果1      | 打开可停靠窗口窗格 [寻找结果1](#dockable-panes)。  |                |
+| 查找结果 2     | 打开可停靠窗口窗格 [寻找结果 2](#dockable-panes)。 |                |
+| 项目浏览器      | 打开可停靠窗口面板 [工程探索器](#dockable-panes)。  |                |
+| 属性         | 打开可停靠窗口面板 [属性](#dockable-panes)。     |                |
+| 故事         | 打开可停靠窗口窗格 [故事](#dockable-panes)。     |                |
+| 工具箱        | 打开可停靠窗口窗格 [工具箱](#dockable-panes)。    |                |
+| 调试窗口 > 断点  | 打开可停靠窗口面板 [断点](#dockable-panes)。     |                |
+| 调试窗口 > 调试器 | 打开可停靠窗口面板 [调试器](#dockable-panes)。    |                |
+| 调试窗口 > 变量  | 打开可停靠窗口窗格 [变量](#dockable-panes)。     |                |
+| 全屏         | 临时隐藏所有可停靠窗口面板，以便在全屏显示标签页文档。          | <kbd>F11</kbd> |
+| 重置布局       | 将Modeler的布局重置为出厂默认值。                 |                |
 
-### 4.4 Project Menu
+### 4.4 项目菜单
 
-| Menu Item                                              | Description                                                                                                                                                                                                                                                                                                                              | Shortcut Key                    |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| Update                                                 | Updates the local app to the latest revision that was committed to the version control server.                                                                                                                                                                                                                                           |                                 |
-| Commit                                                 | Commits all local changes made to the app since the previous commit to the version control server.                                                                                                                                                                                                                                       |                                 |
-| Show Changes on Disk                                   | Opens a dialog that shows which files on disk have been changed since the last commit.                                                                                                                                                                                                                                                   |                                 |
-| More Versioning > History                              | Shows the history of committed revisions of the app.                                                                                                                                                                                                                                                                                     |                                 |
-| More Versioning > Download from Version Control Server | Downloads an app from the Team Server or another SVN server. This creates a local working copy of the app for development.                                                                                                                                                                                                               |                                 |
-| More Versioning > Upload to Version Control Server     | Uploads a local app to a new or existing Team Server repository, or to another SVN server. This is only possible if the app is not yet version controlled.                                                                                                                                                                               |                                 |
-| More Versioning > Manage Branch Lines                  | Manages branch lines on the version control server that can be used to develop functionality separately from the main line.                                                                                                                                                                                                              |                                 |
-| More Versioning > Merge Changes Here                   | Merges changes that were committed in another development line to the development line that is currently opened in the Modeler.                                                                                                                                                                                                          |                                 |
-| More Versioning > Reverse Merge Changes                | Allows locally rolling back changes that were committed to the version control repository. These local changes can then be committed as a new revision.                                                                                                                                                                                  |                                 |
-| More Versioning > Add Snapshot of Data                 | Creates a snapshot of the built-in database and adds that to the version control repository. This is especially useful for adding test data to your app or for demo purposes.                                                                                                                                                            |                                 |
-| Tools > Batch update button icons                      | Opens the **Batch Update Button Icons** dialog box so that you can configure the batch update of many button icons at once.                                                                                                                                                                                                              |                                 |
-| Tools > Batch update layouts                           | Opens the **Batch Update Layouts** dialog box so that you can configure the batch update of the layouts of many pages at once.                                                                                                                                                                                                           |                                 |
-| Tools > Batch convert Split panes                      | Opens the **Batch Convert Split Panes** dialog box so that you can convert split panes in Mendix 6 apps into layout grids. See [Split Panes](/releasenotes/studio-pro/7.0#split-panes) in the Mendix 7 release notes for more information.                                                                                               |                                 |
-| Tools > Update Widgets (available in version 7.23)     | Presents the current versions of the widgets you are using in your app, what the latest versions of the widgets are, and an update option.                                                                                                                                                                                               |                                 |
-| Tools > Check Widgets                                  | Checks that the widgets you have implemented in the app have been built correctly.                                                                                                                                                                                                                                                       |                                 |
-| Synchronize Project Directory                          | If necessary, this action creates folders inside the project directory (resources, widgets, theme, etc.). It also reads the widget packages that are currently inside the widgets folders. For example, if you add widgets to the widgets folder, you needs to synchronize the project directory for them to appear in the form toolbox. | <kbd>F4</kbd>                   |
-| Show Project Directory in Explorer                     | Shows the directory that contains the project file (*.mpr*) and other assets such as resources and Java actions in Windows Explorer.                                                                                                                                                                                                     |                                 |
-| Deploy for Eclipse                                     | Deploys the project to the deployment directory. The Java stubs are generated so that you can start editing them in Eclipse. This action does not compile the Java actions. Use this if you are writing Java actions and you want to compile and debug them through Eclipse.                                                             | <kbd>F6</kbd>                   |
-| Create Deployment Package                              | Creates a Mendix Deployment Archive package (*.mda*) that contains all necessary files to run the project. This can be used if you want to deploy your project on a Windows server or on a custom Mendix Cloud.                                                                                                                          | <kbd>F7</kbd>                   |
-| Clean Deployment Directory                             | Cleans the deployment directory.                                                                                                                                                                                                                                                                                                         |                                 |
-| Deploy to Licensed Cloud Node                          | Deploys the latest committed revision of a Team Server project to the associated Mendix Cloud node.                                                                                                                                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>F5</kbd> |
+| 菜单项                                                    | 描述                                                                                                                               | 快捷键                             |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| 更新                                                     | 更新本地应用程序到对版本控制服务器的最新修订。                                                                                                          |                                 |
+| 提交                                                     | 提交自上次提交到版本控制服务器以来对应用程序所作的所有本地更改。                                                                                                 |                                 |
+| 在磁盘上显示更改                                               | 打开一个对话框，显示自上次提交以来磁盘上的文件已被更改。                                                                                                     |                                 |
+| 更多版本 > 历史记录                                            | 显示应用的修改历史.                                                                                                                       |                                 |
+| More Versioning > Download from Version Control Server | 从团队服务器或另一个SVN服务器下载应用程序。 这就创建了开发应用的本地工作副本。                                                                                        |                                 |
+| 更多版本 > 上传到版本控制服务器                                      | 将本地应用程序上传到新的或现有的团队服务器仓库，或上传到另一个SVN服务器。 只有当应用程序尚未控制版本时才有可能。                                                                       |                                 |
+| 更多版本 > 管理分支行                                           | 管理版本控制服务器上可用来单独开发功能的分支行。                                                                                                         |                                 |
+| 更多版本 > 合并这里的更改                                         | 合并在另一条开发线上进行的更改，将其与目前在模型中打开的开发线合并。                                                                                               |                                 |
+| More Versioning > Reverse Merge Changes                | 允许本地回滚对版本控制仓库的承诺。 然后可以将这些地方变化作为新的修订来进行。                                                                                          |                                 |
+| 更多版本 > 添加数据快照                                          | 创建内置数据库的快照，并将其添加到版本控制存储库。 这对于将测试数据添加到您的应用或用于演示目的特别有用。                                                                            |                                 |
+| 工具 > 批量更新按钮图标                                          | 打开 **批量更新按钮图标** 对话框，以便您一次配置许多按钮图标的批量更新。                                                                                          |                                 |
+| 工具 > 批量更新布局                                            | 打开 **批量更新布局** 对话框，以便您一次配置多页布局的批量更新。                                                                                              |                                 |
+| 工具 > 批量转换分割面板                                          | 打开 **批量转换分割面板** 对话框，以便您可以将Mendix 6应用程序中的分割面板转换为布局格。 在 Mendix 7 版本说明中查看 [分割面板](/releasenotes/studio-pro/7.0#split-panes) 以获取更多信息。 |                                 |
+| 工具 > 更新小部件 (可用版本 7.23)                                 | 展示您在应用中使用的小部件的当前版本，小部件的最新版本，以及更新选项。                                                                                              |                                 |
+| 工具 > 检查部件                                              | 检查您在应用程序中实现的小部件是否已正确构建。                                                                                                          |                                 |
+| 同步项目目录                                                 | 如有必要，此操作会在项目目录中创建文件夹(资源、 部件、主题等)。 它还读取了当前小部件文件夹中的小部件包。 例如，如果您将小部件添加到小部件文件夹，您需要同步项目目录才能出现在表单工具箱中。                                 | <kbd>F4</kbd>                   |
+| 在资源管理器中显示项目目录                                          | 在Windows Explorer中显示包含项目文件(*.mpr*)以及资源和Java 动作等其他资源的目录。                                                                          |                                 |
+| 为 Eclipse 部署                                           | 将项目部署到部署目录。 生成了 Java 根块，以便您可以在 Eclipse 中开始编辑。 此操作不编译 Java 操作。 如果您正在写入 Java 动作，您想要通过 Eclipse 编译和调试这些动作，请使用它。                      | <kbd>F6</kbd>                   |
+| 创建部署包                                                  | 创建一个 Mendix 部署档案包(*.mda*)，其中包含运行项目所需的所有文件。 如果您想要在Windows服务器上或自定义Mendix Cloud上部署您的项目，就可以使用此功能。                                    | <kbd>F7</kbd>                   |
+| 清理部署目录                                                 | 清除部署目录。                                                                                                                          |                                 |
+| 部署到许可云节点                                               | 将团队服务器项目的最新版本部署到相关的 Mendix 云节点。                                                                                                  | <kbd>Ctrl</kbd> + <kbd>F5</kbd> |
 
-### 4.5 Run Menu
+### 4.5 运行菜单
 
-| Menu Item                   | Description                                                                                                                                                              | Shortcut Key                                       |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| Run                         | Deploys and run the project locally. The **Console** pane is activated and this shows the output of the server that runs the project.                                    | <kbd>F5</kbd>                                      |
-| Run on Cloud Foundry        | Opens the **Edit Cloud Foundry Settings** dialog box so you can run your app on Cloud Foundry.                                                                           |                                                    |
-| Edit Cloud Foundry Settings | Opens the **Edit Cloud Foundry Settings** dialog box so you can edit your Cloud Foundry settings.                                                                        |                                                    |
-| Run Locally                 | Runs the project locally so you can view the app.                                                                                                                        | <kbd>F5</kbd>                                      |
-| Stop                        | Stops the currently running project.                                                                                                                                     | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
-| Configuration               | Sets the configuration level (**Default**).                                                                                                                              |                                                    |
-| Default log level           | Allows setting the default log level before running the project locally. The options are **Trace**, **Debug**, **Info** (default), **Warning**, **Error**, **Critical**. |                                                    |
-| Debug                       | Allows you to connect the [Debugger](#dockable-panes).                                                                                                                   |                                                    |
-| Responsive Browser          | Shows the web client for the currently running project in the browser.                                                                                                   | <kbd>F9</kbd>                                      |
-| Tablet Browser              | Shows the tablet mobile client for the currently running project in the browser.                                                                                         | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
-| Phone Browser               | Shows the mobile client for the currently running project in the browser.                                                                                                | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
-| Hybrid Phone App Online     | Views the app as a phone app online.                                                                                                                                     |                                                    |
-| View in the Mendix App      | Views the app via the [Mendix Mobile app](getting-the-mendix-app).                                                                                                       |                                                    |
+| 菜单项                | 描述                                                                              | 快捷键                                                |
+| ------------------ | ------------------------------------------------------------------------------- | -------------------------------------------------- |
+| 运行                 | 本地部署和运行项目。 **控制台** 窗格已激活，这将显示运行项目的服务器的输出。                                       | <kbd>F5</kbd>                                      |
+| 在云端基础上运行           | 打开 **编辑Cloud Foundry 设置** 对话框，以便您可以在 Cloud Foundly 上运行您的应用程序。                   |                                                    |
+| 编辑Cloud Foundry 设置 | 打开 **编辑Cloud Foundry 设置** 对话框，以便您可以编辑您的Cloud Foundry 设置。                        |                                                    |
+| 本地运行               | 在本地运行项目，以便您可以查看应用程序。                                                            | <kbd>F5</kbd>                                      |
+| 停止                 | 停止当前正在运行的项目。                                                                    | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
+| 配置                 | 设置配置级别(**默认**)。                                                                 |                                                    |
+| 默认日志级别             | 允许在本地运行项目前设置默认日志级别。 选项是 **Trace**, **调试**, **信息** (默认), **警告**, **错误**, **关键**. |                                                    |
+| Debug              | 允许您连接 [调试器](#dockable-panes)。                                                   |                                                    |
+| 响应浏览器              | 在浏览器中显示当前运行项目的 web 客户端。                                                         | <kbd>F9</kbd>                                      |
+| 平板电脑浏览器            | 在浏览器中显示当前运行项目的平板移动客户端。                                                          | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
+| 电话浏览器              | 在浏览器中显示当前运行项目的移动客户端。                                                            | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
+| 混合电话应用在线           | 在线查看该应用作为手机应用程序。                                                                |                                                    |
+| 在 Mendix 应用程序中查看   | 通过 [Mendix 移动应用程序](getting-the-mendix-app) 查看应用程序。                              |                                                    |
 
-### 4.6 Language Menu
+### 4.6 语言菜单
 
-| Menu Item                | Description                                                                                                                                  | Shortcut Key                                  |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| Current Language         | Displays the current language of your app and allows you to make another language the current language.                                      |                                               |
-| Select Previous Language | Makes the previous language of your app the current language.                                                                                | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> |
-| Select Next Language     | Makes the next language of your app the current language.                                                                                    | <kbd>Ctrl</kbd>+<kbd>L</kbd>                  |
-| Language Settings        | Opens the **Project Settings** dialog box to the **Languages** tab so that you can adjust the language configuration of the app.             |                                               |
-| Batch Replace            | Opens a form in which you can correct texts within one language. This is useful to check whether texts presented to the user are consistent. |                                               |
-| Batch Translate          | Opens a form in which you can quickly translate many texts from one language to another.                                                     |                                               |
-| Language Operations      | Opens a form in which you can copy, move, swap, or delete all translations in a given language for selected modules.                         |                                               |
+| 菜单项     | 描述                                             | 快捷键                                           |
+| ------- | ---------------------------------------------- | --------------------------------------------- |
+| 当前语言    | 显示您应用的当前语言，并允许您将其他语言变成当前语言。                    |                                               |
+| 选择上一种语言 | 使您应用的前一语言成为当前语言。                               | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> |
+| 选择下一个语言 | 使您应用的下一个语言成为当前语言。                              | <kbd>Ctrl</kbd>+<kbd>L</kbd>                  |
+| 语言设置    | 将 **项目设置** 对话框打开到 **语言** 选项卡，以便您可以调整应用程序的语言配置。 |                                               |
+| 批量替换    | 打开一个表单，您可以在一种语言中更正文本。 这有助于检查向用户提交的文本是否一致。      |                                               |
+| 批量翻译    | 打开一个表单，您可以快速将许多文本从一种语言翻译成另一种语言。                |                                               |
+| 语言操作    | 打开一个表单，您可以复制、移动、交换或删除所选模块的所有语言翻译。              |                                               |
 
-### 4.7 Help Menu
+### 4.7 帮助菜单
 
-| Menu Item               | Description                                                                                                                                             | Shortcut Key  |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Help                    | Opens the documentation page about the currently selected element. If an entity is selected, for example, the documentation for entities will be shown. | <kbd>F1</kbd> |
-| Help Contents           | Opens the start page of the documentaton in the default web browser.                                                                                    |               |
-| Ask a Question          | Opens the [Mendix Forum](https://forum.mendixcloud.com/index4.html) in the default web browser.                                                         |               |
-| Open Log File Directory | Opens the log files for your app locally.                                                                                                               |               |
-| About Mendix Modeler    | Shows information about the current version of the Mendix Modeler.                                                                                      |               |
+| 菜单项              | 描述                                                                | 快捷键           |
+| ---------------- | ----------------------------------------------------------------- | ------------- |
+| 帮助               | 打开当前选中元素的文档页面。 例如，如果选定一个实体，将显示各实体的文件。                             | <kbd>F1</kbd> |
+| 帮助内容             | 在默认浏览器中打开 documentaton 的起始页面。                                     |               |
+| 问一个问题            | 在默认浏览器中打开 [Mendix 论坛](https://forum.mendixcloud.com/index4.html)。 |               |
+| 打开日志文件目录         | 在本地打开您的应用的日志文件。                                                   |               |
+| 关于 Mendix Modelr | 显示 Mendix Modeler 当前版本的信息。                                        |               |
 
-## 5 General Shortcut Keys
+## 5 通用快捷键
 
-In the main window pane, <kbd>Ctrl</kbd> + <kbd>Tab</kbd> can be used to navigate between all open documents. Other shortcut keys that can be used in the main window pane can be found next to their relevant menu item in the [Menus](#menus) section above.
+在主窗口窗格中， <kbd>Ctrl</kbd> + <kbd>Tab</kbd> 可以用于导航所有打开的文档。 可以在主窗口窗格中使用的其他快捷键可以在其相关菜单项上面 [菜单](#menus) 部分中的旁边找到。
 
-In most dialog boxes for editing properties, the following shortcut keys can be used:
+在大多数编辑属性的对话框中，可以使用以下快捷键：
 
-| Key                                   | Description                                                                                                                                                                                                              |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>Ctrl</kbd> + <kbd>Enter</kbd>    | Confirms all changes and closes the form. Works as if the **OK** button was clicked. This is especially useful if the focus is on a multi-line text box; otherwise, pressing <kbd>Enter</kbd> will have the same effect. |
-| Escape                                | Cancels all changes and closes the form. Works as if the **Cancel** button was clicked.                                                                                                                                  |
-| <kbd>Ctrl</kbd> + Mouse scroll wheel  | Zooms in or out. This works in all editors.                                                                                                                                                                              |
-| <kbd>Shift</kbd> + Mouse scroll wheel | Scrolls left or right. Works as if you were using the horizontal scroll bars.                                                                                                                                            |
+| 关键字                             | 描述                                                                           |
+| ------------------------------- | ---------------------------------------------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>输入</kbd> | 确认所有更改并关闭表格。 似乎点击 **OK** 按钮。 如果焦点是多行文本框，那么这将特别有用；否则按 <kbd>输入</kbd> 将具有相同的效果。 |
+| 逃逸的                             | 取消所有更改并关闭表单。 似乎点击 **取消** 按钮。                                                 |
+| <kbd>Ctrl</kbd> + 鼠标滚轮。         | 放大进出。 这适用于所有编辑器。                                                             |
+| <kbd>Shift</kbd> + 鼠标滚轮。        | 向左或向右滚动。 似乎您使用了水平滚动栏。                                                        |
 
-In most edit grids (such as the list of attributes in the entity properties), the following shortcut keys can be used:
+在大多数编辑网格(例如实体属性中的属性列表)，可以使用以下快捷键：
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>N</kbd> | Creates a new item.                     |
-| <kbd>Enter</kbd>               | Edits the currently selected item.      |
-| <kbd>Delete</kbd>              | Deletes the currently selected item(s). |
+| 关键字                            | 描述         |
+| ------------------------------ | ---------- |
+| <kbd>Ctrl</kbd> + <kbd>N</kbd> | 创建一个新项目。   |
+| <kbd>输入</kbd>                  | 编辑当前选中的项目。 |
+| <kbd>删除</kbd>                  | 删除当前选中的项目  |
 
-## 6 Domain Model Editor Shortcut Keys
+## 6 域名模型编辑器快捷键
 
-The following shortcut keys are available in the domain model editor:
+以下快捷键可在域模型编辑器中使用：
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>F2</kbd>                  | Edits the name of the selected element. |
-| <kbd>Ctrl</kbd> + <kbd>A</kbd> | Selects all entities.                   |
-| <kbd>Esc</kbd>                 | Clears selection.                       |
+| 关键字                            | 描述         |
+| ------------------------------ | ---------- |
+| <kbd>F2</kbd>                  | 编辑选中元素的名称。 |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> | 选择所有实体。    |
+| <kbd>埃斯克文</kbd>                | 清除选择。      |
 
-## 7 Form Editor Shortcut Keys
+## 7 表单编辑器快捷键
 
-The following shortcut keys are available in the form editor:
+以下快捷键可在表单编辑器中使用：
 
-| Key                          | Description                                                                                                                                                                                                            |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                   | Moves the selection box to the widget or element in the direction of the arrow key. For example, if currently a label is selected and you press the right arrow key, the text box to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys | Moves the currently selected item up/down or left/right. This works on table columns and rows, tab pages, grid and data view buttons, search fields, etc.                                                              |
-| <kbd>Enter</kbd>             | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                 |
-| <kbd>F2</kbd>                | Edits the caption of a label or button inline in the form. You can also just start typing a letter or a digit and the caption will be replaced by what you type.                                                       |
+| 关键字                   | 描述                                                     |
+| --------------------- | ------------------------------------------------------ |
+| 箭头键                   | 向箭头键方向移动选择框到小部件或元素。 例如，如果当前选择了一个标签，您按右箭头键，右侧的文本框就会被选中。 |
+| <kbd>Ctrl</kbd> + 箭头键 | 向上/向下或向左/向右移动当前选中的物品。 这适用于表列和行、标签页、网格和数据视图按钮、搜索字段等。    |
+| <kbd>输入</kbd>         | 在对话框中编辑当前选中对象的属性。                                      |
+| <kbd>F2</kbd>         | 在表单中编辑标签或按钮的标题。 您也可以只需输入字母或数字，标题将被您输入的内容所取代。           |
 
-## 8 Microflow Editor Shortcut Keys
+## 8 微流程编辑器快捷键
 
-The following shortcut keys are available in the microflow editor:
+以下快捷键可在微流编辑器中使用：
 
-| Key                                                | Description                                                                                                                                                                                                                            |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                                         | Moves the selection box to the activity or element in the direction of the arrow key. For example, if currently a show page activity is selected and you press the right arrow key, the end event to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys                       | Moves the currently selected item up/down or left/right.                                                                                                                                                                               |
-| <kbd>Enter</kbd>                                   | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                                 |
-| <kbd>F2</kbd>                                      | Edits the name of the variable generated by the currently selected activity. This shortcut will not function on activities that do not result in a variable.                                                                           |
-| <kbd>Home</kbd>                                    | Highlights and focus on the start event of the current microflow.                                                                                                                                                                      |
-| <kbd>End</kbd>                                     | Highlights and focus on an end event in the current microflow. If there are multiple end events, clicking **End** multiple times will toggle between the different events.                                                             |
-| <kbd>Shift</kbd> when resizing an activity         | When resizing the entity, by holding <kbd>Shift</kbd> , the microflow component will stay centered at its current position and will expand equally in all directions.                                                                  |
-| <kbd>Ctrl</kbd> when selecting multiple activities | When pressing the <kbd>Ctrl</kbd>, you can select additional microflow components. Clicking a selected component while holding <kbd>Ctrl</kbd> will deselect it.                                                                       |
+| 关键字                     | 描述                                                                  |
+| ----------------------- | ------------------------------------------------------------------- |
+| 箭头键                     | 向箭头键方向移动选择框到活动或元素。 例如，如果您选择了当前显示的页面活动并按右箭头键， 右侧的结束事件被选中。            |
+| <kbd>Ctrl</kbd> + 箭头键   | 向上/向下或向左/向右移动当前选中的物品。                                               |
+| <kbd>输入</kbd>           | 在对话框中编辑当前选中对象的属性。                                                   |
+| <kbd>F2</kbd>           | 编辑当前选中活动生成的变量名称。 这种快捷方式不会对没有产生变数的活动起作用。                             |
+| <kbd>首页</kbd>           | 突出并注重当前微流的启动活动。                                                     |
+| <kbd>结束</kbd>           | 在当前微流中突出并侧重于结束活动。 如果有多个结束事件，单击 **结束** 将在不同事件之间切换多次。                 |
+| <kbd>调整活动大小时偏移</kbd>    | 当按住 <kbd>Shift</kbd> 键调整实体大小时，, 微流组件将以其目前的位置为中心，并将在所有方向平等扩展。        |
+| <kbd>Ctrl</kbd> 选择多个活动时 | 按下 <kbd>Ctrl</kbd>时，您可以选择额外的微流组件。 按住 <kbd>Ctrl</kbd> 时点击选中的组件将取消选择。 |
