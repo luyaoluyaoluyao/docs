@@ -1,80 +1,80 @@
 ---
-title: "Aggregate List"
-parent: "list-activities"
+title: "聚合列表"
+parent: "列表活动"
 menu_order: 1
 tags:
   - "studio pro"
-  - "Aggregate"
+  - "聚合"
   - "Sum"
-  - "Average"
-  - "Count"
-  - "Minimum"
-  - "Maximum"
+  - "平均值"
+  - "计数"
+  - "最小值"
+  - "最大值"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Aggregate list** activity can be used to calculate aggregated values over a list of objects. The aggregated values supported by this activity are:
+**聚合列表** 活动可以用来计算对象列表中的合计值。 这项活动支持的总值是：
 
-* average
-* count
-* maximum
-* minimum
+* 平均值
+* 计数
+* 最大值
+* 最小值
 * sum
 
-## 2 Properties
+## 2 属性
 
-An example of aggregate list properties is represented in the image below:
+汇总列表属性的示例在下面的图像中显示：
 
-![aggregate list properties](attachments/list-activities/aggregate-list-properties.png)
+![汇总列表属性](attachments/list-activities/aggregate-list-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-The aggregate list properties pane consists of the following sections:
+汇总列表属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section{#action}
+## 3 行动部分{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 List
+### 3.1 名单
 
-The name of the list to aggregate.
+要汇总的列表名称。
 
-### 3.2 Function
+### 3.2 职能
 
-Defines which type of aggregation is applied.
+定义应用哪一种聚合。
 
-| Value   | Description                                                         |
-| ------- | ------------------------------------------------------------------- |
-| Average | The average of all values of an attribute from the list of objects. |
-| Count   | The total number of objects in the list.                            |
-| Minimum | The minimum of all values of an attribute from the list of objects. |
-| Maximum | The maximum of all values of an attribute from the list of objects. |
-| Sum     | The sum of all values of an attribute from the list of objects.     |
+| 值   | 描述             |
+| --- | -------------- |
+| 平均值 | 对象列表中所有属性的平均值。 |
+| 计数  | 列表中对象的总数。      |
+| 最小值 | 对象列表中属性的最小值。   |
+| 最大值 | 对象列表中所有属性的最大值。 |
+| Sum | 对象列表中所有属性的值之和。 |
 
-### 3.3 Attribute
+### 3.3 属性
 
-Defines which attribute of the objects in the list is used to aggregate over. This must be a numeric attribute (Long, Integer, or Decimal).
+定义列表中对象的哪个属性用于汇总。 这必须是一个数值属性(Long, Integer 或 Decimal)。
 
 {{% alert type="info" %}}
-When using the 'Count' function it is not necessary to select an attribute, as it simply counts the number of objects in the list.
-{{% /alert %}}
+当使用“计数”函数时，没有必要选择一个属性，因为它只是计算列表中的对象数量。
+{{% /报警 %}}
 
-### 3.4 Variable Name
+### 3.4 变量名称
 
-The name of the variable in which the result of the aggregation is stored. This variable will have a numeric data type that depends on the selected function.
+存储聚合结果的变量名称。 此变量将有一个数字数据类型，取决于所选函数。
 
-## 4 Common Section{#common}
+## 4 通用部分{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
