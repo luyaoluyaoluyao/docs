@@ -1,14 +1,11 @@
 ---
 title: "フッター (ドキュメントテンプレート)"
 parent: "ドキュメントテンプレート"
-tags:
-  - "studio pro"
 aliases:
-  - /ja/refguide/footer-(document-template).html
-  - /ja/refguide/Footer+(document+template).html
+  - /ja/refguide7/Footer+(document+template).html
+  - /refguide7/footer-(document-template).html
 ---
 
-## 1つの紹介
 
 有効にすると、各ページの下部にフッターが挿入されます。 他のウィジェットはフッターに置くことができます。
 
@@ -16,14 +13,12 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/document-templates/918235.png)
-
-フッター。
+![](attachments/819203/918235.png) フッター
 
 {{% /alert %}}
 
-## 2つの外観
+## 外観
 
-### 2.1 BottomMargin
+### BottomMargin
 
 ページ下部とフッターの間のスペースをインチ単位で指定します。
