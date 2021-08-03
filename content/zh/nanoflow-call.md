@@ -8,6 +8,10 @@ tags:
   - "调用 nanoflow"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/nanoflow-call.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 {{% alert type="warning" %}}
@@ -75,4 +79,4 @@ You can also open the dialog box by double-clicking the activity in the microflo
 
 ## 4 共同部分 {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snipet file="refguide8/microflow-common-section-link.md" %}}
