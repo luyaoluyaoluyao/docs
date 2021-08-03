@@ -1,15 +1,11 @@
 ---
-title: "Deploy to the Cloud"
-parent: "app-menu"
-tags:
-  - "studio pro"
+title: "Deploy To The Cloud Dialog"
+parent: "dialogs"
 ---
 
 ## 1 Introduction
 
-This menu option dialog creates a versioned deployment package and deploys it to your environment in the Mendix Cloud.
-
-![Deploy to the Cloud dialog](attachments/app-menu/deploy-to-the-cloud.png)
+Use this dialog box to create a versioned deployment package and deploy it to your environment in the Mendix Cloud.
 
 ## 2 Development Line
 
@@ -17,15 +13,15 @@ Choose the **Development line** for which you want to create a deployment packag
 
 ## 3 Revision
 
-Choose the **Revision** of the selected development line for which you want to create a deployment package. One reason you may not want the latest revision is if you want to exclude some recently developed functionality.
+Choose the **Revision** of the selected development line for which you want to create a deployment package. This is not necessarily the latest revision because you might want to exclude some recently developed functionality.
 
 ## 4 New Version
 
-Choose a **New version** for the deployment package. The version consists of four numbers: major version, minor version, patch and revision. The revision is fixed and determined by the revision you selected for **Revision**.
+Choose a **New version** for the deployment package. The version consists of four numbers: **Major** version, **Minor** version, **Patch**, and **Revision**. The revision is fixed and determined by the revision you selected for **Revision**.
 
-You are free to choose the other numbers, but it is wise to use a convention for the numbering. Major versions typically contain major new feature or rewrites of existing features. A minor version contains small new features and fixes. A patch solves minor issues and should not change the data model of the application. A patch release should be interchangeable with another patch release with no changes to the data.
+You are free to choose the other numbers, but it is wise to use a convention for the numbering. Major versions typically contain major new features or rewrites of existing features. A minor version contains small new features and fixes. A patch solves minor issues and should not change the data model of the application. A patch release should be interchangeable with another patch release with no changes to the data.
 
-Studio Pro will show you the latest version that you created a package for (if any). You can increase major, minor or patch according to the convention you use.
+The Desktop Modeler will show you the latest version that you created a package for (if any). You can increase major, minor, or patch according to the convention you use.
 
 ## 5 Description
 
@@ -33,8 +29,7 @@ You can enter a custom **Description** for this deployment package. It is purely
 
 ## 6 App
 
-This shows the **App** in the Mendix Cloud where the deployment package will be deployed. This is for information only, you cannot change the destination here.
+This field shows the **App** in the Mendix Cloud where the deployment package will be deployed. This is for information only—you cannot change the **App** here.
 
 ## 7 Licensee
-
-This shows the **Licensee** of this licensed node.
+This field shows the **Licensee** of this licensed node.
