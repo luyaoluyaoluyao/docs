@@ -1,83 +1,79 @@
 ---
-title: "XPath Constraints"
+title: "XPath 约束"
 parent: "xpath"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-constraints.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+一个约束可以添加到任意Xpath 查询中，以筛选检索到的数据。 它应该始终采取有效的 [表达式](xpath-expressions) 的形式。 这应该包含一个或多个变量与 [运算符](xpath-operators), [函数](xpath-constraint-functions), [关键字或系统变量](xpath-keywords-and-system-variables)
 
-A constraint can be added to any Xpath query to filter the data retrieved. It should always take the form of a valid [expression](xpath-expressions). This should consist of one or more variables combined with [operators](xpath-operators), [functions](xpath-constraint-functions), [keywords or system variables](xpath-keywords-and-system-variables).
-
-For example, this query retrieves all customers whose name is equal to Jansen:
+例如，此查询会检索名称等于Jansen的所有客户：
 
 ```java
-//Sales.Customer[Name = 'Jansen']
+//Sales.Customer[name = 'Jansen']
 ```
 
-The first half of the query is responsible for defining the entity to retrieve and the second half (between the brackets ) *constrains* the data to a certain attribute. Note that the constraint is (and should always be) enclosed by brackets.
+The first half of the query is responsible for defining the entity to retrieve and the second half (between the brackets ) *constrains* the data to a certain attribute. 请注意，制约因素是(而且应当始终是)括号内的内容。
 
-Multiple constraints can be added to a single query, this is true for all queries with the exception of the `id` query. This is most commonly done by the simple expedient of opening a new set of brackets after closing the first.
+多个约束可以添加到单个查询中，除了 `id` 查询以外，所有查询都是如此。 最常见的做法是在第一个方括号关闭后开辟一组新的括号。
 
 {{% alert type="warning" %}}
-In Studio Pro, you do not write complete queries, only the constraints. The entity is implicitly determined by the context. So, instead of `//Sales.Customer[Name='Jansen']`, you only need to write `[Name='Jansen']` in the context of a customer. In Java, you do need to write the whole queries, including the double slashes (`//`) and the entity name.
-{{% /alert %}}
+在 Studio Pro，您不会写完整的查询，仅限限制。 实体是由上下文隐含地确定的。 因此，取代 `//Sales.Customer[Name='Jansen'`, 你只需要在客户上写 `[Name='Jansen' ]`。 在 Java 中，您确实需要写整个查询，包括双斜线 (`//`) 和实体名称。
+{{% /报警 %}}
 
-## 2 Examples
+## 2 示例
 
-This query retrieves all customers whose name is equal to Jansen and who live in Rotterdam:
-
-```java
-//Sales.Customer[Name = 'Jansen'][Sales.Customer_Address/Sales.Address/City = 'Rotterdam']
-```
-
-It is also possible to combine constraints with an `and` or `or` [operator](xpath-operators). This query retrieves all customers whose names equal to Jansen *and* who live in Rotterdam:
+此查询检索所有名称等于Jansen和居住在鹿特丹的客户：
 
 ```java
-//Sales.Customer[Name = 'Jansen' and Sales.Customer_Address/Sales.Address/City = 'Rotterdam']
+//Sales.Customer[name = 'Jansen'] [Sales.Customer_Address/Sales.Address/City = '鹿特丹]
 ```
 
-This query retrieves all customers whose name is Jansen or who live in Rotterdam.
+还可以将约束与 `和` 或 `或` [操作员](xpath-operators) 结合起来。 此查询可以检索所有其名字等于Jansen *和* 的鹿特丹的客户：
 
 ```java
-//Sales.Customer[Name = 'Jansen' or Sales.Customer_Address/Sales.Address/City = 'Rotterdam']
+//Sales.Customer[name = 'Jansen' and Sales.Customer_Address/Sales.Address/City = '鹿特丹']
 ```
 
-With parentheses, constraints can be grouped to define priorities. This query retrieves all customers who are not only named "Jansen" or "Smit," but also live in Rotterdam:
+此查询可检索所有名为Jansen或居住在鹿特丹的客户。
 
 ```java
-//Sales.Customer[( Name = 'Jansen' or Name = 'Smit' ) and Sales.Customer_Address/Sales.Address/City = 'Rotterdam']
+//Sales.Customer[name = 'Jansen' or Sales.Customer_Address/Sales.Address/City = '鹿特丹']
 ```
 
-In some cases, it might also be useful define sub-constraints to restrict the data that is being constrained. This is easily achieved by adding a sub-constraint within the brackets of the original constraint. Do not confuse this with two separate constraints, as the sub-constraint only applies to the meta-constraint, not the actual query. As such, the brackets are not opened and closed one after the other; the sub-constraint should be entirely within the meta-constraint. In sufficiently complicated queries, this can result in confusion regarding where one constraint ends and the other begins. Make sure you keep careful track of bracket sets to prevent this from happening.
+用括号来划分制约因素，以确定优先次序。 此查询可以检索所有不仅被命名为“Jansen”或“Smit”而且还生活在鹿特丹的客户：
 
-This query retrieves all users that have the role Administrator:
+```java
+//Sales.Customer[( name = 'Jansen' or name = 'Smit' ) and Sales.Customer_Address/ Sales.Address/City = '鹿特丹'
+```
+
+在某些情况下，可能还需要界定限制受制约的数据的次级制约因素。 通过在原制约因素的方括号内添加一个子约束，很容易做到这一点。 不要将此与两个单独的制约混为一谈，因为子制约只适用于元制约，而不是实际查询。 因此，方括号不是放在另一方括号内或放在另一方括号内；子制约应完全在元制约范围内。 在问答十分复杂时，这可能造成一种制约因素在哪里结束而另一种制约因素在哪里开始的混淆。 请确保您保持对括号集的仔细跟踪，以防止出现这种情况。
+
+此查询检索所有具有管理员角色的用户：
 
 ```java
 //Sales.User[id = '[%UserRole_Administrator%]']]
 ```
 
-This query retrieves all customers who live in Rotterdam or Losdun:
+此查询检索居住在鹿特丹或洛斯敦的所有客户：
 
 ```java
-//Sales.Customer[Sales.Customer_Address/Sales.Address[City = 'Rotterdam' or City = 'Losdun']]
+//Sales.Customer[Sales.Customer_Address/Sales.Address[City = '鹿特丹'或City = 'Losdun']]
 ```
 
-This query retrieves all customers who live in New Amsterdam, Guyana (as opposed to those that live in, for example, New Amsterdam, Indiana):
+这一查询检索了居住在圭亚那新阿姆斯特丹的所有客户（与居住在印度新阿姆斯特丹的客户不同）：
 
 ```java
-//Sales.Customer[Sales.Customer_Address/Sales.Address[City = 'New Amsterdam']/Sales.Adress_Country/Sales.Country/Name = 'Guyana']
+//Sales.Customer[Sales.Customer_Address/Sales.Address[City = 'New Amsterdam']/Sales.Adress_Country/Sales.Country/Name = '圭亚那']
 ```
 
-Avoid the use of the same path more than once in a single constraint. For example, the example on Rotterdam and Losdun could also be established like this:
+避免在单一约束下使用同一条路径不止一次。 例如，关于鹿特丹和洛斯敦的例子也可以像这样：
 
 ```java
-//Sales.Customer[Sales.Customer_Address/Sales.Address/City = 'Rotterdam' or Sales.Customer_Address/Sales.Address/City = 'Losdun']
+//Sales.Customer[Sales.Customer_Address/Sales.Address/City = '鹿特丹'或Sales.Customer_Address/Sales.Address/City = 'Losdun']
 ```
 
-However, this query is executed inefficiently and will thus significantly slow down the query process.
+然而，这个查询执行效率低下，因此将大大减慢查询进程。
 
