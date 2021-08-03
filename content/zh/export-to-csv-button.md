@@ -1,40 +1,40 @@
 ---
-title: "Export to CSV button"
-parent: "control-bar"
+title: "导出到 CSV 按钮"
+parent: "控制栏"
 ---
 
 
-This button allows end-users to export the contents of the grid or reference set selector to a CSV file. Please note that constraints by use of search fields and sorting will also be exported.
+此按钮允许最终用户将网格内容或参考设置选择器导出到CSV文件。 请注意通过搜索字段和排序的限制也将被导出。
 
-The csv export function relies on a specific data retrieval method. As such, it is only available in list widgets that use the XPath data source.
+csv 导出功能依赖于特定的数据检索方法。 因此，它只能在列表小部件中使用 XPath 数据源。
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Formatting properties
+## 格式化属性
 
-### Decimal separator
+### 小数分隔符
 
-The string used to separate the fractional part from the whole part in Float, Currency and Decimal values.
+该字符串用来将分部分从浮动、货币和小数值中的整个部分分开。
 
-_Default value:_ .
+_默认值：_。
 
-### Group separator
+### 分组分隔符
 
-The string used to separate groups of digits in large numbers.
+该字符串用来分隔大批数字的组数。
 
-_Default value:_ ,
+_默认值：_，
 
-### Delimiter
+### 分隔符
 
-The string used to delimit values in the resulting CSV file.
+用于在生成的 CSV 文件中分隔值的字符串。
 
-_Default value:_ ;
+_默认值：_;
 
-## General properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -44,22 +44,22 @@ _Default value:_ ;
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-### Maximum number of rows
+### 最大行数
 
-Indicates the maximum number of rows that can be present in the datagrid when exporting. Useful to prevent users from exporting large quantities of data, potentially placing a heavy load on the server.
+指示导出时数据网格中的最大行数。 有助于防止用户导出大量数据，可能会给服务器带来沉重的负荷。
 
-### Generate Excel seperator hint
+### 生成 Excel 分隔符提示
 
-If true, adds an extra line to the CSV file header that informs Excel what the seperator character is. This solves compatibility issues with Excel and localization.
+如果为 true，则在 CSV 文件头中添加一个额外的行，通知Excel 是什么分隔符。 这解决了与 Excel 和本地化的兼容问题。
 
-### Use grid date format
+### 使用网格日期格式
 
-If true, the date format of the column is used, otherwise a format that is recognized by Excel as a date is used (yyyy-MM-dd).
+如果为 true，则使用列的日期格式，否则使用 Excel 识别为日期的格式 (yyy-MM-dd)。
 
-## Visibility properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
