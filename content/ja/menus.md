@@ -9,16 +9,20 @@ tags:
   - "トップ バー"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/menus.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 Studio Pro のトップバーには、次のメニューがあります。
 
 ![メニューバー](attachments/menus/menu-bar.png)
 
-* [ファイル](#file) - ドキュメントやアプリを管理することができます
+* [ファイル](#file) - ドキュメントやプロジェクトを管理することができます
 * [編集](#edit) - Studio Pro 内で検索やコピーなどの編集機能を実行できます。
 * [表示](#view) - Studio Pro 内の Studio Pro とドッキング可能なペインの表示方法を選択できます。
-* [App](#project) – アプリ全体の設定が含まれています
+* [プロジェクト](#project) – プロジェクト全体の設定を含みます
 * [](#run) を実行する - アプリをデプロイおよび監視するためのアクションが含まれています
 * [バージョンコントロール](#version-control) - バージョン管理用の設定を含んでいます
 * [言語](#language) - 言語と翻訳の設定
@@ -26,7 +30,7 @@ Studio Pro のトップバーには、次のメニューがあります。
 
 ## 2ファイルメニュー {#file}
 
-**ファイル** メニューから、ドキュメントやアプリを管理できます。 **File** メニューの詳細については、 [File Menu](file-menu) を参照してください。
+**ファイル** メニューから、ドキュメントやプロジェクトを管理できます。 **File** メニューの詳細については、 [File Menu](file-menu) を参照してください。
 
 ## 3つの編集メニュー {#edit}
 
@@ -34,15 +38,15 @@ Studio Pro のトップバーには、次のメニューがあります。
 
 ## 4表示メニュー {#view}
 
-**View** メニューでは、ドッキング可能なペインを表示したり、フルスクリーンモードを有効にしたり、Projappect レイアウトをリセットしたりできます。 **View** メニューとそのアイテムの詳細については、 [View Menu](view-menu) を参照してください。
+**View** メニューでは、ドッキング可能なペインを表示したり、フルスクリーンモードを有効にしたり、プロジェクトレイアウトをリセットしたりできます。 **View** メニューとそのアイテムの詳細については、 [View Menu](view-menu) を参照してください。
 
-## 5つのアプリメニュー {#project}
+## 5プロジェクトメニュー {#project}
 
-**App** メニューで、アプリとデプロイメントに接続されている設定を表示または操作できます。 **App** メニューの詳細については、 [App Menu](app-menu) を参照してください。
+**プロジェクト** メニューで、プロジェクトとデプロイメントに接続されている設定を表示または操作できます。 **プロジェクト** メニューの詳細については、 [プロジェクトメニュー](project-menu) を参照してください。
 
 ## 6 実行メニュー {#run}
 
-The **Run** menu contains actions for deploying and monitoring your app, such as **Publish**, **Run locally**, or **Debugger**. **Run** メニューの詳細については、 [Run Menu](run-menu) を参照してください。
+The **Run** menu contains actions for deploying and monitoring your app, such as **Run**, **Run locally**, or **Debugger**. **Run** メニューの詳細については、 [Run Menu](run-menu) を参照してください。
 
 ## 7バージョンコントロールメニュー {#version-control}
 
