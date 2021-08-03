@@ -1,44 +1,12 @@
 ---
 title: "一般的なウィジェット"
 parent: "ページ"
-menu_order: 20
-tags:
-  - "studio pro"
-  - "共通ウィジェット"
-  - "ウィジェット"
 ---
 
-## 1つの紹介
 
-一般的なウィジェットカテゴリには、一般的に使用されるウィジェットが含まれています。 このカテゴリには、次のウィジェットが含まれています:
-
-
-*  [テキスト](text) - パラメータを含むテキストを表示します。
-
-    ![](attachments/common-widgets/text-widget-example.png)
-
-*  [イメージ](image) – 静的イメージを表示します。
-
-    ![](attachments/common-widgets/image-design-mode-example.png)
-
-* [Label](label) – displays static text (the functionality of this widget is outdated, we recommend using the label property of [input widgets](input-widgets) or a text widget instead)
-
-*  [スニペットコール](snippet-call) - 別のスニペット、ページ、またはレイアウトでスニペットを使用することができます
-
-    ![](attachments/common-widgets/snippet-call-design-mode-example.png)
-
-*  [ページタイトル](page-title) - [ページプロパティに設定されたページタイトルを表示する](page-properties#title)
-
-    ![](attachments/common-widgets/page-title-design-properties-example.png)
-
-## 2 基本機能の実行
-
-{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
-
-## 3 続きを読む
-
-* [ページ](page)
-
-* [ページ](ページ)
-
-  
+*   [テキスト](テキスト)
+*   [画像](画像)
+*   [ラベル](ラベル)
+*   [ページタイトル](page-title)
+*   [スニペット通話](snippet-call)
+*   [一般的なウィジェットのプロパティ](common-widget-properties)
