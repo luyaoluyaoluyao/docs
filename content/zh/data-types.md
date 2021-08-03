@@ -1,23 +1,32 @@
 ---
-title: "Data Types"
-category: "Desktop Modeler"
+title: "数据类型"
+category: "应用程序模型"
+menu_order: 60
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
 
-Throughout the Modeler the same set of data types are used. The exception is the type of [attributes](attributes), which is more specific with regard to storage in the database. In general, an attribute type maps to the data type with the same name. The exceptions are mentioned in the table below.
+整个Studio Pro 使用相同的数据类型。 异常是 [属性](attributes)的类型，它对数据库中的存储更为具体。 通常，属性类型映射到具有相同名称的数据类型。 例外情况见下表。
 
-Mendix supports the following data types:
+## 支持的数据类型
 
-| Name          | Description                                                                                                                                                              | Examples                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| Boolean       | A truth value.                                                                                                                                                           | `true` and `false`                    |
-| Binary        | Binary data such as files and images.                                                                                                                                    |                                       |
-| Date and time | A point in time consisting of a date and a time component accurate up to milliseconds.                                                                                   | Thursday, 12 February 2015, 14:50:36  |
-| Decimal       | A high-precision fractional number. The Decimal type can be used for high-precision calculations. Use this type to represent amounts of money for example.               | 3.14, 738000000000.00000001           |
-| Enumeration   | One of the values of the given [enumeration](enumerations).                                                                                                              | Red, Green, Blue; Todo, Running, Done |
-| Integer/Long  | A whole number between -(2^63) and 2^63 - 1. The attribute types AutoNumber, Integer and Long map to this data type.                                                     | -42, 0, 123                           |
-| Float         | ***The Float type is deprecated. Use the high-precision Decimal type instead.*** A fractional number. The attribute types Float and Currency both map to this data type. | -3.45, 0.0, 43.21                     |
-| List          | A list of objects of a specific [entity](entities).                                                                                                                      |                                       |
-| Nothing       | No value. Can only be used as the return type of a [microflow](microflows).                                                                                              |                                       |
-| Object        | A single object of a specific [entity](entities).                                                                                                                        |                                       |
-| String        | A piece of text that can contain letters, numbers, spaces and other characters. The attribute types String and HashString both map to this data type.                    | 'Hello World!'; 'Desiderius Erasmus'  |
+Mendix 支持以下数据类型：
+
+| 名称      | 描述                                                                            | 示例：                                  |
+| ------- | ----------------------------------------------------------------------------- | ------------------------------------ |
+| Boolean | 一个真理。                                                                         | `true` and `false`                   |
+| 二进制文件   | 二进制数据，如文件和图像。                                                                 |                                      |
+| 日期和时间   | 一个由日期和时间组件组成的时间点精确到毫秒。                                                        | 2015年2月12日星期四 14:50:36               |
+| 小数      | 一个高精度分数数。 十进制类型可以用于高精度计算。 例如使用这种类型来表示钱的金额。 小数点在小数点之前最多可以有20位数，在小数点之后最多可以有8位数。 | 3.14, 738000000000.00000001          |
+| 枚举数     | 给定的 [枚举的](enumerations) 个值。                                                   | 红，绿，蓝，土豆，运行，完成                       |
+| 整数/经度   | -(2^63) 和 2^63 - 1之间的整数。 此数据类型的属性类型 AutoNumber、整数和长地图                         | -42, 0, 123                          |
+| 列表      | 指定的 [实体](entities) 对象列表。                                                      |                                      |
+| 无       | 无值。 只能用作 [微流](microflows) 的返回类型。                                              |                                      |
+| 对象      | 指定的 [实体](entities) 的单个对象。                                                     |                                      |
+| 字符串     | 一个文本可以包含字母、数字、空格和其他字符。 属性类型 **字符串** and **哈希字符串** 都映射到此数据类型。                  | 'Hello World!'; 'Desiderius Erasmus' |
+
+如果您想要将数据从一个类型更改为另一个类型(例如，) 要在文本框中显示一个数字作为消息的一部分)，您通常需要使用一个表达式来这样做。 查看 [表达式](expressions) 获取关于可用信息的更多信息。
+
+异常是将整数/正则转换为十进制，如果你提供了一个整数/正值，则会隐含转换。
