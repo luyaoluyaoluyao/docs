@@ -1,45 +1,47 @@
 ---
 title: "导出应用包"
-parent: "文件菜单"
-menu_order: 30
-tags:
-  - "studio pro"
-  - "导出应用"
-  - "导出应用包"
+parent: "对话框"
 ---
 
 ## 1 导言
-您可以导出应用包 (*)。 pk*) 从 Mendix Studio Pro 进行备份或与其他Mendix 开发者共享。 如果你想要给他人整个应用，或者如果你需要在提交工单时提供测试应用，这是有用的。
+使用此对话框，您可以从 Mendix Modeler 导出Mendix 项目包 (*.mpk*)。 您可以为备份目的导出项目包或与其他Mendix 开发者共享。 如果您想要给某人整个应用程序，或者如果您需要在提交工单时提供测试应用，这是有用的。
 
-应用包可以使用 [导入应用包](import-project-package-dialog) 重新导入新应用程序。
+要打开 **导出工程包** 对话框， 在 Mendix Moderr 中打开您的项目，然后转到 **文件 > 导出项目包**。
 
-导出包裹。 打开 **文件** 菜单 > **导出应用包** 并在 **导出应用包** 对话框中选择相关的选项：
+![](attachments/export-a-project-package/export-project-package-dialog.png)
 
-![导出应用软件包对话框](attachments/file-menu/export-project-package.png)
+## 2 个软件包目标
 
- 关于您可以选择哪些选项的更多信息，请参阅下面的章节。
-
-## 2 目标
-
-您可以指定要导出包的文件夹。 The default location is a folder named *packages* inside the app directory.
+在 **软件包目标** 字段中，输入软件包文件的位置。 默认位置是工程目录内名为 **软件包** 的文件夹。
 
 ## 3 导出数据
 
-Mendix 应用软件包可以导出到 Mendix 软件包文件(*.mpk*)。  您可以选择导出内置部署数据库和上传文件，或者导出没有数据。 您可以选择以下选项之一：
+您可以导出Mendix 项目包，无需数据或包含数据库快照。 如果您包含数据库快照，您需要选择是否包含现有快照或包含新快照。
 
-* **没有数据** - 软件包将在没有数据的情况下导出。
+### 3.1 无数据
 
-* **现有快照** - 此选项将包括导出应用包中现有的数据库快照
+如果您选择 **无数据**，项目包将在没有包含数据的情况下导出。 点击 **导出**之后，包将导出到选定的包目的地。
 
-    ●{% alert type="info" %}}此选项仅在快照已创建时有效。 如有必要，您可以通过 **版本控制** > **添加数据快照** 创建快照。
-    {{% /报警 %}}
+### 3.2 现有快照
 
-* **来自当前数据库的新快照** - 将从数据库创建一个新快照并将其包括在导出中
+如果您选择 **现有快照**，现有的数据库快照将包含在导出中。 点击 **导出**之后，现有快照的包将导出到选定的包目的地。
 
-    {{% alert type="info" %}}This option is available after you run the app locally at least once, because a local database will be created when running the app for the first time.
-    {{% /报警 %}}
+{{% alert type="info" %}}
+
+此选项只有在快照已经存在时才可用。 通过 **项目** > **更多版本** > **添加数据快照**
+
+{{% /报警 %}}
+
+### 3.3 来自当前数据库的新快照
+
+如果您从当前数据库</strong>中选择 **新快照，将从数据库创建一个新快照并包含在导出中。 点击 **导出**之后，带有新快照数据库的包将导出到选定的包目的地。</p>
+
+{{% alert type="info" %}}
+
+此选项在您在本地运行至少一次后即可使用， 因为首次运行应用程序时将创建本地数据库。
+
+{{% /报警 %}}
 
 ## 4 阅读更多
 
-* [导入应用包](import-project-package-dialog)
-* [版本控制菜单](版本控制-菜单)
+* [导入工程包](import-project-package-dialog)
