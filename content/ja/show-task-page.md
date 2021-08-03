@@ -1,48 +1,48 @@
 ---
-title: "Show User Task Page"
-parent: "workflow-activities"
+title: "ユーザータスクページを表示"
+parent: "workflow activities"
 menu_order: 20
 tags:
   - "studio pro"
-  - "user task"
-  - "workflow"
+  - "ユーザータスク"
+  - "ワークフロー"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Show user task page** activity can be used to open a user task page defined in the user task properties.
+**ユーザータスクページ** のアクティビティを使用して、ユーザータスクのプロパティで定義されているユーザータスクページを開くことができます。
 
-![Show user task page](attachments/open-user-task/open-task-page.jpg)
+![ユーザータスクページを表示](attachments/open-user-task/open-task-page.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of complete task properties is represented in the image below:
+タスクの完全なプロパティの例を以下の画像に示します。
 
-![Show user task page Properties](attachments/open-workflow-page/open-workflow-page-properties.jpg)
+![ユーザータスクページのプロパティを表示](attachments/open-workflow-page/open-workflow-page-properties.jpg)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The **Show user task page** properties pane consists of the following sections:
+**Show user task page** properties ペインは、以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 User Task Object
+### 3.1 ユーザータスクオブジェクト
 
-A user task object of which the page you want to open.
+ページを開きたいユーザータスクオブジェクト。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
