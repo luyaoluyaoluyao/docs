@@ -1,12 +1,17 @@
 ---
-title: "使用代理服务器来调用 Web 服务"
+title: "使用代理服务器来调用网络服务"
 parent: "已消耗的网络服务"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-webservice.pdf)。
+{{% /报警 %}}
+
+## 1 导言
 
 在某些情况下，你被困在防火墙后，因此无法直接拨打网络服务。 此文档向您展示如何配置 JVM 来使用代理服务器来呼叫此类服务。
 
-## 代理主机和代理端口
+## 2 代理主机和代理端口
 
 有两个JVM参数 (系统属性) 指定使用哪个代理服务器。 这些是 http.proxyHost 和 http.proxyPort 。您可以在 JVM 参数下在 .m2eerc 中指定这些参数：
 
@@ -25,7 +30,7 @@ parent: "已消耗的网络服务"
 
 ```
 
-## 代理用户和密码
+## 3 代理用户和密码
 
 有些代理需要身份验证。 要指定用户和密码，只需通过两个JVM参数：
 
@@ -33,10 +38,10 @@ parent: "已消耗的网络服务"
 -Dhttp.proxyUser=myname -Dhttp.proxyPassword=mypassword
 ```
 
-## SSL
+## 4 SSL
 
 您也可以在使用安全套接字层 (ie https)时连接。 要配置代理，您需要指定 **不同的** 代理设置才能连接。 这些设置叫做https.proxyHost和https.proxyPort。 此外，您需要将代理服务器的 ssl 证书导入到您的 java 密钥店。 更多信息可以在 [Oracle 网站](http://download.oracle.com/javaee/1.4/tutorial/doc/Security6.html) 上找到
 
-## 参考
+## 5 参考
 
 [代理服务器上的 Oracle 文档](http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html)
