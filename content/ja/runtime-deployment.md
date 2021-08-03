@@ -13,7 +13,7 @@ tags:
 
 ## 1つの紹介
 
-Mendixモデルをクラウドで実行されているアプリに変換するには、デプロイする必要があります。 このドキュメントでは、アプリケーションのデプロイの背後にある概念と、クラウド上で実行を開始するためのプロセスについて説明します。 アプリケーションのデプロイ方法についての技術的な詳細は、開発者ポータルのドキュメントの [Deployment](/developerportal/deploy/) セクションを参照してください。
+Mendixモデルをクラウドで実行されているアプリに変換するには、デプロイする必要があります。 このドキュメントでは、プロジェクトのデプロイの背後にある概念と、クラウドで実行を開始するプロセスについて説明します。 アプリケーションのデプロイ方法についての技術的な詳細は、開発者ポータルのドキュメントの [Deployment](/developerportal/deploy/) セクションを参照してください。
 
 このデプロイメントの説明は、クラウドで実行されているアプリケーションに基づいています。 Mendixはテスト用にローカルで実行することもできますが、これは概念的にも同じです。
 
@@ -35,7 +35,7 @@ Mendixモデルをクラウドで実行されているアプリに変換する�
 
 ### 2.3 プロジェクト MPK
 
-Studio Pro または Studio によって作成されたアプリモデルです。 Mendix Runtime によって直接解釈することはできません。
+これはStudio ProまたはStudioが作成したプロジェクトモデルです。 Mendix Runtime によって直接解釈することはできません。
 
 ### 2.4 MX ビルド
 
@@ -50,9 +50,9 @@ Studio Pro または Studio によって作成されたアプリモデルです�
 ビルドパックは、Mendixモデルのクラウド環境へのデプロイを制御するMendixスクリプトです。 次のようなタスクを行います
 
 * ターゲット環境とデータベースやファイルストレージなどのバインドされたサービスを識別します
-* mpk形式のアプリを受け取った場合、Mxbuildを起動してmda形式に変換します
+* mpk形式のプロジェクトを受け取った場合、Mxbuildを起動してmda形式に変換します
 * Java Runtime Environment の正しいバージョンを識別し、それを環境にプッシュします。
-* it identifies the correct version of the Mendix Runtime and uses m2ee to push the Runtime Server to the environment, with a link to the app *.mda* which defines the app
+* これは、Mendix Runtimeの正しいバージョンを識別し、m2eeを使用してRuntime Serverを環境へプッシュします。 プロジェクトを定義するプロジェクトmdaへのリンクで
 
 ### 2.7 プロジェクト MDA
 
