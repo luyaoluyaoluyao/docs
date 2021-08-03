@@ -1,40 +1,40 @@
 ---
-title: "Drop-Down Search Field"
-parent: "search-bar"
+title: "下拉搜索字段"
+parent: "搜索栏"
 ---
 
-## Common Properties
+## 公共属性
 
-{{% snippet file="refguide7/Search+Field+Caption+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Caption+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Type+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Type+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Default+Value+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Default+Value+Property.md" %}}
 
-## General properties
+## 常规属性
 
-{{% snippet file="refguide7/Search+Field+Attribute+Path+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Attribute+Path+Property.md" %}}
 
 {{% snippet file="refguide7/Search+Field+Comparison+Property.md" %}}
 
-The number of drop-down selection options is capped at 1,000. Therefore, no more than 1,000 unique values of a selected attribute can be selectable. This limit has been set to protect page loading performance on older browsers when these options need to be retrieved from the server. In Mendix 8 this limit has been removed.
+下拉选择选项的数目上限为1 000个。 因此，所选属性的唯一值不能超过 1 000个。 设置此限制是为了在旧浏览器上保存页面加载性能，因为需要从服务器检索这些选项。 在 Mendix 8 中，此限制已被删除。
 
-### Allow multi-select
+### 允许多选
 
-If this property is set to 'Yes', the resulting drop-down allows you to select multiple values instead of just one. When searching all records match for which the corresponding attribute is equal to one of the selected values. For example, you can search for all orders with status 'Submitted' or 'In progress'.
+如果这个属性设置为“是”，由此产生的下拉下拉允许您选择多个值，而不只是一个。 当搜索所有匹配的记录时，相应的属性等于所选值之一。 例如，您可以搜索所有订单的状态为“提交”或“正在进行中”。
 
-### XPath Constraint
+### XPath 约束
 
-If the 'drop-down' search field is connected to an attribute of an associated entity (as opposed to the grid entity itself) the XPath constraint can be used to limit objects shown in the drop-down.
+如果“下拉”搜索字段连接到关联实体的属性(相对于网格实体本身)，则可以使用 XPath 约束来限制下拉中显示的对象。
 
 {{% alert type="info" %}}
 
-Let us say you have a grid showing bicycles. In the domain model the bicycle has an association to the shops where you can buy those bicycles. You can add a search field to the grid allowing the end user to select a shop by name. The XPath can then be used to limit the shops to those that are in a given country. `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
+让我们说你有一个网格显示自行车。 在网域模型中，自行车与商店有一个关联，您可以购买这些自行车。 您可以将搜索字段添加到网格，使终端用户可以选择一个商店的名称。 然后可以使用 XPath 将商店限制在指定国家的商店。 `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### Sort order
+### 排序顺序
 
-The sort order specifies the order in which the items in the drop-down search field are shown. You can sort on multiple attributes in both directions (ascending and descending). If no sort order is specified, the drop-down search field sorts on the displayed attribute.
+排序顺序指定了下拉搜索字段中各项的显示顺序。 您可以在两个方向排序多个属性 (升序和降序)。 如果没有指定排序顺序，显示属性上的下拉搜索字段排序。
 
-_Default value:_ No sort order
+_默认值：_ 无排序顺序
