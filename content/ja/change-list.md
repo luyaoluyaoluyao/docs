@@ -7,10 +7,6 @@ tags:
   - "List"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/change-list.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
 
@@ -71,4 +67,4 @@ Value defines the objects that are used to change the list. The value is entered
 
 ## 4 Common Section{#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
