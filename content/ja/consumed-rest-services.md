@@ -2,9 +2,6 @@
 title: "利用可能なRESTサービス"
 parent: "統合"
 description: "Mendixで消費されたRESTサービスとJSONの概要を提示します。"
-menu_order: 15
-tags:
-  - "studio pro"
 ---
 
 ## 1 REST
@@ -36,3 +33,9 @@ JavaScriptオブジェクト表記(JSON)は、データの軽量表現です。
 ```
 
 Above, the object `person` is described with the corresponding values for the attributes `name`, `age`, and the referred object `address`.
+
+## 3つの例
+
+**MendixでネイティブにRESTを消費する方法**
+
+{{% youtube waOlvSqdaP4 %}}
