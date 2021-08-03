@@ -1,8 +1,6 @@
 ---
 title: "导入映射"
 parent: "映射文档"
-tags:
-  - "studio pro"
 ---
 
 导入请参考 [映射文档](mapping-documents)。
@@ -11,7 +9,7 @@ tags:
 
 图1展示了导入映射文件的一个示例，其中，使用 **选择元素从XML Schema 中选取了两个元素。 。** 对话框。 在此之后，接收伙伴和接收客户实体被添加，并映射到结果和客户模式元素。 每次导入映射被调用时，都会创建一个新的接收伙伴对象。
 
-![](attachments/import-mappings/16843942.png)
+![](attachments/16713727/16843942.png)
 
 **图1**
 
@@ -19,7 +17,7 @@ tags:
 
 对于每一个 XML 或 JSON 对象，需要获取一个 Mendix 对象。 您可以创建一个或者您可以在数据库中找到一个现有的对象。 或者，您可以使用返回对象的自定义微流。 您可以看到如何在图2描述的窗口中获得Mendix 对象。 在双击特定映射元素后显示。
 
-![](attachments/import-mappings/16843943.png)
+![](attachments/16713727/16843943.png)
 
 **图2**
 
@@ -35,18 +33,22 @@ tags:
 
 #### 1.2.2 如果没有发现对象
 
-当指定的 **获取Mendix 对象** 动作发生错误时，运行时将执行的动作。
-
-![](attachments/import-mappings/no-object-found.png)
+这是当指定的 **发生错误时运行时要执行的动作。要获取对象** 动作。
 
 | 财产     | 描述                                   |
 | ------ | ------------------------------------ |
-| **创建** | 创建正确实体的对象进行映射。                       |
+| **创建** | 创建要映射到的域实体。                          |
 | **忽略** | 不要映射此元素并继续解析其余的 XML。                 |
 | **错误** | 明确停止解析 XML 并抛出一个错误。 这个错误需要在调用微流程中处理。 |
 
 
-如果这是映射的最高层，您可以检查 **在映射所使用的地点决定**。 If this is checked the option **if no object was found** can be set whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
+{{% alert type="info" %}}
+
+功能 **决定此功能在映射所使用的地点** 被引入版本 7.17.0
+
+{{% /报警 %}}
+
+在映射的顶层，您可以选择在映射被使用的地方来决定这一点。 在这种情况下，如果没有找到对象，则显示选项 **只要你使用映射，选项** 就会显示。 例如在 [导入映射操作](import-mapping-action) 或 [调用 REST 服务操作](call-rest-action) 中。
 
 
 
@@ -66,13 +68,13 @@ tags:
 
 每个选定的 XML 或 JSON 元素都需要映射到域实体中的属性。 如果您不想映射某些元素，请在 **选择元素中取消勾选它们...** 对话框框中。 配置如何映射属性是在图3描述的屏幕上进行的，在双击一个特定映射元素后显示。
 
-![](attachments/import-mappings/16843943.png)
+![](attachments/16713727/16843943.png)
 
 **图3**
 
 在定义了属性的映射之后，这些映射也会显示在映射文档中。 当选择特定属性时，方案元素也被选中。 这也起了相反的作用。 图4显示了这方面的一个例子。 其中 **dati** 属性是在实体和schema 元素中同时选择的(在这种情况下，数据库被映射到数据库)。
 
-![](attachments/import-mappings/16843944.png)
+![](attachments/16713727/16843944.png)
 
 **图4**
 
@@ -93,6 +95,12 @@ tags:
 
 
 ## 3 映射参数
+
+{{% alert type="info" %}}
+
+自7.16.0版本起。 它可以用原始数据类型定义映射参数(整数、字符串等)。
+
+{{% /报警 %}}
 
 导入映射具有接收传入参数的附加选项。 当微流程使用 [导入映射](import-mapping-action) 动作时，参数可以通过调用微流程传递。
 
