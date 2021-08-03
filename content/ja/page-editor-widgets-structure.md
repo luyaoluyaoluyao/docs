@@ -1,5 +1,5 @@
 ---
-title: "ストラクチャーウィジェット"
+title: "構成"
 parent: "page-editor-widgets"
 description: "Mendix Studio の構造ウィジェットの説明"
 menu_order: 60
@@ -15,115 +15,219 @@ tags:
 
 ストラクチャーウィジェットは、ページに構造を提供したり、内部の他のウィジェットをグループ化したりすることができるウィジェットです。
 
-レイアウト ウィジェットは次のものです:
+次の構造ウィジェットがあります。
 
 * [列とサイドバー](#columns)
+
 * [コンテナ](#container-overview)
+
 * [グループボックス](#group-box-overview)
+
 * [タブコンテナ](#tab-container)
+
+* [Snippet](#snippet)
+
+    ![](attachments/page-editor-widgets-structure/structure-widgets.jpg)
 
 ## 2 列とサイドバー{#columns}
 
-**列** と **サイドバー** のウィジェットは事前に設定された列数を持つウィジェットです。 このカテゴリのすべてのウィジェットは [レイアウト グリッド](#layout-grid) に基づいています。これは、ページを行と列で構成する要素です。
+**列** と **サイドバー** のウィジェットは [レイアウト グリッド](#layout-grid) に基づいています。これはページを行と列で構成するウィジェットです。 **列とサイドバー** はあらかじめ設定された列数を持つレイアウトグリッド構成です。
 
 ## 3 レイアウトグリッドの概要 {#layout-grid}
 
-**Layout Grid** を使用すると、ページを設定し、すぐに応答させることができます。 これは、レイアウトグリッドには、異なるデバイスでページがどのように見えるかを示す組み込みの動作があることを意味します。 画面上部の端末 **** モードを切り替えると、端末、タブレット、デスクトップにページがどのように表示されるかを確認できます。
+**レイアウト グリッド** を使用すると、ページを構成してすぐに応答させることができます。 これは、レイアウトグリッドには、異なるデバイスでページがどのように見えるかを示す組み込みの動作があることを意味します。 **デバイス** モードを切り替えて、電話、タブレット、またはデスクトップにページを表示する方法を確認します。
 
-{{% image_container width="350" %}}![デバイスモード](attachments/page-editor-widgets-structure/device-modes.png)
+{{% image_container width="300" %}}![デバイスモード](attachments/page-editor-widgets-structure/device-modes.png)
 {{% /image_container %}}
 
-レイアウト グリッドには [列と行](#columns-and-rows) が含まれています。
+レイアウト グリッドには [列](#column) と [行](#row) が含まれています。
 
-行は、レスポンシブ(デスクトップ)ビューで隣接するアイテムで構成されます。
+行は、応答性の高い(デスクトップ)ビューで隣接して配置された列で構成されています。
 
 ![行の例](attachments/page-editor-widgets-structure/row-example.png)
 
-列は行内のセルです。 1つまたは複数の要素を列の中に配置できます。たとえば、2つのボタンをその中に配置できます。
+列は行内のセルです。 1 つまたは複数のウィジェットを列に配置できます。たとえば、2 つのボタンを列の中に配置できます。
 
-{{% image_container width="400" %}}![列の例](attachments/page-editor-widgets-structure/column-example.png)
+{{% image_container width="300" %}}![列の例](attachments/page-editor-widgets-structure/column-example.png)
 {{% /image_container %}}
 
-列を使用して、行内のアイテムを整列します。  行と列の詳細については、 [2.2 行と列のプロパティ](#columns-and-rows) セクションを参照してください。
+行と列の詳細については、 [行プロパティ](#row) および [列プロパティ](#column) のセクションを参照してください。
 
-### 2.1 レイアウトグリッドのプロパティ {#layout-grid-properties}
+### 3.1 レイアウトグリッドのプロパティ {#layout-grid-properties}
 
-You can access the **Layout Grid** properties through the breadcrumb trail (for more information, see the **[Breadcrumb Trail](page-editor#breadcrumb)** section in *Pages*). レイアウト グリッド プロパティは以下のセクションで構成されます。
+You can access the **Layout Grid** properties through the breadcrumb (for more information, see the [Breadcrumb](page-editor#breadcrumb) section in *Pages*). レイアウト グリッド プロパティは以下のセクションで構成されます。
 
 * [展開](#expand-section)
+
 * [全般](#general-section)
+
 * [デザイン](page-editor-widgets-design-section)
 
-#### 2.1.1 セクションを展開 {#expand-section}
+    {{% image_container width="250" %}}![レイアウトグリッドのプロパティ](attachments/page-editor-widgets-structure/layout-grid-properties.png)
+    {{% /image_container %}}
+
+#### 3.1.1 セクションを展開 {#expand-section}
 
 **Expand** section > **Add Row** を使用すると、選択した行の上または下に行を追加して、ウィジェットを配置するスペースを増やすことができます。
 
-{{% image_container width="300" %}}![セクションを展開](attachments/page-editor-widgets-structure/layout-grid-expand-row.png)
-{{% /image_container %}}
-
-行を追加するには、レイアウト グリッドで行を選択し、 **Add Row** 内のボタンのいずれかをクリックします。 選択した行と同じ行が挿入されます。
-
 {{% alert type="info" %}}
 
-**行** と **列** には、同じプロパティを持つ **展開** セクションもあります。
+[行](#row) と [列](#column) には同じ設定の **展開** セクションがあります。
 
 {{% /alert %}}
 
-#### 2.1.2 一般セクション {#general-section}
+新しい行を追加するには、次のいずれかを実行します。
 
-レイアウト グリッドの **一般** セクションには **全幅** プロパティが含まれます。 このプロパティが有効になっている場合、レイアウト グリッドは配置されているコンテナーの幅全体を取ります。 無効にすると、レイアウトグリッドのサイズがページの中央に固定され、デバイスに応じて自動的に調整されます。
+1. パンくずリストのレイアウトグリッドを選択し、 **プロパティ** > **行を追加**、 いずれかのボタンをクリックして、上または下の行を挿入します。
+2. 行を選択し、 **プロパティ** > **行を追加**, いずれかのボタンをクリックして、上または下の行を挿入します。
+3. 列を選択し、 **プロパティ** > **行を追加**, いずれかのボタンをクリックして、上または下の行を挿入します。
 
-#### 2.1.3 デザインセクション
+空の行が挿入されます。
 
-**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
+#### 3.1.2 一般セクション {#general-section}
 
-### 2.2 行と列のプロパティ {#columns-and-rows}
+**一般** セクションでは、レイアウト グリッドの幅を設定できます。 次のいずれかを選択できます:
 
-**行** と **列** のプロパティは以下のセクションで構成されています:
+* **全幅** - レイアウトグリッドはコンテナ全体の幅をとります
+* **Fixed Width** - レイアウトグリッドはページの中央に固定されたサイズで、デバイスに応じて自動的に調整されます。
 
-* [展開](#expand-section)
-* [行のレイアウト](#row-layout)
+#### 3.1.3 デザインセクション
 
-{{% image_container width="300" %}}![行と列のプロパティ](attachments/page-editor-widgets-structure/row-and-column-sections.png)
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
+
+### 3.2 行のプロパティ {#row}
+
+*行* プロパティは以下のセクションで構成されています:
+
+* [展開](#expand-section-row)
+
+* [コンテナ設定](#container-settings)
+
+* [全般](#general-section-row)
+
+    {{% image_container width="250" %}}![行のプロパティ](attachments/page-editor-widgets-structure/row-sections.png)
+    {{% /image_container %}}
+
+#### 3.2.1 セクションを展開 {#expand-section-row}
+
+**展開** セクション > **行の追加** では、選択した行の上または下に行を追加できます。 詳細については、 [レイアウト グリッド](#expand-section) の *拡張セクション* を参照してください。
+
+#### 3.2.2 コンテナ設定セクション {#container-settings}
+
+**Container Settings** セクションでは、レイアウト グリッドの幅を設定し、最大幅または固定幅を選択できます。
+
+{{% alert type="info" %}}
+
+このプロパティはレイアウト グリッドの [一般セクション](#general-section) のプロパティと同じです。 詳細については、 [一般セクション](#general-section) を参照してください。
+
+{{% /alert %}}
+
+#### 3.2.3 一般セクション {#general-section-row}
+
+行の **一般** セクションでは、列の数を選択し、列の整列や間隔を追加できます。 このセクションには、次の設定が含まれています:
+
+* **Columns** – 行の列数を設定します。
+
+    * 作業領域の列数を設定することもできます。列のいずれかを選択し、その上にあるプラスアイコンをクリックして、右に新しい列を追加します。
+
+        {{% image_container width="300" %}}![Adding New Column](attachments/page-editor-widgets-structure/adding-new-column.png){{% /image_container %}}
+
+* <a name="align-columns"></a>**列を垂直に配置** – 行のすべての列を垂直に揃えます。次のオプションを選択できます。
+
+    {{% image_container width="280" %}}![](attachments/page-editor-widgets-structure/align-columns.png)
+    {{% /image_container %}}
+
+* **列間の間隔** - 有効な場合、列間の間隔を追加
+
+### 3.3 列のプロパティ {#column}
+
+列プロパティは以下のセクションで構成されています:
+
+* [展開](#expand-section-column)
+
+* [全般](#general-section-column)
+
+    {{% image_container width="250" %}}![列のセクション](attachments/page-editor-widgets-structure/column-sections.png)
+    {{% /image_container %}}
+
+#### 3.3.1 セクションを展開 {#expand-section-column}
+
+列のformat@@0セクションでは、行または列を追加できます。
+
+
+##### 3.3.1.1 行の追加
+
+**行を追加** 選択した行の上または下に行を追加できます。 詳細については、 [レイアウト グリッド](#expand-section) の *拡張セクション* を参照してください。
+
+##### 3.3.1.2 列を追加
+
+**列を追加** すると、選択した列の左側または右側に列を追加できます。
+
+#### 3.3.2 一般セクション {#general-section-column}
+
+**一般** セクションでは、列 [幅](#column-width) を設定し、 [個々の列を](#align-column) 揃えることができます。
+
+##### 3.3.2.1 Width {#column-width}
+
+対応するデバイスモードを選択すると、デスクトップ、タブレット、または携帯電話の列幅を設定できます。
+
+![](attachments/page-editor-widgets-structure/width-per-device.png)
+
+次のオプションを選択できます。
+
+* **自動入力** - 列の空き容量を取得します (例えば、列が1つある場合)。 列全体に渡って2列分割されます)
+
+* **自動フィットコンテンツ** - 列のサイズをコンテンツに自動的に合わせる
+
+* **マニュアル** - 列のサイズを手動で設定できます
+
+    * **Manual** を選択すると、列の幅を 1 から 12 まで設定できるスライダーが表示されます。
+
+        ![](attachments/page-editor-widgets-structure/column-size.png)
+
+作業領域で列のサイズを手動で変更することもできます。列の境界線をドラッグしてサイズを変更します。
+
+{{% image_container width="300" %}}
+![列のサイズ変更](attachments/page-editor-widgets-structure/resizing-column.png)
 {{% /image_container %}}
 
-#### 2.2.1 セクションを展開
+**** プロパティを使用すると、レイアウトをより柔軟に、さまざまなタイプのデバイスに適応できます。
 
-**列** と **行** の **展開** セクションには、レイアウト グリッドの **展開** セクションと同じプロパティと機能があります。 詳細については、 [レイアウトグリッド概要](#expand-section) の *拡張セクション* を参照してください。
+たとえば、1 行と 2 列のレイアウト グリッドがあります。画像は 1 列にあります。 細かいことが書かれています
 
-#### 2.2.2 行レイアウトセクション {#row-layout}
+For the *desktop* and *tablet*, you might want to set the first column with a picture to **Auto-fit content** and and the second one to **Auto-fill**, this way the first column will adjust to the size of the picture, while the second one will take the rest of the row:
 
-**Row Layout** セクションでは、例えば、行の列の配置方法を変更できます。 列数を変更し、デスクトップ、タブレット、電話での表示方法を選択します。
+![レイアウト例、デスクトップ](attachments/page-editor-widgets-structure/layout-example-desktop.png)
 
-| 属性     | 説明                                                                               |
-| ------ | -------------------------------------------------------------------------------- |
-| デスクトップ | デスクトップの列の数と幅を変更します。                                                              |
-| タブレット  | タブレットの列の数と幅を変更します。 **タブレット** レイアウトで使用可能なオプションは、 **デスクトップ** で選択されたオプションによって異なります。 |
-| 電話番号   | 携帯電話の列の数と幅を変更します。 **Phone** レイアウトで利用可能なオプションは、 **Desktop** で選択されたオプションによって異なります。 |
+For *phone*, it can be a good idea to place two columns one under another, setting them to **Manual** width of *12*. この場合、2 列目は自動的に別の行にラップされます。
 
-以下の例では、 では、デバイスの種類ごとに異なる行レイアウトを選択して、レイアウトの表示方法をアプリで確認できます。
+ {{% image_container width="300" %}}
+![携帯電話のレイアウト例](attachments/page-editor-widgets-structure/layout-example-phone.png)
+{{% /image_container %}}
 
-![さまざまなデバイスの行レイアウト](attachments/page-editor-widgets-structure/row-layout-scheme.png)
+##### 3.3.2.2 垂直に揃え {#align-column}
+
+**** プロパティは、行の [整列](#align-columns) プロパティを上書きし、個々の列の整列を設定します。
 
 ## 4コンテナの概要 {#container-overview}
 
 **コンテナ** は、ウィジェットやウィジェットのグループを同時に配置するレイアウト要素として使用されます。 ドラッグまたは削除します。 たとえば、プログラムの詳細を1つのコンテナに記入するためのセクションタイトルと入力ウィジェットを配置できます。 その後、ページ上の別の場所にコンテナ全体を一度に再配置します。
 
-{{% image_container width="400" %}}![コンテナの例](attachments/page-editor-widgets-structure/container.png)
+{{% image_container width="300" %}}![コンテナの例](attachments/page-editor-widgets-structure/container.png)
 {{% /image_container %}}
 
-コンテナ プロパティは **デザイン** セクションで構成されます。 詳細については、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
+コンテナ プロパティは **デザイン** セクションで構成されます。 詳細については、 [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
 ## 5 グループボックスの概要 {#group-box-overview}
 
 グループ ボックスは、ウィジェットをグループ化するために使用されます。 グループボックスは、内部のすべての要素を使用して動的に折りたたんだり展開したりするように構成できます。
 
-{{% image_container width="400" %}}![グループボックスの例](attachments/page-editor-widgets-structure/group-box.png)
+{{% image_container width="300" %}}![グループボックスの例](attachments/page-editor-widgets-structure/group-box.png)
 {{% /image_container %}}
 
 ### 5.1 グループ ボックス プロパティ
 
-グループ ボックス プロパティは、 **一般** セクションと **デザイン** セクションで構成されます。 **デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
+グループ ボックス プロパティは、 **一般** セクションと **デザイン** セクションで構成されます。 **デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
 **一般** セクションで使用可能なプロパティについては、以下の表を参照してください。
 
@@ -137,28 +241,28 @@ You can access the **Layout Grid** properties through the breadcrumb trail (for 
 
 タブコンテナは、タブに分類された情報を表示するために使用されるコンテナです。 これは、表示したい情報の量が画面上のスペースの量よりも大きい場合に便利です。 たとえば、1 つのタブに顧客リストを表示し、もう一方のタブに注文を表示できます。
 
-{{% image_container width="400" %}}![format@@0 タブ](attachments/page-editor-widgets-structure/tab-container-example.png)
+{{% image_container width="300" %}}![format@@0 タブ](attachments/page-editor-widgets-structure/tab-container-example.png)
 {{% /image_container %}}
 
 各タブ内にウィジェットまたはウィジェットのグループを配置し、個別に情報を設定できます。
 
-### 6.1 タブ コンテナ 全般プロパティ
+### 6.1 一般セクション
 
 **一般** セクションでは、次のプロパティを設定できます。
 
-*  **Tabs** – use radio buttons to switch from one tab to another; click the tab and drag it to change the order of tabs; click the **Edit** icon to open the tab properties and configure it (for more information, see section [5.3 Tab Properties](#tab-properties))
+*  **Tabs** – use radio buttons to switch from one tab to another; click the tab and drag it to change the order of tabs; click the **Edit** icon to open the tab properties and configure it (for more information, see section the [Tab Properties](#tab-properties) section)
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/tab-container-tabs-property.png)
     {{% /image_container %}}
 
-*  **Add New Tab** – adds a new tab to your tab container; tab properties will open automatically (for more information, see section [5.3 Tab Properties](#tab-properties))
+*  **Add New Tab** – adds a new tab to your tab container; tab properties will open automatically (for more information, see section the [Tab Properties](#tab-properties) section)
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/add-new-tab.png)
     {{% /image_container %}}
 
-### 6.2 format@@0 タブ
+### 6.2 デザインセクション
 
-**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
 ### 6.3 タブのプロパティ {#tab-properties}
 
@@ -171,7 +275,34 @@ You can access the **Layout Grid** properties through the breadcrumb trail (for 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/tab-properties.png)
     {{% /image_container %}}
 
-## 7 続きを読む
+## 7 スニペットの概要 {#snippet}
+
+スニペットはページの再利用可能な要素を定義し、Studio Pro で作成します。 スニペットを使用すると、ページを変更する際に、より少ない場所で変更を加えることができます。
+
+例えば、 Studio Proのチームメンバーがスニペットを作成し、顧客フォームを追加してこのフォームを再利用可能なページ要素にしました。 Studio のページでもこのスニペットを使用できます。
+
+{{% image_container width="500" %}}![](attachments/page-editor-widgets-structure/snippet-example.jpg)
+{{% /image_container %}}
+
+Studio 内のページでスニペットを呼び出すことはできますが、作成、変更、削除することはできません。 Studio Pro のスニペットの詳細については、 [スニペット](/refguide8/snippet) を参照してください。
+
+{{% alert type="info" %}}
+アプリにスニペットが含まれていない場合、 **スニペット** ウィジェットは表示されません。
+{{% /alert %}}
+
+スニペットを呼び出し、あなたのページに追加するには、次の操作を行います:
+
+1. **Toolbox** > **Widgets**で、 **Snippet** ウィジェットを見つけて、ページにドラッグ&ドロップします。
+
+2. プロパティを開き、 **スニペット** プロパティをクリックします。
+
+3. **Select Snippet** ダイアログボックスで、ページで使用するスニペットを選択し、 **Select** をクリックします。
+
+    ![](attachments/page-editor-widgets-structure/select-snippet.jpg)
+
+スニペットがページに追加されます。
+
+## 8 続きを読む
 
 * [ページ](page-editor)
 * [ウィジェット](page-editor-widgets)
