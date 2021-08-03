@@ -47,9 +47,9 @@ Domain model is configured the following way in this use-case:
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
-* Familiarize yourself with terms on data filters. For more information, see [Data Filters](/studio/data-filters).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* Familiarize yourself with terms on data filters. For more information, see [Data Filters](/studio8/data-filters).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 ## 3 Filtering Information
 
@@ -99,4 +99,4 @@ To sort items in the list by date and time starting from the latest one, follow 
 
 4. Click **Add**.
 
-Congratulations! You have added a filter and sorting order to your list. You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio/publishing-app).
+Congratulations! You have added a filter and sorting order to your list. You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
