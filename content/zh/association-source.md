@@ -1,10 +1,28 @@
 ---
 title: "关联源"
 parent: "数据来源"
+tags:
+  - "studio pro"
+  - "关联"
+  - "数据源"
+menu_order: 60
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/association-source.pdf)。
+{{% /报警 %}}
 
-关联源是一个可用来嵌套 [数据网格](data-grid)的数据源， [模板网格](template-grid)和 [列出视图](list-view)。 这将通过关联的方式将已经与上下文中的对象相关联的对象填充部件。 为了发挥功能，数据小部件需要嵌套在另一个数据小部件中提供上下文信息。
+## 1 导言
+
+**关联** 源是一个数据源，可供嵌套 [数据网格](data-grid) [模板格子](template-grid)和 [列表视图](list-view).
+
+{{% alert type="warning" %}}
+
+**关联** 源检索对象从内存而不是从数据库中获取。
+
+{{% /报警 %}}
+
+**关联** 数据源给小部件添加了一个关联到另一个对象的对象。 要提供上下文，数据部件需要嵌套在另一个数据部件中。
 
 可以作为其他数据部件的容器运行的数据小部件是 [模板网格](template-grid)， [列表视图](list-view)和 [数据视图](data-view)。
 
@@ -14,8 +32,13 @@ parent: "数据来源"
 
 {{% /报警 %}}
 
-## 属性
+## 2 属性
 
-### 实体(路径)
+### 2.1 实体(道路)
 
-实体(路径)属性指定了构件所用的关联性。 将出现在小部件中的唯一对象是那些通过协会选择的方式与包含小部件中的对象相关联的对象。
+**实体 (路径)** 属性指定了部件使用的关联性。 只有连接到周围数据容器对象的对象才会出现在部件中。
+
+## 3 阅读更多
+
+* [社会联系](关联)
+* [数据部件](data-widgets)
