@@ -1,162 +1,96 @@
 ---
-title: "Special Checks"
+title: "Special checks"
 parent: "expressions"
-menu_order: 40
-description: "Describes special checks in expressions in Mendix."
-tags:
-  - "studio pro"
-  - "special checks"
-  - "special check"
-  - "expressions"
 ---
 
-## 1 Introduction
+## Checking for an Empty Object
 
-This documents describes special checks in expressions, such as checking whether an object is empty, new, is synced.
+### Input
 
-## 2 Checking for an Empty Object
+An object.
 
-Checks if an object is empty.
+Type: Any type of object.
 
-### 2.1 Input Parameters
+### Output
 
-The input parameters are described in the table below:
+Returns whether the object is empty.
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
-
-### 2.2 Output
-
-The output is described in the table below:
-
-| Value                               | Type    |
-| ----------------------------------- | ------- |
-| Returns whether the object is empty | Boolean |
-
-### 2.3 Example
-
-If you use the following input:
+Type: Boolean.
 
 ```java
 $object1 = empty
 ```
 
-The output will be `False` assuming $object1 is a domain entity and that currently exists.
+Assuming $object1 is a domain entity and that currently exists, this statement will return False. Conversely, if the object does not currently exist (which is possible if you try to retrieve a non-existent object), it will return True.
 
-The output will be `True` if the object does not currently exist (which is possible if you try to retrieve a non-existent object).
+The same holds for when $object1 is a variable (such as Integer, String etc).
 
-The same holds for when $object1 is a variable (such as Integer, String, etc).
+## Checking for an Empty Object Member
 
-## 3 Checking for an Empty Object Member
+### Input
 
-### 3.1 Input Parameters
+A member (attribute or association) of an object.
 
-The input parameters are described in the table below:
+Type: Any type of member.
 
-| Value                                            | Type               |
-| ------------------------------------------------ | ------------------ |
-| A member (attribute or association) of an object | Any type of member |
+### Output
 
-### 3.2. Output
+Whether the attribute is empty.
 
-The output is described in the table below:
-
-| Value                                  | Type    |
-| -------------------------------------- | ------- |
-| Returns whether the attribute is empty | Boolean |
-
-### 3.3 Examples
-
-For example, you have the following input:
+Type: Boolean.
 
 ```java
 $object1/member1 = empty
 ```
 
-Assuming $object1 is a domain entity that has a member called 'member1', the table below shows the output:
+Assuming $object1 is an domain entity and that it has a member called 'member1', the following table illustrates what this statement will return:
 
 |                       | member1 has a value | member1 does not have a value |
 | --------------------- | ------------------- | ----------------------------- |
 | $object1 has a value  | false               | true                          |
 | $object1 has no value | N/A                 | true                          |
 
-## 4 Checking Whether an Object Is New<a name="new"></a>
+## Checking Whether an Object Is New<a name="new"></a>
 
-Checks whether an object is new.
 
-### 4.1 Input Parameters
+### Input
 
-The input parameters are described in the table below:
+An object.
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+Type: Any type of object.
 
-### 4.2 Output
+### Output
 
-The output is described in the table below:
+Returns whether the object is new (created but not yet committed). Note this only holds when this function is called on the variable which represents the created object. When the object is retrieved from the database isNew will always yield false.
 
-| Value                                                                                                                                                                                                                                  | Type    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The output depends on whether the object is new (created but not yet committed). Note this only holds when this function is called on a created object. When the object is retrieved from the database `isNew` will always be `false`. | Boolean |
-
-### 4.3 Example
-
-An example of an input can be the following:
+Type: Boolean.
 
 ```java
 isNew($object1)
 ```
 
-## 5 Checking Whether an Object Is Synced {#synced}
+## Checking Whether an Object Is Synced<a name="synced"></a>
 
-This function is available only in expressions for [conditional visibility or editability](common-widget-properties), as only they are evaluated on client side.
+{{% alert type="info" %}}
 
-### 5.1 Input Parameters
+This function is available only in expressions for [conditional visibility or editability](conditions), as only they are evaluated client-side.
 
-The input parameters are described in the table below:
+This was added in Mendix 7.1.
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+{{% /alert %}}
 
-### 5.2 Output
+### Input
 
-The output is described in the table below:
+An object.
 
-| Value                                                                                                                                                                                                                                          | Type    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Returns whether the changes done to the object [offline](offline-first) have been synchronized to the runtime database. In web profiles and [hybrid profiles](navigation#hybrid-profiles) without offline support, this always returns `true`. | Boolean |
+Type: Any type of object.
 
-### 5.3 Example
+### Output
 
-An example of an input can be the following:
+Returns whether the changes done to the object [offline](offline) have been synchronized to the runtime database. In web profiles and [hybrid profiles](hybrid-phone-profile) without offline support, this always returns `true`.
+
+Type: Boolean.
 
 ```java
 isSynced($currentObject)
-```
-
-## 6 Checking if a Synchronization is Running {#is-syncing}
-
-This function is available only in client-side expressions (expressions in [nanoflows](nanoflows) and [pages](pages)).
-
-### 6.1 Input Parameters
-
-No input parameter is required for this check.
-
-### 6.1 Output
-
-The output is described in the table below:
-
-| Value                                                                                                        | Type    |
-| ------------------------------------------------------------------------------------------------------------ | ------- |
-| Returns `true` when there is a [synchronization](synchronize) process running, otherwise it returns `false`. | Boolean |
-
-### 6.3 Example
-
-An example of an input can be the following:
-
-```java
-isSyncing()
 ```
