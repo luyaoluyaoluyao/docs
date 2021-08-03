@@ -1,54 +1,48 @@
 ---
-title: "Upload to Version Control Server"
-parent: "version-control-menu"
-menu_order: 70
-tags:
-  - "studio pro"
+title: "Upload To Version Control Server"
+parent: "dialogs"
 aliases:
-  - /refguide/upload-to-team-server-dialog.html
+  - /refguide7/upload-to-team-server-dialog.html
 ---
 
 ## 1 Introduction
 
-Use this dialog box to upload an app that is not yet stored in a version control server.
+With this dialog box you can upload an application that is not yet stored in a version control server.
 
-![Upload to Version Control Server menu option](attachments/upload-to-version-control/upload-to-version-control-server.png)
+![](attachments/upload-to-version-control-dialog/upload-to-version-control-server-dialog.png)
 
-## 2 Location
+To open the **Upload to Version Control Server** dialog box, go to **Project > More Versioning > Upload to Version Control Server**.
 
-Use this setting to select the location where you want to store your app. There are three options, which are described below.
+![](attachments/upload-to-version-control-dialog/project-more-versioning-upload-to-version-control-server.png)
+
+## 2 Where Should We Upload Your App?
+
+Use this setting to select the location where you want to store your app. This can be the Team Server, a private server (an SVN server other than the Team Server), or a local disk.
 
 ### 2.1 New Mendix Team Server
 
-You can create a new app on [Mendix Team Server](/developerportal/collaborate/team-server).
-
-* Select **New Mendix Team Server**
-* Enter the name for the new Team Server app and repository in the **App name** field
-
-    ![Enter App name for New Mendix Team Server](attachments/upload-to-version-control/new-team-server-app.png)
+In the **App name** field, enter the name for the new Team Server project and repository. After you click **OK**, the new repository will be created in the [Mendix Team Server](team-server) to store your app.
 
 ### 2.2 Existing Mendix Team Server
 
-{{% alert type="warning" %}}
-You can only upload to an existing repository if the repository is currently empty
+In the **Team Server App** list, select the corresponding Team Server app. After you click **OK**, you app will be uploaded to the selected repository.
+
+{{% alert type="info" %}}
+
+This only works when the existing repository is empty.
+
 {{% /alert %}}
-
-* Select **Existing Mendix Team Server**
-* Select the **Team Server App** from the list
-
-    ![Select existing mendix Team Server](attachments/upload-to-version-control/existing-team-server-app.png)
 
 ### 2.3 Private Server
 
-This option is only available when support for other servers is enabled in **Edit** > **Preferences** > **Advanced** > [Enable private version control](preferences-dialog#enable)).
+In the **App repository address** field, enter the repository address you want to upload your app to. After you click **OK**, you app will be uploaded to this repository.
 
-![Enable private version control in advanced preferences](attachments/upload-to-version-control/enable-private-version-control.png)
+{{% alert type="info" %}}
 
-If you select **Private server**, enter the address of the repository to which you want to upload your app in the **App repository address** field.
+This option is only available when support for other servers is enabled in the [Preferences](preferences-dialog#enabled) dialog box.
 
-![Enable private version control in advanced preferences](attachments/upload-to-version-control/private-server-app.png)
+{{% /alert %}}
 
-## 3 Read More
+## 3 Read more
 
-* [How to Work with an On-Premises SVN Version Control Server](/howto/collaboration-requirements-management/on-premises-svn-howto)
-* [How to Work with an On-Premises Git Version Control Server](/howto/collaboration-requirements-management/on-premises-git-howto)
+* [Team Server](team-server)
