@@ -1,27 +1,27 @@
 ---
-title: "Break Event"
-parent: "events"
+title: "中断事件"
+parent: "事件"
 menu_order: 5
 tags:
   - "studio pro"
-  - "break event"
-  - "event"
-  - "loop"
+  - "休息事件"
+  - "事件"
+  - "循环"
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="warning" %}}
-Break events can only be used inside [loops](loop).
-{{% /alert %}}
+断开事件只能在 [循环](loop) 中使用。
+{{% /报警 %}}
 
-A break event is used to stop iterating over the list of objects and continue with the rest of the flow. Without a break event, the loop will continue with the iteration of the next object.
+休息活动被用来停止在对象列表上的迭代，继续流的其余部分。 如果没有休息活动，循环将会继续重复下一个目标。
 
-For example, if you want to notify the user of any unpaid order lines you can use a break event. First, you retrieve all objects of the *OrderLine* entity that are associated with the order. You check whether each order line is paid or not. If the order line is paid, the microflow continues to the next order line. However, if an unpaid order line is found, the user is notified and the loop stops; the microflow breaks from the loop and continues with the rest of the microflow. Once you have found one unpaid order line you do not have to continue iterating over the rest of the order lines.
+例如，如果您想要通知用户任何未支付的订单行，您可以使用中断事件。 首先，您检索所有与订单相关联的 *OrderLine* 实体的对象。 您检查每个订单行是否已支付。 如果支付订单线，微流将继续到下一个订单线。 然而，如果发现未支付的订单线，则通知用户并停止循环； 微流从循环中中断，继续保持微流的其余部分。 一旦您找到了一个未支付的订单行，您不必继续在订单线的其余部分迭代。
 
-![Break Event Example](attachments/events/break-event-example.png)
+![打破事件示例](attachments/events/break-event-example.png)
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Loop](loop)
-* [Continue Event](continue-event)
+* [循环](循环)
+* [继续事件](continue-event)
