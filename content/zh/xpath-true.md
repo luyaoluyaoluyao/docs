@@ -1,8 +1,6 @@
 ---
-title: "XPath True"
+title: "XPath true"
 parent: "xpate-constraint-function"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
