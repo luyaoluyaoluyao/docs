@@ -1,15 +1,16 @@
 ---
 title: "UIリソースパッケージ"
-category: "デスクトップ モデラー"
+parent: "モジュール"
+tags:
+  - "studio pro"
+  - "uiリソース"
 ---
 
-## 1つの紹介
-
 {{% alert type="info" %}}
-
-カスタムUIリソースパッケージを指定するオプションはMendix 7.9.0に追加されました。 古いバージョンでは、テーマ情報は **theme** フォルダに保存されているテーマZIPファイルに保存されていました。 必要なZIPファイルは、アプリの [プロジェクト設定](project-settings)のformat@@2タブで選択できます。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/ui-resources-package.pdf) をクリックしてください。
 {{% /alert %}}
+
+## 1つの紹介
 
 UI リソースパッケージは、プロジェクト エクスプローラーの緑色のアイコンによってマークされた特定の [モジュール](modules) です。 プロジェクトのルックアンドフィールを決めています それは二つの異なる方法でこれを行います。 最初に、パッケージは、適切なデザインを作成するために必要なすべてのページドキュメントをプロジェクトに供給します。 [ページテンプレート](page-templates) や [構成ブロック](building-block) などの一貫したページ。 第二に、パッケージにはテーマ情報が含まれており、ユーザーは添付のページ文書を補完するテーマを簡単に切り替えることができます。
 
@@ -31,7 +32,7 @@ Note that the replacement of the theme folder only occurs when importing a new U
 
 ソートを容易にするために、UIリソースパッケージフォルダ名に番号を付けることができます。 番号とピリオドで始まるすべてのフォルダ名は、(アルファベット順ではなく)数字のページ作成ウィザードに表示されます。 接頭辞は省略されます。 例えば、名前が *10のフォルダ。 管理* と *9. バンキング* は *バンキング、管理*として表示されます。
 
-同じ原則は、Modelerの **Building Blocks** タブ **ツールボックス**に関してビルディングブロックに適用されます。 UI リソースパッケージ以外のモジュールで見つかったすべてのBuilding Blocksまたはページテンプレートは、ジェネリックな **Local** カテゴリに表示されます。 常に上に並べられています
+Studio Pro **Toolbox** の **Building Blocks** タブに関しては、同じ原則がBuilding Blocks に適用されます。 UI リソースパッケージ以外のモジュールで見つかったすべてのBuilding Blocksまたはページテンプレートは、ジェネリックな **Local** カテゴリに表示されます。 常に上に並べられています
 
 さらに、UI リソースパッケージにページテンプレートとビルディングブロックを追加することで、プロジェクトのテーマと同期し続けることができます。 別のプロジェクトにインポートする場合でもです
 
