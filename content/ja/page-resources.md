@@ -1,35 +1,35 @@
 ---
-title: "Page Resources"
-parent: "pages"
+title: "ページのリソース"
+parent: "ページ"
 menu_order: 12
 tags:
   - "studio pro"
-  - "page resources"
+  - "ページリソース"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The main difference between a page and page resources is that page is an independent document, while a page resource is a helping document that cannot function on its own. For example, a layout cannot function on its own, but it gives structure to a page.
+ページリソースとページリソースの主な違いは、ページが独立したドキュメントであることです。 ページリソースは自力では機能しないヘルプ文書です 例えば、レイアウトは単独で機能することはできませんが、ページに構造を与えます。
 
-You can add the following page resources:
+次のページ リソースを追加できます:
 
-* [Image collection](image-collection)
-* [Layout](layout)
-* [Page template](page-templates)
+* [画像コレクション](image-collection)
+* [レイアウト](レイアウト)
+* [ページテンプレート](page-templates)
 * [Snippet](snippet)
-* [Building block](building-block)
-* [Menu](menu)
+* [建築ブロック](building-block)
+* [メニュー](メニュー)
 
-## 2 Adding Page Resources
+## 2 ページリソースを追加中
 
-To add a resource document, do the following:
+リソースドキュメントを追加するには、次の操作を行います。
 
 1.  In the [App Explorer](project-explorer), right-click the module or a folder you want to add a resource to and select **Add other**:
 
     ![](attachments/page-resources/project-explorer-page-resources.png)
 
-2. Select the document you would like to add to your app.
+2. アプリに追加するドキュメントを選択します。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Pages](pages)
+* [ページ](ページ)
