@@ -1,146 +1,146 @@
 ---
 title: "Navigation"
-parent: "project"
+parent: "プロジェクト"
 menu_order: 20
-description: "Describes the concept of navigation in apps and the properties of a profile."
+description: "アプリのナビゲーションとプロファイルのプロパティについて説明します。"
 tags:
   - "studio pro"
   - "navigation"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. The **Navigation** document can be found by expanding the **App** node in the **App Explorer**. It defines the navigation structure of the application for users. It also allows you to set the home page of your application and to define the menu structures that can be used in [menu widgets](menu-widgets).
+このドキュメントでは、Mendix アプリケーションとプロファイルのプロパティにおけるナビゲーションの概念について説明します。 **ナビゲーション** ドキュメントは、 **App Explorer** の **App** ノードを展開することで見つけることができます。 ユーザーのためのアプリケーションのナビゲーション構造を定義します。 また、アプリケーションのホームページを設定し、 [メニュー ウィジェット](menu-widgets) で使用できるメニュー構造を定義することもできます。
 
 ![](attachments/navigation/navigation-profile-properties.png)
 
-A user's home page can vary based on their [user roles](user-roles).
+ユーザーのホームページは [ユーザー ロール](user-roles) によって異なります。
 
 ## 2 Profiles {#profiles}
 
-At the heart of the navigation model in Mendix, these are the available profiles:
+Mendixのナビゲーションモデルの中心には、利用可能なプロファイルがあります。
 
-* Responsive
-* Hybrid tablet app online
-* Hybrid tablet app offline
-* Hybrid phone
-* Hybrid phone app offline
-* Tablet web
-* Phone web
-* Native phone
+* レスポンシブ
+* ハイブリッドタブレットアプリオンライン
+* ハイブリッドタブレットアプリオフライン
+* ハイブリッドフォン
+* ハイブリッドフォンアプリオフライン
+* タブレットウェブ
+* 電話のウェブ
+* ネイティブ電話
 
-Users that access the app via a particular device type are automatically redirected to the homepage of the appropriate profile based on the profile type (for details, see the [Redirection to Profiles](#redirection) section below).
+特定の端末タイプを介してアプリにアクセスするユーザーは、プロファイルタイプに基づいて適切なプロファイルのホームページに自動的にリダイレクトされます（詳細はこちら） [プロファイルへのリダイレクト](#redirection) セクションを参照してください。
 
-The device type of the currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use `$currentDeviceType` to perform different actions based on the device type. A typical example is to show different pages based on the device type.
+現在ログインしているユーザーのデバイス タイプは [microflow](microflows) `$currentDeviceType` 変数として利用できます。 The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. デバイス タイプに基づいて、 `$currentDeviceType` を使用して異なる操作を実行できます。 典型的な例は、デバイス タイプに基づいて異なるページを表示することです。
 
-### 2.1 Responsive
+### 2.1 レスポンシブ
 
-Every app always has one profile of a Responsive type which cannot be deleted. This is the default profile used by a Mendix app. This profile can be used to make web applications.
+すべてのアプリには、常に削除できないレスポンシブタイプのプロファイルが1つあります。 これはMendixアプリで使用されるデフォルトのプロファイルです。 このプロファイルは、Webアプリケーションを作成するために使用することができます。
 
 ### 2.2 Hybrid Profiles {#hybrid-profiles}
 
-A Mendix app can be installed on a tablet or phone as an app by creating a [local build](/howto8/mobile/build-hybrid-locally) hybrid package. Hybrid profiles can be accessed from such a locally built app. Hybrid app profiles are determined by device type (phone or tablet) and by the offline accessibility feature enabled (online or offline). If no profile exists with the requested combination, an error will be displayed in the app.
+Mendixアプリは、 [ローカルビルド](/howto8/mobile/build-hybrid-locally) ハイブリッドパッケージを作成することで、アプリとしてタブレットや携帯電話にインストールできます。 ハイブリッドプロファイルは、このようなローカルに構築されたアプリからアクセスできます。 ハイブリッドアプリのプロファイルは、デバイスの種類(電話またはタブレット)とオフラインのアクセシビリティ機能(オンラインまたはオフライン)によって決定されます。 要求された組み合わせでプロファイルが存在しない場合、エラーがアプリに表示されます。
 
-Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline First](offline-first).
+ハイブリッドオフラインアプリは、インターネットに接続されていない場合でも、Mendixアプリの使用を継続できるように設計されています。 ただし、特定の制限が適用されます。 オフラインのデバイス プロファイルの実行の影響については、 [オフラインの最初](offline-first) を参照してください。
 
-Four different hybrid profiles are available:
+4種類のハイブリッドプロファイルが利用できます。
 
-* Hybrid tablet app online
-* Hybrid tablet app offline
-* Hybrid phone
-* Hybrid phone app offline
+* ハイブリッドタブレットアプリオンライン
+* ハイブリッドタブレットアプリオフライン
+* ハイブリッドフォン
+* ハイブリッドフォンアプリオフライン
 
-### 2.3 Tablet Web
+### 2.3 タブレットウェブ
 
-All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the Tablet web type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
+タブレット上のブラウザからMendixアプリにアクセスすると、タブレットのWebタイプのプロファイルに自動的にリダイレクトされます。 そのタイプのプロファイルが存在しない場合、ユーザはレスポンシブプロファイルにリダイレクトされます。 このプロファイルは、Webアプリケーションを作成するために使用することができます。
 
-### 2.4 Phone Web
+### 2.4 電話ウェブ
 
-All the users accessing the Mendix app from a browser on a phone will automatically be redirected to a profile of the Phone web type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
+携帯電話のブラウザからMendixアプリにアクセスするすべてのユーザーは、自動的にPhone Webタイプのプロファイルにリダイレクトされます。 そのタイプのプロファイルが存在しない場合、ユーザはレスポンシブプロファイルにリダイレクトされます。 このプロファイルは、Webアプリケーションを作成するために使用することができます。
 
-### 2.5 Native Phone
+### 2.5 ネイティブ 電話
 
-A Mendix app can be installed on a phone as a native application which has the benefit of a more responsive UI. The app will also be [offline-first](offline-first), which means all the data is stored on the phone and only synchronized with the server on request.
+Mendixアプリは、より応答性の高いUIの利点を持つネイティブアプリケーションとして携帯電話にインストールすることができます。 このアプリは [offline-first](offline-first)にもなります つまり全てのデータが電話に保存されていて リクエストに応じてサーバーとのみ同期されます
 
-You are required to enable anonymous users in your app's security settings and include anonymous user roles on native login pages. This is because there is no built-in login screen in the native profile; login pages are modeled as regular native pages.
+アプリのセキュリティ設定で匿名ユーザーを有効にし、ネイティブのログインページに匿名ユーザーロールを含める必要があります。 これは、ネイティブプロファイルに組み込まれたログイン画面がないためです。ログインページは通常のネイティブページとしてモデル化されています。
 
-## 3 Redirection to Profiles {#redirection}
+## 3プロファイルにリダイレクト {#redirection}
 
-Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the `User-Agent` string that is sent by the device. The default configuration for this redirection is as follows:
+Mendix Runtime は、使用しているデバイスに基づいてユーザーを適切なデバイスタイプのホームページに自動的にリダイレクトします。 これは、デバイスから送信された `User-Agent` 文字列を調べることで発生します。 このリダイレクトのデフォルト設定は以下のとおりです。
 
-| User-Agent String Regular Expression                  | Device Type |
-| ----------------------------------------------------- | ----------- |
-| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
-| Android&#124;iPad                                     | Tablet      |
-| _(other)_                                             | Responsive  |
+| User-Agent 文字列正規表現                                  | デバイスタイプ |
+| --------------------------------------------------- | ------- |
+| Android.*モバイル&#124;iPhone&#124;iPod&#124;BlackBerry | 電話番号    |
+| Android&#124;iPad                                   | タブレット   |
+| _(その他)_                                             | レスポンシブ  |
 
-To configure the regular expressions used to match phone or tablet users, see [Runtime Customization](custom-settings).
+携帯電話やタブレットのユーザーに一致させる正規表現を設定するには、 [ランタイムカスタマイズ](custom-settings) を参照してください。
 
-It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are the names of the profiles, which are Responsive, Tablet, Phone, HybridTablet, and HybridPhone. For example:
+Mendixアプリケーションを訪問するときにURLに `プロファイル` のクエリ文字列パラメータを追加することで、クライアントが特定のプロファイルを使用するように強制することもできます。 可能な値は、Responsive、Tablet、Phone、HybridTablet、HybridPhoneといったプロファイルの名前です。 例:
 
 `https://myapp.mendixcloud.com/index.html?profile=Responsive`
 
-## 4 Navigation Profile Properties {#properties}
+## 4 ナビゲーション プロファイルのプロパティ {#properties}
 
-A profile can be added with the **Add navigation profile** button. Only one profile per type is allowed. While adding the profile, it is possible to copy the settings from an existing profile.
+プロファイルは、 **ナビゲーションプロファイル** を追加するボタンで追加できます。 タイプごとに1つのプロファイルのみが許可されます。 プロファイルを追加する際に、既存のプロファイルから設定をコピーすることができます。
 
 ![](attachments/navigation/add-navigation-profile.png)
 
-### 4.1 General
+### 4.1 全般
 
-#### 4.1.1 Application Title
+#### 4.1.1 アプリケーションタイトル
 
-This specifies the application title. This title is shown in the title bar of the browser.
+アプリケーションのタイトルを指定します。 このタイトルはブラウザのタイトルバーに表示されます。
 
-#### 4.1.2 Application Icon
+#### 4.1.2 アプリケーションアイコン
 
-This specifies the application icon. This icon is shown as favicon in the title bar and bookmarks of the browser. It can only be set in the Responsive profile, but will also be used by the other browser profiles.
+アプリケーションアイコンを指定します。 このアイコンは、タイトルバーとブラウザのブックマークにfaviconとして表示されます。 レスポンシブプロファイルでのみ設定できますが、他のブラウザプロファイルでも使用されます。
 
-### 4.2 Home Pages
+### 4.2 ホームページ
 
-#### 4.2.1 Default Home Page
+#### 4.2.1 デフォルトのホームページ
 
-The default home page indicates which [page](page) or [microflow](microflow) is opened after a user signs in. If role-based home pages (see below) are specified for one of the [user roles](user-roles) of the user, then that home page will be used instead.
+デフォルトのホームページは、ユーザーがサインインした後に [ページ](page) または [マイクロフロー](microflow) が開かれることを示します。 ロールベースのホームページ(下記参照)が、ユーザーの [ユーザー ロール](user-roles) のいずれかに指定されている場合。 そのホームページが代わりに使われます
 
-#### 4.2.2 Role-Based Home Pages
+#### 4.2.2 ロールベースのホーム ページ
 
-By using role-based home pages, you can show different home pages for different users. If a user logs in, the first role-based home page of which the user role matches the user role of the user is displayed. If no match is found, the default home page is used.
+ロールベースのホームページを使用することで、ユーザーごとに異なるホームページを表示できます。 ユーザがログインすると、ユーザのロールと一致するロールの最初のロールベースのホームページが表示されます。 一致するものがない場合は、デフォルトのホームページが使用されます。
 
-For each role-based home page, you can specify the user role it applies to and the target (page or microflow) that will be opened.
+ロールベースのホームページごとに、適用されるユーザーロールと開かれるターゲット (ページまたはマイクロフロー) を指定できます。
 
-### 4.3 Authentication {#authentication}
+### 4.3 認証 {#authentication}
 
 If an [anonymous user](anonymous-users) tries to access a resource to which the user has no access, the configured [sign-in page](authentication-widgets) will be displayed, prompting the user to sign in.
 
-If the sign-in page is set to none, a built-in pop-up window will appear instead. The page title is translatable and may be overridden.
+サインインページが none に設定されていない場合、代わりにビルトインのポップアップウィンドウが表示されます。 ページタイトルは翻訳可能で、上書きされる可能性があります。
 
-### 4.4 Menu
+### 4.4 メニュー
 
-Each device type contains a default menu. You can use these menus in [menu widgets](menu-widgets). Defining the menu for a device type works the same as when editing a menu document. For more details, see [Menu](menu).
+各デバイス タイプには、デフォルトのメニューが含まれています。 これらのメニューは [メニュー ウィジェット](menu-widgets) で使用できます。 デバイス タイプのメニューを定義することは、メニュー ドキュメントの編集と同様に機能します。 詳細は [メニュー](menu) を参照してください。
 
 {{% alert type="warning" %}}
-If [security](project-security) is enabled, the menu will only show the items to which the user has access.
+[security](project-security) が有効になっている場合、メニューには、ユーザーがアクセスできるアイテムのみが表示されます。
 {{% /alert %}}
 
-### 4.5 Profile Buttons
+### 4.5 プロフィールボタン
 
-#### 4.5.1 Change Profile Type
+#### 4.5.1 プロファイルタイプの変更
 
-Allows for changing the [profile type](navigation).
+[プロファイルタイプ](navigation) を変更できます。
 
-#### 4.5.2 Delete
+#### 4.5.2 削除
 
-This deletes the profile. If [menu widgets](menu-widgets) are still referring to the profile, errors will appear. It is possible to undo the deletion of a profile.
+プロファイルを削除します。 [メニュー ウィジェット](menu-widgets) がまだプロファイルを参照している場合、エラーが表示されます。 プロファイルの削除を元に戻すことは可能です。
 
-#### 4.5.2 Synchronization Configuration {#customize}
+#### 4.5.2 同期設定 {#customize}
 
-Only available on profiles supporting offline synchronization.
+オフライン同期をサポートするプロファイルでのみ利用できます。
 
-This opens the **Customize offline synchronization** dialog box that is used for overriding offline synchronization settings for specific entities. For each entity the download setting is shown. A default is automatically determined by analyzing the model, but can be overridden in which case the setting will appear in boldface. For more details on the settings and when to use them, see the [Offline-First Reference Guide](offline-first#customizable-synchronization).
+これにより、特定のエンティティのオフライン同期設定を上書きするために使用される **オフライン同期をカスタマイズする** ダイアログボックスが開きます。 エンティティごとにダウンロード設定が表示されます。 デフォルトはモデルを分析することによって自動的に決定されますが、その場合、設定は太字で表示されます。 設定の詳細およびいつ使用するかについては、 [オフライン-ファーストリファレンスガイド](offline-first#customizable-synchronization) を参照してください。
 
 ![](attachments/navigation/customize-offline-synchronization.png)
 
-## 5 Read More
+## 5 続きを読む
 
-* [App Explorer](project-explorer)
-* [Navigation Tree](navigation-tree)
+* [アプリエクスプローラー](project-explorer)
+* [ナビゲーションツリー](navigation-tree)
