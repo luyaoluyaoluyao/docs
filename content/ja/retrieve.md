@@ -1,91 +1,91 @@
 ---
-title: "Retrieve"
-parent: "object-activities"
+title: "保留する"
+parent: "object-activity"
 menu_order: 60
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A **Retrieve** activity can be used to get one or more objects, either by directly traversing an association of another object, or by retrieving objects from the database.
+**取得** のアクティビティは、1 つ以上のオブジェクトを取得するために使用できます。 別のオブジェクトの関連を直接走査するか、データベースからオブジェクトを取得するかのどちらかです。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of retrieve properties is represented in the image below:
+以下の画像では、取得プロパティの例を示します。
 
-![retrieve properties](attachments/object-activities/retrieve-properties.png)
+![プロパティの取得](attachments/object-activities/retrieve-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The retrieve properties pane consists of the following sections:
+取得プロパティペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Source {#source}
+### 3.1 ソース {#source}
 
-The **Source** defines the way the objects are retrieved:
+**ソース** は、オブジェクトを取得する方法を定義します:
 
-| Option         | Description                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| By association | Retrieve the object(s) associated to an object by following an association. Note that when objects and/or their associations are changed and not committed, the data is not yet available in the database. By retrieving **By association**, the data that is not committed can be retrieved. For more information, see the [Retrieve by Association Properties](#association) section below. |
-| From database  | Retrieve objects from the database. For more information, see the [Retrieve from Database Properties](#from-database) section below.                                                                                                                                                                                                                                                          |
+| Option   | 説明                                                                                                                                                                                                                |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 関連付け順    | 関連付けに従ってオブジェクトに関連付けられているオブジェクトを取得します。 オブジェクトおよび/またはその関連付けが変更され、コミットされていない場合、データはデータベースでまだ使用できないことに注意してください。 **関連付け別**を取得することで、コミットされていないデータを取得することができます。 詳細については、以下の [関連プロパティによる取得](#association) セクションを参照してください。 |
+| データベースから | データベースからオブジェクトを取り出します。 詳細については、以下の [データベースプロパティからの取得](#from-database) セクションを参照してください。                                                                                                                             |
 
-### 3.2 Retrieve by Association Properties {#association}
+### 3.2 関連プロパティで取得 {#association}
 
-#### 3.2.1 Association
+#### 3.2.1 関連付け
 
-This property specifies which association will be followed. The association must be an association from an object that is already available to the retrieve activity. Associations can be followed in both directions.
+このプロパティは、どの関連をフォローするかを指定します。 関連付けは、取得アクティビティに既に使用可能なオブジェクトからの関連付けである必要があります。 関連付けは両方の方向に続くことができます。
 
-### 3.3 Retrieve from Database Properties {#from-database}
+### 3.3 データベースのプロパティから取得 {#from-database}
 
-#### 3.3.1 Entity
+#### 3.3.1 エンティティ
 
-This property specifies the entity from which to retrieve instances (objects).
+このプロパティは、インスタンス(オブジェクト)を取得するエンティティを指定します。
 
 #### 3.3.2 Range
 
-This property specifies the range that determines how many objects are retrieved:
+このプロパティは、取得されるオブジェクトの数を決定する範囲を指定します。
 
-| Range  | Meaning                                                                                                                                                                                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| All    | Retrieve all objects at once.                                                                                                                                                                                                                                                              |
-| First  | Retrieve only the first object. The result of the retrieve action will be a single object instead of a list. Note that when you know you have only one object or you only want to use the first object in a list, use **First** to get a result of the object type (as opposed to a list). |
-| Custom | Retrieve a given number of objects (**Amount**) starting at a given index (**Offset**). The amount and offset are expressions that should result in a number. Note that the first object has an offset of 0. An amount of 0 means that all objects are retrieved.                          |
+| Range | 意味                                                                                                                                                                       |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| すべて   | 一度にすべてのオブジェクトを取得します。                                                                                                                                                     |
+| 最初の   | 最初のオブジェクトだけを取得します。 retrieve アクションの結果は、リストの代わりに 1 つのオブジェクトになります。 オブジェクトが 1 つしかないことを知っている場合、またはリストの最初のオブジェクトだけを使いたいことに注意してください。 最初に **** を使用して、(リストではなく) オブジェクト型の結果を取得します。 |
+| カスタム  | 指定された数のオブジェクト (**Amount**) を指定されたインデックス (**Offset** ) から開始します。 amount と offset は、数値をもたらす式です。 最初のオブジェクトのオフセットは 0 であることに注意してください。 0 を指定すると、すべてのオブジェクトが取得されます。              |
 
-#### 3.3.3 XPath Constraint
+#### 3.3.3 XPath 制約
 
-The [XPath](xpath) constraint defines the condition the objects need to fulfill to be retrieved. If there is no XPath constraint, all objects of the entity are retrieved.
+[XPath](xpath) 制約は、取得されるためにオブジェクトが満たす必要のある条件を定義します。 XPath 制約がない場合、エンティティ内のすべてのオブジェクトが取得されます。
 
 {{% alert type="info" %}}
-Date functions, user-role tokens, computations based on tokens, and following associations are not supported in XPath constraints when the retrieve activity is in a nanoflow.
+日付関数、ユーザーロールトークン、トークンに基づく計算、および取得アクティビティが nanoflow 内の場合、XPath 制約内では以下の関連付けはサポートされません。
 {{% /alert %}}
 
-#### 3.3.4 Sorting
+#### 3.3.4 並べ替え
 
-This property defines the order of the list. The list can be sorted in ascending and descending order on the values of an attribute. If there are objects that have the same attribute value, the list is sorted based on the second attribute (if any) and so on.
+このプロパティは、リストの順序を定義します。 リストは、属性の値の昇順と降順でソートできます。 同じ属性値を持つオブジェクトが存在する場合、リストは 2 番目の属性 (もしあれば) に基づいてソートされます。
 
 ### 3.4 Type
 
-This read-only property indicates whether you will retrieve a singe object or a list.
+この読み取り専用プロパティは、singe オブジェクトとリストのどちらを取得するかを示します。
 
-### 3.5 List Name or Object Name
+### 3.5 リスト名またはオブジェクト名
 
-This is the name of the list or object returned by the activity. It can be used by all the activities that follow this activity.
+これは、アクティビティから返されるリストまたはオブジェクトの名前です。 このアクティビティに続くすべてのアクティビティで使用できます。
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
