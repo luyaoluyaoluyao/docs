@@ -1,7 +1,7 @@
 ---
 title: "发布的REST 服务"
 parent: "集成"
-menu_order: 20
+#menu_order:
 description: "Mendix 应用程序发布的REST 服务概览"
 tags:
   - "发布"
@@ -9,6 +9,12 @@ tags:
   - "概览"
   - "配置"
 ---
+
+{{% alert type="info" %}}
+
+**已发布的REST service** 功能已引入7.10.0版本。
+
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -54,5 +60,12 @@ tags:
 
 ## 5 次日志记录
 
-要记录与您已发布的REST 服务互动的详细信息 设置 **REST 发布的日志级别</a>** 日志节点为 **跟踪**</p>
+要记录与您已发布的REST 服务互动的详细信息 设置 **REST 发布的日志级别</a>** 日志节点为 **跟踪**</p> 
 
+
+
+## 6 个示例
+
+**如何使用Mendix 本地发布REST**
+
+{{% youtube HzrFkv0U4n8 %}}
