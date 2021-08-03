@@ -30,9 +30,9 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
 
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
 
 * 请确保您的域模型配置如下：
 
@@ -54,7 +54,7 @@ tags:
 
         {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-list/button-properties.png){{% /image_container %}}
 
-    2.  在 **选择页面** 对话框框中，点击 **新页面**。
+    2.  在 **选择页面** 对话框中，点击右上角的加号图标。
 
     3.  在 **创建新页面** 对话框，填写页面标题。
 
@@ -85,9 +85,9 @@ tags:
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-configure-list/text.png){{% /image_container %}}
 
-    2. 在 **内容** 属性中，删除 *名称* 并点击 **添加属性**：
+    2. 在 **内容** 属性中，删除 *名称* 并点击 **添加** > **属性**:
 
-        {{% image_container width="250" %}}![](attachments/pages-how-to-configure-list/text-content.png){{% /image_container %}}
+        ![](attachments/pages-how-to-configure-list/text-content.png)
 
     3. 在 **选择属性** 对话框中，选择 **名称** 然后点击 **选择**。
 
@@ -126,7 +126,7 @@ tags:
 
 5. 在 **选择属性** 对话框中，选择 **标题** 然后点击 **选择**
 
-    {{% image_container width="350" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
+    {{% image_container width="400" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
 
 6. 选择 **name** 文本框，然后点击 **数据源** > **属性** 属性。
 
@@ -154,6 +154,6 @@ tags:
 
 ![配置的页面](attachments/pages-how-to-configure-list/configured-page.png)
 
-您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio8/publishing-app)。
+您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio/publishing-app)。
 
-例如，您也可以在页面细节上工作 在列表中添加动态图像以显示机会联系人在他们的名字旁边的个人资料图片。 关于动态图像的更多信息，见 [图像 & 文件](/studio8/page-editor-widgets-images-and-files)
+例如，您也可以在页面细节上工作 在列表中添加动态图像以显示机会联系人在他们的名字旁边的个人资料图片。 关于动态图像的更多信息，见 [图像 & 文件](/studio/page-editor-widgets-images-and-files)
