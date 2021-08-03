@@ -1,241 +1,241 @@
 ---
-title: "Call REST Service"
-parent: "integration-activities"
+title: "REST サービスに発信"
+parent: "インテグレーションアクティビティ"
 tags:
   - "studio pro"
-  - "integration activity"
-  - "call rest service"
+  - "統合アクティビティ"
+  - "休憩所に電話する"
 menu_order: 10
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Call REST service** activity can be used to call a REST endpoint. You can specify the location and how the response of the REST call should be handled.
+**REST サービスを呼び出す** アクティビティは、REST エンドポイントを呼び出すために使用できます。 REST コールの応答をどのように処理するか、場所を指定できます。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of call rest action properties is represented in the image below:
+以下の画像では、コールレストアクションプロパティの例を示しています。
 
-![call rest action properties](attachments/integration-activities/call-rest-action-properties.png)
+![restactionプロパティを呼び出す](attachments/integration-activities/call-rest-action-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The call rest action properties pane consists of the following sections:
+コールレストアクションプロパティペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-The properties dialog box consists of four tabs:
+プロパティ ダイアログ ボックスは 4 つのタブで構成されています:
 
-* [General](#general)
-* [HTTP Headers](#http-headers)
-* [Request](#request)
-* [Response](#response)
+* [全般](#general)
+* [HTTP ヘッダー](#http-headers)
+* [リクエスト](#request)
+* [回答](#response)
 
-## 4 General Tab {#general}
+## 4つの一般タブ {#general}
 
 {{% image_container width="66%" %}}
 ![](attachments/integration-activities/general-tab.png)
 {{% /image_container %}}
 
-### 4.1 Location
+### 4.1 場所
 
-The **Location** property defines the REST endpoint to be called.
+**Location** プロパティで、呼び出される REST エンドポイントを定義します。
 
-The location needs to be entered using a string template which must result in a valid URL string.
+場所は文字列テンプレートを使用して入力する必要があります。これは有効なURL文字列になります。
 
-#### 4.1.1 String Template{#string-template}
+#### 4.1.1 文字列テンプレート{#string-template}
 
-The template for the location can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. You can escape the opening brace (`{`), by using a double opening brace (`{{`).
+ロケーションのテンプレートには、括弧の間の数値として記述されたパラメータを含めることができます (例: `{1}`)。 最初のパラメータは `1`、2 番目の `2`などの数字を持ちます。 opening brace (`{`), double opening brace (`{{` ) を使ってエスケープすることができます。
 
-#### 4.1.2 Parameters
+#### 4.1.2 パラメータ
 
-For each parameter in the template, you can specify its value using a [microflow expression](expressions) resulting in a string value. This value will be inserted at the position of the parameter.
+テンプレート内の各パラメータに対して、文字列値を生成する [マイクロフロー式](expressions) を使用してその値を指定できます。 この値はパラメーターの位置に挿入されます。
 
-### 4.2 HTTP Method
+### 4.2 HTTP メソッド
 
-The **HTTP method** property defines the HTTP method to use when calling a REST endpoint. The possible values are: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.
+**HTTP メソッド** プロパティは、REST エンドポイントを呼び出すときに使用する HTTP メソッドを定義します。 GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS.
 
-### 4.3 Use Timeout on Request
+### 4.3 リクエスト時にタイムアウトを使用
 
-Set **Use timeout on request** to **Yes** to be able specify how long the Call REST activity should wait for the REST endpoint to respond.
+**リクエスト時のタイムアウトを** に **はい** に設定して、コールRESTのエンドポイントが応答するのを待つ時間を指定できます。
 
 {{% alert type="warning" %}}
-It is recommended that you keep this set to **Yes**. Most cloud infrastructure services (including those used by the Mendix Cloud) will close HTTP connections automatically if there is no traffic for a few minutes, even if your activity is still waiting for a response. This means that, if your activity calls a web service which takes a long time to respond, the connection may be closed without the activity being aware of this, and your activity will not receive a response. Under these circumstances, if **Use timeout on request** is set to **No**, your activity will get stuck waiting indefinitely for data to arrive.
+このセットは **はい** にしておくことをお勧めします。 (Mendix Cloudで使用されているものを含む)ほとんどのクラウドインフラストラクチャサービスは、数分間トラフィックがない場合、自動的にHTTP接続を閉じます。 活動がまだ反応を待っていてもね これは、アクティビティがWebサービスを呼び出す場合、応答に長い時間がかかることを意味します。 これを認識せずに接続が切断される可能性があります。あなたのアクティビティには応答がありません。 このような状況では、 **リクエスト時のタイムアウトを使用する** が **いいえ**に設定されている場合 データが届くのを無期限に待ってるんだ
 {{% /alert %}}
 
-Default value: *Yes*
+デフォルト値: *はい*
 
-### 4.4 Timeout (s)
+### 4.4 タイムアウト
 
-If the REST endpoint has not responded after the number of seconds in **Timeout (s)**, an exception will occur and the microflow will roll back or go into your custom error handler.
+もし REST エンドポイントが **タイムアウト (s)**の秒数の後に応答していない場合 例外が発生し、microflow がロールバックまたはカスタムエラーハンドラに移動します。
 
-Default value: *300 seconds*
+デフォルト値: *300秒*
 
-### 4.5 Proxy Configuration
+### 4.5 プロキシ設定
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+ほとんどの場合、この設定は無視できます。 **アプリの設定を使用する** は良いデフォルト値です。
 
-If desired, you can configure whether to use a proxy for the request. These are the choices:
+必要に応じて、リクエストにプロキシを使用するかどうかを設定できます。 選択肢は以下の通りです:
 
-* **Use app settings** – use whatever settings are defined at the app level (default)
-* **Override** – override the app-level settings for this action
-* **No proxy** – do not use a proxy for this action, even if there is a proxy configured at the app level
+* **アプリ設定を使用する** – アプリレベルで定義されているすべての設定を使用する (デフォルト)
+* **オーバーライド** – このアクションのアプリレベルの設定を上書きする
+* **プロキシなし** – アプリレベルで設定されたプロキシがあっても、このアクションにプロキシを使用しないでください
 
-When you select **Override**, you can configure dynamically whether to use a proxy. You then supply the host, port, username, and password settings for the proxy.
+**Override**を選択すると、プロキシを使用するかどうかを動的に設定できます。 その後、プロキシのホスト、ポート、ユーザー名、およびパスワードの設定を指定します。
 
-### 4.6 Client certificate{#client-certificate}
+### 4.6 クライアント証明書{#client-certificate}
 
-In most cases, the default **Use app settings** can be used.
+ほとんどの場合、デフォルトの **アプリ設定を使用する** が使用できます。
 
-However, you can specify a client certificate to use for the request by selecting **Override**.
+ただし、 **Override** を選択することで、リクエストに使用するクライアント証明書を指定することができます。
 
-The options are:
+オプションは以下の通りです:
 
-* **Use app settings**(default) – use the settings that are defined at the app level
-* **Override** – override the app-level settings for this action
+* **アプリ設定を使用する**(デフォルト) – アプリレベルで定義されている設定を使用する
+* **オーバーライド** – このアクションのアプリレベルの設定を上書きする
 
-When you select **Override**, you can configure which client certificate will be used. Click **Edit** to specify the **Client certificate identifier**. This identifier can be set in different places, depending on where you deploy the app:
+**Override**を選択すると、どのクライアント証明書が使用されるかを設定できます。 **編集** をクリックして、 **クライアント証明書識別子** を指定します。 この識別子は、アプリのデプロイ先によって異なる場所で設定できます。
 
-* When you deploy the app in the Mendix cloud, set the **Client certificate identifier** to the desired **WEB SERVICE CALL NAME** when [pinning a client certificate](/developerportal/deploy/certificates#outgoing-client-certificates).
-* When you deploy the app elsewhere, the identifier is set in the custom setting [ClientCertificateUsages](custom-settings#ca-certificates). For testing locally, this can be set as a custom server setting in a [Configuration](configuration#custom).
+* Mendix クラウドにアプリを展開する場合 **クライアント証明書識別子** を、 **クライアント証明書** のピン留め時に [Web SERVICE CALL NAME](/developerportal/deploy/certificates#outgoing-client-certificates) に設定します。
+* アプリケーションを他の場所にデプロイする場合、識別子はカスタム設定 [ClientCertificateUsages](custom-settings#ca-certificates) で設定されます。 ローカルでテストする場合、これは [Configuration](configuration#custom) でカスタムサーバー設定として設定することができます。
 
 When this identifier is not set for the environment where your app is deployed (either not pinned or not present in _ClientCertificateUsages_), the default settings will be used (as if **Use app settings** were selected).
 
-## 5 HTTP Headers Tab {#http-headers}
+## 5 HTTP ヘッダータブ {#http-headers}
 
 ![](attachments/integration-activities/http-headers-tab.png)
 
-### 5.1 Use HTTP Authentication
+### 5.1 HTTP 認証を使用する
 
-The **Use HTTP authentication** check box defines whether basic authentication should be used.
+**HTTP 認証を使用する** チェック ボックスは、基本認証を使用するかどうかを定義します。
 
-### 5.2 User Name
+### 5.2 ユーザー名
 
-The **User name** property defines the user name that will be used to authenticate over HTTP. The user name needs to be entered using [microflow Expressions](expressions). The microflow expression should result in a string.
+**User name** プロパティは、HTTP を介した認証に使用されるユーザー名を定義します。 ユーザー名は [microflow Expressions](expressions) を使用して入力する必要があります。 microflow 式は文字列になります。
 
-### 5.3 Password
+### 5.3 パスワード
 
-The **Password** property defines the password that will be used to authenticate over HTTP. The password needs to be entered using [expressions](expressions). The microflow expression should result in a string.
+**Password** プロパティは、HTTP を介した認証に使用されるパスワードを定義します。 パスワードは [式](expressions) を使用して入力する必要があります。 microflow 式は文字列になります。
 
-### 5.4 Custom HTTP Headers
+### 5.4 カスタム HTTP ヘッダー
 
-These headers are added to the HTTP request header. Each custom header is a pair with a key and a value (a microflow expression).
+これらのヘッダは HTTP リクエストヘッダに追加されます。 各カスタムヘッダーは、キーと値(マイクロフロー式)のペアです。
 
-## 6 Request Tab {#request}
+## 6 リクエストタブ {#request}
 
 ![](attachments/integration-activities/request-tab.png)
 
-The sections below describe the options in the drop-down menu for generating the request.
+以下のセクションでは、リクエストを生成するためのドロップダウンメニューのオプションについて説明します。
 
 {{% alert type="info" %}}
-Requests can only be generated for HTTP methods POST, PUT, PATCH, and OPTIONS.
+リクエストは HTTP メソッド POST、PUT、PATCH、および OPTIONS に対してのみ生成できます。
 {{% /alert %}}
 
-### 6.1 Export Mapping for the Entire Request
+### 6.1 リクエスト全体のエクスポートマッピング
 
-This option allows you to use a single [export mapping](export-mappings) for the body of the request.
+このオプションを使用すると、リクエストの本文に単一の [エクスポート マッピング](export-mappings) を使用できます。
 
-#### 6.1.1 Mapping
+#### 6.1.1 マッピング
 
-Select the mapping that you want to apply.
+適用するマッピングを選択します。
 
-#### 6.1.2 Parameter Type
+#### 6.1.2 パラメータタイプ
 
-If the [export mapping](export-mappings) requires an input, this field shows the type of the input.
+[エクスポート マッピング](export-mappings) が入力を必要とする場合、このフィールドは入力の型を表示します。
 
-#### 6.1.3 Parameter
+#### 6.1.3 パラメータ
 
-If the [export mapping](export-mappings) requires an input, you can select a parameter of the correct type.
+[エクスポート マッピング](export-mappings) が入力を必要とする場合、正しい型のパラメータを選択することができます。
 
-#### 6.1.4 Content Type
+#### 6.1.4 コンテンツタイプ
 
-If the [export mapping](export-mappings) is based on a message definition, it can export either XML or JSON. Choose the type of output you want.
+[エクスポート マッピング](export-mappings) がメッセージ定義に基づいている場合、XML または JSON をエクスポートすることができます。 必要な出力タイプを選択します。
 
 {{% alert type="info" %}}
-**Content-Type header** is not set by default. To set it, use the **Custom HTTP Headers** tab.
+**Content-Type ヘッダー** がデフォルトでは設定されていません。 設定するには、 **Custom HTTP Headers** タブを使用します。
 {{% /alert %}}
 
-### 6.2 Binary for the Entire Request
+### 6.2 リクエスト全体のバイナリ
 
-This option allows you to send binary data (for example, the contents of a FileDocument).
+このオプションを使用すると、バイナリデータ(例えば、FileDocumentの内容)を送信できます。
 
-### 6.3 Form-Data
+### 6.3 フォームデータ
 
-This option allows you to generate a multipart/form-data request for multiple parts. Each part is a pair with a key and a value (microflow expression).
+このオプションを使用すると、複数の部品の multipart/form-data リクエストを生成できます。 各パートはキーと値(マイクロフロー式)のペアです。
 
-FileDocuments and images are are also supported for this option when used as variables in microflow expressions.
+このオプションでは、マイクロフロー式の変数として使用される場合、FileDocuments とイメージもサポートされます。
 
-For each part, you can specify the HTTP headers. For each part, by default, the **Content-Disposition**  (for file documents and images) and **Content-Type** (for all parts) headers are added. You can specify different values for these headers, or add other headers.
+各パートには、HTTP ヘッダーを指定できます。 各パーツについて、デフォルトでは、 **Content-Disposition**  (ファイルドキュメントと画像用) と **Content-Type** (すべてのパーツ用) ヘッダーが追加されます。 これらのヘッダーに異なる値を指定したり、他のヘッダーを追加したりできます。
 
 #### 6.3.1 Content Type
 
 Setting up a **Content-Type header** for a form-data request will result in a consistency error, as it will automatically be set to **multipart/form-data**.
 
-The content type for the FileDocument part is **application/octet-stream**.
+FileDocument パートの content type は **application/octet-stream** です。
 
-### 6.4 Custom Request Template
+### 6.4 カスタムリクエストテンプレート
 
-This option allows you to generate the request using a string template. The template defines the structure of the request in plain text.
+このオプションを使用すると、文字列テンプレートを使用して要求を生成できます。 テンプレートはプレーンテキストでリクエストの構造を定義します。
 
-See [String Template](#string-template), above, for more information on constructing strings from templates.
+テンプレートから文字列を構築するための詳細については、上記の [文字列テンプレート](#string-template)を参照してください。
 
-## 7 Response Tab {#response}
+## 7つの応答タブ {#response}
 
 ![](attachments/integration-activities/response-tab.png)
 
-### 7.1 Response Handling
+### 7.1 対応処理
 
-These are the options in the drop-down menu for handling the response:
+これらは、応答を処理するためのドロップダウンメニューのオプションです。
 
 * **Apply import mapping** – if the response is JSON or XML, it can be transformed directly into objects using an [import mapping](import-mappings); the fields that you can choose here are described in the [Import Mapping action](import-mapping-action)
 * **Store in an HTTP response** – any successful HTTP response can be stored directly in an [HttpResponse](http-request-and-response-entities#http-response) object, and the [$latestHttpResponse](#latesthttpresponse) variable is also updated
 * **Store in a file document** – if the response contains binary content (for example, a PDF), it can be stored in an object of an entity type which inherits from `System.FileDocument`
-* **Store in a string** – if the response is a string (for example, CSV), it can be stored directly in a string variable
-* **Do not store in a variable** - use this option when the call does not return anything useful
+* **文字列に保存** – 応答が文字列の場合 (CSVなど)、文字列変数に直接格納することができます。
+* **変数に格納しないでください** - 呼び出しが役に立つものを返さない場合、このオプションを使用してください
 
-### 7.2 Type
+### 7.2 タイプ
 
-The **Type** field defines the type of the output.
+**Type** フィールドは、出力の型を定義します。
 
-### 7.3 Variable
+### 7.3 変数
 
-The **Variable** field defines the name for the result of the operation.
+**変数** フィールドは、操作の結果の名前を定義します。
 
-### 7.4  Store Message Body in $latestHttpResponse Variable {#latesthttpresponse}
+### 7.4 メッセージ本文を $latestHttpResponse 変数に保存します。 {#latesthttpresponse}
 
 If HTTP response status code is not successful (for example, `[4xx]` or `[5xx]`), the flow will continue in an [error handler](error-event#errorhandlers).
 
 {{% alert type="warning" %}}
-You should always add an error handler for a [call REST service](/refguide/call-rest-action) action.
+RESTサービス [をコールする](/refguide/call-rest-action) アクションに対して常にエラーハンドラを追加する必要があります。
 {{% /alert %}}
 
-## 8 Common Section{#common}
+## 8つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 9 Troubleshooting{#troubleshooting}
+## 9 トラブルシューティング{#troubleshooting}
 
-### 9.1 java.net.SocketException – Connection reset
+### 9.1 java.net.SocketException – 接続のリセット
 
-This error is occurs when your app's infrastructure closes the connection because it is inactive. Your app client does not know this and gets this error when it makes a new request.
+このエラーは、アプリのインフラストラクチャが非アクティブであるため、接続を閉じたときに発生します。 アプリクライアントはこれを認識しておらず、新しいリクエストを行うとこのエラーが表示されます。
 
-There are two ways to resolve this:
+これを解決する方法は2つあります。
 
-1. Alter the value of the `http.client.CleanupAfterSeconds` [runtime setting](custom-settings) to be less than the connection timeout. This will ensure that the your app client will create a new HTTP client for the request.
+1. `http.client.CleanupAfterSeconds` [ランタイム設定](custom-settings) の値を、接続タイムアウトより小さく変更します。 これにより、アプリケーション・クライアントがリクエスト用に新しいHTTPクライアントを作成することが保証されます。
 
-2. Handle the error in your microflow and retry a number of times before returning the error. Your flow might look similar to the one below.
+2. エラーをマイクロフローで処理し、エラーを返す前に何度もやり直してください。 あなたのフローは以下のように見えるかもしれません。
 
     ![](attachments/integration-activities/retry-rest-connection-timeout.png)
