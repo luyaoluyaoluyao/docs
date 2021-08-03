@@ -1,210 +1,192 @@
 ---
-title: "Security, Roles & Permissions"
-category: "Settings"
-description: "Describes security and roles and permissions in Mendix Studio."
+title: "セキュリティ、ロール & 権限"
+category: "設定"
+description: "Mendix Studioのセキュリティとロールと権限について説明します。"
 menu_order: 10
 tags:
-  - "studio"
-  - "security"
-  - "roles and permissions"
+  - "スタジオ"
+  - "セキュリティ"
+  - "ロールと権限"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Security is a way of controlling access to your app. For example, you can decide who can access your app.
+セキュリティはアプリへのアクセスを制御する方法です。 たとえば、誰がアプリケーションにアクセスできるかを決めることができます。
 
-[Roles and Permissions](#roles-and-permissions) are an important part of security – an instrument which you can use to restrict or grant access to different parts of your app, such as pages and microflows.
+[役割と権限](#roles-and-permissions) はセキュリティの重要な部分です。アプリのさまざまな部分へのアクセスを制限または許可するために使用できる機器です。 例えばページやマイクロフローなどです
 
-## 2 Enabling Security {#enabling-security}
+## 2 セキュリティを有効にする {#enabling-security}
 
-Whether security is enabled for your app by default, depends on app's type and version. You can come across the following cases:
+セキュリティがデフォルトでアプリで有効になっているかどうかは、アプリのタイプとバージョンによって異なります。 次のケースに出くわすことができます:
 
-1. If your app has been created in the Developer Portal with Mendix version 7.23.3 or above, you can enable security in Studio and view and edit [roles and permissions](#roles-and-permissions). For more information on versions, see [Studio Ranges & Mendix Versions](general-versions)
+1. Mendix バージョン 7.23 の開発者ポータルでアプリが作成された場合。 またはそれ以上の場合は、Studio でセキュリティを有効にして、 [ロールとパーミッション](#roles-and-permissions) を表示および編集できます。 バージョンの詳細については、 [Studio Ranges & Mendix Versionsを参照してください](general-versions)
 
-2. If your app has been created in the Developer Portal with Mendix version below 7.23.3, or has been labelled as private content, or has been customized by your team specifically for your company, the security state depends on Studio Pro:<br/> a.  If security is off in Studio Pro, then you can enable security in Studio. In this case, when you try to [publish the app](publishing-app), you will be prompted to enable security. <br/>
+2. アプリが開発者ポータルで作成され、Mendixバージョンが7.23以下の場合。 、またはプライベートコンテンツとしてラベル付けされている、またはあなたの会社向けにチームによってカスタマイズされています セキュリティ状態は、Studio Pro:<br/> aに依存します。  Studio Pro でセキュリティがオフの場合は、Studio でセキュリティを有効にできます。 この場合、 [アプリを公開](publishing-app)しようとすると、セキュリティを有効にするように求められます。 <br/>
 
     {{% image_container width="400" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png)
  {{% /image_container %}}<br/>
 
-    b. If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (For more information on what security settings are compatible with Studio, see the [Studio Compatibility](/refguide8/studio-security-enabled#studio-compatible) section in *Model Changes When Security Is Enabled in Studio*.)
+    B If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
 
     ![](attachments/settings-security/roles-and-permissions-screen.png)
 
-    c. If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are not compatible with Studio, you can view (not edit) **Roles and Permissions** in Studio. (For more information on security settings compatible with Studio, see the [Studio Compatibility](/refguide8/studio-security-enabled#studio-compatible) section in *Model Changes When Security Is Enabled in Studio*.)
+    C If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are not compatible with Studio, you can view (not edit) **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
 
     ![](attachments/settings-security/security-read-only.png)
 
 
-If you need to enable security, do one of the following:
+セキュリティを有効にする必要がある場合は、次のいずれかを実行します。
 
-* Click **Enable Security** in the above-mentioned pop-up dialog, and security will be set up automatically for you. After that you can restrict or grant access to your app via [Roles and Permissions](#roles-and-permissions).
+* 上記のポップアップダイアログで **セキュリティを有効にする** をクリックすると、セキュリティが自動的に設定されます。 その後、 [ロールと権限](#roles-and-permissions) を使用してアプリへのアクセスを制限または許可できます。
 
-*  Open **App Settings** > **Roles and Permissions** and click **Enable Security**.
+*  **アプリ設定** > **ロールとアクセス許可** を開き、 **セキュリティを有効にする** をクリックします。
 
-    ![The Roles and Permissions Screen](attachments/settings-security/enabling-security.png)
-
-{{% alert type="info" %}}
-When you enable security, it is enabled for the whole app, and there are checks and changes applied to the model that are visible in Studio Pro. For more technical information on these checks and changes, see [Model Changes When Security Is Enabled in Studio](/refguide8/studio-security-enabled).
-{{% /alert %}}
-
-## 3 Roles and Permissions {#roles-and-permissions}
+    ![役割と権限画面](attachments/settings-security/enabling-security.png)
 
 {{% alert type="info" %}}
-In Studio Pro, advanced security settings can be applied. In this case, you will not be able to edit roles and permissions in Studio.
+セキュリティを有効にすると、アプリ全体で有効になります Studio Proに表示されているモデルには、チェックと変更が適用されています。 これらのチェックと変更に関する技術的な情報については、 [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide/studio-security-enabled) を参照してください。
 {{% /alert %}}
 
-A role is a set of permissions that you can assign to a user. For example, you may want to give the *Administrator* full access to all pages and microflows. While for other users, you may choose to only grant access to certain pages and restrict access for microflows.
+## 3つのロールと権限 {#roles-and-permissions}
 
-In apps created via the Developer Portal, there are two app roles:
+{{% alert type="info" %}}
+Studio Pro では、高度なセキュリティ設定を適用できます。 この場合、Studio でロールや権限を編集することはできません。
+{{% /alert %}}
 
-* Administrator
-* User
+ロールとは、ユーザーに割り当てられる権限のセットです。 たとえば、 *管理者* にすべてのページとマイクロフローへのフルアクセスを与えることができます。 他のユーザに対して、特定のページへのアクセスのみを許可し、マイクロフローのアクセスを制限することを選択できます。
+
+開発者ポータル経由で作成されたアプリには、次の2つのアプリロールがあります。
+
+* 管理者
+* ユーザー
 
 {{% alert type="warning" %}}
-When security is enabled, these two app roles will have full access to your app. We recommend you to review permissions for the User role.
+セキュリティが有効になっている場合、これらの2つのアプリのロールはアプリにフルアクセスできます。 ユーザーロールの権限を確認することをお勧めします。
 {{% /alert %}}
 
-For more information on managing app users, see the [Managing App Users](#managing-app-users) section.
+アプリユーザーの管理についての詳細は、 [App Users の管理](#managing-app-users) セクションを参照してください。
 
-The **Roles and Permissions** screen consist of three tabs:
+**ロールと権限** 画面は以下の3つのタブで構成されます:
 
-* Roles
-* Page Access
-* Microflow Access
+* ロール
+* ページアクセス
+* マイクロフローアクセス
 
-The **Roles** tab lists all roles and indicates the number of pages and microflows these roles can access.
+**ロール** タブにはすべてのロールが表示され、アクセスできるページ数とマイクロフロー数が表示されます。
 
-The **Page Access** and **Microflow Access** tabs contain a table where all pages/microflows are listed in rows, and all roles are placed in columns.
+**ページ アクセス** および **マイクロフロー アクセス** タブには、すべての pages/microflow が行に表示されるテーブルが含まれています。 すべてのロールが列に配置されます。 特定のロールにアクセスできるページとマイクロフローを決定することができます。アクセスを許可/制限するには、ドキュメントごとのボックスのチェックを解除します。 すべてのドキュメントを選択/選択解除するには、ユーザーロールの横にある **その他のオプション** アイコンをクリックします。
 
-You can allow only certain roles to access a page or microflow: select the appropriate box to grant access for a role to a page or microflow.
+結果として、各ロールに固有の行列を取得します。
 
-To select/deselect all pages or microflows click the ellipsis icon next to the user role.
+![ページアクセスタブの例](attachments/settings-security/page-access-tab.png)
 
-As a result, you will get a matrix specific for each role.
+### 3.1 新しいロールの作成
 
-![The Page Access Tab Example](attachments/settings-security/page-access-tab.png)
+新しいアプリのロールを作成するには、次の操作を行います。
 
-### 3.1 Creating a New Role
+1. **ロールと権限** > **ロール** タブを開きます。
 
-To create a new app role, do the following:
-
-1. Open **Roles and Permissions** > the **Roles** tab.
-
-2.  Click **Add Role** in the right corner.
+2.  右側の **Add Role** をクリックします。
 
     ![](attachments/settings-security/add-role-button.png)
 
-3.  Specify the name of the new role in the **Create Role** dialog box and click **Create**.
+3.  **Create Role** ダイアログウィンドウで新しいロールの名前を指定し、 **Create** をクリックします。
 
-    ![Create Role Dialog Box](attachments/settings-security/create-role-dialog.png)
+    ![ロールダイアログボックスを作成](attachments/settings-security/create-role-dialog.png)
 
-The new role is created.
+新しいロールが作成されます。
 
-### 3.2 Editing Existing Roles
+### 3.2 既存の役割の編集
 
-To edit an existing role, do the following:
+既存のロールを編集するには、次の操作を行います。
 
-1.  Open **Roles and Permissions** > the **Roles** tab.
+1.  **ロールと権限** > **ロール** タブを開きます。
 
-2.  Click the **More Options** icon and select **Edit**.
+2.  **その他のオプション** アイコンをクリックし、 **編集** を選択します。
 
     ![](attachments/settings-security/edit-role-option.png)
 
-3.  In the **Edit Role** pop-up dialog perform the changes, and click **Save**.
+3.  **ロール** の編集ポップアップダイアログで変更を実行し、 **保存** をクリックします。
 
     ![](attachments/settings-security/edit-role-dialog.png)
 
-The role has been edited.
+ロールが編集されました。
 
-### 3.3 Deleting Roles
+### 3.3 ロールの削除
 
-To delete an existing role, do the following:
+既存のロールを削除するには、次の操作を行います。
 
-1.  Open **Roles and Permissions** > the **Roles** tab.
+1.  **ロールと権限** > **ロール** タブを開きます。
 
-2.  Click the **More Options** icon and select **Delete**.
+2.  **その他のオプション** アイコンをクリックし、 **削除** を選択します。
 
     ![](attachments/settings-security/delete-role-option.png)
 
-3.  Confirm the deletion in the pop-up dialog.
+3.  ポップアップダイアログで削除を確認します。
 
     ![](attachments/settings-security/delete-role-dialog.png)
 
-The role has been deleted.
+ロールが削除されました。
 
 {{% alert type="info" %}}
 
-You cannot delete or edit the Administrator role.
+管理者ロールは削除または編集できません。
 
 {{% /alert %}}
 
-### 3.4 Setting Access to Specific Pages/Microflows
+### 3.4 特定のページ/マイクロフローへのアクセス権の設定
 
-There are two ways to set access for specific pages/microflows in your app:
+アプリ内の特定の pages/microflow へのアクセスを設定するには 2 つの方法があります。
 
-1.  To set access via **Roles and Permissions**, do the following:<br/> 1.1  Open **Roles and Permissions** > **Page**/**Microflow Access** tab.<br/> 1.2 Find the user role in the column and tick the box next to a page/microflow to open access for it, or untick – to restrict access. In the example below, we have restricted page access for the User.<br/>
+1.  To set access via **Roles and Permissions**, do the following:<br/> 1.1  Open **Roles and Permissions** > **Page**/**Microflow Access** tab.<br/> 1.2 Find the user role in the column and tick the box next to a page/microflow to open access for it, or untick – to restrict access. 以下の例では、ユーザーのページアクセスが制限されています。<br/>
 
     ![](attachments/settings-security/page-access-example.png)
 
-2.  To set access for a page/microflow via properties of this page/microflow , do the following: <br/> 2.1 Open the page/microflow.<br/> 2.2. Go to **Properties** > the **Permissions** section and tick/untick **Allowed Roles** to grant/restrict access.<br/>
+2.  このページ/マイクロフローのプロパティを介してページ/マイクロフローへのアクセスを設定するには、以下を行ってください: <br/> 2.1 ページ/マイクロフローを開きます。<br/> 2.2. **プロパティ** > **アクセス権限** セクションと tick/untick **許可されるロール** に移動してアクセスを許可/制限します。<br/>
 
     ![](attachments/settings-security/permissions-section.png)
 
-## 4 Demo Users {#demo-users}
+## 4デモユーザー
 
-Demo users are a demonstration of each user role existing in your app. You can use demo users to review how your app looks like for each user role. For more technical information, see [Demo Users](/refguide8/demo-users).
+デモユーザーは、アプリケーションに存在する各ユーザーロールのデモです。 デモユーザーを使用して、各ユーザーのロールに対するアプリの見た目を確認できます。 技術的な情報については、 [Demo Users](/refguide/demo-users) を参照してください。
 
-### 4.1 Testing Your Roles {#testing-your-roles}
+### 4.1 ロールのテスト {#testing-your-roles}
 
-You can test how your app looks like for different roles the following way:
+アプリが異なるロールでどのように見えるかを次のようにテストできます:
 
-1. [Preview your app](publishing-app).
+1. [アプリをプレビューする](publishing-app).
 
-2. Click a user icon in the right side of the screen:
+2. 画面の右側にあるユーザーアイコンをクリックします。
 
     ![](attachments/settings-security/user-icon.png)
 
-4. In the displayed menu bar, select a demo user and the app will be viewed from the perspective of the corresponding role.
+4. 表示されたメニューバーで、デモユーザーを選択すると、アプリが対応するロールの観点から表示されます。
 
     ![](attachments/settings-security/select-user.png)
 
-## 5 Managing App Users {#managing-app-users}
+## 5 アプリユーザーの管理 {#managing-app-users}
 
-You can assign the default or customized user roles for your app to app end-users with Mendix accounts. These are called **App Users** and once authorized, they can access your published app to use it, test it, and provide feedback.
+Mendixアカウントを使用してアプリのエンドユーザーにデフォルトまたはカスタマイズされたユーザーロールを割り当てることができます。 これらは **App Users** と呼ばれ、一度承認されると、公開されたアプリにアクセスして使用し、テストし、フィードバックを提供することができます。
 
 {{% alert type="info" %}}
-You can manage App Users only after you publish your app.
+アプリを公開した後にのみ、アプリユーザーを管理できます。
 {{% /alert %}}
 
-To manage App Users, open **Roles and Permissions** and click **Manage Users** in the top-right of the screen:
+アプリユーザーを管理するには、 **ロールと権限** を開き、画面右上の **ユーザーの管理** をクリックします。
 
 ![](attachments/settings-security/manage-users-button.png)
 
-You will be taken to the [App User Management](/developerportal/collaborate/general-settings#managing-app-users) page in the Developer Portal, where you can invite people to your app and manage their user roles.
+開発者ポータルの [App User Management](/developerportal/collaborate/general-settings#managing-app-users) ページに移動します。 アプリにユーザーを招待し、ユーザーロールを管理することができます。
 
 {{% alert type="info" %}}
-People invited to join your team in the Developer Portal are not added as App Users automatically, so you will need to invite your team members if necessary.
+開発者ポータルであなたのチームに参加するために招待された人は、アプリユーザーとして自動的に追加されません。 必要に応じてチームメンバーを招待する必要がある
 {{% /alert %}}
 
 {{% alert type="info" %}}
-If you have created a new user role on the **Roles and Permissions** page, you need to publish the app first to be able to see and assign this role in the Developer Portal.
+**ロールと権限** ページで新しいユーザーロールを作成した場合。 開発者ポータルでこのロールを表示して割り当てるには、まずアプリを公開する必要があります。
 {{% /alert %}}
 
-## 6 Auto-Upgrade to the New Service {#upgrade}
+## 6もっと読む
 
-When you try to publish your app, you may be notified that upgrade of the service that secures your app is required first:
-
-{{% image_container width="300" %}}
-![Upgrade Required](attachments/settings-security/upgrade.png)
-{{% /image_container %}}
-
-A special service makes it possible to manage your app users. The upgrade to the latest version of this service will be done automatically for you when you click **Auto-Upgrade**.
-
-If the automatic upgrade fails, this means, the service was customized in Studio Pro, and only manual upgrade in Studio Pro is possible in this case.
-
-If the auto-upgrade detects that the service was customized in Studio Pro by a team member, you will be notified that a manual upgrade in Studio Pro should be performed first.
-
-## 7 Read More
-
-* [Security](/refguide8/security)
-* [Model Changes When Security Is Enabled in Studio](/refguide8/studio-security-enabled)
+* [セキュリティ](/refguide/security)
+* [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide/studio-security-enabled)
