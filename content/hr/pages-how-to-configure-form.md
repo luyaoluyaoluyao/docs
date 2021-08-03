@@ -46,9 +46,9 @@ You would like the **Details** button in this list to open a page showing the de
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
 
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 * Make sure your domain model is configured the following way:
 
@@ -72,7 +72,7 @@ The **Details** button in the inspection report list should open a page with the
 
     {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-form/button-properties.png){{% /image_container %}}
 
-3.  In the **Select Page** dialog box, click the plus icon in the top right corner.
+3.  In the **Select Page** dialog box, click **New Page**.
 
 1.  In the **Create new page** dialog box, set the **Title** to **Reports_Details**, and set the **Layout** to **Atlas_Default**.
 
@@ -82,10 +82,13 @@ The **Details** button in the inspection report list should open a page with the
 
 3. Click **Create**.
 
-7. The page with a form (a data view) is created. Open data view properties and make sure that the data source was automatically set to **Context** and **Entity** was set to **InspectionReport**:
+3. The page with a form (a data view) is created. However, the data view's data source was automatically set to **List widget**, you need to change that. Select the data view and go to its properties.
+
+1. Change the data source from **List widget** to **Context**.
+
+2. Click the **Entity** property and set the **InspectionReport** entity for it:
 
       {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/data-view-source.png){{% /image_container %}}
-
 
 The form on the page is configured:
 {{% image_container width="600" %}}![](attachments/pages-how-to-configure-form/data-view-configured.png){{% /image_container %}}
@@ -114,7 +117,7 @@ Follow the steps below:
 
 4. To show only checklist items associated with the current inspection report, choose the **Checklist** entity over association (*Checklist_InspectionReport/Checklist*) in the **Select Entity** dialog box and click **Select**:
 
-    ![](attachments/pages-how-to-configure-form/data-grid-over-association.png)
+    {{% image_container width="450" %}}![](attachments/pages-how-to-configure-form/data-grid-over-association.png){{% /image_container %}}
 
 5. As the main purpose of the page is to display information, you do not need the **Search** section in the data grid. Open data grid properties > **Search** section and disable the **Enable Search** toggle:
 
@@ -130,7 +133,7 @@ Follow the steps below:
 
 9. Click the **Page** property.
 
-10. In the **Select Page** dialog box, click the plus icon in the top right corner.
+10. In the **Select Page** dialog box, click **New Page**.
 
 11. In the **Create new page** dialog box, set the **Title** to **Checklist_Details** and the **Layout** to **PopupLayout**.
 
@@ -164,8 +167,8 @@ Congratulations! You have the page that displays details of the selected report 
 
 {{% /image_container %}}
 
-You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio/publishing-app).
+You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
 
-You can also work on the page details, for example, add a dynamic image to the inspection report list to display a unique company logo next to its name. For more information on dynamic images, see [Images & Files](/studio/page-editor-widgets-images-and-files).
+You can also work on the page details, for example, add a dynamic image to the inspection report list to display a unique company logo next to its name. For more information on dynamic images, see [Images & Files](/studio8/page-editor-widgets-images-and-files).
 
 You can also add new functionality. For example, you can enable inspectors to attach images to their reports. For more information, see [How to Enable End-Users to Attach Images](pages-how-to-attach-images).
