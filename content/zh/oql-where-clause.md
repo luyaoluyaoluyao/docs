@@ -1,8 +1,15 @@
 ---
 title: "OQL 条款位置"
 parent: "oql"
+tags:
+  - "studio pro"
+  - "查询"
+  - "位置"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-where-clause.pdf)。
+{{% /报警 %}}
 
 WHERE条款具体规定了如何限制检索数据。
 
@@ -12,7 +19,7 @@ WHERE条款具体规定了如何限制检索数据。
 温度 <constraint>
 ```
 
-`<constraint>` 值总是等于真值的表达式。 表达式包括简单的与操作员、函数、关键字或系统变量的可比性。
+`<constraint>` 值总是等于真值的表达式。 表达式包括使用操作员、函数、关键字或系统变量进行简单比较。
 
 {{% alert type="info" %}}
 
