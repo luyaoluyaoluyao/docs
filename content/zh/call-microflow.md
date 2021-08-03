@@ -1,51 +1,51 @@
 ---
-title: "Call Microflow"
-parent: "workflows"
+title: "调用微流"
+parent: "工作流"
 menu_order: 50
 tags:
-  - "workflow"
-  - "workflows"
-  - "call microflow"
+  - "工作流"
+  - "工作流"
+  - "调用微流"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Call microflow** is used to call a selected [microflow](microflow).
+**调用微流** 用于调用选定的 [微流](microflow)。
 
-![Call Microflow Example](attachments/call-microflow/call-microflow-example.jpg)
+![调用微流程示例](attachments/call-microflow/call-microflow-example.jpg)
 
-## 2 Properties
+## 2 属性
 
-Call microflow properties consist of the following sections:
+调用微流程属性由以下部分组成：
 
-* [Common](#common)
-* [General](#general)
-* [Outcomes](#outcomes)
-* [Parameters](#parameters)
+* [常用的](#common)
+* [A. 概况](#general)
+* [成果](#outcomes)
+* [参数](#parameters)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名称** 是元素的内部名称。 当提及应用程序中的元素时，您将使用此名称。 它在工作流中必须是唯一的，但你可以在不同的工作流中拥有两个名称相同的元素。
 
-### 2.2 General Section {#general}
+### 2.2 一般部分 {#general}
 
-#### 2.2.1 Caption
+#### 2.2.1 标题
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**标题** 描述了这个元素中发生的情况。 它显示在工作流元素中，使工作流更容易阅读和理解，而无需添加注释。
 
-#### 2.2.2 Microflow
+#### 2.2.2 微流
 
-The microflow that is called by this element.
+这个元素所调用的微流。
 
-### 2.3 Outcomes Section {#outcomes}
+### 2.3 成果科 {#outcomes}
 
-**Outcomes** depends on the return type and values of the microflow. For example, when there is not return type, you have a single outcome; for the Boolean, you have **true** and **false** outcomes; and for the enumeration – an outcome per each enumeration value and an empty one when the value is unassigned.
+**结果** 取决于返回类型和微流的值。 例如，当没有返回类型时，您有一个单一的结果； 对于布尔值，您有 **true** 和 **false** 结果； 和计数-每个计数值的结果和未分配值时的空结果。
 
-### 2.4 Parameters Section {#parameters}
+### 2.4 参数部分 {#parameters}
 
-Parameters of the selected microflow. Depending on the selected microflow, you will see a list of its parameters. Parameters pass data to the element. To view **Parameters**, click the ellipsis icon next to the property name.
+选定的微流参数。 根据选定的微流程，您将看到其参数列表。 参数传递数据到元素。 要查看 **参数**, 请点击属性名称旁边的椭圆图标。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflow Properties](workflow-properties)
+* [工作流属性](workflow-properties)
