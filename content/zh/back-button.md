@@ -1,11 +1,11 @@
 ---
-title: "Close Page Button"
-parent: "button-widgets"
+title: "关闭页面按钮"
+parent: "按钮小部件"
 ---
 
-Pressing this button will close the popup for popup pages, or navigate to the previously visited page for content pages.
+按此按钮将关闭弹出页面的弹出窗口，或导航到以前访问的页面以获取内容页面。
 
-## Button properties
+## 按钮属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -13,11 +13,11 @@ Pressing this button will close the popup for popup pages, or navigate to the pr
 
 {{% snippet file="refguide7/Image+Property.md" %}}
 
-{{% snippet file="refguide7/Render+Mode+Property.md" %}}
+{{% snippet file="refguid7/Render+Mode+Property.md" %}}
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -27,8 +27,8 @@ Pressing this button will close the popup for popup pages, or navigate to the pr
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Visibility properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Extended.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Extened.md" %}}
