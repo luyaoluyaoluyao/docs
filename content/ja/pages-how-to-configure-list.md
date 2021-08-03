@@ -1,159 +1,159 @@
 ---
-title: "Configure a List and View List Item Details"
-category: "Pages"
-description: "Describes how to configure a list of items in Mendix Studio."
+title: "リストとリストアイテムの詳細の設定"
+category: "ページ"
+description: "Mendix Studio で項目のリストを設定する方法を説明します。"
 menu_order: 40
 tags:
-  - "studio"
-  - "pages"
-  - "list"
-  - "how to"
+  - "スタジオ"
+  - "ページ"
+  - "リスト"
+  - "どうやって?"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can configure a list of items and view the item details selected in this list.
+この方法では、項目のリストを構成し、このリストで選択した項目の詳細を表示する方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Create a new page
-* Configure a list view
-* Configure a data view that shows the details of an item selected in the list view
+* 新しいページを作成
+* リストビューの設定
+* リストビューで選択した項目の詳細を表示するデータビューを構成します
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-Sales Representatives in your company would like to view a list of opportunity contacts – potential customers. When Sales Representatives click a row in this list, the details of the corresponding opportunity contact are displayed next to the list:
+会社の営業担当者は、商談の連絡先のリストを表示したいと考えています。 営業担当者がこのリストの行をクリックすると、該当する商談の連絡先の詳細がリストの横に表示されます。
 
 ![](attachments/pages-how-to-configure-list/configured-page.png)
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
 
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
-* Make sure your domain model is configured the following way:
+* ドメインモデルが次のように構成されていることを確認してください:
 
     {{% image_container width="200" %}}![](attachments/pages-how-to-configure-list/domain-model.png){{% /image_container %}}
 
-## 3 Adding the Master Detail Page
+## 3 マスター詳細ページの追加
 
-You would like to open a page with opportunity contact list and its details from your home page. Do the following:
+商談の連絡先リストとその詳細を持つページをあなたのホームページから開きたいです。 次の操作を行います:
 
-1. Open your home page and navigate to the **Toolbox** > **Widgets**.
+1. ホームページを開き、 **Toolbox** > **ウィジェット** に移動します。
 
-2. Search for **Open Page** button and drag and drop it to the page.
+2. **** ボタンを検索し、それをページにドラッグ&ドロップします。
 
     {{% image_container width="250" %}}![Open Page](attachments/pages-how-to-configure-list/open-page-button.png){{% /image_container %}}
 
-3. Open the button properties and follow the steps below:
+3. ボタンのプロパティを開き、以下の手順に従ってください。
 
-    1. Set **Page** as an on-click action and click the **Page** property.
+    1. **ページ** をオンクリックアクションとして設定し、 **ページ** プロパティをクリックします。
 
         {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-list/button-properties.png){{% /image_container %}}
 
-    2.  In the **Select Page** dialog box, click **New Page**.
+    2.  **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
 
-    3.  In the **Create new page** dialog box, fill in the page title.
+    3.  **新規ページ** の作成ダイアログボックスで、ページタイトルを入力します。
 
-    4. Select the page template by clicking **Master Detail** in the side bar and choose **Master Detail**:
+    4. サイドバーの **マスター詳細** をクリックしてページテンプレートを選択し、 **マスター詳細** を選択します:
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-configure-list/create-master-detail.png){{% /image_container %}}
 
-    5. Click **Create**.
+    5. **Create** をクリックします。
 
 
-The page is created. In the responsive (Desktop) view, a list is displayed on the left and list item details are displayed on the right:
+ページが作成されます。 レスポンシブ(デスクトップ)ビューでは、左側にリストが表示され、右側にリスト項目の詳細が表示されます。
 
 ![](attachments/pages-how-to-configure-list/master-details.png)
 
-## 4 Configuring the List
+## 4 リストの設定
 
-The page is created, now you need to configure it. First of all, you need to connect data to the list. Do the following:
+ページが作成されます。設定する必要があります。 まず、リストにデータを接続する必要があります。 次の操作を行います:
 
-1. Select the list view and click the **Entity** option in its properties:
+1. リストビューを選択し、プロパティの **エンティティ** オプションをクリックします。
 
     {{% image_container width="250" %}}![List View Properties](attachments/pages-how-to-configure-list/list-view-entity.png){{% /image_container %}}
 
-2. In the **Select Entity** dialog box, select **OpportunityContact** and confirm your choice by clicking **Select**. Now the list is connected to the **OpportunityContact** entity.
+2. **エンティティ** ダイアログボックスで、 **OpportunityContact** を選択し、 **Select** をクリックして選択を確認します。 今リストは **OpportunityContact** エンティティに接続されています。
 
-3. To display the name of each report per company, do the following:
+3. 各企業ごとにレポートの名前を表示するには、次の操作を行います。
 
-    1. Select the **Name** text in the list view and open the **Properties** tab.
+    1. リスト ビューで **名前** テキストを選択し、 **プロパティ** タブを開きます。
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-configure-list/text.png){{% /image_container %}}
 
-    2. In the **Content** property, delete *Name* and click **Add attribute**:
+    2. **Content** プロパティで、 *Name* を削除し、 **Add attribute** をクリックします:
 
         {{% image_container width="250" %}}![](attachments/pages-how-to-configure-list/text-content.png){{% /image_container %}}
 
-    3. In the **Select Attribute** dialog box, choose **Name** and click **Select**.
+    3. **属性の選択** ダイアログボックスで、 **名前** を選択し、 **選択** をクリックします。
 
-4. Delete the image from the list and the column where this image is placed, as now the image displays a a user image that does not correspond to opportunity contacts you are displaying.
+4. この画像が配置されているリストと列から画像を削除します。 今のように、画像には、表示している商談の連絡先に対応していないユーザーの画像が表示されます。
     {{% image_container width="300" %}}![](attachments/pages-how-to-configure-list/list-with-no-image.png){{% /image_container %}}
 
-5. As the goal of the new page is to merely display data, delete the **New** button above the list view together with the container it is placed in:
+5. 新しいページの目的は単にデータを表示することです。 リストビューの上にある **New** ボタンと、配置されているコンテナを削除します:
 
     {{% image_container width="300" %}}![](attachments/pages-how-to-configure-list/container.png){{% /image_container %}}
 
-Now the list view will display the list of opportunity contacts by their name:
+今リストビューは、彼らの名前で商談の連絡先のリストを表示します:
 
 {{% image_container width="300" %}}![Configured List](attachments/pages-how-to-configure-list/list-configured.png){{% /image_container %}}
 
-## 5 Configuring Report Details
+## 5 レポートの詳細設定
 
-Now you need to configure opportunity contact details displayed next to the list. The idea is when you select the name from the list, the details of the selected contact will be displayed.
+次に、リストの横に表示される案件連絡先の詳細を設定する必要があります。 アイデアは、リストから名前を選択すると、選択した連絡先の詳細が表示されます。
 
-The Master Details page template which your page is based on has a preconfigured data view that listens to the list view. That means that the data view shows data of the opportunity contact selected in the list view .
+マスター詳細ページテンプレートには、リストビューをリッスンする事前設定されたデータビューがあります。 つまり、データ ビューには、リスト ビューで選択した商談の連絡先のデータが表示されます。
 
-Now you need to configure widgets inside the data view to show attributes of the *InspectionReport* entity, or in other words to show all the details that an opportunity contact has, such as title, name, job title, phone, email.
+次に、 *InspectionReport* エンティティの属性を表示するために、データ ビュー内でウィジェットを設定する必要があります。 言い換えれば、機会の連絡先が持っているすべての詳細を表示することができます。例えば、タイトル、名前、肩書き、電話、電子メールなど。
 
-To displayed all the details that a contact has, do the following:
+連絡先が持っているすべての詳細を表示するには、次の操作を行います。
 
 1. Delete the empty column and **Edit**, **Send Email**, and **Delete** buttons inside the data view as you will only display data, not change it:
 
     ![](attachments/pages-how-to-configure-list/data-view-buttons.png)
 
-2. Double-click the *User Details* text widget (which is displayed as a data view heading) and rename it to *Opportunity Contact Details*.
+2. *User Details* テキスト ウィジェット(データ ビュー 見出しとして表示されます)をダブルクリックし、 *Opportunity Contact Details* に名前を変更します。
 
 3. Open the **Toolbox** and search for **Radio Buttons**, drag and drop it *inside* the data view above the **Name** text box.
 
     ![](attachments/pages-how-to-configure-list/radio-buttons.png)
 
-4. Open radio buttons properties and click **Data Source** > **Attribute**.
+4. ラジオボタンのプロパティを開き、 **Data Source** > **Attribute** をクリックしてください。
 
-5. In the **Select Attribute** dialog box, choose **Title** and click **Select**:
+5. **属性の選択** ダイアログボックスで、 **タイトル** を選択し、 **選択** をクリックします。
 
     {{% image_container width="350" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
 
-6. Select the **Name** text box and click **Data Source** > **Attribute** in its properties.
+6. **Name** テキストボックスを選択し、プロパティで **Data Source** > **Attribute** をクリックします。
 
-7. In the **Select Attribute** dialog box, choose **Name** and click **Select**.
+7. **属性の選択** ダイアログボックスで、 **名前** を選択し、 **選択** をクリックします。
 
 8. Repeat steps 6 and 7 to set the **Phone** attribute for the **Phonenumber** text box, the **Email** attribute for the **Email** text box, **DateCreated**  for the **Birthday** text box, and **EstimatedValue** for the **Bio** text box.
 
     ![](attachments/pages-how-to-configure-list/attributes-replaced.png)
 
-9. You lack information on the contact's job title and status. To add the job title information, open the **Toolbox**, search for a **Text Box**, drag and drop it inside the data view below the **Name** text box:
+9. 連絡先の職名とステータスに関する情報がありません。 To add the job title information, open the **Toolbox**, search for a **Text Box**, drag and drop it inside the data view below the **Name** text box:
 
     ![](attachments/pages-how-to-configure-list/job-title-text-box.png)
 
-10. Open text box properties and click **Data Source** > **Attribute**.
+10. テキストボックスのプロパティを開き、 **Data Source** > **Attribute** をクリックしてください。
 
-11. In the **Select Attribute** dialog box, choose **JobTitle** and click **Select**.
+11. **属性** を選択ダイアログボックスで、 **ジョブタイトル** を選択し、 **選択**をクリックします。
 
 12. To add the information on the opportunity contact's status, open the **Toolbox**, search for for **Radio Buttons**, drag and drop it inside the data view below the **Estimated Value** text box.
 
-13. Open the radio buttons properties and click **Data Source** > **Attribute**.
+13. ラジオボタンのプロパティを開き、 **Data Source** > **Attribute** をクリックします。
 
-14. In the **Select Attribute** dialog box, choose **Status** and click **Select**.
+14. **属性の選択** ダイアログボックスで、 **ステータス** を選択し、 **選択** をクリックします。
 
-Congratulations! You have a page that displays a list of opportunity contacts and the details of the selected contact:
+おめでとうございます 商談の連絡先のリストと選択した連絡先の詳細を表示するページがあります:
 
-![Configured Page](attachments/pages-how-to-configure-list/configured-page.png)
+![設定されたページ](attachments/pages-how-to-configure-list/configured-page.png)
 
-You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
+アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio8/publishing-app) を参照してください。
 
-You can also work on the page details, for example, add a dynamic image to the list to display a profile picture of an opportunity contact next to their name. For more information on dynamic images, see [Images & Files](/studio8/page-editor-widgets-images-and-files).
+ページの詳細などで作業することもできます。 リストに動的な画像を追加すると、商談の連絡先の名前の横にプロフィール画像が表示されます。 動的画像の詳細については、 [イメージ & ファイル](/studio8/page-editor-widgets-images-and-files) を参照してください。
