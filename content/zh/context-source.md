@@ -1,32 +1,32 @@
 ---
-title: "Context Source"
-parent: "data-sources"
+title: "上下文来源"
+parent: "数据来源"
 tags:
   - "studio pro"
-  - "context"
-  - "data source"
+  - "上下文："
+  - "数据源"
 menu_order: 30
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Context** source is a data source of a data view. Data views with this data source get their object from the context, which can be one of two things:
+**Context** 源是数据视图的数据源。 使用此数据源的数据视图从上下文中获得对象，这可以是两件事之一：
 
-* A surrounding data container such as a data view or list view – in this case, the **Entity (path)** property should follow an association
-* The page parameter – the page parameter will contain the object that is passed to the page when opening it (either another page passing the parameter or a microflow passing an object)
+* 周围的数据容器，如数据视图或列表视图 - 在此情况下 **实体 (路径)** 属性应该关注一个关联
+* 页面参数 -- 页面参数将包含打开页面时传递到页面的对象 (要么是通过参数的另一个页面或者是通过对象的微流程)
 
-## 2 Properties
+## 2 属性
 
-### 2.1 Entity (Path)
+### 2.1 实体(道路)
 
-The **Entity (path)** property specifies the entity that will be shown in the data view. If you have a top-level data view, **Entity (path)** is an entity and the page will expect the object or objects of this entity to be passed to it when opened.
+**实体 (路径)** 属性指定了将显示在数据视图中的实体。 如果您有顶层数据视图， **实体 (路径)** 是一个实体，页面将指望该实体的对象或对象在打开时传递给它。
 
-If you have a nested data view, you can select an entity that has associations with the entity of a surrounding data container, and the entity of the surrounding data container should be a parent of this association. For more information on associations, see [Associations](associations).
+如果您有嵌套数据视图，您可以选择一个与周围数据容器实体有关联的实体， 而且周围数据容器的实体应当是这种联系的母公司。 欲了解更多关联信息，请参阅 [关联](associations)。
 
-{{% image_container width="400" %}}![Context Source](attachments/data-widgets/context-source-example.png)
+{{% image_container width="400" %}}![上下文来源](attachments/data-widgets/context-source-example.png)
 {{% /image_container %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Data Widgets](data-widgets)
-* [Associations](associations)
+* [数据部件](data-widgets)
+* [社会联系](关联)
