@@ -1,45 +1,71 @@
 ---
-title: "Download File"
+title: "ファイルをダウンロード"
 parent: "client-activities"
+menu_order: 20
+tags:
+  - "studio pro"
+  - "ファイルをダウンロード"
+  - "クライアントアクティビティ"
 aliases:
-  - /refguide7/Download+File.html
+  - /ja/refguide/Download+File.html
 ---
 
-{{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+{{% alert type="warning" %}}
+このアクションは無視され、オフライン、ネイティブ、またはハイブリッド・アプリケーションからマイクロフローが呼び出されたときには機能しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
+{{% /alert %}}
 
-The download-file action can be used to enable the browser to download a specific file. The user gets a download popup or the file is shown directly in the browser.
+## 1つの紹介
+
+**ダウンロード ファイル** のアクティビティは、ブラウザーが特定のファイルをダウンロードできるようにするために使用できます。 エンドユーザーは、ダウンロードポップアップウィンドウを表示するか、ファイルがブラウザに直接表示されます。
+
+{{% image_container width="300" %}}
+![ファイルの例をダウンロード](attachments/client-activities/download-file.png)
+{{% /image_container %}}
+
+## 2つのプロパティ
+
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
+
+![ファイルのプロパティをダウンロード](attachments/client-activities/download-file-properties.png)
+
+**ダウンロード ファイル** プロパティ ペインは以下のセクションで構成されています:
+
+* [アクション](#action)
+* [一般的な](#common)
+
+## 3 アクションセクション {#action}
+
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
+
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
+
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.1 ファイルドキュメント
+
+ファイルドキュメントは、ダウンロードするファイルを指定します。 ファイルデータは、エンティティ System.FileDocument のオブジェクトまたはこのエンティティの専門化に保存されます。
+
+### 3.2 ブラウザにファイルを表示
+
+**ブラウザにファイルを表示する** は、ファイルがエンドユーザーによって指定された場所にダウンロードされるか、ブラウザに直接表示されるかを定義します。
+
+| Option | 説明                                                   |
+| ------ | ---------------------------------------------------- |
+| True   | ファイルは一時的なインターネットファイルの場所にダウンロードされ、ブラウザの新しいページに表示されます。 |
+| False  | ファイルはエンドユーザーが指定した場所にダウンロードされます。                      |
 
 {{% alert type="info" %}}
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+モバイルデバイスでは、ファイルは常にブラウザウィンドウに表示されます。
 
 {{% /alert %}}
 
-## 2 Input Properties
+多くのブラウザでは、マイクロフローなど、対話的に開かれないようにポップアップウィンドウブロッカーを実装しています。 モバイルデバイスでは、ポップアップウィンドウブロッカーを無効にした後にのみ、マイクロフローからのダウンロードのトリガーが可能になります。 ユーザーに手動でダウンロードを開始させるために、 **File Manager** ウィジェットを使用することを検討することができます。
 
-### 2.1 File document
+## 4つの共通セクション {#common}
 
-Input file document defines the file to be downloaded. The information of the file is stored in an object of entity System.FileDocument or a specialization.
-
-## 3 Action Properties
-
-### 3.1 Show File in Browser
-
-Show file in browser defines whether the file is downloaded to a location specified by the user or shown directly in the browser.
-
-| Option | Description                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------- |
-| True   | File is downloaded to the location for temporary internet files and shown on a new page in the browser. |
-| False  | File is downloaded to the location specified by the user.                                               |
-
-{{% alert type="info" %}}
-
-On mobile devices files are always shown in a browser window.
-
-{{% /alert %}}
-
-Many browsers implement popup blockers preventing windows to be opened noninteractively, such as through a Microflow. For mobile devices this means that triggering downloads from a Microflow is only possible after disabling the popup blocker. You could consider using a FileManager widget to let the user initiate the download manually.
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
