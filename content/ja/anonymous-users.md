@@ -1,38 +1,38 @@
 ---
-title: "Anonymous Users"
+title: "匿名ユーザー"
 parent: "project-security"
 menu_order: 40
 tags:
   - "studio pro"
-  - "anonymous users"
-  - "project security"
-  - "security"
+  - "匿名ユーザー"
+  - "プロジェクトのセキュリティ"
+  - "セキュリティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-You can use anonymous users to allow end-users access your application without having to sign in. You can restrict the data that anonymous users can view and access by assigning a specific user role to them.
+エンドユーザーがサインインせずにアプリケーションにアクセスできるように匿名ユーザーを使用できます。 特定のユーザーロールを割り当てることで、匿名ユーザーが表示したりアクセスしたりできるデータを制限することができます。
 
-## 2 Anonymous Users Properties
+## 2 匿名ユーザーのプロパティ
 
-Open **App Security** > the **Anonymous users** tab to access the properties:
+**App Security** > プロパティにアクセスする **Anonymous users** タブを開きます:
 
 ![](attachments/anonymous-users/anonymous-users-tab.png)
 
-The properties of anonymous users are described in the table below:
+匿名ユーザのプロパティについては、以下の表を参照してください。
 
-| Property              | Description                                                                                                                                                                                                                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Allow anonymous users | When **Yes** is selected, anonymous users are allowed. End-users do not have to sign in to access the application. <br />When **No** is selected, anonymous users are not allowed. End-users have to sign in to access the application.                                                     |
-| Anonymous user role   | The user role that end-users of your application have when they are not signed in. This tells the application which role should be automatically applied to anonymous users who access the app. The **Allow anonymous users** property should be set to **Yes** to select an anonymous user role. |
+| 属性        | 説明                                                                                                                                                            |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 匿名ユーザーを許可 | **はい** を選択すると、匿名ユーザが許可されます。 エンドユーザーは、アプリケーションにアクセスするためにサインインする必要はありません。 <br /> **No** を選択した場合、匿名ユーザは許可されません。 エンドユーザーは、アプリケーションにアクセスするためにサインインする必要があります。 |
+| 匿名ユーザーロール | アプリケーションのエンドユーザーがサインインしていないときに持つユーザーロール。 これにより、アプリケーションにアクセスする匿名ユーザーに自動的にどのロールを適用するかを指示します。 **匿名ユーザを許可する** プロパティは、匿名ユーザのロールを選択するには、 **はい** に設定する必要があります。      |
 
-## 3 Read More
+## 3 続きを読む
 
-* [App Security](project-security)
-* [User Roles](user-roles)
-* [Administrator](administrator)
-* [Demo Users](demo-users)
-* [Password Policy](password-policy)
+* [アプリのセキュリティ](project-security)
+* [ユーザーの役割](user-roles)
+* [管理者](管理者)
+* [デモユーザー](demo-users)
+* [パスワードポリシー](password-policy)
 
 
 
