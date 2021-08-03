@@ -1,158 +1,158 @@
 ---
-title: "Any Chart Widgets"
+title: "任意のグラフのウィジェット"
 parent: "chart-widgets"
-description: "A reference for the configuration of the Any Chart widget to pass the correct values to plotly. This enables you to draw a wide variety of charts"
+description: "プロットに正しい値を渡すための[Any Chart (任意のチャート)]ウィジェットの構成の参照。 これにより、さまざまなグラフを描くことができます"
 menu_order: 30
 tags:
-  - "Any Chart"
-  - "Options"
-  - "Configuration"
-  - "Charts"
+  - "任意のグラフ"
+  - "オプション"
+  - "設定"
+  - "グラフ"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-With **Any Chart**, you can build any chart type that is supported by Plotly.js up to the version mentioned in the widget description in the Marketplace. So if you want to build a chart which is not available as a standard chart widget, such as a 3D chart, Any Chart is your friend.
+**任意のチャート**を使用すると、Plolyでサポートされている任意のチャート タイプを作成できます。 sはマーケットプレイスのウィジェットの説明に記載されているバージョンまでです。 ですから、標準チャートウィジェットとして利用できないチャートを作成したい場合は、 例えば、3Dグラフ、任意のグラフはあなたの友人です。
 
-The configuration of this chart type is complex. For help, you can look at the **building blocks** that are delivered in the [Any Chart](/appstore/modules/any-chart) module from the Mendix Marketplace. Alternatively, use [How to Use Any Chart](/howto/front-end/charts-any-usage) or the [Any Chart cheat sheet](charts-any-cheat-sheet) for a quick start.
+このチャートタイプの構成は複雑です。 ヘルプについては、Mendix Marketplace の **任意のチャート** モジュールで配信されている [Building blocks](/appstore/modules/any-chart) を参照してください。 別の方法として、 [任意のチャート](/howto/front-end/charts-any-usage) または [任意のチャート シート](charts-any-cheat-sheet) を使用して、クイックスタートを行います。
 
-Any Charts are configured with a JSON **Data** array and **Layout** object. The configuration can be set statically, via the **Source attribute** and **Sample data** properties.
+チャートは JSON **Data** 配列と **Layout** オブジェクトで構成されます。 構成は、 **Source 属性** および **Sample data** プロパティを使用して静的に設定できます。
 
-The layout JSON, which can be created dynamically or retrieved from the database, will be merged into the static settings and will overwrite any common properties.
+動的またはデータベースから取得できるレイアウトJSON。 は静的設定にマージされ、共通のプロパティが上書きされます。
 
-The Sample data is for demo purposes. It is shown at run time when there is no Source attribute selected, and when rendering the chart in Studio Pro preview.
+サンプルデータはデモ用です。 format@@0属性が選択されていない場合や、Studio Proのプレビューでチャートをレンダリングする場合は、実行時に表示されます。
 
-## 2 Location of Any Chart Widget
+## 任意のグラフウィジェットの場所2
 
-The Any Chart Widget must be placed in the context of a **data view**. The data view contains an entity object which has a **Source attribute** (unlimited length string) which contains the JSON representation of the data which you want to plot. Unlike the basic chart widgets, the Any Chart widget does not work directly on the data in your domain model. You have to convert the data you want to plot into the JSON format which Any Chart expects. See [How to Use Any Chart](/howto/front-end/charts-any-usage) for a step-by-step explanation of how to do this.
+任意のチャートウィジェットは、 **データ ビュー** のコンテキストに配置する必要があります。 データ ビューには、 **ソース 属性** (無制限長文字列) を持つエンティティオブジェクトが含まれています。このオブジェクトには、プロットするデータの JSON 表現が含まれています。 基本チャートウィジェットとは異なり、[Any Chart (任意のチャート)] ウィジェットはドメインモデルのデータに対して直接動作しません。 プロットしたいデータを任意のチャートのJSON形式に変換する必要があります。 これを行う方法については、 [任意のチャートの使い方](/howto/front-end/charts-any-usage) を参照してください。
 
-## 3 Data
+## 3つのデータ
 
-The data to be plotted is described in an array. The elements of this array are the points to be plotted on the selected chart type (scatter or bar, for example) as documented in the [Full Reference](https://plot.ly/javascript/reference).
+プロットされるデータは配列で記述されます。 この配列の要素は、選択したグラフの種類にプロットする点です (散布図または棒図)。 例えば) [完全な参照](https://plot.ly/javascript/reference) に記載されているように。
 
 ### 3.1 Static
 
-A JSON array (based on https://plot.ly/javascript/reference/) which contains the *static* parts of the chart description. These is the default description of the chart and could be, for example, the type of chart which you want to plot.
+JSON配列（https://plot.ly/javascript/reference/に基づき、チャートの説明の *静的* 部分を含む）。 これらは、グラフのデフォルトの説明です。たとえば、プロットしたいグラフの種類などです。
 
-### 3.2 Source Attribute
+### 3.2 ソース属性
 
-This is an unlimited string attribute which is an attribute of the entity which forms the context of the data view in which the **Any Chart** widget is placed.
+これは、 **任意のチャート** ウィジェットが配置されているデータビューのコンテキストを形成するエンティティの属性である無制限の文字列属性です。
 
 In the image below, the **Source attribute** is the *data* attribute of the *ChartContext* entity which is the data view context in which the Any Chart widget is placed.
 
 ![](attachments/charts/any-chart-page-placement.png)
 
-The **Source attribute** contains a JSON structure which will merge with, and overwrite, the **Static** data. Commonly, this contains the data which you wish to plot, but it can also overwrite other static elements such as the type of chart, colors of lines, or the orientation of bars in a bar chart.
+**Source 属性** には、 **Static** データをマージして上書きする JSON 構造が含まれています。 通常、これにはプロットするデータが含まれていますが、グラフの種類など他の静的要素を上書きすることもできます。 棒グラフの線の色、または棒グラフの棒の方向。
 
-### 3.3 Sample data
+### 3.3 サンプルデータ
 
-The data for previewing the chart. This will be merged with the **Static data** in Studio Pro or at runtime when no **Source attribute** is selected.
+グラフをプレビューするためのデータ。 **ソース 属性** が選択されていない場合、Studio Pro の **静的データ** または実行時にマージされます。
 
-### 3.4 Mode
+### 3.4 モード
 
-**Development** mode adds a button to the charts when running the app. This button is used to toggle a live editor for testing advanced configuration options.
+**開発** モードでは、アプリの実行時にチャートにボタンが追加されます。 このボタンは、詳細設定オプションをテストするためのライブエディタを切り替えるために使用されます。
 
-**Production** mode removes this button so that the user sees the chart as you have designed it.
+**Production** モードでは、ユーザーがチャートを設計したとおりに表示するためにこのボタンが削除されます。
 
-## 4 Layout options
+## 4つのレイアウトオプション
 
-The layout of the plot – non-data-related visual attributes such as the title, annotations etc. – is described in a JSON object as documented in the [Full Reference](https://plot.ly/javascript/reference/#layout).
+プロットのレイアウト – タイトル、注釈などの非データ関連の視覚的属性。 – [完全な参照](https://plot.ly/javascript/reference/#layout) に記載されている JSON オブジェクトで説明されています。
 
 ### 4.1 Static
 
-A JSON object describing the default layout of the chart based on https://plot.ly/javascript/reference/.
+https://plot.ly/javascript/reference/ に基づいてチャートのデフォルトのレイアウトを記述する JSON オブジェクト。
 
-### 4.2 Source Attribute
+### 4.2 ソース属性
 
-This is an unlimited length string attribute of the entity which forms the context of the data view in which the **Any Chart** widget is placed. It contains a JSON structure which will merge with, and overwrite, the **Static** layout. This allows you to dynamically change layout information from within your app.
+これは、 **チャート** ウィジェットが配置されているデータビューのコンテキストを形成するエンティティの unlimited length string 属性です。 これには、 **Static** レイアウトとマージして上書きする JSON 構造が含まれています。 これにより、アプリ内からレイアウト情報を動的に変更できます。
 
-### 4.3 Sample layout
+### 4.3 サンプルレイアウト
 
-Layout options for preview. It will be merged with the *Static* layout in Studio Pro or at runtime when no *Source attribute* is selected.
+プレビュー用のレイアウトオプション。 *ソース 属性* が選択されていない場合は、Studio Pro の *静的なレイアウト* とマージされます。
 
-## 5 Configuration options
+## 5つの設定オプション
 
-The JSON containing the plotly high-level configuration options for the plot, such as the scroll/zoom/hover behavior. These high-level configuration options are documented here: https://plot.ly/javascript/configuration-options.
+スクロール/ズーム/ホバー動作など、プロットのプロット高レベルの設定オプションを含むJSON。 これらの高レベルの設定オプションについては、こちらをご覧ください: https://plot.ly/javascript/configuration-options.
 
-The difference between **config** and **layout** is that layout relates to the content of the plot, whereas config relates to the context in which the plot is being shown. The **Any Chart** widget does not allow the configuration options to be changed dynamically in your app.
+**config** と **layout** の違いは、レイアウトがプロットの内容に関連することです。 一方、設定はプロットが表示されているコンテキストに関連しています。 **チャート** ウィジェットでは、アプリ内で設定オプションを動的に変更することはできません。
 
-## 6 Appearance
+## 6つの外観
 
-The appearance settings are use to set the dimensions of the chart.
+外観設定は、チャートの寸法を設定するために使用されます。
 
-### 6.1 Width Unit
+### 6.1 幅単位
 
-The type of unit which is used for the **Width** property: *Percentage* or *Pixels*.
+**幅** プロパティに使用される単位のタイプ: *パーセント* または *ピクセル*。
 
 ### 6.2 Width
 
-The width of the chart in pixels or as a percentage, based on the **Width unit** setting.
+**幅 単位** 設定に基づいて、グラフの幅をピクセルまたはパーセンテージで指定します。
 
-### 6.3 Height unit
+### 6.3 高さ単位
 
 **Percentage of width** allows you to change the aspect ratio, **Pixels** is an absolute measure, and **Percentage of parent** allows you to set the height in relation to the parent container.
 
 {{% alert type="warning" %}}
-Warning: When using **Percentage of parent** the parent container must have an absolute height, else nothing is displayed.
+警告：親コンテナの **パーセント** を使用する場合、親コンテナの高さは絶対でなければなりません。そうでなければ何も表示されません。
 {{% /alert %}}
 
-### 6.4 Height
+### 高さ6.4
 
-The height in pixels or as a percentage based on the settings of the **Height unit**.
+**高さ単位**の設定に基づいて、ピクセル単位またはパーセンテージでの高さ。
 
-## 7 Events
+## 7つのイベント
 
-The **Any Chart** widget supports two sorts of event, related to the points plotted on the chart:
+**任意のチャート** ウィジェットは、チャート上にプロットされた点に関連する2種類のイベントをサポートしています。
 
-* **hover**: which resolves as a *Tooltip* request
-* **click**: which resolves as an *On click* event
+* **ホバー**: *Tooltip* 要求として解決する
+* **click**: *On click* event
 
 {{% alert type="info" %}}
-Events will be triggered by hovering over or clicking on the points plotted on the chart. Clicks on other parts of the chart will NOT trigger an event.
+イベントは、グラフ上にカーソルを合わせるか、グラフ上にプロットされた点をクリックすることでトリガーされます。 チャートの他の部分でのクリックはイベントをトリガーしません。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-Preventing the hover event from triggerring will also prevent the click event from triggering. This includes setting the layout parameter `hovermode` to `false` and setting the data parameter `hoverinfo` to `skip`.
+ホバーイベントがトリガーされないようにすると、クリックイベントがトリガーされなくなります。 これには、レイアウトパラメータ `ホバーモード` を `false` に設定し、データパラメータ `ホバー情報` を `スキップ` に設定することが含まれます。
 {{% /alert %}}
 
-When an event occurs, plotly will return a JSON object as described here: https://plot.ly/javascript/plotlyjs-events/#event-data. This JSON data is stored in a string attribute of an entity object which is passed to **Any Data**. The JSON contains raw data from the chart which has been plotted, such as the x and y coordinates of the point, and needs to be interpreted in the microflow which is triggered by the event.
+イベントが発生すると、plotly はここで説明されている JSON オブジェクトを返します: https://plot.ly/javascript/plotlyjs-events/#event-data この JSON データは、 **任意のデータ** に渡されるエンティティオブジェクトの文字列属性に格納されます。 JSON には、点の x 座標や y 座標などのグラフから生データが含まれています。 イベントによって引き起こされるマイクロフローで解釈される必要があります
 
-### 7.1 Event Entity
+### 7.1 イベントエンティティ
 
-The entity used to receive the event data from plotly. This needs to contain a string attribute which will hold the event data.
+plotlyからのイベントデータの受信に使用されるエンティティ。 イベントデータを保持する文字列属性を含める必要があります。
 
-### 7.2 Event Data Attribute
+### 7.2 イベントデータ属性
 
-The string attribute where the JSON data from the chart event is stored.
+chart イベントの JSON データが格納される文字列属性。
 
-### 7.3 On Click Microflow
+### 7.3 クリック時のマイクロフロー
 
-The microflow that will be executed when a data point on the chart is clicked on. This will have the **Event entity** as context.
+チャート上のデータポイントがクリックされたときに実行されるマイクロフロー。 これは **イベント エンティティ** をコンテキストとして持ちます。
 
-### 7.4 On Click Nanoflow
+### 7.4 クリック時 Nanoflow
 
-The nanoflow that will be executed when a data point on the chart is clicked on. This will have the **Event entity** as context
+チャート上のデータポイントがクリックされたときに実行されるナノフロー。 これはコンテキストとして **イベントエンティティ** を持ちます
 
-### 7.5 Tooltip Form Entity
+### 7.5 ツールチップフォームエンティティ
 
 When a **Tooltip microflow** is triggered by a plotly hover event, it needs to return an entity object which forms the context of the **Tooltip form**.
 
-The entity that is returned by the tooltip microflow is identified here. It does not have to be the **Event entity** which is the context of the **Tooltip microflow**. The developer can determine and populate the attributes and associations of the entity based on the data displayed by the Tooltip form and the information provided in the **Event entity** by the hover event.
+ツールチップマイクロフローによって返されるエンティティは、ここで識別されます。 **Tooltip microflow** のコンテキストである **イベントエンティティ** である必要はありません。 開発者は、Tooltipフォームによって表示されるデータと、ホバーイベントによって提供される **イベントエンティティ** の情報に基づいて、エンティティの属性と関連付けを決定し、追加することができます。
 
 ### 7.6 Tooltip Microflow
 
-The microflow identified here is called by an on hover event received from plotly. It receives an event object of the type **Event entity** with the **Event data attribute** containing the JSON event data. The data should be interpreted and an object of type **Tooltip form entity** returned. This will form the context of the **Tooltip form**.
+ここで同定されたマイクロフローは、プロットから受信したオンホバーイベントによって呼び出されます。 JSON イベントデータを含む **Event data 属性** を使用して、タイプ **Event data 属性** のイベントオブジェクトを受け取ります。 データは解釈され、 **Tooltipフォームエンティティ** 型のオブジェクトが返されます。 これは **Tooltip form** のコンテキストを形成します。
 
-### 7.7 Tooltip Form
+### 7.7 ツールチップフォーム
 
-The form to show when a user hovers over a chart plot point. It has the context **Tooltip entity**. The form is displayed while the mouse is over a point which is plotted on the chart. It is closed automatically when the mouse is not over a plotted point.
+ユーザーがグラフのプロットポイントにカーソルを合わせたときに表示するフォーム。 コンテキスト **ツールチップエンティティ** があります。 グラフ上にプロットされた点の上にマウスがある間、フォームが表示されます。 プロットされた点の上にマウスがない場合、自動的に閉じます。
 
-## 8 Chart Theming
+## 8 チャートテーマ
 
-Advanced JSON settings can also be added in a global context via the theme folder of your Mendix app root directory.
+高度な JSON 設定は、Mendix アプリの root ディレクトリのテーマフォルダーを介してグローバルコンテキストに追加することもできます。
 
-To the theme folder, add a *.json* file named *com.mendix.charts*. The JSON should be in the following format:
+To the theme folder, add a *.json* file named *com.mendix.charts*. JSON は以下の形式である必要があります:
 
 ``` json
 {
@@ -199,10 +199,10 @@ To the theme folder, add a *.json* file named *com.mendix.charts*. The JSON shou
 }
 ```
 
-For guidance on how to set up chart theming see: [How to Use the Charts Theme](/howto/front-end/charts-theme).
+チャートのテーマを設定する方法についてのガイダンス: [チャートのテーマを使用する方法](/howto/front-end/charts-theme).
 
 {{% alert type="info" %}}
 
-Please use with caution, as the configuration set up here will be applied to every chart in your application. Only the advanced configurations set up in the widget itself have a higher precedence.
+ここで設定する設定は、アプリケーション内のすべてのチャートに適用されるため、注意して使用してください。 ウィジェット自体で設定された高度な設定のみが優先されます。
 
 {{% /alert %}}
