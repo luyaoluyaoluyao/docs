@@ -1,90 +1,90 @@
 ---
-title: "Case-Sensitive Database Behavior"
-parent: "data-storage"
+title: "区分大小写的数据库行为"
+parent: "数据存储"
 tags:
   - "studio pro"
-  - "strings"
-  - "sort"
-  - "case"
-  - "query"
-  - "constraint"
+  - "字符串"
+  - "排序"
+  - "大小写"
+  - "查询"
+  - "约束"
 menu_order: 20
 ---
 
-## 1 Introduction
+## 1 导言
 
-Case-sensitive string operations are those that consider upper and lower case as different letters. Operations that affect strings in queries (for instance, inside an XPath constraint) can be case sensitive or case insensitive depending on the database vendor, version, and configuration used by the Mendix application.
+对大小写敏感的字符串操作是将大小写视为不同字母的那些操作。 在查询中影响字符串的操作(例如在 XPath 约束内的操作)可能是区分大小写或不区分大小写的，取决于数据库供应商。 版本，Mendix 应用程序使用的配置。
 
-It is also important to note that each implementation of a case-insensitive operation may treat the case normalization of letters differently. As a general rule, normalization is based on locale. This is either specified explicitly in the database/table, or the database infers it from the Operating System. This normalization of letters, or case folding, is further described in [Case Folding](https://www.w3.org/International/wiki/Case_folding) on the *World Wide Web Consortium* wiki.
+还必须指出，每次执行对案件不敏感的行动都可能不同地对待案件的正常化。 一般来说，正常化是以地方为基础的。 这要么在数据库/表格中明确指明，要么从操作系统推断出数据库。 This normalization of letters, or case folding, is further described in [Case Folding](https://www.w3.org/International/wiki/Case_folding) on the *World Wide Web Consortium* wiki.
 
-For the purposes of this document we can divide case sensitive operations into three categories:
+为了本文件的目的，我们可以将案件敏感操作分为三类：
 
-* Sorting: Indicates the order in which you want objects to be retrieved (alphabetically ascending or descending).
-* Comparing: These are operations that involve equality or other comparisons directly in queries (for instance, in the query `\\Entity[Attribute = 'a']`)
-* String functions: These are the [contains](xpath-contains), [starts-with](xpath-starts-with), and [ends-with](xpath-ends-with) functions of an XPath.
+* 排序：指示您想要检索对象的顺序(按字母顺序升序或降序)。
+* 比较：这些是直接在查询中包含平等或其他比较的操作(例如，在查询 `\\Entity[attribute = 'a']`)
+* 字符串函数：这些函数是 [包含](xpath-contains), [开始使用](xpath-starts-with), 和 [结尾的 XPath](xpath-ends-with) 函数。
 
-Unless otherwise indicated below, sorting and comparing strings is case sensitive whereas string functions are case insensitive. This is affected by the database, table, or column collation, and sometimes by other database specific options. The available collations and options are vendor (and sometimes version) specific.
+除非下面另有说明，字符串的排序和比较是区分大小写的，而字符串函数则不区分大小写。 这受到数据库、表格或栏目整理的影响，有时也受到其他数据库特定选项的影响。 现有的整理和备选办法是卖方（有时是版本）的具体情况。
 
-## 2 Behavior of Case Sensitivity by Database Type
+## 2 按数据库类型区分大小写敏感性的行为
 
-The following section describes the default behavior of the databases supported by Mendix.
+下面的部分描述Mendix支持的数据库的默认行为。
 
 ### 2.1 HSQLDB
 
-**Case insensitive** for sorting, comparing, and string functions.
+**用于排序、比较和字符串函数的** 案例不敏感。
 
 ### 2.2 POSTGRESQL
 
-Sorting and comparison are **case sensitive**. They cannot be configured.
+排序和比较是 **个大小写敏感的**。 无法配置它们。
 
-String functions are **case insensitive** as they are implemented using the `ILIKE` SQL operator.
+字符串函数是 **个案不敏感的** ，因为它们是使用 `ILIKE` SQL 操作员实现的。
 
 ### 2.3 DB2
 
-Sorting and comparing are **case sensitive**. For versions below 8.14, all operations are **case sensitive**. There is an exception for both version groups where collation is configured to **case insensitive**, which affects all operations. For more information, see the [Making DB2 Case-Insensitive](db2#making) section of *DB2*.
+排序和比较是 **个大小写敏感的**。 对于低于8.14的版本，所有操作都是 **大小写敏感的**。 两个版本组都有异常，校验被配置为 **大小写不敏感的**，这影响到所有操作。 欲了解更多信息，请参阅 *DB2* 的 [Making DB2 案例不敏感](db2#making) 部分。
 
-Does not support sorting on string attributes of unlimited length.
+不支持按无限长度的字符串属性排序。
 
 ### 2.4 MARIADB & MYSQL
 
-All operations depend on the configured collation. The default collation is `utf8_general_ci` when the `utf8` character set is used, or `latin1_swedish_ci` when the `latin1` character set is used. These default collations are both **case insensitive**.
+所有操作都取决于配置的校验. 当使用 `utf8` 字符集时，默认校验是 `utf8_general_ci` 。 或 `latin1_swedish_ci` 当使用 `latin1` 字符集时。 这些默认的校验都不敏感的 **案例**。
 
 ### 2.5 ORACLE
 
-Sorting and comparison depend on the configured collation. The default collation is `binary`, which is **case sensitive**, but a `binary_ci` is available for case insensitive operations.
+排序和比较取决于配置的校验. 默认校验是 `二进制`, 它是 **大小写敏感的**, 但是一个 `binary_ci` 可用来进行不敏感的操作。
 
-It is possible to set different collations for sorting and comparison operations by setting different values to the `NLS_SORT` and `NLS_COMP` "Linguistic Sort Parameters".
+可以通过设置 `NLS_SORT` 和 `NLS_COMP` "语言排序参数"来设置不同的组合来排序和比较操作。
 
-Does not support comparison on string attributes of unlimited length.
+不支持对无限长度的字符串属性进行比较。
 
-String functions are implemented by converting all letters to uppercase using the database's `UPPER` function and are, therefore, **case insensitive** and insensitive to the `locale` in which they are executed.
+字符串函数通过使用数据库的 `UPPER` 函数转换所有字母到大写来实现， 因此， **案例不敏感** 并且对执行他们的 `区域` 无动于衷。
 
 ### 2.6 SAP HANA
 
-Does not support sorting or comparison on string attributes of unlimited length.
+不支持对无限长度的字符串属性进行排序或比较。
 
-### 2.7 SQL SERVER
+### 2.7 SQL 服务
 
-All operations depend on collation. The default recommended collation is `SQL_Latin1_General_CP1_CI_AS`. For more information, see our guide on [Setting Up a new SQL Server Database](/developerportal/deploy/setting-up-a-new-sql-server-database) and the Microsoft documentation [Windows Collation Name](https://docs.microsoft.com/en-us/sql/t-sql/statements/windows-collation-name-transact-sql).
+所有操作都取决于整理。 默认推荐的校验是 `SQL_Latin1_General_CP1_CI_AS`。 更多信息 请参阅我们关于 [设置一个新的 SQL Server 数据库](/developerportal/deploy/setting-up-a-new-sql-server-database) 和 Microsoft 文档 [Windows 整理名称](https://docs.microsoft.com/en-us/sql/t-sql/statements/windows-collation-name-transact-sql) 的指南。
 
-## 3 Overview of Default Case Sensitivity
+## 3 默认情况敏感性概述
 
-This table presents the default case sensitivity by different database types:
+此表以不同数据库类型显示默认大小写敏感度：
 
-| **Database Type** | **Comparison** | **Sorting** | **String functions** |
-| -----------------:|:--------------:|:-----------:|:--------------------:|
-|            HSQLDB |       I        |      I      |          I           |
-|        POSTGRESQL |       S        |      S      |          I           |
-|               DB2 |       S        |     S¹      |          I³          |
-|   MARIADB & MYSQL |       C        |      C      |          C           |
-|            ORACLE |       C¹       |      C      |          I           |
-|          SAP HANA |       S¹       |     S¹      |          I²          |
-|        SQL SERVER |       C        |      C      |          C           |
+|       **数据库类型** | **比较** | **排序中** | **字符串函数** |
+| ---------------:|:------:|:-------:|:---------:|
+|           HSQDB |   一    |    一    |     一     |
+|      POSTGRESQL |   秒    |    秒    |     一     |
+|             DB2 |   秒    |  烧结厂1   |    I3     |
+| MARIADB & MYSQL |   C    |    C    |     C     |
+|              排行 |   C1   |    C    |     一     |
+|        SAP HANA |  烧结厂1  |  烧结厂1   |    I2     |
+|          SQL 服务 |   C    |    C    |     C     |
 
-Where the letters have the following meaning:
+如果字母具有以下意义：
 
-* **S** – Case sensitive
-* **C** – Collation/configuration dependent
-* **I** – Case insensitive
+* **S** — — 大小写敏感的
+* **C** - 依赖于整理/配置
+* **我** — — 大小写不敏感的
 
-¹Operation not supported on strings of unlimited length. ²From Mendix version 8.11.0 ³From Mendix version 8.14.0
+1操作不支持无限长度字符串。 2From Mendix 版本 8.11.0 3From Mendix 版本 8.14.0
