@@ -1,101 +1,109 @@
 ---
-title: "Configure a Form and Show Items Related to It"
-category: "Pages"
-description: "Describes how to configure a list of items in Mendix Studio."
+title: "配置表单并显示与此相关的项目"
+category: "页 次"
+description: "描述如何在 Mendix Studio 中配置一个项目列表。"
 menu_order: 10
 tags:
-  - "studio"
-  - "pages"
-  - "list"
-  - "how to"
+  - "工作室"
+  - "页面"
+  - "邮件列表"
+  - "如何处理"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This how-to explains how you can configure a page with a form and how to show items related to this form on the same page. For example, to show a report and a checklist associated with this report.
+如何解释如何配置带有表单的页面，以及如何在同一页面显示与此表单相关的项目。 例如，显示与本报告有关的报告和核对表。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* Configure a form (a data view)
-* Show items related to this form in a table
+* 配置表单(数据视图)
+* 在表中显示与此表单相关的项目
 
-The how-to describes the following use case:
+如何描述下面的用例：
 
-The HSE department of your company has the following inspection report:
+贵公司HSE部门有以下检查报告：
 
 ![](attachments/pages-how-to-configure-form/report-example.png)
 
-Your company has an application that is used by inspectors who travel to different companies and inspect whether these companies comply with safety regulations. They fill in their names, a company name, site location, date and time when the inspection was conducted, as well as full name of a superintendent who was present during the inspection.
+贵公司有一份申请书，供前往不同公司的检查员使用，并检查这些公司是否遵守安全条例。 他们填写他们的姓名、公司名称、地点地点、日期和进行检查的时间。 以及视察期间在场的督察的全名。
 
-Inspectors also have a safety inspection *checklist*. Based on this checklist the inspector evaluates whether the company passed the inspection. They should check if requirements on the following *questions* are met:
+检查专员还有一份安全检查 *清单*。 检查员根据这份核对表评估公司是否通过了检查。 他们应该检查以下 *个问题* 是否符合要求：
 
-* If emergency contact posters are displayed
-* If safety training are held regularly
-* If first-aid kits are available
-* If emergency exists are clear and not blocked
+* 如果显示紧急联系人海报
+* 如果定期举行安全培训
+* 如果可以获得急救包
+* 如果存在紧急状态，则不会被阻止
 
-If any of the above requirements are not met, during the next inspection the inspector indicates the date when the safety violation was fixed.
+如果上述任何一项要求没有得到满足，在下一次视察中，视察员将说明确定违反安全规定的日期。
 
-Your app already contains a list of all inspection reports:
+您的应用已经包含了所有检查报告列表：
 
 {{% image_container width="600" %}}![](attachments/pages-how-to-configure-form/inspection-report-list.png){{% /image_container %}}
 
-You would like the **Details** button in this list to open a page showing the details of the selected report and a table with checklist questions related to this report. You also would like to be able to add new checklists to the table or edit existing ones.
+您希望这个列表中的 **详细信息** 按钮打开一个显示所选报告详细信息的页面和一个包含与这个报告相关的清单问题的表格。 您还想要能够在表格中添加新的核对表或编辑现有的核对表。
 
-## 2 Prerequisites
+## 2 个前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+在启动此操作之前，请确保您已完成以下前提条件：
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
 
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
 
-* Make sure your domain model is configured the following way:
+* 请确保您的域模型配置如下：
 
     {{% image_container width="200" %}}![Domain Model](attachments/pages-how-to-configure-form/domain-model.png){{% /image_container %}}
 
-    * Make sure you have configured the **Question** attribute as the following enumeration:
+    * 请确保您已将 **问题** 属性设置为以下枚举：
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-configure-form/enumeration.png){{% /image_container %}}
 
-* Make sure your app contains a page with inspection reports list and the **Details** button:
+* 请确保您的应用包含一个包含检查报告列表和 **详细信息** 按钮的页面：
 
     {{% image_container width="600" %}}![](attachments/pages-how-to-configure-form/inspection-report-list.png){{% /image_container %}}
 
-## 3 Adding a Page with a Form
+## 3 添加带有表单的页面
 
-The **Details** button in the inspection report list should open a page with the inspection report details. To configure the page, do the following:
+检查报告列表中的 **详细信息** 按钮应该打开一个包含检查报告详细信息的页面。 要配置该页面，请执行以下操作：
 
-1. Click the **Details** button and go its properties.
+1. 点击 **详细信息** 按钮并转到它的属性。
 
-2. Set **Page** as an on-click action and click the **Page** property.
+2. 将 **页面** 设置为单击动作，并点击 **页面** 属性。
 
     {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-form/button-properties.png){{% /image_container %}}
 
-3.  In the **Select Page** dialog box, click **New Page**.
+3.  在 **选择页面** 对话框框中，点击 **新页面**。
 
-1.  In the **Create new page** dialog box, set the **Title** to **Reports_Details**, and set the **Layout** to **Atlas_Default**.
+1.  在 **创建新页面** 对话框中，将 **标题** 设置为 **报告详细信息**并将 **布局** 设置为 **Atlas_default**。
 
-2.  The **Pre-fill page contents based on the InspectionReport entity** option is on, so the page template (Forms) is selected automatically for you. Choose **Forms Vertical**:
+2.  基于 Inspection 报表实体</strong> 选项的 **预填充页面内容已开启，所以页面模板 (表格) 是为您自动选择的。 选择 **垂直形式**:</p>
 
-    {{% image_container width="550" %}}![Create New Page](attachments/pages-how-to-configure-form/create-new-page.png){{% /image_container %}}
+    {{% image_container width="550" %}}![Create New Page](attachments/pages-how-to-configure-form/create-new-page.png){{% /image_container %}}</li>
 
-3. Click **Create**.
+3
 
-3. The page with a form (a data view) is created. However, the data view's data source was automatically set to **List widget**, you need to change that. Select the data view and go to its properties.
+点击 **创建**。
 
-1. Change the data source from **List widget** to **Context**.
+3
 
-2. Click the **Entity** property and set the **InspectionReport** entity for it:
+创建了带有表单(数据视图)的页面。 然而，数据视图的数据源被自动设置为 **列表部件**，您需要更改它。 选择数据视图并转到其属性。
 
-      {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/data-view-source.png){{% /image_container %}}
+1
 
-The form on the page is configured:
+将数据源从 **列表部件** 更改为 **Context**。
+
+2
+
+点击 **实体** 属性并设置 **检查报告** 实体：
+
+      {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/data-view-source.png){{% /image_container %}} </ol>
+
+页面上的表单已配置：
 {{% image_container width="600" %}}![](attachments/pages-how-to-configure-form/data-view-configured.png){{% /image_container %}}
 
-## 4 Showing Checklist Questions
+## 显示清单问题
 
-An inspector has a list of *questions* and indicates with **Yes** or **No** whether the company meets the requirements: whether the company has posters with emergency contacts, whether it conducts safety trainings regularly, etc. You would like to show a table with the checklist questions and their results below the inspection report:
+检查员有一个 *问题* 的列表，并用 **是** 或 **否** 说明公司是否符合要求：公司是否有具有紧急联系人的海报。 它是否定期进行安全培训等。 你想在检查报告下方显示一份清单问题表及其结果：
 
 {{% image_container width="550" %}}
 
@@ -103,55 +111,63 @@ An inspector has a list of *questions* and indicates with **Yes** or **No** whet
 
 {{% /image_container %}}
 
-To display checklist details in a table, you can add a data grid. It is important that you place it *inside* the data view: this way the data grid will access and display only checklist items associated with the current report rather than display all checklist items ever added to all reports. This means your data grid will get data over an association, in this case called *Checklist_InspectionReport*.
+要在表中显示清单详情，您可以添加数据网格。 重要的是你把它 *放在数据视图* 中：这样数据网格就可以访问和只显示与当前报告相关联的清单项目，而不是显示所有添加到所有报告的清单项目。 这意味着您的数据网格将从一个关联获取数据，在这种情况下称为 *复查列表检查报告*。
 
-Follow the steps below:
+遵循下面的步骤：
 
-1. Open **Toolbox** > **Data Containers**.
+1. 打开 **工具箱** > **数据容器**。
 
-2. Drag and drop **Data Grid** *inside* the data view:
+2. 拖放 **数据网格** *在* 数据视图中：
 
     {{% image_container width="550" %}}![](attachments/pages-how-to-configure-form/data-grid-inside-data-view.png){{% /image_container %}}
 
-3. Go to the data grid properties and click **Entity**.
+3. 转到数据网格属性，然后点击 **实体**。
 
 4. To show only checklist items associated with the current inspection report, choose the **Checklist** entity over association (*Checklist_InspectionReport/Checklist*) in the **Select Entity** dialog box and click **Select**:
 
     {{% image_container width="450" %}}![](attachments/pages-how-to-configure-form/data-grid-over-association.png){{% /image_container %}}
 
-5. As the main purpose of the page is to display information, you do not need the **Search** section in the data grid. Open data grid properties > **Search** section and disable the **Enable Search** toggle:
+5. 由于页面的主要目的是显示信息，您不需要数据网格中的 **搜索** 部分。 打开数据网格属性 > **搜索** 部分并禁用 **启用搜索** 切换：
 
-    ![Data Grid Search](attachments/pages-how-to-configure-form/data-grid-search.png)
+    ![数据网格搜索](attachments/pages-how-to-configure-form/data-grid-search.png)
 
-6. To be able to add new checklist items to the report, select the **New** button in the data grid and open its properties.
+6. 为了能够在报告中添加新的清单项目，请在数据网格中选择 **新的** 按钮并打开它的属性。
 
-7. Set the **On Click Action** to **Page**.
+7. 将 **单击动作** 设置为 **页面**。
 
-8. Enable **Create Object** property. The **Entity** property is automatically set to **Checklist**:
+8. 启用 **创建对象** 属性。 **实体** 属性自动设置为 **清单**：
 
     {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/new-button-properties.png){{% /image_container %}}
 
-9. Click the **Page** property.
+9. 点击 **页面** 属性。
 
-10. In the **Select Page** dialog box, click **New Page**.
+10. 在 **选择页面** 对话框框中，点击 **新页面**。
 
-11. In the **Create new page** dialog box, set the **Title** to **Checklist_Details** and the **Layout** to **PopupLayout**.
+11. 在 **创建新页面** 对话框， 将 **标题** 设置为 **校验列表_详细信息** 和 **布局** 设置为 **弹出布局**。
 
-12. The **Pre-fill page contents based on the Checklist entity** option is on, so the page template (*Forms*) is selected automatically for you. Choose **Forms Vertical**:
+12. 基于清单实体</strong> 选项的 **预填充页面内容已开启 这样页面模板(*Forms*) 会自动为您选择。 选择 **垂直形式**: </p>
 
-    {{% image_container width="550" %}}![](attachments/pages-how-to-configure-form/manage-checklist.png){{% /image_container %}}
+    {{% image_container width="550" %}}![](attachments/pages-how-to-configure-form/manage-checklist.png){{% /image_container %}}</li>
 
-13. Click **Create**.
+13
 
-14. A pop-up page where end-users can add new checklist items is created. Now you can select the same page as an on-click action for the **Edit** button to edit the selected checklist. Click the **Edit** button in the data grid and open its properties.
+点击 **创建**。
 
-15. Set the **On Click Action** to **Page**.
+14
 
-16. Set the **Page** property to **Manage_Checklist**.
+一个弹出窗口，最终用户可以添加新的核对表项目。 现在您可以选择一个页面作为 **编辑** 按钮的单击动作来编辑选定的检查列表。 点击 **编辑数据网格中的** 按钮并打开其属性。
 
-      {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/edit-button-properties.png){{% /image_container %}}
+15
 
-Now checklist items are displayed in the table. You can add new checklist by clicking the **New** button in the table, and edit the selected checklist by clicking the **Edit** button.
+将 **单击动作** 设置为 **页面**。
+
+16
+
+将 **页面** 属性设置为 **Management_Checklist**。
+
+      {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/edit-button-properties.png){{% /image_container %}}</ol>
+
+现在清单项目在表格中显示。 您可以通过点击表中的 **新的** 按钮来添加新的核对表。 点击 **编辑** 按钮来编辑选中的清单。
 
 {{% image_container width="80%" %}}
 
@@ -159,16 +175,16 @@ Now checklist items are displayed in the table. You can add new checklist by cli
 
 {{% /image_container %}}
 
-Congratulations! You have the page that displays details of the selected report and checklist items of this report:
+恭喜！ 您有一个页面显示所选报告的详细信息和本报告的清单项目：
 
 {{% image_container width="80%" %}}
 
-![Configured Page](attachments/pages-how-to-configure-form/configured-page.png)
+![配置的页面](attachments/pages-how-to-configure-form/configured-page.png)
 
 {{% /image_container %}}
 
-You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
+您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio8/publishing-app)。
 
-You can also work on the page details, for example, add a dynamic image to the inspection report list to display a unique company logo next to its name. For more information on dynamic images, see [Images & Files](/studio8/page-editor-widgets-images-and-files).
+例如，您也可以在页面细节上工作 将动态图像添加到检查报告列表中，以便在其名称旁边显示一个独特的公司标识。 关于动态图像的更多信息，见 [图像 & 文件](/studio8/page-editor-widgets-images-and-files)
 
-You can also add new functionality. For example, you can enable inspectors to attach images to their reports. For more information, see [How to Enable End-Users to Attach Images](pages-how-to-attach-images).
+您也可以添加新的功能。 例如，你可以让视察员将图像附加到他们的报告。 欲了解更多信息，请参阅 [如何启用最终用户附加图像](pages-how-to-attach-images)。
