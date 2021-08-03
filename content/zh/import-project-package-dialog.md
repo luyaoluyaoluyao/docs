@@ -1,66 +1,66 @@
 ---
-title: "Import App Package"
-parent: "file-menu"
+title: "导入应用包"
+parent: "文件菜单"
 menu_order: 40
-description: "Describes the Import App Package process and Import App Package dialog box."
+description: "描述导入应用包进程和导入应用包对话框。"
 tags:
   - "studio pro"
-  - "import app package"
+  - "导入应用包"
 ---
 
-## 1 Introduction
+## 1 导言
 
-To create a new app from a Mendix app package (*.mpk*) file, you need to import an app package. The new app can either be stored in a version control server or locally on disk.
+要从 Mendix 应用程序包 (*.mpk*) 创建一个新的应用程序，您需要导入一个应用程序。 新应用可以存储在版本控制服务器上，也可以存储在本地磁盘上。
 
-To import an app package, do the following:
+要导入应用包，请执行以下操作：
 
-1. Select the **File** menu in the top bar > **Import App Package**
+1. 在顶部栏中选择 **文件** 菜单 > **导入应用包**
 
-2. Browse to the *.mpk* file you would like to import.
+2. 浏览到您想要导入的 *.mpk* 文件。
 
-3.  Select the relevant options in the **Import App Package** dialog box and click **OK**. For more information on what options you can select, see the sections below.
+3.  在 **导入应用包** 对话框中选择相关的选项并点击 **确定**。 关于您可以选择哪些选项的更多信息，请参阅下面的章节。
 
-    ![Import App Package Dialog Window](attachments/file-menu/import-project-package.png)
+    ![导入应用软件包对话框](attachments/file-menu/import-project-package.png)
 
-App packages can be created using [Export App Package](export-project-package-dialog).
+可以使用 [导出应用包](export-project-package-dialog) 创建应用包。
 
-## 2 Where Should We Store Your App?
+## 2 我们应该在哪里保存您的应用？
 
-Use this setting to select the location where you want to store your app. This can be the [Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
+使用此设置选择您想要存储应用程序的位置。 这可以是 [团队服务器](#team-server)， a [私人服务器](#private-server) (团队服务器以外的SVN 服务器)，或 [本地磁盘](#local)。
 
-### 2.1 Mendix Team Server {#team-server}
+### 2.1 Mendix 团队服务器 {#team-server}
 
-When uploading the app to the Team Server, you can choose between creating a new repository, or uploading to an existing one.
+当将应用程序上传到团队服务器时，您可以选择创建一个新的仓库，或者上传到一个现有的仓库中。
 
-#### 2.1.1 New Mendix Team Server
+#### 2.1.1 新 Mendix 团队服务器
 
-If you select to store your app in a new Mendix Team Server, a new Team Server app will be created. You need to enter the name for the new Team Server app and repository in the **App name** field.
+如果您选择将您的应用存储在新的 Mendix 团队服务器中，将创建一个新的团队服务器应用程序。 您需要在 **应用程序名称** 字段中输入新的团队服务器应用程序和仓库的名称。
 
-#### 2.1.2 Existing Mendix Team Server
+#### 2.1.2 现有Mendix 团队服务器
 
-If you want to use an existing repository, select the app in the **Team Server App** option. Note that this works only when the existing repository is empty.
+如果您想要使用现有的仓库，请在 **团队服务器应用程序** 选项中选择应用程序。 请注意，只有当现有的资源库为空时，这才会起作用。
 
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
+关于Mendix Team Server的更多信息，请参阅 [Team Server](/developerportal/collaborate/team-server)。
 
-### 2.2 Private Server {#private-server}
+### 2.2 私人服务器 {#private-server}
 
 {{% alert type="info" %}}
 
-The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Version Control** > **Enable private version control**.
+**私有服务器** 选项仅在启用对其他 SVN 服务器的支持时可用： **编辑** >**首选项** > **版本控制** > **启用私有版本控制**。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-In the **App repository address** field, enter the address of the repository you want to upload your app to.
+在 **应用仓库地址** 字段中，输入您想要上传您的应用到的仓库地址。
 
-### 2.3 Locally on Disk {#local}
+### 2.3 本地磁盘上 {#local}
 
-Select this option if you don't need to upload the new app to a version control server. In this case it will only be stored on the local disk of the computer that's running Studio Pro.
+如果您不需要上传新应用到版本控制服务器，请选择此选项。 在这种情况下，它只会被存储在运行Studio Pro的计算机的本地磁盘上。
 
-## 3 App Directory
+## 3 个应用目录
 
-Use this field to choose the directory where the app files of the app will be stored. If the version control is enabled, the suggested name ends with *-main* to indicate this will be the main development line of the app.
+使用此字段选择应用程序文件将存储的目录。 如果启用了版本控制， 建议的名称以 *-main* 结尾，以表明这将是应用程序的主要开发线。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Team Server](/developerportal/collaborate/team-server)
-* [Export App Package](export-project-package-dialog)
+* [团队服务器](/developerportal/collaborate/team-server)
+* [导出应用包](export-project-package-dialog)
