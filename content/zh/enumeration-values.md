@@ -1,32 +1,32 @@
 ---
-title: "Enumeration Values"
-parent: "enumerations"
+title: "枚举值"
+parent: "枚举数"
 ---
 
-An [enumeration](enumerations) has one or more enumeration values. Each value represents one of the options.
+[枚举](enumerations) 有一个或多个枚举值。 每个值代表一个选项。
 
-## Properties
+## 属性
 
 {{% alert type="info" %}}
 
-The name of an enumeration value must be a technical name without spaces and special characters. On the other hand, the caption of an enumeration value can any character. For example, an enumeration value can have 'InProgress' as its name and 'In progress' as its caption.
+枚举值的名称必须是一个没有空格和特殊字符的技术名称。 另一方面，枚举值的标题可以是任何字符。 例如，枚举值可以将“InProgress”作为其名称，而“在进行中”作为其标题。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### Caption
+### 标题
 
-The caption of an enumeration value is the text that the end user sees for this enumeration value. This is a translatable text. See [Translatable Texts](translatable-texts).
+枚举值的标题是最终用户看到的此枚举值的文本。 这是一个可翻译的文本。 查看 [可翻译文本](translatable-texts)。
 
-### Name
+### 名称
 
-The name of an enumeration value is the technical name of the value which is used to refer to the enumeration value in your model.
+枚举值的名称是用来引用你模型中的枚举值的技术名称。
 
 {{% alert type="warning" %}}
 
-The name of an enumeration value is also used to store the enumeration value in the data database. That is why changing the Name of an enumeration value is not allowed; it would invalidate the data in your database. The caption, however, can be changed without problems and this is the text that the end user gets to see.
+枚举值的名称也用于在数据数据库中存储枚举值。 这就是为什么不允许更改枚举值的名称；它会使您的数据库中的数据无效。 不过，标题可以不加问题地更改，这是最终用户可以看到的案文。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## Image
+## 图片
 
-The image of an enumeration value is used when the values for an attribute (of which the type is the enumeration) are displayed in a data grid column of which the enumeration format is 'Image'. See the documentation on [data grid columns](columns).
+当某个属性(其类型为枚举)的值显示在数据网格列中，枚举格式为“图像”时，则使用枚举值的图像。 查看 [数据网格列](columns) 的文档。
