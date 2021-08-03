@@ -1,17 +1,14 @@
 ---
 title: "XPath"
-category: "应用程序模型"
-menu_order: 90
-description: "描述在 Mendix 中如何使用的 XPath 查询语言，通过介绍函数和示例。"
-tags:
-  - "studio pro"
+category: "桌面模型"
+description: "描述在 Mendix 中如何使用XPath 查询lantige, 通过展示函数和示例。"
 ---
 
-## 1 导言
+## XPath 1 概览
 
 Mendix XPath 是用于检索数据的 Mendix 查询语言之一。 XPath 使用路径表达式选择Mendix 对象及其属性或关联的数据。
 
-XPath 查询可以同时写入 Studio Pro， 例如，当您想要指定在检索微流程活动中检索到的数据时， 并且直接在 *中的代码。 您的 Java 操作的* 文件。 请注意，并非所有运营商都被 Studio Pro支持，您查询的语法可能在 Studio Pro 和 Java 环境中不同。
+XPath 查询可以同时写入模型， 例如，当您想要指定在检索微流活动中检索到的数据的约束，以及直接在代码中查找。 您的 Java 操作的ava 文件。 请注意，并非所有操作者都得到Modeler的支持，您查询的语法可能在Modeler和Java 环境之间有差异。
 
 XPath 查询的示例是：
 
@@ -20,7 +17,9 @@ XPath 查询的示例是：
 *   `avg(//Sales.Order[IsPaid = true()]/TotalPrice` 检索所有支付订单总价格的平均值。
 
 {{% alert type="warning" %}}
-在 Studio Pro，您不会写完整的查询，仅限限制。 实体是由上下文隐含地确定的。 因此，取代 `//Sales.Customer[Name='Jansen'`, 你只需要在客户上写 `[Name='Jansen' ]`。 在 Java 中，您确实需要写整个查询，包括双斜线 (`//`) 和实体名称。
+
+在建模器中，您不会写完整的查询，只会写入限制。 实体是由上下文隐含地确定的。 因此而不是 `//Sales.Customer[Name='Jansen']` 您只在客户上写 `[姓名='Jansen']` 在 Java 中，您确实写下了完整的查询，包括双斜线和实体名称。
+
 {{% /报警 %}}
 
 ## 2 XPath 元素
@@ -42,9 +41,11 @@ XPath 查询的示例是：
 
 约束在方括号之间明显可见，并限制检索到属性“名称”等于'Jansen'的对象。 除Jansen以外的任何其他名称的对象都被排除在列表之外。 单个查询可能受到的限制数量是无限的。 关于如何添加和操纵这些制约因素的更多信息，请参阅 [XPath 制约](xpath-constraints)。
 
-查询的元素D是可选的，并指定被检索实体的属性。 此选项在Studio Pro本身中很少使用，因为所有数据都存储在物件中。 使单一属性列表变得繁琐和不必要的复杂。 但是，各种爪哇行动都使用这种清单。 而且，这一功能可以与A部分一起使用，以容易地创建某些属性的总合。
+查询的元素D是可选的，并指定被检索实体的属性。 这个选项很少用于Modeler本身，因为所有数据都存储在对象中。 使单一属性列表变得繁琐和不必要的复杂。 但是，各种爪哇行动都使用这种清单。 而且，这一功能可以与A部分结合使用，以便容易地形成某些变量的总和。
 
 查询的元素A是可选的，并指定了一个聚合。 元素A可以是以下函数之一： [avg](xpath-avg), [count](xpath-count), [最大](xpath-max), [分钟](xpath-min) 和 [金额](xpath-sum) 除“计数”外，每个函数都要求元素D中指定一个特定属性。
+
+这些基本准则的例外是身份查验问题。 更多信息请参阅 [XPath id](xpath-id)。
 
 ## 3 个令牌
 
@@ -71,13 +72,3 @@ XPath 查询的示例是：
     * [不是](xpath-not)
     * [true](xpath-true)
     * [false](xpath-false)
-
-## 6 个示例
-
-**如何找到正确的 XPath 路径**
-
-{{% alert type="info" %}}
-此视频是用 [Studio Pro 8](/refguide8/)完成的，但概念仍然适用。
-{{% /报警 %}}
-
-{{% youtube sdabUY-w4ZU %}}
