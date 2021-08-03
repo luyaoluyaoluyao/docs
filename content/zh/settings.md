@@ -1,27 +1,38 @@
 ---
-title: "Settings"
-description: "Describes the Settings menu in Mendix Studio."
-menu_order: 90
-tags:
-  - "studio"
-  - "settings"
-  - "widgets"
+title: "设置"
+parent: "已消耗的应用服务"
 ---
 
-## 1 Introduction
+{{% alert type="info" %}}
+应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
+{{% /报警 %}}
 
-**Settings** are settings on roles and permissions and app widgets.
+在设置屏幕中，您可以看到应用程序服务版本、它的图标和简短描述。 三个选项卡是可选择的选项卡：“动作”、“设置”和“文档”。
 
-**Settings** consist of the following:
+## 行动
 
-* [Roles and Permissions](settings-security) – you can manage access to your app and its documents via **Roles and Permissions**
-* [Widget Overview](settings-widget-overview) – contains information on Mendix Marketplace widgets and local widgets in your app
+![](attachments/16713705/16843901.png)
 
-To open the **Settings**, click the gear icon at the left menu bar.
+该标签提供了所提供的微流动作概览。 每次动作都显示图标、字幕和描述。 在微流程工具箱中，每个动作都会显示图标和标题作为动作的名称。 在微流中使用此名称时也会被看到。
 
-![](attachments/settings/settings-icon.png)
+## 设置
 
-## 2 Main Documents in This Category
+标签“设置”包含应用服务的位置和身份验证方法。
 
-* [Security, Roles & Permissions](settings-security) – describes security in Mendix Studio, user roles and permissions for them
-* [Widget Overview](settings-widget-overview) – describes settings for Mendix Marketplace and local widgets in your app
+![](attachments/16713705/16843897.png)
+
+### 配置
+
+您可以通过引入带有URL的常量来更改应用服务的默认位置。
+
+### 认证
+
+显示身份验证方法。 作为消费者，你不负责此事，因此你不能改变这一点。
+
+### 超时
+
+此超时适用于应用服务提供的所有操作。 如果应用服务操作未在指定时间(秒)内回复，则创建一个错误。 微流中的标准错误处理可以用来定义超时应做些什么。
+
+## 发布者文档
+
+此选项卡显示由应用程序服务供应商提供的文档。
