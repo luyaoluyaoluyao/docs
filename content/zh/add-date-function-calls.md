@@ -1,121 +1,121 @@
 ---
-title: "Add Date Function Calls"
-parent: "expressions"
+title: "添加日期函数调用"
+parent: "表达式"
 menu_order: 110
 tags:
   - "studio pro"
-  - "expressions"
-  - "add date function"
+  - "表达式"
+  - "添加日期函数"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Add date function calls add a time period to a date and time and return the modified value.
+添加日期函数调用到日期和时间中，然后返回修改的值。
 
-The first parameter can be an attribute of a domain model entity of type **Date and time**, a variable of type **Date and time**, or a **Date and time** value created using a [Date Creation](date-creation) function.
+第一个参数可以是类型 **日期和时间**的域模型实体的属性 类型变量 **日期和时间**, 或者一个 **日期和时间** 使用 [日期创建的值](date-creation) 函数。
 
-The second parameter specifies the time period to be added - you can use a negative time period to subtract it from the specified date.
+第二个参数指定要添加的时间段 - 您可以使用一个负时段来减去指定日期的时间。
 
-## 2 addMilliseconds
+## 2 addMillisecond
 
-The `addMilliseconds` function adds a specified number of milliseconds to a date.
+`addMilliseconds` 函数为某个日期添加了一个指定的毫秒数。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                  | Type          |
-| -------------------------------------- | ------------- |
-| Initial date                           | Date and time |
-| The number of milliseconds to be added | Integer       |
+| 值       | 类型    |
+| ------- | ----- |
+| 初始日期    | 日期和时间 |
+| 要添加的毫秒数 | 整数    |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                   | Type          |
-| ------------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *milliseconds*. | Date and time |
+| 值                             | 类型    |
+| ----------------------------- | ----- |
+| 一个日期和时间值为 *初始日期* 和 *毫秒的指定数量*。 | 日期和时间 |
 
-### 2.3 Example
+### 2.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addMilliseconds(dateTime(2007, 1, 1, 1, 1, 1), 1400)
+addMilliseconds(dateTime(2007, 1, 1, 1, 1, 1, 1), 1400)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 01 01:01:02:400 CET 2007"
 ```
 
-## 3 addSeconds
+## 3秒钟
 
-The `addSeconds` function adds a specified number of seconds to a date.
+`添加秒` 函数给某个日期添加了指定的秒数。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                             | Type          |
-| --------------------------------- | ------------- |
-| Initial date                      | Date and time |
-| The number of seconds to be added | Integer       |
+| 值      | 类型    |
+| ------ | ----- |
+| 初始日期   | 日期和时间 |
+| 要添加的秒数 | 整数    |
 
-### 3.2 Output
+### 3.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                              | Type          |
-| -------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *seconds*. | Date and time |
+| 值                               | 类型    |
+| ------------------------------- | ----- |
+| 一个日期和时间值是 *初始日期* 和指定的秒数 ** 的总和。 | 日期和时间 |
 
-### 3.3 Example
+### 3.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addSeconds(dateTime(2007, 1, 1, 1, 1, 1), 2)
+addseconds(dateTime(2007, 1, 1, 1, 1, 1, 1), 2)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 01 01:01:03 CET 2007"
 ```
 
-## 4 addMinutes
+## 4 个添加分钟
 
-The `addMinutes` function adds a number of minutes to a date.
+`addminutes` 函数为一个日期增加了几分钟。
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                             | Type          |
-| --------------------------------- | ------------- |
-| Initial date                      | Date and time |
-| The number of minutes to be added | Integer       |
+| 值       | 类型    |
+| ------- | ----- |
+| 初始日期    | 日期和时间 |
+| 要添加的分钟数 | 整数    |
 
-### 4.2 Output
+### 4.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                              | Type          |
-| -------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *minutes*. | Date and time |
+| 值                           | 类型    |
+| --------------------------- | ----- |
+| 一个日期和时间值是 *初始日期* 和指定的 *分钟数* | 日期和时间 |
 
-### 4.3 Example
+### 4.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addMinutes(dateTime(2007, 1, 1, 1, 1, 1), 3)
+addMinutes(dateTime(2007, 1, 1, 1, 1, 1, 1), 3)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 01 01:04:01 CET 2007"
@@ -123,34 +123,34 @@ The output is:
 
 ## 5 addHours
 
-The `addHours` function adds a number of hours to a date.
+`增加小时` 函数给某个日期增加了几个小时。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                           | Type          |
-| ------------------------------- | ------------- |
-| Initial date                    | Date and time |
-| The number of hours to be added | Integer       |
+| 值       | 类型    |
+| ------- | ----- |
+| 初始日期    | 日期和时间 |
+| 要添加的小时数 | 整数    |
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                            | Type          |
-| ------------------------------------------------------------------------------------------------ | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *hours*. | Date and time |
+| 值                            | 类型    |
+| ---------------------------- | ----- |
+| 一个日期和时间值为 *初始日期* 和 *小时的指定数量* | 日期和时间 |
 
-### 5.3 Example
+### 5.3 实例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addHours(dateTime(2007, 1, 1, 1, 1, 1), 25)
+工时(日期时间(2007, 1, 1, 1, 1, 1, 1, 1), 25)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 02 02:01:01 CET 2007"
@@ -158,34 +158,34 @@ The output is:
 
 ## 6 addDays[UTC]
 
-The `addDaysUTC` function adds a number of days to a date. `addDays` uses the server's calendar and `addDaysUTC` uses the UTC calendar.
+`添加 DaysUTC` 函数给某个日期增加了几天。 `添加` 天数使用服务器的日历和 `添加 DaysUTC` 使用的 UTC 日历。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                          | Type          |
-| ------------------------------ | ------------- |
-| Initial date                   | Date and time |
-| The number of days to be added | Integer       |
+| 值      | 类型    |
+| ------ | ----- |
+| 初始日期   | 日期和时间 |
+| 要添加的天数 | 整数    |
 
-### 6.2 Output
+### 6.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                           | Type          |
-| ----------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *days*. | Date and time |
+| 值                                | 类型    |
+| -------------------------------- | ----- |
+| 一个日期和时间值为 *初始日期* 和 *天的指定数量* 的总和。 | 日期和时间 |
 
-### 6.3 Example
+### 6.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addDays(dateTime(2007, 1, 1, 1, 1, 1), 3)
+addDays(dateTime(2007, 1, 1, 1, 1, 1, 1), 3)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 04 01:01:01 CET 2007"
@@ -193,123 +193,123 @@ The output is:
 
 ## 7 addWeeks[UTC]
 
-The `addWeeksUTC` function adds a number of weeks to a date using the UTC calendar as opposed to  `addWeeks` which uses the server's one.
+`addWeeksUTC` 函数使用UTC 日历为某个日期添加了几个星期，而不是  `added weeks` 后者使用了服务器的一个星期。
 
-### 7.1 Input Parameters
+### 7.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                           | Type          |
-| ------------------------------- | ------------- |
-| Initial date                    | Date and time |
-| The number of weeks to be added | Integer       |
+| 值      | 类型    |
+| ------ | ----- |
+| 初始日期   | 日期和时间 |
+| 要添加的周数 | 整数    |
 
-### 7.2 Output
+### 7.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                            | Type          |
-| ------------------------------------------------------------------------------------------------ | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *weeks*. | Date and time |
+| 值                            | 类型    |
+| ---------------------------- | ----- |
+| 一个日期和时间值为 *初始日期* 和 *周的指定数量*。 | 日期和时间 |
 
-### 7.3 Example
+### 7.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addWeeks(dateTime(2007, 1, 1, 1, 1, 1), 2)
+addWeeks(dateTime(2007, 1, 1, 1, 1, 1, 1), 2)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 15 01:01:01 CET 2007"
 ```
 
-## 8 addMonths[UTC]
+## 8 个月添加[UTC]
 
-The `addMonthsUTC` function adds a number of months to a date using the UTC calendar as opposed to  `addMonths` which uses the server's one.
+`addMonthsUTC` 函数使用UTC 日历为某个日期添加了几个月，而不是  `addmonths` 使用服务器的日历。
 
-### 8.1 Input Parameters
+### 8.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| Initial date                     | Date and time |
-| The number of months to be added | Integer       |
+| 值      | 类型    |
+| ------ | ----- |
+| 初始日期   | 日期和时间 |
+| 要添加的月数 | 整数    |
 
-### 8.2 Output
+### 8.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                             | Type          |
-| ------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *months*. | Date and time |
+| 值                                | 类型    |
+| -------------------------------- | ----- |
+| 一个日期和时间值为 *初始日期* 和 *月的指定数量* 的总和。 | 日期和时间 |
 
-### 8.3 Example
+### 8.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addMonths(dateTime(2007, 1, 1, 1, 1, 1), 13)
+addMonths(dateTime(2007, 1, 1, 1, 1, 1, 1), 13)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Feb 01 01:01:01 CET 2008"
 ```
 
-## 9 addYears[UTC]
+## 9 年[UTC]
 
-The `addYearsUTC` function adds a number of years to a date using the UTC calendar as opposed to  `addYears` which uses the server's one.
+`添加 YearsUTC` 函数使用UTC 日历将多年添加到某个日期，而不是  `添加使用服务器的年份`
 
-### 9.1 Input Parameters
+### 9.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                           | Type          |
-| ------------------------------- | ------------- |
-| Initial date                    | Date and time |
-| The number of years to be added | Integer       |
+| 值      | 类型    |
+| ------ | ----- |
+| 初始日期   | 日期和时间 |
+| 要添加的年数 | 整数    |
 
-### 9.2 Output
+### 9.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                            | Type          |
-| ------------------------------------------------------------------------------------------------ | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *years*. | Date and time |
+| 值                                | 类型    |
+| -------------------------------- | ----- |
+| 一个日期和时间值为 *初始日期* 和 *年的指定数量* 的总和。 | 日期和时间 |
 
-### 9.3 Example
+### 9.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 addYears(dateTime(2007, 1, 1, 1, 1, 1), 11)
 ```
 
-The output is:
+输出为：
 
 ```java
 "Mon Jan 01 01:01:01 CET 2018"
 ```
 
-## 10 Passing Values of the Long Type
+## 10 长型号的传递值
 
-It is possible to pass values of the Long type to different **Add date function** calls:
+可以将长类型的值传递给不同的 **添加日期函数** 调用：
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-addSeconds(dateTime(1970, 1, 1, 0, 0, 0), (long)(2147483647 + 100))
+addsecond(dateTime(1970, 1, 1, 0, 0, 0), (long)(2147483647 + 100))
 ```
 
-The output is:
+输出为：
 
 ```java
-"Tue Jan 19 04:15:47 CET 2038"
+“Tue Jan 19 04:15:47 CET 2038”
 ```
 
 
