@@ -53,10 +53,10 @@ You have a web shop and you want to show a field with a billing address only whe
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
-* 条件付きの可視性で自分自身をよく理解する。 詳細については、 [条件付き表示セクション](/studio/page-editor-widgets-visibility-section) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* 条件付きの可視性で自分自身をよく理解する。 詳細については、 [条件付き表示セクション](/studio8/page-editor-widgets-visibility-section) を参照してください。
 * セキュリティを有効にし、ユーザーロールをアプリに追加します。 詳細については、 [アプリを保護し、その機能へのアクセスを構成する方法](security-how-to-configure-roles) を参照してください。
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
 ## 3 請求先住所の条件の設定
 
@@ -78,16 +78,17 @@ You have a web shop and you want to show a field with a billing address only whe
 
 2. **請求先住所** フィールドを選択し、そのプロパティに移動します。
 
-3. **条件付き可視性** セクションで、 **データに基づいて** プロパティを切り替え、 **属性** プロパティをクリックします。
+3. **条件付き可視性** セクションで、 **Attribute-Based** プロパティをクリックします。
 
-    ![データに基づいて表示](attachments/pages-how-to-set-visibility/visible-based-on-data.png)
+    {{% image_container width="250" %}}![Conditional Visibility Section](attachments/pages-how-to-set-visibility/conditional-visibility-section.png){{% /image_container %}}
 
 4. **属性の選択** ダイアログボックスで、 **BillingAddressSame** 属性を選択し、 **Select** をクリックします。
 
-5. **属性値** プロパティがプロパティに表示されるようになりました。 Untick the *True* value as it does not meet the conditions you would like to set, and leave the **False** value selected.
+5. **属性値** プロパティがプロパティに表示されるようになりました。 Untick the *True* value as it does not meet the conditions you would like to set, and leave the **False** value selected:
 
+    {{% image_container width="250" %}}![Attribute-Based Visibility](attachments/pages-how-to-set-visibility/attribute-based-visibility-set.png){{% /image_container %}}
 
-よくできました！ If you [preview your app](/studio/publishing-app), you will see that the billing address is only shown when you untick the  **Billing address is the same as delivery address** option.
+よくできました！ If you [preview your app](/studio8/publishing-app), you will see that the billing address is only shown when you untick the  **Billing address is the same as delivery address** option.
 
 ## 4 特定のユーザーロールにのみ要素を表示する
 
@@ -99,11 +100,13 @@ You have a web shop and you want to show a field with a billing address only whe
 
     {{% image_container width="450" %}}![List of Products](attachments/pages-how-to-set-visibility/list-of-products.png){{% /image_container %}}
 
-2. プロパティを開き、 **条件付き可視性** セクションで **ロールに基づいて** プロパティを切り替えます。
+2. プロパティを開き、 **条件付き可視性** セクションで **ロールベースの** プロパティを切り替えます。
+
+    {{% image_container width="250" %}}![Role-Based Property](attachments/pages-how-to-set-visibility/role-based-property.png){{% /image_container %}}
 
 3. アプリケーションで利用可能なロールのリストは、 **ロール** プロパティに表示されます。 **顧客** のロールのチェックを外します:
 
-    ![選択されていない役割](attachments/pages-how-to-set-visibility/unselected-roles.png)
+    {{% image_container width="250" %}}![Unselected Roles](attachments/pages-how-to-set-visibility/unselected-roles.png){{% /image_container %}}
 
 よくできました！ **編集** ボタンは、 **管理者** および **Sales_Manager** のユーザロールのみに表示されます。
 
@@ -123,4 +126,4 @@ You have a web shop and you want to show a field with a billing address only whe
 
 おめでとうございます ウィジェットにいくつかの条件を設定し、これらのウィジェットを簡単に見つけられるようにページで表示する方法を学びました。
 
-アプリをプレビューし、設定した条件をテストすることができます: 請求先住所が表示されている場合と、どのユーザーロールが **編集** ボタンを表示できます。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio/publishing-app) を参照してください。
+アプリをプレビューし、設定した条件をテストすることができます: 請求先住所が表示されている場合と、どのユーザーロールが **編集** ボタンを表示できます。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio8/publishing-app) を参照してください。
