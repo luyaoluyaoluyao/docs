@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/commit-dialog.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 The commit dialog is used for committing changes to the Team Server. You can enter a message and, if applicable, select related stories.
@@ -49,4 +45,4 @@ If there are changes in the model this tab shows a summary of those changes. See
 
 If there are changes on disk this page shows a summary of those changes. Click **Open containing folder** to open the folder containing the selected file in Windows Explorer.
 
-The tab page will be hidden if there are no disk changes. Often, there are model changes but the only change on disk is the project file (.mpr) reflecting these model changes. In this case, it will also be hidden, because it does not add useful information.
+The tab page will be hidden if there are no disk changes. Often, there are model changes but the only change on disk is the app file (*.mpr*) reflecting these model changes. In this case, it will also be hidden, because it does not add useful information.
