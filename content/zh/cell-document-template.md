@@ -1,6 +1,6 @@
 ---
-title: "Cell (Document Template)"
-parent: "row-document-template"
+title: "单元格(文档模板)"
+parent: "行文档模板"
 tags:
   - "studio pro"
 aliases:
@@ -8,12 +8,12 @@ aliases:
   - /refguide/Cell+(document+template).html
 ---
 
-## 1 Introduction
+## 1 导言
 
-Cells are part of a table. They can contain other widgets.
+单元是表的一部分。 它们可以包含其他部件。
 
-## 2 Appearance Properties
+## 2 外观属性
 
-### 2.1 Style
+### 2.1 样式
 
-For details, see [Style](style).
+欲了解详情，请见 [样式](style)。
