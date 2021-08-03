@@ -8,8 +8,12 @@ tags:
 menu_order: 60
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/synchronize-to-device.pdf).
+{{% /alert %}}
+
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows** that run in an offline-first app (a native or offline PWA app).
+This activity can only be used in **Microflows**.
 {{% /alert %}}
 
 ## 1 Introduction
@@ -45,7 +49,7 @@ A variable that refers to an object or a list to be synchronized.
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
 
 ## 5 Limitations
 
@@ -55,6 +59,7 @@ When adding **Synchronize to device** to a microflow consider the following:
 * If the current user cannot access some of the objects due to access rules, they will not be synchronized to a device. If the offline database already contains the same object, it will be removed.
 * If the object to synchronize to a device is deleted in the same microflow, **Synchronize to device** activity will remove it from the offline database, if found.
 * Autocommited and new objects get skipped.
+* Synchronizing files is not allowed.
 * It will only synchronize objects in a microflow that are called from a nanoflow, not from an event microflow.
 
 ## 6 Remarks
