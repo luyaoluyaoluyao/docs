@@ -1,32 +1,32 @@
 ---
-title: "Client Activities"
-parent: "activities"
+title: "クライアントのアクティビティ"
+parent: "アクティビティ"
 menu_order: 50
 tags:
   - "studio pro"
-  - "client activities"
-  - "activities"
+  - "クライアントアクティビティ"
+  - "アクティビティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Client Activities** perform activities in the client, for example, opening a page or showing a message. The activities described in this document are in the **Client Activities** section of the **Toolbox** and can differ for microflows and nanoflows:
+**クライアントアクティビティ** は、ページを開いたりメッセージを表示したりするなど、クライアントでアクティビティを実行します。 このドキュメントで説明されているアクティビティは、 **ツールボックス** の **クライアントアクティビティ** セクションにあり、マイクロフローとナノフローでは異なる場合があります。
 
-![Client Activities](attachments/client-activities/client-activities.png)
+![クライアントのアクティビティ](attachments/client-activities/client-activities.png)
 
-The following are the client activities you can use in your microflow or nanoflow:
+以下は、マイクロフローまたはナノフローで使用できるクライアントアクティビティです。
 
-* [Nanoflow call](nanoflow-call) *(only in nanoflows)* – calls another nanoflow
-* [Close page](close-page) – closes the currently open page
-* [Download file](download-file) *(only in microflows)* – downloads a file using the browser
-* [Show home page](show-home-page) *(only in microflows)* – opens the home page for the end-user
-* [Show message](show-message) – shows a message to the end-user
-* [Show page](show-page) – shows a selected page to the end-user
-* [Synchronize to device](synchronize-to-device) *(only in microflows)* – enables selectively synchronizing a set of objects to the device when calling a microflow from a nanoflow
-* [Synchronize](synchronize) *(only in nanoflows)* – synchronizes data between your device and the server
-* [Validation feedback](validation-feedback) – does a validation check, and if this check fails, it shows a message to the end-user
+* [Nanoflow call](nanoflow-call) *(only in nanoflows)* - calls another nanoflow
+* [ページを閉じる](close-page) - 現在開いているページを閉じる
+* [ダウンロード ファイル](download-file) *(マイクロフローのみ)* – ブラウザを使用してファイルをダウンロード
+* [ホームページを表示](show-home-page) *(マイクロフローのみ)* – エンドユーザーのホームページを開く
+* [メッセージを表示する](show-message) – エンドユーザーへのメッセージを表示する
+* [ページの表示](show-page) – エンドユーザーに選択したページを表示する
+* [デバイスに同期](synchronize-to-device) *(マイクロフローのみ)* – ナノフローからマイクロフローを呼び出すときに、デバイスにオブジェクトのセットを選択的に同期させることができます
+* [](synchronize) を同期する *(ナノフローのみ)* - お使いのデバイスとサーバー間でデータを同期する
+* [検証フィードバック](validation-feedback) - 検証がチェックされ、このチェックが失敗した場合、エンドユーザーへのメッセージが表示されます
 
 
-## 2 Read More
+## 2 続きを読む
 
-* [Activities](activities)
+* [アクティビティ](アクティビティ)
