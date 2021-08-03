@@ -9,8 +9,13 @@ tags:
   - "来源"
   - "域"
   - "访问"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+在 Mendix 版本 7.18.0 中引入了CORS 设置功能。
+
+{{% /报警 %}}
 
 ## 1 导言
 
