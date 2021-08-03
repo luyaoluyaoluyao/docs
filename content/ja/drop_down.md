@@ -1,55 +1,55 @@
 ---
-title: "Drop-Down"
+title: "ドロップダウン"
 parent: "input-widgets"
 tags:
-  - "Drop-down"
+  - "ドロップダウン"
   - "input"
-  - "page"
-  - "widget"
-  - "enumeration"
+  - "ページ"
+  - "ウィジェット"
+  - "列挙型"
 aliases:
   - /refguide7/drop-down-widget.html
 ---
 
-A drop-down is an [input widget](input-widgets) that can be used to display and edit enumeration attributes. It should not be confused with a reference selector, which is used to select a object with which to fill an [association](associations).
+ドロップダウンは、列挙属性の表示と編集に使用できる [入力ウィジェット](input-widgets) です。 参照セレクタと混同してはいけません。これは、 [アソシエーション](associations) を埋めるオブジェクトを選択するために使用されます。
 
 {{% alert type="info" %}}
 
  ![](attachments/pages/drop-down.png)
 
-This drop-down widget allows the user to select their favorite color.
+このドロップダウン ウィジェットでは、ユーザーがお気に入りの色を選択できます。
 
 {{% /alert %}}
 
-## General Properties
+## 一般プロパティ
 
-### Empty Option Caption
+### オプションの図表番号を空にする
 
-This property represents the caption for the empty option in the drop-down shown to the user. This is a translatable text. For more details, see [Translatable Texts](translatable-texts).
+このプロパティは、ユーザーに表示されるドロップダウンの空のオプションのキャプションを表します。 これは翻訳可能なテキストです。 詳細については、 [翻訳可能なテキスト](translatable-texts) を参照してください。
 
 {{% alert type="info" %}}
 
-Filling out the caption for an empty option improves the user experience of your application. It also helps screen-reader users to operate the application easily. For example, the drop-down that represents the color selection for a car could have a caption reading "Select a color".
+空のオプションにキャプションを記入すると、アプリケーションのユーザーエクスペリエンスが向上します。 また、スクリーンリーダーのユーザーがアプリケーションを簡単に操作するのに役立ちます。 たとえば、車の色の選択を表すドロップダウンには、"Select a color" というキャプションが表示されます。
 
 {{% /alert %}}
 
 {{% alert type="info" %}}
 
-The empty option caption is available from Mendix 7.2.0.
+空のオプションキャプションは Mendix 7.2.0 から利用できます。
 
 {{% /alert %}}
 
-## Validation Properties
+## バリデーションプロパティ
 
 {{% snippet file="refguide7/Widget+Validation.md" %}}
 
-## Data Source Properties
+## データソースのプロパティ
 
 {{% snippet file="refguide7/Attribute+Path+Property.md" %}}
 
 {{% snippet file="refguide7/Label+Property.md" %}}
 
-## Editability Properties
+## 編集可能なプロパティ
 
 {{% snippet file="refguide7/Editable+Property.md" %}}
 
@@ -57,13 +57,13 @@ The empty option caption is available from Mendix 7.2.0.
 
 {{% snippet file="refguide7/Condition+Property.md" %}}
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
 {{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-## Events Properties
+## イベントのプロパティ
 
 {{% snippet file="refguide7/On+Change+Event.md" %}}
 
@@ -71,7 +71,7 @@ The empty option caption is available from Mendix 7.2.0.
 
 {{% snippet file="refguide7/On+Leave+Event.md" %}}
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -81,7 +81,7 @@ The empty option caption is available from Mendix 7.2.0.
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Read More
+## 続きを読む
 
-*   [Data View](data-view)
-*   [Attributes](attributes)
+*   [データビュー](data-view)
+*   [属性](attributes)
