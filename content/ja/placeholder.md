@@ -4,10 +4,6 @@ parent: "layout"
 menu_order: 10
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/placeholder.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 A **placeholder** can be used in two ways:
@@ -19,14 +15,15 @@ Each placeholder is colored blue with its name displayed in the middle of it. Th
 
 For example, the image below shows two placeholders, **Main** and **Other** positioned within a layout grid.
 
+{{% image_container width="400" %}}
 ![Two placeholders in a layout grid. One is labeled 'Main', and one is labeled 'Other'](attachments/layout/placeholder.png)
+{{% /image_container %}}
 
 ## 2 Properties
 
 An example of placeholder properties is represented in the image below:
 
-{{% image_container width="250" %}}![Properties pane for a placeholder](attachments/layout/placeholder-properties.png)
-{{% /image_container %}}
+![Properties pane for a placeholder](attachments/layout/placeholder-properties.png)
 
 A placeholder has a single section, **Misc** and a single property, **Name**.
 
