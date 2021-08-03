@@ -4,13 +4,9 @@ parent: "document-templates"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/Data+Grid+(document+template).html
-  - /refguide8/data-grid-(document-template).html
+  - /refguide/Data+Grid+(document+template).html
+  - /refguide/data-grid-(document-template).html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/data-grid-document-template.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -64,7 +60,7 @@ See [Style](style)
 
 ### 4.1 Name
 
-The internal name of the widget. You can use this to give sensible names to widgets. The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto8/integration/selenium-support).
+The internal name of the widget. You can use this to give sensible names to widgets. The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto/integration/selenium-support).
 
 ## 5 Data Source Properties
 
