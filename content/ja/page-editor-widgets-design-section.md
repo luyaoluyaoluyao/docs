@@ -1,86 +1,86 @@
 ---
-title: "Design Section"
+title: "デザインセクション"
 parent: "page-editor-widgets"
-description: "Describes the Design section in widgets properties in Mendix Studio."
+description: "ウィジェットのプロパティの format@@0 セクションについて説明します。"
 tags:
-  - "studio"
-  - "page editor"
-  - "widgets"
-  - "on click action"
-  - "events"
+  - "スタジオ"
+  - "ページエディタ"
+  - "ウィジェット"
+  - "クリックアクション"
+  - "イベント"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Design** section in **Properties** allows you to change spacing and alignment of a widget on a page, but is not limited to these functions. For some elements you can, for example, change their color. Hover over the information icon to get more details on each option.
+**プロパティ** の **デザイン** セクションでは、ページ上のウィジェットの間隔と配置を変更できます。 これらの機能に限ったことではありません たとえば、要素の色を変更することができます。 情報アイコンにカーソルを合わせると、各オプションの詳細が表示されます。
 
 ![](attachments/page-editor-widgets-design-section/design-section-info-icon.png)
 
-## 2 Common Properties {#design-common-properties}
+## 2つの一般的なプロパティ {#design-common-properties}
 
-The **Design** section has the following properties common to all widgets:
+**デザイン** セクションには、すべてのウィジェットに共通する次のプロパティがあります。
 
 
-| Property                                                 | Description                                                                                                                          | Possible Values                                                                                                                          |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Spacing Top/ Spacing Bottom/ Spacing Left/ Spacing Right | Adds margin above/ below/ left/ right of the widget                                                                                  | Possible values for **Spacing Top**/ **Spacing Bottom**/ **Spacing Left**/ **Spacing Right** are the following:<ul><li>None – no extra spacing is applied</li><li>Small – applies small spacing</li><li>Medium –  applies medium spacing</li><li>Large – applies large spacing</li><li>Layout – applies the same spacing as the current layout  (if you do not change the layout spacing, large and layout spacings are the same by default) </li></ul> |
-| Align Self                                               | Aligns the widget within its layout element. For more information on layout elements, see [Structure](page-editor-widgets-structure) | Possible values for **Align Self** are the following:<ul><li>None – places the element next to the previous element</li><li>Left – aligns the element to the left (places the element to the left of its layout element)</li><li>Right – aligns the element to the right (places the element to the right of its layout element)</li></ul>                                                           |
+| 属性                  | 説明                                                                                      | 可能な値                                                                               |
+| ------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| 間隔の上/間隔の下/間隔の左/間隔の右 | ウィジェットの上/下/左/右のマージンを追加します。                                                              | **スペース上**/ **スペース下**/ **スペース左**/ **スペース右** の設定値は以下のとおりです:<ul><li>なし – 余分な間隔は適用されません</li><li>小 - 間隔を小さくする</li><li>中 – 中程度の間隔を適用</li><li>大 – 大きな間隔を適用します</li><li>レイアウト – 現在のレイアウトと同じ間隔を適用します (レイアウト スペースを変更しない場合)。 ラージとレイアウトの間隔はデフォルトで同じです) </li></ul> |
+| Align Self          | layout 要素内のウィジェットを揃えます。 レイアウト要素の詳細については、 [構造](page-editor-widgets-structure) を参照してください。 | **Align Self** の可能な値は以下のとおりです。<ul><li>None – 要素を前の要素の隣に配置します</li><li>左 – 要素を左に揃えます (要素をそのレイアウト要素の左に配置します)</li><li>右 - 要素を右揃え (その要素をそのレイアウト要素の右に配置)</li></ul>                            |
 
-The example of how spacing works on a button is schematically shown on an image below:
+ボタンの間隔がどのように機能するかの例は、以下の画像に模式的に示されています:
 
 ![](attachments/page-editor-widgets-design-section/design-section-scheme.png)
 
-## 3 Specific Properties
+## 3つの特定のプロパティ
 
-The following widgets have specific properties:
+以下のウィジェットには、特定のプロパティがあります。
 
-* [List view](#list-view-design-properties)  (a Data Container widget)
-* [Container](#container-design-properties) (a Structure widget)
-* [Buttons](#button-design-properties) (all Button widgets)
-* [Text](#text-design-properties) (a Text widget)
+* [リストビュー](#list-view-design-properties)  (データコンテナウィジェット)
+* [コンテナ](#container-design-properties) (構造ウィジェット)
+* [ボタン](#button-design-properties) (すべてのボタンウィジェット)
+* [テキスト](#text-design-properties) (テキストウィジェット)
 
-### 3.1 List View Specific Properties {#list-view-design-properties}
+### 3.1 リストビュー特定のプロパティ {#list-view-design-properties}
 
-Specific properties for **List View** are described in the table below:
+**リストビュー** の特定のプロパティは以下の表に記載されています:
 
-| Property    | Description                                                                  | Possible Values                                                              |
-| ----------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| Style       | Changes the appearance of lines in the list view.                            | Possible values for **Style** are the following:<ul><li>None</li><li>Striped</li><li>Bordered</li><li>Lined</li><li>No Styling</li></ul>    |
-| Hover Style | Highlights a row when hovering over it. Only useful if the row is clickable. | Enabled/Disabled                                                             |
-| Row Size    | Changes the size of the row.                                                 | Possible values for **Row Size** are the following:<ul><li>None</li><li>Small</li><li>Large</li></ul> |
-### 3.2 Container Specific Properties {#container-design-properties}
+| 属性          | 説明                                            | 可能な値                                                 |
+| ----------- | --------------------------------------------- | ---------------------------------------------------- |
+| スタイル        | リストビューの行の外観を変更します。                            | **Style** の使用可能な値は次のとおりです:<ul><li>なし</li><li>Striped</li><li>外枠</li><li>削除されました</li><li>スタイルなし</li></ul>  |
+| Hover Style | 上にカーソルを合わせると、行を強調表示します。 行がクリック可能である場合にのみ便利です。 | 有効/無効                                                |
+| 行のサイズ       | 行のサイズを変更します。                                  | **Row Size** の可能な値は次のとおりです:<ul><li>なし</li><li>小</li><li>大</li></ul> |
+### 3.2 コンテナ固有のプロパティ {#container-design-properties}
 
-Specific properties for the **Container** widget are described in the table below:
+**Container** ウィジェットの特定のプロパティについては、以下の表を参照してください。
 
-| Property         | Description                        | Possible Values                                                                                                                                                                                                                                                                                |
-| ---------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Align Content    | Aligns content inside a container. | Possible values for **Align Content** are the following:<ul><li>None</li><li>Left align as a row</li><li>Center align as row</li><li>Right align as row</li><li>Left align as column</li><li>Center align as column</li><li>Right align as column</li></ul><br />When aligning content as a column, elements inside a container will be aligned one under another; when aligning content as a row, elements inside a container will be aligned next to each other. |
-| Background color | Applies a background color.        | Possible values for **Background color** are the following:<ul><li>None – color defined in **Backgrounds** > **Default** of the **UI Customization** section of the [Theme Customizer](theme-customizer)</li><li>Default</li><li>Primary</li><li>Inverse</li><li>Success</li><li>Warning</li><li>Danger</li></ul><br />The color for each value depends on your settings in the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer).                                                          |
+| 属性            | 説明                 | 可能な値                                                                                                                                          |
+| ------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Align Content | コンテンツをコンテナ内に配置します。 | **コンテンツ整列** の可能な値は以下のとおりです。<ul><li>なし</li><li>行として左揃え</li><li>行として中央揃え</li><li>行として右揃え</li><li>左揃え</li><li>列として中央揃え</li><li>列として右揃え</li></ul><br />コンテンツを列として配置する場合、コンテナ内の要素は別の列の下に配置されます。 行としてコンテンツを整列する場合、コンテナ内の要素は隣接して整列されます。 |
+| 背景色           | 背景色を適用します。         | **背景色** の取得可能な値は次のとおりです。<ul><li>なし – format@@0(theme-customizer) のセクションの **UI カスタマイズ** セクションの **背景** > **デフォルト** で定義された色</li><li>デフォルト</li><li>プライマリ（プライマリ）</li><li>反転</li><li>成功</li><li>警告</li><li>危険</li></ul><br />各値の色は、 **テーマカスタマイザ**の設定によって異なります。 詳細は [テーマカスタマイズ](theme-customizer) を参照してください。   |
 
-### 3.3 Button Specific Properties {#button-design-properties}
+### 3.3 ボタン固有のプロパティ {#button-design-properties}
 
-Specific properties for **Buttons** are described in the table below:
+**ボタン** の特定のプロパティについては、以下の表を参照してください。
 
-| Property   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           | Possible Values                                                                                          |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Size       | Changes the size of the button.                                                                                                                                                                                                                                                                                                                                                                                                                       | You can change the size from the preset size by selecting one of the following:<ul><li>Small – the button is smaller than the preset one</li><li>Large – the button is larger than the preset</li></ul> |
-| Full Width | The button takes the whole width of a layout element it is placed in. For more information on layout elements, see [Structure](page-editor-widgets-structure).                                                                                                                                                                                                                                                                                        | Enabled/Disabled                                                                                         |
-| Bordered   | Changes the style of the button to a button with a transparent background, a colored border, and a colored text. Color of the border and the text are inverted from the background color, that means, if the button background is red, the background will become transparent, but the border and text will become red.<br />{{%alert type="info" %}}This option has no effect on buttons which are rendered as links.<br />{{%/alert %}} | Enabled/Disabled                                                                                         |
-| Align Icon | Moves an icon (if any) to the right of the text or on top of it.                                                                                                                                                                                                                                                                                                                                                                                      | Possible values for **Align Icon** are the following:<ul><li>None – icon is to the left of the text</li><li>Right – icon is moved to the right side of the button or link</li><li>Top – icon is centered above the button text for *button* style and left-justified above the button text for *link* style (for more information on button styles, see [Buttons](page-editor-widgets-buttons))</li></ul>                           |
+| 属性         | 説明                                                                                                                                                                                                          | 可能な値                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| サイズ        | ボタンのサイズを変更します。                                                                                                                                                                                              | 以下のいずれかを選択することで、プリセットサイズからサイズを変更できます。<ul><li>小 - ボタンはプリセットより小さいです</li><li>大 - ボタンがプリセットより大きいです</li></ul> |
+| 全幅         | ボタンは、配置されたレイアウト要素の幅全体を取ります。 レイアウト要素の詳細については、 [構造](page-editor-widgets-structure) を参照してください。                                                                                                                 | 有効/無効                                                          |
+| 外枠         | ボタンのスタイルを透明な背景、色付きの枠線、色付きのテキストのボタンに変更します。 境界線の色とテキストは背景色から反転されます。 ボタンの背景が赤の場合、背景は透明になりますが、境界とテキストは赤になります。<br />{{%alert type="info" %}}このオプションはリンクとしてレンダリングされるボタンには効果がありません。<br />{{%/alert %}} | 有効/無効                                                          |
+| Align Icon | アイコン(もしあれば)をテキストの右側またはその上部に移動します。                                                                                                                                                                           | **Align アイコン** の値は以下のとおりです。<ul><li>なし – アイコンはテキストの左側にあります</li><li>右 - アイコンをボタンまたはリンクの右側に移動します。</li><li>トップ – アイコンは *button* スタイルのボタンテキストの上に中央揃えされ、*link* スタイルのボタンテキストの上に左揃えされます(ボタンスタイルの詳細についてはこちらをご覧ください)。 see [Buttons](page-editor-widgets-buttons))</li></ul>           |
 
-### 3.4 Text Specific Properties {#text-design-properties}
+### 3.4 テキスト固有のプロパティ {#text-design-properties}
 
-Specific properties for the **Text** widget are described in the table below:
+**テキスト** ウィジェットの特定のプロパティは以下の表で説明されています:
 
-| Property     | Description                          | Possible Values                                                                                                                                                                                                                                                             |
-| ------------ | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Weight       | Changes the weight of the font       | Possible values for **Weight** are the following:<ul><li>None</li><li>Light</li><li>Normal <em>(used if weight is set to **None**)</em></li><li>Semibold</li><li>Bold</li></ul>                                                                                                                                                                                                  |
-| Color        | Changes the color of the text        | Possible values for **Color** are the following:<ul><li>Header color</li><li>Detail color (light-gray color)</li><li>Default – note that this is the default text color, not the default button color</li><li>Primary</li><li>Inverse</li><li>Success</li><li>Warning</li><li>Danger</li></ul><br />{{%alert type="info" %}}The color for each value depends on your settings in the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer).<br />{{%/alert %}} |
-| Alignment    | Aligns the text                      | Possible values for **Alignment** are the following:<ul><li>None</li><li>Left</li><li>Center</li><li>Right</li></ul>                                                                                                                                                                                              |
-| Transform    | Changes letter case of the text      | Possible values for **Transform** are the following:<ul><li>None</li><li>Lowercase</li><li>Uppercase</li><li>Capitalize</li></ul>                                                                                                                                                                                              |
-| Wrap Options | Wrap a long text into multiple lines | Possible values for **Wrap Options** are the following:<ul><li>None – text is not wrapped</li><li>Wrap</li><li>No Wrap</li></ul>                                                                                                                                                                                           |
+| 属性        | 説明              | 可能な値                                                                                                                                                                                              |
+| --------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 重量        | フォントの重みを変更します   | **Weight** の値は以下のとおりです:<ul><li>なし</li><li>ライト</li><li>標準 <em>(重量が **なし** に設定されている場合に使用)</em></li><li>Semibold</li><li>Bold</li></ul>                                                                                                                                                  |
+| 色         | テキストの色を変更します    | **Color** の取得可能な値は次のとおりです:<ul><li>ヘッダーの色</li><li>詳細色（薄灰色）</li><li>デフォルト – これはデフォルトのテキスト色であり、デフォルトのボタンの色ではないことに注意してください。</li><li>プライマリ（プライマリ）</li><li>反転</li><li>成功</li><li>警告</li><li>危険</li></ul><br />{{%alert type="info" %}}各値の色は、 **テーマカスタマイザ** の設定によって異なります。 詳細については、 [Theme Customizer](theme-customizer).<br />{{%/alert %}} |
+| 配置        | テキストを揃えます。      | **Alignment** の可能な値は以下のとおりです。<ul><li>なし</li><li>左</li><li>中央揃え</li><li>右</li></ul>                                                                                                                                           |
+| 変換        | テキストの大文字の変更     | **変換** の可能な値は以下のとおりです。<ul><li>なし</li><li>小文字</li><li>大文字・小文字</li><li>大文字化</li></ul>                                                                                                                                                  |
+| 折り返しオプション | 長いテキストを複数行に折り返す | **ラップオプション** の値は以下のとおりです。<ul><li>なし – テキストは折り返されません</li><li>折り返す</li><li>ラップなし</li></ul>                                                                                                                                               |
 
 
-## 4 Read More
+## 4 続きを読む
 
-* [Widgets](page-editor-widgets)
+* [ウィジェット](page-editor-widgets)
