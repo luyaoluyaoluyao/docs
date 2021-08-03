@@ -5,26 +5,26 @@ tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `DATEDIFF` function returns the difference between two given date/time values. The difference is given in the specified unit.
+`DATEDIFF` 関数は、与えられた日付/時刻の値の差を返します。 指定された単位で差分が与えられます。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
-DATEDIFF ( unit , startdate_expression, enddate_expression )
+DATEDIFF ( 単位 , startdate_expression , enddate_expression )
 ```
 
-### 2.1 unit
+### 2.1 単位
 
-`unit` specifies the unit of the date/time value to retrieve. This can be one of the following: `YEAR`, `QUARTER`, `MONTH`, `DAY`, `WEEK`, `HOUR`, `MINUTE` or `SECOND`. For more information on date/time values, see the [Example](oql-datepart#oql-datepart-example) section in *OQL DATEPART*.
+`単位` では、取得する日付/時刻値の単位を指定します。 This can be one of the following: `YEAR`, `QUARTER`, `MONTH`, `DAY`, `WEEK`, `HOUR`, `MINUTE` or `SECOND`. 日付/時刻の値の詳細については、 [OQL DATEPART](oql-datepart#oql-datepart-example) の *例* セクションを参照してください。
 
 ### 2.2 startdate_expression
 
-`startdate_expression` specifies the start date of the period being calculated. This should be formatted in an expression which resolves to a date/time value.
+`startdate_expression` は計算される期間の開始日を指定します。 これは、日付/時刻の値を解決する式でフォーマットされる必要があります。
 
-### 2.3 enddate_expression
+### 2.3 endate_expression
 
-`enddate_expression` specifies the end date of the period being calculated. This should be formatted in an expression which resolves to a date/time value.
+`enddate_expression` は計算される期間の終了日を指定します。 これは、日付/時刻の値を解決する式でフォーマットされる必要があります。
