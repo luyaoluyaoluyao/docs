@@ -1,71 +1,71 @@
 ---
-title: "Language Operations"
-parent: "translatable-texts"
+title: "言語操作"
+parent: "translatable-text"
 menu_order: 40
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
+  - "翻訳"
+  - "言語"
+  - "翻訳可能なテキスト"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When creating an app in multiple languages, there are a number of tasks which you may want to carry out on all the texts in the app, or in a specific module.
+複数の言語でアプリを作成する場合 アプリ内のすべてのテキストや特定のモジュールで実行したいタスクがたくさんあります。
 
-**Language Operations** enable you to perform the following operations for a language dictionary. You can decide which modules the operation applies to:
+**言語操作** を使用すると、言語辞書に対して以下の操作を実行できます。 この操作に適用されるモジュールを決定することができます:
 
-* **Move** texts from one language dictionary to another
-* **Copy** texts from one language dictionary to another
-* **Swap** texts between two language dictionaries
-* **Delete** texts from one language dictionary
+* **ある言語辞書から別の言語にテキストを** 移動する
+* **ある言語辞書から別の言語にテキストを** コピー
+* **2つの言語辞書にテキストを** 入れ替え
+* **1つの言語辞書からテキストを** 削除する
 
 ![](attachments/language/language_operations.png)
 
-## 2 Selecting Modules
+## 2つのモジュールの選択
 
-In the **Selection** section of the dialog box, you can select the modules that you want to manage.
+ダイアログボックスの **選択** セクションでは、管理するモジュールを選択できます。
 
-For each module, you can see the number of translatable texts which have been entered in each language which contains items. The gray columns indicate languages which are not selected in the app, but which contain translated texts. This enables you to remove a language from the app but still have access to the existing texts.
+各モジュールでは、項目を含む各言語で入力された翻訳可能なテキストの数を見ることができます。 グレーの列は、アプリで選択されていないが、翻訳されたテキストが含まれている言語を示します。 これにより、アプリから言語を削除できますが、既存のテキストにアクセスできます。
 
-## 3 Performing Operations
+## 3 実行中の操作
 
-Select an **Operation** to carry out on the selected module(s).
+選択したモジュールを実行するには、 **操作** を選択します。
 
-There are four language operation options, described below. These can be carried out for any language which has been selected in the app, plus any other languages which have translated texts.
+以下で説明する4つの言語操作オプションがあります。 これらは、アプリ内で選択されているすべての言語と、テキストを翻訳した他の言語に対して実行できます。
 
-Click **Apply** to apply the selected language operation.
+**Apply** をクリックして、選択した言語操作を適用します。
 
-### 3.1 Move
+### 3.1 手
 
-**Move** moves the source language to the destination language, which overwrites all the texts in the destination language with those in the source language and removes the texts in the source.
+**移動する** は元の言語を移動先の言語に移動します。 ソース言語内のテキストをすべて元言語内のテキストで上書きし、ソース内のテキストを削除します。
 
-Select the **Source language** and the **Destination language** from the  drop-down menus.
-
-{{% alert type="info" %}}
-* Texts that are absent in the source language will be absent in the destination language – any original text will be removed
-* All the texts in the source language will be deleted
-{{% /alert %}}
-
-### 3.2 Copy
-
-**Copy** copies the source language to the destination language, which overwrites all the texts in the destination language with those in the source language. Texts are not deleted from the source language.
-
-Select the **Source language** and the **Destination language** from the  drop-down menus.
+ドロップダウンメニューから **ソース言語** と **宛先言語** を選択します。
 
 {{% alert type="info" %}}
-
-Texts that are absent in the source language will be absent in the destination language – any original text will be removed
+* 元の言語に存在しないテキストは、宛先言語に存在しません。元のテキストは削除されます
+* ソース言語のすべてのテキストが削除されます
 {{% /alert %}}
 
-### 3.3 Swap
+### 3.2 コピー
 
-**Swap** replaces the source language with the destination language, and the destination language with the source language.
+**コピー** 元の言語をコピーする ソース言語のテキストをすべて上書きします テキストは元の言語から削除されません。
 
-Select the **Source language** and the **Destination language** from the  drop-down menus.
+ドロップダウンメニューから **ソース言語** と **宛先言語** を選択します。
 
-### 3.4 Delete
+{{% alert type="info" %}}
 
-**Delete** deletes all the texts in a selected language.
+元の言語に存在しないテキストは、宛先言語に存在しません。元のテキストは削除されます
+{{% /alert %}}
 
-Select the language from the **Language** drop-down menu.
+### 3.3 入れ替え
+
+**Swap** はソース言語を宛先言語に置き換え、宛先言語を元言語に置き換えます。
+
+ドロップダウンメニューから **ソース言語** と **宛先言語** を選択します。
+
+### 3.4 削除
+
+**削除** 選択した言語のすべてのテキストを削除します。
+
+**言語** ドロップダウンメニューから言語を選択します。
