@@ -1,26 +1,48 @@
 ---
-title: "Create List"
+title: "リストを作成"
 parent: "list-activities"
+menu_order: 3
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
-
-This activity creates a list variable containing an empty list.
-
-{{% alert type="info" %}}
-
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all microflow activities share (f\or example, caption). This page only describes the properties specific to the action.
-
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## Action Properties
+## 1つの紹介
 
-### Entity
+**リストの作成** アクティビティは空のリストを作成します。
 
-The entity of the objects list. All objects in the list should be of the same type.
+## 2つのプロパティ
 
-## Output Properties
+リストプロパティの作成例は以下の図に示されています。
 
-### Variable
+![リストのプロパティを作成](attachments/list-activities/create-list-properties.png)
 
-Variable name defines the name of the list variable. The variable can be used by all activities that follow this activity.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
+
+リストプロパティペインは以下のセクションで構成されています。
+
+* [アクション](#action)
+* [一般的な](#common)
+
+## 3つのアクションセクション{#action}
+
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
+
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
+
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.1 エンティティ
+
+リスト内のオブジェクトの実体。 リスト内のすべてのオブジェクトは同じ型でなければなりません。
+
+### 3.2 リスト名
+
+これは、このアクティビティに続くすべてのアクティビティで使用できるリストの名前です。
+
+## 4つの共通セクション{#common}
+
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
