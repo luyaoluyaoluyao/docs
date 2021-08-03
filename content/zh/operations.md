@@ -1,121 +1,121 @@
 ---
-title: "Operations"
-parent: "published-web-services"
+title: "业务活动"
+parent: "已发布的网络服务"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Provides the actual methods of which the webservice is composed.
+提供网页服务的实际组成方法。
 
-Looking at an operation in more detail, you can see that a microflow can be selected. When you select a microflow, the other fields will be automatically filled. These can be changed as needed.
+更详细地查看操作，您可以看到微流程可以被选中。 当您选择微流程时，其他字段将自动填充。 可以根据需要改变这些标准。
 
-An operation has the properties described below.
+操作具有下面描述的属性。
 
-## 2 General
+## 2 概况
 
 ![](attachments/16713701/16843884.png)
 
-### 2.1 Name
+### 2.1 名称
 
-This is what the operation is called in the WSDL.
+这就是WSDL所称的行动。
 
-### 2.2 Microflow
+### 2.2 微流
 
-Defines which microflow will be executed when this webservice is called.
+定义当此网络服务被调用时将执行哪些微流。
 
-### 2.3 Documentation
+### 2.3 文件
 
-Describes the operation and is included in the WSDL.
+描述操作并包含在WSDL中。
 
-## 3 Parameters
+## 3 参数
 
 ![](attachments/16713701/16843879.png)
 
-### 3.1 Microflow Parameter
+### 3.1 微流参数
 
-Defines the name of the parameter in the microflow
+定义微流中参数的名称
 
 ### 3.2 Type
 
-Defines which type the parameter is, for example a List of Vehicle entities.
+定义参数的类型，例如车辆实体列表。
 
-### 3.3 Optional
+### 3.3 可选的
 
-Defines whether this parameter is optional in the webservice call.
+定义此参数在网络服务通话中是否可选.
 
-### 3.4 Nillable
+### 3.4 Nill
 
-Defines whether this parameter can have a nil value in the webservice call.
+定义此参数在网络服务调用中是否有零值。
 
-### 3.5 Operation Parameter
+### 3.5 操作参数
 
-Defines the name of the parameter in the webservice call. This is initially copied from the microflow parameter name but can be modified.
+定义网络服务通话中参数的名称。 这首先是从微流程参数名称复制的，但可以修改。
 
-### 3.6 Operation Object Name
+### 3.6 操作对象名称
 
-Is available when the parameter is a list, and can be used to name the object in the list.
+当参数是列表并且可用来命名列表中的对象。
 
 {{% alert type="info" %}}
-The CountCarsAndHp operation. It takes a non-optional list of Vehicle as a parameter which is called VehicleList and consists of objects called Vehicle. This information is based on the microflow and entity model but can be modified.
-{{% /alert %}}
+CountCarsAndHp 操作。 它以非可选的车辆清单作为参数，称为车辆清单，由称作车辆的物品组成。 这种信息基于微流和实体模型，但可以修改。
+{{% /报警 %}}
 
 ![](attachments/16713701/918221.png)
 
-The microflow attached to the CountCarsAndHp operation. It takes a list of objects of the entity Vehicle as input and returns an object that holds the number of cars and the total amount of horsepower of those cars.
+连接到 CountCarsAndHp 操作的微流。 它以实体车辆的物品清单作为输入物件，并返回持有这些车辆的汽车数目和总马力的物件。
 
-### 3.7 Exposed Attributes & Associations
+### 3.7 暴露属性 & 关联
 
-If you click 'Select...' in the parameter tab, you can select individual members of the entity that is being passed as a parameter. The toolbar buttons are available to help you quickly perform operations that would otherwise be laborious.
+如果您在参数选项卡中点击“选择...”，您可以选择正在传递的实体的个别成员作为参数。 工具栏按钮可用来帮助您快速执行否则会很费力的操作。
 
-| Collapse all     | Collapses the entire tree, so that only the root node remains visible                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Check all        | Checks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.   |
-| Uncheck all      | Unchecks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected. |
-| All optional     | Checks the Optional box on every expanded node and visible leaf node.                                                    |
-| All non-optional | Unchecks the Optional box on every expanded node and visible leaf node.                                                  |
-| All nillable     | Checks the Nillable box on every expanded node and visible leaf node.                                                    |
-| All non-nillable | Unchecks the Nillable box on every expanded node and visible leaf node.                                                  |
+| 折叠所有   | 折叠整个树木，只有根节点仍然可见                      |
+| ------ | ------------------------------------- |
+| 全选     | 检查每个扩展节点和可见叶节点旁边的方框。 折叠节点及其子节点不受影响。   |
+| 取消全选   | 取消选中每个扩展节点和可见叶节点旁边的盒子。 折叠节点及其子节点不受影响。 |
+| 所有可选的  | 检查每个扩展节点和可见叶节点的可选框。                   |
+| 所有非可选的 | 取消对每个扩展节点和可见叶节点的选中框。                  |
+| 所有可知的  | 检查每个扩展节点和可见叶节点上的可嵌入框。                 |
+| 所有不可用  | 取消对每个扩展节点和可见叶节点的可疑复选框。                |
 
 ![](attachments/16713701/16843878.png)
 
-Here you can select which members of the entity can be passed and/or are optional or nillable, as well as set their names. Note that checking Optional or Nillable on the root element has no effect; you should set these values in the operation editor.
+您可以在这里选择实体的哪些成员可以通过和/或是可选的或是可归纳的，并设置他们的名称。 请注意在根元素上勾选可选或Nilla没有任何效果；您应该在操作编辑器中设置这些值。
 
 {{% alert type="info" %}}
 
-The order of XML elements in the WSDL does not by definition reflect the order of attributes in entities in the domain model. The order of members in the dialog is the same as the order of elements in the WSDL (and can be different from the order of attributes in entities). This gives a better overview of the WSDL contract that is exposed from Mendix. The structure you see in the members dialog reflects the structure in the WSDL.
+WSDL中的 XML 元素的顺序按定义并不反映域模型中实体的属性顺序。 对话框中成员的顺序与 WSDL 中元素的顺序相同(并且可以不同于实体中属性的顺序)。 这更好地概述了门迪克斯所接触的WSDL合同。 您在成员对话框中看到的结构反映了WSDL中的结构。
 
-New attributes from entities will appear as new elements _below_ members that are already in the WSDL. This will prevent breaking the WSDL contract, because if you insert new XML elements inside a XML _Sequence_ container, existing web service consumers that strictly validate against the WSDL may break.
+New attributes from entities will appear as new elements _below_ members that are already in the WSDL. 这将防止中断WSDL合同，因为如果您在XML中插入新的 XML 元素 _序列_ 容器， 严格对照WSDL验证的现有网络服务消费者可能会中断。
 
-{{% /alert %}}{{% alert type="info" %}}
+{{% /警示%}}!{% alert type="info" %}}
 
-If you expose the Password (hashed string) attribute of a System.User entity (or a specialization thereof), a warning appears that there is a risk that someone does a brute-force attack to obtain the original plain-text password. The risk is considerably less when you use a strong hashing algorithm (preferably 'BCrypt'). The hashing algorithm can be set in the app settings.
+如果您暴露了系统的密码(字符串) 属性。 客户实体(或其专业化) 警告似乎有人进行野蛮攻击以获取原始纯文本密码的危险。 当您使用一个强大的散列算法(最好是 'BCrypt') 时，风险要小得多。 哈希算法可以在应用设置中设置。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 4 Return Type
+## 4 退货类型
 
-This section pertains to the return type of the microflow and how it is transformed back to XML.
+本节关系到微流的返回类型以及它如何转换到XML。
 
-### 4.1 Type
+### 4.1 类型
 
-Defines what kind of object will be returned by the microflow. If the returned type is a complex type (as in, something from your entity model) you can use the Members button to select which members will be returned in the same way as parameters.
+定义微流返回哪种对象。 如果返回的类型是复杂的类型(如： 从您的实体模式中可以使用成员按钮选择返回的成员与参数相同的方式。
 
-### 4.2 Name
+### 4.2 名称
 
-The name of the return type. This determines the output element name in the XML that results from a webservice call.
+返回类型的名称。 这决定来自网络服务通话的 XML 输出元素名称。
 
-### 4.3 Optional
+### 4.3 任择议定书
 
-This determines if the element in the XML can be left out if the return value is empty.
+这决定如果返回值为空，是否可以将XML中的元素留空。
 
-### 4.4 Nillable
+### 4.4 Nill
 
-This determines if the element in the XML is sent as nil if the return value is empty.
+这决定如果返回值为空则是否将XML中的元素作为零发送。
 
-Optional and Nillable cannot both be checked.
+不能同时检查可选和 Nille。
 
 ![](attachments/16713701/16843880.png)
 
-Here, you can see an optional Order entity set as the return type of the operation ReturnsOrder.
+在这里，你可以看到一个可选的订单实体设置为返回命令的返回类型。
