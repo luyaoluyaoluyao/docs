@@ -1,45 +1,47 @@
 ---
-title: "Export App Package"
-parent: "file-menu"
-menu_order: 30
-tags:
-  - "studio pro"
-  - "export app"
-  - "export app package"
+title: "Export an App Package"
+parent: "dialogs"
 ---
 
 ## 1 Introduction
-You can export an app package (*.mpk*) from Mendix Studio Pro for backup purposes or to share it with other Mendix developers. This is useful if you want to give someone the entire app, or if you need to provide a test app when submitting a ticket.
+With this dialog box, you can export a Mendix project package (*.mpk*) from the Mendix Modeler. You can export a project package for backup purposes or to share it with other Mendix developers. This is useful if you want to give someone the entire application, or if you need to provide a test app when submitting a ticket.
 
-App packages can be imported again into a new app using the [Import App Package](import-project-package-dialog).
+To open the **Export Project Package** dialog box, open your project in the Mendix Modeler and then go to **File > Export Project Package**.
 
-To export the package, open the **File** menu > **Export App Package** and select the relevant options in the **Export App Package** dialog box:
+![](attachments/export-a-project-package/export-project-package-dialog.png)
 
-![Export App Package Dialog Window](attachments/file-menu/export-project-package.png)
+## 2 Package Destination
 
- For more information on what options you can select, see the sections below.
-
-## 2 Destination
-
-You can specify the folder to export the package to. The default location is a folder named *packages* inside the app directory.
+In the **Package destination** field, enter the location of the package file. The default location is a folder named **packages** inside the project directory.
 
 ## 3 Export Data
 
-Mendix app packages can be exported to a Mendix package file (*.mpk*).  You can choose to export the built-in deployment database and uploaded files as well, or export with no data. You can choose one of the following options:
+You can export a Mendix project package without data or with a database snapshot included. If you include a database snapshot, you need to select whether you include an existing snapshot or you include a new snapshot.
 
-* **No data** – the package will be exported without data.
+### 3.1 No Data
 
-* **Existing snapshot** – this option will include the existing database snapshot in the export app package
+If you select **No data**, the project package will be exported without data included. After you click **Export**, the package will be exported to the selected package destination.
 
-    {{% alert type="info" %}}This option is only available when a snapshot has already been created. If necessary, you can create a snapshot via **Version Control** > **Add Snapshot of Data**.
-    {{% /alert %}}
+### 3.2 Existing Snapshot
 
-* **New snapshot from current database** – will create a new snapshot from the database and include it in the export
+If you select **Existing snapshot**, the existing database snapshot will be included in the export. After you click **Export**, the package with the existing snapshot will be exported to the selected package destination.
 
-    {{% alert type="info" %}}This option is available after you run the app locally at least once, because a local database will be created when running the app for the first time.
-    {{% /alert %}}
+{{% alert type="info" %}}
+
+This option is only available when a snapshot is already present. Snapshots can be created via **Project** > **More Versioning** > **Add Snapshot of Data**.
+
+{{% /alert %}}
+
+### 3.3 New Snapshot from Current Database
+
+If you select **New snapshot from current database**, a new snapshot will be created from the database and included in the export. After you click **Export**, the package with the new snapshot database will be exported to the selected package destination.
+
+{{% alert type="info" %}}
+
+This option becomes available after you run the app locally at least once, because a local database will be created when running the app for the first time.
+
+{{% /alert %}}
 
 ## 4 Read More
 
-* [Import App Package](import-project-package-dialog)
-* [Version Control Menu](version-control-menu)
+* [Import Project Package](import-project-package-dialog)
