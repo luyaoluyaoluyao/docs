@@ -1,17 +1,14 @@
 ---
-title: "Line Break (Document Template)"
+title: "Line break (Document Template)"
 parent: "document-templates"
-tags:
-  - "studio pro"
 aliases:
-  - /refguide/Line+Break+(document+template).html
-  - /refguide/line-break-(document-template).html
+  - /refguide7/Line+Break+(document+template).html
+  - /refguide7/line-break-(document-template).html
 ---
 
-## 1 Introduction
 
-A new line will be started at the insertion of a line break.
+A new line will be started at the insertion of a Line Break.
 
-## 2 Common Properties
+## Common Properties
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
