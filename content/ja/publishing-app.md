@@ -1,110 +1,94 @@
 ---
-title: "Previewing & Publishing Your App"
-description: "Describes previewing and publishing processes in the Mendix Studio."
-menu_order: 60
+title: "プレビュー中 & アプリを公開"
+description: "Mendix Studio でのプロセスのプレビューと公開について説明します。"
+menu_order: 55
 tags:
-  - "studio"
-  - "deployment"
-  - "publishing"
-  - "app publishing"
-  - "deploy"
-  - "deploying"
-  - "publish"
-  - "preview"
+  - "スタジオ"
+  - "デプロイメント"
+  - "公開中"
+  - "アプリの公開"
+  - "デプロイする"
+  - "デプロイ中"
+  - "公開"
+  - "プレビュー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In Mendix Studio, the **Preview** allows you to experience how your app will look like for end-users and business stakeholders when it is published. In this way, you will use the preview mode to verify your own changes while developing your app. This is an opportunity to test your app logic, design, and behavior: since end-users cannot access the preview environment, you can fill your app with various test data. Also, the preview allows you to switch between different user roles in your app (when [security](settings-security) is enable) and test your app from the perspective of each role. For more information on testing your user roles, see [Demo Users](settings-security#demo-users) in *Security, Roles & Permissions*.
+Mendix Studio では、 **プレビュー** を使用すると、アプリケーションがビジネスステークホルダーやエンドユーザーなどの他のユーザーにどのように見えるかを確認できます。 このようにして、プレビューモードを使用して、アプリの開発中に独自の変更を確認します。
 
-**Publishing** means getting your app up and running in a cloud environment to make it available for the end-users. When the app is ready to be shared with end-users, you need to publish it. At a later stage, when you add new features and improve your app, you need to publish your app to make these changes available to your users.
+パブリッシングとは、アプリをクラウド環境で起動してエンドユーザーが利用できるようにすることです。
 
-## 2 Previewing Your App
+## 2 アプリをプレビュー中
 
-The app preview shows you what your app will look like for end-users. Previewing your app does not change the published app. Also, the preview environment has a separate database from the published app, that means you can create your own test data without polluting the data in the published application.
+アプリのプレビューには、公開後のアプリの見た目が表示されます。
 
-To preview your app, click **Preview** in the top-right corner of Studio.
+アプリをプレビューするには、Studio の右上隅にある **プレビュー** をクリックします。
 
 ![](attachments/publishing-app/preview.jpg)
 
-Your app will now get built and launched in a preview environment, and will appear in your browser window so you can interact with the app.
+アプリはプレビュー環境でビルドされ起動されます。 ブラウザウィンドウに表示されるので、アプリとやり取りできます。
 
-You can preview your app in the Phone, Tablet, and Responsive (Desktop) mode. Click the corresponding icon to change the mode.
+携帯電話、タブレット、レスポンシブ(デスクトップ)モードでアプリをプレビューできます。 対応するアイコンをクリックしてモードを変更します。
 
-![Preview Modes](attachments/publishing-app/preview-modes.jpg)
+![](attachments/publishing-app/preview-modes.jpg)
 
-To exit the preview environment, click **Close Preview** in the top-right corner of the screen.
+プレビュー環境を終了するには、画面右上隅の **** をクリックします。
 
-![Close Preview](attachments/publishing-app/close-preview.jpg)
+![](attachments/publishing-app/close-preview.jpg)
 
-You cannot preview your app if it has [consistency errors](consistency-errors). You will be notified if there are, and you need to fix errors first to preview your app.
+[一貫性エラー](consistency-errors) がある場合、アプリをプレビューすることはできません。 この場合は通知されます。アプリをプレビューするには、まずエラーを修正する必要があります。
 
-If your app has security enabled, in the preview mode you will be able to check how your app looks like for different user roles. For more information on how to test different user roles, see the [Testing Your Roles](settings-security#testing-your-roles) section in *Security, Roles & Permissions*.
+アプリをプレビューしても、公開されたアプリは変更されません。 また、プレビュー環境には、公開されたアプリとは別のデータベースがあります。 つまり、公開されたアプリケーションのデータを汚染することなく、独自のテストデータを作成することができます。
+
+アプリのセキュリティが有効になっている場合、プレビューモードでは、アプリがさまざまなユーザーロールに対してどのように見えるかを確認することができます。 さまざまなユーザーロールをテストする方法の詳細については、 [あなたのロールのテスト](settings-security#testing-your-roles) セクションを参照してください。 *セキュリティ、ロール & パーミッション*.
 
 {{% alert type="info" %}}
 
-The app preview is your personal preview of the app. Hence, only users logged into Studio can preview the app, and the preview app will no longer be running when you exit Studio.
+アプリのプレビューは、アプリの個人プレビューです。 そのため、Studio にログインしているユーザーだけがアプリをプレビューでき、Studio を終了するとプレビューアプリは実行されなくなります。
 
 {{% /alert %}}
 
-## 3 Publishing Your App {#publishing-your-app}
+## 3つのアプリを公開 {#publishing-your-app}
 
-Published app is the real app that you and your end-users will access and use. When you publish your app, you deploy it to a cloud environment. A cloud environment is a location in the cloud that can host your app, and deployment is a process to put the latest version of your app in that location. For more technical information, see [Environments](/developerportal/deploy/environments) in the *Developer Portal Guide*.
+{{% alert type="warning" %}}
 
-To publish your application, follow these steps:
+Mendixバージョン7のアプリでは、Studioで公開ができなくなりました。 Studio Proでアプリを公開するか、Mendixのバージョン8以上にアプリをアップグレードすることができます。 詳細については、 [Desktop Modelerバージョン7からStudio Pro 8への移動](/refguide8/moving-from-7-to-8) を参照してください。
 
-1. Click **Publish** in the top menu bar of Studio.
-2.  In the **Publish your app** pop-up message, click the **Publish** button to push the latest changes from Studio to the published app or to publish the app for the first time.
+{{% /alert %}}
 
-    ![Publishing and Updating Your App](attachments/publishing-app/publish-button.jpg)
+アプリケーションを公開するときは、クラウド環境にデプロイします。 クラウド環境は、あなたのアプリをホストできるクラウド上の場所です。 デプロイとは、アプリの最新バージョンをその場所に配置するプロセスです。 技術的な情報については、 [Developer Portal Guide](/developerportal/deploy/environments) の *環境* を参照してください。
 
-Your app is published and can be viewed in the browser or on a mobile device. For more information on how to view your app, see the [Viewing Your App](#viewing-your-app) section below.
+デフォルトでは、Mendix Studioで作成されたすべてのアプリは無料アプリです。 Free Appは、Mendix Cloudの完全なデプロイ環境であり、いくつかの制限があります。 無料アプリをライセンス付きアプリにアップグレードできます。 無料アプリとライセンスされたアプリの主な違いは以下の表に記載されています。
 
-By default all apps created in Mendix Studio are Free Apps. A Free App is a complete deployment environment in the Mendix Cloud with some limitations. You can upgrade your Free App to a licensed app. The main differences between a Free App and a licensed app are described in the table below:
+|             | 無料アプリ                                                                                   | ライセンスされたアプリ                            |
+| ----------- | --------------------------------------------------------------------------------------- | -------------------------------------- |
+| **ユーザー数**   | 無制限のユーザー。                                                                               | 料金プランによります。                            |
+| **ストレージ**   | データの100MBとファイルストレージ容量の100MB。                                                            | 料金プランによります。                            |
+| **環境**      | Mendix クラウドで単一の環境。                                                                      | クラウド内のノードは、例えば、本番環境、受容環境、テスト環境を持っています。 |
+| **スリープモード** | 1時間程度の操作が行われないとスリープモードに入り、ユーザーがアクセスしたときに自動的に再開されます。 アプリがスリープモードになっている間は、すべてのデータが保持されます。 | スリープモードがありません。                         |
 
-|                     | Free App                                                                                                                                                      | Licensed App                                                                                           |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **Number of Users** | Unlimited users.                                                                                                                                              | Depends on your pricing plan.                                                                          |
-| **Storage**         | 100MB of data and 100MB of file storage space.                                                                                                                | Depends on your pricing plan.                                                                          |
-| **Environments**    | Single environment in the Mendix Cloud.                                                                                                                       | A node in the cloud which has one or more environments, for example, production, acceptance, and test. |
-| **Sleep Mode**      | Goes into Sleep Mode after an hour of inactivity and automatically resumes when a user accesses it. All your data is retained while the app is in Sleep Mode. | Does not have a Sleep Mode.                                                                            |
+## 4つのアプリを表示
 
-The Mendix Cloud is the default deployment option when you get started with the Mendix Platform. When you create an app, you can choose dedicated app templates that use other environments, such as SAP BTP. For more technical information, see [Deployment](/developerportal/deploy) in the *Developer Portal Guide*.
+アプリを更新すると、ブラウザまたはモバイルデバイスで即座に表示できます。
 
-## 4 Viewing Your App {#viewing-your-app}
+### 4.1 ブラウザでアプリを表示する
 
-After you have published your app, you are able to instantly view it in your browser or on a mobile device. You can also invite users to your app. For more information on user roles and managing users, see the [Managing App Users](settings-security#managing-app-users) section in *Security, Roles & Permissions*.
+現在選択されているビューモード(電話、タブレット、レスポンシブ)のブラウザでアプリを表示するには **アプリを表示する** をクリックします。 **アプリが実行されている** ダイアログウィンドウです。
 
-### 4.1 Viewing Your App in a Browser
+別のプレビューモードを選択するには、 **アプリを表示** ボタンのドロップダウンメニューをクリックします。![プレビューモード](attachments/publishing-app/view-app-drop-down.png)
 
-To view your app in the browser in the currently selected view mode (Phone, Tablet, or Responsive), do the following:
+### 4.2 モバイルデバイスでアプリを表示する
 
-1. Click **Publish** button in the top-right corner.
-2. In the **Publish your app** pop-up message, click **View current app**.
-3. Click the link under **View the published app here**:
+モバイルデバイスでアプリを表示するには、以下の手順に従ってください。
 
-    ![View in Browser](attachments/publishing-app/view-in-browser.jpg)
+1.  モバイルデバイスで **ビュー**をクリックします。
 
-Your published app is opened in the browser.
+    ![モバイル端末で表示オプション](attachments/publishing-app/view-on-mobile-device.png)
 
-### 4.2 Viewing your App on a Mobile Device
+2. モバイルデバイスでQRコードをスキャンするか、モバイルデバイスでリンクを開きます。
 
-To view your app on a mobile device, follow these steps:
+## 5 続きを読む
 
-1.  Click **Publish** button in the top-right corner.
-
-2. In the **Publish your app** pop-up message, click **View current app**:
-
-    ![View Current App](attachments/publishing-app/view-current-app.jpg)
-
-3. Scan the QR code to view your app on your mobile device:
-
-    ![View on Mobile Device Option](attachments/publishing-app/view-on-mobile.jpg)
-
-Your app is opened on your mobile device.
-
-## 5 Read More
-
-* [Checks](checks)
-* [Consistency Errors](consistency-errors)
-* [Security](settings-security)
+* [チェック](チェック)
+* [整合性エラー](一貫性エラー)
