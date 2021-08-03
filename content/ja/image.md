@@ -1,57 +1,129 @@
 ---
 title: "画像"
 parent: "コモンウィジェット"
+menu_order: 20
+tags:
+  - "studio pro"
+  - "画像"
+  - "画像ウィジェット"
+aliases:
+  - /refguide8/image-property.html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image.pdf) をクリックしてください。
+{{% /alert %}}
 
-イメージ ウィジェットを使用して、定義済みのイメージをページ、レイアウト、スニペットに表示できます。
+## 1つの紹介
 
-{{% alert type="success" %}}
+イメージ ウィジェットは、ページ、レイアウト、スニペットに静的なイメージを表示するために使用できます。
 
-データに基づいて異なる画像を動的に表示したい場合は、 [画像ビューアー](image-viewer) をご覧ください。
+たとえば、お客様の詳細が開くページをクリックするイメージを構成できます。
+
+![画像の例](attachments/common-widgets/image-example.png)
+
+{{% alert type="info" %}}
+
+データに基づいて異なる画像を動的に表示したい場合は、ページに [画像ビューアー](image-viewer) を追加する必要があります。
 
 {{% /alert %}}
 
-## 共通のプロパティ
+## 2つのプロパティ
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+以下の画像では、イメージ プロパティの例を示します。
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+{{% image_container width="300" %}}![画像のプロパティ](attachments/common-widgets/image-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+イメージ プロパティは以下のセクションで構成されています。
 
-## イベントのプロパティ
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [イベント](イベント)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-{{% snippet file="refguide7/On+Click+Event+Action.md" %}}
+### 2.1 共通セクション {#common}
 
-## 一般プロパティ
+{{% snippet file="refguide8/comon-section-link.md" %}}
 
-### 画像
+### 2.2 デザインプロパティセクション {#design-properties}
 
-このウィジェットが示す実際の画像。
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-[画像](images) を参照してください。
+### 2.3 イベントセクション {#events}
 
-{{% snippet file="refguide7/Image+Width+Unit.md" %}}
+イベント セクションとそのプロパティの詳細については、 [[イベント & イベント セクションをクリック] を参照してください。](on-click-event).
 
-_デフォルト値_: 自動
+### 2.4 一般セクション {#general}
 
-{{% snippet file="refguide7/Image+Width.md" %}}
+#### 2.4.1 画像
 
-_デフォルト値_: 該当しない
+このウィジェットに表示されるファイル名 画像とサポートされているフォーマットをいつ使用するかについての詳細は、 [イメージ](images) を参照してください。
 
-{{% snippet file="refguide7/Image+Height+Unit.md" %}}
+#### 2.4.2 Width Unit
 
-_デフォルト値_: 自動
+画像の幅。 このプロパティの可能な値は以下の表で説明されています:
 
-{{% snippet file="refguide7/Image+Height.md" %}}
+| 値                 | 定義                                                                           |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Auto  *(default)* | 指定された画像の幅が使用されます。                                                            |
+| Pixels            | 幅はピクセル数で指定されています 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。 |
+| 割合                | 幅は元の幅のパーセンテージで指定されます。 画像が伸びている場合、元の幅よりも大きくすることができます。                         |
 
-_デフォルト値_: 該当しない
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-{{% snippet file="refguide7/Image+Responsive.md" %}}
+#### 2.4.3 Width
 
-### 表示プロパティ
+画像の幅をピクセルまたはパーセンテージで指定します。 このオプションは、上記の **幅単位** で **ピクセル** または **パーセント** が選択されている場合のみ表示されます。
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+デフォルト: *適用できません*
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+#### 2.4.4 高さの単位
+
+画像の高さ このプロパティの可能な値は以下の表で説明されています:
+
+| 値                 | 定義                                                                           |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Auto  *(default)* | 指定された画像の高さが使用されます。                                                           |
+| Pixels            | 高さはピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。 |
+| 割合                | 高さは元の高さのパーセンテージで指定されます。 画像が伸びている場合は、元の高さよりも大きくすることができます。                     |
+
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+#### 高さ 2.4.5
+
+画像の幅をピクセルまたはパーセンテージで指定します。 このオプションは、上記の **幅単位** で **ピクセル** または **パーセント** が選択されている場合のみ表示されます。
+
+デフォルト: *適用できません*
+
+#### 2.4.6 レスポンシブ
+
+このプロパティは、画像の拡大率に影響します。 値が「はい」の場合、画像は元のサイズより大きくなることはありません。 それは小さくなることができます。 値が「いいえ」の場合、画像は元のサイズより大きくなり、小さくなります。
+
+デフォルト: *はい*
+
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+### 2.5 可視性 セクション {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 画像ビューアへの変換
+
+動的なデータを表示できる画像ビューアに変換することができます。 画像ビューアとそのプロパティの詳細については、 [画像ビューアー](image-viewer) を参照してください。
+
+イメージ ウィジェットをイメージ ビューアーに変換するには、次の操作を行います。
+
+1. ページでイメージ ウィジェットを選択し、右クリックします。
+2. アクションのリストから、 **画像ビューアに変換** を選択します。
+
+イメージ ウィジェットはイメージ ビューアーに変換され、設定できます。
+
+## 4 続きを読む
+
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
+
+
