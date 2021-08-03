@@ -1,106 +1,78 @@
 ---
-title: "Uniqueness Constraint Migration"
-parent: "data-storage"
+title: "异常性迁移"
+parent: "数据存储"
 menu_order: 30
-tags:
-  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The uniqueness validation constraint is usually handled in the database. This enables stateless clustering, a higher number of concurrent users, and above load applications to be handled efficiently.
+为了方便应用程序的开发和部署改进，Mendix 7之前在 Mendix Runtime 中处理了数据验证。 这意味着旧数据可以保持不变，即使更新的域模型会增加更严格的验证规则。
 
-The following rules can be validated in the database:
+Mendix 7的重点是无国籍集群、更多的并行用户以及负载以上的应用程序。 出于效率原因，一些数据验证将由应用程序数据库处理。 这意味着数据库中的数据将始终遵守您的验证规则。 即使您在创建数据后使这些验证更加严格。
 
-* Unique rules on entity attributes
-* The *many side* of one-to-many associations, and *both sides* of one-to-one associations
+本文件概述了这些变化对您项目的影响。 我们还将讨论当您对您的域模型验证进行更改时如何迁移现有数据。 最后，即使您没有更改您的应用程序，您已经拥有的数据可能与您当前的验证规则不兼容。 本文档将讨论如何确保您现有的数据符合您现有的项目模型，以便您可以在Mendix 7中部署数据库限制。
 
-However, it is also possible to do data validation in the runtime and to add uniqueness validation to the database later, when it already contains data. If you apply stricter rules at a later date, the data in your database will have to comply with your new validation rules.
+以下规则也将在数据库中验证Mendix 7：
 
-This document discusses:
+* 关于实体属性的唯一规则
+* 一对多的社团的“多方”和一对一社团的两面
 
-* the impact on your projects of adding a database uniqueness constraint
-* how you can migrate your existing data when you make changes to your domain model validations
-* how you can ensure your existing data, which may be incompatible with your current validation rules, complies with your existing project model so that you can deploy in Mendix with database constraints
+迁移工具包可用来帮助您修复数据库中数据与模型中定义的验证规则之间的任何不一致之处。
 
-A migration toolkit is available to help you fix any inconsistencies between data in your database and validation rules defined in your model.
+## 2 个唯一属性
 
-For more information about the setting for *Uniqueness Validation*, see [Project Settings](project-settings).
-
-## 2 Unique Attributes
-
-### 2.1 Effect of Runtime Uniqueness Validation
-
-If your Mendix app uses runtime validation, you can change an entity and add a unique validation rule on an attribute without affecting the current data. For example, you could indicate in your domain model that an insurance number should be unique for a person in the database because you wanted to use it to uniquely identify someone.
+在前几个版本的 Mendix 中，您可以更改一个实体，并在属性上添加一个独特的验证规则，而不影响当前数据。 例如， 您可以在您的域模型中指明，一个保险编号在数据库中应该是独特的，因为您想要使用它来独特地识别某人。
 
 ![](attachments/datastorage/attr-uniq-validation-rule.PNG)
 
-Applying the validation rule does not affect people that were already stored in the database before you deployed the new version of the app with the stricter data model. The insurance number is checked for uniqueness only for new people compared to existing people.
+应用验证规则并不影响在您部署一个更严格的数据模型的新版本应用程序之前已经存储在数据库中的人员。 只有与其他人相比，新的人才能检查保险号码的独特性。
 
-The advantage of this is that the stricter model does not affect the current data. The disadvantage is that it is easy to make wrong assumptions about the uniqueness of data in the database. For example, logic in a microflow could depend on unique insurance numbers, and the presence of old data with duplicate insurance numbers could easily be overlooked.
+这样做的好处是，更严格的模型不影响目前的数据。 但缺点是很容易对数据库中独特的数据作出错误和错误的假设。 例如，微流中的逻辑可能取决于独特的保险号码。 而且存在保险编号重复的旧数据很容易被忽略。
 
-### 2.2 Current Situation for Uniqueness Validation
-
-Using runtime validation for uniqueness has been deprecated. However, until it is removed, we are providing a Runtime setting that, if set to **Database**, will enforce the unique validation rules on a database level.
+在未来版Mendix 7中，我们将不再允许这种情况。 作为一个过渡，我们正在提供一个运行时间设置，如果设置为 **数据库**， 将在数据库一级强制执行唯一的验证规则。
 
 ![](attachments/datastorage/uniqueness-validation-setting.PNG)
 
-We highly recommend setting this radio button to **Database**. This will prepare your app for future versions of Mendix. If the radio button remains set to **Runtime**, a deprecation warning will appear:
+我们强烈建议将此无线电按钮设置为 **数据库**。 这将为未来版本的 Mendix 准备您的应用。 如果无线电按钮仍被设置为 **Runtime**，则将出现一个废弃警告：
 
 ![](attachments/datastorage/deprecation-warning.PNG)
 
-### 2.3 Effect of Database Uniqueness Validation
+选择 **数据库** 的效果是，当您部署了一个具有唯一验证规则的模型属性(现有规则或新规则) 将检查受影响实体的所有现有对象的属性。 如果有多人拥有相同的保险号码，如果您从Modeler部署，部署时将出现错误。 如果您在 Mendix 云中部署此应用，应用将不会启动，错误将被写入日志。
 
-The effect of selecting **Database** is that when you deploy a model with unique validation rules on attributes (existing rules or new rules), all the existing objects for the affected entity will be checked for the uniqueness of the attribute. If there are multiple people with the same insurance number then:
+![](attachments/datastorage/modeler-startup-error.PNG)
 
-* if you deploy the app from Studio Pro, an error will be shown on deployment
-* if you deploy the app from a deployment package (for example in the Mendix cloud), the app will not start and errors will be written to the log
+然而，在启用数据库唯一性验证选项后，不允许在专业化实体中定义关于专业化属性的独特验证规则。
 
-![](attachments/datastorage/startup-error.png)
-
-### 2.4 Limitations on Using Database Uniqueness Validation
-
-There are limitations on using database uniqueness validation if you are using an entity which is a specialization of another (generalization) entity.
-
-With the database uniqueness validation option enabled, you cannot define the unique validation rule in the specialization entity for attributes which come from the generalization of this entity. If you do this, a consistency error is reported, as in this image:
+对于在专业化中定义的唯一验证规则的任何专门属性，都报告了适当的一致性错误，如在这张图象中：
 
 ![](attachments/datastorage/unique-validation-rule-unresolved.png)
 
-You can, however, define a unique validation rule for attributes which are added in the specialized entity.
-
----
-
-For example, you have two entities:
-
-* a general entity **Employee** with the attribute **EmployeeNumber**
-* a specialized entity **SalesEmployee**, based on *Employee* with the attribute **EmailAddress**.
-
-Each *SalesEmployee* will have an *EmployeeNumber* as that is in the *Employee* entity. However, you cannot set a validation rule in the *SalesEmployee* entity to make *EmployeeNumber* unique.
-
-You can, however, set a validation rule to make *EmailAddress* unique, as that attribute only appears in the *SalesEmployee* entity.
-
----
-
-You can resolve this issue simply, by moving unique validation rules of these attributes to the generalization entity where the attribute it defined.
+这些独特的验证错误相关，可以简单地通过将专门属性的独特验证规则移至一般化实体来解决。
 
 ![](attachments/datastorage/unique-validation-rule-resolved.png)
 
-## 3 Unique Associations
+## 3 独特协会
 
-A comparable situation occurs for associations. Consider the following example:
+协会的情况也是类似的。 请考虑以下示例：
 
 ![](attachments/datastorage/one-to-many-assoc.PNG)
 
-Initially, the domain model contains a one-to-many association between **Address** and **Person**. This means that a Person can have multiple addresses. After some time, the data structure is changed, because logic has been added to the app that only allows one Address per Person. Proper data modeling prescribes changing the association into a one-to-one association. New data will reflect the updated association properly.
+起初，域模型包含 **地址** 和 **人员** 之间的一对一的关联。 这意味着一个人可以有多个地址。 一段时间后，数据结构会改变，因为逻辑已被添加到应用程序中，每个人只允许一个地址。 适当的数据建模指将社团变成一对一社团。 新数据将正确反映更新的关联。
 
 ![](attachments/datastorage/one-to-one-assoc.PNG)
 
-Existing association data in the database must also adhere to the updated one-to-one association. This is checked at deployment. If a person has multiple addresses, the model will not deploy, and an error will be given in Studio Pro or in the logs of deployment in the (Mendix) cloud:
+从Mendix 7.3，我们强制要求数据库中现有的关联数据也符合更新的一对一关联。 在部署时也要检查这一点。 如果一个人有多个地址，模型将不会部署， 并且一个错误将出现在Modeler或(Mendix)的部署日志中：
 
-![](attachments/datastorage/startup-error-assoc.png)
+![](attachments/datastorage/modeler-startup-error-assoc.PNG)
 
-We enforce this new stricter association on existing data in order to avoid easily overlooked mistakes that result in returning only a single address per person (where in fact they still have multiple addresses in the database). The Mendix Platform consistently returned the same address each run, but other addresses would be dormant entries in the database.
+我们对现有数据实施这种新的更严格的联系，以避免轻易被忽略的错误，这种错误只能使每个人返回一个地址（事实上，每个人在数据库中仍然有多个地址）。 Mendix Platform 每次运行时始终返回相同的地址，但其他地址将是数据库中隐藏条目。
 
-## 4 Help with Migration
+## 4 个移徙帮助
 
-To help with migrating your old data, Mendix has developed a migration toolkit. For details on this, please contact [Mendix Support](http://support.mendix.com).
+为了帮助迁移您的旧数据，Mendix 为 Mendix 6 和 Mendix 7 开发了一个迁移工具包。
+
+{{% alert type="warning" %}}
+迁移工具包仅用于使用 PostgreSQL 数据库的应用。
+{{% /报警 %}}
+
+欲了解更多详情，请联系 [Mendix Support](http://support.mendix.com)。
