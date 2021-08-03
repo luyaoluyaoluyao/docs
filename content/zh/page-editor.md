@@ -14,11 +14,12 @@ Pages define the end-user interface of a Mendix application. Pages are created a
 
 To view the **Pages** of your app in Mendix Studio, click the **Pages** icon in the left menu bar of Studio.
 
-![](attachments/page-editor/pages-icon.png)
+{{% image_container width="300" %}}![](attachments/page-editor/pages-icon.png)
+{{% /image_container %}}
 
 {{% alert type="warning" %}}
 
-Studio supports apps based on the Atlas UI framework only. For details on Atlas UI, see [Atlas UI](/howto/front-end/atlas-ui).
+Studio supports apps based on the Atlas UI framework only. For details on Atlas UI, see [Atlas UI](/howto8/front-end/atlas-ui).
 
 {{% /alert %}}
 
@@ -36,22 +37,11 @@ The diagram below explains function of layouts, templates, and widgets:
 
 ![](attachments/page-editor/page-structure.png)
 
-All elements described above (layouts, templates, widgets, and building blocks) are powered by Atlas UI. For more information on what Atlas UI is, see [Atlas UI](/howto/front-end/atlas-ui).
+All elements described above (layouts, templates, widgets, and building blocks) are powered by Atlas UI. For more information on what Atlas UI is, see [Atlas UI](/howto8/front-end/atlas-ui).
 
 ## 2 Performing Basic Functions {#page-editor-basic-functions}
 
-You can perform the following basic functions when working on pages:
-
-* [Open a page](#opening-page)
-* [Create a page](#creating-new-page)
-* [Duplicate a page](#duplicating)
-* [Copy and paste a page](#copy-pasting)
-* [Delete a page](#deleting-page)
-* [Add elements on a page](#adding-elements)
-* [View element properties](#viewing-elements)
-* [Delete elements](#deleting-elements)
-
-### 2.1 Opening Pages {#opening-page}
+### 2.1 Opening Pages
 
 After opening Studio, it automatically opens the home page of the app.
 
@@ -61,6 +51,9 @@ To open a page in Studio, do the following:
 
 2.  In the displayed list of app pages, select the one you want to open and click it.
 
+    {{% image_container width="400" %}}![](attachments/page-editor/opening-a-page.png)
+    {{% /image_container %}}
+
 The selected page is opened.
 
 ### 2.2 Creating a New Page {#creating-new-page}
@@ -69,11 +62,10 @@ To create a new page in Studio, do the following:
 
 1. Click the **Pages** icon.
 
-2.  Select the module you would like to add a new page to and click the plus icon next to this module.
+2.  Click **New** in the top right corner of the displayed side panel.
 
-    ![](attachments/page-editor/new-page.png)
-
-    For more information on what modules are, see [Domain Model](domain-models).
+    {{% image_container width="400" %}}![](attachments/page-editor/new-page.png)
+    {{% /image_container %}}
 
 3.  In the **Create new page** dialog box, fill out the title of the page, select a layout and a page template.
 
@@ -83,7 +75,7 @@ To create a new page in Studio, do the following:
 
 A new page is created.
 
-### 2.3 Duplicating a Page {#duplicating}
+### 2.3 Duplicating a Page
 
 To duplicate an existing page, do the following:
 
@@ -91,11 +83,13 @@ To duplicate an existing page, do the following:
 
 2. In the side panel, click the ellipsis icon and select **Duplicate** in the drop-down menu:
 
-    ![Duplicate Page](attachments/page-editor/duplicate-page.png)
+    {{% image_container width="400" %}}
+![Duplicate Page](attachments/page-editor/duplicate-page.png)
+{{% /image_container %}}
 
 The page is duplicated.
 
-### 2.4 Copying and Pasting a Page {#copy-pasting}
+### 2.4 Copying and Pasting a Page
 
 To copy and paste a page, do the following:
 
@@ -103,27 +97,31 @@ To copy and paste a page, do the following:
 
 2.  In the side panel, click the ellipsis icon and select **Copy to clipboard** in the drop-down menu:
 
-    ![Copying a Page](attachments/page-editor/copy-page.png)
+    {{% image_container width="400" %}}
+![Copying a Page](attachments/page-editor/copy-page.png)
+{{% /image_container %}}
 
 3. Open the Studio app where you want to paste the page and press <kbd>Ctrl</kbd> +<kbd>V</kbd> or <kbd>Cmd</kbd> +<kbd>V</kbd>.
 
 Your page is pasted. For more information on copy/paste function in Studio, see the [Copy/Paste Pages, Microflows, and Enumerations](general#copy-paste-documents) section in *General Info*.
 
-### 2.5 Deleting a Page {#deleting-page}
+### 2.5 Deleting a Page
 
 To delete a page in Studio, do one of the following:
 
 1. Open the page you want to delete and follow the steps below:
     1. Open the **Properties** tab.
     2. Click **Delete** at the bottom of the **Properties** tab.
- {{% image_container width="250" %}}![](attachments/page-editor/page-delete.png)
-        {{% /image_container %}}
+
+    ![](attachments/page-editor/page-delete.png)
 
 2. Click the **Pages** icon in the left menu bar and do the following:
 
     1. In the side panel, click the ellipsis icon and select **Delete** in the drop-down menu:
 
-        ![Delete Page](attachments/page-editor/delete-page.png)
+        {{% image_container width="400" %}}
+![Delete Page](attachments/page-editor/delete-page.png)
+{{% /image_container %}}
 
 The selected page is deleted.
 
@@ -134,7 +132,7 @@ To add elements on a page, do the following:
 1. In **Toolbox**, open the [Widgets](#widgets) tab or the [Building Blocks](#building-blocks) tab.
 2. Select an element you would like to add, drag and drop this element on a page.
 
-### 2.7 Viewing Elements On a Page {#viewing-elements}
+### 2.7 Viewing Elements On a Page
 
 There are two ways to view an element and its [properties](#page-editor-properties):
 
@@ -143,10 +141,10 @@ There are two ways to view an element and its [properties](#page-editor-properti
 
 The selected element is indicated with an blue border. Additionally, if the element is inside a data container (data view or a list view), it will be indicated with a data container icon:
 
-{{% image_container width="350" %}}![](attachments/page-editor/input-widget-example.png)
+{{% image_container width="400" %}}![](attachments/page-editor/input-widget-example.png)
 {{% /image_container %}}
 
-### 2.8 Deleting Elements from a Page {#deleting-elements}
+### 2.8 Deleting Elements from a Page
 
 To delete an element from a page, do one of the following:
 
@@ -169,7 +167,7 @@ The breadcrumb serves two functions:
 
 * Allows you to select an element on the page and view its properties. To navigate to an element on a page and view element's properties, click this element in the breadcrumb.
 
-## 5 Toolbox Elements
+## 5 Toolbox Tab
 
 The **Toolbox** shows the tools that can be used on pages.
 
@@ -190,9 +188,7 @@ You can update widgets in the [Widget Overview](settings-widget-overview).
 
 Building blocks consist of pre-set widgets that allow you to build a page faster:
 
-{{% image_container width="300" %}}
 ![](attachments/page-editor/building-blocks.png)
-{{% /image_container %}}
 
 Building blocks of Studio are divided into the following categories:
 
@@ -213,8 +209,7 @@ Building blocks of Studio are divided into the following categories:
 
 If you want to read documentation on a particular building block and to know more about how and when to use it, click the small icon in the top right corner of the building block.
 
-{{% image_container width="300" %}}![](attachments/page-editor/info-icon-building-blocks.png)
-{{% /image_container %}}
+![](attachments/page-editor/info-icon-building-blocks.png)
 
 {{% alert type="info" %}}
 
@@ -226,12 +221,13 @@ Building blocks categories may differ because Atlas UI can be customized using S
 
 The **Properties** tab displays the properties of the currently selected element and can differ per element.
 
-{{% image_container width="250" %}}![](attachments/page-editor/properties.png)
+{{% image_container width="300" %}}![](attachments/page-editor/properties.png)
 {{% /image_container %}}
 
 For example, if you click **Layout**—which is the layout that you choose when [creating a page](#creating-new-page)—in the breadcrumb, properties will display reference information on page-related actions that you can perform, such as changing the page title and customizing pages' look:
 
-![](attachments/page-editor/layout.png)
+{{% image_container width="300" %}}![](attachments/page-editor/layout.png)
+{{% /image_container %}}
 
 ## 7 Main Documents in This Category
 
