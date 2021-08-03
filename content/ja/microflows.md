@@ -11,7 +11,7 @@ tags:
 
 The **Microflows** category contains Studio how-to's on microflows and will help you add logic to your app, such as adding a decision, merge, or configuring the **Delete Object** action.
 
-マイクロフローの作成方法に関するより一般的なガイドラインについては、それに要素を追加してください。 [Studio 8 ガイド](/studio8/microflows) の *マイクロフロー* を参照してください。
+マイクロフローの作成方法に関するより一般的なガイドラインについては、それに要素を追加してください。 [Studio 9 ガイド](/studio/microflows) の *マイクロフロー* を参照してください。
 
 ## このカテゴリ内の2つのメインドキュメント
 
