@@ -1,114 +1,114 @@
 ---
-title: "Image Viewer"
-parent: "file-widgets"
+title: "图像查看器"
+parent: "文件小部件"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-An image viewer can be used to display an image or its thumbnail. For example, you can show a profile picture:
+图像查看器可以用来显示图像或缩略图。 例如，您可以显示个人资料图片：
 
 ![](attachments/pages/image-viewer.png)
 
-An image viewer must be placed in a data view or a template grid.
+图像查看器必须放置在数据视图或模板网格中。
 
-## 2 Properties
+## 2 属性
 
-An example of image viewer properties is represented in the image below:
+图像查看器属性的示例在下面的图像中显示：
 
-{{% image_container width="250" %}}![Image Viewer Properties](attachments/file-widgets/image-viewer-properties.png)
+{{% image_container width="250" %}}![图像查看器属性](attachments/file-widgets/image-viewer-properties.png)
 {{% /image_container %}}
 
-Image viewer properties consist of the following sections:
+图像查看器属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Events](#events)
-* [General](#general)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [事件](#events)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Data Source Section {#data-source}
+### 2.3 数据源部分 {#data-source}
 
-#### 2.3.1 Entity (Path)
+#### 2.3.1 实体(临)
 
-The **Entity (path)** property specifies which object will be shown in the image viewer. It must be a System.Image or a specialization thereof. If the object in the data view is (a specialization of) System.Image you can use this object in the image viewer as well.
+**实体 (路径)** 属性指定了哪些对象将会显示在图像查看器中。 它必须是一种系统图像或其专门化。 如果数据视图中的对象是一个专门化的 System.Image 您也可以在图像查看器中使用此对象。
 
-### 2.4  Events Section {#events}
+### 2.4 事件部分 {#events}
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.5 General Section{#general}
+### 2.5 一般部分{#general}
 
 #### 2.5.1 Default Image
 
-This is the image that is displayed if no image is uploaded.
+如果没有上传图像，这是显示的图像。
 
 #### 2.5.2 Width Unit {#width-unit}
 
-The table below describes possible ways to specify the width of an image:
+下表描述了指定图像宽度的可能方式：
 
-| Value                   | Definition                                                                                                                                                                                   |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pixels                  | The width is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched. |
-| Percentage  *(default)* | The width is specified in a percentage of the original width. It can be larger than its original width in which case the image is stretched.                                                 |
-| Auto                    | The width of the given image is used.                                                                                                                                                        |
+| 值           | 定 义                                              |
+| ----------- | ------------------------------------------------ |
+| Pixels      | 宽度以若干像素为单位。 如果您同时指定宽度和高度，图像将自动缩放：比例将保持，图像将不会被拉伸。 |
+| 百分比  *(默认)* | 宽度以原始宽度的百分比表示。 它可以大于原来的宽度，在这种情况下，图像会被拉伸。         |
+| 自动操作        | 使用给定图像的宽度。                                       |
 
 {{% alert type="info" %}}
-Not supported on native mobile pages.
-{{% /alert %}}
+本机移动页面不支持。
+{{% /报警 %}}
 
 #### 2.5.3 Width
 
-This property is displayed only when the [Width unit](#width-unit) property is set to *Pixels* or *Percentage*. This property determines the width of the image, either in pixels or a percentage.
+此属性仅在 [宽度单位](#width-unit) 属性设置为 *像素* 或 *百分比* 时才显示。 此属性决定图像宽度，或者像素，或者百分比值。
 
-Default: *0*
+默认： *0*
 
-#### 2.5.4 Height Unit {#height-unit}
+#### 2.5.4 高度单位 {#height-unit}
 
-The table below describes possible ways to specify the height of an image:
+下表描述了指定图像高度的可能方式：
 
-| Value             | Definition                                                                                                                                                                                    |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pixels            | The height is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched. |
-| Percentage        | The height is specified in a percentage of the original height. It can be larger than its original height in which case the image is stretched.                                               |
-| Auto  *(default)* | The height of the given image is used.                                                                                                                                                        |
+| 值          | 定 义                                                |
+| ---------- | -------------------------------------------------- |
+| Pixels     | 以一些像素为单位指定高度. 如果您同时指定宽度和高度，图像将自动缩放：比例将保持，图像将不会被拉伸。 |
+| 百分比        | 高度以原始高度的某个百分比来指定。 它可以大于原来的高度，在这种情况下，图像会被拉伸。        |
+| 自动  *(默认)* | 使用给定图像的高度                                          |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="info" %}}本机移动页面不支持此属性。{%/提醒 %}}
 
-#### 2.5.5 Height
+#### 2.5.5 高度
 
-This property is displayed only when the [Height unit](#height-unit) property is set to *Pixels* or *Percentage*. This property determines the height of the image, either in pixels or a percentage.
+此属性仅在 [高度单位](#height-unit) 属性设置为 *像素* 或 *百分比* 时才显示。 此属性决定图像的高度，以像素或百分比表示。
 
-Default: *0*
+默认： *0*
 
-#### 2.5.6 Responsive
+#### 2.5.6 回应
 
-This property determines how the image scales. If the value is set to *Yes*, the image will never get bigger than its original size, but it can become smaller. If the value is set to *No*, the image can become both larger and smaller than its original size.
+此属性决定图像的缩放方式。 如果值设置为 *是*，图像将永远不会大于原来的大小，但它可能变得更小。 如果值设置为 *没有*，则图像可能会变得既大于也小于原来的大小。
 
-Default: *Yes*
+默认： *是*
 
-#### 2.5.7 Show
+#### 2.5.7 显示
 
-This property indicates whether the generated thumbnail or the full image is shown.
+此属性表示是否显示生成的缩略图或完整图像。
 
 Default: *Thumbnail*
 
-### 2.6 Visibility Properties{#visibility}
+### 2.6 可见属性{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [文件部件](文件小部件)
+* [页面编辑器中常见的属性](common-widget-properties)
