@@ -1,99 +1,116 @@
 ---
-title: "Mapping Documents"
-parent: "integration"
+title: "映射文档"
+parent: "集成"
+menu_order: 35
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mapping documents are used to define how Mendix objects can be converted to and from XML or JSON, according to a specific XML schema or JSON structure. There are two types of mappings: [Import Mappings](import-mappings) and [Export Mappings](export-mappings).
+映射文档用于定义如何将 Mendix 对象转换为 XML 或 JSON 根据指定的 XML schema 或 JSON 结构。 有两种类型的映射： [导入映射](import-mappings) and [导出映射](export-mappings)。
 
-## 2 Import Mappings
+## 2 次导入映射
 
-Import mappings are used to define how incoming XML or JSON is converted into Mendix objects, according to a specific XML schema or JSON structure. This is needed to be able to interpret data received from other systems. In Mendix there are three basic scenarios for converting Mendix objects to XML or JSON:
+导入映射用于定义传入的 XML 或 JSON 如何转换为 Mendix 对象，根据指定的 XML 架构或 JSON 结构。 为了能够解释从其他系统收到的数据，需要这样做。 在 Mendix 中，有三个基本场景用于从 XML 或 JSON 创建 Mendix 对象：
 
-*   Receiving XML from a web service (defined in an [imported web service](consumed-web-service)) in a [Call Web Service Action](call-web-service-action) activity.
-*   Receiving XML or JSON from a call action [Call Rest Action](call-rest-action).
-*   Importing XML or JSON directly in an [Import from Mapping](import-mapping-action) action.
+*   从 web 服务接收 XML (在 [导入的 web 服务](consumed-web-service)中定义)，在 [通话网络服务](call-web-service-action) 活动 中。
+*   正在从 [调用REST 服务](call-rest-action) 中获取 XML 或 JSON 。
+*   直接从映射</a> 导入一个
 
-This is an example of an import mapping document that maps an **Order** from a web service to a **ReceivedOrder** entity:
+中导入 XML 或 JSON 。</li> </ul> 
+  
+  This is an example of an import mapping document that maps an **Order** from a web service to a **ReceivedOrder** entity:
+  
+  ![](attachments/16713725/16843933.png)
+  
+  更多详情，请参阅 [导入映射](import-mappings)。
+  
+  
 
-![](attachments/16713725/16843933.png)
+## 3 个导出映射
 
-For more details, see [Import Mappings](import-mappings).
+导出映射用于定义如何根据指定的 XML 架构将 Mendix 对象转换为 XML。 为了能够以其他系统能够处理的格式向其他系统发送数据，就需要这样做。 Mendix 有两种基本场景来将 Mendix 对象转换为 XML：
 
-## 3 Export Mappings
+*   正在发送 XML 到一个 Web 服务(在 [导入的 web 服务](consumed-web-service)中定义) 在 [通话网络服务](call-web-service-action) 活动 中。
+*   在 [导出时直接导出XML，同时进行映射](export-mapping-action) 操作。
 
-Export mappings are used to define how Mendix objects can be converted to XML according to a specific XML schema. This is needed to be able to send data to other systems in a format the other system can process. In Mendix there are two basic scenarios for converting Mendix objects to XML:
-
-*   Sending XML to a web service (defined in an [imported web service](consumed-web-service)) in a [Call Web Service Action](call-web-service-action) activity.
-*   Exporting XML directly in an [Export with Mapping](export-mapping-action) action.
-
-This is an example of an export mapping document:
+这是导出映射文档的示例：
 
 ![](attachments/16713726/16843940.png)
 
-In this example, a **Cheesecake** entity will be passed when the export mapping is called. Subsequently, the **Topping** entities will be fetched by following the **Topping_Cheesecake** association from the passed Cheesecake Mendix object. The result is passed to an XML document or sent to a web service.
+在此示例中，当导出映射被调用时，将会传递 **Cheesecake** 实体。 随后， **上传** 实体将通过关注 **上传** 上传的 Cheesecake Mendix 对象来获取。 结果传递到XML文档或发送到网络服务。
 
-For more details, see [Export Mappings](export-mappings).
+欲了解更多详情，请参阅 [导出地图](export-mappings)。
 
-## 4 Creating a New Mapping Document
 
-To specify an import or export mapping, the user needs to do a number of things:
 
-1.  Create a new **Import Mapping** or **Export Mapping** document.
+## 4 创建新映射文档
 
-2.  Click **Select elements...** to select an XML schema, imported web service document, or JSON structure document as the source schema for this mapping. See **Figure 1**.
+要指定导入或导出映射，用户需要做一些事情：
 
-    If the schema is large, a subset of elements can be selected so you don't have to map all of them. This is explained in more detail in the [Select Elements](select--elements) section.
+1.  创建新的 **导入映射** 或 **导出映射** 文档。
 
-3.  Click **OK**. A structure is created with placeholders for entities on the left, and the selected XSD elements on the right side.
+2.  点击 **选择元素...** 选择一个 XML schema、导入的 web 服务文档或 JSON 结构文档作为此映射的源schema 。 查看 **图1**。 
+   
+   如果架构是大的，可以选择一个子集，所以你不必映射所有的元素。 [选择元素](select--elements) 部分对此作了更详细的解释。
 
-    It is possible to include a parameter entity in mapping documents. Mapping documents with a parameter entity need to be invoked (in a [Call Web Service Action](call-web-service-action) or [Export with Mapping](export-mapping-action) action) by passing a parameter of the configured type. Mapping documents without a parameter entity can be invoked without passing a parameter. For import mappings, a parameter entity can be included by dragging one onto the placeholder in the created structure using the Connector tool. Export mappings always need to have a parameter entity (the object that is being exported) and the mapped root element is used for this. In both cases, the parameter entity is depicted as a yellow arrow parameter symbol.
+3.  Click **OK**. 为左边的实体创建了占位符，右侧则选择了XSD 元素。
+   
+   在映射文档中可以包括一个参数实体。 需要通过传递配置类型的参数来调用具有参数实体的映射文档(在 [通话网络服务](call-web-service-action) 或 [导出与映射](export-mapping-action) 活动)。 可以在不通过参数的情况下调用没有参数实体的映射文档。 为了导入映射，可以将一个参数实体拖动到使用连接器工具创建的结构中的占位符。 导出映射总是需要有一个参数实体(正在导出的对象)，并为此使用了映射的根元素。 在这两种情况下，参数实体被描述为黄箭头参数符号。
 
-4.  Map the child elements of the schema. Entities can be obtained in four ways:
+4.  映射模式下的子元素。 实体可以通过以下四种方式获得：
 
-    * From a mapping parameter
-    * By associations
-    * From a custom microflow
-    * By entity specializations in the case of choice or inheritance XML elements
+    * 从映射参数
+    * 按协会
+    * 来自自定义微流
+    * 选择或继承的 XML 元素的实体专业化
 
-5.  Finally the user needs to configure how entity attributes should be transformed into the XML or JSON structure.
+5.  最后，用户需要配置实体属性应如何转换为 XML 或 JSON 结构。
 
-## 5 Convenience Functions
 
-*   Map automatically: Automatically look for entities and associations in the domain model that can be used in the mapping. If a matching entity or association is not found, it is created in the domain model. This function is explained in more detail in the [Map Automatically](map-automatically) section.
-*   Clear mappings: Disconnects all mapping elements in the document from entities and associations. They are not deleted in the domain model.
 
-## 6 Tip: Important Windows
+## 5 召集职能
 
-Mapping documents rely heavily on two windows. If they are not visible in the Modeler, they can be enabled from the **View menu**.
+*   地图：自动查找可用于映射的域模型中的实体和协会。 如果找不到匹配的实体或关联，它将创建在域模型中。 这个函数在 [地图](map-automatically) 部分自动详细解释。
+*   清除映射：断开文档中所有映射元素与实体和关联的连接。 它们不会在域模型中被删除。
 
-*   **Properties window**. Details of individual mapping elements are shown here.
-*   **Connector window**. Entities from the connector window are dragged into the mapping document.
 
-## 7 User Interactions
 
-*   Dragging entities. Drag an entity from the Connector Window and drop it on an entity placeholder (dashed box) to relate it to an XML element.
-*   Double clicking on a mapping element (on either the entity side or the XML side). Opens a dialog that allows you to specify details for the individual mapping. If the element is not yet related to an entity, a dialog appears that lets you select the entity first.
-*   Right mouse click, "Select Entity". Change the entity that is coupled to an XML element.
-*   Right mouse click, "Go to Entity". Open the Domain Model that contains the entity and jumps to the entity.
-*   Right mouse click, "Collapse All". Hides all the children of the mapping element, so you can keep overview in large mappings.
-*   Right mouse click, "Expand All". Expands all children of the mapping element; all underlying elements become visible.
-*   Left mouse click "-" icon (below mapping element). Makes underlying elements invisible.
-*   Left mouse, click "+" icon (below mapping element). Makes underlying elements visible again.
+## 6 个提示：重要窗口
 
-## 8 Properties
+绘图文件严重依赖两个窗口。 如果它们在 Studio Pro中不可见, 它们可以在 **视图菜单** 中启用。
 
-| Property                         | Description                                                                                                                                                                                  |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                             | The name of the mapping.                                                                                                                                                                     |
-| Documentation                    | Here you can specify extra information to explain what this mapping does.                                                                                                                    |
-| Web Service Operation Properties | This category is only filled in if the mapping is for a web service call and not for an XML Schema.                                                                                          |
-| Web Service                      | The name of the imported web service that this mapping is for.                                                                                                                               |
-| Service name                     | The actual name of the service, as it is defined in the WSDL of the imported service.                                                                                                        |
-| Operation name                   | The name of the specific operation in the service that this mapping is meant for.                                                                                                            |
-| Request part                     | Only applicable for Export Mappings. The name of the header or body parameter that this mapping is for. If the mapping is for all body parameters, the value is "Body".                      |
-| XML Schema Properties            | This category is only filled in if the mapping is for an XML schema and not for a web service call.                                                                                          |
-| XML Schema                       | The name of the XML Schema that this mapping is for.                                                                                                                                         |
-| Start at                         | Determines which part of the XML structure this mapping defines.                                                                                                                             |
-| Send empty values                | Only applicable for export mappings. If a mapping element is optional and nillable, you need to select whether or not to send the empty values. The default is do not send the empty values. |
+*   **属性窗口**。 此处显示每个映射元素的详细信息。
+*   **连接器窗口**。 连接器窗口中的实体被拖动到映射文档中。
+
+
+
+## 7 个用户互动
+
+*   拖动实体。 从连接器窗口拖动实体并将其拖放到实体占位符(dashed box)上以将其与XML 元素相关联。
+*   双击映射元素(实体侧或XML侧)。 打开一个对话框，允许您为个人映射指定详细信息。 如果元素尚未与实体相关，则出现一个对话框，让您先选择实体。
+*   鼠标右键单击“选择实体”。 更改与 XML 元素关联的实体。
+*   鼠标右键单击，"去实体"。 打开包含实体的域模型并跳转到实体。
+*   鼠标右键单击“折叠全部”。 隐藏制图元素的所有子元素，所以您可以在大地图中保留概览。
+*   鼠标右键单击“展开全部”。 展开绘图元素的所有子元素；所有基础元素都变得可见。
+*   鼠标左键单击“-”图标 (在映射元素下). 隐藏底层元素。
+*   左鼠标，单击"+"图标 (在映射元素下)。 再次显示基础元素。
+
+
+
+## 8 属性
+
+| 财产         | 描述                                                |
+| ---------- | ------------------------------------------------- |
+| 名称         | 映射的名称。                                            |
+| 文件         | 您可以在这里指定额外的信息来解释这个映射做什么。                          |
+| 网络服务操作属性   | 此类别只在映射是为了网络服务呼叫而不是为了XML方案时才填写。                   |
+| 网络服务       | 此映射要导入的 web 服务名称。                                 |
+| 服务名称       | 导入服务的 WSDL 定义的服务的实际名称。                            |
+| 操作名称       | 此映射要提供的服务中的特定操作名称。                                |
+| 请求部分       | 仅适用于导出映射。 此映射的标题或正文参数的名称。 如果映射是针对所有物体参数的，则值为“实体”。 |
+| XML 方案属性   | 此类别只在映射为 XML schema 而不是网络服务通话时才填写。                |
+| XML Schema | 此映射要使用的 XML 方案名称。                                 |
+| 开始于        | 确定此映射定义的 XML 结构的哪一部分。                             |
+| 发送空值       | 仅适用于导出映射。 如果映射元素是可选的和可嵌入的，您需要选择是否发送空值。 默认不发送空值。   |
