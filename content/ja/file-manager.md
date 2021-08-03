@@ -1,105 +1,105 @@
 ---
-title: "File Manager"
+title: "ファイルマネージャー"
 parent: "file-widgets"
 tags:
   - "studio pro"
-  - "file manager"
-  - "file widget"
-  - "widget"
+  - "ファイルマネージャー"
+  - "ファイルウィジェット"
+  - "ウィジェット"
 ---
 
-{{% alert type="warning" %}}The file manager widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}ファイルマネージャウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A file manager is used to upload and/or download files.
+ファイルマネージャーはファイルのアップロードやダウンロードに使用されます。
 
-![File Manager](attachments/file-widgets/file-manager.png)
+![ファイルマネージャー](attachments/file-widgets/file-manager.png)
 
 A file manager must be placed inside a data view connected to the entity that is either a **System.FileDocument** (or a specialization) or an [external entity](external-entities) with a `Contents` binary attribute.
 
 {{% alert type="info" %}}
-For an external entity to be used as a file source, it must be defined as a media element in the corresponding OData service. Such an element can be recognized by setting the `HasStream` attribute to `true` in its metadata.
+外部エンティティをファイルソースとして使用するには、対応する OData サービス内でメディア要素として定義する必要があります。 このような要素は、メタデータで `HasStream` 属性を `true` に設定することで認識できます。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-When uploading a file through the file manager, the FileDocument object will be committed immediately.
+ファイルマネージャからファイルをアップロードすると、FileDocument オブジェクトは直ちに反映されます。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of file manager properties is represented in the image below:
+以下の画像にファイルマネージャのプロパティの例を示します。
 
-{{% image_container width="250" %}}![File Manager Properties](attachments/file-widgets/file-manager-properties.png)
+{{% image_container width="250" %}}![ファイルマネージャーのプロパティ](attachments/file-widgets/file-manager-properties.png)
 {{% /image_container %}}
 
-File manager properties consist of the following sections:
+ファイルマネージャのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
+* [一般的な](#common)
 
-* [Design Properties](#design-properties)
+* [デザインプロパティ](#design-properties)
 
-* [Editability](#editability)
+* [編集可能](#editability)
 
-* [General](#general)
+* [全般](#general)
 
-* [Label](#label)
+* [ラベル](#label)
 
-* [Visibility](#visibility)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Editability Section {#editability}
+### 2.3 編集可能セクション {#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.4 General Section {#general}
+### 2.4 一般セクション {#general}
 
 #### 2.4.1 Type
 
-The **Type** property indicates how the end-user will be able to use the file manager.
+**Type** プロパティは、エンドユーザーがどのようにファイルマネージャを使用できるかを示します。
 
-| Value            | Description                                                      |
-| ---------------- | ---------------------------------------------------------------- |
-| Upload           | The file manager can only be used to upload a file.              |
-| Download         | The file manager can only be used to download a file.            |
-| Both *(default)* | The file manager can be used to both upload and download a file. |
+| 値              | 説明                                       |
+| -------------- | ---------------------------------------- |
+| アップロード         | ファイルマネージャは、ファイルのアップロードにのみ使用できます。         |
+| ダウンロード         | ファイルマネージャは、ファイルのダウンロードにのみ使用できます。         |
+| 両方とも *(デフォルト)* | ファイルマネージャは、ファイルのアップロードとダウンロードの両方に使用できます。 |
 
-#### 2.4.2 Max File Size (MB)
+#### 2.4.2 最大ファイル サイズ (MB)
 
-**Max file size (MB)** determines the maximum size of files (in megabytes) that can be uploaded.
+**最大ファイルサイズ (MB)** アップロード可能なファイルの最大サイズを指定します。
 
-Default: *5*
+デフォルト: *5*
 
-#### 2.4.3 Allowed Extensions
+#### 2.4.3 使用可能なエクステンション
 
-You can specify file extensions that users are allowed to upload. If no extension is specified, all file extensions are allowed. Separate multiple extensions by a semi-colon, for example, `txt;doc`
+ユーザがアップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください。例えば、 `txt;doc`
 
-If a file with an extension that is not allowed is selected, a [system text](system-texts) for **File manager/image viewer** > **Error: incorrect file extension** will be shown below the file manager.
+許可されていない拡張子のファイルが選択されている場合。 [システムテキスト](system-texts) **ファイルマネージャ/画像ビューアー** > **エラー: ファイル拡張子** がファイルマネージャの下に表示されます。
 
-#### 2.4.4 Show File in Browser
+#### 2.4.4 ブラウザにファイルを表示
 
-**Show file in browser** indicates whether a file will be shown in the browser instead of being downloaded.
+**ブラウザにファイルを表示する** は、ファイルをダウンロードする代わりにブラウザに表示するかどうかを示します。
 
-Default: *False*
+デフォルト: *False*
 
-### 2.5 Label Section {#label}
+### 2.5 ラベルセクション {#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.6 Visibility Section {#visibility}
+### 2.6 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
-* [System Texts](system-texts)
+* [ページ](page)
+* [ファイルウィジェット](file-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
+* [システムテキスト](system-texts)
