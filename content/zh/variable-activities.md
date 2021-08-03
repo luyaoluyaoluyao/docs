@@ -1,27 +1,23 @@
 ---
-title: "Variable Activities"
-parent: "activities"
+title: "可变活动"
+parent: "活动"
 menu_order: 40
 tags:
   - "studio pro"
-  - "variable activities"
-  - "variable"
-  - "variables"
+  - "可变活动"
+  - "变量"
+  - "变量"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/variable-actiities.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+*变量* 是一个临时存储数据。 变量用于存储信息并在需要时参考它。 为此目的，变量应有一个唯一的名称。 在微流程或 nanoflow 中，您可以添加一个变量，赋予它一个值，然后在活动或事件中使用。 如有必要，您可以稍后更改此值。
 
-A *variable* is a temporary storage for data. Variables are used to store information and refer to it when needed. For this purpose variables should have a unique name. In a microflow or nanoflow you can add a variable, assign a value to it and then use it in activities or events. You can then change this value later if necessary.
+本文档中描述的活动在 **工具箱 **可变活动** 部分** 中：
 
-The activities described in this document are in the **Variable Activities** section of the **Toolbox**:
+![可变活动](attachments/variable-activities/variable-activities.png)
 
-![Variable Activities](attachments/variable-activities/variable-activities.png)
+以下是您可以在微流程或 nanoflow 中使用的变量活动：
 
-The following are the client activities you can use in your microflow or nanoflow:
-
-* [Create Variable](create-variable) – allows you to create a new variable and assign a value to it
-* [Change Variable](change-variable) – allows you to change the value of an existing variable 
+* [创建变量](create-variable) - 允许您创建一个新变量并赋予它一个值
+* [更改变量](change-variable) - 允许您更改现有变量的值 
