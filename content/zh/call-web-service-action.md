@@ -1,255 +1,255 @@
 ---
-title: "Call Web Service"
-parent: "integration-activities"
+title: "呼叫网络服务"
+parent: "一体化活动"
 tags:
   - "studio pro"
-  - "integration activity"
-  - "call web service"
+  - "集成活动"
+  - "呼叫网络服务"
 menu_order: 20
 ---
 
 {{% alert type="warning" %}}
- This activity can only be used in **Microflows**.
-{{% /alert %}}
+ 此活动只能在 **微流** 中使用。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Call web service** activity can be used to call one of the [imported web service](consumed-web-services) operations. You can specify whether or not to use authentication, what the request should look like and how the response of the web service should be handled.
+**调用 web service** 活动可以调用 [导入的 web 服务](consumed-web-services) 操作。 您可以指定是否使用身份验证， 请求应该是什么样的，以及应该如何处理网络服务的反应。
 
-## 2 Properties
+## 2 属性
 
-An example of call web service properties is represented in the image below:
+下面的图像显示了通话网络服务属性的示例：
 
-![call web service properties](attachments/integration-activities/call-web-service-properties.png)
+![调用 web 服务属性](attachments/integration-activities/call-web-service-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-The call web service properties pane consists of the following sections:
+通话服务属性面板由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section{#action}
+## 3 行动部分{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-The properties dialog box consists of five tabs:
+属性对话框由五个标签组成：
 
-* [Operation](#operation)
-* [HTTP Headers](#http-headers)
-* [SOAP Request Header](#request-header)
-* [SOAP Request Body](#request-body)
-* [SOAP Response](#response)
+* [操作](#operation)
+* [HTTP 头](#http-headers)
+* [SOAP 请求标题](#request-header)
+* [SOAP 请求机构](#request-body)
+* [SOAP 响应](#response)
 
-## 4 Operation Tab{#operation}
+## 4 操作选项卡{#operation}
 
 ![](attachments/integration-activities/operation-tab.png)
 
-### 4.1 Operation
+### 4.1 行动
 
-**Operation** defines which operation of the web service is called.
+**操作** 定义了被调用的 web 服务的哪些操作。
 
-### 4.2 Override Location
+### 4.2 覆盖位置
 
-**Override location** defines whether to override the location where the web service is called.
+**覆盖位置** 定义是否覆盖调用网页服务的位置。
 
 {{% alert type="info" %}}
 
-When calling a web service using a call web service activity, the location of the web service is determined as follows.
+当使用呼叫网络服务活动调用网络服务时，网络服务的位置确定如下：
 
-1.  If the location is overridden in the call web service activity, the location specified in that action is used.
-2.  If the service that defines the operation has a location constant defined, the value of that constant is used.
-3.  Otherwise, the location as specified in the WSDL of the imported web service is used.
+1.  如果该位置在通话网络服务活动中被覆盖，则使用该操作中指定的位置。
+2.  如果定义操作的服务有一个位置常量定义，则使用该常量的值。
+3.  否则，就使用了进口网络服务WSDL中指定的地点。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 4.3 Location
+### 4.3 地点
 
-**Location** defines the address of the web service if you override the location. The location needs to be entered using an [expression](expressions) which results in a valid URL string.
+**位置** 定义了如果您覆盖位置的 web 服务地址。 位置需要使用 [表达式](expressions) 输入，结果是一个有效的 URL 字符串。
 
-### 4.4 Use Timeout on Request
+### 4.4 请求时使用超时
 
-This can be used to throw an exception when the web service takes too long to respond after connecting. After a set amount of time, an exception will be thrown and the microflow will roll back or go into your custom error handler.
+当连接后网络服务需要太长时间才能响应时，这可以用来抛出异常。 一定时间后，将会抛出异常，微流将会回滚或进入您的自定义错误处理器。
 
-Default value: *Yes*
-
-{{% alert type="warning" %}}
-It is recommended that you keep this set this to **Yes**. Most cloud infrastructure services (including those used by the Mendix Cloud) will close HTTP connections automatically if there is no traffic for a few minutes, even if your activity is still waiting for a response. This means that, if your activity calls a web service which takes a long time to respond, the connection may be closed without the activity being aware of this, and your activity will not receive a response. Under these circumstances, if **Use timeout on request** is set to **No**, your activity will get stuck waiting indefinitely for data to arrive.
-{{% /alert %}}
-
-Default: *No*
-
-### 4.5 Timeout
-
-**Timeout** specifies the timeout value in seconds.
-
-Default value: *300*
-
-### 4.6 Validate Against WSDL
-
-**Validate against wsdl** specifies whether the call action should validate the incoming and outgoing XML against the WSDL. Note that Mendix generates correct XML but the application data can cause the XML to become incorrect (for example fields that cannot be empty are empty in the data you're sending).
-
-Setting this setting to yes can greatly decrease performance!
+默认值： *是*
 
 {{% alert type="warning" %}}
-When consuming a WSDL that uses encoding, turning on validation will lead to a consistency error, because it is not WS-I compliant.
-{{% /alert %}}
+建议您将此设置为 **是**。 大多数云基础设施服务(包括Mendix Cloud使用的服务)如果没有流量几分钟，将自动关闭HTTP连接。 即使您的活动仍在等待回复。 这意味着，如果您的活动调用了一个需要很长时间才能响应的网络服务， 您的活动不会收到回复，连接可能会被关闭。 在这种情况下，如果 **根据请求** 使用超时设置为 **no**, 您的活动将被卡住，无限期等待数据到达。
+{{% /报警 %}}
 
-Schema validation is not supported when you configure the [consumed web service](consumed-web-service) to send binary data as attachments.
+默认： *否*
 
-Default: *No*
+### 4.5 超时
 
-### 4.7 Proxy Configuration
+**超时** 以秒为单位指定超时值。
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+默认值： *300*
 
-If desired, you can configure whether to use a proxy for the request. These are the choices:
+### 4.6 针对WSDL验证
 
-* **Use app settings** – use whatever settings are defined at the app level (default)
-* **Override** – override the app-level settings for this action
-* **No proxy** – do not use a proxy for this action, even if there is a proxy configured at the app level
+**校验wsdl** 是否指定调用行动是否应该验证传入和传出的 XML 是否与WSDL 相对。 请注意，Mendix 生成正确的 XML ，但应用程序数据可能会导致XML 不正确(例如不能为空的字段在您正在发送的数据中是空的)。
 
-When you select **Override**, you can configure dynamically whether to use a proxy. You then supply the host, port, username, and password settings for the proxy.
+设置此设置为是可以大大降低性能！
 
-### 4.8 Client certificate{#client-certificate}
+{{% alert type="warning" %}}
+当消耗使用编码的 WSDL 时，开启验证会导致一致性错误，因为它不符合WS-I 。
+{{% /报警 %}}
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+配置 [消费的 web 服务](consumed-web-service) 作为附件发送二进制数据时不支持Schema 验证。
 
-However, you can specify a client certificate to use for the request by selecting **Override**.
+默认： *否*
 
-The options are:
+### 4.7 代理配置
 
-* **Use app settings**(default) – use the settings that are defined at the app level
-* **Override** – override the app-level settings for this action
+在几乎所有情况下，您都可以忽略此设置。 **使用应用设置** 是一个好的默认值。
 
-When you select **Override**, you can configure which client certificate will be used. Click **Edit** to specify the **Client certificate identifier**. This identifier can be set in different places, depending on where you deploy the app:
+如果想要，您可以配置是否为请求使用代理人。 这些选择是：
 
-* When you deploy the app in the Mendix cloud, set the **Client certificate identifier** to the desired **WEB SERVICE CALL NAME** when [pinning a client certificate](/developerportal/deploy/certificates#outgoing-client-certificates).
-* When you deploy the app elsewhere, the identifier is set in the custom setting [ClientCertificateUsages](custom-settings#ca-certificates). For testing locally, this can be set as a custom server setting in a [Configuration](configuration#custom).
+* **使用应用设置** - 使用在应用级别上定义的任何设置 (默认)
+* **覆盖** - 此操作的应用级别设置
+* **没有代理** - 即使在应用级别上配置了代理，也不使用代理服务器
 
-When this identifier is not set for the environment where your app is deployed (either not pinned or not present in _ClientCertificateUsages_), the default settings will be used (as if **Use app settings** were selected).
+当您选择 **覆盖**，您可以动态地配置是否使用代理人。 然后您为代理提供主机、 端口、 用户名和密码设置。
 
-## 5 HTTP Headers Tab{#http-headers}
+### 4.8 客户端证书{#client-certificate}
+
+在几乎所有情况下，您都可以忽略此设置。 **使用应用设置** 是一个好的默认值。
+
+然而，您可以选择 **覆盖** 来指定用于请求的客户端证书。
+
+这些备选办法是：
+
+* **使用应用设置**(默认) - 使用在应用级别上定义的设置
+* **覆盖** - 此操作的应用级别设置
+
+当您选择 **覆盖**，您可以配置将使用哪些客户端证书。 点击 **编辑** 以指定 **客户端证书标识符**。 这个标识符可以在不同的地方设置，取决于您在哪里部署应用程序：
+
+* 当您在 Mendix 云中部署应用程序时， 将 **客户端证书标识符** 设置为所需 **WEB SERVICE CALL NAME** 设置为 [固定客户端证书](/developerportal/deploy/certificates#outgoing-client-certificates)
+* 当您在其他地方部署应用时，标识符将设置在自定义设置 [ClientCertificateUsages](custom-settings#ca-certificates) 中。 对于本地测试，这可以在 [配置](configuration#custom) 中设置为自定义服务器设置。
+
+当这个标识符没有设置为您的应用部署的环境(不是固定的就是不存在于 _ClientCertificateUsages_中) 默认设置将被使用(如 **使用应用程序设置** 被选中)。
+
+## 5 HTTP 头选项卡{#http-headers}
 
 ![](attachments/integration-activities/http-headers-tab-call-web-service.png)
 
-### 5.1 Use HTTP Authentication
+### 5.1 使用 HTTP 身份验证
 
-Use HTTP authentication defines whether the basic authentication should be used.
+使用 HTTP 身份验证定义是否应使用基本身份验证。
 
-### 5.2 User Name
+### 5.2 用户名
 
-User name defines the user name that will be used to authenticate over HTTP. The user name needs to be entered using [expressions](expressions). The microflow expression should result in a string.
+用户名定义了将用于通过 HTTP 身份验证的用户名。 用户名需要使用 [表达式](expressions) 输入. 微流程表达式应产生一个字符串。
 
-### 5.3 Password
+### 5.3 密码
 
-Password defines the password that will be used to authenticate over HTTP. The password needs to be entered using [expressions](expressions). The microflow expression should result in a string.
+密码定义将用于通过 HTTP 身份验证的密码。 密码需要使用 [表达式](expressions) 输入. 微流程表达式应产生一个字符串。
 
-### 5.4 Custom HTTP Headers
+### 5.4 自定义 HTTP 头
 
-These custom headers are added to the HTTP request header. Each custom header is a pair of a key and a value (a microflow expression).
+这些自定义头已添加到 HTTP 请求头中。 每个自定义头都是一个键值和一个值(微流程表达式)。
 
-## 6 SOAP Request Header Tab {#request-header}
+## 6 个SOAP 请求头标签 {#request-header}
 
-For the request header, Studio Pro provides some common XML structures in a drop-down menu.
+对于请求标题，Studio Pro 在下拉菜单中提供一些常见的 XML 结构。
 
-## 7 SOAP Request Body Tab {#request-body}
+## 7 SOAP 请求正文选项卡 {#request-body}
 
 ![](attachments/integration-activities/soap-request-body-tab.png)
 
-The XML for the request parts (header and body) can be generated in several ways, chosen through the dropdown at the top of the page, that are described in the following sections.
+请求部件的 XML (标题和物体) 可以多种方式生成。 以下各节将通过该页顶部的下拉列表来选择。
 
-### 7.1 Export Mapping for Entire Request
+### 7.1 为整个请求导出映射
 
-Using this option, a single [Export Mapping](export-mappings) can be used to generate the XML for the request part. You can choose the export mapping to use for the request part and, if applicable, the object or list that you want to use as parameter for the mapping.
+使用此选项可以使用单独的 [导出映射](export-mappings) 来生成请求部件的 XML。 您可以选择用于请求部分的导出映射，如果适用的话。 您想要用作映射参数的对象或列表。
 
-### 7.2 Simple Expressions for Each Request Parameter
+### 7.2 每个请求参数的简单表达式
 
-This option for request parts can be used when all children of the XML element of the request part occur at most once and are primitive values. If that is not the case, this option is disabled and cannot be used.
+当请求部件的所有子元素的子元素最多发生一次并且是原始值时，可以使用此选项。 如果不是这样，此选项将被禁用，无法使用。
 
-Using this option you need to supply an argument value for all elements of a primitive type (parameters). Argument values need to be entered using [expressions](expressions) resulting in the same data type as the parameter.
+使用此选项需要为原始类型的所有元素(参数)提供一个参数值。 参数值需要使用 [表达式](expressions) 输入，结果产生与参数相同的数据类型。
 
 ![](attachments/integration-activities/request-parameter-option.png)
 
-For primitive parameters (both optional and nillable) that do not have an export mapping, you can choose to send empty values by setting **Send empty values** to **Yes, as null**.
+对于没有导出映射的原始参数 (可选参数和 nilble) 您可以选择通过设置 **将空值** 发送至 **是无效的** 来发送空值。
 
-### 7.3 Export Mappings for Each Request Parameter
+### 7.3 每个请求参数导出映射
 
-This option can be used when all children of the XML element of the request part occur at most once. You need to supply an argument value for all top-level elements of the request (parameters). For simple parameters you can enter a microflow expression, for complex parameters you define a mapping.
+当请求部件的 XML 元素的所有子元素最多发生一次时，此选项可以使用。 您需要为请求的所有顶级元素提供一个参数值 (参数)。 对于简单的参数，您可以输入微流表达式，对于复杂的参数，您可以定义一个映射。
 
 {{% alert type="warning" %}}
 
-If a primitive request parameter is both optional and nillable, you need to select whether or not to send the empty values.
+如果原始请求参数既是可选的，也是不可靠的，那么您需要选择是否发送空值。
 
-*Default value*: do not send the empty values.
+*默认值*: 不发送空值。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 7.4 Custom Request Template
+### 7.4 自定义请求模板
 
-This option allows you to generate the XML for the request part using a template. The template defines the XML structure of the request part in plain text.
+此选项允许您使用模板为请求部分生成XML。 模板在纯文本中定义请求部分的 XML 结构。
 
-#### 7.4.1 String Template{#string-template}
+#### 6.4.1 字符串模板{#string-template}
 
-The template for the XML request can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. You can escape the opening brace (`{`), by using a double opening brace (`{{`).
+XML 请求的模板可以包含以数字写在括号中的参数 (例如， `{1}`)。 第一个参数的数字是 `1`, 第二个 `2`, 等等。 You can escape the opening brace (`{`), by using a double opening brace (`{{`).
 
-#### 7.4.2 Parameters
+#### 6.4.2 参数
 
-For each parameter in the template, you can specify its value using a [microflow expression](expressions) resulting in a string value. This value will be inserted at the position of the parameter.
+对于模板中的每个参数，您可以使用 [微流程表达式](expressions) 来指定其值，并产生一个字符串值。 此值将插入参数的位置。
 
-## 8 SOAP Response Tab{#response}
+## 8 SOAP 响应选项卡{#response}
 
 ![](attachments/integration-activities/soap-response-tab.png)
 
-If the data type is a complex XML structure it can be mapped to entities using a [Import Mapping](import-mappings). If it is primitive data, it can be stored in a variable immediately. The response does not have to be used though; it can also be ignored if you are not interested in it.
+如果数据类型是一个复杂的 XML 结构，它可以映射到使用 [导入映射](import-mappings) 的实体。 如果它是原始数据，它可以立即存储在一个变量中。 这个响应不一定要使用；如果你不感兴趣，它也可以被忽略。
 
-### 8.1 Mapping
+### 8.1 映射
 
-If you are using complex XML structures you can choose the [Import Mapping](import-mappings) that will be used to transform the XML into objects.
+如果您正在使用复杂的 XML 结构，您可以选择 [导入映射](import-mappings) ，用于将XML 转换为对象。
 
-### 8.2 If No Object Was Found
+### 8.2 如果没有找到对象
 
 You can indicate what should happen **if not object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
 
-### 8.3 Parameter
+### 8.3 参数
 
-If the selected mapping requires a parameter, you can choose it here.
+如果选中的映射需要一个参数，您可以在此选择它。
 
-### 8.4 Commit
+### 8.4 提交
 
-Indicates whether the resulting objects should be committed to the database, and whether event handlers should be triggered.
+指示是否应将所产生的对象投入数据库，以及是否应触发事件处理程序。
 
-| Option             | Description                                                                                                                    |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| Yes                | The objects are saved in the database and the [event handlers](event-handlers) are triggered.                                  |
-| Yes without events | The objects are saved in the database, but the [event handlers](event-handlers) are not triggered (default).                   |
-| No                 | The objects are created without being saved in the database. You will need a [commit action](committing-objects) to save them. |
+| 选项      | 描述                                                     |
+| ------- | ------------------------------------------------------ |
+| 否       | 对象已保存在数据库中，触发了 [事件处理程序](event-handlers)。               |
+| 是的，没有事件 | 对象已保存在数据库中，但 [事件处理程序](event-handlers) 未触发(默认)。         |
+| 否       | 对象创建时没有保存到数据库中。 您将需要 [提交操作](committing-objects) 来保存它们。 |
 
-### 8.5 Range (If the Mapping Returns a List)
+### 8.5 范围(如果绘图返回一个清单)
 
-The range determines how many objects are mapped and returned.
+范围决定有多少对象被映射并返回.
 
-| Range  | Meaning                                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
-| All    | Map and return all objects.                                                                                         |
-| First  | Map and return only the first object. The result of the action will be a single object instead of a list.           |
-| Custom | Map and return a given number of objects (limit). The limit is a microflow expression that must result in a number. |
+| Range | 含义                                      |
+| ----- | --------------------------------------- |
+| 所有的   | 映射并返回所有对象。                              |
+| 第一页   | 映射并只返回第一个对象。 该动作的结果将是单个对象而不是列表。         |
+| 自定义   | 映射并返回给定数量的对象(限制)。 限制是一个微流程表达式，必须产生一个数字。 |
 
-### 8.6 Store in Variable
+### 8.6 存放在变量中
 
-Choose whether to store the result of the operation in a variable, object, or list.
+选择是否将操作结果存储在一个变量、 对象或列表中。
 
-### 8.7 Type
+### 8.7 类型
 
-The type of the output.
+输出类型。
 
-### 8.8 Name
+### 8.8 姓名
 
-The name for the output that will hold the result of the operation.
+将保持操作结果的输出名称。
 
 ## 9 Common Section{#common}
 
