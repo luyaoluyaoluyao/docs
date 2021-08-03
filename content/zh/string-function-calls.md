@@ -1,22 +1,22 @@
 ---
-title: "String Function Calls"
-parent: "expressions"
+title: "字符串函数调用"
+parent: "表达式"
 menu_order: 80
-description: "Describes the functions for converting and inspecting strings in Mendix."
+description: "描述转换和检查Mendix字符串的函数。"
 tags:
   - "studio pro"
-  - "string function calls"
-  - "expression"
-  - "expressions"
+  - "字符串函数调用"
+  - "表达式"
+  - "表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes functions that are used to convert and inspect [strings](data-types). Note that these functions never change the string itself, they only return a new value.
+此文档描述了用于转换和检查 [字符串](data-types) 的函数。 请注意，这些函数永远不会改变字符串本身，它们只会返回一个新的值。
 
-Strings are surrounded by quotes. If the string contains a quote, it should be escaped by another quote. For example: `'this isn''t funny'`.
+字符串被引号包围。 如果字符串包含引用，它应该用另一个引用逃脱。 例如： `'这不是很有趣'`。
 
-For a great deep-dive look into string functions call, check out this video:
+要想深入了解字符串函数调用，请查看此视频：
 
 <img
   style="width: 100%; margin: auto; display: block;"
@@ -29,33 +29,33 @@ For a great deep-dive look into string functions call, check out this video:
 
 ## 2 toLowerCase
 
-Converts all characters in the string to lowercase.
+将字符串中的所有字符转换为小写。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 值       | 类型  |
+| ------- | --- |
+| 要转换的字符串 | 字符串 |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                               | Type   |
-| ----------------------------------- | ------ |
-| The same string, but all lowercase. | String |
+| 值            | 类型  |
+| ------------ | --- |
+| 相同字符串，但所有小写。 | 字符串 |
 
-### 2.3 Example
+### 2.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 toLowerCase('thisISmyString')
 ```
 
-The output is the following:
+产出如下：
 
 ```java
 'thisismystring'
@@ -63,364 +63,364 @@ The output is the following:
 
 ## 3 toUpperCase
 
-Converts all characters in the string to uppercase.
+将字符串中的所有字符转换为大写。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 值       | 类型  |
+| ------- | --- |
+| 要转换的字符串 | 字符串 |
 
-### 3.2 Output
+### 3.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                               | Type   |
-| ----------------------------------- | ------ |
-| The same string, but all uppercase. | String |
+| 值            | 类型  |
+| ------------ | --- |
+| 相同字符串，但所有大写。 | 字符串 |
 
-### 3.3 Example
+### 3.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 toUpperCase('thisISmyString')
 ```
 
-The output is the following:
+产出如下：
 
 ```java
 'THISISMYSTRING'
 ```
 
-## 4 length
+## 4 长度
 
-Determines the length of a string.
+确定字符串的长度。
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 值       | 类型  |
+| ------- | --- |
+| 要转换的字符串 | 字符串 |
 
-### 4.2 Output
+### 4.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                | Type    |
-| -------------------- | ------- |
-| Length of the string | Integer |
+| 值     | 类型 |
+| ----- | -- |
+| 字符串长度 | 整数 |
 
-### 4.3 Example
+### 4.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-length('thisismystring')
+长度('thisismystring')
 ```
 
-The output is the following:
+产出如下：
 
 ```java
 14
 ```
 
-## 5 substring
+## 5 个子字符串
 
-Retrieves a substring of a string. Note that the first character of a string is located at position `'0'`, and the last character is located at position `length(string)-1`.
+检索字符串的子字符串。 注意字符串的第一个字符位于位置 `'0'`, 最后一个字符位于位置 `长度(string)-1`
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                       | Type    |
-| ------------------------------------------- | ------- |
-| Subject                                     | String  |
-| Start position of the substring             | Integer |
-| Desired length of the result **(optional)** | Integer |
+| 值             | 类型  |
+| ------------- | --- |
+| 议 题           | 字符串 |
+| 子字符串的起始位置     | 整数  |
+| 预期结果 **(可选)** | 整数  |
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                                                                   | Type   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| A part of the original string, starting at the start position with a length equal to the desired length. If no desired length is specified, will return a substring starting at the start position and ending at the end of the string. | String |
+| 值                                                                  | 类型  |
+| ------------------------------------------------------------------ | --- |
+| 原始字符串的一部分，从起始位置开始，长度等于理想长度。 如果没有指定所需的长度，将返回一个从开始位置开始到结束字符串结尾的子字符串。 | 字符串 |
 
-### 5.3 Example
+### 5.3 实例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 substring('thisismystring', 6)
 ```
 
-The output is the following:
+产出如下：
 
 ```java
 'mystring'
 ```
 
-Another example of an input is:
+输入的另一个例子是：
 
 ```java
-substring('mendixapp', 6,3)
+子字符串('mendixapp', 6,3)
 ```
 
-The output is the following:
+产出如下：
 
 ```java
-'app'
+“应用”
 ```
 
-## 6 find
+## 6 个找到
 
-Finds the position of the first occurrence of the substring in the string.
+在字符串中查找第一次出现子字符串的位置。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Original string, the string that you want to search in | String  |
-| Substring that you want to search for                  | String  |
-| Start location to begin the search from **(optional)** | Integer |
+| 值                   | 类型  |
+| ------------------- | --- |
+| 原始字符串，您想要搜索的字符串     | 字符串 |
+| 您想要搜索的子字符串          | 字符串 |
+| 开始位置从 **(可选)** 开始搜索 | 整数  |
 
-### 6.2 Output
+### 6.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                         | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string. | Integer |
+| 值                                                | 类型 |
+| ------------------------------------------------ | -- |
+| 原字符串中子字符串的第一个位置。 如果子字符串在原始字符串中根本没有发生，将返回 `'-1'`。 | 整数 |
 
-### 6.3 Example
+### 6.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 find('thisismystring', 'my')
 ```
 
-The output is:
+输出为：
 
 ```java
 6
 ```
 
-Substring that doesn't occur in the original string:
+在原始字符串中不发生的子字符串：
 
 ```java
-find('thisismystring', 'yourstring')
+find('thisismystring', '你的字符串')
 ```
 
-returns:
+返回：
 
 ```java
 -1
 ```
 
-Another example of an input is:
+输入的另一个例子是：
 
 ```java
 find('thisismystring', 'i', 5)
 ```
 
-The output is:
+输出为：
 
 ```java
 11
 ```
 
-## 7 findLast
+## 7 个查找最后一个
 
-Finds the position of the last occurrence of a substring in the original string.
+在原始字符串中查找最后一次出现子字符串的位置。
 
-### 7.1 Input Parameters
+### 7.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Original string, the string that you want to search in | String  |
-| Substring that you want to search for                  | String  |
-| Start location to begin the search from **(optional)** | Integer |
+| 值                   | 类型  |
+| ------------------- | --- |
+| 原始字符串，您想要搜索的字符串     | 字符串 |
+| 您想要搜索的子字符串          | 字符串 |
+| 开始位置从 **(可选)** 开始搜索 | 整数  |
 
-### 7.2 Output
+### 7.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                         | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string. | Integer |
+| 值                                                | 类型 |
+| ------------------------------------------------ | -- |
+| 原字符串中子字符串的第一个位置。 如果子字符串在原始字符串中根本没有发生，将返回 `'-1'`。 | 整数 |
 
-### 7.3 Example
+### 7.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-findLast('thisismystring', 't')
+FindLast('thisismystring', 't')
 ```
 
-The output is:
+输出为：
 
 ```java
 9
 ```
 
-Another example of an input where a substring does not occur in the original string:
+在原始字符串中没有出现子字符串的另一个输入示例：
 
 ```java
-findLast('thisismystring', 'yourstring')
+findLast('thisismystring', '你的字符串')
 ```
 
-The output is:
+输出为：
 
 ```java
 -1
 ```
 
-An example of an input with the third parameter:
+第三个参数的输入示例：
 
 ```java
 findLast('thisismystring', 'i', 5)
 ```
 
-The output is:
+输出为：
 
 ```java
 4
 ```
 
-## 8 contains
+## 8个包含
 
-Determines whether the original string (first parameter) contains a substring (second parameter).
+确定原字符串(第一个参数)是否包含子字符串(第二个参数)。
 
-For example, this expression:
+例如，这个表达式：
 
 ```java
-contains('stringtosearchin', 'stringtosearchfor')
+包含('stringtosearchin', 'stringtosearchfor')
 ```
 
-is equivalent to the following expression:
+等于以下表达式：
 
 ```java
 find('stringtosearchin', 'stringtosearchfor') != -1
 ```
 
-The example below shows searching for an empty variable or empty string, where `$param = ''`:
+下面的示例显示搜索一个空变量或空字符串，其中 `$param = ''`
 
 ```java
-contains('stringtosearchin', $param)
+包含('stringtosearchin', $param)
 ```
 
-The input above will return `true`.
+上面的输入将返回 `true`。
 
 {{% alert type="warning" %}}
-This function is case-sensitive.
-{{% /alert %}}
+此函数是区分大小写的。
+{{% /报警 %}}
 
-### 8.1 Input Parameters
+### 8.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+| 值               | 类型  |
+| --------------- | --- |
+| 原始字符串，您想要搜索的字符串 | 字符串 |
+| 您想要搜索的子字符串      | 字符串 |
 
-### 8.2 Output
+### 8.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                               | Type    |
-| --------------------------------------------------- | ------- |
-| Whether the original string contains the substring. | Boolean |
+| 值             | 类型      |
+| ------------- | ------- |
+| 原字符串是否包含子字符串。 | Boolean |
 
-### 8.3 Example
+### 8.3 示例
 
-If you use the following input:
-
-```java
-contains('thisismystring', 'my')
-```
-
-The output is:
+如果您使用以下输入：
 
 ```java
-true
+包含('thisismystring', 'my')
 ```
 
-## 9 startsWith
-
-Determines whether a string starts with the specified substring.
-
-### 9.1 Input Parameters
-
-The input parameters are described in the table below:
-
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
-
-### 9.2 Output
-
-The output is described in the table below:
-
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Whether the original string starts with the substring. | Boolean |
-
-### 9.3 Example
-
-If you use the following input:
-
-```java
-startsWith('thisismystring', 'this')
-```
-
-The output is:
+输出为：
 
 ```java
 true
 ```
 
-## 10 endsWith
+## 9 个启动
 
-Determines whether a string ends with the specified substring.
+确定字符串是否以指定的子字符串开始。
 
-### 10.1 Input Parameters
+### 9.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+| 值               | 类型  |
+| --------------- | --- |
+| 原始字符串，您想要搜索的字符串 | 字符串 |
+| 您想要搜索的子字符串      | 字符串 |
 
-### 10.2 Output
+### 9.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                | Type    |
-| ---------------------------------------------------- | ------- |
-| Whether the original string ends with the substring. | Boolean |
+| 值               | 类型      |
+| --------------- | ------- |
+| 原始字符串是否从子字符串开始。 | Boolean |
 
-### 10.3 Example
+### 9.3 示例
 
-If you use the following input:
+如果您使用以下输入：
+
+```java
+startsWid('thisismystring', 'this')
+```
+
+输出为：
+
+```java
+true
+```
+
+## 10 个终点
+
+确定字符串是否以指定的子字符串结尾。
+
+### 10.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值               | 类型  |
+| --------------- | --- |
+| 原始字符串，您想要搜索的字符串 | 字符串 |
+| 您想要搜索的子字符串      | 字符串 |
+
+### 10.2 产出
+
+产出情况见下表：
+
+| 值              | 类型      |
+| -------------- | ------- |
+| 原字符串是否以子字符串结尾。 | Boolean |
+
+### 10.3 示例
+
+如果您使用以下输入：
 
 ```java
 endsWith('thisismystring', 'ring')
 ```
 
-The output is:
+输出为：
 
 ```java
 true
@@ -428,330 +428,330 @@ true
 
 ## 11 trim
 
-Removes all the whitespace at the beginning and end of a string.
+删除字符串开始和结束时的所有空格。
 
-### 11.1 Input Parameters
+### 11.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value    | Type   |
-| -------- | ------ |
-| A string | String |
+| 值     | 类型  |
+| ----- | --- |
+| 一个字符串 | 字符串 |
 
-### 11.2 Output
+### 11.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                    | Type   |
-| -------------------------------------------------------- | ------ |
-| Same string but without spaces at the beginning and end. | String |
+| 值                    | 类型  |
+| -------------------- | --- |
+| 相同的字符串，但在开始和结束时没有空格。 | 字符串 |
 
-### 11.3 Example
+### 11.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-trim(' this is my string     ')
+修剪(' 这是我的字符串 ')
 ```
 
-The output is:
+输出为：
 
 ```java
-'this is my string'
+'这是我的字符串'
 ```
 
 ## 12 isMatch
 
-Checks to see if a string matches a given regular expression.
+检查字符串是否匹配给定的正则表达式。
 
-### 12.1 Input Parameters
+### 12.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                       | Type   |
-| --------------------------- | ------ |
-| String to try and match     | String |
-| Regular expression to match | String |
+| 值          | 类型  |
+| ---------- | --- |
+| 要尝试和匹配的字符串 | 字符串 |
+| 匹配的正则表达式   | 字符串 |
 
 {{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
-{{% /alert %}}
+正则表达式必须作为字符串提供。 虽然它对正则表达式使用相同的格式，但是在这个函数中不能使用 [正则表达式](regular-expressions) 资源文档。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+请注意此函数调用使用当前平台提供的正则表达式语言：
 
-* When used inside a [microflow](microflow) – Java's regular expressions (for details, see [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* 当在 [微流程](microflow) 中使用时——Java 的正则表达式(详情，见 [类图案文档](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
+* 当在客户端中使用时——JavaScript的正则表达式(详情见 [正则表达式文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 12.2 Output
+### 12.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                              | Type    |
-| ---------------------------------- | ------- |
-| Whether the string matches or not. | Boolean |
+| 值        | 类型      |
+| -------- | ------- |
+| 字符串是否匹配。 | Boolean |
 
-### 12.3 Example
+### 12.3 示例
 
-This input below tests to see whether the string contains only numbers:
+下面输入测试以查看字符串是否只包含数字：
 
 ```java
 isMatch('234hello6432', '^([0-9]+)$')
 ```
 
-The output is:
+输出为：
 
 ```java
-False
+错误
 ```
 
-In `isMatch()`, the regex is implicitly anchored at `^` and `$`.
+在 `isMatch()`, 正则表达式隐含在 `^` 和 `$` 中。
 
-**Other Examples**
+**其他例子**
 
-* `isMatch('NLG 123.45', '[0-9]')` returns `false`
-* `isMatch('NLG 123.45', '.*[0-9].*')` returns `true`
+* `isMatch('NLG 123.45', '[0-9]')` 返回 `false`
+* `isMatch('NLG 123.45', '.*[0-9].*')` 返回 `true`
 
-NB searching an empty string:
+NB 搜索空字符串：
 
-* `isMatch('', '.*[0-9].*')` returns `false`
+* `isMatch('', '.*[0-9].*')` 返回 `false`
 
-## 13 replaceAll
+## 全部替换13个
 
-Replaces all occurrences of a regular expression with another string.
+用另一个字符串替换正则表达式的所有出现。
 
-### 13.1 Input Parameters
+### 13.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                                                                                                                                                                                                           | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The string to search in                                                                                                                                                                                                                         | String |
-| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | String |
-| The string to be substituted for each match (this does not support backreferences, substitutions, or captures)                                                                                                                                  | String |
+| 值                                                                                                                  | 类型  |
+| ------------------------------------------------------------------------------------------------------------------ | --- |
+| 要搜索的字符串                                                                                                            | 字符串 |
+| 匹配的正则表达式； 如果您想要搜索文字字符串， 将其放在 `\Q` and `\E` 之间(例如， `\QPaul S. Mueller\E` 将搜索字符串 `Paul S. Mueller`, 而不将小点解释为通配符) | 字符串 |
+| 要替换的字符串(这不支持背引用、替代或捕获)                                                                                             | 字符串 |
 
 {{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
-{{% /alert %}}
+正则表达式必须作为字符串提供。 虽然它对正则表达式使用相同的格式，但是在这个函数中不能使用 [正则表达式](regular-expressions) 资源文档。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+请注意此函数调用使用当前平台提供的正则表达式语言：
 
-* When used inside [microflows](microflows) – Java's regular expressions (for details, see [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* 当在 [微流](microflows) 中使用时——Java 的正则表达式(详情，见 [类模式](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
+* 当在客户端中使用时——JavaScript的正则表达式(详情见 [正则表达式](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 13.2 Output
+### 13.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                     | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The original string, with all occurrences of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned. | String |
+| 值                                                   | 类型  |
+| --------------------------------------------------- | --- |
+| 原始字符串，所有正则表达式都被替换字符串所取代。 如果在字符串中没有出现正则表达式，则返回原始表达式。 | 字符串 |
 
-### 13.3 Example
+### 13.3 示例
 
-If you use the following input:
-
-```java
-replaceAll('this is a string with 75 some numbers 234 thrown in', '([0-9])', 'NUMBER')
-```
-
-The output is:
+如果您使用以下输入：
 
 ```java
-'this is a string with NUMBERNUMBER some numbers NUMBERNUMBERNUMBER thrown in'
+全部替换('这是一个字符串，75个数字被抛入', '([0-9])', 'NUMBER')
 ```
 
-Another example of an input of the following:
+输出为：
 
 ```java
-replaceAll('this is a string with no numbers thrown in', '([0-9])', 'NUMBER')
+'这是一个带有NUMBERNUMBER的字符串，一些数字已经扔进”
 ```
 
-And the output is that there are no matches for the input:
+另一个提供以下投入的例子：
 
 ```java
-'this is a string with no numbers thrown in'
+全部替换('这是一个没有输入数字的字符串', '([0-9])', 'NUMBER')
 ```
 
-## 14 replaceFirst
+输出是输入没有匹配的输入：
 
-Replaces the first occurrence of the regular expression with a replacement string.
+```java
+'这是一个没有出现数字的字符串'
+```
 
-### 14.1 Input Parameters
+## 14个替换在前
 
-The input parameters are described in the table below:
+用替换字符串替换正则表达式的第一次出现。
 
-| Value                                                                                                                                                                                                                                           | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The string to search in                                                                                                                                                                                                                         | String |
-| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | String |
-| The string to be substituted for each match (this does not support backreferences, substitutions, or captures)                                                                                                                                  | String |
+### 14.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值                                                                                                                  | 类型  |
+| ------------------------------------------------------------------------------------------------------------------ | --- |
+| 要搜索的字符串                                                                                                            | 字符串 |
+| 匹配的正则表达式； 如果您想要搜索文字字符串， 将其放在 `\Q` and `\E` 之间(例如， `\QPaul S. Mueller\E` 将搜索字符串 `Paul S. Mueller`, 而不将小点解释为通配符) | 字符串 |
+| 要替换的字符串(这不支持背引用、替代或捕获)                                                                                             | 字符串 |
 
 {{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
-{{% /alert %}}
+正则表达式必须作为字符串提供。 虽然它对正则表达式使用相同的格式，但是在这个函数中不能使用 [正则表达式](regular-expressions) 资源文档。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+请注意此函数调用使用当前平台提供的正则表达式语言：
 
-* When used inside a [microflow](microflow) – Java's regular expressions (for details, see [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* 当在 [微流程](microflow) 中使用时——Java 的正则表达式(详情，见 [类图案文档](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
+* 当在客户端中使用时——JavaScript的正则表达式(详情见 [正则表达式文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 14.2 Output
+### 14.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                          | Type   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The original string, with the first occurrence of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned. | String |
+| 值                                                     | 类型  |
+| ----------------------------------------------------- | --- |
+| 原始字符串，正则表达式的第一次出现由替换字符串取代。 如果在字符串中没有出现正则表达式，则返回原始表达式。 | 字符串 |
 
-### 14.3 Example
+### 14.3 示例
 
-If you use the following input:
-
-```java
-replaceFirst('this is a string with 75 some numbers 234 thrown in', '([0-9])', 'NUMBER')
-```
-
-The output is:
+如果您使用以下输入：
 
 ```java
-'this is a string with NUMBER5 some numbers 234 thrown in'
+首次替换('这是一个字符串，75个数字被抛入', '([0-9])', 'NUMBER')
 ```
 
-## 15 String Concatenation ( + )
+输出为：
 
-The `+` operator can be used to concatenate two strings or a string and a number.
+```java
+'这是一个带有NUMBER5的字符串，一些数字被扔进了'
+```
 
-### 15.1 Input Parameters
+## 15 字符串连接 ( + )
 
-The input parameters are described in the table below:
+`+` 操作员可以用来把两个字符串或一个字符串和一个数字。
 
-| Value            | Type                          |
-| ---------------- | ----------------------------- |
-| First parameter  | String, integer/long, decimal |
-| Second parameter | String, integer/long, decimal |
+### 15.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值     | 类型            |
+| ----- | ------------- |
+| 第一个参数 | 字符串, 整数/长, 小数 |
+| 第二个参数 | 字符串, 整数/长, 小数 |
 
 {{% alert type="info" %}}
 
-At least one of the parameters must be of type string.
+至少一个参数必须是类型字符串。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 15.2 Output
+### 15.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                       | Type   |
-| --------------------------------------------------------------------------- | ------ |
-| A new string that is the literal concatenation of the two input parameters. | String |
+| 值                    | 类型  |
+| -------------------- | --- |
+| 一个新的字符串是两个输入参数的字面汇合。 | 字符串 |
 
-### 15.3 Example
+### 15.3 示例
 
-An example of an input to combine two strings can be the following:
+将两个字符串合并起来的投入的一个例子可以是：
 
 ```java
 'foo' + 'bar'
 ```
 
-The output is:
+输出为：
 
 ```java
 'foobar'
 ```
 
-An example of an input to combine a string and a number can be the following:
+一个用于组合字符串和数字的输入的示例可以是：
 
 ```java
-4.73 + ' kilometers'
+4.73+' 千米
 ```
 
-The output is:
+输出为：
 
 ```java
-'4.73 kilometers'
+“4.73公里”
 ```
 
 ## 16 urlEncode {#urlEncode}
 
-Converts a string to be used in a URL. This function is useful when you want to use the string as part of the URL.
+将一个字符串转换为URL。 当您想要使用字符串作为URL的一部分时，此函数是有用的。
 
-For example:
+例如：
 
 ```java
 'http://google.com/search?q=' + urlEncode($myQuery)
 ```
 
-### 16.1 Input Parameters
+### 16.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 值       | 类型  |
+| ------- | --- |
+| 要转换的字符串 | 字符串 |
 
-### 16.2 Output
+### 16.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                    | Type   |
-| ------------------------ | ------ |
-| The string, URL-encoded. | String |
+| 值          | 类型  |
+| ---------- | --- |
+| 字符串，URL编码。 | 字符串 |
 
-### 16.3 Example
+### 16.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 urlEncode('Hello, world!')
 ```
 
-The output is:
+输出为：
 
 ```java
-'Hello%2C+world%21'
+'Hello%2C+ world%21'
 ```
 
 ## 17 urlDecode
 
-Converts a string back from a URL. The opposite of [urlEncode](#urlEncode).
+从URL转换字符串。 [urlEncode](#urlEncode) 相反.
 
-### 17.1 Input Parameters
+### 17.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                           | Type   |
-| ------------------------------- | ------ |
-| A URL-encoded string to convert | String |
+| 值              | 类型  |
+| -------------- | --- |
+| 要转换的 URL 编码字符串 | 字符串 |
 
-### 17.2 Output
+### 17.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                    | Type   |
-| ------------------------ | ------ |
-| The string, URL-decoded. | String |
+| 值          | 类型  |
+| ---------- | --- |
+| 字符串，URL解码。 | 字符串 |
 
-### 17.3 Example
+### 17.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-urlDecode('Hello%2C+world%21')
+urlDecode('Hello%2C+ world%21')
 ```
 
-The output is:
+输出为：
 
 ```java
-'Hello, world!'
+'你好，世界！'
 ```
