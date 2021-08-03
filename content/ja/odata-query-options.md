@@ -1,162 +1,162 @@
 ---
-title: "OData Query Options"
+title: "OData クエリオプション"
 parent: "published-odata-services"
 tags:
   - "OData"
-  - "filter"
-  - "count"
-  - "sort"
+  - "フィルター"
+  - "カウント"
+  - "並べ替え"
   - "select"
-  - "page"
+  - "ページ"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This is a list of query options for OData.
+これはODataのクエリオプションのリストです。
 
 {{% alert type="info" %}}
-We currently only support the options described here.
+現在、ここで説明されているオプションのみをサポートしています。
 {{% /alert %}}
 
-## 2 Retrieving Objects
+## 2 オブジェクトの取得
 
-### 2.1 Retrieving All Objects
+### 2.1 すべてのオブジェクトの取得
 
-All objects can be retrieved by specifying the URI. For example: `/odata/myservice/v1/myresource`. You can see this if you specify the URI in a browser.
+すべてのオブジェクトはURIを指定することで取得できます。 例: `/odata/myservice/v1/myresource`。 ブラウザで URI を指定すると、これを見ることができます。
 
-### 2.2 Retrieving a Single Object
+### 2.2 単一オブジェクトの取得
 
-A single object can be retrieved by passing the object identifier in the URI. For example: `/odata/myservice/v1/myresource(8444249301330581)`.
+URI 内のオブジェクト識別子を渡すことで、単一のオブジェクトを取得できます。 例: `/odata/myservice/v1/myresource(84444249301330581)`.
 
-### 2.3 Retrieving Associated Objects
+### 2.3 関連するオブジェクトの取得
 
-Associated objects can be retrieved by passing the `$expand` query parameter. For example: `/odata/myservice/v1/Exployees?$expand=Cars,Address($expand=City)` (OData 4) or `/odata/myservice/v1/Exployees?$expand=Cars,Address/City` (OData 3).
+関連付けられたオブジェクトは、 `$expand` クエリパラメータを渡すことで取得できます。 例: `/odata/myservice/v1/Exployees?$expand=Cars,Address($expand=City)` (OData 4) or `/odata/myservice/v1/Exployees?$expand=Cars,Address/City` (OData 3).
 
-## 3 Counting the Number of Objects
+## 3 オブジェクト数の計算
 
-### 3.1 Retrieving a Count of Objects
+### 3.1 オブジェクト数の取得
 
-You can find out how many objects there are by passing the `$count` query option. In this case, the result is an integer which is the number of objects. For example: `/odata/myservice/v1/myresource/$count`.
+`$count` クエリオプションを指定すると、オブジェクトの数を調べることができます。 この場合、結果はオブジェクト数の整数になります。 例: `/odata/myservice/v1/myresource/$count`.
 
-### 3.2 (Inline) Count
+### 3.2 (インライン) カウント
 
-For OData 4, by setting the `$count` query option to `true`, a count of the number of items returned will be included in the result. For example: `?$count=true`.
+OData 4 の場合、 `$count` クエリオプションを `true`に設定してください。 返されるアイテム数のカウントが結果に含まれます。 例: `?$count=true`.
 
-For OData 3, by setting the `$inlinecount` query option to `allpages`, a count of the number of items returned will be included in the result. For example: `?$inlinecount=allpages`.
+OData 3 の場合、 `$inlinecount` クエリオプションを `allpages`に設定してください。 返されるアイテム数のカウントが結果に含まれます。 例: `?$inlinecount=allpages`.
 
-## 4 Filtering
+## フィルタリング4
 
-Filters are applied by appending a `$filter=...` parameter to the request. For example: `/Employees?$filter=Name eq 'John'`.
+フィルタはリクエストに `$filter=...` パラメータを追加することで適用されます。 例: `/Employees ?$filter=Name eq 'John'`.
 
-### 4.1 Passing attributes
+### 4.1 属性を渡します
 
-This table describes how to pass values for different attribute types:
+この表では、異なる属性タイプの値を渡す方法について説明します。
 
-| Type                   | How to Pass                                                                                                                                                                                               |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| String and Enumeration | Enclosed in single quotes (for example, `'John'`)                                                                                                                                                         |
-| Datetime               | For OData 4: a plain value (for example, `2021-12-31`). For OData 3: Preceded with `datetime` and enclosed in single quotes (for example, `datetime'2021-12-31'` or `datetime'<epoch value here>'`) |
-| Other                  | Plain value (for example, 15)                                                                                                                                                                             |
+| タイプ     | パスする方法                                                                                                                                              |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 文字列と列挙値 | シングルクォートで囲まれています (例えば `'John'`)                                                                                                                     |
+| 日時      | OData 4 の場合: プレーン値 (例: `2021-12-31`)。 OData 3: `datetime` で囲まれ、一括引用符で囲まれています (例えば、 `datetime'2021-12-31'` または `datetime'<epoch value here>'`) |
+| その他     | プレーン値 (例: 15)                                                                                                                                       |
 
-### 4.2 Comparison Operators
+### 4.2 比較演算子
 
-We support the following comparison operators:
+以下の比較演算子をサポートします。
 
-| Operator | Meaning                  | Example                             |
-| -------- | ------------------------ | ----------------------------------- |
-| eq       | equals                   | `/Employees?$filter=Name eq 'John'` |
-| ne       | does not equal           | `/Employees?$filter=Name ne 'John'` |
-| gt       | greater than             | `/Employees?$filter=Age gt 15`      |
-| lt       | less than                | `/Employees?$filter=Age lt 15`      |
-| ge       | greater than or equal to | `/Employees?$filter=Age ge 15`      |
-| le       | less than or equal to    | `/Employees?$filter=Age le 15`      |
+| 演算子 | 意味     | 例                                    |
+| --- | ------ | ------------------------------------ |
+| eq  | 等しい    | `/Employee?$filter=Name eq 'John'`   |
+| ne  | 等しくない  | `/Employees ?$filter=Name ne 'John'` |
+| GMT | より大きい  | `/Employees?$filter=年齢 gt 15`        |
+| lt  | より小さい  | `/Employees?$filter=年齢 lt 15`        |
+| ge  | 以上     | `/Employees?$filter=年齢 15`           |
+| le  | 以下か等しい | `/Employees?$filter=年齢ル15`           |
 
-### 4.3 Arithmetic Operators
+### 4.3 算術演算子
 
-| Operator | Meaning       | Example                                | Returns                                |
-| -------- | ------------- | -------------------------------------- | -------------------------------------- |
-| add      | add           | `/Products?$filter=Prices add 2 eq 10` | All products with price 8              |
-| sub      | minus         | `/Products?$filter=Prices sub 2 eq 10` | All products with price 12             |
-| mul      | multiplied by | `/Products?$filter=Prices mul 2 eq 10` | All products with price 5              |
-| div      | divided by    | `/Products?$filter=Prices div 2 eq 10` | All products with price 20             |
-| mod      | modulus       | `/Products?$filter=Prices mod 5 eq 0`  | All products with price divisible by 5 |
+| 演算子 | 意味      | 例                                      | Returns            |
+| --- | ------- | -------------------------------------- | ------------------ |
+| 追加  | 追加      | `/Products?$filter=Prices add 2 eq 10` | 価格が8のすべての製品        |
+| sub | minus   | `/Products?$filter=Prices sub2 eq 10`  | 価格12のすべての製品        |
+| mul | 乗算された   | `/Products?$filter=価格 mil 2 eq 10`     | すべての製品 価格5         |
+| div | で割った    | `/Products?$filter=Prices div 2 eq 10` | 価格20のすべての製品        |
+| mod | modulus | `/Products?$filter=価格 mod 5 eq 0`      | すべての商品の価格が5で割り切れます |
 
-### 4.4 Functions
+### 4.4 関数
 
-| Function             | Example                                         | Returns                                                               |
-| -------------------- | ----------------------------------------------- | --------------------------------------------------------------------- |
-| contains<sup>1</sup> | `/Employees?$filter=contains(Name, 'f')`        | All employees with names that contain an 'f'                          |
-| startswith           | `/Employees?$filter=startswith(Name, 'f')`      | All employees with names that start with 'f'                          |
-| endswith             | `/Employees?$filter=endswith(Name, 'f')`        | All employees with names that end with 'f'                            |
-| length               | `/Employees?$filter=length(Name) eq 5`          | All employees with names that have a length of 5                      |
-| year                 | `/Employees?$filter=year(DateOfBirth) eq 1990`  | All employees born in the year 1990                                   |
-| month                | `/Employees?$filter=month(DateOfBirth) eq 5`    | All employees born in May                                             |
-| day                  | `/Employees?$filter=day(DateOfBirth) eq 31`     | All employees born on the 31st day of the month                       |
-| hour                 | `/Employees?$filter=hour(Registration) eq 13`   | All employees registered between 13:00 (1 PM) and 13:59 (1:59 PM)     |
-| minute               | `/Employees?$filter=minute(Registration) eq 55` | All employees registered on the 55th minute of any hour               |
-| second               | `/Employees?$filter=second(Registration) eq 55` | All employees registered on the 55th second of any minute of any hour |
+| 関数                   | 例                                               | Returns                              |
+| -------------------- | ----------------------------------------------- | ------------------------------------ |
+| <sup>1</sup> を含んでいます | `/Employees ?$filter=contains(Name, 'f')`       | 「f」を含む名前を持つすべての従業員。                  |
+| startswith           | `/Employee?$filter=startswith(Name, 'f')`       | 「f」で始まる名前を持つすべての従業員。                 |
+| endswith             | `/Employees ?$filter=endswith(Name, 'f')`       | 「f」で終わる名前を持つすべての従業員。                 |
+| 長さ                   | `/Employees ?$filter=length(Name) eq 5`         | 名前の長さが5のすべての従業員です                    |
+| 年                    | `/Employees?$filter=year(DateOfBirth) eq 1990`  | 1990年生まれの全社員。                        |
+| 月                    | `/Employees?$filter=month(DateOfBirth) eq 5`    | 5月生まれの社員全員。                          |
+| 日                    | `/Employees?$filter=day(DateOfBirth) eq 31`     | 31日目に生まれた従業員全員。                      |
+| 時                    | `/Employees?$filter=hour(Registration) eq 13`   | 全従業員登録は13:00(午後1時1分)から13:59(午後1時59分) |
+| 分                    | `/Employees?$filter=minute(Registration) eq 55` | すべての従業員は、任意の時間の55分に登録しました            |
+| 秒                    | `/Employees?$filter=second(Registration) eq 55` | すべての従業員は、任意の時間の分の55秒に登録されました         |
 
 <sup>1</sup> In OData 3, the `contains` function is called `substringof`, and its arguments are reversed For example, `/Employees?$filter=substringof('f', Name)`
 
-### 4.5 Combining Filters
+### 4.5 結合フィルター
 
-Filters can be combined with `and`, `or`, `not`, and `()`. For example: `?$filter=Name eq 'John' and (Age gt 65 or Age lt 11)`.
+フィルターは `と`、 `または`、 `ではなく`、 および `()` と組み合わせることができます。 例: `?$filter=Name eq 'John' と (Agge gt 65 or Age lt 11)`.
 
-| Combination | Example                                                          |
-| ----------- | ---------------------------------------------------------------- |
-| and         | `/Employees?$filter=Name eq 'John' and Age gt 65`                |
-| or          | `/Employees?$filter=Age gt 65 or Age lt 11`                      |
-| not         | `/Employees?$filter=not(Name eq 'John')`                         |
-| ( )         | `/Employees?$filter=Name eq 'John' and (Age gt 65 or Age lt 11)` |
+| 組み合わせ | 例                                                                 |
+| ----- | ----------------------------------------------------------------- |
+| と     | `/Employee?$filter=Name eq 'John' and Age gt 65`                  |
+| または   | `/Employees?$filter=Age gt 65 or Age lt 11`                       |
+| いいえ   | `/Employees ?$filter=not(Name eq 'John’)`                         |
+| ( )   | `/Employees?$filter=Name eq 'John' and (Agge gt 65 or Age lt 11)` |
 
-### 4.6 Filtering by Association
+### 4.6 関連付けによるフィルタリング
 
-You can filter on attributes of an associated entity. The way you do this depends on whether the association exposes one object or a list of objects.
+関連するエンティティの属性をフィルタリングできます。 これを行う方法は、関連付けが 1 つのオブジェクトまたはオブジェクトのリストを公開するかによって異なります。
 
-| Type                           | Example                                               |
-| ------------------------------ | ----------------------------------------------------- |
-| Filter on an associated object | `People?$filter=BirthPlace/CityName eq 'Rotterdam'`   |
-| Filter on an associated list   | `City?$filter=BornIn/any(person:person/Year le 1919)` |
+| タイプ              | 例                                                  |
+| ---------------- | -------------------------------------------------- |
+| 関連するオブジェクトでフィルター | `People?$filter=BirthPlace/CityName eq 'Rotterdam` |
+| 関連付けられたリストでフィルター | `$filter=BornIn/any(person:person/Year le 1919)`   |
 
-Filtering on an associated object or list in this way is possible when you [expose associations as a link](odata-representation#associations). It is not possible when you [expose associations as an associated object ID](odata-representation#associations).
+関連付けられているオブジェクトやリストへのフィルタリングは [リンク](odata-representation#associations) として関連付けを公開する場合に可能です。 あなたが [関連するオブジェクト ID として関連付けを公開する場合は不可能です](odata-representation#associations)。
 
-## 5 Sorting
+## 5ソート
 
-You can sort the result using the `$orderby` query option. For example: `?$orderby=Name` or `?$orderby=BirthPlace/CityName`.
+`$orderby` クエリオプションを使用して結果をソートできます。 例: `?$orderby=名前` または `?$orderby=誕生地/都市名`。
 
-The default direction is ascending, and you can make this explicit. For example: `?$orderby=Name asc`.
+デフォルトの方向は昇順で、これを明示的にすることができます。 例: `?$orderby=Name asc`.
 
-You can also order the result in a descending direction. For example: `?$orderby=Name desc`.
+結果を降順に並べることもできます。 例: `?$orderby=Name desc`.
 
-It is possible to sort on multiple attributes, which have to be comma-separated. For example: `?$orderby=Name asc,Age desc`.
+複数の属性をカンマ区切りで並べ替えることができます。 例: `?$orderby=名前 asc,Age desc`.
 
-## 6 Selecting fields
+## 6項目の選択
 
-You can select which attributes and associations to return by specifying the `$select` query option. For example: `?$select=Name,Age`.
+`$select` クエリオプションを指定することで、返す属性と関連性を選択できます。 例: `?$select=名前,年齢`.
 
-## 7 Paging
+## 7ページ
 
-### 7.1 Top (Limit)
+### 7.1 トップ (制限)
 
-You can limit the number of returned objects using the `$top` query option, where the limit is a positive integer. For example: `?$top=100`.
+`$top` クエリオプションを使用して返されるオブジェクトの数を制限することができます。ここで、制限は正の整数です。 例: `?$top=100`.
 
-### 7.2 Skip (Offset)
+### 7.2 スキップ (オフセット)
 
-You can skip a number of objects before retrieving the result using the `$skip` query option, where the offset is a positive integer. For example: `?$skip=100` will return objects starting with the 101st object in the list.
+`$skip` クエリオプションを使用して結果を取得する前に、多くのオブジェクトをスキップすることができます。オフセットは正の整数です。 例: `?$skip=100` は、リスト内の 101番目のオブジェクトから始まるオブジェクトを返します。
 
 ## 8 Null Literals
 
-You can compare values against the `null` literal. For example: `?$filter=Name eq null`.
+値を `null` リテラルと比較できます。 例: `?$filter=Name eq null`.
 
-In this example, `Name` is a string attribute that can have no assigned value in the database. Note that `null` means *no value* as opposed to `''` (which is an empty string).
+この例では、 `Name` はデータベースに割り当てられた値を持たない文字列属性です。 `null` は、 *''* (これは空の文字列) ではなく、 `値` を意味しないことに注意してください。
 
-When you filter against associations, null literals can be quite useful. For example: `?$filter=Association_A_B ne null`. In this example, you query for objects of entity type `A` that have at least one association set to objects of entity type `B`.
+関連付けに対してフィルタリングする場合、null リテラルは非常に便利です。 例: `?$filter=Association_A_B ne null`. この例では、 エンティティタイプ `A` のオブジェクトに対して、エンティティタイプ `B` のオブジェクトに対して少なくとも1つの関連付けセットをクエリします。
 
-## 9 Passing Query Options in the Request Body
+## リクエストボディ内の9つのクエリオプションを渡します
 
-If the OData query is too long to be sent as a `GET` request, clients can send the query as a `POST` request to the `/$query` endpoint. For example, `GET /Products?$select=Name,Price` and `POST /Products/$query` with `$select=Name,Price` in the request body give the same result. These `POST` requests must specify the header `Content-Type: text/plain`.
+If the OData query is too long to be sent as a `GET` request, clients can send the query as a `POST` request to the `/$query` endpoint. For example, `GET /Products?$select=Name,Price` and `POST /Products/$query` with `$select=Name,Price` in the request body give the same result. これらの `POST` リクエストは、ヘッダー `Content-Type: text/plain` を指定する必要があります。
 
 {{% alert type="info" %}}
-The body must adhere to *URL encoding* principles. So, for instance, spaces, tabs, and newlines are not allowed.
+本文は *URLエンコード* の原則に従わなければなりません。 そのため、例えばスペース、タブ、改行は許可されません。
 {{% /alert %}}
