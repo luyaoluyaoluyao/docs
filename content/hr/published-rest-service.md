@@ -16,10 +16,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-service.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Use a published REST service to expose your entities and microflows to other apps using the REST standard.
@@ -75,7 +71,7 @@ The public documentation is used in the service's [OpenAPI 2.0 (Swagger) Documen
 
 ### 2.5 Export swagger.json {#export-swagger-json}
 
-To save a service's [OpenAPI (Swagger) documentation](open-api) somewhere on your machine, simply right-click the service in the **Project Explorer** and select **Export swagger.json** (or just click the **Export swagger.json** button, depending on your Studio Pro version). This is a machine-readable file in the [OpenAPI 2.0 file format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). Most API tools support this format.
+To save a service's [OpenAPI (Swagger) documentation](open-api) somewhere on your machine, simply right-click the service in the **App Explorer** and select **Export swagger.json** (or just click the **Export swagger.json** button, depending on your Studio Pro version). This is a machine-readable file in the [OpenAPI 2.0 file format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). Most API tools support this format.
 
 When the app is running, this file is available under */rest-doc/servicename/swagger.json*.
 
@@ -151,12 +147,6 @@ When you select a resource, you see the [operations](published-rest-operation) t
 Resources and Operations are appended to [Location](#location) to form a URL on which they can be accessed.
 
 ![](attachments/published-rest-service/example-location-url.png)
-
-## 7 Example
-
-**How to publish REST in Studio Pro 8**
-
-{{% youtube Ff_P84NOcZk %}}
 
 ## 8 Read More
 
