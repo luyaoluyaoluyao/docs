@@ -1,136 +1,136 @@
 ---
-title: "Commit Object(s)"
-parent: "object-activities"
+title: "コミットオブジェクト"
+parent: "object-activity"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Commit** activity works on one or more objects. For persistable entities, committing an object stores it in the database. Committing non-persistable entities stores the current attribute values and association values in memory, this allows a rollback to revert to those values. See also [Persistability](persistability).
+**コミット** アクティビティは 1 つ以上のオブジェクトで動作します。 持続可能エンティティの場合、コミットするオブジェクトはデータベースに格納されます。 持続可能でないエンティティをコミットすると、現在の属性値と関連付け値がメモリに格納されます。これにより、ロールバックがそれらの値に戻ることができます。 [永続性](persistability) も参照してください。
 
 {{% alert type="info" %}}
-A Mendix commit does not always behave like a database commit. See [How Commits Work](#how-commits-work), below, for more information.
+Mendix コミットは、常にデータベースコミットのように動作するとは限りません。 詳細については、 [コミットの仕組み](#how-commits-work)を参照してください。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of commit object(s) properties is represented in the image below:
+以下の画像では、コミット オブジェクトのプロパティの例を示します。
 
-![commit object(s) properties](attachments/object-activities/commit-properties.png)
+![コミットオブジェクトのプロパティ](attachments/object-activities/commit-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The commit object(s) properties pane consists of the following sections:
+コミット オブジェクトのプロパティ ペインは次のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The Action section of the properties pane shows the action associated with this activity.
+プロパティ ペインの format@@0 セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Object or List
+### 3.1 オブジェクトまたはリスト
 
-The object or list of objects that you want to commit.
+コミットするオブジェクトまたはオブジェクトのリスト。
 
-### 3.2 With Events
+### 3.2 イベントあり
 
 {{% alert type="info" %}}
-This property is for microflows only.
+このプロパティはマイクロフローのみです。
 {{% /alert %}}
 
-Indicates whether or not to execute the commit event handlers of the objects.
+オブジェクトのコミットイベントハンドラーを実行するかどうかを示します。
 
-Default: *Yes*
+デフォルト: *はい*
 
-#### 3.2.1 Events in Nanoflows
+#### 3.2.1 Nanoflowでのイベント
 
-Nanoflows do not have this property.
+Nanoflows にはこの特性はありません。
 
-If the commit object(s) action is used in an online app, it sends a commit request to the Mendix Runtime and always runs the events.
+commit object(s) アクションがオンラインアプリで使用されている場合、Mendix Runtimeにcommit requestを送信し、常にイベントを実行します。
 
-If the commit object(s) action is used in an offline app, the changes are committed to the offline database, and event handlers are run when the offline app synchronizes.
+コミットオブジェクトアクションがオフラインアプリで使用されている場合、変更はオフラインデータベースに反映されます。 イベントハンドラは、オフラインのアプリが同期したときに実行されます。
 
-### 3.3 Refresh in Client{#refresh-in-client}
+### 3.3 クライアントで{#refresh-in-client} を更新
 
-This setting defines how changes are reflected in the pages presented to the end-user.
+この設定では、エンドユーザーに表示されるページに変更が反映される方法を定義します。
 
-Default: *No*
+デフォルト: *いいえ*
 
 {{% alert type="info" %}}
-To make pages of a Mendix app efficient, many widgets display values from an attribute of an object which is cached on the page. Attributes in widgets which use cached data are *always* reflected in the client when they are updated or deleted irrespective of the value of **Refresh in client**.
+Mendix アプリのページを効率的にするために、多くのウィジェットはページにキャッシュされたオブジェクトの属性から値を表示します。 Attributes in widgets which use cached data are *always* reflected in the client when they are updated or deleted irrespective of the value of **Refresh in client**.
 
 If a widget is only updated when a [data source](data-sources) is loaded, then changes will only be seen when **Refresh in client** is set to *Yes*.
 
-When testing your app, ensure that the desired data is being displayed by the widgets you have chosen.
+アプリをテストする際は、選択したウィジェットで希望するデータが表示されていることを確認してください。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
-When committing a large number of objects, we recommend that you do not enable 'Refresh in client' because it can slow things down.
+多数のオブジェクトをコミットする場合、「クライアントでリフレッシュ」を有効にしないことをお勧めします。
 {{% /alert %}}
 
-#### 3.3.1 Microflow is Called from the Client in an Online App
+#### 3.3.1 マイクロフローは、オンラインアプリでクライアントから呼び出されます
 
-If **Refresh in client** is set to *No*, the change is not reflected in the client.
+クライアント **の更新** が *いいえ*に設定されている場合、変更はクライアントに反映されません。
 
-If set to *Yes*, the object is refreshed across the client, which includes reloading the relevant [data sources](data-sources).
+*はい*に設定すると、関連する [データ ソース](data-sources) の再ロードを含む、オブジェクトはクライアント全体でリフレッシュされます。
 
-#### 3.3.2 Microflow is Called in an Offline, Native, or Hybrid App
+#### 3.3.2 マイクロフローはオフライン、ネイティブ、またはハイブリッドアプリで呼び出されます
 
-When inside a microflow that is called from an offline, native, or hybrid app, the **Refresh in client** option is ignored and functions as if it was set to **No**.
+オフライン、ネイティブ、またはハイブリッドアプリから呼び出されるマイクロフロー内の場合 **クライアントの** オプションは無視され、 **いいえ** に設定されているかのように機能します。
 
-For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 
-#### 3.3.3 Action is in a Nanoflow
+#### 3.3.3 アクションは Nanoflow にあります
 
 When inside a [nanoflow](nanoflows), the object is refreshed across the client as if **Refresh in client** was set to *Yes*.
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 How Commits Work{#how-commits-work}
+## 5 コミットの仕組み{#how-commits-work}
 
-### 5.1 Committing Objects
+### 5.1 オブジェクトをコミットする
 
-When you commit an object, the current value is saved. This means that you cannot rollback to the previous values of the object using the **Rollback** action of a microflow.
+オブジェクトをコミットすると、現在の値が保存されます。 つまり、マイクロフローの **ロールバック** アクションを使用して、オブジェクトの以前の値にロールバックすることはできません。
 
-However, a Mendix **Commit** is not the same as a database **Commit**. For an object of a persistable entity, the saved value is not committed to the database until the microflow and any microflows from which it is called, completes. This means that errors in a microflow *can* initiate a rollback. If a microflow action errors and has **Error handling** set to *Rollback* or *Custom with rollback*, the value of the object *will* be rolled back to the value it had at the start of the microflow. See [Error Event](error-event#errors-in-microflows) for more information.
+ただし、Mendix **コミット** はデータベースの **コミット** と同じではありません。 永続的なエンティティのオブジェクト 保存された値は、マイクロフローと呼ばれるマイクロフローが完了するまでデータベースに反映されません。 これは、マイクロフロー *内のエラーが* ロールバックを開始する可能性があることを意味します。 If a microflow action errors and has **Error handling** set to *Rollback* or *Custom with rollback*, the value of the object *will* be rolled back to the value it had at the start of the microflow. 詳細は [Error Event](error-event#errors-in-microflows) を参照してください。
 
-Mendix mimics this behavior for *non-persistable* entities. Committing a non persistable entity means you cannot use a **Rollback** action to go back to the previous values, although rollback error handling in a microflow *will* roll back to the original values.
+Mendix は *非持続可能な* エンティティのこの動作を模倣します。 Committing a non persistable entity means you cannot use a **Rollback** action to go back to the previous values, although rollback error handling in a microflow *will* roll back to the original values.
 
-### 5.2 Autocommit and Associated Objects
+### 5.2 自動コミットと関連オブジェクト
 
-When an object is committed through a default Save button, a commit activity, or web services, it will always trigger the commit events. The platform will also evaluate all associated objects. To guarantee data consistency, the platform may also autocommit associated objects.
+オブジェクトがデフォルトのformat@@0ボタン、コミットアクティビティ、またはWebサービスを介してコミットされると、常にコミットイベントがトリガーされます。 プラットフォームは、関連するすべてのオブジェクトも評価します。 データの一貫性を保証するために、プラットフォームは関連するオブジェクトを自動コミットすることもできます。
 
-An autocommit is an automatic commit from the platform, which is done to keep the domain model in sync. If your application ends up having autocommitted objects, then you will have a modeling error. Since an association is also a member of an object, the association will be stored in the database as well. This means that if you create an order line inside an order and the order line is the parent of the association, when you commit the order line, the order will be autocommitted.
+autocommit は、ドメインモデルを同期させるために行われるプラットフォームからの自動コミットです。 アプリケーションが自動コミットされたオブジェクトを持つことになった場合、モデリングエラーが発生します。 関連付けはオブジェクトのメンバーでもあるため、関連付けはデータベースにも保存されます。 これは、注文内に注文行を作成し、注文行が関連付けの親である場合に意味します。 注文行をコミットすると、注文は自動コミットされます。
 
 {{% alert type="warning" %}}
-An autocommit is not the same as an explicit commit!
+自動コミットは明示的なコミットと同じではありません！
 
-If a rollback is triggered for any reason (for example, if the user session is terminated by the user closing the browser), then autocommitted objects will be deleted from the database. See [Persistability](/refguide/persistability) for more information about how Mendix handles persistable objects.
+何らかの理由でロールバックがトリガーされた場合 (例えば、ユーザーセッションがブラウザを閉じることによって終了した場合) 自動コミットされたオブジェクトはデータベースから削除されます。 Mendixが永続的なオブジェクトをどのように扱うかについては、 [永続性](/refguide/persistability) を参照してください。
 {{% /alert %}}
 
-If you end up with autocommitted objects, it is always because of a modeling error. At some point in time, an association was set to a new object, the associated object was committed, and all of its associations were committed as well to keep all the data consistent.
+自動コミットされたオブジェクトになった場合、モデリングエラーが原因で常に発生します。 ある時点で、関連付けられたオブジェクトが新しいオブジェクトに設定され、関連付けられたオブジェクトがコミットされました。 すべての関連団体はすべてのデータを一貫性を保つことを約束しています
 
-During commit the the following will occur:
+コミット中に以下のことが起こります:
 
-* Events: For *explicitly committed* objects all before and after events are executed, and if any before-rollback event returns false, an exception can be thrown
-    * If an exception occurs during an event, all the applied changes are reverted with the default error handling behavior
-    * Changes made prior to the commit will be kept
-        {{% alert type="warning" %}}Before and after events are not executed for autocommitted objects.{{% /alert %}}
-* Database: there is an insert or update query executed both for explicitly committed objects and auto committed objects
-    * Depending on the object state, the platform will do an insert for objects with the state **Instantiated** and an update for all other states
-* Result: an object with the state Instantiated will be inserted into the database, and an object with any other state will be updated
+* イベント: *が明示的にコミットされた* オブジェクトの場合、イベントが実行される前後にすべてのオブジェクトが実行されます。 そして、before-rollback イベントが false を返した場合、例外を投げることができます。
+    * イベント中に例外が発生した場合、デフォルトのエラー処理動作で適用されたすべての変更が元に戻されます。
+    * コミットの前に行われた変更は保持されます
+        {{% alert type="warning" %}}イベントの前後は自動コミットされたオブジェクトに対して実行されません。{{% /alert %}}
+* データベース: 明示的にコミットされたオブジェクトと自動コミットされたオブジェクトの両方に対して挿入または更新クエリが実行されます
+    * オブジェクトの状態によって異なります。 プラットフォームは状態 **インスタンス化** を持つオブジェクトの挿入を行い、他のすべての状態の更新を行います
+* 結果: 状態を持つオブジェクト インスタンスがデータベースに挿入され、他の状態を持つオブジェクトが更新されます。
 
 ![](attachments/object-activities/18582172.png)
