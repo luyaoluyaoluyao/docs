@@ -1,8 +1,13 @@
 ---
 title: "OQL 日期"
 parent: "oql-函数"
+tags:
+  - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-datepart.pdf)。
+{{% /报警 %}}
 
 DATEPAT 函数从日期/时间值中检索指定的元素。 此元素是类型整数。
 
