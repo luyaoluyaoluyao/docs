@@ -9,10 +9,6 @@ tags:
   - "expressions"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/mathematical-function-calls.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Mathematical function calls include a limited number of mathematical operations on numbers, such as returning the largest value or rounding a number up.
@@ -102,7 +98,7 @@ The input parameters are described in the table below:
 
 ### 4.2 Output
 
-In the [Project Settings](project-settings), your option for **Round numbers** can be set which determines how half numbers (0.5) are treated:
+In the [App Settings](project-settings), your option for **Round numbers** can be set which determines how half numbers (0.5) are treated:
 *   For the **Half away from zero** option (also called "commercial rounding"), +2.5 becomes +3 and -1.5 becomes -2
 *   The **Half to the nearest even number** option (also called "bankers' rounding") is the default rounding mode used in [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point "IEEE floating point") computing functions and operators; for example, +23.5 becomes +24, as does +24.5; and -22.5 becomes -22, as does -21.5
 
