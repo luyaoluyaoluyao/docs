@@ -1,24 +1,61 @@
 ---
 title: "パスワードのテキストボックス"
 parent: "認証ウィジェット"
+tags:
+  - "studio pro"
+  - "パスワードテキスト ボックス"
+  - "認証ウィジェット"
+  - "認証"
 ---
 
-パスワードのテキストボックスは、認証用のパスワードを提供するために使用できるウィジェットです。 [ログイン ID テキスト ボックス](login-id-text-box) と [サインイン ボタン](sign-in-button) と一緒にページに配置する必要があります。
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/password-text-box.pdf) をクリックしてください。
+{{% /alert %}}
 
-## 共通のプロパティ
+{{% alert type="warning" %}}The **Password text box** ウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+## 1つの紹介
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+**Password テキスト ボックス** は、認証用のパスワードを提供するウィジェットです。
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+![パスワードのテキストボックス](attachments/authentication-widgets/password-text-box.png)
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+**Password テキスト ボックス** は、 [ログイン ID テキスト ボックス](login-id-text-box) と [サインイン ボタン](sign-in-button) と一緒にページに配置する必要があります。
 
-## 一般プロパティ
+## 2つのプロパティ
 
-### プレースホルダー
+以下の画像には、パスワード テキスト ボックスのプロパティの例が示されています。
 
-テキストがまだ入力されていない場合、プレースホルダー テキストが表示されます。 入力するテキストの種類についてのヒントをユーザーに与えるために使用することができます。
+{{% image_container width="250" %}}![](attachments/authentication-widgets/password-text-box-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Login+Label+Properties.md" %}}
+format@@0 テキスト ボックスのプロパティは、次のセクションで構成されています。
+
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [ラベル](#label)
+
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.2 デザインプロパティセクション {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 一般セクション {#general}
+
+#### 2.3.1 プレースホルダー
+
+**プレースホルダー** は、エンドユーザーがまだテキストを入力していない場合にテキストを表示します。 フィールドに入力すべき情報について、エンドユーザーにヒントを与えるために使用できます。
+
+### 2.4 ラベルセクション {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [ログインIDテキストボックス](login-id-text-box)
+* [サインインボタン](sign-in-button)
