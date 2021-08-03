@@ -6,8 +6,13 @@ description: "发布的REST 资源的可配置选项"
 tags:
   - "已发布 REST"
   - "资源"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+**已发布的REST service** 功能已引入7.10.0版本。
+
+{{% /报警 %}}
 
 ## 1 导言
 
