@@ -1,32 +1,20 @@
 ---
 title: "アクティビティの一覧"
 parent: "アクティビティ"
-menu_order: 20
-tags:
-  - "studio pro"
-  - "マイクロフロー"
-  - "リスト"
 ---
 
-## 1つの紹介
+## 集計値
 
-Mendix プラットフォームを使用する場合、マイクロフローを使用して、単一のオブジェクトだけでなく、単一のアクティビティを持つエンティティのリスト全体を操作できます。
+[集計リスト](aggregate-list) を参照してください。
 
-Additional activities which work on lists, [commit object(s)](committing-objects), [delete object(s)](deleting-objects), and [retrieve](retrieve), are in the [Object Activities](object-activities) section of the toolbox. リストを [ループ](loop) して、個々のオブジェクトでアクティビティを実行することもできます。
+## 変更
 
-このドキュメントで説明されているアクティビティは、 **ツールボックス** の **リストアクティビティ**セクションにあります:
+[変更リスト](change-list) を参照してください。
 
-{{% image_container width="40%" %}}
-![アクティビティツールボックスの一覧](attachments/list-activities/list-activities-toolbox.png)
-{{% /image_container %}}
+## 作成
 
-以下は、マイクロフローまたはナノフローで使用できるリストアクティビティです。
+[Create List](create-list) を参照してください。
 
-* [集計リスト](aggregate-list) - リスト上の集計値を計算します。
-* [Change List](change-list) - リストからオブジェクトを追加、削除する
-* [Create List](create-list) – 空のリストを作成
-* [リスト操作](list-operation) - リスト上でアクションを実行し、結果がリストの場合、結果を含む新しいリストを返します。
+## リスト操作
 
-## 2 続きを読む
-
-* [アクティビティ](アクティビティ)
+[リスト操作](list-operation) を参照してください。
