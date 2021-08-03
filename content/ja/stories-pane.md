@@ -1,98 +1,98 @@
 ---
-title: "Stories Pane"
-parent: view-menu
+title: "ストーリーペイン"
+parent: 表示メニュー
 menu_order: 60
-description: "Describes the Stories pane in Mendix Studio Pro."
+description: "Mendix Studio Pro でストーリーペインを説明します。"
 tags:
   - "Studio Pro"
-  - "stories"
-  - "stories pane"
+  - "ストーリー"
+  - "ストーリーペイン"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-For version control enabled apps (apps with Team Server or other SVN servers), the **Stories** pane displays the stories and tasks of the current [Sprint](/developerportal/collaborate/planning-development). Stories, tasks, and sprints are created and managed in the Developer Portal. For more information on stories, see [Stories](/developerportal/collaborate/stories). For more information on tasks, see the [Adding Tasks to a Story](/developerportal/collaborate/stories#adding) section in *Stories*.
+バージョン管理が有効になっているアプリ (Team Serverまたは他のSVNサーバーを持つアプリ) **ストーリー** ペインには、現在の [スプリント](/developerportal/collaborate/planning-development) のストーリーとタスクが表示されます。 ストーリー、タスク、スプリントは開発者ポータルで作成および管理されます。 ストーリーの詳細については、 [ストーリー](/developerportal/collaborate/stories) を参照してください。 タスクの詳細については、 [ストーリー](/developerportal/collaborate/stories#adding) の *ストーリー*にタスクを追加するformat@@4セクションを参照してください。
 
-In the **Stories** pane, you can view the stories and tasks of the current sprint, show or hide done stories, open their details, change the status of the stories and tasks, and open documents connected to stories.
+**ストーリー** ペインでは、現在のスプリントのストーリーとタスクを表示、完了したストーリーを表示または非表示にできます。 彼らの詳細を開き、ストーリーとタスクの状況を変更し、ストーリーに関連する文書を開きます。
 
-The **Stories** pane consists of the top bar with various buttons and a table:
+**ストーリー** ペインは、さまざまなボタンとテーブルを備えた上部のバーで構成されています。
 
-![Stories Pane Example](attachments/stories-pane/stories-pane.png)
+![ストーリーペインの例](attachments/stories-pane/stories-pane.png)
 
-The table contains following columns:
+テーブルには次の列が含まれています:
 
-* **Story** – shows a list of stories
-  * *Tasks* are displayed as a sub-list of the corresponding story
-* **Status** – shows the status of a story or a task
+* **ストーリー** – ストーリーのリストを表示する
+  * *タスク* が対応するストーリーのサブリストとして表示されます
+* **ステータス** – ストーリーやタスクの状況を表示する
 
-## 2 Interacting with the Stories Pane
+## 2 ストーリーペインとの相互作用
 
-You can perform the following actions in the **Stories** pane:
+**ストーリー** ペインでは、次のアクションを実行できます。
 
-* [Refresh the Stories pane](#refresh)
-* [View stories details](#view-details)
-* [Show or hide completed stories](#show-completed-stories)
-* [Open documents connected to stories](#opening-documents)
-* [Change the status of a story or a task](#changing-status)
+* [ストーリーペインを更新](#refresh)
+* [ストーリーの詳細を表示](#view-details)
+* [完了したストーリーを表示または非表示にします](#show-completed-stories)
+* [ストーリーに接続されたドキュメントを開く](#opening-documents)
+* [ストーリーまたはタスクのステータスを変更する](#changing-status)
 
-### 2.1 Refreshing the Stories Pane {#refresh}
+### 2.1 ストーリーペインの更新 {#refresh}
 
-The **Refresh** button allows you to get the latest changes on stories and tasks done by you and your team members in the the Developer Portal or Studio Pro.
+**更新** ボタンを使用すると、デベロッパーポータルまたはスタジオプロで、あなたとチームメンバーが行ったストーリーやタスクの最新の変更を取得できます。
 
-If two team members change the same story, the changes done last will take effect. For example, you set the story status to *Running*, but your colleague sets it to *Done* two minutes later. The story's status will be set to *Done* when you click **Refresh**, as your colleague was the last one to implement changes.
+2人のチームメンバーが同じストーリーを変更すると、最後に行われた変更が有効になります。 たとえば、ストーリーのステータスを *実行*に設定しますが、同僚はそれを2分後に *完了* に設定します。 *更新* をクリックすると、ストーリーの状態が **完了**に設定されます 変更を実装した最後の同僚だったからです
 
-### 2.2 Viewing Details {#view-details}
+### 2.2 表示詳細 {#view-details}
 
-To view details of a *story*, do one of the following:
+*ストーリー*の詳細を表示するには、次のいずれかを実行します。
 
-* Double-click it in the table
-* Select the story in the table and click the **Details** button in the top bar
+* 表内でダブルクリックします
+* テーブル内のストーリーを選択し、上部バーの **詳細** ボタンをクリックします。
 
-A *plus icon* next to a story means it has tasks assigned to it. To view details of a *task*, click the plus icon and do one of the following:
+ストーリーの横にある *+アイコン* が、タスクに割り当てられていることを意味します。 *タスク*の詳細を表示するには、プラスアイコンをクリックし、次のいずれかを実行します:
 
-* Double-click the task in the table
-* Select the task in the table and click the **Details** button in the top bar
+* テーブル内のタスクをダブルクリックします
+* テーブル内のタスクを選択し、上部バーの **詳細** ボタンをクリックします。
 
-When you view the details of a story or task, the **Story Details** pop-up window is opened with the following information:
+ストーリーやタスクの詳細を表示すると、 **ストーリーの詳細** ポップアップウィンドウが開き、次の情報が表示されます。
 
-* **Title** – the title of the story/task
+* **タイトル** - ストーリー/タスクのタイトル
 
-* **Status** – the current status of the story/task
+* **ステータス** - ストーリー/タスクの現在の状態
 
-* **Story points** – the story points assigned to the story/task
+* **ストーリー ポイント** – ストーリー/タスクに割り当てられたストーリー ポイント
 
-* **Description** – the description of the story/task
+* **説明** – ストーリー/タスクの説明
 
-    ![Story Details](attachments/stories-pane/story-details.png)
+    ![記事の詳細](attachments/stories-pane/story-details.png)
 
-### 2.3 Showing Completed Stories {#show-completed-stories}
+### 2.3 完了したストーリーを表示する {#show-completed-stories}
 
-When enabled, the **Show complete stories** button allows you to show the stories that are set to *Done*. For more information on statuses of stories, see the [Changing the Status of a Story or a Task](#changing-status) section below.
+有効にすると、 **Show complete stories** ボタンで *Done* に設定したストーリーを表示できます。 ストーリーの状況の詳細については、以下の [ストーリーまたはタスクの状況の変更](#changing-status) セクションを参照してください。
 
-### 2.4 Opening Documents Connected to Stories {#opening-documents}
+### 2.4 ストーリーに接続されたドキュメントを開く {#opening-documents}
 
-If the story is created from a feedback item, you can open a document which the feedback item refers to. That means if a feedback was submitted for a widget on a page, the **Open document** button or icon will open this page.
+フィードバック項目からストーリーが作成された場合、フィードバック項目が参照するドキュメントを開くことができます。 つまり、ページ上のウィジェットに対してフィードバックが送信された場合、 **Open document** ボタンまたはアイコンがこのページを開きます。
 
-To open the document, either click the **Open document** button in the top bar or the corresponding icon in the table:
+ドキュメントを開くには、上部バーの **Open document** ボタンをクリックするか、テーブル内の対応するアイコンをクリックします。
 
-![Open document icon](attachments/stories-pane/open-document-icon.png)
+![ドキュメントアイコンを開く](attachments/stories-pane/open-document-icon.png)
 
-For more information on how to create a story on the basis of a feedback item and add it to your backlog, see the [Adding a Feedback Item to Your Backlog](/developerportal/collaborate/feedback#adding) section in *Feedback Management*.
+フィードバックアイテムに基づいてストーリーを作成し、バックログに追加する方法の詳細については、 [フィードバック管理](/developerportal/collaborate/feedback#adding) の *バックログにフィードバックアイテムを追加する*セクションを参照してください。
 
-### 2.5 Changing the Status of a Story or a Task {#changing-status}
+### 2.5 ストーリーまたはタスクのステータスの変更 {#changing-status}
 
-You can change the status of a story or a task.
+ストーリーやタスクのステータスを変更できます。
 
-To change the status of a *story*, click its status in the **Status** column. The status will change in the following succession:  *To do* > *Running* > *Done* > *To do*.
+*ストーリー*のステータスを変更するには、 **ステータス** の列でそのステータスをクリックします。 The status will change in the following succession:  *To do* > *Running* > *Done* > *To do*.
 
-To change the status of a task, tick or clear the check box in the **Status** column:
+タスクのステータスを変更するには、 **ステータス** 列のチェックボックスをオンまたはオフにします。
 
-* Clear the check box to set the done task in *To do*
+* 完了したタスクを *To do* で設定するチェックボックスをクリアします
 
-* Tick the check box to set the task to *Done*
+* タスクを *完了*に設定するには、チェックボックスをオンにします。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Stories](/developerportal/collaborate/stories)
-* [Feedback Management](/developerportal/collaborate/feedback)
-* [View Menu](view-menu)
+* [ストーリー](/developerportal/collaborate/stories)
+* [フィードバック管理](/developerportal/collaborate/feedback)
+* [表示メニュー](表示メニュー)
