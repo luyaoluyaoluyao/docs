@@ -1,45 +1,45 @@
 ---
-title: "Working with Vector Graphics"
-parent: "native-mobile"
+title: "使用矢量图形"
+parent: "本地移动版"
 menu_order: 80
-description: "Learn how to integrate SVGs into your native mobile apps."
+description: "学习如何将 SVG 集成到您的本地移动应用中。"
 tags:
-  - "native"
+  - "原生的"
   - "svg"
-  - "images"
-  - "mobile"
-  - "vector"
-  - "vector graphics"
+  - "图像"
+  - "移动网络"
+  - "向量"
+  - "矢量图像"
 ---
 
-## 1 Introduction
+## 1 导言
 
-When building a native mobile application, you may want to use vector images for icons or other illustrations. For this purpose, you can use Scalable Vector Graphics (SVGs). This reference guide will provide guidance for working with SVGs in native mobile apps.
+当构建本地移动应用程序时，您可能想要使用矢量图像作为图标或其他插图。 为此目的，您可以使用可缩放矢量图形(SVGs)。 本参考指南将为在本机移动应用中使用SVG提供指导。
 
-## 2 Optimizing SVGs {#optimizing}
+## 2 优化SVGs {#optimizing}
 
-When exporting an SVG from an editor, you will often produce an SVG with several unnecessary elements. These elements increase file size, decrease performance, and can cause unwanted side effects. Therefore it is recommended that you run your SVG through an SVG-optimization tool.
+当从编辑器导出SVG时，您将经常生成带有几个不必要元素的SVG。 这些元素会增加文件大小，降低性能，并可能导致不需要的副作用。 因此，建议您通过SVG优化工具运行您的SVG。
 
-To optimize your SVGs, you can either run them through an online tool such as [SVGOMG](https://jakearchibald.github.io/svgomg/) or use a local tool such as [SVGO](https://github.com/svg/svgo).
+优化您的 SVGs 您可以通过 [SVGOMG](https://jakearchibald.github.io/svgomg/) 等在线工具运行它们，也可以使用本地工具，例如 [SVGO](https://github.com/svg/svgo)。
 
-## 3 Unsupported Elements
+## 3 不支持的元素
 
-SVGs can contain several kinds of elements. However, not all of them are supported in native mobile apps. Unsupported elements will have no effect and should be removed. The following SVG elements are *not* supported for native mobile apps:
+SVG可以包含几种元素。 然而，并不是所有这些都在本地移动应用中得到支持。 不支持的元素将不会产生任何效果，应该被删除。 下面的SVG 元素不支持本地移动应用程序的 **
 
-* Complex gradients
-* Animations
-* Video
-* JavaScript code
-* CDATA elements
-* `<style />` tags and `style` attributes (please use regular properties instead)
+* 复杂渐变
+* 动画
+* 视频
+* JavaScript 代码
+* CDATA 元素
+* `<style />` 标签和 `样式` 属性 (请使用普通属性)
 
-We suggest manually removing these elements from your SVGs, or using the tools mentioned in [Optimizing SVGs](#optimizing) above to ensure their compatibility.
+我们建议手动从您的SVG中删除这些元素，或者使用上面 [中提到的工具优化SVG](#optimizing) 以确保其兼容性。
 
 ## 4 Styling SVGs
 
-You might want to change certain colors in your SVG, for example when adding an image. Mendix allows you to do this by setting the `fill` and `stroke` properties in image's styling. These properties will then be applied to *all* the elements inside the SVG that do not have these properties.
+您可能想要更改您的SVG中的某些颜色，例如添加图像时的颜色。 Mendix 允许您通过设置图像样式中的 `填充` 和 `勾画` 属性来做到这一点。 这些属性然后将应用于不具备这些属性的 *SVG 中所有的* 元素。
 
-Take the following SVG as an example:
+举出以下SVG作为示例：
 
 ```svg
 <svg viewBox="0 0 100 100">
@@ -47,30 +47,30 @@ Take the following SVG as an example:
 </svg>
 ```
 
-Setting the `fill` property on this image's styling will turn the rectangle (`rect` element) to the color provided. Setting the `stroke` property will result in no changes, since the `stroke` has already been set.
+设置此图像样式上的 `填充` 属性将会将矩形(`矩形` 元素)转换为提供的颜色。 设置 `笔划` 属性将不会导致更改，因为 `笔划` 已经设置。
 
-Here is how an SVG without the `fill` property looks:
+这里是一个没有 `的 SVG 如何填充` 属性外观：
 
-![before](attachments/native-svg/before.png)
+![前](attachments/native-svg/before.png)
 
-Here is how an SVG with the `fill` property looks:
+这里是 `的 SVG 如何填充` 属性外观：
 
-![after](attachments/native-svg/after.png)
+![之后](attachments/native-svg/after.png)
 
-You can check the list of allowed style properties at the [react-native-svg](https://github.com/react-native-community/react-native-svg#common-props) repository.
+您可以在 [react-native-svg](https://github.com/react-native-community/react-native-svg#common-props) 仓库中检查允许的样式属性列表。
 
-### 4.1 Coloring SVG Icons
+### 4.1 着色 SVG 图标
 
-Icons can only be set for buttons and bottom bar items. When you integrate an SVG icon into a button or bottom bar item, you will have to set the SVG's color yourself. When using an app which employs Atlas UI, by default the colors are all white. For more information on styling, see the [Native Mobile Styling Reference Guide](/refguide/native-styling-refguide).
+图标只能设置为按钮和底部条目。 当您将 SVG 图标集成到按钮或底部条目时，您必须自己设置 SVG 的颜色。 使用Atlas界面的应用程序时，默认情况下的颜色都是白色。 欲了解更多样式信息，请参阅 [原生移动式样式参考指南](/refguide/native-styling-refguide)。
 
-For example, the following code:
+例如，下列代码：
 
 ```jsx
-export const DemoButton = {
+导出DemoButton = Pow.
     container: {
         backgroundColor: 'green'
     },
-    caption: {
+    标题: {
         color: 'orange'
     },
     icon: {
@@ -79,32 +79,32 @@ export const DemoButton = {
 }
 ```
 
-Would produce the following button and SVG:
+生成以下按钮和SVG：
 
-![blue svg](attachments/native-svg/blue-svg.png)
+![蓝色svg](attachments/native-svg/blue-svg.png)
 
-## 5 Using SVGs in Pluggable Native Widgets
+## 5 在插件小部件中使用 SVGs
 
-To use an SVG in a pluggable native widget's image property, we recommend using the provided `Image` or `Icon` component. This will allow a static image of any supported format to be used within your pluggable widget, including SVGs.
+要在可插电的本地小部件的图像属性中使用SVG，我们建议使用提供的 `图像` 或 `图标` 组件。 这将允许任何支持格式的静态图像在您的插件中使用，包括SVG。
 
-Here is an example of using the `Image` component:
+下面是一个使用 `图像` 组件的例子：
 
 ```jsx
-import { createElement } from "react";
-import { Image } from "mendix/components/native/Image";
+从 "React"导入 { createElement } ；
+从 "mendix/components/native/Image"导入 { Image } ；
 
-export const PluggableWidget = () => (
+导出const PluggableWidget = () => (
     <Image source="PUT_SOURCE_HERE" style={{ fill: 'blue' }} />
 );
 ```
 
-Here is an example of using the `Icon` component:
+这是一个使用 `图标` 组件的示例：
 
 ```jsx
-import { createElement } from "react";
-import { Icon } from "mendix/components/native/Icon";
+从 "React"导入 { createElement } ；
+从 "mendix/components/native/Icon"导入 { Icon } ；
 
-export const PluggableWidget = () => (
+导出const PluggableWidget = () => (
     <Icon 
         icon={{
             type: "image",
@@ -116,10 +116,10 @@ export const PluggableWidget = () => (
 );
 ```
 
-If you want to use SVG elements directly in your pluggable widget, see the [react-native-svg](https://github.com/react-native-community/react-native-svg) library.
+如果您想直接在您的插件中使用 SVG 元素，请查看 [react-native-svg](https://github.com/react-native-community/react-native-svg) 库。
 
-## 5 Read More
+## 5 阅读更多
 
-* [Build a Pluggable Native Widget](/howto/extensibility/build-native-widget)
-* [Atlas UI](/howto/front-end/atlas-ui)
-* [Pluggable Widgets API](/apidocs-mxsdk/apidocs/pluggable-widgets)
+* [构建插件小部件](/howto/extensibility/build-native-widget)
+* [Atlas界面](/howto/front-end/atlas-ui)
+* [插件部件 API](/apidocs-mxsdk/apidocs/pluggable-widgets)
