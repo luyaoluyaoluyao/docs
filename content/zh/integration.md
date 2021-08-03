@@ -1,15 +1,27 @@
 ---
-title: "Integration"
-category: "Desktop Modeler"
+title: "集成"
+category: "应用程序模型"
+menu_order: 110
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
 
-Integration with other applications (other than Mendix) can be done using REST or SOAP/Web Services. Mendix can import and export data from XML and JSON.
+可以使用 OData、REST 或 SOAP/Web 服务实现与其他应用程序(其他Mendix 应用程序或使用不同技术构建的应用程序)的一体化。 Mendix 可以从 XML 和 JSON 导入和导出数据。
 
-Integration between Mendix applications is done best with REST Services (see [Published REST Services](published-rest-services) and [Call REST Service Action](call-rest-action)). Some of the terms used the most often are explained below.
+Mendix 应用程序与REST 服务的整合最佳(详情见 [已发布的REST 服务](published-rest-services) and [调用 REST 服务](call-rest-action))。 下文对最常用的一些术语作了解释。
 
 {{% alert type="info" %}}
-For [Call REST Service Action](call-rest-action) and JSON support in [Mapping Documents](mapping-documents), see [Consumed REST Services](consumed-rest-services).
-{{% /alert %}}{{% alert type="info" %}}
-For [Call Web Service Action](call-web-service-action) and support for SOAP Web Services/XML, see [Consumed Web Services](consumed-web-services).
-{{% /alert %}}
+在 [映射文档](mapping-documents)中 [调用 REST 服务](call-rest-action) 活动和 JSON 支持，请参阅 [消耗的REST 服务](consumed-rest-services)。
+{{% /警示%}}!{% alert type="info" %}}
+关于 [调用 web service](call-web-service-action) 活动和支持 SOAP web services/XML，见 [Consumed Web Services](consumed-web-services)。
+{{% /报警 %}}
+
+## 2 本节内的其他文件
+
+* [HttpRequest & HttpResponse System 实体](http-request-and-response-entities)
+* [JSON结构](json-structures)
+* [消息定义](message-definitions)
+* [发布的 OData 服务](published-odata-services)
+* [XML Schemas](xml-schemas)
