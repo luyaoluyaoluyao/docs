@@ -1,110 +1,110 @@
 ---
-title: "Find, Find Advanced, and Find Usages"
+title: "検索、詳細検索、および使用方法を検索"
 parent: "edit-menu"
-description: "Describes Find, Find Advanced, and Find Usages in Mendix Studio Pro."
+description: "Mendix Studio Proで検索、高度な検索、および使用方法を確認する方法について説明します。"
 menu_order: 10
 tags:
   - "studio pro"
-  - "find advanced"
-  - "find usages"
-  - "find"
-  - "edit menu"
+  - "高度な検索"
+  - "使い道を見つける"
+  - "検索"
+  - "メニューを編集"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-You can search for changes or usages of different elements, documents, Xpaths, changes to various elements, in your app.  You do it via **Find**, **Find Advanced**, and **Find Usages** options under the **Edit** menu.
+アプリでは、さまざまな要素、ドキュメント、Xpath、さまざまな要素への変更や使用を検索できます。  **Find**, **Find Advanced**, and **Find Usages** オプションで **Edit** メニューを選択します。
 
-![Find Options](attachments/find-and-find-advanced/find-options.jpg)
+![検索オプション](attachments/find-and-find-advanced/find-options.jpg)
 
-## 2 Find Option
+## 2検索オプション
 
-You can find various elements in your app via the **Find** option. For example, you would like to find elements in the domain model, page editor, and microflow editor where the word "Employee" is used: pages, entities, associations, expressions with it, etc. Do the following:
+**Find** オプションを使用して、アプリ内のさまざまな要素を見つけることができます。 たとえば、ドメインモデル、ページエディタで要素を検索したいとします。 と、"Employee" という単語が使用されるマイクロフローエディタ: ページ、図形、関連付け、式など。 次の操作を行います:
 
-1. Click **Edit** > **Find** in the top-bar or press <kbd>Ctrl</kbd>+<kbd>F</kbd>.
+1. **編集** > **トップバーの** をクリックするか、 <kbd>Ctrl</kbd>+<kbd>F</kbd> を押します。
 
-2. In the **Find** dialog box, leave **Match case** and **Match the whole word** unselected. This way you will search for all instances of the word "Employee" including such instances as "employee", Employees", or "Department_Employee":
+2. **Find** ダイアログボックスで、 **Match case** and **Match the whole word** selected. この方法で、"Employee"、"Employee"、または "Department_Employee" などのインスタンスを含む単語「Employee」のすべてのインスタンスを検索します。
 
-3. In the **Look in** section unselect items in your app where you do not want to search in:
+3. **Look in** セクションで、検索したくないアプリの項目を選択解除します:
 
-   ![Look in Section](attachments/find-and-find-advanced/look-in.jpg)
+   ![セクションを見る](attachments/find-and-find-advanced/look-in.jpg)
 
-You can see search results in the **Find Results** pane:
+検索結果は **検索結果** ペインで確認できます。
 
-![Search Results](attachments/find-and-find-advanced/search-results.jpg)
+![検索結果](attachments/find-and-find-advanced/search-results.jpg)
 
-## 3 Find Advanced Option
+## 3つの高度な検索オプション
 
 With the **Find Advanced** option you can set advanced criteria and find specific elements in your app, such as all [object activities](#find-object-activities), or [unused elements](#find-unused-elements).
 
-### 3.1 Finding Object Activities {#find-object-activities}
+### 3.1 オブジェクトアクティビティの検索 {#find-object-activities}
 
-You can search for microflows that have object activities in them. Do the following:
+オブジェクトのアクティビティを含むマイクロフローを検索できます。 次の操作を行います:
 
-1.  Click **Edit** > **Find** **Advanced** in the top-bar or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>. The **Find Advanced** dialog box will open: ![](attachments/find-and-find-advanced/find-advanced-dialog-box.png)
-3.  In the **Search for** option, select **Microflow actions**: ![](attachments/find-and-find-advanced/search-for-microflow-actions.png)
-3.  Select the entity for which you want to search for object activities, and click **Find**.
+1.  Click **Edit** > **Find** **Advanced** in the top-bar or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>. **詳細を検索** ダイアログボックスが開きます: ![](attachments/find-and-find-advanced/find-advanced-dialog-box.png)
+3.  **Search for** オプションで、 **Microflow actions** を選択します。 ![](attachments/find-and-find-advanced/search-for-microflow-actions.png)
+3.  オブジェクトアクティビティを検索するエンティティを選択し、 **検索** をクリックします。
 
-You can see search results in the **Find Results** pane.
+検索結果は **検索結果** ペインで確認できます。
 
-### 3.2 Finding Unused Elements {#find-unused-elements}
+### 3.2 未使用の要素を見つける {#find-unused-elements}
 
-While you develop your app, it might occur that specific functionality (for example, pages or microflows) is not applicable anymore in the final version of your application. To keep your app clear and easy to maintain, it is advised to clean any unused items up.
+アプリを開発しているときに、特定の機能が発生する可能性があります（例えば、 ページやマイクロフロー)はアプリケーションの最終バージョンでは適用できなくなりました。 アプリを明確かつ簡単にメンテナンスできるようにするには、未使用のアイテムをクリーンアップすることをお勧めします。
 
-To find the unused items, do the following:
+未使用のアイテムを見つけるには、次の手順を実行します。
 
-1. In the top-bar of Studio Pro, click **Edit** > **Find Advanced** or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>.
+1. Studio Proのトップバーに **Edit** > **Find Advanced** or press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>.
 
-2. In the **Find Advanced** dialog box, select **Unused items** in the **Search for** option:
+2. **詳細を検索** ダイアログボックスで、 **** **検索** オプションで</strong> を選択します:
 
    ![](attachments/find-and-find-advanced/search-for-unused-items.png)
 
-3. Click **Find**.
+3. **検索** をクリックします。
 
-The results will show up in the **Find Results** pane. To filter the results click the **Show all** button in the top-right corner of the pane.
+結果は **検索結果** ペインに表示されます。 結果をフィルタリングするには、ペインの右上隅にある **** ボタンをクリックします。
 
-Note that deleting any unused items might result in more unused items. For example, if you delete an unused page, a microflow which is only used on that page will become an unused item itself. If you are cleaning up your app regularly refresh the unused items list.
+未使用の項目を削除すると、より多くの未使用の項目が発生する可能性があることに注意してください。 たとえば、未使用のページを削除すると、そのページでのみ使用されるmicroflow が未使用の項目になります。 アプリを定期的にクリーンアップする場合は、未使用のアイテムリストを更新してください。
 
 {{% alert type="info" %}}
 
-Modules downloaded from the Marketplace might contain a lot of unused items. If you remove those items and the module is updated later, those items will be back in your model, so it is advised that you do not remove any unused items from an Marketplace module.'
+マーケットプレイスからダウンロードされたモジュールには、多くの未使用のアイテムが含まれている場合があります。 これらの項目を削除し、モジュールが後で更新された場合、それらの項目はあなたのモデルに戻ります。 ですから、Marketplace モジュールから未使用のアイテムを削除しないことをお勧めします。
 
 {{% /alert %}}
 
 {{% alert type="info" %}}
 
-Any objects which are excluded from the app will not show up in the unused items list.
+アプリから除外されたオブジェクトは、未使用のアイテムリストには表示されません。
 
 {{% /alert %}}
 
-### 3.3 Marking Unused Objects as Used
+### 3.3 未使用のオブジェクトを使用済みとしてマークする
 
-Some pages and microflows are only used from Java code and will be listed as an unused item because Studio Pro cannot look into Java source code. To prevent anyone from removing these objects you can mark the page or microflow as used. Do the following:
+一部のページとマイクロフローは、Java コードからのみ使用され、Studio Pro が Java ソースコードを調べることができないため、未使用の項目としてリストされます。 これらのオブジェクトを削除しないようにするには、ページまたはマイクロフローを使用してマークします。 次の操作を行います:
 
-1. Open the page or microflow which needs to be marked as used.
+1. 使用中にマークする必要があるページまたはマイクロフローを開きます。
 
-2. Navigate to properties and change the **Mark as used** property from **No** to **Yes**.
+2. プロパティに移動し、 **** プロパティとして **いいえ** から **はい** に変更します。
 
-## 4 Find Usages Option {#find-usages}
+## 4つの使い方を見つけるオプション {#find-usages}
 
-The **Find Usages** option allows you to find where a certain element is used, for example, to find all buttons that open a certain page.
+**使用法検索** オプションを使用すると、特定の要素が使用される場所を見つけることができます。 例えば、特定のページを開くすべてのボタンを検索します。
 
 {{% alert type="info" %}}
-This option only finds places where the selected entity/attribute is selected itself. This means that it will not find instances where the entity/attribute is derived implicitly (for example, by following an association).
+このオプションは、選択したエンティティ/属性が選択されている場所のみを検索します。 これは、エンティティ/属性が暗黙的に派生するインスタンスを見つけられないことを意味します (例えば、関連付けに従うこと)。
 {{% /alert %}}
 
-To find where a certain element is used, do the following:
+特定の要素が使用される場所を見つけるには、次の手順を実行します。
 
-1. Open the document which contains the element. For example, open the domain model.
-2. Select an element (for example, an entity) and click **Edit** > **Find usages** in the top-bar or right-click an element and select **Find usages**:
+1. 要素を含むドキュメントを開きます。 たとえば、ドメインモデルを開きます。
+2. 要素を選択します (例えば、 エンティティ) をクリックして **編集** > **使用状況を検索** 上部バーで要素を右クリックし、 **使用状況を検索**:
     {{% image_container width="350" %}}![Find Usages](attachments/find-and-find-advanced/find-usages.png){{% /image_container %}}
 
-Studio Pro shows all usages of this entity in the **Find Results** pane. ![Find Results Pane](attachments/find-and-find-advanced/found-usages.png)
+Studio Pro は、このエンティティのすべての使用状況を **検索結果** ペインに表示します。 ![検索結果ペイン](attachments/find-and-find-advanced/found-usages.png)
 
-Double-click an item in the **Find Results** pane to open the corresponding document.
+**検索結果** ペイン内の項目をダブルクリックして、対応するドキュメントを開きます。
 
-Click **Lock results** in the **Find Results** pane. Now if you click **Find Usages**, the results will be shown in a second **Find Results** pane. This allows you to  keep several search results.
+**結果を見つける** ペインの **結果をロック** をクリックします。 **使い方を検索**をクリックすると、2番目の **結果を検索** ペインに結果が表示されます。 これにより、複数の検索結果を保持できます。
 
-## 5 Read More
+## 5 続きを読む
 
-* [Go to Option](go-to-option)
+* [オプションに移動](go-to-option)
