@@ -1,5 +1,5 @@
 ---
-title: "Publish a Microflow as a REST Operation"
+title: "Publishing a Microflow as a REST Operation"
 parent: "published-rest-services"
 menu_order: 30
 description: "How to publish a Microflow as a REST Operation"
@@ -9,10 +9,6 @@ tags:
   - "operation"
   - "resource"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/publish-microflow-as-rest-operation.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
