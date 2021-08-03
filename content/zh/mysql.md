@@ -2,6 +2,8 @@
 title: "MySQL/MariaDB"
 parent: "数据存储"
 menu_order: 50
+tags:
+  - "studio pro"
 ---
 
 ## 1 导言
@@ -16,7 +18,7 @@ Mendix 只支持 InnoDB 存储引擎，启用了基于行的日志记录。
 
 ## 3 个交易隔离。
 
-Mendix 使用默认情况下 `读取完成的` 交易隔离级别，从发布Mendix 7.2开始。 在这个交易隔离级别的情况下，只能使用基于行的日志记录。 您应该将 `binlog_format` 数据库配置值设置为 `ROW` 或 `MEXED`。 欲了解更多信息，请访问 [`binlog_format` for MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) 或 [`binlog_format` for MariaDB](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format)。
+Mendix 默认使用 `读取提交的` 交易隔离等级。 在这个交易隔离级别的情况下，只能使用基于行的日志记录。 您应该将 `binlog_format` 数据库配置值设置为 `ROW` 或 `MEXED`。 欲了解更多信息，请访问 [`binlog_format` for MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) 或 [`binlog_format` for MariaDB](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format)。
 
 ## 4 SAVEPOINT 异常不存在
 
@@ -34,4 +36,4 @@ MariaDB 支持时区转换的相同配置。
 
 ## 6个数据库创建
 
-Mendix 7.18 及以上支持新的 MySQL 数据库创建。 用户必须有足够的访问权限才能创建数据库。
+要创建一个新的 MySQL 数据库，用户必须有足够的访问权限才能创建数据库。
