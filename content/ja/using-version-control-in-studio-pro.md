@@ -1,398 +1,383 @@
 ---
-title: "Using Version Control in Studio Pro"
-category: "Version Control"
+title: "Studio Pro でバージョン管理を使用する"
+category: "バージョン管理"
 menu_order: 10
-description: "How to work with version control and how to resolve some issues which may arise"
+description: "バージョン管理の使い方と、発生する可能性のあるいくつかの問題を解決する方法"
 tags:
-  - "Version Control"
-  - "Conflicts"
-  - "Resolve"
-  - "Merge"
-  - "Patch"
-  - "Branch"
-  - "Development"
+  - "バージョン管理"
+  - "競合"
+  - "解決"
+  - "結合"
+  - "パッチ"
+  - "ブランチ"
+  - "開発"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This reference guide describes how to use version control in Mendix Studio Pro. The theory behind how version control works in Mendix, and a definition of the concepts can be found in [Version Contol](version-control).
+このリファレンスガイドでは、Mendix Studio Pro でバージョンコントロールを使用する方法を説明します。 バージョン管理の仕組みの背後にある理論は Mendix で、コンセプトの定義は [Version Contol](version-control) にあります。
 
-## 2 Starting a Project with Version Control
+## 2 バージョン管理機能付きのアプリを開始
 
-To start a new project with version control do the following:
+バージョン管理の新しいアプリを起動するには、次の手順を実行します。
 
-1. Choose **New Project...** in Studio Pro.
-2. In the **App Settings** dialog, set **Enable online services** to *Yes*. This option creates a Team Server repository and a Developer Portal project.
-3. Change the **Project directory**, or leave the default suggested by Studio Pro.
-4. Click **Create app**.
+1. **ファイル** > **新しいアプリ** を選択してください。
+2. **App Settings** ダイアログで、 **Enable online services** を *Yes* に設定します。 このオプションは、Team Serverリポジトリと開発者ポータルアプリを作成します。
+3. **App ディレクトリ**を変更するか、Studio Pro で提案されているデフォルトのままにします。
+4. **Create app** をクリックします。
 
-The app is created on the Team Server, and a working copy is created in the **Project directory**. This is opened in Studio Pro so that you can start working immediately.
+アプリはチームサーバー上に作成され、 **App ディレクトリ** に作業コピーが作成されます。 Studio Pro で開くと、すぐに作業を開始できます。
 
 ![](attachments/using-version-control-in-studio-pro/2018-03-02_11-11-18.png)
 
-## 3 Joining a Project
+## 3 アプリに参加する
 
-If there is already a Team Server enabled project, you can be invited to join it (see [Team](/developerportal/collaborate/team)).
+すでにTeam Server対応アプリが存在する場合は、招待して参加することができます( [Team](/developerportal/collaborate/team) を参照)。
 
-Once you are a team member, providing you have been given a role with sufficient rights, you can work on the app by doing the following:
+チームメンバーになると、十分な権利を持つロールが与えられます。 次のように操作できます。
 
-1. Choose **Open project...** in Studio Pro.
-2. Select *Mendix Team Server* as for **Where is your App stored?**.
-3. Choose your app from the **Team Server App** drop-down.
-4. Change the **Project directory**, or leave the default suggested by Studio Pro.
-5. Click **Create app**.
+1. Studio Pro で **Open App** を選択します。
+2. **Mendix Team Server** for **アプリはどこに保存されますか？**.
+3. **Team Server App** ドロップダウンからアプリを選択します。
+4. **App ディレクトリ**を変更するか、Studio Pro で提案されているデフォルトのままにします。
+5. **Create app** をクリックします。
 
-The project will be downloaded from the Team Server and opened in Studio Pro.
+アプリはチームサーバーからダウンロードされ、Studio Pro で開きます。
 
 ![](attachments/using-version-control-in-studio-pro/open-new-team-server-app.png)
 
-## 4 Day-to-Day Development
+## Desenvolvimento de diários
 
-Let us say you have a working copy of a project on disk. You make changes to the app and save them. Saved changes are not immediately visible to others. The documents, folders, and modules which have been changed can be identified by looking at the **status**.
+私たちは、あなたがディスク上のアプリの作業コピーを持っているとしましょう. アプリに変更を加え、保存します。 保存された変更は他のユーザーにはすぐには表示されません。 変更された文書、フォルダ、およびモジュールは、 **ステータス** を見ることで識別できます。
 
-When you are happy with a set of changes, you **commit** them to the repository. Others can then choose to update and retrieve those changes.
+一連の変更に満足している場合は、リポジトリに **** コミットします。 その後、それらの変更を更新して取得することを選択することができます。
 
-You can **update** your working copy with changes committed by others.
+他のユーザーによってコミットされた変更で作業コピーを **** 更新できます。
 
-You can also see a **history** of all the changes which have been committed, no matter who committed them.
+また、誰がコミットしたかに関係なく、コミットされたすべての変更の **履歴** を見ることができます。
 
-### 4.1 Status
+### 4.1 ステータス
 
-The status of your project is a summary of all the changes in your working copy when compared with the original. Studio Pro shows the status both in the project explorer and in the **Changes** dock.
+Proappject のステータスは、オリジナルと比較した場合の作業コピーのすべての変更の概要です。 Studio Pro は、 **App Explorer** と **変更** ペインの両方でステータスを表示します。
 
-The project explorer shows an icon in front of items (documents, folders, and modules) that are changed in some way. The different icons indicate the different kinds of changes which have been made.
+**App Explorer** には、何らかの方法で変更されたアイテム(ドキュメント、フォルダ、モジュール)の前にアイコンが表示されます。 異なるアイコンは、行われたさまざまな種類の変更を示しています。
 
-| Icon                                                            | Meaning                                                                                                                                        |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](attachments/using-version-control-in-studio-pro/688173.png) | Nothing happened to this item. It is unchanged with the respect to the original.                                                               |
-| ![](attachments/using-version-control-in-studio-pro/688172.png) | You modified this item (as in, document, folder or module).                                                                                    |
-| ![](attachments/using-version-control-in-studio-pro/688175.png) | You added this item.                                                                                                                           |
-| ![](attachments/using-version-control-in-studio-pro/688174.png) | You moved this item to another position in the project tree.                                                                                   |
-| ![](attachments/using-version-control-in-studio-pro/688164.png) | You deleted this item.                                                                                                                         |
-| ![](attachments/using-version-control-in-studio-pro/688165.png) | You and somebody else made conflicting changes to this item. For more information, see the [Dealing With Conflicts](#conflicts) section below. |
+| アイコン                                                            | 意味                                                                             |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| ![](attachments/using-version-control-in-studio-pro/688173.png) | このアイテムに何も起こりませんでした。 原本に関しては変わらない。                                              |
+| ![](attachments/using-version-control-in-studio-pro/688172.png) | このアイテムを（内、ドキュメント、フォルダ、またはモジュールとして）修正しました。                                      |
+| ![](attachments/using-version-control-in-studio-pro/688175.png) | このアイテムを追加しました。                                                                 |
+| ![](attachments/using-version-control-in-studio-pro/688174.png) | このアイテムをアプリツリー内の別の位置に移動しました。                                                    |
+| ![](attachments/using-version-control-in-studio-pro/688164.png) | このアイテムを削除しました。                                                                 |
+| ![](attachments/using-version-control-in-studio-pro/688165.png) | あなたと他の誰かがこのアイテムに矛盾する変更を加えました。 詳細については、以下の [競合への対処](#conflicts) セクションを参照してください。 |
 
 {{% alert type="info" %}}
-There is only room for one icon and if a document is both modified and moved it is shown as modified.
+1 つのアイコンのみのスペースがあり、ドキュメントが変更されて移動されている場合、ドキュメントが変更されて表示されます。
 {{% /alert %}}
 
-For example, say that the microflow *ChangePassword* has been modified. Also a new folder called 'Flows' was added and all microflows were moved inside this folder. In the screenshot you can see that the folders and modules containing changes are depicted with a yellow icon, and the microflows which have been moved have a blue icon. This helps you to quickly see where in the project the changes are.
+例えば、マイクロフロー *ChangePassword* が変更されたとします。 また、「Flows」という新しいフォルダが追加され、このフォルダ内にすべてのマイクロフローが移動されました。 スクリーンショットでは、変更を含むフォルダーとモジュールが黄色のアイコンで表示されていることが確認できます。 移動したマイクロフローには青いアイコンがついています これにより、アプリ内の変更箇所をすばやく確認できます。
 
 ![](attachments/using-version-control-in-studio-pro/project-explorer-documents.png)
 
-You can see the same information in the **Changes** dock. In this case there is an entry for each *change* to an item. If a document is both modified and moved there are *two* lines for that document. The dock also shows items that were deleted, something the project explorer cannot do.
+同じ情報は **変更** ペインで確認できます。 この場合、 *変更* ごとに項目があります。 ドキュメントが両方とも変更され移動されている場合、そのドキュメントには *2行* 行があります。 ペインには、削除された項目、アプリエクスプローラが実行できない項目も表示されます。
 
 ![](attachments/using-version-control-in-studio-pro/changes-pane.png)
 
 {{% alert type="info" %}}
-When you successfully commit your project, this becomes the new original and all the change information is removed from the project explorer and the changes dock.
+アプリを正常にコミットしたとき これが新しいオリジナルになり、すべての変更情報がApp Explorerと変更ペインから削除されます。
 {{% /alert %}}
 
-### 4.2 Committing
+### 4.2 コミット
 
-Sending changes to the repository is called *committing*. The idea is that you commit small, consistent pieces of work to the repository. We recommend you commit your changes often. Preferably, the versions in the repository are always error-free, Studio Pro will warn against committing while there are errors in your project.
+リポジトリへの変更の送信は *コミット* と呼ばれます。 アイデアは、リポジトリに小さな一貫した作業をコミットすることです。 頻繁に変更をコミットすることをお勧めします。 好ましくは、リポジトリ内のバージョンは常にエラーがなく、アプリケーションにエラーが発生している間は、Studio Proはコミットに対して警告します。
 
-To commit your changes, click the **Commit** button in the **Changes** dock, or choose the **Project > Commit...** menu item.
+To commit your changes, click the **Commit** button in the **Changes** pane, or choose the **App** > **Commit...** menu item.
 
-![Commit Button](attachments/using-version-control-in-studio-pro/commit-button.png)
+![コミットボタン](attachments/using-version-control-in-studio-pro/commit-button.png)
 
-In general, it is a good idea to commit after implementing one feature or fixing one bug. By committing often, your work is integrated with the work of others regularly. The benefits of committing include the following:
+一般に、1つの機能を実装したり、1つのバグを修正したりした後にコミットすることをお勧めします。 頻繁にコミットすることによって、あなたの仕事は定期的に他の人の仕事と統合されます。 コミットの利点は以下のとおりです。
 
-* If any conflicts arise, the changes are still fresh in your mind
-* Revisions are easier to understand
-* If you ever need to revert something, you can revert a small chunk of work
+* 競合が発生した場合、変更内容はまだ新鮮です
+* リビジョンを理解しやすくする
+* 何かを元に戻す必要がある場合は、小さな作業を元に戻すことができます。
 
-Committing results in a new revision in the repository. You can add the following information in Studio Pro when you perform a commit, and this will be attached to the newly created revision:
+リポジトリ内の新しいリビジョンで結果をコミットします。 以下の情報は、Studio Pro でコミットを実行する際に追加することができ、新しく作成したリビジョンに添付されます。
 
-* A textual message. This should be a summary of the changes you made
-* A list of Developer Portal stories that relate to the commit. A small commit will probably relate to one story. Studio Pro shows stories that are in the current Sprint and do not have a status of *Done*. Adding the story to the commit will not change the state of the Developer Portal story. Setting the status to 'Done' must be done manually and depends on your *definition of done*.
+* テキストメッセージ これはあなたが行った変更の概要である必要があります
+* コミットに関連するデベロッパーポータルのストーリーのリスト。 小さなコミットは、おそらく一つの物語に関連します。 Studio Pro は、現在のスプリントにあるストーリーを表示し、ステータスが *完了* ではありません。 ストーリーをコミットに追加すると、デベロッパーポータルのストーリーの状態は変更されません。 ステータスを 'Done' に設定するには、手動で行う必要があります。 *done* の定義に依存します。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_13-50-03.png)
 
-Studio Pro also attaches some information automatically:
+Studio Pro では、いくつかの情報も自動的に追加されます。
 
-* The person who committed (the *author*)
-* The date and time of the commit
-* The list of changed documents, folders, and modules along with the type of the change (for example *modify* or *add*)
-* The version of Studio Pro that was used to commit
+* コミットした人 ( *作者*)
+* コミットの日時
+* 変更されたドキュメント、フォルダ、モジュールのリストと変更の種類 ( *modify* や *add* など)
+* コミットに使用されたStudio Proのバージョン
 
-If you also changed Java source code, added widgets or made other changes that affect files other than the project file you will see a **Changes on disk** tab page that shows you what disk changes you are about to commit.
+Javaソースコードも変更した場合。 追加されたウィジェットまたはアプリファイル以外のファイルに影響を与えるその他の変更を加えた場合は、 **ディスク** タブのページで変更を加えると、コミットしようとしているディスクの変更が表示されます。
 
-Committing is only allowed if your working copy is up to date with the repository. If someone else committed a change since the last time you updated, you will have to update first. This is because the revision you create with the commit should incorporate both your changes and the changes by the other person. Updating will combine the latest changes in the repository with your changes. After reviewing the result, and fixing any conflicts, you can commit again.
+コミットは、作業コピーがリポジトリと最新の場合にのみ許可されます。 前回更新した時点から他の誰かが変更をコミットした場合は、最初に更新する必要があります。 これは、コミットを使用して作成したリビジョンが、あなたの変更と他の人による変更の両方を組み込む必要があるためです。 更新により、リポジトリの最新の変更が変更と結合されます。 結果を確認し、競合を修正した後、再度コミットすることができます。
 
-### 4.3 Updating
+### 4.3 更新
 
-Updating retrieves the latest changes from the repository. You need to do this to incorporate any changes made by others that are not yet in your working copy before you can commit your changes to the repository. It is advisable to frequently update so that the number of changes you retrieve is small.
+更新は、リポジトリから最新の変更を取得します。 リポジトリに変更をコミットする前に、作業コピーにまだない他の人によって行われた変更を組み込むためにこれを行う必要があります。 取得した変更数が少ないように頻繁に更新することをお勧めします。
 
-To update the working copy of your app, click the **Update** button in the **Changes** dock, or choose the **Project > Update** menu item.
+To update the working copy of your app, click the **Update** button in the **Changes** pane, or choose the **App** > **Update** menu item.
 
-![Update Button](attachments/using-version-control-in-studio-pro/update-button.png)
+![更新ボタン](attachments/using-version-control-in-studio-pro/update-button.png)
 
-Changes you receive from the repository when updating are combined with the changes you have made to your working copy (if any). Afterwards, your working copy will contain both your changes and the changes you received. As part of the update, the original of your working copy is updated as well.
+更新時にリポジトリから受け取った変更は、作業コピーに加えた変更(もしあれば)と結合されます。 その後、作業コピーには変更内容と受け取った変更の両方が含まれます。 アップデートの一環として、作業コピーのオリジナルも更新されます。
 
-For example, if the last time you updated you received all changes up to and including revision 40, this means that the original for your working copy is revision 40. Since you started making changes to your working copy, other people on your team have made another four commits (41, 42, 43 and 44). If you now update, you will receive those changes and 44 will be the new *original* to which your changes are compared.
+たとえば、前回更新した場合、リビジョン 40 までのすべての変更を受け取ったことになります。 作業コピーの原本はリビジョン40だ 作業コピーに変更を加え始めて以来、チームの他の人々はさらに4つのコミット(41、42、43、44)を行っています。 今アップデートすると、それらの変更を受け取り、44があなたの変更が比較される新しい *オリジナル* になります。
 
-Usually, combining your changes with the latest revision from the repository will be done automatically. For example, one person may add a page while you are changing a microflow. If the changes are too close, however, a conflict can arise. For example, if one of your team has changed the properties of the same data view which you have also changed. You will have to resolve such conflicts before you can commit. See the  [Dealing With Conflicts](#conflicts) section, below, for information on how to do this.
+通常、リポジトリからの最新のリビジョンと変更を組み合わせると自動的に行われます。 たとえば、マイクロフローを変更している間に、ある人がページを追加することができます。 しかし、変更が近すぎると、競合が発生する可能性があります。 たとえば、いずれかのチームが、変更した同じデータビューのプロパティを変更した場合です。 コミットする前に、このような競合を解決する必要があります。 これを行う方法については、以下の  [競合への対処](#conflicts) セクションを参照してください。
 
-If your team is committing often you will have to update often. Frequent updating has the benefit that you receive fewer changes with each update, so integrating those changes with your work is easier.
+チームが頻繁にコミットしている場合は、頻繁に更新する必要があります。 頻繁なアップデートには、アップデートごとに少ない変更を受け取るメリットがありますので、これらの変更を作業と統合するのが簡単です。
 
-### 4.4 History {#history}
+### 4.4 履歴 {#history}
 
-The *history* of the project is a list of all revisions that have been committed. To view the history of the project, click the **History** button in the **Changes** dock, or choose the **Version Control** > **History** menu item.
+アプリの *履歴* は、コミットされたすべてのリビジョンのリストです。 To view the history of the app, click the **History** button in the **Changes** pane, or choose the **Version Control** > **History** menu item.
 
-![History Button](attachments/using-version-control-in-studio-pro/history-button.png)
+![履歴ボタン](attachments/using-version-control-in-studio-pro/history-button.png)
 
-The revisions are shown in reverse chronological order (newest is at top of list). The history dialog shows you revision number, date, time, author and message of each revision.
+リビジョンは、逆年代順に表示されます(最新のものはリストの先頭に表示されます)。 format@@0ダイアログには、各リビジョンのリビジョン番号、日付、時刻、作成者、およびメッセージが表示されます。
 
-Select a revision to see additional details such as related Developer Portal stories, changed documents, Studio Pro version and changes on disk. Icons summarize the kinds of changes that happened in the project.
+リビジョンを選択すると、関連する開発者ポータルのストーリー、変更されたドキュメント、Studio Proバージョン、ディスク上の変更などの詳細が表示されます。 アイコンには、アプリで発生した変更の種類がまとめられています。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_14-06-46.png)
 
-## 5 Reverting Changes
+## 5 変更を元に戻す
 
-Changes that have not yet been committed can be reverted. Say, for example, that you have made a lot of changes to a page and you are not happy with the result. You can revert the page to the original: that is, the state of the page before you started making changes.
+まだ反映されていない変更は元に戻すことができます。 たとえば、ページに多くの変更を加えて、結果に満足していないとします。 変更を開始する前のページの状態を元に戻すことができます。
 
-Deletes of documents, folders, and modules can also be reverted. This will bring them back into the project. Note that you will get back the latest version you have *committed*. For example, if you commit, make some changes to a microflow, and then delete the microflow, reverting the delete will give you the microflow without the changes that you made.
+ドキュメント、フォルダ、モジュールの削除も元に戻すことができます。 これにより、それらがアプリに戻ります。 *コミットした*の最新バージョンを取り戻すことに注意してください。 たとえば、コミットする場合は、マイクロフローにいくつかの変更を加えてから、マイクロフローを削除します。 削除を元に戻すと、変更を加えずにマイクロフローを作成できます。
 
-You can revert changes in the **Changes** dock, or from the right-click menu on the document you want to revert.
+変更を元に戻すには、 **変更** ペイン、または元に戻したいドキュメントの右クリックメニューから操作します。
 
-![Two ways of reverting](attachments/using-version-control-in-studio-pro/revertx2.png)
+![元に戻す2つの方法](attachments/using-version-control-in-studio-pro/revertx2.png)
 
-## 6 Dealing With Conflicts {#conflicts}
+## 6 紛争への対応 {#conflicts}
 
-If you update your app and the changes cannot be merged automatically you will receive a message telling you there are conflicts. A conflict arises when two changes cannot be combined.
+アプリを更新し、変更を自動的にマージできない場合は、競合があることを示すメッセージが表示されます。 二つの変更を組み合わせることができない場合、衝突が発生します。
 
-![Warning about conflicts](attachments/using-version-control-in-studio-pro/contains-conflicts.png)
+競合の種類は 2 つあります:
 
-There are two different sorts of conflict:
+* ドキュメントの競合
+* アプリが競合しています
 
-* Document conflicts
-* Project conflicts
+### 6.1 ドキュメントの競合の解決
 
-### 6.1 Resolving a Document Conflict
+同じ *ドキュメント* 内の2つの変更が互いに本当に近い場合、ドキュメントの競合を引き起こす可能性があります。 例えば、二人ともページ上の同じ要素のプロパティを変更します。 ドキュメントは、 **変更** ペインで競合としてマークされます。 再度コミットする前に競合を解決する必要があります。
 
-Two changes in the same *document* that are really close to each other can cause a document conflict. For example, two people both change the properties of the same element on the page. The document will be marked as conflicted in the **Changes** dock. Conflicts have to be resolved before you can commit again.
+ドキュメントの競合の解決の詳細については、 [新しいマージアルゴリズム with Fine-Grained Conflict解像度](new-merge-algorithm) と [変更ペイン](changes-pane) を参照してください。
 
-Double-click a document to see which elements have conflicts. You can also see all the changes which have been made by you, and all the changes which were made by other people.
+### 6.2 アプリの競合の解決
 
-![Detailed document conflicts](attachments/using-version-control-in-studio-pro/document-changes.png)
+アプリの競合はアプリのレベルで競合です。 アプリの競合の原因は2つあります:
 
-For each *document* you can decide whether to accept the conflicted elements which are **mine** and discard the changes to those by the other person, or to accept the conflicted elements which are **theirs**, if their changes are more relevant.
+1.  ある人がドキュメントを削除し、もう一方はそのドキュメント内で変更を行います。
+2.  どちらのユーザーもドキュメントを移動しますが、アプリツリー内の別の場所に移動します。
 
-This decision applies to all the conflicts in the document; you cannot choose your version for some conflicted changes but their changes for others. Non-conflicting changes will be merged as normal.
+関連するドキュメントは競合としてマークされており、理由は **変更** ペインの詳細欄に表示されます。
 
-Ensure you are viewing changes for the whole project in the **Changes** dock, select the document which is conflicted, and use the required option from the **Tasks** drop-down.
-
-![Resolving a conflict using the changes dock](attachments/using-version-control-in-studio-pro/resolve-document-conflict.png)
-
-For example, if you deleted a data view in a page and another person changes something inside that data view, you may choose to discard the changes of the other by clicking 'Use mine'.
-
-Resolving a conflict will make the conflict go away but the document may, of course, still be marked as changed if there are changes to commit.
-
-### 6.2 Resolving a Project Conflict
-
-Project conflicts are conflicts are conflicts at the level of the project. There are two cause for project conflicts:
-
-1.  One person deletes a document and the other makes a change inside that document.
-2.  Both people move a document but to different places in the project tree.
-
-The involved document is marked as conflicted and you can see the reason in the details column of the **Changes** dock.
-
-![Example of project conflicts](attachments/using-version-control-in-studio-pro/project-conflicts.png)
+![アプリの競合の例](attachments/using-version-control-in-studio-pro/project-conflicts.png)
 
 {{% alert type="info" %}}
-If a whole folder (or module) was *deleted* and another person changes a document inside that folder, the folder/module is restored and also marked as conflicted. This way you know that the intention was to delete that folder but it has been restored to show you the context of the changed document.
+フォルダ全体（またはモジュール）が *削除されていて、別の人がそのフォルダ内のドキュメントを変更した場合* フォルダ/モジュールが復元され、競合としてマークされます。 この方法では、そのフォルダを削除する意図があったことを知っているが、変更されたドキュメントのコンテキストを表示するために復元されています。
 {{% /alert %}}
 
-You can resolve a project conflict by choosing **Tasks > Use mine** or by deleting the involved documents or folders.
+アプリの競合を解決するには、 **Tasks > Use mine** を選択するか、関連するドキュメントやフォルダを削除します。
 
-## 7 Using Branches
+## 7 ブランチの使用
 
-A repository can contain a number of development lines. Each development line offers independent development from the other development lines. In the simple case there is just one development line called the main line (called 'trunk' in subversion). All development then happens inside that one line.
+リポジトリには、いくつかの開発行を含めることができます。 各開発ラインは、他の開発ラインから独立した開発を提供します。 単純なケースでは、メインライン(subversionでは「trunk」と呼ばれる)と呼ばれる開発ラインが1つだけあります。 すべての開発はその一行の中で行われます。
 
 ![](attachments/using-version-control-in-studio-pro/688156.png)
 
-It is often convenient to have more than one development line. For example, one development line for fixing bugs in the currently deployed version of your project and another line where you develop new functionality. If you then find a bug in the deployed version you can fix it in the corresponding development line irrespective of the state of the development line where new functionality is developed. See [Version Control](version-control) for more information about branches.
+複数の開発ラインを持つことは、しばしば便利です。 たとえば、現在デプロイされているバージョンのアプリケーションのバグを修正するための1つの開発ラインと、新しい機能を開発する別の行です。 デプロイされたバージョンでバグが見つかった場合は、新しい機能が開発された開発ラインの状態に関係なく、対応する開発ラインでバグを修正できます。 ブランチについての詳細は [バージョン コントロール](version-control) を参照してください。
 
-### 7.1 When to Use a Branch
+### 7.1 ブランチを使用する時
 
-#### 7.1.1 Patching a Deployed Application
+#### 7.1.1 デプロイ済みアプリケーションにパッチを適用する
 
-If you want to add some functionality to a deployed application or you want to fix a bug in it, you can do so without interfering with other development.
+デプロイされたアプリケーションにいくつかの機能を追加したい場合、またはバグを修正したい場合。 他の開発を邪魔することなくできるのです
 
-1. Determine the version of the deployed application. This information is in the Developer Portal. Alternatively, you can find the version in the *metadata.json* file in the **model** subfolder of your deployment package (mda) archive. For example, `"ModelVersion": "1.0.0.16"`
-2. Choose **Version Control > Manage Branch Lines...** and create a branch based on the tag with the that version number as its name.
+1. デプロイされたアプリケーションのバージョンを決定します。 この情報は開発者ポータルにあります。 あるいは、デプロイパッケージ(mda)アーカイブの *モデル* サブフォルダにある **metadata.json** ファイルにバージョンがあります。 例えば、 `"ModelVersion": "1.0.0.16"`
+2. **Version Control > Manage Branch Lines...** を選択し、そのバージョン番号をその名前としてタグに基づいてブランチを作成します。
 
     ![](attachments/using-version-control-in-studio-pro/create-from-tag.png)
 
-3. Add the functionality or fix the bug in this newly created branch.
-4. Testing that things work as intended.
-5. Create a new deployment archive with a higher version number (increase patch or minor version).
+3. 機能を追加するか、新しく作成されたブランチのバグを修正してください。
+4. 物事が意図したように動作することをテストします。
+5. より高いバージョン番号を持つ新しいデプロイメント・アーカイブを作成します(パッチまたはマイナーバージョンを増やす)。
 
 {{% alert type="info" %}}
-We advise you to merge the fixed maintenance branch into the main line quickly, if required. If the merge is too complicated to be made automatically, because the main line has changed too much, you will know how to apply the fix by hand to the main line as the changes will still be fresh in your mind.
+必要に応じて、固定メンテナンスブランチをメインラインにすばやく統合することをお勧めします。 マージが複雑すぎる場合は、メインラインが大きすぎるため自動的に行うことができません。 変更はまだあなたの心の中で新鮮になるので、あなたは、メインラインに手で修正を適用する方法を知るでしょう。
 
-Of course, not all maintenance fixes need to be merged to the main line. Sometimes, it is a fix of something that was completely redesigned or eliminated in the main line. In this case, merging is unnecessary.
+もちろん、すべてのメンテナンス修正をメインラインに統合する必要はありません。 時には、メインラインで完全に再設計または削除されたものの修正です。 この場合、マージは不要です。
 {{% /alert %}}
 
-#### 7.1.2 Developing a New Feature Independently
+#### 7.1.2 独立した新機能の開発
 
-Another reason for creating a branch is to develop a big new feature without interfering with other development. This gives you the freedom to commit a half-implemented feature, possibly even with errors, while other people can still commit and update on the main line. Without using a branch line, you would have to constantly make sure that your project is error free and does not break other parts of the system.
+ブランチを作るもう一つの理由は、他の開発に干渉せずに大きな新機能を開発することです。 これにより、半実装された機能を、おそらくエラーであってもコミットする自由が与えられます。 他の人がメインラインでコミットしたり更新したりできます 分岐線を使用せずに あなたのアプリがエラーフリーで、システムの他の部分を壊さないことを常に確認する必要があります。
 
-Firstly, select **Version Control > Manage Branch Lines...** and create a branch from a revision of the main line.
+まず、 **Version Control > Manage Branch Lines...** を選択し、メインラインのリビジョンからブランチを作成します。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-28_13-50-39.png)
 
-Now work on the branch until the feature is done and commit the completed work.
+機能が完了するまでブランチで作業し、完了した作業をコミットします。
 
-When you want to merge the whole branch back to the main line to integrate the feature there. Do the following:
+ブランチ全体をメインラインにマージして機能を統合したい場合。 次の操作を行います:
 
-1. Open the main line.
-2. Choose **Version Control > Merge changes here**.
-3. Choose **Merge feature branch**.
+1. メインラインを開きます。
+2. **バージョンコントロール > マージ変更ここ** を選択してください。
+3. **統合機能ブランチ** を選択します。
 
     ![](attachments/using-version-control-in-studio-pro/2018-02-28_14-05-23.png)
 
-4. Select the branch and click **Merge**.
-5. Resolve any conflicts and errors.
-6. Commit the new feature to the main line.
+4. ブランチを選択し、 **Merge** をクリックします。
+5. 競合やエラーを解決します。
+6. 新しい機能をメインラインにコミットします。
 
-You can delete the branch after merging it back, if you want.
+必要に応じて、ブランチをマージした後に削除できます。
 
-### 7.2 Working with Branches in Studio Pro
+### 7.2 Studio Pro でのブランチの操作
 
-#### 7.2.1 Branching
+#### 7.2.1 ブランチ
 
-Development lines other than the main line are called branch lines. Our advice would be to develop new features in the *main line* and to use *branch lines* for fixing bugs in versions that have been deployed. This is the scenario Studio Pro makes easy but other scenarios for more complex projects are supported as well.
+本線以外の開発線を分岐線と呼ぶ。 私たちのアドバイスは、 *メイン ライン* で新機能を開発し、デプロイされたバージョンのバグを修正するために *分岐線* を使用することです。 これがStudio Proのシナリオですが、より複雑なアプリのための他のシナリオもサポートされています。
 
-You can create branch lines from the Branch Line Manager which you can find at **Version Control > Manage Branch Lines...**.
+**バージョンコントロール > ブランチラインを管理...** で見つけることができるブランチラインマネージャからブランチラインを作成することができます。
 
 ![](attachments/using-version-control-in-studio-pro/create-branch-line.png)
 
-#### 7.2.2 Merging
+#### 7.2.2 マージ
 
-If you have multiple development lines, you sometimes want to port changes from one development line to another. For example, the fix that you made in a branch line for the production version should also be applied to the new 2.0 version you are developing in the main line. You can, of course, do this by hand but Studio Pro can also help you by merging changes from one development line to another.
+複数の開発ラインがある場合は、ある開発ラインから別の開発ラインに変更を移植したい場合があります。 たとえば、本番バージョンのブランチラインで行った修正は、新しい2にも適用されます。 バージョンはメインラインで開発中です もちろん、これを手作業で行うこともできますが、Studio Proはある開発ラインから別の開発ラインに変更を統合することでも役立ちます。
 
-Merging is always done while you have a working copy open. The merge will result in extra local changes in that working copy. It is advisable to commit local changes first before merging extra changes into a working copy. Otherwise, the uncommitted local changes and the changes caused by the merge will be combined and it is very hard to untangle them if you are unhappy with the merge. Studio Pro will warn you if you have uncommitted changes.
+結合は、作業コピーを開いている間は常に行われます。 マージにより、作業コピーに追加のローカル変更が生じます。 追加の変更を作業コピーにマージする前に、最初にローカル変更をコミットすることをお勧めします。 そうでなければ、 コミットされていないローカル変更とマージによって引き起こされる変更が結合されます。マージに不満がある場合は、それらを解くことは非常に困難です。 変更を反映していない場合は、Studio Pro から警告が表示されます。
 
-Select **Version Control > Merge Changes Here**, then select the appropriate type of merge (for example, **Port fix**).
+**バージョンコントロール > マージ変更 ここ**を選択し、適切なマージの種類を選択します (例: **ポートフィックス**)。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_14-19-47.png)
 
-You can merge a single revision or a whole range of revisions from one development line to another. If a branch line represents a big new feature that you want to integrate completely into the main line, you can merge all the revisions of the branch.
+1 つのリビジョンまたは 1 つの開発ラインから別の開発ラインに全体のリビジョンをマージできます。 分岐線がメインラインに完全に統合したい大きな新機能を表す場合。 を選択すると、すべてのリビジョンをマージできます。
 
 #### 7.2.3 Reverse Merging
 
-Reverting changes works for changes that have not been committed yet. Changes that have been committed can never be deleted. However, you can apply the changes 'in reverse' and commit that. This feature is called 'Reverse merging' in Studio Pro.
+変更をリバートすると、まだ反映されていない変更に対して機能します。 コミットされた変更は、決して削除することはできません。 ただし、「逆に」変更を適用してコミットすることができます。 この機能はStudio Proでは「リバースマージ」と呼ばれます。
 
-Choose **Version Control > Reverse Merge Changes...**
+**Version Control > Reverse Merge Changes...** を選択してください
 
 ![](attachments/using-version-control-in-studio-pro/revert-committed-changes.png)
 
-After a reverse merge the project will look like the changes never happened; if you 'reverse merge' the adding of a page, the page will be deleted locally. Just like when you are doing a normal merge, conflicts can arise. In the example, if later commits change the added page, the reverse merge will result in a conflict. After resolving any problems, you can commit the results to the repository.
+逆マージ後、アプリは変更が起こったことがないように見えます。 ページの追加を逆マージすると、ページはローカルに削除されます。 通常のマージを行っているときと同じように、競合が発生する可能性があります。 例では、後で追加されたページをコミットすると、逆マージによって競合が発生します。 問題を解決した後、結果をリポジトリにコミットできます。
 
-#### 7.2.4 Replacing the Main Line with a Branch Line
+#### 7.2.4 本線を支線に置き換え
 
-There are two methods for fully replacing your main line with a branch line.
+メインラインをブランチラインに完全に置き換えるには2つの方法があります。
 
-The first method is to merge the entire branch line into the main line, essentially replacing the main line contents with the branch line contents). This works as long as the branch line is up to date with the main line (to avoid conflicts. To do this, follow these steps:
+最初の方法は、ブランチ全体をメインラインにマージすることであり、本質的にはメインラインの内容をブランチの内容に置き換えることです)。 これは、支線が本線と最新の状態である限り(競合を避けるため)、機能します。 これを行うには、以下の手順に従ってください:
 
 1. Select **Version Control > Merge Changes Here** > **Merge feature branch**.
-2. Select the branch to merge into the main line.
+2. メインラインにマージするブランチを選択します。
 
-The second method should be used if the first method is not possible for some reason and you want to "overwrite" the main line with your branch line. For this method, you must follow these steps:
+2番目のメソッドは、何らかの理由で最初のメソッドが不可能で、あなたのブランチラインでメインラインを「上書き」したい場合に使用する必要があります。 この方法では、以下の手順に従う必要があります:
 
-1. Check out both the main line and the branch line locally.
-2. Overwrite all the files in the main line project directory with those of the branch line (except for the *.svn* directory).
-3. Commit your changes using Studio Pro.
-4. Reopen the main line project in Studio Pro only after overwriting the files.
+1. メインラインとブランチラインの両方を地元でチェックしてください。
+2. ( *.svn* ディレクトリを除く) ブランチ行のディレクトリにあるすべてのファイルを上書きします。
+3. Studio Pro を使用して変更をコミットします。
+4. ファイルを上書きした後にのみ、Studio Proでメインラインアプリを再開します。
 
-## 8 Versioning a Project Deployed to the Cloud {#versioning-project}
+## クラウドにデプロイされたアプリのバージョン8format@@0 {#versioning-project}
 
-### 8.1 Deploying Locally
+### 8.1 ローカルにデプロイする
 
-While developing you can deploy and run your app on your local machine by using the menu item **Run > Run Locally**. This allows you to test the app as it currently is stored on your local machine.
+開発中は、メニュー項目 **実行** > **ローカルで実行**. これにより、現在ローカルマシンに保存されているアプリをテストすることができます。
 
-### 8.2 Deploying Your Working Copy
+### 8.2 作業コピーをデプロイする
 
-When you deploy to the cloud, you can choose to use the version of the app stored on your local machine, the *working copy* and deploy that to the default environment. If you are using the [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy), or other partner cloud (SAP BTP, for example), choose the menu item **Run > Run** to commit the version of the app stored on your local machine and deploy that to the default environment.
+クラウドにデプロイする場合、ローカルマシンに保存されているアプリのバージョンを選択できます。 *作業コピー* し、それをデフォルト環境にデプロイします。 If you are using the [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy), or other partner cloud (SAP BTP, for example), click **Publish** to commit the version of the app stored on your local machine and deploy that to the default environment.
 
-### 8.3 Choosing a Specific Development Line and Revision
+### 8.3 特定の開発ラインと改訂の選択
 
-It is also possible to choose a specific development line and revision to deploy to the default environment, or to create a package from.
+また、特定の開発ラインとリビジョンを選択してデフォルト環境にデプロイしたり、パッケージを作成したりすることもできます。
 
-In this case, Studio Pro will create a fresh checkout of the chosen revision. This means that any team member can always recreate this version of the deployment package. In other words, Studio Pro does *not* rely on your local files for creating a versioned deployment package.
+この場合、Studio Proは選択したリビジョンの新しいチェックアウトを作成します。 つまり、どのチームメンバーでも、このバージョンのデプロイパッケージを常に再作成できます。 つまり、Studio Pro は ** バージョン管理されたデプロイメントパッケージを作成するためにローカルファイルに依存しません。
 
 {{% alert type="warning" %}}
-You can only create a versioned deployment package of changes that have been committed. If you have local changes that you want to deploy in a versioned deployment package, commit them first.
+コミットされた変更のバージョン管理パッケージのみを作成できます。 バージョン管理されたデプロイパッケージにデプロイするローカル変更がある場合は、最初にコミットします。
 {{% /alert %}}
 
-When it creates the package, Studio Pro will also create a tag representing this version of your project. If you want to make modifications to this version later, independently of other development which has taken place, you can create a branch based on this tag. The name of the tag is a version number that you choose.
+パッケージを作成すると、Studio Proはこのバージョンのアプリを表すタグも作成します。 このバージョンを後で変更したい場合は、 他の開発とは関係なく、このタグに基づいてブランチを作成できます。 タグの名前は、選択したバージョン番号です。
 
-#### 8.3.1 Deploying a Specific Version to a Mendix Licensed Cloud Node
+#### 8.3.1 Mendix ライセンスクラウドノードに特定のバージョンをデプロイする
 
-If you are using the Mendix Cloud you can choose **Project > Deploy to Licensed Cloud Node** to deploy a specific version.
+Mendix Cloudを使用している場合は、 **App** > **ライセンスクラウドノードにデプロイ** を選択して特定のバージョンをデプロイすることができます。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_17-05-05.png)
 
-#### 8.3.2 Creating a Deployment Package from a Specific Version
+#### 8.3.2 特定のバージョンからデプロイパッケージを作成する
 
-If you are using a different hosting environment, you create a deployment package using the menu item **Project > Create Deployment Package...**.
+別のホスティング環境を使用している場合 メニュー項目 **アプリ** > **デプロイパッケージを作成** を使用してデプロイパッケージを作成します。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-28_13-44-04.png)
 
-## 9 Working Outside Studio Pro
+## 9 Studio Pro 外での作業 {#working-outside-studio-pro}
 
-Studio Pro takes care of some file management automatically. If you add or remove custom widgets they are automatically added or removed from version control, too. Some files and directories (for example, deployment and releases directories) are automatically ignored so that they are not committed to version control.
+Studio Proはファイル管理を自動的に行います。 カスタム ウィジェットを追加または削除すると、バージョン管理からも自動的に追加または削除されます。 バージョン管理に反映されないように、いくつかのファイルとディレクトリ (例えば、リリースディレクトリ) は自動的に無視されます。
 
-We advise you to always commit and update inside Studio Pro because in this way useful metadata is added to your revisions. Studio Pro has ways to recover from external updates or merges but it is best to not depend on that.
+Studio Pro 内で常にコミットして更新することをお勧めします。この方法で有用なメタデータがリビジョンに追加されます。 Studio Proには、外部のアップデートやマージから復元する方法がありますが、それに依存しないことが最善です。
 
-### 9.1 TortoiseSVN & Subclipse {#tortoisesvn-subclipse}
+### 9.1 TortoiseSVN & サブクリップ {#tortoisesvn-subclipse}
 
-If you are doing more advanced changes to files, like adding Java actions or resources to your project, you will have to install TortoiseSVN on your computer and perform some operations yourself. You can download it for free at [https://tortoisesvn.net/](https://tortoisesvn.net/).
+アプリケーションにJavaアクションやリソースを追加するなど、ファイルにさらに高度な変更を行う場合。 TortoiseSVN をコンピュータにインストールし、自分で操作を行う必要があります。 無料で [https://tortoisesvn.net/](https://tortoisesvn.net/) からダウンロードできます。
 
 {{% alert type="warning" %}}
-Mendix Studio Pro uses the Subversion 1.9 working copy. Previous versions of the Mendix Desktop Modeler used a Subversion 1.7 working copy. These working copy versions **are not compatible**.
+Mendix Studio Pro は Subversion 1.9 の作業コピーを使用します。 Mendix Desktop Modelerの以前のバージョンでは、Subversion 1.7 の作業コピーが使用されていました。 これらの作業コピーのバージョン **は互換性がありません**。
 
-Always use the version of TortoiseSVN which matches your app model. If you open a local model from Mendix version 7.x or 6.x with the latest version of TortoiseSVN **you will no longer be able to open it in Mendix**.
+常にアプリモデルと一致する TortoiseSVN のバージョンを使用してください。 Mendixバージョン7.xまたは6からローカルモデルを開く場合。 最新バージョンの TortoiseSVN **では、Mendix** では開くことができなくなります。
 {{% /alert %}}
 
-Also, if you are developing Java actions using Eclipse, we advise you to install Subclipse to help you with version control of Java files. You can download Subclipse from the Eclipse Marketplace inside Eclipse or from [http://subclipse.tigris.org/](http://subclipse.tigris.org/).
+また、Eclipseを使用してJavaアクションを開発している場合は、Javaファイルのバージョン管理を支援するSubclipseをインストールすることをお勧めします。 Eclipse 内の Eclipse マーケットプレイス、または [http://subclipse.tigris.org/](http://subclipse.tigris.org/) から Subclipse をダウンロードできます。
 
-### 9.2 Adding Files & Directories
+### 9.2 ファイル & ディレクトリの追加
 
-If you add files or directories or delete files using Windows Explorer, Studio Pro automatically adds or deletes these from version control, too.
+Windows エクスプローラを使用してファイルやディレクトリを追加したり、ファイルを削除したりすると、Studio Pro はバージョン管理からも自動的に追加または削除します。
 
-Make sure you use the SVN export feature of TortoiseSVN if you are copying a directory that is already under version control into your project.
+バージョン管理下にあるディレクトリをアプリにコピーする場合は、TortoiseSVN の SVN 書き出し機能を使用してください。
 
-### 9.3 Deleting Files & Directories
+### 9.3 ファイルの削除 & ディレクトリ
 
-If you delete a file from your project, Studio Pro will automatically also delete it from the Team Server.
+アプリからファイルを削除すると、Studio Proも自動的にチームサーバーから削除されます。
 
-If you want to delete a whole directory, you will have to use the delete command of TortoiseSVN. You can execute this command by right-clicking the directory and choosing 'TortoiseSVN > Delete'.
+ディレクトリ全体を削除する場合は、TortoiseSVN の delete コマンドを使用する必要があります。 ディレクトリを右クリックし、「TortoiseSVN > 削除」を選択すると、このコマンドを実行できます。
 
-### 9.4 Branching & Deploying
+### 9.4 ブランチ & デプロイ中
 
-If you perform branching outside of Studio Pro, you will not be able to immediately deploy to Mendix Cloud. That is because Studio Pro adds metadata about the Mendix version of your app to each revision when you commit or create a branch, which is needed by the Mendix Cloud deployment. Branching outside of Studio Pro means that metadata is missing from your branch, thus your app cannot successfully be deployed.
+Studio Proの外部でブランチを実行すると、すぐにMendix Cloudにデプロイすることはできません。 これは、コミットまたはブランチの作成時に、アプリケーションの Mendix バージョンに関するメタデータを各リビジョンに追加するためです。 Mendix Cloud 展開で必要とされています。 Studio Pro の外部で分岐すると、メタデータがブランチから欠落しているため、アプリを正常にデプロイできません。
 
-To fix this, make a small commit on your branch in Studio Pro (for example, changing a documentation field). Studio Pro will then add the metadata that Mendix Cloud deployment requires, and you will be able to deploy your app.
+これを修正するには、Studio Pro のブランチに小さなコミット (ドキュメンテーションフィールドの変更など) を行います。 Studio Proは、Mendix Cloudのデプロイメントに必要なメタデータを追加し、アプリケーションをデプロイできるようになります。
 
-### 9.5 Reverting Accidental Studio Pro App Model Upgrade
+### 9.5 偶発的なStudio Proアプリモデルのアップグレードを元に戻す
 
-When working in different app with different Studio Pro versions, you may one day find yourself with an app model upgraded and committed to a newer Studio Pro version, while the the rest of your team is not yet ready to upgrade.
+Studio Proバージョンの異なるアプリで作業する場合 いつかアプリモデルがアップグレードされ、新しいStudio Proバージョンにコミットされていることに気付くかもしれません。 残りのチームはまだアップグレードの準備ができていません。
 
-To revert this version upgrade of the app model, follow these steps:
+アプリモデルのこのバージョンアップグレードを元に戻すには、次の手順に従ってください:
 
-1. Inform your team of the situation and prevent them from making further commits.
-2. Close Studio Pro.
-3. In Windows Explorer, go to your main app directory.
-4. Right-click the directory and select **TortoiseSVN** > **Show log**.
-5. In SVN, find the latest revision that was in the desired Studio Pro version.
-6. Right-click that revision, select **Revert to this version**, confirm, and click **OK**.
+1. 状況のあなたのチームに通知し、それらがさらにコミットすることを防ぎます。
+2. Studio Pro を閉じる
+3. Windowsエクスプローラで、メインアプリディレクトリに移動します。
+4. ディレクトリを右クリックし、 **TortoiseSVN** > **ログを表示** を選択します。
+5. SVN では、Studio Pro の最新版を探してください。
+6. そのリビジョンを右クリックし、 **Revert to this version**, confirm, and click **OK**.
 7. Back in Windows Explorer, right-click the folder again, select **TortoiseSVN** > **Commit**, enter your commit message, and click **OK**.
-8. Start the desired Studio Pro version and download the app from Team Server.
-9. Check that everything is okay in your app.
-10. Inform your team that they need to do a fresh checkout of the app or run **TortoiseSVN** > **Update** on their project folder before opening the project in the desired Studio Pro version again.
+8. ご希望のStudio Proバージョンを起動し、Team Serverからアプリをダウンロードします。
+9. あなたのアプリですべてが大丈夫であることを確認してください。
+10. アプリの新規チェックアウトを行う必要があることをチームに知らせるか、アプリフォルダで **TortoiseSVN** > **アップデート** を実行してから、希望するStudio Proバージョンでアプリを再度開きます。
 
-## 10 Read More
+## 10 続きを読む
 
-* [Advanced Branching and Merging Strategies](https://www.mendix.com/blog/advanced-branching-merging-strategies-part-1-2/)
+* [高度な分岐とマージ戦略](https://www.mendix.com/blog/advanced-branching-merging-strategies-part-1-2/)
+
