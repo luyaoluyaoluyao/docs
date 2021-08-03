@@ -1,118 +1,119 @@
 ---
-title: "Tricky Custom Settings in Mendix Runtime"
-parent: "custom-settings"
-description: "Describes custom settings that are a little more difficult to configure than normal."
+title: "Mendix 运行时的三维自定义设置"
+parent: "自定义设置"
+description: "描述比正常更难配置的自定义设置。"
 tags:
-  - "Support"
-  - "custom settings"
+  - "支持"
+  - "自定义设置"
 ---
 
-## 1 Introduction
+## 1 导言
 
-There are many custom settings in Mendix, most of which are described in [Runtime Customization](/refguide8/custom-settings).
+Mendix有许多自定义设置，大多数都在 [运行时间自定义](/refguide/custom-settings) 中描述。
 
-However, a few of the more commonly used custom settings can be misunderstood or have effects that one might not expect. That is why we would like to give these settings a bit of special attention and more thoroughly explain the consequences of changing them.
+然而，一些较常用的自定义设置可能会被误解或产生人们可能无法预料的影响。 这就是为什么我们希望对这些环境给予一定程度的特别关注，并更全面地解释改变这些环境的后果。
 
-## 2 Session Duration
+## 2 次会话持续时间 {#session-duration}
 
-### 2.1 Web Client Settings
+### 2.1 Web 客户端设置
 
-The following settings influence the behavior of the Mendix web client:
+以下设置影响Mendix 网页客户端的行为：
 
-| Name              | Description                                                                                                                                                                                                                                                                                                                                 | Default value |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `EnableKeepAlive` | Defines whether the web client sends a keep alive request every `SessionTimeout`/2 milliseconds in order to prevent a session timeout. Each click in the browser also acts as `KeepAlive`. Disabling this property will result in the user being logged out automatically after 10 minutes of inactivity, even if the browser remains open. | true          |
+| 名称             | 描述                                                                                                                                                               | 默认值  |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| `启用 KeepAlive` | 定义为防止会话超时是否在 `会话超时`/2 毫秒，Web 客户端是否发送了存活请求。 浏览器中的每个单击都可以使用 `KeepAlive`。 禁用此属性将导致用户在 `session超时` 毫秒不活动后自动登出(默认 10 分钟), 即使浏览器仍然打开. 在下一节中查看 `SessionTimeout` 获取更多信息。 | true |
 
-### 2.2 General Settings
+### 2.2 一般设置
 
-The following custom settings can be configured:
+以下自定义设置可以配置：
 
-| Name                           | Description                                                                                                                                                                                                                                    | Default value |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `SessionTimeout`               | Defines after how much time the session becomes invalid (in milliseconds). After that timeout, a session becomes applicable for removal. The session won't be destroyed until the next time the cluster manager evaluates the active sessions. | 600000        |
-| `ClusterManagerActionInterval` | The interval (in milliseconds) used for performing all cluster manager actions. These actions include unblocking users and removing invalid sessions. If nothing is specified, the interval is half the `SessionTimeout`.                      | 300000        |
+| 名称               | 描述                                                               | 默认值            |
+| ---------------- | ---------------------------------------------------------------- | -------------- |
+| `会话超时`           | 定义会话在多长时间后无效(毫秒)。 在这段时间过后，届会将适用于除名。 直到下次集群管理员评估活动会话时，会话才会被摧毁。    | 600 000(10分钟)  |
+| `LivedSession超时` | 此设置与 `SessionTimeout`相同，但是专门适用于离线第一个渐进式网络应用程序。                   | 604800000 (7天) |
+| `集群管理动作间隔`       | 用于执行所有集群管理器操作的间隔(毫秒)。 这些动作包括解除对用户的屏蔽和移除无效会话。 如果没有指定，则间隔为 `会期超时`。 | 300 000(5分钟)   |
 
-Increasing the session timeout can improve the user experience, especially on mobile devices. It is important to keep in mind that entities used to present data to the user or entities that are created or retrieved when a user executes a microflow are tied to that user's session, and those entities can remain in memory for long periods of time. When a user signs out, these entities will be removed from memory, but if the user idles but does not sign out (for example, if they leave the browser tab open while executing other tasks or simply close the browser without signing out), the session timeout can act as a safeguard that prevents memory usage from being tied up by idle sessions. The first case can also be mitigated by setting the `EnableKeepAlive` custom setting to false. On most browsers, this setting will ensure that any idle browser tab will be affected by the session timeout as well.
+增加会话超时可以提高用户体验，特别是在移动设备上。 重要的是要牢记，用来向用户提供数据的实体或在用户执行微流时创建或检索的实体与该用户的会话绑在一起。 而且，这些实体可以长期留在记忆中。 当用户退出时，这些实体将从内存中移除，但如果用户闲置但没有退出，例如： 如果他们在执行其他任务时离开浏览器选项卡打开，或者只是关闭浏览器而不登出， 会话超时可以作为防止空闲会话将内存使用绑定的一种保护措施。 通过设置 `启用KeepAlle` 自定义设置为false也可以缓解。 在大多数浏览器中，此设置将确保任何闲置的浏览器标签也会受到会话超时的影响。
 
-Since the frequency of the session timeout checks and other important events is tied to the `ClusterManagerActionInterval`, it makes sense to not use the default of half the session timeout when the value is increased by a lot (for example, 24 hours or more). It might make sense to put a maximum value on `ClusterManagerActionInterval`, regardless of how high the value of `SessionTimeout` is set. An approximate figure is 15 minutes, but ultimately this will depend on the functional requirements of the application.
+由于会话的频率超时检查和其他重要事件与 `ClusterManagerActionInterval`相关， 当值增加很多时不使用半个会话超时的默认值是有意义的(例如) (24小时或更长时间)。 在 `ClusterManagerActionInterval`上最大值可能是有意义的。 不论 `会期超时` 的值设定。 大约有15分钟，但最终这将取决于应用程序的功能要求。
 
-With stateless runtime, the potential of memory usage leading to problems has been reduced for two reasons. The first reason is the ability to run in a horizontally scaled environment. Multiple runtimes will mean unintended memory usage is also divided over those runtimes, reducing the impact of any one idle user session. But the main (and second) reason is that most of the memory usage has been moved to the client. So instead of all entities in the memory ending up on the application node, a large share of them will end up in the browser of the client. This should significantly reduce the potential strain on the application node that can be caused by increasing the `SessionTimeout` default value to a much higher value.
+由于无国籍的运行时间，由于两个原因，造成问题的内存使用的潜力已经减少。 第一个原因是能够在横向环境中运行。 多运行时将意味着意外的内存使用量在运行时也会被分割，减少任何空闲用户会话的影响。 但主要(和第二个)原因是，大多数内存使用情况已转移到客户端。 因此而不是内存中的所有实体最终在应用程序节点上， 一大部分最终将在客户端的浏览器中。 这将大大减少应用程序节点可能因增加 `会期超时` 默认值到更高的值而造成的压力。
 
-Another important matter that can be affected by increasing the session timeout is the user restrictions imposed by your Mendix license. Longer sessions might mean more concurrent users at any given time. This is something to keep in mind when deciding on the specifics of the license you will need to run your application.
+提高会话超时可能影响的另一个重要问题是您的 Mendix 许可证所规定的用户限制。 较长的会话可能意味着在任何时间都有更多的并行用户。 在决定您需要运行您的应用程序的许可证的具体细节时，要记住这一点。
 
-Finally, there is a security consideration to be made. An idle session means that there is a potential for a session to be hijacked in case the user does not follow standard security procedures. If they leave their computer unlocked at any given time and do not remain present at the their computer afterwards, any person with physical access to that user’s computer could steal or use it and would be able to make use of the session for their own gain. With the default session timeout value this risk is reduced, as the window in which physical access is possible is much more limited (meaning, a session timeout of 24 hours is riskier than a session timeout of 10 minutes). How much of a concern this is will depend on the application’s core business goal and the type of people working with the app. For example, IT professionals should be more likely to follow standard security procedures than most other user groups.
+最后，还需要考虑安全问题。 闲置会话意味着，如果用户不遵守标准安全程序，会话可能会被劫持。 如果他们在任何特定时间离开计算机，然后不在计算机上停留， 任何能够实际访问该用户计算机的人都可以偷窃或使用它，并且能够为了自己的利益而利用会话。 使用默认会话超时值，这个风险会降低，因为实际访问的窗口限制得多(含义) a 会议超时24小时的风险大于会议超时10分钟的风险)。 有多少关注将取决于应用程序的核心业务目标和在应用中工作的人的类型。 例如，信息技术专业人员应当比大多数其他用户群体更有可能遵循标准的安全程序。
 
-So, make sure to keep in mind all of the above when changing these values. Also, make sure your decision to alter any of these values is made with the right considerations.
+因此，在改变这些价值时，务必牢记上述所有内容。 此外，请确保你在作出改变任何这些价值的决定时考虑到了正确的考虑。
 
-## 3 Query Logging
+## 3 查询日志
 
-### 3.1 Database Settings: Common settings
+### 3.1 数据库设置：共同设置
 
-| Name                  | Description                                                                                                                                                                                                                                                                                                                                                            | Default value |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `LogMinDurationQuery` | Defines whether database queries are logged via the `ConnectionBus_Queries` log node if they finished after the amount of milliseconds specified here. By default, only the concerning SQL query will be logged. Set the log level of the `ConnectionBus_Queries` log node to TRACE to show more information about the page or the microflow that leads to this query. |               |
+| 名称                 | 描述                                                                                                                                                      | 默认值 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| `LogMinDuration查询` | 定义数据库查询是否通过 `ConnectionBus_Queries` 日志节点登录，如果它们在这里指定的毫秒数后完成。 默认情况下，只记录关于 SQL 查询的记录。 将 `ConnectionBus_Queries` 日志节点的日志级别设置为 TRACE 以显示更多关于导致此查询的页面或微流的信息。 |     |
 
-`LogMinDurationQuery` can be a very helpful tool in detecting queries that are taking longer than expected. This is especially useful for queries that only take longer than expected after the data used in and by the app grows larger, because this might mean the queries will only become slower after a few months of usage and might not have turned up in pre-release performance tests. Determining that a query is slow depends on the type of app you are running. But in general, any query that directly affects a user using the app (meaning, not a background process) will have a lower threshold for determining it as slow than a query running in the background. For example, a drop-down menu that takes 5 seconds to load before anything can be selected is many times worse than a PDF generated in the background taking 8 instead of 4 seconds because of a “slow” query that takes 5 seconds instead of 1 second.
+`LogMinDurationQuery` 可能是一个非常有用的工具，用于检测比预期时间长的查询。 对于仅在应用程序中使用的数据增长和由应用程序使用的数据增长后需要更长时间的查询，这特别有用。 因为这可能意味着查询只会在几个月的使用后变得较慢，而且可能还没有在发布前的性能测试中出现。 确定查询速度慢取决于您正在运行的应用程序类型。 但一般来说，任何直接影响到使用应用程序的用户的查询(意味着， 如果不是一个后台进程，那么它将有一个较低的阈值来确定它比后台中运行的查询更慢。 例如， 需要5秒加载才能选择任何东西的下拉菜单比后台生成的 PDF 需要8秒而不是4秒的差很多，因为需要5秒而不是1秒。
 
-In the Mendix Cloud, we have chosen a default value of 10000 (meaning, 10 seconds). As any such query would be noticeable on the front-end of the application. If your application has no background processes, this value might be too high. On the other hand, if your application is running many background processes with minimal user interaction, this value might be too low. In the end, the right value to set will depend on the functional requirements of your app and needs to be set accordingly.
+在 Mendix Cloud，我们选择了一个默认值为 10000(意指，10 秒)。 任何这类查询都会在应用程序的前端显现出来。 如果您的应用程序没有后台进程，这个值可能太高。 另一方面，如果您的应用程序正在运行许多背景流程，用户之间的互动最小，这个值可能太低。 最后，要设置的正确值将取决于您应用的功能要求，并需要相应设置。
 
-The most important part of this setting is to regularly check the application log for any queries exceeding this value and to resolve them if they are deemed problematic. Setting this value without following up on it is as useful as not setting the value at all. Queries running slowly can negatively affect the user experience, the throughput of any action affected by them, the memory usage of the application, the CPU usage of the application, and can even lead to outages in extreme cases. Given all that, Mendix strongly advises setting this value to a number that makes sense for your application and following up on any query that is logged.
+此设置的最重要部分是定期检查应用程序日志中超过此值的任何查询，并在它们被认为有问题时加以解决。 设置此值而不对其采取后续行动，是非常有用的，也不会设置值。 缓慢运行的查询可能会对用户体验、受其影响的任何行动的通过产生不利影响。 应用程序的内存使用率, 应用程序的 CPU 使用率, 甚至在极端情况下可能导致停用。 鉴于所有这些， Mendix 强烈建议将此值设置为一个对您的应用程序有意义的数字，并跟进已记录的任何查询。
 
-You can find these log entries by looking for the following phrase in your application log: **Query executed in**. The phrase will appear in an example like this: `Jan 01 02:03:04.567 - WARNING - ConnectionBus_Queries: (1/4) Query executed in 642 seconds and 694 milliseconds: UPDATE "somemodule$someentity”`.
+您可以通过在您的应用程序日志中寻找以下短语来找到这些日志条目： **查询在** 中。 短语将出现在这样的示例中： `Jan 01 02:03:04。 67 - 警告 - ConnectionBus_Queries: (1/4) 查询在 642 秒和694 毫秒内完成: 更新 "somemodule$someentity"`
 
-## 4 The Number of Database Connections
+## 4 数据库连接数
 
-### 4.1 Connection Pooling
+### 4.1 连接库
 
-The settings below are used to define the database connection pooling behavior. The Runtime uses a pool of reusable database connections. You can, for example, define how many connections can be used. Connection pooling is implemented using the [Apache Commons Object-pooling API](http://commons.apache.org/pool/).
+下面的设置用于定义数据库连接池行为。 运行时使用一个可重复使用的数据库连接库。 例如，您可以定义可以使用多少连接。 正在使用 [Apache Commons Object-hont API 实现连接池](http://commons.apache.org/pool/)。
 
-| Name                         | Value                                                                                                                                                                                                                                                                                                                 | Default value |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `ConnectionPoolingMaxActive` | Sets the cap on the total number of active instances from the pool.                                                                                                                                                                                                                                                   | 50            |
-| `ConnectionPoolingMaxIdle`   | Sets the cap on the number of "idle" instances in the pool.                                                                                                                                                                                                                                                           | 50            |
-| `ConnectionPoolingMinIdle`   | Sets the minimum number of objects allowed in the pool before the evictor thread (if active) spawns new objects. Note that no objects are created when `numActive` + `numIdle` >= `maxActive`.  This setting has no effect if the idle object evictor is disabled (meaning, if `timeBetweenEvictionRunsMillis` <= 0). | 0             |
-
-{{% alert type="info" %}}
-If you change these settings, you will need to restart your app to apply the changes.
-{{% /alert %}}
+| 名称                           | 值                                                                                                                                                                    | 默认值 |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| `ConnectionPoolingMaxActive` | 设置池中活动实例总数的上限。                                                                                                                                                       | 50  |
+| `连接 PoolingMaxIdle`          | 设置池中的“空闲”实例数量上限。                                                                                                                                                     | 50  |
+| `连接PoolingMinIdle`           | 设置拆解器线程(如果活动的话)生成新对象之前允许在池中使用的对象的最小数量。 请注意， `numActive` + `numIdle` >= `maxActive` 时没有创建对象。  如果闲置对象驱逐器被禁用，此设置将不会产生任何效果(意思是，如果 `timeBetweenEvictionRunsMillis` <= 0). | 0   |
 
 {{% alert type="info" %}}
-These settings are configured *per runtime instance*. If you have [scaled your application](/developerportal/deploy/scale-environment), the number of connections on the database side will be multiplied by the number of runtime instances. For example, if you set `ConnectionPoolingMaxIdle` to `50` and scale your app to 2 runtime instances, each runtime instance will create at most 50 connections, but on the database side this will lead to a maximum of 100 connections.
-{{% /alert %}}
+如果您更改了这些设置，您需要重新启动您的应用以应用更改。
+{{% /报警 %}}
 
-When changing the `ConnectionPoolingMaxIdle` and `ConnectionPoolingMinIdle` settings, consider the following points:
+{{% alert type="info" %}}
+这些设置已配置为每个运行时实例的 **。 如果您有 [缩放了您的应用程序](/developerportal/deploy/scale-environment)， 数据库侧的连接数将乘以运行场数。 例如，如果您将 `ConnectionPoolingMaxIdle` 设置为 `50` 并将您的应用程序缩放到 2 个运行时间。 每个运行时实例最多将创建50个连接，但在数据库侧，这将导致最多100个连接。
+{{% /报警 %}}
 
-* More idle connections means more memory usage
-* More idle connections means less overhead when starting a query as the connection itself does not need to be created
-* Fewer idle connections means less memory usage
-* Fewer idle connections means more overhead when starting a query, as the connection itself needs to be created
+当更改 `ConnectionPoolingMaxIdle` and `ConnectionPoolingMinIdle` 设置时，请考虑以下几点：
 
-The most interesting setting is `ConnectionPoolingMaxActive`, as this caps the total number of queries that can run in parallel at any given point in time. The default setting for this value in a Mendix application is 50. This means that at any given time, a maximum of 50 queries can be running in parallel. For most applications this will be a very safe number, as most queries only take milliseconds, so it takes a lot of concurrent users to reach a point in which 50 queries are running in parallel. When the app is constantly at its connection pooling limit, you get errors like this:
+* 更多空闲连接意味着更多内存使用
+* 更多空闲连接意味着在启动查询时减少开销，因为连接本身不需要创建
+* 较少空闲连接意味着减少内存使用
+* 开始查询时，空闲连接较少意味着更多的间接费用，因为连接本身需要创建
 
-* `WARNING - ConnectionBus: Database connections: 50 active, 0 idle.`
-* `ERROR - ConnectionBus: Opening JDBC connection to 1.2.3.4:5432 failed with SQLState: null Error code: 0 Message: Cannot get a connection, pool error Timeout waiting for idle object Retrying...(1/4)`
+最有趣的设置是 `ConnectionPoolingMaxActive`， 因为这将在任何时间点平行运行的查询总数。 Mendix 应用程序中此值的默认设置是50。 这意味着在任何特定时间最多可以同时运行50个查询。 对于大多数应用程序，这将是一个非常安全的数字，因为大多数查询只需要毫秒， 所以需要很多同时使用的用户到达50个查询并行运行的点。 当应用始终处于其连接池限制时，您会遇到如下错误：
 
-And/or you get a DB connection pool graph that looks like this:
+* `警告 - ConnectionBus: 数据库连接: 50个活动, 0 空闲.`
+* `错误 - ConnectionBus: Opening JDBC 连接到1.2.3。 :5432 与 SQLState失败: null 错误代码: 0 消息: 无法获取连接, 池错误: 等待空闲对象重试的超时...(1/4)`
+
+And/or 你得到一个看起来像这样的DB连接池图表：
 
 ![](attachments/tricky-custom-settings/mendix-customsettings-tricky-img1.png)
 
-It will be tempting to increase the `ConnectionPoolingMaxActive` value to a (much) higher number. But if any of the following are true, this is not the right action to take:
+它将很可能将 `ConnectionPoolingMaxActive` 增加到一个更高的数字。 但如果以下内容属实，这不是采取的正确行动：
 
-* Long running queries show up in the application log – in that case, it makes more sense to try and fix those first, as otherwise you will eventually run in to the same problem, but it will take a bit longer to occur after a (re)start of the application
-* A database is running low on memory or is even out of memory regularly — in that case, it makes more sense to upgrade the database node size first
-    * In this case, it  will also be likely you can find long running queries in your application log
-* Only a few user sessions are active at any given time — your application might need refactoring unless you can explain why three users constantly use 50 parallel database connections
+* 在应用程序日志中显示长时间运行的查询——在这种情况下，首先尝试并修复这些查询更加合理。 否则您将最终进入相同的问题 但在应用程序开始后需要更长的时间 (重新)
+* 一个数据库内存内存中运行不足，甚至经常失去内存——在这种情况下。 首先升级数据库节点大小更符合逻辑。
+    * 在这种情况下，它也可能会在您的应用程序日志中找到长时间运行中的查询
+* 只有几个用户会话在任何时间处于活动状态 — — 您的应用程序可能需要重新计算除非您能解释为什么三个用户经常使用50个并行数据库连接
 
-However, if all of the following are true, you should increase the `ConnectionPoolingMaxActive` value to a (much) higher number:
+然而，如果以下全部为真，你应该将 `ConnectionPoolingMaxActi` 增加到一个更高的数字：
 
-* There are large amounts of concurrent users (meaning, at least a few thousand)
-* There are no long running queries showing up in the application log, even with the `LogMinDurationQuery` set to a relatively low number (like 3 seconds)
-* There is plenty of database memory available at all times
+* 有大量的并行用户 (意味着至少几千)
+* 应用程序日志中没有长时间正在运行的查询， 即使使用 `LogMinDurationQuery` 设置为一个相对较低的数字 (如3秒)
+* 在任何时候都有大量的数据库内存
 
-In general, we see that increasing the `ConnectionPoolingMaxActive` value to a (much) higher number is very rarely the right action to take, even if it is unfortunately the action usually taken when you run into connection pooling issues.s
+1. 一般情况 我们看到将 `ConnectionPoolingMaxActive` 增加到一个更高的数字，很少能采取正确的行动。 即使不幸的是，当您进入连接池问题时通常采取的行动。s
 
-In addition, keep in mind that changing this value for an application running in Mendix Cloud v3 will also require an adjustment on the database node that only Mendix can make. So, before changing the value, please file a ticket in the [Mendix Support Portal](https://support.mendix.com/hc/en-us) stating the number to which you intend to change the value. When your application is running in Mendix Cloud v4, you can change the value without a change on the database node.
+此外， 请记住，要更改在 Mendix Cloud v3 中运行的应用程序的这个值还需要对数据库节点进行调整，只有Mendix 能够做出调整。 因此，在改变价值之前， 请在 [Mendix Support Portal](https://support.mendix.com/hc/en-us) 中提交一个工单，说明您打算更改该数值的数字。 当您的应用程序在 Mendix Cloud v4 中运行时，您可以在不改变数据库节点的情况下更改值。
 
-## 5 Read More
+## 5 阅读更多
 
-* [Runtime Customization](/refguide8/custom-settings)
+* [运行时自定义](/refguide/custom-settings)
