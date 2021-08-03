@@ -1,29 +1,29 @@
 ---
-title: "Microflows & Nanoflows"
-parent: "application-logic"
+title: "微流 & Nanoflows"
+parent: "应用逻辑："
 menu_order: 10
-description: "Presents an overview of microflows and nanoflows."
+description: "展示微流和纳米粒子的概述。"
 tags:
   - "studio pro"
-  - "microflow"
+  - "微流"
   - "nanoflow"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Microflows and nanoflows allow you to express the logic of your application. They can perform actions such as creating and updating objects, showing pages, and making choices. It is a visual way of expressing what traditionally ends up in textual program code.
+Microflow和nanoflow 允许您表达您应用程序的逻辑。 他们可以执行创建和更新对象、显示页面和作出选择等操作。 这是一种直观的表达传统的文本程序代码的方式。
 
-Microflows run in the runtime server and can therefore not be used in offline apps, while nanoflows run directly on the browser/device and can be used in an offline app. Furthermore, most of the actions in nanoflows run directly on the device, so there is also a speed benefit for logic which does not need access to the server.
+微流在运行时服务器中运行，因此无法用于离线应用， 在 nanoflows 直接在浏览器/设备上运行，可以在离线应用中使用。 此外，nanoflows的大多数操作直接在设备上运行， 因此对于不需要访问服务器的逻辑也有速度上的好处。
 
-Explore the documentation for details on microflow and nanoflow definitions, properties, and usages.
+探索有关微流和纳米定义、属性和使用的详细信息。
 
-* [Microflows](microflows)
-* [Nanoflows](nanoflows)
-* [Sequence Flow](sequence-flow)
-* [Activities](activities)
-* [Decisions](decisions)
-* [Annotation](annotation)
-* [Parameter](parameter)
-* [Loop](loop)
-* [Events](events)
-* [Common Properties](microflow-element-common-properties)
+* [微型流动](微流)
+* [纳诺夫拉](nanoflows)
+* [序列流](sequence-flow)
+* [活动](活动)
+* [决 定](经济及社会理事会)
+* [批注](注释)
+* [参数](参数)
+* [循环](循环)
+* [事件](事件)
+* [公共属性](microflow-element-common-properties)
