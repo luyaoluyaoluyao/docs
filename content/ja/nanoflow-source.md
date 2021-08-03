@@ -1,51 +1,51 @@
 ---
 title: "Nanoflow Source"
-parent: "data-sources"
+parent: "データソース"
 tags:
   - "studio pro"
-  - "nanoflow source"
-  - "data source"
+  - "ナノフローソース"
+  - "データソース"
 menu_order: 50
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Nanoflow** data source is available for [data views](data-view) and [list views](list-view).
+**Nanoflow** データソースは [データ ビュー](data-view) および [リスト ビュー](list-view) で使用できます。
 
-In most cases, you use the *database*, *association* or *XPath* data sources to fill a [data widget](data-widgets). However, sometimes the target objects need to adhere to very specific criteria, or different objects are shown under different circumstances that cannot be handled by an [XPath](xpath-constraints). In these situations a *nanoflow data source* may be required. For more information on nanoflows and their advantages, see [Nanoflows](nanoflows).
+In most cases, you use the *database*, *association* or *XPath* data sources to fill a [data widget](data-widgets). ただし、対象となるオブジェクトは特定の基準に準拠する必要がある場合があります。 [XPath](xpath-constraints) では扱えない、または異なるオブジェクトが異なる状況下で表示されます。 このような状況では、 *nanoflow data source* が必要となる場合があります。 ナノフローとその利点の詳細については、 [Nanoflows](nanoflows) を参照してください。
 
-When a data widget with a nanoflow data source is displayed in the browser or refreshed, it runs the designated nanoflow and displays the return value. The manner in which the objects are acquired in the nanoflow is entirely up to you, which allows for unlimited control over what objects to return.
+ナノレベルのデータソースを持つデータウィジェットがブラウザに表示または更新されたとき。 指定されたナノフローを実行し戻り値を表示します ナノの中で物体が獲得される方法は、完全にあなた次第です。 どの物体が戻ってくるかを無限にコントロールできるのです
 
-A nanoflow data source ignores all context. It performs actions described in the nanoflow, nothing else. For example, nested data widgets with a nanoflow data source will not automatically create or invoke associations to the encasing data widget.
+nanoflow データソースはすべてのコンテキストを無視します。 ナノの中で記述された動作を実行します たとえば、nanoflow データソースを持つネストされたデータウィジェットは、自動的にデータウィジェットを作成したり、データウィジェットへの関連付けを呼び出したりすることはありません。
 
 ## 2 Nanoflow Data Source Example
 
-For example, you have a list that needs to display a list of potential orders based on the order type:
+たとえば、注文タイプに基づいて潜在的な注文のリストを表示する必要があるリストがあります。
 
-![Nanoflow Source](attachments/data-widgets/nanoflow-source.png) If the *OrderType* of the *Order* entity is set to *Cars*, then the data grid should display all *Products* for which the Boolean *Motorized* is set to true. If the *OrderType* is *Bicycles* only objects for which *Motorized* is set to false need be shown. If *OrderType* is empty the data grid should remain empty.
+![Nanoflow Source](attachments/data-widgets/nanoflow-source.png) If the *OrderType* of the *Order* entity is set to *Cars*, then the data grid should display all *Products* for which the Boolean *Motorized* is set to true. *OrderType* が *Bicycles* の場合、 *Motorized* がfalse に設定されているオブジェクトのみを表示する必要があります。 *OrderType* が空の場合、データグリッドは空のままにします。
 
-![Entities Example](attachments/data-widgets/entities-example.jpg) Because of the mismatch in attribute types this cannot be constrained by XPath and a nanoflow data source is required.
+![エンティティの例](attachments/data-widgets/entities-example.jpg) 属性型の不一致のため、XPath により制約を受けることができず、ナノレベルのデータソースが必要となります。
 
-The nanoflow for the use-case should look like this:
+ユースケースのnanoflowは次のようになります:
 
-![Nanoflow Example](attachments/data-widgets/microflow-nanoflow-example.jpg) This nanoflow does the following:
+![Nanoflow Example](attachments/data-widgets/microflow-nanoflow-example.jpg) このナノフローは以下のようになります:
 
-1. It passes the *Order* of the enclosing data view as a parameter.
+1. パラメータとして、囲まれたデータビューの *Order* を渡します。
 
-2. It then splits on the *OrderType* attribute and retrieves a different set of products for each enumeration value.
+2. その後、 *OrderType* 属性に分割され、各列挙値に対して異なる製品セットを取得します。
 
-3. The nanoflow returns a list of products and each end event is configured to return a list.
+3. nanoflowは製品のリストを返し、各エンドイベントはリストを返すように構成されています。
 
-    {{% alert type="info" %}}The *empty* path also requires a value, where `empty` is also a value.
+    {{% alert type="info" %}} *空の* パスも値を必要とします。 `空の` も値です。
     {{% /alert %}}
 
-## 3 Properties
+## 3つのプロパティ
 
 ### 3.1 Nanoflow
 
-Defines the nanoflow used to populate the widget. This nanoflow will be run whenever the widget is loaded into the browser or refreshed. The nanoflow must have a return value of either an object or a list of objects, depending on the widget being used.
+ウィジェットを作成するために使用するナノフローを定義します。 このnanoflowは、ウィジェットがブラウザにロードされたりリフレッシュされたりするたびに実行されます。 nanoflowは使用されているウィジェットに応じて、オブジェクトまたはオブジェクトのリストの戻り値を持たなければなりません。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Nanoflows](nanoflows)
-* [Data Widgets](data-widgets)
+* [Nanoflows](ナノフロー)
+* [データウィジェット](data-widgets)
