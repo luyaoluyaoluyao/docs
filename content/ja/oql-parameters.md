@@ -1,11 +1,9 @@
 ---
 title: "OQL パラメータ"
 parent: "oql-expression"
-tags:
-  - "studio pro"
 ---
 
 
-現在、パラメータは [datasets](data-sets) で定義された OQL クエリ内でのみサポートされています。 クエリで定義されたパラメータを使用するには、 `$` 記号を使用します。
+現在、パラメータは [datasets](data-sets) で定義された OQL クエリ内でのみサポートされています。 クエリで定義されたパラメータを使用するには、$ 記号を使用します。
 
-正しいパラメータ名の例は `$weight_range`, `$age` です。
+正しいパラメータ名の例は $weight_range, $age です。
