@@ -1,9 +1,9 @@
 ---
-title: "APIs & SDK"
-description: "Presents the Mendix API documentation as well as the documentation for the Mendix Platform SDK."
+title: "Quality Add-ons Guide"
+description: "Presents guides for APM, AQM, and ATS."
 ---
 
-The *APIs & SDK* are divided into the following categories:
+The *Quality Add-ons Guide* are divided into the following categories:
 
 {{% category_block %}}
 
