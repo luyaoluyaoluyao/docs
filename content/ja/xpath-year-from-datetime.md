@@ -1,13 +1,11 @@
 ---
-title: "XPath Year-from-DateTime"
+title: "XPath年from-dateTime"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
 
-`year-from-dateTime()` 関数は、 `Date and time` 属性から年数を抽出し、値と比較するために使用することができます。
+`year-from-dateTime()` 関数は、 `DateTime` 属性から年数を抽出し、値と比較するために使用します。
 
 ## 2つの例
 
