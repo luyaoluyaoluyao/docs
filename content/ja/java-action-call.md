@@ -9,10 +9,6 @@ tags:
   - "action call"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/java-action-call.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can only be used in **Microflows**.
 {{% /alert %}}
@@ -76,4 +72,4 @@ The result of the Java action will be given this name. The label indicates wheth
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
