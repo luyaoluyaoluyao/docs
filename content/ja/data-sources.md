@@ -1,38 +1,50 @@
 ---
-title: "Data Sources"
-parent: "page-concepts"
+title: "データソース"
+parent: "データウィジェット"
+tags:
+  - "studio pro"
+  - "データソース"
 ---
 
+## 1つの紹介
 
-Widgets that display information stored in entities require you to assign a method by which to attain the relevant data. Such methods are collectively known as data sources. Widgets that require a data source include all [data widgets](data-widgets) and [input widgets](input-widgets).
+エンティティに保存されている情報を表示するウィジェットには、関連するデータを取得するメソッドを割り当てる必要があります。 このような手法は、総称してデータソースとして知られています。 データソースを必要とするウィジェットには、すべての [データウィジェット](data-widgets) と [入力ウィジェット](input-widgets) が含まれます。 [Pluggable ウィジェット](/apidocs-mxsdk/apidocs/pluggable-widgets) は、データソースを使用することもできます。
 
-Most simple input widgets derive their content from their context. A text box will, for instance, only allow input for attributes of the target entity. The exceptions are those widgets that require an entire object or a list of objects to function. Below the available data sources are described per widget type.
+このドキュメントでは、データウィジェットのデータソースについて説明します。
 
-## Data View
+## 2つのデータビュー
 
-The data view supports the following data sources:
+データ ビューでは、次のデータ ソースをサポートします。
 
-*   [Context](entity-path-source): in the case of an entity, the data view gets its object from the microflow or page that is opening the page. The context needs to supply this object when opening the page. If the data view is nested inside another data widget, you can specify an entity path that starts in the context object and follows one or more associations.
-*   [Microflow](microflow-source): the data view object is determined by the result of calling the specified microflow. The microflow can take objects in the context as parameter and needs to return a single object.
-*   [Listen to widget](listen-to-grid-source): the data view object depends on the selection in a list widget. Each time the selection changes, the data view will show that selected object.
-
-{{% alert type="info" %}}
-
-The microflow source is not supported in offline applications because it implies a call to the server.
-
-{{% /alert %}}
-
-## List Widgets (data grid, template grid, list view)
-
-List widgets support the data sources listed below. The data source also determines which features of the widget are enabled. For instance, only widgets with a database or XPath data source may contain a search bar, as the search bar relies on a database call to function.
-
-*   [Database](database-source): the objects in the list are retrieved from the database. Constraints can be used to limit which objects are shown.
-*   [XPath](xpath-source): the objects in the list are retrieved from the database and XPath can be used to constrain which objects are shown.
-*   [Microflow](microflow-source): the objects in the list are determined by the result of calling the specified microflow. The microflow can take objects in the context as parameter and needs to return a list of objects.
-*   [Association](association-source): the objects are retrieved by following an association from the object in the context. As such this data source is only available when the when a widget is nested in an existing context, such as a data view.
+*   [コンテキスト](context-source) - データビューはコンテキストからそのオブジェクトを取得します: ページパラメータまたは周囲のデータコンテナから取得します
+*   [Microflow](microflow-source) – 選択したマイクロフローを呼び出した結果によってデータビューオブジェクトが決定されます。 マイクロフローは、コンテキスト内のオブジェクトをパラメータとして受け取ることができ、単一のオブジェクトを返す必要があります。
+*   [Nanoflow](nanoflow-source) – 取得されたオブジェクトは、選択されたナノフローを呼び出した結果によって決定される。 nanoflowはコンテキスト内のオブジェクトをパラメータとして受け取ることができ、1つのオブジェクトを返す必要があります。
+*   [ウィジェット](listen-to-grid-source) を監視する - データ ビューのオブジェクトは、リスト ウィジェット内の選択に依存します (データ グリッド)。 テンプレートグリッドまたはリスト表示)
 
 {{% alert type="info" %}}
 
-The database source is the only data source that is also supported offline. If a list widget has a database data source in an offline application, the data will come from the database that is situated on the device. This database can be synced with the [create button](new-button).
+**Microflow** ソースは、サーバーへの呼び出しを意味するため、オフラインアプリケーションではサポートされていません。
 
 {{% /alert %}}
+
+## 3つのリストウィジェット {#list-widgets}
+
+データ グリッド、テンプレート グリッド、リスト ビューは、リスト ウィジェットです。 また、いくつかの [プラグ可能なウィジェット](/apidocs-mxsdk/apidocs/pluggable-widgets) は、リストウィジェットとして動作し、データソースを使用することができます。 サポートされているデータソースは以下のとおりです。
+
+*   [データベース](database-source) – データベースからオブジェクトを取得します。どのオブジェクトを表示するかを制限するために、データベース制約を使用できます。
+*   [XPath](xpath-source) – オブジェクトはデータベースから取得され、XPath 制約を使用してどのオブジェクトが表示されるかを制限することができます。
+*   [Microflow](microflow-source) – 取得されたオブジェクトは、選択されたマイクロフローを呼び出した結果によって決定される。 マイクロフローは、コンテキスト内のオブジェクトをパラメータとして受け取ることができ、オブジェクトのリストを返す必要があります。
+*   [Nanoflow](nanoflow-source) – 取得されたオブジェクトは、選択されたナノフローを呼び出した結果によって決定される。 nanoflowはコンテキスト内のオブジェクトをパラメータとして受け取ることができ、オブジェクトのリストを返す必要があります。 Nanoflowデータソースは、データビューとリストビューでのみ使用できます。
+*   [Association](association-source) – コンテキスト内のオブジェクトからの関連を追うことで、オブジェクトがメモリから取得されます。 したがって、このデータ ソースは、ウィジェットが別のデータ コンテナ内にネストされている場合にのみ使用できます。
+
+ データソースは、ウィジェットのどの機能が有効になっているかも決定します。 例えば、データベースまたは XPath データソースを持つウィジェットのみが [検索バー](search-bar) を含めることができます。
+
+{{% alert type="info" %}}
+
+オフラインでサポートされているのは、データベースとナノフローのデータソースだけです。 リストウィジェットにオフラインアプリケーション内にデータベースデータソースがある場合。 データはデバイス上にあるデータベースから得られます このデータベースは、新しいオブジェクトを作成するための [ボタン](button-properties) ウィジェットと同期できます。
+
+{{% /alert %}}
+
+## 4 続きを読む
+
+* [データウィジェット](data-widgets)
