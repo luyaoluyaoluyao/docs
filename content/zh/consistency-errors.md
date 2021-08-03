@@ -1,51 +1,51 @@
 ---
-title: "Consistency Errors"
+title: "一致性错误"
 parent: "errors-pane"
 menu_order: 10
-description: "Describes consistency errors in Mendix Studio Pro and the way to fix them."
+description: "描述Mendix Studio Pro 中的一致性错误以及解决这些错误的方法。"
 tags:
   - "Studio Pro"
-  - "consistency errors"
-  - "checks"
-  - "errors"
+  - "一致性错误"
+  - "检查"
+  - "错误"
 ---
 
-## 1 Introduction
+## 1 导言
 
-To make sure that your app is always consistent and properly built, Studio Pro does consistency checks when you build your app.
+为了确保您的应用始终一致且构建得当，Studio Pro 在构建您的应用时会检查是否一致。
 
-When a consistency check is not met, Studio Pro will notify you about this via consistency errors on the [Errors pane](errors-pane). The errors in pages, microflows, domain models, and document templates will be highlighted:
+当不符合一致性检查时，Studio Pro 将通过 [错误窗格](errors-pane) 的一致性错误通知您。 将突出强调页面、微流、域模型和文件模板中的错误：
 
 ![Errors Pane](attachments/errors-pane/errors-pane.png)
 
-If you cannot see the **Errors** pane, you can enable it from the menu option **View > Error list**.
+如果您看不到 **错误** 面板，您可以从菜单选项 **查看 > 错误列表** 启用它。
 
-To enable you to find your errors quickly, each error will show you:
+为了让您能够快速找到您的错误，每个错误都会显示您：
 
-* A unique **Error Code** for the error
-* A **Message** describing the error
-* The name of the page **Element** causing the error
-* The **Document** where this element is
-* The **Module** where the document is
+* 错误唯一的 **错误代码**
+* 描述错误的 **消息**
+* 页面 **元素** 的名称导致错误
+* 此元素所在的 **文档**
+* 文档所在的 **模块**
 
-Double-clicking on the error will take you directly to the element causing the error.
+双击错误将直接将您带到导致错误的元素。
 
-Errors need to be solved before your app can be deployed. A consistency error can occur in the following editors or functionalities of Studio Pro:
+需要解决错误才能部署您的应用程序。 Studio Pro的以下编辑器或功能可能出现一致性错误：
 
-* [Pages](consistency-errors-pages)
+* [页 次](consistency-errors-pages)
 * [Navigation](consistency-errors-navigation)
-* [Microflows](microflows)
-* [Workflows](workflows)
-* [Domain Model](domain-model)
-* [Integration](integration)
-* [Security](security)
+* [微型流动](微流)
+* [工作流](workflows)
+* [域模型](域名模型)
+* [集成](integration)
+* [安全](安全)
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Page Editor Consistency Errors](consistency-errors-pages)
-* [Navigation Consistency Errors](consistency-errors-navigation)
+* [页面编辑器一致性错误](consistency-errors-pages)
+* [导航一致性错误](consistency-errors-navigation)
 * [Errors Pane](errors-pane)
-* [Pages](pages)
-* [Microflows](microflows)
-* [Workflows](workflows)
-* [Navigation in Mendix](navigation)
+* [页 次](页面)
+* [微型流动](微流)
+* [工作流](workflows)
+* [Mendix 导航](navigation)
