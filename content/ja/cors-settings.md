@@ -9,8 +9,13 @@ tags:
   - "origin"
   - "ドメイン"
   - "アクセス"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+CORS 設定機能は Mendix バージョン 7.18.0 で導入されました。
+
+{{% /alert %}}
 
 ## 1つの紹介
 
