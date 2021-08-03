@@ -1,7 +1,7 @@
 ---
 title: "Studio Pro Overview"
-category: "App Modeling"
-description: "Describes Studio Pro in general: tabs, menus, shortcut keys."
+category: "アプリモデリング"
+description: "Studio Pro の一般的な説明:タブ、メニュー、ショートカット キー。"
 menu_order: 10
 tags:
   - "Studio Pro"
@@ -9,169 +9,169 @@ aliases:
   - /refguide/desktop-modeler-overview.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix Studio Pro is a tool for creating, viewing, and editing your Mendix applications.
+Mendix Studio Proは、Mendixアプリケーションの作成、表示、および編集のためのツールです。
 
-One Studio Pro instance can have only one app open at a time, but you can open two Studio Pro instances when necessary.
+1 つの Studio Pro インスタンスは、1 つのアプリケーションを同時に開くことができますが、必要に応じて 2 つの Studio Pro インスタンスを開くことができます。
 
 {{% alert type="info" %}}
-When Studio Pro is open, press <kbd>F1</kbd> to quickly jump to documentation.
+Studio Pro が開いている場合、 <kbd>F1</kbd> を押すとすぐにドキュメントにジャンプします。
 {{% /alert %}}
 
-This document describes the user interface of Mendix Studio Pro:
+このドキュメントでは、Mendix Studio Pro のユーザー インターフェイスについて説明します。
 
-<img src="attachments/studio-pro-overview/studio-pro-diagram.png" alt="Studio Pro Diagram" />
+<img src="attachments/studio-pro-overview/studio-pro-diagram.png" alt="Studio Pro の図" />
 
-## 2 Top Bar
+## 2つのトップバー
 
-The Studio Pro top bar contains the following items:
+Studio Pro のトップバーには、次の項目が含まれています。
 
-* [Switch-to menu](#switch-to)
+* [メニューの切り替え](#switch-to)
 * [Menus](#menus)
-* [Buttons to run and view your app](#run-and-view)
-* [Links to the Developer Portal and Marketplace](#links)
+* [アプリを実行して表示するボタン](#run-and-view)
+* [開発者ポータルおよびマーケットプレイスへのリンク](#links)
 
-### 2.1 Switch-to Menu {#switch-to}
+### 2.1 切り替えメニュー {#switch-to}
 
-The **Switch-to** menu is located at the top-left of Studio Pro and contains links to various parts of the platform. For more information on the **Switch-to** menu, see the [Navigation]() section in the *Developer Portal Guide*.
+**Switch-to** メニューはStudio Proの左上にあり、プラットフォームのさまざまな部分へのリンクが含まれています。 **Switch-to** メニューの詳細については、 [Developer Portal Guide]() の *Navigation* セクションを参照してください。
 
 ### 2.2 Menus {#menus}
 
 In the Studio Pro top bar, you can see several menus, such as [Edit](edit-menu), [View](view-menu), and [Version Control](version-control-menu). Each menu contains menu items that allow you to perform various actions, for example, to [create a deployment package](create-deployment-package-dialog), set [preferences](preferences-dialog), or view the [Errors](errors-pane) pane.
 
-For more information on menus, see [Menus](menus).
+メニューの詳細については、 [メニュー](menus) を参照してください。
 
-### 2.2 Run & View App {#run-and-view}
+### 2.2 実行 & アプリを表示 {#run-and-view}
 
-You can deploy your app by clicking the **Publish** or play (**Run locally**) buttons. To view your deployed app, click **View App**.
+**公開** ボタンをクリックするか、 (**ローカルで実行**) ボタンをクリックしてアプリをデプロイできます。 デプロイしたアプリを表示するには、 **View App** をクリックします。
 
-For more information on deployment in Mendix, see [Deployment](/developerportal/deploy).
+Mendix でのデプロイの詳細については、 [Deployment](/developerportal/deploy) を参照してください。
 
-For more information on deploying your app and versioning it, see  the [Versioning an App Deployed to the Cloud](using-version-control-in-studio-pro#versioning-project) section in *Using Version Control in Studio Pro*.
+アプリのデプロイとバージョン管理の詳細についてはこちら [クラウドにデプロイした App](using-version-control-in-studio-pro#versioning-project) の *Studio Pro でバージョンコントロールを使用する* セクションを参照してください。
 
-### 2.3 Links and User Profile Menu {#links}
+### 2.3 リンクとユーザープロファイルメニュー {#links}
 
 You can find links to the [Mendix Studio](/studio) (if enabled), [Developer Portal](/developerportal), and [Marketplace](/appstore) in the top-right corner of Studio Pro.
 
-Your profile picture is displayed next to them if you are signed in. When you click the profile picture, the drop-down menu is displayed with your full name and email, as well as links to your user profile, My Apps screen, and signing out option.
+サインインしている場合、プロフィール画像がその横に表示されます。 プロフィール画像をクリックすると、ドロップダウンメニューがあなたのフルネームと電子メールで表示されます。 また、ユーザープロファイル、My Apps画面へのリンク、サインアウトオプションもあります。
 
-## 3 App Structure
+## 3 アプリの構造
 
-An app consists of individual files (*documents*) and settings that are grouped in folders and [modules](modules). The complete structure of your app can be viewed in the [App Explorer](project-explorer).
+アプリは個々のファイル (*ドキュメント*) とフォルダーと [モジュール](modules) にグループ化されている設定で構成されています。 アプリの完全な構造は、 [App Explorer](project-explorer) で確認できます。
 
-## 4 Working Area
+## 4 ワーキングエリア
 
-A working area is a current document tab that you work in. The working area and its settings differs depending on an editor (for example, pages, microflows, domain model editors) and type of the document.
+作業領域は、作業中の現在のドキュメントタブです。 作業領域とその設定は、エディタ(ページ、マイクロフロー、ドメインモデルエディタなど)やドキュメントの種類によって異なります。
 
-### 4.1 Document Tabs {#documents}
+### 4.1 ドキュメントタブ {#documents}
 
-The documents you view and edit are shown in tabs.
+表示および編集したドキュメントがタブに表示されます。
 
 {{% alert type="info" %}}
 
-This section describes documents in the working area, not panes that you can open and position around the working area. For more information on behavior of panes, see the [Layout of Panes](view-menu#layout-of-panes) section in *View Menu*.
+このセクションでは、作業領域の周囲を開いたり配置したりできるペインではなく、作業領域内のドキュメントについて説明します。 ペインの動作の詳細については、 [メニュー](view-menu#layout-of-panes) の *ペインのレイアウト* セクションを参照してください。
 
 {{% /alert %}}
 
-You can have a number of tabs open, just like in a modern web browser. They can be closed, reordered, and shown side by side.
+最新のWebブラウザのように、開いているタブの数を増やすことができます。 彼らは閉じることができます, 並べ替え, 並んで表示されます.
 
-Each document has its own save state, history, and future, so undo and redo actions are unlimited.
+各ドキュメントはそれぞれ独自の保存状態、履歴、将来を持つため、undo と redo アクションは無制限です。
 
 ## 5 Dockable Panes
 
-Dockable panes can be positioned around the working area and contain various elements and settings. For example, you can view list of errors, configure properties of a specific document or an element, view toolbox. Panes are opened via [Menus](menus).
+ドッキング可能なペインは作業領域の周囲に配置でき、さまざまな要素と設定が含まれます。 例えば、エラーのリストを表示したり、特定のドキュメントのプロパティを設定したり、要素を表示したり、ツールボックスを表示したりできます。 ペインは [メニュー](menus) で開きます。
 
-## 6 Status Bar
+## 6ステータスバー
 
-At the bottom of the Studio Pro main window pane is a status bar.
+Studio Pro のメインウィンドウペインの下部にはステータスバーが表示されます。
 
-On the left is the current status of Studio Pro.
+左は、Studio Pro の現在の状態です。
 
-On the right is the currently selected language. If you have set up multiple languages in your app you can change the currently selected language by clicking here. For more information see [Language Menu](translatable-texts).
+右側には現在選択されている言語があります。 アプリで複数の言語を設定している場合は、ここをクリックして現在選択されている言語を変更できます。 詳細については、 [言語メニュー](translatable-texts) を参照してください。
 
-## 7 Shortcut Keys
+## 7つのショートカットキー
 
-### 7.1 General Shortcut Keys
+### 7.1 一般的なショートカットキー
 
-In the main window pane, <kbd>Ctrl</kbd> + <kbd>Tab</kbd> can be used to navigate between all open documents. Other shortcut keys that can be used in the main window pane can be found next to their relevant menu item in  [Menus](menus).
+メインウィンドウペインでは、 <kbd>Ctrl</kbd> + <kbd>Tab</kbd> を使用して、開いているすべてのドキュメント間を移動できます。 メインウィンドウペインで使用できるその他のショートカットキーは、  [メニュー](menus) の関連するメニュー項目の横にあります。
 
-In most dialog boxes for editing properties, the following shortcut keys can be used:
+ほとんどの編集プロパティでは、次のショートカットキーを使用できます。
 
-| Key                                   | Description                                                                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>Ctrl</kbd> + <kbd>Enter</kbd>    | Confirms all changes and closes the dialog box. Works as if the **OK** button was clicked. This is especially useful if the focus is on a multi-line text box; otherwise, pressing <kbd>Enter</kbd> will have the same effect. |
-| <kbd>Esc</kbd>                        | Cancels all changes and closes the dialog box. Works as if the **Cancel** button was clicked.                                                                                                                                  |
-| <kbd>Ctrl</kbd> + Mouse scroll wheel  | Zooms in or out. This works in all editors.                                                                                                                                                                                    |
-| <kbd>Shift</kbd> + Mouse scroll wheel | Scrolls left or right. Works as if you were using the horizontal scroll bars.                                                                                                                                                  |
+| キー                                 | 説明                                                                                                                                   |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | すべての変更を確認し、ダイアログボックスを閉じます。 **OK** ボタンがクリックされたように動作します。 これは、フォーカスが複数行のテキストボックスにある場合に特に便利です。それ以外の場合は、 <kbd>Enter</kbd> を押すと同じ効果が得られます。 |
+| <kbd>Esc</kbd>                     | すべての変更をキャンセルし、ダイアログボックスを閉じます。 **キャンセル** ボタンがクリックされたように動作します。                                                                         |
+| <kbd>Ctrl</kbd> + マウススクロールホイール     | ズームイン/ズームアウトします。 これはすべてのエディタで動作します。                                                                                                  |
+| <kbd>Shift</kbd> + マウススクロールホイール    | 左右にスクロールします。 横スクロールバーを使っているかのような作品。                                                                                                  |
 
-In most edit grids (such as the list of attributes in the entity properties), the following shortcut keys can be used:
+ほとんどの編集グリッド (図形プロパティ内の属性のリストなど) では、次のショートカットキーを使用できます。
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>N</kbd> | Creates a new item.                     |
-| <kbd>Enter</kbd>               | Edits the currently selected item.      |
-| <kbd>Delete</kbd>              | Deletes the currently selected item(s). |
+| キー                             | 説明                   |
+| ------------------------------ | -------------------- |
+| <kbd>Ctrl</kbd> + <kbd>N</kbd> | 新しいアイテムを作成します。       |
+| <kbd>Enter</kbd>               | 現在選択されているアイテムを編集します。 |
+| <kbd>削除</kbd>                  | 現在選択されているアイテムを削除します。 |
 
-### 7.2 Domain Model Editor Shortcut Keys
+### 7.2 ドメインモデルエディタのショートカットキー
 
-The following shortcut keys are available in the domain model editor:
+ドメインモデルエディタでは、次のショートカットキーを使用できます。
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>F2</kbd>                  | Edits the name of the selected element. |
-| <kbd>Ctrl</kbd> + <kbd>A</kbd> | Selects all entities.                   |
-| <kbd>Esc</kbd>                 | Clears selection.                       |
+| キー                             | 説明               |
+| ------------------------------ | ---------------- |
+| <kbd>F2</kbd>                  | 選択した要素の名前を編集します。 |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> | すべての図形を選択します。    |
+| <kbd>Esc</kbd>                 | 選択をクリアします。       |
 
-### 7.3 Page Editor Shortcut Keys
+### 7.3 ページエディタのショートカットキー
 
-The following shortcut keys are available in the page editor:
+ページエディタでは、次のショートカットキーを使用できます。
 
-| Key                          | Description                                                                                                                                                                                                            |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                   | Moves the selection box to the widget or element in the direction of the arrow key. For example, if currently a label is selected and you press the right arrow key, the text box to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys | Moves the currently selected item up/down or left/right. This works on table columns and rows, tab pages, grid and data view buttons, search fields, etc.                                                              |
-| <kbd>Enter</kbd>             | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                 |
-| <kbd>F2</kbd>                | Edits the caption of a label or button inline on the page. You can also just start typing a letter or a digit and the caption will be replaced by what you type.                                                       |
+| キー                     | 説明                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| 矢印キー                   | 選択ボックスを矢印キーの方向のウィジェットまたは要素に移動します。 たとえば、現在ラベルが選択されていて、右矢印キーを押すと、その右側のテキストボックスが選択されます。 |
+| <kbd>Ctrl</kbd> + 矢印キー | 現在選択されている項目を上下または左右に移動します。 これは、テーブルの列と行、タブページ、グリッドとデータビューのボタン、検索フィールドなどで動作します。       |
+| <kbd>Enter</kbd>       | ダイアログボックスで現在選択されているオブジェクトのプロパティを編集します。                                               |
+| <kbd>F2</kbd>          | ページのラベルまたはボタンのキャプションをインラインで編集します。 文字や数字を入力するだけで、キャプションは入力した文字に置き換えられます。              |
 
-### 7.4 Microflow Editor Shortcut Keys
+### 7.4 マイクロフローエディタのショートカットキー
 
-The following shortcut keys are available in the microflow editor:
+マイクロフローエディタでは、次のショートカットキーを使用できます。
 
-| Key                                                | Description                                                                                                                                                                                                                            |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                                         | Moves the selection box to the activity or element in the direction of the arrow key. For example, if currently a show page activity is selected and you press the right arrow key, the end event to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys                       | Moves the currently selected item up/down or left/right.                                                                                                                                                                               |
-| <kbd>Enter</kbd>                                   | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                                 |
-| <kbd>F2</kbd>                                      | Edits the name of the return value of the currently selected activity. This shortcut will not function on activities that do not return a result.                                                                                      |
-| <kbd>Home</kbd>                                    | Highlights and focus on the start event of the current microflow.                                                                                                                                                                      |
-| <kbd>End</kbd>                                     | Highlights and focus on an end event in the current microflow. If there are multiple end events, clicking **End** multiple times will toggle between the different events.                                                             |
-| <kbd>Shift</kbd> when resizing an activity         | When resizing the entity, by holding <kbd>Shift</kbd> , the microflow component will stay centered at its current position and will expand equally in all directions.                                                                  |
-| <kbd>Ctrl</kbd> when selecting multiple activities | When pressing the <kbd>Ctrl</kbd>, you can select additional microflow components. Clicking a selected component while holding <kbd>Ctrl</kbd> will deselect it.                                                                       |
+| キー                                | 説明                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 矢印キー                              | 選択ボックスを、矢印キーの方向のアクティビティまたは要素に移動します。 たとえば、現在表示ページのアクティビティが選択されている場合、右矢印キーを押します。 右側の終了イベントが選択されます  |
+| <kbd>Ctrl</kbd> + 矢印キー            | 現在選択されている項目を上下または左右に移動します。                                                                       |
+| <kbd>Enter</kbd>                  | ダイアログボックスで現在選択されているオブジェクトのプロパティを編集します。                                                           |
+| <kbd>F2</kbd>                     | 現在選択されているアクティビティの戻り値の名前を編集します。 このショートカットは、結果を返さないアクティビティでは機能しません。                                |
+| <kbd>ホーム</kbd>                    | 現在のマイクロフローの開始イベントをハイライトし、焦点を合わせます。                                                               |
+| <kbd>終了</kbd>                     | 現在のマイクロフローのエンドイベントに焦点を当てます。 複数の終了イベントがある場合は、 **End** を複数回クリックすると、異なるイベント間で切り替えられます。              |
+| <kbd>アクティビティのサイズ変更時のシフト</kbd>     | <kbd>Shift</kbd> を押しながらエンティティのサイズを変更すると、 マイクロフロー成分は現在の位置の中心に留まり、すべての方向に等しく拡大します。                 |
+| <kbd>複数のアクティビティを選択するときにCtrl</kbd> | <kbd>Ctrl</kbd>を押すと、追加のマイクロフローコンポーネントを選択できます。 <kbd>Ctrl</kbd> を押しながら選択したコンポーネントをクリックすると選択解除されます。 |
 
-### 7.5 Microflow Debugger Shortcut Keys {#debugger-shortcuts}
+### 7.5 マイクロフローデバッガのショートカットキー {#debugger-shortcuts}
 
-The following shortcut keys are available for the microflow debugger:
+以下のショートカット キーは、microflow デバッガで使用できます。
 
-| Key                            | Description                                                                          |
-| ------------------------------ | ------------------------------------------------------------------------------------ |
-| <kbd>Alt</kbd> + <kbd>F5</kbd> | *Step into* – moves the debugger into the sub-microflow or loop.                     |
-| <kbd>Alt</kbd> + <kbd>F6</kbd> | *Step over* – moves the debugger to the next step in the same microflow.             |
-| <kbd>Alt</kbd> + <kbd>F7</kbd> | *Step out* – instructs the debugger to leave the sub-microflow or loop.              |
-| <kbd>Alt</kbd> + <kbd>F8</kbd> | *Continue* – instructs the debugger to continue until it reaches another breakpoint. |
+| キー                             | 説明                                          |
+| ------------------------------ | ------------------------------------------- |
+| <kbd>Alt</kbd> + <kbd>F5</kbd> | *ステップ* - デバッガをサブマイクロフローまたはループに移動します。        |
+| <kbd>Alt</kbd> + <kbd>F6</kbd> | *ステップオーバー* – デバッガを同じマイクロフローの次のステップに移動します。   |
+| <kbd>Alt</kbd> + <kbd>F7</kbd> | *ステップアウト* - デバッガにサブマイクロフローまたはループを残すよう指示します。 |
+| <kbd>Alt</kbd> + <kbd>F8</kbd> | ** – デバッガーに別のブレークポイントに到達するまで続行するよう指示します。    |
 
-### 7.6 Language Shortcut Keys
+### 7.6 言語のショートカットキー
 
-The following shortcut keys control the currently selected language:
+現在選択されている言語を制御するショートカットキーは次のとおりです。
 
-| Key                                               | Description                                                                             |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>L</kbd>                    | Choose the next language in the list of languages chosen in **Language Settings…**.     |
-| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> | Choose the previous language in the list of languages chosen in **Language Settings…**. |
+| キー                                                | 説明                                      |
+| ------------------------------------------------- | --------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>L</kbd>                    | **言語設定…** で選択された言語のリストから次の言語を選択してください。  |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> | **言語設定…** で選択された言語のリストから以前の言語を選択してください。 |
 
-## 8 Read More
+## 8 続きを読む
 
-* [App Explorer](project-explorer)
+* [アプリエクスプローラー](project-explorer)
 * [Menus](menus)
 
   
