@@ -1,11 +1,11 @@
 ---
-title: "OQL Parameters"
-parent: "oql-expressions"
+title: "OQL パラメータ"
+parent: "oql-expression"
 tags:
   - "studio pro"
 ---
 
 
-Currently, parameters are only supported within OQL queries defined in [datasets](data-sets). To use a defined parameter in a query, use the `$` sign.
+現在、パラメータは [datasets](data-sets) で定義された OQL クエリ内でのみサポートされています。 クエリで定義されたパラメータを使用するには、 `$` 記号を使用します。
 
-Examples of correct parameter names are `$weight_range`, `$age`.
+正しいパラメータ名の例は `$weight_range`, `$age` です。
