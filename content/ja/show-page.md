@@ -1,90 +1,90 @@
 ---
-title: "Show Page"
+title: "ページを表示"
 parent: "client-activities"
 menu_order: 50
 tags:
   - "studio pro"
-  - "show page"
-  - "client activity"
+  - "ページを表示"
+  - "クライアントのアクティビティ"
 aliases:
   - /refguide/Show+Page.html
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline native or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+このアクションは無視され、オフラインのネイティブまたはハイブリッド・アプリケーションからマイクロフローが呼び出された場合は動作しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-With this activity, you can show a selected page to an end-user. Mendix apps run as a single page application, so the page will always be shown in the same browser tab/window as the app.
+このアクティビティでは、選択したページをエンドユーザーに表示できます。 Mendix アプリは単一のページアプリケーションとして実行されるため、ページは常にアプリと同じブラウザタブ/ウィンドウに表示されます。
 
-You can directly drag a page from the **App Explorer** into your microflow:
+**App Explorer** から直接ページをマイクロフローにドラッグできます。
 
 ![](attachments/client-activities/show-page-from-project-explorer.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
 ![](attachments/client-activities/show-page-properties.png)
 
-The **Show page** properties pane consists of the following sections:
+**ページの表示** プロパティ ペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Object to Pass {#object-to-pass}
+### 3.1 渡すオブジェクト {#object-to-pass}
 
-An object that will be passed to the page that is opened. This object will be used by [data views](data-view) with a page parameter data source.
+開かれたページに渡されるオブジェクト。 このオブジェクトは、 [データ ビュー](data-view) がページパラメータのデータ ソースとともに使用します。
 
-### 3.2 Page
+### 3.2 ページ
 
-The [page](page) that is displayed to an end-user. If the [Object to pass](#object-to-pass) property is specified, the page must contain a data view connected to the same entity as the passed object (or its generalization).
+エンドユーザーに表示される [ページ](page)。 [プロパティを渡す](#object-to-pass) オブジェクトが指定されている場合。 ページには、渡されたオブジェクト(またはその一般化)と同じエンティティに接続されたデータビューが含まれている必要があります。
 
-To create a new page that **Show page** activity will show, click the **Select** button > **New**. If you have selected an **Object to pass**, Studio Pro will automatically create a data view to edit that object.
+**Show page** activity を表示する新しいページを作成するには、 **Select** button > **New** をクリックします。 **オブジェクトを**に渡す場合、Studio Proは自動的にそのオブジェクトを編集するためのデータビューを作成します。
 
-### 3.3 Page Title
+### 3.3 ページタイトル
 
-By default the title of the page is determined by the page title property of the page. You can replace this title with a custom title if necessary.
+デフォルトでは、ページのタイトルはページのページタイトルプロパティによって決定されます。 必要に応じて、このタイトルをカスタムタイトルに置き換えることができます。
 
-This feature allows you to re-use the same page for the **New** and **Edit** buttons of a [data grid](data-grid). By simply setting the titles to, for example, *New Customer* and *Edit Customer*, you can save yourself the trouble of duplicating pages.
+この機能では、 **New** と **Edit** buttons of a [data grid](data-grid) で同じページを再利用できます。 例えば、 *新規顧客* や *顧客編集*にタイトルを設定するだけで、 ページを複製する手間を省くことができます
 
-### 3.4 Close Pages {#close-pages}
+### 3.4 ページを閉じる {#close-pages}
 
 {{% alert type="info" %}}
-This option is only available for native mobile and was introduced with Mendix Studio Pro v8.14.
+このオプションはネイティブモバイルでのみ利用可能で、Mendix Studio Pro v8.14 で導入されました。
 {{% /alert %}}
 
-Often you need to have control of page history, for example to show the correct page when a user presses the hardware back button on Android. These types of actions generally will only close a single page in the current stack. **Close Pages** provides more control over this behavior. We define relevant terms as follows:
+多くの場合、ページ履歴の制御が必要です。 例えば、ユーザーが Android のハードウェアの戻るボタンを押した時に、正しいページを表示します。 これらの種類のアクションは、通常、現在のスタック内の 1 つのページのみを閉じます。 **ページを閉じる** は、この動作をより詳細に制御します。 関連する用語は以下のように定義します。
 
-* **source page**: The page you are navigating _from_
-* **target page**: The page you are navigating _to_
+* **ソースページ**: _を_ からナビゲートしているページ
+* **ターゲットページ**: _を_ に移動しているページ
 
-| Value         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None          | Do not remove any pages from history. This is the default behavior.                                                                                                                                                                                                                                                                                                                                                                                               |
-| Single        | After navigating to the **target page**, remove the **source page** from history.                                                                                                                                                                                                                                                                                                                                                                                 |
-| Multiple      | After navigating to the **target page**, remove the **source page** and one or more pages before it from history. Configure the total number of pages removed using an expression.                                                                                                                                                                                                                                                                                |
-| All           | After navigating to the **target page**, remove the **source page** and all pages before it from history. This option is similar to the **Single** and **Multiple** options, except only pages in the current stack will be closed.                                                                                                                                                                                                                               |
-| Clear history | Prevent the user from navigating back altogether. This is especially useful when navigating away from a login or tutorial flow.<br />{{% alert type="warning" %}}In the page editor and in nanoflows as well as in native apps, this option can only be used in combination with target pages that are included in the bottom bar configuration (if the layout has a bottom bar) and that have a default layout type (meaning, not a pop-up).{{% /alert %}} |
+| 値        | 説明                                                                                                                                                                                                                                                      |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| なし       | 履歴からページを削除しないでください。 これはデフォルトの動作です。                                                                                                                                                                                                                      |
+| Single   | **ターゲット ページ**に移動した後、履歴から **ソース ページ** を削除します。                                                                                                                                                                                                            |
+| Multiple | **ターゲット ページ**に移動した後、履歴から **ソース ページ** と 1 つ以上のページを削除します。 式を使用して削除されたページの合計数を構成します。                                                                                                                                                                       |
+| すべて      | **ターゲット ページ**に移動した後、履歴から **ソース ページ** とその前にあるすべてのページを削除します。 このオプションは **Single** および **Multiple** オプションに似ていますが、現在のスタック内のページのみが閉じられます。                                                                                                                     |
+| 履歴を消去    | ユーザーが完全に戻るのを防ぎます。 これは、ログインまたはチュートリアルフローから離れて移動する場合に特に便利です。<br />{{% alert type="warning" %}}ページエディタとナノフロー、およびネイティブアプリの中で。 このオプションは、下部のバー構成に含まれるターゲット ページとの組み合わせでのみ使用できます (レイアウトに下部のバーがある場合)、既定のレイアウト タイプがあります (意味)。 ポップアップではありません)。 {% /alert %}} |
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [Activities](activities)
-* [Native Navigation](native-navigation)
+* [アクティビティ](アクティビティ)
+* [ネイティブナビゲーション](native-navigation)
