@@ -1,69 +1,104 @@
 ---
-title: "Log Message"
-parent: "logging-activities"
+title: "日志消息"
+parent: "活动"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "日志活动"
+  - "伐木活动"
+  - "日志消息"
 ---
 
+{{% alert type="warning" %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
+
+## 1 导言
+
+使用 **记录消息** 活动，您可以创建出现在Mendix 应用程序日志中的消息：
+
+![日志消息](attachments/log-message/log-message.png)
+
+## 2 属性
+
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
+
+![日志消息属性](attachments/log-message/log-message-properties.png)
+
+**日志消息** 属性窗格由以下部分组成：
+
+* [行 动](#action)
+* [常用的](#common)
+
+## 3 行动科 {#action}
+
+属性窗格的 **动作** 部分显示与此活动相关的动作。
+
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
+
+You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+
+### 3.3 日志级别
+
+日志级别定义日志消息的严重性。 在 [Studio Pro 控制台](view-menu#console)中，消息有不同的颜色和图标用于某些日志级别。
+
+| 选项         | 图标                                                                                                                        | 描述                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| 轨迹         |                                                                                                                           | 用于详细的执行跟踪。               |
+| Debug      |                                                                                                                           | 用于调试执行。                  |
+| 信息  *(默认)* |                                                                                                                           | 用于记录信息信息。                |
+| 警告         | {{% image_container width="15%" %}}![Warning](attachments/log-message/warning.png){{{% /image_container %}}               | 用于记录警告。 这些消息出现在橙色中。      |
+| 错误         | {{% image_container width="15%" %}}![Error](attachments/log-message/error.png){{{% /image_container %}}                   | 用于记录错误消息。 这些消息出现在红色中。    |
+| 关键的        | {{% image_container width="15%" %}}![Critical Error](attachments/log-message/critical-error.png){{{% /image_container %}} | 用于记录关键错误。 这些消息以白色显示在红色上。 |
+
+### 3.2 日志节点名称 {#log-node-name}
+
+{{% alert type="warning" %}}
+此属性仅在微流中可用。
+{{% /报警 %}}
+
+日志节点名称是一个微流程表达式，定义日志消息的来源。 例如，如果您从电子邮件模块记录消息，日志节点名称可以是 *电子邮件模块*。 使用您自己的日志节点名称来避免与 Mendix 运行时写入Mendix 日志节点的消息混淆。 Mendix 日志节点列在 *Logging</a> 部分的
+
+默认Mendix 日志节点</em> 中。</p> 
+
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
-{{% /alert %}}
 
-## 1 Introduction
+建议对日志节点名称使用一个 [常量](constants)。 这样可以防止在输入节点名称时出现错误，并且更容易在其后更改日志节点名称。
 
-With the log-message action you can create messages that appear in the log of your Mendix application.
+如果您的应用已经向该日志节点发布消息，您只能为环境设置自定义 [日志节点级别](/developerportal/deploy/environments-details#log-levels)。 因此建议您在启动微流程后在 [中向您的所有自定义日志节点发送初始消息。](project-settings#after-startup)。 
+
+{{% /报警 %}}
+
+
+
+### 3.3 模板
+
+**模板** 定义了消息文本。 模板可以包含一些参数作为数字写在括号之间，例如 `{1}`。 第一个参数有数字 `1`, 第二 `2`, 等等。
+
+
+
+### 3.4 参数
+
+对于模板中的每个参数，您定义了一个值将插入参数位置的微流程表达式。 参数需要使用 [表达式](expressions) 输入导致字符串。
 
 {{% alert type="info" %}}
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+使用参数，您可以根据特定情况自定义您的消息。 例如，消息 *已经发送电子邮件给客户 {1}*。 带参数 `$customer/FullName` 将显示已发送电子邮件的客户的全名。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Action Properties
 
-### 2.1 Log Level
 
-The log level defines the severity of the log message. In the modeler console dock, messages have a different color and an icon for some log levels.
+### 3.5 包括最新堆栈跟踪
 
-| Option   | Icon                               | Description                                                            |
-| -------- | ---------------------------------- | ---------------------------------------------------------------------- |
-| Trace    |                                    | Used for detailed execution traces.                                    |
-| Debug    |                                    | Used to debug execution.                                               |
-| Info     |                                    | Used to log informative messages.                                      |
-| Warning  | ![](attachments/819203/917893.png) | Used to log warnings. These messages appear in orange.                 |
-| Error    | ![](attachments/819203/917894.png) | Used to log error messages. These messages appear in red.              |
-| Critical | ![](attachments/819203/917895.png) | Used to log critical errors. These messages appear in  white on red  . |
+定义是否在此日志消息中包含最新错误的堆栈跟踪。 在 Studio Pro，包含堆栈跟踪的日志信息被标记为纸面素图标。
 
-_Default value:_ Info
+双击这些日志信息会显示堆栈跟踪。
 
-### 2.2 Log Node Name
+此选项也适用于 `$latestSoapFault` 如果您定义了一个 web 服务通话的错误处理程序，并且它会遇到肥皂故障， 选中此框将添加堆栈跟踪到Studio Pro中的日志行。
 
-The log node name is a microflow expression that defines the source of the log message. For example, if you log messages from an email module, the log node name could be 'Email module'.
 
-{{% alert type="success" %}}
 
-It is advised to use a [constant](constants) for the log node name. This prevents typing errors and makes it easier to change the log node name afterwards.
+## 4 共同部分 {#common}
 
-{{% /alert %}}
-
-### 2.3 Template
-
-Template defines the text of the message. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2 etcetera.
-
-### 2.4 Parameters
-
-For each parameter in the template you define a microflow expression of which the value will be inserted at the position of the parameter. Parameters need to be entered using [expressions](expressions) resulting in a string.
-
-{{% alert type="success" %}}
-
-With parameters you can customize your message with data specific to the situation. For example, the message "An e-mail has been sent to customer {1}." with parameter `$customer/FullName` will show the full name of the customer to whom an e-mail has been sent.
-
-{{% /alert %}}
-
-### 2.5 Include Latest Stack Trace
-
-Defines whether to include the stack trace of the latest error in this log message. In the modeler, log messages that include a stack trace are marked with a paperclip icon:
-
-![](attachments/819203/917892.png)
-
-Double-clicking these log messages shows the stack trace.
-
-This option also applies to `$latestSoapFault`. If you define an error handler for a web service call, and it catches a soap fault error, checking this box will add the stacktrace to the logline in the modeler.
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
