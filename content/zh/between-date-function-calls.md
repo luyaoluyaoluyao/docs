@@ -1,293 +1,293 @@
 ---
-title: "Between Date Function Calls"
-parent: "expressions"
+title: "日期间函数调用间隔"
+parent: "表达式"
 menu_order: 100
 tags:
   - "studio pro"
-  - "between date function calls"
-  - "expression"
-  - "expressions"
+  - "在日期函数调用之间"
+  - "表达式"
+  - "表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Between date function calls calculate the differences between two dates.
+在日期间函数调用计算两个日期之间的差额。
 
-## 2 millisecondsBetween
+## 2 毫秒之间
 
-The `millisecondsBetween` function calculates the difference between the input values in milliseconds.
+`毫秒之间` 函数计算输入值之间以毫秒为单位的差值。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                         | Type    |
-| ------------------------------------------------------------- | ------- |
-| The difference between the two dates measured in milliseconds | Decimal |
+| 值                  | 类型 |
+| ------------------ | -- |
+| 以毫秒为单位测量的两个日期之间的差异 | 小数 |
 
-### 2.3 Example
+### 2.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-millisecondsBetween(dateTime(2007, 1, 1, 1, 1, 1), dateTime(2007,1,1,1,1,3))
+millisecondsBetween(dateTime(2007, 1, 1, 1, 1, 1, 1, 1), dateTime(2007, 1,1,1,3))
 ```
 
-The output is:
+输出为：
 
 ```java
 2000
 ```
 
-## 3 secondsBetween
+## 3秒之间
 
-The `secondsBetween` function calculates the difference between the input values in seconds.
+`秒间` 函数以秒为单位计算输入值之间的差值。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 3.2 Output
+### 3.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                     | Type    |
-| --------------------------------------------------------- | ------- |
-| The difference between the two dates measured in seconds. | Decimal |
+| 值              | 类型 |
+| -------------- | -- |
+| 这两个日期之间的差异以秒计。 | 小数 |
 
-### 3.3 Example
+### 3.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-secondsBetween(dateTime(2007, 1, 1, 1, 1, 1), dateTime(2007,1,1,1,2,3))
+第二次贝特韦恩(日期时间(2007, 1, 1, 1, 1, 1, 1, 1), 日期时间(2007, 1,1,2,3))
 ```
 
-The output is:
+输出为：
 
 ```java
 62
 ```
 
-## 4 minutesBetween
+## 4分钟之间
 
-The `minutesBetween` function calculates the difference between the input values in minutes.
+`分钟之间的` 函数计算每分钟输入值之间的差额。
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 4.2 Output
+### 4.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                     | Type    |
-| --------------------------------------------------------- | ------- |
-| The difference between the two dates measured in minutes. | Decimal |
+| 值                | 类型 |
+| ---------------- | -- |
+| 这两个日期之间的差异以分钟计量。 | 小数 |
 
-### 4.3 Example
+### 4.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-minutesBetween(dateTime(2007, 1, 1, 1, 2, 1), dateTime(2007,1,1,1,1,1))
+Between(dateTime(2007, 1, 1, 1, 1, 2, 1), dateTime(2007, 1,1,1,1))
 ```
 
-The output is:
+输出为：
 
 ```java
 1
 ```
 
-## 5 hoursBetween
+## 5 小时之间
 
-The `hoursBetween` function calculates the difference between the input values in hours.
+`小时。` 函数以小时计算输入值之间的差异。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                   | Type    |
-| ------------------------------------------------------- | ------- |
-| The difference between the two dates measured in hours. | Decimal |
+| 值                | 类型 |
+| ---------------- | -- |
+| 这两个日期之间的差异以小时计量。 | 小数 |
 
-### 5.3 Example
+### 5.3 实例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-hoursBetween(dateTime(2007, 1, 1, 3, 31, 1), dateTime(2007,1,1,1,1,1))
+小时(时间(2007年、1次、1次、3次、31次、1次、1次))
 ```
 
-The output is:
+输出为：
 
 ```java
 2.5
 ```
 
-## 6 daysBetween
+## 6 天之间
 
 The `daysBetween` function calculates the difference between the input values in days.
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 6.2 Output
+### 6.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                      | Type             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| The difference between the two dates as a positive Decimal measured in days. Time is taken into consideration, so comparing `date-x 0:00` with `date-x 06:00` will result in `0.25000000`. | Positive decimal |
+| 值                                                                                | 类型  |
+| -------------------------------------------------------------------------------- | --- |
+| 这两个日期之间的差异以日数计为正十进制。 时间被考虑进去，所以将 `日期-x 0:00` 和 `日期-x 06：00` 会导致 `0.250000` 进行比较。 | 正小数 |
 
-### 6.3 Example
+### 6.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-daysBetween(dateTime(2007, 2, 13, 1, 1, 1), dateTime(2007,1,1,1,1,1))
+Betweendays (dateTime(2007, 2, 13, 1, 1, 1), dateTime(2007, 1,1,1,1))
 ```
 
-The output is:
+输出为：
 
 ```java
 43
 ```
 
-## 7 weeksBetween
+## 7 周之间
 
-The `weeksBetween` function calculates the difference between the input values in weeks.
+`周间` 函数计算数周内输入值之间的差额。
 
-### 7.1 Input Parameters
+### 7.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 7.2 Output
+### 7.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                   | Type    |
-| ------------------------------------------------------- | ------- |
-| The difference between the two dates measured in weeks. | Decimal |
+| 值                | 类型 |
+| ---------------- | -- |
+| 这两个日期之间的差异以几周计量。 | 小数 |
 
-### 7.3 Example
+### 7.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-weeksBetween(dateTime(2007, 1, 9, 1, 1, 1), dateTime(2007,1,1,1,1,1))
+detween(dateTime(2007, 1, 9, 1, 1, 1), dateTime(2007, 1,1,1,1))
 ```
 
-The output results in 8 days divided by 7 days in a week:
+输出结果在 8 天后除以7 天，以一周为单位：
 
 ```java
 1.1428571428571428
 ```
 
-## 8 calendarMonthsBetween
+## 8 calendarMonthsBeter
 
-The `calendarMonthsBetween` function calculates the difference between the input values in months. Time will be ignored. The dates are assumed to be in the end-user's local time zone.
+`calendarMonthsBet` 函数计算月份输入值之间的差额。 时间将被忽略。 假定日期在最终用户的本地时区。
 
-### 8.1 Input Parameters
+### 8.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 8.2 Output
+### 8.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                    | Type         |
-| -------------------------------------------------------- | ------------ |
-| The difference between the two dates measured in months. | Integer/Long |
+| 值                 | 类型    |
+| ----------------- | ----- |
+| 这两个日期之间的差额以几个月计量。 | 整数/经度 |
 
-### 8.3 Example
+### 8.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-calendarMonthsBetween(dateTime(2007, 1, 1, 10, 1, 1), dateTime(2007, 8, 1, 1, 1, 1))
+日历MonthsBetween(dateTime(2007, 1, 1, 10, 1, 1), dateTime(2007, 8, 1, 1, 1)
 ```
 
-The output results in the amount of months between the two dates:
+输出结果为两个日期之间的月数：
 
 ```java
 7
 ```
 
-## 9 calendarYearsBetween
+## 9年日历
 
-The `calendarYearsBetween` function calculates the difference between the input values in years. Time will be ignored. The dates are assumed to be in the end-user's local time zone.
+`calendarYearsBet` 函数计算年份输入值之间的差异。 时间将被忽略。 假定日期在最终用户的本地时区。
 
-### 9.1 Input Parameters
+### 9.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个日期 | 日期和时间 |
+| 第二个日期 | 日期和时间 |
 
-### 9.2 Output
+### 9.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                   | Type         |
-| ------------------------------------------------------- | ------------ |
-| The difference between the two dates measured in years. | Integer/Long |
+| 值                | 类型    |
+| ---------------- | ----- |
+| 这两个日期之间的差异以年份计量。 | 整数/经度 |
 
-### 9.3 Example
+### 9.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-calendarYearsBetween(dateTime(2007, 1, 1, 10, 1, 1), dateTime(2017, 1, 1, 1, 1, 1))
+日历 Between(dateTime(2007, 1, 1, 10, 1, 1, 1), dateTime(2017, 1, 1, 1, 1, 1, 1)
 ```
 
-The output results in the amount of years between the two dates:
+输出结果为两个日期之间的年份：
 
 ```java
 10
