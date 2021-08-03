@@ -1,22 +1,24 @@
 ---
-title: "XPath Tokens"
+title: "XPath 令牌"
 parent: "xpath"
 tags:
   - "studio pro"
 ---
 
+
+以下令牌在 XPath 查询中使用：
+
+| 令牌    | 定 义                                                                                                                                                                                         |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `//`  | 一个 XPath 查询总是以tokens `//` 开始的。 这些斜线随后指定了正在查询的 [对象](entities)。 例如，如果您想要检索所有客户，查询会很相似： `//Customers`。                                                                                         |
+| `.`   | 点用于将 [模块](modules) name 和 [实体](entities) 名称分开。 例如，如果您想要检索销售模块中的所有客户 (对象)，您将以 `//销售。客户` 开始查询。                                                                                                |
+| `/`   | 每当您想要提及一个新的实体或关联时，都会使用斜线。 例如， `//Sales.Customer/Sales.Customer_order/Sales.Order`。 此查询遵循了从 [实体](entities) `客户` 到实体 `订单` 到 [关联](associations) `客户订单` 的路径。 只要域模式中有可能的社团存在，查询就可以通过斜线和实体或协会来扩展。 |
+| `[ ]` | 约束总是在方括号内写出。 例如： `//Sales.Customer[TotalAmount > 1000]` [属性](attributes) 受到限制。 `TotalAmount`，约束性为 `> 1000`。 因此，只有花费超过1 000欧元的客户才能收回。                                                  |
+| `( )` | 制约因素可以按括号分组。 欲了解更多信息，请参阅 [XPath 约束](xpath-constraints)。                                                                                                                                     |
+
+系统变量是代币，其值可以在 XPath 表达式中使用。 关于这些令牌的完整概述，请参阅 [XPath 关键字 & 系统变量](/refguide/xpath-keywords-and-system-variables)
+
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-tokens.pdf).
-{{% /alert %}}
+不可能在 token 之外在 XPath 中添加数学表达式。 数学表达式应该在 XPath 表达式之外计算。
+{{% /报警 %}}
 
-The following tokens are used in XPath queries:
-
-| Token | Definition                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `//`  | A XPath query always starts with the tokens `//`. These slashes are followed by the designation of the [object](entities) that is being queried. For example, if you wish to retrieve all customers, the query would resemble the following: `//Customers`.                                                                                                                                                                                 |
-| `.`   | The dot is used to separate [module](modules) names from [entity](entities) names. For example, if you wish to retrieve all the customers (objects) in the sales module, you would start the query with `//Sales.Customer`.                                                                                                                                                                                                                 |
-| `/`   | A slash is used whenever you want to refer to a new entity or association. For example, `//Sales.Customer/Sales.Customer_Order/Sales.Order`. This query follows the path from the [entity](entities) `Customer` to the entity `Order` over the [association](associations) `Customer_Order`. A query can be expanded by slashes and entities or associations for as long as there are potential associations available in the domain model. |
-| `[ ]` | A constraint is always written between brackets. For example, `//Sales.Customer[TotalAmount > 1000]`. The [attribute](attributes) being constrained is `TotalAmount`, and the constraint is `> 1000`. Therefore, only customers who have spent more than € 1000 will be retrieved.                                                                                                                                                    |
-| `( )` | Constraints can be grouped by parentheses. For more information, see [XPath Constraints](xpath-constraints).                                                                                                                                                                                                                                                                                                                                |
-
-System variables are tokens whose values can be used in XPath expressions. For a complete overview of these tokens, see [XPath Keywords & System Variables](/refguide8/xpath-keywords-and-system-variables).
