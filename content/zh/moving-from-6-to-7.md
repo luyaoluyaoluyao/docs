@@ -1,319 +1,319 @@
 ---
-title: "Moving from Modeler Version 6 to 7"
-category: "General"
+title: "从 Moderr 版本 6 移动到7"
+category: "A. 概况"
 menu_order: 20
-description: "Provides details on updating your project from Mendix 6 to Mendix 7, including sections on converting your project and deprecated features."
+description: "提供关于将您的项目从 Mendix 6 升级到 Mendix 7 的详细信息，包括转换您的项目和废弃功能的章节。"
 aliases:
-  - /refguide/moving-from-6-to-7.html
+  - /refguide/moving-from-6-7.html
   - /releasenotes/studio-pro/6.10.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-For up-to-date details about all the new major improvements being added in Mendix 7, see the [Desktop Modeler 7 release notes](/releasenotes/studio-pro/7).
+关于正在Mendix 7中添加的所有新的主要改进的最新详情，请参阅 [桌面Moderr 7 版本说明](/releasenotes/studio-pro/7)。
 
-This document will help you to update your project from Mendix 6 to Mendix 7. It contains the following topics:
+此文档将帮助您将您的项目从 Mendix 6 升级到 Mendix 7。 它包含以下主题：
 
-* Converting your project – preparing for conversion and actually converting your project to Mendix 7
-* Java 8 requirement – from Mendix 6 on, Java 8 is required to run your applications
-* Deprecated features – see which platform features have been deprecated in Mendix 7
-* Removed deprecated functionality – see which features have been deprecated
+* 转换你的项目 — — 准备转换并实际转换你的项目 Mendix 7
+* Java 8 要求 -- 从 Mendix 6 开启，Java 8 需要运行您的应用程序
+* 已废弃的功能 — — 查看在Mendix 7 中哪些平台功能已被弃用
+* 已删除过时的功能——查看哪些功能已被弃用
 
-## 2 Converting Your Project
+## 2 转换你的项目
 
-Before converting your project, reading the following sections is recommended.
+在转换您的项目之前，建议阅读以下章节。
 
-### 2.1 Backing Up Your Project
+### 2.1 备份您的项目
 
-If you are not using Team Server, make a backup of your project. Check that the backup was successful by opening the project.
+如果您没有使用团队服务器，请备份您的项目。 通过打开项目检查备份是否成功。
 
 {{% alert type="success" %}}
-Seriously, make a backup!
-{{% /alert %}}
+真的要备份！
+{{% /报警 %}}
 
-### 2.2 Converting to the Latest Mendix 6 Version
+### 2.2 转换为最新的 Mendix 6 版本
 
-Conversion to Mendix 7 will work for projects created with version 6.0.0 or higher. However, we advise converting to the latest Mendix 6 version before converting to the latest Mendix 7 version.
+转换为 Mendix 7 将适用于使用 6.0.0 或更高版本创建的项目。 然而，我们建议转换到最新的 Mendix 6 版本，然后转换到最新的 Mendix 7 版本。
 
-### 2.3 Fixing Errors, Warnings & Deprecations
+### 2.3 纠正错误，警告 & 废弃的
 
-Fix errors, warnings, and deprecations as much as possible. Take special note of the **Deprecations** in the **Errors** pane. Most features that are deprecated in Mendix 6 will be completely gone in Mendix 7, and these will result in errors in your project.
+尽可能修复错误、警告和弃置等问题。 特别注意 **错误** 窗格中的 **废弃**。 Mendix 6中已废弃的大多数功能将完全在 Mendix 7中使用，这些功能将导致您项目中的错误。
 
-### 2.4 Fixing Deprecations in Java Actions
+### 2.4 在 Java 操作中修复过时问题
 
-Fix the deprecations in your Java actions by importing your project in Eclipse and solving all the deprecations in the **Problems** tab.
+通过在 Eclipse 中导入您的 Java 操作并解决 **问题** 标签页中所有废弃的问题来修复您的 Java 操作中的弃置状态。
 
-For details on the removed and deprecated APIs, see the **Breaking changes** section of the [Desktop Modeler version 7 release notes](/releasenotes/studio-pro/7.0#BreakingChanges).
+关于已删除和已废弃API的详细信息， 查看 **打破对 [桌面模式版本7版本版本的</strong> 部分的更改](/releasenotes/studio-pro/7.0#BreakingChanges)。</p>
 
-## 3 Converting!
+## 3 个转换中！
 
-Now you are ready to convert, so simply open your project in the new Desktop Modeler. There are no explicit actions required after opening your Mendix 6 project in Mendix 7. When you deloy your app from the Modeler, double check all the domain model changes in the synchronization dialog box in order to avoid unexpected modifications.
+现在您已准备好转换，所以只需在新的桌面模式中打开您的项目。 在 Mendix 7 中打开您的 Mendix 6 项目后不需要明确的操作。 当您将您的应用程序从Modeler脱离时， 双选同步对话框中所有域模型的更改，以避免意外的修改。
 
-### 3.1 Upgrading Marketplace Modules
+### 3.1 升级市场模块
 
-After the conversion, verify if there is a newer version available of your Marketplace modules. Some modules need to be upgraded to make them Mendix 7-compatible. Reading the version release notes to see whether specific actions are required is recommended.
+转换后，验证市场模块是否有更新版本。 某些模块需要升级才能让 Mendix 7 兼容。 读取版本发布说明以查看是否需要特定操作。
 
-In Mendix 7, the Marketplace modules used in your projects are grouped together in the Modeler. They can be found in **Project Explorer** under **Project** > **App store modules**.
+在 Mendix 7 中，您项目中使用的应用市场模块被组合在模型中。 它们可以在 **项目资源管理器** 中找到。 **项目** > **应用商店模块**。
 
-### 3.2 Double Checking Project Changes
+### 3.2 双重检查项目变化
 
-Verify that during the migration steps listed above, no modules are replaced by removing and importing the module again. By design, this operation instructs the Desktop Modeler to delete a whole module and create it again, which leads to empty entities and associations after the migration is finished.
+验证在上面列出的迁移步骤中，没有模块被重新删除和导入替换。 通过设计，此操作指示桌面模型删除整个模块并再次创建它。 这将导致在移徙结束后出现空实体和协会。
 
-## 4 Breaking Changes
+## 4 打破更改
 
-### 4.1 Stateless Runtime {#stateless}
+### 4.1 无国籍运行时间 {#stateless}
 
-An earlier version of Mendix enabled applications to move sessions to the database and files to an external file storage facility (for example, S3 or Azure Blob Storage). In Mendix 7, the server object state has been moved to the client, which means that the server is now completely stateless and can be scaled horizontally at will.
+早期版本的 Mendix 启用了将会话移动到数据库和文件到外部文件存储设施的程序 (例如，) S3 或 Azure Blob 存储)。 在 Mendix 7 中，服务器对象状态已被移动到客户端， 这意味着服务器现在完全无国籍，可以随意水平缩放。
 
-This functionality is enabled by default, so there is no need for additional configuration.
+此功能默认启用，所以不需要额外配置。
 
-Because this statelessness, it is the client that keeps track of the objects that are not yet committed, objects that are not persistable, and even changes to the objects that were not committed yet. To keep the resource usage low, Mendix periodically prunes the stored state — objects are removed that are not displayed in the UI and not connected by references. To gain insight into how big the state is in your app (and even why it exists), use <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> in your browser and the information will be dumped into your browser's console (note that this feature might be removed in a future release). For more details, see [Monitoring Client State](monitoring-client-state).
+因为这种无国籍状态，所以是客户端跟踪尚未承诺的物件， 不可持续的对象，甚至对尚未提交的对象的更改。 保持低资源使用率。 Mendix 定期打印存储的状态 - 删除未显示在界面中且未被引用连接的对象。 了解状态在您的应用中有多大(甚至是它存在的原因)， 在您的浏览器中使用 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> 并且信息将被丢弃到您的浏览器的控制台中(注意此功能可能会在未来版本中被删除)。 欲了解更多详情，请参阅 [Monitoring Client State](monitoring-client-state)。
 
-Please be aware that reloading the browser window (as in, pressing F5) will drop the entire state.
+请注意，重新加载浏览器窗口(按下 F5) 将会丢弃整个状态。
 
-Because the server doesn't store the object state anymore, the client has to send it along with some requests, so the server-side microflow can access NPEs, uncommitted values, etc. Mendix applies quite a few optimizations in order to send as little data as possible and to maintain the same network footprint as in previous Mendix versions. There is a new setting in the **Runtime** tab of **Project Settings** called **Optimize network calls**, so if you experience some awkward issues in your project (for example, a microflow called from the client that doesn't see the changes made by the data source microflow), you can try to disable these optimizations. (Note that this setting will be removed in a future release, so please report any issues you experience as soon as possible.)
+由于服务器不再存储对象状态，客户端必须与一些请求一起发送。 这样服务器端微流就可以访问NPE、未承诺的值等。 Mendix 应用了相当多的优化，以便尽可能少地发送数据，并保持与以前Mendix 版本相同的网络足迹。 **运行时** 选项卡里有一个新设定 **项目设置** 叫做 **优化网络调用**如果你在你的项目中遇到了一些棘手的问题(例如) 一个从客户端调用但看不到数据源微流所做的更改的微流程，您可以尝试禁用这些优化。 (请注意，此设置将在未来版本中删除，所以请尽快报告您遇到的任何问题。)
 
-### 4.2 Persistent Sessions
+### 4.2 持续会议
 
-Persistent sessions are enabled by default. This is necessary for Mendix to work correctly in a clustered scenario. It's still possible to disable persistent sessions by setting `PersistentSessions` to `false`. However, in that case, you will not be able to run Mendix in a clustered mode.
+默认启用持久会话。 这对于Mendix 在分组场景中正常工作是必要的。 It's still possible to disable persistent sessions by setting `PersistentSessions` to `false`. 然而，在这种情况下，您将无法以集群模式运行 Mendix 。
 
-We optimized the system to reduce the performance impact of enabling this by default. This is achieved by allowing a Mendix Runtime instance to assume that a session is valid for a short timespan (by default, 30 seconds). A Mendix Runtime instance will only validate a session once within that timespan. However, this means that upon user logout, it may take up to that specific timespan (in the worst case scenario) before all the Mendix Runtime instances of a cluster (except for the one processing the logout) recognize that the user is logged out. This timeout can be configured by setting a value for `SessionValidationTimeout`, which represents the timespan in milliseconds.
+我们优化了系统，以降低默认启用的性能影响。 这是通过允许Mendix Runtime 实例假定会话在短时间内有效实现的(默认为30秒)。 Mendix 运行时间实例只会在该时间段内验证会话一次。 然而，这意味着用户注销时， 它可能需要达到这个特定的时间(最坏情况下的场景)才能在群集的所有Mendix Runtime实例(除处理注销的一个实例外)承认用户已经注销了。 此超时可以通过设置 `会期校验超时`的值来配置，它代表以毫秒为单位的时间。
 
-### 4.3 NPE Attribute-Level Security
+### 4.3 NPE 属性安全
 
-We have prohibited non-persistable entity (NPE) attribute-level security for attributes that do not have at least read access. The reason for this is that non-readable attributes cannot be sent to the client. A separate object (which is not sent to the client at all) should be used for these attributes instead.
+我们禁止对没有至少读取访问权限的属性进行不可持续实体属性级安全。 原因是无法读取属性无法发送到客户端。 这些属性应该使用一个单独的对象 (根本不发送给客户端)。
 
-### 4.4 Autocommitted Objects for System Sessions
+### 4.4 系统会话自动提交对象
 
-If you have two new objects referencing one another and you try to commit one of those, you should also commit the other one. If you don't and you are running the microflow in a system session (for example, a scheduled event), you will get an exception. Note that if you are running in a user session that is not required, we'll handle it for you.
+如果你有两个新的对象相互引用并且你试图提交其中一个对象，你也应该提交另一个。 如果您没有和您正在系统会话中运行microflow (例如预定的事件)，您将得到一个例外。 请注意，如果您在不需要的用户会话中运行，我们将为您处理。
 
-### 4.5 Objects Retrieved from Database Are Not State
+### 4.5 从数据库中获取的对象不是国家
 
-Objects retrieved from the database are not part of the state (as compared to objects retrieved by association). This means that you cannot access uncommitted changes and new objects through objects coming from the database, even when retrieving by association starting from these objects.
+从数据库检索到的对象不是状态的一部分(与关联检索到的对象相比)。 这意味着您不能通过来自数据库的对象访问未提交的更改和新对象。 即使从这些对象开始通过关联获取。
 
-For example, assume a user has associated (but not committed) an order line with an existing order object. When retrieving the order lines through the order object retrieved from the database, the aforementioned order line is not retrieved. However, when the order object is passed as a microflow parameter from a page, the same retrieve returns the order line object.
+例如，假定用户已经与现有的订单对象关联(但没有承诺)。 当从数据库中检索到的订单对象时，不会检索上述订单线。 然而，当订单对象作为微流程参数从页面传递时，相同的检索返回订单行对象。
 
-### 4.6 Sign-In Microflows
+### 4.6 登录微流
 
-Sign-in microflows are no longer supported, because they do not add any functionality. In a future version, the state will be automatically transferred from the anonymous user to the signed-in user by the client. In Mendix 7, having a sign-in microflow selected will result in a consistency check error. When this is solved by setting the microflow to **None**, the property will automatically disappear from the UI.
+登录微流不再被支持，因为它们不添加任何功能。 在未来的版本中，状态将被客户端自动从匿名用户转移到登录用户。 在 Mendix 7 中，选择登录微流将导致一致性检查错误。 当通过设置微流程到 **无**解决这个问题时，属性将自动从用户界面消失。
 
-### 4.7 System.Statistics Entity
+### 4.7 系统统计实体
 
-The `System.Statistics` entity has been removed from the **System** module, as the entity has become obsolete with the introduction of stateless Runtime. The **Runtime Statistics** page (along with the **Runtime Statistics** menu item) and the **ViewStatistics** microflow are automatically removed from your project when they are in their default location (in the **Administration** module).
+`系统。 tatistics` 实体已经从 **系统** 模块中删除， 随着无国籍运行时间的引入，该实体已经过时。 **运行时间统计** 页面 (与 **运行时间统计** 菜单项) 和 **查看统计** 微流程在您的项目中处于默认位置时自动从它们中移除( **管理** 模块)。
 
-### 4.8 Client API Changes
+### 4.8 客户端 API 更改
 
-The semantics have changed for `MxObject.get` and `mx.parser.parseValue`. They now return a value of an appropriate type (for example, `Big` for numbers, numbers for dates) instead of always returning a string. For more details, see [Class: mendix/lib/MxObject](https://apidocs.rnd.mendix.com/7/client/mendix_lib_MxObject.html#get).
+`MxObject.get` and `mx.parser.parseValue` 的语义已更改。 他们现在返回了一个适当类型的值(例如，数字为 `大` , 日期数字)，而不是总是返回一个字符串。 欲了解更多详情，请见 [类：mendix/lib/MxObject](https://apidocs.rnd.mendix.com/7/client/mendix_lib_MxObject.html#get)。
 
-Support for `dojo.require` has been dropped. It never worked in hybrid apps, and we have now made it official. Write your custom widgets in the AMD style, as described in the [Widget Boilerplate](https://github.com/mendix/AppStoreWidgetBoilerplate).
+`dojo.requires` 的支持已被放弃。 它从来没有在混合应用中发挥作用，我们现在已经使它成为正式的。 用AMD样式写下您的自定义小部件，如 [小部件Boilerplate](https://github.com/mendix/AppStoreWidgetBoilerplate) 所述。
 
-Dojo APIs exposed through the global `dojo` object are no longer supported, as they were never supposed to work in AMD widgets. Some of these APIs (for example, `dojo.html`) have already been removed, but others will be removed in the future without notice. Use these at your own risk, or better yet, don't use them at all!
+Dojo APIs exposed through the global `dojo` object are no longer supported, as they were never supposed to work in AMD widgets. 有些API (例如 `dojo.html`) 已经被删除，但其他一些将在将来被移除。 使用这些冒着自己的风险，或者更好的风险，不要使用它们！
 
-## 5 Deprecated Features
+## 5 个废弃的功能
 
-The following features have been deprecated in Mendix 7. Using these features is discouraged, since they will be removed in a future release of Mendix.
+Mendix 7中已不推荐使用以下功能。 不鼓励使用这些功能，因为它们将在未来Mendix版本中被移除。
 
-### 5.1 Client Deprecations
+### 5.1 客户端弃用
 
-The `mx.server.request` client API method has been deprecated. We bet you never even knew it existed! If you did, be aware that it no longer handles validations. This responsibility has been moved to `mx.data`.
+`mx.server.request` 客户端 API 方法已被弃用。 我们打赌，你甚至根本不知道它存在！ 如果你这样做，请注意它不再处理验证。 此责任已被移动到 `mx.data`。
 
-The `MxContext` methods `setTrackId` and `setTrackEntity` have been deprecated. Use the `setContext` method instead.
+`MxContext` 方法 `setTrackId` 和 `setTrackEnty` 已被弃用。 使用 `setContext` 方法代替。
 
-### 5.2 Runtime Deprecations on `com.mendix.core.Core`
+### 5.2 在 `com.mendix.core.core上已废弃的`
 
-| Method Name                                                                                                                        | Alternative                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `getActiveSession(String userName)`                                                                                                | Use an XPath query on the session table instead.                                                                                                                     |
-| `getActiveSessions()`                                                                                                              | Use an XPath query on the session table instead.                                                                                                                     |
-| `exportStream(IContext context, String exportMappingName, IMendixObject objectToExport, Boolean shouldValidate)`                   | `com.mendix.core.integration().exportStream(IContext context, String exportMappingName, IMendixObject objectToExport,Boolean shouldValidate)`                        |
-| `importStream(IContext context,InputStream stream,String importMappingName,IMendixObject mappingParameter,Boolean shouldValidate)` | `com.mendix.core.integration().importStream(IContext context, InputStream stream, String importMappingName, IMendixObject mappingParameter, Boolean shouldValidate)` |
+| 方法名称                                                                                                            | 备选办法                                                                                                                                                                            |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `getActiveSession(用户名)`                                                                                         | 使用会话表上的 XPath 查询。                                                                                                                                                               |
+| `getActiveSessions()`                                                                                           | 使用会话表上的 XPath 查询。                                                                                                                                                               |
+| `导出Stream(Context context, String Exporting MappingName, IMendixObject objectToExport, Boolian shouldValidate)` | `com.mendix.core.integration().exportStream(IContext context, String exportingName, IMendixObject objectToExport,Boolian shouldValidate)`                                       |
+| `导入 Stream(IContext 环境,InputStream 串流,String 导入映射名称,IMendixObject mappingParameter,Boolian shouldValidate)`     | `com.mendix.core.integration().importStream(IContext context, InputStream stream stream, String importing MappingName, IMendixObject mappingParameter, Boolian shouldValidate)` |
 
-## 6 Removed Deprecated Functionality
-
-The following features were deprecated in Mendix 6 and have been removed in Mendix 7.
+## 6 已删除过时的功能
+
+以下功能在 Mendix 6 中被废弃，并已在 Mendix 7 中被删除。
 
-### 6.1 Removed Client Functionality
-
-#### 6.1.1 Split Panes
-
-We dropped support for the vertical and horizontal split pane widgets that have been deprecated since Mendix 6. From now on, these widgets will result in consistency errors in the Modeler. To smooth out the conversion path, we introduced a tool to convert existing split panes (one-by-one or all together) into layout grids. You can access the tool by right-clicking the consistency error message or from the **Tools** menu.
-
-Note that while the tool is definitely awesome, it is not perfect. The resulting layout grids will not be able to dynamically resize (via the animated resize feature of the split panes, which is no longer supported in the platform), and the markup and scrolling behavior might be a bit different. So, please test your applications after updating to Mendix 7! (Do we really have to mention that?)
+### 6.1 移除客户端功能
+
+#### 6.1.1 分割面板
+
+我们放弃了对自Mendix 6以来被废弃的垂直和水平分割窗格部件的支持。 从现在开始，这些小部件将导致模型中的一致性错误。 为了平滑转换路径，我们引入了一个将现有的拆分窗格(一个或全部)转换为布局网格的工具。 您可以通过右键单击一致性错误消息或从 **工具** 菜单访问工具。
+
+请注意，虽然这个工具肯定很棒，但它并不完美。 生成的布局网格将无法动态调整大小(通过拆分窗格的动画调整大小功能) 这个平台不再支持)，标记和滚动行为可能有些不同。 因此，请在升级到 Mendix 7 后测试您的应用程序！ (我们真的必须提到这一点？)
 
-#### 6.1.2 Legacy Navigation Layout
+#### 6.1.2 传统导航布局
 
-Support for navigation layouts of the **Legacy** type has been dropped. Layout types define how pages are opened in the web client: in a (modal) pop-up window or in the content. For navigation layouts of the Legacy type, that behavior was defined via the button (or microflow) opening the page, which could result in inconsistent behavior. All the navigation layouts of the Legacy type result in errors in the Modeler now.
+**传统的** 类型的导航布局支持已被放弃。 布局类型定义了页面在网页客户端中的打开方式：在一个(模式)弹出窗口中或在内容中。 对于传统类型的导航布局，这种行为是通过打开页面的按键(或微流程)定义的，可能导致行为不一致。 传统类型的所有导航布局现在都会导致建模中的错误。
 
-For more information, see [Layouts](layout#layout-type) and the blog post [Layouts Have Types](https://www.mendix.com/blog/layouts-have-types/).
-
-#### 6.1.3 Apply Context & Remove from Context
-
-The **Apply context** and **Remove from context** options of the reference selector, data grid, and template grid data sources were deprecated in Mendix version 5.19, and they have been removed. You will now get consistency errors in places where you used them. We suggest using explicit XPath constraints instead.
-
-### 6.2 Removed Client APIs
-
-* `mxui/dom.{p,div,span...}` and `mxui/dom.builder` have been removed in favor of using `mxui/dom.create`
-* `MxMetaObject.isNumber` and `MxObject.isNumber` have been replaced with `isNumeric` methods
-* `mxui/dom.{copyChildren,insertBefore,insertAfter}` has been removed in favor of using plain `dom` APIs
-* `mx.ui.hideLogin` has been replaced with `hide` on the object returned by `mx.ui.showLogin`
-* The `mx.login` signature has been changed to `mx.login(username, password, onLoginSucceed, onLoginFailure)`
-* `_WidgetBase.resume`, `_WidgetBase.suspend`, and `_FormBase.startup` have been removed, as they had no effect
-
-### 6.3 Removed Runtime Functionality
-
-#### 6.3.1 Removed Deprecated Classes
-
-| Class Name                                                                 | Alternative Interface/Class                                             |
-| -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `com.mendix.modules.exportmanager.excel.ExcelCellStyle`                    | `com.mendix.modules.exportmanager`, `.interfaces.excel.IExcelCellStyle` |
-| `com.mendix.modules.exportmanager.excel.ExcelCell`                         | `com.mendix.modules.exportmanager`, `.interfaces.excel.IExcelCell`      |
-| `com.mendix.modules.exportmanager.excel.ExcelColumn`                       | `com.mendix.modules.exportmanager`, `.interfaces.excel.IExcelColumn`    |
-| `com.mendix.modules.exportmanager.excel.ExcelGrid`                         | `com.mendix.modules.exportmanager`, `.interfaces.excel.IExcelGrid`      |
-| `com.mendix.systemwideinterfaces.core.Feedback`                            | `com.mendix.systemwideinterfaces.core.IFeedback`                        |
-| `com.mendix.core.conf.ConfigurationImpl`                                   | `com.mendix.core.conf.Configuration`                                    |
-| `com.mendix.core.component.InternalCore`                                   | `com.mendix.Core`                                                       |
-| `com.mendix.core.conf.ConfigValueChecker`                                  | -                                                                       |
-| `com.mendix.core.conf.UserPermissions`                                     | -                                                                       |
-| `com.mendix.core.conf.CertificateProcessor`                                | -                                                                       |
-| `com.mendix.core.conf.HashAlgorithmType`                                   | -                                                                       |
-| `com.mendix.systemwideinterfaces.connectionbus.ConnectionBusException`     | -                                                                       |
-| `com.mendix.systemwideinterfaces.connectionbus.DBMSType`                   | -                                                                       |
-| `com.mendix.systemwideinterfaces.connectionbus.JDBCDataStoreConfiguration` | -                                                                       |
-| `com.mendix.systemwideinterfaces.core.IMendixEnum`                         | `com.mendix.core.objectmanagement.member.MendixEnum`                    |
-
-#### 6.3.2 Removed Constants
-
-| Class Name                                                                   | Alternative                                                                                                                                                                                             |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `com.mendix.systemwideinterfaces.HandlerConstants`                           | -                                                                                                                                                                                                       |
-| `com.mendix.systemwideinterfaces.SystemModuleConstants`                      | -                                                                                                                                                                                                       |
-| `com.mendix.core.conf.CoreConstants`                                         | -                                                                                                                                                                                                       |
-| `com.mendix.core.conf.AdminActionConstants`                                  | -                                                                                                                                                                                                       |
-| `com.mendix.core.conf.Tokens`                                                | -                                                                                                                                                                                                       |
-| `com.mendix.externalinterface.connector.RequestHandler.XAS\_SESSION\_ID` | Used in RequestHandler: `com.mendix.externalinterface.connector.RequestHandler.getSessionCookieName()`<br> Used as a constant: `com.mendix.core.Core.getConfiguration().getSessionIdCookieName()` |
-
-#### 6.3.3 Removed Methods
-
-##### 6.3.3.1 From com.mendix.core.Configuration
-
-| Method Name                                                                 | Alternative |
-| --------------------------------------------------------------------------- | ----------- |
-| `registerConfigurationSetting(String name, String defaultValue)`            | -           |
-| `getValue(String name)`                                                     | -           |
-| `setValue(String name, String Value)`                                       | -           |
-| `updateConfiguration(JSONObject params, boolean overwrite)`                 | -           |
-| `getUploadedFilesPath()`                                                    | -           |
-| `useLDAPAuthentication()`                                                   | -           |
-| `getReadCommittedSnapshot()`                                                | -           |
-| `getMaxThreadsPerDataStoreRequest()`                                        | -           |
-| `getLogMinDurationQuery()`                                                  | -           |
-| `mustReturnOnlyNecessaryDDLCommands()`                                      | -           |
-| `setReturnOnlyNecessaryDDLCommands(boolean returnOnlyNecessaryDDLCommands)` | -           |
-| `getConstantValue(Object component, String key)`                            | -           |
-| `getDefaultHashAlgorithm()`                                                 | -           |
-
-##### 6.3.3.2 From com.mendix.modules.exportmanager.excel.ExcelExporter
-
-| Method Name                                                                                                                                                                                                            | Alternative                                                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `generateWorkbook(LocalComponent component, IContext context, List<IExcelGrid> grids)`                                                                                                                           | -                                                                                                                                                                  |
-| `generateXLS(com.mendix.core.component.LocalComponent component, IContext context, IMendixObject fileObject, String fileName, List<IExcelGrid> grids)`                                                           | `generateXLS(IContext context, IMendixObject fileObject, String fileName, List<IExcelGrid> grids)`                                                           |
-| `generateXLS(com.mendix.core.component.LocalComponent component, IContext context, IMendixObject fileObject, String fileName, List<String> oqlQueries, boolean autoSizeColumns, List<String> headerNames)` | `generateXLS(IContext context, IMendixObject fileObject, String fileName, List<String> oqlQueries, boolean autoSizeColumns, List<String> headerNames)` |
-
-##### 6.3.3.3 From com.mendix.systemwideinterfaces.core.IContext
-
-| Method Name                                                       | Alternative         |
-| ----------------------------------------------------------------- | ------------------- |
-| `setCurrentIdentifier(IMendixIdentifier currentIdentifier)`       | -                   |
-| `setContextObjects(List<IMendixIdentifier> contextObjects)` | -                   |
-| `setSudo(boolean sudo)`                                           | -                   |
-| `getSudoContext()`                                                | `createSudoClone()` |
-
-##### 6.3.3.4 From com.mendix.core.Core
-
-| Method Name                                             | Alternative                                                 |
-| ------------------------------------------------------- | ----------------------------------------------------------- |
-| `callWebservice()`                                      | Use Call REST action in the microflow instead.              |
-| `importXmlStream()`                                     | Use `com.mendix.core.integration().importStream()` instead. |
-| `getComponent().runtime().about().get("model_version")` | `getModelVersion()`                                         |
-
-##### 6.3.3.5 From com.mendix.systemwideinterfaces.core.ISession
-
-The state has been moved to the client in Mendix 7, and because of that, the following methods are now obsolete:
-
-| Method Name             | Alternative |
-| ----------------------- | ----------- |
-| `retain`                | -           |
-| `release`               | -           |
-| `addToClientRoots`      | -           |
-| `removeFromClientRoots` | -           |
-| `getClientRoots`        | -           |
-| `getJavaActionRoots`    | -           |
-| `getData`               | -           |
-
-##### 6.3.3.6 Others
-
-| Method Name                                                            | Alternative                                                       |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `com.mendix.m2ee.api.IMxRuntimeRequest.getOriginalRequest()`           | `com.mendix.m2ee.api.IMxRuntimeRequest.getHttpServletRequest()`   |
-| `com.mendix.m2ee.api.IMxRuntimeResponse.getOriginalResponse()`         | `com.mendix.m2ee.api.IMxRuntimeResponse.getHttpServletResponse()` |
-| `com.mendix.systemwideinterfaces.core.meta.IMetaObject.getComponent()` | -                                                                 |
-| `com.mendix.systemwideinterfaces.core.ISession.getComponent()`         | -                                                                 |
-
-#### 6.3.4 Compilation Issues When Migrating a Project to Mendix 7
-
-The removal of deprecated classes and methods in Mendix 7 can cause compilation errors after migrating your project to Mendix 7. Please use the above provided alternatives for the removed deprecated code.
+欲了解更多信息，请参阅 [布局](layout#layout-type) 和博客文章 [布局有类型](https://www.mendix.com/blog/layouts-have-types/)。
+
+#### 6.1.3 应用Context & 从上下文删除
+
+**应用上下文** 和 **从上下文中删除参考选择器的** 选项。 Mendix 版本5中已废弃数据网格和模板网格数据源。 这些建议已经被删除。 您现在将在使用它们的地方获得一致性错误。 我们建议使用明确的 XPath 限制。
+
+### 6.2 已移除客户端 APIs
+
+* `mxui/dom。{p,div,span...}` 和 `mxui/dom.builder` 已被删除，用于使用 `mxui/dom.create`
+* `MxMetaObject.isNumber` and `MxObject.isNumber` 已被 `isNumeric` 方法替换
+* `mxui/dom。{copyChildren,insertBefore,insertAfter}` 已被移除，方便使用普通 `套` APIs
+* `mx.ui.hide登录` 已被替换为 `隐藏` 返回对象的 `mx.ui.show登录`
+* `mx.login` 签名已更改为 `mx.login(用户名，密码，onLoginSucceed, onLoginFailure)`
+* `_WidgetBase.rest`, `_WidgetBase.sust`和 `_FormBase.startup` 已被删除，因为它们没有效果
+
+### 6.3 移除运行时功能
+
+#### 6.3.1 移除废弃类
+
+| 类名                                                                      | 替代界面/面板                                                                |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `com.mendix.modules.exportmanager.excelCellStyle`                       | `com.mendix.modules.exportManager`, `.interfaces.excelIExcelCellStyle` |
+| `com.mendix.modules.exportmanager.excel.ExcelCell`                      | `com.mendix.modules.exportManager`, `.interfaces.excelIExcelCell`      |
+| `com.mendix.modules.exportmanager.excel.ExcelColumn`                    | `com.mendix.modules.exportManager`, `.interfaces.excelIExcelColumn`    |
+| `com.mendix.modules.exportmanager.excelGrid`                            | `com.mendix.modules.exportManager`, `.interfaces.excelIExcelGrid`      |
+| `com.mendix.systemwide interfaces.core.core.反馈`                         | `com.mendix.systemwide interfaces.core.IFeedback`                      |
+| `com.mendix.core.com.Conf.ConfurationImpl`                              | `com.mendix.core.conf.配置`                                              |
+| `com.mendix.core.component.InternalCore`                                | `mendix.Core`                                                          |
+| `com.mendix.core.conf.Conf.ConfValueChecker`                            | -                                                                      |
+| `com.mendix.core.com.UserPermissions`                                   | -                                                                      |
+| `com.mendix.core.conf.certiateProcessor`                                | -                                                                      |
+| `com.mendix.core.conf.HashorithmType`                                   | -                                                                      |
+| `com.mendix.systemwide interfaces.connectionbus.ConnectionBusException` | -                                                                      |
+| `com.mendix.systemwide interfaces.connectionbus.DBMSType`               | -                                                                      |
+| `com.mendix.systemwide interfaces.connectionbus.JDBCDatasore配置`         | -                                                                      |
+| `com.mendix.systemwide interfaces.core.IMendixEnum`                     | `com.mendix.core.objectmanagement.member.MendixEnum`                   |
+
+#### 6.3.2 移除常量
+
+| 类名                                                                           | 备选办法                                                                                                                                                                        |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `com.mendix.systemwide interfaces.HandlerConstants`                          | -                                                                                                                                                                           |
+| `com.mendix.systemwide interfaces.SystemModuleConstants`                     | -                                                                                                                                                                           |
+| `com.mendix.core.conf.CoreConstants`                                         | -                                                                                                                                                                           |
+| `com.mendix.core.conf.AdminActionConstants`                                  | -                                                                                                                                                                           |
+| `com.mendix.core.conf.Tokens`                                                | -                                                                                                                                                                           |
+| `com.mendix.externalinterface.connector.RequestHandler.XAS\_SESSION\_ID` | 用于请求处理器： `com.mendix.externalinterfacee.connector.RequestHandler.getSessionCookieName()`<br> 用作常量： `com.mendix.core.core.getConfiguration().getSessionIdCookieName()` |
+
+#### 6.3.3 移除的方法
+
+##### 6.3.3.1 从 com.mendix.core.core.configuration
+
+| 方法名称                                                  | 备选办法 |
+| ----------------------------------------------------- | ---- |
+| `registerConfigurationSetting(字符串默认值)`                | -    |
+| `getValue(名字)`                                        | -    |
+| `设置值(字符串值)`                                           | -    |
+| `updateConfiguration(JSONObject 参数，布尔值覆盖)`            | -    |
+| `getUploadedFilesPath()`                              | -    |
+| `useLDAPAuthentication()`                             | -    |
+| `getReadCommittedSnapshot()`                          | -    |
+| `getMaxThreadsPerDataStoreRequest()`                  | -    |
+| `getLogMinDurationQuery()`                            | -    |
+| `mustReturnOnlyNecessaryDDLCommands()`                | -    |
+| `setReturraynecessaryDDLCommands(布尔只有必需的DDLCommands)` | -    |
+| `getConstantValue(对象组件，字符串键)`                         | -    |
+| `getDefaultHashAlgorithm()`                           | -    |
+
+##### 6.3.3.2 从 com.mendix.modules.exportmanager.excel.ExcelExporter
+
+| 方法名称                                                                                                                                                                                                                          | 备选办法                                                                                                                                            |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `生成Workbook(本地组件组件，上下文，列表<IExcelGrid> 格子)`                                                                                                                                                                              | -                                                                                                                                               |
+| `GenerateXLS(com.mendix.core.component.LocalComponent component, IContext context, IMendixObject fileObject, String fileName, List<IExcelGrid> gids)`                                                                   | `生成XLS(上下文, IMendixObject fileObject, String fileName, List<IExcelGrid> gids)`                                                            |
+| `generateXLS(com.mendix.core.core.component.LocalIncomponent component, IContext context, IMendixObject fileObject, String fileName, List<String> oqlQueries, boolian autoSizeColumns, List<String> headerNames)` | `生成XLS(上下文, IMendixObject fileObject, String fileName, List<String> oqlQueries, boolian autoSizeColumns, List<String> headernames)` |
+
+##### 6.3.3.3 从 com.mendix.coreIContext
+
+| 方法名称                                                            | 备选办法                |
+| --------------------------------------------------------------- | ------------------- |
+| `设置CurrentIdentifier(IMendixIdentifier currentIdentifier)`      | -                   |
+| `setContextObjects(列表<IMendixIdentifier> contextObjects)` | -                   |
+| `setSudo(boolean sudo)`                                         | -                   |
+| `getSudoContext()`                                              | `createSudoClone()` |
+
+##### 6.3.3.4 从 com.mendix.coreCore
+
+| 方法名称                                                    | 备选办法                                                  |
+| ------------------------------------------------------- | ----------------------------------------------------- |
+| `callWebservice()`                                      | 在微流中使用通话REST 动作。                                      |
+| `importXmlStream()`                                     | 使用 `com.mendix.core.integration().importStream()` 代替。 |
+| `getComponent().runtime().about().get("model_version")` | `getModelVersion()`                                   |
+
+##### 6.3.3.5 从com.mendix.systemwide interfaces.core.ISession
+
+状态已经移动到Mendix 7的客户端，因此以下方法现在已经过时：
+
+| 方法名称                 | 备选办法 |
+| -------------------- | ---- |
+| `保留`                 | -    |
+| `发布`                 | -    |
+| `addToClientRoots`   | -    |
+| `移除 FromClientRoots` | -    |
+| `getClientRoots`     | -    |
+| `getJavaScript`      | -    |
+| `getData`            | -    |
+
+##### 6.3.3.6 其他
+
+| 方法名称                                                           | 备选办法                                                              |
+| -------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `com.mendix.m2ee.api.IMxRuntimeRequest.getoriginalRequest()`   | `com.mendix.m2ee.api.IMxRuntimeRequest.getHttpServletRequest()`   |
+| `com.mendix.m2ee.api.IMxRuntimeResponse.getoriginalResponse()` | `com.mendix.m2ee.api.IMxRuntimeResponse.getHttpServletResponse()` |
+| `com.mendix.systemwideface.core.metaObject.getComponent()`     | -                                                                 |
+| `com.mendix.core.ISession.getComponent()`                      | -                                                                 |
+
+#### 6.3.4 将项目迁移到Mendix 7
+
+在 Mendix 7 中移除已弃用的类和方法可能在将您的项目迁移到 Mendix 7 后导致编译错误。 请使用上面提供的替代方法来替代已删除的代码。
 
 #### 6.3.5 SystemModuleConstants
 
-These are mainly used to refer to the name of system entities or their attribute names. Such names are also available via corresponding system proxies.
+这些主要用来指系统实体的名称或其属性名称。 这些名字也可以通过相应的系统代理人获得。
 
-For example, `SystemModuleConstants.FILE_DOCUMENT_NAME` can be replaced by the `FileDocument` proxy:
+例如， `SystemModuleConstants.FILE_DOCUMENT_NAME` 可以替换为 `FileDocument` 代理：
 
 ```
-import com.mendix.systemwideinterfaces.SystemModuleConstants;
+导入 com.mendix.systemwides.SystemModuleConstants;
 
 private final String FILE_DOCUMENT_NAME = SystemModuleConstants.FILE_DOCUMENT_NAME;
 ```
 
-should be replaced by:
+应改为：
 
 ```
-import system.proxies.FileDocument.MemberNames;
+导入 system.proxies.FileDocument.Members;
 
 private final String FILE_DOCUMENT_NAME = MemberNames.Name.toString();
 ```
 
-wherein `MemberNames` is an enum defined in the `FileDocument` proxy class.
+其中 `个成员名` 是在 `FileDocument` 代理类中定义的枚举.
 
-#### 6.3.6 Moved Packages
+#### 6.3.6 移动的包
 
-| Class Name      | Alternative Interface                 |
+| 类名              | 替代接口                                  |
 | --------------- | ------------------------------------- |
 | `org.json.\*` | `com.mendix.thirdparty.org.json.\*` |
 
-This is needed to avoid potential namespace conflicts between the Mendix version of the `org.json` library and other JSON libraries.
+这是为了避免在 `org.json` 库的 Mendix 版本与其他 JSON 库之间可能发生的命名空间冲突。
 
-#### 6.3.7 Runtime Issues When Migrating a Project to Mendix 7
+#### 6.3.7 将项目迁移到Mendix 7时的运行时问题
 
-Java libraries in Mendix 7 shipped with the installation package are not available for projects anymore. While this results in better dependency management for each project, it can also cause errors at runtime after migration (for example, `NoClassDefFoundError`). Therefore, it is important to make sure the `userlib` directory of the migrated project includes all the required libraries. It is also worth noting that in Mendix 7, only one version of each library can exist at runtime. This means that if there are multiple versions of one library, the latest version is used and the rest are ignored.
+Mendix 7中带有安装包的Java 库不再适用于项目。 虽然这会导致每个项目更好的依赖管理，但它也可能在迁移后的运行时造成错误(例如， `NoClassDefFound错误`)。 因此，必须确保迁移项目的 `userlib` 目录包含所有必需的库。 还值得注意的是，在Mendix 7中，每个图书馆在运行时只能有一个版本。 这意味着，如果一个库有多个版本，使用最新版本，其他版本被忽略。
 
-### 6.4 Removed Data Storage Functionality
+### 6.4 移除数据存储功能
 
-#### 6.4.1 Removed Methods
+#### 6.4.1 移除方法
 
-| Package Name                                                  | Method Name            | Alternative            |
+| 软件包名称                                                         | 方法名称                   | 备选办法                   |
 | ------------------------------------------------------------- | ---------------------- | ---------------------- |
-| `com.mendix.systemwideinterfaces.connectionbus.data.IDataRow` | `getPrimaryKeyValue()` | `getValue(context, 0)` |
+| `com.mendix.systemwide interface.connectionbus.data.IDataRow` | `getPrimaryKeyValue()` | `getValue(context, 0)` |
 
-##### 6.4.1.1 Example Usages
+##### 6.4.1.1 实例用法
 
 `IDataRow.getPrimaryKeyValue()`
 
-Let us retrieve a MendixObject using the getPrimaryKeyValue() method in Mendix 6.x:
+让我们使用 getPrimaryKeyValue() 方法在Mendix 6.x中检索MendixObject
 
-`List<? extends IDataRow> dataRows = retrieveOQLDataTable.getRows();`<br> `IDataRow dataRow = dataRows.get(0);`<br> `IMendixIdentifier mendixIdentifier = dataRow.getPrimaryKeyValue();`<br> `IMendixObject mendixObj = Core.retrieveId(context, mendixIdentifier);`<br>
+`列表<? 扩展 IDataRow> dataRows = recheveOQLDataTable.getRows();`<br> `IDataRow dataRw = dataRows. et(0)；`<br> `IMendixidentifier mendixidentifier = dataRow。 etPrimaryKeyValue();`<br> `IMendixObject mendixObj = Core.retrieveId(context, mendixIdentifier);`<br>
 
-A similar approach to get a MendixObject in Mendix 7.x would be as follows:
+在Mendix 7.x中获得MendixObject 的类似方法如下：
 
- `List<? extends IDataRow> dataRows = retrieveOQLDataTable.getRows();`<br> `IDataRow dataRow = dataRows.get(0);`<br> `IMendixIdentifier mendixIdentifier = dataRow.getValue(context, 0);`<br> `IMendixObject mendixObj = Core.retrieveId(context, mendixIdentifier);`<br>
+ `列表<? 扩展 IDataRow> dataRows = recheveOQLDataTable.getRows();`<br> `IDataRow dataRw = dataRows. et(0)；`<br> `IMendixidentifier mendixidentifier = dataRow。 etValue(context, 0);`<br> `IMendixObject mendixObj = Core.re.revieId(context, mendixIdentifier);`<br>
