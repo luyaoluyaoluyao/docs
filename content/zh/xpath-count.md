@@ -1,28 +1,24 @@
 ---
-title: "XPath Count"
-parent: "xpath-query-functions"
+title: "XPath 计数"
+parent: "xpath-query函数"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-count.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`count()` 函数计算所有从封闭查询中检索到的对象，并返回作为整数的值。
 
-The `count()` function counts all objects retrieved by the enclosed query and returns the value as an integer.
+## 2 示例
 
-## 2 Examples
-
-This query returns a count of all the placed orders:
+此查询返回所有已放置订单的数量：
 
 ```java
-count(//Sales.Order)
+计数(/Sales.order)
 ```
 
-This query returns a count of all the orders placed by a customer named "Jansen":
+此查询返回一个名叫"Jansen"的客户下达的所有订单的数量：
 
 ```java
-count(//Sales.Order[Sales.Customer_Order/Sales.Customer/Name = 'Jansen'])
+计数(//Sales.Order[Sales.Customer_Order/Sales.Customer/Name = 'Jansen'])
 ```
