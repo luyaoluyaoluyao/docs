@@ -1,128 +1,128 @@
 ---
-title: "Starting Microflows"
-parent: "page-concepts"
+title: "マイクロフローを開始中"
+parent: "page-コンセプト"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix allows for microflows to be triggered in pages by a variety of widgets. These widgets share a set of properties that determine the conditions in which the microflow is run. Listed below are all the widgets that can directly trigger microflows. Also listed are the events that will cause the microflow to trigger, in addition to the object that can be passed to the triggered microflow.
+Mendixでは、さまざまなウィジェットによってページでマイクロフローをトリガーすることができます。 これらのウィジェットは、マイクロフローが実行される条件を決定する一連のプロパティを共有します。 以下に、直接マイクロフローをトリガーできるすべてのウィジェットを示します。 また、トリガーされたマイクロフローに渡すことができるオブジェクトに加えて、マイクロフローをトリガーさせるイベントもリストされています。
 
-| Widget                                                          | Event/Property | Available Parameter                                                                                     |
-| --------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
-| Action button (data view)                                       | On click       | Data view object                                                                                        |
-| Data view                                                       | Data source    | Object of the data view containing this data view                                                       |
-| Action button (grid)<sup><a name="ref1" href="#fn1">1</a></sup> | On click       | Grid selection or clicked row (as an object or as a list, depending on the [selection mode](data-grid)) |
-| Reference set selector                                          | On change      | Data view object                                                                                        |
-| Input widget<sup><a name="ref2" href="#fn2">2</a></sup>         | On change      | Data view object                                                                                        |
-| Input widget                                                    | On enter       | Data view object                                                                                        |
-| Input widget                                                    | On leave       | Data view object                                                                                        |
-| Image viewer                                                    | On click       | Image viewer object                                                                                     |
-| Action button                                                   | On click       | Enclosing data view object, if available                                                                |
-| Reference selector                                              | Data source    | Data view object                                                                                        |
+| ウィジェット                                                     | イベント/プロパティ | 利用可能なパラメータ                                                |
+| ---------------------------------------------------------- | ---------- | --------------------------------------------------------- |
+| アクションボタン（データ表示）                                            | クリック時      | データビューオブジェクト                                              |
+| データビュー                                                     | データソース     | このデータビューを含むデータビューのオブジェクト                                  |
+| アクションボタン (グリッド)<sup><a name="ref1" href="#fn1">1</a></sup> | クリック時      | グリッド選択またはクリック行 (オブジェクトまたはリストとして、 [選択モード](data-grid) に応じて) |
+| リファレンスセットセレクター                                             | 変更時        | データビューオブジェクト                                              |
+| Input widget<sup><a name="ref2" href="#fn2">2</a></sup>    | 変更時        | データビューオブジェクト                                              |
+| Input widget                                               | 入力時        | データビューオブジェクト                                              |
+| Input widget                                               | 休暇中        | データビューオブジェクト                                              |
+| 画像ビューアー                                                    | クリック時      | 画像ビューアオブジェクト                                              |
+| アクションボタン                                                   | クリック時      | 利用可能な場合はデータ表示オブジェクトを囲んでいます                                |
+| 参照選択                                                       | データソース     | データビューオブジェクト                                              |
 
 <small><sup><a name="fn1" href="#ref1" title="Jump back to footnote 1 in the text.">1</a></sup> The following grid widgets have grid action buttons: *data grid*; *template grid*; and *reference set selector*.</small><br/>
 <small><sup ><a name="fn2" href="#ref2" title="Jump back to footnote 2 in the text.">2</a></sup> The following widgets are input widgets: *check box*; *date picker*; *drop-down*; *text area*; and *text box*.</small>
 
-## 2 Microflow
+## 2 マイクロフロー
 
-This is the microflow that will be executed. Its parameters should match the available arguments.
+これが実行されるマイクロフローです。 パラメータは利用可能な引数と一致する必要があります。
 
 {{% alert type="success" %}}
 
-You can create a new microflow by clicking 'Select...' and then 'New'. Modeler will generate a microflow with parameters matching all available arguments. If a parameter is not used it can simply be deleted.
+新しいマイクロフローを作成するには、format@@0をクリックしてからformat@@1をクリックします。 モデラーは、利用可能なすべての引数に一致するパラメータを持つマイクロフローを生成します。 パラメータが使用されていない場合は、単に削除することができます。
 
 {{% /alert %}}
 
-## 3 Microflow arguments
+## 3つのマイクロフロー引数
 
-The arguments sent to the microflow are automatically configured based on the parameters of the selected microflow and the available arguments. Which arguments are available depends on the widget calling the microflow. For a full listing consult the table above. Additionally, if the widget calling a microflow is contained inside a nested data view, then the object of the enclosing data view is also available.
+マイクロフローに送信される引数は、選択したマイクロフローのパラメータと利用可能な引数に基づいて自動的に構成されます。 利用可能な引数は、マイクロフローを呼び出すウィジェットによって異なります。 完全なリストについては、上記の表を参照してください。 さらに、マイクロフローを呼び出すウィジェットがネストされたデータ ビュー内に含まれている場合は、囲むデータ ビューのオブジェクトも使用できます。
 
 {{% alert type="info" %}}
 
-For Mendix version 7.19.0 and above, in addition to passing the object of the enclosing data view, objects from the data views above that one all the way up to the top of page can also be passed.
+Mendix バージョン 7.19 の場合。 上の図は囲まれたデータビューのオブジェクトを渡すだけでなく オブジェクトは、ページの先頭までのデータビューからも渡すことができます。
 
 {{% /alert %}}
 
-The arguments available to a data or template grid control bar button are determined by the selection mode of the grid and the parameters of the selected microflow. Single selection results in the selected object being passed to the microflow if the microflow has an object parameter. If the microflow has an object list parameter, all the pages will be passed instead, ignoring the selection. Simple multi-selection allows for both all pages and selection, which defaults to selection. This can be configured via the drop-down menu in the microflow settings page.
+データまたはテンプレートグリッドコントロールバーボタンに使用できる引数は、グリッドの選択モードと選択されたマイクロフローのパラメータによって決定されます。 1つの選択により、microflow にオブジェクトパラメータがある場合、選択したオブジェクトがマイクロフローに渡されます。 microflow にオブジェクトリストパラメータがある場合、選択を無視してすべてのページが渡されます。 単純なマルチ選択により、すべてのページと選択の両方が可能になり、デフォルトで選択されます。 これは、マイクロフローの設定ページのドロップダウンメニューから構成できます。
 
-## 4 Execution
+## 4 実行
 
-### 4.1 Microflow Call Type
+### 4.1 マイクロフロー通話タイプ
 
-This property indicates whether the connected microflow is executed synchronously or asynchronously. With synchronously executed microflows the microflow is started and the client waits for the result. With asynchronously called microflows the microflow is started on the server but the client does not wait for the result. It will check the server every ten seconds to see whether the microflow is done executing.
+このプロパティは、接続されたマイクロフローが同期的に実行されるか非同期的に実行されるかどうかを示します。 同期的に実行されたマイクロフローでは、マイクロフローが開始され、クライアントは結果を待ちます。 非同期のマイクロフローと呼ばれる場合、マイクロフローはサーバー上で開始されますが、クライアントは結果を待たずに実行されます。 10秒ごとにサーバーをチェックして、マイクロフローが実行されているかどうかを確認します。
 
 {{% alert type="warning" %}}
 
-Set the duration only to asynchronous if you experience problems. Sometimes if a request takes too long to handle, the request will be sent again by an (impatient) proxy server.
+問題が発生した場合にのみ、期間を非同期に設定します。 リクエストを処理するのに時間がかかりすぎる場合、リクエストは(せっかちの)プロキシサーバーによって再度送信されることがあります。
 
 {{% /alert %}}
 
-| Value        | Description                                                                                                |
-| ------------ | ---------------------------------------------------------------------------------------------------------- |
-| Synchronous  | The client waits until the microflow is done executing.                                                    |
-| Asynchronous | The client executes the microflow and starts polling to determine whether the microflow is done executing. |
+| 値   | 説明                                                       |
+| --- | -------------------------------------------------------- |
+| 同期  | クライアントは、マイクロフローが実行されるまで待ちます。                             |
+| 非同期 | クライアントはマイクロフローを実行し、マイクロフローが実行されるかどうかを判断するためにポーリングを開始します。 |
 
-_Default value_: Synchronous
+_デフォルト値_: 同期
 
-### 4.2 Show Progress Bar
+### 4.2 進捗バーを表示
 
-This property indicates whether a progress bar is shown during the execution of the microflow. The message shown in the progress bar can be set with the 'Progress message' property.
+このプロパティは、マイクロフローの実行中にプログレスバーが表示されるかどうかを示します。 進行状況バーに表示されるメッセージは、format@@0プロパティで設定できます。
 
-| Value        | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| None         | No progress bar is shown.                                                       |
-| Non-Blocking | A progress bar is shown, but the end user can continue working.                 |
-| Blocking     | A progress bar is shown and the end user must wait until the microflow is done. |
+| 値     | 説明                                           |
+| ----- | -------------------------------------------- |
+| なし    | 進捗バーが表示されていません。                              |
+| 非ブロック | プログレスバーが表示されますが、エンドユーザーは作業を続けることができます。       |
+| ブロック  | 進捗バーが表示され、エンドユーザーはマイクロフローが完了するまで待機する必要があります。 |
 
-### 4.3 Progress Message
+### 4.3 進捗メッセージ
 
-The progress message is shown along with the progress bar if the progress bar is either non-blocking or blocking (see above).
+プログレスバーがブロックされていない、またはブロックされている場合、プログレスバーと共に進捗メッセージが表示されます(上記参照)。
 
-## 5 Confirmation
+## 5つの確認
 
-If a microflow is triggered by a button you have the option to ask for confirmation before proceeding with the microflow. This is useful in cases where an operation modifies or deletes a lot of data or when it takes a lot of time to complete. The user will be prompted with a question whether he/she wants to continue with this operation.
+ボタンによってマイクロフローがトリガーされる場合は、マイクロフローに進む前に確認を求めるオプションがあります。 これは、操作が多くのデータを変更または削除する場合や、完了に多くの時間がかかる場合に便利です。 ユーザーは、この操作を続行するかどうかを尋ねられます。
 
-Note: the title of the confirmation pop-up is determined by a system text (category 'Message dialog title').
+注:確認ポップアップのタイトルはシステムテキスト(カテゴリ「メッセージダイアログのタイトル」)によって決定されます。
 
-### 5.1 Ask Confirmation
+### 5.1 確認確認
 
-Here you can specify whether you want to ask for confirmation or not.
+ここでは確認を求めるかどうかを指定できます。
 
-_Default value_: No
+_デフォルト値_: いいえ
 
-### 5.2 Question
+### 5.2 質問
 
-This is the question that you want to show to the user. For example, "Are you sure you want to empty the trash can?".
+これはユーザーに表示したい質問です。 たとえば、「ゴミ箱を空にしてもよろしいですか？」などです。
 
-### 5.3 Proceed Button Caption
+### 5.3 ボタンのキャプションを続行する
 
-This is the caption for the button that proceeds with the execution of the microflow. For example, "Empty trash can"
+これは、マイクロフローの実行を行うボタンのキャプションです。 例えば、「ゴミ箱を空にする」など。
 
-### 5.4 Cancel Button Caption
+### 5.4 キャンセルボタンの図表番号
 
-This is the caption for the button that cancels the execution of the microflow. For example, "Cancel".
+これは、マイクロフローの実行をキャンセルするボタンのキャプションです。 例えば、「キャンセル」です。
 
-## 6 Advanced
+## 6つの高度な機能
 
-### 6.2 Maintain Selection After Microflow (Only for Grid Microflow Buttons)
+### 6.2 マイクロフロー後の選択を維持する (グリッドマイクロフローボタンのみ)
 
-This property specifies whether the selection of the data or template grid should be maintained after executing the microflow.
+このプロパティは、マイクロフローの実行後にデータまたはテンプレート グリッドの選択を維持するかどうかを指定します。
 
-_Default value:_ No
+_デフォルト値:_ いいえ
 
-### 6.2 Abort on Validation Errors
+### 6.2 検証エラーを中断する
 
-For microflows that are used within a data view, you can specify whether you want to perform page validations before executing the microflow. There are two kind of page validations:
+データ ビュー内で使用されるマイクロフローの場合、マイクロフローを実行する前にページ検証を実行するかどうかを指定できます。 2種類のページバリデーションがあります。
 
-1.  Required: the input field must be given a value.
-2.  Maximum length: the input field must not exceed a given length.
+1.  必須: 入力フィールドに値を与える必要があります。
+2.  最大長さ:入力フィールドが指定された長さを超えてはいけません。
 
-By using this property you can perform page validations _before_ executing the microflow. If the validations fail, the microflow will not be executed.
+このプロパティを使用することで、 _マイクロフローを実行する前に_ ページの検証を実行できます。 検証に失敗すると、マイクロフローは実行されません。
 
-| Value                | Description                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------- |
-| Yes                  | This will prevent the microflow from executing on all validation errors.                    |
-| Only for this widget | This will prevent the microflow from executing on validation errors of the specific widget. |
-| No                   | The microflow will always be executed.                                                      |
+| 値          | 説明                                              |
+| ---------- | ----------------------------------------------- |
+| はい         | これにより、マイクロフローがすべての検証エラーで実行されることを防ぎます。           |
+| このウィジェットのみ | これにより、マイクロフローが特定のウィジェットの検証エラーに対して実行されないようになります。 |
+| いいえ        | マイクロフローは常に実行されます。                               |
 
-_Default value:_ Yes
+_デフォルト値:_ はい
