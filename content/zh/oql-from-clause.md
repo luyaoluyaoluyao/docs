@@ -1,7 +1,13 @@
 ---
 title: "来自条款的 OQL"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-from-clause.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -19,13 +25,13 @@ FROM
     {
         { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } } JOIN
         entity_path [ [ AS ] from_alias ]
-        ON <constraint>
+        [ ON <constraint> ]
     } [ ,...n ]
 ```
 
 ## 2 实体名称
 
-这指定了必须从其中检索数据的实体。
+这指定了必须从其中检索数据的实体。 实体名称可以在双引号中封装。 如果实体名称是一个保留的 OQL 单词(如 `订单` 或 `组`)，则必须使用双引号。
 
 ## 3 ( sub_oql_查询)
 
@@ -53,6 +59,8 @@ FROM
 这指定了要加入的实体以及从 `FROM` 条款中早先定义的实体到这个实体的路径。
 
 路径 `Crm.Customer/Crm.Customer_Address/Crm.Address` 定义了一个从早先定义的实体 **Crm.客户** 到新实体 **Crm.Address** 的路径。
+
+与 `entity_name`相似，可以使用双引号。
 
 ### 4.2 \[ on \<constraint\>\]
 
