@@ -1,7 +1,13 @@
 ---
 title: "OQL From Clause"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-from-clause.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -19,13 +25,13 @@ FROM
     {
         { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } } JOIN
         entity_path [ [ AS ] from_alias ]
-        ON <constraint>
+        [ ON <constraint> ]
     } [ ,...n ]
 ```
 
 ## 2 entity_name
 
-This specifies the entity from which data must be retrieved.
+This specifies the entity from which data must be retrieved. The entity name can be optionally encapsulated in double quotes. If the entity name is a reserved OQL word (like `Order` or `Group`), double quotes are mandatory.
 
 ## 3 ( sub_oql_query )
 
@@ -53,6 +59,8 @@ The syntax is as follows:
 This specifies the entity to join and the path from an earlier defined entity in the `FROM` clause to this entity.
 
 The path `Crm.Customer/Crm.Customer_Address/Crm.Address` defines a path from the earlier defined entity **Crm.Customer** to the new entity **Crm.Address**.
+
+Similar to `entity_name`, double quotes can be used.
 
 ### 4.2 \[ ON \<constraint\> \]
 
