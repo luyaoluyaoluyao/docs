@@ -1,109 +1,109 @@
 ---
 title: "Mendix Runtime"
 tags:
-  - "runtime"
-  - "runtime server"
-  - "mendix client"
-  - "cluster leader"
+  - "ランタイム:"
+  - "ランタイムサーバー"
+  - "mendixクライアント"
+  - "クラスターリーダー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The Mendix Runtime is effectively an interpreter which "runs" a Mendix model and serves pages to the user.
+Mendix Runtimeは、実質的にMendixモデルを実行し、ユーザーにページを提供するインタプリタです。
 
-Each patch version of Mendix comes with its own version of the runtime which implements the features which are available in that version of Mendix. For example, runtimes for Mendix 8.4.1 and 8.4.2 are different and can only run Mendix apps built for that version.
+Mendixの各パッチバージョンには、Mendixのバージョンで利用可能な機能を実装したランタイムの独自のバージョンが付属しています。 たとえば、Mendix 8.4.1 と 8.4.2 のランタイムは異なり、そのバージョン用にビルドされた Mendix アプリのみを実行できます。
 
-## 2 Runtime Overview
+## 2ランタイムの概要
 
-The Mendix runtime consists of two parts: the [Runtime Server](runtime-server) and the [Mendix Client](mendix-client). The relationship between the two is shown in the chart below.
+Mendix ランタイムは、 [Runtime Server](runtime-server) と [Mendix Client](mendix-client) の2つの部分で構成されています。 両者の関係は下図に示されています。
 
-The Runtime Server is launched on a cloud platform, executes microflows, and connects to files, the relational database, and any other required services. It waits to be contacted by the Mendix Client. The Runtime Server is described in more detail in [Runtime Server](runtime-server).
+Runtime Serverはクラウドプラットフォーム上で起動され、マイクロフローを実行し、ファイル、リレーショナルデータベース、およびその他の必要なサービスに接続します。 Mendixクライアントから連絡を受けるのを待ちます。 Runtime Server については、 [Runtime Server](runtime-server) の詳細を参照してください。
 
-The Mendix Client is started by the end-user. This can be within a web browser, or on another supported device. If it is in online mode, it starts a session with the Runtime Server which may or may not require authentication. The Runtime Server records the session details in the database so that the Mendix Client can make requests. The Mendix Client is described in more detail in [Mendix Client](mendix-client).
+Mendix クライアントはエンドユーザーによって開始されます。 これは、Webブラウザまたは他のサポートされているデバイス内にすることができます。 オンラインモードの場合は、認証を必要としない場合がありますが、Runtime Serverでセッションを開始します。 Runtime Serverは、Mendixクライアントがリクエストできるように、データベース内のセッションの詳細を記録します。 Mendix Client は、 [Mendix Client](mendix-client) で詳細に説明されています。
 
-The end-user interacts with the Mendix Client which then makes requests to the Runtime Server to process data or perform server-side functions (for example, microflows). At the end of the request, all state (including uncommitted data) is passed back to the Mendix Client. You can find more details of how this communication takes place in [Communication Patterns in the Mendix Runtime](communication-patterns).
+エンドユーザーはMendixクライアントとやりとりし、次にRuntime Serverにデータを処理したり、サーバー側の機能(例えばマイクロフロー)を実行したりするように要求を行います。 リクエストが終わると、すべての状態 (コミットされていないデータを含む) が Mendix クライアントに戻されます。 この通信がどのように行われるかの詳細については、Mendix Runtime [のコミュニケーションパターン](communication-patterns) を参照してください。
 
-Passing state from the Runtime Server to the Mendix Client enables the Runtime Server to be stateless, which means that any Runtime Server instance can respond to a request from the Mendix Client. A load balancer decides which Runtime Server instance will respond to a request. When an end-user session ends, the Runtime Server removes references to that session.
+Runtime ServerからMendixクライアントに状態を渡すと、Runtime Serverはステートレスになります。 これは、Runtime ServerインスタンスがMendixクライアントからのリクエストに応答できることを意味します。 ロードバランサがリクエストに応答するランタイムサーバーインスタンスを決定します。 エンドユーザーセッションが終了すると、Runtime Serverはそのセッションへの参照を削除します。
 
-Where there is more than one instance of an app, one of the instances will be the *Cluster Leader*. The Runtime Server in that instance will be responsible for a number of activities which cannot easily be distributed. These include:
+1つのアプリに複数のインスタンスがある場合、1つのインスタンスは *クラスタリーダー* になります。 そのインスタンス内のRuntime Serverは、簡単に配布できない多くのアクティビティに対して責任を負います。 これらには以下が含まれます:
 
-* Session cleanup handling
-* Cluster node expiration handling
-* Background job expiration handling
-* Unblocking blocked users
-* Executing scheduled events
-* Performing database synchronization tasks
-* Clearing persistent sessions after a new deploy
+* セッションのクリーンアップ処理
+* クラスターノードの有効期限の処理
+* バックグラウンドジョブの有効期限の処理
+* ブロックを解除したユーザー
+* スケジュールされたイベントの実行
+* データベース同期タスクの実行
+* 新しいデプロイ後に永続的なセッションをクリアする
 
-More information on multiple instances is in [Clustered Mendix Runtime](clustered-mendix-runtime).
+複数のインスタンスに関する詳細は、 [Clustered Mendix Runtime](clustered-mendix-runtime) にあります。
 
-![An overview of the Mendix Runtime](attachments/runtime/runtime-overview.png)
+![Mendix ランタイムの概要](attachments/runtime/runtime-overview.png)
 
-Each of the components of the chart is described below:
+チャートの各構成要素は以下の通りです。
 
-### 2.1 External Services
+### 2.1 外部サービス
 
-External services provide data and other functions from outside your Mendix app. These can be external data sources like SAP, external display widgets like Google maps, or external data processing like IBM Watson machine learning. The Runtime Server communicates with these over HTTP(S) connections.
+外部サービスは、Mendixアプリの外部からデータやその他の機能を提供します。 これらはSAPのような外部データソース、Googleマップのような外部表示ウィジェット、またはIBMワトソンの機械学習のような外部データ処理である可能性があります。 Runtime Server はこれらの HTTP(S) 接続経由で通信します。
 
-### 2.2 Infrastructure
+### 2.2 インフラストラクチャ
 
-This is the hardware on which the Mendix app will be deployed. It is usually provided as Infrastructure as a Service (IaaS) which provides virtual machines in the public or private cloud. However, the infrastructure can also be physical machines running on-premises. Examples of infrastructure are Amazon Web Services (AWS), Microsoft Azure, or Windows Server machines.
+これは、Mendixアプリが展開されるハードウェアです。 通常、サービスとしてInfrastructure as a Service(IaaS)として提供され、パブリックまたはプライベートクラウドで仮想マシンを提供します。 しかし、インフラストラクチャは、オンプレミスで動作する物理的なマシンでもかまいません。 インフラストラクチャの例としては、Amazon Web Services (AWS)、Microsoft Azure、Windows Server マシンなどがあります。
 
-### 2.3 Files
+### 2.3 ファイル
 
-This is where files are stored which are part of the data used by the app. In particular it contains the value of *FileDocument* objects, including images, which are binary objects that are stored outside the database to avoid size and performance restrictions.
+これは、アプリで使用されるデータの一部であるファイルが格納される場所です。 特に画像を含む *FileDocument* オブジェクトの値が含まれています。 サイズやパフォーマンスの制限を避けるためにデータベース外に保存されるバイナリオブジェクトです
 
-### 2.4 Relational Database
+### 2.4 リレーショナルデータベース
 
-This is the database (or sometimes the schema of a shared database) which holds the objects as defined in the domain model(s) in the app.
+これは、アプリケーション内のドメインモデルで定義されているオブジェクトを保持するデータベース(または共有データベースのスキーマ)です。
 
-### 2.5 Platform
+### 2.5 プラットフォーム
 
-This is the operating system on which the Mendix app is running plus additional services, such as a database, which have been bound to the app.
+これは、Mendixアプリが実行されているオペレーティングシステムと、追加のサービスです。 例えばアプリと紐づけられているデータベースなどです
 
-### 2.6 Instance
+### 2.6 インスタンス
 
-Also called the **App Container**. This launches and exposes the Runtime Server. There may be only one instance, but to provide high availability and better performance there can be many instances.
+**App Container** とも呼ばれる。 これはランタイムサーバーを起動して公開します。 唯一の例があるかもしれませんが、高可用性とパフォーマンスを向上させるには、多くのインスタンスが存在する可能性があります。
 
-### 2.7 Runtime Server
+### 2.7 ランタイムサーバー
 
-This is the server side of the Mendix runtime. It is described in [Runtime Server](runtime-server).
+これが Mendix ランタイムのサーバー側です。 これは、 [Runtime Server](runtime-server) で説明されています。
 
-### 2.8 Load Balancer
+### 2.8 ロードバランサー
 
-The load balancer takes incoming requests from the Mendix Client and forwards them to a Runtime Server instance. It balances the load by making sure that requests are distributed evenly to the different instances. The Mendix Client communicates with the load balancer using HTTPS. Communication on the server side of the load balancer, to environment instances and CDN, is performed using HTTP.
+ロードバランサはMendixクライアントからの受信リクエストを受け取り、Runtime Serverインスタンスに転送します。 これは、要求が異なるインスタンスに均等に分散されることを確認することによって負荷をバランスさせます。 Mendix Client は、HTTPS を使用してロードバランサーと通信します。 ロードバランサのサーバ側、環境インスタンス、CDNへの通信はHTTPを使用して行われます。
 
-### 2.9 CDN Static Config
+### 2.9 CDN 静的設定
 
-The CDN (Content Delivery Network) contains static configuration information which is needed by the client. These include the files needed to start the Mendix Client from a browser, Cascading Style Sheets (css files) which define the app’s theme, and JavaScript files which define client-side logic.
+CDN (Content Delivery Network)には、クライアントが必要とする静的構成情報が含まれています。 これらには、Mendix クライアントをブラウザから起動するために必要なファイルが含まれます。 アプリのテーマを定義するカスケーディングスタイルシート (css ファイル) とクライアント側のロジックを定義する JavaScript ファイル。
 
 ### 2.10 Mendix Client
 
-This is the browser or device which allows the end-user to interact with the app. This can be a web browser, such as Chrome, or a mobile device, such as an iPhone. It typically has a screen, pointer device, and input device to allow end-users to use the app. The Mendix Client is described in [Mendix Client](mendix-client).
+これは、エンドユーザーがアプリとやり取りできるようにするブラウザまたはデバイスです。 これは、ChromeなどのWebブラウザ、またはiPhoneなどのモバイルデバイスである可能性があります。 通常、エンドユーザーがアプリを使用できるように、画面、ポインタデバイス、および入力デバイスを備えています。 Mendix Client は [Mendix Client](mendix-client) で説明されています。
 
-## 3 Licensing
+## 3 ライセンス
 
-You need a license to run an application in production mode. Without a license, the Runtime Server goes to sleep after a couple of hours. Information on licensing Mendix apps can be found in [Licensing Apps](/developerportal/deploy/licensing-apps-outside-mxcloud).
+本番モードでアプリケーションを実行するにはライセンスが必要です。 ライセンスがなければ、Runtime Serverは数時間後にスリープ状態になります。 Mendix アプリのライセンスに関する情報は、 [Licensing Apps](/developerportal/deploy/licensing-apps-outside-mxcloud) にあります。
 
-## 4 APIs
+## 4 API
 
-You can extend the functionality of the Runtime Server by writing Java actions. For more information,  see the [Runtime API](/apidocs-mxsdk/apidocs/#runtime) section of *API Documentation*.
+Javaアクションを書くことで、Runtime Serverの機能を拡張できます。 詳細については、 [API ドキュメント](/apidocs-mxsdk/apidocs/#runtime) の *Runtime API* セクションを参照してください。
 
 {{% alert type="info" %}}
 If the app contains published services, links to available API documentation such as [OpenAPI documentation](open-api) for [published REST services](published-rest-services), links to [published OData services](published-odata-services), and WSDLs for [published web services](published-web-services), are available on the URL path `/api-doc` (for example: `https://myapp.mendixcloud.com/api-doc/`).
 {{% /alert %}}
 
-## 5 Main Documents in This Category
+## このカテゴリ内の5つのメインドキュメント
 
-* [Runtime Server](runtime-server) – describes the workings of the Runtime Server
-* [Mendix Client](mendix-client) – describes the workings of the Mendix Client
-* [Runtime Deployment](runtime-deployment) – describes how the Mendix runtime is deployed to the cloud
-* [Clustered Mendix Runtime](clustered-mendix-runtime) – describes the behavior and impact of running Mendix Runtime as a cluster
-* [Runtime Customization](custom-settings) – presents advanced options for customizing Runtime server settings
-* [Data Storage](data-storage) – presents information on data storage configuration options, such as the following:
-* [Date & Time Handling](datetime-handling-faq) – presents details on how to configure Runtime Server operations for the user's date and time
-* [Logging](logging) – discusses the various log levels for Runtime
-* [Monitoring Mendix Runtime](monitoring-mendix-runtime) – describes the Mendix Runtime monitoring actions that are supported (such as [state statistics](monitoring-mendix-runtime#state) and [thread stack traces](monitoring-mendix-runtime#thread)).
-* [Objects & Caching](objects-and-caching) – presents details on what happens when objects are loaded from the database, cached, retrieved, changed, and committed
-* [Mendix Runtime & Java](runtime-java) – explains some of the basic concepts of Java in Mendix
-* [Communication Patterns in the Mendix Runtime](communication-patterns) – outlines the communication patterns used by the Mendix runtime
+* [Runtime Server](runtime-server) – Runtime Server の仕組みを説明する
+* [Mendix Client](mendix-client) – Mendix Client の動作を説明
+* [ランタイムデプロイ](runtime-deployment) - Mendix ランタイムがクラウドにどのようにデプロイされるかを説明します
+* [クラスター付きMendix Runtime](clustered-mendix-runtime) – クラスターとしてのMendix Runtimeの動作と影響を説明する
+* [Runtime Customization](custom-settings) - Runtime Serverの設定をカスタマイズするための高度なオプションを提示する
+* [Data Storage](data-storage) - 以下のようなデータストレージ設定オプションに関する情報を表示します:
+* [Date & Time Handling](datetime-handling-faq) - ユーザーの日付と時刻にRuntime Server操作を構成する方法の詳細を提示する
+* [ログ](logging) – ランタイムの様々なログレベルについて説明します。
+* [Monitoring Mendix Runtime](monitoring-mendix-runtime) – サポートされているMendix Runtime Monitoring actions ( [state statistics](monitoring-mendix-runtime#state) や [thread stack trace](monitoring-mendix-runtime#thread) など) を説明します。
+* [オブジェクト & キャッシュ](objects-and-caching) - オブジェクトがデータベースから読み込まれたときに何が起こるかの詳細を提示します。
+* [Mendix Runtime & Java](runtime-java) - Mendix の Java の基本概念のいくつかを説明する
+* [Mendix Runtime の通信パターン](communication-patterns) - Mendix Runtime で使用される通信パターンの概要を示す。
