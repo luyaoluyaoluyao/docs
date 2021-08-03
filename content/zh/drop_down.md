@@ -1,55 +1,55 @@
 ---
-title: "Drop-Down"
-parent: "input-widgets"
+title: "下拉列表"
+parent: "输入小部件"
 tags:
-  - "Drop-down"
+  - "下拉列表"
   - "input"
-  - "page"
-  - "widget"
-  - "enumeration"
+  - "页面"
+  - "小部件"
+  - "枚举数"
 aliases:
   - /refguide7/drop-down-widget.html
 ---
 
-A drop-down is an [input widget](input-widgets) that can be used to display and edit enumeration attributes. It should not be confused with a reference selector, which is used to select a object with which to fill an [association](associations).
+下拉是一个 [输入小部件](input-widgets) ，可用来显示和编辑枚举属性。 不应将它与参考选择器混为一谈，它被用来选择一个对象来填充 [关联](associations)。
 
 {{% alert type="info" %}}
 
  ![](attachments/pages/drop-down.png)
 
-This drop-down widget allows the user to select their favorite color.
+这个下拉小部件允许用户选择他们最喜欢的颜色。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## General Properties
+## 常规属性
 
-### Empty Option Caption
+### 空选项标题
 
-This property represents the caption for the empty option in the drop-down shown to the user. This is a translatable text. For more details, see [Translatable Texts](translatable-texts).
-
-{{% alert type="info" %}}
-
-Filling out the caption for an empty option improves the user experience of your application. It also helps screen-reader users to operate the application easily. For example, the drop-down that represents the color selection for a car could have a caption reading "Select a color".
-
-{{% /alert %}}
+此属性代表显示给用户的下拉菜单中空选项的标题。 这是一个可翻译的文本。 欲了解更多详情，请参阅 [可翻译文本](translatable-texts)。
 
 {{% alert type="info" %}}
 
-The empty option caption is available from Mendix 7.2.0.
+填写空选项的标题可以提高应用程序的用户体验。 它还帮助屏幕阅读器用户轻松地操作应用程序。 例如，代表一辆车颜色选择的下拉列表可以有一个标题读作“选择颜色”。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## Validation Properties
+{{% alert type="info" %}}
+
+空选项可从 Mendix 7.2.0获取。
+
+{{% /报警 %}}
+
+## 验证属性
 
 {{% snippet file="refguide7/Widget+Validation.md" %}}
 
-## Data Source Properties
+## 数据源属性
 
 {{% snippet file="refguide7/Attribute+Path+Property.md" %}}
 
-{{% snippet file="refguide7/Label+Property.md" %}}
+{{% snippet file="refguid7/Label+Property.md" %}}
 
-## Editability Properties
+## 编辑属性
 
 {{% snippet file="refguide7/Editable+Property.md" %}}
 
@@ -57,21 +57,21 @@ The empty option caption is available from Mendix 7.2.0.
 
 {{% snippet file="refguide7/Condition+Property.md" %}}
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-## Events Properties
+## 事件属性
 
 {{% snippet file="refguide7/On+Change+Event.md" %}}
 
-{{% snippet file="refguide7/On+Enter+event.md" %}}
+{{% snippet file="refguid7/On+Enter+event.md" %}}
 
 {{% snippet file="refguide7/On+Leave+Event.md" %}}
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -81,7 +81,7 @@ The empty option caption is available from Mendix 7.2.0.
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Read More
+## 阅读更多
 
-*   [Data View](data-view)
-*   [Attributes](attributes)
+*   [数据视图](data-view)
+*   [属性](attributes)
