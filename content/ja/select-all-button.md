@@ -1,17 +1,17 @@
 ---
-title: "Select All Button"
-parent: "control-bar"
+title: "すべてのボタンを選択"
+parent: "コントロール バー"
 ---
 
-The select all button allows the end-user to select all objects in a grid, or reference set selector. With the selection type property you can determine whether this button should select the objects on the current page, or the objects on all pages.
+format@@0 ボタンをクリックすると、エンドユーザーはグリッド内のすべてのオブジェクト、または参照セットセレクターを選択できます。 format@@0 プロパティを使用すると、このボタンが現在のページのオブジェクトを選択するか、すべてのページのオブジェクトを選択するかを指定できます。
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -23,22 +23,22 @@ The select all button allows the end-user to select all objects in a grid, or re
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-### Selection Type
+### 選択タイプ
 
-| Value       | Description                                                      |
-| ----------- | ---------------------------------------------------------------- |
-| Select page | Clicking on this button selects all objects on the current page. |
-| Select all  | Clicking on this button selects all objects.                     |
+| 値      | 説明                                       |
+| ------ | ---------------------------------------- |
+| ページを選択 | このボタンをクリックすると、現在のページ上のすべてのオブジェクトが選択されます。 |
+| すべて選択  | このボタンをクリックするとすべてのオブジェクトが選択されます。          |
 
 {{% alert type="warning" %}}
 
-Due to technical limitations, a button with the selection type "Select all" cannot be combined with Remove, Delete, or Select buttons. An Edit button always behaves as if the selection type is "Select page," regardless of the actual settings of the "Select all" button that had been used to select objects.
+技術的な制限により、選択タイプの「すべて選択」ボタンを削除、削除、または選択ボタンと組み合わせることはできません。 format@@0 ボタンは、選択タイプが "Select page" のように常に動作します。 オブジェクトを選択するために使用されていた「すべて選択」ボタンの実際の設定に関係なく。
 
 {{% /alert %}}
 
-_Default value:_ Select page
+_デフォルト値:_ ページを選択
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
