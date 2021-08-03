@@ -21,15 +21,11 @@ Java 概念列举如下。
 
 ![](attachments/mendix-runtime-java/4.jpg)
 
-### 2.2 PermGen
-
-[永久生成](https://docs.oracle.com/javase/7/docs/webnotes/tsg/TSG-VM/html/tooldescr.html#gblmm) (PermGen) 拥有类和库，这些类和库只在实际使用时才加载到 PermGen 。 它不是Java Heap 空间的一部分，在JavaScript中，它不再存在，代之以叫做Metadata的东西。 这些概念主要关系到您在项目的userlib目录中添加的库。 一旦它们在微流中被使用(通过 Java 通话)，它们将被添加到PermGen (Java 7 及前期)或元数据(Java 8)。 所以，如果你看到与这两个词有关的任何错误，你知道在哪里开始查找。
-
-### 2.3 应用
+### 2.2 应用
 
 另一个令人感兴趣的领域是堆栈。 除其他外，这是关于微流、域模型和其他Mendix特定信息的所有信息。 执行的任何微流也将最终进入堆栈(见上图中的 *线程堆栈*)。
 
-### 2.4 Heap、垃圾收集器和OOM错误
+### 2.3 Heap、垃圾收集器和OOM错误
 
 下一步是堆空间(Heap)。 但在我们这样做之前，让我们简短地讨论JVM的另一个重要部分：垃圾收集者。
 
@@ -57,7 +53,7 @@ GC 本身不负责防止内存错误 (OOM错误)。 例如，您可以无限期�
 
 紫外线和绿色长矛是小垃圾收藏。 红色部分的大量滴落是主要的垃圾收集。 这是一种健康的景象。
 
-### 2.5 应用程序服务器
+### 2.4 应用程序服务器
 
 最后是Mendix 云图，所有这些都在一起：
 
@@ -67,7 +63,7 @@ GC 本身不负责防止内存错误 (OOM错误)。 例如，您可以无限期�
 
 ## 3 阅读更多
 
-* [短暂对象 & 垃圾收集](transient-objects-garbage-collecting)
+* [不可持久的对象 & 垃圾收集](transient-objects-garbage-collecting)
 * [Java 内存使用](java-memory-usage)
 * [常见运行时间 & Java 错误](runtime-java-errors)
 
