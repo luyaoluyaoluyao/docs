@@ -2,9 +2,13 @@
 title: "表 (文档模板)"
 parent: "文档模板"
 aliases:
-  - /refguide7/Table+(document+template.html
-  - /refguide7/table-(document-template).html
+  - /refguide8/table-(document-template).html
+  - /refguide8/Table+(document+template.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table-document-template.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -14,7 +18,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918134.png)
 
 本表有四行和三栏。 最后一行包含另一个表的数据视图。
 
@@ -56,4 +60,4 @@ aliases:
 
 ## 4 个公共属性
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide8/name-property.md" %}}
