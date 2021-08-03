@@ -1,30 +1,30 @@
 ---
-title: "Object Type Decision"
-parent: "decisions"
+title: "オブジェクト型の決定"
+parent: "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 menu_order: 2
 tags:
   - "studio pro"
-  - "object type decision"
-  - "decisions"
+  - "オブジェクト型の決定"
+  - "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 aliases:
-  - /refguide/inheritance-split.html
+  - /ja/refguide/inherited from
 ---
 
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+この活性は、ナノフローではなく、マイクロフローでのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-An object type decision is an element that makes a choice based on the type of an object of a generalized entity. The output of the object type decision are the specialized entities that inherit from the generalized entity. For more information on specialization and generalization, see [Entities](entities).
+オブジェクト型の決定は、一般化されたエンティティのオブジェクトの型に基づいて選択を行う要素です。 オブジェクト タイプ決定の出力は、一般化されたエンティティから継承される特殊なエンティティです。 専門化と一般化の詳細については、 [エンティティ](entities) を参照してください。
 
-If you want to use the specialized type in the rest of the microflow you can use a [Cast](cast-object) activity.
+マイクロフローの残りの部分で特殊なタイプを使用する場合は、 [キャスト](cast-object) アクティビティを使用できます。
 
-## 2 Properties
+## 2つのプロパティ
 
-The object type decision properties consists of the following sections:
+オブジェクト タイプの決定プロパティは以下のセクションで構成されています:
 
-* [Common](#common)
+* [一般的な](#common)
 
 * [Input](#input)
 
@@ -32,19 +32,19 @@ The object type decision properties consists of the following sections:
 ![](attachments/decisions/object-type-decision-properties.png)
 {{% /image_container %}}
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-#### 2.1.1 Caption
+#### 2.1.1 図表番号
 
-For more information, see the [Caption](microflow-element-common-properties#caption) section in *Common Properties*.
+詳細については、 [Common Properties](microflow-element-common-properties#caption) の *図表番号* セクションを参照してください。
 
-### 2.2 Input Section {#input}
+### 2.2 入力セクション {#input}
 
-#### 2.2.1 Object
+#### 2.2.1 オブジェクト
 
-The input object contains an object of a generalized entity.
+入力オブジェクトには、一般化されたエンティティのオブジェクトが含まれます。
 
-For example, you have an entity **Student** and an entity **Professor** which have an entity **Member** as their generalization. You want to open a different page for **Professor** than for any other **Member**. The selected **Member** object is available in the parameter **SelectedMember** and is used as input to the object type decision. Note that there is no outgoing flow for **Student**. If an outgoing flow is missing, the closest generalization that has an outgoing flow is searched. In this case, this generalization is **Member**. The outgoing flow with the caption **(empty)** is followed when **SelectedMember** does not contain an object.
+たとえば、エンティティ **学生** とエンティティ **教授** がその一般化としてエンティティ **メンバー** を持っています。 他の **メンバー** とは別の **教授**のページを開きます。 選択された **メンバー** オブジェクトはパラメータ **SelectedMember** で使用でき、オブジェクト タイプの決定への入力として使用されます。 **学生** への流出はありませんのでご注意ください。 発信フローがない場合、発信フローを持つ最も近い一般化が検索されます。 この場合、この一般化は **メンバー** です。 **SelectedMember** がオブジェクトを含まない場合、キャプション **(空)** の出力フローが続く。
 
 ![](attachments/decisions/object-type-decision.png)
 
