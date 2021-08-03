@@ -1,316 +1,316 @@
 ---
-title: "On Click Event & Events Section"
-parent: "pages"
+title: "「イベント & イベント セクション」をクリックしてください"
+parent: "ページ"
 menu_order: 130
 tags:
   - "studio pro"
-  - "events section"
-  - "properties"
-  - "widget"
-  - "on click"
-  - "action"
-  - "on click event"
+  - "イベントセクション"
+  - "プロパティ"
+  - "ウィジェット"
+  - "クリック"
+  - "アクション"
+  - "クリックイベント"
 aliases:
-  - /refguide/opening-pages.html
-  - /refguide/starting-microflows.html
+  - /ja/refguide/opening-pages.html
+  - /ja/refguide/starting-microflows.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Events specify actions which can be triggered when the end-user interacts with a widget. This interaction can occur in a number of ways:
+イベントは、エンドユーザーがウィジェットとやり取りする際にトリガーされるアクションを指定します。 この相互作用はいくつかの方法で発生する可能性があります:
 
-* [On click](#on-click) – this is the most common interaction and can be used with many widgets
-* [On change](#on-change) – for input widgets
-* [On enter](#on-enter) – for input widgets
-* [On leave](#on-leave) – for input widgets
+* [](#on-click) をクリックすると、これは最も一般的な操作であり、多くのウィジェットで使用できます
+* [変更時](#on-change) – 入力ウィジェット用
+* [](#on-enter) - 入力ウィジェット用
+* [休暇時](#on-leave) – 入力ウィジェット用
 
-## 2 Triggering Actions
+## 2トリガーアクション
 
-### 2.1 On Click {#on-click}
+### 2.1 クリック時 {#on-click}
 
-An **On click** event specifies an event that is executed when a user clicks a widget. Often the **On click** property is a part of the **Events** section in properties. For example, you can specify that when a user clicks a customer's profile image, the page with this customer's details will open:
+An **On click** イベントは、ユーザーがウィジェットをクリックしたときに実行されるイベントを指定します。 多くの場合、 **をクリックする** プロパティは、プロパティの **イベント** セクションの一部です。 たとえば、ユーザーが顧客のプロファイル イメージをクリックすると、この顧客の詳細が表示されるページが開くように指定できます。
 
 {{% image_container width="350" %}}![](attachments/on-click-event/on-click-event-example.png)
 {{% /image_container %}}
 
-An on-click event is common for many widgets (for example, image, buttons, list view).
+オンクリックイベントは、多くのウィジェット(画像、ボタン、リストビューなど)で一般的です。
 
-The **On click** property specifies what [action](#actions) is executed when a user click a widget.
+**クリック時** プロパティは、ユーザーがウィジェットをクリックしたときにどの [アクション](#actions) が実行されるかを指定します。
 
-#### 2.1.1 Disabled During Action
+#### 2.1.1 アクション中に無効
 
-This property is only shown when **Call a microflow** or **Call a nanoflow** is selected as the on-click event. Selecting **Disabled during action** disables the button until the action is completed or failed.
+このプロパティは、 **マイクロフロー** を呼び出すか、 **ナノフローを呼び出す** がオンクリックイベントとして選択されている場合にのみ表示されます。 **** を選択すると、アクションが完了または失敗するまでボタンが無効になります。
 
-### 2.2 On Change {#on-change}
+### 2.2 変更時 {#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
 
-### 2.3 On Enter {#on-enter}
+### 2.3 入力時 {#on-enter}
 
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
 
-### 2.4 On Leave {#on-leave}
+### 2.4 退席時 {#on-leave}
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
 
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
+これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
 
-## 3 Event Actions {#actions}
+## 3つのイベントアクション {#actions}
 
-When an event is triggered, you can choose what action is triggered. Possible options are the following ones:
+イベントがトリガーされると、どのアクションがトリガーされるかを選択できます。 可能なオプションは以下のとおりです:
 
-* [Do nothing](#do-nothing) *(default)*
-* [Show a page](#show-page)
-* [Call a microflow](#call-microflow)
-* [Call a nanoflow](#call-nanoflow)
-* [Open link](#open-link)
-* [Create object](#create-object)
-* [Save changes](#save-changes)
-* [Cancel changes](#cancel-changes)
-* [Close page](#close-page)
-* [Delete](#delete)
+* [何もしない](#do-nothing) *(デフォルト)*
+* [ページを表示](#show-page)
+* [マイクロフローを呼び出す](#call-microflow)
+* [ナノフローを呼び出します。](#call-nanoflow)
+* [リンクを開く](#open-link)
+* [オブジェクトを作成](#create-object)
+* [変更を保存](#save-changes)
+* [変更をキャンセル](#cancel-changes)
+* [ページを閉じる](#close-page)
+* [削除](#delete)
 * [Synchronize](#synchronize)
-* [Sign out](#sign-out)
-* [Call workflow](#call-workflow)
-* [Show user task page](#show-user-task-page)
-* [Show workflow admin page](#show-workflow-page)
-* [Complete user task](#complete-task)
+* [サインアウト](#sign-out)
+* [コールワークフロー](#call-workflow)
+* [ユーザータスクページを表示](#show-user-task-page)
+* [ワークフロー管理ページを表示](#show-workflow-page)
+* [ユーザータスクを完了](#complete-task)
 
-### 3.1 Do Nothing {#do-nothing}
+### 3.1 何もしない {#do-nothing}
 
-No action is taken. This option is useful for setting up a page without defining the underlying functionality yet.
+アクションは実行されません。 このオプションは、基本機能をまだ定義せずにページを設定する場合に便利です。
 
-### 3.2 Show a Page {#show-page}
+### 3.2 ページを表示 {#show-page}
 
-The **Show a page** event opens the specified page. Select the page which opens using the options below:
+**ページ** イベントを表示すると、指定したページが開きます。 以下のオプションを使用して開くページを選択します。
 
-* **Page** – a [page](page) that should open.
+* **ページ** – 開くべき [ページ](page)。
 
-* **Page title** – the page you open can be given a unique title, depending on where you open it from. This allows you to re-use the same page for different purposes. For example, by setting the title to **New Customer** from one button and **Edit Customer** from another, you can use the same page for editing new and existing customers.
+* **ページタイトル** - 開いたページには、どこから開いたかに応じて、固有のタイトルを付けることができます。 これにより、異なる目的で同じページを再利用できます。 例えば、あるボタンから **新規顧客** にタイトルを設定し、別のボタンから **顧客を編集** に設定するとします。 同じページを使用して新規顧客と既存顧客を編集できます。
 
-    This option is activated by checking the **Override page title** check box in the **Edit** dialog box:
+    このオプションは、 **** ダイアログボックスの **ページタイトル** のチェックボックスにチェックを入れることで有効になります:
 
-    ![Page Title Property](attachments/on-click-event/page-title-property.png)
+    ![ページタイトルプロパティ](attachments/on-click-event/page-title-property.png)
 
-* **Page for specializations** – allows you to configure a different page for each specialization of the context object. If this action is placed inside a data view, it is possible to configure different page(s) for each specialization of the data view object. If this action is placed in a data grid, it is possible to configure different pages for each specialization of the data grid entity. This setting is not shown when there is not a context object or when the context object has no specializations.
+* **専門用ページ** – コンテキストオブジェクトの専門化ごとに異なるページを設定できます。 このアクションがデータ ビュー内に配置されている場合、データ ビュー オブジェクトの専門分野ごとに異なるページを構成することができます。 このアクションがデータ グリッドに配置されている場合、データ グリッド エンティティの専門化ごとに異なるページを構成することができます。 この設定は、コンテキストオブジェクトが存在しない場合や、コンテキストオブジェクトに専門性がない場合は表示されません。
 
-### 3.3 Call a Microflow {#call-microflow}
+### 3.3 マイクロフローを呼び出す {#call-microflow}
 
-The **Call a microflow** event executes the specified microflow.
+**microflow** イベントを呼び出すと、指定されたマイクロフローが実行されます。
 
 {{%alert type="info" %}}
 
-When setting **Call a microflow** as an action for the **On change**, **On enter**, or **On leave** event of a widget, note that microflows require some time to complete. Any changes to the current form made in the meantime (for example, changing values in input widgets) will be overwritten by the results of the microflow. Therefore, it is not recommended to change entities/attributes on the current page in a microflow triggered by an **On change**, **On enter**, or **On leave** event.
+When setting **Call a microflow** as an action for the **On change**, **On enter**, or **On leave** event of a widget, note that microflows require some time to complete. その間に行われた現在のフォームへの変更（例えば、 入力ウィジェットの値を変更する)は、マイクロフローの結果によって上書きされます。 Therefore, it is not recommended to change entities/attributes on the current page in a microflow triggered by an **On change**, **On enter**, or **On leave** event.
 
 {{%/alert %}}
 
-The following settings are specific for this event:
+以下の設定は、このイベント固有のものです:
 
-#### 3.3.1 Microflow {#microflow}
+#### 3.3.1 マイクロフロー {#microflow}
 
-The [microflow](microflow) that should be executed.
+実行すべき [microflow](microflow)。
 
-#### 3.3.2 Microflow Settings
+#### 3.3.2 マイクロフローの設定
 
-**Microflow settings** opens a dialog box enabling you to specify what parameters will be passed to the microflow and how the microflow will be run.
+**マイクロフローの設定** ダイアログボックスを開き、マイクロフローに渡すパラメータとマイクロフローの実行方法を指定できます。
 
-![Microflow settings dialog](attachments/on-click-event/microflow-settings.png)
+![マイクロフロー設定ダイアログ](attachments/on-click-event/microflow-settings.png)
 
 ##### 3.3.2.1 Microflow
 
-This duplicates the [Microflow](#microflow) specified above.
+これは、上記で指定した [Microflow](#microflow) を複製します。
 
-##### 3.3.2.2 Microflow Arguments
+##### 3.3.2.2 Microflow 引数
 
-**Microflow arguments** are automatically configured based on the parameters of the selected microflow and the available arguments. In general arguments are taken from any enclosing data widget. If the data widget enclosing the widget calling a microflow is inside another (nested) data widget, then objects from that data widget and any others in which it is nested can also be passed.
+**マイクロフロー引数** は、選択したマイクロフローと利用可能な引数のパラメータに基づいて自動的に設定されます。 一般的な引数は、囲むデータウィジェットから取得されます。 マイクロフローを呼び出すウィジェットを囲むデータ ウィジェットが別の(ネストされた)データ ウィジェットの中にある場合。 そして、データ ウィジェットやネストされているその他のオブジェクトも渡すことができます。
 
-If the microflow is triggered within a grid and has an object list parameter, the objects which are passed in the list depend on the selection mode of the grid. Simple multi-selection allows for either all rows or  selection, and defaults to selection. This can be configured via the drop-down in the microflow settings page.
+グリッド内でマイクロフローがトリガーされ、オブジェクト リスト パラメーターがある場合。 リストに渡されるオブジェクトは、グリッドの選択モードによって異なります。 単純な複数選択により、すべての行または選択が可能になり、デフォルトでは選択が可能になります。 これは、マイクロフローの設定ページのドロップダウンから構成できます。
 
-##### 3.3.2.3 Microflow Call Type
+##### 3.3.2.3 マイクロフロー通話タイプ
 
-**Microflow call type** specifies whether the microflow is executed synchronously or asynchronously.
+**Microflow call type** は、マイクロフローが同期的に実行されるか非同期的に実行されるかどうかを指定します。
 
-* **Synchronous** *(default)* – The client waits until the microflow is done executing
+* **同期** *(デフォルト)* – マイクロフローが実行されるまでクライアントは待機します。
 
-* **Asynchronous**
+* **非同期**
 
-    * The client executes the microflow but does not wait for the result
+    * クライアントはマイクロフローを実行しますが、結果を待つことはありません
 
-    * The client checks the server every ten seconds to see whether the microflow is done executing
+    * クライアントは10秒ごとにサーバーをチェックし、マイクロフローが実行されているかどうかを確認します。
 
-    * Only set the call type to asynchronous if you experience problems — sometimes, if a request takes too long to handle, the request will be sent again by an (impatient) proxy server
+    * 問題が発生した場合にのみ、コールタイプを非同期に設定してください。 リクエストの処理に時間がかかりすぎる場合、リクエストは(待ち受けている)プロキシサーバーによって再度送信されます。
 
-##### 3.3.2.4 Show Progress Bar
+##### 3.3.2.4 プログレスバーを表示
 
-**Show progress bar** specifies whether a progress bar is shown during the execution of the microflow. The message shown in the progress bar can be set with the 'Progress message' property.
+**進捗バーを表示する** は、マイクロフローの実行中にプログレスバーを表示するかどうかを指定します。 進行状況バーに表示されるメッセージは、format@@0プロパティで設定できます。
 
-| Value        | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| None         | No progress bar is shown.                                                       |
-| Non-Blocking | A progress bar is shown, but the end-user can continue working.                 |
-| Blocking     | A progress bar is shown and the end-user must wait until the microflow is done. |
+| 値     | 説明                                           |
+| ----- | -------------------------------------------- |
+| なし    | 進捗バーが表示されていません。                              |
+| 非ブロック | プログレスバーが表示されますが、エンドユーザーは作業を続けることができます。       |
+| ブロック  | 進捗バーが表示され、エンドユーザーはマイクロフローが完了するまで待機する必要があります。 |
 
 {{% alert type="warning" %}}
-Non-blocking progress bars are shown with a delay of half a second. If the execution of your microflow takes less than half a second, the progress bar will not be shown at all. Blocking progress bars are shown immediately.
+ノンブロッキングのプログレスバーは、0.5秒の遅延で表示されます。 マイクロフローの実行が 0.5 秒未満の場合、プログレスバーはまったく表示されません。 進捗バーのブロックはすぐに表示されます。
 {{% /alert %}}
 
-##### 3.3.2.5 Progress Message
+##### 3.3.2.5 進行中のメッセージ
 
-If a progress bar is shown, **Progress message** is the text which is shown next to the progress bar.
+プログレスバーが表示されている場合、 **プログレスメッセージ** はプログレスバーの横に表示されるテキストです。
 
-##### 3.3.2.6 Ask Confirmation
+##### 3.3.2.6 確認する
 
-If **Ask Confirmation** is set to **Yes**, the end-user will be asked for confirmation before proceeding with the microflow. This is useful in cases where an operation modifies or deletes a lot of data or when it takes a lot of time to complete.
+**確認** が **はい**に設定されている場合、マイクロフローに進む前にエンドユーザーが確認を求められます。 これは、操作が多くのデータを変更または削除する場合や、完了に多くの時間がかかる場合に便利です。
 
-The user will be prompted with the text set in [Question](#question), below. The window title of the confirmation pop-up is determined by a system text (category 'Message dialog title').
+以下の [Question](#question)にあるテキストセットを入力するよう求められます。 確認ポップアップのウィンドウのタイトルは、システムテキスト(カテゴリ「メッセージダイアログのタイトル」)によって決定されます。
 
-The default value is **No**.
+デフォルト値は **No** です。
 
-##### 3.3.2.7 Question {#question}
+##### 3.3.2.7 質問 {#question}
 
-If **Ask confirmation** is set to yes, **Question** is what is shown to the user. Ensure that the question asked is clear and that the captions set on the buttons are unambiguous.
+**Ask confirmation** が yes に設定されている場合、 **Question** は、ユーザに表示されるものです。 質問された質問が明確で、ボタンに設定されたキャプションが明確であることを確認してください。
 
-For example, *Are you sure you want to empty the trash can?*
+例えば、 *ゴミ箱を空にしてもよろしいですか？*
 
-##### 3.3.2.8 Proceed Button Caption
+##### 3.3.2.8 ボタンの図表番号
 
-If **Ask confirmation** is set to yes, this is the caption for the button that proceeds with the execution of the microflow.
+**Ask confirmation** が yes に設定されている場合、これは、マイクロフローの実行に続くボタンのキャプションです。
 
-For example, *Empty it*.
+例えば、 *空* です。
 
-##### 3.3.2.9 Cancel Button Caption
+##### 3.3.2.9 キャンセルボタンの図表番号
 
-If **Ask confirmation** is set to yes, this is the caption for the button that cancels the execution of the microflow.
+**Ask confirmation** が yes に設定されている場合、これは、マイクロフローの実行をキャンセルするボタンのキャプションです。
 
-For example, *Do not empty*.
+例えば、 ** を空にしないでください。
 
-##### 3.3.2.10 Maintain Selection After Microflow
+##### 3.3.2.10 マイクロフロー後の選択を維持
 
-For buttons which call a microflow from inside a grid, **Maintain selection after microflow** specifies whether the current selection of rows in the grid should be maintained after executing the microflow.
+グリッド内からマイクロフローを呼び出すボタン **マイクロフロー後の選択の維持** は、マイクロフローの実行後にグリッド内の行の現在の選択を維持するかどうかを指定します。
 
-##### 3.3.2.11 Abort on Validation Errors
+##### 3.3.2.11 検証エラー時に中断する
 
-For microflows that are used within a data widget, setting **Abort on Validation Errors** to **Yes** forces widget validations to be performed _before_ executing the microflow. If the validations fail, the microflow will not be executed.
+For microflows that are used within a data widget, setting **Abort on Validation Errors** to **Yes** forces widget validations to be performed _before_ executing the microflow. 検証に失敗すると、マイクロフローは実行されません。
 
-| Value                | Description                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| Yes *(default)*      | This will prevent the microflow from executing if there are any validation errors on the page.       |
-| Only for this widget | This will prevent the microflow from executing if there are validation errors in the current widget. |
-| No                   | The microflow will always be executed.                                                               |
+| 値            | 説明                                               |
+| ------------ | ------------------------------------------------ |
+| はい *(デフォルト)* | これにより、ページに検証エラーが発生した場合、マイクロフローが実行されなくなります。       |
+| このウィジェットのみ   | これにより、現在のウィジェットで検証エラーが発生した場合、マイクロフローが実行されなくなります。 |
+| いいえ          | マイクロフローは常に実行されます。                                |
 
-### 3.4 Call a Nanoflow {#call-nanoflow}
+### 3.4 Nanoflow を呼んでください {#call-nanoflow}
 
-The **Call a nanoflow** event executes the specified nanoflow.
+**nanoflow** イベントを呼び出し、指定された nanoflow を実行します。
 
-Set the **Nanoflow** property to specify a [nanoflow](nanoflow) that should be executed.
+**Nanoflow** プロパティを設定して、実行すべき [nanoflow](nanoflow) を指定します。
 
-### 3.5 Open Link {#open-link}
+### 3.5 オープンリンク {#open-link}
 
-The **Open link** event triggers an action based on a link type, some of which are specific to mobile devices. The following properties are specific for this event:
+**Open link** イベントはリンクタイプに基づいたアクションを引き起こします。そのうちのいくつかはモバイルデバイスに固有のものです。 次のプロパティは、このイベントに固有のものです。
 
-* **Link Type** – the type of action triggered when pressing the button. For information on available link types, see the [Link Types](#on-click-link-type) section below.
-* **Address** – usage of the address property depends on the chosen link type and whether you want to use a literal or to use the value of an attribute.
-  * **Use literal value**  – allows you to enter a fixed address.
-  * **Use attribute** – allows you to select an attribute which contains the value to be used as the address. In this case, the widget must have an entity as its context (for example, it is inside a data view).
+* **リンクタイプ** - ボタンを押すとトリガーされるアクションのタイプ。 使用可能なリンクの種類については、以下の [リンクの種類](#on-click-link-type) セクションを参照してください。
+* **Address** – アドレスプロパティの使用は、選択されたリンクタイプと、リテラルを使用するか、属性の値を使用するかによって異なります。
+  * **リテラル値**  を使用すると、固定アドレスを入力できます。
+  * **属性を使用** – アドレスとして使用する値を含む属性を選択できます。 この場合、ウィジェットはコンテキストとしてエンティティを持っている必要があります (たとえば、データビュー内に存在します)。
 
-#### 3.5.1 Link Types {#on-click-link-type}
+#### 3.5.1 リンクタイプ {#on-click-link-type}
 
-The table below described link types available for the **Open link** on click event:
+以下の表は、クリックイベントの **Open link** で利用可能なリンクタイプについて説明しています:
 
-| Value             | Description                                          | Example                                   |
-| ----------------- | ---------------------------------------------------- | ----------------------------------------- |
-| Web   *(default)* | Navigate to a website URL                            | `https://mysubdomain.mydomain.tld/mypage` |
-| Email             | Specifies an email address to which to send an email | `firstname.secondname@mailprovider.tld`   |
-| Call              | Starts a phone call to this number                   | `+1-202-555-0165`                         |
-| Text              | Specifies a number to which to send a text message   | `+1-202-555-0112`                         |
+| 値                 | 説明                     | 例                                         |
+| ----------------- | ---------------------- | ----------------------------------------- |
+| Web   *(default)* | ウェブサイトのURLに移動します       | `https://mysubdomain.mydomain.tld/mypage` |
+| Eメールアドレス          | メールを送信するメールアドレスを指定します。 | `firstname.secondname@mailprovider.tld`   |
+| 電話                | この番号に電話を開始します。         | `+1-202-555-0165`                         |
+| テキスト              | テキストメッセージを送信する番号を指定します | `+1-202-555-0112`                         |
 
 {{%alert type="info" %}}
 
-When you Specify  **Email**, **Call**, or **Text** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message.
+**メールアドレス**、 **コール**、または **テキスト** オプションを指定する場合。 アクションがトリガーされると、対応するデフォルトのアプリがデバイス上で開かれます。 例えば、メッセージを構成するためにデフォルトの電子メールクライアントが開かれます。
 
 {{%/alert %}}
 
-### 3.6 Create Object {#create-object}
+### 3.6 オブジェクトを作成 {#create-object}
 
-The **Create object** event creates a new object. The following properties are specific for this event:
+**オブジェクトの作成** イベントは、新しいオブジェクトを作成します。 次のプロパティは、このイベントに固有のものです。
 
-* **Entity (path)** – specifies which entity to create. It is also possible to choose an association (if available) from the context object. If an entity is configured, a new instance of the entity will be created. If an entity through association from the context object is configured, a new instance of the entity will be created and an object associated with the context will be created.
-* **On {event} page** – specifies which [page](page) should be shown to allow the end-user to enter values for the new created object. This page must accept a context parameter object (for example, a data view) with the same entity or a sub-type of the created entity. **{event}** specifies which event is being used to trigger this action (**click**, for example).
+* **エンティティ (パス)** – 作成するエンティティを指定します。 コンテキストオブジェクトから関連付けを選択することもできます (使用可能な場合)。 エンティティが設定されている場合、エンティティの新しいインスタンスが作成されます。 コンテキストオブジェクトからの関連付けを通じたエンティティが設定されている場合、 エンティティの新しいインスタンスが作成され、コンテキストに関連付けられたオブジェクトが作成されます。
+* ** {event} ページ** では、エンドユーザーが新規作成されたオブジェクトの値を入力できるようにするために、 [ページ](page) を指定します。 このページは、作成されたエンティティの同じエンティティまたはサブタイプを持つコンテキストパラメータオブジェクト (データビューなど) を受け入れる必要があります。 **{event}** は、このアクションをトリガーするために使用されるイベントを指定します(例えば、****をクリックするなど)。
 
-### 3.7 Save Changes {#save-changes}
+### 3.7 変更を保存 {#save-changes}
 
-The **Save changes** event commits all changes made on the page. The following properties are specific for this event:
+**Save changes** イベントは、ページで行われたすべての変更をコミットします。 次のプロパティは、このイベントに固有のものです。
 
-* **Close page** – specifies whether the current page should be closed.
-* **Auto-synchronize** – specifies whether synchronization should happen when the save button is clicked for a Mendix application running in an offline profile. When an object is saved in a Mendix application running in an offline profile it is stored in a local database until it can be synchronized with the server (for more information on the capabilities of offline apps, see [Offline First](offline-first). In practice, this means that uploading a new object to the server requires two distinct actions: saving the object and [syncing it](offline-first#synchronization).
+* **ページを閉じる** - 現在のページを閉じるかどうかを指定します。
+* **自動同期** – オフラインプロファイルで動作する Mendix アプリケーションで保存ボタンをクリックしたときに同期が発生するかどうかを指定します。 オブジェクトがオフラインプロファイルで実行されているMendixアプリケーションに保存されると、サーバーと同期されるまでローカルデータベースに保存されます (オフラインアプリの機能の詳細については)。 [オフラインの最初](offline-first) を参照してください。 実際には、新しいオブジェクトをサーバーにアップロードするには、オブジェクトの保存と [同期](offline-first#synchronization) という 2 つの異なるアクションが必要です。
 
-### 3.8 Cancel Changes {#cancel-changes}
+### 3.8 変更をキャンセル {#cancel-changes}
 
-The Cancel changes event rolls back all changes made on the page.
+format@@0 イベントは、ページで行われたすべての変更をロールバックします。
 
-Set the **Close page** property to indicate whether the current page should be closed.
+**ページを閉じる** プロパティを設定して、現在のページを閉じるかどうかを指定します。
 
-### 3.9 Close Page {#close-page}
+### 3.9 ページを閉じる {#close-page}
 
-The **Close page** event closes a pop-up window (for pop-up pages) or navigates to the previously visited page (for content pages).
+**** イベントを閉じると、ポップアップウィンドウが閉じられます(ポップアップページの場合)、または以前に訪問したページ(コンテンツページの場合)に移動します。
 
-### 3.10 Delete {#delete}
+### 3.10 削除 {#delete}
 
-The **Delete event** deletes an object. Its behavior depends on a data container it is placed in. When placed in a data view, deletes the connected object; it does not delete objects in a nested data view unless configured through delete behavior. When placed in a data grid, template grid, or reference set selector control bar, it deletes the selected object(s). When placed inside a list view, it deletes the corresponding list view item.
+**Delete イベント** はオブジェクトを削除します。 その動作は、データコンテナが配置されていることに依存します。 データ ビューに配置すると、接続されているオブジェクトを削除します。ネストされたデータ ビューのオブジェクトは、削除の動作によって構成されない限り削除しません。 データグリッド、テンプレートグリッド、または参照セットセレクターコントロールバーに配置すると、選択したオブジェクトが削除されます。 リストビュー内に配置すると、対応するリストビューアイテムが削除されます。
 
-Set the **Close page** property to indicate whether the current page should be closed.
+**ページを閉じる** プロパティを設定して、現在のページを閉じるかどうかを指定します。
 
 ### 3.11 Synchronize {#synchronize}
 
-The **Synchronize** event [synchronizes](offline-first#synchronization) the data stored locally on your device with the server database.
+**** イベント [を同期すると、デバイスにローカルに保存されたデータが](offline-first#synchronization) サーバーデータベースと同期されます。
 
-### 3.12 Sign Out {#sign-out}
+### 3.12 サインアウト {#sign-out}
 
-The **Sign out** event signs the currently signed-in user out. When no user is signed in, no action is performed.
+**サインアウト** イベントは、現在サインインしているユーザーからサインアウトします。 ユーザーがサインインしていない場合、アクションは実行されません。
 
-### 3.13 Call Workflow {#call-workflow}
+### 3.13 ワークフローを呼び出す {#call-workflow}
 
-The **Call workflow** event triggers the specified workflow.
+**Call workflow** イベントは指定されたワークフローをトリガーします。
 
-An element calling this event should be placed in a data container connected to the [workflow entity](workflow-properties#data) defined in the workflow properties.
+このイベントを呼び出す要素は、ワークフローのプロパティで定義されている [ワークフロー エンティティ](workflow-properties#data) に接続されたデータ コンテナに配置する必要があります。
 
-The following properties are specific for this event:
+次のプロパティは、このイベントに固有のものです。
 
-* **Workflow** – A [workflow](workflows) that should be executed.
-* **Close page** – Specifies whether the current page should be closed.
-* **Commit** – Specifies whether the data container object should be committed when running a workflow.
+* **ワークフロー** – 実行すべき [ワークフロー](workflows)。
+* **ページを閉じる** – 現在のページを閉じるかどうかを指定します。
+* **コミット** – ワークフローの実行時にデータコンテナオブジェクトをコミットするかどうかを指定します。
 
-### 3.14 Show Workflow Admin Page {#show-workflow-page}
+### 3.14 ワークフロー管理者ページを表示 {#show-workflow-page}
 
-**Show workflow admin page** opens a workflow overview page. This page is typically used by a workflow administrator role to inspect status of a workflow instance and to manage the instance, e.g. abort a workflow if required.
+**Show workflow admin page** open a workflow overview page. このページは通常、ワークフロー管理者ロールによってワークフローインスタンスの状態を検査し、インスタンスを管理するために使用されます。 を選択します。 必要に応じてワークフローを中止します。
 
-An element calling this event should be placed in a data container connected to the **System.WorkflowInstance** entity.
+このイベントを呼び出す要素は、 **System.WorkflowInstance** エンティティに接続されたデータコンテナに配置する必要があります。
 
-For more information on workflow-related entities in the System module, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
+System モジュール内のワークフロー関連エンティティの詳細について [ワークフロー](workflows#workflow-entities) の *システム モジュール* セクションにある format@@4 ワークフロー エンティティを参照してください。
 
-### 3.15 Show User Task Page {#show-user-task-page}
+### 3.15 タスクページを表示 {#show-user-task-page}
 
-**Show user task page** opens an overview page set for the [user task](user-task) in properties. An element calling this event should be placed in a data container connected to the **System.WorkflowUserTask** entity.
+**ユーザータスクページ** を表示すると、プロパティで [ユーザータスク](user-task) の概要ページが開きます。 このイベントを呼び出す要素は、 **System.WorkflowUserTask** エンティティに接続されたデータコンテナに配置する必要があります。
 
-For more information on workflow-related entities in the System module, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
+System モジュール内のワークフロー関連エンティティの詳細について [ワークフロー](workflows#workflow-entities) の *システム モジュール* セクションにある format@@4 ワークフロー エンティティを参照してください。
 
-### 3.16  Complete User Task {#complete-task}
+### 3.16 完了ユーザー タスク {#complete-task}
 
-The **Complete user task** event marks the specified user task in the workflow as completed.
+**完全ユーザー タスク** イベントは、ワークフロー内の指定されたユーザー タスクを完了としてマークします。
 
-An element calling this event should be placed in a data container connected to the **System.WorkflowUserTask** entity.
+このイベントを呼び出す要素は、 **System.WorkflowUserTask** エンティティに接続されたデータコンテナに配置する必要があります。
 
-The following properties are specific for this event:
+次のプロパティは、このイベントに固有のものです。
 
-* **User task** – The [user task](user-task) that should be marked as completed.
+* **User task** – 完了とマークされる [user task](user-task)。
 
-* **Outcome** – Lists the outcomes of the selected [user task](user-task) and follows the selected outcome. If the user task has only one outcome, the **Default** is set as an outcome and the property cannot be edited.
+* **結果** - 選択した [ユーザー タスク](user-task) の結果を一覧表示し、選択した結果に従います。 ユーザー タスクに結果が 1 つしかない場合、 **デフォルト** が結果として設定され、プロパティは編集できません。
 
-* **Close page** – Specifies whether the current page should be closed.
+* **ページを閉じる** – 現在のページを閉じるかどうかを指定します。
 
-* **Commit** – Specifies whether the data container object should be committed when marking the task as completed.
+* **コミット** – タスクを完了済みとしてマークするときにデータコンテナオブジェクトをコミットするかどうかを指定します。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Pages](pages)
-* [Page](page)
+* [ページ](ページ)
+* [ページ](page)
