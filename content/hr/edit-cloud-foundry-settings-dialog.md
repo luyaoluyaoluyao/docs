@@ -7,15 +7,9 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/edit-cloud-foundry-settings-dialog.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 The **Edit Cloud Foundry Settings** menu option allows you to specify the information necessary for deploying your app to a Cloud Foundry instance.
-
-![Edit Cloud Foundry Settings menu item](attachments/run-menu/edit-cf-settings.png)
 
 {{% alert type="info" %}}
 More information on deploying to Cloud Foundry can be found in [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy).
