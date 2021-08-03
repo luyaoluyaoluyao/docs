@@ -1,8 +1,6 @@
 ---
-title: "XPath 端口为"
+title: "XPath 末尾为"
 parent: "xpate-constraint-function"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
