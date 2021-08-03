@@ -1,160 +1,161 @@
 ---
-title: "Workflows"
-description: "Describes the workflows in Mendix Studio."
-menu_order: 15
+title: "ワークフロー"
+parent: "application-logic"
+menu_order: 20
 tags:
-  - "workflow"
-  - "workflows"
-  - "Studio"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "Studio Pro"
 ---
 
 {{% alert type="warning" %}}
-This functionality is in Beta. For more information on Beta products, see [Mendix Beta Features](/releasenotes/beta-features/).
+この機能はベータ版です。 ベータ版製品の詳細については、 [Mendix Beta Features](/releasenotes/beta-features/) を参照してください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-Workflow is a visual language in Mendix Studio and Mendix Studio Pro that allows you to to solve your business problems that involve processes. It is fully integrated with other visual languages, such as the microflow editor and page editor.
+ワークフローはMendix StudioとStudio Proの視覚的な言語で、拡張可能なプロセスを構築することができます。 これは、マイクロフローエディタやページエディタなどの他の視覚言語と完全に統合されています。
 
-The main difference between workflows and [microflows](microflows) is a waiting aspect – the workflow is paused until it gets an input from an end-user. For example, an employee sends a travel request (triggering the start of the workflow) and then the workflow is paused until a manager approves the request by clicking a button.
+## 2 ワークフロー要素
 
-To view the workflows of your app in Studio, click the **Workflows** icon in the left menu bar:
+ワークフローは、パス上にドラッグ&ドロップできる要素で構成されています。 以下は、すべての要素のカテゴリ概要です。 以下のカテゴリが使用されます：
 
-![Workflow Icon](attachments/workflows/workflow-icon.jpg)
+* [全般](#general)
+* [ユーザータスク](#user-tasks)
+* [システムアクション](#system)
 
-Workflows are a visual way of processing logic in your application. A workflow looks like a flow chart. On a new workflow a *start event* (a starting point of the workflow) and an *end event* (an endpoint of the workflow) are created by default. You can add various activities to a flow of a workflow that is called a *path*.
+### 2.1 全般 {#general}
 
-![Workflow Example](attachments/workflows/workflow-example.jpg)
+一般カテゴリ内の要素は、ワークフローパスを制御するのに役立ちます。たとえば、並列パスの追加や終了などです。
 
-## 2 Workflow App Template
+このカテゴリの要素は以下の表に記載されています:
 
-You can use workflow-specific app templates as a starting point for using workflows. For example, you can configure an approval request form for end-users based on which the app is be created. It contains preconfigured elements, such as dashboards, admin pages, dashboards, and a workflow that you can afterwards customize even more. You can discover these templates when creating a new app.
+| グラフィック                                            | 要素                          | 説明                                                                                                                                                                                                           |
+| ------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ![イベントを開始](attachments/workflows/start-event.png) | イベントを開始                     | ワークフローの開始点。 ワークフローは、ページ上の [コールワークフロー](on-click-event#call-workflow) をオンクリックするか、マイクロフローの [ワークフローコール](workflow-call) アクションによってトリガーされます。 <br /> [ワークフロー プロパティ](workflow-properties) を開くには、開始イベントをクリックします。 |
+| ![決定](attachments/workflows/decision.png)         | [決定](decision-in-workflows) | 条件に基づいて選択を行い、発信パスの1つだけに従います。                                                                                                                                                                                 |
+| ![並列分割](attachments/workflows/parallel-split.png) | [並列分割](parallel-split)      | ワークフローに 2 つの並列パスを追加します。                                                                                                                                                                                      |
+| ![ジャンプアクティビティ](attachments/workflows/jump.png)    | [ジャンプ](jump-activity)       | ワークフロー内の他のアクティビティにジャンプできます。                                                                                                                                                                                  |
+| ![イベントを終了](attachments/workflows/end-event.png)   | イベントを終了                     | ワークフローのパスを終了します                                                                                                                                                                                              |
 
-## 3 Performing Basic Functions
+{{% alert type="info" %}}
+このセクションにカスタマイズされたアクティビティを追加するには、マイクロフローの **ワークフローアクション** 設定を使用します。 詳細については、 [Microflow Properties](microflow#expose-as-workflow-action) の *ワークフローアクション* セクションを参照してください。
+{{% /alert %}}
 
-You can perform the following basic functions when working on workflows:
+### 2.2 ユーザー タスク {#user-tasks}
 
-* [Open a workflow](#open)
-* [Create a workflow](#create)
-* [Duplicate a workflow](#duplicate)
-* [Copy and paste a workflow](#copy-paste)
-* [Delete a workflow](#delete)
-* [Add elements to a workflow](#add-elements)
+[ユーザー タスク](user-task) – 特定のユーザーまたはフィルターまたはマイクロフローを使用してユーザーのグループにタスクを割り当てることができるワークフローの中心的な要素。
 
-### 3.1 Opening a Workflow {#open}
+![ユーザータスク](attachments/workflows/user-task.png)
 
-To open a workflow in Studio, do the following:
+### 2.3 システムアクション {#system}
 
-1. Click the workflow icon in the left menu bar.
+[](call-microflow) アクティビティを選択したマイクロフローを呼び出します。
 
-2. In the displayed list of workflows, select the one you want to open and click it:
+![マイクロフローに発信](attachments/workflows/call-microflow.png)
 
+## 3 基本機能の実行
 
-The selected workflow is opened.
+ワークフローを操作する際に、以下の基本的な機能を実行できます。
 
-### 3.2 Adding a Workflow {#create}
+* ワークフローを開く
+* ワークフローを作成
+* ワークフローを削除
+* ワークフローに要素を追加
+* 要素のプロパティを表示
 
-To add a workflow to your app in Studio, do the following:
+### 3.1 ワークフローを開く
 
-1. Click the workflow icon in the left menu bar.
+Studio Pro でワークフローを開くには、次の手順を実行します。
 
-2. Select the module you would like to add a new workflow to and click the plus icon next to this module:
+1. [Project Explorer](project-explorer)で、このワークフローがあるモジュールを開きます。
+2. モジュール内のワークフローの場所に移動し、ワークフローをダブルクリックします。
 
-    ![New Workflow](attachments/workflows/new-workflow.jpg)
+選択したワークフローが開きます。
 
-    For more information on what modules are, see [Domain Model](domain-models).
+### 3.2 ワークフローの追加
 
-3. In the **Create new workflow** dialog box, fill in the name of the workflow and select a workflow entity (for more information on type of entities, see the [Entities and Their Types](domain-models#entity-types) section in *Domain Model*):
+ワークフローをアプリに追加するには、次の手順を実行します。
 
-    ![Create New Workflow](attachments/workflows/create-new-workflow.jpg)
+1. In the [Project Explorer](project-explorer), right-click the module or a folder you want to create a page in and select **Add workflow**:
 
-4. Click **Create**.
+    ![ワークフローを追加](attachments/workflows/add-workflow.jpg)
 
-The workflow is created.
+2. **Add workflow** ダイアログボックスで名前を入力し、 **OK** をクリックします。
 
-### 3.3 Duplicating a Workflow {#duplicate}
+    ![ワークフローの追加](attachments/workflows/add-workflow-dialog.jpg)
 
-To duplicate a workflow, do the following:
+ワークフローが作成されます。
 
-1. Click the **Workflows** icon in the left menu bar.
+### 3.3 ワークフローの削除
 
-2. In the side panel, click the ellipsis icon and select **Duplicate** in the drop-down menu:
+ワークフローを削除するには、次の操作を行います。
 
-    ![Duplicate a Workflow](attachments/workflows/duplicate.jpg)
+1. [Project Explorer](project-explorer)で、削除したいワークフローを選択し、右クリックします。
+2. 表示されたリストで、 **Delete** を選択し、ポップアップダイアログの **Delete** をクリックして選択を確認します。
 
-The workflow is duplicated.
+選択したワークフローが削除されます。
 
-### 3.4 Copying and Pasting a Workflow {#copy-paste}
+### 3.4 ワークフローへの要素の追加
 
-To copy and paste a workflow, do the following:
+ワークフローに要素を追加するには、次の操作を行います。
 
-1. Click the **Workflows** icon in the left menu bar.
+1. **Toolbox** を開きます。
+2. この要素を作業領域にドラッグ&ドロップする要素を選択します。
 
-2. In the side panel, click the ellipsis icon and select **Copy to clipboard** in the drop-down menu:
+選択した要素が追加されます。
 
-    ![Copy a Workflow](attachments/workflows/copy.jpg)
+### 3.5 表示要素のプロパティ
 
-3. Open the Studio app where you want to paste the workflow and press <kbd>Ctrl</kbd> +<kbd>V</kbd> or <kbd>Cmd</kbd> +<kbd>V</kbd>.
+要素のプロパティを表示するには、次のいずれかを実行します。
 
-Your workflow is pasted. For more information on copy/paste function in Studio, see the [Copy/Paste Workflows, Pages, Microflows, and Enumerations](general#copy-paste-documents) section in *General Info*.
+1. 要素を選択し、 **プロパティ** ペインを開いて、そのプロパティを表示します。
+2. 要素を右クリックし、表示されるオプションのリストから **プロパティ** を選択します。
+3. 要素をダブルクリックします。
 
-### 3.5 Deleting a Workflow {#delete}
+## 4 システムモジュール内のワークフローエンティティ {#workflow-entities}
 
-To delete a workflow in Studio, do one of the following:
+アプリケーションのシステムモジュールにはワークフロー関連のエンティティがいくつかあります。そのエンティティの一部は XPath と式で使用できます。 そして、内部的にのみ存在する基本的なエンティティ(例えば、Runtime)として存在します。
 
-1. Open the workflow you want to delete and follow the steps below:
-    1. Open the **Properties** tab.
-    2. Click **Delete** at the bottom of the **Properties** tab.
-2. Click the workflows icon in the left menu bar and do the following:
-    1. In the side panel, click the ellipsis icon and select **Delete** in the drop-down menu:
+システムモジュールには、次のワークフロー関連エンティティがあります。
 
-The selected workflow is deleted.
+* **WorkflowDefinition** – データベースのワークフローを表します。 2つの属性が含まれています。 **名前** と **タイトル** は **名前** と **タイトル** プロパティであり、 **廃止された** は、ワークフローを削除する際に true とマークされます。 この場合、ワークフローはデータベース内にとどまります(レポートを作成することもできます) しかし、Mendixはもはや存在しないことをマークします。 プロパティの詳細については、 [ワークフロー プロパティ](workflow-properties) を参照してください。
+* **WorkflowTaskDefinition** – データベースの [ユーザータスク](user-task) と [システムアクティビティ](call-microflow) を表します。 It contains two attributes, where **Name** is a **Name** property of the user task or a system activity, and **Obsolete** is a Boolean that is marked as true when you delete a user task/system activity from your workflow. 彼らはまだデータベースにいます(そしてあなたはそれらと一緒にレポートを作成することができます)。 しかしメンディックスはもはや存在しないことを示しています
+* **WorkflowInstance** – 実行中のワークフローの表現で、新しいワークフローが開始されるたびに、Runtimeは新しいインスタンスを作成します。
+* **WorkflowTaskInstance** – 実行中のユーザータスクまたはシステムアクティビティの表現 新しいユーザーのタスク/システムアクティビティが開始されるたびに、Runtimeは新しいインスタンスを作成します。
+* **WorkflowUserTask** - **WorkflowTaskInstance** の特化。 このエンティティは、ランタイムがユーザータスクを実行し、エンドユーザーがアクションを選択したときに作成されます(例えば、 リクエストを承認するには、 **承認** ボタンをクリックします。 このエンティティは、ワークフローの概要ページおよびアプリケーションロジックで使用できます。
+* **WorkflowSystemTask** – **WorkflowTaskInstance** の特化。 このエンティティは、ランタイムがシステムアクティビティを実行するときに作成されます(**Call microflow**) 。マイクロフローが実行されたことを示すために使用されます。
+* **WorkflowContext** - ワークフローのコンテキストとして使用されるオブジェクトの基本エンティティ。 このエンティティの専門化は、そのプロパティの **ワークフロー エンティティ** として使用されます。 プロパティの詳細については、 [ワークフロー プロパティ](workflow-properties) を参照してください。
+* **ワークフローバージョン** – このシステムエンティティは、バージョン管理およびランタイムの内部管理に使用されます。 アクティビティを追加してワークフローを実行すると、新しいバージョンが作成されます。
 
-### 3.6 Adding Elements to a Workflow {#add-elements}
+## 5つのワークフロー変数
 
-To add an element to a workflow, do the following:
+ワークフローには、ワークフローエディター内の XPath および式で使用することのできる専用の変数が含まれています。
 
-1. Open the **Toolbox** tab.
-2. Select an element you would like to add and drag and drop this element in the workflow path.
+変数の一覧は以下のとおりです。
 
-The selected element is added.
+* `$workflowData` - 特定のワークフローに対して設定されたワークフロー エンティティのインスタンス (通常は **System.WorkflowContext** の専門化)
+* `$workflow` – 現在実行中のワークフローのインスタンス (**System.WorkflowInstance**)
 
-## 4 Toolbox Elements
+System モジュール内のワークフロー関連エンティティの詳細については、上記の [System Module](#workflow-entities) セクションのワークフローエンティティを参照してください。
 
-The **Toolbox** tab contains elements that you can drag and drop on a path. Below is a categorized overview of all elements. The following sections are used:
+たとえば、これらの変数は、ユーザータスクの **タスク名** および **タスク説明** プロパティのパラメータとして使用できます。 詳細については、 [ユーザー タスク](user-task) を参照してください。
 
-* [General](#general)
-* [User actions](#user-actions)
-* [System actions](#system)
+## マイクロフローにおけるワークフロー固有の活動
 
-### 4.1 General {#general}
+ワークフロー関連のアクティビティをマイクロフローに追加できます。 これらのアクティビティの詳細については、 [ワークフローアクティビティ](workflow-activities) を参照してください。
 
-Elements in the **General** section help you control the workflow path, for example, add parallel paths or end them:
+## ページ上のワークフロー固有のオンクリックイベント
 
-![General Section](attachments/workflows/general.jpg)
+ウィジェットで構成された特定のオンクリックイベントを介して、ワークフローまたはユーザータスクをページからトリガーできます。 詳細については、 [[イベント & イベント] セクション](on-click-event)をクリックしてください。
 
-The elements of this section are described in the table below:
+## 8ワークフローコモンズモジュール
 
-| Element                                                       | Description                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Start event                                                   | The starting point of a workflow. Workflows are triggered either by the [Call workflow](page-editor-widgets-events-section#call-workflow) on-click event on pages or by the [Workflow call](microflows#microflow-workflow-activities) action in microflows. <br />Click the start event to open [workflow properties](workflow-properties). |
-| [Decision](workflows-general-activities#decision)             | Makes a choice based on a condition and follows one and only one of the outgoing paths.                                                                                                                                                                                                                                                           |
-| [Jump activity](workflows-general-activities#jump)            | Allows you to jump to other activities in the workflow.                                                                                                                                                                                                                                                                                           |
-| [Parallel split](workflows-general-activities#parallel-split) | Adds two or more parallel paths to your workflow.                                                                                                                                                                                                                                                                                                 |
-| [End activity](workflows-general-activities#end)              | Ends the path of the workflow                                                                                                                                                                                                                                                                                                                     |
+**ワークフロー コモンズ** モジュールは、事前に設定されたページ テンプレート、ページ、ダッシュボードなどを持つワークフロー固有のモジュールです。 開発中の時間を大幅に節約できます。 Marketplace からダウンロードすることも、Developer Portal で新しいアプリを作成する際にアプリテンプレートを使用することもできます。 これらのテンプレートにはすでに **Workflow Commons** モジュールが含まれています。
 
-### 4.2 User Actions {#user-actions}
+For more information on how to configure the **Workflow Commons** in an existing app, see [Adding a Workflow to an Existing App: Setting Up the Basics](/refguide/workflow-setting-up-app).
 
-[User task](workflows-user-task) – a central element in a workflow that allows you to assign a task to a certain user or a group of users using filters or microflows.
+## 9 続きを読む
 
-![User Actions](attachments/workflows/user-actions.jpg)
-
-### 4.3 System Actions {#system}
-
-[Call microflow](workflow-system-actions) activity calls a selected microflow. You can use this activity to add application logic to the path of the workflow that does not need user interaction.
-
-![System Actions](attachments/workflows/system-actions.jpg)
-
-## 5 Read More
-
-* [Workflow Properties](workflow-properties)
+* [Studio Proで従業員のオンボーディングプロセスのワークフローを構成する方法](/howto/logic-business-rules/workflow-how-to-configure)
+* [既存のアプリにワークフローを追加する: 基本の設定](/refguide/workflow-setting-up-app)
