@@ -1,51 +1,47 @@
 ---
-title: "XPath Not"
-parent: "xpath-constraint-functions"
+title: "XPath 不是"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-not.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
-
-The `not()` function inverts the meaning (and as such; the result) of the argument.
+`not()` 函数反转参数的含义(和结果)。
 
 {{% alert type="info" %}}
-This can have different results from an inverse comparison (for example `!=` as the negative of `=`) if the XPath is over a one-to-many relationship. See the examples below for more explanation.
-{{% /alert %}}
+这可能与反向比较有不同的结果(例如， `！ 如果XPath 超过了一对多的关系，` 为 `=`的负数。 更多的解释请见下面的例子。
+{{% /报警 %}}
 
-## 2 Examples
+## 2 示例
 
-This query returns all customers whose names are *not* equal to "Jansen":
+此查询返回名称为 *的所有客户* 等于"Jansen"：
 
 ```java
 //Sales.Customer[not(Name = 'Jansen')]
 ```
 
-In this case, the above query returns the same result as the following query:
+在这种情况下，上述查询返回与以下查询相同的结果：
 
 ```java
-//Sales.Customer[Name != 'Jansen']
+//Sales.Customer[name != 'Jansen']
 ```
 
-The following query returns all the customers who have not placed at least one order:
+以下查询返回所有没有下单的客户：
 
 ```java
-//Sales.Customer[not(Sales.Customer_Order/Sales.Order)]
+//Sales.Customer[not(Sales.Customer_order/Sales.Order)]
 ```
 
 The following query returns all the customers who have placed *no* orders with a `TotalPrice` of *more than* 30,000, including those who have not placed any orders at all:
 
 ```java
-//Sales.Customer[not(Sales.Customer_Order/Sales.Order/TotalPrice > 30000)]
+//Sales.Customer[not(Sales.Customer_order/Sales.Order/TotalPrice > 30000)]
 ```
 
-The query above does not return the same result as the one below, which returns all the customers who have placed *at least one* order with a `TotalPrice` of *less than* 30,000, regardless of the number of orders they have placed worth more than 30,000:
+上面的查询不会返回与下面相同的结果。 返回所有已下达 *至少一个* 订单的客户 `总计价格` *小于* 30, 00，无论他们发出的订单数量超过30 000个：
 
 ```java
-//Sales.Customer[Sales.Customer_Order/Sales.Order/TotalPrice <= 30000]
+//Sales.Customer[Sales.Customer_order/Sales.Order/TotalPrice <= 30000]
 ```
-For example, if a customer has placed two orders—one for 15,000 and one for 35,000—this query will return this customer, while the *not* query will not. Customers who have not placed any orders will not be returned by this query.
+例如，如果客户下达了两个订单——一个是15,000份，一个是35份。 00-此查询将返回此客户，而 *不是* 查询将不会返回此客户。 未下订单的客户将不会被此查询退回。
