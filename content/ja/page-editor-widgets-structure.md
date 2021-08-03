@@ -1,254 +1,254 @@
 ---
-title: "Structure"
+title: "構成"
 parent: "page-editor-widgets"
-description: "Describes Structure widgets in Mendix Studio."
+description: "Mendix Studio の構造ウィジェットの説明"
 menu_order: 60
 tags:
-  - "studio"
-  - "page editor"
-  - "layout"
-  - "layout widgets"
-  - "structure widgets"
+  - "スタジオ"
+  - "ページエディタ"
+  - "レイアウト"
+  - "レイアウトウィジェット"
+  - "構造ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Structure widgets are widgets that allow you to provide structure to your page and group other widgets inside them.
+ストラクチャーウィジェットは、ページに構造を提供したり、内部の他のウィジェットをグループ化したりすることができるウィジェットです。
 
-There are the following Structure widgets:
+次の構造ウィジェットがあります。
 
-* [Columns and Sidebars](#columns)
+* [列とサイドバー](#columns)
 
-* [Container](#container-overview)
+* [コンテナ](#container-overview)
 
-* [Group Box](#group-box-overview)
+* [グループボックス](#group-box-overview)
 
-* [Tab Container](#tab-container)
+* [タブコンテナ](#tab-container)
 
 * [Snippet](#snippet)
 
     ![](attachments/page-editor-widgets-structure/structure-widgets.jpg)
 
-## 2 Columns and Sidebars{#columns}
+## 2 列とサイドバー{#columns}
 
-**Column** and **Sidebar** widgets are based on a [layout grid](#layout-grid) – a widget that structures your page with rows and columns. **Columns and Sidebars** are layout grid configurations with a pre-set number of columns.
+**列** と **サイドバー** のウィジェットは [レイアウト グリッド](#layout-grid) に基づいています。これはページを行と列で構成するウィジェットです。 **列とサイドバー** はあらかじめ設定された列数を持つレイアウトグリッド構成です。
 
-## 3 Layout Grid Overview {#layout-grid}
+## 3 レイアウトグリッドの概要 {#layout-grid}
 
-The **Layout Grid** helps you to structure a page and make it responsive immediately. This means that a layout grid has a built-in behavior to show how a page will look like on different devices. Switch **Device** modes to see how a page will be displayed on a phone, tablet, or desktop:
+**レイアウト グリッド** を使用すると、ページを構成してすぐに応答させることができます。 これは、レイアウトグリッドには、異なるデバイスでページがどのように見えるかを示す組み込みの動作があることを意味します。 **デバイス** モードを切り替えて、電話、タブレット、またはデスクトップにページを表示する方法を確認します。
 
-{{% image_container width="300" %}}![Device Modes](attachments/page-editor-widgets-structure/device-modes.png)
+{{% image_container width="300" %}}![デバイスモード](attachments/page-editor-widgets-structure/device-modes.png)
 {{% /image_container %}}
 
-Layout grid contains [columns](#column) and [rows](#row).
+レイアウト グリッドには [列](#column) と [行](#row) が含まれています。
 
-A row consists of one or more columns that are placed next to each other in a responsive (desktop) view.
+行は、応答性の高い(デスクトップ)ビューで隣接して配置された列で構成されています。
 
-![Row Example](attachments/page-editor-widgets-structure/row-example.png)
+![行の例](attachments/page-editor-widgets-structure/row-example.png)
 
-A column is a cell inside a row. You can place one or several widgets inside a column, for example, you can place two buttons inside it.
+列は行内のセルです。 1 つまたは複数のウィジェットを列に配置できます。たとえば、2 つのボタンを列の中に配置できます。
 
-{{% image_container width="300" %}}![Column Example](attachments/page-editor-widgets-structure/column-example.png)
+{{% image_container width="300" %}}![列の例](attachments/page-editor-widgets-structure/column-example.png)
 {{% /image_container %}}
 
-For more information on rows and columns, see [Row Properties](#row) and [Column Properties](#column) sections.
+行と列の詳細については、 [行プロパティ](#row) および [列プロパティ](#column) のセクションを参照してください。
 
-### 3.1 Layout Grid Properties {#layout-grid-properties}
+### 3.1 レイアウトグリッドのプロパティ {#layout-grid-properties}
 
-You can access the **Layout Grid** properties through the breadcrumb (for more information, see the [Breadcrumb](page-editor#breadcrumb) section in *Pages*). Layout grid properties consist of the following sections:
+You can access the **Layout Grid** properties through the breadcrumb (for more information, see the [Breadcrumb](page-editor#breadcrumb) section in *Pages*). レイアウト グリッド プロパティは以下のセクションで構成されます。
 
-* [Expand](#expand-section)
+* [展開](#expand-section)
 
-* [General](#general-section)
+* [全般](#general-section)
 
-* [Design](page-editor-widgets-design-section)
+* [デザイン](page-editor-widgets-design-section)
 
-    {{% image_container width="250" %}}![Layout Grid Properties](attachments/page-editor-widgets-structure/layout-grid-properties.png)
+    {{% image_container width="250" %}}![レイアウトグリッドのプロパティ](attachments/page-editor-widgets-structure/layout-grid-properties.png)
     {{% /image_container %}}
 
-#### 3.1.1 Expand Section {#expand-section}
+#### 3.1.1 セクションを展開 {#expand-section}
 
-The **Expand** section > **Add Row** allows you to add a row above or below the selected one to create more space to place widgets in.
+**Expand** section > **Add Row** を使用すると、選択した行の上または下に行を追加して、ウィジェットを配置するスペースを増やすことができます。
 
 {{% alert type="info" %}}
 
-A [row](#row) and a [column](#column) have the **Expand** section with the same setting.
+[行](#row) と [列](#column) には同じ設定の **展開** セクションがあります。
 
 {{% /alert %}}
 
-To add a new row, do one of the following:
+新しい行を追加するには、次のいずれかを実行します。
 
-1. Select the layout grid in the breadcrumb and in its **Properties** > **Add Row**, click one of the buttons to insert the row above or below.
-2. Select the row and in its **Properties** > **Add Row**, click one of the buttons to insert the row above or below.
-3. Select the column and in its **Properties** > **Add Row**, click one of the buttons to insert the row above or below.
+1. パンくずリストのレイアウトグリッドを選択し、 **プロパティ** > **行を追加**、 いずれかのボタンをクリックして、上または下の行を挿入します。
+2. 行を選択し、 **プロパティ** > **行を追加**, いずれかのボタンをクリックして、上または下の行を挿入します。
+3. 列を選択し、 **プロパティ** > **行を追加**, いずれかのボタンをクリックして、上または下の行を挿入します。
 
-An empty row will be inserted.
+空の行が挿入されます。
 
-#### 3.1.2 General Section {#general-section}
+#### 3.1.2 一般セクション {#general-section}
 
-In the **General** section, you can set the width of the layout grid. You can choose one of the following:
+**一般** セクションでは、レイアウト グリッドの幅を設定できます。 次のいずれかを選択できます:
 
-* **Full Width** – the layout grid takes the whole width of a container it is placed in
-* **Fixed Width** –  the layout  grid will have a fixed size in the center of your page, adjusted automatically according to your device
+* **全幅** - レイアウトグリッドはコンテナ全体の幅をとります
+* **Fixed Width** - レイアウトグリッドはページの中央に固定されたサイズで、デバイスに応じて自動的に調整されます。
 
-#### 3.1.3 Design Section
+#### 3.1.3 デザインセクション
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
-### 3.2 Row Properties {#row}
+### 3.2 行のプロパティ {#row}
 
-*Row* properties consist of the following sections:
+*行* プロパティは以下のセクションで構成されています:
 
-* [Expand](#expand-section-row)
+* [展開](#expand-section-row)
 
-* [Container Settings](#container-settings)
+* [コンテナ設定](#container-settings)
 
-* [General](#general-section-row)
+* [全般](#general-section-row)
 
-    {{% image_container width="250" %}}![Row Properties](attachments/page-editor-widgets-structure/row-sections.png)
+    {{% image_container width="250" %}}![行のプロパティ](attachments/page-editor-widgets-structure/row-sections.png)
     {{% /image_container %}}
 
-#### 3.2.1 Expand Section {#expand-section-row}
+#### 3.2.1 セクションを展開 {#expand-section-row}
 
-The **Expand** section > **Add Row** allows you to add a row above or below the selected one. For more details, see the [Expand Section](#expand-section) of the *layout grid*.
+**展開** セクション > **行の追加** では、選択した行の上または下に行を追加できます。 詳細については、 [レイアウト グリッド](#expand-section) の *拡張セクション* を参照してください。
 
-#### 3.2.2 Container Settings Section {#container-settings}
+#### 3.2.2 コンテナ設定セクション {#container-settings}
 
-In the **Container Settings** section, you can set the width for the layout grid and choose between full width or fixed width.
+**Container Settings** セクションでは、レイアウト グリッドの幅を設定し、最大幅または固定幅を選択できます。
 
 {{% alert type="info" %}}
 
-This property is the same as the property in the [General Section](#general-section) of the layout grid. For details, see the [General Section](#general-section).
+このプロパティはレイアウト グリッドの [一般セクション](#general-section) のプロパティと同じです。 詳細については、 [一般セクション](#general-section) を参照してください。
 
 {{% /alert %}}
 
-#### 3.2.3 General Section {#general-section-row}
+#### 3.2.3 一般セクション {#general-section-row}
 
-In the **General** section of a row you can select the number of columns in it, align columns and add spacing between them. This section contain the following settings:
+行の **一般** セクションでは、列の数を選択し、列の整列や間隔を追加できます。 このセクションには、次の設定が含まれています:
 
-* **Columns** – sets the number of columns in the row
+* **Columns** – 行の列数を設定します。
 
-    * You can also set the number of columns in the working area: select one of the columns and click a plus icon on top of it to add a new column to the right
+    * 作業領域の列数を設定することもできます。列のいずれかを選択し、その上にあるプラスアイコンをクリックして、右に新しい列を追加します。
 
         {{% image_container width="300" %}}![Adding New Column](attachments/page-editor-widgets-structure/adding-new-column.png){{% /image_container %}}
 
-* <a name="align-columns"></a>**Align Columns Vertically** – aligns all columns in the row vertically, you can select the following options:
+* <a name="align-columns"></a>**列を垂直に配置** – 行のすべての列を垂直に揃えます。次のオプションを選択できます。
 
     {{% image_container width="280" %}}![](attachments/page-editor-widgets-structure/align-columns.png)
     {{% /image_container %}}
 
-* **Spacing Between Columns** – when enabled, adds spacing between columns
+* **列間の間隔** - 有効な場合、列間の間隔を追加
 
-### 3.3 Column Properties {#column}
+### 3.3 列のプロパティ {#column}
 
-Column properties consist of the following sections:
+列プロパティは以下のセクションで構成されています:
 
-* [Expand](#expand-section-column)
+* [展開](#expand-section-column)
 
-* [General](#general-section-column)
+* [全般](#general-section-column)
 
-    {{% image_container width="250" %}}![Column Sections](attachments/page-editor-widgets-structure/column-sections.png)
+    {{% image_container width="250" %}}![列のセクション](attachments/page-editor-widgets-structure/column-sections.png)
     {{% /image_container %}}
 
-#### 3.3.1 Expand Section {#expand-section-column}
+#### 3.3.1 セクションを展開 {#expand-section-column}
 
-The Expand section of a column allows you to add a row or a column.
+列のformat@@0セクションでは、行または列を追加できます。
 
 
-##### 3.3.1.1 Add Row
+##### 3.3.1.1 行の追加
 
-**Add Row** allows you to add a row above or below the selected one. For more details, see the [Expand Section](#expand-section) of the *layout grid*.
+**行を追加** 選択した行の上または下に行を追加できます。 詳細については、 [レイアウト グリッド](#expand-section) の *拡張セクション* を参照してください。
 
-##### 3.3.1.2 Add Column
+##### 3.3.1.2 列を追加
 
-**Add Column** allows you to add a column to the left or to the right of the selected one.
+**列を追加** すると、選択した列の左側または右側に列を追加できます。
 
-#### 3.3.2 General Section {#general-section-column}
+#### 3.3.2 一般セクション {#general-section-column}
 
-In the **General** section, you can set the column [width](#column-width) and [align](#align-column) an individual column.
+**一般** セクションでは、列 [幅](#column-width) を設定し、 [個々の列を](#align-column) 揃えることができます。
 
 ##### 3.3.2.1 Width {#column-width}
 
-You can set the column width for desktop, tablet, or phone by choosing the corresponding device mode:
+対応するデバイスモードを選択すると、デスクトップ、タブレット、または携帯電話の列幅を設定できます。
 
 ![](attachments/page-editor-widgets-structure/width-per-device.png)
 
-You can choose the following options:
+次のオプションを選択できます。
 
-* **Auto-fill** – takes the available space for a column (for example, if there is one column, it will span the column for the whole row, and for two columns, it will divide the space equally between them)
+* **自動入力** - 列の空き容量を取得します (例えば、列が1つある場合)。 列全体に渡って2列分割されます)
 
-* **Auto-fit content** – automatically fits the size of the column to its content
+* **自動フィットコンテンツ** - 列のサイズをコンテンツに自動的に合わせる
 
-* **Manual** – allows you to manually set the size of the columns
+* **マニュアル** - 列のサイズを手動で設定できます
 
-    * When you select **Manual** the slider appears that allows you to set the width of the column from 1 to 12:
+    * **Manual** を選択すると、列の幅を 1 から 12 まで設定できるスライダーが表示されます。
 
         ![](attachments/page-editor-widgets-structure/column-size.png)
 
-You can also resize columns manually in the working area: drag the column border to change its size.
+作業領域で列のサイズを手動で変更することもできます。列の境界線をドラッグしてサイズを変更します。
 
 {{% image_container width="300" %}}
-![Resizing Column](attachments/page-editor-widgets-structure/resizing-column.png)
+![列のサイズ変更](attachments/page-editor-widgets-structure/resizing-column.png)
 {{% /image_container %}}
 
-The **Width** property can be used to make your layout more flexible and adaptive to different types of devices.
+**** プロパティを使用すると、レイアウトをより柔軟に、さまざまなタイプのデバイスに適応できます。
 
-For example, you have a layout grid with one row and two columns: a picture is in one column, and a text with details is in another.
+たとえば、1 行と 2 列のレイアウト グリッドがあります。画像は 1 列にあります。 細かいことが書かれています
 
 For the *desktop* and *tablet*, you might want to set the first column with a picture to **Auto-fit content** and and the second one to **Auto-fill**, this way the first column will adjust to the size of the picture, while the second one will take the rest of the row:
 
-![Layout Example, Desktop](attachments/page-editor-widgets-structure/layout-example-desktop.png)
+![レイアウト例、デスクトップ](attachments/page-editor-widgets-structure/layout-example-desktop.png)
 
-For *phone*, it can be a good idea to place two columns one under another, setting them to **Manual** width of *12*. In this case, the second column will be automatically wrapped to another line:
+For *phone*, it can be a good idea to place two columns one under another, setting them to **Manual** width of *12*. この場合、2 列目は自動的に別の行にラップされます。
 
  {{% image_container width="300" %}}
-![Layout Example, Phone](attachments/page-editor-widgets-structure/layout-example-phone.png)
+![携帯電話のレイアウト例](attachments/page-editor-widgets-structure/layout-example-phone.png)
 {{% /image_container %}}
 
-##### 3.3.2.2 Align Vertically {#align-column}
+##### 3.3.2.2 垂直に揃え {#align-column}
 
-The **Align Vertically** property overrides the [Align Columns Vertically](#align-columns) property on the row and sets alignment for an individual column.
+**** プロパティは、行の [整列](#align-columns) プロパティを上書きし、個々の列の整列を設定します。
 
-## 4 Container Overview {#container-overview}
+## 4コンテナの概要 {#container-overview}
 
-A **Container** is used as a layout element where you can place a widget or a group of widgets and simultaneously style, drag or delete them. For example, you can place a section title and input widgets for filling out program's details in one container, and subsequently reposition the whole container at once to a different location on the page.
+**コンテナ** は、ウィジェットやウィジェットのグループを同時に配置するレイアウト要素として使用されます。 ドラッグまたは削除します。 たとえば、プログラムの詳細を1つのコンテナに記入するためのセクションタイトルと入力ウィジェットを配置できます。 その後、ページ上の別の場所にコンテナ全体を一度に再配置します。
 
-{{% image_container width="300" %}}![Container Example](attachments/page-editor-widgets-structure/container.png)
+{{% image_container width="300" %}}![コンテナの例](attachments/page-editor-widgets-structure/container.png)
 {{% /image_container %}}
 
-Container properties consist of the **Design** section. For information, see [Design Section](page-editor-widgets-design-section).
+コンテナ プロパティは **デザイン** セクションで構成されます。 詳細については、 [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-## 5 Group Box Overview {#group-box-overview}
+## 5 グループボックスの概要 {#group-box-overview}
 
-A group box is used to group widgets together. The group box can be configured to collapse or expand dynamically with all the elements inside it.
+グループ ボックスは、ウィジェットをグループ化するために使用されます。 グループボックスは、内部のすべての要素を使用して動的に折りたたんだり展開したりするように構成できます。
 
-{{% image_container width="300" %}}![Group Box Example](attachments/page-editor-widgets-structure/group-box.png)
+{{% image_container width="300" %}}![グループボックスの例](attachments/page-editor-widgets-structure/group-box.png)
 {{% /image_container %}}
 
-### 5.1 Group Box Properties
+### 5.1 グループ ボックス プロパティ
 
-Group box properties consist of the **General** section and the **Design** section. For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+グループ ボックス プロパティは、 **一般** セクションと **デザイン** セクションで構成されます。 **デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
-Properties available in the **General** section are described in the table below.
+**一般** セクションで使用可能なプロパティについては、以下の表を参照してください。
 
-| Property    | Description                                                                                                                                                                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Show Header | **Show Header** defines whether a header is shown above the group box. <br />*This property is enabled by default.*                                                                                                                |
-| Caption     | This property is only displayed when the **Show Header** option is enabled. It defines the caption that is shown in the header.                                                                                                          |
-| Collapsible | This property is only displayed when the **Show Header** option is enabled. It defines whether the group box and its elements can be collapsed or expanded. Possible values of this property are the following:<ul><li>**Yes (start expanded)** – the elements inside the group box will be initially expanded and can be collapsed when a user clicks a minus icon in the header</li><li>**Yes (start collapsed)** – the elements inside the group box will be initially collapsed and can be expanded when a user clicks a plus icon in the header </li><li>**No** – group box elements cannot be expanded or collapsed</li></ul> |
+| 属性      | 説明                                                                                                                                  |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| ヘッダを表示  | **ヘッダの表示** は、ヘッダがグループボックスの上に表示されるかどうかを定義します。 <br />*このプロパティはデフォルトで有効になっています。*                                                 |
+| 図表番号    | このプロパティは、 **ヘッダーの表示** オプションが有効な場合にのみ表示されます。 ヘッダーに表示されるキャプションを定義します。                                                                 |
+| 折りたたみ可能 | このプロパティは、 **ヘッダーの表示** オプションが有効な場合にのみ表示されます。 グループボックスとその要素を折りたたんだり展開したりできるかどうかを定義します。 このプロパティの可能な値は次のとおりです。<ul><li>**はい (展開開始)** – グループボックス内の要素は最初に展開され、ヘッダー内のマイナスアイコンをクリックすると折りたたむことができます</li><li>**はい (折りたたみを開始)** – グループボックス内の要素は最初に折りたたまれ、ユーザーがヘッダーのプラスアイコンをクリックすると拡張できます </li><li>**いいえ** – グループボックス要素を展開または折りたたむことはできません</li></ul> |
 
-## 6 Tab Container Overview {#tab-container}
+## 6タブコンテナの概要 {#tab-container}
 
-A tab container is a container that is used to show information categorized into tabs. This can be useful if the amount of information that you would like to display is larger than the amount of space on the screen. For example, you can show a list of customers on one tab, and orders on the other one.
+タブコンテナは、タブに分類された情報を表示するために使用されるコンテナです。 これは、表示したい情報の量が画面上のスペースの量よりも大きい場合に便利です。 たとえば、1 つのタブに顧客リストを表示し、もう一方のタブに注文を表示できます。
 
-{{% image_container width="300" %}}![Tab Container Example](attachments/page-editor-widgets-structure/tab-container-example.png)
+{{% image_container width="300" %}}![format@@0 タブ](attachments/page-editor-widgets-structure/tab-container-example.png)
 {{% /image_container %}}
 
-You can place a widget or a group of widgets inside each tab and configure information in them separately.
+各タブ内にウィジェットまたはウィジェットのグループを配置し、個別に情報を設定できます。
 
-### 6.1 General Section
+### 6.1 一般セクション
 
-In the **General** section, you can configure the following properties:
+**一般** セクションでは、次のプロパティを設定できます。
 
 *  **Tabs** – use radio buttons to switch from one tab to another; click the tab and drag it to change the order of tabs; click the **Edit** icon to open the tab properties and configure it (for more information, see section the [Tab Properties](#tab-properties) section)
 
@@ -260,49 +260,49 @@ In the **General** section, you can configure the following properties:
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/add-new-tab.png)
     {{% /image_container %}}
 
-### 6.2 Design Section
+### 6.2 デザインセクション
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
-### 6.3 Tab Properties {#tab-properties}
+### 6.3 タブのプロパティ {#tab-properties}
 
-Each tab has the following properties:
+各タブには以下のプロパティがあります。
 
-* **Caption** – defines the name of the tab; you can also edit the caption by double-clicking it in the page
+* **図表番号** - タブの名前を定義します。ページ内をダブルクリックして図表番号を編集することもできます。
 
-*  **Default Tab** – defines which tab is active when the page is opened. If no tab is set as the default one, the first tab page will be shown. By default, none of the tabs are set as a default tab.
+*  **Default Tab** - ページが開かれたときにアクティブなタブを定義します。 デフォルトのタブが設定されていない場合、最初のタブページが表示されます。 デフォルトでは、タブのどれもデフォルトタブとして設定されていません。
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-structure/tab-properties.png)
     {{% /image_container %}}
 
-## 7 Snippet Overview {#snippet}
+## 7 スニペットの概要 {#snippet}
 
-Snippets define reusable elements of pages and are created in Studio Pro. By using snippets you can make changes in fewer places when you modify pages.
+スニペットはページの再利用可能な要素を定義し、Studio Pro で作成します。 スニペットを使用すると、ページを変更する際に、より少ない場所で変更を加えることができます。
 
-For example, your team member in Studio Pro has created a snippet and added a customer form to it turning this form into a reusable page element. You can use this snippet on your pages in Studio too:
+例えば、 Studio Proのチームメンバーがスニペットを作成し、顧客フォームを追加してこのフォームを再利用可能なページ要素にしました。 Studio のページでもこのスニペットを使用できます。
 
 {{% image_container width="500" %}}![](attachments/page-editor-widgets-structure/snippet-example.jpg)
 {{% /image_container %}}
 
-While you can call (use) snippets on your pages in Studio, you cannot create, change, or delete them. For more information on snippets in Studio Pro, see [Snippet](/refguide8/snippet).
+Studio 内のページでスニペットを呼び出すことはできますが、作成、変更、削除することはできません。 Studio Pro のスニペットの詳細については、 [スニペット](/refguide/snippet) を参照してください。
 
 {{% alert type="info" %}}
-The **Snippet** widget is not displayed if your app does not contain any snippets.
+スニペットが含まれていない場合、 **スニペット** ウィジェットは表示されません。
 {{% /alert %}}
 
-To call a snippet and add it to your page, do the following:
+スニペットを呼び出し、あなたのページに追加するには、次の操作を行います:
 
-1. In the **Toolbox** > **Widgets**, find the **Snippet** widget and drag and drop it on your page.
+1. **Toolbox** > **Widgets**で、 **Snippet** ウィジェットを見つけて、ページにドラッグ&ドロップします。
 
-2. Open properties and click the **Snippet** property.
+2. プロパティを開き、 **スニペット** プロパティをクリックします。
 
-3. In the **Select Snippet** dialog box, select a snippet you would like to use on your page and click **Select**.
+3. **Select Snippet** ダイアログボックスで、ページで使用するスニペットを選択し、 **Select** をクリックします。
 
     ![](attachments/page-editor-widgets-structure/select-snippet.jpg)
 
-The snippet is added to your page.
+スニペットがページに追加されます。
 
-## 8 Read More
+## 8 続きを読む
 
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)
