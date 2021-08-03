@@ -1,5 +1,5 @@
 ---
-title: "公開された REST リソースの生成"
+title: "公開された REST リソースを生成"
 parent: "published-rest-services"
 menu_order: 20
 description: "エンティティから公開された REST リソースを生成"
@@ -9,8 +9,15 @@ tags:
   - "エンティティ"
   - "操作"
   - "暴露する"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+この機能はバージョン7.16.0で導入されました。
+
+**Patch** を生成するオプションは、バージョン 7.17.0 で導入されました。
+
+{{% /alert %}}
 
 ## 1つの紹介
 
