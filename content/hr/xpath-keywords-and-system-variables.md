@@ -1,7 +1,13 @@
 ---
-title: "XPath Keywords and System Variables"
+title: "XPath Keywords & System Variables"
 parent: "xpath-constraints"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-keywords-and-system-variables.pdf).
+{{% /alert %}}
 
 ## 1 Overview
 
@@ -42,6 +48,10 @@ These will be created for each user role in your app. Here is an example:
 | Token                        | Description                  |
 | ---------------------------- | ---------------------------- |
 | `[%UserRole_Administrator%]` | The Administrator user role. |
+
+Here is an example for retrieving that user role:
+
+![](attachments/xpath/user-role.png)
 
 ### 3.3 Time-Related
 
@@ -84,6 +94,7 @@ The following tokens can be used to add or subtract a period of time from a date
 | `[%MinuteLength%]` | The length of one minute.            |
 | `[%SecondLength%]` | The length of one second.            |
 | `[%WeekLength%]`   | The length of one week (seven days). |
+| `[%MonthLength%]`  | The length of one month.             |
 | `[%YearLength%]`   | The length of one year.              |
 
 {{% alert type="info" %}}
