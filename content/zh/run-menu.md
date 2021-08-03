@@ -1,39 +1,39 @@
 ---
-title: "Run Menu"
+title: "运行菜单"
 parent: "menus"
-description: "Describes the Run menu in Mendix Studio Pro."
+description: "在 Mendix Studio Pro中描述运行菜单。"
 menu_order: 35
 tags:
   - "Studio Pro"
-  - "run"
-  - "run menu"
+  - "运行"
+  - "运行菜单"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Run** menu allows you to deploy and monitor your app:
+**运行** 菜单允许您部署和监视您的应用：
 
-![Run Menu](attachments/run-menu/run-menu.png)
+![运行菜单](attachments/run-menu/run-menu.png)
 
-## 2 Menu Items Overview
+## 2 个菜单项概述
 
-The **Run** menu items are described in the table below:
+下面的表格描述了 **运行** 菜单项：
 
-| Menu Item                       | Description                                                                                                                                                                                                       | Shortcut Key                                       |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| **Run Locally**                 | Runs the app locally so you can view the app.                                                                                                                                                                     | <kbd>F5</kbd>                                      |
-| **Stop**                        | Stops the currently running app.                                                                                                                                                                                  | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
-| **Configuration**               | Sets the configuration level (**Default**).                                                                                                                                                                       |                                                    |
-| **Default Log Level**           | Allows setting the default log level before running the app locally. The options are **Trace**, **Debug**, **Info** (default), **Warning**, **Error**, **Critical**.                                              |                                                    |
-| **Publish**                     | Deploys the app to cloud. The **Console** pane is activated and this shows the output of the server that runs the app.                                                                                            | <kbd>F5</kbd>                                      |
-| **Run on Cloud Foundry**        | Opens the **Edit Cloud Foundry Settings** dialog box so you can run your app on Cloud Foundry.                                                                                                                    |                                                    |
-| **Edit Cloud Foundry Settings** | Opens the **Edit Cloud Foundry Settings** dialog box so you can edit your Cloud Foundry settings. For more information on this dialog box, see [Edit Cloud Foundry Settings](edit-cloud-foundry-settings-dialog). |                                                    |
-| **Debug**                       | Allows you to connect the [Debugger](view-menu#debugger).                                                                                                                                                         |                                                    |
-| **Responsive Web**              | Shows the web client for the currently running app in the browser.                                                                                                                                                | <kbd>F9</kbd>                                      |
-| **Tablet Web**                  | Shows the tablet mobile client for the currently running app in the browser.                                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
-| **Phone Web**                   | Shows the mobile client for the currently running app in the browser.                                                                                                                                             | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
-| **View on your device**         | Provides a link to allow you to view the app.                                                                                                                                                                     |                                                    |
+| 菜单项                    | 描述                                                                                                                        | 快捷键                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **本地运行**               | 在本地运行应用，让您可以查看应用。                                                                                                         | <kbd>F5</kbd>                                      |
+| **停止**                 | 停止当前正在运行的应用。                                                                                                              | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
+| **配置**                 | 设置配置级别(**默认**)。                                                                                                           |                                                    |
+| **默认日志级别**             | 允许在本地运行应用程序之前设置默认日志级别。 选项是 **Trace**, **调试**, **信息** (默认), **警告**, **错误**, **关键**.                                        |                                                    |
+| **发布**                 | 将应用程序部署到云端。 **控制台** 窗格已激活，这将显示运行应用程序的服务器的输出。                                                                              | <kbd>F5</kbd>                                      |
+| **在云端基础上运行**           | 打开 **编辑Cloud Foundry 设置** 对话框，以便您可以在 Cloud Foundly 上运行您的应用程序。                                                             |                                                    |
+| **编辑Cloud Foundry 设置** | 打开 **编辑Cloud Foundry 设置** 对话框，以便您可以编辑您的Cloud Foundry 设置。 关于此对话框的更多信息，请访问 [编辑云端基金会设置](edit-cloud-foundry-settings-dialog)。 |                                                    |
+| **Debug**              | 允许您连接 [调试器](view-menu#debugger)。                                                                                          |                                                    |
+| **响应式Web**             | 在浏览器中显示当前运行的应用程序的 web 客户端。                                                                                                | <kbd>F9</kbd>                                      |
+| **平板电脑网络**             | 在浏览器中显示当前运行的应用程序的平板移动客户端。                                                                                                 | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
+| **手机网络**               | 在浏览器中显示当前运行的应用程序的移动客户端。                                                                                                   | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
+| **在您的设备上查看**           | 提供一个链接以允许您查看应用程序。                                                                                                         |                                                    |
 
-## 3 Read More
+## 3 阅读更多
 
 * [Studio Pro Overview](studio-pro-overview)
