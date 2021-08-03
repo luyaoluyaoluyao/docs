@@ -1,45 +1,45 @@
 ---
-title: "Report Widgets"
-parent: "pages"
+title: "ウィジェットのレポート"
+parent: "ページ"
 menu_order: 50
 tags:
   - "studio pro"
-  - "report widgets"
-  - "report"
-  - "widgets"
-  - "data set"
+  - "ウィジェットのレポート"
+  - "レポート"
+  - "ウィジェット"
+  - "データセット"
 ---
 
-{{% alert type="warning" %}}Report widgets are not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}レポートウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-With report widgets, you can create reports from the database data. Reporting is mainly used for presenting aggregated information (for example , total sales per customer).
+レポート ウィジェットを使用すると、データベース データからレポートを作成できます。 レポートは主に集計された情報(例えば、顧客あたりの総売上高)を表示するために使用されます。
 
-The **Report widgets** category contains the following widgets:
+**レポート ウィジェット** カテゴリには、次のウィジェットが含まれています:
 
 * [Report grid](report-grid) – displays data in a form of a table; the data for the reporting widgets is provided by a [Data set](data-sets)
 
-    ![Example report grid](attachments/report-widgets/report-grid-example.png)
+    ![レポート グリッドの例](attachments/report-widgets/report-grid-example.png)
 
-* [Report parameter](report-parameter) – allows the end-user to specify a parameter of a [Data set](data-sets) that is then used for filtering the data displayed in a report
+* [レポート パラメータ](report-parameter) - エンドユーザーがレポートに表示されるデータをフィルタリングするために使用される [データ セット](data-sets) のパラメータを指定することができます
 
-    ![Example report parameter](attachments/report-widgets/report-parameter-example.png)
+    ![レポートパラメータの例](attachments/report-widgets/report-parameter-example.png)
 
-* [Report date parameter](report-date-parameter) – allows the end-user to specify the DateTime parameter of a [data set](data-sets), which is then used for filtering the data displayed in a report
+* [レポート日付パラメータ](report-date-parameter) - エンドユーザーが [データセット](data-sets)の DateTime パラメータを指定できるようにする レポートに表示されるデータをフィルタリングするために使用されます
 
-    ![Example report date parameter](attachments/report-widgets/report-date-parameter-example.png)
+    ![レポート日付パラメータの例](attachments/report-widgets/report-date-parameter-example.png)
 
-* [Generate report button](report-button) – generates a report when the end-user clicks the button
+* [レポート ボタン](report-button) - エンドユーザーがボタンをクリックしたときにレポートを生成する
 
-    ![Example generate report button](attachments/report-widgets/generate-report-button-example.png)
+    ![レポート生成ボタンの例](attachments/report-widgets/generate-report-button-example.png)
 
 
-## 2 Performing Basic Functions
+## 2 基本機能の実行
 
 {{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Pages](pages)
+* [ページ](page)
+* [ページ](ページ)
