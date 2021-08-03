@@ -1,71 +1,70 @@
 ---
-title: "Document Template"
-parent: "document-templates"
+title: "ドキュメントテンプレート"
+parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 ---
 
+## 1つの紹介
+
+このドキュメントでは、ドキュメント テンプレートのプロパティについて説明します。 If you want to see what document templates are for and what kind of widgets can be placed on them, you can check the [Document Templates](document-templates) overview documentation.
+
+## 外観のプロパティ {#appearance-properties}
+
+### 2.1 ページ形式
+
+ページ形式は、ドキュメントテンプレートを使用して対象とするページのサイズを決定します。 例えば、A4(縦向き)とA5(横向き)です。 カスタム ページ形式を選択し、以下のプロパティ [ページ 幅](#width) および [ページ 高さ](#height) を使用することもできます。
+
+### 2.2 ページ幅 (インチ) {#width}
+
+ドキュメントテンプレートでターゲットとしているページの幅。 ページ形式を選択して自動的に設定します。 変更すると、ページ形式は 'Custom' に設定されます。
+
+### 2.3 ページの高さ (インチ) {#height}
+
+ドキュメントテンプレートでターゲットとしているページの高さ。 ページ形式を選択して自動的に設定します。 変更すると、ページ形式は 'Custom' に設定されます。
+
+### 2.4 Pixels per Inch (PPI)
+
+ピクセル密度は、ピクセル値に基づいて画像のサイズを計算するために使用されます。
+
+### 2.5 マージン左/右/上/下(インチ)
+
+余白は、用紙の境界線とすべての側面の内容の間の距離を指定します。
+
+### 2.6 ヘッダー/フッターを最初のページに表示
+
+ヘッダーおよび/またはフッターも最初のページに表示するかどうかを示します。
 
 {{% alert type="warning" %}}
-
-This document describes the properties of a document template. If you want to see what document templates are for and what kind of widgets can be placed on them, you can check the [Document Templates](document-templates) overview documentation.
-
+最初のページが表示されなくなったことを示すためには、改ページウィジェットを使用する必要があります。 コンテンツを生成中は計算できません。
 {{% /alert %}}
 
-## Appearance Properties
+デフォルト: *True*
 
-### Page format
+### 2.7 ヘッダーを有効にする
 
-The page format determines the size of the page you are targeting with the document template. Examples are A4 (portrait) and A5 (landscape). You can also choose a Custom page format and use the properties 'Page width' and 'Page height' below.
+各ページにヘッダーが表示されているかどうかを示します(オプションで最初のページを除く)。
 
-### Page width (inch)
+### 2.8 フッターを有効化
 
-The width of the page you are targeting with the document template. Automatically set by choosing a page format. If you change it, the page format will be set to 'Custom'.
+ページに各ページに表示されるフッターがあるかどうかを示します(オプションで最初のページを除く)。
 
-### Page height (inch)
+## 3つのスタイル
 
-The height of the page you are targeting with the document template. Automatically set by choosing a page format. If you change it, the page format will be set to 'Custom'.
+詳細は [スタイル](style) を参照してください。
 
-### Pixels per inch (PPI)
+## 4つの一般的なプロパティ
 
-The pixel density is used to calculate the size of images based on the pixel value.
+### 4.1 名前
 
-### Margin left/right/top/bottom (inch)
+ドキュメントテンプレートの名前 アプリエクスプローラーで名前を変更できます。
 
-The margins specify the distance between the border of the paper and the contents on all sides.
+### 4.2 ドキュメント
 
-### Show header/footer on first page
+ドキュメントテンプレートのドキュメント。
 
-Indicates whether the header and/or footer are also shown on the first page.
+## 5つのデザインプロパティ
 
-{{% alert type="warning" %}}
-Note that you must use a page break widget to indicate you're no longer on the first page. This cannot be calculated while generating content.
-{{% /alert %}}
+### 5.1 キャンバス幅
 
-_Default value_: True.
-
-### Enable header
-
-Indicates whether the page has a header that is displayed on each page (except optionally the first).
-
-### Enable footer
-
-Indicates whether the page has a footer that is displayed on each page (except optionally the first).
-
-## Style
-
-See [Style](style).
-
-## Common Properties
-
-### Name
-
-The name of the document template. You can change the name via the project explorer.
-
-### Documentation
-
-Documentation for the document template.
-
-## Designer Properties
-
-### Canvas width
-
-The canvas width determines the width of the canvas on which you are building the document template in the Modeler. This property has no effect on the application whatsoever.
+canvas の幅は、ドキュメントテンプレートを Studio Pro で作成する際のキャンバスの幅を決定します。 このプロパティは、アプリケーションに一切影響を与えません。
