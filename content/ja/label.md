@@ -1,39 +1,59 @@
 ---
-title: "Label"
-parent: "common-widgets"
+title: "ラベル"
+parent: "コモンウィジェット"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "ラベル"
+  - "共通ウィジェット"
 ---
 
+## 1つの紹介
+
+{{% alert type="warning" %}}ラベルウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
 {{% alert type="warning" %}}
 
-For input widgets it is recommended to use the more powerful [label property](text-box) to describe their purpose.
+入力ウィジェットについては、 [label プロパティ](text-box) を使用して、エンドユーザーへのウィジェットの目的を記述することをお勧めします。
 
-For all other text use the [text widget](text) as it provides more features, for example, text templates, and generates semantically correct HTML.
-
-{{% /alert %}}
-
-A label shows static text, which intent is to describe the purpose of a specific widget to the user.
-
-{{% alert type="info" %}}
-
-![](attachments/pages/label.png) A label placed in a cell with render mode header.
+[テキスト ウィジェット](text) をより多くの機能を提供するために使用することもできます。 たとえば、パラメータを追加して、意味的に正しいHTMLを生成することができます。
 
 {{% /alert %}}
 
-## General properties
+ラベルには静的テキストが表示され、ユーザーに特定のウィジェットの目的が表示されます。
 
-{{% snippet file="refguide7/Caption+Property.md" %}}
+## 2つのプロパティ
 
-## Visibility properties
+下記の画像には、ラベルプロパティの例が示されています。
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+{{% image_container width="300" %}}![ラベルのプロパティ](attachments/common-widgets/label-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+ラベル プロパティは、次のセクションで構成されます。
 
-## Common properties
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 2.1 共通セクション {#common}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 2.2 デザインプロパティセクション {#design-properties}
+
+{{% snippet file="refguide/design-section-link.md" %}}
+
+### 2.3 一般セクション {#general}
+
+**一般** セクションには、 **図表番号** プロパティがあります。 **図表番号** は、ユーザーに表示されるテキストを定義します。
+
+### 2.4 表示セクション {#visibility}
+
+{{% snippet file="refguide/visibility-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
