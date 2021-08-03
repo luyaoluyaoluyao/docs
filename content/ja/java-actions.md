@@ -1,20 +1,34 @@
 ---
 title: "Java アクション"
-category: "デスクトップ モデラー"
+parent: "リソース"
+menu_order: 10
 description: "Mendixアプリの機能を拡張するためにJavaアクションを使用する方法について説明します。"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/java-actions.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-Javaアクションを使用すると、この機能をマイクロフローに実装するのが難しい状況でアプリケーションの機能を拡張できます。 [Java Action Call](java-action-call) を使用して、マイクロフローから Java アクションを呼び出すことができます。
+Javaアクションを使用すると、この機能をマイクロフローに実装するのが難しい状況でアプリケーションの機能を拡張できます。 [Javaアクションコール](java-action-call) を使用して、マイクロフローからJavaアクションを呼び出すことができます。
 
 {{% alert type="info" %}}
-
-Each Java action defined in the Modeler corresponds to a file *{name of Java action}.java* in the subdirectory *javasource{module name}/actions* of the project directory.
-
-これらの *.java* ファイルのスケルトンは、Eclipse( **プロジェクト** メニュー)にデプロイすると自動的に生成されます。 これらのファイルにJavaコードを作成する方法については、 [Java Programming](java-programming) を参照してください。
-
+Each Java action defined in Studio Pro corresponds to a file *{name of Java action}.java* in the subdirectory *javasource/{module name}/actions* of the project directory. これらの *.java* ファイルのスケルトンは、Eclipse( **プロジェクト** メニュー)にデプロイすると自動的に生成されます。 これらのファイルにJavaコードを作成する方法については、 [Java Programming](java-programming) を参照してください。
 {{% /alert %}}
+
+このJavaアクションを詳しく調べるには、以下のビデオをご覧ください。
+
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://videoshare.mendix.com/watch/rof7aUB6Hom4et6qQU7FuT?.jpg"
+  data-uuid="rof7aUB6Hom4et6qQU7FuT?"
+  data-v="4"
+  data-type="inline"
+ />
 
 ## 2つの全般
 
@@ -28,7 +42,7 @@ Javaアクションには0以上のパラメータがあります。 パラメ�
 
 各パラメータには名前、タイプ、カテゴリ、説明があります。
 
-カテゴリを使用して、 [Java Action Call](java-action-call) でパラメータを区別します。 カテゴリを指定しない場合、パラメータは **Input** グループに表示されます。
+カテゴリを使用して、 [Java アクションコール](java-action-call) でパラメータを区別します。 カテゴリを指定しない場合、パラメータは **Input** グループに表示されます。
 
 可能な標準パラメータ型については、 [データ型](data-types) を参照してください。 型がオブジェクトまたはリストの場合、エンティティの種類も選択する必要があります。 これは、特定のエンティティまたは型パラメータのいずれかになります。 typeパラメータは、Javaアクションがマイクロフローで使用されるまで、実際のエンティティタイプの選択を延期します。 これにより、Javaアクションは任意のエンティティタイプのMendixオブジェクトを受け入れることができます。
 
@@ -49,25 +63,23 @@ Java アクションでサポートされているその他のタイプについ
 
 #### 2.2.3 インポートマッピングタイプ
 
-**マッピングのインポート** パラメータ型により、Java アクションのユーザーは、Java アクションにインポートマッピングを渡すことができます。 生成された Java アクション テンプレート コードでは、この型は文字列 (インポートマッピングの名前) として表されます。
-
-{{% alert type="info" %}}
-
-format@@0 パラメータの型は Mendix 7.2.0 で導入されました。
-
-{{% /alert %}}
+**マッピングのインポート** パラメータ型を使用すると、Java アクションにインポートマッピングを渡すことができます。 生成された Java アクション テンプレート コードでは、この型は文字列 (インポートマッピングの名前) として表されます。
 
 #### 2.2.4 エクスポートマッピングタイプ
 
-**マッピングのエクスポート** パラメータ・タイプを使用すると、Java Actions のユーザーがエクスポートマッピングを Java アクションに渡すことができます。 生成された Java アクション テンプレート コードでは、この型は文字列 (エクスポートマッピングの名前) として表されます。
+**マッピングのエクスポート** パラメーター型を使用すると、Java アクションにエクスポートマッピングを渡すことができます。 生成された Java アクション テンプレート コードでは、この型は文字列 (エクスポートマッピングの名前) として表されます。
 
-{{% alert type="info" %}}
+#### 2.2.5 文字列テンプレートタイプ {#string-template-type}
 
-エクスポートマッピングパラメータタイプは、バージョン 7.2.0 で導入されました。
+**String template** パラメータ型を使用すると、文字列テンプレートを Java アクションに渡すことができます。 生成された Java アクションテンプレートコードでは、この型は `IStringTemplate` として表されます。
 
-{{% /alert %}}
+テンプレートには、括弧間の数値として記述されたパラメータを含めることができます (例: `{1}`)。 最初のパラメータは `1`、2 番目の `2`などの数字を持ちます。
 
-#### 2.2.5 返品タイプ
+テンプレート内の各パラメーターに対して、マイクロフロー式を定義し、パラメーターの位置に値が挿入されます。
+
+生成されたコードでは、 `IStringTemplate` 型は、デフォルトまたはカスタムロジックを使用して、渡された文字列テンプレートを評価するためのメソッドを提供します。
+
+#### 2.2.6 返品タイプ
 
 戻り値の型は、Javaアクションが返すデータの型を決定します。 Javaアクションの `.java` ファイルの *executeAction()* メソッドの戻り値の型に対応します。 Javaアクションの結果を、呼び出すマイクロフロー内で使用できます。 返り値の型については、 [Data Types](data-types) を参照してください。
 
@@ -85,7 +97,7 @@ Javaアクションには0以上の型パラメータがあります。 各type�
 
 マイクロフローアクションのキャプションとカテゴリが必要ですが、アイコンはオプションです。 アイコンが選択されていない場合、デフォルトの Java アクションアイコンが使用されます。
 
-アイコンの推奨サイズは 16x16 です。
+アイコンの推奨サイズは16x16ピクセルです。
 
 ## 5 ドキュメント
 
