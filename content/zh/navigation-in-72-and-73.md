@@ -1,74 +1,74 @@
 ---
-title: "Navigation in Mendix Versions 7.2 & 7.3"
-parent: "project"
-description: "Describes the concept of navigation in apps and the properties of a profile for Mendix versions 7.2 and 7.3."
+title: "Mendix 版本中的导航 7.2 & 7.3"
+parent: "项目"
+description: "描述应用导航概念以及Mendix 版本的7.2和7.3的配置文件属性。"
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="warning" %}}
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. This is applicable to Mendix versions 7.2 and 7.3. For details on how this works in Mendix versions 7.0 and 7.1, see [Navigation Before Mendix Version 7.2](navigation-before-72). For Mendix version 7.4 and above, see [Navigation](navigation).
+本文档描述Mendix 应用程序中的导航概念和配置文件的属性。 这适用于Mendix 版本7.2和7.3。 关于Mendix 版本7.0 和7.1中如何工作的详细情况，请参阅 [Mendix 版本7.2](navigation-before-72)。 Mendix 版本 7.4 及以上版本，请参阅 [Navigation](navigation)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
 {{% alert type="info" %}}
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. In Mendix 7.2.0 and in Mendix 7.4.0, the profiles received updates. For details on how this works in Mendix versions 7.0 and 7.1, see [Navigation Before Mendix Version 7.2](navigation-before-72). For 7.2 and 7.3 see [Navigation in 7.2 and 7.3](navigation-in-72-and-73).
+本文档描述Mendix 应用程序中的导航概念和配置文件的属性。 在 Mendix 7.2. 0 和 Mendix 7.4.0中，配置文件收到更新。 关于Mendix 版本7.0 和7.1中如何工作的详细情况，请参阅 [Mendix 版本7.2](navigation-before-72)。 7.2和7.3见 [导航在7.2和7.3](navigation-in-72-and-73)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The **Navigation** document can be found by expanding the **Project** node in the Project Explorer. It defines the navigation structure of the application for users. It allows you to set the home page of your application and to define the menu structures that can be used in [menu widgets](menu-widgets). A user's home page can vary based on their [user roles](user-roles).
+**导航** 文档可以通过在项目探索器中扩展 **项目** 节点来找到。 它定义了用户应用的导航结构。 它允许您设置应用程序的主页，并定义可以在 [菜单小部件](menu-widgets) 中使用的菜单结构。 用户的主页可以根据他们的 [用户角色](user-roles) 而变化。
 
 ## 2 Profiles
 
-At the heart of the navigation model in Mendix, there are five kinds of profiles: responsive, tablet (browser), phone (browser), hybrid app, and hybrid offline app. Users that access the app via a particular device type are automatically redirected to the homepage of the appropriate profile based on the profile kind (for details, see [3 Redirection to Profiles](#Redirection)).
+Mendix导航模型的核心有五种特征：响应， 平板电脑(browser)，手机 (browser)，混合应用，混合离线应用。 通过特定设备类型访问应用的用户会自动重定向到适当配置文件的主页（详细信息） 查看 [3 重定向到配置文件](#Redirection)。
 
 {{% alert type="info" %}}
 
-In Mendix 7.0.2, the offline device profile was replaced by the [hybrid phone profile](hybrid-phone-profile). In addition to this, a new device profile was made available, which was called the [hybrid tablet profile](hybrid-tablet-profile). All the settings from the offline device profile were automatically copied to the hybrid phone profile.
+在 Mendix 7.0.2中，离线设备配置文件被 [混合手机配置文件](hybrid-phone-profile) 所取代。 除此之外，还提供了一个新的设备配置文件，称为 [混合平板电脑配置](hybrid-tablet-profile)。 所有离线设备配置文件的设置都自动复制到混合手机配置文件。
 
-In Mendix 7.2.0, the hybrid tablet and hybrid phone profiles were converted to profiles of the hybrid app or hybrid offline app type, based on the offline enabled option.
+In Mendix 7.2。 , 混合平板电脑和混合手机配置文件已转换为混合应用或混合离线应用类型， 基于离线启用的选项。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The device type of the currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use the `$currentDeviceType` variable to perform different actions based on the device type. A typical example is to show different pages based on the device type.
+当前登录用户的设备类型在 [微流](microflows) 中可用， `$currentDeviceType` 变量。 此变量的类型是 [枚举](enumerations) `系统。 eviceType`, 它有值 `Phone`, `平板电脑`, 和 `桌面`. 您可以使用 `$currentDeviceType` 变量来执行基于设备类型的不同操作。 一个典型的例子是显示基于设备类型的不同页面。
 
-### 2.1 Responsive
+### 2.1 回应
 
-Every app always has one profile of a responsive type which cannot be deleted. This is the default profile used by a Mendix app.
+每个应用程序总是有一个不能被删除的响应类型的配置文件。 这是Mendix 应用程序使用的默认配置文件。
 
-### 2.2 Tablet (Browser)
+### 2.2 绘图板(Browser)
 
-All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the tablet type. If no profile exists of that type, the user will be redirected to the responsive profile. Only one profile of the tablet (browser) type may exist.
+从平板电脑上的浏览器访问Mendix 应用程序的所有用户都会自动被重定向到平板电脑类型的配置文件。 如果没有此类型的配置文件，用户将被重定向到响应配置文件。 可能只存在一个平板电脑(浏览器)类型的配置文件。
 
-### 2.3 Phone (Browser)
+### 2.3 电话 (Browser)
 
-All the users accessing a Mendix app from a browser on a phone will automatically be redirected to a profile of the phone type. If no profile exists of that type, the user will be redirected to the responsive profile. Only one profile of the phone (browser) type may exist.
+通过手机浏览器访问Mendix 应用程序的所有用户都会自动重定向到手机类型的配置文件。 如果没有此类型的配置文件，用户将被重定向到响应配置文件。 可能只存在一个电话类型(rowser)的配置文件。
 
-### 2.4 Hybrid App
+### 2.4 混合应用
 
-A Mendix app can be installed on a tablet or phone as an app by creating a PhoneGap hybrid package. Profiles of the hybrid app type can be accessed from such a PhoneGap app. Hybrid app profiles are requested by profile name. If no profile exists with the requested name, an error will be displayed in the app.
+通过创建 PhoneGap 混合软件，Mendix 应用可以安装在平板电脑或手机上。 混合应用程序类型的配置文件可以从这种PhoneGap应用程序访问。 配置文件名称要求提供混合应用配置文件。 如果请求的名称不存在配置文件，则将在应用程序中显示错误。
 
-### 2.5 Hybrid Offline App
+### 2.5 离线混合应用
 
-The Mendix app can be installed on a tablet or phone as an app by creating a PhoneGap hybrid package. Profiles of the Hybrid offline app type can be accessed from such a PhoneGap app. Hybrid offline app profiles are requested by profile name. If no profile exists with the requested name, an error will be displayed in the app.
+Mendix 应用可以通过创建 PhoneGap 混合软件包安装在平板电脑或手机上。 混合离线应用类型的配置文件可以从这种PhoneGap应用程序访问。 配置文件名称要求混合离线应用配置文件。 如果请求的名称不存在配置文件，则将在应用程序中显示错误。
 
-Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline](offline).
+混合离线应用旨在允许用户继续使用他们的Mendix 应用程序，即使他们没有互联网连接。 然而，适用某些限制。 关于运行离线设备配置文件的影响概述，请参阅 [离线](offline)。
 
-## 3 Redirection to Profiles<a name="Redirection"></a>
+## 3 重定向到配置文件<a name="Redirection"></a>
 
-Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the `User-Agent` string that is sent by the device's browser. Hybrid apps do not use this mechanism, as they are referred to by name. The default configuration for this redirection is as follows:
+Mendix Runtime 自动将用户重定向到适当设备类型的主页。 通过检查设备浏览器发送的 `用户代理` 字符串来做到这一点。 混合应用不会使用此机制，因为它们被名称引用。 此重定向的默认配置如下：
 
-| User-Agent String Regular Expression                  | Device Type |
-| ----------------------------------------------------- | ----------- |
-| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
-| Android&#124;iPad                                     | Tablet      |
-| _(other)_                                             | Responsive  |
+| 用户代理字符串正则表达式                                      | 设备类型 |
+| ------------------------------------------------- | ---- |
+| Android.*手机&#124;iPhone&#124;iPod&#124;BlackBerry | 电话   |
+| Android&#124;iPad                                 | 平板电脑 |
+| _(其他)_                                            | 响应性  |
 
-To configure the regular expressions used to match phone or tablet users, see [Custom Settings](custom-settings).
+要配置用于匹配手机或平板电脑用户的正则表达式，请参阅 [自定义设置](custom-settings)。
 
-It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are the names of the profiles. For example:
+在访问 Mendix 应用程序时，还可以通过添加 `配置` 查询字符串参数来强制客户端使用特定的配置文件。 可能的值是配置文件的名称。 例如：
 
 ```http
 https://myapp.mendixcloud.com/index.html?profile=Responsive
