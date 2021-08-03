@@ -15,7 +15,7 @@ tags:
 
 ## 1 导言
 
-本参考指南将在本地移动应用中自定义Mendix 风格元素， 同时解释Mendix小部件的类和风格属性。 学习本机搭配的基础知识， 您可以咨询 [如何实现本地移动式样式](/howto/mobile/native-styling) 然后跟随 [如何使您的Mendix 本地移动式应用程序](/howto/mobile/how-to-use-native-styling)。
+本参考指南将在本地移动应用中自定义Mendix 风格元素， 同时解释Mendix小部件的类和风格属性。 学习本机搭配的基础知识， 您可以咨询 [如何实现本地移动式样式](/howto8/mobile/native-styling) 然后跟随 [如何使您的Mendix 本地移动式应用程序](/howto8/mobile/how-to-use-native-styling)。
 
 Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机移动应用，您可以使用本机布局来轻松整合导航和设置以优化本机功能。 欲了解更多布局信息，请参阅 [布局](layout)。
 
@@ -80,7 +80,7 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 });
 ```
 
-关于创建您自己的班级的更多信息 查看 [在 *样式您的Mendix 原生移动应用程序* 中创建您自己的类](/howto/mobile/how-to-use-native-styling#creating-your-own-classes) 部分。 该文档还显示如何使用自定义类作为设计属性。
+关于创建您自己的班级的更多信息 查看 [在 *样式您的Mendix 原生移动应用程序* 中创建您自己的类](/howto8/mobile/how-to-use-native-styling#creating-your-own-classes) 部分。 该文档还显示如何使用自定义类作为设计属性。
 
 ## 3 个数据部件 {#understanding-data-widgets}
 
@@ -158,7 +158,7 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 | `图片`    | 这包含所有图像样式属性。  |                                                                          |
 | `图片已禁用` | 与 `图像相同的属性`   | 如果图像在单击动作上有操作且操作无法执行或在操作过程中被禁用，则覆盖 `图像` 样式。                              |
 
-所有静态图像风格的默认类命名为 `图像`。 请注意从模型中加载的图像被风格为 `NativeDynamicImage` 描述于下面的 [图像查看器](#image-viewer) 部分。
+所有静态图像风格的默认类命名为 `图像`。 请注意，如下文 [图像查看器](#image-viewer) 部分所述，从模型中加载的图像样式为 `图像查看器`。
 
 ### 4.3 页面标题
 
@@ -242,7 +242,7 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 
 样式所有页面标题的默认类命名为 `Container`。
 
-### 5.2 标签容器
+### 5.2 标签容器 {#tab-container}
 
 标签容器用于显示分类到多个标签页的信息。 标签容器可以帮助显示超出设备屏幕空间的信息。 这是默认标签容器小部件在应用程序中可以看到的方式：
 
@@ -526,7 +526,7 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 
 图像查看器可以用来显示图像。 这个小部件支持与上面的 [图像](#image) 小部件相同的样式属性和结构。
 
-样式所有图像查看器的默认类命名为  `NativeDynamicImage`。
+样式所有图像查看器的默认类命名为  `图像查看器`。
 
 ## 8 按钮部件
 
@@ -626,7 +626,7 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 
 ## 11 附加组件小部件
 
-附加组件会通过 [原生移动资源](/appstore/modules/native-mobile-resources) 模块分发，它不会通过 Mendix Studio Pro 发送。 其它附加组件也可以通过应用模板以及从其它应用导入页面的模块来分发。
+附加组件会通过 [原生移动资源](/appstore/modules/native-mobile-resources) 模块分发，它不会通过 Mendix Studio Pro 发送。 其他附加组件也可以通过应用模板以及从其他项目导入页面的模块进行分配。
 
 ### 11.1 活动指标 {#activity-indicator}
 
@@ -1316,47 +1316,7 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 
 样式所有弹出菜单的默认类命名 `com_mendix_widget_native_carousel_Carousel`。
 
-### 11.26 签名 {#signature}
-
-签名小部件允许您绘制和保存签名。 签名小部件看起来像这样：
-
-{{% image_container width="350" %}}![signature](attachments/native-styling-refguide/signature.png){{% /image_container %}}
-
-小部件的样式属性结构如下：
-
-```xml
-<container>
-    <signature/>
-    <buttonWrapper>
-        <Button>
-            <Caption>清除</Caption>
-        </Button>
-        <Button>
-            <Caption>保存</Caption>
-        </Button>
-    </buttonWrapper>
-</container>
-```
-
-| 元素       | 样式属性                 | 描述                         |
-| -------- | -------------------- | -------------------------- |
-| `容器`     | 这包含所有视图样式属性。         |                            |
-| `容器`     | `笔色`                 | 这将改变笔画的颜色。                 |
-| `按钮包装器`  | 这包含所有视图样式属性。         |                            |
-| `按钮清理容器` | 这包含所有视图样式属性。         |                            |
-| `按钮清理容器` | `rippleColor`        | 这将改变Android上的波纹的颜色。        |
-| `按钮清理容器` | `活动不透明度`             | 当触摸在iOS上处于活动状态时，这将会改变不透明度。 |
-| `按钮清理容器` | `下颜色`                | 当触摸在iOS上时，这将更改下层颜色。        |
-| `按钮清除标题` | 这包含所有的 TextStyle 属性。 |                            |
-| `按钮保存容器` | 这包含所有视图样式属性。         |                            |
-| `按钮保存容器` | `rippleColor`        | 这将改变Android上的波纹的颜色。        |
-| `按钮保存容器` | `活动不透明度`             | 当触摸在iOS上处于活动状态时，这将会改变不透明度。 |
-| `按钮保存容器` | `下颜色`                | 当触摸在iOS上时，这将更改下层颜色。        |
-| `按钮保存标题` | 这包含所有的 TextStyle 属性。 |                            |
-
-所有文本框样式的默认类命名 `com_mendix_widget_native_signature`。
-
-### 11.27 线图
+### 11.26 直线图
 
 [行图](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/line-chart-native) 小部件会根据静态和动态数据集呈现可缩放的行图。
 
@@ -1437,9 +1397,9 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 
 样式所有行图小部件的默认类命名 `com_mendix_widget_native_linechart_LineChart`。
 
-### 11.28 条形图
+### 11.27 条形图
 
-条形图小部件根据静态和动态数据集绘制水平条形图。
+[条图表](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/bar-chart-native) 小部件根据静态和动态数据集渲染水平条形图。
 
 小部件由下列元素组成：
 
@@ -1524,6 +1484,6 @@ Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机
 
 ## 12 阅读更多
 
-* [如何样式您的 Mendix 本地移动应用程序](/howto/mobile/how-to-use-native-styling)
-* [如何实现本地移动样式](/howto/mobile/native-styling)
+* [如何样式您的 Mendix 本地移动应用程序](/howto8/mobile/how-to-use-native-styling)
+* [如何实现本地移动样式](/howto8/mobile/native-styling)
 * [设计属性文档](/apidocs-mxsdk/apidocs/design-properties)
