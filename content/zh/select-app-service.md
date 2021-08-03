@@ -1,32 +1,26 @@
 ---
-title: "Select App Service"
-parent: "consumed-app-services"
-tags:
-  - "studio pro"
+title: "选择应用服务"
+parent: "已消耗的应用服务"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/select-app-service.pdf).
-{{% /alert %}}
+应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
+{{% /报警 %}}
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [consumed web service](consumed-web-services) to consume existing app services.
-{{% /alert %}}
+## 来源
 
-## Source
+您可以在模块的添加菜单中选择一个新的应用服务文档来添加应用服务到您的模型。 在对话框中，您可以从 3 个源选择一个应用服务：
 
-You can add an app service to your model by selecting a new App Service document in the Add menu of a module. In the dialog, you can select an app service from 3 sources:
+*   市场。 9项最新应用服务显示在caroussel中。 选择一个并按 OK。 如果您想要看到更多详细信息，请按 '详细信息'；您将被重定向到 Moderr App 商店。
+*   文件：按“选择”从磁盘导入Mendix 服务定义(MSD)。
+*   Url: 输入一个URL来从本地网络或互联网上下载一个 MSD 文件。
 
-*   Marketplace. The 9 most recent app service are displayed in a caroussel. Select one and press OK. If you want to see more details, press 'Details'; you will be redirected to Studio Pro App store.
-*   File: Press 'Select' to import an Mendix Service Definition (MSD) file from disk.
-*   Url: Enter a Url to download an MSD file from a location on the local network or on the internet.
+## 最近的应用服务
 
-## Most recent app services
+### 在市场中查看所有应用服务
 
-### View all app services in the Marketplace
+在“最新应用服务概览”最右角，您可以选择此链接。 当选择时，它将在Modeler中打开一个页面，这个页面将显示您可以使用的所有应用程序。
 
-In the rightmost corner of the 'Most recent app services overview', you can select this link. When selected, it will open a page in Studio Pro which shows you all apps available to you.
+### 平铺图
 
-### Tile
-
-Selecting a tile and then selecting the OK button will import the app service for you in Studio Pro. See [Consumed App Services](consumed-app-services) for information about the use of imported app services.
+选择一个瓷块，然后选择 OK 按钮将在模型中为您导入应用服务。 关于导入的应用服务的使用情况，请参阅 [已消耗的应用服务](consumed-app-services)。
