@@ -1,57 +1,54 @@
 ---
-title: "Upload to Version Control Server"
-parent: "version-control-menu"
+title: "上传到版本控制服务器"
+parent: "版本控制-菜单"
 menu_order: 70
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/upload-to-team-server-dialog.html
+  - /refguide/upload-to-team-server-dialog.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/upload-to-version-control-dialog.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+使用此对话框上传一个尚未存储在版本控制服务器中的应用程序。
 
-Use this dialog box to upload an app that is not yet stored in a version control server.
+![上传到版本控制服务器菜单选项](attachments/upload-to-version-control/upload-to-version-control-server.png)
 
-![Upload to Version Control Server menu option](attachments/upload-to-version-control/upload-to-version-control-server.png)
+## 2 个位置
 
-## 2 Location
+使用此设置选择您想要存储应用程序的位置。 以下有三种选择。
 
-Use this setting to select the location where you want to store your app. There are three options, which are described below.
+### 2.1 新 Mendix 团队服务器
 
-### 2.1 New Mendix Team Server
+您可以在 [Mendix 团队服务器](/developerportal/collaborate/team-server) 上创建一个新的应用程序。
 
-You can create a new app on [Mendix Team Server](/developerportal/collaborate/team-server).
+* 选择 **新Mendix 团队服务器**
+* 在 **应用程序名称** 字段中输入新团队服务器应用程序和资源库的名称 </strong>
 
-* Select **New Mendix Team Server**
-* Enter the name for the new Team Server project and repository in the **App name** field
+    ![输入新Mendix 团队服务器的应用程序名称](attachments/upload-to-version-control/new-team-server-app.png)
 
-    ![Enter App name for New Mendix Team Server](attachments/upload-to-version-control/new-team-server-app.png)
-
-### 2.2 Existing Mendix Team Server
+### 2.2 现有Mendix 团队服务器
 
 {{% alert type="warning" %}}
-You can only upload to an existing repository if the repository is currently empty
-{{% /alert %}}
+如果仓库当前为空，您只能上传到现有的存储库
+{{% /报警 %}}
 
-* Select **Existing Mendix Team Server**
-* Select the **Team Server App** from the list
+* 选择 **现有Mendix 团队服务器**
+* 从列表中选择 **团队服务器应用程序**
 
-    ![Select existing mendix Team Server](attachments/upload-to-version-control/existing-team-server-app.png)
+    ![选择现有的mendix 团队服务器](attachments/upload-to-version-control/existing-team-server-app.png)
 
-### 2.3 Private Server
+### 2.3 私人服务器
 
-This option is only available when support for other servers is enabled in **Edit** > **Preferences** > **Advanced** > [Enable private version control](preferences-dialog#enable)).
+此选项仅在启用对其他服务器的支持时才可在 **编辑** > **首选项** > **高级** > [启用私有版本控制](preferences-dialog#enable))。
 
-![Enable private version control in advanced preferences](attachments/upload-to-version-control/enable-private-version-control.png)
+![在高级首选项中启用私密版本控制](attachments/upload-to-version-control/enable-private-version-control.png)
 
-<a name="private-server"></a>If you select **Private server**, enter the address of the repository to which you want to upload your app in the **App repository address** field.
+如果您选择了 **个私人服务器**， 输入您想要上传应用程序的仓库地址到 **应用程序仓库地址** 字段。
 
-![Enable private version control in advanced preferences](attachments/upload-to-version-control/private-server-app.png)
+![在高级首选项中启用私密版本控制](attachments/upload-to-version-control/private-server-app.png)
 
-## 3 Read More
+## 3 阅读更多
 
-* [How to Work with an On-Premises Version Control Server](/howto8/collaboration-requirements-management/on-premises-svn-howto)
+* [如何与房地上的 SVN 版本控制服务器合作](/howto/collaboration-requirements-management/on-premises-svn-howto)
+* [如何使用 On-Buildes Git 版本控制服务器](/howto/collaboration-requirements-management/on-premises-git-howto)
