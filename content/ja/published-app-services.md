@@ -1,34 +1,28 @@
 ---
-title: "Published App Services"
-parent: "integration"
-tags:
-  - "studio pro"
+title: "公開済みアプリサービス"
+parent: "統合"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-app-services.pdf).
+アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 [公開されたWebサービス](published-web-services) または [公開されたRESTサービス](published-rest-services) を代わりに使用してください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
-{{% /alert %}}
+アプリサービスは **ファイル** > **新規ドキュメント** を介して作成することができます。
 
-An app service can be created via **File** > **New Document**.
-
-Names of published app service documents must be unique (also with regard to published web service).
+公開されたアプリサービスドキュメントの名前は一意である必要があります(公開されたウェブサービスに関しても)。
 
 ![](attachments/16713717/16843911.png)
 
-## 2 Create Version
+## 2 バージョンを作成
 
-The **Create version** button instantiates a new app service version. For more information, see [Published App Service](published-app-service).
+**Create version** ボタンをクリックすると、新しいアプリサービスバージョンがインスタンス化されます。 詳細については、 [公開アプリサービス](published-app-service) を参照してください。
 
-## 3 Edit
+## 3 編集
 
-This button opens the selected app service version dialog box. Only **Draft** versions are editable. The settings of **Consumable** versions can only be viewed.
+このボタンをクリックすると、選択したアプリケーション・サービスのバージョンダイアログ・ボックスが開きます。 **Draft** バージョンのみ編集可能です。 **消耗品** のバージョンの設定は表示できません。
 
-## 4 Delete
+## 4削除
 
-This button deletes the selected app service version.
+このボタンは、選択したアプリのサービスバージョンを削除します。
