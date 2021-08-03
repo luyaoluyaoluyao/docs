@@ -1,44 +1,44 @@
 ---
-title: "Images"
-category: "App Modeling"
+title: "画像"
+category: "アプリモデリング"
 menu_order: 70
 tags:
-  - "Images"
-  - "Image Collections"
+  - "画像"
+  - "画像コレクション"
   - "png"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Images can be used to brighten up your application. [Navigation items](navigation-tree) and the various kinds of [buttons](button-widgets) have small images (icons) to left of their captions. Images can also be used in the image viewer widgets in [pages](pages) and [document templates](document-templates). Also, [enumeration values](enumerations#enum-value-properties) can have images that can then be shown in data grid columns.
+画像はアプリケーションを明るくするのに使用できます。 [ナビゲーション項目](navigation-tree) と様々な種類の [ボタン](button-widgets) には、キャプションの左側に小さな画像 (アイコン) があります。 画像は、 [ページ](pages) および [ドキュメント テンプレート](document-templates) 内のイメージ ビューアー ウィジェットでも使用できます。 また、 [列挙値](enumerations#enum-value-properties) はデータグリッド列に表示できる画像を持つことができます。
 
-The **System** module contains some images that are used by the standard components. If you place a data view on a page, the **Save** and **Cancel** buttons will have images from the **System** module on them. You can always use different images if you like. The same holds for images on the control bar buttons of the data grid.
-
-{{% alert type="info" %}}
-This sort of image is called a **static** image as it is always the same. For example, the icon you put on a save button will always look the same whatever object you are saving.
-
-If you want different images to appear for different objects (for example, a picture of a product) these images should be stored as images in the database. See [How To Work with Images & Files](/howto/data-models/working-with-images-and-files) for more information.
-{{% /alert %}}
-
-## 2 Supported Formats
-
-The following image formats are supported: *png*, *jpeg*, *gif*, *bmp*, and *svg*. The *png* format is recommended, as it is compressed without losing any information and supports transparency very well.
-
-## 3 Custom Images
-
-To use your own images, they must first be added to an [image collection](image-collection). For information on how to create an image collection, and add images to it, see [Image Collection](image-collection).
-
-You should not add custom images to the existing image collections in imported modules, for example in the Atlas UI module. If you do this, there is a risk that they may be overwritten if you import a new version of the module at a later date.
-
-Once you have added images to an image collection, you can use them in any module in your app.
+**システム** モジュールには、標準コンポーネントで使用される画像が含まれています。 データビューをページに配置する場合。 **Save** and **Cancel** ボタンには **System** モジュールの画像が表示されます。 好きな場合はいつでも異なる画像を使用できます。 データグリッドのコントロールバーボタン上の画像についても同じことができます。
 
 {{% alert type="info" %}}
-If you need to refer to an image in an image collection from CSS or custom widgets, the name of the image will be `/img/{module_name}${image_collection_name}${image_name}`.
+この種類の画像は、常に同じであるため、 **static** イメージと呼ばれます。 たとえば、保存ボタンに置いたアイコンは、保存しているオブジェクトと同じに見えます。
+
+異なるオブジェクトに異なる画像を表示したい場合(例えば、 これらの画像はデータベースに保存する必要があります 詳細については [イメージ & ファイル](/howto/data-models/working-with-images-and-files) を参照してください。
 {{% /alert %}}
 
-## 4 Common Properties
+## 2対応フォーマット
 
-### 4.1 Name
+The following image formats are supported: *png*, *jpeg*, *gif*, *bmp*, and *svg*. *png* フォーマットは、情報を失うことなく圧縮されており、透明性が非常によくサポートされているため推奨されます。
 
-This the name of the image.
+## 3つのカスタム画像
+
+独自の画像を使用するには、まず [画像コレクション](image-collection)に追加する必要があります。 画像コレクションを作成し、画像を追加する方法については、 [Image Collection](image-collection) を参照してください。
+
+例えば、Atlas UIモジュールのように、インポートされたモジュール内の既存の画像コレクションにカスタム画像を追加しないでください。 これを行う場合 新しいバージョンのモジュールを後日インポートすると上書きされる可能性があります。
+
+画像コレクションに画像を追加したら、アプリのどのモジュールでも使用できます。
+
+{{% alert type="info" %}}
+CSS またはカスタム ウィジェットから画像コレクション内の画像を参照する必要がある場合。 画像の名前は `/img/{module_name}${image_collection_name}${image_name}` になります。
+{{% /alert %}}
+
+## 4つの一般的なプロパティ
+
+### 4.1 名前
+
+これは画像の名前です。
