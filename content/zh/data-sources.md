@@ -1,38 +1,50 @@
 ---
-title: "Data Sources"
-parent: "page-concepts"
+title: "数据源"
+parent: "数据部件"
+tags:
+  - "studio pro"
+  - "数据源"
 ---
 
+## 1 导言
 
-Widgets that display information stored in entities require you to assign a method by which to attain the relevant data. Such methods are collectively known as data sources. Widgets that require a data source include all [data widgets](data-widgets) and [input widgets](input-widgets).
+显示存储在实体中的信息的小部件要求您分配获取相关数据的方法。 这种方法被统称为数据来源。 需要数据源的小部件包括所有 [数据小部件](data-widgets) 和 [输入小部件](input-widgets)。 [插件](/apidocs-mxsdk/apidocs/pluggable-widgets) 也可以使用数据源。
 
-Most simple input widgets derive their content from their context. A text box will, for instance, only allow input for attributes of the target entity. The exceptions are those widgets that require an entire object or a list of objects to function. Below the available data sources are described per widget type.
+在本文件中，我们描述了数据部件的数据来源。
 
-## Data View
+## 2 个数据视图
 
-The data view supports the following data sources:
+数据视图支持以下数据来源：
 
-*   [Context](entity-path-source): in the case of an entity, the data view gets its object from the microflow or page that is opening the page. The context needs to supply this object when opening the page. If the data view is nested inside another data widget, you can specify an entity path that starts in the context object and follows one or more associations.
-*   [Microflow](microflow-source): the data view object is determined by the result of calling the specified microflow. The microflow can take objects in the context as parameter and needs to return a single object.
-*   [Listen to widget](listen-to-grid-source): the data view object depends on the selection in a list widget. Each time the selection changes, the data view will show that selected object.
-
-{{% alert type="info" %}}
-
-The microflow source is not supported in offline applications because it implies a call to the server.
-
-{{% /alert %}}
-
-## List Widgets (data grid, template grid, list view)
-
-List widgets support the data sources listed below. The data source also determines which features of the widget are enabled. For instance, only widgets with a database or XPath data source may contain a search bar, as the search bar relies on a database call to function.
-
-*   [Database](database-source): the objects in the list are retrieved from the database. Constraints can be used to limit which objects are shown.
-*   [XPath](xpath-source): the objects in the list are retrieved from the database and XPath can be used to constrain which objects are shown.
-*   [Microflow](microflow-source): the objects in the list are determined by the result of calling the specified microflow. The microflow can take objects in the context as parameter and needs to return a list of objects.
-*   [Association](association-source): the objects are retrieved by following an association from the object in the context. As such this data source is only available when the when a widget is nested in an existing context, such as a data view.
+*   [Context](context-source) - 数据视图从上下文获取对象：或者从页面参数或者从周围的数据容器
+*   [Microflow](microflow-source) - 数据视图对象是由调用选定的微流程结果决定的。 微流可以在上下文中将对象作为参数，并且需要返回单个物体。
+*   [Nanoflow](nanoflow-source) — — 检索到的对象是通过调用选定的纳诺夫低的结果来决定的。 nanoflow 可以在上下文中将对象作为参数，并且需要返回单个对象。
+*   [聆听小部件](listen-to-grid-source) - 数据视图对象取决于列表小部件中的选择(数据网格, 模板网格或列表视图)
 
 {{% alert type="info" %}}
 
-The database source is the only data source that is also supported offline. If a list widget has a database data source in an offline application, the data will come from the database that is situated on the device. This database can be synced with the [create button](new-button).
+离线应用程序不支持 **Microflow** 源，因为它意味着要拨打服务器。
 
-{{% /alert %}}
+{{% /报警 %}}
+
+## 3 列表部件 {#list-widgets}
+
+数据网格、模板网格和列表视图是列表部件。 另外，一些 [插件](/apidocs-mxsdk/apidocs/pluggable-widgets) 可能会作为列表小部件并使用数据源。 支持的数据来源如下：
+
+*   [数据库](database-source) - 从数据库中检索对象；数据库约束可以用来限制显示哪些对象。
+*   [XPath](xpath-source) - 从数据库中检索对象；XPath 约束可以用来约束显示哪些对象。
+*   [Microflow](microflow-source) — — 检索到的对象由调用选定的微流程的结果决定。 微流可以将对象作为参数，并且需要返回对象列表。
+*   [Nanoflow](nanoflow-source) — — 检索到的对象是通过调用选定的纳诺夫低的结果来决定的。 nanoflow 可以在上下文中将对象作为参数，并且需要返回对象列表。 Nanoflow 数据源仅适用于数据视图和列表视图。
+*   [关联](association-source) - 通过关注对象上下文中的关联从内存中获取物体。 因此，这个数据源只有当一个部件嵌套在另一个数据容器中时才可用。
+
+ 数据源还决定该部件的哪些功能已启用。 例如，只有具有数据库或 XPath 数据源的小部件可以包含 [搜索栏](search-bar)。
+
+{{% alert type="info" %}}
+
+数据库和纳米数据源是唯一支持离线的数据源。 如果列表小部件在离线应用程序中有数据库数据源， 数据将来自设备上的数据库。 这个数据库可以与创建一个新对象的 [按钮](button-properties) 小部件。
+
+{{% /报警 %}}
+
+## 4 阅读更多
+
+* [数据部件](data-widgets)
