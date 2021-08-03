@@ -1,92 +1,91 @@
 ---
-title: "Java Actions"
-category: "Desktop Modeler"
-description: "Describes using Java Actions to extend the functionality of your Mendix app."
+title: "Java アクション"
+parent: "リソース"
+menu_order: 10
+description: "Mendixアプリの機能を拡張するためにJavaアクションを使用する方法について説明します。"
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-With Java actions you can extend the functionality of your application in situations where it would be hard to implement this functionality in microflows. You can call a Java action from a microflow using the [Java Action Call](java-action-call).
-
-{{% alert type="info" %}}
-
-Each Java action defined in the Modeler corresponds to a file *{name of Java action}.java* in the subdirectory *javasource{module name}/actions* of the project directory.
-
-The skeletons of these *.java* files are generated automatically when you deploy for Eclipse (in the **Project** menu). For more information about creating the Java code in these files, see [Java Programming](java-programming).
-
-{{% /alert %}}
-
-## 2 General
-
-### 2.1 Name
-
-The name of the Java action is used to refer to it from a call to it in a microflow. It is also the name of the generated *.java* file.
-
-### 2.2 Parameters
-
-A Java action has zero or more parameters. Parameters are the means by which you pass data into the Java action. In the Java code, you can access the values of the parameters.
-
-Each parameter has a name, type, category, and description.
-
-Use categories to keep the parameters apart in the [Java Action Call](java-action-call). If you do not specify a category, the parameter will appear in the **Input** group.
-
-See [Data Types](data-types) for the possible standard parameter types. When the type is an Object or List, you must also select its Entity type, which can be either a specific entity or a type parameter. The type parameter postpones the selection of the actual entity type until the Java action is used in a microflow. This allows your Java action to accept a (list of) Mendix object(s) of an arbitrary entity type.
-
-The other types supported by Java actions are described below.
-
-#### 2.2.1 Entity Type
-
-The **Entity** parameter type is a placeholder for an entity that will be filled in with the name of the entity when it is called in a microflow. Additionally, the entity type can be used to fill in a type parameter. In the generated Java action template code, this type is represented as a string.
-
-Common use cases include but are not limited to the following:
-
-* Mapping a query result to a certain entity type
-* Querying, searching, and filtering entities by type
-
-#### 2.2.2 Microflow Type
-
-The **Microflow** parameter type allows users of Java actions to pass a microflow into a Java action. In the generated Java action template code, this type is represented as a string (as in, the name of the microflow).
-
-#### 2.2.3 Import Mapping Type
-
-The **Import mapping** parameter type allows users of Java actions to pass an import mapping into a Java action. In the generated Java action template code, this type is represented as a string (as in, the name of the import mapping).
+Javaアクションを使用すると、この機能をマイクロフローに実装するのが難しい状況でアプリケーションの機能を拡張できます。 [Javaアクションコール](java-action-call) を使用して、マイクロフローからJavaアクションを呼び出すことができます。
 
 {{% alert type="info" %}}
+Each Java action defined in Studio Pro corresponds to a file *{name of Java action}.java* in the subdirectory *javasource/{module name}/actions* of the app directory.
 
-The Import mapping parameter type was introduced in Mendix 7.2.0.
-
+これらの *.java* ファイルのスケルトンは、Eclipse( **アプリ** メニュー)にデプロイすると自動的に生成されます。 これらのファイルにJavaコードを作成する方法については、 [Java Programming](java-programming) を参照してください。
 {{% /alert %}}
 
-#### 2.2.4 Export Mapping Type
+## 2つの全般
 
-The **Export mapping** parameter type allows users of Java Actions to pass an export mapping into a Java action. In the generated Java action template code, this type is represented as a string (the name of the export mapping).
+### 2.1 名前
 
-{{% alert type="info" %}}
+Javaアクションの名前は、マイクロフロー内の呼び出しから参照するために使用されます。 生成された *.java* ファイルの名前でもあります。
 
-The Export mapping parameter type was introduced in version 7.2.0.
+### 2.2 パラメータ
 
-{{% /alert %}}
+Javaアクションには0以上のパラメータがあります。 パラメータは、データを Java アクションに渡す手段です。 Javaコードでは、パラメータの値にアクセスできます。
 
-#### 2.2.5 Return Type
+各パラメータには名前、タイプ、カテゴリ、説明があります。
 
-The return type determines the type of the data that the Java action returns. It corresponds with the return type of the `executeAction()` method in the *.java* file of the Java action. You can use the result of a Java action in the microflow in which you call it. See [Data Types](data-types) for the possible return types.
+カテゴリを使用して、 [Java アクションコール](java-action-call) でパラメータを区別します。 カテゴリを指定しない場合、パラメータは **Input** グループに表示されます。
 
-As with parameters, the return type can also be an object or a list of some type parameter. The type parameter you choose for the return type must also be used by at least one of the Java action parameters.
+可能な標準パラメータ型については、 [データ型](data-types) を参照してください。 型がオブジェクトまたはリストの場合、エンティティの種類も選択する必要があります。 これは、特定のエンティティまたは型パラメータのいずれかになります。 typeパラメータは、Javaアクションがマイクロフローで使用されるまで、実際のエンティティタイプの選択を延期します。 これにより、Javaアクションは任意のエンティティタイプのMendixオブジェクトを受け入れることができます。
 
-## 3 Type Parameters
+Java アクションでサポートされているその他のタイプについては、以下で説明します。
 
-A type parameter is a placeholder for an entity type which will be filled in with a specific entity when it is called in a microflow. Type parameters can be used when configuring the data type of a parameter, to allow users to pass an object or a list of an arbitrary entity type.
+#### 2.2.1 エンティティタイプ
 
-A Java action has zero or more type parameters. Each type parameter should have a unique name.
+**エンティティ** パラメータ型は、マイクロフロー内で呼び出されたときにエンティティの名前が入力されるエンティティのプレースホルダです。 さらに、エンティティタイプを使用して型パラメータを入力することもできます。 生成されたJavaアクションテンプレートコードでは、この型は文字列として表されます。
 
-## 4 Expose as Microflow Action
+一般的なユースケースには以下のものがありますが、これらに限定されません。
 
-By selecting the **Expose as microflow action** option, it is possible to expose the Java action as a microflow action. Exposing the Java action will make it appear in the the **Toolbox** window when editing a microflow in the category of your choice. When this action is used in a microflow, it will show the provided caption and icon.
+* クエリ結果を特定のエンティティタイプにマッピングする
+* タイプ別のエンティティのクエリ、検索、フィルタリングを行います
 
-The caption and category of the microflow action are required, but the icon is optional. When no icon is selected, the default Java action icon is used.
+#### 2.2.2 マイクロフロータイプ
 
-The recommended size for the icon is 16x16.
+**Microflow** パラメータ・タイプにより、Javaアクションのユーザーは、Javaアクションにマイクロフローを渡すことができます。 生成されたJavaアクションテンプレートコードでは、この型は(マイクロフローの名前のように)文字列として表されます。
 
-## 5 Documentation
+#### 2.2.3 インポートマッピングタイプ
 
-In the **Documentation** tab of the Java action dialog box, you can document the Java action. The documentation is copied into the `Javadoc` of the class of the corresponding *.java* file.
+**マッピングのインポート** パラメータ型を使用すると、Java アクションにインポートマッピングを渡すことができます。 生成された Java アクション テンプレート コードでは、この型は文字列 (インポートマッピングの名前) として表されます。
+
+#### 2.2.4 エクスポートマッピングタイプ
+
+**マッピングのエクスポート** パラメーター型を使用すると、Java アクションにエクスポートマッピングを渡すことができます。 生成された Java アクション テンプレート コードでは、この型は文字列 (エクスポートマッピングの名前) として表されます。
+
+#### 2.2.5 文字列テンプレートタイプ {#string-template-type}
+
+**String template** パラメータ型を使用すると、文字列テンプレートを Java アクションに渡すことができます。 生成された Java アクションテンプレートコードでは、この型は `IStringTemplate` として表されます。
+
+テンプレートには、括弧間の数値として記述されたパラメータを含めることができます (例: `{1}`)。 最初のパラメータは `1`、2 番目の `2`などの数字を持ちます。
+
+テンプレート内の各パラメーターに対して、マイクロフロー式を定義し、パラメーターの位置に値が挿入されます。
+
+生成されたコードでは、 `IStringTemplate` 型は、デフォルトまたはカスタムロジックを使用して、渡された文字列テンプレートを評価するためのメソッドを提供します。
+
+#### 2.2.6 返品タイプ
+
+戻り値の型は、Javaアクションが返すデータの型を決定します。 Javaアクションの `.java` ファイルの *executeAction()* メソッドの戻り値の型に対応します。 Javaアクションの結果を、呼び出すマイクロフロー内で使用できます。 返り値の型については、 [Data Types](data-types) を参照してください。
+
+パラメータと同様に、戻り値の型はオブジェクトまたはいくつかの型パラメータのリストにすることもできます。 戻り値の型に選択するtypeパラメータは、少なくとも1つのJavaアクションパラメータで使用する必要があります。
+
+## 3種類のパラメータ
+
+type パラメータは、マイクロフロー内で呼び出されたときに特定のエンティティで埋め込まれるエンティティタイプのプレースホルダです。 型パラメータは、パラメータのデータ型を構成するときに使用できます。 ユーザーがオブジェクトまたは任意のエンティティタイプのリストを渡すことを許可します。
+
+Javaアクションには0以上の型パラメータがあります。 各typeパラメータは一意の名前を持つ必要があります。
+
+## 4 マイクロフローアクションとして公開
+
+**マイクロフローアクションとして公開** オプションを選択することで、Javaアクションをマイクロフローアクションとして公開することができます。 Javaアクションを公開すると、選択したカテゴリのマイクロフローを編集するときに、 **Toolbox** ウィンドウに表示されます。 このアクションがマイクロフローで使用されると、提供されたキャプションとアイコンが表示されます。
+
+マイクロフローアクションのキャプションとカテゴリが必要ですが、アイコンはオプションです。 アイコンが選択されていない場合、デフォルトの Java アクションアイコンが使用されます。
+
+アイコンの推奨サイズは16x16ピクセルです。
+
+## 5 ドキュメント
+
+Javaアクションダイアログボックスの **ドキュメント** タブでは、Javaアクションをドキュメント化できます。 ドキュメントは、対応する `.java` ファイルのクラスの *Javadoc* にコピーされます。
