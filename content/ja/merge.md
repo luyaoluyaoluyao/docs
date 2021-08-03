@@ -1,14 +1,19 @@
 ---
-title: "Merge"
-parent: "splits"
+title: "結合"
+parent: "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
+menu_order: 1
+tags:
+  - "studio pro"
+  - "マージ"
+  - "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 ---
 
-A merge can be used to combine multiple sequence flows into one sequence flow. Imagine a situation where the flow has been separated in the part preceding the merge to execute specific actions. After this the same action needs to be executed for all the separated flows. In this situation a merge can be used to avoid redundancy.
+## 1つの紹介
 
-{{% alert type="info" %}}
+マージは、フローを1つに結合するために使用できます。 以前にマイクロフローを分割した場合 (例えば、 これらの分離されたフローに対して同じアクションを実行する必要があります マージを使用して、2 つのパス(またはそれ以上)を結合できます。
 
-You have a situation where the microflow has been separated in two flows according to certain conditions. In one flow the status of the order is set to complete and in the other the status is set to incomplete. After this you want to retrieve all associated order lines (to for instance aggregate the prices into a total) for the two flows. You can use a merge to combine the two flows so you can suffice with only one activity for the retrieval.
+たとえば、特定の条件に応じてマイクロフローが2つのフローに分割されている場合があります。 一方のフローでは、注文ステータスが完了するように設定され、もう一方のフローではステータスが不完全に設定されます。 この後、関連するすべての注文行を取得して、両方のフローの合計価格を集計します。 マージを使用して、2つのフローを結合することができます。これにより、1つのアクティビティのみを注文行を取得できます。
 
-![](attachments/819203/917943.png)
+![](attachments/decisions/merge.png)
 
-{{% /alert %}}
+
