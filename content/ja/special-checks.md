@@ -1,161 +1,161 @@
 ---
-title: "Special Checks"
-parent: "expressions"
+title: "特殊チェック"
+parent: "表現"
 menu_order: 40
-description: "Describes special checks in expressions in Mendix."
+description: "Mendix の式で特別なチェックを説明します。"
 tags:
   - "studio pro"
-  - "special checks"
-  - "special check"
-  - "expressions"
+  - "特別チェック"
+  - "特別チェック"
+  - "表現"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This documents describes special checks in expressions, such as checking whether an object is empty, new, is synced.
+このドキュメントは、オブジェクトが空であるかどうかをチェックするような、式内の特別なチェックを記述します。
 
-## 2 Checking for an Empty Object
+## 2 空のオブジェクトを確認しています
 
-Checks if an object is empty.
+オブジェクトが空かどうかを確認します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+| 値      | タイプ    |
+| ------ | ------ |
+| オブジェクト | 任意のタイプ |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                               | Type    |
-| ----------------------------------- | ------- |
-| Returns whether the object is empty | Boolean |
+| 値                    | タイプ     |
+| -------------------- | ------- |
+| オブジェクトが空であるかどうかを返します | Boolean |
 
-### 2.3 Example
+### 2.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-$object1 = empty
+$object1 = 空です
 ```
 
 The output will be `False` assuming $object1 is a domain entity and that currently exists.
 
-The output will be `True` if the object does not currently exist (which is possible if you try to retrieve a non-existent object).
+オブジェクトが存在しない場合、出力は `True` になります (存在しないオブジェクトを取得しようとすると可能です)。
 
-The same holds for when $object1 is a variable (such as Integer, String, etc).
+$object1 が変数(IntegerやStringなど)のときも同じです。
 
-## 3 Checking for an Empty Object Member
+## 3 空のオブジェクトメンバーの確認
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                            | Type               |
-| ------------------------------------------------ | ------------------ |
-| A member (attribute or association) of an object | Any type of member |
+| 値                       | タイプ    |
+| ----------------------- | ------ |
+| オブジェクトのメンバー (属性または関連付け) | 任意のタイプ |
 
-### 3.2. Output
+### 3.2. 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                  | Type    |
-| -------------------------------------- | ------- |
-| Returns whether the attribute is empty | Boolean |
+| 値                | タイプ     |
+| ---------------- | ------- |
+| 属性が空であるかどうかを返します | Boolean |
 
-### 3.3 Examples
+### 3.3 例
 
-For example, you have the following input:
+たとえば、次の入力があります。
 
 ```java
-$object1/member1 = empty
+$object1/member1 = 空です
 ```
 
-Assuming $object1 is a domain entity that has a member called 'member1', the table below shows the output:
+$object1 が「member1」という名前のメンバーを持つドメインエンティティであると仮定すると、以下の表は出力を示しています:
 
-|                       | member1 has a value | member1 does not have a value |
-| --------------------- | ------------------- | ----------------------------- |
-| $object1 has a value  | false               | true                          |
-| $object1 has no value | N/A                 | true                          |
+|                    | member1には値があります | member1には値がありません |
+| ------------------ | --------------- | ---------------- |
+| $object1 は値を持っています | false           | true             |
+| $object1 には値がありません | 該当なし            | true             |
 
-## 4 Checking Whether an Object Is New<a name="new"></a>
+## 4 オブジェクトが新しいものかどうかを確認する<a name="new"></a>
 
-Checks whether an object is new.
+オブジェクトが新しいものかどうかをチェックします。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+| 値      | タイプ    |
+| ------ | ------ |
+| オブジェクト | 任意のタイプ |
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                  | Type    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The output depends on whether the object is new (created but not yet committed). Note this only holds when this function is called on a created object. When the object is retrieved from the database `isNew` will always be `false`. | Boolean |
+| 値                                                                                                                                              | タイプ     |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| 出力は、オブジェクトが新しい (作成されているがまだコミットされていない) かどうかによって異なります。 これは、この関数が作成されたオブジェクトで呼び出された場合にのみ保持されます。 オブジェクトがデータベースから取得されたとき `isNew` は常に `false` になります。 | Boolean |
 
-### 4.3 Example
+### 4.3 例
 
-An example of an input can be the following:
+入力の例には以下のようなものがあります:
 
 ```java
 isNew($object1)
 ```
 
-## 5 Checking Whether an Object Is Synced {#synced}
+## 5 オブジェクトが同期されているかどうかを確認しています {#synced}
 
-This function is available only in expressions for [conditional visibility or editability](common-widget-properties), as only they are evaluated on client side.
+この関数は、クライアント側でのみ評価されるため、 [条件付き表示または編集性](common-widget-properties)の式でのみ使用できます。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+| 値      | タイプ    |
+| ------ | ------ |
+| オブジェクト | 任意のタイプ |
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                          | Type    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Returns whether the changes done to the object [offline](offline-first) have been synchronized to the runtime database. In web profiles and [hybrid profiles](navigation#hybrid-profiles) without offline support, this always returns `true`. | Boolean |
+| 値                                                                                                                                                                         | タイプ     |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| オブジェクト [オフライン](offline-first) への変更がランタイムデータベースに同期されているかどうかを返します。 オフラインでサポートされていない [ハイブリッド・プロファイル](navigation#hybrid-profiles) および `ハイブリッド・プロファイル` では、これは常に` true ` を返します。 | Boolean |
 
-### 5.3 Example
+### 5.3 例
 
-An example of an input can be the following:
+入力の例には以下のようなものがあります:
 
 ```java
 isSynced($currentObject)
 ```
 
-## 6 Checking if a Synchronization is Running {#is-syncing}
+## 6 同期が実行されているか確認しています {#is-syncing}
 
-This function is available only in client-side expressions (expressions in [nanoflows](nanoflows) and [pages](pages)).
+この関数はクライアント側の式 ( [nanoflow](nanoflows) および [ページ](pages) の式) でのみ使用できます。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-No input parameter is required for this check.
+このチェックには入力パラメータは必要ありません。
 
-### 6.1 Output
+### 6.1 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                        | Type    |
-| ------------------------------------------------------------------------------------------------------------ | ------- |
-| Returns `true` when there is a [synchronization](synchronize) process running, otherwise it returns `false`. | Boolean |
+| 値                                                                       | タイプ     |
+| ----------------------------------------------------------------------- | ------- |
+| `true` を返します。 [同期](synchronize) プロセスが実行されている場合は、それ以外の場合は `false` を返します。 | Boolean |
 
-### 6.3 Example
+### 6.3 例
 
-An example of an input can be the following:
+入力の例には以下のようなものがあります:
 
 ```java
 isSyncing()
