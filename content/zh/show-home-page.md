@@ -1,56 +1,56 @@
 ---
-title: "Show Home Page"
-parent: "client-activities"
+title: "显示主页"
+parent: "客户活动"
 menu_order: 30
 tags:
   - "studio pro"
-  - "show home page"
-  - "home page"
-  - "client activities"
+  - "显示主页"
+  - "首页"
+  - "客户活动"
 aliases:
   - /refguide/Show+Home+Page.html
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
-{{% /alert %}}
+此活动只能在 **微流** 中使用。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline, native, or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
-{{% /alert %}}
+这个动作被忽略，当从离线、本地或混合应用调用微流时不起作用。 For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Show home page** activity opens the home page for an end-user. For example, you can navigate your user to the home page when they are not logged in.
+**显示主页** 活动为最终用户打开主页。 例如，您可以在用户未登录时导航到主页。
 
 {{% image_container width="200" %}}
-![Show Home Page](attachments/client-activities/show-home-page.png)
+![显示主页](attachments/client-activities/show-home-page.png)
 {{% /image_container %}}
 
-This activity shows the same page that is displayed to the end-user after they log in, meaning it shows the home page defined for the current user role. For more information on role-based home pages, see [Navigation](navigation).
+此活动显示登录后显示给最终用户的相同页面。 指向当前用户角色定义的首页。 关于基于角色的主页的更多信息，见 [Navigation](navigation)。
 
-## 2 Properties
+## 2 属性
 
-The **Show home page** activity properties consists of the following sections:
+**显示主页** 活动属性由以下部分组成：
 
-* [Action](#action)
+* [行 动](#action)
 
-* [Common](#common)
+* [常用的](#common)
 
     {{% image_container width="300" %}}
-![Show Home Page Properties](attachments/client-activities/show-home-page-properties.png)
+![显示主页属性](attachments/client-activities/show-home-page-properties.png)
 {{% /image_container %}}
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-## 4 Common Section {#common}
+## 4 共同部分 {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 阅读更多
 
-* [Show Page](show-page)
-* [Activities](activities)
+* [显示页面](show-page)
+* [活动](活动)
 
