@@ -1,27 +1,27 @@
 ---
-title: "If Expressions"
-parent: "expressions"
+title: "如果表达式"
+parent: "表达式"
 menu_order: 60
 tags:
   - "studio pro"
-  - "if expression"
-  - "expression"
-  - "if statement"
-  - "expressions"
+  - "如果表达式"
+  - "表达式"
+  - "如果语句"
+  - "表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-If expressions can be used to define conditional actions in expressions. The correct syntax is the following:
+如果表达式可以用来定义表达式中的条件动作。 正确的语法如下：
 
-if _`<condition>`_ then _`<a value>`_ else _`<other value>`_
+如果 _`<condition>`_ 然后 _`<a value>`_ 其他 _`<other value>`_
 
-## 2 Example
+## 2 个示例
 
-Using the following statement as the expression of a Change variable activity for a string value:
+使用以下语句作为字符串值更改变量活动的表达式：
 
 ```java
-if 7 > 6 then 'correct' else 'incorrect'
+如果7 > 6 然后'正确' 否则'不正确'
 ```
 
-will set the value of the variable to `correct`.
+将变量的值设置为 `正确的`。
