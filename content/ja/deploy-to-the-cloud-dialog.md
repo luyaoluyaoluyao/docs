@@ -1,35 +1,40 @@
 ---
-title: "Deploy To The Cloud Dialog"
-parent: "dialogs"
+title: "クラウドにデプロイする"
+parent: "アプリ メニュー"
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Use this dialog box to create a versioned deployment package and deploy it to your environment in the Mendix Cloud.
+このメニューオプションダイアログでバージョン管理されたデプロイメントパッケージが作成され、Mendix Cloud の環境にデプロイされます。
 
-## 2 Development Line
+![クラウドダイアログにデプロイする](attachments/app-menu/deploy-to-the-cloud.png)
 
-Choose the **Development line** for which you want to create a deployment package. This can be the main line or any branch line. For example, you create a package from a maintenance branch line if your want to put a fix you implemented there online. Or you create a deployment package from the main line because you are ready to deploy the next big version of your application.
+## 2開発ライン
+
+デプロイメントパッケージを作成する **開発ライン** を選択します。 これはメインラインまたは任意のブランチラインにすることができます。 たとえば、あなたがオンラインで実装した修正をしたい場合は、メンテナンスブランチラインからパッケージを作成します。 または、次の大きなバージョンのアプリケーションをデプロイする準備ができているため、メインラインからデプロイパッケージを作成します。
 
 ## 3 Revision
 
-Choose the **Revision** of the selected development line for which you want to create a deployment package. This is not necessarily the latest revision because you might want to exclude some recently developed functionality.
+デプロイパッケージを作成する選択した開発ラインの **リビジョン** を選択します。 最新のリビジョンを望まない理由の1つは、最近開発した機能を除外したい場合です。
 
-## 4 New Version
+## 4つの新しいバージョン
 
-Choose a **New version** for the deployment package. The version consists of four numbers: **Major** version, **Minor** version, **Patch**, and **Revision**. The revision is fixed and determined by the revision you selected for **Revision**.
+デプロイパッケージの **新しいバージョン** を選択します。 バージョンはメジャーバージョン、マイナーバージョン、パッチ、リビジョンの4つの数字で構成されています。 リビジョンは **リビジョン** で選択したリビジョンによって固定されます。
 
-You are free to choose the other numbers, but it is wise to use a convention for the numbering. Major versions typically contain major new features or rewrites of existing features. A minor version contains small new features and fixes. A patch solves minor issues and should not change the data model of the application. A patch release should be interchangeable with another patch release with no changes to the data.
+あなたは他の数字を自由に選択することができますが、番号付けには規則を使用することが賢明です。 メジャーバージョンには通常、主要な新機能や既存の機能の書き換えが含まれています。 マイナーバージョンには、小さな新機能と修正が含まれています。 パッチはマイナーな問題を解決し、アプリケーションのデータモデルを変更しないでください。 パッチリリースは、データに変更がない別のパッチリリースと交換可能である必要があります。
 
-The Desktop Modeler will show you the latest version that you created a package for (if any). You can increase major, minor, or patch according to the convention you use.
+Studio Pro では、(もしあれば) パッケージを作成した最新バージョンが表示されます。 使用する規則に従って、メジャー、マイナー、パッチを増やすことができます。
 
-## 5 Description
+## 5つの説明
 
-You can enter a custom **Description** for this deployment package. It is purely for your own reference so that you can quickly recognize a package. The Developer Portal will show you this description along with the version number.
+このデプロイメントパッケージにカスタム **説明** を入力できます。 パッケージをすばやく認識できるように、純粋にあなた自身の参照のためのものです。 開発者ポータルには、バージョン番号とともにこの説明が表示されます。
 
-## 6 App
+## 6個のアプリ
 
-This field shows the **App** in the Mendix Cloud where the deployment package will be deployed. This is for information only—you cannot change the **App** here.
+これは、デプロイメント・パッケージがデプロイされるMendix Cloudの **アプリ** を示しています。 これは情報のみで、ここで目的地を変更することはできません。
 
-## 7 Licensee
-This field shows the **Licensee** of this licensed node.
+## 7 ライセンス
+
+これは **ライセンス ノードの** ライセンシーを表示します。
