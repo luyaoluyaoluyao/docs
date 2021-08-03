@@ -1,123 +1,123 @@
 ---
 title: "Clustered Mendix Runtime"
 category: "Mendix Runtime"
-description: "Using the cluster functionality, you can set up your Mendix application to run behind a load balancer to enable a failover and/or high availability architecture."
+description: "クラスタ機能を使用して、Mendixアプリケーションを設定してロードバランサの背後で実行し、フェイルオーバーおよび/または高可用性アーキテクチャを有効にできます。"
 tags:
-  - "runtime"
+  - "ランタイム:"
   - "cluster"
-  - "load balancer"
-  - "failover"
+  - "ロードバランサー"
+  - "フェイルオーバー"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This page describes the behavior and impact of running Mendix Runtime as a cluster. Using the cluster functionality, you can set up your Mendix application to run behind a load balancer to enable a failover and/or high availability architecture.
+このページでは、実行中のMendix Runtimeの動作と影響をクラスタとして説明します。 クラスタ機能を使用して、Mendixアプリケーションを設定してロードバランサの背後で実行し、フェイルオーバーおよび/または高可用性アーキテクチャを有効にできます。
 
-The main feature enabling clustering is Mendix's stateless runtime architecture. This means that the dirty state (the non-persistable entity instances and not-yet-persisted changes) are stored on the client and not on the server. This enables much easier scaling of the Mendix Runtime, as each cluster node can handle any request from the client. The stateless runtime architecture also allows for better dirty state maintainability and better insight in application state.
+クラスタリングを可能にする主な特徴は、Mendix のステートレスランタイムアーキテクチャです。 これは、 dirty 状態 (永続性のないエンティティインスタンスと、まだ永続性のない変更) が、サーバー上にではなく、クライアント上に保存されることを意味します。 これにより、各クラスタノードはクライアントからのリクエストを処理できるため、Mendix Runtimeのスケーリングがはるかに簡単になります。 ステートレスなランタイムアーキテクチャにより、アプリケーション状態におけるより良い汚れた状態のメンテナンス性とより良い洞察が可能になります。
 
-## 2 Clustering Support
+## 2 クラスタリングのサポート
 
-Clustering support is built natively into our Cloud Foundry buildpack implementation. This means that you can simply scale up using Cloud Foundry. The buildpack ensures that your system automatically starts behaving as a cluster.
+クラスタリングサポートは、Cloud Foundryビルドパックの実装にネイティブに組み込まれています。 これは、Cloud Foundryを使用して単純にスケールアップできることを意味します。 ビルドパックを使用すると、システムがクラスタとして自動的に動作を開始します。
 
-Clustering is also supported on Kubernetes, but you will have to use a *StatefulSet*. There is more information on this in the [Some Notes on Scaling](/developerportal/deploy/run-mendix-on-kubernetes#scaling) section of *How to Run Mendix on Kubernetes*.
+Kubernetesではクラスタリングもサポートされていますが、 *StatefulSet* を使用する必要があります。 詳細については、 [Kubernetes](/developerportal/deploy/run-mendix-on-kubernetes#scaling) 上でMendixを実行する方法 *Scaling* のセクションに詳しい情報があります。
 
-## 3 Cluster Infrastructure
+## 3つのクラスターインフラストラクチャ
 
-The Mendix Runtime cluster requires the following infrastructure:
+Mendix Runtime クラスタには、次のインフラストラクチャが必要です。
 
 ![](attachments/16714073/16844074.png)
 
-This means that a Mendix cluster requires a load balancer to distribute the load of the clients over the available Runtime cluster nodes. It also means that all the nodes need to connect to the same Mendix database, and the files need to be stored on S3 (for details, see the [File Storage](#file-storage) section below). The number of nodes in your cluster depends on the application, the high availability requirements, and its usage.
+つまり、Mendix クラスタでは、利用可能なランタイムクラスタノードにクライアントの負荷を分散させるためにロードバランサが必要になります。 これは、すべてのノードが同じMendixデータベースに接続する必要があることを意味します。 そしてファイルをS3に保存する必要があります(詳細については、 [ファイルストレージ](#file-storage) のセクションを参照してください)。 クラスタ内のノードの数は、アプリケーション、高可用性要件、およびその使用量によって異なります。
 
 ## 4 Cluster Leader & Cluster Slaves{#cluster-leader-follower}
 
-Mendix Runtime has the concept of a cluster leader. This is a single node within a Mendix Runtime cluster that performs cluster management activities. These are the activities:
+Mendix Runtimeにはクラスターリーダーの概念があります。 これは、クラスター管理アクティビティを実行するMendix Runtimeクラスター内の単一ノードです。 これらは以下のような活動です:
 
-* **Session cleanup handling** – each node expires its sessions (meaning, not being used for a configured timespan) and the cluster leader removes the sessions persisted in the database
-    * In exceptional cases (for example, a node crash), some sessions may not be removed from the database, in which case the cluster leader makes sure this removal still happens
-* **Cluster node expiration handling** – removing cluster nodes after they have expired (meaning, not giving a heartbeat for a configured timespan)
-* **Background job expiration handling** – removing data about background jobs after the information has expired (meaning, older than a specific timespan)
-* **Unblocking blocked users**
-* **Executing Scheduled Events** – scheduled events are only executed on the cluster leader
-* **Performing database synchronization after new deploy**
-* **Clear persistent sessions after new deploy** – invalidating all existing sessions so that they get in sync with the latest model version
+* **セッションのクリーンアップ処理** - 各ノードはセッションの期限が切れます (意味: 設定された時間帯には使用されていません）、クラスターリーダーはデータベースで永続的なセッションを削除します
+    * 例外的なケース(例えば、ノードがクラッシュするなど)では、いくつかのセッションがデータベースから削除されない場合があります。 その場合クラスターリーダーは
+* **クラスターノードの有効期限の処理** - クラスターノードが期限切れになった後に削除する (意味、設定されたタイムスタンにハートビートを与えない)
+* **バックグラウンドジョブの有効期限の処理** - 情報の有効期限が切れた後にバックグラウンドジョブに関するデータを削除します (意味、特定の時間帯より古い)
+* **ブロックを解除したユーザー**
+* **スケジュールされたイベントの実行** - スケジュールされたイベントはクラスターリーダーでのみ実行されます
+* **新しいデプロイ後にデータベースの同期を実行します**
+* **新しいデプロイ後に永続的なセッションをクリアする** - 最新のモデルのバージョンと同期するように、既存のすべてのセッションを無効にする
 
-These activities are only performed by the cluster leader. If the cluster leader is not running, the cluster will still function. However, the activities listed above will not be performed.
+これらのアクティビティはクラスタリーダーによってのみ実行されます。 クラスターリーダーが実行されていない場合は、クラスターは引き続き機能します。 ただし、上記の活動は行いません。
 
-The Cloud Foundry Buildpack determines which cluster node becomes the cluster leader and which become cluster slaves.
+Cloud Foundry Buildpackは、どのクラスターノードがクラスターリーダーになり、どのクラスタースレーブになるかを決定します。
 
 ## 5 Cluster Startup
 
-Individual nodes in a cluster can be started and stopped with no impact on the uptime of the app. However, when you deploy a new version of the app the whole cluster is restarted and the cluster leader determines whether database synchronization is required. This means that there will be some downtime when the app is deployed while this is done.
+クラスター内の個々のノードは、アプリの稼働時間に影響を与えずに起動および停止することができます。 ただし、新しいバージョンのアプリケーションをデプロイすると、クラスター全体が再起動され、クラスターリーダーはデータベースの同期が必要かどうかを決定します。 これは、これが完了している間にアプリがデプロイされるといくつかのダウンタイムが発生することを意味します。
 
-If database synchronization is required, all the cluster slaves will wait until the cluster leader finishes the database synchronization. When the database synchronization has finished, all the cluster nodes will become fully functional.
+データベース同期が必要な場合、クラスタスレーブはクラスタリーダーがデータベース同期を完了するまで待機します。 データベースの同期が完了すると、すべてのクラスタノードが完全に機能するようになります。
 
-If no database synchronization is required, all the cluster nodes will become fully functional directly after startup.
+データベース同期が不要な場合、すべてのクラスタノードは起動直後に完全に機能するようになります。
 
-## 6 File Storage {#file-storage}
+## 6ファイルストレージ {#file-storage}
 
-Uploaded files should be stored in a shared file storage facility, as every Mendix Runtime node should access the same files. Either the local storage facility is shared or the files are stored in a central storage facility such as an Amazon S3 file storage, Microsoft Azure Blob storage, or IBM Bluemix Object Storage.
+アップロードされたファイルは、すべての Mendix Runtime ノードが同じファイルにアクセスするため、共有ファイルストレージ機能に保存する必要があります。 ローカルストレージ機能が共有されるか、Amazon S3ファイルストレージなどの中央ストレージ機能にファイルが保存されます。 Microsoft Azure Blob ストレージ、または IBM Bluemix Object Storage 。
 
-For more information about configuring the Mendix Runtime to store files on these storage facilities,  see [Runtime Customization](custom-settings).
+これらのストレージ機能にファイルを格納するための Mendix Runtime の設定についての詳細は、 [Runtime Customization](custom-settings) を参照してください。
 
-## 7 After-Startup & Before-Shutdown Microflows {#startup-shutdown-microflows}
+## 7 起動後 & 前にシャットダウンするマイクロフロー {#startup-shutdown-microflows}
 
-It is possible to configure `After-Startup` and `Before-Shutdown` microflows in Mendix. In a Mendix cluster, this means that those microflows are called per node. This lets you register request handlers and other activities. However, doing database maintenance during these microflows is strongly discouraged, because it might impact other nodes of the same cluster. There is no possibility to run a microflow on cluster startup or shutdown.
+Mendixで `起動後` と `Before-シャットダウン` マイクロフローを設定することができます。 Mendix クラスタでは、これらのマイクロフローがノードごとに呼び出されることを意味します。 これにより、リクエストハンドラーやその他のアクティビティを登録できます。 しかし、これらのマイクロフロー中にデータベースをメンテナンスすることは、同じクラスタの他のノードに影響を与える可能性があるため、非常に推奨されません。 クラスターの起動時やシャットダウン時にマイクロフローを実行する可能性はありません。
 
-## 8 Cluster Limitations
+## 8 クラスター制限
 
-### 8.1 Microflow Debugging
+### 8.1 マイクロフローのデバッグ
 
-While running a multi-node cluster, you cannot predict the node on which a microflow will be executed. Therefore, it is not possible to debug such a microflow execution in a cluster from Mendix Studio Pro. However, you can still debug a microflow while running a single instance of the Mendix Runtime.
+マルチノードクラスタの実行中は、マイクロフローが実行されるノードを予測することはできません。 そのため、Mendix Studio Pro からクラスタでこのようなマイクロフロー実行をデバッグすることはできません。 ただし、Mendix Runtimeの単一インスタンスを実行しているときにも、マイクロフローをデバッグできます。
 
-### 8.2 Cluster-Wide Locking (Guaranteed Single Execution)
+### 8.2 クラスタ全体のロック (単一実行保証)
 
-Some apps require a guaranteed single execution of a certain activity at a given point in time. In a single node Mendix Runtime, this could be guaranteed by using JVM locks. However, in a distributed scenario, those JVMs run on different machines, so there is no locking system available. Mendix does not support cluster-wide locking, either. If this cannot be circumvented, you might need to resort to an external distributed lock manager. However, keep in mind that locking in a distributed system is complex and prone to failure (for example, via lock starvation or lock expiration.).
+アプリによっては、特定の時点での特定のアクティビティの単一実行を保証する必要があります。 単一のノード Mendix ランタイムでは、JVM ロックを使用することで、これは保証されます。 ただし、分散シナリオでは、これらのJVMは異なるマシンで動作するため、利用可能なロックシステムはありません。 Mendixはクラスタ全体のロックをサポートしていません。 これを回避できない場合は、外部の分散ロックマネージャーに頼る必要があります。 ただし、分散システム内のロックは複雑で失敗しやすいことに留意してください(例えば、ロック飢餓やロックの有効期限など)。
 
 {{% alert type="info" %}}
-For the reason described above, the **Disallow concurrent execution** property of a microflow only applies to a single node.
+上記の理由から、マイクロフローの **並行実行** プロパティは単一のノードにのみ適用されます。
 {{% /alert %}}
 
-## 9 Dirty State in a Cluster
+## 9ダーティステート（クラスタ内）
 
-When a user signs in to a Mendix application and starts going through a certain application flow, the system can temporarily retain some data while not persisting it yet in the database. The data is retained in the Mendix Client memory and communicated on behalf of the user to a Mendix Runtime node.
+ユーザーがMendixアプリケーションにサインインし、特定のアプリケーションフローを通過し始めたとき。 まだデータベースに残っていない間にシステムは一時的にデータを保持できます データは Mendix Client メモリに保持され、ユーザーの代わりにMendix Runtime ノードに通信されます。
 
-For example, imagine you are booking a vacation through a Mendix app with a flight, hotel, and rental car. In the first step, you select and configure the flight, in the second one your hotel, in the third your rental car, and in the final step, you confirm the booking and payment. Each of these steps could be in a different screen, but when you go from step one to step two, you would still like to remember your booked flight. This is called the "dirty state." The data is not finalized yet, but should be retained between different requests. Because it is necessary to reliably scale out and support failover scenarios, the state cannot be stored in the memory of one Mendix Runtime node between requests. Therefore, the state is returned to the caller (the Mendix Client) and added to subsequent requests, so that every node can work with that state for those requests.
+例えば、フライト、ホテル、レンタカーのあるMendixアプリで休暇を予約しているとします。 最初のステップでは、フライトを選択して設定します。 3番目のレンタカーと最後のステップで予約と支払いを確認します これらのステップはそれぞれ異なる画面に表示されますが、ステップ1からステップ2に移動すると、それぞれのステップが異なる画面に表示されます。 予約済みのフライトを覚えておきたいか? これは「汚い状態」と呼ばれています データはまだ確定されていませんが、異なるリクエスト間で保持される必要があります。 確実にスケールアウトし、フェイルオーバーシナリオをサポートする必要があるためです。 状態はリクエスト間の Mendix Runtime ノードの メモリに保存できません。 そのため、状態は呼び出し元(Mendixクライアント)に返され、後続のリクエストに追加されます。 全てのノードがリクエストの状態で動作するようにしました
 
-The following image describes this behavior:
+次の画像はこの動作を示しています:
 
 ![](attachments/16714073/16844072.png)
 
-Reading objects and deleting (unchanged) objects from the Mendix database is still a "clean state." Changing an existing object or instantiating a new object will create "dirty state." Dirty state needs to be sent from the Mendix Client to the Mendix Runtime with every request. Committing objects or rolling back will remove them from the dirty state. The same will happen if an instantiated or changed object is deleted. Non-persistable entities are always part of the dirty state.
+オブジェクトを読み取り、Mendix データベースからオブジェクトを削除することは、依然として「クリーンな状態」です。 既存のオブジェクトを変更したり、新しいオブジェクトをインスタンス化したりすると、「汚れた状態」が生成されます。 Dirty 状態はリクエストごとに、Mendix クライアントから Mendix Runtime に送信する必要があります。 オブジェクトをコミットまたはロールバックすると、それらが汚れた状態から削除されます。 インスタンス化または変更されたオブジェクトが削除された場合も同じことが起こります。 非永続エンティティは常に汚れた状態の一部です。
 
-Only the dirty state for requests that originate from the Mendix Client (both synchronous and asynchronous calls) can be retained between requests. For all other requests—such as scheduled events, web services, or background executions—the state only lives for the current request. After that, the dirty state either has to be persisted or discarded. The reason for only allowing Mendix Client requests to retain their dirty state is that this is currently the only channel that works with actual user input. User input requires more interaction and flexibility with the data between requests. By only allowing these requests to retain their dirty state, the load on the Mendix Runtime and the external source is minimized, and performance is optimized.
+Mendix クライアント(同期呼び出しと非同期呼び出しの両方)から発生するリクエストに対する不適切な状態のみがリクエスト間で保持できます。 スケジュールされたイベント、Webサービス、バックグラウンド実行などの他のすべてのリクエストでは、ステートは現在のリクエストのみ有効になります。 その後、汚れた状態は、永続化または破棄する必要があります。 Mendix Client 要求がダーティな状態を保持することを許可するだけの理由は、現在、これが実際のユーザー入力で動作する唯一のチャネルであるためです。 ユーザー入力には、リクエスト間のデータに対して、より多くのインタラクションと柔軟性が必要です。 これらのリクエストが不適切な状態を保持することを許可するだけです Mendix Runtimeと外部ソースの負荷が最小限に抑えられ、パフォーマンスが最適化されます。
 
 {{% alert type="info" %}}
-Whenever the Mendix Client is restarted, all the state is discarded, as it is only kept in the Mendix Client memory. The Mendix Client is restarted when reloading the browser tab (for example, when pressing <kbd>F5</kbd>), restarting a mobile hybrid app, or explicitly signing out.
+Mendix Client が再起動されると、すべての状態は破棄され、Mendix Client メモリにのみ保存されます。 ブラウザータブを再読み込みすると、Mendix Client が再起動されます (例えば、 <kbd>F5</kbd>を押すと、モバイルハイブリッドアプリを再起動するか、明示的にサインアウトします。
 {{% /alert %}}
 
-The more objects that are part of the dirty state, the more data has to be transferred in the requests and responses between the Mendix Runtime and the Mendix Client. As such, this has an impact on performance. In cluster environments, it is advised to minimize the amount of dirty state to minimize the impact of the synchronization on performance.
+汚れた状態の一部であるより多くのオブジェクト より多くのデータは、Mendix Runtime と Mendix Client 間のリクエストと応答で転送されなければなりません。 したがって、これはパフォーマンスに影響を与えます。 クラスタ環境では、同期が性能に及ぼす影響を最小限に抑えるために、汚れ状態の量を最小限に抑えることをお勧めします。
 
-The Mendix Client attempts to optimize the amount of state sent to the Mendix Runtime by only sending data that can potentially be read while processing the request. For example, if you call a microflow that gets `Booking` as a parameter and retrieves `Flight` over association, then the client will pass only `Booking` and the associated `Flight`s from the dirty state along with the request, but not the `Hotel`s. Note that this behavior is the best effort; if the microflow is too complex to analyze (for example, when a Java action is called with a state object as a parameter), the entire dirty state will be sent along. This optimization can be disabled via the [Optimize network calls](project-settings#optimize-network-calls) project setting.
+Mendix Client は、リクエストの処理中に読み取る可能性のあるデータのみを送信することで、Mendix Runtime に送信される状態の量を最適化しようとします。 For example, if you call a microflow that gets `Booking` as a parameter and retrieves `Flight` over association, then the client will pass only `Booking` and the associated `Flight`s from the dirty state along with the request, but not the `Hotel`s. この動作は最善の努力であることに注意してください。 マイクロフローが複雑すぎて分析できない場合(例えば、 Javaアクションが状態オブジェクトをパラメータとして呼び出された場合、Dirty状態全体が送信されます。 この最適化は、 [ネットワーク呼び出しの最適化](project-settings#optimize-network-calls) プロジェクト設定で無効にできます。
 
 {{% alert type="warning" %}}
-It is important to realize that when calling external web services in Mendix to fetch external data, the responses of those actions are converted into Mendix entities. As long as they are not persisted in the Mendix database, they will be part of the dirty state and have a negative impact on the performance of the application. To reduce this impact, this behavior is likely to change in the future.
+Mendixで外部Webサービスを呼び出して外部データを取得する場合に気づくことが重要です。 これらのアクションの応答はMendixエンティティに変換されます。 Mendix データベースに永続化されていない限り。 彼らは汚い状態の一部になり、アプリケーションのパフォーマンスに悪影響を及ぼします。 この影響を軽減するために、この動作は将来的に変化する可能性があります。
 {{% /alert %}}
 
-To reduce the performance impact of large requests and responses, an app developer should be aware of the following scenarios that cause large requests and responses:
+大きなリクエストとレスポンスのパフォーマンスへの影響を軽減する アプリ開発者は、大きなリクエストと応答を引き起こす以下のシナリオに注意する必要があります。
 
-* A microflow that creates a large number of non-persistable entities and shows them in a page
-* A microflow that calls a web service to retrieve external data and convert them to non-persistable entities
-* A page that has multiple microflow data source data views, each causing the state transferred to the Mendix Runtime to handle the microflow
+* 多数の非持続可能エンティティを作成し、ページに表示するマイクロフロー
+* 外部データを取得し、非持続可能エンティティに変換するためにWebサービスを呼び出すマイクロフロー
+* 複数のマイクロフローデータソースデータビューを持つページは、それぞれがマイクロフローを処理するためにMendix Runtimeに転送される状態を引き起こします
 
 {{% alert type="warning" %}}
-To make sure the dirty state does not become too big when the above scenarios apply to your app, it's recommended to explicitly delete objects when they are no longer necessary, so that they are not part of the state anymore. This frees up memory for the Mendix Runtime nodes to handle requests and improves performance.
+上記のシナリオがアプリに適用されると、汚れた状態が大きすぎないようにする。 必要がなくなった時は明示的に削除することをお勧めします これにより、Mendix Runtime ノードのメモリが解放され、リクエストを処理し、パフォーマンスが向上します。
 {{% /alert %}}
 
-## 10 Associating Entities with `System.Session` or `System.User`
+## `System.Session` または `System.User` とエンティティを関連付ける10
 
-The `$currentSession` *Session* object is available in microflows so that a reference to the current session can easily be obtained. When an object needs to be stored, its association can be set to `$currentSession`, and when the object needs to be retrieved again, `$currentSession` can be used as a starting point from which the desired object can be retrieved by association. The associated object can be designed so that it meets the desired needs. This same pattern applies to entities associated with `System.User`. In that case, you can use the `$currentUser` *User* object.
+`$currentSession` *セッション* オブジェクトはマイクロフローで利用可能で、現在のセッションへの参照を容易に得ることができます。 When an object needs to be stored, its association can be set to `$currentSession`, and when the object needs to be retrieved again, `$currentSession` can be used as a starting point from which the desired object can be retrieved by association. 関連するオブジェクトは、所望のニーズを満たすように設計することができます。 このパターンは、 `System.User` に関連付けられたエンティティにも適用されます。 その場合、 `$currentUser` *ユーザー* オブジェクトを使用できます。
 
 ![](attachments/core/2018-03-01_17-49-15.png)
 
@@ -125,23 +125,23 @@ For example, you can add `Key` and `Value` members to a `Data` entity associated
 
 ![](attachments/core/2018-03-01_17-42-38.png)
 
-The `Value` values can easily be obtained by performing a find on the `Key` values of a list of `Data` instances.
+`値` は、 `データ` インスタンスのリストの `キー` の値を検索することで簡単に取得できます。
 
 ![](attachments/core/2018-03-01_17-56-37.png)
 
 {{% alert type="warning" %}}
-When data is associated to the current user or current session, it cannot be automatically garbage-collected. As such, this data will be sent with every request to the server and returned by the responses of those requests. Therefore, associating entity instances with the current user and current session should be done when no other solutions are possible to retain this temporary data.
+データが現在のユーザーまたは現在のセッションに関連付けられている場合、自動的にゴミ収集されることはできません。 そのため、このデータはすべてのリクエストと共にサーバに送信され、リクエストの応答によって返されます。 したがって、この一時的なデータを保持する他のソリューションがない場合、エンティティインスタンスを現在のユーザーと現在のセッションと関連付ける必要があります。
 {{% /alert %}}
 
-## 11 Sessions Are Always Persistent
+## 11 セッションは常に永続的です
 
-To support seamless clustering, sessions are always persisted in the database. In previous versions, this was a known performance bottleneck. Mendix now contains optimizations to mitigate this performance hit.
+シームレスなクラスタリングをサポートするには、常にデータベースでセッションが継続されます。 以前のバージョンでは、これは既知のパフォーマンスボトルネックでした。 Mendixには、このパフォーマンスヒットを軽減するための最適化が含まれるようになりました。
 
-Roundtrips to the database for this purpose are reduced by giving the persistent sessions a maximum caching time of thirty seconds (by default). This means that after signing out of a session, the session might still be accessible for thirty seconds on other nodes of the cluster, but only in case that node has handled a previous request on that session just before the logout happened. This timeout can be configured. Lowering it makes the cluster more secure, because the chance that the session is still accessible within the configured time window is smaller. However, this also requires more frequent roundtrips to the database (which impacts performance). Increasing the timeout has the opposite effect. This can be configured by setting `SessionValidationTimeout` (value in milliseconds).
+この目的のためにデータベースへのラウンドトリップは、永続的なセッションに30秒の最大キャッシュ時間を与えることによって削減されます(デフォルト)。 つまり、セッションにサインアウトした後でも、クラスターの他のノードではセッションに30秒間アクセスできる可能性があります。 しかし、そのノードがログアウトが起こる直前にセッションで以前のリクエストを処理した場合のみ。 このタイムアウトは設定できます。 これを下げると、設定された時間ウィンドウ内でセッションがアクセス可能である可能性が小さいため、クラスタはより安全になります。 しかし、これはまた、パフォーマンスに影響を与えるデータベースへのより頻繁な往復を必要とします。 タイムアウトを増やすと逆の効果があります。 これは `SessionValidationTimeout` (ミリ秒単位の値) を設定することで設定できます。
 
-Persistent sessions also store a last-active date upon each request. To improve this particular aspect of the performance, the last-active date attribute of a session is no longer committed to the database immediately on each request. Instead, this information is queued for an action to run at a configurable interval to be stored in the Mendix database. This action verifies whether the session has not been logged out by another node and whether the last active date is more recent than the one in the database. The interval can be configured by setting `ClusterManagerActionInterval` (value in milliseconds).
+永続的なセッションには、各リクエストに最後にアクティブな日付も保存されます。 パフォーマンスのこの特定の側面を向上させるために。 セッションの最終日付属性は、リクエストごとにすぐにデータベースにコミットされなくなりました。 代わりに、この情報は、Mendix データベースに保存される設定可能な間隔でアクションを実行するためにキューに入れられます。 このアクションは、セッションが別のノードによってログアウトされていないかどうか、および最後のアクティブな日付がデータベース内のものよりも最近であるかどうかを確認します。 `ClusterManagerActionInterval` (ミリ秒単位) を設定することで間隔を設定できます。
 
 {{% alert type="warning" %}}
-Overriding the default values for the `SessionTimeout` and `ClusterManagerActionInterval` custom settings can impact the behavior of "keep alive" and results in an unexpected session logout. The best practice is to set the `ClusterManagerActionInterval` to half of the `SessionTimeout` so that each node gets the chance to run the clean-up action at least once during the session time out interval.
+`SessionTimeout` と `ClusterManagerActionInterval` の既定値を上書きすると、「ライブを保持」の動作に影響を与え、予期しないセッションログアウトになります。 ベストプラクティスは、 `ClusterManagerActionInterval` を `SessionTimeout` の半分に設定し、各ノードがセッションタイムアウト間隔の間に少なくとも一度クリーンアップアクションを実行する機会を得ることです。
 {{% /alert %}}
 
