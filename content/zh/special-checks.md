@@ -1,161 +1,161 @@
 ---
-title: "Special Checks"
-parent: "expressions"
+title: "特殊检查"
+parent: "表达式"
 menu_order: 40
-description: "Describes special checks in expressions in Mendix."
+description: "在Mendix中描述对表达式的特殊检查。"
 tags:
   - "studio pro"
-  - "special checks"
-  - "special check"
-  - "expressions"
+  - "特殊检查"
+  - "特殊检查"
+  - "表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This documents describes special checks in expressions, such as checking whether an object is empty, new, is synced.
+此文档描述了表达式中的特殊检查，例如检查对象是否为空，新对象是否为同步。
 
-## 2 Checking for an Empty Object
+## 2 正在检查空对象
 
-Checks if an object is empty.
+检查对象是否为空。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+| 值  | 类型      |
+| -- | ------- |
+| 对象 | 任何类型的对象 |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                               | Type    |
-| ----------------------------------- | ------- |
-| Returns whether the object is empty | Boolean |
+| 值        | 类型      |
+| -------- | ------- |
+| 返回对象是否为空 | Boolean |
 
-### 2.3 Example
+### 2.3 例子
 
-If you use the following input:
-
-```java
-$object1 = empty
-```
-
-The output will be `False` assuming $object1 is a domain entity and that currently exists.
-
-The output will be `True` if the object does not currently exist (which is possible if you try to retrieve a non-existent object).
-
-The same holds for when $object1 is a variable (such as Integer, String, etc).
-
-## 3 Checking for an Empty Object Member
-
-### 3.1 Input Parameters
-
-The input parameters are described in the table below:
-
-| Value                                            | Type               |
-| ------------------------------------------------ | ------------------ |
-| A member (attribute or association) of an object | Any type of member |
-
-### 3.2. Output
-
-The output is described in the table below:
-
-| Value                                  | Type    |
-| -------------------------------------- | ------- |
-| Returns whether the attribute is empty | Boolean |
-
-### 3.3 Examples
-
-For example, you have the following input:
+如果您使用以下输入：
 
 ```java
-$object1/member1 = empty
+$object1 = 为空
 ```
 
-Assuming $object1 is a domain entity that has a member called 'member1', the table below shows the output:
+输出将是 `False` 假定 $object1 是一个域实体，目前存在。
 
-|                       | member1 has a value | member1 does not have a value |
-| --------------------- | ------------------- | ----------------------------- |
-| $object1 has a value  | false               | true                          |
-| $object1 has no value | N/A                 | true                          |
+如果对象当前不存在，输出将为 `True` (如果您试图检索一个不存在的对象，这是可能的)。
 
-## 4 Checking Whether an Object Is New<a name="new"></a>
+当 $object1 是变量时(例如Integer, String等)，也是相同的。
 
-Checks whether an object is new.
+## 检查空对象成员
 
-### 4.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+| 值             | 类型      |
+| ------------- | ------- |
+| 对象的成员 (属性或关联) | 任何类型的成员 |
 
-### 4.2 Output
+### 3.2. 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                                                                  | Type    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The output depends on whether the object is new (created but not yet committed). Note this only holds when this function is called on a created object. When the object is retrieved from the database `isNew` will always be `false`. | Boolean |
+| 值        | 类型      |
+| -------- | ------- |
+| 返回属性是否为空 | Boolean |
 
-### 4.3 Example
+### 3.3 实例
 
-An example of an input can be the following:
+例如，您有以下输入：
+
+```java
+$object1/member1 = 为空
+```
+
+假定 $object1 是一个域实体，其成员叫做“member1”，下表显示输出：
+
+|               | 成员1 有一个值 | Member1 没有值 |
+| ------------- | -------- | ----------- |
+| $object1 有一个值 | false    | true        |
+| $object1 没有值  | 无        | true        |
+
+## 正在检查对象是否是新对象<a name="new"></a>
+
+检查对象是否为新对象。
+
+### 4.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值  | 类型      |
+| -- | ------- |
+| 对象 | 任何类型的对象 |
+
+### 4.2 产出
+
+产出情况见下表：
+
+| 值                                                                                   | 类型      |
+| ----------------------------------------------------------------------------------- | ------- |
+| 输出取决于对象是否是新的对象(创建但尚未发生)。 注意，这仅当此函数被调用到创建的对象时才会保持。 当对象从数据库中检索到时， `isNew` 将总是 `fals`。 | Boolean |
+
+### 4.3 例子
+
+以下是投入的一个例子：
 
 ```java
 isNew($object1)
 ```
 
-## 5 Checking Whether an Object Is Synced {#synced}
+## 5 检查对象是否同步 {#synced}
 
-This function is available only in expressions for [conditional visibility or editability](common-widget-properties), as only they are evaluated on client side.
+此函数仅在 [条件可见性或可编辑性](common-widget-properties)的表达式中可用，因为只有他们在客户端上被评估。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value     | Type               |
-| --------- | ------------------ |
-| An object | Any type of object |
+| 值  | 类型      |
+| -- | ------- |
+| 对象 | 任何类型的对象 |
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                                                                          | Type    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Returns whether the changes done to the object [offline](offline-first) have been synchronized to the runtime database. In web profiles and [hybrid profiles](navigation#hybrid-profiles) without offline support, this always returns `true`. | Boolean |
+| 值                                                                                                                                                                                               | 类型      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| Returns whether the changes done to the object [offline](offline-first) have been synchronized to the runtime database. 在 web 配置文件和 [混合配置文件](navigation#hybrid-profiles) 中，没有离线支持，这总是返回 `true`。 | Boolean |
 
-### 5.3 Example
+### 5.3 实例
 
-An example of an input can be the following:
+以下是投入的一个例子：
 
 ```java
-isSynced($currentObject)
+Synced($currentObject)
 ```
 
-## 6 Checking if a Synchronization is Running {#is-syncing}
+## 6 检查同步是否正在运行 {#is-syncing}
 
-This function is available only in client-side expressions (expressions in [nanoflows](nanoflows) and [pages](pages)).
+此函数仅可在客户端表达式中( [nanoflow](nanoflows) and [pages](pages) 中的表达式)。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-No input parameter is required for this check.
+此检查不需要输入参数。
 
-### 6.1 Output
+### 6.1 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                        | Type    |
-| ------------------------------------------------------------------------------------------------------------ | ------- |
-| Returns `true` when there is a [synchronization](synchronize) process running, otherwise it returns `false`. | Boolean |
+| 值                                                  | 类型      |
+| -------------------------------------------------- | ------- |
+| 返回 `true` 当有 [同步](synchronize) 正在运行，否则它返回 `false`。 | Boolean |
 
-### 6.3 Example
+### 6.3 示例
 
-An example of an input can be the following:
+以下是投入的一个例子：
 
 ```java
 isSyncing()
