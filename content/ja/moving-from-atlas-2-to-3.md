@@ -1,63 +1,63 @@
 ---
-title: "Migrate From Atlas 2 To Atlas 3"
+title: "アトラス2からアトラス3へ移行"
 parent: "moving-from-8-to-9"
 menu_order: 6
 tags:
   - "Atlas"
   - "UI"
   - "UX"
-  - "user experience"
+  - "ユーザー経験"
   - "design"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Atlas 3 brings a new degree of power and sophistication to styling in Mendix. To upgrade from Atlas 2 to Atlas 3, see the [Upgrade from Atlas 2 to Atlas 3](#upgrade) section below. To view a high-level summary of the changes Atlas 3 brings to Mendix, see the [Atlas 3 Change Summary Reference Guide](/refguide/atlas3-change-summary).
+Atlas 3は、Mendixのスタイリングに新たな力と洗練をもたらします。 アトラス2からアトラス3へのアップグレードについては、以下の [アトラス2からアトラス3へのアップグレード](#upgrade) セクションをご覧ください。 Atlas 3がMendixにもたらす変更の高レベルのサマリーを表示するには、 [Atlas 3 Change Summary Reference Guide](/refguide/atlas3-change-summary) を参照してください。
 
-To upgrade from Atlas 2 to Atlas 3, you must complete the [Upgrading from Atlas 2 to Atlas 3](#upgrade) section below. **If you have not added custom styling into your Atlas**, completing these subsections of *Upgrading from Atlas 2 to Atlas 3* is all you need to do:
+アトラス2からアトラス3にアップグレードするには、以下の [アトラス2からアトラス3へのアップグレード](#upgrade) セクションを完了する必要があります。 **If you have not added custom styling into your Atlas**, completing these subsections of *Upgrading from Atlas 2 to Atlas 3* is all you need to do:
 
-* [Upgrading Your Theme Directory](#upgrade-theme-directory)
-* [Migrating Your UI Content](#upgrade-ui-content)
-* [Migrating Your Web Styling](#upgrade-web-styling)
-* [Migrating Your Native Styling](#upgrade-native-styling)
-* [Migrating Custom Defined Design Properties](#upgrade-design-properties)
+* [テーマディレクトリのアップグレード](#upgrade-theme-directory)
+* [UIコンテンツの移行](#upgrade-ui-content)
+* [Webスタイルの移行](#upgrade-web-styling)
+* [ネイティブスタイルの移行](#upgrade-native-styling)
+* [カスタム定義デザインプロパティの移行](#upgrade-design-properties)
 
-The sections after the upgrade instructions reference known issues and some troublehsooting issues that may occur when upgrading to Atlas 3. **You will probably only need to consult them if you introduced custom styling into your Atlas**:
+アップグレード指示の後のセクションでは、既知の問題と、Atlas 3へのアップグレード時に発生する問題を参照しています。 **Atlasにカスタムスタイリングを導入した場合にのみ、ご相談ください**:
 
-* [Expected Issues After Upgrading to Atlas 3](#expected-issues)
-* [Edge Case Issues After Upgrading to Atlas 3](#edge-cases)
-* [Troubleshooting Common Atlas Problems](#troubleshoot)
+* [アトラス3へのアップグレード後の予想される問題](#expected-issues)
+* [アトラス3にアップグレードした後のエッジケースの問題](#edge-cases)
+* [一般的なアトラス問題のトラブルシューティング](#troubleshoot)
 
-## 2 Upgrading from Atlas 2 to Atlas 3 {#upgrade}
+## 2 アトラス2からアトラス3へのアップグレード {#upgrade}
 
-Before upgrading, please note that in Atlas 3 all hybrid content is removed because hybrid profiles are deprecated in Mendix 9. If your app requires hybrid content, we recommend not upgrading to Atlas 3 unless you have created all your own hybrid content separate from Atlas’.
+アップグレードする前に、Mendix 9でハイブリッドプロファイルが非推奨であるため、Atlas 3ではすべてのハイブリッドコンテンツが削除されていることに注意してください。 あなたのアプリがハイブリッドコンテンツを必要とする場合は、Atlasとは別に独自のハイブリッドコンテンツをすべて作成しない限り、Atlas 3にアップグレードしないことをお勧めします。
 
-Before you start the upgrade process, it may help if you consult the folder structure changes introduced in Atlas 3 by reading the [File and Folder Structure](/howto/front-end/customize-styling-new#file-and-folder) section of *How to Customize Styling*.
+アップグレードプロセスを開始する前に。 Atlas 3で導入されたフォルダ構造の変更を調べるには、 [スタイルをカスタマイズする](/howto/front-end/customize-styling-new#file-and-folder) の *ファイルとフォルダ構造*セクションを参照してください。
 
-### 2.1 Upgrading Your Theme Directory {#upgrade-theme-directory}
+### 2.1 テーマディレクトリのアップグレード {#upgrade-theme-directory}
 
-To upgrade your theme directory to Atlas 3 specifications, please complete the following steps:
+テーマディレクトリをAtlas 3仕様にアップグレードするには、次のステップを完了してください:
 
-1.  Rename you Atlas 2 **theme** directory. We suggest naming it to *theme_atlas2*:
+1.  Atlas 2 **テーマ** ディレクトリの名前を変更します。 *theme_atlas2* に名前を付けることをお勧めします:
 
-    ![Atlas2 folder](attachments/atlas-mig/atlas2-themefolder.png)
+    ![アトラス2フォルダ](attachments/atlas-mig/atlas2-themefolder.png)
 
-1.  Download the Atlas 3 [**theme.zip**](https://www.dropbox.com/s/guffms4u5idx3us/theme.zip?dl=1) and extract it into the root of your Mendix app folder. The folder structure should look similar to the example below. **Mendix app root**, then **theme**, then **web** and **native**:
+1.  Atlas 3 [**theme.zip**](https://www.dropbox.com/s/guffms4u5idx3us/theme.zip?dl=1) をダウンロードし、Mendix アプリフォルダのルートに展開します。 フォルダ構造は以下の例に似ています。 **Mendix app root**, then **theme**, then **web** and **native**:
 
     ![Atlas 3 folder](attachments/atlas-mig/atlas3-themefolder.png)
 
-### 2.2  Migrating UI Content {#upgrade-ui-content}
+### 2.2 UI コンテンツの移行 {#upgrade-ui-content}
 
 **Atlas 3** distributes the UI content previously found in the Atlas_UI_Resources, in 3 seperate modules: **Atlas Core**, **Atlas Web Content** and **Atlas Native Content**.
 
-* [**Atlas Core**](https://marketplace.mendix.com/link/component/117187) - Contains Atlas core styling and layouts
-* [**Atlas Web Content**](https://marketplace.mendix.com/link/component/117183) - Contains Atlas's web page templates and building blocks
-* [**Atlas Native Content**](https://marketplace.mendix.com/link/component/117175) - Contains Atlas's native page templates and building blocks
+* [**Atlas Core**](https://marketplace.mendix.com/link/component/117187) - アトラスコアのスタイリングとレイアウトを含む
+* [**Atlas Web Content**](https://marketplace.mendix.com/link/component/117183) - AtlasのウェブページテンプレートとBuilding Blockが含まれています
+* [**Atlas Native Content**](https://marketplace.mendix.com/link/component/117175) - AtlasのネイティブページテンプレートとBuilding Blockを含む
 
-#### 2.2.1 Upgrading Atlas UI Resources to Atlas Core
+#### 2.2.1 Atlas UI リソースをAtlas Core にアップグレードする
 
-1. If you have modified any of the Atlas UI content found in **Atlas UI Resources** e.g. building blocks, page templates or layouts, it is recommended to move the UI content you have modified to another user defined module within your app. **Skip this step** if you have not modifed any of Atlas UI's content.
-1.  Rename the **Atlas_UI_Resources** module to **Atlas_Core** in Studio Pro by right-clicking the module then clicking **Rename**:
+1. **アトラスUIリソース** で見つかったアトラスUIコンテンツを変更した場合、例: Building blocks, page templates or layouts, it is recommended to move the UI content you have modified to another user defined module within your app. **このステップ** をスキップしてください。
+1.  Studio Proの **Atlas_UI_Resources** モジュールの名前を **Atlas_Core** に変更し、モジュールを右クリックして **名前の変更**をクリックします。
 
     ![](attachments/atlas-mig/2-rename.png)
 
@@ -65,52 +65,52 @@ To upgrade your theme directory to Atlas 3 specifications, please complete the f
 
     ![](attachments/atlas-mig/3-import.png)
 
-#### 2.2.2 Adding Atlas Web Content to Your App
+#### 2.2.2 アプリに Atlas の Web コンテンツを追加する
 
-1.  Download **[Atlas Web Content](https://marketplace.mendix.com/link/component/117183)** from Marketplace
+1.  マーケットプレイスから **[Atlas Web コンテンツ](https://marketplace.mendix.com/link/component/117183)** をダウンロード
 
-    ![Atlas web content](attachments/atlas-mig/atlas-web-content-marketplace.png)
+    ![アトラスのウェブコンテンツ](attachments/atlas-mig/atlas-web-content-marketplace.png)
 
-1.  **Atlas Web Content** will appear as a new module inside **Marketplace Modules**
+1.  **Atlas Web Content** は **マーケットプレイスモジュール** 内に新しいモジュールとして表示されます
 
     ![Atlas web content folder](attachments/atlas-mig/atlas-web-content-folder-structure.png)
 
-#### 2.2.3 Adding Atlas Native Content to Your App
+#### 2.2.3 アプリにアトラスネイティブコンテンツを追加する
 
-1.  Download **[Atlas Native Content](https://marketplace.mendix.com/link/component/117175)** from Marketplace:
+1.  Marketplaceから **[Atlas Native Content](https://marketplace.mendix.com/link/component/117175)** をダウンロード:
 
-    ![Atlas native content](attachments/atlas-mig/atlas-native-content-marketplace.png)
+    ![アトラスのネイティブコンテンツ](attachments/atlas-mig/atlas-native-content-marketplace.png)
 
-1.  **Atlas Native Content** will appear as a new module inside **Marketplace Modules**:
+1.  **Atlas Native Content** は、 **Marketplace Modules** 内の新しいモジュールとして表示されます:
 
-    ![Atlas native content folder](attachments/atlas-mig/atlas-native-content-folder.png)
+    ![アトラスネイティブコンテンツフォルダ](attachments/atlas-mig/atlas-native-content-folder.png)
 
-### 2.3 Migrating Your Web Styling {#upgrade-web-styling}
+### 2.3 ウェブスタイルの移行 {#upgrade-web-styling}
 
-Modifications to the **Atlas 2 web theme** include the following:
+**Atlas 2 web theme** の修正には以下のものが含まれます:
 
-* Changes to custom variables
-* Adding your own custom styling
-* Changes to design properties
-* Changes to *Login.html* and *index.html*
+* カスタム変数への変更
+* 独自のスタイルを追加
+* デザインプロパティの変更
+* *Login.html* と *index.html* への変更
 
-If you have made any of the modifications above, please follow the steps below. The steps have been divided into 5 sections:
+上記の変更を行った場合は、以下の手順に従ってください。 ステップは5つのセクションに分かれています:
 
-* [Web Custom Variables](#web-custom-variables)
-* [Web Custom Styling](#web-custom-styling)
-* [Web Additonal Custom Styling](#web-additional-custom-styling)
-* [Web Design Properties](#web-design-properties)
-* [Web Resources](#web-resources)
+* [Webカスタム変数](#web-custom-variables)
+* [ウェブカスタムスタイル](#web-custom-styling)
+* [ウェブ追加カスタムスタイル](#web-additional-custom-styling)
+* [ウェブデザインのプロパティ](#web-design-properties)
+* [Web リソース](#web-resources)
 
-#### 2.3.1 Web Custom Variables {#web-custom-variables}
+#### 2.3.1 ウェブカスタム変数 {#web-custom-variables}
 
-This section concerns modifications you have made to the **custom-variables** *.scss* file of your **Atlas 2 theme**:
+このセクションでは、あなたが **Atlas 2 theme** の *custom-variables* **.scss** ファイルに加えた変更について説明します:
 
 ```
-theme_atlas2/styles/web/sass/app/_custom-variables.scss
+theme_atlas2/styles/web/ass/app/_custom-variables.scss
 ```
 
-To move your custom variable modifications to **Atlas 3**, there are two options:
+カスタム変数の変更を **Atlas 3**に移動するには、2つのオプションがあります:
 
 **Option 1** — If the custom variables apply to the app level, then the modifications should be moved into the **custom-variables** SCSS file of the **Atlas 3 theme** directory:
 
@@ -124,15 +124,15 @@ theme/web/custom-variables.scss
 themesource/your-module/web/custom-variables.scss
 ```
 
-#### 2.3.2 Web Custom Styling {#web-custom-styling}
+#### 2.3.2 ウェブカスタムスタイル {#web-custom-styling}
 
-This section concerns modifications you have made to the **custom** SCSS file of your **Atlas 2 theme**:
+このセクションでは、 **Atlas 2 テーマ** の **カスタム** SCSS ファイルに対して行った変更について説明します。
 
 ```
 theme_atlas2/styles/web/sass/app/_custom.scss
 ```
 
-To move your custom styling modifications to **Atlas 3**, there are two options:
+カスタムスタイルの変更を **Atlas 3**に移動するには、2つのオプションがあります:
 
 **Option 1** — If the custom styling apply to the app level, then the modifications should be moved into the **main** SCSS file of the **Atlas 3 theme** directory:
 
@@ -146,15 +146,15 @@ theme/web/main.scss
 themesource/your-module/web/main.scss
 ```
 
-#### 2.3.3 Web Additional Custom Styling {#web-additional-custom-styling}
+#### 2.3.3 ウェブ追加カスタムスタイル {#web-additional-custom-styling}
 
-This section concerns modifications you have made to the **app** folder of your **Atlas 2 theme** and any additional SCSS stylesheets that you might have added:
+このセクションでは、 **Atlas 2 テーマの** アプリ **フォルダー** と、追加された可能性のある追加の SCSS スタイルシートに変更を加えました。
 
 ```
-theme_atlas2/styles/web/sass/app/_
+theme_atlas2/styles/web/ss/app/_
 ```
 
-To move you additional stylesheets that you have added here to **Atlas 3**, there are two options:
+ここに追加した追加のスタイルシートを **Atlas 3**に移動するには、2つのオプションがあります:
 
 **Option 1** — If the additional stylesheets apply to the app level, these changes should be moved into the **web** directory of the **Atlas 3 theme**:
 
@@ -162,7 +162,7 @@ To move you additional stylesheets that you have added here to **Atlas 3**, ther
 theme/web/_
 ```
 
-Remember to include `@import <file name>` in ***theme/web/main.scss*** to include your additional files in the compilation of the SCSS.
+`@import <file name>` を ***theme/web/main.scss*** に含めることを忘れないでください。
 
 **Option 2** — If you want to extract the additional stylesheets into a reusable module, move them to a module you have created in **themesource**:
 
@@ -170,11 +170,11 @@ Remember to include `@import <file name>` in ***theme/web/main.scss*** to includ
 themesource/your-module/web/_
 ```
 
-Remember to include `@import<file name>` in ***themesource/your-module/web/main.scss*** to include your additional files in the compilation of the SCSS.
+`@import<file name>` を ***themesource/your-module/web/main.scss*** に含めることを忘れないでください。
 
-#### 2.3.4 Web Design Properties {#web-design-properties}
+#### 2.3.4 ウェブデザインプロパティ {#web-design-properties}
 
-This section concerns modifications you have made to the **settings.json file** of your **Atlas 2 theme**:
+このセクションでは、 **Atlas 2 テーマ** の **settings.json ファイル** を変更したことについて説明します。
 
 ```
 theme_atlas2/settings.json
@@ -186,54 +186,54 @@ Custom design properties that you have added to **settings.json** need to be mov
 themesource/your-module/web/design-properties.json*
 ```
 
-Do not add to the modules **Atlas Core** or **Atlas Web Content**.
+モジュール **Atlas Core** または **Atlas Web Content** に追加しないでください。
 
-If you have user-defined design properties for platform-supported or community-supported widgets, follow the two scenarios below.
+プラットフォーム対応またはコミュニティ対応のウィジェットにユーザー定義のデザインプロパティがある場合は、以下の2つのシナリオに従ってください。
 
-#### 2.3.5 Web Resources {#web-resources}
+#### 2.3.5 ウェブリソース {#web-resources}
 
 This section concerns modifications you have made to documents *login.html* and *index.html*, as well as additional static resources like font libraries, images, and more.
 
-Any custom *index.html* or *login.html* pages that you have created in your **Atlas 2 theme** need to be moved to the **web** directory of the **Atlas 3 theme**:
+任意のカスタム *index.html* または *ログイン。 *アトラス2テーマ*で作成した*tml* ページを **アトラス2テーマ** の **ウェブ** ディレクトリに移動する必要があります。 **アトラス3テーマ**: </p>
 
 ```
 theme/web/login.html
 ```
 
-The same applies to additional HTML documents that you may have created.
+同じことは、あなたが作成したかもしれない追加の HTML ドキュメントにも適用されます。
 
-Additional static resources such as images or font libraries need to be moved to the **resources** directory of **web** in the **Atlas 3 theme**:
+画像やフォントライブラリなどの追加の静的リソースは、 **Atlas 3 テーマ** の **ウェブ** の **リソースディレクトリに移動する必要があります**:
 
 ```
-theme/web/resources
+テーマ/ウェブ/リソース
 ```
 
-### 2.4 Migrating Your Native Styling {#upgrade-native-styling}
+### 2.4 ネイティブのスタイルを移行 {#upgrade-native-styling}
 
-This section can be skipped if you have not made any modifications to the **native** section of your **Atlas 2 theme** and you can continue to the section **migrating your UI content** {#upgrade-ui-content}.
+**Atlas 2 テーマ** の **ネイティブ** セクションに変更を加えていない場合、このセクションはスキップできます。 **UI コンテンツの移行** {#upgrade-ui-content} のセクションに進むことができます。
 
-Modifications to the **Atlas 2 theme** include the following:
+**Atlas 2 テーマの変更** には以下のようなものがあります:
 
-* Changes to custom variables
-* Adding of additional custom styling
-* Changes to design properties
+* カスタム変数への変更
+* 追加のカスタムスタイルの追加
+* デザインプロパティの変更
 
-If you have made any of the above modifications, please follow the following steps below. The steps have been divided into 4 sections:
+上記の変更を行った場合は、以下の手順に従ってください。 ステップは4つのセクションに分かれています:
 
-* [Native Custom Variables](#native-custom-variables)
-* [Native Custom Styling](#native-custom-styling)
-* [Native Additonal Custom Styling](#native-additional-custom-styling)
-* [Native Design Properties](#native-design-properties)
+* [ネイティブカスタム変数](#native-custom-variables)
+* [ネイティブカスタムスタイル](#native-custom-styling)
+* [ネイティブ追加カスタムスタイル](#native-additional-custom-styling)
+* [ネイティブデザインのプロパティ](#native-design-properties)
 
-#### 2.4.1 Native Custom Variables {#native-custom-variables}
+#### 2.4.1 ネイティブカスタム変数 {#native-custom-variables}
 
-This section concerns modifications you have made to the **custom-variables** js file of your **Atlas 2 theme**.
+このセクションでは、 **Atlas 2 theme** の **custom-variables** js ファイルに対して行った変更について説明します。
 
 ```
 theme_atlas2/styles/native/sass/app/custom-variables.js
 ```
 
-To move your custom variable modifications to **Atlas 3**, there are two options:
+カスタム変数の変更を **Atlas 3**に移動するには、2つのオプションがあります:
 
 **Option 1** - If the custom variables apply to the app level, then the modifications should be moved into the **custom-variables** scss file of the **Atlas 3 theme** directory.
 
@@ -247,15 +247,15 @@ theme/native/custom-variables.js
 themesource/your-module/native/custom-variables.js
 ```
 
-#### 2.4.2 Native Custom Styling {#native-custom-styling}
+#### 2.4.2 ネイティブカスタムスタイル {#native-custom-styling}
 
-This section concerns modifications you have made to the **custom** js file of your **Atlas 2 theme**.
+このセクションでは、 **Atlas 2 theme** の **カスタム** js ファイルに対して行った変更について説明します。
 
 ```
 theme_atlas2/styles/native/sass/app/_custom.js
 ```
 
-To move your custom styling modifications to **Atlas 3**, there are two options:
+カスタムスタイルの変更を **Atlas 3**に移動するには、2つのオプションがあります:
 
 **Option 1** - If the custom styling apply to the app level, then the modifications should be moved into the **main** js file of the **Atlas 3 theme** directory.
 
@@ -269,15 +269,15 @@ theme/native/main.js
 themesource/your-module/native/main.js
 ```
 
-#### 2.4.3 Native Additonal Custom Styling {#native-additional-custom-styling}
+#### 2.4.3 ネイティブ追加のカスタムスタイル {#native-additional-custom-styling}
 
-This section concerns modifications you have made to the **app** folder of your **Atlas 2 theme** and any additional js stylesheets that you might have added.
+このセクションでは、 **Atlas 2 theme** の **app** フォルダーと、追加された可能性のある追加の js スタイルシートに行った変更について説明します。
 
 ```
 theme_atlas2/styles/native/sass/app/_
 ```
 
-To move you additional stylesheets that you have added here to **Atlas 3**, there are two options:
+ここに追加した追加のスタイルシートを **Atlas 3**に移動するには、2つのオプションがあります:
 
 **Option 1** - If the additional stylesheets apply to the app level, these changes should be moved into the **web** directory of the **Atlas 3 theme**.
 
@@ -285,7 +285,7 @@ To move you additional stylesheets that you have added here to **Atlas 3**, ther
 theme/native/_
 ```
 
-Remember to import the file using JavaScript's `import` syntax in *theme/native/main.js* and export the variable exposed by the imported file.
+JavaScript の `import` 構文を *theme/native/main.js* でインポートし、インポートされたファイルによって公開される変数をエクスポートすることを忘れないでください。
 
 **Option 2** - If you want to extract the additional stylesheets into a reusable module, move them to a module you have created in **themesource**.
 
@@ -293,11 +293,11 @@ Remember to import the file using JavaScript's `import` syntax in *theme/native/
 themesource/your-module/native/_
 ```
 
-Remember to import the file using JavaScript's `import` syntax in *themesource/your-module/native/main.js* and export the variable exposed by the imported file.
+JavaScript の `インポート` 構文を *themesource/your-module/native/main.js* でインポートし、インポートされたファイルで公開される変数をエクスポートしてください。
 
-#### 2.4.4 Native Design Properties {#native-design-properties}
+#### 2.4.4 ネイティブデザインプロパティ {#native-design-properties}
 
-This section concerns modifications you have made to the **settings-native.json file** of your **Atlas 2 theme**.
+このセクションでは、 **Atlas 2 theme** の **settings-native.json ファイル** に対して行った変更について説明します。
 
 ```
 theme_atlas2/settings-native.json
@@ -309,17 +309,17 @@ Custom **design properties** that you have added to **settings-native.json**, ne
 themesource/your-module/web/design-properties.json*
 ```
 
-Do not add to the modules **Atlas Core** or **Atlas Native Content**.
+モジュール **Atlas Core** または **Atlas Native Content** に追加しないでください。
 
-If you have custom-defined design properties for platform-supported or community-supported widgets, see the [Migrating Custom Defined Design Properties](#upgrade-design-properties) section below.
+プラットフォームサポートまたはコミュニティサポートのウィジェットにカスタム定義されたデザインプロパティがある場合は、以下の [カスタム定義デザインプロパティの移行](#upgrade-design-properties) セクションを参照してください。
 
-### 2.5 Migrating Custom Defined Design Properties {#upgrade-design-properties}
+### 2.5 カスタム定義デザインプロパティの移行 {#upgrade-design-properties}
 
-#### 2.5.1 Adding Design Properties for Platform-Supported Widgets
+#### 2.5.1 プラットフォームでサポートされているウィジェットのデザインプロパティの追加
 
-If you have extended one or more platform supported widgets with your own design property similar to the following example.
+次の例と同様に、独自のデザインプロパティを使用して、1つ以上のプラットフォームがサポートするウィジェットを拡張している場合。
 
-You have extended the **container widget** with a design property **border** to add a border to an instance of the container. Note that for design properties the `Element` name is called `DivContainer`.
+**コンテナ ウィジェット** を design プロパティ **border** で拡張して、コンテナーのインスタンスにボーダーを追加していること。 デザインのプロパティでは、 `要素` の名前は `DivContainer` と呼ばれます。
 
 ```
 {
@@ -360,7 +360,7 @@ You have extended the **container widget** with a design property **border** to 
 }
 ```
 
-In the example above we have two design properties: **align content** and **border**. Align content is a Atlas 3 defined design property, while border is custom-defined design property. To avoid conflicts with the Atlas 3 defined design properties, its recommended to export only your custom-defined design properties to the web's **design-property** json file of a module you have created in the **themesource** directory. Resulting in something similiar to the below example.
+上の例では、2つのデザインプロパティがあります: **コンテンツの配置** と **枠線**。 コンテンツの配置は Atlas 3 で定義されたデザインプロパティで、境界はカスタム定義されたデザインプロパティです。 Atlas 3 定義された設計プロパティとの競合を避けるために。 **themessource** ディレクトリで作成したモジュールの **design-property** json ファイルに、カスタム定義されたデザインプロパティのみをエクスポートすることをお勧めします。 以下の例と似たような結果が得られます。
 
 ```
 {
@@ -375,11 +375,11 @@ In the example above we have two design properties: **align content** and **bord
 }
 ```
 
-#### 2.5.2 Adding Design Properties for Community-Supported Widgets
+#### 2.5.2 コミュニティ対応ウィジェットのデザインプロパティの追加
 
-If you have defined your own design property for a community-supported widget in your app, similar to the following example, follow these steps.
+次の例と同様に、アプリでコミュニティサポートされているウィジェットに独自のデザインプロパティを定義している場合は、以下の手順に従ってください。
 
-You have added a design property `“Opacity”` for MyCustomWidget, in **Atlas 2**. As shown below in the **settings.json** file.
+MyCustomWidgetのデザインプロパティ `"Opacity"` を **Atlas 2** に追加しました。 以下のように **settings.json** ファイルに表示されます。
 
 ```
 {
@@ -407,7 +407,7 @@ You have added a design property `“Opacity”` for MyCustomWidget, in **Atlas 
 }
 ```
 
-As this is a custom-defined design property, this needs to be added to the web's **design-property** json file of a module you have created in the **themesource** directory. Resulting in something similiar to the below example.
+As this is a custom-defined design property, this needs to be added to the web's **design-property** json file of a module you have created in the **themesource** directory. 以下の例と似たような結果が得られます。
 
 ```
 {
@@ -431,75 +431,75 @@ As this is a custom-defined design property, this needs to be added to the web's
 }
 ```
 
-#### 2.5.3 Merging Options for Design Properties
+#### 2.5.3 デザインプロパティのマージオプション
 
-Design property options can also be merged across themesource modules. For more information see the [Extending or Overriding Design Properties of Other Modules](/apidocs-mxsdk/apidocs/design-properties#extend-existing-design-properties) section of the **Design Properties API Documentation**.
+デザインプロパティオプションは、テーマソースモジュール間でマージすることもできます。 詳細については、 [デザインプロパティ API ドキュメント](/apidocs-mxsdk/apidocs/design-properties#extend-existing-design-properties) の **他のモジュールのデザインプロパティの拡張またはオーバーライド** セクションを参照してください。
 
-## 3 Expected Issues After Upgrading to Atlas 3 {#expected-issues}
+## アトラス3にアップグレードすると予想される3つの問題 {#expected-issues}
 
-When you have completed the sections above, you may have errors in your error list:
+上記のセクションを完了すると、エラーリストにエラーが発生する可能性があります。
 
-*  For errors relating to renamed design properties, right-click a related error and click **Updated all renamed design properties in project**:
+*  名前の変更されたデザインプロパティに関連するエラーについては、関連するエラーを右クリックし、 **プロジェクト内のすべての名前の変更されたデザインプロパティを更新** をクリックします。
 
-    ![errors](attachments/atlas-mig/4-errors.png)
+    ![エラー](attachments/atlas-mig/4-errors.png)
 
 * For errors about the **Phone** or **Tablet** navigation profile no longer existing, right-click the error and select **Go to** which will navigate you to the widget that points to a missing Phone or Tablet profile — use one of these methods to solve the error:
-    * Delete the layout
-    * Delete the widget in the layout
-    * Add the **Phone web** or **Tablet web** navigation profile to your Mendix application
-    * In the widget's properties pane change the **Profile** to an already existed profile, like **Responsive web**
+    * レイアウトを削除
+    * レイアウトのウィジェットを削除
+    * **Phone web** または **Tablet web** ナビゲーションプロファイルを Mendix アプリケーションに追加します
+    * ウィジェットのプロパティ ペインで、 **プロファイル** を既に存在するプロファイルに変更します。たとえば、 **レスポンシブウェブ**
 
-    Note that navigation profiles have changed in Mendix 9. See the [Mendix 9 Release Notes](/releasenotes/studio-pro/9.0) for more information.
+    Mendix 9でナビゲーションプロファイルが変更されたことに注意してください。 詳細は [Mendix 9 Release Notes](/releasenotes/studio-pro/9.0) を参照してください。
 
     ![](attachments/atlas-mig/5-nav.png)
 
-*  If you are using Hybrid phone profiles, please make sure you change them to their equivalent web profiles by clicking **Change profile type** in your navigation profile:
-    * Hybrid tablet app offline → Tablet web offline
-    * Hybrid tablet app online → Tablet web
-    * Hybrid phone app offline → Phone web offline
-    * Hybrid phone app online → Phone web
+*  ハイブリッド電話プロファイルを使用している場合。 ナビゲーションプロファイルの **プロフィールの種類を変更** をクリックして、同等のWebプロファイルに変更してください:
+    * ハイブリッドタブレットアプリをオフライン → タブレットウェブをオフライン
+    * ハイブリッドタブレットアプリ オンライン → タブレットウェブ
+    * ハイブリッド電話アプリをオフライン → 電話ウェブをオフライン
+    * ハイブリッド電話アプリをオンライン → 携帯電話のウェブ
 
     ![](attachments/atlas-mig/6-hybrid-phone.png)
 
-*  If you are using Badge, Progress Circle, Progress Bar, or Maps widgets, please make sure you update the definitions of the widgets and reconfigure following the new properties added for each widget:
+*  バッジ、プログレスバー、進捗バー、地図ウィジェットを使用している場合 各ウィジェットに追加された新しいプロパティに従って、ウィジェットの定義を更新し、再設定してください:
 
     ![](attachments/atlas-mig/7-errors.png)
 
-*  If you have **Design property X is not supported by your theme** errors, it either means a design property has been removed in Atlas 3 or you need to add your own design properties to the new file structure as instructed in the [migrating custom defined design properties](#upgrade-design-properties) section above. To suppress the error, right-click the error, then select **Remove property**. To check how to extend your design properties, please follow [How to Extend Design Properties](/howto/front-end/extend-design-properties).
+*  If you have **Design property X is not supported by your theme** errors, it either means a design property has been removed in Atlas 3 or you need to add your own design properties to the new file structure as instructed in the [migrating custom defined design properties](#upgrade-design-properties) section above. エラーを抑制するには、エラーを右クリックし、 **プロパティを削除** を選択します。 デザインプロパティを拡張する方法を確認するには、 [デザインプロパティを拡張する方法](/howto/front-end/extend-design-properties) に従ってください。
 
     ![](attachments/atlas-mig/8-errors-background.png)
 
-* If you have errors saying **Unknown option X for design property**, it means the design property option has been removed in Atlas 3. Use one of the following methods to solve the error:
-    * Set the design property to its default option: right-click the error, then select **Set property X to default**
+* **Unknown option X for design property**というエラーがある場合 これは、Atlas 3でdesign property オプションが削除されたことを意味します。 次のいずれかの方法を使用して、エラーを解決します。
+    * design プロパティをデフォルトのオプションに設定します: エラーを右クリックし、 **Set property X to default**
     * Search for the design property option's CSS class in *theme_atlas2/settings.json* for web and *theme_atlas2/settings-native.json* for native, then add it to the applicable [widget's style property](common-widget-properties#style)
 
     ![](attachments/atlas-mig/9-set-prop.png)
 
-* If you have errors saying **Nanoflow commons/Native mobile resources are not compatible** get the new major versions from **Marketplace**.
+* **Nanoflow commons/Native モバイル・リソースが互換性がない場合、** **Marketplace** から新しいメジャーバージョンを取得します。
 
-## 4 Edge Case Issues After Upgrading to Atlas 3 {#edge-cases}
+## アトラス3にアップグレードした後の4つのエッジケースの問題 {#edge-cases}
 
-In Mendix 9 the Hybrid profile is deprecated. In Atlas 3 all hybrid content is removed. When upgrading from Atlas 2 to Atlas 3, you may have errors about pages used as the default home page for a hybrid profile which no longer exists:
+Mendix 9ではハイブリッドプロファイルは非推奨です。 アトラス3では、すべてのハイブリッドコンテンツが削除されます。 アトラス2からアトラス3にアップグレードするとき ハイブリッドプロファイルのデフォルトのホームページとして使用されているページに関するエラーが発生する可能性があります。
 
 ![](attachments/atlas-mig/10-edge.png)
 
-To fix this, right-click the error then select **Go to Navigation profile ‘HybridPhone’** and change the default home page:
+これを修正するには、エラーを右クリックし、 **を選択します。ナビゲーションプロファイル ‘HybridPhone’** に移動し、デフォルトのホームページを変更します。
 
 ![](attachments/atlas-mig/set-hybrid-nav.png)
 
-## 5 Troubleshooting Common Atlas Problems {#troubleshoot}
+## 5 一般的なアトラスの問題のトラブルシューティング {#troubleshoot}
 
-To troubleshoot common Atlas problems, do the following:
+一般的なアトラスの問題をトラブルシューティングするには、次の手順を実行します。
 
-* If you have **Layout X no longer exists** errors, right-click the error then go to the page on which the error occurs. In the page’s properties, select a new, appropriate layout.
-* If you have **The selected image X no longer exists** errors, right-click the error and go to the page on which it occurs and choose a new image. Depending on your app you may want to download the **Atlas_NativeMobile_Content** module and use an image from the module.
-* If you have **The selected placeholder X no longer exists** errors, right-click the error and go to the page on which it occurs, thereafter you have alternative options to correct the error:
-    * Adjust the layout the page uses to include a placeholder with matching name.
-    * On the page, move the content out of the placeholder.
+* **レイアウト X が存在しない** エラーがある場合は、エラーを右クリックし、エラーが発生するページに移動します。 ページのプロパティで、新しい適切なレイアウトを選択します。
+* **選択したイメージ X が存在しない** エラーがあります。 エラーを右クリックして、発生するページに移動し、新しい画像を選択します。 アプリによっては、 **Atlas_NativeMobile_Content** モジュールをダウンロードし、モジュールから画像を使用することもできます。
+* **選択したプレースホルダー X が存在しない場合** エラーが発生しました。 エラーを右クリックし、発生したページに移動し、その後、エラーを修正するための代替オプションがあります。
+    * ページに一致する名前を持つプレースホルダを含めるために使用するレイアウトを調整します。
+    * ページで、コンテンツをプレースホルダから移動します。
 
-## 6 Read More
+## 6もっと読む
 
-* [Atlas 3 Website](https://www.mendix.com/atlas/)
-* [Atlas Design System App](https://atlasdesignsystem.mendixcloud.com/)
-* [Atlas 3 Change Summary](/refguide/atlas3-change-summary)
-* [Studio Pro 9 Release Notes](/releasenotes/studio-pro/9.0)
+* [Atlas 3 ウェブサイト](https://www.mendix.com/atlas/)
+* [アトラス設計システムアプリ](https://atlasdesignsystem.mendixcloud.com/)
+* [Atlas 3 変更概要](/refguide/atlas3-change-summary)
+* [Studio Pro 9 リリースノート](/releasenotes/studio-pro/9.0)
