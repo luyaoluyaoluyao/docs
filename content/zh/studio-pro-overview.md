@@ -6,14 +6,18 @@ menu_order: 10
 tags:
   - "Studio Pro"
 aliases:
-  - /refguide/desktop modeler-overview.html
+  - /refguide8/desktop modeler-overview.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/studio-pro-overview.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
-Mendix Studio Pro 是创建、查看和编辑Mendix 应用程序的工具。
+Mendix Studio Pro 是创建、查看和编辑Mendix 应用程序的工具。 一个 Mendix 应用程序在 Studio Pro中称为 [项目](project)。
 
-One Studio Pro 实例一次只能打开一个应用程序，但您可以在必要时打开两个Studio Pro 实例。
+一个 Studio Pro 实例一次只能打开一个项目，但必要时您可以打开两个Studio Pro 实例。
 
 {{% alert type="info" %}}
 When Studio Pro is open, press <kbd>F1</kbd> to quickly jump to documentation.
@@ -27,16 +31,11 @@ When Studio Pro is open, press <kbd>F1</kbd> to quickly jump to documentation.
 
 Studio Pro 顶栏包含以下项目：
 
-* [切换到菜单](#switch-to)
 * [Menus](#menus)
 * [要运行和查看您的应用程序的按钮](#run-and-view)
 * [与开发者门户和应用市场的链接](#links)
 
-### 2.1 切换到菜单 {#switch-to}
-
-**切换到** 菜单位于Studio Pro 左上角，包含平台各个部分的链接。 关于 **切换到** 菜单的更多信息，见 [导航]() 章节在 *开发者门户指南* 中。
-
-### 2.2 Menus {#menus}
+### 2.1 Menus {#menus}
 
 在 Studio Pro 顶部栏中，您可以看到一些菜单，例如 [编辑](edit-menu)， [查看](view-menu), 和 [版本控制](version-control-menu)。 每个菜单包含菜单项允许您执行各种操作，例如 [创建一个部署包](create-deployment-package-dialog)， 设置 [首选项](preferences-dialog)，或查看 [错误](errors-pane) 面板。
 
@@ -44,21 +43,21 @@ Studio Pro 顶栏包含以下项目：
 
 ### 2.2 运行 & 查看应用程序 {#run-and-view}
 
-您可以通过点击 **发布** 或播放 (**在本地运行**) 按钮来部署您的应用程序。 要查看您部署的应用，请点击 **查看应用**。
+您可以通过点击 **运行** 或 **运行本地** 按钮来部署您的应用程序。 要查看您部署的应用，请点击 **查看** 按钮。
 
 欲了解Mendix部署的更多信息，请参阅 [部署](/developerportal/deploy)。
 
-关于部署您的应用程序和版本的更多信息。 查看 [版本应用已部署到云](using-version-control-in-studio-pro#versioning-project) 部分 *在 Studio Pro 中使用版本控制*。
+关于部署您的应用程序和版本的更多信息。 查看 [版本控制部署到云](using-version-control-in-studio-pro#versioning-project) 部分的项目 *在Studio Pro 中使用版本控制*。
 
-### 2.3 链接和用户配置文件菜单 {#links}
+### 2.3 与开发者门户 & 市场的链接 {#links}
 
-您可以找到链接到 [Mendix Studio](/studio) (如果启用)， [开发者门户](/developerportal), 和 [商城](/appstore) 位于Studio Pro的上角。
+您可以在Studio Pro的最上角找到链接到 [开发者门户](/developerportal/) and [Marketplace](/appstore/)
 
-如果您登录，您的个人资料图片将显示在它们旁边。 当您点击个人资料图片时，下拉菜单会显示您的全名和电子邮件， 您的用户资料链接，我的应用程序屏幕和退出选项。
+如果您登录，您的账户将显示在这些按钮旁边。 点击帐户名称来导航到您的应用，开发者门户，您的个人资料，或登出。
 
-## 3个应用结构
+## 3 项目结构
 
-一个应用程序由单独的文件(*document*)以及分组在文件夹中的设置和 [模块](modules) 组成。 您的应用的完整结构可以在 [App Explorer](project-explorer) 中查看。
+一个项目由个别文件(*document*)和分组文件夹的设置以及 [模块](modules) 组成。 您的项目的完整结构可以在 [工程资源管理器](project-explorer) 中查看。
 
 ## 4个工作区
 
@@ -75,7 +74,9 @@ Studio Pro 顶栏包含以下项目：
 
 {{% /报警 %}}
 
-您可以打开一些标签，就像在现代浏览器中一样。 他们可以关闭、重新排序和并肩显示。 
+您可以打开一些标签，就像在现代浏览器中一样。 他们可以关闭、重新排序和并肩显示。 下面的视频展示了如何与标签互动的示例：
+
+<video controls width="608" height="456" src="attachments/studio-pro-overview/document-tabs.mp4">视频</video> 
 
 每份文件都有自己的省略状态、历史和未来，所以撤销和回击行动是无限制的。
 
@@ -199,7 +200,7 @@ Studio Pro 主窗口窗格底部是一个状态栏。
 
 ## 8 阅读更多
 
-* [应用浏览器](project-explorer)
+* [项目浏览器](project-explorer)
 * [Menus](menus)
 
   
