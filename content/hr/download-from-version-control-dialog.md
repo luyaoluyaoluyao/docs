@@ -1,50 +1,51 @@
 ---
-title: "Download From Version Control Server Dialog"
-parent: "dialogs"
+title: "Download from Version Control Server"
+parent: "version-control-menu"
+menu_order: 60
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/download-from-team-server-dialog.html
+  - /refguide8/download-from-team-server-dialog.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/download-from-version-control-dialog.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
-Use the **Download from Version Control Server** dialog box to download an app from an SVN version control server.
-
-![](attachments/download-from-version-control-server-dialog/download-from-version-control-server-dialog-original.png)
+Use the **Download from Version Control Server…** menu item to download an app from an SVN version control server (for example, [Team Server](/developerportal/collaborate/team-server)). If you are currently editing an app, the project will be closed (after prompting to save any changes) and the newly downloaded app will be opened using the current version of Studio Pro.
 
 {{% alert type="info" %}}
+If the downloaded app was created with a different version of Mendix, you will be asked if it can be converted to the current version.
 
-You can use the [Open App](open-app-dialog) dialog box to download and open an app from Team Server. However, you will need to use this option if you want to download a second copy of an app (and development line) you already have on disk.
-
+You can also use the [Open App Dialog](open-app-dialog) to download and open an app from Team Server. However, you will need to use this option if you want to download a second copy of an app (and development line) you already have on disk.
 {{% /alert %}}
 
-To open the **Download from Version Control Server** dialog box, go to **Project > More Versioning > Download from Version Control Server**.
+![Download from Version Control Server dialog box](attachments/version-control-menu/download-from-version-control-server.png)
 
 ## 2 Where Is Your App Stored?
 
-Use this setting to select the location where your app is stored. You can choose between the Team Server or an SVN server other than the Team Server.
+If **Enable private version control** is set in the project [Preferences](preferences-dialog#enable), you can choose between the **Mendix Team Server** or a **Private server**. If it is not enabled, you will only be able to choose an app from the Mendix Team Server.
 
 ### 2.1 Mendix Team Server
 
-In the **Team Server App** drop-down list, select the Team Server app you wish to open, and then choose the development line you want to download in the **Development line** drop-down list.
+Use the **Team Server App** dropdown to choose the app you want to download.
 
-![](attachments/download-from-version-control-server-dialog/download-from-version-control-server.png)
-
-For more information about the Mendix Team Server, see [Team Server](team-server).
-
-For more information about development lines, see [Version Control Concepts](version-control).
+For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
 
 ### 2.2 Private Server
 
-In the **App repository address** field, enter the repository address of the app you want to open and click **Connect** to load the development lines from the repository. Then choose the development line you want to download in the **Development line** drop-down list.
+Enter the URL of your private SVN server in **App repository address** and click **Connect**.
 
-![](attachments/download-from-version-control-server-dialog/download-from-private-server.png)
+![Download from Version Control Server dialog box](attachments/version-control-menu/download-from-private-server.png)
 
-{{% alert type="info" %}}
+## 3 Development Line
 
-This option is only available when support for other servers is enabled in the [Preferences](preferences-dialog#enabled) dialog box.
+Choose the **Development line** you want to download.
 
-{{% /alert %}}
+For more information about development lines, see [Version Control](version-control).
 
-## 3 Disk Location
+## 4 Project Directory
 
-In the **Project directory** field, choose the directory where you want to store the downloaded app. The suggested name includes the name of the development line (**main** or the name of the branch line).
+Choose the **Project directory** you want to download the app to. The suggested name includes the name of the development line (*main* or the name of the branch line), but you can change this if you want.
