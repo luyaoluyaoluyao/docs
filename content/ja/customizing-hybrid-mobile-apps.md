@@ -1,11 +1,11 @@
 ---
-title: "Customizing Hybrid Mobile Apps"
-category: "Mobile Development"
+title: "ハイブリッドアプリのカスタマイズ"
+category: "モバイル開発"
 ---
 
-The Mendix mobile app and generated hybrid mobile apps contain their own `index.html` file. This index file cannot be edited to add CSS files, for example. However, you can alter the index file indirectly through a file called `components.json`. There, you can add CSS and JavaScript files. These are the initial contents of `components.json`:
+Mendixモバイルアプリと生成されたハイブリッドモバイルアプリには、独自の `index.html` ファイルが含まれています。 このインデックス ファイルは、例えば CSS ファイルを追加するために編集することはできません。 ただし、 `components.json` と呼ばれるファイルから間接的にインデックスファイルを変更することができます。 そこで、CSSとJavaScriptファイルを追加できます。 これらは `components.json` の最初の内容です:
 
-**Standard 'components.json'**
+**標準 'components.json'**
 
 ```js
 {
@@ -21,9 +21,9 @@ The Mendix mobile app and generated hybrid mobile apps contain their own `index.
 
 ```
 
-If you want to include more resources, you can add your own `components.json` file in the root of your theme. Copy the version above and add your own files. This is an example that dynamically adds a JavaScript file to `index.html`:
+より多くのリソースを含めたい場合は、テーマのルートに独自の `components.json` ファイルを追加できます。 上記のバージョンをコピーし、独自のファイルを追加します。 これは、 `index.html` に JavaScript ファイルを動的に追加する例です。
 
-**Custom 'components.json'**
+**カスタム 'components.json'**
 ```js
 {
     "files": {
