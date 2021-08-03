@@ -19,21 +19,17 @@ tags:
   - "reference set selector"
   - "control bar buttons"
 aliases:
-  - /refguide8/add-button.html
-  - /refguide8/deselect-all-button.html
-  - /refguide8/export-to-csv-button.html
-  - /refguide8/export-to-excel-button.html
-  - /refguide8/grid-action-button.html
-  - /refguide8/grid-new-button.html
-  - /refguide8/remove-button.html
-  - /refguide8/search-button.html
-  - /refguide8/select-all-button.html
-  - /refguide8/select-button.html
+  - /refguide/add-button.html
+  - /refguide/deselect-all-button.html
+  - /refguide/export-to-csv-button.html
+  - /refguide/export-to-excel-button.html
+  - /refguide/grid-action-button.html
+  - /refguide/grid-new-button.html
+  - /refguide/remove-button.html
+  - /refguide/search-button.html
+  - /refguide/select-all-button.html
+  - /refguide/select-button.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/control-bar.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
