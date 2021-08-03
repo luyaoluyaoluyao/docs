@@ -1,91 +1,91 @@
 ---
-title: "Retrieve"
-parent: "object-activities"
+title: "获取"
+parent: "对象活动"
 menu_order: 60
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-A **Retrieve** activity can be used to get one or more objects, either by directly traversing an association of another object, or by retrieving objects from the database.
+**检索** 活动可以用来获取一个或多个物体。 直接穿越另一个对象的关联，或从数据库中检索对象。
 
-## 2 Properties
+## 2 属性
 
-An example of retrieve properties is represented in the image below:
+下面的图像显示了检索属性的示例：
 
-![retrieve properties](attachments/object-activities/retrieve-properties.png)
+![检索属性](attachments/object-activities/retrieve-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-The retrieve properties pane consists of the following sections:
+检索属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section{#action}
+## 3 行动部分{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Source {#source}
+### 3.1 来源 {#source}
 
-The **Source** defines the way the objects are retrieved:
+**源** 定义了获取对象的方式：
 
-| Option         | Description                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| By association | Retrieve the object(s) associated to an object by following an association. Note that when objects and/or their associations are changed and not committed, the data is not yet available in the database. By retrieving **By association**, the data that is not committed can be retrieved. For more information, see the [Retrieve by Association Properties](#association) section below. |
-| From database  | Retrieve objects from the database. For more information, see the [Retrieve from Database Properties](#from-database) section below.                                                                                                                                                                                                                                                          |
+| 选项    | 描述                                                                                                                                                                                    |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 按关联排序 | 通过以下关联获取与对象相关联的对象(s)。 请注意，如果对象和/或其关联被更改和未被承诺，数据库中还没有数据。 By retrieving **By association**, the data that is not committed can be retrieved. 欲了解更多信息，请参阅下面的 [从关联属性获取](#association) 部分。 |
+| 从数据库  | 从数据库中检索对象。 欲了解更多信息，请参阅下面的 [从数据库属性](#from-database) 部分获取。                                                                                                                              |
 
-### 3.2 Retrieve by Association Properties {#association}
+### 3.2 通过联系房产获取 {#association}
 
-#### 3.2.1 Association
+#### 3.2.1 协会
 
-This property specifies which association will be followed. The association must be an association from an object that is already available to the retrieve activity. Associations can be followed in both directions.
+此属性指明将跟踪哪个社团。 该社团必须是一个来自检索活动已经可用对象的社团。 社团可以双向追随。
 
-### 3.3 Retrieve from Database Properties {#from-database}
+### 3.3 从数据库属性中获取 {#from-database}
 
-#### 3.3.1 Entity
+#### 3.3.1 实体
 
-This property specifies the entity from which to retrieve instances (objects).
+此属性指定要从哪个实体检索实例 (对象)。
 
 #### 3.3.2 Range
 
-This property specifies the range that determines how many objects are retrieved:
+此属性指定了决定检索多少对象的范围：
 
-| Range  | Meaning                                                                                                                                                                                                                                                                                    |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| All    | Retrieve all objects at once.                                                                                                                                                                                                                                                              |
-| First  | Retrieve only the first object. The result of the retrieve action will be a single object instead of a list. Note that when you know you have only one object or you only want to use the first object in a list, use **First** to get a result of the object type (as opposed to a list). |
-| Custom | Retrieve a given number of objects (**Amount**) starting at a given index (**Offset**). The amount and offset are expressions that should result in a number. Note that the first object has an offset of 0. An amount of 0 means that all objects are retrieved.                          |
+| Range | 含义                                                                                           |
+| ----- | -------------------------------------------------------------------------------------------- |
+| 所有的   | 一次获取所有对象。                                                                                    |
+| 第一页   | 只检索第一个对象。 检索动作的结果将是单个对象而不是列表。 请注意，当你知道你只有一个对象或你只想使用列表中的第一个对象。 使用 **First** 获取对象类型的结果(相对于列表)。 |
+| 自定义   | 从给定索引开始获取给定的对象数量(**金额**) (**偏移**)。 金额和偏移量是应导致数字的表达式。 请注意，第一个对象的偏移值为0。 一个值为0表示所有对象都已被检索。      |
 
-#### 3.3.3 XPath Constraint
+#### 3.3.3 XPath 约束
 
-The [XPath](xpath) constraint defines the condition the objects need to fulfill to be retrieved. If there is no XPath constraint, all objects of the entity are retrieved.
+[XPath](xpath) 约束定义了要获取的对象所需的条件。 如果没有 XPath 限制，则该实体的所有对象都会被检索。
 
 {{% alert type="info" %}}
-Date functions, user-role tokens, computations based on tokens, and following associations are not supported in XPath constraints when the retrieve activity is in a nanoflow.
-{{% /alert %}}
+当检索活动处于nanoflow时，日期功能、用户角色令牌、基于令牌的计算以及以下关联不支持 XPath 限制。
+{{% /报警 %}}
 
-#### 3.3.4 Sorting
+#### 3.3.4 排序
 
-This property defines the order of the list. The list can be sorted in ascending and descending order on the values of an attribute. If there are objects that have the same attribute value, the list is sorted based on the second attribute (if any) and so on.
+此属性定义了清单的顺序。 列表可以按属性值的升序和降序排序。 如果对象具有相同的属性值，则根据第二个属性（如果有）排序。
 
 ### 3.4 Type
 
-This read-only property indicates whether you will retrieve a singe object or a list.
+此只读属性表示您是要检索单一对象还是列表。
 
-### 3.5 List Name or Object Name
+### 3.5 列表名称或对象名称
 
-This is the name of the list or object returned by the activity. It can be used by all the activities that follow this activity.
+这是活动返回的列表或对象的名称。 它可以用于这项活动之后的所有活动。
 
-## 4 Common Section{#common}
+## 4 通用部分{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
