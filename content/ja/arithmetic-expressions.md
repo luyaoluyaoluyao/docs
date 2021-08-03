@@ -1,45 +1,45 @@
 ---
-title: "Arithmetic Expressions"
-parent: "expressions"
+title: "算術式"
+parent: "表現"
 menu_order: 20
 tags:
   - "studio pro"
-  - "expressions"
-  - "arithmetic expressions"
+  - "表現"
+  - "算術式"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes the arithmetic operators which are supported in expressions. These all work on numeric data types (Integer/Long and Decimal).
+このドキュメントでは、式でサポートされている算術演算子について説明します。 これらはすべて、数値データ型(Integer/Long and Decimal)で動作します。
 
-## 2 Multiplication
+## 2 かけ算
 
-Multiplies two numbers.
+２つの数をかけます。
 
-### 2.1 Input parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 値      | タイプ                   |
+| ------ | --------------------- |
+| 最初の番号  | Integer/Long, Decimal |
+| 2番目の番号 | Integer/Long, Decimal |
 
-### 2.2 Output
+### 2.2 出力
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+2つの入力が両方ともInteger/Long型の場合、結果はInteger/Long型になります。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+2 つの入力のいずれかが Decimal 型の場合、結果は Decimal 型です。
 
-### 2.3 Example
+### 2.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 
 ```java
 2*3
 ```
-The output is:
+出力は:
 
 ```java
 6
@@ -47,186 +47,186 @@ The output is:
 
 ## 3 Division
 
-Divides two numbers. You can use either the `div` or colon ( `:` ) syntax, as can be seen below in the examples. The colon ( `:` ) syntax is inspired by the divide symbol `÷`. We cannot use the more conventional slash ( / ) syntax because that would conflict with the slash which is used for separating objects and members.
+２つの数を除算します。 以下の例のように、 `div` または colon ( `:` ) 構文を使用できます。 コロン( `:` ) の構文は、分割記号 `÷` に触発されます。 従来のスラッシュ( / )構文は、オブジェクトとメンバの分離に使用されるスラッシュと矛盾するため、使用できません。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 値      | タイプ                   |
+| ------ | --------------------- |
+| 最初の番号  | Integer/Long, Decimal |
+| 2番目の番号 | Integer/Long, Decimal |
 
-### 3.2 Output
+### 3.2 出力
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+2 つの入力のいずれかが Decimal 型の場合、結果は Decimal 型です。
 
-### 3.3 Example
+### 3.3 例
 
-Find the example of usages below:
+使用例を以下に示します。
 
-* The `div` syntax example: if you use the following input:
+* `div` 構文の例: 次の入力を使用する場合:
 
   ```java
   3 div 5
   ```
 
-  The output is:
+  出力は:
 
   ```java
   0.6
   ```
 
-* `:` syntax example: if you use the following input:
+* `:` 構文例: 以下の入力を使用する場合:
 
   ```java
   12 : 3
   ```
 
-  The output is:
+  出力は:
 
   ```java
   4.0
   ```
 
-### 3.4 Remarks
+### 3.4 備考
 
-The result of a division is only an approximation if it has an infinite decimal expansion. The two examples below illustrate this approximation:
+除算の結果は、無限の十進展がある場合の近似に過ぎません。 以下の2つの例は、この近似を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     3 : 7
     ```
 
-    the output is:
+    出力は
 
     ```java
     0.4285714285714285714285714285714286
     ```
 
-    If you continue a calculation with the results of a division, the results might be unexpected. The following input:
+    分割の結果をもとに計算を続けると、予期せぬ結果になる可能性があります。 次の入力:
 
     ```java
     (3 : 7) * 7
     ```
 
-    results in the output below:
+    結果は以下のようになります。
 
     ```java
     3.0000000000000000000000000000000002
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
-    ceil((3 : 7) * 7)
+    天井((3:7)*7)
     ```
 
-    the output is:
+    出力は
 
     ```java
     4
     ```
 
-Therefore, it is recommended to do division operations last.
+したがって、最後に分割操作を行うことをお勧めします。
 
 ## 4 Modulo
 
-Calculates the remainder of the division of one number by another. In other words, `m` modulo `n` corresponds to: `m = p + k*n`, where `p` is the result of the operation `m` modulo `n`.
+ある数値の除算の残りを別の数値で計算します。 In other words, `m` modulo `n` corresponds to: `m = p + k*n`, where `p` is the result of the operation `m` modulo `n`.
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 値      | タイプ                   |
+| ------ | --------------------- |
+| 最初の番号  | Integer/Long, Decimal |
+| 2番目の番号 | Integer/Long, Decimal |
 
-### 4.2 Output
+### 4.2 出力
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+2つの入力が両方ともInteger/Long型の場合、結果はInteger/Long型になります。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+2 つの入力のいずれかが Decimal 型の場合、結果は Decimal 型です。
 
-### 4.3 Example
+### 4.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 23 mod 5
 ```
 
-the output is:
+出力は
 
 ```java
 3
 ```
-## 5 Addition
+## 5つの追加
 
-Adds two numbers.
+2 つの数字を追加します。
 
-For the use of the addition symbol for string concatenation, see [String function calls](string-function-calls).
+文字列連結の追加記号を使用するには、 [String 関数呼び出し](string-function-calls) を参照してください。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 値      | タイプ                   |
+| ------ | --------------------- |
+| 最初の番号  | Integer/Long, Decimal |
+| 2番目の番号 | Integer/Long, Decimal |
 
-### 5.2 Output
+### 5.2 出力
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+2つの入力が両方ともInteger/Long型の場合、結果はInteger/Long型になります。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+2 つの入力のいずれかが Decimal 型の場合、結果は Decimal 型です。
 
-### 5.3 Example
+### 5.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 -3 + 4
 ```
 
-the output is:
+出力は
 
 ```java
 1
 ```
 
-## 6 Subtraction
+## 6 ひき算
 
-Subtracts the second input from the first.
+最初から2つ目の入力を減算します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 値      | タイプ                   |
+| ------ | --------------------- |
+| 最初の番号  | Integer/Long, Decimal |
+| 2番目の番号 | Integer/Long, Decimal |
 
-### 6.2 Output
+### 6.2 出力
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+2つの入力が両方ともInteger/Long型の場合、結果はInteger/Long型になります。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+2 つの入力のいずれかが Decimal 型の場合、結果は Decimal 型です。
 
-### 6.3 Example
+### 6.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 5 - 4
 ```
 
-the output is:
+出力は
 
 ```java
 1
