@@ -1,97 +1,97 @@
 ---
-title: "Batch Translate"
-parent: "translatable-texts"
+title: "批量翻译"
+parent: "可翻译文本"
 menu_order: 30
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
+  - "翻译"
+  - "语言"
+  - "可翻译文本"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Batch translate** allows you to enter texts in one language which correspond to texts in another language.
+**批量翻译** 允许您以一种语言输入对应于另一种语言文本的文本。
 
-Usually you will want to translate from the default language to a second language, but you can use any other dictionary of texts. For example, if your default language is *English, United States* you may already have translated the text into *Dutch, Netherlands* and you can use this as a reference for translating into *Dutch, Belgium* as there are likely to be more similarities.
+通常你想要从默认语言翻译成第二语言，但你可以使用任何其他字典。 例如，如果您的默认语言是 *英语、美国语* 您可能已经将文本翻译成 *荷兰语， 荷兰* 并且您可以用它来将它翻译成 *荷兰语， 比利时* 因为可能有更大的相似性。
 
 ![](attachments/language/batch-translate.png)
 
-## 2 Using Batch Translate
+## 2 使用批量翻译
 
-Batch translate translates between two languages. When you select batch translate you will be asked to select the two languages you wish to use, a **Source language** to use as a reference, and a **Destination language** which is the one you want to update.
+批量翻译两种语言。 当您选择批量翻译时，您将被要求选择您想要使用的两种语言 a **源语言** 作为参考 和 **目标语言** 是您想要更新的语言。
 
-![Select source and destination languages](attachments/language/batch-translate-languages.png)
+![选择源语和目标语言](attachments/language/batch-translate-languages.png)
 
-### 2.1 Documents/Modules
+### 2.1 文件/模块
 
-You can select one or more modules you want to use for batch translate. For example, you may have already got translations for imported and system modules and want to concentrate on translating your own modules.
+您可以选择一个或多个您想要用于批量翻译的模块。 例如，您可能已经获得了导入和系统模块的翻译，并且想要集中翻译您自己的模块。
 
-Click **Select…** and check the modules you want to work on.
+点击 **选择…** 并检查您想要运行的模块。
 
-![Module selection screen](attachments/language/batch-replace-modules.png)
+![模块选择屏幕](attachments/language/batch-replace-modules.png)
 
-The default is to work on all modules in the app.
+默认情况下将在应用程序中的所有模块上工作。
 
-### 2.2 Source Text Contains
+### 2.2 源文本包含
 
-To search for a particular phrase in the source language text, type what you want to search for. It is not possible to search for text in the destination language.
+要在源语文本中搜索特定的短语，请输入您想要搜索的内容。 无法以目的地语言搜索文本。
 
-![Batch translate search](attachments/language/batch-translate-search.png)
+![批量翻译搜索](attachments/language/batch-translate-search.png)
 
-By default, all the translatable text from the selected module(s) will be shown.
+默认情况下，将显示所选模块的所有可翻译文本。
 
-Each found text will be displayed in the **Source** column. The **#** column shows the number of times it occurs in the selected module(s).
+每个找到的文本都会显示在 **源** 列中。 **#** 列显示它在选定的模块中发生的次数。
 
-If you select a line, you can look in the **Show occurrence** section to see the **Object** containing the text and the **Document** it appears in. Double-clicking or clicking **Show occurrence** will open the document and select the object so you can easily see the context.
+如果您选择了一行， 您可以在 **显示情况** 部分查看 **对象** 中包含文本和 **文档** 的内容。 双击或点击 **显示事件** 会打开文档并选择对象，这样您就可以轻松看到上下文了。
 
 {{% alert type="success" %}}
-Tip: move the dialog box to one side to get a better look at the document.
-{{% /alert %}}
+提示：将对话框移动到一边以更好地查看文档。
+{{% /报警 %}}
 
-### 2.3 Translation
+### 2.3 翻译
 
-In **Translation**, type new text that you want to use instead of the existing text. Click **Translate** to confirm the replacement.
+在 **翻译**中，键入您想要使用的新文本代替现有文本。 点击 **翻译** 以确认替换。
 
 ![](attachments/language/batch-translate-translate.png)
 
-If you have two texts which are identical in the source language but different in the translation language, you will have to review and change these individually. This is not very common but imagine, for example, you have used `Order Lines` to both *describe the lines on an order* and to *label a button which sorts some lines*. See [Working in the Currently Selected Language](translatable-texts#selected-language) in *Language Menu* to find how to change individual texts.
+如果您有两种文本在源语中相同，但在翻译语言中不同， 您必须单独审查和更改这些内容。 这不是非常常见的现象，而是一种想象，例如： 您已经使用了 `订单行` 到两个 *描述了订单上的行* 和 *标签了一个按键来排列一些行* 查看 [在目前选定的语言](translatable-texts#selected-language) 中工作 *语言菜单* 以寻找如何更改单个文本。
 
-## 3 Exporting & Importing Text{#export-import}
+## 3 正在导出 & 导入文本{#export-import}
 
-If you want to translate a language outside Studio Pro, you can export the translatable texts to the Microsoft Excel (*.xlsx*) format, make changes, and then import the changes from the updated Excel file.
+如果您想要翻译Studio Pro以外的语言，您可以导出可翻译文本到 Microsoft Excel (*)。 lsx*) 格式，进行更改，然后从更新的 Excel 文件中导入更改。
 
-This is particularly useful if you are working on multiple apps and you want to apply your translations to a different app.
+如果您正在处理多个应用并且您想要将您的翻译应用到另一个应用上，这将特别有用。
 
-### 3.1 Export to Excel
+### 3.1 出口到Excel
 
-Click **Export to Excel…** to export the currently displayed text items to a Microsoft Excel (*.xlsx*) format file.
+点击 **导出到 Excel…** 将当前显示的文本项导出到Microsoft Excel (*.xlsx*) 格式文件。
 
-The file will be in the format shown below:
+文件的格式如下所示：
 
-![Sample Excel file](attachments/language/batch-translate-excel.png)
+![Excel文件示例](attachments/language/batch-translate-excel.png)
 
-**Row 1** – *Filter:* indicates the modules which are included in the exported file.
+**第1行** - *过滤：* 表示已导出文件中包含的模块。
 
-**Row 2**  – indicates the source and translation language. The first column represents the current text, the second column the *translation* text.
+**第2行**  — 表示源语和翻译语言。 第一列表示当前文本，第二列表示 *翻译* 文本。
 
-**Rows 3+**  – show the current texts
+**行 3+**  - 显示当前文本
 
-You can make changes in column B which will be processed if the file is imported.
+如果文件被导入，您可以对B列进行更改。
 
-### 3.2 Import from Excel
+### 3.2 从Excel 导入
 
-Click **Import from Excel…** to import a correctly-constructed Microsoft Excel (*.xlsx*) format file.
+点击 **从 Excel…** 导入正确构建的 Microsoft Excel (*.xlsx*) 格式文件。
 
-This does the following:
+这种做法如下：
 
-* The selected module(s) are set to the ones in the *Filter:* line of the file
-* Any texts which are empty in column B will be ignored
-* Any texts in column A which do not match translatable texts in the selected module(s) will be ignored
-* Any text in column B which is not ignored is entered into the **Translation** column
+* 选定的模块在 *筛选器中设置为这些模块：* 行文件
+* B栏中空的文本将被忽略
+* A栏中与所选模块中可翻译文本不匹配的任何文本将被忽略
+* B列中没有忽略的任何文本都输入到 **翻译** 列
 
-Changes will only be made if you click **Translate**.
+只有点击 **翻译** 才能进行更改。
 
 {{% alert type="warning" %}}
-The formats of the Excel files for batch translate and batch replace are similar. You will be warned if you try to import a batch replace file or a batch translate file with the incorrect languages but you can still import it if you ignore the warning.
-{{% /alert %}}
+用于批量翻译和批量替换的 Excel 文件格式类似。 如果您试图导入批量替换文件或批量翻译文件的语言不正确，您将会被警告，但如果您忽略警告，您仍然可以导入该文件。
+{{% /报警 %}}
