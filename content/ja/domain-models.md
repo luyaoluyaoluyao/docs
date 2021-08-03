@@ -1,272 +1,272 @@
 ---
-title: "Domain Model"
-description: "Describes the domain models in Mendix Studio."
-category: "Working with Data"
+title: "ドメインモデル"
+description: "Mendix Studio でドメインモデルの説明をします。"
+category: "データの操作"
 menu_order: 10
 tags:
-  - "studio"
-  - "domain model"
+  - "スタジオ"
+  - "ドメインモデル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The Mendix app consists of *modules*. A module is a unit that divides functionality of your app into separate parts. By default, you have one module in Studio called MyFirstModule.
+Mendix アプリは *モジュール* で構成されています。 モジュールは、アプリの機能を個別のパーツに分割するユニットです。 デフォルトでは、MyFirstModuleと呼ばれるStudioに1つのモジュールがあります。
 
-Each module has its own *domain model*. The domain model is a data model that describes the information in your application domain in an abstract way. It is central to the architecture of your application.
+各モジュールには独自の *ドメインモデル* があります。 ドメインモデルは、アプリケーションドメイン内の情報を抽象的な方法で記述するデータモデルです。 それはあなたのアプリケーションのアーキテクチャの中心です。
 
-The domain model in Studio consists of the following:
+Studio のドメイン モデルは、以下のとおりです。
 
-* [Entities](#entity-types)
-* [Associations](domain-models-association-properties)
+* [エンティティ](#entity-types)
+* [関連](domain-models-association-properties)
 
-Let us say you have a collection of CDs like the one in the table below:
+以下の表のようなCDのコレクションがあるとしましょう。
 
-| Title                           | Artist                   |
-| ------------------------------- | ------------------------ |
-| How to Dismantle an Atomic Bomb | U2                       |
-| Exodus                          | Bob Marley & The Wailers |
+| タイトル      | アーティスト           |
+| --------- | ---------------- |
+| 原爆を分解する方法 | U2               |
+| Exodus    | ボブ・マーリー & ウェイラーズ |
 
-The rows in the table are CDs. So, a *CD* is an *entity*. A specific CD like "How to Dismantle an Atomic Bomb" of the band U2 is an *object* of the *CD* entity. That means that an *object* is a single instance of an entity. Characteristics like the "Title" and "Artist" are *attributes*.
+表の行は CD です。 したがって、 *CD* は *エンティティ* です。 バンドU2の「原子爆弾を解体する方法」のような特定のCDは、 *CD* エンティティの *オブジェクト* です。 つまり、 *オブジェクト* はエンティティの 1 つのインスタンスであるということです。 「タイトル」や「アーティスト」のような特徴は *属性*です。
 
 To view the **Domain Models** of your app in Studio, click the **Domain Models** icon in the left menu bar of Studio.
 
-{{% image_container width="350" %}}![](attachments/domain-models/domain-model.png)
-{{% /image_container %}}
+![](attachments/domain-models/domain-model.png)
 
-After opening a domain model, you will see an overview of all entities, attributes, and associations. The complexity of your domain model depends on the complexity of your app.
+ドメインモデルを開くと、すべてのエンティティ、属性、および関連付けの概要が表示されます。 ドメインモデルの複雑さは、アプリケーションの複雑さによって異なります。
 
 ![](attachments/domain-models/domain-overview.png)
 
-The **Auto Arrange** option in the top-left corner groups and aligns entities by associations. Entities with no associations will be vertically aligned.
+左上隅の **Auto Arrange** オプションで、関連付けごとに図形を整列します。 関連付けがないエンティティは垂直方向に整列されます。
 
-## 2 Components
+## 2つのコンポーネント
 
-The domain model can contain the following components:
+ドメインモデルには、次のコンポーネントを含めることができます。
 
-* [Entity](#entity-types) – represents a class of real-world objects; entities can have attributes
-    * [Attribute](#attributes) – describes and/or identify the entity
-* [Association](#associations) – describes a relation between entities
+* [エンティティ](#entity-types) - 実際のオブジェクトのクラスを表す。エンティティは属性を持つことができる。
+    * [属性](#attributes) - エンティティの説明および/または識別
+* [Association](#associations) – エンティティ間の関係を説明する
 
-### 2.1 Entities and Their Types {#entity-types}
+### 2.1 エンティティとそのタイプ {#entity-types}
 
-An entity represents a class of real-world objects, such as customers, invoices, work items, etc. If we draw a parallel with databases, the entity is a table.
+エンティティは、顧客、請求書、ワークアイテムなどの実際のオブジェクトのクラスを表します。 データベースと並列に描画すると、実体はテーブルになります。
 
-You can add different type of entities to your domain model:
+ドメインモデルに異なるタイプのエンティティを追加できます。
 
-* **Entity** – an entity that can have attributes, associations, and represents a class of real-world objects.
-* **Image Entity** – a special type of entity that allows you to store an image. For example, on pages, users will be able  to view and upload images with the help of an image entity.
-* **File Entity** – a special type of entity that allows you to store a file. For example, on pages, users will be able to upload and download files (such as, a text document, a pdf, a spreadsheet) with the help of a file entity.
-* **External Entity** – only available if you have the Data Hub functionality enabled for your organization. For more information on external entities, see [Data Hub in Studio](data-hub-in-studio).
+* **エンティティ** - 属性、関連性、および実世界のオブジェクトのクラスを表すことができるエンティティ。
+* **Image Entity** – 画像を格納できる特別なタイプのエンティティ。 例えば、ページ上では、ユーザーは画像エンティティの助けを借りて画像を表示およびアップロードすることができます。
+* **ファイルエンティティ** – ファイルを保存できる特殊なエンティティ。 たとえば、ページ上では、ユーザーはファイルをアップロードおよびダウンロードすることができます(例: ファイルエンティティの助けを借りて文書ドキュメント、pdf、表計算ドキュメントなど。
+* **ワークフロー エンティティ** - [ワークフロー](workflows) のコンテキストとして使用される特殊なタイプのエンティティ。
+* **外部エンティティ** - 組織でデータハブ機能が有効になっている場合にのみ利用できます。 外部エンティティの詳細については、 [Studio 内のデータハブ](data-hub-in-studio) を参照してください。
 
-### 2.2 Entity Properties
+### 2.2 エンティティのプロパティ
 
-Entities have the following properties:
+エンティティには次のプロパティがあります:
 
-* **General** properties define the name of the entity and its [persistability](/refguide8/persistability):
+* **一般的な** プロパティはエンティティの名前とその [永続性](/refguide/persistability) を定義します:
 
-    * **Name** – defines the name of the entity
+    * **名前** - エンティティの名前を定義します
 
-    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*)
+    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide/persistability) in the *Studio Pro Guide*)
 
-    ![General Properties of an Entity](attachments/domain-models/entity-general-properties.png)
+    ![エンティティの一般プロパティ](attachments/domain-models/entity-general-properties.png)
 
-* **Stored Information** properties define whether the information about the entity is stored in the database. If the information is stored, it can be retrieved afterwards and can be used in [page filters](data-filters). For example, you can add a filter and show only objects that were created by the current user.
+* **格納された情報** プロパティは、エンティティに関する情報がデータベースに格納されているかどうかを定義します。 情報が保存されていれば、後で取得でき、 [ページ フィルター](data-filters) で使用できます。 たとえば、フィルターを追加して、現在のユーザーが作成したオブジェクトのみを表示できます。
 
-    You can toggle the following properties:
+    次のプロパティを切り替えることができます:
 
-    * **Store 'Created by'** – when enabled, the user who created the entity is stored in the database
+    * **ストア '作成者'** - 有効にすると、エンティティを作成したユーザーがデータベースに保存されます
 
-    * **Store 'Creation Date'** – when enabled, the date and time when the entity was created is stored in the database
+    * **ストア '作成日'** - 有効にすると、エンティティが作成された日時がデータベースに保存されます
 
-    * **Store 'Last Changed by'**– when enabled, the user who was the last to make changes to the entity is stored in the database
+    * **'Last Changed by'**– 有効な場合。 エンティティを最後に変更したユーザーはデータベースに保存されます
 
-    * **Store 'Last Changed Date'** – when enabled, the date and time when the entity was last changed is stored in the database
+    * **ストア '最終変更日'** - 有効にすると、エンティティが最後に変更された日時がデータベースに保存されます
 
-        ![Stored Information Properties of an Entity](attachments/domain-models/entity-stored-info.png)
+        ![エンティティの格納された情報プロパティ](attachments/domain-models/entity-stored-info.png)
 
-        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image and File entities.{{% /alert %}}
+        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image, File, and Workflow entities.{{% /alert %}}
 
-### 2.3 Attributes {#attributes}
+### 2.3 属性 {#attributes}
 
-Attributes are characteristics that describe and/or identify the entity. For example, a *Customer* entity typically has attributes for the name of the customer, an e-mail address, and other personal information. If we draw a parallel with databases, the attribute is a column.
+属性は、エンティティを記述および/または識別する特性です。 例えば、 *顧客* エンティティは通常、顧客の名前、電子メールアドレス、およびその他の個人情報に対する属性を持ちます。 データベースと並列に描画すると、属性はカラムになります。
 
-For more information on attribute types and their properties, see [Attributes](domain-models-attributes).
+属性の型とそれらのプロパティの詳細については、 [属性](domain-models-attributes) を参照してください。
 
-### 2.4 Associations {#associations}
+### 2.4 関連 {#associations}
 
-An association describes a relation between entities. In the domain model, an association is represented by a line between two entities. If we draw a parallel with databases, the association is a foreign key.
+関連付けはエンティティ間の関係を記述します。 ドメイン モデルでは、関連は、2 つのエンティティの間の線によって表されます。 データベースと並列に描画すると、関連付けは外部キーになります。
 
-For more information on association types and their properties, see [Associations](domain-models-association-properties).
+関連タイプとそれらのプロパティの詳細については、 [Associations](domain-models-association-properties) を参照してください。
 
-## 3 Adding New Entities {#adding-new-entities}
+## 3 新しいエンティティを追加する {#adding-new-entities}
 
-You can add new entities in the **Toolbox**.
+**ツールボックス**に新しい図形を追加できます。
 
 {{% image_container width="300" %}}![](attachments/domain-models/toolbox-entity.png)
 {{% /image_container %}}
 
-To add an entity, do the following:
+エンティティを追加するには、次の操作を行います:
 
-1. Open the **Toolbox** tab of the domain model.
+1. ドメインモデルの **Toolbox** タブを開きます。
 
-2. Choose the entity type you would like to add, and drag and drop it the working area.
+2. 追加したい図形の種類を選択し、作業領域をドラッグ&ドロップします。
 
-3.  Fill out the name for the entity and click **Create**:
+3.  エンティティの名前を入力し、 **Create** をクリックします:
 
     ![](attachments/domain-models/create-new-entity-dialog.png)
 
-The new entity is added to the domain model.
+新しいエンティティがドメインモデルに追加されます。
 
 {{% image_container width="250" %}}![](attachments/domain-models/new-entity.png)
 {{% /image_container %}}
 
-### 3.1 Adding New Image or File Entities {#adding-image-or-file-entities}
+### 3.1 新しいイメージまたはファイルエンティティの追加 {#adding-image-or-file-entities}
 
-While adding new entities from the **Toolbox** works for all types of entities, you can use a specific way of adding image and file entities to your domain model.
+**Toolbox** から新しい図形を追加するときは、すべての種類の図形で動作します。 ドメインモデルに画像とファイルエンティティを追加する特定の方法を使用できます。
 
-For example, you have an entity named *Laptop* and you want to be able to show users a specific image depending on the laptop model. In this case, you need to create an image entity (for example, named *Product_Image*). However, to get data and dynamically show the right image per laptop model, the *Product_Image* entity should also have a specific connection (an association) to the *Laptop* entity. For more information on associations and their types, see [Associations](domain-models-association-properties).
+例えば、 *Laptop* という名前のエンティティがあり、ラップトップモデルに応じてユーザーに特定の画像を表示できるようになります。 この場合、イメージエンティティを作成する必要があります (例えば、 *Product_Image* という名前)。 しかし、データを取得し、ラップトップのモデルごとに正しい画像を動的に表示するには. *Product_Image* エンティティは、 *ラップトップ* エンティティに特定の接続 (関連) を持つ必要があります。 関連付けとそのタイプの詳細については、 [Associations](domain-models-association-properties) を参照してください。
 
-To create a new image/file entity with an association automatically, follow the process described below:
+自動的に関連付けられた新しいイメージ/ファイルエンティティを作成するには、以下の手順に従います。
 
-1. Select an entity of the *Entity* type that will have a connection to the new image or file entity.
+1. 新しいイメージまたはファイルエンティティに接続する *エンティティ* タイプのエンティティを選択します。
 
-2. Click **New attribute** button.
+2. **新しい属性** ボタンをクリックします。
 
-3.  In the **Create New Attribute** dialog box, click **Add image or file** in the bottom-right corner:
+3.  **属性の作成** ダイアログボックスで、右下の **画像またはファイル** をクリックします。
 
-    ![Add Image or File](attachments/domain-models/add-image-or-file.png)
+    ![画像またはファイルを追加](attachments/domain-models/add-image-or-file.png)
 
-4. In the **Image and Files** dialog box, select the type or entity (image or file).
+4. **イメージ と ファイル** ダイアログボックスで、タイプまたは図形(イメージまたはファイル)を選択します。
 
-5. In the **Create New Image/File Entity** dialog box, specify the name of the special entity and click **Create**.
+5. **Create New Image/File Entity** ダイアログボックスで、特殊エンティティの名前を指定し、 **Create** をクリックします。
 
-The new image or file entity is created with default *Name* and *Size* attributes and the association to the entity that you selected in the first step: ![Image Entity Example](attachments/domain-models/image-entity-example.png)
+新しいイメージまたはファイルエンティティは、デフォルトの *名前* と *サイズ* 属性と最初のステップで選択したエンティティへの関連付けで作成されます: ![イメージエンティティの例](attachments/domain-models/image-entity-example.png)
 
-## 4 Adding New Attributes {#adding-new-attributes}
+## 4 新しい属性を追加する {#adding-new-attributes}
 
-To add attributes in the domain mode, do the following:
+ドメインモードで属性を追加するには、次の操作を行います。
 
-1.  Select a block with entity you want to add an attribute to. The **New attribute** option appears:
+1.  属性を追加するエンティティを持つブロックを選択します。 **新しい属性** オプションが表示されます。
 
     {{% image_container width="250" %}}![](attachments/domain-models/adding-attribute.png)
     {{% /image_container %}}
 
-2.  Click **New attribute** and specify its **Name** and **Type**:
+2.  **New attribute** をクリックし、 **Name** と **Type** を指定します:
 
     ![](attachments/domain-models/create-new-attribute-dialog.png)
 
-3. Click **Create**.
+3. **Create** をクリックします。
 
-A new attribute is added to the entity.
+新しい属性がエンティティに追加されます。
 
 {{% image_container width="250" %}}![](attachments/domain-models/new-attribute.png)
 {{% /image_container %}}
 
-## 5 Adding New Associations
+## 5 新しい関連付けの追加
 
-There are several ways to add an association in the domain model. You can do one of the following:
+ドメインモデルに関連付けを追加する方法はいくつかあります。 次のいずれかを実行できます:
 
-1. Click the dot icon that appears and do one the following:
+1. 表示されるドットアイコンをクリックし、次のいずれかを実行します:
 
     ![](attachments/domain-models/adding-association-dot-icon.png)
 
-    1. To create an association with an existing entity, drag the dot to the second entity.
+    1. 既存のエンティティとの関連付けを作成するには、ドットを2番目のエンティティにドラッグします。
 
-    2.  To create an association with a new entity, drag the dot icon and hold it for a couple of seconds until it turns into a plus icon. By dropping the plus icon, you can create a new entity with an association from the first entity:
+    2.  新しいエンティティとの関連付けを作成するには ドットアイコンをドラッグして、プラスアイコンに変わるまで数秒間保持します。 プラスアイコンを削除すると、最初のエンティティから関連付けを持つ新しいエンティティを作成できます:
 
         ![](attachments/domain-models/plus-icon.png)
 
-4. Select a block with an entity you want to add an association to do the following:
+4. 関連付けを追加するエンティティを持つブロックを選択します。
 
-    1.  Click the arrow icon:
+    1.  矢印アイコンをクリック:
 
         {{% image_container width="250" %}}![](attachments/domain-models/adding-association.png)
         {{% /image_container %}}
 
-    2.  Select a second entity for the new association from the list of existing entities and click **Select**. You can also create a new entity for the association from the dialog box.
+    2.  既存のエンティティのリストから新しい関連付けの2番目のエンティティを選択し、 **Select** をクリックします。 ダイアログボックスから関連付けの新しい図形を作成することもできます。
 
         ![](attachments/domain-models/new-association.png)
 
-        A module name is indicated next to the entity name in brackets.
+        モジュール名は、括弧内のエンティティ名の横に表示されます。
 
-        {{% alert type="info" %}} If you select the entity from another module, you will create a cross-module association. For more information, see the [Cross-Module Associations](domain-models-association-properties#cross-module-associations) section in *Associations*. The entities of the current module are listed first.
+        {{% alert type="info" %}} 別のモジュールからエンティティを選択すると、クロスモジュールの関連付けが作成されます。 詳しい情報については、 [Associations](domain-models-association-properties#cross-module-associations) の *Cross-Module Associations* セクションを参照してください。 現在のモジュールのエンティティが最初にリストされます。
         {{% /alert %}}
 
-## 6 Specifying Properties
+## 6プロパティの指定
 
-In the domain model, you can manage the properties of entities, attributes, and associations on the **Properties** tab.
+ドメイン モデルでは、 **プロパティ** タブで、エンティティ、属性、および関連付けのプロパティを管理できます。
 
-At the bottom of the tab you can see the **Delete** button.
+タブの下部に **Delete** ボタンがあります。
 
-### 6.1 Specifying Entity Properties
+### 6.1 エンティティプロパティの指定
 
-You can manage the following properties of an entity:
+エンティティの次のプロパティを管理できます:
 
-* The **Name** of the entity
+* エンティティの **名前**
 
-* [Persistability](/refguide8/persistability) of the entity
+* [エンティティの永続性](/refguide/persistability)
 
     ![](attachments/domain-models/entity-properties.png)
 
-To change the entity properties, click the entity in the domain model. The **Properties** tab for the selected entity is displayed automatically.
+エンティティプロパティを変更するには、ドメインモデル内のエンティティをクリックします。 選択した図形の **プロパティ** タブが自動的に表示されます。
 
-### 6.2 Specifying Attribute Properties
+### 6.2 属性プロパティの指定
 
-You can manage the following properties of an attribute:
+属性の次のプロパティを管理できます。
 
-* The **Name** of the attribute
-* The [Type](domain-models-attributes)  of the attribute
+* 属性の **名前**
+* 属性の [タイプ](domain-models-attributes)
 
     ![](attachments/domain-models/attribute-properties.png)
 
-To change the attribute properties, click the attribute in the domain model. The **Properties** tab for the selected attribute is displayed automatically.
+属性プロパティを変更するには、ドメインモデルの属性をクリックします。 選択した属性の **プロパティ** タブが自動的に表示されます。
 
 ![](attachments/domain-models/selecting-attribute.png)
 
 
 {{% alert type="info" %}}
 
-Fields that are displayed in **Properties** may vary depending on the type of the attribute.
+**プロパティ** に表示されるフィールドは、属性の種類によって異なる場合があります。
 
 {{% /alert %}}
 
 {{% alert type="info" %}}
 
-Properties of *Name* and *Size* attributes of image and file entities are read-only, as in, you cannot edit them.
+*名前* と *サイズ* のプロパティ イメージとファイルのエンティティの属性は読み取り専用で、それらを編集することはできません。
 
 {{% /alert %}}
 
-### 6.3 Specifying Association Properties
+### 6.3 関連プロパティの指定
 
-You can manage the following properties of an association:
+関連付けの次のプロパティを管理できます:
 
-*   The **Name** of the association
-*   **Multiplicity** of the association
-*   The delete behavior of the objects
+*   関連付けの **名前**
+*   **関連付けの多重度**
+*   オブジェクトの削除動作
 
-For more information, see [Associations](domain-models-association-properties).
+詳細については、 [関連](domain-models-association-properties) を参照してください。
 
-To change the association, click the line in the domain model. The **Properties** tab for the selected entity is displayed automatically.
+関連付けを変更するには、ドメインモデルの行をクリックします。 選択した図形の **プロパティ** タブが自動的に表示されます。
 
-If the association type is one-to-many or many-to-many, you can swap direction of it clicking the corresponding icon. For more information, see section [3 Multiplicity](domain-models-association-properties#multiplicity) in *Associations*.
+関連タイプが1対多または多対多の場合、対応するアイコンをクリックして方向を変更できます。 For more information, see section [3 Multiplicity](domain-models-association-properties#multiplicity) in *Associations*.
 
 {{% image_container width="350" %}}![](attachments/domain-models/managing-associations.png)
 {{% /image_container %}}
 
-## 7 Deleting Entities, Attributes, or Associations
+## 7 エンティティ、属性、または関連付けを削除しています
 
-To delete an entity, attribute, or association, do the following:
+エンティティ、属性、または関連付けを削除するには、次の操作を行います。
 
-1. Select the entity, attribute or association you want to delete.
+1. 削除するエンティティ、属性、または関連付けを選択します。
 
-2.  Press **Delete** or click the **Delete** button at the bottom of the **Properties** tab.
+2.  **削除** を押すか、 **プロパティ** タブの下部にある **削除** ボタンをクリックします。
 
     {{% image_container width="300" %}}![](attachments/domain-models/deletion.png)
     {{% /image_container %}}
 
 {{% alert type="info" %}}
 
-You cannot delete *Name* and *Size* attributes of image and file entities.
+画像とファイルエンティティの *名前* と *サイズ* 属性は削除できません。
 
 {{% /alert %}}
 
