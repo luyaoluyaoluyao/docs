@@ -1,7 +1,13 @@
 ---
-title: "XPath 关键字和系统变量"
+title: "XPath 关键字 & 系统变量"
 parent: "xpat-conditions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-keywords-and-system-variables.pdf)。
+{{% /报警 %}}
 
 ## 1 概览
 
@@ -42,6 +48,10 @@ parent: "xpat-conditions"
 | 令牌                           | 描述       |
 | ---------------------------- | -------- |
 | `[%UserRole_Administrator%]` | 管理员用户角色。 |
+
+以下是检索该用户角色的示例：
+
+![](attachments/xpath/user-role.png)
 
 ### 3.3 时间相关的
 
@@ -84,6 +94,7 @@ parent: "xpat-conditions"
 | `[%MinuteLength%]` | 1分钟的长度。     |
 | `[%SecondLength%]` | 1秒的长度。      |
 | `[%WeekLength%]`   | 为期一周(7天)。   |
+| `[%MonthLength%]`  | 一个月的长度。     |
 | `[%YearLength%]`   | 一年长度。       |
 
 {{% alert type="info" %}}
