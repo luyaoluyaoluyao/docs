@@ -5,14 +5,14 @@ menu_order: 10
 tags:
   - "グラフ"
   - "ウィジェット"
-  - "Studio Pro"
+  - "デスクトップ モデラー"
   - "グラフの構成"
   - "設定"
 ---
 
 ## 1つの紹介
 
-このガイドでは、チャート ウィジェットの設定オプションについて説明します。 グラフウィジェットは、Atlas UIに基づいたMendixアプリテンプレートに含まれています。 [Mendix Marketplace](https://marketplace.mendix.com/link/component/105695/) からダウンロードすることで、他のMendix アプリに含めることができます。 詳細については、 [マーケットプレイスガイド](/appstore/widgets/charts) の *チャート* を参照してください。
+このガイドでは、チャート ウィジェットの設定オプションについて説明します。 グラフウィジェットは、Atlas UIに基づいたMendixアプリテンプレートに含まれています。 これらは他のMendixアプリに含めることができます: https://marketplace.mendix.com/link/component/105695/.
 
 このガイドでは、次のウィジェットについて説明します。
 
@@ -24,7 +24,7 @@ tags:
 * 折れ線グラフ
 * 円グラフ
 * Time series
-  * 一部のアプリには2つの *時系列* ウィジェットがあることに注意してください。 このドキュメントはこのアイコンを持つものを参照しています： ![正しい時系列ウィジェットの画像](attachments/charts/time-series-icon.png)
+  * 一部のアプリには2つの *時系列* ウィジェットがあることに注意してください。 このドキュメントはこのアイコンを持つものを参照しています： ![正しい時系列ウィジェットの画像](attachments/pages/charts/time-series-icon.png)
 
 *任意のチャート* ウィジェットの構成は、別のドキュメントにあります: [任意のチャート ウィジェット](charts-any-configuration).
 
@@ -34,7 +34,7 @@ tags:
 
 ### 2.1 グラフのプロパティ
 
-![一般的なグラフのプロパティダイアログ](attachments/charts/line-chart-chart-properties.png)
+![一般的なグラフのプロパティダイアログ](attachments/pages/charts/line-chart-chart-properties.png)
 
 #### 2.1.1 シリーズ
 
@@ -44,7 +44,7 @@ tags:
 
   この場合、 **データ ソース** と **データ ポイント** はウィジェットに別々のタブとして表示されます。
 
-  ![データソースとデータポイントのタブを表示する円グラフダイアログ](attachments/charts/widget-data-source.png)
+  ![データソースとデータポイントのタブを表示する円グラフダイアログ](attachments/pages/charts/widget-data-source.png)
 
   フィールドは [Data source](#data-source) と [Data points](#data-points)のセクションで説明されているものと同じです。
 
@@ -52,13 +52,13 @@ tags:
 
   In this case, new series can be added by clicking the **Series > New** button in the **Chart properties** tab.
 
-  {{% alert type="info" %}}バージョン1.4のチャートから、可変数のデータ系列のチャートを作成できます。 これを行う方法については、 [動的な系列チャートを作成する方法](/howto/front-end/charts-dynamic-series).{{% /alert %}} を参照してください。
+  {{% alert type="info" %}}バージョン1.4のチャートから、可変数のデータ系列のチャートを作成できます。 これを行う方法については、 [動的な系列チャートを作成する方法](/howto7/extensibility/charts-dynamic-series).{{% /alert %}} を参照してください。
 
 1. データソース<a name="data-source"></a>
 
     各シリーズのデータは、異なるデータソースから取得できます。 追加のデータ系列は **チャート プロパティ** タブに追加できます。
 
-    ![系列データソースタブの編集](attachments/charts/series-item-data-source.png)
+    ![系列データソースタブの編集](attachments/pages/charts/series-item-data-source.png)
 
     * **Static/Dynamic**: 決まったデータ系列があるかどうかを選択します(行)。 例えば、データ系列の数が変数であるか、アプリによって決定されます。
 
@@ -66,7 +66,7 @@ tags:
 
     * **Data source**: 系列のデータソースタイプ: *Database*, *Microflow* または *REST エンドポイント*
 
-    * **REST URL**: REST エンドポイントへの相対または完全な URL 。 REST エンドポイントの設定の詳細については、 [REST Charts](/howto/front-end/charts-basic-rest) を参照してください。
+    * **REST URL**: REST エンドポイントへの相対または完全な URL 。 REST エンドポイントの設定の詳細については、 [REST チャート](/howto7/extensibility/charts-basic-rest) を参照してください。
 
     * **XPath constraint**: (データソースが Databaseの場合に使用される) エンティティからのデータに関する制約。
 
@@ -76,7 +76,7 @@ tags:
 
     プロットされる値に使用されるデータソース内の属性。
 
-    ![系列データポイントタブを編集](attachments/charts/series-item-data-points.png)
+    ![系列データポイントタブを編集](attachments/pages/charts/series-item-data-points.png)
 
     * **X軸データ 属性**: データソースの場合、参照上のデータベース属性は最大1階層でサポートされている。 データ ソースのマイクロフローでは、参照はサポートされていません
 
@@ -95,23 +95,23 @@ tags:
 
     シリーズの外観。 これはチャートの種類ごとにカスタマイズされています。以下を参照してください: [チャートタイプごとの3つの構成](#configuration-by-chart-type)。
 
-    ![系列の外観タブを編集](attachments/charts/series-item-appearance.png)
+    ![系列の外観タブを編集](attachments/pages/charts/series-item-appearance.png)
 
 4. 静的なシリーズ
 
     静的な系列である場合、シリーズの外観のための追加の構成。 これはチャートの種類ごとにカスタマイズされています。以下を参照してください: [チャートタイプごとの3つの構成](#configuration-by-chart-type)。
 
-    ![データ系列の静的系列タブ](attachments/charts/series-item-static.png)
+    ![データ系列の静的系列タブ](attachments/pages/charts/series-item-static.png)
 
 5. 動的なシリーズ
 
     動的な系列である場合の設定。
 
-    ![データ系列動的系列タブ](attachments/charts/series-item-dynamic.png)
+    ![データ系列動的系列タブ](attachments/pages/charts/series-item-dynamic.png)
 
     * **系列エンティティ**: 系列を定義するエンティティ - このエンティティタイプのオブジェクトのリストが系列を構築するために使用されます。 それぞれの物体に対して1つの系列があります
 
-      各エンティティは、プロットされる値に関連付けられています。詳細については、 [動的直列チャートの作成方法](/howto/front-end/charts-dynamic-series) を参照してください。
+      各エンティティは、プロットされる値に関連付けられています。詳細については、 [動的直列チャートの作成方法](/howto7/extensibility/charts-dynamic-series) を参照してください。
 
     * **シリーズ名属性**: 凡例が表示された場合、シリーズ名として表示されるシリーズエンティティの属性
 
@@ -125,7 +125,7 @@ tags:
 
     ユーザーがチャートとやり取りする場合にサポートされるイベント。
 
-    ![系列イベントタブを編集](attachments/charts/series-item-events.png)
+    ![系列イベントタブを編集](attachments/pages/charts/series-item-events.png)
 
     {{% alert type="info" %}}ページのコンテキスト、microflow。 または、イベントやツールチップに選択されたナノフローは、グラフ上の点が描画されたプロットオブジェクトになります。 This means you can display or use the x and y values, _and_ any other values stored in that object.<br /><br />For example you could use the tooltip to display the precise y value of a point, plus information on when the data was collected{{% /alert %}}
 
@@ -149,7 +149,7 @@ tags:
 
 7. 高度な設定 <a name="advanced"></a>
 
-    ![シリーズの詳細タブを編集](attachments/charts/series-item-advanced.png)
+    ![シリーズの詳細タブを編集](attachments/pages/charts/series-item-advanced.png)
 
     * **Options**: The Plotly *series options* in JSON format; these options will only be used when the *widget* tab **Advanced > Mode** is set to *Advanced* or *Developer*: see [Advanced](#advanced-mode), below.
 
@@ -157,7 +157,7 @@ tags:
 
 **外観** の設定は、ページ上のグラフのサイズを設定するために使用されます。
 
-![一般的なグラフの外観タブ](attachments/charts/widget-appearance.png)
+![一般的なグラフの外観タブ](attachments/pages/charts/widget-appearance.png)
 
 * **Width unit**: **Width** プロパティ - *Percentage* または *Pixels* に使用される単位のタイプ。
 
@@ -177,7 +177,7 @@ tags:
 
 REST リクエストにパラメータを追加します( [Data source](#data-source) を参照)。 contextId、および系列名はデフォルトで指定されます。
 
-![汎用チャート RESTタブ](attachments/charts/widget-rest.png)
+![汎用チャート RESTタブ](attachments/pages/charts/widget-rest.png)
 
 #### 2.1.4 Advanced {#advanced-mode}
 
@@ -185,7 +185,7 @@ REST リクエストにパラメータを追加します( [Data source](#data-so
 
 plotly.js とオプションの詳細については、次のリンクを参照してください: https://plot.ly/javascript/ 。
 
-![一般的なグラフの詳細タブ](attachments/charts/widget-advanced.png)
+![一般的なグラフの詳細タブ](attachments/pages/charts/widget-advanced.png)
 
 * **モード**: 以下の3つのモードでこれらのグラフを使用できます:
 
@@ -193,7 +193,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
   * **Advanced**: 追加の JSON 設定を指定する
   * **開発者**: 実行時にチャートに **エディター** ボタンを追加します。これはエディターを切り替えて異なる高度な設定オプションでプレイするように切り替えます
 
-    ![](attachments/charts/toggle-editor.png)
+    ![](attachments/pages/charts/toggle-editor.png)
 
 * **レイアウトオプション**: Plottly レイアウトオプションを含む JSON
   * [サンプル](charts-advanced-cheat-sheet#layout-all)
@@ -206,7 +206,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
 #### 2.1.5 Common
 
-これらは多くのウィジェットに共通するプロパティです。 詳細については、 [ページエディターの](common-widget-properties#common-properties) プロパティ共通を参照してください。
+これらは多くのウィジェットに共通するプロパティです。 詳細については、 [共通ウィジェットプロパティ](common-widget-properties#common-properties) を参照してください。
 
 ## グラフの種類による3つの構成 {#configuration-by-chart-type}
 
@@ -220,7 +220,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
     * **シリーズ名**: グラフ上の任意の凡例に表示されます
 
-    * **Column color**: 列のHTML色 (例: 緑, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
+    * **カラム色**: 緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
 
 ### 3.2 折れ線
 
@@ -236,7 +236,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
     * **シリーズ名**: グラフ上の任意の凡例に表示されます
 
-    * **ラインカラー**: 例えば、緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
+    * **ラインカラー**: 緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
 
 ### 3.3 円グラフ
 
@@ -248,7 +248,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
 * **色**: 緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
 
-* **Refresh interval (ms)**: 0に設定した場合、チャートをミリ秒単位でリフレッシュする
+* **更新間隔 (ms)**: 0に設定した場合、グラフを更新する
 
 ### 3.4 エリアチャート
 
@@ -266,9 +266,9 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
 3. **静的系列** タブ
 
-    * **境界色**: 境界線のHTML色 (例, 緑, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
+    * **境界色**: 緑色, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
 
-    * **領域の色**: 境界内の領域のHTML色、例えば、緑、#00FF00、rgb(0,255,0)、rgba(0,255,0, 0.5)。 既定値は透明度を持つ境界線の色です
+    * **領域色**: 緑色、#00FF00、rgb(0,255,0)、rgba(0,255,0, 0.5)などの領域のHTML色。 既定値は透明度を持つ境界線の色です
 
 ### 3.5 棒グラフ
 
@@ -278,7 +278,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
     * **シリーズ名**: グラフ上の任意の凡例に表示されます
 
-    * **バーの色**: 例えば、緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
+    * **バーの色**: バーの色(例:緑、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
 
 ### 3.6 時系列チャート
 
@@ -296,9 +296,9 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
     * **シリーズ名**: グラフ上の任意の凡例に表示されます
 
-    * **ラインカラー**: 例えば、緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
+    * **ラインカラー**: 緑色、#00FF00、rgb(0,255,0), rgba(0,255,0, 0.5)
 
-    * **領域の色**: 境界内の領域のHTML色、例えば、緑、#00FF00、rgb(0,255,0)、rgba(0,255,0, 0.5)。 デフォルトは透明度のある線の色です
+    * **領域色**: 緑色、#00FF00、rgb(0,255,0)、rgba(0,255,0, 0.5)などの領域のHTML色。 デフォルトは透明度のある線の色です
 
 ### 3.7 ヒートマップ
 
@@ -310,7 +310,7 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
 * **値を表示する**: グラフにデータ値を表示する: はい , いいえ
 
-* **フォント値の色**: ヒートマップ上に表示される値のHTML色 (緑, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
+* **フォント値の色**: ヒートマップ上に表示される値のHTML色 例えば、緑、 #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
 
 * **X軸ラベル**: X軸に表示するラベル
 
@@ -330,9 +330,9 @@ plotly.js とオプションの詳細については、次のリンクを参照�
 
 ## 4チャートテーマ
 
-高度な JSON 設定は、Mendix アプリの root ディレクトリのテーマフォルダーを介してグローバルコンテキストに追加することもできます。
+高度な JSON 設定は、mendix プロジェクトのルートディレクトリのテーマフォルダーを介してグローバルコンテキストに追加することもできます。
 
-To the theme folder, add a *.json* file named *com.mendix.charts*. JSON は以下の形式である必要があります:
+To the theme folder, add a `.json` file named *com.mendix.charts*. JSON は以下の形式である必要があります:
 
 ``` json
 {
