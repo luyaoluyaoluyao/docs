@@ -14,9 +14,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-Support for *JSON Schema* was added in version 7.14.0.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-service-json-schema.pdf).
 {{% /alert %}}
 
 ## 1 Introduction
@@ -53,11 +51,9 @@ The schema of an attribute depends on the attribute type:
 | Autonumber     | `{ "type": "integer", "format": "int64" }`         |
 | Binary         | `{ "type": "string", "format": "binary" }`         |
 | Boolean        | `{ "type": "boolean" }`                            |
-| Currency       | `{ "type": "number" }`                             |
 | Date and time  | `{ "type": "string", "format": "date-time" }`      |
 | Decimal        | `{ "type": "number" }`                             |
 | Enumeration    | `{ "type": "string", "enum": ["Male", "Female"] }` |
-| Float          | `{ "type": "number" }`                             |
 | Hashed string  | `{ "type": "string" }`                             |
 | Integer        | `{ "type": "integer", "format": "int32" }`         |
 | Long           | `{ "type": "integer", "format": "int64" }`         |
@@ -125,4 +121,3 @@ When the microflow returns a primitive, the schema depends on the type:
 | Enumeration      | `{ "type": "file" }`    |
 | Integer/Long     | `{ "type": "integer" }` |
 | String           | `{ "type": "file" }`    |
-| Float            | `{ "type": "number" }`  |
