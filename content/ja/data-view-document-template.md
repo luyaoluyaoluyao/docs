@@ -1,32 +1,41 @@
 ---
-title: "Data View (Document Template)"
-parent: "document-templates"
+title: "データビュー (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Data+View+(document+template).html
-  - /refguide7/data-view-(document-template).html
+  - /refguide/Data+View+(document+template).html
+  - /ja/refguide/data-view-(document-template).html
 ---
 
+## 1つの紹介
 
-The data view is used for showing the contents of exactly one object. If, for example, you want to show details of a single orderline this is most easily achieved with a data view. The data view typically contains a table with static labels and dynamic data widgets like a dynamic label. In more complex templates, a data view can contain data grids and other data views for related objects.
+データビューは、1つのオブジェクトの内容を表示するために使用されます。 たとえば、単一の順序行の詳細を表示したい場合、これはデータビューで最も簡単に実現できます。 データ ビューには、通常、スタティック ラベルとダイナミック ラベルのようなダイナミック データ ウィジェットを含むテーブルが含まれます。 より複雑なテンプレートでは、データビューにデータグリッドや関連するオブジェクトの他のデータビューを含めることができます。
 
-![](attachments/819203/918139.png) A data view showing orderline information
+{{% alert type="info" %}}
 
-## Common Properties
+![](attachments/document-templates/918139.png)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+オーダーライン情報を示すデータビュー。
 
-## Data Source Properties
+{{% /alert %}}
 
-The data source properties determine which objects will be shown in the data grid. The list of objects in the data grid is constrained by the following mechanisms:
+## 2つの一般的なプロパティ
 
-1.  For top-level data grids, the objects passed in the microflow calling the document export action are shown.
-2.  For nested data grids, if an entity path is used, only the objects reachable by following the path from the containing object are shown.
-3.  For nested data grids, if a microflow is used, the objects returned by the microflow are shown.
+{{% snippet file="refguide/name-property.md" %}}
 
-### Entity (Path)
+## 3 データソースのプロパティ
 
-The entity (path) property specifies of which entity an instance will be shown in the data view. A top-level data view is always connected to an entity. A nested data view can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path can follow associations irrespective of type and ownership.
+データ ソースのプロパティは、データ グリッドに表示されるオブジェクトを決定します。 データ グリッド内のオブジェクトのリストは、以下のメカニズムによって制約されます。
 
-### Microflow
+1.  トップレベルのデータグリッドには、文書エクスポートアクションを呼び出すマイクロフローで渡されたオブジェクトが表示されます。
+2.  ネストされたデータグリッドの場合、エンティティパスが使用されている場合、包含オブジェクトからパスをたどって到達可能なオブジェクトのみが表示されます。
+3.  ネストされたデータグリッドでは、マイクロフローを使用すると、マイクロフローによって返されるオブジェクトが表示されます。
 
-When a nested data view is connected to an entity, a microflow is needed to retrieve the data. The input parameter of these microflows is always the object of the containing data view and the output is an object with the entity type of the nested data view.
+### 3.1 エンティティ (パス)
+
+エンティティ (path) プロパティは、インスタンスをデータ ビューに表示するエンティティを指定します。 トップレベルのデータビューは常にエンティティに接続されます。 ネストされたデータ ビューは、エンティティまたは含むデータ ビューのエンティティから始まるエンティティ パスに接続することができます。 エンティティパスは、タイプと所有権に関係なく関連付けに従うことができます。
+
+### 3.2 マイクロフロー
+
+ネストされたデータビューがエンティティに接続されると、データを取得するためにマイクロフローが必要になります。 これらのマイクロフローの入力パラメータは常に含まれているデータビューのオブジェクトであり、出力はネストされたデータビューのエンティティタイプを持つオブジェクトです。
