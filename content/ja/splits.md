@@ -1,10 +1,10 @@
 ---
-title: "Splits"
-parent: "common-elements"
+title: "分割"
+parent: "共通要素"
 ---
 
-This section describes the splits for microflows and nanoflows:
+このセクションでは、マイクロフローとナノフローの分割について説明します。
 
-* [Exclusive Split](exclusive-split)
-* [Inheritance Split](inheritance-split)
-* [Merge](merge)
+* [排他的な分割](exclusive-split)
+* [継承分割](inheritance-split)
+* [結合](マージ)
