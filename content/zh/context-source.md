@@ -8,10 +8,6 @@ tags:
 menu_order: 30
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/context-source.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 The **Context** source is a data source of a data view. Data views with this data source get their object from the context, which can be one of two things:
