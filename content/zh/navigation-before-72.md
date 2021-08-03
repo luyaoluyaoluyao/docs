@@ -1,56 +1,56 @@
 ---
-title: "Navigation Before Mendix Version 7.2"
-parent: "project"
-description: "Describes the concept of navigation in apps and the properties of a profile for Mendix versions 7.0 and 7.1."
+title: "Mendix 版本 7.2 之前的导航"
+parent: "项目"
+description: "描述应用导航概念以及Mendix 版本 7.0 和 7.1 的配置文件属性。"
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="warning" %}}
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. Applicable for Mendix versions 7.0 and 7.1. For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+本文档描述Mendix 应用程序中的导航概念和配置文件的属性。 适用于Mendix 版本 7.0 和 7.1. 关于Mendix 版本7.2和7.3如何工作的详细情况，见 [导航在7.2和7.3](navigation-in-72-and-73)。 Mendix 版本 7.4 及以上版本，请参阅 [Navigation](navigation)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The **Navigation** document defines the navigation structure of the application for users. It allows you to set the home page of your application as well as to define menu structures that can be used in [menu widgets](menu-widgets). A user's home page can vary based on their [roles](user-roles).
+**导航** 文档定义了用户应用程序的导航结构。 它允许您设置应用程序的主页，并定义可在 [菜单小部件](menu-widgets) 中使用的菜单结构。 用户的主页可以根据他们的 [个角色](user-roles) 而变化。
 
 ## 2 Profiles
 
-At the heart of the navigation model in Mendix are four navigation profiles: desktop, tablet, phone, and offline device. You can define separate home pages and menus for each of these profiles. The desktop profile is always enabled, while tablet, phone, and offline device can be disabled if you do not want to use them. Users that access the application via a particular device type are automatically redirected to the home page of the appropriate profile (for details, see [4 Redirection to Profiles](#Redirection)).
+Mendix 导航模型的核心是四个导航配置：桌面、平板电脑、手机和离线设备。 您可以为每个配置文件定义单独的主页和菜单。 桌面配置文件总是启用的，平板电脑、手机和离线设备可以禁用，如果您不想使用它们。 通过特定设备类型访问应用程序的用户会自动重定向到适当配置文件的主页(详细信息) 查看 [4 重定向到配置文件](#Redirection)。
 
 {{% alert type="info" %}}
 
-In Mendix 7.0.2, the Offline device profile is replaced by the [hybrid phone profile](hybrid-phone-profile). In addition to this, a new device profile is now available, called the [hybrid tablet profile](hybrid-tablet-profile). All settings from the Offline device profile are automatically copied to the hybrid phone profile.
+在 Mendix 7.0.2 中，离线设备配置文件被 [混合手机配置文件](hybrid-phone-profile) 所取代。 除此之外，一个新的设备配置文件已经可用，叫做 [混合平板电脑配置](hybrid-tablet-profile)。 离线设备配置文件中的所有设置都自动复制到混合手机配置文件。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The device type of a currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use the `$currentDeviceType` variable to perform different actions based on the device type. A typical example is to show different pages based on the device type.
+当前登录用户的设备类型在 [微流](microflows) 中可用， `$currentDeviceType` 变量。 此变量的类型是 [枚举](enumerations) `系统。 eviceType`, 它有值 `Phone`, `平板电脑`, 和 `桌面`. 您可以使用 `$currentDeviceType` 变量来执行基于设备类型的不同操作。 一个典型的例子是显示基于设备类型的不同页面。
 
 ## 3 Hybrid Profiles
 
-The hybrid tablet and hybrid phone profiles are different from the other profiles in that they do more than simply redirect users based on their device type. These profiles are designed to allow users to continue using their Mendix application even when they have no internet connection, though certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline](offline).
+混合平板电脑和混合手机配置文件不同于其他配置文件，因为它们所做的不仅仅是根据其设备类型重定向用户。 这些配置文件旨在允许用户继续使用他们的Mendix 应用程序，即使他们没有互联网连接，尽管存在某些限制。 关于运行离线设备配置文件的影响概述，请参阅 [离线](offline)。
 
-## 4 Redirection to Profiles<a name="Redirection"></a>
+## 4 重定向到配置文件<a name="Redirection"></a>
 
-Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the User-Agent string that is sent by the device's browser. The default configuration for this redirection is as follows:
+Mendix Runtime 自动将用户重定向到适当设备类型的主页。 通过检查设备浏览器发送的用户代理字符串来做到这一点。 此重定向的默认配置如下：
 
-| User-Agent String Regular Expression                  | Device Type |
-| ----------------------------------------------------- | ----------- |
-| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
-| Android&#124;iPad                                     | Tablet      |
-| _(other)_                                             | Desktop     |
+| 用户代理字符串正则表达式                                      | 设备类型 |
+| ------------------------------------------------- | ---- |
+| Android.*手机&#124;iPhone&#124;iPod&#124;BlackBerry | 电话   |
+| Android&#124;iPad                                 | 平板电脑 |
+| _(其他)_                                            | 桌面   |
 
-To configure the regular expressions used to match phone or tablet users, see [Custom Settings](custom-settings).
+要配置用于匹配手机或平板电脑用户的正则表达式，请参阅 [自定义设置](custom-settings)。
 
-If a profile is not enabled, it falls back to another device type as shown in this table:
+如果未启用配置文件，它会回到此表格中显示的另一个设备类型：
 
-| Device Type | Fallback                        |
-| ----------- | ------------------------------- |
-| Phone       | Tablet, Desktop                 |
-| Tablet      | Phone, Desktop                  |
-| Desktop     | None, Desktop is always enabled |
+| 设备类型 | Fallback  |
+| ---- | --------- |
+| 电话   | 平板电脑，桌面   |
+| 平板电脑 | 电话，桌面     |
+| 桌面   | 没有，桌面总是启用 |
 
-It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are `Desktop`, `Tablet`, and `Phone`. For example:
+在访问 Mendix 应用程序时，还可以通过添加 `配置` 查询字符串参数来强制客户端使用特定的配置文件。 可能的值是 `桌面`, `平板`, 和 `电话号码`。 例如：
 
 ```http
 https://myapp.mendixcloud.com/index.html?profile=Phone
