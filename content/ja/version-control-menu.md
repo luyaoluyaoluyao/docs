@@ -1,19 +1,24 @@
 ---
 title: "バージョン管理メニュー"
 parent: "menus"
-description: "Studio Pro のバージョン管理メニューについて説明します。"
+description: "Studio Pro のプロジェクトメニューについて説明します。"
 menu_order: 40
 tags:
   - "Studio Pro"
-  - "バージョン管理"
+  - "プロジェクトメニュー"
   - "トップ バー"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/version-control-menu.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
-**バージョン コントロール** メニューでは、バージョン管理に接続されている設定を表示または操作できます。 たとえば、現在の開発ラインの履歴を表示できます。
+**バージョンコントロール** メニューでは、バージョンコントロールに接続されている設定を表示または操作できます。 たとえば、現在の開発ラインの履歴を表示できます。
 
-![バージョン管理メニュー](attachments/version-control-menu/version-control-menu.png)
+{{% image_container width="300" %}}![バージョン管理メニュー](attachments/version-control-menu/version-control-menu.png)
+{{% /image_container %}}
 
 ## 2件の更新
 
@@ -33,11 +38,11 @@ tags:
 
 ## 6 バージョン管理サーバーからダウンロード
 
-**バージョン管理サーバーからダウンロード** オプションは、Team Serverまたは他のプライベートサーバーからアプリをダウンロードします。 これにより、開発用のアプリのローカル作業コピーが作成されます。 For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
+**バージョン管理サーバーからダウンロード** オプションは、Team Serverまたは別のSVNサーバーからアプリをダウンロードします。 これにより、開発用のアプリのローカル作業コピーが作成されます。 For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
 
 ## 7 バージョン管理サーバーにアップロード
 
-**バージョン管理サーバーにアップロード** オプションは、ローカルアプリを新規または既存のTeam Serverリポジトリにアップロードします。 または別のプライベートサーバーに これは、アプリがまだバージョン管理されていない場合にのみ可能です。 For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
+**バージョン管理サーバーにアップロード** オプションは、ローカルアプリを新規または既存のTeam Serverリポジトリにアップロードします。 または別の SVN サーバーに移動します。 これは、アプリがまだバージョン管理されていない場合にのみ可能です。 For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
 
 ## 8 支線の管理
 
@@ -51,9 +56,9 @@ tags:
 
 **Reverse Merge Changes** オプションを使用すると、バージョン管理リポジトリにコミットされた変更をローカルでロールバックできます。 これらのローカル変更は、新しいリビジョンとして反映されます。
 
-## 11 すべての変更を元に戻す
+## 11 すべての変更を元に戻す {#revert-all}
 
-**すべての変更を元に戻す** オプションでは、すべてのローカルの変更を元に戻すことができます。 前回のコミット以降に導入されたアプリとディスク上のファイルの両方。
+**すべての変更を元に戻す** オプションでは、すべてのローカルの変更を元に戻すことができます。 プロジェクトとディスク上のファイルの両方で前回のコミット以来導入された
 
 ## 12 データのスナップショットを追加
 
