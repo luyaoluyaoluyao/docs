@@ -1,66 +1,66 @@
 ---
-title: "Modules"
-parent: "project-explorer"
+title: "模块"
+parent: "项目浏览器"
 menu_order: 20
 tags:
   - "studio pro"
-  - "module"
-  - "modules"
+  - "模块"
+  - "模块"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A Mendix app consists of modules: a **System** module, a [UI resources package](ui-resources-package), and one or more user-defined modules. Modules are a way to split the functionality of your application into separate parts. For example, a web shop can put order management in a different module than customer and product management. Studio Pro does not enforce any kind of module structure; it is up to you to choose logical modules for your application.
+Mendix 应用程序由模块组成： **系统** 模块， [UI 资源包](ui-resources-package)模块和一个或多个用户定义的模块。 模块是将您的应用程序的功能分成不同部分的一种方式。 例如，网上商店可以将订单管理放在不同于客户和产品管理的模块中。 Studio Pro 不执行任何类型的模块结构；它取决于您为您的应用程序选择逻辑模块。
 
-A module always contains exactly one [domain model](domain-model). The domain model is a data model that describes the information in your application domain in an abstract way.
+一个模块总是包含一个 [域模型](domain-model)。 域模型是一个数据模型，以抽象的方式描述您应用程序域中的信息。
 
-Within a module you can define [module security](module-security) via module roles and specify security settings of those module roles for pages, microflows, entities and datasets.
+在一个模块中，您可以通过模块角色定义 [模块安全](module-security) 并指定那些模块角色的安全设置页面， 微流、实体和数据集。
 
-Furthermore, a module can contain many different types of documents. Each type of document is described in its own domain-specific language (DSL). For example, user-interface forms are described by using a visual language with elements like text boxes, tables and grids. Below you see tables grouped by category of all the different kinds of documents you can create within a module.
+此外，一个模块可以包含许多不同类型的文件。 每种类型的文件都用自己的特定领域语言(DSL)来描述。 例如，用户界面表是通过使用可视语言描述的，包括文本框、表格和网格等内容。 在下面您看到的表格按模块中可以创建的所有不同类型文档的类别分组。
 
-## 2 Common
+## 2 常用的
 
-| Document type                | Typical elements                                                                     | Description                                                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Pages](pages)               | [Data view](data-view), [Data grid](data-grid), [Table](table), [Text box](text-box) | Forms are used to create a user interface for the end-user. They are composed of components that are called widgets.                               |
-| [Microflows](microflows)     | [Activities](activities), [Sequence Flow](sequence-flow)                             | Microflows describe the the logic of your application. They are composed of activities that manipulate objects, interact with the client etcetera. |
-| [Enumerations](enumerations) |                                                                                      | An enumeration is a set of predefined values, for example: in a web shop, an enumeration called MemberType could have the values Gold and Silver.  |
+| 文档类型                | 典型元素                                                              | 描述                                               |
+| ------------------- | ----------------------------------------------------------------- | ------------------------------------------------ |
+| [页 次](页面)           | [数据视图](data-view), [数据网格](data-grid), [表](table), [文本框](text-box) | 表单用于为最终用户创建一个用户界面。 它们由称为部件的组件组成。                 |
+| [微型流动](微流)          | [活动](activities), [序列流程](sequence-flow)                           | Microflow描述了您应用程序的逻辑。 它们由操纵对象、与客户互动等活动组成。        |
+| [枚举数](enumerations) |                                                                   | 枚举是一组预先定义的数值，例如：在网上商店，一个叫做MemberType 的枚举可以有金银的值。 |
 
-## 3 Page Resources
+## 3 页资源
 
-| Document type       | Description                                                                                                                                                           |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Images](images)    | Images can be used to brighten up your application. Navigation items and the various kinds of buttons have small images (icons) to left of their captions.            |
-| [Layouts](layout)   | Layouts specify what comes where. Each  [page](page) is based on a layout. The layout contains widgets and structures that return on every page based on that layout. |
-| [Menus](menu)       | A menu document defines a navigation menu that can be used by a  [menu widget](menu-widgets).                                                                         |
-| [Snippets](snippet) | Snippets define reusable interface parts. They can be used on  [pages](page) and  [layouts](layout) .                                                                 |
+| 文档类型          | 描述                                                        |
+| ------------- | --------------------------------------------------------- |
+| [图像](images)  | 图像可以用来调亮您的应用程序。 导航项目和各种按钮都有小的图像(图标)，留下它们的字幕。              |
+| [布局](布局)      | 布局指定了什么位置。 每个  [页面](page) 基于一个布局。 布局包含基于该布局的每个页面返回的部件和结构。 |
+| [Menus](菜单)   | 菜单文档定义了一个可用于  [菜单小部件](menu-widgets) 的导航菜单。                |
+| [片段](snippet) | 代码片段定义了可重复使用的接口部件。 它们可以在  [页面](page) 和  [布局](layout) 上使用。 |
 
-## 4 Resources
+## 4 资源
 
-| Document type                              | Description                                                                                                                                                                                                                                              |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Constants](constants)                     | Constants are used to define a constant value, for example: to store an URL to a webservice.                                                                                                                                                             |
-| [Datasets](data-sets)                      | A dataset can be used for reporting and is defined using either an OQL query or a custom Java action.                                                                                                                                                    |
-| [Document Templates](document-templates)   | Document Templates are used to model a template needed as input for a document export action which can generate all kinds of documents based on application data. They are composed much in the same way as Forms.                                       |
-| [Java Actions](java-actions)               | With Java actions you can extend the functionality of your application in situations where it would be hard to implement this functionality in microflows. You can call a Java action from a microflow.                                                  |
-| [Regular Expressions](regular-expressions) | A regular expression is used by [validation rules](validation-rules) on an entity to describe a set of criteria that a string can match.                                                                                                                 |
-| [Rules](rules)                             | A rule defines a set of criteria, with a certain input the rule will result in a Boolean or enumeration depending on the criteria met. It can be called from a decision to determine the direction the microflow should go once the decision is reached. |
-| [Task Queue](task-queue)                   | A task queue runs continuously to check if any microflow tasks have been added to it and executes the tasks in the background.                                                                                                                           |
-| [Scheduled Events](scheduled-events)       | A scheduled event is used to execute a microflow at a certain point in time. You can also schedule it to repeat after a given time. For example, a scheduled event can run every morning at 6 A.M.                                                       |
+| 文档类型                         | 描述                                                              |
+| ---------------------------- | --------------------------------------------------------------- |
+| [常数](常量)                     | 常数用于定义常数值，例如：存储到 web 服务的 URL。                                   |
+| [Datasets](data-sets)        | 数据集可以用于报告并使用OQL查询或自定义 Java 操作来定义。                               |
+| [文档模板](文档模板)                 | 文档模板被用来制作模板，作为文档导出操作的输入，可以根据应用程序数据生成所有类型的文档。 它们的组成与形式大相径庭。      |
+| [Java 操作](java-actions)      | 使用 Java 操作，您可以在微流中很难实现此功能的情况下扩展您应用程序的功能。 您可以调用来自微流程的 Java 操作。   |
+| [正则表达式](regular-expressions) | 一个实体上的 [验证规则](validation-rules) 使用正则表达式来描述一个字符串可以匹配的一组标准。       |
+| [规则](rules)                  | 一项规则界定了一套标准，该规则的某些输入将导致一个布尔值或列出，视所符合的标准而定。 一旦作出决定，就可以决定微观流动的方向。 |
+| [任务队列](task-queue)           | 一个任务队列持续运行，检查是否有微流程任务被添加到它，并在后台执行任务。                            |
+| [预定事件](scheduled-events)     | 预定事件用于在某个时间点执行微流。 您也可以安排在给定时间后重复它。 例如，预定的活动每天上午可在公元前6天进行。       |
 
-## 5 Consumed Services
+## 5 已消耗的服务
 
-| Document type                                  | Description                                                                                                                                                   |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Consumed Web Services](consumed-web-services) | Importing web services of other applications (Mendix or otherwise) allows you to call those web services from your microflows.                                |
-|                                                | A domain-to-XML mapping defines a translation from domain model objects to XML objects.                                                                       |
-|                                                | An XML-to-domain mapping defines a translation from XML objects to domain model objects.                                                                      |
-| [XML Schemas](xml-schemas)                     | An XML schema is defined in an XML Schema Definition (XSD) file and can be imported in your model. It describes what a certain XML document should look like. |
+| 文档类型                       | 描述                                                                                 |
+| -------------------------- | ---------------------------------------------------------------------------------- |
+| [消耗的网络服务](已消耗的网络服务)        | 导入其他应用程序 (Mendix 或其他应用程序) 的网络服务允许您从您的微流调用这些网络服务。                                   |
+|                            | 域至XML映射定义了从域模型对象到XML对象的翻译。                                                         |
+|                            | XML到域映射定义了从 XML 对象到域模型对象的翻译。                                                       |
+| [XML Schemas](xml-schemas) | XML schema定义在 XML Schema Definition (XSD) 文件中定义，可以导入到您的模型中。 它描述了特定的 XML 文档应该是什么样的。 |
 
-## 6 Published Services
+## 6 个已发布的服务
 
-| Document type                                        | Description                                                                                                                       |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [Published REST Services](published-rest-services)   | A microflow can be published as a REST service operation so that it can be consumed by other Mendix applications.                 |
-| [Published OData Services](published-odata-services) | Persistable entities can be exposed as an OData resource, so that they can be imported by third-party applications such as Excel. |
-| [Published Web Services](published-web-services)     | A microflow can be published as a web service operation so that it can be called by third-party applications.                     |
+| 文档类型                                     | 描述                                               |
+| ---------------------------------------- | ------------------------------------------------ |
+| [发布的REST 服务](已发布的rest-service)           | 微流可以作为REST 服务操作发布，以便它可以被其他Mendix 应用程序消耗。         |
+| [发布的 OData 服务](published-odata-services) | 可持久的实体可以作为一种OData资源曝光，因此它们可以通过诸如Excel等第三方应用程序导入。 |
+| [已发布的网络服务](published-web-services)       | 微流可以作为网络服务操作发布，从而可以通过第三方应用程序呼叫。                  |
