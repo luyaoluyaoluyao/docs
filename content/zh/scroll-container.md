@@ -8,13 +8,9 @@ tags:
   - "container widget"
   - "widget"
 aliases:
-  - /refguide8/horizontal-split-pane.html
-  - /refguide8/vertical-split-pane.html
+  - /refguide/horizontal-split-pane.html
+  - /refguide/vertical-split-pane.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/scroll-container.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -45,11 +41,11 @@ Scroll container properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 General Section {#general}
 
@@ -135,7 +131,7 @@ You can add and remove all the regions listed above except the center one.
 
 #### 3.1.1 Common Section
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 #### 3.1.2 General Section
 
