@@ -1,34 +1,34 @@
 ---
-title: "Chart Advanced Cheat Sheet"
-parent: "chart-widgets"
+title: "海图高级作弊表"
+parent: "图表部件"
 menu_order: 20
 tags:
-  - "Charts"
-  - "Advanced"
+  - "图表"
+  - "高级版"
   - "Studio Pro"
-  - "Layout Controls"
-  - "Data Properties"
-  - "Series Properties"
+  - "布局控制"
+  - "数据属性"
+  - "系列属性"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This reference describes advanced configuration settings for the chart widget.
+此引用描述了图表部件的高级配置设置。
 
-Standard charts provide the most common settings through the widget configuration. Additional settings can be set via the Advanced settings.
+标准图表通过小部件配置提供了最常见的设置。 其他设置可以通过高级设置设置。
 
-This cheat sheet with JSON snippets will provide some samples of advance configuration.
+这张使用 JSON 代码片段的作弊板将提供一些预设配置的样本。
 
-The full reference can be found at [https://plot.ly/javascript/](https://plot.ly/javascript/). The chart widgets support plotly.js version 1.47.4.
+完整引用可在 [https://plot.ly/javascript/](https://plot.ly/javascript/) 上找到。 图表窗口小部件支持 plotly.js 版本 1.47.4。
 
-When the advanced configuration does not suffice have a look at the [Any Chart](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) widget in the Marketplace.
+当高级配置不足够时，可以看看市场中的 [任何图表](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) 小部件。
 
-## 2 Layout (All Charts) {#layout-all}
+## 2 个布局 (所有图表) {#layout-all}
 
-Layout controls the general appearance of the chart. The chart is customized by adding JSON properties to the layout.
+布局控制图的一般外观。 通过将 JSON 属性添加到布局来定制图表。
 
-Below is a basic configuration.
+下面是一个基本配置。
 
 ``` json
 {
@@ -53,60 +53,60 @@ Below is a basic configuration.
 }
 ```
 
-To use the layout snippet above, replace all lines labeled *// {some text} properties* with actual properties specific to the element.
+要使用上面的布局片断，将所有标签为 *// {some text} 属性* 的行替换为特定元素的实际属性。
 
-### 2.1 Legend
+### 2.1 说明
 
-The legend properties below are added to the layout configuration to apply custom style to it.
+下面的图解属性被添加到布局配置中，以应用自定义风格。
 
 ``` json
-{
-  "legend": {
-    "showlegend": true,
-    "legend": {
+您的
+  "传奇"：您，
+    "showlegend"：true，
+    "传说": Power
       "bgcolor": "#fff",
-      "bordercolor": "#444",
-      "borderwidth": 0,
-      "font":{
-        "family": "Open Sans, verdana, arial, sans-serif",
+      "边框": "#444",
+      "边框": 0,
+      "font":□
+        "family": "Open Sans, verdana, arial, serif ",
         "size": 12,
         "color": "black"
       },
       "orientation": "v",
-      "traceorder": "normal",
-      "tracegroupgap": 10,
-      "x": -0.1,
+      "追踪": "normal",
+      "Tracegap": 10,
+      "x": -0". ,
       "xanchor": "right"
     }
   }
 }
 ```
 
-You can change the position of the legend by modifying the properties as shown below.
+您可以通过修改下面显示的属性来更改图例的位置。
 
-**Right:**
+**右侧：**
 
 ``` json
-{
-  "showlegend": true,
+很抱歉，
+  "showlegend"：true，
 }
 ```
 
-**Left:**
+**左：**
 
-Adjust x for long series names or Y-axis ticks.
+调整x长系列名称或Y轴条目。
 
 ``` json
-{
-  "showlegend": true,
-  "legend": {
+主席:
+  "showlegend": tre,
+  "legend":
     "xanchor": "right",
     "x": -0.1
   }
 }
 ```
 
-**Top:**
+**顶部：**
 
 ``` json
 {
@@ -118,32 +118,32 @@ Adjust x for long series names or Y-axis ticks.
 }
 ```
 
-**Bottom:**
+**底部：**
 
-Adjust y to -0.2 for long X-axis ticks.
+长X轴刻度为 -0.2 。
 
 ``` json
-{
-  "showlegend": true,
-  "legend": {
+主席:
+  "showlegend": tre,
+  "legend":
     "orientation": "h",
     "y": "auto"
   }
 }
 ```
 
-**Inside:**
+**输入：**
 
 ``` json
-{
-  "showlegend": true,
-  "legend": {
+主席:
+  "showlegend": tre,
+  "legend":
     "x": 0
   }
 }
 ```
 
-**None:**
+**无：**
 
 ``` json
 {
@@ -151,61 +151,61 @@ Adjust y to -0.2 for long X-axis ticks.
 }
 ```
 
-![Legend configurations](attachments/charts/advanced-layout-legend.gif)
+![图例配置](attachments/charts/advanced-layout-legend.gif)
 
-More options can be found here: [Legend configurations](https://plot.ly/javascript/reference/#layout-legend).
+这里可以找到更多选项： [图例配置](https://plot.ly/javascript/reference/#layout-legend)。
 
-### 2.2 Axes
+### 2.2 轴
 
-The axes properties apply to charts with x and y axes. They can be configured as:
+轴属性适用于带x和y轴的海图。 他们可以配置为：
 
 ``` json
-{
-  "xaxis": {
-    "gridcolor": "#eaeaea",
+主席:
+  "xaxis": ~
+    "gridcolor": "#eaea",
     "title": "X-axis",
     "color": "#0000FF",
     "showgrid": false,
-    "fixedrange": true,
-    "showline": true,
-    "side": "bottom"
+    "固定范围": true ,
+    "showline": true
+    "side": "bow"
   },
-  "yaxis": {
+  "yaxis": ~
     "rangemode": "tozero",
     "zeroline": true,
     "zerolinecolor": "#eaeaea",
-    "gridcolor": "#eaeaea",
+    "gidcolor": "#eaea",
     "color": "#0000FF",
     "title": "Y-axis",
-    "showgrid": true,
+    "showgrid": true
     "showline": true,
-    "fixedrange": true
+    "固定范围": true
   }
 }
 ```
 
-![Axes configurations](attachments/charts/axes.gif)
+![轴配置](attachments/charts/axes.gif)
 
-More options can be found here: [Axes configurations](https://plot.ly/javascript/reference/#layout-xaxis).
+这里可以找到更多选项： [轴配置](https://plot.ly/javascript/reference/#layout-xaxis)。
 
-### 2.3 Multiple Y Axes
+### 2.3 多个Y 轴
 
-These properties apply to charts with more than one Y axis. They can be configured as:
+这些属性适用于一个以上Y轴的图表。 他们可以配置为：
 
 ``` json
-{
-  "yaxis": {
+主席:
+  "yaxis": ~
     "title": "Y-axis 1",
-    "zeroline": true,
+    "零线": true,
     "color": "#4682B4",
-    "showgrid": true,
+    "showgrid": tre,
     "showline": true
   },
-  "yaxis2": {
+  "yaxis2": Power
     "title": "Y-axis 2",
     "color": "#FF8C00",
-    "showgrid": true,
-    "showline": true,
+    "showgrid": true",
+    "showline": true
     "zeroline": true,
     "overlaying": "y",
     "side": "right"
@@ -213,15 +213,15 @@ These properties apply to charts with more than one Y axis. They can be configur
 }
 ```
 
-The layout properties above should be used with the corresponding [data properties](#multiple-y-axes-data-properties).
+上面的布局属性应该与对应的 [数据属性一起使用](#multiple-y-axes-data-properties)。
 
-![Multiple Y axes configurations](attachments/charts/multiple-y.gif)
+![多轴配置](attachments/charts/multiple-y.gif)
 
-More options can be found here: [Multiple Y axes configurations](https://plot.ly/javascript/multiple-axes/).
+这里可以找到更多选项： [多个Y轴配置](https://plot.ly/javascript/multiple-axes/)。
 
-### 2.4 Multiple X Axes
+### 2.4 多个X轴
 
-These properties apply to charts with more than one X axis. They can be configured as:
+这些属性适用于一个以上X轴的海图。 他们可以配置为：
 
 ``` json
 {
@@ -250,38 +250,38 @@ These properties apply to charts with more than one X axis. They can be configur
 }
 ```
 
-The layout properties above should be used with the corresponding [data properties](#multiple-x-axes-data-properties).
+上面的布局属性应该与对应的 [数据属性一起使用](#multiple-x-axes-data-properties)。
 
-![Multiple X axes configurations](attachments/charts/multiple-x.gif)
+![多个X轴配置](attachments/charts/multiple-x.gif)
 
-More options can be found here: [Multiple X axes configurations](https://plot.ly/javascript/multiple-axes/).
+这里可以找到更多选项： [多个X轴配置](https://plot.ly/javascript/multiple-axes/)。
 
-### 2.5 Math LaTeX Formulas
+### 2.5 Math LaTeX 公式：
 
-Titles, axes and series can contain complex mathematical expressions.
+标题、轴和系列可以包含复杂的数学表达式。
 
-![Math formula](attachments/charts/math-formula.png)
+![数学公式。](attachments/charts/math-formula.png)
 
 ```
-$\sqrt{(n_\text{c}(t|{T_\text{early}}))}$
+$\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 ```
 
-Add the following to the index.html of the theme:
+在主题的 index.html 中添加以下内容：
 
 ``` javascript
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 ```
 
-More information on LatTex Syntax is available here: https://en.wikibooks.org/wiki/LaTeX/Mathematics.
+更多关于 LatTex 语法的信息可在这里查阅：https://en.wikibooks.org/wiki/LaTeX/Mathematics。
 
-### 2.6 Title
+### 2.6 标题
 
-The title appears above the chart. It can be configured as:
+标题出现在图表之上。 它可以配置为：
 
 ``` json
-{
+主席:
   "title": "CHART TITLE",
-  "titlefont": {
+  "titlefont": format@@
     "family": "Droid Sans, Droid Serif, sans-serif",
     "size": 20,
     "color": "black"
@@ -289,13 +289,13 @@ The title appears above the chart. It can be configured as:
 }
 ```
 
-![Title configurations](attachments/charts/title.gif)
+![标题配置](attachments/charts/title.gif)
 
-More options can be found here: [Title configurations](https://plot.ly/javascript/reference/#layout-title).
+在这里可以找到更多选项： [标题配置](https://plot.ly/javascript/reference/#layout-title)。
 
-### 2.7 Color
+### 2.7 颜色
 
-Sets the the background color of a graph.
+设置图形的背景颜色。
 
 ``` json
 {
@@ -303,9 +303,9 @@ Sets the the background color of a graph.
 }
 ```
 
-### 2.8 Margin
+### 2.8 差值
 
-Creates space around the chart.
+在图表周围创建空间。
 
 ``` json
 {
@@ -320,13 +320,13 @@ Creates space around the chart.
 }
 ```
 
-![ Margin configurations ](attachments/charts/margin.gif)
+![ 边际配置 ](attachments/charts/margin.gif)
 
-More options can be found here: [Margin configurations](https://plot.ly/javascript/reference/#layout-margin).
+这里可以找到更多选项： [边际配置](https://plot.ly/javascript/reference/#layout-margin)。
 
-### 2.9 Tooltip
+### 2.9 工具提示
 
-A small pop-up box that appears when the user moves the mouse pointer over a chart data point.
+当用户将鼠标指针移动到图表数据点时出现的一个小弹出框。
 
 ``` json
 {
@@ -344,13 +344,13 @@ A small pop-up box that appears when the user moves the mouse pointer over a cha
 }
 ```
 
-![Tooltip configurations](attachments/charts/tooltip.gif).
+![工具提示配置](attachments/charts/tooltip.gif).
 
-More options can be found here: [Tooltip configurations](https://plot.ly/javascript/reference/#layout-hovermode).
+这里可以找到更多选项： [Tooltip配置](https://plot.ly/javascript/reference/#layout-hovermode)。
 
-### 2.10 Fonts
+### 2.10 字体
 
-Sets a global font at the root level which will be applied to all chart elements. Or set a font for specific elements.
+在根层设置一个全局字体，将应用于所有图表元素。 或者为特定元素设置字体。
 
 ``` json
 {
@@ -377,13 +377,13 @@ Sets a global font at the root level which will be applied to all chart elements
 }
 ```
 
-### 2.11 Range Mode
+### 2.11 范围模式
 
-Sets how the range of a given axis should be displayed.
+设置给定坐标轴的显示范围。
 
-**normal:**
+**普通：**
 
-Sets the range based on the plotted values, adjusting to fit them.
+根据绘图值设置范围，调整以适应它们。
 
 ```json
 {
@@ -392,11 +392,11 @@ Sets the range based on the plotted values, adjusting to fit them.
   }
 }
 ```
-![Range mode](attachments/charts/normal.gif)
+![范围模式](attachments/charts/normal.gif)
 
-**nonnegative:**
+**非负数：**
 
-Shows only positive values, the range is based on the plotted positive values.
+只显示正值，范围基于绘图的正值。
 
 ```json
 {
@@ -406,11 +406,11 @@ Shows only positive values, the range is based on the plotted positive values.
 }
 ```
 
-![Range mode](attachments/charts/nonnegative.gif)
+![范围模式](attachments/charts/nonnegative.gif)
 
 **tozero:**
 
-This is the default range mode in charts. Both positive and negative ranges for the axes will start from the zero mark.
+这是图表中的默认范围模式。 轴的正值和负值范围将从零标记开始。
 
 ```json
 {
@@ -420,12 +420,12 @@ This is the default range mode in charts. Both positive and negative ranges for 
 }
 ```
 
-![Range mode](attachments/charts/tozero.gif)
+![范围模式](attachments/charts/tozero.gif)
 
 {{% alert type="info" %}}
-When **fill** for the series is set to something other than *none*, the Y-axis range is forced to start from zero (*tozero*). For example:
+当 **填充** 为系列设置了除 *以外的内容*和 Y轴范围被迫从零开始(*到零*)。 例如：
 
-**Layout**
+**布局**
 
 ```json
 {
@@ -435,26 +435,26 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 }
 ```
 
-**Data**
+**数据**
 
 ```json
 {
   "fill": "tonexty"
 }
 ```
-{{% /alert %}}
+{{% /报警 %}}
 
-![Range mode](attachments/charts/rangemode-note.gif)
+![范围模式](attachments/charts/rangemode-note.gif)
 
-More options can be found here: [range mode configurations](https://plot.ly/javascript/reference/#layout-yaxis-rangemode).
+这里可以找到更多选项： [范围模式配置](https://plot.ly/javascript/reference/#layout-yaxis-rangemode)。
 
-## 3 Data/Series Properties {#data-series}
+## 3 数据/系列属性 {#data-series}
 
-These properties are applied to specific types of chart only. For each chart, data properties are distinct. They make the chart appear as its supposed to be.
+这些属性仅适用于特定类型的图表。 对于每个图表，数据属性是不同的。 它们使这张图表显示为假定的图表。
 
-### 3.1 Lines
+### 3.1 行
 
-A mode and line configuration can be added in the **Advanced** configuration of the series.
+可以在序列的 **高级** 配置中添加模式和行配置。
 
 ![Line styles](attachments/charts/line-styles.png)
 
@@ -496,15 +496,15 @@ A mode and line configuration can be added in the **Advanced** configuration of 
 ]
 ```
 
-### 3.2 Combine Chart Types
+### 3.2 合并图表类型
 
-The type of a series can be changed. For example, you can make a bar series into a line series:
+系列的类型可以更改。 例如，您可以将一条条序列变成一条线性序列：
 
-![Column chart data properties](attachments/charts/combine-list-bar.gif)
+![列图数据属性](attachments/charts/combine-list-bar.gif)
 
-### 3.3 Pie Chart
+### 3.3 饼状图
 
-Displays a circular graph divided into slices to illustrate numerical proportion.
+显示分为切片的圆形图，以说明数字比例。
 
 ``` json
 {
@@ -512,17 +512,17 @@ Displays a circular graph divided into slices to illustrate numerical proportion
 }
 ```
 
-![Pie chart data properties](attachments/charts/pie-chart.png)
+![Pie 图表数据属性](attachments/charts/pie-chart.png)
 
-More options can be found here: [Pie chart data properties](https://plot.ly/javascript/reference/#pie).
+这里可以找到更多选项： [Pie 图表数据属性](https://plot.ly/javascript/reference/#pie)。
 
-### 3.4 Fill
+### 3.4 填充
 
-Displays a line chart with the areas below the lines filled with colors.
+以颜色填充的线条下方区域显示线条图。
 
 ``` json
-{
-  "line": {
+主席:
+  "line":
     "color": "#17202A",
     "shape": "linear",
     "dash": "dot"
@@ -533,15 +533,15 @@ Displays a line chart with the areas below the lines filled with colors.
 }
 ```
 
-![Area chart data properties](attachments/charts/area-chart.png)
+![区域图表数据属性](attachments/charts/area-chart.png)
 
-More options can be found here: [Area chart data properties](https://plot.ly/javascript/reference/#area).
+这里可以找到更多选项： [地区图数据属性](https://plot.ly/javascript/reference/#area)。
 
-### 3.5 Time Series
+### 3.5 时间系列
 
-The example below shows how you can set up filter buttons to filter a chart by time.
+下面的示例显示您如何设置过滤器按钮按时间过滤图表。
 
-![Line chart data properties](attachments/charts/time-series-filters.png).
+![线条图表数据属性](attachments/charts/time-series-filters.png).
 
 ``` json
 {
@@ -585,11 +585,11 @@ The example below shows how you can set up filter buttons to filter a chart by t
 }
 ```
 
-See more properties here: [Range Selector](https://plot.ly/javascript/reference/#layout-xaxis-rangeselector).
+在此查看更多属性： [范围选择器](https://plot.ly/javascript/reference/#layout-xaxis-rangeselector)。
 
-### 3.6 Multiple Y Axes Data Properties {#multiple-y-axes-data-properties}
+### 3.6 多个Y轴数据属性 {#multiple-y-axes-data-properties}
 
-Displays two different Y axes with different scales, according to the ranges of the datasets.
+根据数据集的范围显示两个不同的 Y 轴。
 
 ``` json
 [
@@ -605,11 +605,11 @@ Displays two different Y axes with different scales, according to the ranges of 
 ]
 ```
 
-![Multiple Y axes properties](attachments/charts/data-multiple-y.png)
+![多轴属性](attachments/charts/data-multiple-y.png)
 
-### 3.7 Multiple X Axes Data Properties {#multiple-x-axes-data-properties}
+### 3.7 多个X轴数据属性 {#multiple-x-axes-data-properties}
 
-Displays two different X axes with different scales.
+显示两个不同的 X 轴，尺寸不同。
 
 ``` json
 [
@@ -626,51 +626,51 @@ Displays two different X axes with different scales.
 ]
 ```
 
-![Multiple X axes properties](attachments/charts/data-multiple-x.png).
+![多个X轴属性](attachments/charts/data-multiple-x.png).
 
-## 4 Configurations Options (All Charts) {#config-options}
+## 4 个配置选项 (所有图形) {#config-options}
 
-The following configuration options are available in all charts (presented here as an example with formatting for the `nl` `locale`):
+下面的配置选项可以在所有图表中找到(在这里作为示例呈现，格式为 `nl` `locale`)：
 
 ```json
-{
-  "displayModeBar": true,
+主席:
+  "displayModeBar": tre,
   "displaylogo": false,
-  "modeBarButtonsToRemove": [ "sendDataToCloud", "lasso2d", "select2d", "hoverClosestCartesian", "hoverCompareCartesian", "toggleSpikelines" ],
+  "modeBarButtonsToRemove": [ "sendDataToCloud", "lasso2d", "select2d", "hoverClosestCartesian", "hoverCompareCartesian", "toggleSpikelines",
   "locale": "nl",
-  "locales": {
-        "nl": {
-            "dictionary": {
-                "Download plot as a png": "Opslaan als PNG"
+  "locales": Power"
+        "nl": Power
+            "dictionary": Power
+                "下载绘图作为一个png": "Opslaan als PNG"
             },
-            "format": {
-                "days": ["zondag",
-                "maandag",
+            "格式": Power
+                "day": ["zondag",
+                "玉米",
                 "dinsdag",
-                "woensdag",
-                "donderdag",
+                "woensdag"
+                "denderdag",
                 "vrijdag",
-                "zaterdag"],
-                "shortDays": ["zon",
+                "zaterdag",
+                "短日": ["无区",
                 "maa",
                 "din",
                 "woe",
                 "don",
                 "vri",
-                "zat"],
-                "months": ["januari",
+                "zat",
+                "月": ["januari",
                 "februari",
                 "maart",
                 "april",
                 "mei",
-                "juni",
+                "初级",
                 "juli",
                 "augustus",
                 "september",
                 "oktober",
-                "november",
-                "december"],
-                "shortMonths": ["jan",
+                "新星",
+                "december",
+                "短月": ["jan",
                 "feb",
                 "maa",
                 "apr",
@@ -679,15 +679,15 @@ The following configuration options are available in all charts (presented here 
                 "jul",
                 "aug",
                 "sep",
-                "okt",
-                "nov",
-                "dec"],
+                "确定",
+                "新",
+                "dec",
                 "date": "%d-%m-%Y",
                 "datetime": "%d-%m-%Y %H:%M",
-                "year": "%Y",
-                "month": "%b %Y",
-                "dayMonth": "%d %b",
-                "dayMonthYear": "%d %b %Y"
+                "年": "%Y",
+                "月": "%b %Y",
+                "daymonth": "%d %b",
+                "daymonthYear": "%d %b %Y"
             }
         }
     }
