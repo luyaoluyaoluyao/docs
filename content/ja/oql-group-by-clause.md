@@ -1,17 +1,17 @@
 ---
-title: "OQL Group by Clause"
+title: "条項によるOQL グループ"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `GROUP BY` clause will condense all returned rows into a single row that shares the same values for the expressions defined in this clause. The expressions in this clause must exist in the `SELECT` clause of the query. All expressions in the `SELECT` clause which do not exist in the `GROUP BY` clause must be either an aggregation or the result an aggregate function.
+`GROUP BY` 節は、返されたすべての行を単一の行に凝縮し、この節で定義された式の同じ値を共有します。 この節の式はクエリの `SELECT` 節に存在する必要があります。 `GROUP BY` 節に存在しない `SELECT` 節内のすべての式は集計または集計関数でなければなりません。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
 GROUP BY
@@ -20,26 +20,26 @@ GROUP BY
 [HAVING <constraint>]
 ```
 
-### 2.1 expression
+### 2.1 式
 
-`expression` specifies the expressions by which values of the rows are grouped.
+`式` は、行の値をグループ化する式を指定します。
 
 ### 2.2 HAVING \<constraint\>
 
 `HAVING <constraint>` specifies a constraint that must be defined in a `HAVING` clause, when a `GROUP BY` expression is used.
 
-## 3 Examples
+## 3つの例
 
-This query returns the count of all customers per city:
+このクエリは、都市ごとのすべての顧客数を返します:
 
 ```sql
 SELECT COUNT(Sales.Customer/*)
 FROM Sales.Customer
-INNER JOIN Sales.Customer/Sales.Customer_Address/Sales.Address
-GROUP BY Sales.Address/City
+INNER JOINSales.Customer/Sales.Customer_Address/Sales.Address/Sales.Address
+GROUP by Sales.Address/City
 ```
 
-This query returns the sum of the total prices of all orders per city:
+このクエリは、都市ごとのすべての注文の合計価格の合計を返します:
 
 ```sql
 SELECT SUM(Sales.Order/TotalPrice)
@@ -48,7 +48,7 @@ INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer/Sales.Customer_Addres
 GROUP BY Sales.Address/City
 ```
 
-This query returns the sum of the total prices of all orders per city for which the sum is greater than 1000.00 or the City is Losdun:
+このクエリは、合計が1000を超える都市ごとのすべての注文の合計価格の合計を返します。 0または都市はロスダンです：
 
 ```sql
 SELECT SUM(Sales.Order/TotalPrice)
