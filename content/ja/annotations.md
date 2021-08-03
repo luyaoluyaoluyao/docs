@@ -1,23 +1,23 @@
 ---
-title: "Annotations"
-parent: "domain-model"
+title: "注釈"
+parent: "ドメインモデル"
 menu_order: 30
 tags:
-  - "domain model"
-  - "annotation"
+  - "ドメインモデル"
+  - "アノテーション:"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-An **annotation** can be used to add comments to a domain model.
+**アノテーション** は、ドメインモデルにコメントを追加するために使用できます。
 
-For example, an order entity contains two decimal attributes, **TotalPrice** and **Discount**. You can add an annotation to note that, unlike the total price, the discount represents a percentage and not an amount of money.
+例えば、注文エンティティには、 **TotalPrice** と **Discount** という 2 つの小数属性が含まれています。 注釈を追加することができます。 注釈は、合計価格とは異なり、割引はパーセンテージであり、金額ではないことに注意してください。
 
 ![](attachments/domain-model/16844036.png)
 
-## 2 Common Properties
+## 2つの一般的なプロパティ
 
-### 2.1 Caption
+### 2.1 図表番号
 
-The caption property contains the text of the annotation.
+caption プロパティには、注釈のテキストが含まれます。
