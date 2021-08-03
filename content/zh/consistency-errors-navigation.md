@@ -1,95 +1,95 @@
 ---
-title: "Navigation Consistency Errors"
-parent: "consistency-errors"
-description: "Describes consistency errors in Mendix Studio Pro and the way to fix them."
+title: "导航一致性错误"
+parent: "一致性错误"
+description: "描述Mendix Studio Pro 中的一致性错误以及解决这些错误的方法。"
 tags:
   - "Studio Pro"
-  - "consistency errors"
-  - "checks"
-  - "errors"
+  - "一致性错误"
+  - "检查"
+  - "错误"
   - "navigation"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In this document, we explain how to solve the most common consistency errors that can occur when configuring navigation in Studio Pro. An example of a consistency error is when you set a page that has a data view as a menu item.
+在本文件中，我们解释了如何解决在配置Studio Pro中导航时可能发生的最常见的一致性错误。 一致性错误的一个例子是，当您设置了一个以数据视图为菜单项的页面。
 
 {{% alert type="info" %}}
 
-This document does not describe *all* the errors, as there are a lot of errors that can occur, some of which are simple and do not need extra explanation, others are rare and/or heavily dependent on a use-case.
+此文档没有描述 *所有* 个错误，因为有许多错误可能发生。 其中有些简单，无需额外解释，另一些则极少和（或）严重依赖使用案件。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Some errors have error codes and if these errors are described in documentation, Studio Pro has a clickable link to the corresponding document. Others do not have an error code, in this case, you can manually search whether a particular error is described in documentation (you can search by a message you see in the **Errors** pane).
+一些错误有错误代码，如果这些错误在文档中描述，Studio Pro 就有一个可点击的链接到相应文档。 在这种情况下，其他人没有错误代码。 您可以手动搜索文件中是否描述了某个错误 (您可以通过在 **错误** 面板中看到的消息搜索)。
 
-## 2 Navigation Consistency Errors
+## 2 导航一致性错误
 
-The most common errors you can come across when configuring a navigation item are described in the table below:
+下面的表描述了配置导航项目时您可能遇到的最常见错误：
 
-| Error Code | Message in the Errors Pane                                                                                                                                                           | Cause of the Error                                                                                                                                                                                                     | Way to Fix                                                                                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE0568     | The selected page {Name of the page} expects an object of type {type of object}, which is not available here.                                                                        | You have set a page that expects an object to be passed to it (a page with a data view and the **Context** data source) as a menu item.                                                                                | Pass an object to the page by changing the **On click** property  of the menu item from **Show a page** to **Create object**. For more information, see the [Error Fix Example for CE0568](#page-expects-an-object) section. |
-| CE0529     | The selected {Name of the page} expects an object of type {type of object} and cannot be used as a home page. Change the page or use a microflow to provide the page with an object. | You have set a page that expects an object to be passed to it (for example, a page with a data view) as a home page. But the home page has no object that is passed to it, because it is the starting point of a flow. | You can use a microflow as the home page that will open the preferred page and pass a specific object to the home page. For more information, see the [Error Fix Example for CE0529](#home-page-expects-an-object).          |
-| CE0548     | Items with subitems cannot have an action themselves.                                                                                                                                | You have assigned an [on-click event](on-click-event) to a menu item that has a sub-item, when menu items with have sub-items cannot have on-click events assigned to them.                                            | You need to either set the on-click event of the menu item to *Nothing*, or delete/move the sub-item.                                                                                                                        |
+| 错误代码   | 错误面板中的消息                                                                        | 错误的原因                                                              | 修复路径                                                                                                      |
+| ------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| CE0568 | 选中的页面 {Name of the page} 需要一个 {type of object}类型的对象，这在这里不可用。                    | 您已经设置一个页面作为菜单项传递对象(一个包含数据视图的 **Context** 数据源的页面)。                  | 通过更改 **将对象传入页面。点击菜单项的** 属性，从 **显示页面** 到 **创建对象** 欲了解更多信息，请查看 [错误修复CE0568](#page-expects-an-object) 部分的示例。 |
+| CE0529 | 所选 {Name of the page} 需要一个类型为 {type of object} 的对象，不能用作首页。 更改页面或使用微流程为页面提供一个对象。 | 您已设置一个页面期望对象传递给它(例如) 一个具有数据视图的页面作为主页。 但主页没有任何东西传递给它，因为它是流程的起点。     | 您可以使用微流程作为主页打开首选页面并将特定对象传递到主页。 欲了解更多信息，请参阅 [错误修复CE0529](#home-page-expects-an-object) 示例。                 |
+| CE0548 | 有子项目的项目本身不能有动作。                                                                 | 您已将一个 [点击事件](on-click-event) 分配给一个有子项的菜单项： 当有分项目的菜单项不能被分配给它们的点按事件。 | 您需要设置菜单项的点击事件为 *没有*，或者删除/移动子项。                                                                            |
 
-### 2.1 Error Fix Example for CE0568 {#page-expects-an-object}
+### 2.1 错误修复CE0568的示例 {#page-expects-an-object}
 
-When you set a page with a data view as a menu item, you get a consistency error, because the page expects an object to be passed to it.
+当您设置一个以数据视图为菜单项的页面时，您会遇到一个一致性错误， 因为该页面需要一个对象传递给它。
 
-For example, you have created a menu item called **Program** for a **Responsive** [profile](navigation#profiles). This menu item opens the **Program** page. However, the **Program** page has a data view on it and expects a *ProgramItem* object to be passed to it, so that it can show the program details of a specific *ProgramItem* on the page. As a result, you get a consistency error, as no object is passed to this page from the navigation.
+For example, you have created a menu item called **Program** for a **Responsive** [profile](navigation#profiles). 此菜单项打开 **程序** 页面。 然而，仍然存在着这种情况。 **程序** 页面上有一个数据视图，期望一个 *程序项目* 对象被传递给它， 这样它就可以在页面上显示特定的 *程序项* 的程序细节。 因此，您会遇到一个一致性错误，因为没有对象从导航传递到这个页面。
 
-![Scheme Showing the Menu Item Error](attachments/consistency-errors-navigation/page-expects-an-object-error.png)
+![显示菜单项错误](attachments/consistency-errors-navigation/page-expects-an-object-error.png)
 
-To fix the error, you can create an object and pass it to the page. Do the following:
+要修复错误，您可以创建对象并将其传递到页面。 执行以下操作：
 
-1. Open the navigation for the responsive profile.
-2.  Open properties of the **Program** menu item, and do the following:
-    1. Change the **On click** property from **Show a page** to **Create object**.
-2. Set **ProgramItem** as **Entity (path)**.
-    3. Set **Program** as **On click page**.
-
-
-Now when an end-user clicks the menu item, a new *ProgramItem* object will be created and passed to the page.
-
-### 2.2. Error Fix Example for CE0529 {#home-page-expects-an-object}
-
-If you set a page that expects an object to be passed to it as a home page for a [navigation profile](navigation#properties), you will get a consistency error.
-
-For example, you have added a data view that expects an object of type *Customer* to the home page of the responsive profile, and you get a consistency error.
-
-![Home Page Error](attachments/consistency-errors-navigation/home-page-error.png)
-
-You can fix this error by creating a microflow that will that will create a new *Customer* object and pass it to the page. Do the following:
-
-1. Open the responsive navigation profile.
-
-2.  In **Default home page field** click **Select**.
-
-    ![Default Home Page Setting](attachments/consistency-errors-navigation/default-home-page-field.png)
-
-3. In the **Select Navigation Target** dialog box, click **New**, then select **Create Microflow**.
-
-4. Name the microflow *ACT_Open_HomePage*.
-
-5. Open the created microflow, add a **Create object** activity to it
-
-6.  For the **Create object** activity, set **Entity** to **Customer**.
-
-    ![Create Object Properties](attachments/consistency-errors-navigation/create-object-properties.png)
-
-7. Add Show Page activity to the microflow and do the following in the **Show Page** pop-up dialog:<br/>
-
-    a. Set **Object to pass** to **NewCustomer**.<br/>
-
-    b. Set **Page** to **Home**.
-
-Now the new object of type *Customer* will be created and passed to the home page.
-
-![Open Home Page Microflow](attachments/consistency-errors-navigation/open-home-page-microflow.png)
+1. 打开对应配置文件的导航。
+2.  打开 **程序** 菜单项的属性，并执行以下操作：
+    1. 将 **按下** 个属性从 **显示一个页面** 改为 **创建对象**
+2. 设置 **程序项** 为 **实体 (路径)**.
+    3. 将 **程序** 设置为 **点击页面**.
 
 
-## 3 Read More
+现在当用户点击菜单项时，一个新的 *程序项* 对象将被创建并传递到页面。
+
+### 2.2. 错误修复CE0529 的示例 {#home-page-expects-an-object}
+
+如果您设置了一个页面期望一个对象传递给它作为 [导航配置](navigation#properties)的主页， 您将会遇到一致性错误。
+
+例如， 您已经添加了一个数据视图，该视图需要一个类型 *客户* 的对象到响应配置文件的主页， 并且您遇到了一致性错误。
+
+![主页错误](attachments/consistency-errors-navigation/home-page-error.png)
+
+您可以通过创建微流程来修复此错误，微流程将创建一个新的 *客户* 对象并将其传递到页面。 执行以下操作：
+
+1. 打开响应式导航配置文件。
+
+2.  在 **默认主页字段** 点击 **选择**
+
+    ![默认主页设置](attachments/consistency-errors-navigation/default-home-page-field.png)
+
+3. 在 **选择导航目标** 对话框中，点击 **新的**，然后选择 **创建微流程**。
+
+4. 命名微流 *ACT_Open_HomePage*。
+
+5. 打开创建的微流程，添加 **创建对象** 活动
+
+6.  为 **创建对象** 活动。将 **实体** 设置为 **客户**。
+
+    ![创建对象属性](attachments/consistency-errors-navigation/create-object-properties.png)
+
+7. 在微流程中添加页面活动并在 **显示页面** 弹出对话中执行以下操作：<br/>
+
+    a. 设置 **对象传递** 至 **新客户**。<br/>
+
+    b. 会议文件。 将 **页面** 设为 **首页**。
+
+现在类型 *客户* 的新对象将被创建并传递到主页。
+
+![打开主页微流](attachments/consistency-errors-navigation/open-home-page-microflow.png)
+
+
+## 3 阅读更多
 
 * [Navigation](navigation)
-* [Microflows](microflows)
-* [Microflow Properties](microflow)
+* [微型流动](微流)
+* [微流程属性](微流)
