@@ -6,44 +6,40 @@ description: "Describes the microflow expressions available in Mendix Studio."
 tags:
   - "studio"
   - "microflow"
-  - "expressions"
-  - "expression"
   - "set value"
   - "variable"
 ---
 
 ## 1 Introduction
 
-This document describes microflow expressions in Mendix Studio. For information on microflow expressions in Studio Pro, see [Expressions](/refguide8/expressions) in the *Studio Pro Guide*.
-
-Expressions can be used to create or change an object or a variable based on logic.
+This document describes microflow expressions in Mendix Studio. Expressions can be used to create or change an object or a variable based on logic.
 
 The **Expression** tab is available for the following activities in a microflow:
 
-*  End Event
+*  [End Event](/refguide/end-event)
 *  [Decision](microflows-decision)
-*  Create Object
-*  Change Object
-*  Create Variable
-*  Change Variable
+*  [Create Object](/refguide/create-object)
+*  [Change Object](/refguide/change-object)
+*  [Create Variable](/refguide/create-variable)
+*  [Change Variable](/refguide/change-variable)
 
 ![](attachments/microflows-expressions/expression-tab.png)
 
-For more information on setting and changing values for microflow activities, see [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value).
+For more information on setting and changing values for microflow activities, see [How to Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value).
 
 ## 2 Writing an Expression
 
 There are two ways of writing an expression:
 
-* [Using suggestions](#suggestions)
-* [Writing expressions manually](#manually)
+* Using suggestions
+* Writing expressions manually
 
-If an error appears in the expression, error messages with explanations will be displayed.
+If an error appears in the expression, hints with an explanation will be displayed.
 
 {{% image_container width="350" %}}![](attachments/microflows-expressions/expression-error.png)
 {{% /image_container %}}
 
-### 2.1 Writing an Expression Using Suggestions {#suggestions}
+### 2.1 Writing an Expression Using Suggestions
 
 When you start typing your expression, a list of suggestions appears divided into the following categories:
 
@@ -67,7 +63,7 @@ To call the list of suggestions, press <kbd>Ctrl</kbd> + <kbd>Space</kbd>
 
 {{% /alert %}}
 
-### 2.2 Writing an Expression Manually {#manually}
+### 2.2 Writing an Expression Manually
 
 If you want to write the expression manually, pay attention to the following:
 
@@ -75,13 +71,13 @@ If you want to write the expression manually, pay attention to the following:
 * Attributes and associations of object variables are accessed using a slash. For example, *$Customer/Name*, *$Customer/Grade* refer to the attributes Name and Grade of the entity Customer
 * Unary, Boolean, and relational types of expressions are available in Studio (for more information, see the [Expression Types](#expression-types) section)
 
-### 2.3  Expression Examples
+## 3 Expression Examples
 
 Below are two examples that illustrate how expressions can be used.
 
-#### 2.3.1 Example 1
+### 3.1 Example 1
 
-You have a [Decision](microflows-decision) and you want to write an expression that checks whether the customer grade is gold and the price of the order is more than 100 (you can configure a discount after the **Decision** that is allowed if this expression is true):
+You have a **[Decision](microflows-decision)** and you want to write an expression that checks whether the customer grade is gold and the price of the order is more than 100 (you can configure a discount after the **Decision** that is allowed if this expression is true):
 
 ![](attachments/microflows-expressions/example-decision.png)
 
@@ -89,36 +85,31 @@ The expression will look the following way:
 
 ![](attachments/microflows-expressions/expression-decision.png)
 
-#### 2.3.2 Example 2
+### 3.2 Example 2
 
-You add a [Decision](microflows-decision) to check if an object (in the example below the object is *Customer*) exists. And you also check if the Customer's name matches a particular one (in the example below Customer's name is *Mendix*). The expression will look the following way:
+You add a **[Decision](microflows-decision)** to check if an object (in the example below the object is *Customer*) exists. And you also check if the Customer's name matches a particular one (in the example below Customer's name is *Mendix*). The expression will look the following way:
 
 ![](attachments/microflows-expressions/customer-empty-and-name-example.png)
 
-## 3 Expression Types {#expression-types}
+## 4 Expression Types {#expression-types}
 
 A list of the operators you can use in expressions in Studio can be found below:
 
-### 3.1 Relational Expressions
+### 4.1 Relational Expressions
 
-You can use the following relational expressions:
+* [Less than ( < )](/refguide/relational-expressions)
+* [Greater than ( > )](/refguide/relational-expressions)
+* [Less than or equal to ( <= )](/refguide/relational-expressions)
+* [Greater than or equal to ( >= )](/refguide/relational-expressions)
+* [Is equal to ( = )](/refguide/relational-expressions)
+* [Is not equal to ( != )](/refguide/relational-expressions)
 
-* [Less than ( < )](/refguide8/relational-expressions)
-* [Greater than ( > )](/refguide8/relational-expressions)
-* [Less than or equal to ( <= )](/refguide8/relational-expressions)
-* [Greater than or equal to ( >= )](/refguide8/relational-expressions)
-* [Is equal to ( = )](/refguide8/relational-expressions)
-* [Is not equal to ( != )](/refguide8/relational-expressions)
+### 4.2 Boolean Expressions
 
-### 3.2 Boolean Expressions
+* [and](/refguide/boolean-expressions)
+* [or](/refguide/boolean-expressions)
 
-You can use the following Boolean expressions:
-
-* [and](/refguide8/boolean-expressions)
-* [or](/refguide8/boolean-expressions)
-
-## 4 Read More
+## 5 Read More
 
 * [Microflows](microflows)
 * [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value)
-* [Expressions](/refguide8/expressions)
