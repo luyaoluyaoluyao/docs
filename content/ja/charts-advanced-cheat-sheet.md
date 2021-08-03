@@ -5,11 +5,16 @@ menu_order: 20
 tags:
   - "グラフ"
   - "高度な設定"
-  - "デスクトップ モデラー"
+  - "Studio Pro"
   - "レイアウトコントロール"
   - "データのプロパティ"
   - "系列のプロパティ"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-advanced-cheat-sheet.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
@@ -19,9 +24,9 @@ tags:
 
 JSONスニペットを備えたこのチートシートは、事前設定のサンプルを提供します。
 
-完全なリファレンスは [https://plot.ly/javascript/](https://plot.ly/javascript/) にあります。
+完全なリファレンスは [https://plot.ly/javascript/](https://plot.ly/javascript/) にあります。 グラフウィジェットは、plotly.js バージョン 1.47.4 をサポートしています。
 
-詳細設定で十分でない場合は、アプリストアの [チャート](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) ウィジェットを参照してください。
+詳細設定で十分でない場合は、マーケットプレイスの [チャート](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) ウィジェットを参照してください。
 
 ## 2 レイアウト (すべてのグラフ) {#layout-all}
 
@@ -150,7 +155,7 @@ xを長い系列名またはY軸ティックに合わせて調整します。
 }
 ```
 
-![凡例の構成](attachments/pages/charts/advanced-layout-legend.gif)
+![凡例の構成](attachments/charts/advanced-layout-legend.gif)
 
 詳細なオプションはこちら: [凡例の設定](https://plot.ly/javascript/reference/#layout-legend).
 
@@ -183,7 +188,7 @@ xを長い系列名またはY軸ティックに合わせて調整します。
 }
 ```
 
-![軸の構成](attachments/pages/charts/axes.gif)
+![軸の構成](attachments/charts/axes.gif)
 
 その他のオプションはこちらでご覧いただけます: [軸設定](https://plot.ly/javascript/reference/#layout-xaxis).
 
@@ -214,7 +219,7 @@ xを長い系列名またはY軸ティックに合わせて調整します。
 
 上記のレイアウト プロパティは、対応する [データ プロパティ](#multiple-y-axes-data-properties) で使用する必要があります。
 
-![複数のY軸の構成](attachments/pages/charts/multiple-y.gif)
+![複数のY軸の構成](attachments/charts/multiple-y.gif)
 
 より多くのオプションがここにあります: [複数のY軸設定](https://plot.ly/javascript/multiple-axes/).
 
@@ -251,7 +256,7 @@ xを長い系列名またはY軸ティックに合わせて調整します。
 
 上記のレイアウト プロパティは、対応する [データ プロパティ](#multiple-x-axes-data-properties) で使用する必要があります。
 
-![複数の X 軸の構成](attachments/pages/charts/multiple-x.gif)
+![複数の X 軸の構成](attachments/charts/multiple-x.gif)
 
 より多くのオプションがここにあります: [複数のX軸構成](https://plot.ly/javascript/multiple-axes/).
 
@@ -259,7 +264,7 @@ xを長い系列名またはY軸ティックに合わせて調整します。
 
 タイトル、軸、系列は複雑な数式を含むことができます。
 
-![数式：](attachments/pages/charts/math-formula.png)
+![数式：](attachments/charts/math-formula.png)
 
 ```
 $\sqrt{(n_\text{c}(t|{T_\text{early}}))}$
@@ -288,7 +293,7 @@ LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org
 }
 ```
 
-![タイトルの構成](attachments/pages/charts/title.gif)
+![タイトルの構成](attachments/charts/title.gif)
 
 他のオプションはこちらでご覧いただけます: [タイトル設定](https://plot.ly/javascript/reference/#layout-title).
 
@@ -319,7 +324,7 @@ LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org
 }
 ```
 
-![ マージン構成 ](attachments/pages/charts/margin.gif)
+![ マージン構成 ](attachments/charts/margin.gif)
 
 オプションの詳細はこちら: [マージン設定](https://plot.ly/javascript/reference/#layout-margin).
 
@@ -343,7 +348,7 @@ LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org
 }
 ```
 
-![ツールチップの設定](attachments/pages/charts/tooltip.gif).
+![ツールチップの設定](attachments/charts/tooltip.gif).
 
 オプションの詳細はこちら: [ツールチップ設定](https://plot.ly/javascript/reference/#layout-hovermode).
 
@@ -391,7 +396,7 @@ LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org
   }
 }
 ```
-![範囲モード](attachments/pages/charts/normal.gif)
+![範囲モード](attachments/charts/normal.gif)
 
 **否定的ではない:**
 
@@ -405,7 +410,7 @@ LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org
 }
 ```
 
-![範囲モード](attachments/pages/charts/nonnegative.gif)
+![範囲モード](attachments/charts/nonnegative.gif)
 
 **tozero:**
 
@@ -419,7 +424,7 @@ LatTex構文の詳細はこちらをご覧ください: https://en.wikibooks.org
 }
 ```
 
-![範囲モード](attachments/pages/charts/tozero.gif)
+![範囲モード](attachments/charts/tozero.gif)
 
 {{% alert type="info" %}}
 When **fill** for the series is set to something other than *none*, the Y-axis range is forced to start from zero (*tozero*). 例:
@@ -443,7 +448,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 ```
 {{% /alert %}}
 
-![範囲モード](attachments/pages/charts/rangemode-note.gif)
+![範囲モード](attachments/charts/rangemode-note.gif)
 
 その他のオプションはこちらでご覧いただけます: [レンジモード設定](https://plot.ly/javascript/reference/#layout-yaxis-rangemode).
 
@@ -455,7 +460,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 
 モードと行の設定は、シリーズの **Advanced** 設定で追加できます。
 
-![Line styles](attachments/pages/charts/line-styles.png)
+![Line styles](attachments/charts/line-styles.png)
 
 ``` json
 [
@@ -499,7 +504,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 
 系列の種類を変更できます。 たとえば、棒グラフの系列を行列にすることができます。
 
-![グラフのデータのプロパティ](attachments/pages/charts/combine-list-bar.gif)
+![グラフのデータのプロパティ](attachments/charts/combine-list-bar.gif)
 
 ### 3.3 円グラフ
 
@@ -511,7 +516,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 }
 ```
 
-![円グラフデータのプロパティ](attachments/pages/charts/pie-chart.png)
+![円グラフデータのプロパティ](attachments/charts/pie-chart.png)
 
 その他のオプションはこちらでご覧いただけます: [円グラフデータプロパティ](https://plot.ly/javascript/reference/#pie).
 
@@ -532,7 +537,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 }
 ```
 
-![エリアチャートデータのプロパティ](attachments/pages/charts/area-chart.png)
+![エリアチャートデータのプロパティ](attachments/charts/area-chart.png)
 
 その他のオプションはこちらでご覧いただけます: [エリアチャートデータプロパティ](https://plot.ly/javascript/reference/#area).
 
@@ -540,7 +545,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 
 以下の例は、時間ごとにチャートをフィルタするためのフィルタボタンを設定する方法を示しています。
 
-![折れ線グラフのデータ プロパティ](attachments/pages/charts/time-series-filters.png).
+![折れ線グラフのデータ プロパティ](attachments/charts/time-series-filters.png).
 
 ``` json
 {
@@ -604,7 +609,7 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 ]
 ```
 
-![複数の Y 軸のプロパティ](attachments/pages/charts/data-multiple-y.png)
+![複数の Y 軸のプロパティ](attachments/charts/data-multiple-y.png)
 
 ### 3.7 複数の X 軸データプロパティ {#multiple-x-axes-data-properties}
 
@@ -625,11 +630,11 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
 ]
 ```
 
-![複数の X 軸のプロパティ](attachments/pages/charts/data-multiple-x.png).
+![複数の X 軸のプロパティ](attachments/charts/data-multiple-x.png).
 
 ## 4 構成オプション (すべてのグラフ) {#config-options}
 
-以下の設定オプションはすべてのチャートで使用できます。
+以下の設定オプションは、すべてのチャートで利用できます (ここでは、 `nl` `ロケール` の書式設定の例として表示されます):
 
 ```json
 {
@@ -638,11 +643,57 @@ When **fill** for the series is set to something other than *none*, the Y-axis r
   "modeBarButtonsToRemove": [ "sendDataToCloud", "lasso2d", "select2d", "hoverClosestCartesian", "hoverCompareCartesian", "toggleSpikelines" ],
   "locale": "nl",
   "locales": {
-    "nl": {
-      "dictionary": {
-        "Download plot as a png": "Opslaan als PNG"  
-      }
+        "nl": {
+            "dictionary": {
+                "Download plot as a png": "Opslaan als PNG"
+            },
+            "format": {
+                "days": ["zondag",
+                "maandag",
+                "dinsdag",
+                "woensdag",
+                "donderdag",
+                "vrijdag",
+                "zaterdag"],
+                "shortDays": ["zon",
+                "maa",
+                "din",
+                "woe",
+                "don",
+                "vri",
+                "zat"],
+                "months": ["januari",
+                "februari",
+                "maart",
+                "april",
+                "mei",
+                "juni",
+                "juli",
+                "augustus",
+                "september",
+                "oktober",
+                "november",
+                "december"],
+                "shortMonths": ["jan",
+                "feb",
+                "maa",
+                "apr",
+                "mei",
+                "jun",
+                "jul",
+                "aug",
+                "sep",
+                "okt",
+                "nov",
+                "dec"],
+                "date": "%d-%m-%Y",
+                "datetime": "%d-%m-%Y %H:%M",
+                "year": "%Y",
+                "month": "%b %Y",
+                "dayMonth": "%d %b",
+                "dayMonthYear": "%d %b %Y"
+            }
+        }
     }
-  }
- }
+}
 ```
