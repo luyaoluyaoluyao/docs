@@ -1,241 +1,241 @@
 ---
-title: "Call REST Service"
-parent: "integration-activities"
+title: "通话REST 服务"
+parent: "一体化活动"
 tags:
   - "studio pro"
-  - "integration activity"
-  - "call rest service"
+  - "集成活动"
+  - "呼叫休息服务"
 menu_order: 10
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
-{{% /alert %}}
+此活动只能在 **微流** 中使用。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Call REST service** activity can be used to call a REST endpoint. You can specify the location and how the response of the REST call should be handled.
+**通话REST 服务** 活动可用来调用REST 端点。 您可以指定应如何处理REST 调用响应的位置。
 
-## 2 Properties
+## 2 属性
 
-An example of call rest action properties is represented in the image below:
+下面的图像显示了呼叫休息动作属性的示例：
 
-![call rest action properties](attachments/integration-activities/call-rest-action-properties.png)
+![调用休息动作属性](attachments/integration-activities/call-rest-action-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-The call rest action properties pane consists of the following sections:
+呼叫休息动作属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section{#action}
+## 3 行动部分{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-The properties dialog box consists of four tabs:
+属性对话框由四个标签组成：
 
-* [General](#general)
-* [HTTP Headers](#http-headers)
-* [Request](#request)
-* [Response](#response)
+* [A. 概况](#general)
+* [HTTP 头](#http-headers)
+* [请求](#request)
+* [答复](#response)
 
-## 4 General Tab {#general}
+## 4 个常规标签 {#general}
 
 {{% image_container width="66%" %}}
 ![](attachments/integration-activities/general-tab.png)
 {{% /image_container %}}
 
-### 4.1 Location
+### 4.1 地点
 
-The **Location** property defines the REST endpoint to be called.
+**位置** 属性定义了要调用的 REST 端点。
 
-The location needs to be entered using a string template which must result in a valid URL string.
+该位置需要输入一个字符串模板，该字符串必须导致一个有效的 URL 字符串。
 
-#### 4.1.1 String Template{#string-template}
+#### 4.1.1 字符串模板{#string-template}
 
-The template for the location can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. You can escape the opening brace (`{`), by using a double opening brace (`{{`).
+位置模板可以包含以数字写在括号之间的参数 (例如， `{1}`)。 第一个参数的数字是 `1`, 第二个 `2`, 等等。 You can escape the opening brace (`{`), by using a double opening brace (`{{`).
 
-#### 4.1.2 Parameters
+#### 4.1.2 参数
 
-For each parameter in the template, you can specify its value using a [microflow expression](expressions) resulting in a string value. This value will be inserted at the position of the parameter.
+对于模板中的每个参数，您可以使用 [微流程表达式](expressions) 来指定其值，并产生一个字符串值。 此值将插入参数的位置。
 
-### 4.2 HTTP Method
+### 4.2 HTTP方法
 
-The **HTTP method** property defines the HTTP method to use when calling a REST endpoint. The possible values are: GET, POST, PUT, PATCH, DELETE, HEAD, and OPTIONS.
+**HTTP 方法** 属性定义了调用REST 端点时要使用的 HTTP 方法。 可能的值是：GET、POST、PUT、PATCH、DELETE、HEAD和OPTIONS。
 
-### 4.3 Use Timeout on Request
+### 4.3 应请求使用超时
 
-Set **Use timeout on request** to **Yes** to be able specify how long the Call REST activity should wait for the REST endpoint to respond.
+设置 **在请求时使用超时** 到 **是的，** 可以指定通话REST 活动应该等待多长时间才能响应REST 端点。
 
 {{% alert type="warning" %}}
-It is recommended that you keep this set to **Yes**. Most cloud infrastructure services (including those used by the Mendix Cloud) will close HTTP connections automatically if there is no traffic for a few minutes, even if your activity is still waiting for a response. This means that, if your activity calls a web service which takes a long time to respond, the connection may be closed without the activity being aware of this, and your activity will not receive a response. Under these circumstances, if **Use timeout on request** is set to **No**, your activity will get stuck waiting indefinitely for data to arrive.
-{{% /alert %}}
+建议您将此设置保持为 **是**。 大多数云基础设施服务(包括Mendix Cloud使用的服务)如果没有流量几分钟，将自动关闭HTTP连接。 即使您的活动仍在等待回复。 这意味着，如果您的活动调用了一个需要很长时间才能响应的网络服务， 您的活动不会收到回复，连接可能会被关闭。 在这种情况下，如果 **根据请求** 使用超时设置为 **no**, 您的活动将被卡住，无限期等待数据到达。
+{{% /报警 %}}
 
-Default value: *Yes*
+默认值： *是*
 
-### 4.4 Timeout (s)
+### 4.4 超时时间
 
-If the REST endpoint has not responded after the number of seconds in **Timeout (s)**, an exception will occur and the microflow will roll back or go into your custom error handler.
+如果REST 端点在 **超时秒数(s)**之后还没有响应， 将发生异常，微流将回滚或转到您的自定义错误处理器。
 
-Default value: *300 seconds*
+默认值： *300秒*
 
-### 4.5 Proxy Configuration
+### 4.5 代理配置
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+在几乎所有情况下，您都可以忽略此设置。 **使用应用设置** 是一个好的默认值。
 
-If desired, you can configure whether to use a proxy for the request. These are the choices:
+如果想要，您可以配置是否为请求使用代理人。 这些选择是：
 
-* **Use app settings** – use whatever settings are defined at the app level (default)
-* **Override** – override the app-level settings for this action
-* **No proxy** – do not use a proxy for this action, even if there is a proxy configured at the app level
+* **使用应用设置** - 使用在应用级别上定义的任何设置 (默认)
+* **覆盖** - 此操作的应用级别设置
+* **没有代理** - 即使在应用级别上配置了代理，也不使用代理服务器
 
-When you select **Override**, you can configure dynamically whether to use a proxy. You then supply the host, port, username, and password settings for the proxy.
+当您选择 **覆盖**，您可以动态地配置是否使用代理人。 然后您为代理提供主机、 端口、 用户名和密码设置。
 
-### 4.6 Client certificate{#client-certificate}
+### 4.6 客户端证书{#client-certificate}
 
-In most cases, the default **Use app settings** can be used.
+在大多数情况下，默认使用 **使用应用程序设置**。
 
-However, you can specify a client certificate to use for the request by selecting **Override**.
+然而，您可以选择 **覆盖** 来指定用于请求的客户端证书。
 
-The options are:
+这些备选办法是：
 
-* **Use app settings**(default) – use the settings that are defined at the app level
-* **Override** – override the app-level settings for this action
+* **使用应用设置**(默认) - 使用在应用级别上定义的设置
+* **覆盖** - 此操作的应用级别设置
 
-When you select **Override**, you can configure which client certificate will be used. Click **Edit** to specify the **Client certificate identifier**. This identifier can be set in different places, depending on where you deploy the app:
+当您选择 **覆盖**，您可以配置将使用哪些客户端证书。 点击 **编辑** 以指定 **客户端证书标识符**。 这个标识符可以在不同的地方设置，取决于您在哪里部署应用程序：
 
-* When you deploy the app in the Mendix cloud, set the **Client certificate identifier** to the desired **WEB SERVICE CALL NAME** when [pinning a client certificate](/developerportal/deploy/certificates#outgoing-client-certificates).
-* When you deploy the app elsewhere, the identifier is set in the custom setting [ClientCertificateUsages](custom-settings#ca-certificates). For testing locally, this can be set as a custom server setting in a [Configuration](configuration#custom).
+* 当您在 Mendix 云中部署应用程序时， 将 **客户端证书标识符** 设置为所需 **WEB SERVICE CALL NAME** 设置为 [固定客户端证书](/developerportal/deploy/certificates#outgoing-client-certificates)
+* 当您在其他地方部署应用时，标识符将设置在自定义设置 [ClientCertificateUsages](custom-settings#ca-certificates) 中。 对于本地测试，这可以在 [配置](configuration#custom) 中设置为自定义服务器设置。
 
-When this identifier is not set for the environment where your app is deployed (either not pinned or not present in _ClientCertificateUsages_), the default settings will be used (as if **Use app settings** were selected).
+当这个标识符没有设置为您的应用部署的环境(不是固定的就是不存在于 _ClientCertificateUsages_中) 默认设置将被使用(如 **使用应用程序设置** 被选中)。
 
-## 5 HTTP Headers Tab {#http-headers}
+## 5 HTTP 头标签 {#http-headers}
 
 ![](attachments/integration-activities/http-headers-tab.png)
 
-### 5.1 Use HTTP Authentication
+### 5.1 使用 HTTP 身份验证
 
-The **Use HTTP authentication** check box defines whether basic authentication should be used.
+**使用 HTTP 身份验证** 复选框定义了是否应使用基本身份验证。
 
-### 5.2 User Name
+### 5.2 用户名
 
-The **User name** property defines the user name that will be used to authenticate over HTTP. The user name needs to be entered using [microflow Expressions](expressions). The microflow expression should result in a string.
+**用户名** 属性定义了将用于认证HTTP的用户名。 用户名需要使用 [微流程表达式](expressions) 输入. 微流程表达式应产生一个字符串。
 
-### 5.3 Password
+### 5.3 密码
 
-The **Password** property defines the password that will be used to authenticate over HTTP. The password needs to be entered using [expressions](expressions). The microflow expression should result in a string.
+**密码** 属性定义了将用于通过 HTTP 身份验证的密码。 密码需要使用 [表达式](expressions) 输入. 微流程表达式应产生一个字符串。
 
-### 5.4 Custom HTTP Headers
+### 5.4 自定义 HTTP 头
 
-These headers are added to the HTTP request header. Each custom header is a pair with a key and a value (a microflow expression).
+这些信头已添加到 HTTP 请求头中。 每个自定义头都是一个键值和值(微流程表达式)。
 
-## 6 Request Tab {#request}
+## 6 个请求选项卡 {#request}
 
 ![](attachments/integration-activities/request-tab.png)
 
-The sections below describe the options in the drop-down menu for generating the request.
+下面的部分描述了下拉菜单中生成请求的选项。
 
 {{% alert type="info" %}}
-Requests can only be generated for HTTP methods POST, PUT, PATCH, and OPTIONS.
-{{% /alert %}}
+只能为 HTTP 方法 POST、PUT、PATCH和OPTIONS 生成请求。
+{{% /报警 %}}
 
-### 6.1 Export Mapping for the Entire Request
+### 6.1 整个请求的导出映射
 
-This option allows you to use a single [export mapping](export-mappings) for the body of the request.
+此选项允许您为请求的正文使用单个 [导出映射](export-mappings)。
 
-#### 6.1.1 Mapping
+#### 6.1.1 映射
 
-Select the mapping that you want to apply.
+选择您想要应用的映射。
 
-#### 6.1.2 Parameter Type
+#### 6.1.2 参数类型
 
-If the [export mapping](export-mappings) requires an input, this field shows the type of the input.
+如果 [导出映射](export-mappings) 需要输入，此字段显示输入的类型。
 
-#### 6.1.3 Parameter
+#### 6.1.3 参数
 
-If the [export mapping](export-mappings) requires an input, you can select a parameter of the correct type.
+如果 [导出映射](export-mappings) 需要输入，您可以选择正确类型的参数。
 
-#### 6.1.4 Content Type
+#### 6.1.4 内容类型
 
-If the [export mapping](export-mappings) is based on a message definition, it can export either XML or JSON. Choose the type of output you want.
+如果 [导出映射](export-mappings) 基于消息定义，它可以导出XML 或 JSON 。 选择您想要的输出类型。
 
 {{% alert type="info" %}}
-**Content-Type header** is not set by default. To set it, use the **Custom HTTP Headers** tab.
-{{% /alert %}}
+**Content-Type 标题** 未设置为默认值。 要设置它，请使用 **自定义 HTTP 头** 标签。
+{{% /报警 %}}
 
-### 6.2 Binary for the Entire Request
+### 6.2 整个请求的二进制文件
 
-This option allows you to send binary data (for example, the contents of a FileDocument).
+此选项允许您发送二进制数据(例如，文件文档的内容)。
 
-### 6.3 Form-Data
+### 6.3 表单数据
 
-This option allows you to generate a multipart/form-data request for multiple parts. Each part is a pair with a key and a value (microflow expression).
+此选项允许您为多个部分生成多部分/表单数据请求。 每个部件都是配对的键值和值(微流程表达式)。
 
-FileDocuments and images are are also supported for this option when used as variables in microflow expressions.
+当在微流程表达式中用作变量时，此选项也支持文件和图像。
 
-For each part, you can specify the HTTP headers. For each part, by default, the **Content-Disposition**  (for file documents and images) and **Content-Type** (for all parts) headers are added. You can specify different values for these headers, or add other headers.
+对于每个部分，您都可以指定 HTTP 头。 默认情况下，为每一部分添加了 **Content-Disposition**  (针对文件和图像) 和 **Content-Type** (针对所有部分) 标题。 您可以为这些信头指定不同的值，或添加其他信头。
 
 #### 6.3.1 Content Type
 
-Setting up a **Content-Type header** for a form-data request will result in a consistency error, as it will automatically be set to **multipart/form-data**.
+为表格数据请求设置 **Content-Type 标题** 将导致一致性错误， 因为它将自动设置为 **multipart/form-data**
 
-The content type for the FileDocument part is **application/octet-stream**.
+FileDocument 部件的内容类型是 **application/ octet-stream**。
 
-### 6.4 Custom Request Template
+### 6.4 自定义请求模板
 
-This option allows you to generate the request using a string template. The template defines the structure of the request in plain text.
+此选项允许您使用字符串模板生成请求。 模板以纯文本定义请求的结构。
 
-See [String Template](#string-template), above, for more information on constructing strings from templates.
+更多关于从模板构建字符串的信息，请参阅上面 [字符串模板](#string-template)。
 
-## 7 Response Tab {#response}
+## 7 响应选项卡 {#response}
 
 ![](attachments/integration-activities/response-tab.png)
 
-### 7.1 Response Handling
+### 7.1 反应处理
 
-These are the options in the drop-down menu for handling the response:
+这些是下拉菜单中处理响应的选项：
 
-* **Apply import mapping** – if the response is JSON or XML, it can be transformed directly into objects using an [import mapping](import-mappings); the fields that you can choose here are described in the [Import Mapping action](import-mapping-action)
-* **Store in an HTTP response** – any successful HTTP response can be stored directly in an [HttpResponse](http-request-and-response-entities#http-response) object, and the [$latestHttpResponse](#latesthttpresponse) variable is also updated
-* **Store in a file document** – if the response contains binary content (for example, a PDF), it can be stored in an object of an entity type which inherits from `System.FileDocument`
-* **Store in a string** – if the response is a string (for example, CSV), it can be stored directly in a string variable
-* **Do not store in a variable** - use this option when the call does not return anything useful
+* **应用导入映射** - 如果响应是 JSON 或 XML， 它可以通过 [导入映射](import-mappings)直接转换为对象。 您可以在此选择的字段在 [导入映射操作](import-mapping-action) 中描述
+* **存储在 HTTP 响应** - 任何成功的 HTTP 响应都可以直接存储在 [HtpResponse](http-request-and-response-entities#http-response) 对象中， 并且 [$latestHttpResponse](#latesthttpresponse) 变量也被更新
+* **存储在文件** - 如果响应包含二进制内容 (例如) a PDF, 它可以存储在继承自 `System的实体类型的对象。 文件`
+* **存储在字符串** - 如果响应是字符串(例如，CSV)，它可以直接存储在字符串变量中
+* **不要存储变量** - 当调用没有返回任何有用的情况下使用此选项
 
-### 7.2 Type
+### 7.2 类型
 
-The **Type** field defines the type of the output.
+**类型** 字段定义了输出类型。
 
-### 7.3 Variable
+### 7.3 变量
 
-The **Variable** field defines the name for the result of the operation.
+**变量** 字段定义了操作结果的名称。
 
-### 7.4  Store Message Body in $latestHttpResponse Variable {#latesthttpresponse}
+### 7.4 存储消息正文在 $latestHttpResponse 变量中 {#latesthttpresponse}
 
-If HTTP response status code is not successful (for example, `[4xx]` or `[5xx]`), the flow will continue in an [error handler](error-event#errorhandlers).
+如果HTTP 响应状态代码不成功(例如， `[4xx]` 或 `[5xx]`), 流程将在一个 [错误处理器](error-event#errorhandlers) 中继续。
 
 {{% alert type="warning" %}}
-You should always add an error handler for a [call REST service](/refguide/call-rest-action) action.
-{{% /alert %}}
+您应该始终为 [调用 REST 服务](/refguide/call-rest-action) 行动添加一个错误处理程序。
+{{% /报警 %}}
 
-## 8 Common Section{#common}
+## 8 通用部分{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 9 Troubleshooting{#troubleshooting}
+## 9 疑难解答{#troubleshooting}
 
-### 9.1 java.net.SocketException – Connection reset
+### 9.1 java.net.SocketException - 连接重置
 
-This error is occurs when your app's infrastructure closes the connection because it is inactive. Your app client does not know this and gets this error when it makes a new request.
+这个错误发生在您的应用程序的基础设施关闭连接时，因为它处于非活动状态。 您的应用客户端不知道这个错误，当它提出新的请求时会得到这个错误。
 
-There are two ways to resolve this:
+解决这个问题有两种方法：
 
-1. Alter the value of the `http.client.CleanupAfterSeconds` [runtime setting](custom-settings) to be less than the connection timeout. This will ensure that the your app client will create a new HTTP client for the request.
+1. 修改 `http.client.client.cupAfterSeconds` [运行时间设置](custom-settings) 的值小于连接超时。 这将确保您的应用客户端将为请求创建一个新的 HTTP 客户端。
 
-2. Handle the error in your microflow and retry a number of times before returning the error. Your flow might look similar to the one below.
+2. 处理您微流中的错误并在返回错误之前重新尝试数次。 您的流程可能与下面的流程类似。
 
     ![](attachments/integration-activities/retry-rest-connection-timeout.png)
