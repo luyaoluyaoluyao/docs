@@ -1,228 +1,228 @@
 ---
-title: "Button Properties"
-parent: "button-widgets"
+title: "按钮属性"
+parent: "按钮小部件"
 tags:
   - "studio pro"
-  - "button"
-  - "action button"
-  - "drop-down button"
-  - "button widget"
-  - "image property"
+  - "按钮"
+  - "动作按钮"
+  - "下拉按钮"
+  - "按钮小部件"
+  - "图像属性"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A button can perform various actions such as calling a microflow or nanoflow or opening a page.
+按钮可以执行各种动作，如调用微流程或nanoflow 或打开一个页面。
 
-## 2 Properties
+## 2 属性
 
-An example of button properties is represented in the image below:
+按钮属性的示例在下面的图像中显示：
 
-{{% image_container width="250" %}}![Button Properties](attachments/button-widgets/button-properties.png)
+{{% image_container width="250" %}}![按钮属性](attachments/button-widgets/button-properties.png)
 {{% /image_container %}}
 
-Button properties consist of the following sections:
+按钮属性由以下部分组成：
 
-* [Accessibility](#accessibility) (only for web buttons when [Render Mode](#RenderMode) is Link)
-* [Common](#common)
-* [Design Properties](#design)
-* [Events](#events)
-* [General](#general)
-* [Items](#items) (only for a drop-down button)
-* [Visibility](#visibility)
+* [辅助功能](#accessibility) (只有当 [渲染模式](#RenderMode) 链接时才适用于网页按钮)
+* [常用的](#common)
+* [设计属性](#design)
+* [事件](#events)
+* [A. 概况](#general)
+* [项目](#items) (仅适用于下拉按钮)
+* [可见性](#visibility)
 
-### 2.1 Accessibility Section {#accessibility}
+### 2.1 无障碍科 {#accessibility}
 
 {{% alert type="info" %}}
 
-The **Accessibility** section is only shown for web buttons when [Render Mode](#RenderMode) is Link.
+只有在 [渲染模式](#RenderMode) 链接时，才会显示网页按钮 **辅助功能** 部分。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-#### 2.1.1 Role Type {#RoleType}
+#### 2.1.1 角色类型 {#RoleType}
 
-The **Role type** property determines the `aria-role` attribute value that will be rendered with the button's HTML. `Aria-role` attributes can be used to improve accessibility, because devices such as screen readers interpret them and present the semantics of the role to end-users. Possible options are the following:
+**角色类型** 属性决定了 `aria-角色` 属性值将与按钮的 HTML呈现出来。 `Aria-role` 属性可以用来提高可用性。 因为像屏幕阅读器这样的设备解释它们并向最终用户显示角色的语义。 可能的备选办法如下：
 
-* Button (default)
-* Checkbox
-* Link
-* Menu item
-* Menu item checkbox
-* Menu item radio
-* Option
-* Radio
-* Switch
+* 按钮(默认)
+* 复选框
+* 链接
+* 菜单项
+* 菜单项复选框
+* 菜单项广播
+* 选项
+* 收音机
+* 交换机
 * Tab
 
-### 2.2 Common Section {#common}
+### 2.2 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.3 Design Properties Section {#design}
+### 2.3 设计财产科 {#design}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Events Section {#events}
+### 2.4 事件部分 {#events}
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.5 General Section {#general}
+### 2.5 一般部分 {#general}
 
-#### 2.5.1 Caption {#caption}
+#### 2.5.1 标题 {#caption}
 
-The **Caption** property defines a text that will be shown on the button. The caption can contain parameters that are written between braces, for example, {1}.
+**标题** 属性定义了将显示在按钮上的文本。 标题可以包含括号之间写入的参数，例如 {1}。
 
-For more information on using parameters, see the [Parameters](#parameters) section below.
+欲了解更多关于使用参数的信息，请参阅下面的 [参数](#parameters) 部分。
 
-#### 2.5.2 Parameters {#parameters}
+#### 2.5.2 参数 {#parameters}
 
-Parameters are attributes the value of which will be displayed. To view **Parameters**, do one of the following:
+参数是将显示的属性值。 要查看 **参数**，请执行以下操作之一：
 
-* Double-click the **Caption** setting in properties
+* 双击属性中的 **标题** 设置
 
-* Double-click the button on the page and click **Edit** in the **General** section > **Caption**:
+* 双击页面上的按钮，然后点击 **在 **常规部分中编辑**** 部分 > **标题**
 
-    ![Opening Parameters](attachments/button-widgets/opening-parameters.png)
+    ![正在打开参数](attachments/button-widgets/opening-parameters.png)
 
-Parameters have the following settings:
+参数有以下设置：
 
-* **Index** – an identification number of a parameter
+* **索引** — — 一个参数的识别号码
 
-* **Attribute (path)** – an attribute a value of which will be displayed
+* **属性 (路径)** - 一个将显示其值的属性
 
-* **Format** – a format in which an attribute value will be displayed
+* **格式** - 一个将显示属性值的格式
 
-    ![Parameter Settings](attachments/button-widgets/button-parameter-settings.png)
+    ![参数设置](attachments/button-widgets/button-parameter-settings.png)
 
-##### 2.5.2.1 Adding New Parameters
+##### 2.5.2.1 添加新参数
 
-To add parameters, do the following:
+若要添加参数，请执行以下操作：
 
-1. Place the **Button** widget in the context of an entity, as in, inside a [data widget](data-widgets).
+1. 将 **按钮** 小部件放置在实体的上下文中，就像放置在 [数据小部件](data-widgets) 中。
 
-2. Double-click the **Caption** setting in the button widget properties.
+2. 双击按钮部件属性中的 **标题** 设置。
 
-3.  In the **Edit Caption** dialog box > **Parameters** section click **New**:
+3.  在 **编辑标题** 对话框 > **参数** 部分点击 **新**
 
-    ![Adding New Parameter](attachments/button-widgets/new-parameter.png)
+    ![添加新参数](attachments/button-widgets/new-parameter.png)
 
-4. In the **Edit Template Parameter** dialog box, click **Select**, choose an attribute and confirm your choice.
+4. 在 **编辑模板参数** 对话框中，点击 **选择**，选择属性并确认您的选择。
 
-5. In the **Caption** setting, write the text you would like to display and type **Index** of the parameter you would like to include. In the example below, to include a name of your customer , you need to use indexes {1} for the *Name* attribute:
+5. 在 **标题** 设置中。 写入您想要显示的文本并输入 **索引** 你想要包含的参数. 在下面的示例中，若要包含您客户的名字，您需要对 *名称* 属性使用索引： {1}：
 
-    ![Parameter Example](attachments/button-widgets/button-parameter-example.png)
+    ![参数示例](attachments/button-widgets/button-parameter-example.png)
 
-##### 2.5.2.2 Performing Other Actions on Parameters
+##### 2.5.2.2 对参数采取其他行动
 
-In addition to adding new parameters, you can perform the following actions on parameters:
+除了添加新参数外，您还可以对参数执行以下操作：
 
-* **Delete** – to delete a parameter click Delete or press <kbd>Delete</kbd> on your keyboard
+* **删除** - 以删除参数，点击删除或按 <kbd>删除您的键盘</kbd>
 
-* **Edit** – double-click a parameter to edit it or click Edit
+* **编辑** — 双击一个参数来编辑它或单击编辑
 
-* **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
+* **向上移动** - 在参数列表中移动参数并更改其索引， 点击 **向上移动**
 
-* **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
+* **向下移动** - 在参数列表中向下移动参数并更改其索引， 点击 **向下移动**
 
-    ![Parameter Actions](attachments/button-widgets/button-parameter-actions.png)
+    ![参数操作](attachments/button-widgets/button-parameter-actions.png)
 
-#### 2.5.3 Tooltip
+#### 2.5.3 工具提示
 
-The **Tooltip** property determines a text end-users will see in the tooltip that appears when they hover over the button. The tooltip text is translatable. For more information on translatable texts, see [Language Menu](translatable-texts). If the tooltip is not specified, no tooltip will be shown when hovering over the button.
+**Tooltip** 属性决定了文本最终用户将会在鼠标悬停在按钮上时出现的工具提示中看到。 工具提示文本可以翻译。 关于可翻译文本的更多信息，见 [语言菜单](translatable-texts)。 如果未指明工具提示, 当悬停在按钮上时不会显示工具提示。
 
-#### 2.5.4 Icon {#icon}
+#### 2.5.4 图标 {#icon}
 
-The **Icon** property determines the icon that will be shown in front of the caption of the button. Possible options are:
+**图标** 属性决定了将显示在按钮标题前面的图标。 可能的备选办法是：
 
-* no icon
-* a glyphicon
-* a (bitmap) image
+* 没有图标
+* 玻璃图标
+* a (bitmap) 图像
 
-Glyphicons come from the Bootstrap Halflings collection. The advantages of a glyphicon over a bitmap image are that they are scalable, look sharp on high-resolution screens, and their color can be changed by changing the font color. The advantage of an image icon is that it can have multiple colors.
+Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是它们是可以缩放的。 在高分辨率屏幕上看得很清楚，其颜色可以通过更改字体颜色而改变。 图像图标的优点是它可以有多个颜色。
 
-#### 2.5.5 Render Mode {#RenderMode}
+#### 2.5.5 渲染模式 {#RenderMode}
 
-Defines the way the button will be shown to the end-user. Possible options are the following:
+定义按钮向最终用户显示的方式。 可能的备选办法如下：
 
-* **Button** – the widget will be rendered as a button
-* **Link** – the widget will be rendered as a hyperlink
+* **按钮** — 小部件将作为按钮渲染。
+* **链接** - 小部件将呈现为超链接
 
-*Default render mode:* Button
+*默认渲染模式：* 按钮
 
-#### 2.5.6 Button Style
+#### 2.5.6 按钮样式
 
-The **Button style** property applies a predefined styling to the button. Possible options are the following:
+**按钮风格** 属性应用了一个预定义的样式按钮。 可能的备选办法如下：
 
-* Default
-* Inverse
-* Primary
-* Info
-* Success
-* Warning
-* Danger
+* 默认设置
+* 反转
+* 主要的
+* 信息
+* 成功
+* 警告
+* 危险
 
-#### 2.5.7 Disabled During Action
+#### 2.5.7 行动期间的残疾情况
 
-This property is only shown when **Call a microflow** or **Call a nanoflow** is selected as the [on-click event](on-click-event). Selecting **Disabled during action** disables the button until the action is completed or failed.
+此属性仅在 **调用微流程** 或 **调用nanoflow** 被选定为 [点击事件](on-click-event) 时才显示。 选择 **在动作过程中禁用** 禁用按钮直到动作完成或失败。
 
-Default: *true*
+默认： *true*
 
-### 2.6 Items Section {#items}
-
-{{% alert type="info" %}}
-
-The **Items** section is only shown for drop-down buttons.
-
-{{% /alert %}}
-
-When an end-user clicks a drop-down button, a pop-up window with a list of items opens. Each item performs an event when an end-user clicks this item. Different items can perform different events. For more information on events that can be assigned, see [On Click Event & Events Section](on-click-event).
+### 2.6 物项部分 {#items}
 
 {{% alert type="info" %}}
 
-* Items with the **Create object** event are only shown when you have sufficient permissions on. For more information, see [Security](security).
+**项目** 部分仅显示于下拉按钮。
 
-* Items with the **Sign out** event are not shown for anonymous users. For more information on different security levels and anonymous users, see [App Security](project-security) and [Anonymous Users](anonymous-users).
+{{% /报警 %}}
 
+当最终用户点击下拉按钮时，一个弹出窗口打开项目列表。 当最终用户点击此项目时，每个项目都会执行一个事件。 不同的项目可以执行不同的事件。 关于可以分配的事件的更多信息，见 [点击事件 & 事件部分](on-click-event)
 
-{{% /alert %}}
+{{% alert type="info" %}}
 
-Each item has the following properties:
+* 使用 **创建对象** 事件只在您有足够权限时才显示。 欲了解更多信息，请参阅 [Security](security)。
 
-* **Caption** – defines a caption of the item
-
-*  **Action** – defines an on-click event performed when the item is clicked (for more information on-click events, see [On Click Event & Events Section](on-click-event))
-
-    ![Properties of Items](attachments/button-widgets/items-properties.png)
+* **注销** 事件不会显示给匿名用户。 关于不同安全等级和匿名用户的更多信息，请参阅 [App Security](project-security) and [匿名用户](anonymous-users)。
 
 
-#### 2.6.1 Adding New Items
+{{% /报警 %}}
 
-To add items to a drop-down buttons, do the following:
+每个物品具有下列特性：
 
-1. Double-click the **Items** setting in the button widget properties.
+* **标题** - 定义项目的标题
 
-2.  In the **Edit Items** dialog box, click **New**:
+*  **动作** - 定义点击项目时执行的按键事件 (用于点击事件的更多信息) 查看 [点击事件 & 事件部分](on-click-event))
 
-    ![Adding New Item](attachments/button-widgets/adding-new-item.png)
+    ![项目属性](attachments/button-widgets/items-properties.png)
 
-3. In the **Edit Drop-down Button** Item dialog box, do the following:
-   1. Specify the caption for the item.
-   2. Select an image (icon) to be displayed for this item.
-   3. Select an on-click event to be performed when the end-user clicks this item.
+
+#### 2.6.1 增加新项目
+
+若要将项目添加到下拉按钮，请执行以下操作：
+
+1. 双击按钮部件属性中的 **项** 设置。
+
+2.  在 **编辑项目** 对话框中，点击 **新的**：
+
+    ![添加新项目](attachments/button-widgets/adding-new-item.png)
+
+3. 在 **编辑下拉按钮** 项目对话框中，执行以下操作：
+   1. 指定项目的标题。
+   2. 选择要显示的图像 (图标)。
+   3. 选择当最终用户点击此项目时要执行的单击事件。
    4. Click **OK**.
-4. In the **Edit Items** dialog box, click **OK** to save your changes and add new item.
+4. 在 **编辑项目** 对话框中，点击 **确定** 保存您的更改并添加新项目。
 
 
 
-### 2.7 Visibility Section {#visibility}
+### 2.7 可见性科 {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Button Widgets](button-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
-* [On Click Event & Events Section](on-click-event)
+* [页](page)
+* [按钮部件](按钮小部件)
+* [页面编辑器中常见的属性](common-widget-properties)
+* [点击事件 & 事件部分](on-click-event)
 
 
