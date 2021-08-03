@@ -1,27 +1,39 @@
 ---
-title: "Studio 9 How-to's"
+title: "Mendix 7 Studio Guide"
 tags:
   - "studio"
-  - "how to"
+  - "web modeler"
 ---
 
 {{% alert type="warning" %}}
 
-The **Studio 9 How-to's** space describes Mendix Studio functionality that corresponds to Mendix version 9. It describes the latest Studio functionality and features.
+The **Studio 7 Guide** describes Mendix Studio functionality that corresponds to Mendix 7.23.7 version. For details on the latest functionality and features, see the [Studio 8 Guide](/studio).
 
 {{% /alert %}}
 
 ## 1 Introduction
 
-Studio how-to's contain step-by-step guides that will help you create apps in Mendix Studio, customize them, and add logic to them. Studio how-to's describe a specific use case that they follow. For more general guidelines, such as how to create a microflow or how to add elements to your page, see the [Mendix Studio Guide](/studio).
+The Mendix Platform includes [Mendix Studio](general) in addition to [Mendix Studio Pro](/refguide/modeling). Studio is a collaborative, no-code, web-based application development environment. It enables business developers and users with minimal coding or software development experience to create web and mobile applications without having to know how to code.
 
-## 2 How-to Categories
+Studio enables you to do the following:
 
-The *Studio 9 How-to's* are divided into the following categories:
+* Develop application user interfaces with styled building blocks and widgets
+* Create domain models for reading and writing data in an application
+* Visually model the interactions and flow control of an application
+* Leverage your enterprise design language to create engaging apps that conform to company standards beyond branding and theming
 
-* [How to Configure a Workflow in Studio for the Employee Onboarding Process](workflow-how-to-configure) – describes  how to configure a workflow in Mendix Studio for the employee onboarding process
-* [Pages](pages) – focuses on building various page patterns, such as building a form or a list, as well configuring different functionality, for example, filtering data in a list
-* [How to Configure a Domain Model](domain-model-how-to-configure) – explains how to configure a domain model and its elements
-* [How to Secure Your App and Configure Access to Its Functionality](security-how-to-configure-roles) – explains how to secure you app and create different user roles
-* [Microflows](microflows) – focuses on configuring various microflow elements and activities, such as configuring a decision
-* [How to Customize the Design of Your App](theme-customizer-how-to-customize-design) – explains you how to change the design of your app in the **Theme Customizer**
+## 2 Document Categories
+
+The *Studio 7 Guide* is divided into the following categories:
+
+* [General Info](general)
+* [Domain Model](domain-models)
+* [Pages](page-editor)
+* [Navigation Document](navigation)
+* [Microflows](microflows)
+* [Data Filters](filters)
+* [Previewing & Publishing Your App](publishing-app)
+* [Checks](checks)
+* [Consistency Errors](consistency-errors)
+* [Theme Customizer](theme-customizer)
+* [Settings](settings)
