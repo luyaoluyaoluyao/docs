@@ -1,27 +1,27 @@
 ---
-title: "Menu Item"
-parent: "menu"
+title: "菜单项"
+parent: "菜单"
 ---
 
 
-[Menus](menu) are composed of menu items. Menu items can contain other menu items within certain limits. Menu bars can have two levels, the navigation tree three levels and the simple menu bar only one.
+[菜单](menu) 由菜单项组成。 菜单项可以在一定限度内包含其他菜单项。 菜单栏可以有两个级别，导航树三个级别，菜单栏只能有一个。
 
-## General Properties
+## 常规属性
 
-### Caption
+### 标题
 
-The caption is the text that will appear in the [menu widget](menu-widgets). This is a translatable text. See [Translatable Texts](translatable-texts).
+标题是将出现在 [菜单小部件](menu-widgets) 中的文本。 这是一个可翻译的文本。 查看 [可翻译文本](translatable-texts)。
 
-### Icon
+### 图标
 
-The glyph icon or image will appear next to or above the caption in the [menu widget](menu-widgets).
+glyph 图标或图像将出现在 [菜单部件](menu-widgets) 中的标题旁边或以上。
 
 ### Target
 
-The target of the menu item is the page or microflow that will be opened when the item is clicked. A menu item that has subitems cannot have a target itself.
+菜单项的目标是点击项目时打开的页面或微流。 有子项的菜单项不能有目标本身。
 
 {{% alert type="success" %}}
 
-You can open a page that contains a data view from a menu item by setting as target a microflow that first retrieves an object for the data view and then opens the page.
+您可以打开一个包含菜单项数据视图的页面，并设置为目标的微流，首先为数据视图检索对象，然后打开页面。
 
-{{% /alert %}}
+{{% /报警 %}}
