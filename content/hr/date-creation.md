@@ -1,95 +1,107 @@
 ---
 title: "Date Creation"
 parent: "expressions"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "expression"
+  - "date creation"
+  - "expressions"
 ---
 
-Date-type variables for a certain date can be created by using [parseDateTime](parse-and-format-date-function-calls). This takes a date string and a format string as parameters and returns a date-type variable. For more details, see [parseDateTime](parse-and-format-date-function-calls).
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/date-creation.pdf).
+{{% /alert %}}
 
-String variables representing a date can be created with the `dateTime` and `dateTimeUTC` functions. The difference between these two functions is that `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. The system session runs as UTC by default, but this can be configured in the [Project Settings](project-settings).
+## 1 Introduction
 
-These functions take between 1 and 6 input parameters and return a string. These represent, in order:
+Dates can be created with the `dateTime` and `dateTimeUTC` functions. The difference between them is that  `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. The system session runs as UTC by default, except for scheduled events, which can be configured in the [Scheduled Event Time Zone](project-settings#scheduled) section of **Project Settings**.
 
-1. Years
-    * Type: integer, four digits, and greater than 1799
-2. Months
-    * Type: integer, between 1 and 12
-3. Days
-    * Type: integer, between 1 and 31
-4. Hours
-    * Type: integer, between 0 and 23
-5. Minutes
-    * Type: integer, between 0 and 59
-6. Seconds
-     * Type: integer, between 0 and 59
+This function does not accept variable or attribute parameters, only fixed values. To create a date using parameters, use the [parseDateTime](parse-and-format-date-function-calls#parsedatetime-utc) function.
 
-One parameter:
+## 2 Values
 
-```java
-dateTime(2007)
-```
+These functions take between one and six input values in the following order:
 
-returns:
+1. years (type: integer, four digits and greater than 1799)
+2. months (type: integer, between 1 and 12)
+3. days (type: integer, between 1 and 31)
+4. hours (type: integer, between 0 and 23)
+5. minutes (type: integer, between 0 and 59)
+6. seconds (type: integer, between 0 and 59)
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+## 3 Examples
 
-Two parameters:
+The examples below illustrate which value the expression returns:
 
-```java
-dateTime(2007, 1)
-```
+* If you specify one value as an input:
 
-return:
+    ```java
+    dateTime(2007)
+    ```
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    The expression will return the following output:
 
-Three parameters:
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007, 1, 1)
-```
+* If you specify two values as an input:
 
-return:
+    ```java
+    dateTime(2007, 1)
+    ```
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    The expression will return the following output:
 
-Four parameters:
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007, 1, 1, 1)
-```
+* If you specify three values as an input:
 
-return:
+    ```java
+    dateTime(2007, 1, 1)
+    ```
 
-```java
-"Mon Jan 01 01:00:00 CET 2007"
-```
+    The expression will return the following output:
 
-Five parameters:
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007, 1, 1, 1, 1)
-```
+* If you specify four values as an input:
 
-return:
+    ```java
+    dateTime(2007, 1, 1, 1)
+    ```
 
-```java
-"Mon Jan 01 01:01:00 CET 2007"
-```
+    The expression will return the following output:
 
-Six parameters:
+    ```java
+    "Mon Jan 01 01:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007, 1, 1, 1, 1, 1)
-```
+* If you specify five values as an input:
 
-return:
+    ```java
+    dateTime(2007, 1, 1, 1, 1)
+    ```
 
-```java
-"Mon Jan 01 01:01:01 CET 2007"
-```
+    The expression will return the following output:
+
+    ```java
+    "Mon Jan 01 01:01:00 CET 2007"
+    ```
+
+* If you specify six values as an input:
+
+    ```java
+    dateTime(2007, 1, 1, 1, 1, 1)
+    ```
+
+    The expression will return the following output:
+
+    ```java
+    "Mon Jan 01 01:01:01 CET 2007"
+    ```
