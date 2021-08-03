@@ -1,14 +1,21 @@
 ---
 title: "断线(文档模板)"
 parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguid7/Line+Break+(document+template).html
-  - /refguide7/line-break-(document-template).html
+  - /refguid8/Line+Break+(document+template).html
+  - /refguide8/line-break-(document-template).html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/line-break-document-template.pdf)。
+{{% /报警 %}}
 
-在插入一条断线时将开始一条新的线。
+## 1 导言
 
-## 公共属性
+在插入一条断线时将开始新的一行。
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+## 2 公共属性
+
+{{% snippet file="refguide8/name-property.md" %}}
