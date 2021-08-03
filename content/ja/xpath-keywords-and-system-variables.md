@@ -1,131 +1,128 @@
 ---
-title: "XPath Keywords & System Variables"
+title: "XPath キーワード & システム変数"
 parent: "xpath-constraints"
 tags:
   - "studio pro"
+  - "BeginOfCurrent"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-keywords-and-system-variables.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+XPath では、いくつかのキーワードとシステム変数を比較として呼び出すことができます。
 
-In XPath, several keywords and system variables can be called as a comparison.
+## 2つのキーワード
 
-## 2 Keywords
-
-Either of these keywords can be used to check whether an attribute has a value (any value) or if it has been left empty:
+これらのキーワードのいずれかを使用して、属性に値(任意の値)があるかどうかを確認することができます。
 
 * `NULL`
-* `empty`
+* `空`
 
-### 2.1 Example
+### 2.1 例
 
-This query returns all the customers whose name is not known to the system:
+このクエリは、システムに不明なすべての顧客を返します。
 
 ```java
 //Sales.Customer[Name = NULL]
 ```
 
-These keywords can only be used in conjunction with attributes. The existence of associations cannot be confirmed in this manner. For more information on how to constrain on associations, see [XPath Constraint Functions](xpath-constraint-functions).
+これらのキーワードは属性と組み合わせてのみ使用できます。 この方法では、関連性の存在を確認することはできません。 関連を制約する方法の詳細については、 [XPath 制約関数](xpath-constraint-functions) を参照してください。
 
-## 3 System Variables
+## 3つのシステム変数
 
-System variables can be used to obtain system or date related values. The available tokens are described below.
+システム変数は、システムまたは日付関連の値を取得するために使用できます。 利用可能なトークンについては、以下で説明します。
 
-### 3.1 Object-Related
+### 3.1 オブジェクト関連
 
-| Token               | Description                                     |
-| ------------------- | ----------------------------------------------- |
-| `[%CurrentUser%]`   | The GUID of the user currently logged in.       |
-| `[%CurrentObject%]` | The GUID of the active object (in the context). |
+| トークン                | 説明                            |
+| ------------------- | ----------------------------- |
+| `[%CurrentUser%]`   | 現在ログインしているユーザーのGUID。          |
+| `[%CurrentObject%]` | アクティブなオブジェクトの GUID (コンテキスト内)。 |
 
-### 3.2 User Roles
+### 3.2 ユーザロール
 
-These will be created for each user role in your app. Here is an example:
+これらはアプリケーションの各ユーザーロールに対して作成されます。 以下に例を示します:
 
-| Token                        | Description                  |
-| ---------------------------- | ---------------------------- |
-| `[%UserRole_Administrator%]` | The Administrator user role. |
+| トークン                         | 説明          |
+| ---------------------------- | ----------- |
+| `[%UserRole_Administrator%]` | 管理者ユーザーのロール |
 
-Here is an example for retrieving that user role:
+次に、そのユーザーロールを取得する例を示します。
 
 ![](attachments/xpath/user-role.png)
 
-### 3.3 Time-Related
+### 3.3 時間関連
 
-The following tokens can be used to obtain a date and time value:
+以下のトークンを使用して、日付と時刻の値を取得できます。
 
-| Token                         | Description                                                      |
-| ----------------------------- | ---------------------------------------------------------------- |
-| `[%CurrentDateTime%]`         | The current date and time.                                       |
-| `[%BeginOfCurrentMinute%]`    | The date and time at the beginning of the current minute.        |
-| `[%BeginOfCurrentMinuteUTC%]` | The date and time at the beginning of the current minute in UTC. |
-| `[%EndOfCurrentMinute%]`      | The date and time at the end of the current minute.              |
-| `[%EndOfCurrentMinuteUTC%]`   | The date and time at the end of the current minute in UTC.       |
-| `[%BeginOfCurrentHour%]`      | The date and time at the beginning of the current hour.          |
-| `[%BeginOfCurrentHourUTC%]`   | The date and time at the beginning of the current hour in UTC.   |
-| `[%EndOfCurrentHour%]`        | The date and time at the end of the current hour.                |
-| `[%EndOfCurrentHourUTC%]`     | The date and time at the end of the current hour in UTC.         |
-| `[%BeginOfCurrentDay%]`       | The date and time at the beginning of the current day.           |
-| `[%BeginOfCurrentDayUTC%]`    | The date and time at the beginning of the current day in UTC.    |
-| `[%EndOfCurrentDay%]`         | The date and time at the end of the current day.                 |
-| `[%EndOfCurrentDayUTC%]`      | The date and time at the end of the current day in UTC.          |
-| `[%BeginOfCurrentWeek%]`      | The date and time at the beginning of the current week.          |
-| `[%BeginOfCurrentWeekUTC%]`   | The date and time at the beginning of the current week in UTC.   |
-| `[%EndOfCurrentWeek%]`        | The date and time at the end of the current week.                |
-| `[%EndOfCurrentWeekUTC%]`     | The date and time at the end of the current week in UTC.         |
-| `[%BeginOfCurrentMonth%]`     | The date and time at the beginning of the current month.         |
-| `[%BeginOfCurrentMonthUTC%]`  | The date and time at the beginning of the current month in UTC.  |
-| `[%EndOfCurrentMonth%]`       | The date and time at the end of the current month.               |
-| `[%EndOfCurrentMonthUTC%]`    | The date and time at the end of the current month in UTC.        |
-| `[%BeginOfCurrentYear%]`      | The date and time at the beginning of the current year.          |
-| `[%BeginOfCurrentYearUTC%]`   | The date and time at the beginning of the current year in UTC.   |
-| `[%EndOfCurrentYear%]`        | The date and time at the end of the current year.                |
-| `[%EndOfCurrentYearUTC%]`     | The date and time at the end of the current year in UTC.         |
+| トークン                          | 説明                    |
+| ----------------------------- | --------------------- |
+| `[%CurrentDateTime%]`         | 現在の日付と時刻              |
+| `[%BeginOfCurrentMinute%]`    | 現在の分の開始時の日付と時刻。       |
+| `[%BeginOfCurrentMinuteUTC%]` | UTCの現在の分の始めの日付と時刻。    |
+| `[%EndOfCurrentMinute%]`      | 現在の分数の終わりの日付と時刻。      |
+| `[%EndOfCurrentMinuteUTC%]`   | UTCの現在の分の終わりの日付と時刻。   |
+| `[%BeginOfCurrentHour%]`      | 現在の時間の最初の日付と時刻。       |
+| `[%BeginOfCurrentHourUTC%]`   | UTCの現在の時間の始めの日付と時刻。   |
+| `[%EndOfCurrentHour%]`        | 現在の時間の終わりの日付と時刻       |
+| `[%EndOfCurrentHourUTC%]`     | UTCの現在の1時間の終わりの日付と時刻。 |
+| `[%BeginOfCurrentDay%]`       | 今日の初めの日付と時刻           |
+| `[%BeginOfCurrentDayUTC%]`    | UTCの現在の日の初めの日付と時刻。    |
+| `[%EndOfCurrentDay%]`         | 今日の終わりの日付と時刻          |
+| `[%EndOfCurrentDayUTC%]`      | UTCの現在の日の終わりの日付と時刻。   |
+| `[%BeginOfCurrentWeek%]`      | 現在の週の初めの日付と時刻         |
+| `[%BeginOfCurrentWeekUTC%]`   | UTCの現在の週の初めの日付と時刻。    |
+| `[%EndOfCurrentWeek%]`        | 現在の週の終わりの日付と時刻        |
+| `[%EndOfCurrentWeekUTC%]`     | UTCの現在の週の終わりの日付と時刻。   |
+| `[%BeginOfCurrentMonth%]`     | 現在の月の初めの日付と時刻         |
+| `[%BeginOfCurrentMonthUTC%]`  | UTCの現在の月の初めの日付と時刻。    |
+| `[%EndOfCurrentMonth%]`       | 現在の月の終わりの日付と時刻        |
+| `[%EndOfCurrentMonthUTC%]`    | UTCの現在の月末の日付と時刻。      |
+| `[%BeginOfCurrentYear%]`      | 現在の年の初めの日時。           |
+| `[%BeginOfCurrentYearUTC%]`   | UTCの今年の初めの日付と時刻。      |
+| `[%EndOfCurrentYear%]`        | 現在の年末の日付と時刻           |
+| `[%EndOfCurrentYearUTC%]`     | UTCの今年の終わりの日付と時刻。     |
 
-The following tokens can be used to add or subtract a period of time from a date and time token value:
+以下のトークンは、日付と時刻のトークンの値から期間を追加または減算するために使用できます。
 
-| Token              | Description                          |
-| ------------------ | ------------------------------------ |
-| `[%DayLength%]`    | The length of one day (24 hour).     |
-| `[%HourLength%]`   | The length of one hour.              |
-| `[%MinuteLength%]` | The length of one minute.            |
-| `[%SecondLength%]` | The length of one second.            |
-| `[%WeekLength%]`   | The length of one week (seven days). |
-| `[%MonthLength%]`  | The length of one month.             |
-| `[%YearLength%]`   | The length of one year.              |
+| トークン               | 説明           |
+| ------------------ | ------------ |
+| `[%DayLength%]`    | 1日(24時間)の長さ。 |
+| `[%HourLength%]`   | １時間の長さ。      |
+| `[%MinuteLength%]` | 1分間の長さ。      |
+| `[%SecondLength%]` | 一秒の長さ。       |
+| `[%WeekLength%]`   | 1週間（7日）の長さ。  |
+| `[%MonthLength%]`  | 1ヶ月の長さ。      |
+| `[%YearLength%]`   | 一年の長さ。       |
 
 {{% alert type="info" %}}
-These variables must be used as string values and placed between two quotes. Time-related tokens combined with period-related tokens must be placed within one string. See example 3.
+これらの変数は文字列値として使用し、2つの引用符の間に配置する必要があります。 時間関連トークンと期間関連トークンを組み合わせたトークンは、1つの文字列内に配置する必要があります。 例 3 を参照してください。
 {{% /alert %}}
 
-#### 3.3.1 Examples
+#### 3.3.1 例
 
-This query returns only customers who have registered since the beginning of this week:
+このクエリは、今週の初めから登録されている顧客のみを返します:
 
 ```java
 //Sales.Customer[DateRegistered >= '[%BeginOfCurrentWeek%]']
 ```
 
-This query returns only customers who have registered this week:
+このクエリは、今週登録した顧客のみを返します:
 
 ```java
 //Sales.Customer[DateRegistered >= '[%BeginOfCurrentWeek%]' and DateRegistered < '[%EndOfCurrentWeek%]']
 ```
 
-This query returns only customers who have registered in the past three years:
+このクエリは過去3年間に登録した顧客のみを返します:
 
 ```java
 //Sales.Customer[DateRegistered > '[%BeginOfCurrentDay%] - 3 * [%YearLength%]']
 ```
 
-This query returns users with the role "Administrator":
+このクエリは、ロール「Administrator」を持つユーザーを返します。
 
 ```java
 //System.User[System.UserRoles = '[%UserRole_Administrator%]']
 ```
 {{% alert type="info" %}}
-Because system variables are written as a string (between quotes), it is not possible to use parentheses to group expressions.
+システム変数は(引用符の間で)文字列として記述されるため、式をグループ化するのに括弧を使用することはできません。
 {{% /alert %}}
