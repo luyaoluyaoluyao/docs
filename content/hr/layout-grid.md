@@ -12,10 +12,6 @@ tags:
   - "layout"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/layout-grid.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 The layout grid is a widget that gives structure to your pages.
@@ -26,7 +22,7 @@ In a browser, the layout grid is based on the Bootstrap grid system. For more in
 
 {{% alert type="info" %}}
 
-Row and column properties described below are available if your project has [Mendix version 8.5.1](/releasenotes/studio-pro/8.5) or above  and [Atlas UI Resources](/appstore/modules/atlas-ui-resources) version 2.4.0 or above.
+Row and column properties described below are available if your app has [Atlas UI Resources](/appstore/modules/atlas-ui-resources) version 2.4.0 or above.
 
 For more information on row and column properties, see the [Rows and Their Properties](#rows) and [Columns and Their Properties](#columns) sections.
 
@@ -48,11 +44,11 @@ Layout grid properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 General Section {#general}
 
@@ -73,7 +69,7 @@ As the layout grid responds to the viewport width, and not to the width of its c
 
 ### 2.4 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Rows and Their Properties {#rows}
 
@@ -92,7 +88,7 @@ Row properties consist of the following sections:
 
 ### 3.1 Common Section {#row-common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 3.2 General Section {#row-general}
 
@@ -117,7 +113,7 @@ The **General** section of a row contains the following properties:
 
 ### 3.3 Visibility Section {#row-visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 4 Columns and Their Properties {#columns}
 
@@ -136,7 +132,7 @@ Layout grid column properties consist of the following sections:
 
 ### 4.1 Common Section {#column-common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 4.2 General Section {#column-general}
 
