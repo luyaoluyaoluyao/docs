@@ -1,26 +1,52 @@
 ---
 title: "Create List"
 parent: "list-activities"
+menu_order: 3
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/create-list.pdf).
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+This activity can be used in both **Microflows** and **Nanoflows**.
+{{% /alert %}}
 
 ## 1 Introduction
 
-This activity creates a list variable containing an empty list.
+The **Create list** activity creates an empty list.
 
-{{% alert type="info" %}}
+## 2 Properties
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all microflow activities share (f\or example, caption). This page only describes the properties specific to the action.
+An example of create list properties is represented in the image below:
 
-{{% /alert %}}
+![create list properties](attachments/list-activities/create-list-properties.png)
 
-## Action Properties
+There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
 
-### Entity
+The create list properties pane consists of the following sections:
 
-The entity of the objects list. All objects in the list should be of the same type.
+* [Action](#action)
+* [Common](#common)
 
-## Output Properties
+## 3 Action Section{#action}
 
-### Variable
+The **Action** section of the properties pane shows the action associated with this activity.
 
-Variable name defines the name of the list variable. The variable can be used by all activities that follow this activity.
+You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+
+You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+
+### 3.1 Entity
+
+The entity of the objects in the list. All objects in the list must be of the same type.
+
+### 3.2 List Name
+
+This is the name of the list which can be used by all activities that follow this activity.
+
+## 4 Common Section{#common}
+
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
