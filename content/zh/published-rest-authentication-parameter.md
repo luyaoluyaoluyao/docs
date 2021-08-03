@@ -1,46 +1,46 @@
 ---
-title: "Custom Authentication Microflow Parameters"
-parent: "published-rest-technical-details"
+title: "自定义认证微流程参数"
+parent: "已发布的技术详细信息"
 menu_order: 40
-description: "The parameters which are passed to the custom authentication microflow for a published REST service"
+description: "已发布的REST 服务的参数传递到自定义身份验证微流"
 tags:
-  - "published REST"
-  - "custom authentication"
-  - "microflow"
-  - "parameters"
-  - "arguments"
-  - "query"
-  - "header"
+  - "已发布 REST"
+  - "自定义身份验证"
+  - "微流"
+  - "参数"
+  - "参数"
+  - "查询"
+  - "标题"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The custom authentication microflow of a published REST service is executed whenever a client calls one of the operation. The client's requests contains headers and may contain query parameters, which can be passed to the authentication microflow.
+当客户端调用一个操作时，将执行已发布REST 服务的自定义身份验证微流。 客户端的请求包含标题，可能包含查询参数，这些参数可以传递给身份验证微流。
 
-When you click the **Parameters** button that is next to the authentication microflow, the **Authentication microflow arguments** dialog box appears. In this dialog box, you can set the parameters.
+当您点击认证微流程旁边的 **参数** 按钮时， **认证微流程参数** 对话框将出现。 在这个对话框中，您可以设置参数。
 
-## 2 Parameters
+## 2 个参数
 
-The information below gives you an overview of the microflow parameters, and explains where their values are taken from. Click **Add** to add a parameter, and **Edit** to change a parameter.
+下面的信息为您提供了微流参数的概览，并解释了其值从哪里取出。 点击 **添加** 以添加参数， **编辑** 以更改参数。
 
-Make sure that you add all microflow parameters here.
+请确保在这里添加所有微流参数。
 
-### 2.1 Parameter Type
+### 2.1 参数类型
 
-Specify where the parameter comes from. Possible values are
+指定参数来自何处。 可能的值是
 
-* **Query** – when the request contains a query string such as `?name=John&age=42`, you can pass these to the microflow by adding query parameters. For more information, see [Published REST Query Parameters](published-rest-query-parameters).
+* **查询** - 当请求包含像 `这样的查询字符串时？ ame=John&年龄=42`, 你可以通过添加查询参数传递到微流程。 欲了解更多信息，见 [已发布REST 查询参数](published-rest-query-parameters)。
 
-* **Header** – the value of a header parameter is taken from the (first) request header with that name.
+* **标头** — — 页眉参数的值从 (第一个)请求标题带有该名称的值。
 
-### 2.2 Name
+### 2.2 姓名
 
-The name of the parameter. For a header parameter, this should be the name of the request header.
+参数的名称。 对于标题参数，这应该是请求标题的名称。
 
-### 2.3 Data Type
+### 2.3 数据类型
 
-Specify the type of the parameter. Only primitive types are supported.
+指定参数类型。 只支持原始类型。
 
-### 2.4 Microflow Parameter
+### 2.4 微流程参数
 
-Specify the microflow parameter that will be filled with the value from this operation parameter. You should always select one.
+指定将用此操作参数的值填充的微流参数。 您应该始终选择一个。
