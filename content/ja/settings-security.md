@@ -26,11 +26,11 @@ tags:
     {{% image_container width="400" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png)
  {{% /image_container %}}<br/>
 
-    B If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
+    B If security is set to the **Production** level in Studio Pro and settings are compatible with Studio, you can view and edit **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide8/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
 
     ![](attachments/settings-security/roles-and-permissions-screen.png)
 
-    C If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are not compatible with Studio, you can view (not edit) **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
+    C If security is set to the **Prototype/demo** or **Production** level in Studio Pro and settings are not compatible with Studio, you can view (not edit) **Roles and Permissions** in Studio. (Studio と互換性のあるセキュリティ設定の詳細については、こちらをご覧ください。 [Studio でセキュリティが有効になっている場合のモデル変更](/refguide8/studio-security-enabled#studio-compatible) の *Studio互換性* セクションを参照してください。
 
     ![](attachments/settings-security/security-read-only.png)
 
@@ -44,7 +44,7 @@ tags:
     ![役割と権限画面](attachments/settings-security/enabling-security.png)
 
 {{% alert type="info" %}}
-セキュリティを有効にすると、アプリ全体で有効になります Studio Proに表示されているモデルには、チェックと変更が適用されています。 これらのチェックと変更に関する技術的な情報については、 [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide/studio-security-enabled) を参照してください。
+セキュリティを有効にすると、アプリ全体で有効になります Studio Proに表示されているモデルには、チェックと変更が適用されています。 これらのチェックと変更に関する技術的な情報については、 [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide8/studio-security-enabled) を参照してください。
 {{% /alert %}}
 
 ## 3つのロールと権限 {#roles-and-permissions}
@@ -74,7 +74,11 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
 **ロール** タブにはすべてのロールが表示され、アクセスできるページ数とマイクロフロー数が表示されます。
 
-**ページ アクセス** および **マイクロフロー アクセス** タブには、すべての pages/microflow が行に表示されるテーブルが含まれています。 すべてのロールが列に配置されます。 特定のロールにアクセスできるページとマイクロフローを決定することができます。アクセスを許可/制限するには、ドキュメントごとのボックスのチェックを解除します。 すべてのドキュメントを選択/選択解除するには、ユーザーロールの横にある **その他のオプション** アイコンをクリックします。
+**ページ アクセス** および **マイクロフロー アクセス** タブには、すべての pages/microflow が行に表示されるテーブルが含まれています。 すべてのロールが列に配置されます。
+
+ページまたはマイクロフローへのアクセスを特定のロールのみ許可できます。ページまたはマイクロフローへのロールへのアクセスを許可するには、適切なボックスを選択します。
+
+すべてのページまたはマイクロフローを選択/選択解除するには、ユーザー ロールの横にある省略記号アイコンをクリックします。
 
 結果として、各ロールに固有の行列を取得します。
 
@@ -90,7 +94,7 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
     ![](attachments/settings-security/add-role-button.png)
 
-3.  **Create Role** ダイアログウィンドウで新しいロールの名前を指定し、 **Create** をクリックします。
+3.  **Create Role** ダイアログボックスで新しいロールの名前を指定し、 **Create** をクリックします。
 
     ![ロールダイアログボックスを作成](attachments/settings-security/create-role-dialog.png)
 
@@ -146,9 +150,9 @@ Studio Pro では、高度なセキュリティ設定を適用できます。 �
 
     ![](attachments/settings-security/permissions-section.png)
 
-## 4デモユーザー
+## 4デモユーザー {#demo-users}
 
-デモユーザーは、アプリケーションに存在する各ユーザーロールのデモです。 デモユーザーを使用して、各ユーザーのロールに対するアプリの見た目を確認できます。 技術的な情報については、 [Demo Users](/refguide/demo-users) を参照してください。
+デモユーザーは、アプリケーションに存在する各ユーザーロールのデモです。 デモユーザーを使用して、各ユーザーのロールに対するアプリの見た目を確認できます。 技術的な情報については、 [Demo Users](/refguide8/demo-users) を参照してください。
 
 ### 4.1 ロールのテスト {#testing-your-roles}
 
@@ -186,7 +190,21 @@ Mendixアカウントを使用してアプリのエンドユーザーにデフ�
 **ロールと権限** ページで新しいユーザーロールを作成した場合。 開発者ポータルでこのロールを表示して割り当てるには、まずアプリを公開する必要があります。
 {{% /alert %}}
 
-## 6もっと読む
+## 6 新しいサービスへの自動アップグレード {#upgrade}
 
-* [セキュリティ](/refguide/security)
-* [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide/studio-security-enabled)
+アプリを公開しようとすると、まずアプリを保護するサービスのアップグレードが必要になることが通知されます:
+
+{{% image_container width="300" %}}
+![アップグレードが必要です](attachments/settings-security/upgrade.png)
+{{% /image_container %}}
+
+特別なサービスにより、アプリユーザーを管理することができます。 **Auto-Upgrade** をクリックすると、このサービスの最新バージョンへのアップグレードは自動的に行われます。
+
+自動アップグレードに失敗した場合は、Studio Proでサービスがカスタマイズされたことを意味します。 この場合は、Studio Pro の手動アップグレードのみが可能です。
+
+サービスがチームメンバーによってStudio Proでカスタマイズされていることを自動アップグレードが検出した場合。 Studio Proの手動アップグレードが最初に実行されることが通知されます。
+
+## 7 続きを読む
+
+* [セキュリティ](/refguide8/security)
+* [Studio でセキュリティが有効になっている場合のモデルの変更](/refguide8/studio-security-enabled)
