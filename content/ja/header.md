@@ -1,47 +1,47 @@
 ---
-title: "Header"
-parent: "layout"
+title: "ヘッダー"
+parent: "レイアウト"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 
-A **header** combines the functionality of a page title and a control bar for your page. Due to its compact design and versatility it is often used in mobile pages. A header can only be used in a [layout](layout).
+**ヘッダー** は、ページタイトルの機能とページのコントロールバーを組み合わせたものです。 コンパクトなデザインと汎用性のため、モバイルページでよく使用されています。 ヘッダーは [レイアウト](layout) でのみ使用できます。
 
-Headers consist of three distinct elements: a page title and a left and right [drop-zone](page#add-elements). The page title is indicated by the text `[Page title]`. The drop-zones cannot be seen by default, but they can be selected and also become visible when they have elements dropped into them.
+ヘッダーは、ページタイトルと左右の [ドロップゾーン](page#add-elements) の 3 つの異なる要素で構成されます。 ページタイトルはテキスト `[Page title]` で示されます。 ドロップゾーンはデフォルトでは見ることができませんが、それらは選択することができ、要素がドロップされると表示されるようになります。
 
-For example, the following header has the right drop-zone selected and the user is dropping a button into the left drop-zone.
+たとえば、次のヘッダーに右ドロップゾーンが選択されており、ユーザーは左ドロップゾーンにボタンをドロップしています。
 
 ![](attachments/layout/header-layout.png)
 
-The drop-zones are intended for confirmation buttons, such as an [action button](button-widgets) for creating a new object, but can easily be appropriated for any number of alternate implementations.
+ドロップゾーンは、新しいオブジェクトを作成するための [アクション ボタン](button-widgets) のような確認ボタンを意図しています。 他の多くの実装に容易に適用できます
 
-The page title placeholder is replaced by the page title setting of the page being displayed.
+ページタイトルプレースホルダは、表示されるページのページタイトル設定に置き換えられます。
 
-For example, the image below shows an edit page derived from a layout with a header. The page title is automatically set to that of the page and the drop-zones have been used to add a save and cancel button, replacing the need to add a control bar to the data view.
+例えば、下の画像は、ヘッダー付きのレイアウトから派生した編集ページを示しています。 ページタイトルはページのタイトルに自動的に設定され、ドロップダウンゾーンは保存ボタンとキャンセルボタンを追加するために使用されています。 データビューにコントロールバーを追加する必要がある場合に置き換えます。
 
 {{% image_container width="350" %}}![](attachments/layout/header-page.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of header properties is represented in the image below:
+ヘッダープロパティの例を以下の画像に示します。
 
 {{% image_container width="250" %}}![](attachments/layout/header-properties.png)
 {{% /image_container %}}
 
-Header properties consist of the following sections:
+ヘッダプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}} 
