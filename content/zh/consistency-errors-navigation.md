@@ -1,37 +1,48 @@
 ---
 title: "导航一致性错误"
 parent: "一致性错误"
-description: "描述Mendix 桌面模型中的一致性错误以及修复这些错误的方法。"
+description: "描述Mendix Studio Pro 中的一致性错误以及解决这些错误的方法。"
 tags:
-  - "桌面模组"
+  - "Studio Pro"
   - "一致性错误"
   - "检查"
   - "错误"
   - "navigation"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consistency-errors-navigation.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
-在本文件中，我们将解释如何解决在桌面模型配置导航时可能发生的最常见的一致性错误。
+在本文件中，我们解释了如何解决在配置Studio Pro中导航时可能发生的最常见的一致性错误。 一致性错误的一个例子是，当您设置了一个以数据视图为菜单项的页面。
 
-一致性错误的一个例子是，当您设置了一个以数据视图为菜单项的页面。
+{{% alert type="info" %}}
+
+此文档没有描述 *所有* 个错误，因为有许多错误可能发生。 其中有些简单，无需额外解释，另一些则极少和（或）严重依赖使用案件。
+
+{{% /报警 %}}
+
+一些错误有错误代码，如果这些错误在文档中描述，Studio Pro 就有一个可点击的链接到相应文档。 在这种情况下，其他人没有错误代码。 您可以手动搜索文件中是否描述了某个错误 (您可以通过在 **错误** 面板中看到的消息搜索)。
 
 ## 2 导航一致性错误
 
 下面的表描述了配置导航项目时您可能遇到的最常见错误：
 
-| 检查面板中的文本                                                                        | 错误的原因                                                          | 修复路径                                                                                                       |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| 选中的页面 {Name of the page} 需要一个 {type of object}类型的对象，这在这里不可用。                    | 您已设置一个页面作为菜单项将对象传递到它(一个包含数据视图的页面和一个 **Context** 数据源的页面)。       | 通过更改 **将对象传入页面。点击菜单项的** 属性，从 **显示页面** 到 **创建对象** 欲了解更多信息，请参阅 [2.1 错误修复。当所选页面期望对象](#page-expects-an-object) |
-| 所选 {Name of the page} 需要一个类型为 {type of object} 的对象，不能用作首页。 更改页面或使用微流程为页面提供一个对象。 | 您已设置一个页面期望对象传递给它(例如) 一个具有数据视图的页面作为主页。 但主页没有任何对象传递给它，因为它是流程的起点。 | 您可以使用微流程作为主页打开首选页面并将特定对象传递到主页。 欲了解更多信息，请参阅第 [2.2 错误修复选定主页预期对象时](#home-page-expects-an-object)              |
+| 错误代码   | 错误面板中的消息                                                                        | 错误的原因                                                              | 修复路径                                                                                                      |
+| ------ | ------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| CE0568 | 选中的页面 {Name of the page} 需要一个 {type of object}类型的对象，这在这里不可用。                    | 您已经设置一个页面作为菜单项传递对象(一个包含数据视图的 **Context** 数据源的页面)。                  | 通过更改 **将对象传入页面。点击菜单项的** 属性，从 **显示页面** 到 **创建对象** 欲了解更多信息，请查看 [错误修复CE0568](#page-expects-an-object) 部分的示例。 |
+| CE0529 | 所选 {Name of the page} 需要一个类型为 {type of object} 的对象，不能用作首页。 更改页面或使用微流程为页面提供一个对象。 | 您已设置一个页面期望对象传递给它(例如) 一个具有数据视图的页面作为主页。 但主页没有任何东西传递给它，因为它是流程的起点。     | 您可以使用微流程作为主页打开首选页面并将特定对象传递到主页。 欲了解更多信息，请参阅 [错误修复CE0529](#home-page-expects-an-object) 示例。                 |
+| CE0548 | 有子项目的项目本身不能有动作。                                                                 | 您已将一个 [点击事件](on-click-event) 分配给一个有子项的菜单项： 当有分项目的菜单项不能被分配给它们的点按事件。 | 您需要设置菜单项的点击事件为 *没有*，或者删除/移动子项。                                                                            |
 
-### 2.1 修复选定页面期望对象时的错误 {#page-expects-an-object}
+### 2.1 错误修复CE0568的示例 {#page-expects-an-object}
 
 当您设置一个以数据视图为菜单项的页面时，您会遇到一个一致性错误， 因为该页面需要一个对象传递给它。
 
-For example, you have created a menu item called **Program** for a **Responsive** [profile](navigation-profile). 此菜单项打开 **程序** 页面。 然而，仍然存在着这种情况。 **程序** 页面上有一个数据视图，期望一个 *程序项目* 对象被传递给它， 这样它就可以在页面上显示特定的 *程序项* 的程序细节。 因此，您会遇到一个一致性错误，因为没有对象从导航传递到这个页面。
+For example, you have created a menu item called **Program** for a **Responsive** [profile](navigation#profiles). 此菜单项打开 **程序** 页面。 然而，仍然存在着这种情况。 **程序** 页面上有一个数据视图，期望一个 *程序项目* 对象被传递给它， 这样它就可以在页面上显示特定的 *程序项* 的程序细节。 因此，您会遇到一个一致性错误，因为没有对象从导航传递到这个页面。
 
-![显示菜单项错误](attachments/consistency-errors-navigation/dm-page-expects-an-object-error.png)
+![显示菜单项错误](attachments/consistency-errors-navigation/page-expects-an-object-error.png)
 
 要修复错误，您可以创建对象并将其传递到页面。 执行以下操作：
 
@@ -45,17 +56,17 @@ For example, you have created a menu item called **Program** for a **Responsive*
 
     b. 会议文件。 将 **程序** 设置为 **点击页面**. <br/>
 
-    ![菜单项属性](attachments/consistency-errors-navigation/dm-menu-item-properties.png)<br/>
+    ![菜单项属性](attachments/consistency-errors-navigation/menu-item-properties.png)<br/>
 
 现在当用户点击菜单项时，一个新的 *程序项* 对象将被创建并传递到页面。
 
-### 2.2. 修复选中主页期望对象时的错误 {#home-page-expects-an-object}
+### 2.2. 错误修复CE0529 的示例 {#home-page-expects-an-object}
 
-如果您设置了一个页面期望一个对象传递给它作为 [导航配置](navigation-profile)的主页， 您将会遇到一致性错误。
+如果您设置了一个页面期望一个对象传递给它作为 [导航配置](navigation#properties)的主页， 您将会遇到一致性错误。
 
-让我们研究一个示例：您已经添加了一个数据视图，该视图期望一个类型为 *客户* 的对象到响应配置文件的主页， 并且您遇到了一致性错误。
+例如， 您已经添加了一个数据视图，该视图需要一个类型 *客户* 的对象到响应配置文件的主页， 并且您遇到了一致性错误。
 
-![主页错误](attachments/consistency-errors-navigation/dm-home-page-error.png)
+![主页错误](attachments/consistency-errors-navigation/home-page-error.png)
 
 您可以通过创建微流程来修复此错误，微流程将创建一个新的 *客户* 对象并将其传递到页面。 执行以下操作：
 
@@ -63,17 +74,17 @@ For example, you have created a menu item called **Program** for a **Responsive*
 
 2.  在 **默认主页字段** 点击 **选择**
 
-    ![默认主页设置](attachments/consistency-errors-navigation/dm-default-home-page-field.png)
+    ![默认主页设置](attachments/consistency-errors-navigation/default-home-page-field.png)
 
-3. 在 **选择导航目标** 对话框窗口中，点击 **新的**，然后选择 **创建微流程**。
+3. 在 **选择导航目标** 对话框中，点击 **新的**，然后选择 **创建微流程**。
 
 4. 命名微流 *ACT_Open_HomePage*。
 
 5. 打开创建的微流程，添加 **创建对象** 活动
 
-6.  对于 **创建对象** 活动，将 **实体** 设置为 **客户**。
+6.  为 **创建对象** 活动。将 **实体** 设置为 **客户**。
 
-    ![创建对象属性](attachments/consistency-errors-navigation/dm-create-object-properties.png)
+    ![创建对象属性](attachments/consistency-errors-navigation/create-object-properties.png)
 
 7. 在微流程中添加页面活动并在 **显示页面** 弹出对话中执行以下操作：<br/>
 
@@ -83,11 +94,11 @@ For example, you have created a menu item called **Program** for a **Responsive*
 
 现在类型 *客户* 的新对象将被创建并传递到主页。
 
-![打开主页微流](attachments/consistency-errors-navigation/dm-open-home-page-microflow.png)
+![打开主页微流](attachments/consistency-errors-navigation/open-home-page-microflow.png)
 
 
 ## 3 阅读更多
 
-* [导航配置文件](navigation-profile)
+* [Navigation](navigation)
 * [微型流动](微流)
 * [微流程属性](微流)
