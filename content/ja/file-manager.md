@@ -1,77 +1,105 @@
 ---
 title: "ファイルマネージャー"
 parent: "file-widgets"
+tags:
+  - "studio pro"
+  - "ファイルマネージャー"
+  - "ファイルウィジェット"
+  - "ウィジェット"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/file-manager.pdf) をクリックしてください。
+{{% /alert %}}
+
+{{% alert type="warning" %}}ファイルマネージャウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+## 1つの紹介
 
 ファイルマネージャーはファイルのアップロードやダウンロードに使用されます。
 
-{{% alert type="info" %}}
-
-![](attachments/pages/file-manager.png)
-
-{{% /alert %}}
+![ファイルマネージャー](attachments/file-widgets/file-manager.png)
 
 エンティティSystem.FileDocument に接続されたデータビューまたはそれらの特殊化内に配置する必要があります。
 
-## 一般プロパティ
+{{% alert type="info" %}}
+ファイルマネージャからファイルをアップロードすると、FileDocument オブジェクトは直ちに反映されます。
+{{% /alert %}}
 
-### タイプ
+## 2つのプロパティ
 
-このプロパティは、エンドユーザーがファイルマネージャと対話できる方法を示します。
+以下の画像にファイルマネージャのプロパティの例を示します。
 
-| 値      | 説明                                     |
-| ------ | -------------------------------------- |
-| アップロード | ファイルマネージャは、ファイルのアップロードにのみ使用できます。       |
-| ダウンロード | ファイルマネージャは、ファイルのダウンロードにのみ使用できます。       |
-| 両方とも   | ファイルマネージャーは、アップロードやファイルのダウンロードに使用できます。 |
+{{% image_container width="250" %}}![ファイルマネージャーのプロパティ](attachments/file-widgets/file-manager-properties.png)
+{{% /image_container %}}
 
-_デフォルト値:_ 両方
+ファイルマネージャのプロパティは以下のセクションで構成されています:
 
-### 最大ファイルサイズ (MB)
+* [一般的な](#common)
 
-このプロパティは、アップロード可能なファイルの最大サイズ(メガバイト単位)を決定します。
+* [デザインプロパティ](#design-properties)
 
-_デフォルト値:_ 5
+* [編集可能](#editability)
 
-### 許可されるエクステンション
+* [全般](#general)
 
-アップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合は、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください。例えば、 `txt;doc`
+* [ラベル](#label)
 
-許可されていない拡張子のファイルが選択されている場合。 システムテキスト (ファイルマネージャー > ファイル拡張子が正しくありません) がファイルマネージャの下に表示されます。
+* [公開範囲](#visibility)
 
-### ブラウザにファイルを表示
+### 2.1 共通セクション {#common}
 
-このプロパティは、ファイルをダウンロードするのではなく、ブラウザに表示するかどうかを示します。
+{{% snippet file="refguide8/comon-section-link.md" %}}
 
-_デフォルト値:_ False
+### 2.2 デザインプロパティセクション {#design-properties}
 
-{{% snippet file="refguide7/Label+Property.md" %}}
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-## 編集可能なプロパティ
+### 2.3 編集可能セクション {#editability}
 
-{{% snippet file="refguide7/Editable+Property.md" %}}
+{{% snippet file="refguide8/editability-section-link.md" %}}
 
-{{% snippet file="refguide7/Condition+Property.md" %}}
+### 2.4 一般セクション {#general}
 
-## 表示プロパティ
+#### 2.4.1 Type
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+**Type** プロパティは、エンドユーザーがどのようにファイルマネージャを使用できるかを示します。
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+| 値              | 説明                                       |
+| -------------- | ---------------------------------------- |
+| アップロード         | ファイルマネージャは、ファイルのアップロードにのみ使用できます。         |
+| ダウンロード         | ファイルマネージャは、ファイルのダウンロードにのみ使用できます。         |
+| 両方とも *(デフォルト)* | ファイルマネージャは、ファイルのアップロードとダウンロードの両方に使用できます。 |
 
-## 共通のプロパティ
+#### 2.4.2 最大ファイル サイズ (MB)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+**最大ファイルサイズ (MB)** アップロード可能なファイルの最大サイズを指定します。
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+デフォルト: *5*
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+#### 2.4.3 使用可能なエクステンション
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+ユーザがアップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください。例えば、 `txt;doc`
 
-## 関連記事
+許可されていない拡張子のファイルが選択されている場合。 [システムテキスト](system-texts) **ファイルマネージャ/画像ビューアー** > **エラー: ファイル拡張子** がファイルマネージャの下に表示されます。
 
-*   [データビュー](data-view)
-*   [エンティティ](エンティティ)
-*   [関連](関連)
+#### 2.4.4 ブラウザにファイルを表示
+
+**ブラウザにファイルを表示する** は、ファイルをダウンロードする代わりにブラウザに表示するかどうかを示します。
+
+デフォルト: *False*
+
+### 2.5 ラベルセクション {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+### 2.6 表示セクション {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [ファイルウィジェット](file-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
+* [システムテキスト](system-texts)
