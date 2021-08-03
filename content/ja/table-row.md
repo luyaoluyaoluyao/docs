@@ -1,18 +1,18 @@
 ---
-title: "Table row"
-parent: "table"
+title: "表の行"
+parent: "表"
 ---
 
 
-A table consists of a number of rows divided into [table cells](table-cell).
+テーブルは [テーブルセル](table-cell) に分けられた数の行で構成されます。
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
