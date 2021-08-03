@@ -9,16 +9,20 @@ tags:
   - "顶栏"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/menus.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 Studio Pro 的顶级栏包含以下菜单：
 
 ![菜单栏](attachments/menus/menu-bar.png)
 
-* [文件](#file) - 允许您管理文档和应用
+* [文件](#file) - 允许您管理文档和项目
 * [编辑](#edit) - 允许您执行编辑功能，如在Studio Pro 中搜索或复制
 * [查看](#view) - 允许您选择Studio Pro 内的Studio Pro 和 dockable 面板如何显示
-* [应用程序](#project) — — 包含全应用范围的设置
+* [项目](#project) - 包含整个项目的设置
 * [运行](#run) - 包含用于部署和监视您的应用的操作
 * [版本控制](#version-control) - 包含版本控制设置
 * [语言](#language) - 包含语言和翻译设置
@@ -26,7 +30,7 @@ Studio Pro 的顶级栏包含以下菜单：
 
 ## 2 个文件菜单 {#file}
 
-通过 **文件** 菜单，您可以管理文档和应用。 关于 **文件** 菜单的更多信息，见 [文件菜单](file-menu)。
+通过 **文件** 菜单，您可以管理文档和项目。 关于 **文件** 菜单的更多信息，见 [文件菜单](file-menu)。
 
 ## 3 編輯菜单 {#edit}
 
@@ -34,15 +38,15 @@ Studio Pro 的顶级栏包含以下菜单：
 
 ## 4 视图菜单 {#view}
 
-**查看** 菜单允许您查看可停靠面板，启用全屏模式，并重置projappect布局。 关于 **查看** 菜单及其项目的更多信息，见 [查看菜单](view-menu)。
+**查看** 菜单允许您查看可停靠面板，启用全屏模式，并重置项目布局。 关于 **查看** 菜单及其项目的更多信息，见 [查看菜单](view-menu)。
 
-## 5 个应用菜单 {#project}
+## 5个项目菜单 {#project}
 
-在 **应用程序** 菜单中，您可以查看和/或操纵与您的应用和部署相关联的设置。 关于 **App** 菜单的更多信息，见 [App Menu](app-menu)。
+在 **工程** 菜单中，您可以查看和/或操纵与您的工程和部署相关的设置。 关于 **项目** 菜单的更多信息，见 [Project 菜单](project-menu)。
 
 ## 6 个运行菜单 {#run}
 
-**运行** 菜单包含用于部署和监视您的应用的动作， 例如： **发布**, **本地运行**, 或 **调试器**. 关于 **运行** 菜单的更多信息，见 [运行菜单](run-menu)。
+**运行** 菜单包含用于部署和监视您的应用的动作， 例如 **运行**, **本地运行**, 或 **调试器**。 关于 **运行** 菜单的更多信息，见 [运行菜单](run-menu)。
 
 ## 7 版本控制菜单 {#version-control}
 
