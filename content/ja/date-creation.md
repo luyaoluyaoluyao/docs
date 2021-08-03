@@ -1,95 +1,103 @@
 ---
-title: "Date Creation"
-parent: "expressions"
+title: "作成日"
+parent: "表現"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "表現"
+  - "日付の作成"
+  - "表現"
 ---
 
-Date-type variables for a certain date can be created by using [parseDateTime](parse-and-format-date-function-calls). This takes a date string and a format string as parameters and returns a date-type variable. For more details, see [parseDateTime](parse-and-format-date-function-calls).
+## 1つの紹介
 
-String variables representing a date can be created with the `dateTime` and `dateTimeUTC` functions. The difference between these two functions is that `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. The system session runs as UTC by default, but this can be configured in the [Project Settings](project-settings).
+日付は `dateTime` および `dateTimeUTC` 関数で作成できます。 The difference between them is that  `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. システムセッションは、スケジュールされたイベントを除き、デフォルトでUTCとして実行されます。 これは、 [アプリ設定](project-settings#scheduled) の **スケジュールされたイベント タイム ゾーン** セクションで設定できます。
 
-These functions take between 1 and 6 input parameters and return a string. These represent, in order:
+この関数は、変数または属性パラメータを受け付けず、固定値のみを受け付けます。 パラメータを使用して日付を作成するには、 [parseDateTime](parse-and-format-date-function-calls#parsedatetime-utc) 関数を使用します。
 
-1. Years
-    * Type: integer, four digits, and greater than 1799
-2. Months
-    * Type: integer, between 1 and 12
-3. Days
-    * Type: integer, between 1 and 31
-4. Hours
-    * Type: integer, between 0 and 23
-5. Minutes
-    * Type: integer, between 0 and 59
-6. Seconds
-     * Type: integer, between 0 and 59
+## 2値
 
-One parameter:
+これらの関数は、次の順序で入力値を 1 つから 6 つの間で取ります。
 
-```java
-dateTime(2007)
-```
+1. 年 (型: 整数、4桁、1799年より大きい)
+2. months (type: integer, between 1 and 12)
+3. days (type: integer, between 1 and 31)
+4. hours (type: integer, between 0 and 23)
+5. 分 (0から59の間の整数)
+6. seconds (type: integer, between 0 and 59)
 
-returns:
+## 3つの例
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+以下の例は、式が返す値を示しています。
 
-Two parameters:
+* 入力として1つの値を指定した場合:
 
-```java
-dateTime(2007, 1)
-```
+    ```java
+    dateTime(2007)
+    ```
 
-return:
+    式は次の出力を返します:
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-Three parameters:
+* 入力として2つの値を指定した場合:
 
-```java
-dateTime(2007, 1, 1)
-```
+    ```java
+    dateTime(2007年, 1)
+    ```
 
-return:
+    式は次の出力を返します:
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-Four parameters:
+* 3つの値を入力として指定した場合:
 
-```java
-dateTime(2007, 1, 1, 1)
-```
+    ```java
+    dateTime(2007年, 1, 1)
+    ```
 
-return:
+    式は次の出力を返します:
 
-```java
-"Mon Jan 01 01:00:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-Five parameters:
+* 入力として4つの値を指定した場合:
 
-```java
-dateTime(2007, 1, 1, 1, 1)
-```
+    ```java
+    dateTime(2007年, 1, 1, 1)
+    ```
 
-return:
+    式は次の出力を返します:
 
-```java
-"Mon Jan 01 01:01:00 CET 2007"
-```
+    ```java
+    "Mon Jan 01 01:00:00 CET 2007"
+    ```
 
-Six parameters:
+* 入力として5つの値を指定した場合:
 
-```java
-dateTime(2007, 1, 1, 1, 1, 1)
-```
+    ```java
+    dateTime(2007年, 1, 1, 1, 1)
+    ```
 
-return:
+    式は次の出力を返します:
 
-```java
-"Mon Jan 01 01:01:01 CET 2007"
-```
+    ```java
+    "Mon Jan 01 01:01:00 CET 2007"
+    ```
+
+* 6つの値を入力として指定した場合:
+
+    ```java
+    dateTime(2007年, 1, 1, 1, 1, 1, 1)
+    ```
+
+    式は次の出力を返します:
+
+    ```java
+    "Mon Jan 01 01:01:01 CET 2007"
+    ```
