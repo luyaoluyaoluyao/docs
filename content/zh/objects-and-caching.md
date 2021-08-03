@@ -1,74 +1,74 @@
 ---
-title: "Objects & Caching"
-category: "Mendix Runtime"
-description: "This page describes how objects interact with each other within a runtime request."
+title: "对象 & 缓存中"
+category: "Mendix 运行时间"
+description: "此页面描述了天体在运行请求中如何相互作用。"
 tags:
-  - "runtime"
+  - "运行时间"
   - "MendixObject"
-  - "caching"
-  - "context"
-  - "session"
-  - "request"
-  - "microflow"
+  - "缓存"
+  - "上下文："
+  - "目 录"
+  - "请求"
+  - "微流"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This page describes how objects get loaded from the database, in which cases objects are cached, when a cached object is retrieved, and what happens when an object gets changed and committed.
+此页面描述对象如何从数据库中加载，在这种情况下对象被缓存， 当缓存对象被检索时，以及当对象被更改和提交时会发生什么情况。
 
-The term "object" refers to an instance of a Mendix entity.
+“object”一词是指Mendix 实体的实例。
 
-## 2 Object Caching
+## 2 个对象缓存
 
-Mendix does not cache objects within Mendix Runtime over multiple requests. It does collect and keep a reference to objects changed within a request. In some retrieve actions, this object gets prevalence above the database, and in others it does not. This impacts the performance and the way the system works.
+Mendix 不会在Mendix Runtime中缓存对象多次请求。 它确实收集和保留对请求中更改的对象的引用。 在某些检索行动中，此对象会在数据库上方占据优先位置，而在另一些情况下，则不会占据优先位置。 这影响到该系统的性能和运作方式。
 
-## 3 Which Objects Are Tracked
+## 3 哪些对象被跟踪
 
-Only non-persistable objects, new objects, and changed objects are tracked. This means that they are kept in memory for the duration of the request at runtime. When the request has finished, the object state is returned to the client, or it is discarded in the case of non-client actions. As soon as an object is committed it will no longer be tracked, except for non-persistable objects. The same applies for the rollback of objects.
+只跟踪不可持续的对象、新对象和更改的对象。 这意味着他们在申请期间在运行时被保存在记忆中。 请求完成后，对象状态将返回客户端，或者在非客户端操作的情况下丢弃。 一旦一个物体投入使用，除非是不可穿越的物体，否则将不再追踪。 物体回滚也是如此。
 
-Unchanged existing objects are not tracked in a request scope. They will get tracked only if they get changed!
+未更改的现有对象不会在请求范围内被追踪。 他们只有在改变后才会被跟踪！
 
 {{% alert type="warning" %}}
-The Mendix Runtime cannot return the object state to the client when the client does not have sufficient permissions to access that state. This means that if you trigger a microflow that changes but does not commit an object to which you have no read access, the change will be discarded at the end of the request.
-{{% /alert %}}
+当客户端没有足够权限访问该状态时，Mendix Runtime 无法将对象状态返回客户端。 这意味着如果您触发了一个微流程，它会更改但不会提交一个您没有读取权限的对象。 这项更改将在请求结束时放弃。
+{{% /报警 %}}
 
-## 4 Scope of Tracking
+## 4 追踪范围
 
-The objects are tracked in a request scope. A request scope is always smaller than a session scope and can be shared among contexts. When using the API `ISession.createContext()`, a new request scope is created along with the new context. When a context get cloned, the request scope is shared with the cloned context. Changes to the request scope are visible to all the cloned contexts.
+在请求范围内跟踪对象。 请求范围总是小于会话范围，并可在上下文之间分享。 当使用 API `ISession.createContext()`时，一个新的请求范围将与新上下文一起创建。 当上下文被克隆时，请求范围将与克隆上下文共享。 所有克隆的上下文都可以看到对请求范围的修改。
 
-## 5 Actions
+## 5 个行动
 
-### 5.1 Actions That Return Tracked Objects
+### 5.1 退货对象的操作
 
-Some actions will read an object from the request scope first. If it is not available there, they will be read from the database. These are the actions:
+一些动作将先从请求范围读取对象。 如果没有，他们将从数据库中阅读。 这些行动是：
 
- * Retrieve by path/retrieve by association (`Core.retrieveByPath([..])`)
- * Retrieve by ID/retrieve by list of IDs (`Core.retrieveId([..])` and `Core.retrieveIdList([..])`)
+ * 通过关联路径或检索获取(`Core.re.recheveByPath([..])`)
+ * 通过ID/检索通过列表获取(`Core.re.revieId([..])` 和 `Core.re.revieIdList([..])`)
 
-This means that if the object to be retrieved is tracked by the request scope (as it is either changed, new, or non-persistable), then calling these actions/APIs will return the object from the request scope.
+这意味着如果要检索的对象被请求范围跟踪(因为要被更改) 新的或不可持续的)，然后调用这些动作/API将从请求范围返回对象。
 
-### 5.2 Action That Will Never Return Tracked Objects
+### 5.2 将永远不退回追踪的对象
 
-One action will always ignore the request scope and will always read objects from the database: retrieve by XPath (all variants).
+一个动作将总是忽略请求范围并总是从数据库读取对象：通过 XPath 检索(所有变量)。
 
-This means that although the object might be tracked in the request scope as it is changed, a fresh copy of the object will be read from the database anyhow. Changes made to one of the copies of the same entity instance will not be visible on the other copies!
+这意味着虽然该对象可能在请求范围内被跟踪，但它已被更改。 从数据库读取对象的新副本。 对同一实体实例副本之一的更改将不会在其他副本上可见！
 
-## 6 Impact
+## 6 影响
 
-### 6.1 Impact of This Behavior on Your Solutions
+### 6.1 此行为对您解决方案的影响
 
-If you have a few references to entity instances and you got these references via different ways, they might be copies of the same entity instance. Keep in mind that changes to one of the copies will not be reflected in the other copies.
+如果您有一些实体实例的引用，您可以通过不同的方式获得这些引用， 它们可能是同一个实体实例的副本。 请记住，对一份副本的更改将不会反映在其他副本中。
 
-There is no clear way to identify this, so to ensure you have the latest version of the object, you should re-read the object as soon as you have committed changes to it to the database.
+没有明确的方法来识别这个问题，以确保你有最新版本的对象， 一旦您对数据库做出更改，您应立即重新读取对象。
 
-### 6.2  Impact on Microflows
+### 6.2 对微流的影响
 
-This behavior impacts microflows in a similar way. Therefore, the best practice here is to reload an object as soon as you have committed changes to another reference of (potentially) the same object.
+这种行为以类似方式影响微流。 因此，此处的最佳做法是，一旦你承诺改变（可能）同一目标的另一处参考，就重新装载一个物体。
 
-### 6.3 Impact of Using Non-Persistable Entities & Changed Entities in Microflows and Java Actions
-When a user calls a microflow from the client, a copy of the state is sent with the request to the runtime. This copy stays at the runtime and is updated by the runtime during processing of this request. After the request has finished processing, it will return to the client, which will update its client state with the information returned by the response.
+### 6.3 使用不可持续实体的影响 & 更改实体在微流和 Java 操作中
+当用户从客户端调用微流时，将向运行时发送请求的状态副本。 此副本在运行时保持，并且在处理此请求时在运行时更新。 在请求处理完毕后，它将返回客户端，客户端将根据响应返回的信息更新客户状态。
 
-On the server side, this state can only be accessed by that request handling action. This means that it is no longer possible to query the state of a non-persistable entity when it is updated by another request, other than via the client (as the other request needed to return this non-persistable entity to the client, which in turn sends this with a subsequent request to the server).
+在服务器端，该状态只能通过该请求处理操作来访问。 这意味着在通过另一项请求更新时，不再可能查询不可持续实体的状态。 除通过客户以外的其他实体（如需将这个不可持续的实体退回客户端的其他请求）， 该服务器随后向服务器发送请求)。
 
-When a request triggers an asynchronous action on the runtime, it gets the state as it was from the moment it was initiated. You can only track the action by the client and get its updated state when the asynchronous action is finished if this action was asynchronously executed by the client. When the asynchronous action is triggered on the runtime using a Java Action, the state updates can not be tracked by the client (similar to refresh, datavalidation and other instructions).
+当一个请求在运行时触发异步动作时，它会从启动之时起获得状态。 如果异步操作是由客户端异步执行的，您只能跟踪客户端的动作并获得其更新状态。 当运行时使用 Java 操作触发异步动作时， 无法通过客户端跟踪状态更新(类似于刷新、数据验证和其他说明)。
