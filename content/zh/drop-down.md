@@ -10,8 +10,12 @@ tags:
   - "枚举数"
   - "studio pro"
 aliases:
-  - /refguide/drop-down-widget.html
+  - /refguide8/drop-down-widget.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/drop-down.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -48,19 +52,19 @@ aliases:
 
 ### 2.1 共同部分{#common}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
 ### 2.2 数据源部分{#data-source}
 
-{{% snippet file="refguide/data-source-section-link.md" %}}
+{{% snippet file="refguide8/data-source-section-link.md" %}}
 
 ### 2.3 设计属性部分{#design-properties}
 
-{{% snippet file="refguide/design-section-link.md" %}}
+{{% snippet file="refguide8/design-section-link.md" %}}
 
 ### 2.4 可编辑性部分{#editability}
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+{{% snippet file="refguide8/editability-section-link.md" %}}
 
 ### 2.5 事件部分{#events}
 
@@ -68,13 +72,13 @@ aliases:
 
 更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
-{{% snippet file="refguide/events-section-link.md" %}}
+{{% snippet file="refguide8/events-section-link.md" %}}
 
 #### 2.5.2 输入时
 
 输入小部件时指定了一个执行的动作。 要么使用 <kbd>Tab</kbd> 键，要么用鼠标点击它。
 
-{{% snippet file="refguide/events-section-link.md" %}}
+{{% snippet file="refguide8/events-section-link.md" %}}
 
 #### 2.5.3 请假
 
@@ -82,7 +86,7 @@ aliases:
 
 This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
 
-{{% snippet file="refguide/events-section-link.md" %}}
+{{% snippet file="refguide8/events-section-link.md" %}}
 
 ### 2.6 一般部分{#general}
 
@@ -98,15 +102,15 @@ This differs from the [On change](#on-change) property in that the event will al
 
 ### 2.7 标签部分{#label}
 
-{{% snippet file="refguide/label-section-link.md" %}}
+{{% snippet file="refguide8/label-section-link.md" %}}
 
 ### 2.8 验证部分{#validation}
 
-{{% snippet file="refguide/widget-validation-link.md" %}}
+{{% snippet file="refguide8/widget-validation-link.md" %}}
 
 ### 2.9 可见性部分{#visibility}
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
+{{% snippet file="refguide8/visibility-section-link.md" %}}
 
 ## 3 阅读更多
 
