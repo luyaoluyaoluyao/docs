@@ -1,55 +1,55 @@
 ---
-title: "Branch Line Manager"
-parent: "version-control-menu"
+title: "分支行管理器"
+parent: "版本控制-菜单"
 menu_order: 80
 tags:
   - "studio pro"
-  - "manage branch lines"
-  - "branch line manager"
+  - "管理分支行"
+  - "分支行管理器"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Branch Line Manager** is used to manage the [branch lines](version-control#branches) of an app that are stored on a version control server. The dialog box looks the same for both SVN and Git version control except for a few minor differences:
+**分支行管理器** 用于管理 [分支行](version-control#branches) 存储在版本控制服务器上的应用程序。 SVN 和 Git 版本控制的对话框看起来相同，只是一些小的差异：
 
-*  Dialog box for SVN:
+*  SVN对话框：
 
-    ![SVN Branch Line Manager](attachments/version-control-menu/branch-line-manager.png)
+    ![SVN 分支行管理器](attachments/version-control-menu/branch-line-manager.png)
 
-*  Dialog box for Git:
+*  Git的对话框：
 
-    ![Git Branch Line Manager](attachments/version-control-menu/git-branch-line-manager.png)
+    ![Git 分支行管理器](attachments/version-control-menu/git-branch-line-manager.png)
 
-To view the **Branch Line Manager** dialog box, open **Version Control** > **Manage Branch Lines**.
+要查看 **分支行管理器** 对话框，打开 **版本控制** > **管理分支行**。
 
-A branch line allows independent development from other development lines. There are two main reasons for creating a branch line:
+分界线允许独立于其他发展线的发展。 创建分支线有两个主要原因：
 
-* To do maintenance development on a version of your app that is running in production. You can keep on developing in the main line while you fix issues in the branch line.
-* To start the development of a very large feature that will take more than a day to develop. By doing this in a branch line, you can commit the half-implemented feature (possibly even with errors) without disturbing other development in the main line.
+* 在正在生产中的应用程序版本上进行维护开发。 您可以在主行继续开发，同时修复分支行中的问题。
+* 开始开发一个非常庞大的功能，需要一天以上的时间。 通过在分支行中做到这一点，您可以在不扰乱主行中的其他发展的情况下进行半实现功能(甚至可能有错误)。
 
-## 2 Location
+## 2 个位置
 
-Use this setting to select the location where your app is stored. This can be either the [Team Server](#team-server-app) or a [private SVN or Git repository](#byo-server-app).
+使用此设置选择您应用存储的位置。 这可以是 [团队服务器](#team-server-app) 或 [私有的 SVN 或 Git 仓库](#byo-server-app)。
 
 {{% alert type="warning" %}}
-This option is only available when support for private SVN or Git servers is enabled in [Preferences](preferences-dialog).
-{{% /alert %}}
+此选项仅在 [首选项](preferences-dialog) 启用私有的 SVN 或 Git 服务器时有效。
+{{% /报警 %}}
 
-### 2.1 Team Server App {#team-server-app}
+### 2.1 团队服务器应用 {#team-server-app}
 
-Select the Team Server app for which you want to manage the branch lines. If you have an app open in Studio Pro, it will be selected automatically. However, you can also manage branch lines without opening an app first, in which case no app will be selected.
+选择您想要管理分支行的团队服务器应用程序。 如果您在Studio Pro中打开了一个应用程序，它将被自动选择。 然而，您也可以管理分支行，而不需要先打开一个应用，在这种情况下不会选择任何应用程序。
 
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
+关于Mendix Team Server的更多信息，请参阅 [Team Server](/developerportal/collaborate/team-server)。
 
-### 2.2 Bring Your Own (BYO) SVN or Git Server App {#byo-server-app}
+### 2.2 带给您自己的 (BYO) SVN 或 Git 服务器应用程序 {#byo-server-app}
 
-In the **App repository address** field, enter the address of the app you want to manage and click **Connect** to load the available branches from the repository.
+在 **应用仓库地址** 字段中 输入您想要管理的应用程序的地址并单击 **Connect** 从资源库中加载可用分支。
 
-## 3 Managing Branch Lines
+## 3 管理分支行
 
-In the **Branch Line Manager**, you can create and delete branch lines, and enable and disable Mendix Studio for the app. For more information on how to perform these actions, see the [Managing Studio on Development Lines](collaborative-development#managing-studio) and [Managing Development Lines](collaborative-development#managing-branches) sections in *Collaborative Development*.
+在 **分支行管理器**，您可以创建和删除分支行，并启用和禁用应用程序的 Mendix Studio 。 关于如何执行这些行动的更多信息 查看 [管理工作室发展线](collaborative-development#managing-studio) 和 [管理发展线](collaborative-development#managing-branches) 部分在 *合作发展*
 
-## 4 Read More
+## 4 阅读更多
 
-* [Version Control](version-control)
-* [Collaborative Development](collaborative-development)
+* [版本控制](version-control)
+* [合作发展](collaborative-development)
