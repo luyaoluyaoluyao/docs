@@ -1,90 +1,90 @@
 ---
-title: "Report Date Parameter"
-parent: "report-widgets"
+title: "レポート日付パラメータ"
+parent: "レポートウィジェット"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A **Report date parameter** allows the end-user to specify a Date and time parameter for the [data set](data-sets) that supplies the data for a [Report grid](report-grid). The parameter is used to filter the results in different ways so that the same report can display different sets of data.
+**レポート日付パラメータ** により、エンドユーザーは、 [レポート グリッド](data-sets) のデータを提供する [データ セット](report-grid) の日付と時刻のパラメータを指定できます。 このパラメータは、同じレポートが異なるデータセットを表示できるように、さまざまな方法で結果をフィルタリングするために使用されます。
 
-For example, a report may show order data for a customer over a selected period, and the report date parameter can be used to specify which period should be selected.
-
-{{% alert type="info" %}}
-You can add more fields to a report date parameter widget to make it easier for an end-user to select a date range. See [Additional Report Date Parameter Fields](#additional-fields), below, for more information.
-{{% /alert %}}
-
-The report date parameter is displayed in structure mode with the data set parameter name shown between square brackets and colored blue. The **From** and **To** dates shown in blue are examples to indicate that these are date fields.
-
-![Report date parameter in structure mode](attachments/report-widgets/report-date-parameter.png)
+たとえば、レポートに選択した期間にわたって顧客の注文データが表示されることがあります。 として、レポート日付パラメータを使用して、選択する期間を指定できます。
 
 {{% alert type="info" %}}
-If you have a report date parameter widget on the page, you must also add a [Report Button](report-button) widget so that it is possible for the end-user to regenerate the report after specifying the parameter.
+レポート日付パラメータウィジェットにさらに項目を追加して、エンドユーザーが日付範囲を選択しやすくすることができます。 詳細については、以下の [日付パラメータフィールド](#additional-fields)を参照してください。
 {{% /alert %}}
 
-## 2 Report Date Parameter Properties
+レポート日付パラメータは構造モードで表示され、データセットパラメータ名は角括弧と青色の間で表示されます。 青色で示されている **** と **から** までの日付は、これらが日付フィールドであることを示す例です。
 
-An example of report date parameter properties is represented in the image below:
+![ストラクチャーモードでレポート日付パラメータ](attachments/report-widgets/report-date-parameter.png)
 
-{{% image_container width="300" %}}![Report date parameter in structure mode](attachments/report-widgets/report-date-parameter-properties.png)
+{{% alert type="info" %}}
+レポート日付パラメータウィジェットがページ上にある場合。 また、 [レポート ボタン](report-button) ウィジェットを追加して、パラメータを指定した後で、エンドユーザーがレポートを再生成できるようにする必要があります。
+{{% /alert %}}
+
+## 2 日付パラメータのプロパティ
+
+レポート日付パラメータのプロパティの例を以下の画像に示します。
+
+{{% image_container width="300" %}}![ストラクチャーモードでレポート日付パラメータ](attachments/report-widgets/report-date-parameter-properties.png)
 {{% /image_container %}}
 
-Report date parameter properties consist of the following sections:
+レポート日付パラメータのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section{#general}
+### 2.3 一般セクション{#general}
 
-#### 2.3.1 Parameter
+#### 2.3.1 パラメータ
 
-**Parameter** is set to a data set parameter of type Date and time, the value of which is restricted by this widget. The corresponding data set must be used by one of the report widgets on the page.
+**パラメータ** は、このウィジェットで制限される日付と時刻型のデータセットパラメータに設定されます。 対応するデータセットは、ページのレポート ウィジェットのいずれかで使用する必要があります。
 
-#### 2.3.2 Fields Per Row
+#### 行あたり2.3.2 フィールド
 
-**Fields per row** specifies how many [date range fields](date-range-field) can be placed beside each other in a row. There are always two rows available for data range fields. See [Additional Report Date Parameter Fields](#additional-fields), below, for more information.
+**行ごとのフィールド** は、行内のお互いの横に配置できる [日付範囲 フィールド](date-range-field) の数を指定します。 データ範囲フィールドには、常に2つの行があります。 詳細については、以下の [日付パラメータフィールド](#additional-fields)を参照してください。
 
-#### 2.3.3 From Caption
+#### 2.3.3 図表番号から
 
 **From** specifies the text that is displayed against the **from** date selector, where the end-user can choose the start of the period for which data should be shown in the report.
 
-#### 2.3.4 To Caption
+#### 2.3.4 図表番号
 
-**To** specifies the text that is displayed against the **to** date selector, where the end-user can choose the end of the period for which data should be shown in the report.
+**To** は、 **to** 日付セレクターに対して表示されるテキストを指定します。 ここで、エンドユーザーは、レポートにデータを表示する期間の終わりを選択できます。
 
-#### 2.3.5 Show From/To
+#### 2.3.5 From/To の表示
 
-Set **Show from/to** to **Yes** if the **from** and **to** field results should be shown on the report page.
+**** から **から** の結果をレポート ページに表示する場合は、 **から** へ **から** フィールドの結果を表示する場合は、</strong> に </strong> を</strong> に設定します。
 
-Set this to **No** if the **from** and **to** field results should not be shown. In this case, the filter must be set using [date range fields](date-range-field) added to the report date parameter.
+**から** への **と** への **の** フィールドの結果が表示されない場合はformat@@6いいえ</strong>に設定します。 この場合、レポート日付パラメータに追加された [日付範囲フィールド](date-range-field) を使用してフィルタを設定する必要があります。
 
-#### 2.3.6 Min. Year
+#### 2.3.6 分 年
 
-**Min. year** is the earliest year that the end-user can choose in the **Year** [date range field](date-range-field).
+**最小. year** は、エンドユーザーが **Year** [date range field](date-range-field) で選択できる最も早い年です。
 
 {{% alert type="warning" %}}
-The value in **Min. year** will not prevent an end-user from choosing an earlier date in the **From** or **To** fields of the report date parameter widget. It only applies to the *year* date range field.
+**分以内の値。 年** は、レポート日付パラメータウィジェットの **から** または **から** までのフィールドで、エンドユーザーが以前の日付を選択することを妨げません。 これは、 *年* 日付範囲フィールドにのみ適用されます。
 {{% /alert %}}
 
-#### 2.3.7 Max. year
+#### 最大2.3.7 年
 
-**Max. year** is the latest year that the end-user can choose in the **Year** [date range field](date-range-field).
+**最大. year** は、エンドユーザーが **Year** [date range field](date-range-field) で選択できる最新の年です。
 
 {{% alert type="warning" %}}
-The value in **Max. year** will not prevent an end-user from choosing a later date in the **From** or **To** fields of the report date parameter widget. It only applies to the *year* date range field.
+最大 **の値。 年** は、レポート日付パラメータウィジェットの **から** または **から** までのフィールドで、エンドユーザーが日付を選択することを妨げません。 これは、 *年* 日付範囲フィールドにのみ適用されます。
 {{% /alert %}}
 
 ## 3 Additional Report Date Parameter Fields{#additional-fields}
 
-You can add extra fields to allow the end-user to easily select date ranges without needing to enter both the **From** and **To** dates. For more information, see [Date Range Field](date-range-field).
+**From** と **To** の両方の日付を入力する必要なく、エンドユーザーが簡単に日付範囲を選択できるように追加の項目を追加できます。 詳細については、 [日付範囲フィールド](date-range-field) を参照してください。
