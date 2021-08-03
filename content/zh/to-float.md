@@ -1,30 +1,30 @@
 ---
-title: "To float"
-parent: "expressions"
+title: "浮点数"
+parent: "表达式"
 ---
 
 
-Converts a value of type Decimal to type Float.
+将小数型变量转换为浮点型。
 
 {{% alert type="warning" %}}
 
-This function is deprecated together with the Float type. Use the high-precision Decimal type instead.
+此函数与浮动类型一起被废弃。 使用高精度小数点后缀。
 
-{{% /alert %}}
+{{% /报警 %}}
 
 ## toFloat
 
-Converts the specified Decimal value to a value of type Float.
+将指定的十进制值转换为浮点型值。
 
-### Input parameters
+### 输入参数
 
-*   A Decimal value that should be converted to a Float value.
+*   应转换为浮点数值的十进制值。
 
 ```java
 toFloat(parseDecimal('123.456'))
 ```
 
-returns:
+返回：
 
 ```java
 123.456
