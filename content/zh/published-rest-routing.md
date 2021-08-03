@@ -14,8 +14,13 @@ tags:
   - "身份认证"
   - "返回代码"
   - "已发布 REST"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+**已发布的REST 服务** 功能已被引入Mendix 7.10.0。
+
+{{% /报警 %}}
 
 当REST HTTP 请求到达服务器时，服务器需要确定要执行哪个 [操作](published-rest-operation) 以及应用什么安全性。
 
