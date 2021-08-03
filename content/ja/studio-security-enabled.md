@@ -1,149 +1,149 @@
 ---
-title: "Model Changes When Security Is Enabled in Studio"
-parent: "security"
-description: "Describes checks and changes in the app when security is enabled in Mendix Studio."
+title: "Studio でセキュリティが有効になっている場合のモデルの変更"
+parent: "セキュリティ"
+description: "Mendix Studio でセキュリティが有効になっている場合のアプリのチェックと変更について説明します。"
 tags:
   - "studio pro"
-  - "security"
-  - "studio"
+  - "セキュリティ"
+  - "スタジオ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes the process of model changes that are applied automatically when security is enabled in Mendix Studio. For more information on security settings in Studio, see [Security, Roles & Permissions](/studio/settings-security) in the *Studio Guide*.
+このドキュメントでは、Mendix Studio でセキュリティが有効になっている場合に自動的に適用されるモデル変更のプロセスについて説明します。 For more information on security settings in Studio, see [Security, Roles & Permissions](/studio/settings-security) in the *Studio Guide*.
 
-Users can enable security from Studio. While the Studio user simply clicks the **Enable Security** button, as a result, security is set to **Production** for the app and a number of checks and changes (if necessary) are performed automatically.
+ユーザーはStudioからセキュリティを有効にできます。 While the Studio user simply clicks the **Enable Security** button, as a result, security is set to **Production** for the app and a number of checks and changes (if necessary) are performed automatically.
 
-## 2 Process Overview
+## 2プロセスの概要
 
-When security is enabled, a number of checks and changes are done at several levels.
+セキュリティが有効になっている場合、いくつかのレベルでチェックと変更が行われます。
 
-1. Studio checks if security is enabled. If security is set to **Prototype/demo** or **Production**, the process stops. If security is off, steps described below are executed.
-2. The [Mendix SSO](/appstore/modules/mendix-sso) module is set up if the app does not have it yet (for more information on this process, see the [Modules Set Up](#module-set-up) section). If the Mendix SSO module has been already installed for this app, the process stops.
+1. Studio はセキュリティが有効かどうかをチェックします。 セキュリティが **プロトタイプ/デモ** または **プロダクション**に設定されている場合、プロセスは停止します。 セキュリティがオフの場合、以下の手順が実行されます。
+2. The [Mendix SSO](/appstore/modules/mendix-sso) module is set up if the app does not have it yet (for more information on this process, see the [Modules Set Up](#module-set-up) section). Mendix SSO モジュールがすでにこのアプリにインストールされている場合、プロセスは停止します。
 3. Studio does checks and changes (if necessary) to [demo users](demo-users) , [module roles](module-security) , and [user roles](user-roles) (for more information on this process, see the [Module Roles and Demo Users Set Up](#module-roles-and-demo-users) section).
-4. Studio sets access rules for entities (and their attributes and associations), if entities do not have access rules yet (for more information on this process, see the [Entity Access Set Up](#entity-access) section).
+4. Studio は、エンティティ（およびその属性と関連付け）に対するアクセスルールを設定します。 エンティティがまだアクセスルールを持っていない場合(このプロセスの詳細については、 [エンティティアクセスの設定](#entity-access) セクションを参照してください)。
 5. Studio checks if the *login.html* file exists, backs it up, and replaces it with a new version (for more information on this process, see the [File Set Up](#file-set-up) section).
 6. Studio does checks and changes (if necessary) at the [App Security](project-security) level (for more information on this process, see the [App Security Level Set Up](#project-security-level) section).
 
 {{% alert type="info" %}}
 
-If security has already been set to **Prototype/demo** or **Production** in Studio Pro, these settings may be incompatible (too advanced) with Studio roles and permissions settings. In this case, you will not be able to edit roles and permissions in Studio. For more information on security settings in Studio, see [Security, Roles & Permissions](/studio/settings-security) in the *Studio Guide*.
+Studio Proで既に **プロトタイプ/デモ** または **プロダクション** にセキュリティが設定されている場合。 これらの設定は、Studio ロールとパーミッションの設定と互換性がありません(高度すぎます)。 この場合、Studio でロールや権限を編集することはできません。 For more information on security settings in Studio, see [Security, Roles & Permissions](/studio/settings-security) in the *Studio Guide*.
 
 {{% /alert %}}
 
-## 3 Modules Set Up {#module-set-up}
+## 3つのモジュール設定 {#module-set-up}
 
-When security is enabled in Studio, the Mendix SSO module is set up. This module enables single sign-on and user management in your app.
+Studio でセキュリティが有効になっている場合、Mendix SSO モジュールが設定されます。 このモジュールはアプリでシングルサインオンとユーザー管理を可能にします。
 
-To enable single sign-on the following checks and changes are performed:
+シングルサインオンを有効にするには、次のチェックと変更を実行します。
 
-1. The Mendix SSO startup microflow (MendixSSO.MendixSSO_AfterStartup) is created. For more information on possible outcomes of this process, see the [App Security Level Set Up](#project-security-level) section.
-2. *login.html* file is checked and changed if necessary. For more information, see the [File Set Up](#file-set-up) section.
+1. Mendix SSO スタートアップ microflow (MendixSSO.MendixSSO_AfterStartup) が作成されます。 このプロセスの成果についての詳細は、 [App Security Level Set Up](#project-security-level) セクションを参照してください。
+2. *login.html* ファイルはチェックされ、必要に応じて変更されます。 詳細については、 [File Set Up](#file-set-up) セクションを参照してください。
 
-The Mendix SSO module also adds user management to your app. With user management you can manage app users.
+Mendix SSO モジュールは、アプリケーションにユーザー管理も追加します。 ユーザー管理を使用すると、アプリユーザーを管理できます。
 
-{{% alert type="info" %}}If your app already has the Mendix SSO module installed, you will not be able to enable security from Studio. You can only set security manually in Studio Pro meeting the following requirements:
+{{% alert type="info" %}}すでにMendix SSOモジュールがインストールされている場合、Studioからセキュリティを有効にすることはできません。 以下の要件を満たすStudio Proでのみセキュリティを手動で設定できます。
 
-* Security should be set to **Production** <br/>
-* The Mendix SSO module should be set up to enable single sign on
+* セキュリティは **プロダクション**に設定する必要があります <br/>
+* シングルサインオンを有効にするためにMendix SSOモジュールを設定する必要があります
 
 {{% /alert %}}
 
-## 4 Module Roles and Demo Users Set Up {#module-roles-and-demo-users}
+## 4モジュールの役割とデモユーザーが設定 {#module-roles-and-demo-users}
 
 After the **After startup** microflow is set up, Studio checks if the *Administrator* role, the *User* role, and *demo users* exist and creates them when necessary:
 
-1.  Studio checks if the Administrator role and the User role exist at the **App** level. If they do not exist, they will be created.
+1.  Studio は、 **App** レベルに管理者ロールとユーザーロールが存在するかどうかを確認します。 存在しない場合は、作成されます。
 
     ![](attachments/studio-security-enabled/project-security-user-roles.png)
 
-2.  After that, Studio checks if the Administrator and the User roles exist in each module of your app and if they are linked to the corresponding app roles.
+2.  その後は Studio は、管理者とユーザー ロールがアプリケーションの各モジュールに存在しているかどうか、およびそれらが対応するアプリ ロールにリンクされているかどうかを確認します。
 
     ![](attachments/studio-security-enabled/module-roles.png)
 
-    Possible outcomes of this check are the following:<br/> a. If the model has two or more module roles in one module that are connected to the Administrator app role or the User app role, then it will be Studio incompatible. Studio will not change anything in these roles, but roles and permissions will not be editable in Studio.<br/> b. If the model has one module role connected to the Administrator app role or the User app role, Studio checks if the name of the module role is identical to the app role. If the names are different, Studio disconnects this module role from the app role, creates a new one with the name identical to the app role name, and links it to the app role.<br/> c. If the model has no module roles connected to the Administrator app role or the User app role, Studio creates these roles. <br/> d. If the module role exists, its name is identical to the app role, but it is not linked to this app role, Studio creates a new module role, names it *Administrator_1* or *User_1*, and links it to the corresponding app role.<br/>
+    このチェックで考えられる結果は以下の通りです:<br/> a. 管理アプリのロールまたはユーザアプリのロールに接続されている1つのモジュールに2つ以上のモジュールのロールがある場合。 Studioと互換性がありません Studio はこれらのロールを変更しませんが、ロール や権限はStudio では編集できません。<br/> b. モデルに管理者アプリのロールまたはユーザーアプリのロールに接続されているモジュールのロールがある場合。 Studioは、モジュールロールの名前がアプリロールと同じかどうかをチェックします。 名前が異なる場合、Studio はこのモジュールロールをアプリのロールから切断します。 は、アプリケーションのロール名と同じ名前を持つ新しいものを作成し、それをアプリのロールにリンクします。<br/> c. モデルに管理者アプリのロールまたはユーザーアプリのロールに接続されているモジュールのロールがない場合、Studioはこれらのロールを作成します。 <br/> d モジュールのロールが存在する場合、その名前はアプリのロールと同じです。 しかし、このアプリのロールにはリンクされていません。Studio は新しいモジュールのロールを作成します。 Administrator_1 ** または *User_1*という名前を付け、対応するアプリのロールにリンクします。<br/>
 
-    {{% alert type="info" %}}Studio links the Administrator role from the System module to the Administrator role on the app level. *Every other app role* created from Studio, including the original User app role, will be linked to the User module role for the System module.
+    {{% alert type="info" %}}Studio は、システムモジュールからアプリレベルの管理者ロールに管理者ロールをリンクします。 *Studioから作成された他のアプリのロール* 元のユーザーアプリの役割を含めて、システムモジュールのユーザーモジュールの役割にリンクされます。
     {{% /alert %}}
 
-3. Studio links the Administrator role at the app level to MendixSSO.Administrator and Administration.Administrator (if they exist, if not, Studio will not do any linking). The User role at the app level is linked to MendixSSO.User, and Administration.User (if they exist, if not, Studio will not do any linking). All other Mendix Marketplace modules will remain unchanged.
+3. Studioは、アプリレベルのAdministratorロールをMendixSSO.AdministratorとAdministrator.Administrator(管理者が存在する場合、Studioはリンクを行いません)にリンクします。 アプリレベルのユーザーロールはMendixSSO.User、Administrationにリンクされています(存在しない場合、Studioはリンクを行いません)。 他のMendix Marketplace モジュールはすべて変更されません。
 
-    Every other user role created in Studio will be linked to the MendixSSO.User and the Administration.User in the MendixSSO and Administration modules correspondingly.
+    Studio で作成された他のすべてのユーザー ロールは、MendixSSO および Administration モジュールの MendixSSO および Administration にリンクされます。
 
-4. Studio checks if demo users named *demo_administrator* and *demo_user* exist, and if not, Studio creates them.
+4. Studio は、 *demo_administrator* と *demo_user* という名前のデモユーザーが存在するかどうかをチェックし、そうでなければ、Studio がそれらを作成します。
 
 {{% alert type="warning" %}}
 
-If Administrator and User roles already exist and are [compatible with Studio](#studio-compatible), they will get access to all microflows, nanoflows, pages, and entities (including entities' attributes and associations).
+管理者とユーザーのロールが既に存在し、 [Studio](#studio-compatible)と互換性がある場合。 彼らはすべてのマイクロフロー、ナノフロー、ページ、エンティティ(エンティティの属性と関連性を含む)にアクセスすることができます。
 
-All newly created roles get access to all pages, microflows, nanoflows, and entities (including their attributes and associations) that are in Studio, except for Marketplace pages, microflows, and entities (with their attributes and associations).
+新しく作成されたすべてのロールは、Studio 内にあるすべてのページ、マイクロフロー、ナノフロー、およびエンティティ(属性と関連付けを含む)にアクセスできます。 マーケットプレースのページ、マイクロフロー、エンティティ(属性と関連付け)を除きます。
 
-Also, all new pages, microflows, and entities (with their attributes and associations) that are created in Studio will be accessible for all existing app roles by default.
+また、すべての新しいページ、マイクロフロー、 そして、Studio で作成されたエンティティ(属性と関連付け)は、既存のすべてのアプリのロールに対してデフォルトでアクセスできます。
 
 {{% /alert %}}
 
-## 5 Entity Access Set Up {#entity-access}
+## 5 エンティティアクセス設定 {#entity-access}
 
-When you enable security, Studio creates access rules for all entities (and their attributes and associations) that do not have them. The following access rules settings are applied:
+セキュリティを有効にすると、Studio はそれらを持たないすべてのエンティティ(およびそれらの属性と関連付け)に対するアクセス ルールを作成します。 次のアクセス ルールの設定が適用されます:
 
-*   A description is added to **Documentation** of an **Access Rule** stating that it has been generated by Studio
+*   Studio によって生成されたことを示す **アクセス ルール** の **ドキュメント** に説明が追加されます。
 
     ![](attachments/studio-security-enabled/start-up-microflow.png)
 
-*  All roles in the current module, except anonymous roles, get *create* and *delete* rights for entities. The following rules are created for attributes and associations of these entities:
+*  匿名ロールを除く現在のモジュールのすべてのロールは、 ** を作成し、 *エンティティの* 権限を削除します。 これらのエンティティの属性と関連性については、次のルールが作成されます。
 
-  *  All roles in the current module, except anonymous roles, have *read* and *write* access for attributes
+  *  anonymous roles を除く現在のモジュールのすべてのロールには、 *read* and *write* access for attributes
 
-     {{% alert type="info" %}}There are cases where entities inherit from System.Image or System.FileDocument. Some of those inherited attributes cannot be set to read/write, so they are set to read-only.
+     {{% alert type="info" %}}エンティティがSystem.ImageやSystem.FileDocumentから継承される場合があります。 これらの継承された属性のいくつかは、読み取り/書き込みに設定できないため、読み取り専用に設定されます。
      {{% /alert %}}
 
-* All roles in the current module, except anonymous roles, have *read* and *write* access for associations if the entity is the association owner
+* 匿名ロールを除く現在のモジュール内のすべてのロール has *read* and *write* access for association if the entity is the association owner
 
 {{% alert type="info" %}}
 
-The rules described above are created if you create an entity in Studio.
+Studio でエンティティを作成する場合は、上記のルールが作成されます。
 
-If you copy-paste an entity, the access rules of the original entity are copied as much as possible. However, if you have a generalization on an entity and you copy it to another app, the generalization is removed.
+エンティティをコピー&ペーストすると、元のエンティティのアクセスルールはできるだけ多くコピーされます。 ただし、エンティティに一般化があり、別のアプリにコピーすると、一般化は削除されます。
 
 {{% /alert %}}
 
-## 6 File Set Up {#file-set-up}
+## 6 ファイル設定 {#file-set-up}
 
-As the last stage, Studio applies the changes *login.html* file in your app.
+最後の段階として、Studio はアプリで *login.html* ファイルを変更します。
 
-If the *login.html* file exist, Studio backs it up in the same folder under the name *login_backup_year-month-day_hour-minute.html*, indicating the date and time of the backup. Studio also creates a new file under the name *login.html*
+If the *login.html* file exist, Studio backs it up in the same folder under the name *login_backup_year-month-day_hour-minute.html*, indicating the date and time of the backup. Studio は、 *login.html という名前で新しいファイルも作成します*
 
-If the *login.html* file does not exist, Studio creates it under the name *login.html*
+*login.html* ファイルが存在しない場合、Studio は *login.html という名前で作成します*
 
-This procedure enables single sign-on and allows existing users to automatically sign in to your app using their Mendix accounts.
+この手順により、シングルサインオンが可能になり、既存のユーザーはMendixアカウントを使用して自動的にアプリにサインインできます。
 
-## 7 App Security Level Set Up {#project-security-level}
+## 7 アプリのセキュリティレベルを設定 {#project-security-level}
 
-On the **App** level, Studio does the following:
+**App** レベルでは、Studio は次の操作を行います。
 
-1. The **App Security** is set to **Production**.
+1. **App Security** は **プロダクション** に設定されています。
 
-2.  Studio checks if the **After startup** microflow exists in **App** > **Settings** > **Runtime**.
+2.  Studio は、 **起動後** マイクロフローが **App** > **設定** > **ランタイム** に存在するかどうかをチェックします。
 
     ![](attachments/studio-security-enabled/start-up-microflow.png)
 
-    There are two possible outcomes of this check:<br/> a. If the model does not contain any **After startup** microflow, the *MendixSSO.MendixSSO_AfterStartup* microflow is used.<br/> b. If the model contains the **After startup** microflow, Studio creates *CallBothStartupMicroflows* microflow in the same place as the existing one. *CallBothStartupMicroflows* will call the *MendixSSO.MendixSSO_AfterStartup* microflow first, then it will call the microflow that already existed in the app.
+    このチェックには2つの可能性があります:<br/> a. モデルに **起動後** マイクロフローが含まれていない場合は、 *MendixSSO.MendixSSO_AfterStartupt* マイクロフローが使用されます。<br/> b. モデルに **起動後の** マイクロフローが含まれている場合、Studioは既存のものと同じ場所に *CallBothStartupMicroflows* マイクロフローを作成します。 *CallBothStartupMicroflow* は *MendixSSO.MendixSSO_AfterStartup* マイクロフローを最初に呼び出し、次にアプリ内に既存のマイクロフローを呼び出します。
 
-## 8  Studio Compatibility {#studio-compatible}
+## 8スタジオ互換性 {#studio-compatible}
 
-Studio Pro security settings are compatible with Studio (that means that roles and permissions can be edited in Studio), when all of the following criteria are met:
+Studio Pro のセキュリティ設定は Studio と互換性があります (つまり、ロールや権限は Studio で編集できます)。 以下のすべての基準が満たされた場合:
 
-* The Mendix SSO module has been installed
-* The security level has been be set to production
-* Demo users have been enabled
-* Demo users must have the correct name: identical to the app role name, but with the *demo_* prefix (for example, demo_user)
-* Demo users must have exactly one user role connected to them
-* User roles must have a demo user connected to them
-* User roles must have exactly one module role per module connected to them (Studio does not check System or Marketplace modules)
-* Module roles do not have more than one user role connected to them
+* Mendix SSO モジュールがインストールされました
+* セキュリティレベルは本番環境に設定されています
+* デモユーザーが有効になっています
+* デモユーザーは、アプリのロール名と同じ名前を持つ必要がありますが、 *demo_* プレフィックスを持つ必要があります (例えば、demo_user)
+* デモユーザーは、ユーザーに接続されているユーザーロールを1つだけ持つ必要があります
+* ユーザーロールにはデモユーザーが接続されている必要があります
+* ユーザーロールはモジュールに接続されているモジュールごとに1つのロールを持つ必要があります (Studio はシステムまたはマーケットプレイスモジュールをチェックしません)
+* モジュールロールには複数のユーザーロールが接続されていません
 
-## 9 Read More
+## 9 続きを読む
 
-* [Security, Roles & Permissions](/studio/settings-security)
-* [App Security](project-security)
-* [Module Security](module-security)
+* [セキュリティ、ロール & 権限](/studio/settings-security)
+* [アプリのセキュリティ](project-security)
+* [モジュールのセキュリティ](module-security)
