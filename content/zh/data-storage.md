@@ -1,11 +1,64 @@
 ---
-title: "Data Storage"
-category: "Mendix Runtime"
+title: "数据存储"
+category: "Mendix 运行时间"
+tags:
+  - "studio pro"
+  - "数据库"
 ---
 
-Data storage is the data foundation of the Mendix runtime. Data storage does the following:
+## 1 导言
 
-* Connects to supported relational databases
-* Stores and retrieves entities and associations from the domain model
-* Translates XPath and OQL queries to SQL queries
-* Handles security transparently and effectively
+数据存储是Mendix Runtime的数据基础。 数据存储功能如下：
+
+* 连接到支持的关系数据库
+* 从域模型中存储和检索实体和协会
+* 将 XPath 和 OQL 查询翻译为 SQL 查询
+* 透明和有效地处理安全
+
+{{% alert type="warning" %}}
+每个应用都有自己的数据库，不能直接与其他应用共享。 如果您想要与另一个应用共享数据， 您必须使用 [Data Hub](/data-hub/share-data) 或者 [REST 和 OData](integration) Mendix 的功能发布一个 API。
+
+请参阅下面 [数据库和应用程序](#databases)。
+{{% /报警 %}}
+
+## 2 支持的数据库
+
+对于部署到 Mendix Cloud的应用，Mendix 使用 PostgreSQL 数据库来存储应用程序域模型中定义的数据。
+
+如果你部署到另一个基础设施，Mendix 支持以下数据库。
+
+* IBM DB2
+* HSQDB
+* MySQL
+* Oracle RDBMS
+* PostgreSQL
+* SAP HANA
+* Microsoft SQL 服务器
+
+## 3 数据库和应用程序{#databases}
+
+每个应用都有自己的数据库，在应用中模块的域模型中进行描述。
+
+本节解释了为什么您不能在应用之间共享数据库，并且提供了分享数据的替代方法。
+
+### 3.1 数据库表名称
+
+您的应用指的是使用其名称和模块的实体。 但是，拥有每个实体数据的数据库表用独特的标识符与域模型中的实体相连。 例如，您的应用程序中的 `订单` 实体可能会获得一个 ID `807106d1-c0a8-4ef5-a387-2073cdee6d55` 如果您删除一个实体并创建一个具有相同名称的新实体， 它将提供一个不同的ID，因为模型将把它看作一个新的实体。
+
+ID将在您的应用中保持连接到这个实体，以便您可以创建多个分支并在使用相同的数据库时部署您的应用的新版本。 这允许您更改域模型中的实体，如重命名它 和应用程序将知道它仍然是同一个实体。
+
+然而，如果您导出模块并导入到另一个应用，新应用中的实体将获得新的 ID。 因为ID用于确认数据库中的表格与您的域模型之间的关系， 当你部署你的应用程序时，你会得到一个完全不同的数据库表，尽管域模型是相同的。 这也适用于从另一个应用程序备份时将数据还原到一个应用程序。
+
+### 3.2 共享数据库的后果
+
+想象您有一个订单处理应用， `订单处理`，它使用了 `MyModule。 rder` entity with the ID `807106d1-c0a8-4ef5-a387-2073cdee6d55`
+
+您现在创建了第二个应用程序， `订单查看器`，您想要用它来查看您的订单。 您从 `订单处理` 导出域模型并将其导入到 `订单查看器`。 然而，这个新应用中的 `MyModule.Order` 实体将获得不同的 ID，例如 `836a64f6-6e70-4f69-ba30-ed3876fd33b9`。
+
+您现在尝试部署 `订单查看器` 来使用相同的数据库 `订单处理`。 因为 `订单` 实体有一个不同的ID，Mendix Runtime 将会看到两个表格是不同的。 现有的表 `mymodule$order` 将被删除，一个新的 `mymodule$order` 表将被创建链接到新的 ID。
+
+### 3.3 如何分享数据
+
+如果你想要在应用之间共享数据，你应该设置一个 *微服务* 结构。 简而言之，确认您想要用来存储数据的一个应用程序。 此应用现在将完成创建、阅读、更新和删除数据的全部工作。 它将发布一个 API 以允许其他应用访问数据，例如使用 [OData](published-odata-services) 或 [Data Hub](/data-hub/share-data/)。 其它应用可以消耗此 API 来使用数据。 这确保数据只有一个来源，并保证数据的一致性。
+
+一个替代办法是将数据复制到另一个应用，例如使用 [数据库复制](/appstore/modules/database-replication) 模块。 然而，这一点仍然存在。 当您复制数据时，您的数据将是一个快照，原应用程序中数据的更改将不会反映在您的新应用程序中。
