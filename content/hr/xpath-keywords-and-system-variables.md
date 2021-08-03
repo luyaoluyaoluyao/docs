@@ -1,9 +1,6 @@
 ---
-title: "XPath Keywords & System Variables"
+title: "XPath Keywords and System Variables"
 parent: "xpath-constraints"
-tags:
-  - "studio pro"
-  - "BeginOfCurrent"
 ---
 
 ## 1 Overview
@@ -46,10 +43,6 @@ These will be created for each user role in your app. Here is an example:
 | ---------------------------- | ---------------------------- |
 | `[%UserRole_Administrator%]` | The Administrator user role. |
 
-Here is an example for retrieving that user role:
-
-![](attachments/xpath/user-role.png)
-
 ### 3.3 Time-Related
 
 The following tokens can be used to obtain a date and time value:
@@ -91,7 +84,6 @@ The following tokens can be used to add or subtract a period of time from a date
 | `[%MinuteLength%]` | The length of one minute.            |
 | `[%SecondLength%]` | The length of one second.            |
 | `[%WeekLength%]`   | The length of one week (seven days). |
-| `[%MonthLength%]`  | The length of one month.             |
 | `[%YearLength%]`   | The length of one year.              |
 
 {{% alert type="info" %}}
