@@ -1,20 +1,20 @@
 ---
-title: "Export to excel button"
-parent: "control-bar"
+title: "导出到Excel按钮"
+parent: "控制栏"
 ---
 
 
-This button allows end-users to export the contents of the grid or reference set selector to an excel file. Please note that constraints by use of search fields and sorting will also be exported.
+此按钮允许最终用户将网格内容或参考设置选择器导出到excel文件。 请注意通过搜索字段和排序的限制也将被导出。
 
-The excel export function relies on a specific data retrieval method. As such, it is only available in list widgets that use the XPath data source.
+Excel导出功能依赖于特定的数据检索方法。 因此，它只能在列表小部件中使用 XPath 数据源。
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -24,26 +24,26 @@ The excel export function relies on a specific data retrieval method. As such, i
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-### Maximum number of rows
+### 最大行数
 
-Indicates the maximum number of rows that can be present in the datagrid when exporting. Useful to prevent users from exporting large quantities of data, potentially placing a heavy load on the server.
+指示导出时数据网格中的最大行数。 有助于防止用户导出大量数据，可能会给服务器带来沉重的负荷。
 
-### Date export format
+### 日期导出格式
 
-Defines how dates will be exported. When _Date value_ is selected, date values will be exported as real dates, so that it is possible to use Excel date functions like sorting. When _Text_ is selected, date values will be exported exactly as shown in the data grid.
+定义如何导出日期。 当选择 _日期值_ 时，日期值将被导出为实际日期， 这样可以使用 Excel 日期函数，如排序。 当选择 _文本_ 时，日期值将按数据网格中显示的方式导出。
 
-_Default value:_ Date value
+_默认值：_ 日期值
 
 {{% alert type="warning" %}}
 
-When choosing _Date value_, dates will be shown only in the time zone of your Windows account, because Excel does not support defining specific time zones.
+选择 _日期值_时，日期将只显示在您的 Windows 账户的时区。 因为Excel不支持定义特定时区。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## Visibility properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
