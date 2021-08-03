@@ -1,21 +1,21 @@
 ---
 title: "MxBuild"
-category: "General Info"
+category: "一般情報"
 menu_order: 50
-description: "Describes MxBuild which is a command-line tool for building and deploying Mendix Apps"
+description: "Mendix Appsを構築およびデプロイするためのコマンドラインツールであるMxBuildの説明"
 tags:
-  - "build"
-  - "deploy"
-  - "deployment package"
-  - "command-line"
+  - "ビルド"
+  - "デプロイする"
+  - "デプロイパッケージ"
+  - "コマンド"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-MxBuild is a Windows and Linux command-line tool that can be used to build a Mendix Deployment Package from a Mendix app.
+MxBuild は、Mendix アプリから Mendix Deployment Package を構築するのに使用できる Windows および Linux のコマンドラインツールです。
 
-The version of MxBuild which you need is dependent on the version of the Mendix model you want to build. You can find your correct MxBuild by entering this URL into a browser and replacing `mxversion` with your own, full Mendix version number: `https://cdn.mendix.com/runtime/mxbuild-{mxversion}.tar.gz`.
+必要な MxBuild のバージョンは、ビルドする Mendix モデルのバージョンによって異なります。 You can find your correct MxBuild by entering this URL into a browser and replacing `mxversion` with your own, full Mendix version number: `https://cdn.mendix.com/runtime/mxbuild-{mxversion}.tar.gz`.
 
 {{% alert type="info" %}}
 
@@ -23,61 +23,61 @@ A build number is included in the version, and this has to be included in the li
 
 You can find the build number in path of your Mendix installation (for example if your installation looks like this `C:\Program Files\Mendix\8.12.1.3458`, use this URL to get your files: https://cdn.mendix.com/runtime/mxbuild-8.12.1.3458.tar.gz).
 
-Any public version of Studio Pro in this  [Studio Pro Releases List](https://marketplace.mendix.com/link/studiopro/) will allow you to download MxBuild files. If you experience trouble downloading files, make sure your build is listed there.
+この  [Studio Pro リリースリスト](https://marketplace.mendix.com/link/studiopro/) 内の Studio Pro の任意のパブリックバージョンでは、MxBuild ファイルをダウンロードできます。 ファイルのダウンロードに問題が発生した場合は、ビルドがリストされていることを確認してください。
 
 {{% /alert %}}
 
-You can extract the files using your favorite archival tool, such as [7-Zip](https://www.7-zip.org/).
+お気に入りのアーカイブツールを使用して、 [7-Zip](https://www.7-zip.org/)などのファイルを抽出できます。
 
-For details on the system requirements for MxBuild, see [System Requirements](system-requirements#mxbuild).
+MxBuildのシステム要件の詳細については、 [システム要件](system-requirements#mxbuild) を参照してください。
 
 {{% alert type="info" %}}
-Except where specifically mentioned, the examples used in this document are for Windows.
+特に言及されている場合を除き、このドキュメントで使用されている例はWindows用です。
 {{% /alert %}}
 
-## 2 Command Line
+## 2つのコマンドライン
 
-To build your package, you specify the Mendix app file (.mpr) for which you want to build the deployment package (.mda) on the command-line. The file name may be preceded by a relative or absolute path. The app file should be located inside a Mendix app directory.
+パッケージをビルドするには、コマンドラインでデプロイメント・パッケージ (.mda) をビルドするMendixアプリケーション・ファイル (.mpr) を指定します。 ファイル名の前には、相対パスまたは絶対パスを使用できます。 アプリファイルは Mendix アプリディレクトリ内に配置する必要があります。
 
-MxBuild takes a number of command-line options which control how the Mendix app is processed. These options precede the name of the app file.
+MxBuild では、Mendix アプリの処理方法を制御する多数のコマンドラインオプションを使用します。 これらのオプションは、アプリファイルの名前の前にあります。
 
-In Windows, use the following format for the command line:
+Windows では、コマンド ラインに次の形式を使用します。
 
 `MxBuild --java-home="JDKDirectory" --java-exe-path="javaExecutable" [options] projectFile`
 
-You can also run MxBuild under Linux using the the following command line format:
+次のコマンドライン形式を使用して、Linux上でMxBuildを実行することもできます。
 
-`mono mxbuild.exe --java-home="JDKDirectory" --java-exe-path="javaExecutable" [options] projectFile`
+`mono mxbuild.exe --java-home="JDory" --java-exe-path="javaExecutable" [options] projectFile`
 
-After creating the deployment package, the MxBuild process quits.
+デプロイパッケージを作成すると、MxBuild プロセスは終了します。
 
-### 2.1 General Command-Line Options
+### 2.1 一般的なコマンドラインオプション
 
-Command-line options are described in the table below:
+コマンドラインオプションは以下の表に記載されています。
 
-| Option                     | Description                                                                                                                                                                                                                                                                                                                                                                                    |
+| Option                     | 説明                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-h`, `--help`             | Prints a short description of the MxBuild and a list of all available options.                                                                                                                                                                                                                                                                                                                 |
-| `--java-home=DIRECTORY`    | (Required). The directory in which the JDK is installed.<br/>For example, `--java-home=/usr/lib/jvm/java-8-oracle`.<br/>For Windows the *DIRECTORY* should be enclosed in double-quotes `"`.                                                                                                                                                                                       |
-| `--java-exe-path=FILENAME` | (Required). The **full path** to the Java executable.<br/>For example, `--java-exe-path=/usr/lib/jvm/java-8-oracle/bin/java`.<br/>For Windows the *DIRECTORY* should be enclosed in double-quotes `"`, and must contain the complete file name `...\java.exe`.                                                                                                                    |
-| <code>––target=[package&#124;deploy]</code>  | `package`: default if option is omitted. Creates a deployment package (.mda file)<br/>`deploy`: deploys the app without making a deployment package.                                                                                                                                                                                                                                     |
-| `--loose-version-check`    | Creates a deployment package from an app which was created with a lower Mendix version.<br/>The app will be upgraded to the MxBuild version before the deployment package is created.<br /> Any changes included as a result of this upgrade will **not** be stored in your app.                                                                                                   |
+| `-h`, `--help`             | MxBuild の簡単な説明と、利用可能なすべてのオプションのリストを印刷します。                                                                                                                                                                                                                                                                                                                                                      |
+| `--java-home=DIRECTORY`    | (必須)。 The directory in which the JDK is installed.<br/>For example, `--java-home=/usr/lib/jvm/java-8-oracle`.<br/>For Windows the *DIRECTORY* should be enclosed in double-quotes `"`.                                                                                                                                                                                             |
+| `--java-exe-path=FILENAME` | (必須)。 The **full path** to the Java executable.<br/>For example, `--java-exe-path=/usr/lib/jvm/java-8-oracle/bin/java`.<br/>For Windows the *DIRECTORY* should be enclosed in double-quotes `"`, and must contain the complete file name `...\java.exe`.                                                                                                                          |
+| <code>––target=[package&#124;deploy]</code>  | `パッケージ`: オプションが省略された場合はデフォルト。 デプロイパッケージ(.mda file)を作成します。<br/>`deploy`: デプロイパッケージを作成せずにアプリをデプロイします。                                                                                                                                                                                                                                                                                      |
+| `--lose-version-check`     | Creates a deployment package from an app which was created with a lower Mendix version.<br/>The app will be upgraded to the MxBuild version before the deployment package is created.<br /> Any changes included as a result of this upgrade will **not** be stored in your app.                                                                                                   |
 | `--write-errors=FILENAME`  | Writes all errors, warnings, and deprecations encountered during deployment of the app to the specified file in JSON format.<br />This file is only written when the app contains errors.<br />If the file already exists, it will be overwritten without a warning.<br />For a description of the format of this file, see the [App Errors](#project-errors) section below. |
 
-### 2.2 Options When Creating a Package
+### 2.2 パッケージ作成時のオプション
 
 {{% alert type="info" %}}
-The following options are only applicable with the `--target=package` option:
+以下のオプションは、 `--target=package` オプションでのみ適用できます。
 {{% /alert %}}
 
-Options when creating a package are described in the table below;
+パッケージの作成時のオプションについては、以下の表を参照してください。
 
-| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                                                                                                                                                                                                     |
+| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 説明                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-o FILENAME` or<br/>`--output=FILENAME`                                                                                       | The name (with optional relative or absolute path) of the .mda file that is created by MxBuild.<br />If this option is omitted, the file will be saved in the *current* directory under a name `out.mda`. |
-| `--project-name=NAME`                                                                                                                | Changes the name of the application to the one used by the Mendix Runtime.<br />When this option is not specified, the name of the app is used.                                                           |
-| `--model-version=VERSION`                                                                                                            | Applies a specific version number to the model in the package.                                                                                                                                                  |
-| `--model-description=DESCRIPTION`                                                                                                    | Embeds a description of the model in the package.                                                                                                                                                               |
+| `-o FILENAME` または<br/>`--output=FILENAME`                                                                                      | The name (with optional relative or absolute path) of the .mda file that is created by MxBuild.<br />If this option is omitted, the file will be saved in the *current* directory under a name `out.mda`. |
+| `--project-name=NAME`                                                                                                                | アプリケーションの名前をMendix Runtimeで使用される名前に変更します。<br />このオプションが指定されていない場合、アプリの名前が使用されます。                                                                                                                          |
+| `--model-version=VERION`                                                                                                             | パッケージ内のモデルに特定のバージョン番号を適用します。                                                                                                                                                                                    |
+| `--model-description =DESCRIPTION`                                                                                                   | パッケージにモデルの説明を埋め込みます。                                                                                                                                                                                            |
 
 For example, to create a deployment package `out.mda` in the current directory using the app `MyApp` using the *Windows* version of MxBuild, you can use the following command:
 
@@ -85,25 +85,25 @@ For example, to create a deployment package `out.mda` in the current directory u
 mxbuild --target=package --java-home="C:\Program Files\Java\jdk1.8.0_144" --java-exe-path="C:\Program Files\Java\jdk1.8.0_144\bin\java.exe" "C:\Users\username\Documents\Mendix\MyApp\MyApp.mpr"
 ```
 
-## 3 Return Code
+## 3返品コード
 
-When MxBuild exits, one of the following codes will be returned:
+MxBuild 終了時、次のコードのいずれかが返されます：
 
-| Exit Code | Description                                             |
-| --------- | ------------------------------------------------------- |
-| 0         | MxBuild finished successfully.                          |
-| 1         | An internal error occurred.                             |
-| 2         | There is something wrong with the command-line options. |
-| 3         | Deployment of the Mendix app failed.                    |
+| 終了コード | 説明                      |
+| ----- | ----------------------- |
+| 0     | MxBuild は正常に終了しました。     |
+| 1     | 内部エラーが発生しました            |
+| 2     | コマンドラインオプションに問題があります。   |
+| 3     | Mendix アプリのデプロイに失敗しました。 |
 
 
-If the exit code is larger than 0, MxBuild will show you the message describing the error.
+終了コードが 0 より大きい場合、MxBuild はエラーを説明するメッセージを表示します。
 
-## 4 App Errors {#project-errors}
+## 4つのアプリエラー {#project-errors}
 
-When your Mendix app contains errors, deployment will fail and MxBuild will report these errors. You can use the `--write-errors=FILENAME` command-line option to tell MxBuild to write the errors to a file.
+Mendixアプリにエラーが含まれている場合、デプロイは失敗し、MxBuildはこれらのエラーを報告します。 `--write-errors=FILENAME` コマンドラインオプションを使用して MxBuild にエラーをファイルに書き込むように指示することができます。
 
-The errors are output as a JSON object that has one property: `problems`. The value of this property is an array of objects that each describe one error, warning, or deprecation in your app. For example:
+エラーは、1 つのプロパティ `問題` を持つ JSON オブジェクトとして出力されます。 このプロパティの値は、アプリケーションでエラー、警告、または非推奨を1つ記述するオブジェクトの配列です。 例:
 
 ```json
 {
@@ -126,21 +126,21 @@ The errors are output as a JSON object that has one property: `problems`. The va
 }
 ```
 
-The following table describes the various properties of the *problems* JSON object:
+次の表は、 *問題* JSON オブジェクトの様々なプロパティについて説明しています。
 
-| Property    | Description                                                                                                                    |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `name`      | A unique identifier of the problem or `null` when the consistency check is not yet defined in the Mendix Metamodel.            |
-| `severity`  | Describes the type of problem: `Warning`, `Error`, or `Deprecation`.                                                           |
-| `message`   | The description of the problem. This is the same as the message in the [Errors pane](errors-pane) of Mendix Studio Pro.        |
-| `locations` | Contains zero or more objects that describe the location in the Mendix app where the problem occurs (see the following table). |
+| 属性      | 説明                                                                |
+| ------- | ----------------------------------------------------------------- |
+| `名前`    | Mendix Metamotelで整合性チェックがまだ定義されていない場合、問題の一意の識別子または `null`。        |
+| `重要度`   | 問題の種類を説明します: `警告`, `エラー`, または `非推奨`.                              |
+| `メッセージ` | 問題の説明 これはMendix Studio Pro の [エラー ペイン](errors-pane) 内のメッセージと同じです。 |
+| `場所`    | 問題が発生したMendixアプリ内の場所を記述する0個以上のオブジェクトが含まれています(次の表を参照)。             |
 
-The location(s) associated with the problem have the following properties:
+この問題に関連付けられた場所には、次のプロパティがあります。
 
-| Property    | Description                                                     |
-| ----------- | --------------------------------------------------------------- |
-| `elementId` | The unique id of the model element in which the problem occurs. |
-| `unitId`    | The unique id of the document in which the problem occurs.      |
-| `element`   | A description of the model element in which the problem occurs. |
-| `document`  | A description of the document in which the problem occurs.      |
-| `module`    | A description of the module in which the problem occurs.        |
+| 属性          | 説明                       |
+| ----------- | ------------------------ |
+| `elementId` | 問題が発生したモデル要素の一意の id です。  |
+| `unitId`    | 問題が発生したドキュメントの一意の id です。 |
+| `要素`        | 問題が発生したモデル要素の説明。         |
+| `ドキュメント`    | 問題が発生するドキュメントの説明。        |
+| `モジュール`     | 問題が発生するモジュールの説明。         |
