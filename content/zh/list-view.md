@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/list-view.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 A list view shows a list of objects. For example, you can display a list of all profiles:
@@ -36,7 +32,7 @@ List view properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2. Data Source Section {#data-source}
 
@@ -58,7 +54,7 @@ The database and XPath sources retrieve objects from the database and supports s
 
 ### 2.3 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.4 General Section {#general}
 
@@ -70,7 +66,7 @@ If this property is set to *Yes*, items in the list view can be edited. The chan
 
 An on-click event defines what action is performed when a user clicks a list view row. For more information on on-click events, see [On Click Event](on-click-event).
 
-#### 2.4.3 Page Size
+#### 2.4.3 Page Size {#page-size}
 
 the number of rows displayed on the page; after the indicated limit is reached, the **Load more...** button is displayed on the page.
 
@@ -110,7 +106,7 @@ Now if there is a row of type Bicycle the template specific for bicycles will be
 
 ### 2.6 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Performing Specific Actions
 
