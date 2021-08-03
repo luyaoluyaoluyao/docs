@@ -11,6 +11,10 @@ tags:
   - "编辑菜单"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/find-and-find-advanced.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 您可以在应用程序中搜索不同元素、文档、Xpath、对各种元素的更改或用法。  您通过 **查找**, **查找高级**, 以及 **查找用法** 在 **编辑** 菜单下的选项。
@@ -25,7 +29,7 @@ tags:
 
 2. 在 **查找** 对话框中，退出 **匹配案件** 和 **匹配整个单词** 未选中。 这样您就可以搜索“员工”一词的所有实例，包括“员工”、“员工”或“Department_Employee”等实例：
 
-3. 在 **中** 部分取消选择您不想搜索的应用程序中的条目：
+3. 在 **中** 部分取消选择您不想搜索的项目:
 
    ![在部分中查看](attachments/find-and-find-advanced/look-in.jpg)
 
@@ -35,7 +39,7 @@ tags:
 
 ## 3 查找高级选项
 
-使用 **查找高级** 选项您可以设置高级标准并在应用中找到特定元素， 例如所有 [对象活动](#find-object-activities)或 [未使用的元素](#find-unused-elements)。
+使用 **查找高级** 选项您可以设置高级标准并在您的项目中找到特定元素。 例如所有 [对象活动](#find-object-activities)或 [未使用的元素](#find-unused-elements)。
 
 ### 3.1 寻找对象活动 {#find-object-activities}
 
@@ -67,13 +71,13 @@ tags:
 
 {{% alert type="info" %}}
 
-从市场下载的模块可能包含大量未使用的项目。 如果您删除这些项目并且模块稍后更新，这些项目将回到您的模型中。 所以建议您不要从市场模块中删除任何未使用的项目。'
+从市场下载的模块可能包含大量未使用的项目。 如果您删除这些项目并且模块稍后更新，这些项目将回到您的模型中。 所以建议您不要从市场模块中删除任何未使用的项目。
 
 {{% /报警 %}}
 
 {{% alert type="info" %}}
 
-任何被排除在应用之外的对象都不会出现在未使用的项目列表中。
+任何被排除在项目之外的对象都不会出现在未使用的项目列表中。
 
 {{% /报警 %}}
 
@@ -85,7 +89,9 @@ tags:
 
 2. 导航到属性并将 **标记为已使用的** 属性从 **否** 更改为 **是**
 
-## 4 查找用量选项 {#find-usages}
+   ![](attachments/find-and-find-advanced/mark-as-used-property.png)
+
+## 4 查找用量选项
 
 **查找使用** 选项允许您找到某个元素在哪里使用。 例如，要找到打开某个页面的所有按钮。
 
@@ -96,8 +102,7 @@ tags:
 为了找到某个元素的使用地点，请做以下操作：
 
 1. 打开包含元素的文档。 例如，打开域模型。
-2. 选择一个元素 (例如) 点击 **编辑** > **在顶部栏或右键点击元素中查找用法** 查找用法 **查找用法**
-    {{% image_container width="350" %}}![Find Usages](attachments/find-and-find-advanced/find-usages.png){{% /image_container %}}
+2. 选择一个元素 (例如) 点击 **编辑** > **在顶部栏或右键点击元素中查找用法** 查找用法 **查找用法** ![查找用法](attachments/find-and-find-advanced/find-usages.png)
 
 Studio Pro 在 **查找结果** 面板中显示此实体的所有用法。 ![查找结果面板](attachments/find-and-find-advanced/found-usages.png)
 
