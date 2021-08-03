@@ -1,62 +1,62 @@
 ---
-title: "Collaborative Development in Studio"
-category: "General Info"
-description: This document describes the process of collaborative development between Mendix Studio and Mendix Studio from the perspective of Mendix Studio.
+title: "Studio での共同開発"
+category: "一般情報"
+description: このドキュメントでは、Mendix StudioとMendix Studioの共同開発プロセスについて説明します。
 tags:
-  - "studio"
-  - "collaborative development"
-  - "sync"
+  - "スタジオ"
+  - "共同開発は"
+  - "同期"
 menu_order: 5
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="warning" %}}
 
-Collaborative development is only available if your app has Mendix version 7.23.3 or above. You cannot sync your changes with the Desktop Modeler if your app has Mendix version 7.23.2 or below.
+共同開発は、Mendix バージョン 7.23.3 以降の場合にのみ利用できます。 Mendix バージョン 7.23.2 以下のアプリでは、Desktop Modelerとの同期はできません。
 
-You will still be able to open your app in the Web Modeler. However, to sync changes between two modelers, the Desktop Modeler must be upgraded to version 7.23.3 or above.
+Webモデラーでアプリを開くことができます。 ただし、2つのモデラー間で変更を同期するには、Desktop Modelerをバージョン7.23.3以上にアップグレードする必要があります。
 
 {{% /alert %}}
 
-Collaborative development is the process that allows team members work together on one app in Mendix Studio Pro and Mendix Studio and easily synchronize changes made by others using [version control](/refguide/version-control).
+コラボレーション開発とは、チームメンバーがMendix Studio ProとMendix Studioの1つのアプリで協力し、 [バージョンコントロール](/refguide/version-control)を使用して他のメンバーが行った変更を簡単に同期できるようにするプロセスです。
 
-If you are working in a team (or switch from Studio to Studio Pro yourself), it is easy to share app model changes. All changes made in Studio are auto-saved. Studio Pro users get these changes when they click **Update** or **Commit**. If they commit, they push their own changes at the same time, so both Studio and Studio Pro are synchronized. For a more technical and detailed process overview, see [Collaborative Development](/refguide/collaborative-development) in *Version Control*.
+チームで作業している場合(または、Studio から Studio Pro に切り替えている場合)、アプリモデルの変更を簡単に共有できます。 Studio で行われたすべての変更は自動保存されます。 Studio Pro のユーザーは、 **Update** または **Commit** をクリックすると、これらの変更を受け取ります。 コミットすると、独自の変更を同時にプッシュするため、Studio と Studio Pro の両方が同期されます。 より技術的で詳細なプロセスの概要については、 [バージョン管理](/refguide/collaborative-development) の *Collaborative Development* を参照してください。
 
-Multiple users can view the app in Studio at the same time: one user can edit it and others are in read-only mode.
+複数のユーザーが同時にStudioでアプリを表示できます: あるユーザーが編集でき、他のユーザーが読み取り専用モードになっています。
 
-## 2 Concepts
+## 2つのコンセプト
 
-For concepts and definitions, see section [2 Concepts](/refguide/version-control) in *Version Control*.
+概念と定義については、 [バージョンコントロール](/refguide/version-control) のセクション *2 コンセプト* を参照してください。
 
-## 3 Collaborative Development from Studio Perspective
+## スタジオからの共同開発
 
-As all Studio changes are auto-saved, the collaborative development is indicated by pop-ups that you see when the content of the app is being changed or synchronized. This can happen in the following cases:
+Studio の変更はすべて自動保存されます。 共同開発は、アプリの内容が変更されたり同期されたりするときに表示されるポップアップで示されます。 これは以下の場合に発生します。
 
-1. **Committing Your Changes** – if your team members are working on the same development line in Studio Pro and they click **Update**, your screen gets locked for a few moments while your changes are automatically committed to the Team Server and then applied to Studio Pro. For more information on the collaborative development process in Studio Pro, see section [4 Studio Pro Perspective](/refguide/collaborative-development) in *Collaborative Development* in *Version Control*.
+1. **変更をコミットする** – Studio Pro でチームメンバーが同じ開発ラインで作業している場合、 **Update**をクリックします。 変更がチームサーバーに自動的に反映され、Studio Pro に適用されている間、しばらく画面がロックされます。 Studio Proの共同開発プロセスの詳細についてはこちらをご覧ください。 see [4 Studio Pro Perspective](/refguide/collaborative-development) in *Collaborative Development* in *Version Control*.
 
-    {{% image_container width="350" %}}![Committing Changes Dialog Box](attachments/general-collaborative-development/committing-changes.png)
+    {{% image_container width="350" %}}![変更をコミットするダイアログ ボックス](attachments/general-collaborative-development/committing-changes.png)
    {{% /image_container %}}
 
-2.  **Syncing Changes** – your screen gets locked for a few moments each time the Studio Pro users commit. <br/>
+2.  **変更の同期** – Studio Pro のユーザーがコミットするたびに画面がしばらくロックされます。 <br/>
 
-    {{% image_container width="350" %}}![Synching Changes Dialog Box](attachments/general-collaborative-development/synching-changes.png)<br/>
+    {{% image_container width="350" %}}![同期変更ダイアログ ボックス](attachments/general-collaborative-development/synching-changes.png)<br/>
 
     {{% /image_container %}}
 
-    There are two possible outcomes of this process:<br/>
+    このプロセスには2つの可能性のある結果があります:<br/>
 
-    a.  In Studio Pro, there are no conflicts in the app, and changes from Studio Pro will be applied to Studio. (Conflicts are changes that contradict each other and cannot be merged automatically. For example, one user has changed a caption of a button, while another user has deleted this button).
+    a  Studio Pro では、アプリ内で競合が発生せず、Studio Pro からの変更は Studio に適用されます。 (競合とは矛盾する変更であり、自動的にマージすることはできません。 たとえば、あるユーザーがボタンのキャプションを変更し、別のユーザーがこのボタンを削除しました。
 
-    b.  There are app conflicts which should be solved in Studio Pro before the Studio Pro user can commit again. Your screen is unlocked without any changes to your app.
+    B  Studio Proユーザーが再度コミットする前に、Studio Proで解決するアプリの競合があります。 画面はアプリに変更を加えることなくロック解除されます。
 
-3.  **Switching Contents** – in Studio Pro, users can change the branch line Studio is enabled for. For more information on managing branches, see section [5 Managing Development Lines](/refguide/collaborative-development#managing-branches) in the *Collaborative Development* in *Version Control*. During this process Studio gets locked for a few moments, all changes are auto-saved on the current development line, and a pop-up dialog is shown that the Studio Pro user is changing the branch line for Studio. This means that the contents of your app will change.
+3.  **コンテンツの切り替え** – Studio Pro では、Studio が有効になっているブランチラインを変更できます。 For more information on managing branches, see section [5 Managing Development Lines](/refguide/collaborative-development#managing-branches) in the *Collaborative Development* in *Version Control*. このプロセスでは、Studio がしばらくロックされます。すべての変更は現在の開発ラインに自動保存されます。 そして、Studio ProユーザーがStudioのブランチラインを変更していることをポップアップダイアログが表示されます。 これは、アプリの内容が変わることを意味します。
 
-    {{% image_container width="350" %}}![Switching Contents Dialog Box](attachments/general-collaborative-development/switching-branches.png)
+    {{% image_container width="350" %}}![format@@0 ダイアログ ボックス](attachments/general-collaborative-development/switching-branches.png)
   {{% /image_container %}}
 
-## 4 Read More
+## 4 続きを読む
 
-* [Version Control](/refguide/version-control)
-* [Collaborative Development](/refguide/collaborative-development)
+* [バージョン管理](/refguide/version-control)
+* [共同開発](/refguide/collaborative-development)
 
