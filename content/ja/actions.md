@@ -1,84 +1,76 @@
 ---
-title: "Actions"
+title: "アクション"
 parent: "published-app-services"
-tags:
-  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/actions.pdf).
+アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 [公開されたWebサービス](published-web-services) または [公開されたRESTサービス](published-rest-services) を代わりに使用してください。
 {{% /alert %}}
 
-## 1 Introduction
+アプリサービスの実際のマイクロフローアクションを提供します。 アプリサービスのバージョンがConsumableに設定されていることに注意してください。 そのパラメータと戻り値の型は、アプリサービス契約の一部であるため、編集できなくなりました。
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
-{{% /alert %}}
+format@@0タブでは、アクションに対応するマイクロフローを設定できます。 マイクロフローを設定すると、パラメータータブが自動的に入力されます。
 
-Actions provide the actual microflow actions of the app service. Once an app service version is set to **Consumable**, its parameters and return type are no longer editable, as they are part of the app service contract.
+アクションページには次のタブがあります:
 
-In the **General** tab, you can set the microflow that corresponds to the action. When the microflow is set, the **Parameters** tab will be filled automatically.
-
-An action page has the tabs below.
-
-## 2 General
+## 全般
 
 ![](attachments/16713720/16843926.png)
 
-### 2.1 Name
+### 名前
 
-This is the name of the action the consumer will see in their toolbox.
+これは、消費者がツールボックスに表示するアクションの名前です。
 
-### 2.2 Icon
+### アイコン
 
-This is the icon that belongs to the action. An icon can be selected from any image documents in the app. A new icon can be added to an image document if it is not available yet.
+これはアクションに属するアイコンです。 アイコンは、プロジェクト内の任意のイメージ ドキュメントから選択できます。 まだ利用できない場合は、新しいアイコンを画像ドキュメントに追加できます。
 
-### 2.3 Microflow
+### マイクロフロー
 
-This defines which microflow will be executed when this action is called.
+このアクションが呼び出されたときに実行されるマイクロフローを定義します。
 
-### 2.4 Description
+### 説明
 
-This describes the action. The consumer will see this description in their overview.
+アクションを説明します。 消費者は、この説明の概要が表示されます。
 
-## 3 Parameters
+## パラメータ
 
-![](attachments/16713720/16843923.png)
+### ![](attachments/16713720/16843923.png)
 
-### 3.1 Microflow Parameter
+### マイクロフローパラメータ
 
-This defines the name of the parameter in the microflow.
+マイクロフロー内のパラメータの名前を定義します。
 
-### 3.2 Type
+### タイプ
 
-This defines the type of the parameter.
+パラメータの種類を指定します。
 
-### 3.3 Can Be Empty
+### 空にすることができます
 
-This defines whether a value can be empty as an input parameter.
+値を入力パラメータとして空にできるかどうかを定義します。
 
-### 3.4 Action Parameter
+### アクションパラメータ
 
-This defines the name of the parameter in the app service action call. This is initially copied from the microflow parameter name, but it can be modified. There are three reserved parameter names that are not allowed to be used:
+appサービスアクション呼び出しでパラメータの名前を定義します。 これは microflow パラメータ名から最初にコピーされますが、変更することができます。 There are three reserved parameter names that are not allowed to be used: **username**, **password** and **appservicelocation** (case insensitive).
 
-* *username*
-* *password*
-* *appservicelocation* (case insensitive)
-
-### 3.5 Exposed Attributes & Associations
+### 公開された属性と関連
 
 ![](attachments/16713720/16843922.png)
 
-A button is available for complex types (for example, an entity from your domain model) in order to define whether to include the attribute in an entity as well as to define whether an attribute can be empty as an input.
+ボタンは複合型で使用できます (例えば、ドメインモデルのエンティティ)。 を選択すると、エンティティに属性を含めるか除外するかどうかを定義します。また、属性を入力として空にできるかどうかを定義します。
 
-## 4 Return Type
+## 戻り値の種類
 
-This defines what kind of object will be returned by the action. This can be a simple type (like an integer or string), or a complex type (for example, an entity from your entity model).
+アクションによって返されるオブジェクトの種類を定義します。 これは単純な型(整数や文字列のような)または複合型(エンティティモデルのエンティティのような)にすることができます。
 
-### 4.1 Can Be Empty
+### 空にすることができます
 
-This defines whether the return value can be empty.
+戻り値が **空**にできるかどうかを定義します。
 
-For example, an **empty** ReturnObject is disallowed here:
+{{% alert type="info" %}}
 
 ![](attachments/16713720/16843921.png)
+
+アプリサービスアクションの戻り値の種類タブ。 **空の** ReturnObject はここでは使用できません。
+
+{{% /alert %}}
