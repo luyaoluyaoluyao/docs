@@ -1,160 +1,170 @@
 ---
-title: "Workflows"
-description: "Describes the workflows in Mendix Studio."
-menu_order: 15
+title: "工作流"
+parent: "应用逻辑："
+menu_order: 20
 tags:
-  - "workflow"
-  - "workflows"
-  - "Studio"
+  - "工作流"
+  - "工作流"
+  - "Studio Pro"
 ---
 
 {{% alert type="warning" %}}
-This functionality is in Beta. For more information on Beta products, see [Mendix Beta Features](/releasenotes/beta-features/).
-{{% /alert %}}
+此功能在 Beta 中。 关于测试版产品的更多信息，请参阅 [Mendix Beta 功能](/releasenotes/beta-features/)。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-Workflow is a visual language in Mendix Studio and Mendix Studio Pro that allows you to to solve your business problems that involve processes. It is fully integrated with other visual languages, such as the microflow editor and page editor.
+Workflow 是 Mendix Studio 和 Studio Pro 中的一种视觉语言，它允许您构建可扩展的流程。 它完全与其他视觉语言集成，如微流程编辑器和页面编辑器。
 
-The main difference between workflows and [microflows](microflows) is a waiting aspect – the workflow is paused until it gets an input from an end-user. For example, an employee sends a travel request (triggering the start of the workflow) and then the workflow is paused until a manager approves the request by clicking a button.
+## 2 工作流元素
 
-To view the workflows of your app in Studio, click the **Workflows** icon in the left menu bar:
+一个工作流由你可以拖放到路径上的元素组成。 下面是所有要素的分类概述。 使用了以下类别：
 
-![Workflow Icon](attachments/workflows/workflow-icon.jpg)
+* [A. 概况](#general)
+* [用户任务](#user-tasks)
+* [系统操作](#system)
 
-Workflows are a visual way of processing logic in your application. A workflow looks like a flow chart. On a new workflow a *start event* (a starting point of the workflow) and an *end event* (an endpoint of the workflow) are created by default. You can add various activities to a flow of a workflow that is called a *path*.
+### 2.1 概况 {#general}
 
-![Workflow Example](attachments/workflows/workflow-example.jpg)
+一般类别中的元素帮助您控制工作流路径，例如添加并行路径或结束它们。
 
-## 2 Workflow App Template
+下表说明了这一类别的各项要素：
 
-You can use workflow-specific app templates as a starting point for using workflows. For example, you can configure an approval request form for end-users based on which the app is be created. It contains preconfigured elements, such as dashboards, admin pages, dashboards, and a workflow that you can afterwards customize even more. You can discover these templates when creating a new app.
+| 图形                                                | 元素                           | 描述                                                                                                                                                         |
+| ------------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![开始事件](attachments/workflows/start-event.png)    | 开始活动                         | 工作流程的起始点。 工作流是由 [调用工作流](on-click-event#call-workflow) 页面上的点击事件或 [工作流调用](workflow-call) 微流中的动作触发的。 <br />点击开始事件打开 [Workflow 属性](workflow-properties)。 |
+| ![决 定](attachments/workflows/decision.png)        | [决 定](decision-in-workflows) | 根据一个条件做出选择，并且沿着一个唯一的一条出路。                                                                                                                                  |
+| ![并联拆分](attachments/workflows/parallel-split.png) | [并联拆分](parallel-split)       | 添加两个并联路径到您的工作流。                                                                                                                                            |
+| ![跳转活动](attachments/workflows/jump.png)           | [跳转](jump-activity)          | 允许您跳转到工作流中的其他活动。                                                                                                                                           |
+| ![结束事件](attachments/workflows/end-event.png)      | 结束事件                         | 结束工作流的路径                                                                                                                                                   |
 
-## 3 Performing Basic Functions
+{{% alert type="info" %}}
+如果您在微流中使用 **作为工作流操作** 设置，您可以添加自定义的活动到这个部分。 欲了解更多信息，请参阅 *Microflow Properties* 中的 [显示为 Workflow 操作](microflow#expose-as-workflow-action) 部分。
+{{% /报警 %}}
 
-You can perform the following basic functions when working on workflows:
+### 2.2 用户任务 {#user-tasks}
 
-* [Open a workflow](#open)
-* [Create a workflow](#create)
-* [Duplicate a workflow](#duplicate)
-* [Copy and paste a workflow](#copy-paste)
-* [Delete a workflow](#delete)
-* [Add elements to a workflow](#add-elements)
+[用户任务](user-task) -- 工作流中的一个核心元素，允许您使用过滤器或微流将任务分配给某个用户或一组用户。
 
-### 3.1 Opening a Workflow {#open}
+![用户任务](attachments/workflows/user-task.png)
 
-To open a workflow in Studio, do the following:
+### 2.3 系统操作 {#system}
 
-1. Click the workflow icon in the left menu bar.
+[调用微流](call-microflow) 活动调用选定的微流。
 
-2. In the displayed list of workflows, select the one you want to open and click it:
+![调用微流](attachments/workflows/call-microflow.png)
 
+## 3 执行基本功能
 
-The selected workflow is opened.
+您可以在工作流程中执行以下基本功能：
 
-### 3.2 Adding a Workflow {#create}
+* 打开工作流
+* 创建工作流
+* 删除工作流
+* 将元素添加到工作流
+* 查看元素属性
 
-To add a workflow to your app in Studio, do the following:
+### 3.1 开启工作流程
 
-1. Click the workflow icon in the left menu bar.
+若要在 Studio Pro中打开工作流，请执行以下操作：
 
-2. Select the module you would like to add a new workflow to and click the plus icon next to this module:
+1. 在 [Project Explorer](project-explorer)中，打开此工作流所在的模块。
+2. 浏览到模块内的工作流位置，双击工作流。
 
-    ![New Workflow](attachments/workflows/new-workflow.jpg)
+已打开所选工作流。
 
-    For more information on what modules are, see [Domain Model](domain-models).
+### 3.2 添加工作流
 
-3. In the **Create new workflow** dialog box, fill in the name of the workflow and select a workflow entity (for more information on type of entities, see the [Entities and Their Types](domain-models#entity-types) section in *Domain Model*):
+若要将工作流添加到您的应用，请执行以下操作：
 
-    ![Create New Workflow](attachments/workflows/create-new-workflow.jpg)
+1. 在 [工程资源管理器](project-explorer)， 右键单击模块或您想要创建页面的文件夹，并选择 **添加工作流**：
 
-4. Click **Create**.
+    ![添加工作流](attachments/workflows/add-workflow.jpg)
 
-The workflow is created.
+2. 在 **添加 Workflow** 对话框，填写名字并点击 **确定**：
 
-### 3.3 Duplicating a Workflow {#duplicate}
+    ![添加工作流](attachments/workflows/add-workflow-dialog.jpg)
 
-To duplicate a workflow, do the following:
+工作流已创建。
 
-1. Click the **Workflows** icon in the left menu bar.
+### 3.3 删除工作流
 
-2. In the side panel, click the ellipsis icon and select **Duplicate** in the drop-down menu:
+若要删除工作流，请执行以下操作：
 
-    ![Duplicate a Workflow](attachments/workflows/duplicate.jpg)
+1. 在 [工程资源管理器](project-explorer)中，选择一个您想要删除的工作流并右键单击它。
+2. 在显示的列表中，点击 **删除** 并通过点击 **删除弹出对话框中的** 来确认您的选择。
 
-The workflow is duplicated.
+所选工作流已删除。
 
-### 3.4 Copying and Pasting a Workflow {#copy-paste}
+### 3.4 将元素添加到工作流
 
-To copy and paste a workflow, do the following:
+若要在工作流中添加元素，请执行以下操作：
 
-1. Click the **Workflows** icon in the left menu bar.
+1. 打开 **工具箱**。
+2. 选择一个要添加和拖放此元素的元素到工作区域。
 
-2. In the side panel, click the ellipsis icon and select **Copy to clipboard** in the drop-down menu:
+已添加选中的元素。
 
-    ![Copy a Workflow](attachments/workflows/copy.jpg)
+### 3.5 视图元素属性
 
-3. Open the Studio app where you want to paste the workflow and press <kbd>Ctrl</kbd> +<kbd>V</kbd> or <kbd>Cmd</kbd> +<kbd>V</kbd>.
+要查看某个元素的特性，请执行以下之一：
 
-Your workflow is pasted. For more information on copy/paste function in Studio, see the [Copy/Paste Workflows, Pages, Microflows, and Enumerations](general#copy-paste-documents) section in *General Info*.
+1. 选择一个元素并打开 **属性** 窗格以查看其属性。
+2. Right-click an element and select **Properties** from the list of options that opens.
+3. 双击一个元素。
 
-### 3.5 Deleting a Workflow {#delete}
+## 4 系统模块中的工作流实体 {#workflow-entities}
 
-To delete a workflow in Studio, do one of the following:
+您的应用系统模块中有几个与工作流程相关的实体，其中一些可以在 XPath 和表达式中使用。 有些实体仅仅是内部实体（例如，Runtime）。
 
-1. Open the workflow you want to delete and follow the steps below:
-    1. Open the **Properties** tab.
-    2. Click **Delete** at the bottom of the **Properties** tab.
-2. Click the workflows icon in the left menu bar and do the following:
-    1. In the side panel, click the ellipsis icon and select **Delete** in the drop-down menu:
+您可以在系统模块中找到以下与工作流程相关的实体：
 
-The selected workflow is deleted.
+* **工作流程定义** -- 表示您的工作流程在数据库中。 它包含两个属性， **名称** and **标题** 是 **名称** 和 **标题** workflow 的属性 **过时的** 是一个布尔值，当您删除您的工作流时标记为 true。 在这种情况下，工作流仍然停留在数据库中(您仍然能够与它一起创建报告), 但Mendix 标记不再存在。 欲了解更多关于属性的信息，请参阅 [Workflow 属性](workflow-properties)。
+* **WorkflowTaskDefine** — 表示您 [的用户任务](user-task) 和 [系统活动](call-microflow) 在数据库中。 它包含两个属性， 其中 **name** 是一个 **名称** 用户任务或系统活动的属性， 和 **过时的** 是一个布尔值，当您从工作流中删除用户任务/系统活动时标记为 true。 他们仍然留在数据库中(您仍然能够与他们一起创建报告), 但Mendix 标记不再存在。
+* **Workflow实例** - 一个运行中的工作流程的代表，因此每次开始新的工作流程时，Runtime 就会创建一个新的实例。
+* **WorkflowTaskInstance** — — 表示正在运行的用户任务或系统活动 每当新用户任务/系统活动开始时，运行时间创建一个新的实例。
+* **WorkflowUserTask** - 专业化 **WorkflowTaskInstance** 此实体是在运行时执行用户任务和最终用户选择一个动作时创建的(例如) 点击 **批准** 按钮来批准请求)。 此实体可以用于工作流程概览页面和应用程序逻辑。
+* **WorkflowSystemTaskExtask** - 专业化 **WorkflowTaskInstance** 此实体是在 Runtime 执行系统活动 (**调用 microflow**)时创建的，用于显示微流程已被执行。
+* **WorkflowContext** — — 将被用作工作流程上下文的对象的基本实体。 这个实体的专业化被用作属性中的 **工作流实体**。 欲了解更多关于属性的信息，请参阅 [Workflow 属性](workflow-properties)。
+* **Workflow版本** — 这个系统实体用于版本控制和运行时的内部管理。 当您添加活动并运行您的工作流时，将创建一个新版本。
 
-### 3.6 Adding Elements to a Workflow {#add-elements}
+## 5 工作流变量
 
-To add an element to a workflow, do the following:
+工作流具有专用变量，可以在 Workflow 编辑器内使用 XPath 和表达式。
 
-1. Open the **Toolbox** tab.
-2. Select an element you would like to add and drag and drop this element in the workflow path.
+以下是变量清单：
 
-The selected element is added.
+* `$workflowData` - 一个为特定工作流配置的工作流实体实例(通常是 **System.WorkflowContext**)
+* `$workflow` — 一个当前正在运行工作流程的实例(**System.Workflow实例**)
 
-## 4 Toolbox Elements
+欲了解系统模块中与工作流相关的实体的更多信息，请参阅上面系统模块</a> 部分中的
+工作流实体。 </p> 
 
-The **Toolbox** tab contains elements that you can drag and drop on a path. Below is a categorized overview of all elements. The following sections are used:
+例如，您可以在 **任务名称** 和 **任务描述** 中使用这些变量作为参数。 欲了解更多信息，请参阅 [用户任务](user-task)。 
 
-* [General](#general)
-* [User actions](#user-actions)
-* [System actions](#system)
 
-### 4.1 General {#general}
 
-Elements in the **General** section help you control the workflow path, for example, add parallel paths or end them:
+## 6 微流中针对具体工作流程的活动
 
-![General Section](attachments/workflows/general.jpg)
+您可以将与工作流程相关的活动添加到您的微流中。 关于这些活动的更多信息，请参阅 [工作流活动](workflow-activities)。 
 
-The elements of this section are described in the table below:
 
-| Element                                                       | Description                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Start event                                                   | The starting point of a workflow. Workflows are triggered either by the [Call workflow](page-editor-widgets-events-section#call-workflow) on-click event on pages or by the [Workflow call](microflows#microflow-workflow-activities) action in microflows. <br />Click the start event to open [workflow properties](workflow-properties). |
-| [Decision](workflows-general-activities#decision)             | Makes a choice based on a condition and follows one and only one of the outgoing paths.                                                                                                                                                                                                                                                           |
-| [Jump activity](workflows-general-activities#jump)            | Allows you to jump to other activities in the workflow.                                                                                                                                                                                                                                                                                           |
-| [Parallel split](workflows-general-activities#parallel-split) | Adds two or more parallel paths to your workflow.                                                                                                                                                                                                                                                                                                 |
-| [End activity](workflows-general-activities#end)              | Ends the path of the workflow                                                                                                                                                                                                                                                                                                                     |
 
-### 4.2 User Actions {#user-actions}
+## 7 页面上的工作流程特定单击事件
 
-[User task](workflows-user-task) – a central element in a workflow that allows you to assign a task to a certain user or a group of users using filters or microflows.
+您可以通过在小部件上配置的特定点击事件，从页面触发工作流或用户任务。 For more details, see [On Click Event & Events Section](on-click-event).
 
-![User Actions](attachments/workflows/user-actions.jpg)
 
-### 4.3 System Actions {#system}
 
-[Call microflow](workflow-system-actions) activity calls a selected microflow. You can use this activity to add application logic to the path of the workflow that does not need user interaction.
+## 8 工作流共用模块
 
-![System Actions](attachments/workflows/system-actions.jpg)
+**工作流共享** 模块是一个针对工作流的模块，它具有预先配置的页面模板、页面、仪表板等。 在开发过程中，它可以节省很多时间。 您可以从应用市场下载，也可以在开发者门户创建新应用时使用一个应用模板。 这些模板已经包含 **工作流共享** 模块。
 
-## 5 Read More
+关于如何在现有应用中配置 **工作流共享** 的更多信息， 参见 [将工作流程添加到现有应用程序：设置基础版](/refguide/workflow-setting-up-app)。
 
-* [Workflow Properties](workflow-properties)
+
+
+## 9 阅读更多
+
+* [如何配置工作室专业版员工上岗流程的工作流](/howto/logic-business-rules/workflow-how-to-configure)
+* [将工作流添加到现有应用程序：设置基础知识](/refguide/workflow-setting-up-app)
