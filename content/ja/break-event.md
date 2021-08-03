@@ -1,27 +1,27 @@
 ---
-title: "Break Event"
-parent: "events"
+title: "休憩イベント"
+parent: "イベント"
 menu_order: 5
 tags:
   - "studio pro"
-  - "break event"
-  - "event"
-  - "loop"
+  - "休憩イベント"
+  - "イベント"
+  - "ループ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="warning" %}}
-Break events can only be used inside [loops](loop).
+ブレークイベントは、 [ループ](loop)内でのみ使用できます。
 {{% /alert %}}
 
-A break event is used to stop iterating over the list of objects and continue with the rest of the flow. Without a break event, the loop will continue with the iteration of the next object.
+break イベントは、オブジェクトのリストの反復処理を停止し、残りのフローを続行するために使用されます。 break イベントがなければ、ループは次のオブジェクトの反復を続けます。
 
-For example, if you want to notify the user of any unpaid order lines you can use a break event. First, you retrieve all objects of the *OrderLine* entity that are associated with the order. You check whether each order line is paid or not. If the order line is paid, the microflow continues to the next order line. However, if an unpaid order line is found, the user is notified and the loop stops; the microflow breaks from the loop and continues with the rest of the microflow. Once you have found one unpaid order line you do not have to continue iterating over the rest of the order lines.
+たとえば、未払いの注文行をユーザーに通知したい場合は、break イベントを使用できます。 まず、注文に関連付けられている *OrderLine* エンティティのすべてのオブジェクトを取得します。 各注文行が支払われているかどうかを確認します。 注文ラインが支払われている場合、マイクロフローは次の注文ラインに続きます。 ただし、未払いの注文行が見つかった場合、ユーザーに通知され、ループが停止します。 マイクロフローはループから壊れて残りのマイクロフローを継続します 未払いの注文行を見つけたら、注文行の残りの部分を繰り返し続ける必要はありません。
 
-![Break Event Example](attachments/events/break-event-example.png)
+![ブレークイベントの例](attachments/events/break-event-example.png)
 
-## 2 Read More
+## 2 続きを読む
 
-* [Loop](loop)
-* [Continue Event](continue-event)
+* [ループ](ループ)
+* [イベントを続ける](continue-event)
