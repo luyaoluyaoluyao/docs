@@ -1,53 +1,39 @@
 ---
-title: "Studio Pro 8 Guide"
-description: "Mendix Studio Pro Guide のさまざまなセクションでは、Mendix Platformの機能と機能の詳細が説明されています。"
+title: "Studio 8 ガイド"
 tags:
-  - "studio pro"
+  - "スタジオ"
+  - "web modeler"
 ---
+
+{{% alert type="warning" %}}
+
+**Studio 8 ガイド** では、Mendix 8 バージョンに対応する Mendix Studio 機能について説明しています。 最新のStudio機能と機能について説明します。
+
+{{% /alert %}}
 
 ## 1つの紹介
 
-The *Mendix Studio Pro 8 Guide* covers important topics concerning [Studio Pro](modeling), the [Mendix Runtime](runtime), and other components of the Mendix Platform.
+Mendix Platformには [Mendix Studio](general) と [Mendix Studio Pro](/refguide8/modeling)が含まれています。 Studio は、コードのない、ウェブベースのアプリケーション開発環境です。 コーディングやソフトウェア開発の経験を最小限に抑えて、ビジネス開発者やユーザーがWebやモバイルアプリケーションを作成できるようになります。
 
-Studio Pro 8 をインストールする前に、 [システム要件](system-requirements) をお読みください。 Studio Pro のインストール方法については、 [Mendix Studio Pro のインストール方法](/howto8/general/install) を参照してください。
+Studio では、以下の操作を行うことができます。
 
-Desktop Modelerバージョン7を使用している場合 読むことをお勧めします [Desktop Modelerバージョン7からStudio Pro バージョン8への移動](moving-from-7-to-8).
+* ビルディングブロックやウィジェットを使用したアプリケーション・ユーザー・インターフェースの開発
+* アプリケーションでデータを読み書きするためのドメインモデルを作成します
+* アプリケーションのインタラクションとフロー制御を視覚的にモデル化します
+* エンタープライズデザイン言語を活用して、ブランディングやテーマを超えた企業標準に準拠した魅力的なアプリを作成しましょう
 
-さまざまなMendixアクションの実行に関するステップバイステップガイドを探している場合は、 [Studio Pro 8 How-to's](/howto) を参照してください。
+## 2つのガイドカテゴリー
 
-## 2 Studio Pro Functionality
+*Studio 8 Guide* は次のカテゴリに分類されます:
 
-Studio Proでは、アプリの作成、テスト、および実行ができます。
-
-### 2.1 Modeling
-
-アプリのモデリングは、アプリを作成するプロセスであり、ページの作成、ロジックの追加、セキュリティの設定などが含まれます。 アプリのモデリングに使用できる機能の詳細については、 [App Modeling](modeling) を参照してください。
-
-### 2.2 テスト
-
-アプリケーションのテストに関しては、 最初に何をテストするかを決定する必要があります:外部サービスとの統合、アプリロジック(マイクロフロー)など。 アプリケーションのテスト方法の詳細については、 [テスト](/howto8/testing) を参照してください。
-
-### 2.3 デプロイ
-
-Studio Pro を使用すると、アプリケーションをローカルまたはデフォルト環境で実行して表示できます。
-
-アプリケーションをデプロイするためのオプションの詳細については、 [Deployment](/developerportal/deploy) を参照してください。
-
-## 3 バージョン管理
-
-[Version Control](version-control) allows you to manage your app development, work on multiple development lines, as well as collaboratively work with [Mendix Studio](/studio).  Studio Pro がどのようにアプリケーションのバージョン管理を行うかについて詳しくはこちら [クラウドにデプロイされたプロジェクト](using-version-control-in-studio-pro#versioning-project) の *Studio Pro でバージョンコントロールを使用する* セクションを参照してください。
-
-## 4 Mendix Runtime
-
-[Mendix Runtime](runtime) は、Studio Pro で作成されたアプリケーションモデルを実行します。 同じバージョン番号を使用しているため、Studio Pro 8 ガイドに含まれています。
-
-## 5 モバイル
-
-モバイルアプリの開発では、ネイティブのモバイルアプリとハイブリッドアプリを作成でき、Studio Proの重要な部分を作成できます。 詳細については、 [モバイル](mobile) を参照してください。
-
-## ガイドカテゴリ6個
-
-*Studio Pro 8 Guide* は以下のカテゴリに分類されます:
-
-{{% category_block %}}
-
+* [一般情報](general)
+* [ページ](page-editor)
+* [ドメインモデル](domain-models)
+* [ナビゲーションドキュメント](navigation)
+* [マイクロフロー](マイクロフロー)
+* [プレビュー中 & アプリを公開](publishing-app)
+* [チェック](チェック)
+* [テーマのカスタマイズ](theme-customizer)
+* [設定](設定)
+* [データの操作](work-with-data)
+* [コラボレーション](collaboration)
