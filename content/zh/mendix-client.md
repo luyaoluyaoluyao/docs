@@ -20,9 +20,9 @@ Mendix 客户端运行在最终用户的设备上，并处理最终用户和应�
 
 Mendix 客户端的这种描述是基于使用运行于云端的应用程序的 Runtime Server。 您也可以在本地运行 Mendix 进行测试，但这在概念上是一样的。
 
-## 2 个描述 {#description}
+## 2 个描述
 
-Mendix 客户端是由Mendix构建的每个应用程序的一部分：web、mobile和混合物。
+Mendix 客户端用于使用 Mendix 构建的所有应用程序：web、mobile 和混合物。
 
 对于 **web 应用程序**, Mendix 客户端作为单一页面应用程序。 这意味着所有分页都由 Mendix 客户端处理，而不是使用不同的 URL作为单独的网页。 Mendix 客户端是通过从 *主题提供的 HTML 页面加载一个 `mxui.js` 脚本来启动的。*
 
@@ -31,10 +31,10 @@ Mendix 客户端是由Mendix构建的每个应用程序的一部分：web、mobi
 支持移动应用程序的三种包装类型如下：
 
 * [使它成为本机应用](getting-the-make-it-native-app)
-* [自定义开发者应用](/howto/mobile/how-to-devapps)
-* [本机应用](/howto/mobile/deploying-native-app)
+* [自定义开发者应用](/howto8/mobile/how-to-devapps)
+* [本机应用](/howto8/mobile/deploying-native-app)
 
-The first two of these load a bundle dynamically, while the last one includes a pre-packaged bundle that can be [updated](/howto/mobile/how-to-ota) later.
+The first two of these load a bundle dynamically, while the last one includes a pre-packaged bundle that can be [updated](/howto8/mobile/how-to-ota) later.
 
 **混合应用程序**，对于大多数用途来说，可以被视为一个在浏览器中运行的应用程序。 然而，在这种情况下， 浏览器嵌入移动应用程序中，可以通过 [Cordova](https://cordova.apache.org/) 插件访问移动设备的某些功能。 我们建议您使用原生移动应用，而不是混合应用，如果您想要制作在移动设备上运行的Mendix 应用程序。
 
@@ -128,7 +128,7 @@ HTTPS 服务器服务于在模型中持有的页面、小部件和javascript动�
 
 关于运行时服务器的描述，请参阅 [运行时服务器](runtime-server)。
 
-## 3 个小部件{#widgets}
+## 3 小部件{#widgets}
 
 Mendix 页面是从单个小部件构建的。 一个小部件可以是以下类型之一：
 
@@ -142,7 +142,7 @@ Mendix 页面是从单个小部件构建的。 一个小部件可以是以下类
 
 Mendix 有一些核心小部件支持Mendix 页面的标准功能。 核心小部件是核心客户端的一部分。 大多数这些小部件都有本地和网络实现，不过有些小部件仅限于一个平台。
 
-在本地移动应用程序中，使用了基于React本地框架的实现。 在 web 应用程序中，实现基于React 或 Dojo。 使用 Dojo 的小部件有一些限制，例如它们不能在 [插件中使用](/apidocs-mxsdk/apidocs/pluggable-widgets-property-types#widgets)。 这些道场实现正在逐步被替换。
+在本地移动应用程序中，使用了基于React本地框架的实现。 在 web 应用程序中，实现基于React 或 Dojo。 使用 Dojo 的小部件有一些限制，例如它们不能在 [插件中使用](/apidocs-mxsdk/apidocs/property-types-pluggable-widgets-8#widgets)。 这些道场实现正在逐步被替换。
 
 ### 3.1 插件部件
 
@@ -153,6 +153,8 @@ Mendix 有一些核心小部件支持Mendix 页面的标准功能。 核心小�
 ### 3.2 自定义部件
 
 您也可以写入 **个自定义小部件**。 这些基于 Dojo 框架，仅在网络应用程序中运行。 他们可以使用不同的、低级的 API 和可插拔的小部件。 仅当您不能在 Pluggable 小部件中创建功能时，才能使用自定义小部件。
+
+关于自定义小部件的更多信息，请参阅 [如何构建自定义小部件](/howto8/extensibility/widget-development)。
 
 ## 4 Mendix Client Startup
 
@@ -208,20 +210,6 @@ Mendix 客户端是如何启动的，在下面的章节中作了描述。
 * 应用样式/阿特拉斯法——指定页面如何显示的应用特定的 css 样式和静态视觉元素
 * 小部件 — — — 本应用使用的本地和网络核心小部件
 * 页面定义 - xml 页面定义，这些定义告诉Mendix 客户端这个应用程序的页面是什么样的
-
-#### 4.1.3 Cookie
-
-当Mendix 客户端运行时，它会创建一些技术cookie来记录有关会话的信息。 会议将于届会结束时结束，可包括：
-
-* 设备类型
-* JSESSIONID
-* 个人信息
-* SessionTimeZoneOffset
-* \_\_VCAP\_ID\_\_
-* XASID
-* XASSESSIONID
-* originURI
-* xasid
 
 ### 4.2 启动原生Mendix 客户端
 
