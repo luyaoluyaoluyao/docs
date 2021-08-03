@@ -1,69 +1,69 @@
 ---
-title: "Domain Model Consistency Errors"
-parent: "consistency-errors"
+title: "ドメインモデルの整合性エラー"
+parent: "一貫性エラー"
 menu_order: 40
-description: "Describes domain model consistency errors in Mendix Studio and the way to fix them."
+description: "Mendix Studioでドメインモデルの一貫性エラーと修正方法について説明します。"
 tags:
-  - "studio"
-  - "consistency errors"
-  - "errors"
-  - "domain model"
+  - "スタジオ"
+  - "整合性エラー"
+  - "エラー"
+  - "ドメインモデル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In this document, we explain how to solve the most common consistency errors that can occur when configuring the domain model in Mendix Studio. For more information on domain models, see [Domain Model](domain-models).
+このドキュメントでは、Mendix Studio でドメインモデルを構成する際に発生する最も一般的な一貫性エラーを解決する方法を説明します。 ドメインモデルの詳細については、 [Domain Model](domain-models) を参照してください。
 
-An example of a consistency error is having the same name for two entities.
+一貫性エラーの例は、2つのエンティティに対して同じ名前を持つことです。
 
 {{% alert type="info" %}}
 
-This document does not describe *all* the errors, as there are a lot of errors that can occur, some of which are simple and do not need extra explanation, others are rare and/or heavily dependent on a use-case.
+このドキュメントでは、 *すべてのエラー* を記述していません。多くのエラーが発生する可能性があります。 そのうちのいくつかは簡単で、余分な説明は必要ありません、他のものはまれおよび/または大きくユースケースに依存しています。
 
 {{% /alert %}}
 
-Some errors have error codes and if these errors are described in documentation, Studio has a clickable link to the corresponding document. Others do not have an error code, in this case, you can manually search whether a particular error is described in documentation (you can search by a message you see in the **Checks** panel).
+一部のエラーにはエラーコードがあり、これらのエラーがドキュメントに記載されている場合、Studio には対応するドキュメントへのクリック可能なリンクがあります。 この場合、エラーコードがない人もいます。 特定のエラーがドキュメントに記述されているかどうかを手動で検索できます( **チェック** パネルに表示されるメッセージで検索できます)。
 
-## 2 Domain Model Consistency Errors
+## 2 ドメインモデルの整合性エラー
 
-The most common errors you can come across when configuring a domain model are described in the table below:
+ドメインモデルの設定時に発生する最も一般的なエラーについては、以下の表を参照してください。
 
-| Error Code | Message in the Checks Panel                                                                                                                    | Cause of the Error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Way to Fix                                                                                                                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE0001     | An association between a persistable entity and a non-persistable entity must start in the non-persistable entity and have owner 'Default'.    | You created an association between a persistable and non-persistable entity, and the association is drawn from the persistable entity to non-persistable one (thus, the owner of association is the persistable entity). Persistable entities are stored in the database, and non-persistable entities are stored in memory. You can point from the memory to the database but not other way around. For more technical information, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*. | Open association properties and swap the direction of the association thus changing the owner of association; or change the persistability of one of the entities in entity properties. |
-| CE0017     | Invalid [delete behavior](domain-models-association-properties#delete-behavior).                                                               | This error occurs when delete behavior of entities in the association contradict each other. For more information on the cases when this error occurs, see the [Delete Behavior Consistency Errors and Ways to Fix](#delete-behavior) section.                                                                                                                                                                                                                                                                  | For information on how to fix this error, see the [Delete Behavior Consistency Errors and Ways to Fix](#delete-behavior) section.                                                       |
-| CE0021     | Attributes of type {attribute type} are only supported in persistable entities.                                                                | A non-persistable entity has an attribute of type Autonumber or Binary. These types of attributes need to be stored in the database.                                                                                                                                                                                                                                                                                                                                                                            | Make the entity persistable by enabling the corresponding option in properties; or change the attribute type.                                                                           |
-| CE0065     | Duplicate name {name of the entity} in module {name of the module}. Entities, associations and enumerations cannot share names.                | You have several entities with one and the same name in your domain model.                                                                                                                                                                                                                                                                                                                                                                                                                                      | Rename one of the entities; all entity names should be unique.                                                                                                                          |
-|            | The selected attribute {name of attribute} is ambiguous. It is not allowed to have more than one entity {name of attribute}.                   | You have several entities with one and the same name in your domain model, so the attributes of these duplicated entities are giving you an error.                                                                                                                                                                                                                                                                                                                                                              | Rename one of the entities; all entity names should be unique.                                                                                                                          |
-|            | The selected association {name of the association} is ambiguous. It is not allowed to have more than one association {name of the association} | You several have associations with one and the same name in your domain model.                                                                                                                                                                                                                                                                                                                                                                                                                                  | Rename one of the associations; all association names should be unique.                                                                                                                 |
+| エラーコード | チェックパネルのメッセージ                                                                                       | エラーの原因                                                                                                                                                                                                                                                                                                 | 修理方法                                                                         |
+| ------ | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| CE0001 | 持続可能エンティティと持続不可能なエンティティとの関連付けは、持続不可能なエンティティで開始し、所有者が「デフォルト」である必要があります。                              | 持続可能エンティティと非持続可能エンティティの間の関連を作成しました そして、その関連は持続可能エンティティから非持続可能エンティティに引き出されます(したがって、関連の所有者は持続可能エンティティです)。 永続的なエンティティはデータベースに保存され、非永続的なエンティティはメモリに保存されます。 メモリからデータベースまでを指すことはできますが、他の方法はありません。 For more technical information, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*. | 関連付けプロパティを開き、関連の方向を交換して、関連の所有者を変更します。 または、エンティティプロパティのいずれかのエンティティの永続性を変更します。 |
+| CE0017 | 無効 [削除ビヘイビア](domain-models-association-properties#delete-behavior)。                                 | このエラーは、関連付け内のエンティティの削除動作が矛盾している場合に発生します。 このエラーが発生した場合の詳細については、 [Delete Behavior一貫性エラーと修正方法](#delete-behavior) を参照してください。                                                                                                                                                                               | このエラーを修正する方法については、 [動作一貫性エラーの削除と](#delete-behavior) の修正方法を参照してください。          |
+| CE0021 | {attribute type} 型の属性は持続可能エンティティでのみサポートされています。                                                      | 永続性のないエンティティは、AutonumberまたはBinary型の属性を持っています。 これらのタイプの属性はデータベースに保存する必要があります。                                                                                                                                                                                                                           | プロパティ内の対応するオプションを有効にするか、属性タイプを変更することで、エンティティを持続可能にします。                       |
+| CE0065 | モジュール {name of the entity} の名前 {name of the module}が重複しています。 エンティティ、関連付け、列挙は名前を共有できません。             | ドメインモデルに同じ名前を持つ複数のエンティティがあります。                                                                                                                                                                                                                                                                         | いずれかのエンティティの名前を変更します。すべてのエンティティ名は一意でなければなりません。                               |
+|        | 選択した属性 {name of attribute} は曖昧です。 複数のエンティティ {name of attribute} を持つことは許可されていません。                    | ドメインモデルに同じ名前を持つ複数のエンティティがあります。 これらの複製されたエンティティの属性にはエラーがあります                                                                                                                                                                                                                                            | いずれかのエンティティの名前を変更します。すべてのエンティティ名は一意でなければなりません。                               |
+|        | 選択されたアソシエーション {name of the association} は曖昧です。 複数のアソシエーションを持つことは許可されていません {name of the association} | 複数のドメインモデルに1つと同じ名前に関連付けられています。                                                                                                                                                                                                                                                                         | 関連のいずれかの名前を変更します。すべての関連名は一意である必要があります。                                       |
 
-### 2.1 Delete Behavior Consistency Errors and Ways to Fix Them{#delete-behavior}
+### 2.1 動作一貫性エラーとそれらを修正する方法を削除{#delete-behavior}
 
- Consistency errors connected with delete behavior can occur in the following cases:
+ 削除動作に接続された一貫性エラーは、次の場合に発生する可能性があります:
 
 *  Delete behavior of an entity the association starts from is set to *Delete {name of entity} object(s) as well* and the delete behavior of an entity the association points to is set to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)*
 
-    ![Delete Behavior Error Example One](attachments/consistency-errors-domain-model/delete-behavior-error-example1.png)
+    ![行動例を削除する](attachments/consistency-errors-domain-model/delete-behavior-error-example1.png)
 
-*  Delete behavior of the entity the association starts from is set to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)* and the delete behavior of the entity the association points to is set to *Delete {name of entity} object(s) as well*
+*  関連付けが開始するエンティティの動作を削除するには、 * {name of entity} オブジェクトを {name of other entity} オブジェクトに関連付けられていない場合にのみ削除します。* エンティティの削除動作と関連付けポイントが * {name of entity} オブジェクトも削除します*
 
-    ![Delete Behavior Error Example Two](attachments/consistency-errors-domain-model/delete-behavior-error-example2.png)
+    ![挙動エラー例2 を削除](attachments/consistency-errors-domain-model/delete-behavior-error-example2.png)
 
-*  Delete behavior of both entities in association is set to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)*
+*  関連付け中の両方のエンティティの削除動作は *削除 {name of entity} オブジェクトが {name of other entity} オブジェクトに関連付けられていない場合にのみ設定されています*
 
-    ![Delete Behavior Error Example Three](attachments/consistency-errors-domain-model/delete-behavior-error-example3.png)
+    ![行動例3 を削除](attachments/consistency-errors-domain-model/delete-behavior-error-example3.png)
 
-You can fix the delete behavior errors in one of following ways:
+次のいずれかの方法で、削除ビヘイビアエラーを修正できます。
 
 * If  you set delete behavior of one entity to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)*, set delete behavior of another entity to *Keep {name of entity} object(s)*.
-* Set delete behavior of both entities to *Keep {name of entity} object(s)*
-* Set delete behavior of both entities to *Delete {name of entity} object(s) as well*.
+* 両方のエンティティの削除動作を * {name of entity} オブジェクトを保持* に設定する
+* 両方のエンティティの削除動作を * {name of entity} オブジェクトも削除* に設定します。
 
-For more information on delete behavior, see section the [Delete Behavior](domain-models-association-properties#delete-behavior) section in *Associations*.
+削除動作の詳細については、 [関連](domain-models-association-properties#delete-behavior) の *動作の削除* セクションを参照してください。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page Consistency Errors](consistency-errors-pages)
-* [Navigation Consistency Errors](consistency-errors-navigation)
-* [Microflow Consistency Errors](consistency-errors-microflows)
-* [Checks](checks)
+* [ページ整合性エラー](consistency-errors-pages)
+* [ナビゲーション一貫性エラー](consistency-errors-navigation)
+* [マイクロフローの整合性エラー](consistency-errors-microflows)
+* [チェック](チェック)
