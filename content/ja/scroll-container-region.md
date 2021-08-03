@@ -4,28 +4,28 @@ parent: "scroll-container"
 ---
 
 
-A scroll container region is part of a [Scroll Container](scroll-container), and defines a content area.
+スクロールコンテナリージョンは [スクロールコンテナ](scroll-container)の一部であり、コンテンツエリアを定義します。
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
-### Width (only for left and right region)
+### 幅（左と右の領域のみ）
 
-Whether the width value of the region is defined in pixels or as a percentage of its parent's width.
+領域の幅の値がピクセルで定義されているか、親の幅のパーセンテージで定義されているかどうか。
 
-### Width value (only for left and right region)
+### 幅の値 (左と右の領域のみ)
 
-The width of the region, either in pixels or a percentage, depending on the value of the width property.
+width プロパティの値に応じて、領域の幅をピクセルまたはパーセンテージで指定します。
 
-### Height (only for top and bottom region)
+### 高さ（上部と下部の領域のみ）
 
-Whether the height value of the region is defined in pixels or as a percentage of its parent's height.
+領域の高さの値が親の高さのパーセンテージとしてピクセルで定義されているかどうか。
 
-### Height value (only for top and bottom region)
+### 高さの値（上部と下部の領域のみ）
 
-The height of the region, either in pixels or a percentage, depending on the value of the height property.
+領域の高さは、ピクセルまたはパーセンテージのいずれかで、height プロパティの値に応じて異なります。
