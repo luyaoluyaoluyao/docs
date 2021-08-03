@@ -1,30 +1,30 @@
 ---
-title: "Grid Create Button"
-parent: "control-bar"
+title: "网格创建按钮"
+parent: "控制栏"
 ---
 
 
-The **Create** button allows the user to create new objects in a grid or reference set selector.
+**创建** 按钮允许用户在网格或参考设置选择器中创建新对象。
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Data Source Properties
+## 数据源属性
 
-### Entity
+### 实体
 
-This property determines of which entity this button should create an instance. If the entity that is connected to the grid or reference set selector has no specializations, the page builder will automatically set this property for you. Otherwise, you will have to select one of the specializations yourself.
+此属性决定此按钮应创建一个实例。 如果连接到网格或参考设置选择器的实体没有专业化， 页面生成器将自动为您设置此属性。 否则，您将不得不选择自己的专业。
 
 {{% alert type="info" %}}
 
-Let us say you have an entity Vehicle and two specializations, namely Bicycle and Car. In a grid on Vehicle you have to specify for the create button whether a Vehicle, a Bicycle or a Car will be created. You can even have three create buttons, one for each possibility.
+让我们说你有一辆实体车辆和两种专业，即自行车和汽车。 在车辆上的网格中，您必须为创建按钮指定车辆，自行车还是汽车。 您甚至可以有三个创建按钮，每个可能性都有一个。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## General Properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -34,24 +34,24 @@ Let us say you have an entity Vehicle and two specializations, namely Bicycle an
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-### Edit location
+### 编辑位置
 
-| Value            | Description                                                                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Inline at top    | The new instance is added directly at the top of the grid or reference set selector and can be edited inline.                          |
-| Inline at bottom | The new instance is added directly at the bottom of the grid or reference set selector and can be edited inline.                       |
-| In a page        | The new instance is added and can be edit in a page. The page in which this instance is being edited can be set with the page property |
+| 值      | 描述                                   |
+| ------ | ------------------------------------ |
+| 在顶部嵌入  | 新实例直接添加在网格顶部或参考设置选择器上，可以在网上编辑。       |
+| 底部内联   | 新实例直接添加在网格底部或参考设置选择器上，可以在网上编辑。       |
+| 在一个页面中 | 新实例已添加，可以在页面中编辑。 正在编辑此实例的页面可以用页面属性设置 |
 
-_Default value:_ In a page
+_默认值：_ 在一个页面
 
-### Page
+### 页
 
-This property is relevant if the edit location is set to 'In a page' and it indicates the page that is shown to the end-user when he or she clicks this button. The end-user can use this page to edit the newly created object before it is saved. This page should contain a data view connected to the same entity as this grid or reference set selector.
+如果编辑位置被设置为“在一个页面”，并且它指向最终用户点击此按钮时显示的页面，这个属性是相关的。 最终用户可以在保存之前使用此页面编辑新创建的对象。 此页面应包含一个连接到此网格或参考设置选择器的同一个实体的数据视图。
 
-See [Opening Pages](opening-pages).
+查看 [打开页面](opening-pages)。
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visible+Property.md" %}}
