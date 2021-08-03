@@ -4,46 +4,46 @@ parent: "team-server"
 ---
 
 
-## General Questions
+## 一般的な質問
 
-### How much does the Team Server cost?
+### チームサーバーはいくらかかりますか?
 
-The Team Server (public version) is free of charge for Mendix partners. We may offer a Premium version with additional features in the future.
+チームサーバー(パブリックバージョン)は、Mendixパートナーの場合は無料です。 今後、追加機能を備えたプレミアムバージョンを提供する場合があります。
 
-### How much storage space is provided with the Team Server?
+### Team Serverのストレージ容量はどれくらいですか？
 
-Storage space is unlimited for projects connected to a commercial license. 1 GB free storage is provided for your company account for projects not (yet) connected to a commercial license.
+商用ライセンスに接続されたプロジェクトのストレージスペースは無制限です。 商用ライセンスに(まだ)接続されていないプロジェクトのために、あなたの会社アカウントに1GBの空き容量が提供されます。
 
-### How do I access the Team Server?
+### Team Serverにアクセスするにはどうすればいいですか?
 
-The Team Server is delivered as a plugin to the Developer Portal. Start using the Team Server in your Developer Portal project by activating the plugin or by creating a new Team Server project in the Mendix Desktop Modeler.
+Team ServerはプラグインとしてDeveloper Portalに配信されます。 開発者ポータルプロジェクトでTeam Serverの使用を開始するには、プラグインをアクティブにするか、Mendix Desktop Modelerで新しいTeam Serverプロジェクトを作成します。
 
-### What access controls come standard with the Team Server?
+### Team Serverではどのようなアクセス制御が標準的になっていますか?
 
-The Team Server gives you all the controls you need to manage who has access. Just toggle access on and off for each Developer Portal project member. Once activated, they can use their MxID to access the Team Server from within the Mendix Desktop Modeler.
+Team Serverは、アクセス権を持つユーザーを管理するために必要なすべてのコントロールを提供します。 開発者ポータルのプロジェクトメンバーごとにアクセスのオンとオフを切り替えるだけです。 有効化されると、MxID を使用してMendix Desktop Modeler内からTeam Serverにアクセスできます。
 
-### How secure is the Team Server?
+### Team Serverはどのくらい安全ですか?
 
-Mendix is extremely serious about security. The Mendix cloud environment adheres to all of our existing security principles including access via SSL, and those expressed in the Mendix Information and Security Policy.
+Mendixはセキュリティについて非常に深刻です。 Mendixクラウド環境は、SSLによるアクセスを含む既存のすべてのセキュリティ原則に準拠しています。 そして、Mendixの情報とセキュリティポリシーに記載されています。
 
-### My data is valuable and confidential – what happens to it?
+### 私のデータは貴重で機密であり、何が起こるのですか?
 
-We adhere to strict security standards and regard you to be the sole owner of your data. Only Mendix Cloud Infrastructure Engineers can access data and will only do so for trouble shooting. Your data is backed up for one year, and the backups are retained for one year after project deletion. You can get a backup of your data at any time by using default Subversion tools, or, if your project was deleted, by filing a support ticket.
+当社は厳格なセキュリティ基準を遵守し、お客様がデータの唯一の所有者であるとみなします。 Mendix Cloud Infrastructure Engineersのみがデータにアクセスでき、トラブルシューティングのためにのみ行います。 データは1年間バックアップされ、バックアップはプロジェクト削除後1年間保持されます。 デフォルトの Subversion ツールを使用すると、いつでもデータのバックアップを取得できます。 または、プロジェクトが削除された場合は、サポートチケットを提出してください。
 
-### How do I know the Team Server will be consistently available?
+### Team Serverが一貫して利用可能になることを確認するにはどうすればいいですか?
 
-The team server runs in the trusted Mendix cloud environment and on a trusted infrastructure provider. Availability follows the same guidelines as all Mendix products and we always have daily backups of all data.
+チーム サーバーは、信頼できる Mendix クラウド環境と信頼できるインフラストラクチャプロバイダーで動作します。 可用性はすべてのMendix製品と同じガイドラインに従っており、すべてのデータの毎日のバックアップが常にあります。
 
-## Usage questions
+## 使用に関する質問
 
-### How do I merge changes from one development line to another?
+### ある開発ラインから別の開発ラインに変更をマージするにはどうすればよいですか?
 
-The modeler automates most of this process; you can simply merge development lines by selecting model revisions on the team server. The Mendix Desktop Modeler will do the merging and will keep track of consistency. [Read more](version-control)
+モデラーはこのプロセスのほとんどを自動化します。チーム・サーバーでモデルのリビジョンを選択するだけで、開発ラインをマージできます。 Mendix Desktop Modelerはマージを行い、一貫性を追跡します。 [続きを読む](version-control)
 
-### How do I resolve a conflict when two changes cannot be combined?
+### 2つの変更を組み合わせることができない場合、競合を解決するにはどうすればよいですか?
 
-Resolving a conflict can be done in by using the 'Use mine' and 'Use theirs' button in the version control dock. [Read more](using-version-control-in-the-dm)
+競合を解決するには、バージョン管理ドックの「Use mine」と「Use theirs」ボタンを使用します。 [続きを読む](using-version-control-in-the-dm)
 
-### How can I access the history of my project?
+### プロジェクトの履歴にアクセスするにはどうすればよいですか?
 
-The history of the project is a list of all revisions that have been committed in reverse chronological order. The history form quickly shows you revision number, date, time, author and message of each revision; it can be accessed from within the Mendix Desktop Modeler as well as the Developer Portal. [Read more](using-version-control-in-the-dm)
+プロジェクトの歴史は、逆の時系列順にコミットされたすべてのリビジョンのリストです。 履歴フォームには、各リビジョンのリビジョン番号、日付、時刻、作成者、およびメッセージがすぐに表示されます。 Mendix Desktop Modelerおよび開発者ポータルからアクセスできます。 [続きを読む](using-version-control-in-the-dm)
