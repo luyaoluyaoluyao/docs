@@ -1,124 +1,88 @@
 ---
 title: "Date Picker"
 parent: "input-widgets"
-menu_order: 60
-tags:
-  - "studio pro"
 ---
 
 ## 1 Introduction
 
-A **date picker** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Date and Time*. It uses the values set in the **Languages** tab of **App Settings** to display a correctly localized value to the end-user, using the **Language** object associated with the end-user.
+A date picker is an [input widget](input-widgets) that can be used to display and edit date/time attributes. It takes into account the language setting to display a localized calendar.
 
-A date picker must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the date picker, between square brackets, and colored blue.
+{{% alert type="info" %}}
 
-For example, the following date picker allows the end-user to see, and set, the **LastContacted** date of a customer.
+![](attachments/pages/date-picker.png) This date picker allows the end-user to set the birth date of the customer.
 
-![](attachments/date-picker/date-picker.png)
+{{% /alert %}}
 
-## 2 Properties
+## 2 General Properties
 
-An example of date picker properties is represented in the image below:
+### 2.1 Date Format
 
-{{% image_container width="250" %}}![](attachments/date-picker/date-picker-properties.png)
-{{% /image_container %}}
+The date format determines whether the date picker displays the date, time, date and time, or a custom variation of the linked attribute. This does not affect how data is stored; in all cases both a date and a time will be recorded. It merely affects how the data is displayed. How the date and/or time are formatted depends on the localization of the user viewing the data.
 
-Date picker properties consist of the following sections:
+These are the possible values:
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
-
-### 2.1 Common Section{#common}
-
-{{% snippet file="refguide/common-section-link.md" %}}
-
-### 2.2 Data Source Section{#data-source}
-
-{{% snippet file="refguide/data-source-section-link.md" %}}
-
-### 2.3 Design Properties Section{#design-properties}
-
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.4 Editability Section{#editability}
-
-{{% snippet file="refguide/editability-section-link.md" %}}
-
-### 2.5 Events Section{#events}
-
-#### 2.5.1 On Change{#on-change}
-
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.3 On Leave
-
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
-
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.6 General Section{#general}
-
-#### 2.6.1 Date Format
-
-The date format determines whether the date picker displays the attribute values as a date, time, date and time, or in a custom format.
-
-The format chosen here does not affect how data is stored; in all cases both a date and a time will be recorded. It merely affects how the data is displayed. The date and/or time formats also depend on the localization (language) of the end-user viewing the data.
-
-The possible values for date format are shown below:
-
-* **Date** *(default)*
+* **Date** (this is the default)
 * **Time**
 * **Date and time**
 * **Custom** (see below for more details)
 
-#### 2.6.2 Custom Date Format
+### 2.2 Custom Date Format
 
-If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
+If you choose 'Custom' as the date format (see above) this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
 
-{{% snippet file="refguide/custom-date-format-tokens.md" %}}
+{{% snippet file="refguide7/Custom+Date+Format+Tokens.md" %}}
 
 {{% alert type="info" %}}
-Even though a date picker with a custom date format is editable, the calendar drop-down button will only be shown if the custom format represents a full date (that is, the year [`y`-`yyyy`], month [`M`-`MMMM`], and day of month [`d`-`dd`] tokens are all present in the custom format).
+Even though a date picker with a custom date format is editable (as of Mendix 7.21.0), the calendar drop-down button will not be shown if the custom format does not represent the full date (meaning, the year [`y`-`yyyy`], month [`M`-`MMMM`], or day of month [`d`-`dd`] tokens are missing in the custom format).
 {{% /alert %}}
 
-#### 2.6.3 Placeholder Text
+### 2.3 Placeholder Text
 
-The placeholder text is shown if the date attribute is empty. It can be used to give the end-user a hint as to the expected format.
+The placeholder text is shown if the date attribute is empty. It can be used to give the end user a hint as to the expected format. Note: placeholder texts will not work if a native date picker is available (for example, iOS and Android versions 4.0 and above).
 
-{{% alert type="warning" %}}
-Placeholder text will not be displayed if a native date picker is available (that is, for iOS and Android versions 4.0 and above).
-{{% /alert %}}
+## 3 Validation Properties
 
-### 2.7 Label Section{#label}
+{{% snippet file="refguide7/Widget+Validation.md" %}}
 
-{{% snippet file="refguide/label-section-link.md" %}}
+## 4 Data Source Properties
 
-### 2.8 Validation Section{#validation}
+{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
 
-{{% snippet file="refguide/widget-validation-link.md" %}}
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+## 5 Editability Properties
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-## 3 Read More
+{{% snippet file="refguide7/Read+Only+Style.md" %}}
+
+{{% snippet file="refguide7/Condition+Property.md" %}}
+
+## 6 Visibility Properties
+
+{{% snippet file="refguide7/Visibility+Property.md" %}}
+
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+
+## 7 Events Properties
+
+{{% snippet file="refguide7/On+Change+Event.md" %}}
+
+{{% snippet file="refguide7/On+Enter+event.md" %}}
+
+{{% snippet file="refguide7/On+Leave+Event.md" %}}
+
+## 8 Common Properties
+
+{{% snippet file="refguide7/Name+Property.md" %}}
+
+{{% snippet file="refguide7/Class+Property.md" %}}
+
+{{% snippet file="refguide7/Style+Property.md" %}}
+
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
+
+## 9 Read More
 
 *   [Data View](data-view)
 *   [Attributes](attributes)
