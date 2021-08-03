@@ -1,37 +1,37 @@
 ---
-title: "Password Policy"
-parent: "project-security"
+title: "密码策略"
+parent: "项目安全"
 menu_order: 50
 tags:
   - "studio pro"
-  - "password policy"
-  - "app security"
-  - "security"
+  - "密码策略"
+  - "应用安全"
+  - "安全"
 ---
 
-## 1 Introduction
+## 1 导言
 
-You can specify a number of requirements for passwords. These requirements will be applied when creating new users or changing passwords of existing users.
+您可以为密码指定一些要求。 这些要求将在创建新用户或更改现有用户密码时适用。
 
-## 2 Password Policy Properties
+## 2 个密码策略属性
 
-To set password policy properties, open **App Security** > the **Password policy** tab:
+要设置密码策略属性，请打开 **App Security** > **密码策略** 选项卡：
 
 ![](attachments/password-policy/password-policy-tab.png)
 
-Password policy properties are described in the table below:
+密码策略属性在下表中描述：
 
-| Property           | Description                                                                                                                                                  |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Minimum length     | Specifies the minimum length of a password.                                                                                                                  |
-| Require digit      | Specifies whether at least one digit is required in a password.                                                                                              |
-| Require mixed case | Specifies whether a password must contain at least one lowercase character and one uppercase character.                                                      |
-| Require symbol     | Specifies whether passwords must contain at least one special symbol. The following characters are considered symbols: <br /> <code> ` ~ ! @ # $ % ^ & * ( ) - _ = + [ { ] } \ </code> |
+| 财产      | 描述                                                                   |
+| ------- | -------------------------------------------------------------------- |
+| 最小长度    | 指定密码的最小长度。                                                           |
+| 需要数字    | 指定密码中是否至少需要一个数字。                                                     |
+| 需要混合大小写 | 指定密码是否必须包含至少一个小写字符和一个大写字符。                                           |
+| 需要符号    | 指定密码是否必须包含至少一个特殊符号。 以下字符被视为符号： <br /> <code>~！ @ # $ % ^ & * ( ) - _ = + [ { ] } \ </code> |
 
-## 3 Read More
+## 3 阅读更多
 
-* [App Security](project-security)
-* [User Roles](user-roles)
-* [Administrator](administrator)
-* [Demo Users](demo-users)
-* [Anonymous Users](anonymous-users)
+* [应用安全](项目安全)
+* [用户角色](user-roles)
+* [管理员](管理员)
+* [演示用户](demo-users)
+* [匿名用户](anonymous-users)
