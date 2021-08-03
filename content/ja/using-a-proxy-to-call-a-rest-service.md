@@ -1,47 +1,43 @@
 ---
-title: "Using a Proxy to Call a REST Service"
-parent: "consumed-rest-services"
+title: "プロキシを使用してREST サービスを呼び出します。"
+parent: "rest-services"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-rest-service.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+場合によっては、ファイアウォールの背後に立ち往生し、RESTサービスを直接呼び出すことができない場合があります。 このページでは、そのようなサービスを呼び出すためにプロキシを使用するようにアプリを構成する方法を説明します。
 
-In some cases, you will be stuck behind a firewall and thus unable to call a REST service directly. This page shows you how to configure your app to use a proxy to call such services.
+## 2 プロキシホスト & プロキシポート
 
-## 2 Proxy Host & Proxy Port
+REST コールを実行するときに使用するプロキシサーバを指定する 2 つのパラメータがあります: `http.proxyHost` と `http.proxyPort`。 プロキシによっては認証が必要なものもあります。これは `http.proxyUser` と `http.proxyPassword` として指定できます。
 
-There are two parameters that specify which proxy server to use when making REST calls: `http.proxyHost` and `http.proxyPort`. Some proxies require authentication, which you may specify as `http.proxyUser` and `http.proxyPassword`.
-
-You can either specify these as custom settings or as JVM parameters, which are described in the sections below.
+これらをカスタム設定として指定するか、以下のセクションで説明されている JVM パラメータとして指定することができます。
 
 {{% alert type="info" %}}
-If you specify a setting both as a custom setting and as a JVM parameter, the custom setting will be used.
+カスタム設定とJVMパラメータの両方で設定を指定すると、カスタム設定が使用されます。
 {{% /alert %}}
 
-### 2.1 Custom Settings
+### 2.1 カスタム設定
 
-REST proxy settings can be configured as custom settings on the **Project** > **Settings** > **Configurations** > **Custom** tab. For more information, see the [Custom](configuration#custom) section of *Configurations*.
+REST プロキシ設定は、 **App** > **設定** > **Configurations** > **Custom** tab. 詳細については、 [Configurations](configuration#custom) の *Custom* セクションを参照してください。
 
-### 2.2 JVM Parameters
+### 2.2 JVM パラメータ
 
-REST proxy settings can be configured in the **Project** > **Settings** > **Configurations** > **Server** tab > **Extra JVM parameters** field. For more information, see the [Server](configuration#server) section of *Configurations*.
+REST proxy settings can be configured in the **App** > **Settings** > **Configurations** > **Server** tab > **Extra JVM parameters** field. 詳細については、 [設定](configuration#server) の *サーバー* セクションを参照してください。
 
-They can also be specified as JVM parameters in your *.m2eerc*. This is useful if you want to use these settings to also [consume web services](using-a-proxy-to-call-a-webservice).
+また、 *.m2eerc* の JVM パラメータとして指定することもできます。 これらの設定を使って [ウェブサービス](using-a-proxy-to-call-a-webservice) を消費したい場合に便利です。
 
 ```java
 ...
-# custom java options, like -Xmx256m or -Djava.foo=bar
+# custom Java options, like -Xmx256m or -Djava.foo=bar
  javaopts: [ ..., "-Dhttp.proxyHost=myproxyserver.com", "-Dhttp.proxyPort=3128", "-Dhttp.proxyUser=myusername" "-Dhttp.proxyPassword=mypassword" ]
 ...
 ```
 
-They can also be specified directly when running locally from Studio Pro or calling from Eclipse:
+Studio Pro からローカルで実行する場合や、Eclipse から呼び出す場合にも、これらを直接指定することができます。
 
 ```java
--Dhttp.proxyHost=myproxyserver.com  -Dhttp.proxyPort=3128 -Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
+-Dhttp.proxyHost=myproxyserver.com -Dhttp.proxyPort=3128 -Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
 ```
