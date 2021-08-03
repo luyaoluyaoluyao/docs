@@ -26,13 +26,13 @@ Studio では、ナビゲーションバーはほとんどのページテンプ�
 
 ![設定されたメニュー](attachments/navigation-how-to-configure/navigation-previewed.png)
 
-現在、デフォルトでホームページとして設定されている **Home_web** というページがあります。 現在のナビゲーションドキュメントは次のようになります:
+現在、デフォルトのホームページとして設定されている **Home_Web** というページがあり、ホームメニュー項目にも設定されています。 現在のナビゲーションドキュメントは次のようになります:
 
 ![ナビゲーション デフォルト](attachments/navigation-how-to-configure/navigation-default.png)
 
 ナビゲーションに追加したい複数のページがあります。
 
-* **Employees** - 会社のすべての従業員を一覧表示し、ホームページにする必要があります。
+* **Employees** - 会社のすべての従業員をリストし、デフォルトのホームページにするページ。
 
 * **新規_従業員** - 新規従業員を作成するためのページ
 
@@ -46,33 +46,35 @@ Studio では、ナビゲーションバーはほとんどのページテンプ�
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
-* ナビゲーション文書の用語に慣れてください。 詳細については、 [ナビゲーションドキュメント](/studio8/navigation) を参照してください。
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
+* ナビゲーション文書の用語に慣れてください。 詳細については、 [ナビゲーションドキュメント](/studio/navigation) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
 ## 3 メニュー項目とサブ項目を作成する
 
-### 3.1 従業員ページをホームページとして設定する {#employees-page}
+### 3.1 従業員ページをデフォルトのホームページに設定する {#employees-page}
 
 現在、 **Home_web** ページがあなたのアプリのホームページとして設定されています。 ただし、 **Employees** ページをホームページとして設定する必要があります。 次の操作を行います:
 
 1. 左のメニューバーの **ナビゲーション ドキュメント** アイコンをクリックします。
 
-2. **ホーム** のメニュー アイテムを選択します:
+2. ナビゲーションエディターのプロパティを開く > **デフォルトのホームページ**.
 
-    ![デフォルトのナビゲーション](attachments/navigation-how-to-configure/navigation-default.png)
+3. **ページ** プロパティをクリックして別のページを選択します。
 
-3. プロパティを開きます。 プロパティ **ホームページとして設定** は **ホーム** メニューアイテムでデフォルトで有効になっています。 プロパティで現在選択されているページを変更する必要があります。 次の操作を行います:
+    ![デフォルトのホームページ](attachments/navigation-how-to-configure/default-home-page.png)
 
-    1.  **ページ** プロパティをクリックして、現在ホームページとして設定されているページを変更します。
+4. **ページの選択** ダイアログボックスで、 **Employee** を選択し、 **Select** をクリックします。
 
-        ![ホームページのプロパティ](attachments/navigation-how-to-configure/home-page-properties.png)
+5. 今度は、 **ホーム** メニューアイテムの **従業員** ページを設定する必要があります。それ以外の場合はナビゲーションツリーに表示されません。 **ホーム** メニュー項目をクリックし、そのプロパティを開きます。
 
-    3. **ページの選択** ダイアログボックスで、 **Employee** を選択し、 **Select** をクリックします。
+6. **ページ** プロパティをクリックします。
 
-        ![ページダイアログボックスを選択](attachments/navigation-how-to-configure/select-page-dialog.png)
+    ![ホームメニュー項目](attachments/navigation-how-to-configure/home-menu-item.png)
 
-デフォルトでホームページとして選択されたページを変更し、 **従業員** ページをアプリの新しいホームページとして設定しました。
+7. **ページの選択** ダイアログボックスで、 **Employee** を選択し、 **Select** をクリックします。
+
+**従業員** ページをアプリの新しいデフォルトのホームページとして設定しました。
 
 ### 3.2 新規従業員ページのメニューアイテムの作成
 
@@ -82,7 +84,7 @@ The **New_Employee** page contains a form with the details of the new employee, 
 
 1. ナビゲーション ツリーの下部にあるプラスをクリックして、メニュー アイテムを作成します:
 
-    {{% image_container width="350" %}}![Adding Menu Item](attachments/navigation-how-to-configure/adding-menu-item.png){{% /image_container %}}
+    ![メニューアイテムを追加中](attachments/navigation-how-to-configure/adding-menu-item.png)
 
 2. 新しいメニュー アイテムのプロパティを開き、次の操作を行います:
 
@@ -98,9 +100,7 @@ The **New_Employee** page contains a form with the details of the new employee, 
 
     5. **ページ** プロパティをクリックします。
 
-    6. **ページの選択** ダイアログボックスで、 **新規_従業員** ページを選択し、 **** を選択:
-
-         ![新しい従業員ページを選択](attachments/navigation-how-to-configure/select-new-employee-page.png)
+    6. **ページの選択** ダイアログボックスで、 **新規_従業員** ページを選択し、 **** をクリックします。
 
     7. **図表番号** プロパティで、 *ナビゲーション項目* 図表番号を削除し、 *新規従業員* と入力します。
 
@@ -114,7 +114,7 @@ The **New_Employee** page contains a form with the details of the new employee, 
 
 ![新しいメニューアイテムが作成されました](attachments/navigation-how-to-configure/new-menu-item-created.png)
 
-右上の **プレビュー** をクリックして、 [アプリをプレビュー](/studio8/publishing-app) し、ナビゲーションメニューがどのように見えるかをテストします。 ![プレビューしたメニュー項目](attachments/navigation-how-to-configure/previewed-menu-items.png)
+右上の **プレビュー** をクリックして、 [アプリをプレビュー](/studio/publishing-app) し、ナビゲーションメニューがどのように見えるかをテストします。 ![プレビューしたメニュー項目](attachments/navigation-how-to-configure/previewed-menu-items.png)
 
 ### 3.3 Employee_Details ページのメニュー項目を作成し、そのサブ項目を設定する
 
@@ -158,7 +158,7 @@ You would like to place **Job_Details**, **Personal_Info**, and **Documents** pa
 
 ![ナビゲーションの設定](attachments/navigation-how-to-configure/configured-navigation.png)
 
-[アプリをプレビューする](/studio8/publishing-app) ナビゲーションメニューがどのように表示されるかを確認するには:
+[アプリをプレビューする](/studio/publishing-app) ナビゲーションメニューがどのように表示されるかを確認するには:
 
 ![プレビューナビゲーション](attachments/navigation-how-to-configure/navigation-previewed.png)
 
