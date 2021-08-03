@@ -21,6 +21,7 @@ tags:
 
 ![](attachments/settings/settings-icon.png)
 
-## 2 続きを読む
+## このカテゴリ内の2つのメインドキュメント
 
-* [一般情報](general)
+* [セキュリティ、ロール & パーミッション](settings-security) - Mendix Studioのセキュリティ、ユーザーロール、権限の説明
+* [ウィジェットの概要](settings-widget-overview) – アプリのMendix Marketplaceとローカルウィジェットの設定を説明します
