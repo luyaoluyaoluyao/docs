@@ -7,13 +7,9 @@ tags:
   - "close page"
   - "client activity"
 aliases:
-  - /refguide8/Close+Form.html
-  - /refguide8/close-form.html
+  - /refguide/Close+Form.html
+  - /refguide/close-form.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/close-page.pdf).
-{{% /alert %}}
 
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
@@ -39,9 +35,7 @@ The **Close page** activity properties consists of the following sections:
 
 * [Common](#common)
 
-    {{% image_container width="300" %}}
 ![Close Page Properties](attachments/client-activities/close-page-properties.png)
-{{% /image_container %}}
 
 ## 3 Action Section {#action}
 
@@ -55,14 +49,15 @@ This option is only available for native mobile and was introduced with Mendix S
 
 This property allows you to control how many pages should be closed.
 
-| Value    | Description                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------- |
-| Single   | Close one page (default behavior).                                                                                |
-| Multiple | Close multiple pages at once, showing only a single animation. This number can be configured using an expression. |
+| Value    | Description                                                                                                                            |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Single   | Close one page (default behavior).                                                                                                     |
+| Multiple | Close multiple pages in the current stack at once, showing only a single animation. This number can be configured using an expression. |
+| All      | Close all pages in the current stack at once, except for the first page in the stack, showing only a single animation.                 |
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
 ## 5 Read More
 
