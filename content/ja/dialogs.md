@@ -1,34 +1,34 @@
 ---
-title: "Dialog Boxes"
-category: "Desktop Modeler"
+title: "ダイアログ ボックス"
+category: "デスクトップ モデラー"
 ---
 
-The following pages describe the various dialog boxes present in the Modeler:
+次のページでは、モデラーに存在するさまざまなダイアログボックスについて説明します。
 
-General
+全般
 
-*   [Preferences Dialog](preferences-dialog)
-*   [Sign In Dialog](sign-in-dialog)
+*   [Preferencesダイアログ](preferences-dialog)
+*   [ログインダイアログ](sign-in-dialog)
 
-Managing apps
+アプリの管理
 
-*   [App Settings Dialog](app-settings-dialog)
-*   [Export Project Package Dialog](export-project-package-dialog)
-*   [Import Project Package Dialog](import-project-package-dialog)
-*   [Open App Dialog](open-app-dialog)
+*   [アプリの設定ダイアログ](app-settings-dialog)
+*   [「プロジェクトパッケージのエクスポート」ダイアログ](export-project-package-dialog)
+*   [プロジェクトパッケージのインポート ダイアログ](import-project-package-dialog)
+*   [アプリダイアログを開く](open-app-dialog)
 
-Deploying apps
+アプリをデプロイ中
 
-*   [Create Deployment Package Dialog](create-deployment-package-dialog)
-*   [Deploy To The Cloud Dialog](deploy-to-the-cloud-dialog)
-*   [Edit Cloud Foundry Settings Dialog](edit-cloud-foundry-settings-dialog)
+*   [配備パッケージの作成ダイアログ](create-deployment-package-dialog)
+*   [クラウドにデプロイするダイアログ](deploy-to-the-cloud-dialog)
+*   [クラウドファウンドリー設定ダイアログを編集](edit-cloud-foundry-settings-dialog)
 
-Version control
+バージョン管理
 
-*   [Branch Line Manager Dialog](branch-line-manager-dialog)
-*   [Commit Dialog](commit-dialog)
-*   [Create Branch Line Dialog](create-branch-line-dialog)
-*   [Download From Version Control Server Dialog](download-from-version-control-dialog)
-*   [History Dialog](history-dialog)
-*   [Merge Dialog](merge-dialog)
-*   [Upload To Version Control Server Dialog](upload-to-version-control-dialog)
+*   [ブランチラインマネージャダイアログ](branch-line-manager-dialog)
+*   [コミットダイアログ](commit-dialog)
+*   [分岐線の作成](create-branch-line-dialog)
+*   [バージョン管理サーバーダイアログからダウンロード](download-from-version-control-dialog)
+*   [履歴ダイアログ](history-dialog)
+*   [統合ダイアログ](マージダイアログ)
+*   [バージョン管理サーバーにアップロードするダイアログ](upload-to-version-control-dialog)
