@@ -1,22 +1,18 @@
 ---
-title: "XPath Weekday-from-DateTime"
-parent: "xpath-constraint-functions"
+title: "XPath 周从日期开始时间"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-weekday-from-datetime.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`周日-dateTime()` 函数从 **日期和时间中提取一周的一天(作为一个数字)** 属性，以便它可以用于比较一个值。 值介于1到7之间(1=星期日，7=星期六)。
 
-The `weekday-from-dateTime()` function extracts the day of the week (as a number) from a **Date and time** attribute so it can be used to compare to a value. Values range from 1 to 7 (1 = Sunday, 7 = Saturday).
+## 2 个示例
 
-## 2 Example
-
-This query returns all the logs where the day of the week in `DateAttribute` is 6 (Friday):
+此查询函数返回周内 `日期属性` 6(星期五)的所有日志：
 
 ```java
-//Logging.Log[weekday-from-dateTime(DateAttribute) = 6]
+//Logging.log[周日从日期时间(DateAttribute) = 6]
 ```
