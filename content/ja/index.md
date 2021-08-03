@@ -1,11 +1,16 @@
 ---
-title: "Mendix 7 How-to's"
-notoc: true
+title: "Studio Pro 9 How-to's"
 description: "Step-by-step guides on various Mendix topics that will teach you how to build and customize apps."
+tags:
+  - "studio pro"
 ---
 
-Browse the Mendix how-to's to find step-by-step guides that will teach you how to build and customize apps with Mendix.
+## 1 Introduction
 
-The *Mendix How-to's* are divided into the following categories:
+Browse the *Studio Pro 9 How-to's* to find step-by-step guides that will teach you how to build and customize apps with Mendix.
+
+## 2 How-to Categories
+
+The *Studio Pro 9 How-to's* are divided into the following categories:
 
 {{% category_block %}}
