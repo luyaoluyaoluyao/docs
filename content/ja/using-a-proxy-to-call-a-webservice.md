@@ -1,38 +1,34 @@
 ---
-title: "Using a Proxy to Call a Web Service"
-parent: "consumed-web-services"
+title: "プロキシを使用してWebサービスを呼び出します"
+parent: "consed-web-services"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-webservice.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+場合によっては、ファイアウォールの後ろに貼り付けられているため、ウェブサービスを直接呼び出すことができません。 このドキュメントでは、そのようなサービスを呼び出すためにプロキシを使用するように JVM を構成する方法を説明します。
 
-In some cases, you're stuck behind a firewall, and thus unable to call a webservice directly. This document shows you how to configure the JVM to use a proxy to call such services.
+## 2 プロキシホスト & プロキシポート
 
-## 2 Proxy host and proxy port
-
-There are two JVM parameters (system properties) that specify which proxy server to use. These are http.proxyHost and http.proxyPort You can specify these in your .m2eerc under JVM parameters:
+使用するプロキシサーバーを指定する2つのJVMパラメータ(システムプロパティ)があります。 これらは http.proxyHost と http.proxyPort です。 JVM パラメータの下で .m2eerc で指定できます。
 
 ```java
 ...
-# custom java options, like -Xmx256m or -Djava.foo=bar
+# custom Java options, like -Xmx256m or -Djava.foo=bar
  javaopts: [ ..., "-Dhttp.proxyHost=myproxyserver.com", "-Dhttp.proxyPort=3128"]
 ...
 
 ```
 
-or directly (when calling from, for instance, eclipse):
+または直接(例えば、日食からの呼び出し時):
 
 ```java
--Dhttp.proxyHost=myproxyserver.com  -Dhttp.proxyPort=3128
+-Dhttp.proxyHost=myproxyserver.com -Dhttp.proxyPort=3128
 
 ```
 
-## 3 Proxy user and password
+## 3 プロキシユーザー & パスワード
 
-Some proxies require authentication. To specify the user and password, simply pass two JVM parameters:
+一部のプロキシでは認証が必要です。 ユーザーとパスワードを指定するには、2つのJVMパラメータを渡します。
 
 ```java
 -Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
@@ -40,8 +36,6 @@ Some proxies require authentication. To specify the user and password, simply pa
 
 ## 4 SSL
 
-You can also connect while using a secure sockets layer (ie https). To configure the proxy, you need to specify **different** proxy settings to connect. These settings are called https.proxyHost and https.proxyPort. In addition, you need to import the ssl certificate of the proxy server into your java keystore. More info can be found on the [Oracle website](http://download.oracle.com/javaee/1.4/tutorial/doc/Security6.html)
+セキュアソケットレイヤー(すなわちhttps)を使用して接続することもできます。 プロキシを設定するには、接続するための **異なる** プロキシ設定を指定する必要があります。 これらの設定は https.proxyHost と https.proxyPort と呼ばれます。 さらに、プロキシサーバーの ssl 証明書を Java キーストアにインポートする必要があります。 詳細については、 [Oracle Web サイト](http://download.oracle.com/javaee/1.4/tutorial/doc/Security6.html) を参照してください。
 
-## 5 References
-
-[Oracle documentation on proxies](http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html)
+詳細については、プロキシに関する [Oracle ドキュメント](http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html) を参照してください。
