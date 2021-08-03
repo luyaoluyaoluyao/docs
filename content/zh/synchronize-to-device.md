@@ -8,8 +8,12 @@ tags:
 menu_order: 60
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/synchronize-to-device.pdf)。
+{{% /报警 %}}
+
 {{% alert type="warning" %}}
-此活动只能用于在离线第一个应用程序中运行的 **微流程** (本地或离线PWA应用程序)。
+此活动只能在 **微流** 中使用。
 {{% /报警 %}}
 
 ## 1 导言
@@ -45,7 +49,7 @@ You can also open the dialog box by double-clicking the activity in the microflo
 
 ## 4 共同部分 {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snipet file="refguide8/microflow-common-section-link.md" %}}
 
 ## 5 限制
 
@@ -55,6 +59,7 @@ You can also open the dialog box by double-clicking the activity in the microflo
 * 如果当前用户由于访问规则无法访问某些对象， 他们将不会同步到设备。 如果离线数据库已经包含相同对象，它将被删除。
 * 如果要同步到设备的对象在相同的微流中被删除， **同步到设备** 活动将从离线数据库中删除，如果找到的话。
 * 自动跳过并跳过新的对象。
+* 不允许同步文件。
 * 它只会同步来自纳米流而非事件微流的微流中的物体。
 
 ## 6 点评论
