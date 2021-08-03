@@ -1,173 +1,173 @@
 ---
-title: "Published OData Services"
-parent: "integration"
+title: "公開されたOData Services"
+parent: "統合"
 menu_order: 10
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In Studio Pro, entities can be exposed as [OData resources](published-odata-resource) by adding a new published OData service. You can expose any number of related resources in a published OData service. By default, the plural of the non-qualified names of entities are used in the URI to uniquely identify them, but you can override the name of the resource as well.
+Studio Pro では、新しい公開された OData サービスを追加することで、エンティティを [OData リソース](published-odata-resource) として公開することができます。 公開された OData サービスには、任意の数の関連リソースを公開できます。 デフォルトでは、エンティティの非修飾名の複数形は一意に識別するために URI 内で使用されます。 でもリソースの名前も上書きできます
 
-The standards used for OData in Mendix are:
+Mendix の OData に使用される標準は次のとおりです。
 
-* [OData version 3](http://www.odata.org/documentation/odata-version-3-0), which returns data in Atom XML format.
-* [OData version 4](http://www.odata.org/documentation), which returns data in JSON format.
-
-{{% alert type="info" %}}
-The OData version 4 feature was introduced in Studio Pro [9.4.0](/releasenotes/studio-pro/9.4).
-{{% /alert %}}
-
-Not all parts of the standard are implemented. If something is not documented here, it is has not yet been added.
-
-This document describes the options available to you when you create a published OData service, and ends with some runtime considerations.
-
-## 2 General
-
-### 2.1 Service Name
-
-The service name is used to create a unique URI for the OData service. Thus, the service name should be well-formed in accordance with [RFC 3986](https://tools.ietf.org/html/rfc3986) and [RFC 3987](https://tools.ietf.org/html/rfc3987).
-
-### 2.2 Version
-
-Use the **version** field to assign a version number to the service. This number will be shown in the API documentation.
+* [Atom XML 形式のデータを返すOData バージョン 3](http://www.odata.org/documentation/odata-version-3-0)。
+* [JSON形式のデータを返すOData バージョン 4](http://www.odata.org/documentation)。
 
 {{% alert type="info" %}}
+Studio Pro [9.4.0](/releasenotes/studio-pro/9.4) で OData バージョン 4 の機能を導入しました。
+{{% /alert %}}
 
-It is recommended that you adopt semantic numbering for services that you publish.
+標準のすべての部分が実装されているわけではありません。 何かがここで文書化されていない場合は、まだ追加されていません。
+
+このドキュメントでは、パブリッシュされた OData サービスを作成する際に利用できるオプションについて説明し、実行時の考慮事項で終了します。
+
+## 2つの全般
+
+### 2.1 サービス名
+
+サービス名は、OData サービスの固有の URI を作成するために使用されます。 従って、サービス名は [RFC 3986](https://tools.ietf.org/html/rfc3986) および [RFC 3987](https://tools.ietf.org/html/rfc3987) に従って整形されるべきです。
+
+### 2.2 バージョン
+
+**バージョン** フィールドを使用して、サービスにバージョン番号を割り当てます。 この番号はAPIドキュメントに表示されます。
+
+{{% alert type="info" %}}
+
+公開するサービスに意味的な番号を採用することをお勧めします。
 
 {{% /alert %}}
 
-### 2.3 Namespace
+### 2.3 名前空間
 
-In OData, the namespace is used to refer to data types. On the **Settings** tab, you can customize this namespace. You can change it to any value which starts with a letter followed by letters, digits, or dots with a maximum length of 512 characters.
+OData では、名前空間はデータ型を参照するために使用されます。 **設定** タブで、この名前空間をカスタマイズできます。 文字、数字、またはドットで始まる任意の値に変更できます。最大長は 512 文字です。
 
-### 2.4 Resources
+### 2.4 リソース
 
-A [resource](published-odata-resource) is a network-accessible data object represented by an entity and identified by a URI.
+[リソース](published-odata-resource) は、エンティティによって表現され、URI によって識別されるネットワークアクセス可能なデータオブジェクトです。
 
-## 3 Settings
+## 3つの設定
 
 ### 3.1 OData version
 
-You can choose between OData 4 (recommended) and OData 3. One of the main differences is that OData 4 services return results in JSON, and OData 3 services return results in XML.
+OData 4(推奨)とOData 3のどちらかを選択できます。 主な違いは、OData 4 サービスは JSON で結果を返し、OData 3 サービスは XML で結果を返すことです。
 
 {{% alert type="info" %}}
-This setting was introduced in Studio Pro [9.4.0](/releasenotes/studio-pro/9.4). In earlier versions, all published OData services were OData 3.
+この設定は Studio Pro [9.4.0](/releasenotes/studio-pro/9.4) で導入されました。 以前のバージョンでは、公開されていたODataサービスはすべてOData 3でした。
 {{% /alert %}}
 
-### 3.2 Associations
+### 3.2 関連
 
-You can select how you want to represent associations. For more information, see the [Associations](odata-representation#associations) section of *OData Representation*.
+関連付けを表す方法を選択できます。 詳細については、 [OData 表現](odata-representation#associations) の *Associations* セクションを参照してください。
 
-### 3.3 Security {#security}
+### 3.3 セキュリティ {#security}
 
-You can configure security for the OData service when [App Security](project-security) is enabled.
+[App Security](project-security) が有効な場合、OData サービスのセキュリティを設定できます。
 
-#### 3.3.1 Requires Authentication {#authentication}
+#### 3.3.1 認証が必要 {#authentication}
 
-Select whether clients need to authenticate or not. Choose _No_ to allow access to the resources without restrictions. Choose _Yes_ to be able to select which authentication methods to support.
+クライアントを認証する必要があるかどうかを選択します。 制限なくリソースへのアクセスを許可するには、 _No_ を選択します。 サポートする認証方法を選択するには、 _はい_ を選択します。
 
-Even when you choose _Yes_, you can still expose OData resources to anonymous users. For detailed information on allowing anonymous users, refer to [Anonymous User Role](anonymous-users).
+_はい_を選択した場合でも、OData リソースを匿名ユーザに公開できます。 匿名ユーザを許可する方法についての詳細は、 [匿名ユーザロール](anonymous-users) を参照してください。
 
-#### 3.3.2 Authentication Methods
+#### 3.3.2 認証メソッド
 
-If authentication is required, you can select which authentication methods you would like to support.
+認証が必要な場合は、サポートしたい認証方法を選択できます。
 
-* Select **Username and password** to allow clients to authenticate themselves using a username and a password in the **Authorization** header (this is called "basic authentication")
-* Select **Active session** to allow access from JavaScript inside your current application
-* Select **Custom** to authenticate using a microflow (this microflow is called every time a user wants to access a resource)
+* **ユーザー名とパスワード** を選択すると、クライアントが **Authorization** ヘッダー内のユーザー名とパスワードを使用して自分自身を認証できるようになります (これは「基本認証」と呼ばれます)
+* 現在のアプリケーション内でJavaScriptからのアクセスを許可するには、 **アクティブセッション** を選択してください
+* **カスタム** を選択して、マイクロフローを使用して認証します。(このマイクロフローは、ユーザーがリソースにアクセスしたいたびに呼び出されます)
 
-Check more than one authentication method to have the service try each of them. It will first try **Custom** authentication, then **Username and password**, and then **Active session**.
+サービスがそれらのそれぞれを試してもらうために複数の認証方法を確認してください。 最初に **カスタム** 認証、次に **ユーザー名とパスワード**、次に **アクティブセッション**を試してみます。
 
-##### 3.3.2.1 Username & Password {#username-password}
+##### 3.3.2.1 ユーザー名 & パスワード {#username-password}
 
-Authentication can be done by including basic authentication in the HTTP header of the call. To do this you need to construct a header called **Authorization** and its content should be constructed as follows:
+認証は、呼び出しの HTTP ヘッダーに基本的な認証を含めることによって行うことができます。 これを行うには、 **Authorization** というヘッダを構築する必要があり、その内容は以下のように構成される必要があります。
 
-1.  Username and password are combined into a string "username:password".
-2.  The resulting string is then encoded using the [RFC2045-MIME](https://tools.ietf.org/html/rfc2045) variant of Base64 (except not limited to 76 char/line).
-3.  The authorization method and a single space (meaning, "Basic " is then put before the encoded string).
+1.  ユーザー名とパスワードは、文字列 "username:password" に結合されます。
+2.  結果の文字列は Base64 の [RFC2045-MIME](https://tools.ietf.org/html/rfc2045) variant を使って符号化されます (ただし、76 char/lineに限定されません)。
+3.  認可方法と単一のスペース (つまり、「Basic 」はエンコードされた文字列の前に置かれます)。
 
-This result is a header which looks like `Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==`.
+この結果は、 `Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==` のようなヘッダです。
 
-##### 3.3.2.2 Active Session {#authentication-active-session}
+##### 3.3.2.2 アクティブセッション {#authentication-active-session}
 
-When you check this authentication method, the JavaScript in your app can access the REST service using the current user's session.
+この認証方法を確認すると、アプリケーションのJavaScriptは現在のユーザーのセッションを使用してRESTサービスにアクセスできます。
 
-To prevent cross-site request forgery, the `X-Csrf-Token` header needs to be set on each request, for example:
+クロスサイト・リクエストの偽造を防ぐには、 `X-Csrf-Token` ヘッダーを各リクエストに設定する必要があります。例えば:
 
 ```
 var xmlHttp = new XMLHttpRequest();
-xmlHttp.open("GET", "http://mysite/odata/myservice/myresource", false);
+xmlHttp.open("GET", "http://mysite/odata/myresource", false);
 xmlHttp.setRequestHeader("X-Csrf-Token", mx.session.getConfig("csrftoken"));
 xmlHttp.send(null);
 ```
 
-##### 3.3.2.3 Custom {#authentication-microflow}
+##### 3.3.2.3 カスタム {#authentication-microflow}
 
-Specify which microflow to use for custom authentication.
+カスタム認証に使用するマイクロフローを指定します。
 
-The microflow may take an [HttpRequest](http-request-and-response-entities#http-request) as a parameter, so it can inspect the incoming request.
+microflow は [HttpRequest](http-request-and-response-entities#http-request) をパラメータとして受け取ることができるため、受信するリクエストを検査することができます。
 
-The microflow may also take an [HttpResponse](http-request-and-response-entities#http-response) as a parameter. When the microflow sets the status code of this response to something other then **200**, this value is returned and the operation will not be executed. Any headers set on the response are returned (except when the microflow returns an empty user).
+マイクロフローは、パラメータとして [HttpResponse](http-request-and-response-entities#http-response) を取ることもできます。 マイクロフローがこのレスポンスのステータスコードを他のものに設定した場合、 **200**この値は返され操作は実行されません。 レスポンスに設定されたすべてのヘッダーは返されます (microflow が空のユーザーを返す場合を除く)。
 
-The authentication microflow should return a User.
+認証マイクロフローは、ユーザを返す必要があります。
 
-There are three possible outcomes of the authentication microflow:
+認証のマイクロフローには3つの可能性のある結果があります。
 
-  * When the status code of the HttpResponse parameter is set to something other then **200**, this value is returned and the operation will not be executed
-  * When the resulting User is not empty, the operation is executed in the context of that user
-  * When the resulting User is empty, the next authentication method is attempted (when there are no other authentication methods, the result is **404 Not Found**)
+  * HttpResponse パラメータのステータスコードが他のものに設定されている場合 **200**. この値が返され操作は実行されません
+  * 結果のユーザーが空でない場合、そのユーザーのコンテキストで操作が実行されます。
+  * 結果のUserが空の場合、次の認証方法が試行されます(他の認証方法がない場合)。 結果は **404 Not Found** ) です。
 
-#### 3.3.3 Allowed Roles
+#### 3.3.3 許可されたロール
 
-The allowed roles define which [module role](module-security#module-role) a user must have to be able to access the service. This option is only available when **Requires authentication** is set to **Yes**.
-
-{{% alert type="warning" %}}
-Web service users cannot access OData services.
-{{% /alert %}}
-
-## 4 Properties
-
-In the properties pane when an OData service document is displayed, you can edit some of the values that you can also set in the **General** tab, such as **Service name**, **Version**, and **Namespace**.
-
-This section describes the additional values that you can set.
-
-### 4.1 Documentation
-
-Here you can add a description of the service. This is available to other users working on this app and is not published when the OData service is deployed.
-
-### 4.2 Replace Illegal XML Characters
-
-Some special characters cannot be used in XML. If your data contains these characters, the client will get an error. If you set this setting to *Yes*, those illegal characters are replaced by the DEL character, and the client will not get an error. However, the data that the client receives will not be exactly what is stored in your database, because these characters have been replaced.
-
-This *Replace Illegal XML Characters* option is not available when the OData version is OData 4, because OData 4 returns data in JSON format.
-
-Default value: *No*
-
-### 4.3 Public Documentation
-
-You can write a *summary* and a *description* intended for people using the service.
-
-## 5 Runtime Considerations
-
-### 5.1 General
-
-Once your app is published, the published OData services will be is available on the root URL of the app followed by `/odata-doc/`. For example, `http://localhost:8080/odata-doc/` You can copy and paste the links into for instance Excel to establish a link between your OData resources and Excel.
+許可されたロールは、どの [モジュール ロール](module-security#module-role) ユーザがサービスにアクセスできる必要があるかを定義します。 このオプションは、 **** が **はい** に設定されている場合にのみ使用できます。
 
 {{% alert type="warning" %}}
-While the API documentation for OData resources is enabled by default, access to it may be restricted by the administrator for apps running in production.
+Webサービス利用者はODataサービスにアクセスできません。
 {{% /alert %}}
 
-For details on how to filter the OData response, refer to [OData Query Options](odata-query-options).
+## 4つのプロパティ
 
-For details on how Mendix attributes are represented in OData, refer to [OData Representation](odata-representation).
+OData サービスドキュメントが表示されている場合のプロパティ ペインで。 **一般** タブで設定できる値の一部を編集できます。 例えば、** サービス名 ** 、 **バージョン**、 **バージョン**、および **名前空間** など。
 
-When exposing entities through OData, the entities are retrieved from the Mendix database in a streaming fashion, to avoid out-of-memory errors in the Mendix Runtime.
+このセクションでは、設定できる追加の値について説明します。
 
-### 5.2 On-Premises Deployments
+### 4.1 ドキュメント
 
-Some on-premises servers, in particular those using Microsoft IIS, will strip the host header from requests. This means that your OData service and documentation will be published on an unexpected URL.
+ここでは、サービスの説明を追加できます。 これは、このアプリで作業している他のユーザーが利用でき、OData サービスがデプロイされている場合は公開されません。
 
-To resolve this issue, you will need to ensure your server preserves host headers. See the section [Preserving the Host Header](/developerportal/deploy/deploy-mendix-on-microsoft-windows#preserve-header) in the *Microsoft Windows* deployment documentation.
+### 4.2 Illegal XML 文字を置換
+
+XML では特殊文字が使用できない場合があります。 データにこれらの 文字が含まれている場合、クライアントはエラーを受け取ります。 If you set this setting to *Yes*, those illegal characters are replaced by the DEL character, and the client will not get an error. しかし、クライアントが受け取るデータは、データベースに格納されているもの ではありません。これは、これらの文字が置き換えられているためです。
+
+この *無効な XML 文字を置換する* オプションは、OData バージョンが OData 4 の場合は使用できません。 OData 4 はデータを JSON 形式で返すためです。
+
+デフォルト値: *いいえ*
+
+### 4.3 公開ドキュメント
+
+*概要* と *説明* を書くことができます。
+
+## 5ランタイムについての考慮事項
+
+### 5.1 全般
+
+アプリが公開されたら、 公開された OData サービスは、アプリのルート URL に続いて `/odata-doc/` で利用可能になります。 例えば、 `http://localhost:8080/odata-doc/` OData リソースと Excel の間のリンクを作成するには、リンクをコピー&ペーストします。
+
+{{% alert type="warning" %}}
+OData リソースの API ドキュメントはデフォルトで有効になっていますが、本番環境で実行されているアプリのアクセスは管理者によって制限される場合があります。
+{{% /alert %}}
+
+OData レスポンスをフィルタリングする方法については、 [OData Query Options](odata-query-options) を参照してください。
+
+Mendix 属性が OData でどのように表現されるかについては、 [OData 表現](odata-representation) を参照してください。
+
+OData を介してエンティティを公開するとき、エンティティはストリーミング方法で Mendix データベースから取得され、Mendix ランタイムでメモリ不足のエラーを回避します。
+
+### 5.2 オンプレミスのデプロイ
+
+一部のオンプレミスサーバ、特にMicrosoft IISを使用しているサーバは、ホストヘッダをリクエストから除去します。 これは、OData サービスとドキュメントが予期しないURLに公開されることを意味します。
+
+この問題を解決するには、サーバーがホストヘッダーを保持していることを確認する必要があります。 [Microsoft Windows](/developerportal/deploy/deploy-mendix-on-microsoft-windows#preserve-header) デプロイメントのドキュメントの *ホストヘッダーの保持* セクションを参照してください。
