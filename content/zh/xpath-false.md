@@ -1,23 +1,19 @@
 ---
-title: "XPath False"
-parent: "xpath-constraint-functions"
+title: "XPath 错误"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-false.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+函数 `false()` 返回布尔值 `false`。
 
-The function `false()` returns the Boolean value `false`.
+在 XPath 查询中使用值 `true` 或 `fals` 需要使用 `true()` 和 `false()` 函数或附上引号中的值。
 
-To use the values `true` or `false` in XPath queries, it is necessary to either use the `true()` and `false()` functions or to enclose the values in quotation marks.
+## 2 个示例
 
-## 2 Example
-
-This query returns all the customers who are not classified as gold customers:
+此查询返回所有未被分类为黄金客户的客户：
 
 ```java
 //Sales.Customer[IsGoldCustomer = false()]
