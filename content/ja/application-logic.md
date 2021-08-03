@@ -1,28 +1,28 @@
 ---
 title: "Application Logic"
-category: "App Modeling"
+category: "アプリモデリング"
 menu_order: 40
-description: "Presents an overview of documentation on microflows and nanoflows."
+description: "マイクロフローとナノフローに関するドキュメントの概要を紹介します。"
 tags:
   - "studio pro"
-  - "logic"
-  - "microflow"
+  - "ロジック|論理|論理|論理|論理|論理|論理|論理|論理|論理|論理|論理|論理|論理|論理|"
+  - "マイクロフロー"
   - "nanoflow"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-While you can create a simple Mendix app using widgets on pages, you can unleash the power of Mendix by adding application logic to your app.
+ウィジェットを使って簡単なMendixアプリを作成することができますが、 アプリケーションロジックをアプリに追加することでMendixのパワーを解き放つことができます。
 
-Application logic in Mendix can be implemented via [microflows](microflows), [nanoflows](nanoflows), and [workflows](workflows). You can change a value based on a function or combination of functions using expressions.
+Mendix のアプリケーション ロジックは [microflow](microflows)、 [nanoflow](nanoflows)、 および [ワークフロー](workflows) を介して実装できます。 式を使用して関数または関数の組み合わせに基づいて値を変更できます。
 
-Microflows and nanoflows allow you to express the logic of your application. They can perform actions such as creating and updating objects, showing pages, and making choices. It is a visual way of expressing what traditionally ends up in textual program code.
+マイクロフローとナノフローを使用すると、アプリケーションのロジックを表すことができます。 オブジェクトの作成や更新、ページの表示、選択などのアクションを実行できます。 それは、伝統的にテキストプログラムコードで終わるものを視覚的に表現する方法です。
 
-Workflows represent a long-lived process. Their main difference from microflows and nanoflows is a waiting aspect – the workflow is paused until it gets an input from an end-user. For example, an employee sends a travel request (triggering the start of the workflow) and then the workflow is paused until a manager approves the request by clicking a button.
+ワークフローは長生きのプロセスを表します。 マイクロフローとナノフローとの主な違いは待機の側面です – ワークフローはエンドユーザーからの入力が得られるまで一時停止されます。 例えば、 従業員がトラベルリクエストを送信し(ワークフローの開始をトリガー)、ボタンをクリックしてマネージャがリクエストを承認するまでワークフローは一時停止されます。
 
-Explore the documentation for details on microflow, nanoflow, and workflow definitions, properties, and usages.
+microflow、nanoflow、およびワークフローの定義、プロパティ、および使用方法の詳細については、ドキュメントを参照してください。
 
-* [Microflows & Nanoflows](microflows-and-nanoflows)
-* [Workflows](workflows)
-* [Expressions](expressions)
+* [Microflow & Nanoflows](マイクロフローとナノフロー)
+* [ワークフロー](workflows)
+* [式](表現)
 
