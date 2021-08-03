@@ -5,16 +5,16 @@ tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `COALESCE` function returns the first of its arguments that is not NULL.
+`COALESCE` 関数は、NULL ではない引数の最初を返します。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
 COALESCE ( expression [ ,...n ] )
 ```
 
-`expression` specifies the expression to check, if the result is NULL.
+`式` は、結果が NULL の場合にチェックする式を指定します。
