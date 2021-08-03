@@ -1,25 +1,25 @@
 ---
-title: "Row (Document Template)"
-parent: "table-document-template"
+title: "行 (ドキュメントテンプレート)"
+parent: "テーブルドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/row-(document-template).html
-  - /refguide/Row+(document+template).html
+  - /ja/refguide/row-(document-template).html
+  - /ja/refguide/Row+(document+template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Rows are part of a table. They contain cells which in turn can contain other widgets.
+行はテーブルの一部です。 これらには他のウィジェットを含むことができるセルが含まれています。
 
-## 2 Components
+## 2つのコンポーネント
 
-### 2.1 Cell
+### 2.1 セル
 
-A cell of a row. For more information, see [Cell (Document Template)](cell-document-template).
+行のセル。 詳細については、 [セル (ドキュメントテンプレート)](cell-document-template) を参照してください。
 
-## 3 Appearance Properties
+## 3つの外観プロパティ
 
-### 3.1 Condition for Visible
+### 3.1 表示条件
 
-The condition for visible, as the name suggests, this property allows you to set a condition on which the row is visible to the end-user. These conditions can be enumeration or Boolean attributes of the entity of the data view.
+名前が示すように、visibleの条件を指定します。このプロパティでは、行がエンドユーザーに表示される条件を設定できます。 これらの条件は、データビューのエンティティの列挙またはブール属性を指定できます。
