@@ -1,8 +1,9 @@
 ---
 title: "使用 Eclipse"
 category: "Java 程序"
+tags:
+  - "studio pro"
 ---
-
 
 使用 Eclipse 来写入和调试Mendix 项目中的 Java 操作非常容易。 当部署Mendix 模型时，生成一个 Eclipse 项目文件、类路径文件和启动配置。
 
@@ -10,7 +11,7 @@ category: "Java 程序"
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918120.png) 设置 UTF-8 编码。
+![](attachments/java-programming/918120.png) 设置 UTF-8 编码。
 
 {{% /报警 %}}
 
@@ -18,7 +19,7 @@ category: "Java 程序"
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918186.png) 选择默认JDK。
+![](attachments/java-programming/918186.png) 选择默认JDK。
 
 {{% /报警 %}}
 
@@ -26,34 +27,34 @@ category: "Java 程序"
 
 要将 Mendix 项目添加到 Eclipse，您可以执行这些步骤：
 
-1. 打开 **文件** 菜单并点击 **导入**。
-2. 打开 **常规** 文件夹并选择 **现有项目到工作区** 然后点击 **下一个**。
-3. 使用选项 **选择根目录**，浏览您的 Mendix 项目文件夹并点击 **完成**。
+*   打开文件菜单并点击导入
+*   打开“通用”文件夹并选择“现有工程进入工作区”，然后点击下一个
+*   使用 '选择根目录'，浏览您的 Mendix 项目文件夹并单击完成
 
 {{% alert type="info" %}}
 
-![](attachments/819203/917580.png) 导入现有项目。
+![](attachments/java-programming/917580.png) 导入现有项目。
 
 {{% /警示%}}!{% alert type="info" %}}
 
-![](attachments/819203/917527.png) 导入现有项目步骤2。
+![](attachments/java-programming/917527.png) 导入现有项目步骤2。
 
 {{% /报警 %}}
 
 现在你可以像通常那样愉快地开始编辑你的 Java 动作。
 
-要真正启动该项目，请根据您想要如何运行该项目，前往'调试配置'或'运行配置'。 在左侧菜单上选择 'Java 应用程序' 菜单，您将看到由 Mendix 桌面模型生成的启动配置。 只需点击右边的“调试”或“运行”即可启动应用程序。
+要真正启动该项目，请根据您想要如何运行该项目，前往'调试配置'或'运行配置'。 在左侧菜单上选择 'Java 应用程序' 菜单，您将看到由 Mendix Studio Pro生成的启动配置。 只需点击右边的“调试”或“运行”即可启动应用程序。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/917586.png) 查找您的启动配置。
+![](attachments/java-programming/917586.png) 查找您的启动配置。
 
 {{% /报警 %}}
 
-启动应用程序后，您将看到M2EE 管理控制台弹出窗口。 这是一个与您通常在 Mendix 桌面模型中看到的相同的控制台，如果您要从那里运行这个项目。 您可以关闭控制台来阻止您的应用程序。
+启动应用程序后，您将看到M2EE 管理控制台弹出窗口。 这是与您通常在 Mendix Studio Pro 中看到的相同的控制台，如果您要从那里运行这个项目。 您可以关闭控制台来阻止您的应用程序。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/917582.png) M2EE 管理控制台。
+![](attachments/java-programming/917582.png) M2EE 管理控制台。
 
 {{% /报警 %}}
