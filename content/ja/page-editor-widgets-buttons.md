@@ -1,98 +1,109 @@
 ---
-title: "Buttons"
+title: "ボタン"
 parent: "page-editor-widgets"
-description: "Describes button widgets in Mendix Studio."
+description: "Mendix Studio でボタンウィジェットを説明します。"
 menu_order: 50
 tags:
-  - "studio"
-  - "page editor"
-  - "button"
-  - "widgets"
+  - "スタジオ"
+  - "ページエディタ"
+  - "ボタン"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Button [widgets](page-editor-widgets) allow end-users to perform various actions, for example, saving changes or closing the current page:
+ボタン [ウィジェット](page-editor-widgets) は、現在のページを閉じたり変更を保存したりするなど、エンドユーザーがさまざまなアクションを実行することを可能にします。
 
 {{% image_container width="400" %}}![](attachments/page-editor-widgets-buttons/button-example.png)
 {{% /image_container %}}
 
-The following **Buttons** are available in Mendix Studio as default widgets:
+Mendix Studioでは、デフォルトのウィジェットとして以下のカテゴリとボタンを使用できます。
 
-* Open Page
-* Call Microflow
-* Create Object
-* Save Changes
-* Delete Object
-* Cancel Changes
-* Close Page
-* Sign Out
-* Open Link
+* **ボタン** – ページを開いたり閉じたり、マイクロフローを呼び出したり、ユーザーにサインアウトしたり、リンクを開いたりするなどの一般的なアクションを持つボタン
+  * ページを開く
+  * マイクロフローに発信
+  * ページを閉じる
+  * サインアウト
+  * リンクを開く
+* **データボタン** - データを操作し、オブジェクトを作成または削除するために使用されるボタン:
+  * オブジェクトを作成
+  * 変更を保存
+  * オブジェクトを削除
+  * 変更をキャンセル
+* **Workflow Buttons** – buttons that are related to [workflows](workflows) and are used to call  a workflow, complete or show a [user task](workflows-user-task), show a workflow page:
+  * ワークフローに発信
+  * Complete Task
+  * ユーザータスクを表示
+  * ワークフローを表示
 
 {{% alert type="info" %}}
 
-Apart from the default button widgets, you can also [download widgets from the Mendix Marketplace](https://marketplace.mendix.com/) to your app. For more information, see the [Widgets by Origin](page-editor-widgets#widgets-by-origin) section in *Widgets*.
+デフォルトのボタンウィジェットとは別に、 [Mendix Marketplace](https://marketplace.mendix.com/) からアプリにウィジェットをダウンロードすることもできます。 詳細については、 [ウィジェット](page-editor-widgets#widgets-by-origin) の *原点別ウィジェット* セクションを参照してください。
 
 {{% /alert %}}
 
-## 2 Events Section
+## 2つのイベントセクション
 
-Properties in the **Events** section are partially preset for buttons listed above. They depend on the action a button performs. For example, if the button is supposed to open a page, the **On Click Action** in the **Events** section will be **Page**. However, you need to specify what page exactly the button will open.
+**イベント** セクションのプロパティは、上記のボタンに対して部分的にプリセットされます。 ボタンが行うアクションに依存します。 例えば、ボタンがページを開くことになっている場合。 **イベント** セクションの **クリックアクション** は **ページ**になります。 ただし、ボタンを開くページを指定する必要があります。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets-buttons/events-section-page-button.png)
 {{% /image_container %}}
 
-For more information, see the [Default Properties in the Events Section](#default-properties) section.
+詳細については、「 [」セクションの「](#default-properties) 」セクションの「デフォルトのプロパティ」を参照してください。
 
 {{% alert type="info" %}}
 
-You can change preset properties, and make the button perform another action.
+プリセットのプロパティを変更して、ボタンに別のアクションを実行させることができます。
 
 {{% /alert %}}
 
-For more information on the **Events** section and on click actions, see [Events Section](page-editor-widgets-events-section).
+**イベント** セクションとクリックアクションの詳細については、 [イベント セクション](page-editor-widgets-events-section) を参照してください。
 
-### 2.1 Default Properties in the Events Section {#default-properties}
+### 2.1 format@@0セクションのデフォルトプロパティ {#default-properties}
 
-**On Click Action** in the **Events** section determines the action of the button.
+**** **イベント** セクションのクリックアクション format@@4 でボタンの動作を決定します。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets-buttons/events-section.png)
 {{% /image_container %}}
 
-You can find the list of default actions and properties that need to be configured in the table below.
+以下の表に、デフォルトのアクションとプロパティのリストを示します。
 
-| Button         | Default Action | Properties to be Configured                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Open Page      | Page           | **Page** (Select page) <br />If you want to create a new object and pass it as a context to the selected page, enable **Create Object** (disabled by default) and select an **Entity**. For more information on see section the [Create Object Option](page-editor-widgets-events-section#create-object-option) section in *Events Section*. <br /> **Close pages** <br />Control the number of pages to close after navigating to the target page. |
-| Call Microflow | Microflow      | **Microflow** (Select microflow)                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Create Object  | Create Object  | **Page** (Select page) and **Entity** (Select entity) <br /> **Close pages** <br />Control the number of pages to close after navigating to the new or edit page.                                                                                                                                                                                                                                                                                         |
-| Save Changes   | Save Changes   | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Delete Object  | Delete Object  | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Cancel Changes | Cancel Changes | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Close Page     | Close Page     | **Close pages** Control the number of pages to close.                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Sign Out       | Sign Out       | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Open Link      | Open Link      | For **Open Link** you need to configure the following properties: <ul><li>**Link Type** (Default: *Web*)</li><li>**Source** (Default: *Use literal value*)</li><li>**Url**</li></ul> For more information on these properties, see the [Open Link Action](page-editor-widgets-events-section#open-link-action) section in *Events Section*.                                                                                                                                                                                                                      |
+| ボタン           | デフォルトのアクション   | 設定されるプロパティ                                                                                                                                                                        |
+| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ページを開く        | ページ           | **Open Page** の場合、次のプロパティを設定できます。<ul><li>**ページ**</li><li>**オブジェクトを作成** と **エンティティ** – 新しいオブジェクトを作成し、選択したページにコンテキストとして渡す場合。 有効にする **オブジェクトを作成** (デフォルトでは無効) **エンティティ**を選択します。</li></ul> これらのプロパティの詳細については、 [イベントセクション](page-editor-widgets-events-section#create-object-option) の *オブジェクトオプション* セクションを参照してください。 |
+| マイクロフローに発信    | マイクロフロー       | **マイクロフロー**                                                                                                                                                                       |
+| ページを閉じる       | ページを閉じる       | なし                                                                                                                                                                                |
+| サインアウト        | サインアウト        | なし                                                                                                                                                                                |
+| リンクを開く        | リンクを開く        | **Open Link** の場合、次のプロパティを設定する必要があります。 <ul><li>**Link Type** (Default: *Web*)</li><li>**ソース** (デフォルト: *リテラル値を使用*)</li><li>**Url**</li></ul> これらのプロパティの詳細については、 [イベント セクション](page-editor-widgets-events-section#open-link-action) の *リンクアクション* セクションを参照してください。  |
+| オブジェクトを作成     | オブジェクトを作成     | **ページ** と **エンティティ**                                                                                                                                                              |
+| 変更を保存         | 変更を保存         | なし                                                                                                                                                                                |
+| オブジェクトを削除     | オブジェクトを削除     | なし                                                                                                                                                                                |
+| 変更をキャンセル      | 変更をキャンセル      | なし                                                                                                                                                                                |
+| ワークフローに発信     | ワークフローに発信     | **ワークフロー**                                                                                                                                                                        |
+| Complete Task | Complete Task | **タスク**                                                                                                                                                                           |
+| ユーザータスクを表示    | タスクページを表示     | なし                                                                                                                                                                                |
+| ワークフローを表示     | ワークフローページを表示  | **管理ページ**                                                                                                                                                                         |
 
-## 3 General Section
+## 3一般セクション
 
-Properties available in the **General** section are described in the table below.
+**一般** セクションで使用可能なプロパティについては、以下の表を参照してください。
 
-| Property    | Description                                                                                                                                                                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Caption     | Defines the text that will be shown on the button. Buttons have preset captions depending on the action they perform.                                                                                                                         |
-| Icon        | Determines the icon that will be shown in front of the caption of the button.                                                                                                                                                                 |
-| Render Mode | Defines the way the button will be shown to the end-user. Possible options are the following: <ul><li>Button  *(default)*  – the widget will be rendered as a button</li><li>Link – the widget will be rendered as a hyperlink</li></ul>                                                                                                                        |
-| Style       | Applies a predefined styling to the button. Possible options are the following: <ul><li>Default <em>(default for all buttons except **Save Changes**)</em></li><li>Inverse</li><li>Primary</li><li>Info</li><li>Success <em>(default for the **Save Changes** button)</em></li><li>Warning</li><li>Danger</li></ul>The color for each style depends on your settings in the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer). |
+| 属性        | 説明                                                                                                                                                 |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 図表番号      | ボタンに表示されるテキストを定義します。 ボタンには、実行するアクションに応じて事前設定されたキャプションがあります。                                                                                        |
+| アイコン      | ボタンのキャプションの前に表示するアイコンを指定します。                                                                                                                       |
+| レンダリングモード | このボタンをエンドユーザーに表示する方法を定義します。 利用可能なオプションは次のとおりです: <ul><li>*(デフォルト)* ボタン – ウィジェットはボタンとしてレンダリングされます</li><li>リンク - ウィジェットはハイパーリンクとしてレンダリングされます</li></ul>                                                                           |
+| スタイル      | ボタンに定義済みのスタイルを適用します。 利用可能なオプションは次のとおりです: <ul><li>デフォルト <em>(**変更を保存**を除くすべてのボタンのデフォルト)</em></li><li>反転</li><li>プライマリ（プライマリ）</li><li>情報</li><li>成功 <em>(**変更を保存** ボタンの既定)</em></li><li>警告</li><li>危険</li></ul>各スタイルの色は、 **テーマカスタマイザ**の設定によって異なります。 詳細は [テーマカスタマイズ](theme-customizer) を参照してください。 |
 
-## 4 Conditional Visibility
+## 4 条件付き可視性
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-## 5 Design Section
+## 5デザインセクション
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
-## 6 Read More
+## 6もっと読む
 
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)
