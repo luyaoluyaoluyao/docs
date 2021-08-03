@@ -5,18 +5,14 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-quarter-from-datetime.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`quaret-from-dateTime()` 関数は、 **Date and time** 属性に対応する四半期を抽出し、値と比較するために使用することができます。
 
-The `quarter-from-dateTime()` function extracts the quarter corresponding to a **Date and time** attribute so it can be used to compare to a value.
+## 2つの例
 
-## 2 Example
-
-This query returns all the logs where `DateAttribute` is in quarter 4 (for example, "2011-12-30").
+このクエリは、 `DateAttribute` が四半期にあるすべてのログを返します(たとえば、"2011-12-30")。
 
 ```java
-//Logging.Log[quarter-from-dateTime(DateAttribute) = 4]
+//Logging.Log[quaret-from-dateTime(DateAttribute) = 4]
 ```
