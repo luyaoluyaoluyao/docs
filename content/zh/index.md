@@ -1,27 +1,39 @@
 ---
-title: "工作室 9个工作室"
+title: "工作室8指南"
 tags:
   - "工作室"
-  - "如何处理"
+  - "web modeler"
 ---
 
 {{% alert type="warning" %}}
 
-**Studio 9 How-to's** 空间描述与 Mendix 版本相对应的 Mendix Studio 功能。 它描述了最新的工作室功能和功能。
+**Studio 8 Guide** 描述与 Mendix 8 版本相对应的 Mendix Studio 功能。 它描述了最新的工作室功能和功能。
 
 {{% /报警 %}}
 
 ## 1 导言
 
-工作室如何包含分步指南，这将有助于您在 Mendix Studio 中创建应用，自定义并添加逻辑。 演播室如何描述它们所遵循的一个具体的使用案例。 对于更多的一般准则，例如如何创建微流程或如何将元素添加到您的页面， 查看 [Mendix Studio 指南](/studio)。
+The Mendix Platform includes [Mendix Studio](general) in addition to [Mendix Studio Pro](/refguide8/modeling). 工作室是一个协作、无代码、基于网络的应用程序开发环境。 它使商业开发者和用户能够在最小编码或软件开发体验中创建网络和移动应用程序，而不必知道如何编程。
 
-## 2 个操作类别
+工作室允许您执行以下操作：
 
-*工作室 9号工作室* 分为以下类别：
+* 开发应用程序用户界面与风格的建筑块和部件
+* 在应用程序中创建读取和写数据的域模型
+* 视觉模型一个应用程序的交互和流控制
+* 利用您的企业设计语言创建不仅仅是品牌和主题的符合公司标准的吸引应用
 
-* [如何在工作室为员工上岗流程配置工作流程](workflow-how-to-configure) - 描述如何在Mendix Studio中为员工上岗流程配置 Workflow
-* [页面](pages) — — 侧重于构建各种页面模式，例如构建一个表单或一个列表 同时配置不同的功能，例如在列表中过滤数据
-* [如何配置域模型](domain-model-how-to-configure) - 解释如何配置域模型及其元素
-* [如何保护您的应用并配置访问其功能](security-how-to-configure-roles) - 解释如何保护您的应用并创建不同的用户角色
-* [Microflow](microflows) — — 侧重于配置各种微流程元素和活动，例如配置决定
-* [如何自定义您的应用程序的设计](theme-customizer-how-to-customize-design) - 解释您如何在 **主题定制器中更改您的应用程序的设计**
+## 指南类别
+
+*Studio 8 指南* 分成以下类别：
+
+* [常规信息](general)
+* [页 次](page-editor)
+* [域模型](域名模型)
+* [导航文档](navigation)
+* [微型流动](微流)
+* [正在预览 & 发布您的应用](publishing-app)
+* [检查](检查)
+* [主题自定义器](theme-customizer)
+* [设置](设置)
+* [使用数据](work-with-data)
+* [合作](collaboration)
