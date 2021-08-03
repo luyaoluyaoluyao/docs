@@ -1,101 +1,101 @@
 ---
-title: "Boolean Expressions"
-parent: "expressions"
+title: "布尔表达式"
+parent: "表达式"
 menu_order: 50
 tags:
   - "studio pro"
-  - "expression"
-  - "expressions"
+  - "表达式"
+  - "表达式"
   - "Boolean"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Boolean expressions can be used to perform logical operations that return either true or false.
+布尔表达式可以用来执行返回真或假的逻辑操作。
 
-## 2 and
+## 2 和
 
-The `and` operator checks two Boolean expressions and only returns `true` if both of the expressions are true.
+如果两个表达式都是真实的， `和` 操作员将检查两个布尔表达式，并且只返回 `true`。
 
-### 2.1 Examples
+### 2.1 实例
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     (6 > 4) and (3 < 5)
     ```
 
-    The output is `true` because both of the expressions are `true`.
+    输出为 `true` ，因为两个表达式都是 `true`。
 
-* If you use the following input:
-
-    ```java
-    ('hello' = 'hallo') and (3 < 5)
-    ```
-
-    The output is `false`, because only the second expression is `true`.
-
-## 3 or
-
-The `or` operator combines two Boolean expressions, and returns `true` if at least one of the expressions is true.
-
-### 3.1 Examples
-
-The examples below illustrate which value the expression returns:
-
-* You have a entity called *product* that has the *price* attribute of the integer type. The *price* attribute equals 3, and you have another attribute called *recommendedPrice* that equals 2.
-
-    If you use the following input:
+* 如果您使用以下输入：
 
     ```java
-    ($product/price < $product/recommendedPrice : 2) or ($product/price     > 0)
+    ('hello' = 'hallo') (3 < 5)
     ```
 
-    The expression will return `true` because at least one of the   expressions is true (the second one). Note that the expression would    still return `true` if both statements had been true.
+    输出为 `false`，因为只有第二个表达式是 `true`。
 
-* If you use the following input:
+## 3 或
+
+`或` 操作员合并了两个布尔值表达式，并返回 `true` 如果至少一个表达式是真。
+
+### 3.1 实例
+
+下面的例子说明表达式返回的价值：
+
+* 您有一个名为 *产品* 的实体具有整数类型的 *价格* 属性。 *价格* 属性等于 3，您还有另一个属性名为 *推荐价格* 等于2。
+
+    如果您使用以下输入：
 
     ```java
-    ('hello' = 'nothello') or ('byebye' = 'stillnotbyebye')
+    ($product/价格 < $product/推荐价格: 2) 或 ($product/价格     > 0)
     ```
 
-    The expression will return `false`, because both expressions are false.
+    表达式将返回 `true` ，因为至少一个表达式是真的(第二个表达式)。 请注意，如果两个语句都是真实的，则表达式仍然返回 `true`。
 
-## 4 not
+* 如果您使用以下输入：
 
-The `not` operator negates the specified Boolean expression.
+    ```java
+    ('hello' = 'nothello') 或('byebye' = 'stilllnotbyebye')
+    ```
+
+    表达式将返回 `false`，因为这两个表达式都是假的。
+
+## 4 不是
+
+`不是` 操作员否定指定的布尔表达式。
 
 ### 4.1 Input
 
-An expression of type Boolean.
+布尔型表达式。
 
-### 4.2 Output
+### 4.2 产出
 
-Returns the negation of the specified expression. If the expression evaluates to `true`, it returns `false`; and vice versa.
+返回指定表达式的否定。 如果表达式评估为 `true`, 它返回 `fals`; 反之亦然。
 
-### 4.3 Examples
+### 4.3 实例
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     not('hello' = 'hallo')
 
     ```
 
-    The expression will return `true` .
+    表达式将返回 `true`。
 
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     not(true)
     ```
 
-    The expression will return `false` .
+    表达式将返回 `false`。
 
 
 
