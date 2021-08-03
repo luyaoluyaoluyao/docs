@@ -1,35 +1,35 @@
 ---
-title: "Page Resources"
-parent: "pages"
+title: "页面资源"
+parent: "页面"
 menu_order: 12
 tags:
   - "studio pro"
-  - "page resources"
+  - "页面资源"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The main difference between a page and page resources is that page is an independent document, while a page resource is a helping document that cannot function on its own. For example, a layout cannot function on its own, but it gives structure to a page.
+页面资源和页面资源之间的主要区别在于页面是一个独立的文档。 而一个页面资源是一个帮助文档，无法单独运行。 例如，布局无法独自运作，但它给一个页面提供了结构。
 
-You can add the following page resources:
+您可以添加以下页面资源：
 
-* [Image collection](image-collection)
-* [Layout](layout)
-* [Page template](page-templates)
-* [Snippet](snippet)
-* [Building block](building-block)
-* [Menu](menu)
+* [图片收藏](image-collection)
+* [布局](布局)
+* [页面模板](page-templates)
+* [代码片段](snippet)
+* [构建块](building-block)
+* [菜单](菜单)
 
-## 2 Adding Page Resources
+## 添加页面资源
 
-To add a resource document, do the following:
+要添加资源文档，请执行以下操作：
 
-1.  In the [App Explorer](project-explorer), right-click the module or a folder you want to add a resource to and select **Add other**:
+1.  在 [App Explorer](project-explorer)右键单击要添加资源到的模块或文件夹并选择 **添加其他**
 
     ![](attachments/page-resources/project-explorer-page-resources.png)
 
-2. Select the document you would like to add to your app.
+2. 选择您想要添加到应用程序的文档。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Pages](pages)
+* [页 次](页面)
