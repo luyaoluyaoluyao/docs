@@ -1,41 +1,38 @@
 ---
 title: "動的画像 (ドキュメントテンプレート)"
 parent: "ドキュメントテンプレート"
-tags:
-  - "studio pro"
 aliases:
-  - /refguide/Dynamic+Image+(document+template).html
-  - /ja/refguide/dynamic-image-(document-template).html
+  - /refguide7/Dynamic+Image+(document+template).html
+  - /refguide7/dynamic-image-(document-template).html
 ---
 
-## 1つの紹介
 
 動的画像は、System.Imageを表示するために使用することができます。 画像が使用できない場合 (例: 画像が保存されていない場合)、プリセットされたデフォルトの画像が表示されます。 データビューまたはテンプレートグリッド内に配置できます。
 
 {{% alert type="info" %}}
 
-![](attachments/document-templates/918132.png) テーブルセル内の動的な画像。プリセットのデフォルト画像を表示します。
+![](attachments/819203/918132.png) テーブルセル内の動的な画像。プリセットのデフォルト画像を表示します。
 
 {{% /alert %}}
 
 ## 外観のプロパティ
 
-### 2.1 デフォルト画像
+### デフォルトの画像
 
 デフォルトの画像は、動的な画像が見つからなかったときにドキュメントに表示される画像です(システムを専門とするエンティティの場合)。 mageエンティティには実際の画像が含まれていません。
 
-### 2.2 サムネイルを使用
+### サムネイルを使用
 
 ここでは、ドキュメント内のサムネイルを使用するか、画像全体を使用するかを選択できます。
 
-### 2.3 Width
+### Width
 
 width はドキュメント内の画像の幅を定義します。 これはピクセル単位で設定されており、ドキュメントテンプレートで PPI を使用して、実際の印刷サイズに再計算されます。 画像の歪みを防ぐために、両方を設定することはできません。
 
-### 2.4 高さ
+### 高さ
 
 高さは、ドキュメント内の画像の高さを定義します。 これはピクセル単位で設定されており、ドキュメントテンプレートで PPI を使用して、実際の印刷サイズに再計算されます。 画像の歪みを防ぐために、両方を設定することはできません。
 
-## 3つの一般的なプロパティ
+## 共通のプロパティ
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
