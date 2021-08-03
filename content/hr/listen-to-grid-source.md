@@ -1,23 +1,30 @@
 ---
-title: "Listen To Widget Source"
+title: "Listen to Widget Source"
 parent: "data-sources"
+tags:
+  - "studio pro"
+  - "listen to widget"
+  - "data source"
+menu_order: 70
 ---
 
-
-The listen-to-widget data source allows a data view to display detailed information on an object selected in a list widget on the same page. The data grid, template grid, and list view are list widgets. This is especially useful when displaying large amounts of data, which limits the information available per object, as it allows the user to view details concerning individual objects without having to open a new page.
-
 {{% alert type="info" %}}
-
-![](attachments/16713834/16843964.jpg) The data view on the right listens to the data grid on the left. In this example, the listening view will display the image attached to the selected product if one is selected.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/listen-to-grid-source.pdf).
 {{% /alert %}}
 
-Both list views, template grids, and data grids can be listened to.
+## 1 Introduction
 
-If no object is selected in the list widget, the data view will remain empty and unresponsive.
+The listen-to-widget data source is a data view specific source that allows a data view to display detailed information on an object selected in a data grid, template grid, or a list view on the same page. This is especially useful when displaying large amount of data, which limits the information available per object, as it allows the user to view details of an individual object without having to open a new page.
 
-## Properties
+{{% image_container width="400" %}}![Listen to Widget Example](attachments/data-widgets/listen-to-widget-example.jpg)
+{{% /image_container %}}
 
-### List widget
+A data view in an image above listens to a data grid. In this example, the data view will display the name of the selected product if one is selected.
 
-Specifies the list widget from which the data view derives its data.
+List views, template grids, and data grids are list widgets and can be listened to. If no object is selected in the list widget, the data view will remain empty and unresponsive.
+
+## 2 Properties
+
+### 2.1 List Widget
+
+Specifies the list widget which controls the object shown in the data view.
