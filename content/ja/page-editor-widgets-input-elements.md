@@ -98,33 +98,40 @@ The **Type** option allows you to quickly change the type of one input element t
 
 * **読み取り専用** – 値は読み取り専用モードです。
 
-* **条件付き** – ウィジェットは、属性値または式に基づいて指定された条件を満たす場合にのみ編集可能です。
+* **Conditional** – the widget is editable only if specified conditions are met based on an attribute value (for more information, see  [Attribute-Based](#attribute-based) and [Attribute Values](#attribute-values) sections below) or based on an expression. Studio Pro でのみ、式に基づいて条件を作成できます(詳細については)。 [ページエディターで共通のプロパティ](/refguide8/common-widget-properties#editability) の *編集可能セクション* を参照 )
 
-    {{%alert type="info" %}} If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.{{%/alert %}}
+    {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
+
+    {{%/alert %}}
 
 
-##### 3.3.3.1 以下に基づく条件 {#condition}
+#### 3.3.4 属性ベース {#attribute-based}
 
-**** プロパティに基づく条件は、 [条件編集可能性](#editability) が選択されている場合にのみ表示されます。 次のオプションが使用できます。
+**Attribute-Based** プロパティは [Conditional Editability](#editability) が選択されている場合にのみ表示されます。
 
-* **属性** – 条件が属性値に基づいているかどうかを定義します。 この場合、ウィジェットは選択した属性の特定の値に一致する場合にのみ編集可能になります。 属性は、ブール型または列挙型でなければなりません。
-* **式** – 条件が式に基づいているかどうかを定義します。 この場合、ウィジェットはブール値 `true` を返した場合にのみ編集可能になります。 式の詳細については、 [式](expressions) を参照してください。
+**Attribute-Based** の条件付き編集では、選択した属性の特定の値に一致するウィジェットを表示することができます。
 
-##### 3.3.3.2 属性 {#attribute}
+{{%alert type="info" %}}
 
-このプロパティは、 [](#condition) に基づく条件が **属性** に設定されている場合にのみ表示されます。 条件に基づく属性を選択できます。 属性は、ブール型または列挙型でなければなりません。
+属性は、ブール型または列挙型でなければなりません。
 
-##### 3.3.3.3 属性値 {#attribute-values}
+{{%/alert %}}
 
-このプロパティは、属性が [属性](#condition) プロパティに選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
+{{%alert type="info" %}}
 
-例えば、 **都市** フィールドを編集できるようにしたいのは、ユーザーが **国** フィールドを入力したときだけです 限られた数の国に製品を届けることができるからです So, you need to select *Country* in the **Attribute** property and *Netherlands*, *Belgium*, *Germany*, *France* in the **Attribute Value** property.
+データコンテナ内にウィジェットが配置されている場合(データビューまたはリストビュー)にのみ、属性ベースの条件付き編集機能を設定できます。 ウィジェットをページに配置する方法についての詳細は、 [ページ](page-editor#adding-elements) の *ページ* のセクションで要素を追加するを参照してください。
 
-##### 3.3.3.4 式
+{{%/alert %}}
 
-このプロパティでは、式を作成し、 [](#condition) に基づく条件 が **式** に設定されている場合にのみ表示できます。 式はブール型でなければなりません。 式の作成方法の詳細については、 [式](expressions) を参照してください。
+#### 3.3.5 属性値 {#attribute-values}
 
-#### 3.3.4 特定のプロパティ
+このプロパティは、 [Attribute-Based](#attribute-based) プロパティの属性が選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
+
+例えば、 **都市** フィールドを編集できるようにしたいのは、ユーザーが **国** フィールドを入力したときだけです 限られた数の国に製品を届けることができるからです So, you need to select *Country* in the **Attribute-Based** property and *Netherlands*, *Belgium*, *Germany*, *France* in the **Attribute Value** property:
+
+![](attachments/page-editor-widgets-input-elements/attribute-based-editability.png)
+
+#### 3.3.6 特定のプロパティ
 
 以下の表に、入力要素の特定のプロパティを記述します。
 
