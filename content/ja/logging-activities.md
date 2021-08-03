@@ -1,9 +1,9 @@
 ---
-title: "Logging Activities"
-parent: "activities"
+title: "ログのアクティビティ"
+parent: "アクティビティ"
 ---
 
 
-## Log Message
+## ログメッセージ
 
-See [Log Message](log-message).
+[ログ メッセージ](log-message) を参照してください。
