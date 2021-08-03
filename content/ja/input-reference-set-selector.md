@@ -1,103 +1,108 @@
 ---
-title: "Input Reference Set Selector"
+title: "入力リファレンスセットセレクター"
 parent: "input-widgets"
+menu_order: 90
+tags:
+  - "studio pro"
 ---
 
+{{% alert type="warning" %}}The **input reference set selector** ウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-The input reference set selector is an [input widget](input-widgets) that can be used to display and edit [associations](associations) for which the multiplicity setting is configured to allow multiple parent objects to associate with multiple children. This type of association is also known as a reference set.
+## 1つの紹介
+
+**入力参照集合セレクタ** は、関連するオブジェクトを選択することによって、エンドユーザーが多対多の(参照集合) [関連](associations) の値を表示または選択できるようにするために使用されます。
+
+入力リファレンスセットセレクタは、 [データ ウィジェット](data-widgets) に配置する必要があります。
+
+たとえば、顧客をグループにグループ化でき、各顧客は複数のグループに属することができます。 各グループには多くの顧客がいます。 エンティティ **顧客** と **グループ** は多対多の関係を持っている (参照セット) 。 入力リファレンスセットセレクタを使用して、顧客が属するグループを選択できます。
+
+入力リファレンスセットセレクタでできることは、アソシエーションの **オーナー** に依存します。 以下のドメインモデルの例 **所有者** は **デフォルト** に設定されています (関連プロパティ **'顧客' オブジェクトは 'グループ' オブジェクト** を参照します)。
+
+![顧客（親）とグループの間の入力参照セットセレクタのドメインモデル (オーナーが「デフォルト」の場合と同様) 顧客はグループを参照しています)](attachments/input-reference-set-selector/domain-model-owner-default.png)
+
+顧客データビューに入力参照セットセレクタを入れることで、ユーザーが顧客が属するグループを選択できるようになります。 ただし、お客様が協会の所有者であるため、 グループ内の顧客を選択するには、format@@0ビューに入力参照セットセレクタを入れることはできません。
+
+顧客にグループを追加し、顧客をグループに追加できるようにする。 あなたは、関連付けの所有権を **** に設定する必要があります。
+
+![オーナーが「両方」である顧客（親）とグループ間の入力参照セットセレクタのドメインモデル 顧客とグループが互いを参照します)](attachments/input-reference-set-selector/domain-model-owner-both.png)
+
+入力参照セットセレクタでは、表示される属性へのパス (関連付け、関連エンティティ) 属性)は、入力参照セットセレクタ内に表示され、角括弧と青色の間で表示されます。
+
+たとえば、上記のドメインモデルを使用します。 以下の入力参照セットセレクタは、関連付け **Customer_Group**を設定することによって、エンドユーザーが1つ以上のグループと顧客を関連付けることを可能にします。 これは、現在の **顧客**に関連付けられている **グループ**の **名**を選択することによって行われます。
+
+![](attachments/input-reference-set-selector/input-reference-set-selector.png)
+
+## 2つのプロパティ
+
+以下の画像では、入力参照セットセレクタプロパティの例を示します。
+
+{{% image_container width="250" %}}![](attachments/input-reference-set-selector/input-reference-set-selector-properties.png)
+{{% /image_container %}}
+
+参照集合セレクタープロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [全般](#general)
+* [ラベル](#label)
+* [選択可能なオブジェクト](#selectable-objects)
+* [公開範囲](#visibility)
+
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide/common-section-link.md" %}}
+
+### 2.2 データソースセクション {#data-source}
+
+{{% snippet file="refguide/data-source-section-link.md" %}}
+
+属性パスは、関連するエンティティのどの属性を参照セットセレクタに表示するかを指定します。 パスは、データビューのエンティティから始まるタイプ参照セットの関連付けに従う必要があります。
+
+### 2.3 デザインプロパティセクション {#design-properties}
+
+{{% snippet file="refguide/design-section-link.md" %}}
+
+### 2.4 編集可能セクション {#editability}
+
+{{% snippet file="refguide/editability-section-link.md" %}}
+
+### 2.5 イベントセクション {#events}
+
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
+
+{{% snippet file="refguide/events-section-link.md" %}}
+
+### 2.6 一般プロパティ {#general}
+
+#### 2.6.1 ページを選択
+
+format@@0 プロパティにより、入力リファレンスセレクターがクリックされたときに表示されるページが決定されます。 このページは、選択可能なオブジェクトのリストから関連するオブジェクトを選択するために使用できます。 このページには、入力参照セットセレクタと同じエンティティに接続されたデータグリッド、テンプレートグリッド、またはリストビューが含まれている必要があります。
+
+入力参照セットセレクタが編集できない場合、選択ページは必要ありません。
+
+[Show a Page](on-click-event#show-page) section of *On Click Event & Events Section* を参照してください。 選択ページには [ポップアップ レイアウト](layout#layout-type) が必要です。
 
 {{% alert type="info" %}}
-
-![](attachments/16713883/16844008.jpg) The multiplicity settings of an association can be found by double-clicking the association in the [domain model](domain-model).
-
-{{% /alert %}}{{% alert type="info" %}}
-
-![](attachments/pages/input-reference-set-selector.png) This input reference set selector allows you to link an employee to organizations.
-
+ウィジェットを右クリックして **選択ページを生成…** を選択することで、新しいページを表示することができます。
 {{% /alert %}}
 
-When clicked, the input reference set selector will open a select page containing a widget with all possible objects that can be used to fill the association.
+### 2.7 ラベルセクション {#label}
 
-## General Properties
+{{% snippet file="refguide/label-section-link.md" %}}
 
-### Select Page
+### 2.8 選択可能なオブジェクトセクション {#selectable-objects}
 
-The select page determines which page is displayed when the input reference selector is clicked. This page can be used to select associated objects from the list of all possible objects. This page should contain a data grid, template grid or list view connected to the same entity as the input reference set selector.
+format@@0 セクションのプロパティによって、エンドユーザーが選択できるオブジェクトが決定されます。 ソースとして、 **データベース** または **XPath** を使用することができます。 **XPath**を使用する場合、 **XPath 制約**を追加するか、 **** パスを使用することができます。
 
-If an input reference set selector is not editable under any circumstances, no select page is required.
-
-See [Opening Pages](opening-pages). Note that opening select pages in content is prohibited.
-
-{{% alert type="success" %}}
-
-You can generate a new page to show by right-clicking the widget and selecting 'Generate select page...'.
-
-{{% /alert %}}
-
-## Selectable Objects Properties
-
-### XPath Constraint
-
-With the XPath constraint you can add a manual constraint to limit the list of objects that can be selected.
+詳細に関しては、 [参照セレクター](reference-selector#xpath-constraints) の *XPath* セクションを参照してください。
 
 {{% alert type="info" %}}
-
-The XPath constraint `[InStock = true()]` on a reference selector for products will ensure that only products that are in stock are selectable.
-
+入力リファレンスセットセレクタ内で選択可能なオブジェクトを定義するためにマイクロフローを使用することはできません。
 {{% /alert %}}
 
-### Constrained By
+### 2.9 表示セクション {#visibility}
 
-An input reference set selector can be constrained by one or more paths. This is typically used to make one reference selector dependent on another. For example, in page where you can edit a user, an organization selector can be constrained by a country selector. After selecting a country, the organization selector is constrained by this country and shows only organizations linked to that country.
-
-{{% alert type="info" %}}
-
-![](attachments/16713883/16844007.jpg)
-
-In the domain model the user has a reference association to country and a reference set association to organization. The third association, from country to organization, describes the relation between those two entities. Such a 'triangle' shaped part of the domain model is what makes constraining possible.
-
-![](attachments/16713883/16844006.jpg)
-
-The page has displays a reference selector for the reference to country and an input reference set selector for the reference set to organization. The latter is constrained by the path through the domain model that forms the triangle.
-
-![](attachments/16713883/16844005.jpg)
-
-{{% /alert %}}
-
-## Data Source Properties
-
-{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
-
-{{% snippet file="refguide7/Label+Property.md" %}}
-
-## Editability Properties
-
-{{% snippet file="refguide7/Editable+Property.md" %}}
-
-{{% snippet file="refguide7/Read+Only+Style.md" %}}
-
-{{% snippet file="refguide7/Condition+Property.md" %}}
-
-## Visibility Properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
-
-## Events Properties
-
-{{% snippet file="refguide7/On+Change+Event.md" %}}
-
-## Common Properties
-
-{{% snippet file="refguide7/Name+Property.md" %}}
-
-{{% snippet file="refguide7/Class+Property.md" %}}
-
-{{% snippet file="refguide7/Style+Property.md" %}}
-
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
-
-## Read More
-
-*   [Data view](data-view)
+{{% snippet file="refguide/visibility-section-link.md" %}}
