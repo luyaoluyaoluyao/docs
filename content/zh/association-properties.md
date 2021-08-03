@@ -1,84 +1,84 @@
 ---
-title: "Association Properties"
-parent: "associations"
+title: "关联属性"
+parent: "关联"
 menu_order: 10
 tags:
-  - "domain model"
-  - "association"
+  - "域模型"
+  - "关联"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-There are two ways to edit the properties of an [association](associations). This page describes the properties you can edit in the properties pane of the association in the domain model, or from opening the association properties dialog directly from the association or the association tab in the entity properties.
+有两种方法来编辑 [关联](associations) 的属性。 此页面描述了您可以在域模型中关联属性窗格中编辑的属性。 或者直接从关联或实体属性中的关联标签打开关联属性对话框。
 
-You can also edit an association directly within the association tab in the entity properties. For more information see [Association Tab Properties](association-member-properties).
+您也可以在实体属性中直接编辑关联标签。 欲了解更多信息，请参阅 [关联标签属性](association-member-properties)。
 
 {{% alert type="info" %}}
-Attributes properties for associated external entities are defined in the originating app and the only local changes that can be applied to these entities is a local name and description. For further information, see the [Attributes](external-entities#attributes) section of *External Entities*.
-{{% /alert %}}
+关联外部实体的属性在原始应用程序中定义，唯一可以应用于这些实体的本地更改是本地名称和描述。 For further information, see the [Attributes](external-entities#attributes) section of *External Entities*.
+{{% /报警 %}}
 
-## 2 Association Properties
+## 2 个关联属性
 
-An example of the association properties is represented in the image below:
+下面的图像显示了关联属性的示例：
 
-![Association Properties](attachments/associations/association-properties.png)
+![关联属性](attachments/associations/association-properties.png)
 
-Associations have the following properties:
+协会有下列财产：
 
-* [Name](#name)
-* [Documentation](#documentation)
-* [Multiplicity](#multiplicity)
-* [Navigability](#navigability)
-* [Delete Behavior](#delete-behavior)
+* [名称](#name)
+* [文件](#documentation)
+* [多重性](#multiplicity)
+* [导航能力](#navigability)
+* [删除行为](#delete-behavior)
 
-### 2.1 Name {#name}
+### 2.1 名称 {#name}
 
-The name used to refer to the association. For example, in forms or microflows.
+指向关联的名称。 例如，在形式或微流方面。
 
-### 2.2 Documentation {#documentation}
+### 2.2 文件 {#documentation}
 
-You can write notes and documentation in the **Documentation** property.
+您可以在 **文档** 属性中写入备注和文档。
 
-### 2.3 Multiplicity {#multiplicity}
+### 2.3 多重性 {#multiplicity}
 
-Multiplicity can be of the following types:
+多重性可以是以下类型：
 
-| Multiplicity            | Meaning                                                   | Equivalent of                                                                                             |
-| ----------------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| One-to-one              | One X object is associated with one Y object              | An association of type **Reference** with owner set to **Both**                                           |
-| One-to-many *(default)* | One X object is associated with multiple Y object         | An association of type **Reference** with owner set to **Default**                                        |
-| Many-to-many            | Multiple X objects are associated with multiple Y objects | An association of type **Reference set** – in this case ownership is set by the **Navigability** property |
+| 多重性         | 含义            | 等于：                                                                |
+| ----------- | ------------- | ------------------------------------------------------------------ |
+| 一对一的        | 一个X对象与一个Y对象关联 | An association of type **Reference** with owner set to **Both**    |
+| 一对多的 *(默认)* | 一个X对象与多个Y对象关联 | An association of type **Reference** with owner set to **Default** |
+| 多对多         | 多个X对象与多个Y对象关联 | 类型 **引用集** - 在这种情况下所有权由 **导航能力设置** 属性                              |
 
-For more information about association types, see the [Type](association-member-properties#type) section in *Association Tab Properties*, and for information on ownership, see the [Owner](association-member-properties#owner) section in *Association Tab Properties*.
+欲了解更多关于关联类型的信息，请参阅 *关联标签属性*中的 [类型](association-member-properties#type) 部分， 欲了解所有权，请参阅 [所有者](association-member-properties#owner) 章节 *关联标签属性*。
 
 ### 2.4 Navigability {#navigability}
 
-| Navigability                             | Meaning                           | Equivalent of                                                          |
-| ---------------------------------------- | --------------------------------- | ---------------------------------------------------------------------- |
-| X objects refer to Y objects *(default)* | The owner of the association is X | An association of type **Reference set** with owner set to **Default** |
-| X and Y objects refer to each other      | Both entities are owners          | An association of type **Reference set** with owner set to **Both**    |
+| 导航能力                | 含义         | 等于：                                                                    |
+| ------------------- | ---------- | ---------------------------------------------------------------------- |
+| X 对象引用到 Y 对象 *(默认)* | 该协会的所有者是 X | An association of type **Reference set** with owner set to **Default** |
+| X 和 Y 对象相互引用        | 这两个实体都是所有者 | An association of type **Reference set** with owner set to **Both**    |
 
-This corresponds to the **Owner** property for **Reference sets**. See the [Owner](association-member-properties#owner) section of *Association Tab Properties* for a more detailed discussion of the impact of changing navigability.
+这对应于 **参考集** 的 **所有者** 属性。 请参阅 *Association Tab Properties 的 [所有者](association-member-properties#owner) 部分* 以更详细地讨论改变导航能力的影响。
 
-Despite it's name, navigability is usually only important when adding or changing associations. Making one object owner of an association does not prevent you reading the association from the non-owner end.
+尽管它有名称，但通航能力通常只有在添加或更改关联时才很重要。 使一个对象所有者成为一个社团，并不会阻止您从非所有者的末尾读取社团。
 
-### 2.5 Delete Behavior {#delete-behavior}
+### 2.5 删除行为 {#delete-behavior}
 
-| Value                                                                                                                          | Description                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| Delete {name of entity} object but keep {name of other entity} object(s) *(default)*                                           | When an object is deleted, the associated object(s) are not deleted.            |
-| Delete {name of entity} object and {name of other entity} object(s) as well<sup><small>[1]</small></sup>                       | When an object is deleted, the associated object(s) are also deleted.           |
-| Delete {name of entity} object only if it is not associated with {name of other entity}<sup><small>[2]</small></sup> object(s) | An object can only be deleted if it is not associated with any other object(s). |
+| 值                                                                                                                              | 描述                       |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
+| 删除 {name of entity} 对象，但保留 {name of other entity} 对象 *(默认)*                                                                    | 当一个对象被删除时，关联对象不会被删除。     |
+| 删除 {name of entity} 对象和 {name of other entity} 对象<sup><small>[1]</small></sup>                                                 | 当一个对象被删除时，关联对象也会被删除。     |
+| Delete {name of entity} object only if it is not associated with {name of other entity}<sup><small>[2]</small></sup> object(s) | 一个对象只能在与任何其他对象无关的情况下被删除。 |
 
-<sup><small>[1]</small></sup>This delete behavior is used if you want to delete any associated **Profile** when a **Customer** is deleted:
+<sup><small>[1]</small></sup>如果您想要删除任何关联的 **配置文件** 当一个 **客户** 被删除时，此删除行为将被使用：
 
 ![](attachments/associations/association-delete-both.png)
 
-<sup><small>[2]</small></sup>This delete behavior is used if you want to be able to delete a **Customer** only if it is not associated with any **Order**. In this case you will be asked to enter an **Error message if 'Customer' object cannot be deleted** to inform the end user that this customer cannot be deleted and perhaps suggest a next course of action:
+<sup><small>[2]</small></sup>如果您想要能够删除一个 **客户** 只有当它与任何 **订单没有关联时** 才会使用这种删除行为。 在这种情况下，如果不能删除</strong> 客户对象，您将被要求输入一个 **错误信息，以告知最终用户该客户不能被删除，或许建议下一个行动方针：</p>
 
 ![](attachments/associations/association-prevent-delete.png)
 
-## 3 Read More
+## 3 阅读更多
 
-* [Associations](associations)
+* [社会联系](关联)
