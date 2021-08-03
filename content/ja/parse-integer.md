@@ -1,42 +1,68 @@
 ---
-title: "Parse integer"
+title: "Parse Integer"
 parent: "expressions"
+menu_order: 140
+description: "Describes the function for parsing integer from strings in Mendix."
+tags:
+  - "studio pro"
+  - "expressions"
+  - "parse"
+  - "integer"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/parse-integer.pdf).
+{{% /alert %}}
 
-Try to convert a string to an integer.
+## 1 Introduction
 
-## parseInteger
+This document describes functions that convert a string to an integer.
 
-Take a string and try to parse it to an integer.
+## 2 parseInteger
 
-### Input parameters
+Takes a string and parses it to an integer.
 
-*   The string to parse Type: String
-*   (Optional) Default value Type: Integer
+### 2.1 Input Parameters
 
-### Output
+The input parameters are described in the table below:
 
-The integer, if it's possible to parse it from the string. If it's not a valid parsable string, the default value will be returned. If no default value is provided, an error will occur. Type: Integer
+| Value                        | Type    |
+| ---------------------------- | ------- |
+| The string to parse          | String  |
+| Default value **(optional)** | Integer |
 
-```java
-parseInteger('42')
-```
+### 2.2 Output
 
-returns:
+The output is described in the table below:
 
-```java
-42
-```
+| Value                                                                                                                                                                                              | Type    |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| An integer if it is possible to parse it from the string. If  the string cannot be parsed to an integer, the default value will be returned. If no default value is provided, an error will occur. | Integer |
 
-with default value:
+### 2.3 Examples
 
-```java
-parseInteger('not_an_integer', 42)
-```
+The examples below illustrate which value the expression returns:
 
-returns:
+* If you use the following input:
 
-```java
-42
-```
+    ```java
+    parseInteger('42')
+    ```
+
+    the output is:
+
+    ```java
+    42
+    ```
+
+* If you use the following input:
+
+    ```java
+    parseInteger('not_an_integer', 42)
+    ```
+
+    the output is:
+
+    ```java
+    42
+    ```
