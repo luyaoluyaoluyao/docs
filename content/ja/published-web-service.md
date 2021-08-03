@@ -1,8 +1,6 @@
 ---
 title: "Published Web Service"
 parent: "published-web-services"
-tags:
-  - "studio pro"
 ---
 
 ## 1 Introduction
@@ -25,7 +23,9 @@ See [Operations](operations).
 
 If set to 'yes', incoming requests will be validated against the WSDL.
 
-Default: *Yes*
+Note that when this property was introduced in Mendix 5.8.0, behavior changed slightly in this respect. Primitive values already used to be validated in all cases, but now we're validating the entire incoming XML message. To not break old web service requests that may not validate against the WSDL but that did not cause actual issues, we do not turn this feature on by default when converting projects made in older versions. This does however mean that if you want to validate primitives again, you must turn this feature on.
+
+_Default value:_ Yes
 
 ### 3.2 Authentication
 
@@ -38,6 +38,12 @@ This is the value of the targetNamespace attribute in the published WSDL file fo
 It is important to correctly configure the target namespace before publishing your WSDL to third parties. Changing it later might break the third-party applications that call your published web services.
 
 ### 3.4 Generated XML
+
+{{% alert type="info" %}}
+
+The **Generated XML** feature was introduced in version 7.13.0.
+
+{{% /alert %}}
 
 Select **Include tags for associations** if you need to include tags for associations in XML. This is usually not necessary, and support for this will be removed in a future version.
 
@@ -67,7 +73,7 @@ When you do check **Include tags for associations**, the XML looks like this:
 
 ### 3.5 Export WSDL File & Export XML Schema Definition
 
-By using this button, you can save the generated WSDL file, and its XML schema definition on your local hard drive. You can do this already before running your app, unlike when you download it from `http://localhost:8080/ws-doc/` .
+By using this button, you can save the generated WSDL file, and its XML schema definition on your local hard drive. You can do this already before running your project, unlike when you download it from `http://localhost:8080/ws-doc/` .
 
 ### 3.6 Documentation
 
