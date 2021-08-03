@@ -1,56 +1,56 @@
 ---
-title: "Select Elements"
-parent: "mapping-documents"
+title: "选择元素"
+parent: "映射文档"
 tags:
   - "studio pro"
 aliases:
   - /refguide/Select++Elements.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-For both [import](import-mappings) and [export mappings](export-mappings) you need to specify the elements structure you want to map. You do this in the **Select schema elements** window. An example of this screen is shown below.
+对于 [导入](import-mappings) and [导出映射](export-mappings) 您需要指定您想要映射的元素结构。 您在 **选择schema 元素** 窗口中这样做。 此屏幕的示例显示如下。
 
 ![](attachments/16713729/19399143.png)
 
-Perform the following steps in the **Select schema elements** window:
+在 **选择schema 元素** 窗口中执行以下步骤：
 
-1.  Depending on whether you want to make a mapping for an [XML schema](xml-schemas), a [Consumed web service](consumed-web-services) or a [JSON structure](json-structures) documents you need to select an **XML schema**, **Web service operation** or **JSON structure** as the source.
-2.  If source is XML schema then select the root element of the mapping. This is done by selecting the **Start at** element for the XML schema or the **request part** for the web service operation. **Start at** lists the root elements in an XML schema. You can select one root element to base your mapping on. If source is Web service operation, **Request part** lists the header and body element of the request part of an operation. If an operation has multiple parameters, these are listed in the Request part as well. **Request part** is only applicable to export mappings.
-3.  Finally, select specific elements in the tree explorer below. Typically you do not need to map an entire source, since they can be quite large.
-
-{{% alert type="info" %}}
-If the contents of the used schema source change, the mapping document does not match with the schema anymore and a consistency error is shown. This consistency error is easily fixed by right-clicking the consistency error itself and selecting 'Resolve by updating from schema'. Schema contents can change by importing a changed XML schema, WSDL or by changing a JSON structure.
-{{% /alert %}}
-
-## 2 Rules and Restrictions
-
-Keep in mind the following rules and restrictions for element selection:
-
-*   Unsupported elements cannot be checked.
-*   A value cannot be checked without a parent element.
-*   The top level element cannot be unchecked (export mapping only).
-*   An attribute cannot be checked without checking its parent element (export mapping only).
-*   An element with minimum occurrence 1 cannot be unchecked (export mapping only).
-*   If a choice or inheritance element is checked, at least one of its children needs to be checked.
-
-For ease of use, some elements will automatically be checked or unchecked:
-
-*   If you check elements with mandatory children the required children will be automatically checked.
-*   Similarly, when unchecking an element in the export mapping the children of the element will be unchecked.
-
-When working on an import mapping you are allowed to skip elements in the hierarchy but still select the children. You can do this when you're not interested in the information stored in the intermediary elements.
+1.  取决于您是否想要为 [XML schema](xml-schemas)绘制映射， a [消费的网络服务](consumed-web-services) 或 [JSON 结构](json-structures) 文档您需要选择一个 **XML schema** **Web 服务操作** 或 **JSON 结构** 作为源。
+2.  如果源为 XML schema ，然后选择映射的根元素。 这是通过为 XML schema 或 **请求部分** 选择 **起始于** 元素来完成的。 **从** 开始列出XML schema中的根元素。 您可以选择一个根元素作为您映射的基础。 如果源代码为 Web 服务操作， **请求部分** 列出请求部分的标题和正文元素。 如果一个操作有多个参数，它们也会在请求部分中列出。 **请求部分** 只适用于导出映射。
+3.  最后，在下面的树勘探器中选择特定的元素。 通常你不需要映射整个源，因为它们可能相当大。
 
 {{% alert type="info" %}}
-You may encounter element selection checkboxes that are greyed out. If you hover the mouse over the checkbox, you see which rule or restriction prevents you from changing the checkbox value. For example, you may need to select a parent node first before you can select a child node.
-{{% /alert %}}
+如果使用的schema源的内容改变，映射文档不再与schema匹配，并且显示一致性错误。 此一致性错误很容易通过右键点击一致性错误本身并选择“通过从方案进行更新解决”来解决。 方案内容可以通过导入更改的 XML 方案、 WSDL 或通过更改 JSON 结构而改变。
+{{% /报警 %}}
 
-## 3 Convenience Functions
+## 2 规则和限制
 
-| Function     | Description                                                                                                                                                                                                                                   |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Filter       | Expand and filter the tree nodes based on whether the name contains the filter text. Because the filtering behavior relies on the 'Expand All' behavior, in very big schemas all elements matching the filter are not guaranteed to be found. |
-| Expand all   | Expands the entire tree, unless a node is a duplicate of one of its ancestors, or the number of expanded nodes is too large. The maximum of nodes per expand operation is currently 1,000.                                                    |
-| Collapse all | Collapses the entire tree, so that only the root node remains visible                                                                                                                                                                         |
-| Check all    | Checks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.                                                                                                                        |
-| Uncheck all  | Unchecks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.                                                                                                                      |
+牢记选择元素的下列规则和限制：
+
+*   无法检查不支持的元素。
+*   如果没有父元素，无法检查值。
+*   不能取消勾选顶级元素(仅导出映射)。
+*   如果不检查其父元素，无法检查属性(仅导出映射)。
+*   具有最小发生率1的元素不能取消检查(仅导出映射)。
+*   如果选择或继承元素被选中，至少需要检查其中一个子元素。
+
+为便于使用，一些元素将被自动检查或取消选中：
+
+*   如果您用必填的子项检查元素，必填的子项将被自动检查。
+*   同样，当不检查导出映射中的某个元素时，该元素的子元素将不受检查。
+
+当导入映射时，您可以跳过层次结构中的元素，但仍然选择儿童。 当您对中间元素中存储的信息不感兴趣时，您可以这样做。
+
+{{% alert type="info" %}}
+您可能会遇到选择元素的复选框。 如果你在复选框上悬停鼠标，你会看到哪条规则或限制阻止你更改复选框值。 例如，您可能需要先选择一个父节点，然后才能选择子节点。
+{{% /报警 %}}
+
+## 3 便利职能
+
+| 函数   | 描述                                                                    |
+| ---- | --------------------------------------------------------------------- |
+| 筛选器  | 根据名称是否包含过滤文本来展开并过滤树节点。 因为筛选行为依赖于“扩展全部”行为。在非常大的方案中，所有匹配过滤器的元素都没有被保证找到。 |
+| 展开所有 | 展开整个树木，除非某个节点重复其上层的一个，或扩展节点的数量太大。 每个扩展操作的节点上限目前为1 000个。               |
+| 折叠所有 | 折叠整个树木，只有根节点仍然可见                                                      |
+| 全选   | 检查每个扩展节点和可见叶节点旁边的方框。 折叠节点及其子节点不受影响。                                   |
+| 取消全选 | 取消选中每个扩展节点和可见叶节点旁边的盒子。 折叠节点及其子节点不受影响。                                 |
