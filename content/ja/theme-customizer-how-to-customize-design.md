@@ -1,147 +1,147 @@
 ---
-title: "Customize the Design of Your App"
-description: "This how-to describes how to change and customize design in Mendix Studio."
+title: "アプリのデザインをカスタマイズ"
+description: "この方法では、Mendix Studio でデザインを変更およびカスタマイズする方法を説明します。"
 tags:
-  - "studio"
-  - "theme customizer"
-  - "how to"
-  - "customize"
+  - "スタジオ"
+  - "テーマのカスタマイズ"
+  - "どうやって?"
+  - "カスタマイズ"
   - "design"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how to customize your app in Mendix Studio and use your company's logo, change its colors, fonts, adjust header sizes.
+この方法では、Mendix Studio でアプリケーションをカスタマイズし、会社のロゴを使用したり、その色を変更したり、フォントを変更したり、ヘッダーのサイズを調整したりする方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Upload your company logo
-* Customize colors of widgets in your app
-* Customize your top bar, sidebar, and backgrounds
-* Change fonts and headers
+* 会社のロゴをアップロード
+* アプリのウィジェットの色を編集する
+* トップバー、サイドバー、背景を編集する
+* フォントとヘッダーを変更する
 
-This how-to describes the following use case:
+この方法では、次のようなユースケースを説明します。
 
-You would like to customize your app design: upload company's logo, change colors of your app, change the font, and make headings larger.
+アプリのデザインをカスタマイズしたい場合:会社のロゴをアップロードし、アプリの色を変更し、フォントを変更し、見出しを大きくします。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with the Theme Customizer. For more information, see [Theme Customizer](/studio8/theme-customizer).
-* Familiarize yourself with page terms. For more information, see [Pages](/studio8/page-editor).
+* テーマカスタマイザに慣れてください。 詳細については、 [テーマカスタマイズ](/studio8/theme-customizer) を参照してください。
+* ページ用語に慣れてください。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
 
-## 3 Uploading Your Company Logo
+## 3あなたの会社のロゴをアップロード中
 
-To upload a logo, do the following:
+ロゴをアップロードするには、次の操作を行います。
 
-1. Click the paintbrush icon in the left menu bar to open the **Theme Customizer**.
+1. 左のメニューバーのペイントブラシアイコンをクリックして、 **テーマカスタマイザ**を開きます。
 
-2. In the **Upload Logo** section, click **Select File**.
+2. **Upload Logo** セクションで、 **Select File** をクリックします。
 
-    ![Select File for Logo](attachments/theme-customizer-how-to-customize-design/select-logo.png)
+    ![ロゴ用のファイルを選択](attachments/theme-customizer-how-to-customize-design/select-logo.png)
 
-3. In the dialog box, select the image with your company logo.
+3. ダイアログボックスで、会社のロゴで画像を選択します。
 
-4. Check out the selected image uploaded and shown in the preview:
+4. アップロードされ、プレビューに表示される選択された画像をチェックしてください:
 
-    ![Logo Preview](attachments/theme-customizer-how-to-customize-design/logo-preview.png)
+    ![ロゴのプレビュー](attachments/theme-customizer-how-to-customize-design/logo-preview.png)
 
-5. In the **UI Customization** section, make the logo larger: set the **Logo Width** and **Logo Height** to 40 PX.
+5. **UI カスタマイズ** セクションで、ロゴを大きくします: **ロゴ幅** と **ロゴ高さ** を 40 PXに設定します。
 
-6. In the top-right corner, select **Page View** to check how your logo looks on pages:
+6. 右上の角で、 **ページビュー** を選択して、ロゴがどのように見えるかを確認します。
 
-    ![Page View button](attachments/theme-customizer-how-to-customize-design/page-view-button.png)
+    ![ページ表示ボタン](attachments/theme-customizer-how-to-customize-design/page-view-button.png)
 
-Good job! You have uploaded your company's logo.
+よくできました！ 会社のロゴをアップロードしました。
 
-## 4 Changing Your App Colors
+## 4 アプリの色を変更する
 
-You can customize your app colors in the **Brand Colors** section. Once you uploaded the logo, a color palette is generated based on the logo colors.
+**ブランドカラー** セクションでアプリの色をカスタマイズできます。 ロゴをアップロードすると、ロゴの色に基づいてカラーパレットが生成されます。
 
-To customize your app colors, do the following:
+アプリの色をカスタマイズするには、次の操作を行います。
 
-1. Click the paintbrush icon in the left menu bar to open the **Theme Customizer**.
+1. 左のメニューバーのペイントブラシアイコンをクリックして、 **テーマカスタマイザ**を開きます。
 
 2. In the **Brand Colors** section, click the **Default** option and select a color marked as *1* in **Logo Colors**:
 
-    ![Implementing Logo Colors, Default Option](attachments/theme-customizer-how-to-customize-design/implementing-logo-colors-default.png)
+    ![ロゴ色の実装、デフォルトオプション](attachments/theme-customizer-how-to-customize-design/implementing-logo-colors-default.png)
 
 3. Click the **Primary** option and select a color marked as *3* in **Logo Colors**:
 
-    ![Implementing Logo Colors, Primary Option](attachments/theme-customizer-how-to-customize-design/implementing-logo-colors-primary.png)
+    ![ロゴ色の実装、メインオプション](attachments/theme-customizer-how-to-customize-design/implementing-logo-colors-primary.png)
 
-4. In the top-right corner, select **Page View** to see how your changes are applied to pages. The colors you have changed are applied to widgets that have the **Style** property, for example, buttons and texts.
+4. 右上の **ページビュー** を選択して、変更内容がページにどのように適用されるかを確認します。 変更した色は、ボタンやテキストなど、 **スタイル** プロパティを持つウィジェットに適用されます。
 
-    ![Page View](attachments/theme-customizer-how-to-customize-design/page-view.png)
+    ![ページビュー](attachments/theme-customizer-how-to-customize-design/page-view.png)
 
-5. Select different pages in the top bar to make sure you like how new colors are implemented on all pages of your app:
+5. アプリのすべてのページに新しい色がどのように実装されているかを確認するには、上部バーで異なるページを選択してください:
 
-    ![Select Pages](attachments/theme-customizer-how-to-customize-design/selecting-pages.png)
+    ![ページを選択](attachments/theme-customizer-how-to-customize-design/selecting-pages.png)
 
-6. In the **Brand Colors** section, use an advanced way of choosing the color by filling in the HEX or RGB code of a color that are usually provided by the designers. Click the **Info** option and fill in the HEX color code `#B056EF`:
+6. **ブランドカラー** のセクションで。 通常、デザイナーが提供するカラーのHEXまたはRGBコードを埋めることによって、高度な選択方法を使用します。 **情報** オプションをクリックして、HEXカラーコードを入力してください `#B056EF`:
 
-    ![Using Color Code](attachments/theme-customizer-how-to-customize-design/hex-color-code.png)
+    ![カラーコードの使用](attachments/theme-customizer-how-to-customize-design/hex-color-code.png)
 
-7. Repeat step 5 to make sure the color fits all pages in your app.
+7. ステップ5を繰り返して、カラーがアプリ内のすべてのページに合うようにします。
 
-8. Click **Save** in the top-right corner to implement your changes.
+8. 右上の **保存** をクリックして変更を実装します。
 
-You have changed the colors in your app.
+アプリの色を変更しました。
 
-## 5 Customizing Top Bar, Sidebar, and Backgrounds
+## トップバー、サイドバー、背景5つのカスタマイズ
 
-You can change the way your app layout looks by changing the colors and fonts of your top bar, sidebar, and backgrounds.
+トップバー、サイドバー、背景の色やフォントを変更することで、アプリのレイアウトを変更できます。
 
-Do the following:
+次の操作を行います:
 
-1.  Open the Theme Customizer.
+1.  テーマカスタマイザを開きます。
 
 2.  In the **UI Customization** section >**Topbar**, click **Background** and choose color numbered *5* in **Logo Colors**.
 
-3.  In the top-right corner, select **Page View** to see how your changes are applied to pages. You can see that the top bar is light-blue now.
+3.  右上の **ページビュー** を選択して、変更内容がページにどのように適用されるかを確認します。 上部のバーは今、ライトブルーであることがわかります。
 
-4. Click the **Border** setting and fill in the HEX color code `#989393`. You can see that the border of the top bar is grey now.
+4. **Border** の設定をクリックし、HEX カラーコードを入力します。 `#989393`. 上部バーの境界線が灰色になっていることがわかります。
 
-    ![Topbar Colors](attachments/theme-customizer-how-to-customize-design/topbar-colors.png)
+    ![トップバーの色](attachments/theme-customizer-how-to-customize-design/topbar-colors.png)
 
-5.  To change the logo size, do the following:
+5.  ロゴのサイズを変更するには、次の操作を行います。
 
-    1. Click the **Logo Width** setting and change it from 30 PX to 100 PX.
-    2.  Click the **Logo Height** setting and change it from 30 PX to 100 PX.
+    1. **Logo Width** の設定をクリックし、30 PXから100 PXに変更します。
+    2.  **ロゴ高さ** の設定をクリックし、30個のPXから100個のPXに変更します。
 
-6. To change make your sidebar background deep-blue, click **Background** in the **Sidebar** section and fill in the HEX color code `#0D3A7A`.
+6. サイドバーの背景を深い青に変更するには **サイドバー** セクションの **背景** をクリックし、HEXカラーコード `#0D3A7A`を入力します。
 
-7. To change the background of your app to very light grey, click the **Defaults** setting in the **Background** section and choose fill in the HEX color code `F5F5F5`.
+7. アプリの背景を明るいグレーに変更するには **背景** セクションの **デフォルト設定** をクリックし、HEXカラーコード `F5F5F5`を入力します。
 
-8. Click **Save** in the top-right corner to implement your changes.
+8. 右上の **保存** をクリックして変更を実装します。
 
-Great job! You customized your top bar, sidebar, logo size, and the background color.
+よくできました！ トップバー、サイドバー、ロゴサイズ、背景色をカスタマイズできます。
 
-## 6 Changing Fonts and Customizing Headers
+## 6 フォントの変更とヘッダーのカスタマイズ
 
-The **Typography** section of the **Theme Customizer** allows you to manage text elements in your app, such as page headers or text in widgets. To change the fonts and customize headers, do the following:
+**テーマカスタマイザ** の **タイポグラフィ** セクションでは、アプリ内のテキスト要素を管理できます。 例えば、ウィジェットのページヘッダーやテキストなどです。 フォントを変更してヘッダーをカスタマイズするには、次の手順を実行します。
 
-1. Open the **Theme Customizer**.
+1. **テーマカスタマイザ**を開きます。
 
-2. In the **Typography** section, click the **Base Font Family** and change it to **Bitter**.
+2. **タイポグラフィ** のセクションで、 **ベースフォントファミリー** をクリックし、 **ビター**に変更します。
 
-3. To make the font of basic elements (such as a text in widgets) larger, change **Base Font Size** from *14* to *16*.
+3. 基本要素のフォント (ウィジェット内のテキストなど) を大きくするために。 **Base Font Size** を *14* から *16* に変更する。
 
-4.  As you would like to make all headers larger too, do the following:
+4.  すべてのヘッダーも大きくしたいので、以下の操作を行ってください:
 
-    1. Set **H1 Size** to 40.
+    1. **S1 Size** を 40 に設定します。
 
-    2. Set **H2 Size** to 35.
+    2. **V2 Size** を 35 に設定します。
 
-    3. Set **H3 Size** to 30.
+    3. **H3 Size** を 30 に設定してください。
 
-    4. Set **H4 Size** to 22:
+    4. **H4 Size** を 22 に設定:
 
-        ![Header Size](attachments/theme-customizer-how-to-customize-design/header-size.png)
+        ![ヘッダーのサイズ](attachments/theme-customizer-how-to-customize-design/header-size.png)
 
-5. In the top-right corner, select **Page View** to see how your changes are applied to pages.
+5. 右上の **ページビュー** を選択して、変更内容がページにどのように適用されるかを確認します。
 
-6. Click **Save** in the top-right corner to implement your changes.
+6. 右上の **保存** をクリックして変更を実装します。
 
-Congratulations! You have customized the style of your app. You can now [preview your app](/studio8/publishing-app) to test now the changes look like.  
+おめでとうございます アプリのスタイルをカスタマイズしました。 [アプリを](/studio8/publishing-app) プレビューして、変更内容をテストできるようになりました。  
