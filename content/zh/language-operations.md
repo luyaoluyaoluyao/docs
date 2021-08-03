@@ -1,71 +1,71 @@
 ---
-title: "Language Operations"
-parent: "translatable-texts"
+title: "语言操作"
+parent: "可翻译文本"
 menu_order: 40
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
+  - "翻译"
+  - "语言"
+  - "可翻译文本"
 ---
 
-## 1 Introduction
+## 1 导言
 
-When creating an app in multiple languages, there are a number of tasks which you may want to carry out on all the texts in the app, or in a specific module.
+创建多语言应用程序时， 您可能想要在应用或在某个特定模块的所有文本上执行一些任务。
 
-**Language Operations** enable you to perform the following operations for a language dictionary. You can decide which modules the operation applies to:
+**语言操作** 使您能够对语言字典执行以下操作。 您可以决定哪个模块适用于：
 
-* **Move** texts from one language dictionary to another
-* **Copy** texts from one language dictionary to another
-* **Swap** texts between two language dictionaries
-* **Delete** texts from one language dictionary
+* **将** 文本从一种语言字典移动到另一种语言字典
+* **将** 文本从一种语言字典复制到另一种语言字典
+* **在两个语言字典之间交换** 文本
+* **从一种语言字典中删除** 个文本
 
 ![](attachments/language/language_operations.png)
 
-## 2 Selecting Modules
+## 2 选择模块
 
-In the **Selection** section of the dialog box, you can select the modules that you want to manage.
+在对话框的 **选择** 部分中，您可以选择您想要管理的模块。
 
-For each module, you can see the number of translatable texts which have been entered in each language which contains items. The gray columns indicate languages which are not selected in the app, but which contain translated texts. This enables you to remove a language from the app but still have access to the existing texts.
+对于每个模块，您可以看到包含项目的每种语言输入的可翻译文本数量。 灰色列表示应用程序中没有选择但包含翻译文本的语言。 这使您能够从应用中删除语言，但仍然可以访问现有文本。
 
-## 3 Performing Operations
+## 3 执行业务
 
-Select an **Operation** to carry out on the selected module(s).
+在选定的模块上选择一个 **操作**。
 
-There are four language operation options, described below. These can be carried out for any language which has been selected in the app, plus any other languages which have translated texts.
+以下有四种语言操作选项。 这些可以对应用中选择的任何语言以及翻译文本的任何其他语言进行。
 
-Click **Apply** to apply the selected language operation.
+点击 **应用** 来应用选定的语言操作。
 
-### 3.1 Move
+### 3.1 移动
 
-**Move** moves the source language to the destination language, which overwrites all the texts in the destination language with those in the source language and removes the texts in the source.
+**将** 移动到目标语言 它覆盖目的地语言的所有文本和来源语言的文本，并删除来源中的文本。
 
-Select the **Source language** and the **Destination language** from the  drop-down menus.
-
-{{% alert type="info" %}}
-* Texts that are absent in the source language will be absent in the destination language – any original text will be removed
-* All the texts in the source language will be deleted
-{{% /alert %}}
-
-### 3.2 Copy
-
-**Copy** copies the source language to the destination language, which overwrites all the texts in the destination language with those in the source language. Texts are not deleted from the source language.
-
-Select the **Source language** and the **Destination language** from the  drop-down menus.
+从下拉菜单中选择 **源语言** 和 **目标语言**。
 
 {{% alert type="info" %}}
+* 源语言中缺少的文本将在目的语言中不存在 — 任何原始文本将被删除
+* 所有源语言文本将被删除
+{{% /报警 %}}
 
-Texts that are absent in the source language will be absent in the destination language – any original text will be removed
-{{% /alert %}}
+### 3.2 副本
 
-### 3.3 Swap
+**将** 份源语言复制到目标语言。 它覆盖目的地语言的所有文本和来源语言的文本。 文本不会从源语言中删除。
+
+从下拉菜单中选择 **源语言** 和 **目标语言**。
+
+{{% alert type="info" %}}
+
+源语言中缺少的文本将在目的语言中不存在 — 任何原始文本将被删除
+{{% /报警 %}}
+
+### 3.3 切换
 
 **Swap** replaces the source language with the destination language, and the destination language with the source language.
 
-Select the **Source language** and the **Destination language** from the  drop-down menus.
+从下拉菜单中选择 **源语言** 和 **目标语言**。
 
-### 3.4 Delete
+### 3.4 删除
 
-**Delete** deletes all the texts in a selected language.
+**删除** 删除所选语言中的所有文本。
 
-Select the language from the **Language** drop-down menu.
+从 **语言** 下拉菜单中选择语言。
