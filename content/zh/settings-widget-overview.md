@@ -22,7 +22,7 @@ tags:
 以下类型的小部件包含在应用设置的小部件概览中：
 
 * 属于Studio的市场小部件，它们也是您创建应用程序时默认添加的小部件，， 或者小部件可以直接从工作室下载 [市场](/appstore/) 到您的应用程序(关于小部件的更多信息) 见 [小部件](page-editor-widgets))
-* 本地小部件 - 用户在 Studio Pro 中创建的小部件 (您可以通过Studio Pro创建本地小部件， 欲了解更多信息，请参阅 [自定义小部件开发](/howto7/widget-development/))
+* 本地小部件 - 用户在 Studio Pro 中创建的小部件 (您可以通过Studio Pro创建本地小部件， 欲了解更多信息，请参阅 [自定义小部件开发](/howto8/extensibility/widget-development))
 
 在应用设置中显示以下列：
 
