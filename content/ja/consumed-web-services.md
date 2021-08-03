@@ -1,31 +1,33 @@
 ---
-title: "Consumed Web Services"
-parent: "integration"
+title: "Webサービスを利用する"
+parent: "統合"
+menu_order: 25
+tags:
+  - "studio pro"
 ---
 
-{{% alert type="warning" %}}
+## 1つの紹介
 
-This document describes imported web services. If you're looking for specific information on the consumed web services screen, you can check the [Consumed web service](consumed-web-service) documentation.
+このドキュメントでは、インポートされた Web サービスについて説明します。 使用した Web サービスの画面の詳細については、 [消費された Web サービス](consumed-web-service) を参照してください。
 
-{{% /alert %}}
 
-## Web Services
+## 2 Web サービス
 
-Web services (see also [wikipedia](http://en.wikipedia.org/wiki/Web_service)) are a way of exposing or absorbing functions and/or data entities between systems. They can be used to enable applications to "talk" to each other through the network (or internet).
+Webサービス( [Wikipedia](http://en.wikipedia.org/wiki/Web_service)も参照)は、システム間で関数やデータエンティティを公開または吸収する方法です。 これらは、アプリケーションがネットワーク(またはインターネット)を介して相互に「話す」ことを可能にするために使用することができます。
 
-Mendix supports the interaction between servers using SOAP. This can either be Mendix-to-Mendix, Mendix-to-ThirdParty or ThirdParty-to-Mendix.
+MendixはSOAPを使用してサーバー間の相互作用をサポートしています。 これはMendix-to-Mendix、Mendix-to-ThirdPartyまたはThirdParty-Mendixのいずれかです。
 
-### Consumed web services
+### 2.1 消費された Web サービス
 
-Using third party web services is easy in Mendix. There is a Microflow activity available which calls a web service on another system and imports the XML in the Mendix database.
+MendixではサードパーティのWebサービスを使用するのは簡単です。 別のシステム上でWebサービスを呼び出し、Mendixデータベース内でXMLをインポートする、利用可能なマイクロフローアクティビティがあります。
 
-### Published web services
+### 2.2 公開された Web サービス
 
-To expose functionality in a Mendix server (thus enabling other systems to make use of certain functions) a Microflow can easily be published as a web service. See [Published Web Services](published-web-services).
+Mendix Server の機能を公開するには (他のシステムが特定の機能を利用できるようにするため)、マイクロフローを Web サービスとして簡単に公開することができます。 詳細については、 [公開された Web サービス](published-web-services) を参照してください。
 
-## XML
+## 3 XML
 
-To enable systems to understand each other, a standard way of "encoding" data is needed. XML (eXtensible Markup Language) is a format in which data is encoded (or wrapped) so that both parties understand what the message means. A simple example:
+システムがお互いを理解できるようにするためには、標準的な「エンコード」データの方法が必要です。 XML(eXtensible Markup Language)は、両当事者がメッセージの意味を理解できるように、データがエンコード(またはラップ)されるフォーマットです。 以下は、XML コーディングの簡単な例です。
 
 ```xml
 <person>
@@ -38,35 +40,35 @@ To enable systems to understand each other, a standard way of "encoding" data is
 </person>
 ```
 
-Above the object 'person' is described with the corresponding values for the attributes 'name', 'age' and the referred object 'address'.
+この場合、オブジェクト 'person' は、属性 'name', 'age' と参照されるオブジェクト 'address' に対応する値で説明されます。
 
-XML can be used in Mendix for serialization and deserialization, in order to export and import data.
+XMLは、データをエクスポートおよびインポートするために、シリアル化および非シリアル化のためにMendixで使用することができます。
 
-See [XML Schemas](xml-schemas) for information on importing XSDs into your application. See  [Import Mappings](import-mappings) for info on mapping XML documents to domain entities and [Export Mappings](export-mappings) for info on exporting domain entities as XML.
+XSD をアプリケーションにインポートする方法については、 [XML スキーマ](xml-schemas) を参照してください。 ドメインモデルエンティティへの XML ドキュメントのマッピングに関する詳しい情報については、  [マッピングのインポート](import-mappings) を、ドメインエンティティを XML としてエクスポートするための詳細については、 [マッピングのエクスポート](export-mappings) を参照してください。
 
-## SOAP
+## 4 SOAP
 
-In the enterprise market, SOAP (see also [wikipedia](http://en.wikipedia.org/wiki/SOAP_(protocol))) is a common protocol for web services. It defines a standard way by which systems know how to communicate with each other. XML is used as the message format.
+エンタープライズ市場では、SOAP は Web サービスの一般的なプロトコルです ( [Wikipedia](http://en.wikipedia.org/wiki/SOAP_(protocol))も参照)。 システムが相互に通信するための標準的な方法を定義します。 XML はメッセージフォーマットとして使用されます。
 
-## XSD
+## 5 XSD
 
-An XSD (XML Schema Definition) document is a document that describes how the XML is structured, so that both parties know what the message means. An XSD itself is written in XML.
+XSD (XML スキーマ定義) ドキュメントは、XML がどのように構造化されているかを記述するドキュメントであり、両当事者がメッセージの意味を知ることができます。 XSD 自体は XML で記述されています。
 
-## WSDL
+## 6WSDL
 
-A WSDL (Web Service Definition Language) document is a document that describes how a client can interact with the server that publishes it. It describes the types of messages (incoming and outgoing) and where the messages must be sent to (an endpoint URL).
+WSDL (Web Service Definition Language) ドキュメントは、クライアントがそれを公開するサーバーと対話する方法を記述するドキュメントです。 メッセージの種類(受信と送信)と、メッセージが送信されるべき場所(エンドポイント URL)を記述します。
 
-Using imported web services, you can import a web service from an external application so they can be used in your own application. You can import web services from third parties (such as the [w3schools example service](http://www.w3schools.com/xml/tempconvert.asmx?WSDL)) or from other mendix projects.
+インポートされたWebサービスを使用すると、外部アプリケーションからWebサービスをインポートして独自のアプリケーションで使用できます。 サードパーティー（ [w3schools example service](http://www.w3schools.com/xml/tempconvert.asmx?WSDL)など）や他のMendixアプリからWebサービスをインポートすることができます。
 
-To actually use these imported web services in a microflow, see [Call Web Service Action](call-web-service-action).
+これらのインポートされたWebサービスをマイクロフローで使用するには、 [Web サービスを呼び出す](call-web-service-action) を参照してください。
 
-## Proxies
+## 7 プロキシ
 
-If you are behind a firewall, you might need to use a proxy to call a webservice. Specific information on how to configure the JVM to use a proxy can be found [here](using-a-proxy-to-call-a-webservice)
+ファイアウォールの背後にいる場合は、Webサービスを呼び出すためにプロキシを使用する必要があります。 プロキシを使用するように JVM を構成する方法に関する具体的な情報は、 [プロキシを使用して Web サービスを呼び出すには](using-a-proxy-to-call-a-webservice) を参照してください。
 
-## Protocols
+## 8 Protocols
 
-Mendix supports consuming web service data according to the following protocols:
+Mendixは、次のプロトコルに従ってWebサービスデータを消費することをサポートしています。
 
 *   SOAP 1.1
 *   SOAP 1.2
@@ -74,7 +76,8 @@ Mendix supports consuming web service data according to the following protocols:
 *   WS-MetadataExchange v1.1
 *   WS-Policy v1.2
 *   WS-Policy v1.5
-*   WS-PolicyAttachment 1.5
+*   WSポリシー別紙1.5
 *   WS-ReliableMessaging 1.1
+*   WS-Addressing 1.0 (Mendix version 8.16から)
 
-To connect to a Microsoft .NET web service, you have to configure your web service to use basicHttpBinding (SOAP 1.1) or wsHttpBinding (SOAP 1.2). For a secure connection, you have to configure SSL and to set the security mode to 'Transport' with clientCredentialType 'Basic' in the file 'web.config'. The user credentials can be configured in the Modeler as [described here](call-web-service-action) (see 'Use HTTP authentication').
+Microsoft .NET Web サービスに接続するには、基本的な HttpBinding (SOAP 1.1) または wsHttpBinding (SOAP 1.2) を使用するように Web サービスを設定する必要があります。 For a secure connection, you have to configure SSL and to set the security mode to `Transport` with clientCredentialType `Basic` in the **web.config** file. ユーザーの資格情報は、Studio Pro で **Web Service** アクティビティを呼び出す [HTTP 認証を使用する](call-web-service-action#http-headers) で説明されているように設定できます。
