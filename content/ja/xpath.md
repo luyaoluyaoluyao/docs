@@ -1,14 +1,21 @@
 ---
 title: "XPath"
-category: "デスクトップ モデラー"
-description: "Mendix での XPath クエリ言語の使用方法を関数とサンプルを表示します。"
+category: "アプリモデリング"
+menu_order: 90
+description: "Mendix での XPath クエリ言語の使用方法と例を説明します。"
+tags:
+  - "studio pro"
 ---
 
-## 1 XPath の概要
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
 
 Mendix XPath は、データを取得するために設計された Mendix クエリ言語の1つです。 XPath は、Mendix オブジェクトとその属性または関連付けのデータを選択するためにパス式を使用します。
 
-XPath クエリはモデラーの両方に書き込むことができます。 例えば、マイクロフローのアクティビティで取得したデータの制約を指定したい場合や、直接コード内の . Javaアクションのavaファイル すべての演算子がModelerでサポートされているわけではなく、クエリの構文はModeler環境とJava環境で異なる場合があることに注意してください。
+XPath クエリは、Studio Pro で両方書き込むことができます。 例えば、マイクロフローのアクティビティで取得したデータの制約を指定したい場合や、直接コード内の . Javaアクションのavaファイル すべての演算子がStudio Proでサポートされているわけではなく、クエリの構文はStudio ProとJava環境で異なることに注意してください。
 
 XPath クエリの例は次のとおりです。
 
@@ -17,9 +24,7 @@ XPath クエリの例は次のとおりです。
 *   `avg(//Sales.Order[IsPaid = true()]/TotalPrice)` すべての支払済み注文の合計価格の平均を取得します。
 
 {{% alert type="warning" %}}
-
-モデラーでは、完全なクエリを記述するのではなく、制約のみを記述します。 エンティティはコンテキストによって暗黙的に決定されます。 ですから、 `//Sales.Customer[Name='Jansen']` の代わりに、顧客のコンテキストで `[Name='Jansen']` のみ記述します。 Javaでは、二重スラッシュとエンティティ名を含む全クエリを記述します。
-
+Studio Pro では、完全なクエリを記述せず、制約のみを記述します。 エンティティはコンテキストによって暗黙的に決定されます。 ですから、 `//Sales.Customer[Name='Jansen']`の代わりに、顧客のコンテキストで `[Name='Jansen']` を記述するだけです。 Java では、double スラッシュ (`//`) とエンティティ名を含む、クエリ全体を記述する必要があります。
 {{% /alert %}}
 
 ## 2つの XPath 要素
@@ -41,11 +46,9 @@ XPath クエリの例は次のとおりです。
 
 この制約は、括弧の間で明確に表示され、'Name' 属性が 'Jansen' に等しいオブジェクトに取得されたオブジェクトを制限します。 Jansen 以外の名前のオブジェクトはリストから除外されます。 単一のクエリで可能な制約の数は無制限です。 これらの制約を追加および操作する方法の詳細については、 [XPath 制約](xpath-constraints) を参照してください。
 
-クエリの要素 D はオプションで、取得したエンティティの属性を指定します。 すべてのデータがオブジェクトに格納されているため、このオプションはモデラー自体ではほとんど使用されません。 1つの属性のリストを扱うのを煩雑で複雑にする ただし、様々なJavaアクションはそのようなリストを使用しています。 また、この機能は Part A と組み合わせて使用することで、特定の変数の集計を簡単に作成できます。
+クエリの要素 D はオプションで、取得したエンティティの属性を指定します。 このオプションは、すべてのデータがオブジェクトに保存されているため、Studio Pro 自体ではほとんど使用されません。 1つの属性のリストを扱うのを煩雑で複雑にする ただし、様々なJavaアクションはそのようなリストを使用しています。 また、この機能は Part A と組み合わせて使用することで、特定の属性の集計を簡単に作成できます。
 
 要素 クエリのAはオプションで、集計を指定します。 Element A can be one of the following functions: [avg](xpath-avg), [count](xpath-count), [max](xpath-max), [min](xpath-min) and [sum](xpath-sum). 'count' を除き、これらの各関数は、D 要素に特定の属性を指定する必要があります。
-
-これらの基本ガイドラインの例外は ID クエリです。 詳細は [XPath id](xpath-id) を参照してください。
 
 ## 3トークン
 
@@ -72,3 +75,9 @@ XPath クエリの例は次のとおりです。
     * [いいえ](xpath-not)
     * [true](xpath-true)
     * [false](xpath-false)
+## 6例
+
+**XPath への正しいパスを見つける方法**
+
+{{% youtube sdabUY-w4ZU %}}
+
