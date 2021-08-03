@@ -1,9 +1,6 @@
 ---
 title: "XML Schemas"
 parent: "integration"
-menu_order: 55
-tags:
-  - "studio pro"
 ---
 
 ## 1 Overview
