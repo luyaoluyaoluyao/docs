@@ -284,10 +284,10 @@ tags:
 {{% image_container width="500" %}}![](attachments/page-editor-widgets-structure/snippet-example.jpg)
 {{% /image_container %}}
 
-虽然您可以在工作室的页面上调用 (use) 代码片段，但您不能创建、更改或删除它们。 关于Studio Pro中代码片段的更多信息，请参阅 [代码片段](/refguide/snippet)。
+虽然您可以在工作室的页面上调用 (use) 代码片段，但您不能创建、更改或删除它们。 关于Studio Pro中代码片段的更多信息，请参阅 [代码片段](/refguide8/snippet)。
 
 {{% alert type="info" %}}
-如果你不包含任何代码片段 **代码片段** 小部件将不会显示。
+如果您的应用没有包含任何代码片段， **代码片段** 部件将不会显示。
 {{% /报警 %}}
 
 要调用代码片段并将其添加到您的页面，请做以下操作：
