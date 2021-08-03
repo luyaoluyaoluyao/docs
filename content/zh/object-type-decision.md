@@ -7,8 +7,12 @@ tags:
   - "对象类型决定"
   - "经济及社会理事会"
 aliases:
-  - /refguide/heritance-split.html
+  - /refguide8/heritance-split.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/object-type-decision.pdf)。
+{{% /报警 %}}
 
 {{% alert type="info" %}}
 这种活动只能用于微流，而不能用于纳米流。
