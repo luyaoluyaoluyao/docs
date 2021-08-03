@@ -1,118 +1,118 @@
 ---
-title: "Module Security"
-parent: "security"
+title: "モジュールのセキュリティ"
+parent: "セキュリティ"
 menu_order: 20
 tags:
   - "studio pro"
-  - "module security"
-  - "security"
-  - "module"
+  - "モジュールセキュリティ"
+  - "セキュリティ"
+  - "モジュール"
 aliases:
-  - /refguide/module-role.html
+  - /ja/refguide/module-role.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="info" %}}
-For more general information on security, see [Security](security).
+セキュリティに関する一般的な情報については、 [セキュリティ](security) を参照してください。
 {{% /alert %}}
 
-Within a module you can define module roles and specify security settings for pages, microflows, entities, and datasets.
+モジュール内では、モジュールロールを定義し、ページ、マイクロフロー、図形、データセットのセキュリティ設定を指定できます。
 
-## 2 Module Role {#module-role}
+## 2 モジュールロール {#module-role}
 
-A module role defines a set of access permissions that you can assign to a user. For more information on module roles, [user roles](user-roles), and their relation, see [Security](security).
+モジュール ロールは、ユーザーに割り当てられる一連のアクセス権限を定義します。 モジュールロールの詳細については、 [ユーザロール](user-roles)、およびその関係については、 [セキュリティ](security) を参照してください。
 
-A module role has the following properties:
+モジュールロールには、次のプロパティがあります。
 
-* **Name** – the name of a module role; end-users do not see the names of module roles, if they create or view user accounts, they only see the names of user roles
-*  **Documentation** – the documentation of a module role is there only for the convenience of Studio Pro users, it is not displayed to the end-users
+* **Name** - モジュールロールの名前; エンドユーザーはモジュールロールの名前が表示されません。ユーザーアカウントを作成したり表示したりする場合は、ユーザーロールの名前だけが表示されます
+*  **ドキュメント** – モジュールロールのドキュメントは、Studio Pro ユーザーの利便性のためにのみ存在します。 エンドユーザーには表示されません
 
     ![](attachments/module-security/module-roles-tab.png)
 
-## 2 Page Access
+## 2ページアクセス
 
-**Page Access** defines which pages are visible to each role. The **Page access** tab is displayed as a matrix showing pages and modules roles.
+**ページアクセス** は、各ロールに表示されるページを定義します。 **ページ アクセス** タブは、ページとモジュールのロールを表示する行列として表示されます。
 
-![page access tab](attachments/module-security/page-access-tab.png)
+![ページアクセスタブ](attachments/module-security/page-access-tab.png)
 
-For each combination you can indicate whether or not the page is visible for the module role. You can also edit this information in a page using the **Visible for** property.
+各組み合わせで、モジュールロールでページが表示されているかどうかを指定できます。 **** プロパティを使用して、この情報をページで編集することもできます。
 
-A page that is not visible for a specific role will not show up in navigation structures, and **Open Page** buttons leading to that page will not be rendered by default.
+特定の役割に対して表示されないページはナビゲーション構造に表示されません と **ページを開く** ボタンは、そのページの先頭にあるデフォルトではレンダリングされません。
 
-Page access settings do not restrict users from navigating to a page through other means, for example through a deeplink or through a button that is forced to be visible (for more information, see [Common Widget Properties](common-widget-properties)). If you want to ensure that specific roles cannot access parts of your data or logic, than this must be expressed through **entity access** and **microflow access** constraints.
+ページアクセス設定では、ユーザーが他の方法でページに移動することを制限しません。 例えばディープリンクやボタンを使って見えるようにしました (詳細はこちら) see [Common Widget Properties](common-widget-properties)). 特定のロールがデータやロジックの一部にアクセスできないことを確認したい場合。 は、 **エンティティアクセス** と **マイクロフローアクセス** の制約を介して表現する必要があります。
 
-## 3 Microflow Access
+## 3 マイクロフローアクセス
 
-**Microflow Access** defines which microflows can be executed by users with a certain module role. The menu bar is optimized so that it only shows pages and microflows that the user has access to.
+**Microflow Access** は、特定のモジュールロールを持つユーザーによって実行できるマイクロフローを定義します。 メニューバーは、ユーザーがアクセスできるページとマイクロフローのみを表示するよう最適化されています。
 
-The **Microflow access** tab is displayed as a matrix showing microflows and modules roles.
+**Microflow access** タブは、マイクロフローとモジュールロールを示す行列として表示されます。
 
 ![](attachments/module-security/microflow-access-tab.png)
 
-For each combination you can indicate whether or not the module role has access to the microflow. You can also edit this information in a [microflow](microflow) using the **Allowed roles** property.
+各組み合わせで、モジュールロールがマイクロフローにアクセスできるかどうかを指定できます。 [許可されたロール](microflow) プロパティを使用して、この情報を **microflow** で編集することもできます。
 
 {{% alert type="info" %}}
-Note that these roles are only checked when the microflow is executed from the client. A microflow is always allowed to call another microflow and these roles are not checked then.
+これらのロールは、クライアントからマイクロフローが実行された場合にのみチェックされることに注意してください。 マイクロフローは常に別のマイクロフローを呼び出すことが許可され、これらの役割はチェックされません。
 {{% /alert %}}
 
-## 4 Workflow Access {#workflow-access}
+## 4つのワークフローアクセス {#workflow-access}
 
-**Workflow access** defines which workflows can be triggered by users with a certain module role.
+**ワークフロー アクセス** は、特定のモジュール ロールを持つユーザーによってトリガーできるワークフローを定義します。
 
-The **Workflow access** tab is displayed as a matrix showing microflows and modules roles:
+**ワークフロー アクセス** タブは、マイクロフローとモジュール ロールを示す行列として表示されます。
 
-![Workflow Access](attachments/module-security/workflow-access.png)
+![ワークフローアクセス](attachments/module-security/workflow-access.png)
 
-For each combination you can indicate whether or not the module role can start the workflow. You can also edit this information in a [workflow](workflow-properties) using the **Allowed roles** property.
+各組み合わせで、モジュール ロールがワークフローを開始できるかどうかを指定できます。 [](workflow-properties) **許可されたロール** プロパティを使用して、この情報を編集することもできます。
 
-## 5 Entity Access {#entity-access}
+## 5 エンティティアクセス {#entity-access}
 
-**Entity Access** defines for each module role whether users with this role are authorized to **Create**, **Read**, **Write** and/or **Delete** objects of the entity. You can also write an XPath constraint to restrict the set of objects to which the access rule applies.
+**Entity Access** defines for each module role whether users with this role are authorized to **Create**, **Read**, **Write** and/or **Delete** objects of the entity. XPath 制約を作成して、アクセスルールが適用されるオブジェクトのセットを制限することもできます。
 
-The **Entity Access** tab is displayed as a matrix showing access rules that apply to entities:
+**エンティティアクセス** タブは、エンティティに適用されるアクセス ルールを示すマトリクスとして表示されます。
 
 ![](attachments/module-security/entity-access-tab.png)
 
-Each access rule in turn applies to a set of module roles. For more information, see [Access Rules](access-rules).
+各アクセスルールは、モジュールロールのセットに適用されます。 詳細については、 [アクセスルール](access-rules) を参照してください。
 
 ## 6 OData Access
 
-**OData Access** defines for each module role whether users with this role are authorized to access OData resources for each OData service exposed within the module.
+**OData Access** は、このロールを持つユーザーがモジュール内で公開された OData サービスの OData リソースにアクセスできるかどうかをモジュールロールごとに定義します。
 
-The **OData Access** tab is displayed as a matrix showing published OData services and modules roles:
+**OData Access** タブは、公開された OData サービスとモジュールの役割を示す行列として表示されます。
 
 ![](attachments/module-security/odata-access-tab.png)
 
-For each combination, you can indicate whether the module role has access to the published OData service. You can also edit this information in [published OData services](published-odata-services) using the **Allowed roles** property in the **Settings** tab.
+各組み合わせで、モジュールロールが公開された OData サービスにアクセスできるかどうかを指定できます。 [設定](published-odata-services) タブの **Allowed roles** プロパティを使用して、この情報を **published OData services** で編集することもできます。
 
-## 7 REST Access
+## 7 つの REST アクセス
 
-**REST Access** defines for each module role whether users with this role are authorized to access REST resources for each REST service exposed within the module.
+**REST Access** は、このロールを持つユーザーがモジュール内で公開される各 REST サービスの REST リソースにアクセスする権限を持っているかどうかをモジュールロールごとに定義します。
 
-The **REST Access** tab is displayed as a matrix showing published REST services and modules roles:
+**REST Access** タブは、公開された REST サービスとモジュールの役割を示すマトリックスとして表示されます。
 
 ![](attachments/module-security/rest-access-tab.png)
 
-For each REST service, you can indicate whether or not the module role has access to the published REST service.
+各 REST サービスについて、モジュールのロールが公開された REST サービスにアクセスできるかどうかを指定できます。
 
-The **REST Access** tab is visible only when the service has the security set to require authentication. For more information, see [published REST services](published-rest-services).
+**REST Access** タブは、サービスが認証を必要とするように設定されている場合にのみ表示されます。 詳細については、 [公開された REST サービス](published-rest-services) を参照してください。
 
-## 8 Data Set Access
+## 8つのデータセットアクセス
 
-**Data Set Access** shows the access which the module role has to each [dataset](data-sets).
+**データセットアクセス** は、各 [データセット](data-sets) にどのモジュールロールが持つアクセス権を示します。
 
-| Value          | Description                                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Full access    | No constraint applies to the parameters for the data set and all possible range parameters are allowed.            |
-| Limited access | At least one constraint applies to the parameters for the data set or at least one range parameter is not allowed. |
-| No access      | Users with this module role have no access to the data set.                                                        |
+| 値         | 説明                                                                  |
+| --------- | ------------------------------------------------------------------- |
+| フルアクセス    | データセットのパラメータには制約は適用されず、すべての可能な範囲パラメータが許可されます。                       |
+| アクセス制限    | データセットのパラメータには、少なくとも 1 つの制約が適用されます。または、少なくとも 1 つの範囲パラメータは許可されていません。 |
+| アクセスできません | このモジュールロールを持つユーザーは、データセットにアクセスできません。                                |
 
 {{% alert type="info" %}}
-The constraints are defined in the parameter definitions of the data set. Whether they apply is defined in the **Data Set Access**. The ranges are defined in the parameters of the data set. Whether values in these ranges are allowed is defined in the **Data Set Access**.
+制約は、データセットのパラメータ定義で定義されます。 適用するかどうかは、 **データセットアクセス** で定義されています。 範囲は、データセットのパラメーターで定義されます。 これらの範囲の値が許可されているかどうかは、 **Data Set Access** で定義されます。
 {{% /alert %}}
 
-## 9 Read More
+## 9 続きを読む
 
-* [Security](security)
-* [User roles](user-roles)
+* [セキュリティ](セキュリティ)
+* [ユーザーロール](user-roles)
