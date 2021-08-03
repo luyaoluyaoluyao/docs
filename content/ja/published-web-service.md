@@ -1,47 +1,47 @@
 ---
-title: "Published Web Service"
+title: "公開されたウェブサービス"
 parent: "published-web-services"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes the properties of a published web service. If you want a general overview of how Mendix publishes microflows as web services, see [Published Web Services](published-web-services).
+このドキュメントでは、公開された Web サービスのプロパティについて説明します。 MendixがどのようにマイクロフローをWebサービスとして公開するかについての一般的な概要を知りたい場合は、 [公開されたWebサービス](published-web-services) を参照してください。
 
-## 2 Operations
+## 2つの操作
 
 ![](attachments/16713702/16843888.png)
 
-Provide the actual operations of which the web service is composed. Each of these operations is a Microflow.
+Webサービスが構成されている実際の操作を提供します。 これらの操作はそれぞれマイクロフローです。
 
-See [Operations](operations).
+[操作](operations) を参照してください。
 
-## 3 Settings
+## 3つの設定
 
 ![](attachments/16713702/16843887.png)
 
-### 3.1 Validate Against WSDL
+### 3.1 WSDL に対する検証
 
-If set to 'yes', incoming requests will be validated against the WSDL.
+「はい」に設定されている場合、WSDLに対するリクエストの受信が検証されます。
 
-Default: *Yes*
+デフォルト: *はい*
 
-### 3.2 Authentication
+### 3.2 認証
 
-The authentication settings to define for communicating with the web service.
+Web サービスとの通信を定義する認証設定。
 
 ### 3.3 Target Namespace
 
-This is the value of the targetNamespace attribute in the published WSDL file for this service. In Mendix, a target namespace must be a valid Uniform Resource Identifier (URI). For more information on XML namespaces, see [Wikipedia](http://en.wikipedia.org/wiki/XML_namespace).
+これは、このサービスの公開済みの WSDL ファイル内の targetNamespace 属性の値です。 Mendix では、ターゲットの名前空間は有効な Uniform Resource Identifier (URI) でなければなりません。 XML 名前空間の詳細については、 [Wikipedia](http://en.wikipedia.org/wiki/XML_namespace) を参照してください。
 
-It is important to correctly configure the target namespace before publishing your WSDL to third parties. Changing it later might break the third-party applications that call your published web services.
+WSDL をサードパーティに公開する前に、ターゲット名前空間を正しく設定することが重要です。 後で変更すると、公開された Web サービスを呼び出すサードパーティのアプリケーションが壊れる可能性があります。
 
-### 3.4 Generated XML
+### 3.4 生成された XML
 
-Select **Include tags for associations** if you need to include tags for associations in XML. This is usually not necessary, and support for this will be removed in a future version.
+XML に関連付け用のタグを含める必要がある場合は、 **タグを含める** を選択します。 これは通常必要ありません。将来のバージョンではサポートが削除されます。
 
-To see the effect of this check box, consider a person with two dogs and a cat. When you do not select **Include tags for associations**, the XML looks like this:
+このチェックボックスの効果を確認するには、2匹の犬と1匹の猫を持つ人を考えてみましょう。 **関連付けにタグを含む**を選択しないと、XML は以下のようになります:
 
 ```xml
 <Person name="John">
@@ -51,7 +51,7 @@ To see the effect of this check box, consider a person with two dogs and a cat. 
 </Person>
 ```
 
-When you do check **Include tags for associations**, the XML looks like this:
+**関連するタグを含む**にチェックを入れると、XML は以下のようになります:
 
 ```xml
 <Person name="John">
@@ -65,10 +65,10 @@ When you do check **Include tags for associations**, the XML looks like this:
 </Person>
 ```
 
-### 3.5 Export WSDL File & Export XML Schema Definition
+### 3.5 WSDL ファイルのエクスポート & XML スキーマ定義のエクスポート
 
-By using this button, you can save the generated WSDL file, and its XML schema definition on your local hard drive. You can do this already before running your app, unlike when you download it from `http://localhost:8080/ws-doc/` .
+このボタンを使用することで、生成された WSDL ファイルと XML スキーマ定義をローカルハードドライブに保存することができます。 `http://localhost:8080/ws-doc/` からダウンロードするのとは異なり、アプリを実行する前にすでにこれを行うことができます。
 
-### 3.6 Documentation
+### 3.6 ドキュメント
 
-Documentation can be used to describe what the web service is used for.
+ドキュメントは、Web サービスが何に使用されるかを記述するために使用できます。
