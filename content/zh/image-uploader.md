@@ -1,83 +1,67 @@
 ---
 title: "图片上传器"
 parent: "文件小部件"
-tags:
-  - "studio pro"
-  - "图片上传器"
-  - "文件小部件"
-  - "小部件"
 ---
 
-●{% alert type="warning" %}}。本地移动页面不支持图像上传小部件。{%/提醒 %}}
 
-## 1 导言
+图像上传器用于上传图片到服务器。 它还生成了上传图像的缩略图。 上传的图像或缩略图可以通过图像查看器显示。
 
-图像上传器用于上传图片到服务器。 它还生成了上传图像的缩略图。 上传的图像或缩略图可以由图像查看器显示。 必须将其置于与实体系统图像或其专门化相连接的数据视图中。
+{{% alert type="info" %}}
 
-在下面的示例中，图像上传器被放置在嵌套数据视图中 ( *配置* 实体是一个专业化的 System.Image):
+![](attachments/pages/image-uploader.png) 图像上传器放置在嵌套数据视图中。 简介实体是系统图像专业化实体。
 
-![图片上传器](attachments/file-widgets/image-uploader.png)
+{{% /报警 %}}
 
-## 2 属性
+图像上传器必须放置在连接到实体系统的数据视图或其专门化中。
 
-图像上传属性的示例在下面的图像中显示：
+## 常规属性
 
-{{% image_container width="250" %}}![图像上传器属性](attachments/file-widgets/image-uploader-properties.png)
-{{% /image_container %}}
+### 最大文件大小(MB)
 
-图像上传属性由以下部分组成：
+使用此属性，您可以指定上传图像的最大文件大小(以megabytes为单位)。
 
-* [常用的](#common)
-* [设计属性](#design-properties)
-* [编辑性](#editability)
-* [A. 概况](#general)
-* [标签](#label)
-* [可见性](#visibility)
+_默认值：_ 5
 
-### 2.1 共同部分 {#common}
+### 允许的扩展
 
-{{% snippet file="refguide/common-section-link.md" %}}
+您可以指定允许上传的文件扩展名。 如果没有指定扩展名, 则允许所有文件扩展名。 用半冒号分隔多个扩展，例如 `png;jpg`
 
-### 2.2 设计属性科 {#design-properties}
+如果选择了一个不允许的扩展名文件, 系统文本(文件管理器 > 不正确的文件扩展名) 将在文件管理器下显示。
 
-{{% snippet file="refguide/design-section-link.md" %}}
+### 缩略图宽度
 
-### 2.3 可编辑部分 {#editability}
+此属性决定生成的缩略图的像素宽度。 然而，在缩略图生成期间，图像的纵横比将保持不变。
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+### 缩略图高度
 
-### 2.4 一般部分 {#general}
+此属性决定生成的缩略图的像素高度。 然而，在缩略图生成期间，图像的纵横比将保持不变。
 
-#### 2.4.1 最大文件大小(MB)
+{{% snippet file="refguid7/Label+Property.md" %}}
 
-**最大文件大小(MB)** 决定可上传的文件的最大大小(以兆字节为单位)。
+## 可编辑属性
 
-默认： *5*
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-#### 2.4.2 允许的扩展 {#allowed-extensions}
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-您可以指定用户可以上传的文件扩展名。 如果没有指定扩展名, 则允许所有文件扩展名。 用半冒号分隔多个扩展(例如， `txt;doc`)。
+## 可见性属性
 
-如果选择了一个不允许的扩展名文件, a [系统文本](system-texts) for **File Manager/image viewer** > **错误：不正确的文件扩展名** 将显示在文件管理器下。
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-#### 2.4.3 缩略图宽度
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-**缩略图宽度** 决定生成的缩略图的像素宽度。 然而，在缩略图生成期间，图像的纵横比将保持不变。
+## 共同属性
 
-#### 2.4.4 缩略图高度
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-**缩略图高度** 决定生成的缩略图的像素高度。 然而，在缩略图生成期间，图像的纵横比将保持不变。
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-### 2.5 标签部分 {#label}
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-{{% snippet file="refguide/label-section-link.md" %}}
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-### 2.6 可见性科 {#visibility}
+## 相关文章
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 阅读更多
-
-* [页](page)
-* [文件部件](文件小部件)
-* [页面编辑器中常见的属性](common-widget-properties)
+*   [数据视图](data-view)
+*   [实体](实体)
+*   [社会联系](关联)
