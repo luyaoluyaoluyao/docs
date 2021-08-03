@@ -8,12 +8,11 @@ tags:
   - "クエリ"
   - "パラメータ"
   - "日付と時刻の形式"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**公開されたRESTサービス** 機能は、バージョン7.10.0で導入されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-query-parameters.pdf) をクリックしてください。
 {{% /alert %}}
 
 [公開された REST 操作](published-rest-operation) の仕様には、操作を実装するマイクロフローが含まれています。 このマイクロフローは、リクエストのクエリ文字列から来るパラメータを取ることができます。
