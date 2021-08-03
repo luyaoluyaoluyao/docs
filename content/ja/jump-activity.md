@@ -1,45 +1,45 @@
 ---
-title: "Jump"
-parent: "workflows"
+title: "ジャンプ"
+parent: "ワークフロー"
 menu_order: 35
 tags:
-  - "workflow"
-  - "workflows"
-  - "jump"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "ジャンプ"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Jump** activity allows you to jump to other activities in the workflow. This is useful when, for example, you are approving a request and need more details that are provided in one of the previous user tasks:
+**ジャンプ** アクティビティでは、ワークフロー内の他のアクティビティにジャンプできます。 これは、たとえば、リクエストを承認し、以前のユーザータスクのいずれかで提供される詳細を必要とする場合に便利です。
 
-![Jump Example](attachments/jump-activity/jump-activity.jpg)
+![ジャンプの例](attachments/jump-activity/jump-activity.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-The Jump activity properties consist of the following sections:
+ジャンプ アクティビティのプロパティは、次のセクションで構成されています。
 
-* [Common](#common)
-* [General](#general)
+* [一般的な](#common)
+* [全般](#general)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名前** は要素の内部名です。 アプリ内の要素を参照する場合は、この名前を使用します。 ワークフロー内で一意である必要がありますが、異なるワークフロー内で同じ名前を持つ2つの要素を持つことができます。
 
-### 2.2 General Section {#general}
+### 2.2 一般セクション {#general}
 
-#### 2.2.1 Caption
+#### 2.2.1 図表番号
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**図表番号** では、この要素で何が起こるかを説明します。 ワークフロー要素に表示され、アノテーションを追加することなく、ワークフローを読みやすくし、理解しやすくします。
 
 #### 2.2.2 Target
 
-**Target** is the activity that the workflow process will jump to during execution. You can select the activity you would like to go to from the drop-down menu.
+**ターゲット** は、ワークフロープロセスが実行中にジャンプするアクティビティです。 ドロップダウンメニューから、移動したいアクティビティを選択できます。
 
 {{% alert type="warning" %}}
-You cannot use the **Jump** activity in a [Parallel split](parallel-split) or in a path where it would end the workflow without any other path continuing it.
+**並列分割** で [ジャンプ](parallel-split) アクティビティを使用したり、他のパスがそれを継続せずにワークフローを終了するパスを使用したりすることはできません。
 {{% /alert %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Workflow Properties](workflow-properties)
+* [ワークフローのプロパティ](workflow-properties)
