@@ -1,102 +1,102 @@
 ---
-title: "Filter and Sort Items in a List"
-category: "Pages"
-description: "Describes how to filter and sort items in a list in Mendix Studio."
+title: "筛选和排序列表中的项目"
+category: "页 次"
+description: "描述如何在 Mendix Studio 中筛选和排序项目。"
 menu_order: 50
 tags:
-  - "studio"
-  - "pages"
-  - "list"
-  - "how to"
-  - "filter"
-  - "sort"
+  - "工作室"
+  - "页面"
+  - "邮件列表"
+  - "如何处理"
+  - "筛选器"
+  - "排序"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This how-to explains how you can filter and sort items in a list view or a data grid in Mendix Studio.
+此操作可以解释您如何在列表视图或数据网格中筛选和排序Mendix Studio中的项目。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* Configure a filter for items in a list
-* Sort items in a list
+* 配置列表中项目的过滤器
+* 在列表中排序项目
 
-The how-to describes the following use case:
+如何描述下面的用例：
 
-You have build a page with a list of inspections reports that shows companies checked on compliance with safety regulations. You would like to display only companies that failed this inspection. You also would like to display reports for today only. In addition, items should be sorted by date and time starting from the latest one.
+您已经建立了一个包含检查报告列表的页面，这些报告显示了公司在遵守安全条例方面的检查。 您只想显示此检查失败的公司。 你还想只显示今天的报告。 此外，项目应从最新项目开始的日期和时间分列。
 
-A list of inspection reports is displayed on a page. If you have the list in a list view, the page can look the following way:
+检查报告列表显示在一个页面上。 如果您在列表视图中，页面可以看到以下方式：
 
 {{% image_container width="600" %}}
 ![](attachments/pages-how-to-filter-and-sort/list-view-example.png)
 {{% /image_container %}}
 
-Or the page can look the following way if your list is in a data grid:
+或者如果您的列表在数据网格中，页面可以看到以下方式：
 
 {{% image_container width="600" %}}
 ![](attachments/pages-how-to-filter-and-sort/page-example-data-grid.png)
 {{% /image_container %}}
 
-Domain model is configured the following way in this use-case:
+域模型在这个使用案例中的配置方式如下：
 
 {{% image_container width="250" %}}
 ![](attachments/pages-how-to-filter-and-sort/domain-model.png)
 {{% /image_container %}}
 
-## 2 Prerequisites
+## 2 个前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+在启动此操作之前，请确保您已完成以下前提条件：
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with terms on data filters. For more information, see [Data Filters](/studio8/data-filters).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉数据过滤器上的条款。 欲了解更多信息，请参阅 [Data Filters](/studio8/data-filters)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
 
-## 3 Filtering Information
+## 3 过滤信息
 
-First, you need to add a filter to your list.  As you would like to show only companies which failed the inspection check, the **Passed** attribute (see the domain model image above) should have been marked in an inspection report as *No*.
+首先，您需要在列表中添加过滤器。  因为你只想显示那些检查失败的公司， **跳过** 属性(见上面的域模型图像)本应在检查报告中标记为 *否*
 
-You also would like to show reports that were created or modified in February 2020, that means the **DateAndTime** attribute should fall into a range from February 1st, 2020 to February 29th, 2020.
+您还想要显示2020年2月创建或修改的报告。 这意味着 **DateAndTime** 属性应该从2020年2月1日至2020年2月29日。
 
-To configure a filter, do the following:
+要配置过滤器，请执行以下操作：
 
-1. Select the list view or the data grid and open its properties:
+1. 选择列表视图或数据网格并打开其属性：
 
-2. In the **Data Source** section, click **Filter**:
+2. 在 **数据源** 部分中，点击 **过滤器**：
 
     {{% image_container width="250" %}}![](attachments/pages-how-to-filter-and-sort/properties-filter.png){{% /image_container %}}
 
-3. In the **Add Filter** dialog box, add conditions of the filter by doing the following:
+3. 在 **添加滤镜** 对话框中，通过以下操作添加过滤器条件：
 
-    1. Select the **Passed** attribute in the drop-down menu:
+    1. 在下拉菜单中选择 **通过** 属性：
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-filter-and-sort/add-filter-select-attribute.png){{% /image_container %}}
 
-    2. Once you select the first part of the condition, you can select the other part to complete it. Select *false*:
+    2. 一旦您选择该条件的第一部分，您可以选择另一个部分来完成它。 选择 *false*:
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-filter-and-sort/add-filter-condition.png){{% /image_container %}}
 
-    3. To filter inspection reports for the current day, you need to add another condition to your filter: click **Add new condition** and select the **DateAndTime** attribute in the drop-down menu.
+    3. 过滤当前日子的检查报告 您需要添加其他条件到过滤器：点击 **添加新条件** 并在下拉菜单中选择 **DateAndTime** 属性。
 
-    4. Add the second part of the condition: the date should be today's date. Select *Today* in the drop-down menu:
+    4. 添加条件的第二部分：日期应为今天的日期。 在下拉菜单中选择 *今日*
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-filter-and-sort/filter-date-and-time.png){{% /image_container %}}
 
-    5. Click **Add**.
+    5. 点击 **添加**。
 
-Good job! You have created the filter that has two conditions and reads the following way: *Select records of InspectionReport where Passed is false and date and time is Today.* This means this filter will show you only the reports that fall under both conditions: which failed the inspection check and which were created or modified in the current day.
+干得好！ 您已经创建了具有两个条件并读取以下方式的过滤器： *选择检查报告的记录，因为通过的记录是假的，日期和时间是今天。* 这意味着这个过滤器将只向您显示两个条件下的报告：那些检查失败的报告，以及那些在当前日子创建或修改的报告。
 
-## 4 Sorting Items
+## 4 个排序项目
 
-To sort items in the list by date and time starting from the latest one, follow the steps below:
+按日期和时间从最近一次开始排序列表中的项目，按下面的步骤：
 
-1. Select the list view or the data grid and open its properties.
+1. 选择列表视图或数据网格并打开其属性。
 
-2. In **Sorting Order** property, click **Add Sorting Rule**.
+2. 在 **排序顺序** 属性中，点击 **添加排序规则**。
 
-3. In **Add sorting rule** dialog box, select the **DateAndTime** attribute and set **Order** to *Descending*.
+3. 在 **添加排序规则** 对话框，选择 **DateAndTime** 属性并将 **订单** 设置为 *降序*。
 
     {{% image_container width="450" %}}![](attachments/pages-how-to-filter-and-sort/add-sorting-rule.png){{% /image_container %}}
 
-4. Click **Add**.
+4. 点击 **添加**。
 
-Congratulations! You have added a filter and sorting order to your list. You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
+恭喜！ 您已经向您的列表添加了一个过滤器和排序顺序。 您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio8/publishing-app)。
