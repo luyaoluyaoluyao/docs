@@ -1,90 +1,90 @@
 ---
-title: "Show Page"
-parent: "client-activities"
+title: "显示页面"
+parent: "客户活动"
 menu_order: 50
 tags:
   - "studio pro"
-  - "show page"
-  - "client activity"
+  - "显示页面"
+  - "客户活动"
 aliases:
   - /refguide/Show+Page.html
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline native or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
-{{% /alert %}}
+这个动作被忽略，当从离线本地或混合应用调用微流时不起作用。 For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-With this activity, you can show a selected page to an end-user. Mendix apps run as a single page application, so the page will always be shown in the same browser tab/window as the app.
+通过此活动，您可以向最终用户显示一个选定的页面。 Mendix 应用程序作为单一页面应用程序运行，所以该页面将始终显示在同一个浏览器标签/窗口中。
 
-You can directly drag a page from the **App Explorer** into your microflow:
+您可以直接从 **App Explorer** 拖放一个页面到您的微流程：
 
 ![](attachments/client-activities/show-page-from-project-explorer.png)
 
-## 2 Properties
+## 2 属性
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
 
 ![](attachments/client-activities/show-page-properties.png)
 
-The **Show page** properties pane consists of the following sections:
+**显示页面** 属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Object to Pass {#object-to-pass}
+### 3.1 出入证的对象 {#object-to-pass}
 
-An object that will be passed to the page that is opened. This object will be used by [data views](data-view) with a page parameter data source.
+一个将传递到打开的页面的对象。 此对象将被带有页面参数数据源的 [数据视图](data-view) 使用。
 
-### 3.2 Page
+### 3.2 页 次
 
-The [page](page) that is displayed to an end-user. If the [Object to pass](#object-to-pass) property is specified, the page must contain a data view connected to the same entity as the passed object (or its generalization).
+显示给最终用户的 [页面](page)。 如果指定 [对象传递](#object-to-pass) 属性 页面必须包含一个与传递对象(或其一般化)连接到同一个实体的数据视图。
 
-To create a new page that **Show page** activity will show, click the **Select** button > **New**. If you have selected an **Object to pass**, Studio Pro will automatically create a data view to edit that object.
+要创建一个 **显示页面** 活动将显示的新页面, 点击 **选择** 按钮 > **新** 如果您选择了 **个对象通过**，Studio Pro 将自动创建一个数据视图来编辑该对象。
 
-### 3.3 Page Title
+### 3.3 页面标题
 
-By default the title of the page is determined by the page title property of the page. You can replace this title with a custom title if necessary.
+默认情况下，页面标题由页面标题属性决定。 如有必要，您可以用自定义标题替换此标题。
 
-This feature allows you to re-use the same page for the **New** and **Edit** buttons of a [data grid](data-grid). By simply setting the titles to, for example, *New Customer* and *Edit Customer*, you can save yourself the trouble of duplicating pages.
+此功能允许您在 **新** **编辑** 数据网格的按钮 [](data-grid)中重新使用同一页面。 简单地将标题设置为 *新客户* 和 *编辑客户*您可以保存自己复制页面的麻烦。
 
-### 3.4 Close Pages {#close-pages}
+### 3.4 闭合页面 {#close-pages}
 
 {{% alert type="info" %}}
-This option is only available for native mobile and was introduced with Mendix Studio Pro v8.14.
-{{% /alert %}}
+此选项仅适用于本机移动设备，并且是与Mendix Studio Pro v8.14一起引入的。
+{{% /报警 %}}
 
-Often you need to have control of page history, for example to show the correct page when a user presses the hardware back button on Android. These types of actions generally will only close a single page in the current stack. **Close Pages** provides more control over this behavior. We define relevant terms as follows:
+您常常需要控制页面历史。 例如，当用户在Android上按下硬件返回按钮时，显示正确的页面。 这些类型的活动一般只会关闭当前堆栈中的一页。 **关闭页面** 提供了对此行为的更多控制。 我们对有关术语的定义如下：
 
-* **source page**: The page you are navigating _from_
-* **target page**: The page you are navigating _to_
+* **源页面**: 您正在导航 _来自_ 的页面
+* **目标页面**: 您正在导航 _到_ 的页面
 
-| Value         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None          | Do not remove any pages from history. This is the default behavior.                                                                                                                                                                                                                                                                                                                                                                                               |
-| Single        | After navigating to the **target page**, remove the **source page** from history.                                                                                                                                                                                                                                                                                                                                                                                 |
-| Multiple      | After navigating to the **target page**, remove the **source page** and one or more pages before it from history. Configure the total number of pages removed using an expression.                                                                                                                                                                                                                                                                                |
-| All           | After navigating to the **target page**, remove the **source page** and all pages before it from history. This option is similar to the **Single** and **Multiple** options, except only pages in the current stack will be closed.                                                                                                                                                                                                                               |
-| Clear history | Prevent the user from navigating back altogether. This is especially useful when navigating away from a login or tutorial flow.<br />{{% alert type="warning" %}}In the page editor and in nanoflows as well as in native apps, this option can only be used in combination with target pages that are included in the bottom bar configuration (if the layout has a bottom bar) and that have a default layout type (meaning, not a pop-up).{{% /alert %}} |
+| 值      | 描述                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 无      | 不要删除历史中的任何页面。 这是默认行为。                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 单一的    | 导航到 **目标页面**后，从历史记录中移除 **源页面**。                                                                                                                                                                                                                                                                                                                                                                                             |
+| 多个选项   | 在导航到 **目标页面**后，从历史记录中移除 **源页面** 和一个或多个页面。 配置使用表达式删除的页面总数。                                                                                                                                                                                                                                                                                                                                                                   |
+| 所有的    | 在导航到 **目标页面**后，移除 **源页面** 以及之前的所有页面。 This option is similar to the **Single** and **Multiple** options, except only pages in the current stack will be closed.                                                                                                                                                                                                                                                              |
+| 清除历史记录 | 阻止用户完全返回导航。 This is especially useful when navigating away from a login or tutorial flow.<br />{{% alert type="warning" %}}In the page editor and in nanoflows as well as in native apps, this option can only be used in combination with target pages that are included in the bottom bar configuration (if the layout has a bottom bar) and that have a default layout type (meaning, not a pop-up).{{% /alert %}} |
 
-## 4 Common Section{#common}
+## 4 通用部分{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 阅读更多
 
-* [Activities](activities)
-* [Native Navigation](native-navigation)
+* [活动](活动)
+* [原生导航](native-navigation)
