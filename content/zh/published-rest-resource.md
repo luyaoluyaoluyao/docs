@@ -6,12 +6,11 @@ description: "发布的REST 资源的可配置选项"
 tags:
   - "已发布 REST"
   - "资源"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**已发布的REST service** 功能已引入7.10.0版本。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-resource.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
