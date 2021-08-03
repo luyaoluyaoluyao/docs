@@ -1,65 +1,65 @@
 ---
-title: "Navigation Tree"
-parent: "menu-widgets"
+title: "导航树"
+parent: "菜单部件"
 menu_order: 3
 tags:
   - "studio pro"
 ---
 
-{{% alert type="warning" %}}The navigation tree widget is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="warning" %}}本机移动页面不支持导航树小部件。{{% /提醒 %}}
 
-## 1 Introduction
+## 1 导言
 
-A navigation tree displays menu items of a [navigation profile](navigation#profiles) or [menu](menu) document in the form of a tree. These items are determined by the [Menu source](#menu-source) and are either configured in the [Navigation](navigation) or a [Menu](menu).
+导航树以树的形式显示 [导航配置](navigation#profiles) 或 [菜单中的菜单项](menu) 文档。 这些项目是由 [菜单源](#menu-source) 决定的，它们要么在 [导航](navigation) 中配置，要么是 [菜单](menu)。
 
-The menu structure of a navigation tree can have three levels, that means that menu items can have sub-items. For more information on menu items and their properties, see [Menu](menu).
+导航树的菜单结构可以有三个级别，这意味着菜单项可以有子项。 关于菜单项及其属性的更多信息，见 [菜单](menu)。
 
-![Navigation Tree](attachments/menu-widgets/navigation-tree.png)
+![导航树](attachments/menu-widgets/navigation-tree.png)
 
-## 2 Properties
+## 2 属性
 
-An example of navigation tree properties is represented in the image below:
+下面的图像显示了导航树属性的示例：
 
-{{% image_container width="250" %}}![Navigation Tree Properties](attachments/menu-widgets/navigation-tree-properties.png)
+{{% image_container width="250" %}}![导航树属性](attachments/menu-widgets/navigation-tree-properties.png)
 {{% /image_container %}}
 
-Navigation tree properties consist of the following sections:
+导航树属性由以下部分组成：
 
-* [Common](#common)
-* [Design properties](#design)
-* [General](#general)
+* [常用的](#common)
+* [设计属性](#design)
+* [A. 概况](#general)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design}
+### 2.2 设计属性科 {#design}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Menu Source {#menu-source}
+#### 2.3.1 菜单源 {#menu-source}
 
-The items that are shown in the menu widget are determined by the **Menu source**. Possible menu sources are described in the table below:
+菜单部件中显示的项目由 **菜单源** 决定。 可能的菜单来源见下表：
 
-| Value                          | Description                                                                            |
-| ------------------------------ | -------------------------------------------------------------------------------------- |
-| Project navigation *(default)* | The menu items are taken from one of profiles defined in the [Navigation](navigation). |
-| Menu document                  | The menu items are taken from a [menu](menu) document.                                 |
+| 值           | 描述                               |
+| ----------- | -------------------------------- |
+| 项目导航 *(默认)* | 菜单项取自 [导航](navigation) 中定义的配置文件。 |
+| 菜单文档        | 菜单项取自一个 [菜单文档](menu)。            |
 
-#### 2.3.2 Profile
+#### 2.3.2 简介
 
-Only available when the [menu source](#menu-source) is set to **Project navigation**. The **Profile** property specifies what [navigation profile](navigation#profiles) is used for the widget.
+只有在 [菜单源](#menu-source) 设置为 **项目导航** 时才可用。 **配置** 属性指定了哪些 [导航配置文件](navigation#profiles) 用于该部件。
 
-Default: *Responsive*
+默认： *响应性*
 
-#### 2.3.3 Menu
+#### 2.3.3 菜单
 
-Only available when the [menu source](#menu-source) is set to **Menu document**. The **Menu** property specifies what [Menu](menu) document is used for the widget.
+只有在 [菜单源](#menu-source) 设置为 **菜单文档** 时才可用。 **菜单** 属性指定了什么 [菜单](menu) 文档用于小部件。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Menu Widgets](menu-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [菜单部件](菜单部件)
+* [页面编辑器中常见的属性](common-widget-properties)
