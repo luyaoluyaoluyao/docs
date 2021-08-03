@@ -1,35 +1,35 @@
 ---
-title: "Object Activities"
-parent: "activities"
+title: "对象活动"
+parent: "活动"
 menu_order: 10
 tags:
   - "studio pro"
-  - "microflow"
-  - "object"
+  - "微流"
+  - "对象"
 ---
 
-## 1 Introduction
+## 1 导言
 
-When working with the Mendix Platform, objects of entities are always being manipulated. This happens implicitly within [data widgets](data-widgets) on a page, or explicitly using activities in microflows and nanoflows.
+使用 Mendix 平台时，实体的对象总是被操纵。 这种情况隐含在页面的 [数据小部件](data-widgets) 中，或者在微流程和 nanoflow 中明确使用活动。
 
-The activities in this section of the microflow and nanoflow toolbox generally work on single objects, however **commit object(s)**, **delete object(s)**, and **retrieve** also work on lists of objects. For other activities which work with lists, see [List Activities](list-activities).
+微流和 nanoflow 工具箱中的这一部分的活动一般适用于单个物体，但 **提交对象**， **删除对象**和 **检索** 也适用于对象列表。 关于其他与列表相关的活动，请参阅 [列表活动](list-activities)。
 
 The activities described in this document are in the **Object Activities** section of the **Toolbox**:
 
 {{% image_container width="40%" %}}
-![Object activities toolbox](attachments/object-activities/object-activities-toolbox.png)
+![对象活动工具箱](attachments/object-activities/object-activities-toolbox.png)
 {{% /image_container %}}
 
-The following are the object activities you can use in your microflow or nanoflow:
+下面是您可以在微流程或 nanoflow 中使用的对象活动：
 
-* [Cast object](cast-object) *(only in microflows)* – changes the type of object from a generalized object type to the specialized object type
-* [Change object](change-object) – changes the members of an object
-* [Commit objects(s)](committing-objects) – either stores objects of persistable entities in the database or stores objects of non-persistable entities in memory to allow them to be rolled back
-* [Create object](create-object) – creates an object
-* [Delete object(s)](deleting-objects) *(only in microflows)* – activity deletes one or more objects
-* [Retrieve](retrieve) – gets one or more objects of an entity
-* [Rollback object](rollback-object) – undoes uncommitted changes made to an object
+* [投射对象](cast-object) *(仅在微流程中)* - 将对象类型从一般对象类型改为专门对象类型
+* [更改对象](change-object) - 更改对象的成员
+* [提交对象](committing-objects) — — 要么在数据库中存储可持久实体的对象，要么在内存中存储不可持续实体的对象以使它们能够回滚。
+* [创建对象](create-object) - 创建对象
+* [删除对象](deleting-objects) *(仅在微流程中)* - 活动删除一个或多个对象
+* [检索](retrieve) - 获取一个实体的一个或多个对象
+* [回滚对象](rollback-object) - 撤销未承诺的对对象的更改
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Activities](activities)
+* [活动](活动)
