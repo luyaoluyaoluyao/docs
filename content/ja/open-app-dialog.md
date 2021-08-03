@@ -1,46 +1,61 @@
 ---
-title: "アプリダイアログを開く"
-parent: "ダイアログ"
+title: "プロジェクトを開く"
+parent: "ファイルメニュー"
+menu_order: 20
+description: "「プロジェクトを開く」(アプリ)のフローと「アプリを開く」ダイアログ・ボックスについて説明します"
+tags:
+  - "studio pro"
+  - "アプリを開く"
+  - "プロジェクトを開く"
 aliases:
-  - /ja/refguide7/open-project-dialog.html
+  - /refguide8/open-project-dialog.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/open-app-dialog.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-このダイアログボックスを使用してアプリを開きます。 アプリはチームサーバー、別のSVNサーバー、またはローカルディスク上に配置できます。 Team Serverまたは別のSVNサーバーからアプリを開くと、Desktop Modelerはすでにこのアプリをダウンロードしているかどうかを確認します。 もしそうなら、それは単にそれを開きます。 そうでない場合は、最初にバージョン管理サーバーからアプリがダウンロードされます。
+Mendix Studio Proでプロジェクトを開くには、次のいずれかを実行します。
 
-## 2つの場所
+* トップバーの **ファイル** メニューを開く > **プロジェクトを開く**
+*  Studio Pro のランディングページで **アプリを開く** をクリックします
 
-この設定を使用して、アプリが保存されている場所を選択します。 これは、Team Server、Team Server以外のSVNサーバー、またはローカルディスクです。 ディスク上のアプリは、Team Serverまたは別のSVNサーバーにも保存できます。 この場合、Team Server/Other SVN サーバオプションを使用して開き、ディスク上のファイルを選択することに違いはありません。
+**アプリを開く** ダイアログボックスが開き、アプリの場所を選択できます。
 
-### 2.1 Mendix チームサーバー
+![アプリを開く](attachments/file-menu/open-app.png)
 
-リストから開きたいTeam Serverアプリを選択し、開発を開始する開発ラインを選択します。
+アプリの場所の詳細については、 [アプリはどこに保存されていますか?](#location) セクションを参照してください。
 
-Mendix Team Serverの詳細については、 [Team Server](team-server) を参照してください。
+アプリはチームサーバー、別のSVNサーバー、またはローカルディスク上に配置できます。 Team Serverまたは別のSVNサーバーからアプリを開くと、このアプリが既にダウンロードされているかどうかをStudio Proが確認します。 もしそうなら、それは単にそれを開きます。 そうでない場合は、最初にバージョン管理サーバーからアプリがダウンロードされます。
+
+## 2 アプリはどこに保存されていますか? {#location}
+
+この設定を使用して、アプリが保存されている場所を選択します。 This can be the [Team Server](#team-server), a [private server](#private-server), that is an SVN server other than the Team Server, or a [local disk](#local). ディスク上のアプリは、Team Serverまたは別のSVNサーバーにも保存できます。 この場合、 **チームサーバー**/**プライベートサーバー** オプションと **ローカルディスク** オプションを使用して開くことに違いはありません。
+
+### 2.1 Mendix チームサーバー {#team-server}
+
+開きたいチームサーバーアプリを選択し、開発ラインを選択します。
+
+Mendix Team Serverの詳細については、 [Team Server](/developerportal/collaborate/team-server) を参照してください。
 
 開発ラインの詳細については、 [バージョンコントロール](version-control) を参照してください。
 
-### 2.2 その他のSVNサーバー
-
-In the **SVN repository address** field, enter the address of the app you want to open and press the **Connect** button to load the development lines from the repository. 次に、開発を開始する開発ラインを選択します。
+### 2.2 プライベートサーバー {#private-server}
 
 {{% alert type="info" %}}
 
-**その他 SVN サーバ** オプションは、 [環境設定](preferences-dialog#enabled) ダイアログボックスで他の SVN サーバーのサポートが有効になっている場合にのみ使用できます。
+The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Advanced** > **Enable private version control**.
 
 {{% /alert %}}
 
-### 2.3 ローカルディスク
+In the **App repository address** field, enter the address of the app you want to open and press the **Connect** button to load development lines from the repository. 次に、開発を開始する開発ラインを選択します。
+
+### 2.3 ローカルディスク {#local}
 
 すでにディスク上にあるアプリを開くには、プロジェクトファイルを指すだけです。
 
-## 3 ディスクの場所
+## 3 続きを読む
 
-すでにディスク上のアプリの開発ラインが選択されている場合は、次のメッセージが表示されます: "このアプリはディスク上にあります。 そして、このアプリがあるディスク上のディレクトリが表示されます。 まだお持ちでない場合は、アプリをダウンロードするディレクトリを選択できます。 バージョン管理が有効な場合。 提案された名前には、開発行の名前(**main** またはブランチの名前)が含まれます。
-
-{{% alert type="info" %}}
-
-Desktop Modelerは、開いたすべてのアプリを記憶します。 この方法では、バージョン管理アプリの既存のダウンロードを示すことができます。 App ディレクトリを移動すると、Desktop Modelerはそのディレクトリについて知らなくなり、新しいコピーをダウンロードすることができます。 既存のダウンロードを使用し続けたい場合は、 **ローカルディスク上の** オプションを使用して開く必要があります。
-
-{{% /alert %}}
+* [プロジェクトパッケージのインポート](import-project-package-dialog)
