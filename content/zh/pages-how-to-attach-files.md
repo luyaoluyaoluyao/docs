@@ -43,12 +43,12 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
 
 ## 3 正在创建文件实体
 
-首先，， 要能够附加和/或下载文件，您需要将特殊类型的实体添加到您的域模型： [文件实体](/studio/domain-models#entity-types)。 执行以下操作：
+首先，， 要能够附加和/或下载文件，您需要将特殊类型的实体添加到您的域模型： [文件实体](/studio8/domain-models#entity-types)。 执行以下操作：
 
 1. 打开您的域模型并打开 **工具箱** 标签。
 
@@ -104,13 +104,13 @@ tags:
 
     5. 点击 **实体** 属性。
 
-    6. 在 **选择实体** 对话框中，选择 **文档** 于 **文档** 关联并点击 **选择**:
+    6. 在 **选择实体** 对话框中 选择 **文档** 实体超过 **Document_Employee** 关联 (*Document_Employee/Document*) 然后点击 **选择**
 
         {{% image_container width="400" %}}![Select File Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
     7. 点击 **页面** 属性。
 
-    8. 在 **选择打开页面** 对话框中，点击右上角的加号图标添加一个新页面。
+    8. 在 **选择打开页面** 对话框中，点击 **新页面**
 
     9. 在 **创建新页面** 对话框中，执行以下操作：
 
@@ -149,9 +149,9 @@ tags:
 
     1. 点击 **实体** 属性。
 
-    2. 在 **选择实体** 对话框中，选择 **文档** 于 **文档** 关联并点击 **选择**:
+    2. 在 **选择实体** 对话框中 选择 **文档** 实体超过 **Document_Employee** 关联 (*Document_Employee/Document*) 然后点击 **选择**
 
-        {{% image_container width="400" %}}![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
+        ![选择实体](attachments/pages-how-to-attach-files/select-file-entity.png)
 
 4. 删除图像和从列表中放置的一列：
 
@@ -178,7 +178,7 @@ tags:
 
 恭喜！ 您已配置了允许IT管理员附加文件并在列表中显示这些文件的表单。
 
-[预览您的应用程序](/studio/publishing-app) 来测试文件上传和下载如何运行：
+[预览您的应用程序](/studio8/publishing-app) 来测试文件上传和下载如何运行：
 
 ![预览列表](attachments/pages-how-to-attach-files/list-previewed.png)
 
