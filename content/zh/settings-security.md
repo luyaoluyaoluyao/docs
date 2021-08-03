@@ -15,25 +15,37 @@ tags:
 
 [角色和权限](#roles-and-permissions) 是安全的一个重要部分——你可以用来限制或授予对应用的不同部分的访问权限， 例如页面和微流。
 
-## 2 安全概述 {#overview}
+## 2 有利于安全 {#enabling-security}
 
-您的应用是否默认启用了安全性， 取决于在Studio Pro中是否启用了安全，以及它在那里的配置方式。 您可以遇到以下案例：
+您的应用是否默认启用安全性，取决于应用的类型和版本。 您可以遇到以下案例：
 
-1. Your app security is **off** in Studio Pro. 在这种情况下， 您可以通过 **应用程序设置**>**角色和权限** >启用 **启用安全** 按钮， 或者您将被提示启用安全性，当您尝试 [发布应用程序](publishing-app) 时。
+1. 如果您的应用程序已经在 Developer Portal 中使用 Mendix 版本 7.23 创建。 或以上, 您可以启用工作室的安全性并查看和编辑 [角色和权限](#roles-and-permissions)。 关于版本的更多信息，请参阅 [Studio Ranges & Mendix 版本](general-versions)
 
-    {{% image_container width="300" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png) {{% /image_container %}}
+2. 如果您的应用程序已经在开发者门户创建，版本低于7.23。 ，或被标记为私人内容，或由您的团队专门为您的公司定制， 安全状态取决于Studio Pro：<br/> a。  如果工作室专业版的安全性被关闭，您可以启用工作室的安全。 在这种情况下，当你试图 [发布应用程序](publishing-app)时，你将被提示启用安全性。 <br/>
 
-    {{% alert type="info" %}}When you enable security, it is enabled for the whole app, and there are checks and changes applied to the model that are visible in Studio Pro. 欲了解更多关于这些检查和更改的技术信息，请参阅 [Model Change。当安全在工作室启用](/refguide/studio-security-enabled)。{% /提醒 %}}
+    {{% image_container width="400" %}}![Secure Your App Pop-up Window](attachments/settings-security/security-pop-up.png)
+ {{% /image_container %}}<br/>
 
-2. 安全设置为 **Product** 级，设置与 Studio 兼容。 在这种情况下，您可以在工作室查看和编辑 **角色和权限**。 (更多关于哪些安全设置与Studio兼容的信息) 查看 [Studio 兼容性](/refguide/studio-security-enabled#studio-compatible) 部分 *Model changes when Security is enabled in Studio*.)
+    b. 会议文件。 如果安全设置为 **Production** level in Studio Pro 并且设置与 Studio 兼容。 您可以在工作室查看和编辑 **角色和权限** (更多关于哪些安全设置与Studio兼容的信息) 查看 [Studio 兼容性](/refguide8/studio-security-enabled#studio-compatible) 部分 *Model changes when Security is enabled in Studio*.)
 
     ![](attachments/settings-security/roles-and-permissions-screen.png)
 
-3. 安全性设置为 **Prototype/demo** or **Production** levels in Studio Pro and 设置不兼容 Studio 。 在这种情况下，您只能在工作室查看但不能编辑 **角色和权限**。 (更多与工作室兼容的安全设置信息) 查看 [Studio 兼容性](/refguide/studio-security-enabled#studio-compatible) 部分 *Model changes when Security is enabled in Studio*.)
+    b. 会议文件。 如果安全设置为 **Prototype/demo** or **Production** level in Studio Pro and 设置不兼容 Studio 您可以在工作室查看(未编辑) **角色和权限** (更多与工作室兼容的安全设置信息) 查看 [Studio 兼容性](/refguide8/studio-security-enabled#studio-compatible) 部分 *Model changes when Security is enabled in Studio*.)
 
     ![](attachments/settings-security/security-read-only.png)
 
 
+如果您需要启用安全性，请执行以下操作之一：
+
+* 点击 **在上述弹出式对话框中启用安全** ，安全将自动为您设置。 之后，您可以通过 [角色和权限](#roles-and-permissions) 来限制或授予您对您应用的访问权限。
+
+*  打开 **应用程序设置** > **角色和权限** 然后点击 **启用安全**。
+
+    ![角色和权限屏幕](attachments/settings-security/enabling-security.png)
+
+{{% alert type="info" %}}
+当您启用安全性时，它已为整个应用启用， Studio Pro中可以看到的模型的检查和更改。 欲了解更多关于这些检查和更改的技术信息，请参阅 [Model Changes when Security is enabled in Studio](/refguide8/studio-security-enabled)。
+{{% /报警 %}}
 
 ## 3 角色和权限 {#roles-and-permissions}
 
@@ -54,26 +66,19 @@ tags:
 
 欲了解更多管理应用用户的信息，请参阅 [管理应用用户](#managing-app-users) 部分。
 
-当创建新页面/microflow/workflow 时, 工作室默认权限被设置为 这意味着应用程序中的所有现有角色都可以访问新创建的文档。
-
-{{% alert type="warning" %}}
-当页面/microflow/workflow 复制粘贴时，将为新文档设置默认权限。 我们建议您审查该文档的权限。
-{{% /报警 %}}
-
-**角色和权限** 屏幕由以下标签组成：
+**角色和权限** 屏幕由三个标签组成：
 
 * 角色
 * 页面访问
 * 微流程访问
-* 工作流访问权限
 
 **角色** 标签列出了所有角色，并指出了页面数量和这些角色可以访问的微流。
 
-**页面访问**,  **微流程访问**, 和 **工作流程访问** 选项卡包含一个表格，所有页面/微流程/工作流程都列在列中，所有角色都放在列中。
+**页面访问** and **微流程访问** 选项卡包含一个表格，所有页面/微流程都以行列出， 和所有角色都放在列中。
 
-您只能允许某些角色访问页面、微流程或工作流程：选择授予角色访问权限的适当框。
+您只能允许某些角色访问页面或microflow：选择适当的框来授予角色对页面或microflow的访问权限。
 
-要选择/取消选择所有页面、微流或工作流，请点击用户角色旁边的 **更多选项** (椭圆) 图标。
+要选择/取消选择所有页面或微流，请点击用户角色旁边的椭圆图标。
 
 因此，您将获得每个角色的特定矩阵。
 
@@ -101,7 +106,7 @@ tags:
 
 1.  打开 **角色和权限** > the **角色** 选项卡。
 
-2.  点击 **更多选项** (椭圆) 图标并选择 **编辑**。
+2.  点击 **更多选项** 图标并选择 **编辑**。
 
     ![](attachments/settings-security/edit-role-option.png)
 
@@ -133,25 +138,21 @@ tags:
 
 {{% /报警 %}}
 
-### 3.4 设置访问特定页面/微流程/工作流
+### 3.4 设置访问特定页面/微流
 
-在您的应用程序中有两种方式可以更改特定页面/微流程/工作流的访问权限：
+您的应用有两种方式设置特定页面/微流访问权限：
 
-1.  若要通过 **角色和权限**设置访问权限，请执行以下操作：
-    2.  打开 **角色和权限** > **页面**/**微流程/工作流访问** 选项卡
-    3.   查找列中的用户角色，并在页面/microflow/workflow 旁边的方框中勾划该角色以打开它的访问权限。 或取消勾选 — — 以限制访问。 例如，您可以限制用户角色的页面访问权限：
+1.  要通过 **角色和权限**设置访问权限，请执行以下操作：<br/> 1。 打开 **角色和权限** > **页面**/**微流程访问** 选项卡<br/> 1。 查找列中的用户角色，然后在页面/微流旁边的框中勾画它来打开访问权限。 或取消勾选 — — 以限制访问。 在下面的示例中，我们有限制用户访问页面的权限。<br/>
 
     ![](attachments/settings-security/page-access-example.png)
 
-2.  要设定通过此页面/微流程/工作流程的特性访问页面/微流程，请做以下操作：
-    3.  打开页面/microflow/workflow。
-    4.  转到 **属性** > 的 **权限** 节和 tick/untick **允许角色** 授予/限制访问权限。
+2.  要设置通过此页面/微流程特性访问页面/微流程，请执行以下操作： <br/> 2.1 打开页面/微流程。<br/> 2.2. 转到 **属性** > 的 **权限** 节和 tick/untick **允许角色** 授予/限制访问权限。<br/>
 
-        {{% image_container width="300" %}}![](attachments/settings-security/permissions-section.png){{% /image_container %}}
+    ![](attachments/settings-security/permissions-section.png)
 
 ## 4 个演示用户 {#demo-users}
 
-演示用户是在您的应用程序中存在的每个用户角色的演示。 您可以使用演示用户查看您的应用程序对每个用户角色的外观。 欲了解更多技术信息，见 [演示用户](/refguide/demo-users)。
+演示用户是在您的应用程序中存在的每个用户角色的演示。 您可以使用演示用户查看您的应用程序对每个用户角色的外观。 欲了解更多技术信息，见 [演示用户](/refguide8/demo-users)。
 
 ### 4.1 测试你的角色 {#testing-your-roles}
 
@@ -161,7 +162,7 @@ tags:
 
 2. 点击屏幕右侧的用户图标：
 
-    {{% image_container width="400" %}}![](attachments/settings-security/user-icon.png){{% /image_container %}}
+    ![](attachments/settings-security/user-icon.png)
 
 4. 在显示的菜单栏中，选择演示用户和应用将从相应角色的角度查看。
 
@@ -197,15 +198,13 @@ tags:
 ![需要升级](attachments/settings-security/upgrade.png)
 {{% /image_container %}}
 
-特殊服务可以管理您的应用用户。 到2020年4月1日，我们正在以改进的服务取代目前的服务。 当您点击 **自动升级** 时，此升级将自动完成。
-
-无需担心如果您没有自动升级，您的应用将仍然安全并运行， 然而，在升级之前，您将无法发布您的应用的最新版本。
+特殊服务可以管理您的应用用户。 当您点击 **自动升级** 时，此服务的最新版本将自动为您完成。
 
 如果自动升级失败，这意味着服务被定制为 Studio Pro， 在这种情况下，只能手动升级Studio Pro。
 
-如果自动升级检测到该服务是由团队成员在 Studio Pro 中自定义的 您将收到通知，应该首先在Studio Pro 进行手动升级。 关于如何升级Studio Pro服务的更多技术信息，见 [从 AppCloudServices 升级到 Mendix SSO](/developerportal/deploy/upgrading-to-mendix-sso-from-acs)。
+如果自动升级检测到该服务是由团队成员在 Studio Pro 中自定义的 您将收到通知，应该首先在Studio Pro 进行手动升级。
 
 ## 7 阅读更多
 
-* [安全](/refguide/security)
-* [工作室启用安全时的模型更改](/refguide/studio-security-enabled)
+* [安全](/refguide8/security)
+* [工作室启用安全时的模型更改](/refguide8/studio-security-enabled)
