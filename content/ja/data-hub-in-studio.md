@@ -1,144 +1,144 @@
 ---
-title: "Data Hub in Studio"
-category: "Working with Data"
+title: "Studio のデータハブ"
+category: "データの操作"
 menu_order: 30
-description: "Describes the Data Hub Catalog usage in Mendix Studio."
+description: "Mendix Studioでのデータハブカタログの使用方法について説明します。"
 tags:
-  - "studio"
-  - "data hub"
-  - "data hub catalog"
-  - "external entities"
+  - "スタジオ"
+  - "データハブ"
+  - "データハブカタログ"
+  - "外部エンティティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Every organization has apps containing valuable data that can be used in other applications too. [Mendix Data Hub](/data-hub/) enables you to use data from other apps without having to deal with complex far-from-ideal solutions, such as exporting data, duplicating it, or building complex technical integrations. With Data Hub, all you need to do is just search for the data, select it, and use it.
+すべての組織には、他のアプリケーションでも使用できる貴重なデータを含むアプリがあります。 [Mendix Data Hub](/data-hub/) を使用すると、複雑な遠方から理想的なソリューションを扱うことなく、他のアプリのデータを使用できます。 例えば、データのエクスポート、複製、複雑な技術統合など。 Data Hubでは、データを検索し、選択して使用するだけで済みます。
 
-Mendix Data Hub is the central hub in the organization that enables you to discover, connect to, and use shared data from different apps in your organization. It also ensures that data is used consistently throughout your organization.
+Mendix Data Hub は、組織内の中央ハブであり、発見することができます。 組織内のさまざまなアプリに接続して、共有データを使用します。 また、組織全体でデータが一貫して使用されることも保証します。
 
-Shared data is registered as a *service* in the [Data Hub Catalog](/data-hub/data-hub-catalog/). Through the **Data Hub** tab in Studio, you can access data from the Data Hub Catalog. You can find external entities coming from the service, add them to your app together with their attributes and associations, and use them locally. The properties of entities, attributes, and associations will be read-only.
+共有データは、 *Data Hub Catalog* の [サービス](/data-hub/data-hub-catalog/) として登録されます。 Studio の **Data Hub** タブからデータにアクセスできます。 サービスから外部エンティティを見つけて、それらの属性と関連付けをアプリに追加し、それらをローカルで使用できます。 エンティティ、属性、および関連付けのプロパティは読み取り専用になります。
 
-For example, you have an *Employee Onboarding app* containing information on what devices should be assigned to a new employee. Your organization also has a *Company's HR* app which has all the data on employees. With the Data Hub functionality, you will be able to use (consume) data from the *HR app* in your *Employee Onboarding app* instead of having to duplicate the data and keep it in sync manually.
+たとえば、 *Employee Onboarding app* には、新しい従業員に割り当てるべきデバイスに関する情報が含まれています。 あなたの組織には、従業員のすべてのデータを持つ *会社の人事* アプリもあります。 データハブ機能を使用する データを複製して手動で同期させる代わりに、 *従業員のオンボーディング アプリ* で *人事アプリ* からformat@@4人事アプリformat@@5からデータを使用(節約)することができます。
 
-For more information on how to use data in your app, see the [Selecting External Entities on Pages](#select-external-entities) section.
+アプリケーションでデータを使用する方法についての詳細は、 [ページの外部エンティティの選択](#select-external-entities) セクションを参照してください。
 
 {{% alert type="info" %}}
-You can access Data Hub if your organization has a Data Hub license.
+組織がデータハブライセンスを持っている場合は、データハブにアクセスできます。
 {{% /alert %}}
 
-## 2 Selecting External Entities on Pages {#select-external-entities}
+## 2 ページ上の外部エンティティを選択する {#select-external-entities}
 
-The entities which are available through the Data Hub Catalog are called *external entities* as they are coming from an external source (*a source app*).
+データハブカタログを介して利用可能なエンティティは、外部ソース( *ソースアプリ* )から送信されるため、*外部エンティティ*と呼ばれます。
 
-You can select external entities as a data source for data containers (a data view, list view, or data grid) on a page. To select an external entity, do the following:
+ページ上のデータ コンテナ (データ ビュー、リスト ビュー、データ グリッド) のデータ ソースとして外部エンティティを選択できます。 外部エンティティを選択するには、次の操作を行います:
 
-1. Open the **Properties** of the data container.
-2. Click the **Entity** property.
-3. In the **Select Entity** dialog box, you can search for external entities in the Data Hub Catalog and use them on your page. There are two ways to discover entities, you can do one of the following:
-    1. **Search for a specific service or entity name** – enter a search term in the search field to find an entity you would like to add:
+1. データコンテナの **プロパティ** を開きます。
+2. **エンティティ** プロパティをクリックします。
+3. **図形の選択** ダイアログボックスで、データハブカタログ内の外部図形を検索し、ページで使用できます。 エンティティを発見するには2つの方法があります。次のいずれかを実行できます。
+    1. **特定のサービスまたはエンティティ名の検索** - 追加したいエンティティを検索するために検索フィールドに検索語を入力します:
 
         {{% image_container width="400" %}}![Searching for an Entity](attachments/data-hub-in-studio/searching-for-entity.png){{% /image_container %}}
 
-    2. **Browse through available data** – click the **Data Hub** section and browse through available services and entities:
+    2. **利用可能なデータをブラウズする** - **データハブ** セクションをクリックし、利用可能なサービスとエンティティをブラウズします。
 
         {{% image_container width="400" %}}![Selecting an Entity](attachments/data-hub-in-studio/selecting-entity.png){{% /image_container %}}
 
-3. Click **Select**.
+3. **Select** をクリックします。
 
-The selected external entity will be added to your domain model automatically together with all integration and security settings. ![Domain Model](attachments/data-hub-in-studio/domain-model-example.png)
+選択した外部エンティティは、すべての統合とセキュリティ設定と共に自動的にドメインモデルに追加されます。 ![ドメインモデル](attachments/data-hub-in-studio/domain-model-example.png)
 
-When you [publish your app](publishing-app), you can see that the data from the external entity is shown in your app.
+[アプリケーション](publishing-app)を公開すると、外部エンティティからのデータがアプリケーションに表示されていることがわかります。
 
-When you [preview your app](publishing-app), you will see data from the external entities, except for external entities from services that require authentication credentials. In this case you have to publish your app to see the data.
+[アプリ](publishing-app)をプレビューすると、外部エンティティからのデータが表示されます。 認証資格情報を必要とするサービスの外部エンティティを除いて。 この場合、データを表示するにはアプリを公開する必要があります。
 
-### 2.1 The Data Hub Tab
+### 2.1 データハブタブ
 
-The **Data Hub** tab of the **Select Entity** dialog box shows you a list of services that expands to a list of entities available for your organization:
+**[** ] ダイアログ ボックスの **データ ハブ** タブには、組織で利用可能なエンティティのリストに展開するサービスのリストが表示されます。
 
-![Data Hub Section Diagram](attachments/data-hub-in-studio/data-hub-tab-diagram.png)
+![データハブセクション図](attachments/data-hub-in-studio/data-hub-tab-diagram.png)
 
-In the **Data Hub** tab, you can do the following:
+**Data Hub** タブで、以下を行うことができます:
 
-* **Search** – when you enter a search term, you will get a list of services and entities available for your organization, as well as entities and services that are already used in your app.
+* **検索** - 検索用語を入力すると、組織で利用可能なサービスとエンティティのリストが表示されます。 アプリで既に使用されているエンティティやサービスと同様に。
 
-    {{% alert type="info" %}} In Studio, you can discover services that are published to a **Production** environment. {{% /alert %}}
+    {{% alert type="info" %}} Studio では、 **Production** 環境に公開されているサービスを発見できます。 {{% /alert %}}
 
-* **Filter out Studio incompatible services** – some services require authentication that is not compatible with Studio, you can use them only in Studio Pro. You can view all services, or filter out only compatible ones. Choose one of the following options in the drop-down menu:
+* **Studio 互換性のないサービスを除外する** – 一部のサービスでは、Studio と互換性のない認証が必要です。 Studio Proでのみ使用できます。 すべてのサービスを表示したり、互換性のあるサービスのみを除外したりできます。 ドロップダウンメニューから次のいずれかのオプションを選択します。
 
-    * **All Services** – all services will be shown in the **Data Hub** tab.
-    * **Studio Compatible Services** – only services that are compatible with Studio are displayed in the **Data Hub** tab.
+    * **すべてのサービス** - すべてのサービスは、 **データハブ** タブに表示されます。
+    * **Studio Compatible Services** - Studio と互換性のあるサービスのみが **Data Hub** タブに表示されます。
 
-* **View services used by your app** – services that are already used in your app are marked with a green check-mark.
+* **アプリで使用されているサービスを表示する** – アプリで既に使用されているサービスには緑色のチェックマークが付いています。
 
-* **Update services** – when a new version of the service is available, you can update it. However, it is best to check out the changes made to the service in the Data Hub Catalog first.
+* **Update services** – 新しいバージョンのサービスが利用可能である場合、更新することができます。 ただし、最初にData Hub カタログでサービスに加えられた変更を確認することをお勧めします。
 
     {{% image_container width="500" %}}![Update Available](attachments/data-hub-in-studio/service-update.png){{% /image_container %}}
 
-    Click the drop-down menu to choose the following options:
+    ドロップダウンメニューをクリックして、次のオプションを選択します。
 
-    * **Update Now** – allows you to update the service to a new version.
-    * **Show Changes** – takes you to the Data Hub Catalog where you can check what has been changed in the service.
+    * **Update Now** – 新しいバージョンにサービスを更新することができます。
+    * **変更の表示** – データハブカタログに移動し、サービス内の変更内容を確認できます。
 
-* **View external entities available within the service** – you can expand the service information to see which external entities are available.
+* **サービス内で利用可能な外部エンティティを表示** – 利用可能な外部エンティティを確認するために、サービス情報を拡大することができます。
 
-* **View information on the service** – a service name and version number. Click the information icon to view the following information on the service:
+* **サービスの情報を表示** – サービス名とバージョン番号。 情報アイコンをクリックすると、サービスに関する次の情報が表示されます。
 
-    * **Service name** – the name of the shared data source registered in the Data Hub Catalog.
+    * **サービス名** – データハブカタログに登録されている共有データソースの名前。
 
-    * **Version** – every service has a version number. When you consume data from a service, you consume from a specific version of a service published to an environment. New versions of a service are issued if changes are made.
+    * **バージョン** – すべてのサービスにバージョン番号があります。 サービスからのデータを消費すると、特定のバージョンのサービスから環境に公開されます。 変更が行われた場合、サービスの新しいバージョンが発行されます。
 
-    * **Last Updated** – indicated the date when the service was last updated.
+    * **最終更新日** – サービスが最後に更新された日付を示した。
 
-    * **Technical Owner** – links to the technical owner of the service (by default this is the owner who registered the service, but this can be changed in the Data Hub Catalog).
+    * **Technical Owner** - サービスのテクニカルオーナーへのリンク (デフォルトでは、サービスを登録したオーナー) しかし、これはデータハブカタログで変更することができます。
 
-    * **Business Owner** – links to the business owner of the data that the service connects to.
+    * **ビジネス所有者** – サービスが接続するデータのビジネスオーナーへのリンク。
 
-    * **Contact** – contact of the business owner.
+    * **Contact** – ビジネスオーナーの連絡先。
 
-    * **View in Data Hub Catalog** – a link to the Data Hub Catalog of your organization.
+    * **View in Data Hub Catalog** – 組織のデータハブカタログへのリンク。
 
         {{% image_container width="300" %}}![Service Information](attachments/data-hub-in-studio/service-information.jpg){{% /image_container %}}
 
 
-## 3 External Entity Properties
+## 3 外部エンティティのプロパティ
 
-External entities are colored *purple* in the domain model:
+外部エンティティは、ドメインモデルで *パープル* に色付けされます。
 
-![External Entity](attachments/data-hub-in-studio/external-entity.png)
+![外部エンティティ](attachments/data-hub-in-studio/external-entity.png)
 
-When you add external entities to your app, it is possible to make local changes to the entity, such as change its name. However, these changes are limited and will only apply to your app. Most of the properties of external entities are read-only as they are defined in the source app (this ensures that you will not accidently change the data in the source app):
+アプリに外部エンティティを追加すると、その名前の変更など、エンティティにローカルで変更を加えることができます。 ただし、これらの変更は限られており、アプリにのみ適用されます。 外部エンティティのほとんどのプロパティは、ソースアプリで定義されているため読み取り専用です(これにより、ソースアプリのデータが誤って変更されることはありません)。
 
-![External Entity Properties](attachments/data-hub-in-studio/external-entity-properties.png)
+![外部エンティティのプロパティ](attachments/data-hub-in-studio/external-entity-properties.png)
 
-### 3.1 External Entity Attributes
+### 3.1 外部エンティティ属性
 
-You can rename external entity attributes to better fit your app structure. It will still be the same attribute containing the same data, meaning that this change will be local to your app and not affect the source app. All other properties, except the **Name** property, are read-only.
+外部エンティティ属性の名前を変更して、アプリの構造に適合させることができます。 同じデータを含む同じ属性になります。 つまり、この変更はアプリのローカルになり、ソースアプリには影響しません。 **名前** プロパティを除くその他のすべてのプロパティは読み取り専用です。
 
-![Properties of External Entity Attribute](attachments/data-hub-in-studio/external-attribute-properties.png)
+![外部エンティティ属性のプロパティ](attachments/data-hub-in-studio/external-attribute-properties.png)
 
-External attributes may have limitations that you can see in their properties. Limitation are added by the external service owner to indicate the features that are not supported. For example, if there are limitations on an attribute, you will not be able to use it in filters and/or sort on it on pages and in microflows.
+外部属性には、そのプロパティに表示できる制限があります。 制限は外部サービス所有者によって追加され、サポートされていない機能を示します。 たとえば、属性に制限がある場合。 フィルターで使用したり、ページやマイクロフローでソートしたりすることはできません。
 
 {{% image_container width="250" %}}![Attribute with Limitations](attachments/data-hub-in-studio/attribute-with-limitations.jpg){{% /image_container %}}
 
 {{% alert type="info" %}}
 
-You cannot delete attributes of external entities.
+外部エンティティの属性は削除できません。
 
 {{% /alert %}}
 
-### 3.2 External Entity Associations
+### 3.2 外部エンティティ関連
 
-If you add two entities from the same service that have an association in the source app, this association will be added automatically.
+ソースアプリで関連付けを持つ同じサービスから2つのエンティティを追加すると、この関連付けは自動的に追加されます。
 
-You can create and edit associations only between a local entity and an external one. However, the association should always point **to** the external entity and not **from** it. That is why creating many-to-many associations between local and external entities is not possible.
+ローカルエンティティと外部エンティ間のみ関連付けを作成および編集できます。 しかし、関連付けは常に **を** 外部エンティティを **指すのではなく、** からformat@@4指す必要があります。 そのため、ローカルと外部エンティティの間に多対多の関連を作成することは不可能です。
 
-For example, you can create an association from a local entity **Order** to an external entity **Customer**:
+例えば、ローカルエンティティ **Order** から外部エンティティ **Customer** への関連付けを作成できます。
 
-![External Association Example](attachments/data-hub-in-studio/association-example.png)
+![外部関連の例](attachments/data-hub-in-studio/association-example.png)
 
-You cannot change or delete this association. It is also not possible to create an association between two external entities that do not have an association in the source app.
+この関連付けを変更または削除できません。 ソースアプリで関連付けを持たない2つの外部エンティティ間の関連付けを作成することもできません。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Data Hub](/data-hub/)
-* [Data Hub Catalog](/data-hub/data-hub-catalog/)
+* [データハブ](/data-hub/)
+* [データハブカタログ](/data-hub/data-hub-catalog/)
