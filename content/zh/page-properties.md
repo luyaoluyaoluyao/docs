@@ -1,128 +1,128 @@
 ---
-title: "Page Properties"
-parent: "page"
+title: "页面属性"
+parent: "页面"
 menu_order: 10
 tags:
   - "studio pro"
-  - "page"
-  - "properties"
+  - "页面"
+  - "属性"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes page properties. For details on what pages are for and what kind of widgets can be placed on them, see [Pages](pages).
+此文档描述页面属性。 关于哪些页面的详细信息以及哪些小部件可以放置在它们上，参见 [页面](pages)。
 
-## 2 Properties
+## 2 属性
 
-An example of page properties is represented in the image below:
+下面的图像是页面属性的示例：
 
-{{% image_container width="250" %}}![Page Properties](attachments/page/page-properties.png)
+{{% image_container width="250" %}}![页面属性](attachments/page/page-properties.png)
 {{% /image_container %}}
 
-Page properties consist of the following sections:
+页面属性由以下部分组成：
 
-* [Common](#common)
-* [Designer](#designer)
-* [General](#general)
+* [常用的](#common)
+* [设计师](#designer)
+* [A. 概况](#general)
 * [Navigation](#navigation)
-* [Pop-up](#pop-up)
-* [Usage](#usage)
+* [弹出窗口](#pop-up)
+* [用法](#usage)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Designer Section {#designer}
+### 2.2 设计师科 {#designer}
 
 {{% snippet file="refguide/designer-properties.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Platform
+#### 2.3.1 平台
 
-The values for the **Platform** property are:
+**平台** 属性的值是：
 
-* Web *(default)* – pages which are going to be displayed in a browser or hybrid mobile app
-* Native – pages which are going to be displayed in a native mobile app
+* Web *(默认)* — 即将显示在浏览器或混合移动应用程序中的页面
+* 原生——将在本地移动应用中显示的页面
 
-#### 2.3.2 Layout Type {#layout-type}
+#### 2.3.2 布局类型 {#layout-type}
 
-The **Layout type**, determines the purpose of the page and how it is opened.
+**布局类型**, 决定页面的目的和它的开启方式。
 
-| Layout Type         | Description                                                                                                         |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **Responsive**      | Pages that will work fine on all types of devices.                                                                  |
-| **Tablet specific** | Pages to be displayed on a tablet because the responsive option does not provide a good user interface on a tablet. |
-| **Phone specific**  | Pages to be displayed on a phone because the responsive option does not provide a good user interface on a phone.   |
-| **Modal pop-up**    | Pages that appear as [modal pop-up windows](https://www.wikiwand.com/en/Modal_window).                              |
-| **Pop-up**          | Pages that appear as *modeless* pop-up windows.                                                                     |
+| 布局类型       | 描述                                                          |
+| ---------- | ----------------------------------------------------------- |
+| **响应性**    | 在所有类型设备上都能正常工作的页面。                                          |
+| **绘图板特定的** | 将显示在平板电脑上的页面，因为响应选项没有在平板电脑上提供一个好的用户界面。                      |
+| **专用电话**   | 在手机上显示页面，因为响应选项没有在手机上提供一个好的用户界面。                            |
+| **弹出模式**   | 显示为 [模式弹出窗口](https://www.wikiwand.com/en/Modal_window) 的页面。 |
+| **弹出窗口**   | 显示为 *的页面* 弹出窗口。                                             |
 
-#### 2.3.3 Layout
+#### 2.3.3 布局
 
-The [layout](layout) on which this page is based.
+此页面基于的 [布局](layout)。
 
-#### 2.3.4 Title {#title}
+#### 2.3.4 标题 {#title}
 
-The title of the page that is shown using the [page title widget](page-title). If the page is shown in a pop-up window, the title appears in the title bar of the pop-up.
+使用 [页面标题小部件](page-title) 显示的页面标题。 如果页面显示在弹出窗口中，标题会出现在弹出窗口的标题栏中。
 
-The title can be overridden. For example, the [Create button](control-bar) and the [Edit button](control-bar) of a data grid can refer to the same page, but they override the titles to **New** and **Edit**, respectively.
+标题可以覆盖。 例如， [创建按钮](control-bar) 和 [编辑按钮](control-bar) 数据网格可以引用同一页面， 但是他们分别将标题覆盖到 **新的** 和 **编辑**中。
 
 #### 2.3.6 URL
 
-The URL of the page can be used to directly navigate to the page (for example, from external links or bookmarks). It will be shown in the address bar of the browser when you visit the page. When navigating to a page without a URL configured, the last visited URL is shown. Note that the full URL of the page will be the base URL of your application followed by `/p` and then by the configured URL of the page (for example, `http://example.mendixcloud.com/p/home_page`).
+页面的 URL 可以直接导航到页面(例如，从外部链接或书签)。 当您访问页面时，它将显示在浏览器的地址栏中。 当导航到没有配置URL的页面时，会显示最后访问过的URL。 请注意，页面的完整URL将是您应用程序的基础URL，然后是 `/p` ，然后是页面的已配置的 URL (例如) `http://示例。 endixcloud.com/p/home_page`)。
 
-Pages with top-level data views (parameterized pages) can also have URLs. The URL property of such pages should contain the `{Id}` path segment at the end. In the browser, the `{Id}` segment will be replaced with the actual identifier of an entity.
+具有顶级数据视图(参数化页面)的页面也可以有URL。 此页面的 URL 属性应该包含结尾处的 `{Id}` 路径段。 在浏览器中， `{Id}` 部分将被实体的实际标识符所取代。
 
-In simple e-commerce applications, the URLs can be configured as follows:
+在简单的电子商务应用程序中，URL可以配置如下：
 
-* */orders/* – the URL for a page with a data grid for `Orders` (in a browser, the URL will look like `http://example.mendixcloud.com/p/orders/`)
+* */orders/* — 一个带有 `订单数据网格的页面的 URL` (在浏览器中) URL将看起来像 `http://示例。 endixcloud.com/p/p/orders/`)
 
-* */order/{Id}* – the URL for a page with data from a particular `Order` (in a browser, the URL will look like `http://example.mendixcloud.com/p/order/3212449487634321`, wherein `3212449487634321` is the unique identifier of the `Order`)
+* */order/{Id}* - 包含特定数据的页面的 URL `订单` (在浏览器中) URL将看起来像 `http://示例。 endixcloud.com/p/order/3212449487634321`, 其中 `3212449487634321` 是 `命令` 的唯一标识符
 
-### 2.4 Navigation Section {#navigation}
+### 2.4 导航部分 {#navigation}
 
-#### 2.4.1 Visible For
+#### 2.4.1 可见性
 
-This property defines for what module roles the page is visible. This has an effect on [menu widgets](menu-widgets) and on buttons that are visible only if allowed (for example, an [action button](button-widgets) for editing).
+此属性定义了页面可见的模块角色。 这对 [菜单部件](menu-widgets) 和仅允许时可见的按钮有影响 (例如) 用于编辑的 [动作按钮](button-widgets)
 
-For more information, see [Module Security](module-security).
+欲了解更多信息，请参阅 [Module Security](module-security)。
 
-### 2.5 Pop-Up Section {#pop-up}
+### 2.5 弹出部分 {#pop-up}
 
-The **Pop-up** section is only displayed for pop-up pages. For more information on what pop-up pages are, see the [Layout Type](#layout-type) section.
+**弹出式** 部分仅用于弹出式页面。 关于弹出页面的更多信息，请参阅 [布局类型](#layout-type) 部分。
 
-#### 2.5.1 Width (in Pixels)
+#### 2.5.1 宽度 (像素)
 
-This property specifies the pop-up page width in pixels. When set to 0, the width is determined automatically.
+此属性以像素为单位指定弹出页面宽度。 当设置为 0时，宽度将自动确定。
 
-Default: *0*
+默认： *0*
 
-#### 2.5.2 Height (in Pixels)
+#### 2.5.2 高度 (像素)
 
-This property specifies the pop-up page height in pixels. When set to 0, the height is determined automatically.
+此属性指定弹出页面高度以像素为单位。 当设置为 0时，高度将自动确定。
 
-Default: *0*
+默认： *0*
 
 #### 2.5.3 Resizable
 
-This property specifies whether the end-user can resize the pop-up or not.
+此属性指定最终用户是否可以调整弹出窗口大小.
 
-Default: *Yes*
+默认： *是*
 
-#### 2.5.4 Close Action
+#### 2.5.4 近距离行动
 
-Configures the behavior of a button that closes the pop-up page. The default behavior of the pop-up close button is to rollback any changes and close the pop-up window.
+配置关闭弹出页面按钮的行为。 弹出窗口关闭按钮的默认行为是回滚任何更改并关闭弹出窗口。
 
-If you want to customize the behavior of the pop-up close button, you can point to a button on the page. When the pop-up close button is clicked, it will then act as if the selected button is clicked. If the selected button is not available the pop-up close button will revert back to the default behavior.
+如果您想要自定义弹出式关闭按钮的行为，您可以指向页面上的按钮。 当弹出式关闭按钮被点击时，它会像点击所选按钮一样。 如果选中的按钮不可用，弹出式关闭按钮将恢复为默认行为。
 
-Default: *Default (cancel)*
+默认： *默认 (cancel)*
 
-### 2.6 Usage Section {#usage}
+### 2.6 使用部分 {#usage}
 
-#### 2.6.1 Mark as Used
+#### 2.6.1 标记为已使用
 
-You can search for unused items in Studio Pro by pressing <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>. Pages that are only used from Java code will be listed as unused, because Studio Pro cannot look inside Java source code.
+您可以通过按 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> 在Studio Pro 中搜索未使用的项目。 仅使用 Java 代码的页面将被列为未使用的页面，因为Studio Pro 无法在 Java 源代码中看到。
 
 By setting the property **Mark as used** to *Yes*, you specify that the document is used implicitly and Studio Pro will no longer list it when searching for unused items.
 
-*Default value*: No
+*默认值*: 否
