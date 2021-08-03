@@ -1,88 +1,85 @@
 ---
-title: "Export Mappings"
-parent: "mapping-documents"
+title: "导出映射"
+parent: "映射文档"
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
 
-Please refer to [Mapping Documents](mapping-documents) for an introduction.
+导出映射的导言，请参阅 [映射文档](mapping-documents)。
 
-## Obtaining Objects in Export Mappings
+## 2 在导出映射中获取对象
 
-Figure 1 shows an example of an Export Mapping document in which two elements from a schema have been selected using the [Select Elements](select--elements) dialog. The entity Cheesecake (on the left) was dragged into the mapping to map to the Cheesecake element (on the right) and the entity Topping was mapped to the Topping element.
+图1显示了一个导出映射文件的示例，在这个示例中，使用 [选择元素](select--elements) 对话框从图表中选择了两个元素。 实体Cheesecake（左侧）被拖到绘图中去映射到Cheesecake元素（右侧），实体顶部映射到顶部元素。
 
 ![](attachments/16713726/16843939.png)
 
-**Figure 1**
+**图1**
 
-Having defined what entities map to which schema elements, you need to configure how the actual Mendix objects that are to be exported, should be obtained when the Export Mapping is invoked. The root level element (in this case Cheesecake) is the parameter for an Export Mapping and is therefore passed directly to the Export Mapping when it is invoked. How the other Mendix objects in the mapping should be obtained needs to be configured.
+定义了哪个实体映射到哪个模式元素， 您需要配置当导出映射被调用时如何获取要导出的实际Mendix 对象。 根级元素(这里是Cheesecake)是导出映射的参数，因此在援引导出映射时直接传递给导出映射。 映射中的其他 Mendix 对象需要配置。
 
-### Getting Objects from Parameter
+### 2.1 从参数获取对象
 
-When you have an entity at the top of the mapping, that entity becomes a parameter to the mapping. When you use the mapping, you have to pass an object of that type to it.
+当您在映射顶部有一个实体时，该实体将成为映射的参数。 当您使用映射时，您必须将这种类型的对象传递给它。
 
-When the top element in the mapping is [optional](#optional), you can specify a different element to be the parameter to the mapping by selecting **From parameter** as the method to get the Mendix object.
+当映射中的顶部元素是 [可选的](#optional)， 您可以通过从参数</strong> 中选择 **作为获取Mendix 对象的方法，指定一个不同的元素作为映射参数。</p>
 
-### Getting Objects by Association
+### 2.2 通过协会获取对象
 
-For child objects, it is possible to get the objects via an association with the parent object, as shown in figure 1. In the example, the **Topping** objects that need to be exported will be fetched at runtime using the **Topping_Cheesecake** association. It is possible to edit the mapping element by double-clicking the **Topping** entity (left) or the **Topping** schema element (right). This window will be shown:
+对于子对象，可以通过父对象的关联获取对象，如图1所示。 在示例中，需要导出的 **顶部** 个对象将会在运行时通过 **Toping_Cheesecake** 关联获取。 可以通过双击 **置顶** 实体 (左侧) 或 **置顶** schema 元素 (右侧) 来编辑映射元素。 将显示此窗口：
 
 ![](attachments/16713726/16843938.png)
 
-**Figure 2**
+**图2**
 
-### Getting Objects by Using a Microflow
+### 2.3 使用微流程获取对象
 
-In this window, you can choose to either get the object by association with the parent (figure 3) or by microflow (for details, see [Mapping Attributes in Export Mappings](#mapping-attributes)). If you choose to get the object by microflow, you can pass any of the parent objects to that microflow as arguments to help determine what object you should return. This is the window in which this is configured:
+在此窗口中，您可以选择通过与父目录关联的方式获取对象(图3)，也可以通过微流程获取对象(详细信息)。 查看 [导出映射属性](#mapping-attributes)。 如果您选择通过微流程获取对象， 您可以将任何父对象作为参数传递到那个微流程，以帮助确定您应该返回的对象。 这是配置它的窗口：
 
 ![](attachments/16713726/16843937.png)
 
-**Figure 3**
+**图3**
 
-When you choose to get an object by microflow, this is shown in the **Export Mapping Document**:
+当您选择通过微流程获取对象时，它会在 **导出映射文档** 中显示：
 
 ![](attachments/16713726/16843936.png)
 
-**Figure 4**
+**图4**
 
-Finally, the user can also define what should be done when the chosen method to get the Mendix object (from parameter, by association, or by microflow) fails. The first option is to throw an error and abort the mapping. The microflow that called this mapping should then handle this error. Alternatively, if the minimum occurrence of the schema element that is being mapped to is zero it's possible to skip the creation of the element. The export mapping will continue for the remainder of the elements.
+最后，用户也可以定义当所选方法获取Mendix 对象时应该做些什么(来自参数) 按关联或微流计算失败。 第一个选项是丢失错误并中止映射。 调用此映射的微流应处理此错误。 或者，如果正在映射到零的方案元素的最小发生率是可以跳过元素的创建。 其余部分将继续绘制出口图。
 
-## Mapping Attributes in Export Mappings<a name="mapping-attributes"></a>
+## 导出映射3个属性 {#mapping-attributes}
 
-For each value element that the complex schema element encompasses, an attribute needs to be mapped from the entity. These properties are not applicable for choice or inheritance elements, because they do not contain value elements. Configuring how to map the attributes is done in the window depicted in figure 5, which is shown after double-clicking a specific mapping element.
+对于复合schema元素包含的每个值元素，需要从实体映射属性。 这些属性不适用于选择或继承元素，因为它们不包含值元素。 配置如何映射属性是在图5描述的窗口中完成的，在双击一个特定映射元素后显示。
 
 ![](attachments/16713726/16843935.png)
 
-**Figure 5**
+**图5**
 
-### Entity Mapping Properties
+### 3.1 实体制图财产
 
-| Property                 | Description                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Entity attribute         | The attribute in the domain entity that should be mapped to the element.                                                                                                                                                                                                                                                                                                                    |
-| Schema value element     | The element that will be filled.                                                                                                                                                                                                                                                                                                                                                            |
-| Occurrence               | Displays how often the element may occur. This can be "0..1" or "1", depending on if it is required or not. If the value is empty and the minimum required occurrence of the element is 0 (as specified by the schema) the creation of the element will be skipped. In the case you want to never map a value to an optional element, simply disable it in the "Select elements..." dialog. |
-| Convert Using (optional) | A Microflow to convert the value before performing export.                                                                                                                                                                                                                                                                                                                                  |
-| Map attributes by name   | When this button is clicked, an effort is made to match attributes by name. A dialog appears reporting what has been changed.                                                                                                                                                                                                                                                               |
+| 财产         | 描述                                                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 实体属性       | 应映射到元素的域实体中的属性。                                                                                                          |
+| 图案值元素      | 将被填补的元素。                                                                                                                 |
+| 出现的        | 显示元素可能发生的频率。 这可以是“0..1”或“1”，取决于是否需要。 如果值是空的且元素的最小发生时间是0 (按照方案的指定)，则元素的创建将被跳过。 如果你想永远不要将一个值映射到一个可选元素，只需在“选择元素...”对话框中禁用它。 |
+| 使用 (可选) 转换 | 导出前转换值的微流程。                                                                                                              |
+| 按名称映射属性    | 当点击此按钮时，会尝试按名称匹配属性。 出现了一个对话框，报告了已经发生的变化。                                                                                 |
 
-{{% alert type="info" %}}
+## 可选映射元素 {#optional}
 
-It is possible to implicitly convert Mendix Decimal data type to xs:float type. In this case, it is possible that resulting value will lose precision.
+对于某些选定的模式元素，定义实体是可选的。 当schema元素的时候就是这样：
 
-{{% /alert %}}
+*   不包含任何属性，
+*   最大发生率为1(maxOccurs="1"),
+*   不是一个选择元素或包含在一个选择元素中
+*   不是继承元素，也不是继承元素所包含的。
 
-## Optional Mapping Elements<a name="optional"></a>
-
-For some selected schema elements defining an Entity is optional. This is the case when the schema element:
-
-*   does not contain any attributes,
-*   has a maximum occurrence of 1 (maxOccurs="1"),
-*   is not a choice element or contained by a choice element, and
-*   is not an inheritance element or contained by an inheritance element.
-
-An example of this is shown in figure 6.
+这方面的一个例子见图6。
 
 ![](attachments/16713726/16843934.png)
 
-**Figure 6**
+**图6**
 
-When no object is defined for the optional mapping, the element will always be created.
+当没有为可选映射定义对象时，元素将永远被创建。
