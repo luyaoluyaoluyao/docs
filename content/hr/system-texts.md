@@ -6,17 +6,13 @@ tags:
   - "system text"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/system-texts.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 System texts are texts that are shown to end-users by the server or the client. For example, if you enter invalid text into a field that expects a number, the system will give the message 'This value should be a number without fractions'. This text can be changed and translated to other languages in the system texts editor.
 
 ## 2 Languages
 
-In the [project settings](project-settings) you can manage the available languages of your application. For each language you can specify the translation of the system texts. If you do not provide a translation the text will be shown in the default language.
+In the [App Settings](project-settings) you can manage the available languages of your application. For each language you can specify the translation of the system texts. If you do not provide a translation the text will be shown in the default language.
 
 ## 3 Parameters
 
