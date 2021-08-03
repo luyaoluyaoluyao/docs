@@ -1,55 +1,57 @@
 ---
 title: "Datasets"
-category: "Desktop Modeler"
+parent: "资源"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "数据集"
+  - "dataset"
 ---
 
+## 1 导言
 
-A dataset can be used to define the data shown in [reporting widgets](report-widgets) in [pages](pages).
+数据集可以用来定义 [报告小部件](report-widgets) 在 [页面中显示的数据](pages)。
 
-A dataset is defined using either an [OQL query](oql) or a custom [Java action](java-actions). To constrain a dataset, parameters can be defined which can be used in the OQL query or Java action.
+数据集是使用 [OQL 查询](oql) 或自定义 [Java 动作](java-actions) 定义的。 要约束数据集，可以定义可以在 OQL 查询或 Java 操作中使用的参数。
 
-Datasets have the following fields:
+## 2 概况
 
-## General
+数据集字段包含以下属性：
 
-*   _Description_: The description of the dataset, this is only relevant as documentation.
+* **名称** - 这是数据集的名称。
+* **描述** - 这是数据集的描述，它只是相关的文档。
 
-## Source
+## 3 源
 
-*   _OQL query_: The [OQL query](oql) which defines the dataset.
+* **OQL 查询** - 这是 [OQL 查询](oql) 定义数据集。
+* **Java 动作** - 这是返回数据集的 Java 动作的接口。 需要在 Studio Pro中指定列的列和 [数据类型](data-types)。 基于此规格，Studio Pro 将为此操作创建一个模板。
 
-*   _Java action_: The interface of the Java action which returns a dataset. The columns and [data types](data-types) of the columns need to be specified in the Desktop Modeler. Based on this specification the Desktop Modeler will create a template for this action.
+以下显示一个 OQL 查询示例，这个查询计算特定客户群所有订单的总订单金额：
 
-The following shows an example OQL query that calculates the aggregated total order amount for all orders of a customer for a specific group of customers:
-
-```java
-FROM CRM.Customers As CustomerObj
-INNER JOIN CustomerObj/CRM.Orders_Customer/CRM.Orders As OrderObj
-WHERE CustomerObj/CRM.Customer_Group = $ParGroup
-GROUP BY CustomerObj/Name
-SELECT CustomerObj/Name As Name, SUM(OrderObj/TotalAmount) As TotalAmount
+```sql
+FROM CRM.Customers as CustomerObj
+INNER JOIN CustomerObj/CRM.Orders_Customer/CRM.orders as OrderObj
+WHERE CustomerObj/CRM ustomer_Group = $ParGroup
+GROUP BY CustomerObj/name
+SELECT CustomerObj/name as Name、SUM(OrderObj/ Totalamet) as TotalAmount
 ```
 
-## Parameters
+## 4 参数
 
-A dataset can have multiple parameters. Parameters are used to filter / manipulate datasets. Security on datasets is configured based on the parameters. In a Java action, the parameters are used in the generated template.
+数据集可以有多个参数。 参数用于过滤/操纵数据集。 数据集的安全性是根据参数配置的。 在 Java 动作中，参数被用于生成的模板。
 
 {{% alert type="info" %}}
 
-In OQL, parameters can be called using a **$** symbol, for example: **$Month**.
+在 OQL 中，参数可以使用 **$** 符号，例如： **$Month**
 
-{{% /alert %}}
+{{% /报警 %}}
 
-A parameter has the following configurable properties:
+参数具有以下可配置属性：
 
-*   _Name_: The name of the parameter
-
-*   _Type_: The type of the parameter: Object, Enumeration or a primitive (for example, DateTime, Float, Integer, Boolean, etc). See [Data Types](data-types) for the possible parameter types.
-
-*   _Constraints_: The constraints on a parameter. These constraints influence which values can be selected for parameter input values by the end user. Constraints can be associated with user roles in the dataset security. There are two type of constraints: ranges which apply to numeric and date parameters and XPath constraints which apply to object parameters.
-
-* _Ranges_: When a parameter is defined as a range the drop-down box in the report shows each range instead of all values within the ranges. Currency (deprecated), float (deprecated) and decimal parameters are always ranges.
-
-**XPath constraints**
-
-An XPath constraint can be defined using [XPath](xpath). Multiple constraints can be defined on a parameter and each constraint can be associated with a [user role](user-roles).
+* **名称** - 这是参数的名称。
+* **输入** - 参数的类型可以是： **布尔值**, **日期和时间**, **枚举**, **十进制**, **Integer/Long**, 或 **字符串**.
+* **约束** -- 参数影响的约束，最终用户可以为参数输入值选择哪个值。 限制因素可以与数据集安全性的 [用户角色](user-roles) 相关联。 有两类制约因素：
+  * 适用于数字和日期参数的范围
+  * 适用于对象参数的 XPath 约束
+* **范围** -- 当参数被定义为范围时 报表中的下拉框显示每个范围而不是范围内的所有值。 十进制参数始终是范围。
+* **XPath 约束** - 可以使用 [XPath](xpath) 定义XPath 约束. 可以在参数上定义多个约束，每个约束可以与用户角色相关联。
