@@ -1,29 +1,29 @@
 ---
-title: "Login Behavior"
-category: "Mendix Runtime"
-description: "Describes default and customized login behavior in Runtime."
+title: "登录行为"
+category: "Mendix 运行时间"
+description: "描述运行时的默认和自定义登录行为。"
 tags:
-  - "Runtime"
-  - "login"
+  - "运行时间"
+  - "登录"
   - "studio pro"
 ---
 
-## 1 Default Login Behavior
+## 1 默认登录行为
 
-A user is blocked after 3 consecutive bad login attempts, regardless of the time between the login attempts. The failed login count is reset after a successful login attempt or when a blocked user is unblocked. Blocking users only occurs when the app security level is set to **Production**.
+用户在连续3次错误登录尝试后被阻止，不管登录尝试之间的时间长短。 失败的登录计数将在成功登录尝试后或被屏蔽的用户解锁后重置。 只有当应用安全等级设置为 **Production** 时，方可阻止用户。
 
-Users are unblocked each time the cluster manager runs, and at that point, the failed login count is also reset to 0. By default, the cluster manager runs every 5 minutes. This interval can be changed using the [Runtime customization](custom-settings) `ClusterManagerActionInterval` setting.
+每次群集管理员运行时，用户都会被解除封锁，当时失败的登录次数也会被重置为 0。 默认情况下，集群管理器每5分钟运行一次。 这个间隔可以使用 [运行时间自定义](custom-settings) `ClusterManagerActionInterval` 设置来更改。
 
 {{% alert type="warning" %}}
-The cluster manager does more than just unblocking users. For example, it also removes expired sessions. So, changing this interval has a broader impact.
-{{% /alert %}}
+集群管理器所做的不仅仅是解锁用户。 例如，它也删除过期的会话。 因此，改变这种间隔会产生更广泛的影响。
+{{% /报警 %}}
 
 {{% alert type="info" %}}
-If a user is blocked just 1 second before the cluster manager starts to unblock all blocked users, the lock is removed after 1 second.
-{{% /alert %}}
+如果一个用户在群集管理器开始解除屏蔽所有被屏蔽的用户之前仅被屏蔽1秒，那么锁将在1秒后被移除。
+{{% /报警 %}}
 
-## 2 Customizing Login Behavior
+## 2 自定义登录行为
 
-Login behavior can be customized by implementing a custom Java action and registering it to be used instead of the default login action.
+登录行为可以通过自定义的 Java 动作和注册而不是默认的登录动作来自定义.
 
-Cluster manager behavior currently cannot be changed.
+集群管理器行为当前无法更改。
