@@ -1,19 +1,19 @@
 ---
-title: "Common Elements"
+title: "一般的な要素"
 parent: "application-logic"
 menu_order: 30
-description: "Presents an overview of the elements that can be used in microflows and nanoflows."
+description: "マイクロフローやナノフローで使用できる要素の概要を示します。"
 ---
 
-The common elements for microflows and nanoflows are divided into the following:
+マイクロフローとナノフローの共通要素は以下のように分類されます。
 
-* [Activities](activities)
-* [Annotation Flow](annotation-flow)
-* [Annotation](annotation)
-* [Events](events)
-* [Expressions](expressions)
-* [Loop](loop)
-* [Microflow Element Common Properties](microflow-element-common-properties)
-* [Parameter](parameter)
-* [Sequence Flow](sequence-flow)
-* [Splits](splits)
+* [アクティビティ](アクティビティ)
+* [注釈フロー](annotation-flow)
+* [注釈](アノテーション:)
+* [イベント](イベント)
+* [式](表現)
+* [ループ](ループ)
+* [マイクロフロー要素の共通プロパティ](microflow-element-common-properties)
+* [パラメータ](パラメータ)
+* [シーケンスフロー](sequence-flow)
+* [分割](splits)
