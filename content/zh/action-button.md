@@ -1,13 +1,13 @@
 ---
-title: "Action Button"
-parent: "button-widgets"
+title: "动作按钮"
+parent: "按钮小部件"
 aliases:
-  - /refguide7/link-button.html
+  - /refguide7/link-buton.html
 ---
 
-An action button can perform various actions such as calling a microflow or nanoflow or opening a page.
+动作按钮可以执行各种动作，如调用微流程或nanoflow 或打开一个页面。
 
-## Button properties
+## 按钮属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -15,17 +15,17 @@ An action button can perform various actions such as calling a microflow or nano
 
 {{% snippet file="refguide7/Image+Property.md" %}}
 
-{{% snippet file="refguide7/Render+Mode+Property.md" %}}
+{{% snippet file="refguid7/Render+Mode+Property.md" %}}
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-### Disable during action (only for microflow actions)
+### 在操作过程中禁用(仅用于微流程动作)
 
-Disables the action button until the action is completed or failed.
+禁用动作按钮直到操作完成或失败。
 
-_Default value_ : false.
+_默认值_ : false.
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -35,12 +35,12 @@ _Default value_ : false.
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Events properties
+## 事件属性
 
-{{% snippet file="refguide7/On+Click+Event+Action.md" %}}
+{{% snippet file="refguid7/On+Click+Event+Action.md" %}}
 
-## Visibility properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Extended.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Extened.md" %}}
