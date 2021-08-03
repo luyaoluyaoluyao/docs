@@ -1,8 +1,13 @@
 ---
 title: "OQL 限制条款"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-limit-clause.pdf)。
+{{% /报警 %}}
 
 限定条款可以返回查询结果的一部分。
 
