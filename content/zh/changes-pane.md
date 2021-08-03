@@ -1,152 +1,152 @@
 ---
-title: "Changes Pane"
-parent: view-menu
+title: "更改面板"
+parent: 视图菜单
 menu_order: 10
-description: "Describes the Changes pane in Mendix Studio Pro."
+description: "描述Mendix Studio Pro中的更改窗口。"
 tags:
   - "Studio Pro"
-  - "changes"
-  - "changes pane"
+  - "更改"
+  - "更改窗格"
 ---
 
-## 1 Introduction
+## 1 导言
 
-For version control enabled apps (apps with Team Server or other SVN servers), the **Changes** pane shows the local changes to the app since the last commit. You can commit changes, update to the latest revision, and view the history from it.
+对于已启用的版本控制应用(带有团队服务器或其他SVN服务器的应用) **更改** 窗格显示自上次提交以来应用程序的本地更改。 您可以提交更改，更新到最新版本，并查看历史记录。
 
-This pane consists of the following:
+这个窗格由以下部分组成：
 
-* The [top bar](#top-bar) contains various buttons, such as **Back**, **Go to**, **Tasks**.
-* The [top level](#top-level) shows you a list of documents that were changed, for example, a page where a widget was deleted
-* The [zoomed-in level](#zoomed-in-level) of the pane is split into two grids, with elements in the left grid and changed or conflicting properties of the selected element in the right grid
+* [顶栏](#top-bar) 包含了各种按钮，如 **返回**, **转到**, **任务**。
+* [顶级](#top-level) 向您展示了被更改的文档列表，如一个小部件被删除的页面
+* 窗格的 [缩放级别](#zoomed-in-level) 被分割成两个网格， 与左格子中的元素和右格子中选定元素的属性改变或冲突
 
-## 2 Top Bar {#top-bar}
+## 2 顶栏 {#top-bar}
 
-The top bar of the top level of the **Changes** pane consists of various buttons:
+**更改的顶级栏** 窗格由多个按钮组成：
 
-![Top Bar of the Changes Pane](attachments/changes-pane/changes-top-bar.png)
+![更改面板的顶栏](attachments/changes-pane/changes-top-bar.png)
 
-Buttons allow you to perform the following actions:
+按钮允许您执行以下操作：
 
-* **Back** – goes back up one level; at the top level, this button is disabled
-* **Go to** – opens a zoomed-in level and opens up the selected document
-* **Tasks** – allows you to perform specific actions such as reverting the change to the latest commit, or solving conflicts
-* **Update** – retrieves latest changes from the repository (for more information on the update concept, see the [Update](version-control#update) section in *Version Control*)
-* **Commit** – commits your changes to the repository and starts a new revision (for more information on the commit concept, see the [Commit](version-control#commit) section in *Version Control*)
-* **History** – opens the **History** dialog box that shows the changes made on the current development line of the app (for more information on history, see [History](history-dialog))
+* **返回** - 备份一个级别；在顶级，此按钮被禁用
+* **跳到** — 打开一个缩放级别并打开选定的文档
+* **任务** - 允许您执行特定的操作，如恢复到最新的提交或解决冲突
+* **更新** - 从资源库中检索最新的更改(关于更新概念的更多信息) 见 [Update](version-control#update) 部分在 *版本控制*)
+* **提交** - 将您的更改提交到资源库并开始一个新的版本(关于提交概念的更多信息)。 查看 [提交](version-control#commit) 章节在 *版本控制*)
+* **历史** - 打开 **历史记录** 对话框，显示当前应用程序开发行上所作的更改(关于历史记录的更多信息)。 查看 [历史](history-dialog))
 
-The **Back** and **Go to** buttons are common throughout all the levels, while other buttons will only apply to a specific one.
+**返回** and **转到** 按钮在所有级别中都很常见。 其它按钮只适用于特定按钮。
 
-## 3 Top Level {#top-level}
+## 3 顶级级别 {#top-level}
 
-The top level of the **Changes** pane is a grid listing changed documents, for example, a page or a nanoflow:
+**更改的顶级** 窗格是一个网格列表，如页面或nanoflow：
 
-![Top Level of the Changes Pane](attachments/changes-pane/changes-top-level.png)
+![更改面板的顶层](attachments/changes-pane/changes-top-level.png)
 
-The grid contains information on the following items:
+网格包含下列项目的信息：
 
-* **Status** – shows the type of changes applied to the document. The status can be one of the following:
-  * **Added** – a new document was created; indicated with a green circle
-  * **Modified** – changes to an existing document were made, such as adding or deleting elements or changing element properties; indicated with a yellow circle
-  * **Deleted** – a document was deleted; indicated with a red circle with a minus
-  * **Conflicted** – a document contains conflicting changes; indicated with a red circle with an exclamation mark
-* **Item** – indicates a name of the changes document
-* **Module** – a module where the changed document is
-* **Details** – can contain details on the status, for example, when you have conflicting changes
+* **状态** - 显示适用于文档的更改类型。 状态可以是以下内容之一：
+  * **添加** - 创建了一个新文档；以绿色圆标示了
+  * **已修改** - 已修改现有文档，例如添加或删除元素或更改元素属性； 以黄色圆标示的
+  * **已删除** - 一个文档已被删除；显示为红色圆，其减去一个红色圆圈。
+  * **冲突** - 文档包含有冲突的更改；用红色圆形标记显示
+* **项目** — 表示更改文档的名称
+* **模块** - 一个更改文档的模块
+* **详细信息** - 可以包含状态的详细信息，例如，当您有冲突的更改时
 
-## 4 Zoomed-In Level {#zoomed-in-level}
+## 4 个缩放级别 {#zoomed-in-level}
 
-You can zoom into a changed or conflicting document, by doing one of the following:
+您可以通过以下操作之一缩放到更改或冲突的文档中：
 
-* Double-click a line in the grid on the top level
-* Click the **Go to** button
-* Press <kbd>Enter</kbd>
+* 双击顶级网格中的一行
+* 点击 **转到** 按钮
+* 按 <kbd>输入</kbd>
 
-To exit the zoomed-in level, click the **Back** button or press <kbd>Backspace</kbd>.
+要退出缩放级别，请点击 **返回** 按钮或按 <kbd>返回级别</kbd>。
 
-There are three types of zoomed-in levels:
+有三种缩放级别：
 
-* [For modified documents](#modified)
-* [For conflicting documents](#conflicts)
-* [For merging document](#merge-mode)
+* [修改文档](#modified)
+* [有冲突的文档](#conflicts)
+* [用于合并文档](#merge-mode)
 
-Each of them contains their own set of buttons.
+每个按钮包含自己的一组按钮。
 
-### 4.1 Zoomed-In Level for Modified Documents {#modified}
+### 4.1 修改文件的缩放级别 {#modified}
 
-The zoomed-in level for modified documents is split into two grids, with elements on the left and changed properties on the right. If no properties were changed for an element, for example, when an element was added or deleted, the right grid will be empty:
+修改文档的缩放级别分成两个网格，左边有元素，右边则改变属性。 如果某个元素没有改变属性，例如当某个元素被添加或删除时，右格子将为空：
 
-![No Properties to Show](attachments/changes-pane/element-added.png)
+![没有要显示的属性](attachments/changes-pane/element-added.png)
 
-The toolbar at this level contains the following buttons:
+此级别的工具栏包含以下按钮：
 
-* **Back** – takes you back to the top level
-* **Go to** – takes you directly to the changed element
-* **Show purely visual changes** – shows visual changes, such as dragging an entity to a new location in the domain model
+* **返回** — — 把你带回到顶层
+* **跳到** — — 直接将您带到已更改的元素
+* **显示纯粹的视觉变化** - 显示视觉变化，例如将实体拖动到域模型中的一个新位置
 
-The left side of the grid contains the following columns:
+网格左侧包含以下列：
 
-* **Element** – the name of the modified element
-* **Mine** – indicates the status of the change on the current development line
+* **元素** - 修改后元素的名称
+* **我的** — 表示当前开发线上的变化状态
 
-### 4.2 Zoomed-In Level for Conflicted Documents {#conflicts}
+### 4.2 冲突文件缩放级别 {#conflicts}
 
-The zoomed-in level for conflicted documents is split into two grids, with conflicting elements on the left and conflicting properties on the right.
+被缩放的冲突文件级别分为两个网格，左边有相互冲突的元素，右边有相互冲突的属性。
 
 {{% alert type="info" %}}
-Mendix 9 has an improved conflict resolution method compared to Mendix 8. You can turn this off in the **Edit > Preferences > New features** dialog. If this is turned off, you should refer to the Mendix 8 version of this documentation [Changes Pane - Mendix 8](/refguide8/changes-pane#conflicts).
-{{% /alert %}}
+与Mendix 8相比，Mendix 9的冲突解决方法有所改进。 您可以在 **编辑 > 首选项 > 新功能** 对话框中关闭此功能。 如果关闭，请参阅此文档的 Mendix 8 版本 [更改面板 - Mendix 8](/refguide8/changes-pane#conflicts)。
+{{% /报警 %}}
 
-There are two sorts of conflict:
+有两种冲突：
 
-* For a standard conflict a change has been made to the same element in each branch and Mendix cannot automatically choose which is the desired change after the merge
-* For a *list order* conflict, denoted by the phrase *(list order)*, Mendix can accept both changes but cannot automatically decide the order they should appear in the document
+* 对于标准冲突，每个分支中的相同元素已被更改，Mendix 不能在合并后自动选择哪个是所需的更改
+* 对于 *邮件列表顺序* 冲突, 由短语 *(邮件列表顺序)*表示, Mendix 可以接受这两项更改，但不能自动决定它们应该出现在文档中的顺序
 
-The toolbar at this level contains the following buttons:
+此级别的工具栏包含以下按钮：
 
-* **Back** – takes you back to the top level
-* **Go to** – takes you directly to the selected element
-* **Merge** – start the merge process — instructions for resolving conflicts are in the document [New Merge Algorithm with Fine-Grained Conflict Resolution](new-merge-algorithm)
-* **Show purely visual changes** – shows visual changes, such as dragging an entity to a new location in the domain model
+* **返回** — — 把你带回到顶层
+* **转到** — — 直接带你到所选的元素
+* **合并** — 开始合并过程 — — 解决冲突的说明载于文档 [新合并算法，精致冲突解析](new-merge-algorithm)
+* **显示纯粹的视觉变化** - 显示视觉变化，例如将实体拖动到域模型中的一个新位置
 
-The grid on the left contains the following columns
+左边的网格包含以下列
 
-* **Element** – the name of the modified element or a header identifying whether the subsequent elements conflict or have been accepted
-* **Mine** – indicates the status of the change on the current development line
-* **Theirs** – the status of the incoming change on another development line
+* **元素** - 修改后元素的名称或标头识别随后元素冲突还是已被接受
+* **我的** — 表示当前开发线上的变化状态
+* **theirs** — — 另一条开发线上的传入变化状态
 
-The grid on the right contains the following columns:
+右边的网格包含以下列：
 
-* **Property** – the property that was modified
-* **Original** – the original property value
-* **Mine** – the change to the property that was made on the current development line
-* **Theirs** – the change to the property that was made on the other development line
+* **属性** - 已修改的属性
+* **原始** - 原始属性值
+* **Mine** — — 在当前开发线上对属性的更改
+* **Theirs** - 对另一条开发线上的属性的更改
 
-![Example of conflicts format of changes pane](attachments/changes-pane/new-merge-algorithm-conflicts.png)
+![冲突的更改窗格格式示例](attachments/changes-pane/new-merge-algorithm-conflicts.png)
 
-### 4.3 Merge Mode{#merge-mode}
+### 4.3 合并模式{#merge-mode}
 
-When you click **Merge** to start the merge mode, you will see options to resolve the conflicts. For more information on resolving resolving conflicts see [New Merge Algorithm with Fine-Grained Conflict Resolution](new-merge-algorithm).
+当您点击 **合并** 以开始合并模式时，您将看到解决冲突的选项。 欲了解解决冲突的更多信息，请参阅 [新合并算法与精致冲突解析](new-merge-algorithm)。
 
-The document you are working on can be edited while in merge mode to allow you to resolve the conflict successfully.
+您正在处理的文档可以在合并模式下进行编辑，以使您能够成功地解决冲突。
 
-The toolbar will change to show the following buttons:
+工具栏将更改以显示以下按钮：
 
-* **Back** – takes you back to the top level
-* **Go to** – takes you directly to the selected element
-* **Resolve using Mine** – resolves the conflict by choosing the changes shown in the **Mine** column and discarding the changes shown in the **Theirs** column
-* **Resolve using Theirs** – resolves the conflict by choosing the changes shown in the **Theirs** column and discarding the changes shown in the **Mine** column
-* **Mark as Resolved** – either:
-    * keeps things as they were before the **Mine** and the **Theirs** changes were applied
-    * in the case of a *list order* conflict, takes the order of widgets as it is currently shown in the document (you can edit the document to ensure this is correct)
-* **Accept and Exit** – the merge is finalized and the document is saved in its merged form with no conflicts
-* **Cancel** – end merge mode and leave the document with one or more unresolved conflicts
-* **Show purely visual changes** – shows visual changes, such as dragging an entity to a new location in the domain model
+* **返回** — — 把你带回到顶层
+* **转到** — — 直接带你到所选的元素
+* **使用我的解析** - 通过选择 **Mine** 列中显示的更改来解决冲突，并丢弃在 **他们** 列中显示的更改
+* **使用他们** - 通过选择 **他们** 列中显示的更改来解决冲突，并且丢弃 **Mine** 列中显示的更改
+* **标记为已解析** - 或者：
+    * 保持它们在 **Mine** 之前和 **Theirs** 更改已被应用
+    * 在 *列表order* 冲突的情况下， 按当前文档中显示的部件顺序排列(您可以编辑文档以确保其正确)
+* **接受并退出** - 合并已完成，文档已保存在其合并的表单中，没有冲突
+* **取消** - 结束合并模式并留下一个或多个未解决的冲突
+* **显示纯粹的视觉变化** - 显示视觉变化，例如将实体拖动到域模型中的一个新位置
 
-The left and right panes will contain the same information as in [Zoomed-In Level for Conflicted Documents](#conflicts), above.
+左侧和右侧面板将包含与上面 [处于冲突文档](#conflicts)中相同的信息。
 
-![Example of conflicts resolution format of changes pane](attachments/changes-pane/new-merge-algorithm-resolve-mode.png)
+![更改面板的冲突解决格式示例](attachments/changes-pane/new-merge-algorithm-resolve-mode.png)
 
-## 5 Read More
+## 5 阅读更多
 
 * [Studio Pro Overview](studio-pro-overview)
-* [Version Control](version-control) 
+* [版本控制](version-control) 
