@@ -1,15 +1,21 @@
 ---
-title: "XPath day-from-dateTime"
+title: "XPath Day-from-DateTime"
 parent: "xpath-constraint-functions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-day-from-datetime.pdf).
+{{% /alert %}}
 
 ## 1 Overview
 
-The `day-from-dateTime()` function extracts the amount of days from a DateTime attribute so it can be used to compare to a value.
+The `day-from-dateTime()` function extracts the day of the month value from a **Date and time** attribute so it can be used to compare to a value.
 
 ## 2 Example
 
-This query returns all the logs where the amount of days in `DateAttribute` is 30 (for example, "2011-12-30"):
+This query returns all the logs where `DateAttribute` is the 30th day of the month (for example, "2011-12-30"):
 
 ```java
 //Logging.Log[day-from-dateTime(DateAttribute) = 30]
