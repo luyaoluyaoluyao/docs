@@ -1,84 +1,84 @@
 ---
-title: "JavaScript Action Call"
-parent: "action-call-activities"
+title: "JavaScript アクションコール"
+parent: "action-call-activity"
 menu_order: 20
-description: "This reference explains the properties of the JavaScript action call activity."
+description: "この参照では、JavaScript アクション呼び出しアクティビティのプロパティを説明します。"
 tags:
   - "javascript"
   - "return"
-  - "variable"
+  - "変数"
   - "studio pro"
-  - "action call"
+  - "アクション通話"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Nanoflows**.
+このアクティビティは **Nanoflows** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The JavaScript action call activity can be used to call a [JavaScript action](javascript-actions). Arguments can be passed to the action, and the result can be stored.
+JavaScriptアクションコールアクティビティは、 [JavaScriptアクション](javascript-actions)を呼び出すために使用できます。 引数はアクションに渡すことができ、結果を保存することができます。
 
 {{% image_container width="200" %}}
-![javascript action call properties](attachments/action-call-activities/javascript-call.png)
+![javascriptアクションコールプロパティ](attachments/action-call-activities/javascript-call.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![JavaScript Action Properties](attachments/action-call-activities/javascript-action-call.png)
+![JavaScriptアクションプロパティ](attachments/action-call-activities/javascript-action-call.png)
 
-The **JavaScript action call** properties pane consists of the following sections:
+**JavaScript アクション コール** プロパティ ペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 JavaScript Action
+### 3.1 JavaScript アクション
 
-This property sets the JavaScript action called by an activity.
+このプロパティは、アクティビティによって呼び出された JavaScript アクションを設定します。
 
-### 3.2 Parameter
+### 3.2 パラメータ
 
-Depending on the selected JavaScript action, you will see a list of its parameters. Parameters pass data to the activity.
+選択したJavaScriptアクションに応じて、パラメータのリストが表示されます。 パラメータはアクティビティにデータを渡します。
 
-#### 3.2.1 Arguments
+#### 3.2.1 引数
 
-Click **Edit** next to the parameter to fill in the arguments.
+引数を入力するには、パラメータの横にある **** をクリックします。
 
-An argument is the input data that you are passing to the JavaScript action. For each JavaScript action parameter, you must supply an argument of the same type.
+引数は、JavaScript アクションに渡す入力データです。 JavaScript アクションパラメータごとに、同じ型の引数を指定する必要があります。
 
-The values of the arguments are defined using [expressions](expressions):
+引数の値は [式](expressions) を使用して定義されます:
 
-![argument](attachments/action-call-activities/argument-edit.png)
+![引数](attachments/action-call-activities/argument-edit.png)
 
-### 3.3 Return Type {#return-type}
+### 3.3 戻り値の種類 {#return-type}
 
-This read-only property indicates whether you will retrieve a variable, object or list. The return type is defined by the JavaScript action.
+この読み取り専用プロパティは、変数、オブジェクト、またはリストを取得するかどうかを示します。 戻り値の型は JavaScript アクションによって定義されます。
 
-### 3.4 Use Return Value
+### 3.4 戻り値を使用
 
-This property determines if the returned value from the JavaScript action should be available in the rest of the microflow or nanoflow. If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
+このプロパティは、JavaScriptアクションから返される値を、マイクロフローの残りの部分またはnanoflowで利用できるかどうかを決定します。 If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
 
-### 3.5 Variable Name, Object Name, or List Name {#name}
+### 3.5 変数名、オブジェクト名、またはリスト名 {#name}
 
-The name of the variable, list, or object returned by the activity. If it is an object or list, the [Return type](#return-type) will indicate the entity which is being returned.
+アクティビティによって返される変数、リスト、またはオブジェクトの名前。 オブジェクトまたはリストの場合、 [Return type](#return-type) は、返されるエンティティを示します。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [JavaScript Actions](javascript-actions)
-* [Build JavaScript Actions](/howto/extensibility/build-javascript-actions)
-* [Nanoflows](nanoflows)
-* [Java Action Call](java-action-call)
+* [JavaScript アクション](javascript-actions)
+* [JavaScriptアクションをビルド](/howto/extensibility/build-javascript-actions)
+* [Nanoflows](ナノフロー)
+* [Java アクションコール](java-action-call)
