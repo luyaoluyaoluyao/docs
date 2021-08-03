@@ -1,23 +1,23 @@
 ---
-title: "Delete button"
-parent: "control-bar"
+title: "削除ボタン"
+parent: "コントロール バー"
 ---
 
 {{% alert type="info" %}}
 
-This button was removed in Mendix 7.17. Use a normal [Action button](action-button) instead.
+このボタンは Mendix 7.17 で削除されました。 代わりに通常の [アクション ボタン](action-button) を使用してください。
 
 {{% /alert %}}
 
-The delete button allows end-users to delete objects from the database that are selected in the grid, or in the reference set selector. If this button is placed on a reference set selector it will delete both the references, and the referred objects from the database. If you only want the references to be deleted, then you should use a [Remove button](remove-button).
+削除ボタンは、エンドユーザーがグリッドで選択されているデータベース、または参照セットセレクタからオブジェクトを削除することを可能にします。 このボタンが参照セットセレクターに配置されると、参照と参照されたオブジェクトの両方がデータベースから削除されます。 参照のみを削除したい場合は、 [削除ボタン](remove-button) を使用する必要があります。
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -29,10 +29,10 @@ The delete button allows end-users to delete objects from the database that are 
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% alert type="info" %}}
-Conditional visibility settings were added in version 5.10.0.
+バージョン5.10.0で条件付き表示設定が追加されました。
 {{% /alert %}}
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
