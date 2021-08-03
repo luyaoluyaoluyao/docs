@@ -1,21 +1,21 @@
 ---
-title: "Module Role"
-parent: "module-security"
+title: "模块角色"
+parent: "模块-安全"
 ---
 
 
-The module roles define which roles users of this module can have. See [Security](security) for more information on module roles and [user roles](user-roles) and their relation.
+模块角色定义用户可以使用哪些角色。 更多关于模块角色的信息见 [Security](security) [用户角色](user-roles) 及其关系。
 
-## Name
+## 名称
 
-The name of a module role is used to refer to the module role from other elements in your model.
+模块角色的名称用于指向模型中其他元素的模块角色。
 
 {{% alert type="warning" %}}
 
-End users do not see the names of module roles. End users (if they create or view user accounts) only see the names of [user roles](user-roles).
+最终用户看不到模块角色的名称。 最终用户(如果他们创建或查看用户帐户)只能看到 [用户角色](user-roles) 的名称。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## Documentation
+## 文件
 
-The documentation of a module role is there only for the convenience of the people who use the modeler; it is not visible for the end users.
+模块角色的文件只是为了方便使用模型的人员； 它对最终用户不可见。
