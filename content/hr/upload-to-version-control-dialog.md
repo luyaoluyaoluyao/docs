@@ -5,12 +5,8 @@ menu_order: 70
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/upload-to-team-server-dialog.html
+  - /refguide/upload-to-team-server-dialog.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/upload-to-version-control-dialog.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -27,7 +23,7 @@ Use this setting to select the location where you want to store your app. There 
 You can create a new app on [Mendix Team Server](/developerportal/collaborate/team-server).
 
 * Select **New Mendix Team Server**
-* Enter the name for the new Team Server project and repository in the **App name** field
+* Enter the name for the new Team Server app and repository in the **App name** field
 
     ![Enter App name for New Mendix Team Server](attachments/upload-to-version-control/new-team-server-app.png)
 
@@ -48,10 +44,11 @@ This option is only available when support for other servers is enabled in **Edi
 
 ![Enable private version control in advanced preferences](attachments/upload-to-version-control/enable-private-version-control.png)
 
-<a name="private-server"></a>If you select **Private server**, enter the address of the repository to which you want to upload your app in the **App repository address** field.
+If you select **Private server**, enter the address of the repository to which you want to upload your app in the **App repository address** field.
 
 ![Enable private version control in advanced preferences](attachments/upload-to-version-control/private-server-app.png)
 
 ## 3 Read More
 
-* [How to Work with an On-Premises Version Control Server](/howto8/collaboration-requirements-management/on-premises-svn-howto)
+* [How to Work with an On-Premises SVN Version Control Server](/howto/collaboration-requirements-management/on-premises-svn-howto)
+* [How to Work with an On-Premises Git Version Control Server](/howto/collaboration-requirements-management/on-premises-git-howto)
