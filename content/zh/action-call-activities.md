@@ -1,24 +1,24 @@
 ---
-title: "Action Call Activities"
-parent: "activities"
+title: "行动呼叫活动"
+parent: "活动"
 menu_order: 30
 tags:
   - "studio pro"
-  - "action call"
-  - "action call activities"
+  - "动作呼叫"
+  - "行动呼叫活动"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The following are the action call activities you can use in your microflow or nanoflow:
+下面是您可以在微流程或 nanoflow 中使用的动作调用活动：
 
-![Action Call Activities](attachments/action-call-activities/action-call-activities.png)
+![行动呼叫活动](attachments/action-call-activities/action-call-activities.png)
 
-* [Java action call](java-action-call) *(only in microflows)* – calls a Java action
-* [JavaScript action call](javascript-action-call) *(only in nanoflows)* – calls a JavaScript action
-* [Microflow call](microflow-call) – calls a microflow
+* [Java 动作调用](java-action-call) *(仅在微流程中)* - 调用 Java 操作
+* [JavaScript 动作调用](javascript-action-call) *(仅在 nanoflows)* - 调用 JavaScript 操作
+* [微流程调用](microflow-call) — — 调用微流程。
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Activities](activities)
-* [Call Nanoflow](nanoflow-call)
+* [活动](活动)
+* [呼叫Nanoflow](nanoflow-call)
