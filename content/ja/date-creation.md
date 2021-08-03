@@ -1,95 +1,107 @@
 ---
 title: "作成日"
 parent: "表現"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "表現"
+  - "日付の作成"
+  - "表現"
 ---
 
-特定の日付の日付型変数は [parseDateTime](parse-and-format-date-function-calls) を使用して作成できます。 日付文字列と書式文字列をパラメータとして取り、日付型変数を返します。 詳細については、 [parseDateTime](parse-and-format-date-function-calls) を参照してください。
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/date-creation.pdf) をクリックしてください。
+{{% /alert %}}
 
-日付を表す文字列変数は `dateTime` および `dateTimeUTC` 関数で作成できます。 The difference between these two functions is that `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. システムセッションはデフォルトでUTCとして実行されますが、これは [プロジェクト設定](project-settings)で設定できます。
+## 1つの紹介
 
-これらの関数は1~6個の入力パラメータをとり、文字列を返します。 以下は順番に表しています:
+日付は `dateTime` および `dateTimeUTC` 関数で作成できます。 The difference between them is that  `dateTime` uses the calendar of the session used in the function call, and `dateTimeUTC` uses the UTC calendar. システムセッションは、スケジュールされたイベントを除き、デフォルトでUTCとして実行されます。 これは、 [プロジェクト設定](project-settings#scheduled) の **スケジュールされたイベント タイム ゾーン** セクションで設定できます。
 
-1. 年
-    * 型: 整数、4桁、1799 より大きい
-2. ヶ月
-    * タイプ: 整数、1 から 12 の間の値
-3. 日数
-    * タイプ: 1 から 31 の間の整数。
-4. 時間
-    * タイプ: 0 から 23 の間の整数。
-5. 分
-    * 型: 0 から 59 の間の整数。
-6. 秒
-     * 型: 0 から 59 の間の整数。
+この関数は、変数または属性パラメータを受け付けず、固定値のみを受け付けます。 パラメータを使用して日付を作成するには、 [parseDateTime](parse-and-format-date-function-calls#parsedatetime-utc) 関数を使用します。
 
-1つのパラメータ:
+## 2値
 
-```java
-dateTime(2007)
-```
+これらの関数は、次の順序で入力値を 1 つから 6 つの間で取ります。
 
-戻り値:
+1. 年 (型: 整数、4桁、1799年より大きい)
+2. months (type: integer, between 1 and 12)
+3. days (type: integer, between 1 and 31)
+4. hours (type: integer, between 0 and 23)
+5. 分 (0から59の間の整数)
+6. seconds (type: integer, between 0 and 59)
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+## 3つの例
 
-2つのパラメータ:
+以下の例は、式が返す値を示しています。
 
-```java
-dateTime(2007年, 1)
-```
+* 入力として1つの値を指定した場合:
 
-return:
+    ```java
+    dateTime(2007)
+    ```
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    式は次の出力を返します:
 
-3つのパラメータ:
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007年, 1, 1)
-```
+* 入力として2つの値を指定した場合:
 
-return:
+    ```java
+    dateTime(2007年, 1)
+    ```
 
-```java
-"Mon Jan 01 00:00:00 CET 2007"
-```
+    式は次の出力を返します:
 
-4つのパラメータ:
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007年, 1, 1, 1)
-```
+* 3つの値を入力として指定した場合:
 
-return:
+    ```java
+    dateTime(2007年, 1, 1)
+    ```
 
-```java
-"Mon Jan 01 01:00:00 CET 2007"
-```
+    式は次の出力を返します:
 
-5つのパラメータ:
+    ```java
+    "Mon Jan 01 00:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007年, 1, 1, 1, 1)
-```
+* 入力として4つの値を指定した場合:
 
-return:
+    ```java
+    dateTime(2007年, 1, 1, 1)
+    ```
 
-```java
-"Mon Jan 01 01:01:00 CET 2007"
-```
+    式は次の出力を返します:
 
-6つのパラメータ:
+    ```java
+    "Mon Jan 01 01:00:00 CET 2007"
+    ```
 
-```java
-dateTime(2007年, 1, 1, 1, 1, 1, 1)
-```
+* 入力として5つの値を指定した場合:
 
-return:
+    ```java
+    dateTime(2007年, 1, 1, 1, 1)
+    ```
 
-```java
-"Mon Jan 01 01:01:01 CET 2007"
-```
+    式は次の出力を返します:
+
+    ```java
+    "Mon Jan 01 01:01:00 CET 2007"
+    ```
+
+* 6つの値を入力として指定した場合:
+
+    ```java
+    dateTime(2007年, 1, 1, 1, 1, 1, 1)
+    ```
+
+    式は次の出力を返します:
+
+    ```java
+    "Mon Jan 01 01:01:01 CET 2007"
+    ```
