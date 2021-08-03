@@ -1,32 +1,32 @@
 ---
-title: "Decisions"
-parent: "microflows-and-nanoflows"
+title: "決定"
+parent: "マイクロフローとナノフロー"
 menu_order: 50
 tags:
   - "studio pro"
-  - "decision"
-  - "decisions"
+  - "決定"
+  - "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 ---
 
-## 1 Introduction
-Decisions are elements that split or merge sequence flows based on conditions set for these elements. Decisions have a shape of a diamond.
+## 1つの紹介
+決定は、これらの要素に設定された条件に基づいてシーケンスフローを分割またはマージする要素です。 決定はダイヤモンドの形をしている。
 
-The elements described in this document are in the **Decisions** section of the **Toolbox**:
+このドキュメントで説明されている要素は、 **Toolbox** の **決定** セクションにあります:
 
 {{% image_container width="300" %}}
-![Decisions](attachments/decisions/decisions.png)
+![決定](attachments/decisions/decisions.png)
 {{% /image_container %}}
 
-There are following types of decisions:
+決定には以下の種類があります。
 
-* [Decision](decision) – makes a choice based on a condition and follows one and only one of the outgoing sequence flows
+* [Decision](decision) - 条件に基づいて選択を行い、出力シーケンスフローのうち1つだけに従います
 
     {{% image_container width="400" %}}![](attachments/decisions/decision-example.png){{% /image_container %}}
 
-* [Object Type Decision](object-type-decision) – makes a choice based on the type of an object of a generalized entity
+* [Object Type Decision](object-type-decision) - 一般化されたエンティティのオブジェクトのタイプに基づいて選択する
 
     ![](attachments/decisions/object-type-decision.png)
 
-* [Merge](merge) – merges incoming flows
+* [Merge](merge) – 入ってくるフローをマージする
 
     ![](attachments/decisions/merge.png)
