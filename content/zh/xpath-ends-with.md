@@ -1,25 +1,21 @@
 ---
-title: "XPath Ends-With"
-parent: "xpath-constraint-functions"
+title: "XPath 端口为"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-ends-with.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`结束-with()` 函数检查字符串属性是否以特定字符串(大小写不敏感)作为子字符串。
 
-The `ends-with()` function checks whether a string attribute ends with a specific string (case-insensitive) as a sub-string.
+## 2 个示例
 
-## 2 Example
-
-This query returns all customers whose name ends with the sub-string `sen`:
+此查询返回名称以子字符串 `sen` 结尾的所有客户：
 
 ```java
-//Sales.Customer[ends-with(Name, 'sen')]
+//Sales.Customer[ends-with(名称, 'sen')]
 ```
 
-Customers with the name "Jansen" or "Isaacsen" will be returned, for example, because both names end with "sen."
+名称为“Jansen”或“Isaacsen”的客户将被退回，例如，这两个名称都以“sen.”结尾。
 
