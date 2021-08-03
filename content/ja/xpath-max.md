@@ -1,8 +1,6 @@
 ---
-title: "XPath 最大"
+title: "XPathmax"
 parent: "xpath-query-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
