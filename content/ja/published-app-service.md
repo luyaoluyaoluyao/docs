@@ -1,81 +1,71 @@
 ---
-title: "Published App Service"
+title: "公開済みアプリサービス"
 parent: "published-app-services"
-tags:
-  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-app-service.pdf).
+アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 [公開されたWebサービス](published-web-services) または [公開されたRESTサービス](published-rest-services) を代わりに使用してください。
 {{% /alert %}}
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
-{{% /alert %}}
-
-## 1 General Tab
+## 全般
 
 ![](attachments/16713718/16843916.png)
 
-### 1.1 Version
+### バージョン
 
-The version of the app service. Every time an app service instance is created, the version number is incremented automatically.
+アプリサービスのバージョン。 アプリサービスインスタンスが作成されるたびに、バージョン番号は自動的に増分されます。 アプリサービスは明示的にバージョンアップされます。一度アプリサービスが消耗されると、パブリックインターフェイス(パラメータと戻り値の種類)は変更できなくなります。 パブリックインターフェイスは、アプリサービスの新しいバージョンを作成することによってのみ変更できます。 しかし、インタフェースに接着している限り、元のマイクロフローを変更することは可能です。
 
-App services are explicitly versioned, because once the app service is consumable, the public interface (parameters and return type) cannot be changed anymore. The public interface can only be changed by creating a new version of the app service. However, it is still possible to change the underlying microflow as long as it adheres to the interface.
+### ステータス
 
-### 1.2 Status
+新しく作成されたバージョンは、デフォルトでステータスが 'Draft' に設定されます。 「Draft」ステータスでは、アプリサービスに変更や追加を加えることができます。 バージョンが公開される準備ができたら、ステータスは format@@0 に設定する必要があります。 ステータスが format@@0 に設定されると、アプリサービスを編集できなくなります。 アプリサービスのバージョンは、バージョンが 'Draft' の場合にのみ編集可能です。 「Draft」ステータスに許可されているのはアプリサービスのバージョンが1つだけです。
 
-A newly created version will have the status set to 'Draft' by default. With 'Draft' status, changes and additions can be made to the app service. When the version is ready to be published, the status must be set to 'Consumable'.
-
-Once the status is set to 'Consumable', you cannot edit the app service anymore. App service versions are only editable when the version is in 'Draft'. Only one version of app service is allowed to be in 'Draft' status.
-
-{{% alert type="info" %}}
-Always remember to set at least one app service version to Consumable before going to production. Only Consumable app service versions will be available in production.
+{{% alert type="success" %}}
+プロダクションに行く前に、少なくともアプリサービスバージョンを Consumable に設定することを忘れないでください。 本番環境では、消耗アプリサービスのバージョンのみが利用可能です。
 {{% /alert %}}
 
-### 1.3 Icon
+### アイコン
 
-This is the icon that belongs to the app service. An icon can be selected from any images document in the project. A new icon can be added to an images document if it is not available yet.
+これはアプリサービスに属するアイコンです。 アイコンは、プロジェクト内の任意のイメージ ドキュメントから選択できます。 まだ利用できない場合は、新しいアイコンを画像ドキュメントに追加できます。
 
-### 1.4 Caption
+### 図表番号
 
-This is the name of the app service the consumer will see in their toolbox.
+これは、消費者がツールボックスに表示するアプリサービスの名前です。
 
-### 1.5 Description
+### 説明
 
-Can be used to describe what the app service is used for.
+アプリサービスが何に使用されているかを説明するために使用できます。
 
-## 2 Actions
+## アクション
 
 ![](attachments/16713718/16843915.png)
 
-Provide the actual actions of which the app service is composed. Each of these actions is coupled to a microflow. See [Actions](actions).
+アプリサービスが構成されている実際のアクションを提供します。 これらのアクションはそれぞれマイクロフローに結合されています。 [アクション](actions) を参照してください。
 
-## 3 Settings
+## 設定
 
 ![](attachments/16713718/16843914.png)
 
-### 3.1 Authentication
+### 認証
 
-The following authentication methods are available:
+次の認証方法が使用できます:
 
-*   No authentication.
-*   Username and password: the provided action is only executed if the username/password combination matched a registered web service user.
+*   認証がありません。
+*   ユーザー名とパスワード:指定されたアクションは、ユーザー名とパスワードの組み合わせが登録されたWebサービスユーザーに一致した場合にのみ実行されます。
 
-### 3.2 Target Namespace
+### Target Namespace
 
-The 'Target namespace' is a technical term, that provides an XML namespace.
+「ターゲット名前空間」は、XML名前空間を提供する技術用語です。
 
-### 3.3 Export Mendix Service Definition
+### メンディックスサービス定義のエクスポート
 
-The button 'Export Mendix Service Definition' creates an MSD-file with the definition of the App service. It can be imported by a consumer of your service. You can test your app service on the local machine by importing this MSD file in another app, and running the provider and consumer apps simultaneously.
+「Mendix サービス定義をエクスポート」ボタンは、アプリサービスの定義を持つMSDファイルを作成します。 それはあなたのサービスの消費者によってインポートすることができます。 このMSDファイルを別のアプリにインポートすることで、アプリサービスをローカルマシンでテストできます。 プロバイダとコンシューマアプリを同時に実行することができます
 
 {{% alert type="warning" %}}
 
-This MSD file contains a default location: the Application Root URL of the default configuration in the project settings. For example: [http://localhost:8080/](http://localhost:8080/). This endpoint address is overwritten if you deploy your app in the cloud, and will be set to the cloud location where your app is running.
+この MSD ファイルには、プロジェクト設定内のデフォルト構成の Application Root URL というデフォルトの場所が含まれています。 例: [http://localhost:8080/](http://localhost:8080/). このエンドポイントアドレスは、クラウドにアプリケーションをデプロイする場合に上書きされます。 そして、アプリが実行されているクラウドの場所に設定されます。
 
 {{% /alert %}}
 
-## 4 Documentation
+## ドキュメント
 
-Documentation for the published app service. A consumer of the app service will see this as well.
+公開されたアプリサービスのドキュメント。 アプリサービスの消費者も同様にこれを見るでしょう。
