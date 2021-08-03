@@ -1,21 +1,21 @@
 ---
-title: "Grid Action button"
-parent: "control-bar"
+title: "グリッドアクションボタン"
+parent: "コントロール バー"
 ---
 
-An action button can perform various actions such as calling a microflow or nanoflow or opening a page.
+アクション ボタンは、マイクロフローや nanoflow を呼び出したり、ページを開いたりするなど、さまざまなアクションを実行できます。
 
-Common properties
+共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Events
+## イベント
 
 {{% snippet file="refguide7/On+Click+Event+Action.md" %}}
 
-## General properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -27,7 +27,7 @@ Common properties
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
