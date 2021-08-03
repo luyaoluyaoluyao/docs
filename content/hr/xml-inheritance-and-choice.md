@@ -1,8 +1,6 @@
 ---
-title: "XML Inheritance & Choice"
+title: "XML Inheritance and Choice"
 parent: "mapping-documents"
-tags:
-  - "studio pro"
 ---
 
 ## 1 Obtaining an Object by Entity specialization
