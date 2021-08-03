@@ -1,143 +1,143 @@
 ---
-title: "MxAssist Performance Bot"
-parent: "view-menu"
+title: "MxAssistパフォーマンスボット"
+parent: "表示メニュー"
 menu_order: 50
-description: "Describes MxAssist Performance Bot in Mendix Studio Pro."
+description: "Mendix Studio ProのMxAssistパフォーマンスボットについて説明します。"
 tags:
   - "studio pro"
-  - "performance bot"
+  - "パフォーマンスボット"
   - mendix assist", "AI", "assist", "mx assist"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-MxAssist Performance Bot is an intelligent virtual co-developer bot that helps you improve the performance of your app by inspecting your app model against Mendix development best practice in Mendix Studio Pro. It detects anti-patterns during the design and development, pinpoints you to these anti-patterns, suggests you how to resolve it, and in many cases can automatically fix these issues.
+MxAssist Performance Botはインテリジェントな仮想共同開発ボットで、Mendix Studio ProのMendix開発のベストプラクティスに対してアプリモデルを検査することで、アプリケーションのパフォーマンスを向上させることができます。 設計と開発中にアンチパターンを検出し、これらのアンチパターンを特定します。 解決方法を提案し、多くの場合、これらの問題を自動的に解決することができます。
 
-MxAssist Performance Bot is built using statistical analysis of thousands of anonymized Mendix app to learn common anti-patterns as well as using Mendix Expert Services best practices in the development of microflows, domain models, pages, security, etc.
+MxAssist Performance Bot は、数千の匿名化された Mendix アプリの統計解析を使用して、一般的なアンチパターンを学び、マイクロフローの開発における Mendix Expert Services のベストプラクティスを使用して構築されています。 ドメインモデル、ページ、セキュリティなど
 
-It consists of a three-level assistance:
+三段階の援助で構成されている。
 
-1. **Detection** – the bot inspects the model, identifies issue, and pinpoints you to the document/element causing the issue.
-2. **Recommendation** – the bot explains the identified issue, the potential impact, and how to fix it. There is also a detailed best practice guide with a     dedicated step-by-step guideline of how to fix the issue.
-3. **Auto-fixing** – the bot can automatically implement the best practice and fix the issue.
+1. **検出** - ボットはモデルを検査し、問題を特定し、問題を引き起こすドキュメント/要素を特定します。
+2. **勧告** - ボットが同定された問題、潜在的な影響、およびそれを修正する方法を説明しています。 問題を解決する方法についての専用のステップバイステップガイドラインを備えた詳細なベストプラクティスガイドもあります。
+3. **自動修正** – ボットは自動的にベストプラクティスを実装し、問題を修正できます。
 
-## 2 MxAssist Performance Bot Pane
+## 2 MxAssistパフォーマンスボットペイン
 
-To access settings of MxAssist Performance Bot, open **Edit** > **Preferences** >the **General** tab >the **MxAssist Performance Bot** tab. For more information, see [Preferences](preferences-dialog).
+MxAssistパフォーマンスボットの設定にアクセスする open **Edit** > **Preferences** >the **General** tab > **MxAssist Performance Bot** tab. 詳細については、 [環境設定](preferences-dialog) を参照してください。
 
-MxAssist Performance Bot is enabled by default and is designed as a pane. To access the **MxAssist Performance Bot** pane, click **View** > **MxAssist Performance Bot.**
+MxAssist Performance Bot はデフォルトで有効になっており、ペインとして設計されています。 **MxAssist Performance Bot** ペインにアクセスするには、 **View** > **MxAssistPerformance Botをクリックしてください。**
 
-The pane gives you information on each anti-pattern and contains MxAssist Performance Bot settings and configurations:
+ペインには、各アンチパターンに関する情報が表示され、MxAssistパフォーマンスボットの設定と構成が含まれています。
 
-![Performance Bot Pane](attachments/mx-assist-performance-bot/performance-bot-pane.png)
+![パフォーマンスのボットペイン](attachments/mx-assist-performance-bot/performance-bot-pane.png)
 
-### 2.1 Options and Configuration
+### 2.1 オプションと設定
 
-At the top of the **MxAssist Performance Bot** pane you can see the following options:
+**MxAssist Performance Bot** ペインの上部には、次のオプションがあります。
 
-* **Inspect now** – inspects your app model on performance issues.
+* **今すぐ調査** – パフォーマンスの問題についてアプリモデルを検査します。
 
-* **Limit to current  tab** – limits the messages displayed in the pane to the current document.
+* **Limit to current tab** – ペインに表示されるメッセージを現在のドキュメントに制限します。
 
-* **Configuration** – defines the modules and documents that the MxAssist  Performance Bot will analyze. Click the **Configuration** button to open the **MxAssist Performance Bot Configuration** dialog box that contains the **Project Model** and **Best Practice** tabs.
+* **構成** - MxAssistパフォーマンスボットが分析するモジュールとドキュメントを定義する。 Click the **Configuration** button to open the **MxAssist Performance Bot Configuration** dialog box that contains the **Project Model** and **Best Practice** tabs.
 
-    * The **Project Model** tab lists all relevant documents in your app. You can choose which specific modules or documents to inspect or leave out.
+    * **プロジェクト モデル** タブには、アプリケーション内のすべての関連ドキュメントが一覧表示されます。 特定のモジュールまたはドキュメントを検査または除外するかを選択できます。
 
-        ![Project Model](attachments/mx-assist-performance-bot/project-model.jpg)
+        ![プロジェクトモデル](attachments/mx-assist-performance-bot/project-model.jpg)
 
-    * The **Best Practice** tab lists the available best practice. You can choose your preferred best practices and inspect your model against it:
+    * **ベストプラクティス** タブには、利用可能なベストプラクティスがリストされています。 好みのベストプラクティスを選択し、モデルを検査することができます:
 
-        ![Best Practice](attachments/mx-assist-performance-bot/best-practice.jpg)
+        ![ベスト練習](attachments/mx-assist-performance-bot/best-practice.jpg)
 
-You can use both app model and best practice configuration together.
+アプリモデルとベストプラクティスの両方の設定を一緒に使用できます。
 
-### 2.2 Anti-Pattern Overview
+### 2.2 アンチパターンの概要
 
-Each anti-pattern line in the pane provides you with the following information:
+ペイン内の各アンチパターンラインには、以下の情報が表示されます。
 
-* **Icon** – indicates if the anti-pattern can be automatically fixed; if the icon has the “A” letter, the issue can be auto-fixed
+* **アイコン** - アンチパターンが自動的に修正されるかどうかを示します。アイコンに「A」文字がある場合、問題は自動的に修正されます。
 
-* **Code** – a unique code that is specific to the anti-pattern type
+* **Code** - アンチパターンタイプに固有のコード
 
-* **Blue circle** – indicates a new detected anti-pattern
+* **ブルーサークル** - 新たに検出されたアンチパターンを示す
 
-* **Message** – description/explanation of the anti-pattern
+* **メッセージ** – 抗パターンの説明/説明
 
-* **Element** – the element causing the issue
+* **要素** - 問題を引き起こす要素
 
-* **Document** – the document containing the element
+* **ドキュメント** – 要素を含むドキュメント
 
-* **Module** – the module containing the document
+* **モジュール** - 文書を含むモジュール
 
-    ![Anti-Pattern Overview](attachments/mx-assist-performance-bot/anti-pattern-overview.jpg)
+    ![アンチパターンの概要](attachments/mx-assist-performance-bot/anti-pattern-overview.jpg)
 
-Right-clicking the message line of an anti-pattern in the pane opens the drop-down menu:
+ペイン内のアンチパターンのメッセージ行を右クリックすると、ドロップダウンメニューが開きます。
 
-![Drop-Down Menu](attachments/mx-assist-performance-bot/drop-down-menu.jpg)
+![ドロップダウンメニュー](attachments/mx-assist-performance-bot/drop-down-menu.jpg)
 
-The following actions are available in the drop-down menu:
+ドロップダウンメニューでは、次の操作を使用できます。
 
-* **Go to Cause** – takes you to the element causing the issue.
-* **Go to Usage** – opens the corresponding locations where the anti-pattern is used.
-* **View MxAssist Performance recommendation** – opens the pop-up window with recommendations (similar to double-clicking the message).
-* **Mark as read** – marks the issue as read. This will make the blue circle to disappear.
-* **Suppress this recommendation** – suppresses the issue. This will gray out the issue and send it to the bottom of the list. The related indicator in the editor will disappear.
+* **原因に移動** – 問題を引き起こす要素に移動します。
+* **** - アンチパターンが使用されている対応する場所を開きます。
+* **MxAssist Performance recommendation** – (メッセージをダブルクリックするのと同様に) ポップアップウィンドウを開きます。
+* **既読にする** – 既読に問題をマークします。 これで青い円が消えます。
+* **この勧告を抑制する** – 問題を抑制する。 これにより、問題が灰色で表示され、リストの一番下に送信されます。 エディタに関連するインジケータが消えます。
 
-## 3 Using MxAssist Performance Bot in App Development
+## 3 アプリ開発におけるMxAssistパフォーマンスボットの使用
 
-### 3.1 Detecting an Anti-Pattern {#detecting}
+### 3.1 アンチパターンの検出 {#detecting}
 
-The first level of assistance is **detection** that includes inspecting the app model, identifying anti-patterns, and pinpointing you to the document causing the issue.
+最初のレベルの支援は、アプリモデルの検査を含む **検出** です。 反パターンを特定し、問題の原因となっているドキュメントを特定します。
 
 To inspect your app model, click **Inspect now** in the **MxAssist Performance Bot** pane.
 
 {{% alert type="info" %}}
 
-The **Inspect now** option will be disabled if there are consistency errors in the app. In this case, you need to resolve the consistency errors first.
+**Inspect now** オプションは、アプリに一貫性のあるエラーがある場合は無効になります。 この場合、まず一貫性エラーを解決する必要があります。
 
 {{% /alert %}}
 
-The bot will detect performance anti-patterns and list them in the pane under the associated anti-pattern type. To learn more about each anti-pattern type, click the anti-pattern code link. Click the plus icon next to the anti-pattern type to see the detected cases of this type:
+ボットはパフォーマンスのアンチパターンを検出し、関連するアンチパターンタイプの下のペインにリストします。 各アンチパターンタイプの詳細については、アンチパターンコードリンクをクリックしてください。 アンチパターンタイプの横にあるプラスアイコンをクリックすると、このタイプの検出されたケースが表示されます。
 
-![Viewing Anti-Pattern](attachments/mx-assist-performance-bot/viewing-anti-pattern.jpg)
+![アンチパターンの表示](attachments/mx-assist-performance-bot/viewing-anti-pattern.jpg)
 
-To view the element or the document where the anti-pattern is located, double-click the message line or right-click the message line and choose **Go to Cause** or **Go to Usage** in the drop-down menu.
+アンチパターンが存在する要素またはドキュメントを表示するには メッセージ ラインをダブルクリックするか、メッセージ ラインを右クリックし、ドロップダウン メニューで **[** ] または **** を選択します。
 
-### 3.2 Recommending a Fix {#recommending}
+### 3.2 修正を推奨する {#recommending}
 
-The second level of assistance is **recommendation** – giving you an overview of the issue and recommending how to fix it.
+2番目のレベルの支援は **勧告** です。問題の概要を説明し、解決方法を推奨します。
 
-There are two ways to view the recommendations:
+レコメンデーションを表示するには2つの方法があります。
 
-1.  Right-click an anti-pattern message on the pane and select **View MxAssist Performance Recommendation** in the drop-down menu.
+1.  ペインでアンチパターンメッセージを右クリックし、ドロップダウンメニューで **View MxAssist Performance Recommendation** を選択します。
 
-2. Click an indicator in the visual editor to view the detected issue:
+2. ビジュアルエディターのインジケーターをクリックすると、検出された問題が表示されます。
 
-   ![Indicator in the Editor](attachments/mx-assist-performance-bot/indicator-in-editor.jpg)
+   ![エディタの指標](attachments/mx-assist-performance-bot/indicator-in-editor.jpg)
 
-The recommendation contains the description of the identified issue, potential impact from it, the way to fix it, and a link to a more detailed guidance on fixing the issue:
+推奨事項には、特定された問題の説明が含まれており、そこからの潜在的な影響があります 問題を解決するためのより詳細なガイダンスへのリンクです
 
-![Performance Recommendation](attachments/mx-assist-performance-bot/performance-recommendation.jpg)
+![パフォーマンス推奨事項](attachments/mx-assist-performance-bot/performance-recommendation.jpg)
 
-### 3.3. Auto-Fixing the Anti-Pattern {#auto-fixing}
+### 3.3. アンチパターンの自動修正 {#auto-fixing}
 
-The third level of assistance is **auto-fixing** where the bot can automatically implement the best practice and fix the issue in just one click. To avoid undesirable changes, auto-fixing is only available when the bot can safely refactor the code without creating an error or making other undesirable change in the model. Each performance issue has an icon in the pane that indicates whether it is auto-fixable. If the icon has the “A” letter, the issue can be auto-fixed:
+3つ目のレベルの支援は、ボットが自動的にベストプラクティスを実装し、ワンクリックで問題を解決できる **自動修正** です。 望ましくない変更を避けるには 自動修正は、エラーを作成したり、モデルの他の望ましくない変更を行うことなく、ボットがコードを安全にリファクタリングできる場合にのみ利用できます。 パフォーマンスの問題には、自動修正可能かどうかを示すアイコンがペインに表示されます。 アイコンに「A」文字が含まれている場合、問題は自動修正されます。
 
-{{% image_container width="45" %}}![Auto-Fixable Icon](attachments/mx-assist-performance-bot/auto-fixable.png)
+{{% image_container width="45" %}}![自動修正アイコン](attachments/mx-assist-performance-bot/auto-fixable.png)
 {{% /image_container %}}
 
-To auto-fix the issue, follow the steps below:
+問題を自動修正するには、以下の手順に従ってください。
 
-1. Right-click the message line in the pane and select **View MxAssist Performance Recommendation** in the drop-down menu or click the corresponding indicator in the editor to open the recommendation.
+1. ペイン内のメッセージ行を右クリックし、ドロップダウンメニューで **View MxAssist Performance Recommendation** を選択するか、エディタ内の対応するインジケータをクリックしておすすめを開きます。
 
-2. In the **MxAssist Performance Recommendation** pop-up window, click the available action button, for example, **Fix the Commit**:
+2. **MxAssist Performance Recommendation** ポップアップウィンドウで、使用可能なアクションボタンをクリックします。たとえば、 **コミットを修正**:
 
-    ![Fix Performance Issue](attachments/mx-assist-performance-bot/fix-performance-issue.jpg)
+    ![パフォーマンスの問題を修正](attachments/mx-assist-performance-bot/fix-performance-issue.jpg)
 
-After the issue is auto-fixed, a pop-up window listing the changes appears. You can click **Show the fix** to view the changed document and element.
+課題が自動修正されると、変更がポップアップウィンドウに表示されます。 **Show the fix** をクリックすると、変更されたドキュメントと要素が表示されます。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Mendix Assist](mx-assist-studio-pro)
+* [Mendixアシスタント](mx-assist-studio-pro)
 * [MxAssist Logic Bot](mx-assist-logic-bot)
-* [How to Implement Mendix Best Practices for Development](/howto/general/dev-best-practices)
+* [Mendixの開発のベストプラクティスを実装する方法](/howto/general/dev-best-practices)
