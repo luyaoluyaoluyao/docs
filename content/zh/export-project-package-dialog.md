@@ -1,47 +1,45 @@
 ---
-title: "Export an App Package"
-parent: "dialogs"
+title: "导出应用包"
+parent: "文件菜单"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "导出应用"
+  - "导出应用包"
 ---
 
-## 1 Introduction
-With this dialog box, you can export a Mendix project package (*.mpk*) from the Mendix Modeler. You can export a project package for backup purposes or to share it with other Mendix developers. This is useful if you want to give someone the entire application, or if you need to provide a test app when submitting a ticket.
+## 1 导言
+您可以导出应用包 (*)。 pk*) 从 Mendix Studio Pro 进行备份或与其他Mendix 开发者共享。 如果你想要给他人整个应用，或者如果你需要在提交工单时提供测试应用，这是有用的。
 
-To open the **Export Project Package** dialog box, open your project in the Mendix Modeler and then go to **File > Export Project Package**.
+应用包可以使用 [导入应用包](import-project-package-dialog) 重新导入新应用程序。
 
-![](attachments/export-a-project-package/export-project-package-dialog.png)
+导出包裹。 打开 **文件** 菜单 > **导出应用包** 并在 **导出应用包** 对话框中选择相关的选项：
 
-## 2 Package Destination
+![导出应用软件包对话框](attachments/file-menu/export-project-package.png)
 
-In the **Package destination** field, enter the location of the package file. The default location is a folder named **packages** inside the project directory.
+ 关于您可以选择哪些选项的更多信息，请参阅下面的章节。
 
-## 3 Export Data
+## 2 目标
 
-You can export a Mendix project package without data or with a database snapshot included. If you include a database snapshot, you need to select whether you include an existing snapshot or you include a new snapshot.
+您可以指定要导出包的文件夹。 The default location is a folder named *packages* inside the app directory.
 
-### 3.1 No Data
+## 3 导出数据
 
-If you select **No data**, the project package will be exported without data included. After you click **Export**, the package will be exported to the selected package destination.
+Mendix 应用软件包可以导出到 Mendix 软件包文件(*.mpk*)。  您可以选择导出内置部署数据库和上传文件，或者导出没有数据。 您可以选择以下选项之一：
 
-### 3.2 Existing Snapshot
+* **没有数据** - 软件包将在没有数据的情况下导出。
 
-If you select **Existing snapshot**, the existing database snapshot will be included in the export. After you click **Export**, the package with the existing snapshot will be exported to the selected package destination.
+* **现有快照** - 此选项将包括导出应用包中现有的数据库快照
 
-{{% alert type="info" %}}
+    ●{% alert type="info" %}}此选项仅在快照已创建时有效。 如有必要，您可以通过 **版本控制** > **添加数据快照** 创建快照。
+    {{% /报警 %}}
 
-This option is only available when a snapshot is already present. Snapshots can be created via **Project** > **More Versioning** > **Add Snapshot of Data**.
+* **来自当前数据库的新快照** - 将从数据库创建一个新快照并将其包括在导出中
 
-{{% /alert %}}
+    {{% alert type="info" %}}This option is available after you run the app locally at least once, because a local database will be created when running the app for the first time.
+    {{% /报警 %}}
 
-### 3.3 New Snapshot from Current Database
+## 4 阅读更多
 
-If you select **New snapshot from current database**, a new snapshot will be created from the database and included in the export. After you click **Export**, the package with the new snapshot database will be exported to the selected package destination.
-
-{{% alert type="info" %}}
-
-This option becomes available after you run the app locally at least once, because a local database will be created when running the app for the first time.
-
-{{% /alert %}}
-
-## 4 Read More
-
-* [Import Project Package](import-project-package-dialog)
+* [导入应用包](import-project-package-dialog)
+* [版本控制菜单](版本控制-菜单)
