@@ -4,13 +4,9 @@ parent: "document-templates"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/Template+Grid+(document+template).html
-  - /refguide8/template-grid-(document-template).html
+  - /refguide/Template+Grid+(document+template).html
+  - /refguide/template-grid-(document-template).html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/template-grid-document-template.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -42,7 +38,7 @@ This defines the amount of columns the template grid will contain.
 
 ## 4 Common Properties
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
 
 ## 5 Data Source Properties
 
