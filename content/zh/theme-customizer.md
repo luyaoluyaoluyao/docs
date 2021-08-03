@@ -120,4 +120,4 @@ tags:
 
 ## 6 阅读更多
 
-* [Atlas界面](/howto/front-end/atlas-ui)
+* [Atlas界面](/howto8/front-end/atlas-ui)
