@@ -30,9 +30,9 @@ Sales Representatives in your company would like to view a list of opportunity c
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
 
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 * Make sure your domain model is configured the following way:
 
@@ -54,7 +54,7 @@ You would like to open a page with opportunity contact list and its details from
 
         {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-list/button-properties.png){{% /image_container %}}
 
-    2.  In the **Select Page** dialog box, click the plus icon in the top right corner.
+    2.  In the **Select Page** dialog box, click **New Page**.
 
     3.  In the **Create new page** dialog box, fill in the page title.
 
@@ -85,9 +85,9 @@ The page is created, now you need to configure it. First of all, you need to con
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-configure-list/text.png){{% /image_container %}}
 
-    2. In the **Content** property, delete *Name* and click **Add** > **Attribute**:
+    2. In the **Content** property, delete *Name* and click **Add attribute**:
 
-        ![](attachments/pages-how-to-configure-list/text-content.png)
+        {{% image_container width="250" %}}![](attachments/pages-how-to-configure-list/text-content.png){{% /image_container %}}
 
     3. In the **Select Attribute** dialog box, choose **Name** and click **Select**.
 
@@ -126,7 +126,7 @@ To displayed all the details that a contact has, do the following:
 
 5. In the **Select Attribute** dialog box, choose **Title** and click **Select**:
 
-    {{% image_container width="400" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
+    {{% image_container width="350" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
 
 6. Select the **Name** text box and click **Data Source** > **Attribute** in its properties.
 
@@ -154,6 +154,6 @@ Congratulations! You have a page that displays a list of opportunity contacts an
 
 ![Configured Page](attachments/pages-how-to-configure-list/configured-page.png)
 
-You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio/publishing-app).
+You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
 
-You can also work on the page details, for example, add a dynamic image to the list to display a profile picture of an opportunity contact next to their name. For more information on dynamic images, see [Images & Files](/studio/page-editor-widgets-images-and-files).
+You can also work on the page details, for example, add a dynamic image to the list to display a profile picture of an opportunity contact next to their name. For more information on dynamic images, see [Images & Files](/studio8/page-editor-widgets-images-and-files).
