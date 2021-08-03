@@ -1,65 +1,65 @@
 ---
-title: "Security"
+title: "セキュリティ"
 parent: "project-explorer"
 tags:
   - "studio pro"
-  - "security"
+  - "セキュリティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Security in Mendix has two sides: you want different people to see different parts of your application and you want to prevent unauthorized access. Both of these can be managed from Studio Pro. Access to forms, data and microflows can be limited to authorized users.
-
-{{% alert type="info" %}}
-Security in Mendix does not include scanning files that end-users upload or download from your application for viruses and malware. For more information, see the [Scanning Uploaded Files for Malicious Content](/howto/security/best-practices-security#scanning-for-malicious-content) section in *How to Implement Best Practices for App Security*.
-{{% /alert %}}
-
-## 2 Security Levels
-
-If you want full security, you need to explicitly give access to forms, entities, microflows, and workflows before someone can access them. By default, no one can access anything. To make it easier to create prototypes and demos there are security levels that require less security settings than are needed for a production system.
-
-See [App Security](project-security) for a description of the security levels.
-
-## 3 Project vs. Module Security
-
-At the level of a project some global settings can be specified: the security level, the administrator account and whether or not to allow anonymous access.
-
-See [App Security](project-security).
-
-Most of the security settings take place at the module level. This has the advantage that a module can specify its own security and can be distributed and reused in other projects. Access to forms, entities, microflows, workflows, and datasets can be configured.
-
-See [Module Security](module-security).
-
-## 4 User Roles vs. Module Roles {#user-role}
-
-An end-user in a Mendix application has one or more user roles. These roles can be assigned from within the client when creating or editing a user. User roles are at the level of a project and can be edited in [App Security](project-security).
-
-See [User Roles](user-roles).
-
-Each module defines its own set of module roles and you only have to specify security within a module in terms of those module roles. An e-mail module maybe has two module roles, one for normal user and one for an administrator; other modules may have just one or more than two module roles depending on the requirements for those modules.
-
-See [Module Role](module-security#module-role).
-
-A user role is a combination of module roles. A user that signs into the system gets the access rights of all of his or her user roles and indirectly to the module roles that are contained by those user roles.
+Mendixのセキュリティには2つの側面があります:あなたは別の人々があなたのアプリケーションのさまざまな部分を見たいとあなたは不正なアクセスを防ぎたいです。 どちらもStudio Proから管理できます。 フォーム、データ、およびマイクロフローへのアクセスは、許可されたユーザーに限定することができます。
 
 {{% alert type="info" %}}
+Mendixのセキュリティには、エンドユーザーがウイルスやマルウェア用のアプリケーションからアップロードまたはダウンロードするスキャンファイルは含まれていません。 詳細はこちら [](/howto/security/best-practices-security#scanning-for-malicious-content) の *アプリセキュリティのためのベストプラクティスを実装する方法* セクションを参照してください。
+{{% /alert %}}
 
-Let us say you have a project with two modules: System and ProjectManagement (PM). The PM module has three module roles: TeamMember, TeamLeader and Administrator. And let us say that in this case, we only need two user roles because we do not need the distinction between team leaders and administrators. You define those two user roles and assign module roles to them. The table below shows which module roles are contained within the user roles. Note that you always need at least the User role in System.
+## 2レベルのセキュリティ
 
-| User Role 'TeamMember'       | User Role 'TeamLeader'          |
-| ---------------------------- | ------------------------------- |
-| System.User                  | System.User                     |
-| ProjectManagement.TeamMember | ProjectManagement.TeamLeader    |
-|                              | ProjectManagement.Administrator |
+完全なセキュリティが必要な場合は、フォーム、エンティティ、マイクロフロー、およびワークフローへのアクセスを明示的に許可する必要があります。 デフォルトでは、誰もアクセスできません。 プロトタイプとデモの作成を容易にするために、本番システムに必要とされるセキュリティ設定よりも少ないセキュリティレベルがあります。
+
+セキュリティレベルの説明については、 [App Security](project-security) を参照してください。
+
+## 3プロジェクト対モジュールセキュリティ
+
+プロジェクトのレベルでは、セキュリティレベル以下のグローバル設定を指定できます。 匿名のアクセスを許可するか否かです
+
+[App Security](project-security) を参照してください。
+
+セキュリティ設定のほとんどはモジュールレベルで行われます。 これは、モジュールが独自のセキュリティを指定することができ、他のプロジェクトで配布および再利用することができる利点があります。 フォーム、エンティティ、マイクロフロー、ワークフロー、およびデータセットへのアクセスを構成できます。
+
+[モジュールセキュリティ](module-security) を参照してください。
+
+## 4 ユーザロール vs. モジュールロール {#user-role}
+
+Mendixアプリケーションのエンドユーザーには、1つ以上のユーザーロールがあります。 これらのロールは、クライアント内からユーザーを作成または編集する際に割り当てることができます。 ユーザー ロールはプロジェクトのレベルにあり、 [App Security](project-security) で編集できます。
+
+[ユーザー ロール](user-roles) を参照してください。
+
+各モジュールは独自のモジュールロールを定義し、モジュールロールの観点からモジュール内のセキュリティを指定するだけです。 電子メールモジュールには、通常のユーザー用と管理者用の2つのモジュールロールがあります。 他のモジュールは、それらのモジュールの要件に応じて、1つまたは複数のモジュールロールを持つことができます。
+
+[モジュールロール](module-security#module-role) を参照。
+
+ユーザーロールはモジュールロールの組み合わせです。 システムにサインインするユーザーは、ユーザーロールのすべてのアクセス権を取得し、それらのユーザーロールに含まれるモジュールロールに間接的に取得します。
+
+{{% alert type="info" %}}
+
+システムとProjectManagement(PM)という2つのモジュールを持つプロジェクトがあるとしましょう。 PMモジュールには、TeamMember、TeamLeader、Administratorの3つのモジュールロールがあります。 ここで言っておきたいのは チームリーダーと管理者の区別を必要としないため、ユーザーロールは2つしか必要ありません。 これらのユーザーロールを定義し、モジュールロールを割り当てます。 以下の表は、ユーザロールに含まれるモジュールロールを示しています。 システムでは、少なくともユーザーロールが必要です。
+
+| ユーザーロール 'TeamMember' | ユーザーロール 'TeamLeader'            |
+| -------------------- | ------------------------------- |
+| System.User          | System.User                     |
+| プロジェクト管理.TeamMember  | プロジェクト管理.TeamLeader             |
+|                      | ProjectManagement.Administrator |
 
 {{% /alert %}}
 
-## 5 Entity Access vs. Page Access
+## 5 エンティティアクセス vs. ページアクセス
 
-Per entity you can specify who can read or write what members (attributes and associations) under what circumstances. Using XPath constraints you can express powerful security behavior; for example, "an employee can only see orders created by the department he is a part of".
+エンティティごとに、どのような状況下でどのメンバー(属性と関連付け)を読んだり書いたりできるかを指定できます。 XPath 制約を使用すると、強力なセキュリティ動作を表現することができます。 例えば「従業員は自分が所属している部署の命令しか見ることができません」。
 
-Per page you can specify who can open it from navigation. The menu bar is optimized so that only pages that the user has access to are visible.
+ページごとに、ナビゲーションから開くことができるユーザーを指定できます。 メニューバーは、ユーザーがアクセスできるページのみが表示されるように最適化されています。
 
-A combination of entity access and a page access is necessary because entities can also be accessed from microflows and custom widgets. Furthermore, you can express more advanced security through entity access.
+エンティティアクセスとページアクセスの組み合わせが必要です。なぜなら、エンティティはマイクロフローやカスタム ウィジェットからもアクセスできます。 さらに、エンティティアクセスを通じて、より高度なセキュリティを表現することができます。
 
-See [Entity Access](module-security).
+[エンティティアクセス](module-security) を参照してください。
