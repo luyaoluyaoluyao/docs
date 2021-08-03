@@ -7,21 +7,25 @@ tags:
   - "リソース"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/resources.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 リソースは、自分では機能することができないが、他のドキュメントで使用することができるモジュール内のドキュメントを支援します。 例えば、マイクロフローやページはそれ自身で機能することができますが、Javaアクションはマイクロフロー内でのみ機能することができます。
 
-リソースはアプリの異なるモジュールで再利用できます。
+リソースはプロジェクトの異なるモジュールで再利用できます。
 
 ## 2 リソースを追加中
 
 リソースドキュメントを追加するには、次の操作を行います。
 
-1.  In the [App Explorer](project-explorer), right-click the module or a folder you want to add a resource to and select **Add other**:
+1.  In the [Project Explorer](project-explorer), right-click the module or a folder you want to add a resource to and select **Add other**:
 
     ![](attachments/resources/project-explorer-resources.png)
 
-2. **リソース** カテゴリで、アプリに追加したいドキュメントを選択します。
+2. **リソース** カテゴリで、プロジェクトに追加するドキュメントを選択します。
 
 ## 3つの資源の概要
 
