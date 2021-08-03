@@ -1,107 +1,107 @@
 ---
-title: "Offline"
-category: "General"
+title: "离线的"
+category: "A. 概况"
 menu_order: 40
 ---
 
-## 1 Introduction
+## 1 导言
 
-We define an offline application as the portion of a Mendix app that is accessible through the [Hybrid Tablet profile](hybrid-tablet-profile) and/or the [Hybrid Phone profile](hybrid-phone-profile). Offline support must be enabled. Pages available in these profiles can be viewed without an Internet connection. Consequently, they are subject to a number of restrictions which are explained below.
+我们将离线应用程序定义为可通过 [混合平板配置](hybrid-tablet-profile) 或 [混合手机配置文件](hybrid-phone-profile) 访问的 Mendix 应用程序的部分。 离线支持必须启用。 这些配置文件中的页面可以在没有互联网连接的情况下查看。 因此，他们受到若干限制，下文对此作了解释。
 
-## 2 Availability
+## 2 可用性
 
-To access the offline application, you need to have a mobile device that runs a correctly configured [PhoneGap](http://phonegap.com/) hybrid application. The app will require an internet connection the first time it is opened in order to download the necessary resources from the server. After the initial synchronization, the data will remain available in the app, even without an internet connection. Please note that the offline profile will be used, even if there is an internet connection available.
+要访问离线应用程序，您需要有一个运行正确配置的 [PhoneGap](http://phonegap.com/) 混合应用程序的移动设备。 该应用第一次打开后将需要网络连接，以便从服务器下载必要的资源。 初始同步后，数据将保持在应用中，即使没有互联网连接。 请注意，即使有互联网连接，也会使用离线配置文件。
 
-## 3 Synchronization {#synchronization}
+## 3 次同步 {#synchronization}
 
-The first time an [offline-enabled](configuring-hybrid-mobile-apps-to-run-offline) mobile application is run, it will retrieve all the data it requires to run offline from the server. After that, it will remain in offline mode until a synchronization event is triggered. Remaining in offline mode will significantly improve the performance of your application. Synchronization can be triggered by either the server or the user. The server will automatically resynchronize the app if it is opened after a new model is uploaded, in order to prevent inconsistencies. The user can trigger a synchronization by triggering a sync action, for example from an [action button](action-button).
+第一次运行 [离线启用的](configuring-hybrid-mobile-apps-to-run-offline) 移动应用程序时，它将检索它从服务器上离线运行所需的所有数据。 之后，它将处于离线模式，直到一个同步事件触发为止。 剩余的离线模式将大大提高应用程序的性能。 同步可以由服务器或用户触发。 如果应用程序在上传新模型后打开，服务器将自动重新同步，以防止不一致。 用户可以通过触发同步动作来触发同步动作，例如从 [动作按钮](action-button) 来触发同步动作。
 
 {{% alert type="info" %}}
 
-As of Mendix 7.6, the startup performance of offline apps skips data and file synchronizations on subsequent application startups. Mendix still does them, but only if your app has been redeployed in the meantime. In that case, synchronization consists of two steps: Uploading new and changed objects, and then recreating the database by downloading all necessary objects from the runtime.
+从 Mendix 7.6开始，离线应用的启动性能会在随后的应用程序启动时跳过数据和文件同步操作。 Mendix 仍然执行这些操作，但仅当您的应用程序已被重新调配。 在这种情况下，同步由两个步骤组成：上传新的和更改过的物体。 然后从运行时下载所有必需的对象，重新创建数据库。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-During upload, objects newly created by the user will be created on the server. Then, new and changed objects are uploaded to the server by committing them. Any relevant event handlers on these objects will run as usual. If the synchronization action encounters an error during this process, the entire upload process is reverted. For example, if ten objects are uploaded and one of these commits triggers a validation error, all ten objects are lost. This is to ensure that the internal consistency between your newly created objects is maintained. For example, if a user creates an order with several order lines and the order fails to commit, the entire transaction is rolled back to prevent your order lines from ending up in the database without an order and corrupting your data.
+在上传过程中，用户新创建的对象将在服务器上创建。 然后，新的和更改过的对象会通过提交来上传到服务器。 这些对象上的任何相关事件处理程序都会像往常一样运行。 如果同步操作在此过程中遇到错误，则恢复整个上传过程。 例如，如果上传了10个对象，而其中一个提交会触发验证错误，那么所有10个对象都会丢失。 这是为了确保您新创建的对象之间保持内部一致性。 例如，如果用户创建了一个包含多个订单行且订单未能提交， 整个交易被回滚以防止您的订单行在没有订单的情况下最终进入数据库并损坏您的数据。
 
-During download, the offline database is dropped and recreated to avoid any conflicts. The database is then filled by querying all objects that are used in the offline profile.
+在下载过程中，离线数据库被丢弃并重新创建，以避免任何冲突。 然后通过查询离线配置文件中使用的所有对象来填充数据库。
 
-Because synchronization depends on the regular runtime APIs, the models of the app and the runtime should be compatible. This is important when deploying a new version of your app. For example, if you remove the `Brand` attribute of an offline-visible entity `Car`, someone using an old version of the offline app will get an error during synchronization if they change the brand of their car. Therefore, as a rule of thumb, never remove, rename, or change the type of an offline visible entity or its attributes.
+由于同步取决于正常运行时间 API，应用程序的模型和运行时间应该兼容。 这在部署新版本的应用程序时是很重要的。 例如，如果您删除离线可见实体的 `Brand` 属性 `汽车`使用旧版本的离线应用程序的人会在同步过程中发生错误，如果他们改变他们的汽车品牌。 因此，作为一项缩略图规则，绝不去除、重命名或更改离线可见实体或其属性的类型。
 
-Synchronization of files is only triggered by modifications to the attributes of the object, not by modifying the contents of the file itself.
+文件同步只能由对象属性的修改而不是通过修改文件本身的内容来触发。
 
-{{% alert type="warning" %}}When a synchronization error occurs because of one the reasons above, an object's commit is skipped, its changes are ignored, and references from other objects to it become invalid. Objects referencing such a skipped object (which are not triggering errors) will be synchronized normally. Such a situation is likely to be a modeling error and is logged on the server.{{% /alert %}}
+{{% alert type="warning" %}}When a synchronization error occurs because of one the reasons above, an object's commit is skipped, its changes are ignored, and references from other objects to it become invalid. 引用这种跳过对象的对象（不会触发错误）将正常同步。 这种情况可能是一个建模错误，已登录服务器。{%/提醒 %}}
 
-## 4 Restrictions {#restrictions}
+## 4 限制 {#restrictions}
 
-### 4.1 Microflows
+### 4.1 微型流动
 
-Without a server to process all the necessary logic, microflows run from the Mendix client cannot function in offline pages. This applies to any and all client-side microflows, from data source microflows to on-change actions. Please note that every microflow run outside the scope of the client will still run. For instance, a before-commit microflow can still be used to process complex logic, as long as the developer remains aware of the fact that it will be run on synchronization rather than the initial save.
+没有服务器处理所有必要的逻辑，Mendix 客户端的微流无法在离线页面运行。 这适用于从数据源微流到变化时的任何和所有客户微流的微流。 请注意，在客户端范围之外运行的每个微流程仍然会运行。 例如，事先承诺的微流仍可用于处理复杂的逻辑， 只要开发者仍然意识到它将以同步方式运行，而不是以初始保存方式运行。
 
 ### 4.2 XPath
 
-The database used to store data on your mobile device for offline use does not support complex queries. As such, the XPath setting is disallowed on all the widgets accessible through the offline device profile. Alternatively, the simple constraints found in the database data source can be used, as well as modeling complex queries using entity access.
+用于在您的移动设备上存储数据供离线使用的数据库不支持复杂的查询。 因此，在所有可通过离线设备配置文件访问的小部件上不允许使用 XPath 设置。 或者，可以使用数据库数据源中发现的简单限制，以及使用实体访问来建模复杂的查询。
 
-### 4.3 Data Sources
+### 4.3 数据来源
 
-Only the database data source is allowed offline, due in part to the restrictions on both XPath and microflows described above.
+部分由于上文所述的 XPath 和微流的限制，只允许数据库数据源脱机使用。
 
-### 4.4 Search
+### 4.4 搜索
 
-Because our search behavior relies on database queries, searching is currently not available to offline grids and list views.
+由于我们的搜索行为依赖于数据库查询，搜索目前无法用于离线网格和列表视图。
 
-### 4.5 Data Manipulation
+### 4.5 数据操作
 
-Before Mendix 7.4.0, offline pages only supported the creation of new objects. Objects imported from the online database could be viewed but not changed. Objects could only be edited in the period between creation and synchronization.
+Mendix 7.4.0前，离线页面只支持创建新对象。 从在线数据库中导入的对象可以被查看但不可更改。 对象只能在创建和同步期间进行编辑。
 
-From Mendix 7.4.0 on, objects can also be edited after synchronization.
+从 Mendix 7.4.0 开启，对象也可以在同步后进行编辑。
 
-### 4.6 Autonumbers and Calculated Attributes
+### 4.6 自动umbers和计算的属性
 
-Both autonumbers and calculated attributes require server intervention, and are therefore disallowed. Objects with these attribute types can still be viewed and created offline, but the attributes themselves cannot be displayed.
+自动启动器和计算属性都需要服务器干预，因此不允许。 具有这些属性类型的对象仍然可以在离线查看和创建，但属性本身不能显示。
 
-### 4.7 Files
+### 4.7 文件
 
-Storing and uploading files offline is not supported. Specializations of the System.FileDocument can still be created offline, but files cannot be uploaded or downloaded. The exception to this rule is System.Image, which can be accessed, viewed, and uploaded as usual with the image viewer and upload widgets.
+不支持离线存储和上传文件。 System.FileDocument 的专业化仍然可以离线创建，但文件不能上传或下载。 此规则的例外情况是 System.Image，它可以用图像查看器和上传小部件访问、查看和上传。
 
-### 4.8 Default Attribute Values
+### 4.8 默认属性值
 
-Default attribute values for entities in the domain model don't have any effect for objects created offline. Boolean attributes will always default to `false`, numeric attributes to `0`, and other attributes to `empty`.
+域模型中实体的默认属性值对于离线创建的对象没有任何影响。 布尔属性总是默认为 `false`, 数字属性为 `0`, 以及其他属性为 `空`。
 
-### 4.9 Associations
+### 4.9 社会联系
 
-Attribute paths which follow references are not allowed in grid columns. In addition, reference set selectors cannot be used.
+网格列不允许遵循引用的属性路径。 此外，不能使用参考集选择器。
 
-In addition, usage of reference set associations (accessing through custom widgets etc) is not supported.
+此外，不支持使用参考集关联(通过自定义小部件等访问)。
 
-### 4.10 Inheritance
+### 4.10 继承权
 
-It is not possible to use more than one entity from a generalization/specialization relation. If you use two or more related entities on your offline pages or offline nanoflows, synchronization will fail, because the objects of these entities will be inserted multiple times into the database with the same ID.
+一般/专门关系中不可能使用一个以上的实体。 如果您在离线页面上使用两个或多个相关的实体或离线nanoflow，同步将失败， 因为这些实体的对象将被多次插入具有相同ID的数据库。
 
-### 4.11 System Members
+### 4.11 系统成员
 
-System members (`createdDate`, `changedDate`, `owner`, `changedBy`) are not supported.
+系统成员`创建日期`, `更改日期`, `所有者`, `更改by`不支持
 
-### 4.12 Excel/CSV Export
+### 4.12 Excel/CSV 导出
 
-Spreadsheets are generated through direct database interaction, which is not available offline.
+直播表是通过直接数据库交互生成的，在线不可用。
 
-### 4.13 Platforms
+### 4.13 平台
 
-Offline-enabled apps are only supported on the iOS and Android platforms.
+离线启用的应用程序仅在 iOS 和 Android 平台上支持。
 
-For more information on offline apps, see [Configuring Hybrid Mobile Apps to Run Offline](configuring-hybrid-mobile-apps-to-run-offline).
+欲了解离线应用的更多信息，请参阅 [配置混合移动应用程序以离线运行](configuring-hybrid-mobile-apps-to-run-offline)。
 
-### 4.14 Synchronization
+### 4.14 同步
 
-Mendix does not have a recommended maximum app size for the synchronization process. This process depends on the amount of data as well as the connection quality and speed of the mobile device.
+Mendix 没有为同步进程建议的最大应用程序大小。 这个过程取决于数据的数量以及移动设备的连接质量和速度。
 
-The timeout is set to 30 seconds per entity downloaded per the [July 3rd, 2018 Hybrid App Base & Template](/releasenotes/mobile/hybrid-app#7318) release.
+每个实体下载的 [7月3日, 2018 混合应用基地 & 模板](/releasenotes/mobile/hybrid-app#7318) 版本的超时时间设置为 30秒。
 
-In addition, Mendix recommends limiting the amount of data and syncing as much as possible by configuring security access so that users do not sync entities they do not need.
+此外， Mendix 建议通过设置安全访问权限来尽可能限制数据数量和同步，从而使用户不会同步他们不需要的实体。
 
-### 4.15 Read-Only Attributes
+### 4.15 只读属性
 
-There is a restriction with creating and syncing objects with read-only attributes from an offline app. The offline app does not know access rules, so it will allow a user that creates an object offline to edit all attributes, regardless of whether the user actually has write access to them. When syncing the object, this will result in errors, as access rules will be applied when committing the object.
+创建和同步对象与离线应用的只读属性有一个限制。 离线应用不知道访问规则，所以它允许用户离线创建对象来编辑所有属性， 无论用户是否真的有写访问权限。 当同步对象时，这将导致错误，因为提交对象时将适用访问规则。
 
-Please note that this does not apply to changing existing objects.
+请注意，这不适用于更改现有对象。
