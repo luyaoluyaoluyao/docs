@@ -35,7 +35,7 @@ Mendix Studio には以下の画像とファイルのウィジェットがあり
     {{% image_container width="350" %}}![](attachments/page-editor-widgets-images-and-files/images-and-files.png)
     {{% /image_container %}}
 
-## 2 画像と動的画像プロパティ
+## 2画像と動的画像
 
 イメージと動的イメージウィジェットを使用すると、ファイル(静的)またはデータベース(動的)からイメージを表示することができます。
 
@@ -43,7 +43,9 @@ Mendix Studio には以下の画像とファイルのウィジェットがあり
 
 ![](attachments/page-editor-widgets-images-and-files/static-and-dynamic-image.png)
 
-### 2.1 一般セクション {#image-general}
+### 2.1 プロパティ
+
+#### 2.1.1 一般セクション {#image-general}
 
 **General** セクションでは、静的イメージと動的イメージの切り替え、画像の選択、幅と高さの設定などができます。
 
@@ -65,29 +67,29 @@ Mendix Studio には以下の画像とファイルのウィジェットがあり
 | 高さの単位    | 静的および動的画像          | 画像の高さは以下の方法で指定できます:  <br /><ul><li>**自動** – 指定した画像の高さが使用されます。</li><li>**ピクセル** – 高さはピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。</li><li>**パーセント** – 高さは元の高さのパーセントで指定されます。 画像が伸びている場合は、元の高さよりも大きくすることができます。</li></ul><br />**高さ単位**: 自動                                                                       |
 | 高さ       | 静的および動的画像          | **高さ** オプションは、 **ピクセル** または **パーセント** が **高さユニット**に選択されている場合にのみ表示されます。 画像の高さをピクセルまたはパーセンテージで指定します。                                                       |
 
-### 2.2 イベントセクション
+#### 2.1.2 イベントセクション
 
 **イベント** セクションで **クリックアクション** を選択できます。 **on Click Action** は、ユーザーが画像をクリックしたときに実行されるアクションを定義します。
 
-#### 2.2.1 一般的なプロパティ
+##### 2.1.2.1 一般的なプロパティ
 
 The static image and the dynamic image share the properties in the **Events** section, except for one property that is [specific for the dynamic image](#events-dynamic-image).
 
 静的および動的イメージの **イベント** セクションの詳細については、 [ウィジェットのイベント セクション](page-editor-widgets-events-section) を参照してください。
 
-#### 2.2.2 動的画像特有のプロパティ {#events-dynamic-image}
+##### 2.1.2.2 動的イメージ固有のプロパティ {#events-dynamic-image}
 
 ダイナミックイメージには、特定のオンクリックアクション **クリックで拡大**があります。 フルサイズの画像は、ユーザーがそれをクリックすると表示されます。 このプロパティは、他のオンクリック操作を上書きします。
 
-### 2.3 条件付き表示セクション
+#### 2.1.3 条件付き表示セクション
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-### 2.4 デザインセクション
+#### 2.1.4 デザインセクション
 
 **デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-## 3 画像アップローダーとファイルマネージャのプロパティ
+## 3 画像アップローダーとファイルマネージャー
 
 **画像アップローダー** はエンドユーザーがあなたのアプリに画像をアップロードし、アップロードされた画像のサムネイルを生成します。 たとえば、ユーザーは自分のプロフィールの写真をアップロードできます。
 
@@ -97,60 +99,71 @@ The static image and the dynamic image share the properties in the **Events** se
 
 ファイルマネージャは、データビューまたはファイルエンティティをデータソースとして持つリストビュー内に配置する必要があります。  ファイルエンティティの詳細については、 [ドメイン モデル](domain-models#entity-types) の *エンティティの種類* セクションを参照してください。
 
-アップロード/ダウンロードできるファイルと画像のデフォルトの最大サイズは5MBです。 Studio Pro で最大サイズを変更できます。 Studio Pro のプロパティの詳細については、 [File Manager](/refguide/file-manager) および [Image Uploader](/refguide/image-uploader) を参照してください。
+アップロード/ダウンロードできるファイルと画像のデフォルトの最大サイズは5MBです。 Studio Pro で最大サイズを変更できます。 Studio Pro のプロパティの詳細については、 [File Manager](/refguide8/file-manager) および [Image Uploader](/refguide8/image-uploader) を参照してください。
 
-Studio Pro で特に指定しない限り、すべてのファイル拡張子はイメージアップローダーとファイルマネージャに使用できます。 Studio Pro のプロパティの詳細については、 [File Manager](/refguide/file-manager) および [Image Uploader](/refguide/image-uploader) を参照してください。
+Studio Pro で特に指定しない限り、すべてのファイル拡張子はイメージアップローダーとファイルマネージャに使用できます。 Studio Pro のプロパティの詳細については、 [File Manager](/refguide8/file-manager) および [Image Uploader](/refguide8/image-uploader) を参照してください。
 
-### 3.1 データソースセクション
+### 3.1 プロパティ
+
+#### 3.1.1 データソースセクション
 
 **Data Source** セクションは、 **Context Entity** オプションで構成されています。 **Context Entity** は(ファイルマネージャを使用している場合)ファイルエンティティまたは(イメージアップローダーを使用している場合)周辺のデータビューまたはリストビューのイメージエンティティを使用します。 **コンテキストエンティティ** が自動的に設定され、読み取り専用です。
 
-### 3.2 一般セクション
+#### 3.1.2 一般セクション
 
 **一般的な** セクションプロパティについては以下に説明します。
 
-#### 3.2.1 ラベルを表示
+##### 3.1.2.1 ラベルの表示
 
 エンドユーザーにウィジェットのラベル (名前) を表示する場合は、このプロパティを有効にします。 *このプロパティはデフォルトで有効になっています。*
 
-#### 3.2.2 ラベル
+##### 3.1.2.2 ラベル
 
 このプロパティは、 **Show Label** が有効な場合にのみ表示されます。 エンドユーザーに表示される名前を指定します。 属性を選択すると、属性の名前がブレース内のラベルに表示されます。 これは、静的なテキストの代わりに、属性の値がエンドユーザーに表示されることを意味します。
 
-#### 3.2.3 編集可能 {#editability}
+##### 3.1.2.3 編集可能 {#editability}
 
 編集可能性は、エンドユーザーがウィジェットによって表示される値を変更できるかどうかを示します。 可能な値は次のとおりです。
 
-* **編集可能** - ウィジェットで表示される値は編集可能です。
+* **編集可能** - ウィジェットに表示される値は編集可能
 
-* **読み取り専用** – 値は読み取り専用モードです。
+* **読み取り専用** – 値は読み取り専用モードです
 
-* **条件付き** – ウィジェットは、属性値または式に基づいて指定された条件を満たす場合にのみ編集可能です。
+* **Conditional** – the widget is editable only if specified conditions are met based on an attribute value (for more information, see  [Attribute-Based](#attribute-based) and [Attribute Values](#attribute-values) sections below) or based on an expression. Studio Pro でのみ、式に基づいて条件を作成できます(詳細については)。 [ページエディターで共通のプロパティ](/refguide8/common-widget-properties#editability) の *編集可能セクション* を参照 )
 
-    {{%alert type="info" %}} If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.{{%/alert %}}
+  {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
 
-#### 3.2.4 に基づく条件 {#condition}
+  {{%/alert %}}
 
-**** プロパティに基づく条件は、 [条件編集可能性](#editability) が選択されている場合にのみ表示されます。 次のオプションが使用できます。
+##### 3.1.2.4 属性ベース {#attribute-based}
 
-* **属性** – 条件が属性値に基づいているかどうかを定義します。 この場合、ウィジェットは選択した属性の特定の値に一致する場合にのみ編集可能になります。 属性は、ブール型または列挙型でなければなりません。
-* **式** – 条件が式に基づいているかどうかを定義します。 この場合、ウィジェットはブール値 `true` を返した場合にのみ編集可能になります。 式の詳細については、 [式](expressions) を参照してください。
+**Attribute-Based** プロパティは [Conditional Editability](#editability) が選択されている場合にのみ表示されます。
 
-#### 3.2.5 属性 {#attribute}
+**Attribute-Based** の条件付き編集では、選択した属性の特定の値に一致するウィジェットを表示することができます。
 
-このプロパティは、式が [](#condition) に基づいている **属性** に設定されている場合にのみ表示されます。 条件に基づく属性を選択できます。 属性は、ブール型または列挙型でなければなりません。
+{{%alert type="info" %}}
 
-#### 3.2.6 属性値 {#attribute-values}
+属性は、ブール型または列挙型でなければなりません。
 
-このプロパティは、属性が [属性](#condition) プロパティに選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
+{{%/alert %}}
 
-例えば、ユーザーの *メールが認証されている場合にのみ、画像をアップロードすることを許可します*。 So, you need to select *EmailVerified* in the **Attribute** property and *true* in the **Attribute Value** property.
+{{%alert type="info" %}}
 
-#### 3.2.7 式
+データコンテナ内にウィジェットが配置されている場合(データビューまたはリストビュー)にのみ、属性ベースの条件付き編集機能を設定できます。 ウィジェットをページに配置する方法についての詳細は、 [ページ](page-editor#adding-elements) の *ページ* のセクションで要素を追加するを参照してください。
 
-このプロパティでは、式を作成することができ、式が [](#condition) に基づいて **式** に設定されている場合にのみ表示されます。 式はブール型でなければなりません。 式の作成方法の詳細については、 [式](expressions) を参照してください。
+{{%/alert %}}
 
-### 3.3 コントロールセクション
+##### 3.1.2.5 属性値 {#attribute-values}
+
+このプロパティは、 [Attribute-Based](#attribute-based) プロパティの属性が選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
+
+例えば、ユーザーの *メールが認証されている場合にのみ、画像をアップロードすることを許可します*。 So, you need to select *EmailVerified* in the **Attribute-Based** property and *true* in the **Attribute Value** property:
+
+{{% image_container width="250" %}}
+![](attachments/page-editor-widgets-input-elements/conditional-editability.png)
+{{% /image_container %}}
+
+#### 3.1.3 コントロールセクション
 
 {{% alert type="info" %}}
 
@@ -164,11 +177,11 @@ Studio Pro で特に指定しない限り、すべてのファイル拡張子は
 * **ダウンロード** – エンドユーザーはファイルをダウンロードできます
 * **両方とも** - エンドユーザーはファイルをアップロードおよびダウンロードすることができます
 
-### 3.4 条件付き表示セクション
+#### 3.1.4 条件付き表示セクション
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-### 3.5 デザインセクション
+#### 3.1.5 デザインセクション
 
 **デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
