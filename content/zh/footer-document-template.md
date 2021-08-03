@@ -1,6 +1,6 @@
 ---
-title: "Footer (Document Template)"
-parent: "document-templates"
+title: "页脚(文档模板)"
+parent: "文档模板"
 tags:
   - "studio pro"
 aliases:
@@ -8,22 +8,22 @@ aliases:
   - /refguide/Footer+(document+template).html
 ---
 
-## 1 Introduction
+## 1 导言
 
-When enabled, the footer will be inserted at the bottom of every page. Other widgets can be put in the footer.
+启用时，页脚将插入每个页面的底部。 其他部件可以放入页脚。
 
-For inserting page numbers, see [Static Label](static-label-document-template).
+关于插入页码，请参阅 [静态标签](static-label-document-template)。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918235.png)
 
-A footer.
+页脚。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Appearance
+## 2 个外观
 
-### 2.1 BottomMargin
+### 2.1 底边距
 
-The amount of space between the bottom of the page and the footer in inches.
+页面底部和英寸页脚之间的空间量。
