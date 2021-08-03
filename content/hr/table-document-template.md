@@ -2,13 +2,9 @@
 title: "Table (Document Template)"
 parent: "document-templates"
 aliases:
-  - /refguide8/table-(document-template).html
-  - /refguide8/Table+(document+template.html
+  - /refguide/table-(document-template).html
+  - /refguide/Table+(document+template.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table-document-template.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -60,4 +56,4 @@ For details, see [Style](style).
 
 ## 4 Common Properties
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
