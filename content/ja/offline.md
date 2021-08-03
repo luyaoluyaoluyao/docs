@@ -1,107 +1,107 @@
 ---
-title: "Offline"
-category: "General"
+title: "オフライン"
+category: "全般"
 menu_order: 40
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-We define an offline application as the portion of a Mendix app that is accessible through the [Hybrid Tablet profile](hybrid-tablet-profile) and/or the [Hybrid Phone profile](hybrid-phone-profile). Offline support must be enabled. Pages available in these profiles can be viewed without an Internet connection. Consequently, they are subject to a number of restrictions which are explained below.
+我々は、オフラインアプリケーションを、 [ハイブリッドタブレットプロファイル](hybrid-tablet-profile) および/または [ハイブリッド電話プロファイル](hybrid-phone-profile) からアクセス可能なMendixアプリの一部として定義します。 オフラインサポートを有効にする必要があります。 これらのプロファイルで利用可能なページは、インターネット接続なしで表示できます。 したがって、これらは以下に説明するいくつかの制限の対象となります。
 
-## 2 Availability
+## 2種類の在庫あり
 
-To access the offline application, you need to have a mobile device that runs a correctly configured [PhoneGap](http://phonegap.com/) hybrid application. The app will require an internet connection the first time it is opened in order to download the necessary resources from the server. After the initial synchronization, the data will remain available in the app, even without an internet connection. Please note that the offline profile will be used, even if there is an internet connection available.
+オフラインアプリケーションにアクセスするには、正しく設定された [PhoneGap](http://phonegap.com/) ハイブリッド・アプリケーションを実行するモバイルデバイスが必要です。 アプリは、サーバーから必要なリソースをダウンロードするために、最初に開いたときにインターネット接続が必要になります。 最初の同期後も、インターネットに接続されていなくても、アプリ内でデータが利用可能になります。 インターネット接続がある場合でも、オフラインプロファイルは使用されますのでご注意ください。
 
-## 3 Synchronization {#synchronization}
+## 3 同期 {#synchronization}
 
-The first time an [offline-enabled](configuring-hybrid-mobile-apps-to-run-offline) mobile application is run, it will retrieve all the data it requires to run offline from the server. After that, it will remain in offline mode until a synchronization event is triggered. Remaining in offline mode will significantly improve the performance of your application. Synchronization can be triggered by either the server or the user. The server will automatically resynchronize the app if it is opened after a new model is uploaded, in order to prevent inconsistencies. The user can trigger a synchronization by triggering a sync action, for example from an [action button](action-button).
+[オフライン対応](configuring-hybrid-mobile-apps-to-run-offline) モバイルアプリケーションが最初に実行されると、サーバーからオフラインで実行するために必要なすべてのデータを取得します。 その後、同期イベントがトリガーされるまでオフラインモードになります。 オフラインモードのままにすると、アプリケーションのパフォーマンスが大幅に向上します。 サーバーまたはユーザーのいずれかによって同期をトリガーできます。 新しいモデルがアップロードされた後に開かれた場合、サーバーは自動的にアプリを再同期化し、矛盾を防ぎます。 ユーザーは、たとえば [アクション ボタン](action-button) から同期アクションをトリガーすることにより、同期をトリガーできます。
 
 {{% alert type="info" %}}
 
-As of Mendix 7.6, the startup performance of offline apps skips data and file synchronizations on subsequent application startups. Mendix still does them, but only if your app has been redeployed in the meantime. In that case, synchronization consists of two steps: Uploading new and changed objects, and then recreating the database by downloading all necessary objects from the runtime.
+Mendix 7.6の時点で、オフラインアプリの起動パフォーマンスは、後続のアプリケーション起動時にデータとファイル同期をスキップします。 Mendixはそれらを引き続き実行しますが、その間にアプリが再デプロイされた場合に限ります。 この場合、同期は 2 つのステップで構成されます: 新規オブジェクトと変更されたオブジェクトのアップロード 実行時に必要なすべてのオブジェクトをダウンロードしてデータベースを再作成します。
 
 {{% /alert %}}
 
-During upload, objects newly created by the user will be created on the server. Then, new and changed objects are uploaded to the server by committing them. Any relevant event handlers on these objects will run as usual. If the synchronization action encounters an error during this process, the entire upload process is reverted. For example, if ten objects are uploaded and one of these commits triggers a validation error, all ten objects are lost. This is to ensure that the internal consistency between your newly created objects is maintained. For example, if a user creates an order with several order lines and the order fails to commit, the entire transaction is rolled back to prevent your order lines from ending up in the database without an order and corrupting your data.
+アップロード時に、ユーザーが新たに作成したオブジェクトがサーバー上に作成されます。 そして、new と changed オブジェクトはコミットすることによってサーバにアップロードされます。 これらのオブジェクトに関連するイベントハンドラは、通常通り実行されます。 この処理中に同期アクションにエラーが発生した場合、アップロードプロセス全体が元に戻されます。 たとえば、10 個のオブジェクトがアップロードされ、これらのいずれかのコミットが検証エラーを引き起こすと、10 個のオブジェクトはすべて失われます。 これは、新しく作成したオブジェクト間の内部の一貫性を確保するためです。 例えば、ユーザーが複数の注文行を持つ注文を作成し、注文がコミットに失敗した場合。 トランザクション全体がロールバックされ、注文がなくてもデータが破損するのを防ぎます。
 
-During download, the offline database is dropped and recreated to avoid any conflicts. The database is then filled by querying all objects that are used in the offline profile.
+ダウンロード中、オフラインデータベースは削除され、競合を避けるために再作成されます。 その後、データベースは、オフラインプロファイルで使用されるすべてのオブジェクトを照会することによって埋められます。
 
-Because synchronization depends on the regular runtime APIs, the models of the app and the runtime should be compatible. This is important when deploying a new version of your app. For example, if you remove the `Brand` attribute of an offline-visible entity `Car`, someone using an old version of the offline app will get an error during synchronization if they change the brand of their car. Therefore, as a rule of thumb, never remove, rename, or change the type of an offline visible entity or its attributes.
+同期は通常のランタイムAPIに依存するため、アプリのモデルとランタイムは互換性がある必要があります。 これは、新しいバージョンのアプリケーションをデプロイするときに重要です。 たとえば、オフラインで表示されるエンティティの `Brand` 属性を削除した場合、 `Car`古いバージョンのオフラインアプリを使っている誰かが車のブランドを変更すると同期中にエラーが発生します したがって、経験則として、オフラインで表示されるエンティティまたはその属性の種類を削除、名前の変更、または変更することはありません。
 
-Synchronization of files is only triggered by modifications to the attributes of the object, not by modifying the contents of the file itself.
+ファイルの同期は、ファイル自体の内容を変更することではなく、オブジェクトの属性への変更によってのみトリガーされます。
 
-{{% alert type="warning" %}}When a synchronization error occurs because of one the reasons above, an object's commit is skipped, its changes are ignored, and references from other objects to it become invalid. Objects referencing such a skipped object (which are not triggering errors) will be synchronized normally. Such a situation is likely to be a modeling error and is logged on the server.{{% /alert %}}
+{{% alert type="warning" %}}上記の理由により同期エラーが発生した場合。 オブジェクトのコミットはスキップされ、その変更は無視され、他のオブジェクトからの参照は無効になります。 このようなスキップされたオブジェクト(エラーをトリガーしていない)を参照しているオブジェクトは正常に同期されます。 このような状況はモデリングエラーになる可能性があり、{{% /alert %}}
 
-## 4 Restrictions {#restrictions}
+## 4つの制限 {#restrictions}
 
-### 4.1 Microflows
+### 4.1 マイクロフロー
 
-Without a server to process all the necessary logic, microflows run from the Mendix client cannot function in offline pages. This applies to any and all client-side microflows, from data source microflows to on-change actions. Please note that every microflow run outside the scope of the client will still run. For instance, a before-commit microflow can still be used to process complex logic, as long as the developer remains aware of the fact that it will be run on synchronization rather than the initial save.
+必要なすべてのロジックを処理するサーバーがなければ、Mendix クライアントから実行されるmicroflow はオフラインページで機能できません。 これは、データソースマイクロフローからオン変更アクションまで、クライアント側のすべてのマイクロフローに適用されます。 クライアントのスコープ外で実行されるすべてのマイクロフローは、引き続き実行されることに注意してください。 例えば、before-commit microflow を使用して複雑なロジックを処理することができます。 開発者が最初のセーブではなく、同期で実行されるという事実を認識している限り。
 
 ### 4.2 XPath
 
-The database used to store data on your mobile device for offline use does not support complex queries. As such, the XPath setting is disallowed on all the widgets accessible through the offline device profile. Alternatively, the simple constraints found in the database data source can be used, as well as modeling complex queries using entity access.
+オフラインで使用するためにモバイルデバイスにデータを保存するために使用されるデータベースは、複雑なクエリに対応していません。 このため、オフラインのデバイスプロファイルを介してアクセス可能なすべてのウィジェットで XPath 設定が許可されません。 あるいは、データベースデータソースに含まれる単純な制約を使用するとともに、エンティティアクセスを使用して複雑なクエリをモデリングすることもできます。
 
-### 4.3 Data Sources
+### 4.3 データソース
 
-Only the database data source is allowed offline, due in part to the restrictions on both XPath and microflows described above.
+上記で説明されている XPath とマイクロフローの両方の制限のため、データベースデータソースのみがオフラインで使用することができます。
 
-### 4.4 Search
+### 4.4 検索
 
-Because our search behavior relies on database queries, searching is currently not available to offline grids and list views.
+検索の動作はデータベースクエリに依存しているため、現在、オフライングリッドとリストビューでは検索が利用できません。
 
-### 4.5 Data Manipulation
+### 4.5 データ操作
 
-Before Mendix 7.4.0, offline pages only supported the creation of new objects. Objects imported from the online database could be viewed but not changed. Objects could only be edited in the period between creation and synchronization.
+Mendix 7.4.0以前は、オフラインページでは新しいオブジェクトの作成のみがサポートされていました。 オンラインデータベースからインポートされたオブジェクトは表示できますが変更できません。 オブジェクトは、作成と同期の間でのみ編集できます。
 
-From Mendix 7.4.0 on, objects can also be edited after synchronization.
+Mendix 7.4.0 からは、同期後にオブジェクトを編集することもできます。
 
-### 4.6 Autonumbers and Calculated Attributes
+### 4.6 オートンバーと計算された属性
 
-Both autonumbers and calculated attributes require server intervention, and are therefore disallowed. Objects with these attribute types can still be viewed and created offline, but the attributes themselves cannot be displayed.
+autonumbers と計算された属性の両方にはサーバーの介入が必要であり、したがって許可されていません。 これらの属性タイプを持つオブジェクトはオフラインで表示および作成できますが、属性自体は表示できません。
 
-### 4.7 Files
+### 4.7ファイル
 
-Storing and uploading files offline is not supported. Specializations of the System.FileDocument can still be created offline, but files cannot be uploaded or downloaded. The exception to this rule is System.Image, which can be accessed, viewed, and uploaded as usual with the image viewer and upload widgets.
+オフラインでのファイルの保存とアップロードはサポートされていません。 System.FileDocument の専門分野はオフラインで作成できますが、ファイルのアップロードやダウンロードはできません。 このルールの例外は System.Imageで、いつものように画像ビューアーでアクセス、閲覧、アップロード、ウィジェットのアップロードが可能です。
 
-### 4.8 Default Attribute Values
+### 4.8 デフォルトの属性値
 
-Default attribute values for entities in the domain model don't have any effect for objects created offline. Boolean attributes will always default to `false`, numeric attributes to `0`, and other attributes to `empty`.
+ドメインモデル内のエンティティのデフォルトの属性値は、オフラインで作成されたオブジェクトに影響を与えません。 ブール属性は常に `false`、数値属性は `0`、その他の属性は `空` にデフォルトになります。
 
-### 4.9 Associations
+### 4.9 関連付け
 
-Attribute paths which follow references are not allowed in grid columns. In addition, reference set selectors cannot be used.
+参照に続く属性パスはグリッド列では使用できません。 また、参照セットセレクタは使用できません。
 
-In addition, usage of reference set associations (accessing through custom widgets etc) is not supported.
+また、参照セットの関連(カスタム ウィジェットなどを介してアクセス)の使用はサポートされていません。
 
-### 4.10 Inheritance
+### 4.10 継承
 
-It is not possible to use more than one entity from a generalization/specialization relation. If you use two or more related entities on your offline pages or offline nanoflows, synchronization will fail, because the objects of these entities will be inserted multiple times into the database with the same ID.
+一般化/専門化関係から複数のエンティティを使用することはできません。 オフラインページまたはオフラインのnanoflowで2つ以上の関連エンティティを使用すると、同期が失敗します。 なぜなら、これらのエンティティのオブジェクトは同じ ID を持つデータベースに複数回挿入されるからです。
 
-### 4.11 System Members
+### 4.11 システムメンバー
 
-System members (`createdDate`, `changedDate`, `owner`, `changedBy`) are not supported.
+システムメンバー (`createdDate`, `changedDate`, `owner`, `changedBy`) はサポートされていません。
 
-### 4.12 Excel/CSV Export
+### 4.12 Excel/CSV エクスポート
 
-Spreadsheets are generated through direct database interaction, which is not available offline.
+スプレッドシートは、オフラインでは使用できない直接のデータベース操作によって生成されます。
 
-### 4.13 Platforms
+### 4.13 プラットフォーム
 
-Offline-enabled apps are only supported on the iOS and Android platforms.
+オフライン対応アプリは、iOSおよびAndroidプラットフォームでのみサポートされています。
 
-For more information on offline apps, see [Configuring Hybrid Mobile Apps to Run Offline](configuring-hybrid-mobile-apps-to-run-offline).
+オフラインアプリの詳細については、 [ハイブリッドモバイルアプリをオフラインで実行するための設定](configuring-hybrid-mobile-apps-to-run-offline) を参照してください。
 
-### 4.14 Synchronization
+### 4.14 同期
 
-Mendix does not have a recommended maximum app size for the synchronization process. This process depends on the amount of data as well as the connection quality and speed of the mobile device.
+Mendixには、同期処理に推奨される最大アプリサイズがありません。 このプロセスは、データの量と、モバイルデバイスの接続品質と速度に依存します。
 
-The timeout is set to 30 seconds per entity downloaded per the [July 3rd, 2018 Hybrid App Base & Template](/releasenotes/mobile/hybrid-app#7318) release.
+The timeout is set to 30 seconds per entity downloaded by [July 3rd, 2018 Hybrid App Base & Template](/releasenotes/mobile/hybrid-app#7318) release.
 
-In addition, Mendix recommends limiting the amount of data and syncing as much as possible by configuring security access so that users do not sync entities they do not need.
+加えて、 Mendixは、ユーザーが必要としないエンティティを同期しないようにセキュリティアクセスを構成することによって、可能な限りデータの量を制限し、同期することを推奨します。
 
-### 4.15 Read-Only Attributes
+### 4.15 読み取り専用属性
 
-There is a restriction with creating and syncing objects with read-only attributes from an offline app. The offline app does not know access rules, so it will allow a user that creates an object offline to edit all attributes, regardless of whether the user actually has write access to them. When syncing the object, this will result in errors, as access rules will be applied when committing the object.
+オフラインアプリから参照のみの属性を持つオブジェクトの作成と同期には制限があります。 オフラインアプリはアクセスルールを知らないため、すべての属性を編集するためにオブジェクトをオフラインで作成するユーザーを許可します。 ユーザが実際に書き込み権限を持っているかどうかに関係なく オブジェクトを同期すると、そのオブジェクトをコミットするときにアクセスルールが適用されるため、エラーが発生します。
 
-Please note that this does not apply to changing existing objects.
+既存のオブジェクトの変更には適用されませんのでご注意ください。
