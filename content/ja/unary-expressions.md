@@ -1,45 +1,41 @@
 ---
-title: "Unary Expressions"
-parent: "expressions"
+title: "単項式"
+parent: "表現"
 menu_order: 10
 tags:
   - "studio pro"
   - "unary expression"
-  - "expression"
-  - "expressions"
+  - "表現"
+  - "表現"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/unary-expressions.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
-
-An unary minus operator is used to convert a number from negative to positive or vice versa.
+単項マイナス演算子は、数値を負から正に変換するために使用されます。
 
 {{% alert type="info" %}}
 
-There is no unary plus.
+単一プラスはありません。
 
 {{% /alert %}}
 
-## 2 Example
+## 2つの例
 
-The example below represents the negative value of '8'.
+以下の例は、'8' の負の値を表します。
 
 ```java
 -8
 ```
 
-When used with a variable that already has a negative value the result is positive.
+すでに負の値を持つ変数で使用すると、結果は正になります。
 
-For example, if $myVariable has the integer value "-7":
+例えば、 $myVariable の整数値が "-7" の場合：
 
 ```java
 -$myVariable
 ```
 
-The output is:
+出力は:
 
 ```java
 7
