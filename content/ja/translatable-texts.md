@@ -1,110 +1,110 @@
 ---
-title: "Language Menu"
+title: "言語メニュー"
 parent: "menus"
 menu_order: 50
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
+  - "翻訳"
+  - "言語"
+  - "翻訳可能なテキスト"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/translatable-texts.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+Mendixは、異なる言語要件を持つユーザーに同じ情報を簡単に提示できるように設計されています。 これをサポートするために、エンドユーザーに表示されるすべてのテキストを異なる言語に翻訳することができます。
 
-Mendix is designed so that it is easy to present the same information to users who have different language requirements. To support this, all texts that are presented to the end-user can be translated to different languages.
+これらの *翻訳可能なテキスト* には、以下のものが含まれます。
 
-These *translatable texts* include the following:
+* [ボタン](button-widgets) の字幕
+* [データ グリッド](data-grid) 列
+* [ラベル](ラベル)
+* [メニュー項目](menu#menu-item)
+* [メッセージ](show-message) は [マイクロフロー](microflows) から送信されます
+* [テキスト](テキスト)
 
-* [button](button-widgets) captions
-* [data grid](data-grid) columns
-* [labels](label)
-* [menu items](menu#menu-item)
-* [messages](show-message) that are sent from a [microflow](microflows)
-* [text](text)
+## 現在選択されている言語で作業している2つ{#selected-language}
 
-## 2 Working in the Currently Selected Language{#selected-language}
+現在作業中の言語は、画面の右下に表示されます。
 
-You can see the language you are currently working in at the bottom right of the screen.
+{{% image_container width="350" %}}
 
-![Language Status](attachments/language/language-status.png)
+![言語の状態](attachments/language/language-status.png)
 
-When you have multiple languages set up in your app, you can choose a language to work in by doing one of the following:
-
-* selecting it from the **Language > Current Language** menu
-* using the drop-down in the lower-right corner of Studio Pro's main window
-* using the <kbd>Ctrl</kbd>+<kbd>L</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> keyboard shortcut combinations, which cycle through the configured languages
-
-When working in a language which is not the default, you can identify texts that have not been translated yet. These show the text in the default language between angle brackets. For example, `<Name>`. You can replace the text with the appropriate translation, and it will be replaced for the currently selected language.
-
-If you edit your app to add new widgets while not in the default language, any new translatable texts for those widgets will be added to the current language. The text in the default language will either be left blank or will have the placeholder text for the widget.
-
-All untranslated texts will be displayed in the default language when you run the application.
-
-{{% alert type="info" %}}
-If there is no text in the default language, the end-user will see `[no translation]`. If you want the text to be blank, set the default language text to be a space rather than empty.
-{{% /alert %}}
-
-## 3 The Language Menu
-
-The **Language** menu allows you to manage additional languages and translations for your app. This includes features to help you to translate a text in all places where it appears with a single change instead of having to change each occurrence individually:
-
-{{% image_container width="300" %}}![Language Menu](attachments/language/language-menu.png)
 {{% /image_container %}}
 
-### 3.1 Menu Items Overview
+アプリに複数の言語が設定されている場合は、次のいずれかを実行することで、使用する言語を選択できます。
 
-The **Language** menu items are described in the table below:
+* **言語 > 現在の言語** メニューから選択してください
+* Studio Proのメインウィンドウの右下隅にあるドロップダウンを使用してください
+* <kbd>Ctrl</kbd>+<kbd>L</kbd> または <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> キーボードショートカットの組み合わせを使用します。 設定された言語を循環させます
 
-| Menu Item                                   | Description                                                                                           | Shortcut Key                                      |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **Current Language**                        | Choose the current language from one of the languages set up in **Language Settings…**.               | *None*                                            |
-| **Select Previous Language**                | Choose the previous language in the list of languages chosen in **Language Settings…**.               | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> |
-| **Select Next Language**                    | Choose the next language in the list of languages chosen in **Language Settings…**.                   | <kbd>Ctrl</kbd> + <kbd>L</kbd>                    |
-| [Language Settings…](language-settings)     | Choose which languages are supported by the app and configure date and time settings.                 | *None*                                            |
-| [Batch Replace…](batch-replace)             | Change all occurrences of chosen translatable texts in the current language where they are identical. | *None*                                            |
-| [Batch Translate…](batch-translate)         | Add and edit translations from a selected source language to a selected target language               | *None*                                            |
-| [Language Operations…](language-operations) | Manipulate (for example, copy) translations between languages.                                        | *None*                                            |
+デフォルトではない言語で作業する場合、まだ翻訳されていないテキストを識別できます。 これらは、角括弧間のデフォルト言語でテキストを表示します。 例えば、 `<Name>`. 適切な翻訳でテキストを置き換えることができ、現在選択されている言語に置き換えられます。
 
-## 4 Setting the End-User's Language
+デフォルトの言語ではない間に新しいウィジェットを追加するためにアプリを編集する場合 ウィジェットの新しい翻訳可能なテキストは現在の言語に追加されます デフォルト言語のテキストは空白のままにするか、ウィジェットのプレースホルダー テキストが表示されます。
 
-The language which is displayed to the end-user is determined by the **Language** object which is associated with the **User** object for the current end-user via the association **User_Language**.
-
-If the associated language is not one of those set in the app, then the end-user will see pages in the default language.
-
-If the end-user is not associated with a language, for example they are an anonymous user, the language used depends on the user's browser or operating system settings. If the language requested is not present up in the app, then the app's default language will be used. The requested language will be as follows:
-
-* for web apps – the first language which matches a language set in the app based on the browser's preferred order of languages
-* for mobile apps – the operating system language
-
-![System Domain Model for User and Language](attachments/language/user-language-domain-model.png)
-
-If you allow end-users to change their display language within the app, the changes will not be applied immediately. This is because the translatable texts for the app are already set to the end-users original language.
-
-There are two options to ensure that the language is changed:
-
-1. Ask the end-user to do something manually
-    * sign out and sign in again
-    * use their browser's refresh command
-2. Force Mendix to reload the page – for example by doing the following:
-    1. Add the platform supported widget [HTML / JavaScript Snippet](https://marketplace.mendix.com/link/component/56/) to your app.
-    2. Create a pop-up page.
-    3. Place the HTMLSnippet widget on the pop-up page.
-    4. Add the **JavaScript** content `mx.reloadWithState();` to the widget.
-    5. Open your new pop-up page from a microflow when you want to switch the user's language.
-
-    ![System Domain Model for User and Language](attachments/language/reload-with-state.png)
+アプリケーションを実行すると、翻訳されていないすべてのテキストがデフォルトの言語で表示されます。
 
 {{% alert type="info" %}}
-The above only applies to pages *within* your Mendix application (meaning, pages that are created in Studio Pro). The labels for static pages (such as the *index.html* and *login.html* pages in the **theme** folder of your app) are generated when you create a deployment package using the default language of your project. The labels on those pages will not change for different users, they will always be the same.
+デフォルト言語にテキストがない場合、エンドユーザーは `[no translation]` を参照します。 テキストを空白にしたい場合は、デフォルトの言語テキストを空白ではなくスペースに設定します。
 {{% /alert %}}
 
-## 5 Read More
+## 3言語メニュー
 
-* [How to Translate Your App Content](/howto8/collaboration-requirements-management/translate-your-app-content) – a worked example of adding a translation
-* [How To Use Translatable Validation Messages](/howto8/logic-business-rules/translatable-validation-messages)
-* [Change language by clicking a link](https://forum.mendixcloud.com/link/questions/91821) – explanations and ideas on the Mendix forum for refreshing the page when the language is changed
-* [Anonymous User Journey](https://forum.mendixcloud.com/link/questions/91676) – a discussion on the Mendix forum about switching languages for anonymous end-users
+**言語** メニューでは、アプリの追加言語と翻訳を管理できます。 これには、個別に各発生を変更するのではなく、単一の変更で表示されるすべての場所でテキストを翻訳するのに役立つ機能が含まれています:
+
+![言語メニュー](attachments/language/language-menu.png)
+
+
+### 3.1 メニューアイテムの概要
+
+**言語** のメニュー項目は以下の表に記載されています。
+
+| メニュー項目                       | 説明                                         | ショートカットキー                                         |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------- |
+| **現在の言語**                    | **言語設定…** で設定されている言語のいずれかから現在の言語を選択してください。 | *なし*                                              |
+| **前の言語を選択**                  | **言語設定…** で選択された言語のリストから以前の言語を選択してください。    | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> |
+| **次の言語を選択**                  | **言語設定…** で選択された言語のリストから次の言語を選択してください。     | <kbd>Ctrl</kbd> + <kbd>L</kbd>                    |
+| [言語設定…](language-settings)   | アプリでサポートされている言語を選択し、日付と時刻の設定を行います。         | *なし*                                              |
+| [一括置換…](batch-replace)       | 現在の言語で選択された翻訳可能なテキストのすべての出現箇所を変更します。       | *なし*                                              |
+| [一括翻訳…](batch-translate)     | 選択した翻訳元の言語から選択した翻訳先の言語に翻訳を追加および編集          | *なし*                                              |
+| [言語操作…](language-operations) | 言語間で翻訳を操作 (例えば、コピー) します。                   | *なし*                                              |
+
+## 4 エンドユーザーの言語の設定
+
+エンドユーザーに表示される言語は、関連 **User_Language** を介して、現在のエンドユーザーの **ユーザー** オブジェクトに関連付けられている **Language** オブジェクトによって決定されます。
+
+関連付けられた言語がアプリで設定されていない場合、エンドユーザーはデフォルト言語でページを表示します。
+
+エンドユーザーが言語に関連付けられていない場合、たとえばそれらは匿名ユーザーです。 使用言語は、ユーザーのブラウザやオペレーティングシステムの設定によって異なります。 要求された言語がアプリに存在しない場合は、アプリのデフォルト言語が使用されます。 要求された言語は以下のとおりです:
+
+* ウェブアプリ - ブラウザの言語の優先順位に基づいてアプリで設定された言語に一致する最初の言語
+* モバイルアプリ向け – オペレーティングシステムの言語
+
+![ユーザーと言語のシステムドメインモデル](attachments/language/user-language-domain-model.png)
+
+エンドユーザーがアプリ内で表示言語を変更できるようにすると、変更はすぐには適用されません。 これは、アプリの翻訳可能なテキストがすでにエンドユーザーのオリジナル言語に設定されているためです。
+
+言語が変更されていることを確認するには2つのオプションがあります:
+
+1. エンドユーザーに手動で何かを行うように依頼する
+    * サインアウトして再度サインインする
+    * ブラウザのrefresh コマンドを使用する
+2. Mendixを強制的にページを再読み込みさせるには、次の手順を実行します。
+    1. アプリにサポートされるプラットフォームウィジェット [HTML / JavaScript Snippet](https://marketplace.mendix.com/link/component/56/) を追加します。
+    2. ポップアップページを作成します。
+    3. ポップアップページに HTMLSnippet ウィジェットを配置します。
+    4. **JavaScript** のコンテンツ `mx.reloadWithState();` をウィジェットに追加します。
+    5. ユーザーの言語を切り替えるときに、マイクロフローから新しいポップアップページを開きます。
+
+    ![ユーザーと言語のシステムドメインモデル](attachments/language/reload-with-state.png)
+
+{{% alert type="info" %}}
+The above only applies to pages *within* your Mendix application (meaning, pages that are created in Studio Pro). The labels for static pages (such as the *index.html* and *login.html* pages in the **theme** folder of your app) are generated when you create a deployment package using the default language of your app. これらのページのラベルは、異なるユーザーのために変更されることはありません、彼らは常に同じになります。
+{{% /alert %}}
+
+## 5 続きを読む
+
+* [アプリのコンテンツを翻訳する方法](/howto/collaboration-requirements-management/translate-your-app-content) - 翻訳を追加する作業例
+* [翻訳可能な検証メッセージの使い方](/howto/logic-business-rules/translatable-validation-messages)
+* [リンクをクリックして言語を変更する](https://forum.mendixcloud.com/link/questions/91821) - 言語が変更されたときにページを更新するためのMendixフォーラムの説明とアイデア
+* [Anonymous User Journey](https://forum.mendixcloud.com/link/questions/91676) - 匿名エンドユーザー向けの言語切り替えに関するMendixフォーラムに関するディスカッション
