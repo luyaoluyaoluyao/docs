@@ -11,10 +11,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-any-cheat-sheet.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This *cheat sheet* lists the most common chart types, together with a visual sample and the json required to create them. More chart types can be found at [https://plot.ly/javascript/](https://plot.ly/javascript/).
@@ -380,4 +376,4 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 * Full chart documentation is here: [https://plot.ly/javascript/](https://plot.ly/javascript/)
 * [Any Chart Widget](charts-any-configuration)
-* [How to Use Any Chart](/howto8/front-end/charts-any-usage)
+* [How to Use Any Chart](/howto/front-end/charts-any-usage)
