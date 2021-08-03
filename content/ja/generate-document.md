@@ -14,10 +14,6 @@ tags:
   - "generate document"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/generate-document.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can only be used in **Microflows**.
 {{% /alert %}}
@@ -60,7 +56,7 @@ The language in which the titles and labels of the document should appear is des
 | Option                   | Description                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------------------- |
 | Current user *(default)* | Use the language of the current user.                                                    |
-| Project default          | Use the default language that is specified in the [Project Settings](project-settings).  |
+| Project default          | Use the default language that is specified in the [App Settings](project-settings).      |
 | Variable                 | Use the language stored in the selected object, which must be of type *System.Language*. |
 
 ### 3.3 Document Type{#document-type}
@@ -102,4 +98,4 @@ The **Edit argument** button allows you to edit the argument value.  An argument
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
