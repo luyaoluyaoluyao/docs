@@ -30,9 +30,9 @@ tags:
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
 
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
 * ドメインモデルが次のように構成されていることを確認してください:
 
@@ -54,7 +54,7 @@ tags:
 
         {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-list/button-properties.png){{% /image_container %}}
 
-    2.  **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
+    2.  **ページの選択** ダイアログボックスで、右上隅のプラスアイコンをクリックします。
 
     3.  **新規ページ** の作成ダイアログボックスで、ページタイトルを入力します。
 
@@ -85,9 +85,9 @@ tags:
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-configure-list/text.png){{% /image_container %}}
 
-    2. **Content** プロパティで、 *Name* を削除し、 **Add attribute** をクリックします:
+    2. **Content** プロパティで、 *Name* を削除し、 **Add** > **Attribute**:
 
-        {{% image_container width="250" %}}![](attachments/pages-how-to-configure-list/text-content.png){{% /image_container %}}
+        ![](attachments/pages-how-to-configure-list/text-content.png)
 
     3. **属性の選択** ダイアログボックスで、 **名前** を選択し、 **選択** をクリックします。
 
@@ -126,7 +126,7 @@ tags:
 
 5. **属性の選択** ダイアログボックスで、 **タイトル** を選択し、 **選択** をクリックします。
 
-    {{% image_container width="350" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
+    {{% image_container width="400" %}}![](attachments/pages-how-to-configure-list/title.png){{% /image_container %}}
 
 6. **Name** テキストボックスを選択し、プロパティで **Data Source** > **Attribute** をクリックします。
 
@@ -154,6 +154,6 @@ tags:
 
 ![設定されたページ](attachments/pages-how-to-configure-list/configured-page.png)
 
-アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio8/publishing-app) を参照してください。
+アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio/publishing-app) を参照してください。
 
-ページの詳細などで作業することもできます。 リストに動的な画像を追加すると、商談の連絡先の名前の横にプロフィール画像が表示されます。 動的画像の詳細については、 [イメージ & ファイル](/studio8/page-editor-widgets-images-and-files) を参照してください。
+ページの詳細などで作業することもできます。 リストに動的な画像を追加すると、商談の連絡先の名前の横にプロフィール画像が表示されます。 動的画像の詳細については、 [イメージ & ファイル](/studio/page-editor-widgets-images-and-files) を参照してください。
