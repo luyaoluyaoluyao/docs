@@ -1,67 +1,87 @@
 ---
-title: "Image uploader"
+title: "Image Uploader"
 parent: "file-widgets"
+tags:
+  - "studio pro"
+  - "image uploader"
+  - "file widget"
+  - "widget"
 ---
 
-
-An image uploader is used to upload images to the server. It also generates a thumbnail of the uploaded image. The uploaded image or its thumbnail can be shown by use of the image viewer.
-
 {{% alert type="info" %}}
-
-![](attachments/pages/image-uploader.png) The image uploader is placed in a nested data view here. The Profile entity is a specialization of System.Image.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image-uploader.pdf).
 {{% /alert %}}
 
-An image uploader must be placed in a data view connected to entity System.Image or a specialization thereof.
+{{% alert type="warning" %}}The image uploader widget is not supported on native mobile pages.{{% /alert %}}
 
-## General properties
+## 1 Introduction
 
-### Maximum file size (MB)
+An image uploader is used to upload images to the server. It also generates a thumbnail of the uploaded image. The uploaded image or its thumbnail can be displayed by an image viewer. It must be placed inside a data view connected to the entity System.Image or a specialization thereof.
 
-With this property you can specify the maximum file size (in megabytes) of images that can be uploaded.
+In the example below, an image uploader is placed in a nested data view (the *Profile* entity is a specialization of System.Image):
 
-_Default value:_ 5
+![Image Uploader](attachments/file-widgets/image-uploader.png)
 
-### Allowed extensions
+## 2 Properties
 
-You can specify the file extensions that are allowed to be uploaded. If no extensions are specified all file extensions are allowed. Separate multiple extensions by a semi-colon, for example, `png;jpg`
+An example of image uploader properties is represented in the image below:
 
-If a file with an extension that is not allowed is selected, a system text (File manager > Incorrect file extension) will be shown underneath the file manager.
+{{% image_container width="250" %}}![Image Uploader Properties](attachments/file-widgets/image-uploader-properties.png)
+{{% /image_container %}}
 
-### Thumbnail width
+Image uploader properties consist of the following sections:
 
-This property determines the width of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+* [Common](#common)
+* [Design Properties](#design-properties)
+* [Editability](#editability)
+* [General](#general)
+* [Label](#label)
+* [Visibility](#visibility)
 
-### Thumbnail height
+### 2.1 Common Section {#common}
 
-This property determines the height of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+{{% snippet file="refguide8/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Label+Property.md" %}}
+### 2.2 Design Properties Section {#design-properties}
 
-## Editability properties
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-{{% snippet file="refguide7/Editable+Property.md" %}}
+### 2.3 Editability Section {#editability}
 
-{{% snippet file="refguide7/Condition+Property.md" %}}
+{{% snippet file="refguide8/editability-section-link.md" %}}
 
-## Visibility properties
+### 2.4 General Section {#general}
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+#### 2.4.1 Maximum file size (MB)
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+**Max file size (MB)** determines the maximum size of files (in megabytes) that can be uploaded.
 
-## Common properties
+Default: *5*
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+#### 2.4.2 Allowed Extensions {#allowed-extensions}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+You can specify file extensions that users are allowed to upload. If no extension is specified, all file extensions are allowed. Separate multiple extensions by a semi-colon (for example, `txt;doc`).
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+If a file with an extension that is not allowed is selected, a [system text](system-texts) for **File manager/image viewer** > **Error: incorrect file extension** will be shown below the file manager.
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+#### 2.4.3 Thumbnail Width
 
-## Related articles
+**Thumbnail width** determines the width of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
 
-*   [Data view](data-view)
-*   [Entities](entities)
-*   [Associations](associations)
+#### 2.4.4 Thumbnail Height
+
+**Thumbnail height** determines the height of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+
+### 2.5 Label Section {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+### 2.6 Visibility Section {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 Read More
+
+* [Page](page)
+* [File Widgets](file-widgets)
+* [Properties Common in the Page Editor](common-widget-properties)
