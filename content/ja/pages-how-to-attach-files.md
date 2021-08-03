@@ -43,12 +43,12 @@ tags:
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
 ## 3 ファイルエンティティの作成
 
-まず第一に ドメインモデルに特別な種類のエンティティを追加する必要があるファイルを添付および/またはダウンロードできるようにするには、 [ファイルエンティティ](/studio/domain-models#entity-types) を使用します。 次の操作を行います:
+まず第一に ドメインモデルに特別な種類のエンティティを追加する必要があるファイルを添付および/またはダウンロードできるようにするには、 [ファイルエンティティ](/studio8/domain-models#entity-types) を使用します。 次の操作を行います:
 
 1. ドメインモデルを開き、 **Toolbox** タブを開きます。
 
@@ -104,13 +104,13 @@ tags:
 
     5. **エンティティ** プロパティをクリックします。
 
-    6. **図形の選択** ダイアログボックスで、 **Document_Employee** 関連から **ドキュメント** 図形を選択し、 **選択** をクリックします。
+    6. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
 
         {{% image_container width="400" %}}![Select File Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
     7. **ページ** プロパティをクリックします。
 
-    8. 開いた **ページの選択** ダイアログボックスで、右上のプラスアイコンをクリックして新しいページを追加します。
+    8. 開いた **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
 
     9. **新規ページの作成** ダイアログボックスで、次の操作を行います:
 
@@ -149,9 +149,9 @@ IT管理者が従業員プロフィールフォームにファイルを添付で
 
     1. **エンティティ** プロパティをクリックします。
 
-    2. **図形の選択** ダイアログボックスで、 **Document_Employee** 関連から **ドキュメント** 図形を選択し、 **選択** をクリックします。
+    2. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
 
-        {{% image_container width="400" %}}![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
+        ![エンティティを選択](attachments/pages-how-to-attach-files/select-file-entity.png)
 
 4. 画像とリストから配置されている列を削除します。
 
@@ -178,7 +178,7 @@ IT管理者が従業員プロフィールフォームにファイルを添付で
 
 おめでとうございます IT管理者がファイルを添付し、これらのファイルをリストに表示できるようにフォームを構成していること。
 
-[](/studio/publishing-app) アプリをプレビューして、ファイルのアップロードとダウンロードの仕組みをテストします。
+[](/studio8/publishing-app) アプリをプレビューして、ファイルのアップロードとダウンロードの仕組みをテストします。
 
 ![プレビューリスト](attachments/pages-how-to-attach-files/list-previewed.png)
 
