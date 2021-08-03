@@ -1,69 +1,69 @@
 ---
-title: "Page Template"
-parent: "page-resources"
+title: "页面模板"
+parent: "页面资源"
 menu_order: 20
 tags:
   - "studio pro"
-  - "page template"
-  - "page resource"
+  - "页面模板"
+  - "页面资源"
 aliases:
   - /refguide/page-template.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-Page templates are the starting point for creating new pages. Every time a new page is created, a page template is selected as a baseline that can then be edited to match the pages specific needs.
+页面模板是创建新页面的起点。 每次创建一个新页面 一个页面模板被选定为基线，然后进行编辑以满足页面特定需求。
 
-When creating a new page, the user is presented with an overview of all the compatible page templates in the app. Page templates as document types allow users to edit existing page templates and even create entirely new ones.
+当创建一个新页面时，用户会在应用程序中概述所有兼容的页面模板。 作为文档类型的页面模板允许用户编辑现有的页面模板，甚至创建全新的模板。
 
-## 2 Custom Page Templates
+## 2 个自定义页面模板
 
-By mapping out the common design patterns of a project, a great deal of the initial work involved in creating new pages can be mitigated.
+通过绘制一个项目的共同设计模式，可以减少创建新网页所涉及的大量初步工作。
 
-Generally, page templates are stored in the app's [UI resources package](ui-resources-package). This keeps them in sync with the app theme, as well as providing a handy place to consolidate all design-related data.
+通常，页面模板存储在应用程序的 [UI 资源包](ui-resources-package) 中。 这将使它们与应用主题同步，并提供一个方便的地方来合并所有与设计相关的数据。
 
-To create a page template, right-click a page in either the **App Explorer** or an empty section of the canvas and select **Create page template**. The page will be added as a new page template, which will automatically make it available in the **Create Page** wizard.
+要创建一个页面模板， 右键单击画布的 **App Explorer** 或空部分的页面，并选择 **创建页面模板**。 页面将被添加为一个新的页面模板，它将自动在 **创建页面** 向导中提供。
 
-As the purpose of page templates is to facilitate design rather than functionality, page templates should be devoid of references to other documents. This is to prevent users from facing confusing errors when creating a new page. It also mitigates the chance of errors when importing page templates from a different project.
+由于页面模板的目的是便利设计而不是功能化，因此页面模板不应提及其他文件。 这是为了防止用户在创建新页面时遇到混淆错误。 它还可以减少从另一个项目导入页面模板时出现错误的可能性。
 
-Page template properties are described in the sections below.
+页面模板属性在以下各节中说明。
 
-## 3 Common Properties
+## 3 个公共属性
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-## 4 Designer Properties
+## 4 设计师属性
 
 {{% snippet file="refguide/designer-properties.md" %}}
 
-## 5 General Properties
+## 5 个一般属性
 
-### 5.1 Display Name
+### 5.1 显示名称
 
-The display name determines by what name the page template will appear in the **Create Page** wizard.
+显示名称决定了页面模板将出现在 **创建页面** 向导中的名称。
 
-### 5.2 Image
+### 5.2 图像
 
-The image selected will appear in the **Create Page** wizard. Selecting a representative image will allow users to easily distinguish between page templates. If left blank, the template will display an empty white field. Any image selected will be scaled down to 200x200 pixels.
+选中的图像将出现在 **创建页面** 向导中。 选择一个具有代表性的图像将允许用户轻松区分页面模板。 如果留空，模板将显示空的白色字段。 所选图像将缩放到 200x200 像素。
 
-### 5.3 Shown When
+### 5.3 何时显示
 
-Depending on the context in which a page is created, the user is presented with a different set of page templates to choose from. This setting determines which set the page template belongs to.
+根据创建页面的背景，用户会有不同的页面模板来选择。 此设置决定了哪个页面模板属于哪个页面。
 
-| Value                          | Description                                                                                               |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| Creating new pages *(default)* | The page template is available when creating new pages from most contexts, such as from the App Explorer. |
-| Generating edit pages          | The page template is available when a user generates a new page from a new or edit button.                |
-| Generating select pages        | The page templates is available when the user generates a new page from a select button.                  |
+| 值            | 描述                                     |
+| ------------ | -------------------------------------- |
+| 创建新页面 *(默认)* | 当从大部分上下文，如App Explorer创建新页面时，页面模板是可用的。 |
+| 正在生成编辑页面     | 当用户从新的或编辑按钮生成新页面时，页面模板是可用的。            |
+| 正在生成选择页面     | 当用户从所选按钮生成新页面时，页面模板是可用的。               |
 
-This setting may also place extra restrictions on the template. Page templates intended as new or edit pages require exactly one top-level data view be present. Page templates intended as Select pages require exactly one list view, data grid, or template grid.
+此设置也可能会对模板设置额外限制。 作为新页面或编辑页面的页面模板需要一个顶级数据视图。 用于选择页面的页面模板只需要一个列表视图，数据网格或模板网格。
 
-### 5.4 Layout Type
+### 5.4 布局类型
 
-[Layouts](layout) are all assigned a type in their properties. This type determines in which profiles the layout can be used. To ensure that a user can always map a page template to a compatible layout during page creation, a page template must be assigned one of these same layout types. In practice, this setting will affect in which profile tab of the **Create Page** wizard the page template is displayed. Additionally, it will automatically restrict the default layout setting to layouts of the same type.
+[布局](layout) 都在其属性中分配了一种类型。 此类型决定了可以使用哪个配置文件的布局。 为了确保用户在页面创建期间始终可以将页面模板映射到兼容的布局。 一个页面模板必须被分配为相同的布局类型之一。 实际上，这个设置将会影响到 **创建页面** 向导页面模板的配置文件标签。 此外，它将自动限制默认布局设置为相同类型的布局。
 
-### 5.5 Preview Layout
+### 5.5 预览布局
 
-Although page templates and layouts can be mixed and matched, this setting will determine which layout will be used to display the template in the editor. It also has a minor effect on the page creation process: if the template describes contents for layout [placeholders](placeholder) that are not present in the previously selected layout, the first compatible layout will be pre-selected in the **Create Page** wizard. For a full description of the interaction between a page template and its preview layout, see [Layout](layout).
+虽然页面模板和布局可以混合和匹配， 此设置将决定哪个布局将用于在编辑器中显示模板。 它也对页面创建过程产生了次要影响：如果模板描述了布局 [占位符](placeholder) 的内容，这些内容不存在于先前选择的布局， 第一个兼容的布局将在 **创建页面** 向导中预先选择。 关于页面模板与其预览布局之间互动的完整描述，请参阅 [布局](layout)。
 
-The options available for this setting are regulated by the layout type setting. If you are having trouble finding the layout you are looking for, check if the layout type of the template and the desired layout match.
+此设置可用的选项由布局类型设置管理。 如果您在寻找您正在寻找的布局，请检查模板的布局类型和所需布局是否匹配。
