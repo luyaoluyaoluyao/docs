@@ -1,208 +1,208 @@
 ---
-title: "Reference Set Selector"
+title: "参照セットセレクター"
 parent: "input-widgets"
 menu_order: 80
 tags:
   - "studio pro"
 ---
 
-{{% alert type="warning" %}}The **reference set selector** widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}The **reference set selector** ウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A **reference set selector** is used to allow the end-user to display or select the value(s) of a many-to-many (reference set) [association](associations) by selecting the associated object(s).
+**リファレンスセットセレクタ** は、関連するオブジェクトを選択することによって、エンドユーザーが多対多の(参照セット) [アソシエーション](associations) の値を表示または選択できるようにするために使用される。
 
-A reference set selector must be placed in a [data widget](data-widgets).
+参照セットセレクタは、 [データ ウィジェット](data-widgets) に配置する必要があります。
 
-For example, you could group customers into groups, and each customer could belong to several groups. Each Group can have many customers. The entities **Customer** and **Group** have a many-to-many (reference set) relationship. A reference set selector can be used to select the groups the customer belongs to.
+たとえば、顧客をグループにグループ化でき、各顧客は複数のグループに属することができます。 各グループには多くの顧客がいます。 エンティティ **顧客** と **グループ** は多対多の関係を持っている (参照セット) 。 参照セットセレクタを使用して、顧客が属するグループを選択できます。
 
-What you can do with a reference set selector depends on the **Owner** of the association. In the example domain model below, **Owner** is set to **Default** (in the association properties **'Customer' objects refer to 'Group' objects**).
+参照セットセレクタで何ができるかは、アソシエーションの **所有者** に依存します。 以下のドメインモデルの例 **所有者** は **デフォルト** に設定されています (関連プロパティ **'顧客' オブジェクトは 'グループ' オブジェクト** を参照します)。
 
-![The domain model for a reference set selector between Customer (parent) and Group where the owner is 'default' (as in, the Customer refers to the Group)](attachments/reference-set-selector/domain-model-owner-default.png)
+![オーナーが「デフォルト」の顧客（親）とグループ間の参照セットセレクタのドメインモデル 顧客はグループを参照しています)](attachments/reference-set-selector/domain-model-owner-default.png)
 
-You can put a reference set selector in a Customer data view to allow the user to select the Group(s) to which the customer belongs. However, because the Customer is the owner of the association, you cannot put a reference set selector in a Group data view to select the Customer(s) in the Group.
+顧客データビューに参照セットセレクタを入れると、ユーザが顧客に属するグループを選択できるようになります。 ただし、お客様が協会の所有者であるため、 グループ内の顧客を選択するには、参照セットセレクタをグループデータビューに置くことはできません。
 
-To allow you to both add a Group to a Customer, and add a Customer to a Group, you need to set ownership of the association to **Both**.
+顧客にグループを追加し、顧客をグループに追加できるようにする。 あなたは、関連付けの所有権を **** に設定する必要があります。
 
-![The domain model for a reference set selector between Customer (parent) and Group where the owner is 'both' (as in, the Customer and Group refer to each other)](attachments/reference-set-selector/domain-model-owner-both.png)
+![オーナーが「両方」である顧客（親）とグループ間の参照セットセレクタのドメインモデル 顧客とグループが互いを参照します)](attachments/reference-set-selector/domain-model-owner-both.png)
 
-In the reference set selector, the related entity and association used to connect it to the entity in the data view are displayed at the top of the reference set selector, and the names of the attributes of the associated objects which will be displayed are shown inside the reference set selector. Each attribute is displayed in a [grid column](columns). The association and related entity and attributes are displayed between square brackets, and colored blue.
+リファレンスセットセレクターでは、 データビューのエンティティに接続するために使用される関連エンティティと関連付けは、参照セットセレクタの上部に表示されます。 そして、関連するオブジェクトの属性名が参照セットセレクタ内に表示されます。 各属性は [グリッド列](columns)に表示されます。 関連付けと関連するエンティティと属性は角括弧と青色の間で表示されます。
 
-For example, using the domain model above, the following reference set selector allows the end-user to associate a Customer with one or more Groups by setting the association **Customer_Group**. This is done by selecting the **Name**(s) of the **Group**(s) associated with the current **Customer**.
+たとえば、上記のドメインモデルを使用します。 次の参照セットセレクタは、関連付け **Customer_Group**を設定することによって、エンドユーザーが1つ以上のグループと顧客を関連付けることを可能にします。 これは、現在の **顧客**に関連付けられている **グループ**の **名**を選択することによって行われます。
 
 ![](attachments/reference-set-selector/reference-set-selector.png)
 
-The reference set selector looks a lot like a [data grid](data-grid) and consequently shares many properties with it. The main differences are that the reference set selector lacks a search bar and that it has **Add** and **Remove** buttons instead of **New** and **Delete**. This is because they perform slightly different functions:
+リファレンスセットセレクタは、 [データ グリッド](data-grid) のように見えるため、多くのプロパティを共有します。 主な違いは、参照セットセレクタに検索バーがなく、 **** を追加し、 **** ボタンを **New** と **Delete** があることです。 これは、彼らが若干異なる機能を実行するためです:
 
-*   The **Add** button adds an association to an existing object. You will need to specify the page which opens when you want to add a new association. For more information, see [Add Button](control-bar#add-button).
-*   The **Remove** button removes the association to an object, but does not change or delete the object itself
+*   **追加** ボタンは、既存のオブジェクトに関連付けを追加します。 新しい関連付けを追加するときに開くページを指定する必要があります。 詳細については、 [ボタンを追加](control-bar#add-button) を参照してください。
+*   **Remove** ボタンはオブジェクトへの関連付けを削除しますが、オブジェクト自体は変更または削除しません。
 
 {{% alert type="info" %}}
-You must explicitly commit the object in the data view containing your reference set selector to save the association changes. This can be done, for example, by having a **Save** button for the object in the data view (as shown for the *Customer* entity in the picture above).
+関連付けの変更を保存するには、参照セットセレクタを含むデータビューでオブジェクトを明示的にコミットする必要があります。 例えば、これを実行できます。 データビュー内のオブジェクトの **保存** ボタンを持つことにより、（上の図の *顧客* エンティティに表示されている）。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of reference set selector properties is represented in the image below:
+以下の画像では、参照集合セレクタープロパティの例を示しています。
 
 {{% image_container width="250" %}}![](attachments/reference-set-selector/reference-set-selector-properties.png)
 {{% /image_container %}}
 
-Reference set selector properties consist of the following sections:
+参照集合セレクタープロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Events](#events)
-* [General](#general)
-* [Selectable Objects](#selectable-objects)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [イベント](#events)
+* [全般](#general)
+* [選択可能なオブジェクト](#selectable-objects)
+* [公開範囲](#visibility)
 
-There are three additional sets of properties which do not appear in the properties of the reference set selector widget.
+参照セットセレクタウィジェットのプロパティには表示されないプロパティは3つ追加されます。
 
-1. The control bar contains the buttons needed to search, add, and remove associations. For more information see [Control Bar](control-bar).
+1. コントロールバーには、関連付けの検索、追加、削除に必要なボタンが含まれています。 詳細については、 [コントロール バー](control-bar) を参照してください。
 
-2. The rows of the reference set selector can be sorted using the properties of the sort bar. For more information on using the sort bar, see [Sort Bar](sort-bar).
+2. 参照集合セレクターの行は、ソートバーのプロパティを使用してソートできます。 ソートバーの使用方法の詳細については、 [Sort Bar](sort-bar) を参照してください。
 
     ![](attachments/reference-set-selector/sort-bar.png)
 
-3. Each attribute is displayed in a column. You can find out more about the properties of these columns in [Grid Columns](columns)
+3. 各属性は列に表示されます。 これらの列のプロパティについては、 [グリッド列](columns) を参照してください。
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section {#data-source}
+### 2.2 データソースセクション {#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-The attribute path specifies which attribute(s) of an associated entity is shown in the reference set selector. The path must follow one association of type reference set starting in the entity of the data view.
+属性パスは、関連するエンティティのどの属性を参照セットセレクタに表示するかを指定します。 パスは、データビューのエンティティから始まるタイプ参照セットの関連付けに従う必要があります。
 
 {{% alert type="warning" %}}
-You cannot currently use non-persistable entities in a reference set selector.
+現在、参照セットセレクターで非永続エンティティを使用することはできません。
 {{% /alert %}}
 
-### 2.3 Design Properties Section {#design-properties}
+### 2.3 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Events Section {#events}
+### 2.4 イベントセクション {#events}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.5 General Section {#general}
+### 2.5 一般セクション {#general}
 
 #### 2.5.1 Width Unit {#width-unit}
 
-You can decide how to define the widths of the columns in the reference set selector. The possible values are:
+参照セットセレクタで列の幅を定義する方法を決定できます。 使用可能な値は次のとおりです。
 
-* Pixels – define the width in pixels
-* Percentage – define the width as a percentage of the width of the reference set selector widget
+* ピクセル - 幅をピクセルで定義します
+* Percentage – 参照セットセレクターウィジェットの幅の割合を指定します
 
-#### 2.5.2 Column Widths {#column-widths}
+#### 2.5.2 列の幅 {#column-widths}
 
-The column widths are defined as either percentages or pixels. The value for the columns are separated by semi-colons. For example a narrow column and a wide column could be defined as `20;80`. If the widths are defined in percentages, they have to add up to 100.
+列幅はパーセンテージまたはピクセルとして定義されます。 列の値はセミコロンで区切られます。 例えば、狭い列と幅の列は `20;80`として定義できます。 幅がパーセンテージで定義されている場合、最大100を足す必要があります。
 
-If column widths are defined as percentages, you can also change the widths of columns by dragging the separating line between columns.
+列の幅がパーセンテージとして定義されている場合は、列間の行をドラッグして列の幅を変更することもできます。
 
-#### 2.5.3 Number of Rows {#number-of-rows}
+#### 2.5.3 行数 {#number-of-rows}
 
-With this property you can change the number of rows that will be shown in one page. See also the property 'Show empty rows'.
+このプロパティを使用すると、1ページに表示される行数を変更できます。 プロパティ「空の行を表示」も参照してください。
 
-Default: *5*
+デフォルト: *5*
 
-#### 2.5.4 Show Empty Rows {#show-empty-rows}
+#### 2.5.4 空の行を表示 {#show-empty-rows}
 
-If you choose to show empty rows there will always be the grid that shows the same number of rows (see 'Number of rows') even if there are fewer objects to show on the page.
+空の行を表示する場合、ページに表示するオブジェクトが少なくても、同じ行数を表示するグリッドが常に存在します ('行数' を参照)。
 
-Default: *False*
+デフォルト: *False*
 
-#### 2.5.5 Tooltip Page {#tooltip-page}
+#### 2.5.5 ツールチップページ {#tooltip-page}
 
-A tooltip page is a page that appears when you hover your mouse over a row. The tooltip page must contain a data view on the same entity as the data grid.
+ツールチップページは、行の上にマウスをポイントしたときに表示されるページです。 ツールチップページには、データ グリッドと同じエンティティにデータ ビューが含まれている必要があります。
 
-The tooltip will only be shown for the columns you specify. The default for each column is that the tooltip will _not_ appear. See [Grid Columns](columns) for more information.
+ツールチップは指定した列にのみ表示されます。 各列のデフォルトは、ツールチップが _ではなく_ が表示されることです。 詳細は [グリッド列](columns) を参照してください。
 
-#### 2.5.6 Show Control Bar {#show-control-bar}
+#### 2.5.6 コントロールバーを表示 {#show-control-bar}
 
-This property indicates whether the control bar will be visible in the end-user interface. The control bar also includes the paging buttons. See [Control Bar](control-bar) for more information.
-
-{{% alert type="warning" %}}
-Even if the control bar is invisible there can still be a default button that is triggered by (double) clicking on a row. See the property 'Default button trigger' and [control bar](control-bar) for more information.
-{{% /alert %}}
-
-Default: *True*
-
-#### 2.5.7 Show Paging Bar {#show-paging-bar}
-
-With this property, you can change the way the paging bar is shown.
-
-| Value                     | Description                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Yes (with total count)    | The paging bar is shown, including the **Go to last page** button and the total count of objects.                                                      |
-| Yes (without total count) | The paging bar is shown (except for the **Go to last page** button). Also, the total count of objects is not shown, as page numbers are shown instead. |
-| No                        | The paging buttons are not shown.                                                                                                                      |
-
-Default: *Yes (with total count)*
+このプロパティは、エンドユーザーインターフェイスでコントロール バーが表示されるかどうかを示します。 コントロールバーにはページングボタンも含まれています。 詳細は [コントロール バー](control-bar) を参照してください。
 
 {{% alert type="warning" %}}
-Hiding the control bar also hides the paging buttons. For details, see [Show Control Bar](#show-control-bar).
+コントロールバーが非表示の場合でも、行をクリックすることによってトリガーされる既定のボタンが残っている場合があります。 詳細については、プロパティ 'Default button trigger' と [control bar](control-bar) を参照してください。
 {{% /alert %}}
 
-#### 2.5.8 Selection Mode {#selection-mode}
+デフォルト: *True*
 
-The selection mode determines whether and how the user can select items in the reference set selector.
+#### 2.5.7 ページングバーを表示 {#show-paging-bar}
 
-| Value                         | Description                                                                                                                                                                                                                                                      |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No selection                  | The user cannot select items. Of this is chosen, then you cannot have a **Remove** button in your reference set selector                                                                                                                                         |
-| Single selection  *(default)* | The user can select a single item by clicking on it. Clicking another item will make that item the selection. Clicking a selected item will deselect it.                                                                                                         |
-| Single selection and maintain | The user can select a single item by clicking on it. The first item is always selected by default. Clicking another item will make that item the selection. Clicking a selected item will not deselect it.                                                       |
-| Multi-selection               | The user can select multiple items by clicking the first one and holding the <kbd>Ctrl</kbd> key while clicking on other items. Clicking an item without the <kbd>Ctrl</kbd> key will deselect all other selected items and make the clicked item the selection. |
-| Simple multi-selection        | The user can select multiple items by clicking on them in turn.                                                                                                                                                                                                  |
+このプロパティを使用すると、ページングバーの表示方法を変更できます。
 
-#### 2.5.9 Select First {#select-first}
+| 値          | 説明                                                                    |
+| ---------- | --------------------------------------------------------------------- |
+| はい (合計数)   | ページングバーが表示され、 **最後のページ** ボタンとオブジェクトの合計数が含まれます。                        |
+| はい (合計数なし) | ページングバーが表示されます( **** ボタンを除く)。 また、ページ番号が代わりに表示されるため、オブジェクトの総数は表示されません。 |
+| いいえ        | ページングボタンは表示されません。                                                     |
 
-Specifies whether the first item should be selected by default when the reference set selector is first shown.
+デフォルト: *はい (合計)*
 
-Possible values:
+{{% alert type="warning" %}}
+コントロールバーを非表示にすると、ページングボタンも非表示になります。 詳細については、 [コントロール バー](#show-control-bar) を参照してください。
+{{% /alert %}}
 
-* No *(default)*
-* Yes
+#### 2.5.8 選択モード {#selection-mode}
 
-#### 2.5.10 Default Button Trigger {#default-button-trigger}
+選択モードは、ユーザが参照セットセレクタで項目を選択できるかどうかと方法を決定します。
 
-The default button can be triggered by a single or a double click a row.
+| 値               | 説明                                                                                                                                                |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 選択されていません       | ユーザーはアイテムを選択できません。 このうち、参照セットセレクターに **削除** ボタンを設定することはできません。                                                                                      |
+| 単一選択  *(デフォルト)* | ユーザーはそれをクリックして単一の項目を選択することができます。 別の項目をクリックすると、その項目が選択されます。 選択したアイテムをクリックすると選択解除されます。                                                              |
+| 単一選択と維持         | ユーザーはそれをクリックして単一の項目を選択することができます。 最初の項目は常にデフォルトで選択されます。 別の項目をクリックすると、その項目が選択されます。 選択したアイテムをクリックすると選択解除されません。                                       |
+| 複数選択            | ユーザーは、最初の項目をクリックし、 <kbd>Ctrl</kbd> キーを押しながら他の項目をクリックすることで、複数の項目を選択できます。 <kbd>Ctrl</kbd> キーを持たないアイテムをクリックすると、選択されたアイテムの選択が解除され、クリックされたアイテムが選択されます。 |
+| 単純な複数選択         | ユーザーは順番にそれらをクリックすることによって複数の項目を選択することができます。                                                                                                        |
 
-| Value                     | Description                                                                                                           |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Single click              | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click  *(default)* | A double click triggers the default button.                                                                           |
+#### 2.5.9 最初に選択 {#select-first}
 
-### 2.6 Selectable Objects Section {#selectable-objects}
+参照セットセレクタが最初に表示されるときに、最初の項目をデフォルトで選択するかどうかを指定します。
 
-The properties in the Selectable objects section determine the objects from which the end user can make a selection.
+可能な値:
 
-The **Source** property sets the way to define the selectable objects:
+* *なし（デフォルト）*
+* はい
 
-* Database *(default)*
+#### 2.5.10 デフォルトのボタントリガー {#default-button-trigger}
+
+既定のボタンは、1行またはダブルクリックでトリガーできます。
+
+| 値                 | 説明                                                            |
+| ----------------- | ------------------------------------------------------------- |
+| シングルクリック          | ワンクリックで既定のボタンがトリガーされます。 これはユーザーが行を選択できるようにするために組み合わせて使用できません。 |
+| *をダブルクリック（デフォルト）* | ダブルクリックするとデフォルトのボタンがトリガーされます。                                 |
+
+### 2.6 選択可能なオブジェクトセクション {#selectable-objects}
+
+format@@0 セクションのプロパティによって、エンドユーザーが選択できるオブジェクトが決定されます。
+
+**ソース** プロパティは、選択可能なオブジェクトを定義する方法を設定します。
+
+* データベース *(デフォルト)*
 * XPath
 
-For more information, see the [Selectable Objects Section](reference-selector#selectable-objects) section of *Reference Selector*.
+詳細については、 [参照セレクター](reference-selector#selectable-objects) の *選択可能なオブジェクトセクション* を参照してください。
 
 {{% alert type="info" %}}
-You cannot use a microflow to define selectable objects in a reference set selector.
+参照セットセレクタで選択可能なオブジェクトを定義するためにマイクロフローを使用することはできません。
 {{% /alert %}}
 
-### 2.7 Visibility Section {#visibility}
+### 2.7 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Data view](data-view)
-* [Entities](entities)
-* [Associations](associations)
-* [Control Bar](control-bar)
+* [データビュー](data-view)
+* [エンティティ](エンティティ)
+* [関連](関連)
+* [コントロール バー](control-bar)
