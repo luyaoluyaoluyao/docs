@@ -1,185 +1,185 @@
 ---
-title: "Configure File Upload and Download"
-category: "Pages"
-description: "Describes how to configure file manager in Mendix Studio."
+title: "ファイルのアップロードとダウンロード"
+category: "ページ"
+description: "Mendix Studio でファイルマネージャを設定する方法を説明します。"
 menu_order: 70
 tags:
-  - "studio"
-  - "pages"
-  - "file"
-  - "upload files"
-  - "attachment"
-  - "file manager"
+  - "スタジオ"
+  - "ページ"
+  - "ファイル"
+  - "ファイルをアップロード"
+  - "添付ファイル"
+  - "ファイルマネージャー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can enable your end-users to attach and download files, such as PDF files or Microsoft Word documents. They will be able to attach files from different devices: phone, tablet, or desktop; as well as download attached files from a list.
+これにより、エンドユーザーがPDFファイルやMicrosoft Word文書などのファイルを添付およびダウンロードできるようにする方法を説明します。 電話、タブレット、デスクトップなど、さまざまなデバイスからファイルを添付することができ、リストから添付ファイルをダウンロードすることもできます。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Create file entities
-* Create a page with a form that allows your end-users to upload files
-* Display attached files in a list
-* Allow your end-users to download files
+* ファイルエンティティを作成
+* エンドユーザーがファイルをアップロードできるようにするフォームのページを作成します
+* リストに添付ファイルを表示
+* エンドユーザーにファイルのダウンロードを許可する
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-Your company has an app where company's IT department keeps track of assets assigned to employees. You have the **Employee Profile** page with a form (a data view) that has such details as employee's name, department, their email, phone, title, and assets assigned to them (for example, a mobile phone or laptop). This information is filled in and updated by IT administrators:
+会社には、企業のIT部門が従業員に割り当てられた資産を追跡するアプリがあります。 **従業員プロファイル** ページに、従業員の名前などの詳細が記載されたフォーム (データビュー) があります。 部署、電子メール、電話番号、タイトル、およびそれらに割り当てられた資産(例えば、携帯電話やラップトップ)。 この情報は、IT 管理者によって入力および更新されます。
 
 {{% image_container width="600" %}}
-![Employee Profile Page](attachments/pages-how-to-attach-files/employee-profile-form.png)
+![従業員プロフィールページ](attachments/pages-how-to-attach-files/employee-profile-form.png)
 {{% /image_container %}}
 
-The domain model looks the following way:
+ドメインモデルは次のようになります:
 
 {{% image_container width="200" %}}![Domain Model](attachments/pages-how-to-attach-files/domain-model.png){{% /image_container %}}
 
-You would like to add a new functionality: IT administrators should be able to attach files to an employee profile, for example, to attach phone or laptop policy signed by the employee.
+新しい機能を追加する必要があります。IT管理者は、従業員プロファイルにファイルを添付できる必要があります。 例えば従業員が署名した電話やノートパソコンのポリシーを
 
-You also would like to enable IT administrators to download the attached file from a list of files.
+また、IT管理者が添付ファイルをファイルのリストからダウンロードできるようにすることもできます。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
-## 3 Creating a File Entity
+## 3 ファイルエンティティの作成
 
-First of all, to be able to attach and/or download files you need to add a special type of entity to your domain model: a [file entity](/studio8/domain-models#entity-types). Do the following:
+まず第一に ドメインモデルに特別な種類のエンティティを追加する必要があるファイルを添付および/またはダウンロードできるようにするには、 [ファイルエンティティ](/studio/domain-models#entity-types) を使用します。 次の操作を行います:
 
-1. Open your domain model and open the **Toolbox** tab.
+1. ドメインモデルを開き、 **Toolbox** タブを開きます。
 
-2. Select the **File Entity** and drag and drop it to your domain model.
+2. **File Entity** を選択し、ドメインモデルにドラッグ&ドロップします。
 
-3. In the **Create New File Entity** dialog box, set **Name** to *Document* and click **Create**.
+3. **Create New File Entity** ダイアログボックスで、 **Name** を *Document* に設定し、 **Create** をクリックします。
 
     {{% image_container width="450" %}}![Create File Entity](attachments/pages-how-to-attach-files/create-file-entity.png){{% /image_container %}}
 
-4. Now you need to create an association from the **File** entity to the **Employee** entity. Do one of the following:
+4. 次に、 **ファイル** エンティティから **従業員** エンティティへの関連付けを作成する必要があります。 次のいずれかを実行します。
 
-    1. Hover over the **File** entity, click the dot icon, and drag the dot to the **Employee** entity:
+    1. **ファイル** エンティティにカーソルを合わせて、ドットアイコンをクリックし、 **従業員** エンティティに点をドラッグします。
 
         {{% image_container width="500" %}}![Create Association](attachments/pages-how-to-attach-files/create-association-method-one.png){{% /image_container %}}
 
-    2. Select the **File** entity, click the arrow icon, and select **Employee** as a second entity for the association:
+    2. **ファイル** エンティティを選択し、矢印アイコンをクリックし、関連付けの2番目のエンティティとして **従業員** を選択します。
 
         {{% image_container width="250" %}}![Create Association](attachments/pages-how-to-attach-files/create-association-method-two.png){{% /image_container %}}
 
-Good job! You have created the file entity and an association from it to the **Employee** entity:
+よくできました！ ファイルエンティティと関連付けを **従業員** エンティティに作成しました:
 
 {{% image_container width="600" %}}![Domain Model Configured](attachments/pages-how-to-attach-files/domain-model-configured.png){{% /image_container %}}
 
-## 4 Adding a File Manager
+## 4 ファイルマネージャーの追加
 
-A **File Manager** is a widget that allows your end-users to attach and/or download files. However, it can only function inside a data container (a list view or data view), and the list view or data view can only have a file entity as its data source. If you just drag and drop the file manager to your employee profile form, it will not work correctly, because your current data view has the **Employee** entity as its data source, and you need the data source to be a file entity, which is in this case the **Document** entity:
+**ファイル マネージャー** は、エンドユーザーがファイルを添付またはダウンロードできるウィジェットです。 ただし、データコンテナ(リストビューまたはデータビュー)内でのみ機能できます。 そして、リストビューまたはデータビューはファイルエンティティをデータソースとしてのみ持つことができます。 If you just drag and drop the file manager to your employee profile form, it will not work correctly, because your current data view has the **Employee** entity as its data source, and you need the data source to be a file entity, which is in this case the **Document** entity:
 
 {{% image_container width="600" %}}![Employee Profile Page](attachments/pages-how-to-attach-files/employee-profile-form.png){{% /image_container %}}
 
-To solve this, you can add a button which will open a pop-up page where your end-users (IT administrators) can upload images. This page will be connected to your current report form over the *Document_Employee* association and will upload files that are associated to this specific report.
+これを解決するために、エンドユーザー(IT管理者)が画像をアップロードできるポップアップページを開くボタンを追加できます。 このページは、 *Document_Employee* 関連付けを介して現在のレポートフォームに接続され、この特定のレポートに関連付けられているファイルをアップロードします。
 
-Follow the steps below:
+以下の手順に従ってください。
 
-1. Open the **Employee Profile** page where IT administrators create and edit information on employees and assets assigned to them.
+1. IT管理者が割り当てられた従業員と資産に関する情報を作成および編集する **従業員プロファイル** ページを開きます。
 
-2. Open the **Toolbox** and search for the **Create Object** button.
+2. **Toolbox** を開き、 **Create Object** ボタンを探します。
 
-3. Drag and drop the button above **Save** and **Cancel** buttons:
+3. ボタンを **保存** ボタンと **キャンセル** ボタンの上にドラッグ&ドロップします。
 
     {{% image_container width="450" %}}![Create Object Button](attachments/pages-how-to-attach-files/create-object-button.png){{% /image_container %}}
 
-4. Open button properties and do the following:
+4. ボタンのプロパティを開き、次の操作を行います:
 
-    1. Select the **Caption** property and rename it from *New* to *Attach File*.
+    1. **図表番号** プロパティを選択し、 *新規* から *ファイルを添付* に名前を変更します。
 
-    2. Click the **Icon** property.
+    2. **アイコン** プロパティをクリックします。
 
-    3. In the **Select icon** dialog box, search for the *file* icon, and click **Select**.
+    3. **アイコンの選択** ダイアログボックスで、 *ファイル* アイコンを検索し、 **選択** をクリックします。
 
-    4. Click the **Style** property and change it from **Default** to **Success**. After your changes, the button will look the following way:
+    4. **スタイル** プロパティをクリックし、 **デフォルト** から **成功** に変更します。 変更後、ボタンは次のようになります:
 
         {{% image_container width="150" %}}![Attach Files](attachments/pages-how-to-attach-files/attach-file-button.png){{% /image_container %}}
 
-    5. Click the **Entity** property.
+    5. **エンティティ** プロパティをクリックします。
 
-    6. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
+    6. **図形の選択** ダイアログボックスで、 **Document_Employee** 関連から **ドキュメント** 図形を選択し、 **選択** をクリックします。
 
         {{% image_container width="400" %}}![Select File Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
-    7. Click the **Page** property.
+    7. **ページ** プロパティをクリックします。
 
-    8. In the **Select Page** dialog box that opens, click **New Page**.
+    8. 開いた **ページの選択** ダイアログボックスで、右上のプラスアイコンをクリックして新しいページを追加します。
 
-    9. In the **Create new page** dialog box, do the following:
+    9. **新規ページの作成** ダイアログボックスで、次の操作を行います:
 
-         1. Set the **Title** to *Attach File*.
+         1. **タイトル** を *ファイルを添付する* に設定します。
 
-         2. Set the **Layout** to *PopupLayout*.
+         2. **レイアウト** を *PopupLayout* に設定します。
 
-         3. The **Pre-fill page contents based on the Document entity** option is on, so the page template (Forms) is selected automatically for you. Choose **Form Vertical** and click **Create**.
+         3. **ドキュメントエンティティ** オプションに基づいてページを事前に入力するformat@@2 がオンになっているため、ページテンプレート(フォーム)が自動的に選択されます。 **フォームを垂直に** を選択し、 **作成** をクリックします。
 
              {{% image_container width="500" %}}![](attachments/pages-how-to-attach-files/create-attach-file-page.png){{% /image_container %}}
 
-        4. A new pop-up page with a preconfigured form (a data view) is created:
+        4. 事前設定されたフォーム(データビュー)を持つ新しいポップアップページが作成されます。
 
              {{% image_container width="500" %}}![Attach Files Page](attachments/pages-how-to-attach-files/attach-file-page.png){{% /image_container %}}
 
-        5. As you only need your end-users to attach files on this page, delete **Name** and **Size** text boxes from the data view.
+        5. このページにファイルを添付するには、エンドユーザーのみが必要です。 **の名前** と **サイズ** のテキストボックスをデータビューから削除します。
 
-        6. Open the **Toolbox**, search for a **File Uploader**, drag and drop it inside the data view.
+        6. **Toolbox**を開き、 **File Uploader**を検索し、データビューの中にドラッグ&ドロップします。
 
-You have created a pop-up page that will allow IT administrators to attach files to the employee profile form:
+IT管理者が従業員プロフィールフォームにファイルを添付できるポップアップページを作成しました。
 
 {{% image_container width="450" %}}![Attach Files Page Configured](attachments/pages-how-to-attach-files/attach-file-page-configured.png){{% /image_container %}}
 
 
-## 5 Downloading Files
+## 5つのファイルをダウンロード中
 
-After your end-users attach the files, it would be nice to display files in a list and give users an opportunity to download attached files if needed. To do so, you need to add a list:
+エンドユーザーがファイルを添付した後 リストにファイルを表示し、必要に応じて添付ファイルをダウンロードする機会を与えることができます。 これを行うには、リストを追加する必要があります。
 
-1. Open the **Employee_Profile** page.
+1. **Employee_Profile** ページを開きます。
 
-2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach File** button (make sure you drop it *inside* the data view, this way you will be able to list only files associated with a selected employee instead of all files that were attached to any employee profile). A list view with widgets inside it is added to your page:
+2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach File** button (make sure you drop it *inside* the data view, this way you will be able to list only files associated with a selected employee instead of all files that were attached to any employee profile). ウィジェットを含むリストビューがページに追加されます。
 
     {{% image_container width="550" %}}![List 4](attachments/pages-how-to-attach-files/list-4.png){{% /image_container %}}
 
-3. Select the list view, open its properties, and do the following:
+3. リストビューを選択し、そのプロパティを開き、次の操作を行います:
 
-    1. Click the **Entity** property.
+    1. **エンティティ** プロパティをクリックします。
 
-    2. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
+    2. **図形の選択** ダイアログボックスで、 **Document_Employee** 関連から **ドキュメント** 図形を選択し、 **選択** をクリックします。
 
-        ![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png)
+        {{% image_container width="400" %}}![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
-4. Delete the image and a column it is placed in from the list:
+4. 画像とリストから配置されている列を削除します。
 
-    ![Delete Column From the List](attachments/pages-how-to-attach-files/column-list.png)
+    ![リストから列を削除](attachments/pages-how-to-attach-files/column-list.png)
 
-5. Delete a subtitle in the list saying *Here you can put a subtitle*.
+5. *字幕* をつけることができます。
 
-6. Select the **Name** text in the list view, open its properties, and do the following:
+6. リスト ビューで **名前** のテキストを選択し、プロパティを開き、次の操作を行います:
 
-    1. In the **Content** property, delete the *Name* text and click **Add attribute**.
+    1. **Content** プロパティで、 *Name* テキストを削除し、 **Add attribute** をクリックします。
     2. In the **Select Attribute** dialog box, choose the **Name** attribute and click **Select** to display the name of the attached file.
 
         {{% image_container width="400" %}}![Select Attribute](attachments/pages-how-to-attach-files/select-attribute.png){{% /image_container %}}
 
-7. Delete the **Details** button in the list view.
+7. リスト ビューの **詳細** ボタンを削除します。
 
 8. Open the **Toolbox** and search for a **File Downloader**, drag and drop it to the column where the **Details** button was placed.
 
-9. Open the **File Downloader** (**File Manager**) properties > **Label** property and delete the *File* text from it.
+9. **File Downloader** (**File Manager**) properties > **Label** プロパティを開き、そこから *File* テキストを削除します。
 
-Great job! Now you have the list that shows attached files and your users can download files from this list:
+よくできました！ 添付ファイルを表示するリストがあり、ユーザーはこのリストからファイルをダウンロードできます:
 
 {{% image_container width="500" %}}![Configured List View](attachments/pages-how-to-attach-files/list-view-configured.png){{% /image_container %}}
 
-Congratulations! You have configured the form that allows IT administrators to attach files and displays these files in the list.
+おめでとうございます IT管理者がファイルを添付し、これらのファイルをリストに表示できるようにフォームを構成していること。
 
-[Preview your app](/studio8/publishing-app) to test how the file uploading and downloading works:
+[](/studio/publishing-app) アプリをプレビューして、ファイルのアップロードとダウンロードの仕組みをテストします。
 
-![Previewed List](attachments/pages-how-to-attach-files/list-previewed.png)
+![プレビューリスト](attachments/pages-how-to-attach-files/list-previewed.png)
 
-You can also configure a button to attach images instead of files. For more information, see [How to Enable End-Users to Attach Images](pages-how-to-attach-images).
+ファイルの代わりに画像を添付するボタンを設定することもできます。 詳細については、 [エンドユーザーが画像を添付できるようにする方法](pages-how-to-attach-images) を参照してください。
