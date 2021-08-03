@@ -5,17 +5,13 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-year-from-datetime.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`year-from-dateTime()` 関数は、 `Date and time` 属性から年数を抽出し、値と比較するために使用することができます。
 
-The `year-from-dateTime()` function extracts the amount of years from a `Date and time` attribute so it can be used to compare to a value.
+## 2つの例
 
-## 2 Example
-
-This query returns all the logs where the amount of years in `DateAttribute` is "2011" (for example, "2011-12-30"):
+このクエリは、 `DateAttribute` の年数が "2011" であるすべてのログを返します(例: "2011-12-30")。
 
 ```java
 //Logging.Log[year-from-dateTime(DateAttribute) = 2011]
