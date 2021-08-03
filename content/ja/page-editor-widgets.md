@@ -1,115 +1,115 @@
 ---
-title: "Widgets"
-category: "Pages"
-description: "Describes widgets in Mendix Studio."
+title: "ウィジェット"
+category: "ページ"
+description: "Mendix Studioでウィジェットを説明します。"
 tags:
-  - "studio"
-  - "page editor"
-  - "pages"
-  - "widgets"
+  - "スタジオ"
+  - "ページエディタ"
+  - "ページ"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Widgets are single user-interface elements that can be configured. Examples of widgets can be a container, a drop-down menu, or different kinds of buttons.
+ウィジェットは、単一のユーザーインターフェイス要素で構成できます。例えば、ドロップダウンメニューや異なる種類のボタンなどです。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets/widgets-examples.png)
 {{% /image_container %}}
 
-Widgets in Studio are grouped by category and can be classified by their origin.
+Studio 内のウィジェットはカテゴリごとにグループ化され、原点ごとに分類できます。
 
-## 2 Viewing Widgets
+## 2件のウィジェットを表示
 
-To view widgets in Mendix Studio, do the following:
+Mendix Studio でウィジェットを表示するには、次の手順を実行します。
 
-1. Click the **Pages** icon in the left menu bar.
+1. 左のメニューバーの **ページ** アイコンをクリックします。
 
-2. In the displayed list of app pages, select the page you want to open and click it.
+2. 表示されるアプリの一覧で、開くページを選択してクリックします。
 
-3. In the **Toolbox** tab, **Widgets** are opened by default.
+3. **ツールバー** タブでは、 **ウィジェット** がデフォルトで開かれます。
 
    ![](attachments/page-editor-widgets/toolbox-widgets.png)
 
-## 3 Quick Configuration of Widget Properties {#quick-config}
+## ウィジェットプロパティの3つのクイック設定 {#quick-config}
 
-Quick configuration of properties is available for most of non-custom widgets. This means that their properties can be configured in a pop-up window when adding these widgets on a page.
+プロパティのクイック設定は、ほとんどの非カスタム ウィジェットで使用できます。 つまり、これらのウィジェットをページに追加するときに、ポップアップウィンドウでプロパティを設定できます。
 
-Once you drag and drop a widget, a small pop-up window appears next to it. You can set the properties that are necessary for the widget to function without resulting in [consistency errors](consistency-errors) as well as other frequently used properties to help you configure the widget quickly. However, you can configure all properties from the **Properties** tab at all times.
+ウィジェットをドラッグ&ドロップすると、その隣に小さなポップアップウィンドウが表示されます。 ウィジェットが [一貫性エラー](consistency-errors) をもたらすことなく、必要なプロパティを機能させることができます。また、ウィジェットをすばやく設定できるように、他の頻繁に使用されるプロパティも設定できます。 ただし、 **プロパティ** タブからすべてのプロパティを常に設定できます。
 
-For example, quickly configuring the data source of a data grid helps you avoid consistency errors when previewing or publishing your app, and you can configure the rest of the properties later.
+たとえば、データ グリッドのデータ ソースを素早く構成することで、アプリケーションのプレビューやパブリッシュ時の一貫性エラーを回避できます。 あとで残りのプロパティを設定できます
 
 ![](attachments/page-editor-widgets/quick-config.png)
 
-The pop-up window disappears once you start interacting with the page or the menu items, for example, if you start clicking elements on the page or if you open **Toolbox**, **Properties**, **Buzz**. To access the quick configuration pop-up window again, click the gear icon in the top-right corner of the widget:
+The pop-up window disappears once you start interacting with the page or the menu items, for example, if you start clicking elements on the page or if you open **Toolbox**, **Properties**, **Buzz**. クイック設定ポップアップウィンドウに再度アクセスするには、ウィジェットの右上隅にある歯車アイコンをクリックします。
 
 ![](attachments/page-editor-widgets/quick-widget-icon.png)
 
-## 4 Widgets by Category {#widget-categories}
+## カテゴリ別の4件のウィジェット {#widget-categories}
 
-Widgets of Studio are divided into categories that you can see when you open the **Widgets** tab.
+Studio のウィジェットは、 **ウィジェット** タブを開いたときに確認できるカテゴリに分かれています。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets/widgets-categories.png)
 {{% /image_container %}}
 
-Widget categories are described in the table below:
+ウィジェットのカテゴリは以下の表に記載されています:
 
-| Widget Category                                        | Description                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data Containers                                        | Contains a [data view](page-editor-data-view-list-view) (the starting point for showing the contents of one object),  [list view](page-editor-data-view-list-view) (the starting point for showing the contents of list of objects), and a [data grid](page-editor-data-grid) (shows a list of objects in a table format). |
-| [Structure](page-editor-widgets-structure)             | Contains pre-set layout grids with a specific number of columns and widgets for controlling the placing widgets.                                                                                                                                                                                                           |
-| [Input Elements](page-editor-widgets-input-elements)   | Contains elements that can be used for inputting data.                                                                                                                                                                                                                                                                     |
-| [Text](page-editor-widgets-text)                       | Contains text display widgets.                                                                                                                                                                                                                                                                                             |
-| [Images & Files](page-editor-widgets-images-and-files) | Contains widgets that help you display images, upload or/and download files and images.                                                                                                                                                                                                                                    |
-| [Buttons](page-editor-widgets-buttons)                 | Contains a variety of buttons for placing on a page.                                                                                                                                                                                                                                                                       |
-| [Menus](/refguide8/menu-widgets)                       | Contains menu creation widgets. Currently, these widgets can be configured only in Studio Pro.                                                                                                                                                                                                                             |
-| Add-ons                                                | Contains all custom widgets previously installed in the app. If widgets cannot be matched to the Marketplace profile they will be shown in the add-ons.                                                                                                                                                                    |
-| Charts                                                 | Contains different charts. This category consist of the [Marketplace widgets](#app-store-widgets).                                                                                                                                                                                                                         |
-| Display                                                | Contains widgets which display changing elements on a page, for example a map, or a progress bar. This category consists of the [Marketplace widgets](#app-store-widgets).                                                                                                                                                 |
-| List view Controls                                     | Contains controls for the list view. This category consist of the [Marketplace widgets](#app-store-widgets).                                                                                                                                                                                                               |
+| ウィジェットのカテゴリ                                | 説明                                                                                                                      | 詳細なドキュメントへのリンク                                                                                                               |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| データコンテナ                                    | データ ビュー (1 つのオブジェクトの内容を表示するための開始点) が含まれています。 リストビュー (オブジェクトのリストの内容を表示するための開始点) そして、データ グリッド (テーブル形式のオブジェクトのリスト) を表示します。 | [Data View & List View Properties](page-editor-data-view-list-view)<br />[Data Grid Properties](page-editor-data-grid) |
+| [構成](page-editor-widgets-structure)        | 配置ウィジェットを制御するための特定の列数とウィジェットを持つ事前設定のレイアウト グリッドが含まれています。                                                                 | [ストラクチャーウィジェット](page-editor-widgets-structure)                                                                               |
+| [入力要素](page-editor-widgets-input-elements) | データの入力に使用できる要素が含まれています。                                                                                                 | [入力エレメントのウィジェット](page-editor-widgets-input-elements)                                                                         |
+| [テキスト](page-editor-widgets-text)           | テキスト表示ウィジェットが含まれます。                                                                                                     | [テキストウィジェット](page-editor-widgets-text)                                                                                       |
+| [画像](page-editor-widgets-images)           | 画像表示ウィジェットが含まれています。                                                                                                     | [画像ウィジェット](page-editor-widgets-images)                                                                                       |
+| [ボタン](page-editor-widgets-buttons)         | ページに配置するためのさまざまなボタンが含まれています。                                                                                            | [ボタンウィジェット](page-editor-widgets-buttons)                                                                                     |
+| [Menus](/refguide/menu-widgets)            | メニュー作成ウィジェットが含まれています。 現在、これらのウィジェットはStudio Proでのみ設定できます。                                                                | [Menu Widgets](/refguide/menu-widgets) in the *Studio Pro Guide*                                                             |
+| アドオン                                       | アプリにインストールされているすべてのカスタム ウィジェットが含まれています。 ウィジェットが Marketplace プロファイルと一致しない場合、ウィジェットはアドオンに表示されます。                          |                                                                                                                              |
+| グラフ                                        | 異なるチャートが含まれています。 このカテゴリはマーケットプレイスウィジェットで構成されています。                                                                       | セクション [原点別のウィジェット4](#widgets-by-origin)                                                                                      |
+| 表示                                         | マップやプログレスバーなど、ページに変更要素を表示するウィジェットが含まれています。 このカテゴリはマーケットプレイスウィジェットで構成されています。                                             | セクション [原点別のウィジェット4](#widgets-by-origin)                                                                                      |
+| リストビューコントロール                               | リストビューのコントロールが含まれています。 このカテゴリはマーケットプレイスウィジェットで構成されています。                                                                 | セクション [原点別のウィジェット4](#widgets-by-origin)                                                                                      |
 
-## 5 Widgets by Origin {#widgets-by-origin}
+## 原産地別の5つのウィジェット {#widgets-by-origin}
 
-Widgets in Studio can be divided by origin as shown in the table below:
+Studio のウィジェットは、以下の表のように原点で分割できます。
 
-| Type                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                               | Origin                                                                                                                              |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Default widgets                              | Widgets that are included into your app by default and do not have the information icon in the top-right corner.                                                                                                                                                                                                                                                                                                          | Apps created in the Developer Portal (for more information on the Developer Portal, see [Developer Portal](/developerportal/index)) |
-| Marketplace widgets<a name="app-store-widgets"></a> | Widgets that you can download to your app directly from Studio. Some Marketplace widgets are already part of the app. Such widgets have the information icon in the top-right corner of widgets in the **Toolbox**. <br />For more information on the Marketplace, see [Marketplace Overview](/appstore/general/app-store-overview).                                                                                | [Marketplace](/appstore/)                                                                                                           |
-| Local widgets                                | Either widgets that are a part of an app template, or widgets created by your or your team locally via Studio Pro. For more information on developing widgets, see the [Custom Widget Development](/howto8/extensibility/widget-development) how-to's. As a rule local widgets will be listed in the **Add-ons** category. For more information on categories, see the [Widgets by Category](#widget-categories) section. | Apps created in the  Developer Portal/Studio Pro                                                                                    |
+| タイプ              | 説明                                                                                                                                                                                                                                                               | 原点：                                                                             |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| 既定のウィジェット        | デフォルトでアプリに含まれているウィジェットで、右上隅に情報アイコンがありません。                                                                                                                                                                                                                        | 開発者ポータルで作成されたアプリ。 開発者ポータルの詳細については、 [開発者ポータル](/developerportal/index) を参照してください。 |
+| マーケットプレイスのウィジェット | Studioから直接アプリにダウンロードできるウィジェット。 一部の Marketplace ウィジェットは、アプリの一部としてすでにお使いのアプリにあります。 このようなウィジェットには、 **ツールバー** 内のウィジェットの右上隅に情報アイコンがあります。 <br />マーケットプレイスの詳細については、 [マーケットプレイスの概要](/appstore/general/app-store-overview) を参照してください。                               | [市場](/appstore/)                                                                |
+| ローカルウィジェット       | アプリテンプレートの一部であるウィジェット、またはStudio Proを介してローカルまたはチームによって作成されたウィジェットのいずれか。 ウィジェットの開発についての詳細は、 [カスタムウィジェット開発](/howto7/widget-development/) のハウツーを参照してください。 原則として、ローカルウィジェットは **アドオン** カテゴリにリストされます。 カテゴリの詳細については、セクション [3 カテゴリ別ウィジェット](#widget-categories) を参照してください。 | Developer Portal/Studio Proで作成されたアプリ                                            |
 
-## 6 Adding the Marketplace Widgets
+## 6 マーケットプレースのウィジェットの追加
 
-You can add the Marketplace widgets to your app by downloading them directly in the **Widgets** tab in Studio. These widgets are a subset of all widgets available in the app store: you can only download the ones that are approved for use in Studio. You can also update them if an update is available.
+Studio の **ウィジェット** タブから直接アプリに Marketplace ウィジェットを追加できます。 これらのウィジェットは Marketplace で利用可能なすべてのウィジェットのサブセットです。Studio で使用を承認されたウィジェットのみをダウンロードできます。 アップデートが利用可能であればアップデートすることもできます。
 
-To add an Marketplace widget, do the following:
+Marketplace ウィジェットを追加するには、次の操作を行います。
 
-1. Open the **Widgets** tab.
+1. **ウィジェット** タブを開きます。
 
-2.  Do one of the following: <br />
+2.  次のいずれかを実行します。 <br />
 
-    a. Find a category with the **View App Store widgets** option and click it.  <br />
+    a **App Storeウィジェットを表示** オプションでカテゴリを見つけてクリックします。  <br />
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets/view-app-store-widgets.png)
  {{% /image_container %}}<br />
 
-    b.  Start typing the name of the category or of a specific widget in the **Search** field. <br />
+    B  **検索** フィールドに、カテゴリまたは特定のウィジェットの名前を入力します。 <br />
 
     ![](attachments/page-editor-widgets/slider.png)
 
-3.  Click the cloud icon to download the widget and add it to your app.
+3.  クラウドアイコンをクリックしてウィジェットをダウンロードし、アプリに追加します。
 
     ![](attachments/page-editor-widgets/app-store-download.png)
 
-The widget is now added to your app, you can simply drag and drop it to the page to use it. You can also view settings of this widget in the **App Settings**.  For more information on managing widgets in your app, see [Settings](settings).
+ウィジェットがアプリに追加されました。それを使用するには、単純にページにドラッグ&ドロップできます。 **アプリ設定** でこのウィジェットの設定を表示することもできます。  アプリ内のウィジェット管理の詳細については、 [設定](settings) を参照してください。
 
 {{% alert type="info" %}}
 
-Some similar widgets are packaged together: downloading one of these widgets will cause a number of other widgets to be downloaded as well. For example, downloading a line chart will give you all chart widgets.
+いくつかの似たようなウィジェットが一緒にパッケージ化されています:これらのウィジェットの1つをダウンロードすると、他の多くのウィジェットもダウンロードされます。 たとえば、折れ線グラフをダウンロードすると、すべてのグラフのウィジェットが表示されます。
 
 {{% /alert %}}
 
-## 7 Read More
+## 7 続きを読む
 
-* [Pages](page-editor)
-* [Settings](settings)
-* [Marketplace Overview](/appstore/general/app-store-overview)
+* [ページ](page-editor)
+* [設定](設定)
+* [マーケットプレースの概要](/appstore/general/app-store-overview)
