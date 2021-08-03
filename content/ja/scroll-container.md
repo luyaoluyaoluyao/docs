@@ -1,165 +1,165 @@
 ---
-title: "Scroll Container"
+title: "コンテナーのスクロール"
 parent: "container-widgets"
 menu_order: 50
 tags:
   - "studio pro"
-  - "scroll container"
-  - "container widget"
-  - "widget"
+  - "スクロールコンテナ"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 aliases:
-  - /refguide/horizontal-split-pane.html
-  - /refguide/vertical-split-pane.html
+  - /ja/refguide/horizontal-split-pane.html
+  - /ja/refguide/vertical-split-pane.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A scroll container is used to divide the layout in regions (for details on regions, see the [Scroll Container Region](#scroll-container-region) section) such as the header, sidebar, or footer. A scroll container must be the only top-level widget. Apart from that, a scroll container can only be placed directly in another scroll container.
+スクロールコンテナは、レイアウトをリージョンで分割するために使用されます(詳細はリージョンについて)。 ヘッダー、サイドバー、フッターなど、 [Scroll Container Region](#scroll-container-region) セクションを参照してください。 スクロールコンテナは、トップレベルウィジェットのみでなければなりません。 それとは別に、スクロールコンテナは別のスクロールコンテナにのみ直接配置できます。
 
-Scroll containers may be placed on navigation layouts as well as on pages.
+スクロールコンテナは、ページと同様にナビゲーションレイアウトに配置することができます。
 
-The scroll container example below divides the layout in three parts: a header containing a logo, a content part with a placeholder and a footer:
+以下のスクロールコンテナーの例では、レイアウトを3つの部分に分割します: ロゴを含むヘッダー、プレースホルダとフッターを含むコンテンツパーツ:
 
-![Scroll Container](attachments/container-widgets/scroll-container.PNG)
+![コンテナーのスクロール](attachments/container-widgets/scroll-container.PNG)
 
 
-A scroll container can consist of several scroll container regions. For more information on scroll container regions and their properties, see the [Scroll Container Region](#scroll-container-region) section.
+スクロールコンテナは、複数のスクロールコンテナ領域で構成できます。 コンテナリージョンとそのプロパティの詳細については、「 [Scroll Container Region](#scroll-container-region) 」セクションを参照してください。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of scroll container properties is represented in the image below:
+スクロールコンテナープロパティの例を以下の画像に示します。
 
-{{% image_container width="250" %}}![Scroll Container Properties](attachments/container-widgets/scroll-container-properties.png)
+{{% image_container width="250" %}}![コンテナーのプロパティをスクロール](attachments/container-widgets/scroll-container-properties.png)
 {{% /image_container %}}
 
-Scroll container properties consist of the following sections:
+スクロールコンテナーのプロパティは、以下のセクションで構成されます。
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Regions](#regions)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [地域](#regions)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Layout Mode
+#### 2.3.1 レイアウトモード
 
-This property determines in which mode the scroll container operates.
+このプロパティは、スクロールコンテナがどのモードで動作するかを決定します。
 
-| Value                 | Description                                                                                                             |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Headline  *(default)* | The top and bottom regions extend the entire width of the container and the remaining regions are placed in the middle. |
-| Sidebar               | The side panels extend the full height of the container.                                                                |
+| 値              | 説明                                  |
+| -------------- | ----------------------------------- |
+| 見出し  *(デフォルト)* | 上下の領域はコンテナの幅全体を伸ばし、残りの領域は中央に配置されます。 |
+| Sidebar        | サイドパネルは、コンテナの全高を延長します。              |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-#### 2.3.2 Scroll Behavior
+#### 2.3.2 スクロールの動作
 
-This property determines what happens when the content of a region does not fit in the region.
+このプロパティは、リージョンのコンテンツがリージョンに収まらない場合の動作を決定します。
 
-| Value                  | Description                                                                                |
-| ---------------------- | ------------------------------------------------------------------------------------------ |
-| Per region *(default)* | Every region will show its own scroll bar in case its content does not fit.                |
-| Full widget            | The scroll container will grow to fit its contents and will leave scrolling to its parent. |
+| 値                 | 説明                                      |
+| ----------------- | --------------------------------------- |
+| リージョンごと *(デフォルト)* | コンテンツが一致しない場合、各リージョンに独自のスクロールバーが表示されます。 |
+| 完全なウィジェット         | スクロールコンテナは内容に合うように成長し、親にスクロールします。       |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
 #### 2.3.3 Width {#width}
 
-By default the scroll container will extend the full width of its parent widget. It can also be given a specific width, which can be defined either in pixels or percentage of its parent widget.
+デフォルトでは、スクロールコンテナは親ウィジェットの全幅を拡張します。 また、特定の幅を指定することもできます。これは、ピクセルまたは親ウィジェットのパーセンテージのいずれかで定義できます。
 
-Default: *Full width*
+デフォルト: *全幅*
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-#### 2.3.4 Width Value
+#### 2.3.4 幅
 
-This property is displayed only when the [Width](#width) property is set to *Pixels* or *Percentage*. This property determines the width of the scroll container, either in pixels or a percentage.
+このプロパティは、 [幅](#width) プロパティが *ピクセル* または *パーセント* に設定されている場合にのみ表示されます。 スクロールコンテナの幅をピクセルまたはパーセンテージで指定します。
 
-#### 2.3.5 Alignment
+#### 2.3.5 配置
 
-This property is displayed only when the [Width](#width) property is set to *Pixels* or *Percentage*. The scroll container can be aligned to the left, to the right, or in the middle of its parent widget.
+このプロパティは、 [幅](#width) プロパティが *ピクセル* または *パーセント* に設定されている場合にのみ表示されます。 スクロールコンテナは、左側、右側、または親ウィジェットの途中に配置できます。
 
-Default: *Center*
+デフォルト: *センター*
 
-### 2.4 Regions Section {#regions}
+### 2.4 リージョンセクション {#regions}
 
 {{% alert type="info" %}}Regions are not supported on native mobile pages.{{% /alert %}}
 
-Regions define the content area of a scroll container. For more information see the [Scroll Container Region](#scroll-container-region) section.
+リージョンはスクロールコンテナのコンテンツエリアを定義します。 詳細については、 [Scroll Container Region](#scroll-container-region) セクションを参照してください。
 
 {{% alert type="info" %}}
-If you add regions in a [layout](layout), they will automatically be filled with [placeholders](placeholder).
+[レイアウト](layout)にリージョンを追加すると、自動的に [プレースホルダー](placeholder) で埋められます。
 {{% /alert %}}
 
-#### 2.4.1 Enable Top
+#### 2.4.1 トップを有効にする
 
-Determines whether the scroll container should contain a top region.
+スクロールコンテナに最上部の領域を含めるかどうかを指定します。
 
-#### 2.4.2 Enable Bottom
+#### 2.4.2 下部を有効にする
 
-Determines whether the scroll container should contain a bottom region.
+スクロールコンテナに一番下の領域を含めるかどうかを指定します。
 
-#### 2.4.3 Enable Left
+#### 2.4.3 左に有効
 
-Determines whether the scroll container should contain a left region.
+スクロールコンテナに左側の領域を含めるかどうかを指定します。
 
-#### 2.4.4 Enable Right
+#### 2.4.4 右を有効にする
 
-Determines whether the scroll container should contain a right region.
+スクロールコンテナに適切な領域を含めるかどうかを指定します。
 
 ## 3 Scroll Container Region {#scroll-container-region}
 
-A scroll container region is part of a scroll container, and defines a content area. A scroll container can contain the following regions:
+スクロールコンテナ領域はスクロールコンテナの一部であり、コンテンツ領域を定義します。 スクロールコンテナには、次のリージョンを含めることができます。
 
-* Center
-* Left
-* Right
-* Top
-* Bottom
+* 中央揃え
+* 左
+* 右
+* 上
+* 下揃え
 
-You can add and remove all the regions listed above except the center one.
+センター1を除く上記のすべてのリージョンを追加および削除できます。
 
-### 3.1 Scroll Container Region Properties{#region}
+### 3.1 コンテナ領域プロパティ{#region} のスクロール
 
-#### 3.1.1 Common Section
+#### 3.1.1 共通セクション
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-#### 3.1.2 General Section
+#### 3.1.2 一般セクション
 
 ##### 3.1.2.1 Width or Height
 
-A scroll container region has the following properties in the **General** section:
+スクロールコンテナ領域は、 **General** セクションに次のプロパティを持ちます。
 
-| Property     | Property is available for: | Description                                                                                                   |
-| ------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Width        | Left and right regions     | Defines whether the **Width value** (described below) of the region is specified in pixels or in percentage.  |
-| Width Value  | Left and right regions     | Allows you to specify the value of the width, either in pixels or in percentage.                              |
-| Height       | Top and bottom regions     | Defines whether the **Height value** (described below) of the region is specified in pixels or in percentage. |
-| Height Value | Top and bottom regions     | Allows you to specify the value of the height, either in pixels or in percentage.                             |
+| 属性          | 以下のプロパティが利用可能です: | 説明                                                |
+| ----------- | ---------------- | ------------------------------------------------- |
+| Width       | 左右の領域            | 領域の **幅の値** (下記で説明) をピクセルまたはパーセントで指定するかどうかを定義します。 |
+| Width Value | 左右の領域            | 幅の値をピクセルまたはパーセンテージで指定できます。                        |
+| 高さ          | 上部と下部の領域         | 領域の **高さの値** をピクセルまたはパーセンテージで指定するかどうかを定義します。      |
+| 高さの値        | 上部と下部の領域         | 高さの値をピクセルまたはパーセンテージで指定できます。                       |
 
-##### 3.1.2.2 Toggle Mode (Layouts Only)
+##### 3.1.2.2 切り替えモード (レイアウトのみ)
 
-One (left or right) scroll container region within a layout can be set to toggle using a [sidebar toggle button](sidebar-toggle-button). This setting determines which region (here called a sidebar) will be toggled, and how the toggling is implemented.
+レイアウト内の 1 つ(左または右) スクロールコンテナーリージョンを設定して、 [サイドバーのトグルボタン](sidebar-toggle-button) を使用してトグルすることができます。 この設定は、(ここでサイドバーと呼ばれる)どのリージョンを切り替えるか、そしてどのようにトグルを実装するかを決定します。
 
-| Mode                              | Effect                                                                                                         |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| None *(default)*                  | This sidebar is not affected by the sidebar toggle button.                                                     |
-| Push content aside                | The sidebar moves the rest of the content off-screen.                                                          |
-| Slide over content                | The sidebar moves over the content.                                                                            |
-| Shrink content (initially open)   | The content is initially shrunk and the sidebar is displayed. The content expands when the sidebar is toggled. |
-| Shrink content (initially closed) | The sidebar is initially hidden and the content shrinks to make space for it when it is toggled.               |
+| モード                 | 効果                                                      |
+| ------------------- | ------------------------------------------------------- |
+| なし *(デフォルト)*        | このサイドバーはサイドバーのトグルボタンの影響を受けません。                          |
+| コンテンツを脇にプッシュする      | サイドバーはコンテンツの残りの部分を画面外に移動します。                            |
+| 内容の上にスライド           | サイドバーはコンテンツの上に移動します。                                    |
+| コンテンツの縮小（最初に開く）     | コンテンツは最初に縮小され、サイドバーが表示されます。 サイドバーが切り替えられるとコンテンツが展開されます。 |
+| コンテンツの縮小（最初は閉じています） | サイドバーは最初は非表示になり、コンテンツが縮小してスペースが切り替わります。                 |
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
