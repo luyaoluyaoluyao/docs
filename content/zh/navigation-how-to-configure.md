@@ -26,13 +26,13 @@ tags:
 
 ![配置菜单](attachments/navigation-how-to-configure/navigation-previewed.png)
 
-目前您有一个叫做 **Home_Web** 的页面被设置为默认主页，并且也被设置为主菜单项。 您的导航文档目前看起来如下方式：
+目前您有一个名为 **Home_web** 的网页默认设置为首页。 您的导航文档目前看起来如下方式：
 
 ![导航默认](attachments/navigation-how-to-configure/navigation-default.png)
 
 您有好几个您想要添加到导航的页面：
 
-* **员工** - 一个列出您公司中所有员工的页面，并且应该是默认主页
+* **员工** - 一个列出您公司中所有员工的页面，并且应该是主页
 
 * **新员工** — — 创建一个新员工的页面
 
@@ -46,37 +46,35 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
-* 熟悉导航文档条款。 欲了解更多信息，请参阅 [导航文档](/studio/navigation)。
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉导航文档条款。 欲了解更多信息，请参阅 [导航文档](/studio8/navigation)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
 
 ## 3 创建菜单项和子项
 
-### 3.1 将员工页面设置为默认主页 {#employees-page}
+### 3.1 将雇员网页设置为主页 {#employees-page}
 
 目前 **Home_web** 页面被设置为您的应用的主页。 然而，你想把 **员工** 页面设置为主页。 执行以下操作：
 
 1. 点击左侧菜单栏中的 **导航文档** 图标。
 
-2. 打开导航编辑器属性 > **默认主页**。
+2. 选择 **主屏幕** 菜单项：
 
-3. 点击 **页面** 属性来选择一个不同的页面：
+    ![默认导航](attachments/navigation-how-to-configure/navigation-default.png)
 
-    ![默认主页](attachments/navigation-how-to-configure/default-home-page.png)
+3. 打开它的属性。 属性 **设置为主页** 默认启用 **主页** 菜单项。 您需要更改当前在属性中选择的页面。 执行以下操作：
 
-4. 在 **选择页面** 对话框中，选择 **员工** 然后点击 **选择**。
+    1.  点击 **页面** 属性来更改当前设置为主页的页面：
 
-5. Now you need to set the **Employees** page for the **Home** menu item otherwise it will not show in your navigation tree. 点击 **首页** 菜单项并打开其属性。
+        ![主页属性](attachments/navigation-how-to-configure/home-page-properties.png)
 
-6. 点击 **页面** 属性：
+    3. 在 **选择页面** 对话框中，选择 **员工** 然后点击 **选择**。
 
-    ![主菜单项](attachments/navigation-how-to-configure/home-menu-item.png)
+        ![选择页面对话框](attachments/navigation-how-to-configure/select-page-dialog.png)
 
-7. 在 **选择页面** 对话框中，选择 **员工** 然后点击 **选择**。
+您更改了默认被选为主页的页面，并将 **员工** 页面设置为您应用的新主页。
 
-您已设置 **员工** 页面为您的应用的新的默认首页。
-
-### 3.2 为新员工页面创建一个菜单项
+### 3.2 为新员工页面创建菜单项
 
 **新员工** 页面包含一个包含新员工详细信息的表单， 这意味着它包含一个需要 *员工* 对象的数据视图。 因此，在为其创建菜单项时，您需要通过此对象。
 
@@ -84,7 +82,7 @@ tags:
 
 1. 点击导航树底部的加号来创建菜单项：
 
-    ![添加菜单项](attachments/navigation-how-to-configure/adding-menu-item.png)
+    {{% image_container width="350" %}}![Adding Menu Item](attachments/navigation-how-to-configure/adding-menu-item.png){{% /image_container %}}
 
 2. 打开新菜单项属性，执行以下操作：
 
@@ -100,7 +98,9 @@ tags:
 
     5. 点击 **页面** 属性。
 
-    6. 在 **选择页面** 对话框框中，选择 **新员工** 页面并点击 **选择**。
+    6. 在 **选择页面** 对话框框中，选择 **新员工** 页面并点击 **选择**
+
+         ![选择新员工页面](attachments/navigation-how-to-configure/select-new-employee-page.png)
 
     7. 在 **标题** 属性中，删除 *导航项* 标题和类型 *新员工*.
 
@@ -114,7 +114,7 @@ tags:
 
 ![创建新菜单项](attachments/navigation-how-to-configure/new-menu-item-created.png)
 
-点击 **在右上角预览** 到 [预览您的应用程序](/studio/publishing-app) 并测试导航菜单的形式： ![预览菜单项](attachments/navigation-how-to-configure/previewed-menu-items.png)
+点击 **在右上角预览** 到 [预览您的应用程序](/studio8/publishing-app) 并测试导航菜单的形式： ![预览菜单项](attachments/navigation-how-to-configure/previewed-menu-items.png)
 
 ### 3.3 为Employeee_Detail页面创建一个菜单项并配置其子项
 
@@ -158,7 +158,7 @@ tags:
 
 ![已配置导航](attachments/navigation-how-to-configure/configured-navigation.png)
 
-[预览您的应用程序](/studio/publishing-app) 以查看导航菜单是如何显示的：
+[预览您的应用程序](/studio8/publishing-app) 以查看导航菜单是如何显示的：
 
 ![预览导航](attachments/navigation-how-to-configure/navigation-previewed.png)
 
