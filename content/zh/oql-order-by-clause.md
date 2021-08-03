@@ -1,7 +1,13 @@
 ---
 title: "按条款排序的 OQL 订单"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-order-by-clause.pdf)。
+{{% /报警 %}}
 
 ORDER BY 条款指定了在SELECT 语句中返回的列中使用的排序顺序。 可以指定多列。 栏目按《ORDER》条款中各项的顺序排序。 这一条款可包括SELECT条款中没有出现的项目。 除非指定了SELECT DISTINCT 或者当一个群组存在的子项。 当使用联合国时，列名或别名必须是查询第一部分SELECT条款中规定的名称。
 
@@ -35,5 +41,5 @@ BY Lastname DESC
 ```
 
 {{% alert type="info" %}}
-关于NULL值的默认排序行为的详细信息。 查看 [NULL Values Order 行为](ordering-behavior#null-ordering-behavior) 部分 *Order by Behavior*。
+对于NULL值的默认排序行为，请参阅 [NULL值订单行为](ordering-behavior#null-ordering-behavior) 部分 *订单行为* 中。
 {{% /报警 %}}
