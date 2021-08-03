@@ -1,13 +1,13 @@
 ---
-title: "OQL Expressions"
+title: "OQL 式"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-An expression is either a constant, a function, or any combination of attribute names, constants, and functions connected by operator(s), or a subquery. For more information, see the pages below.
+式は、定数、関数、属性名、定数、演算子で接続された関数、サブクエリの組み合わせのいずれかです。 詳細については、下のページを参照してください。
 
 * [OQL Aggregation](oql-aggregation)
-* [OQL Functions](oql-functions)
-* [OQL Operators](oql-operators)
-* [OQL Parameters](oql-parameters)
+* [OQL関数](oql-functions)
+* [OQL演算子](oql演算子)
+* [OQL パラメータ](oql-parameters)
