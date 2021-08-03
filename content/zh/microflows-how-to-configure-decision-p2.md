@@ -1,108 +1,108 @@
 ---
-title: "Step 2: Embed the Microflow in Your App"
-parent: "microflows-how-to-configure-decision"
-description: "This how to describes the process of configuring a decision in in Mendix Studio."
+title: "第 2 步：将微流程嵌入您的应用程序"
+parent: "microflow-how to config-decision"
+description: "如何描述在 Mendix Studio 中配置决策的过程。"
 menu_order: 20
 tags:
-  - "studio"
-  - "microflows"
-  - "decision"
-  - "pages"
+  - "工作室"
+  - "微流"
+  - "决 定"
+  - "页面"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In the [previous step](microflows-how-to-configure-decision-p1), you have configured microflows and decisions with enumeration attribute type and Boolean attribute type, now you can validate the microflows by adding them to pages. This how-to explains how you can add microflows with decisions to pages in Mendix Studio.
+您已经使用枚举属性类型和布尔属性类型配置了微流和分辨率。现在您可以通过将它们添加到页面来验证微流。 这个如何解释您如何可以在 Mendix Studio 中添加决策微流程。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* Embed the created microflows with decisions to your page
+* 将创建的微流程嵌入到您的页面
 
-## 2 Prerequisites
+## 2 个前提条件
 
-To start this tutorial, make sure you have completed the following prerequisites:
+要启动此教程，请确保您已完成以下前提条件：
 
-* [Step 1: Build the Domain Model & Configure a Microflow](microflows-how-to-configure-decision-p1)
+* [第 1 步：构建域模型 & 配置微流](microflows-how-to-configure-decision-p1)
 
-## 3 Embedding the Microflow to Pages
+## 3 嵌入微流程到页面
 
-After microflows are created, you can add them to pages to run them in your app.
+在创建微流程后，您可以将它们添加到页面以便在您的应用程序中运行。
 
-### 3.1 Embedding the Microflow Having a Decision with Attribute of the Enumeration Type {#embedding-decision-enumeration}
+### 3.1 将微流程与枚举类型属性嵌入中 {#embedding-decision-enumeration}
 
-To embed the microflow with a decision (the attribute of the enumeration type) to pages, do the following:
+若要将微流与决策(枚举类型的属性)嵌入到页面，请做以下操作：
 
-1. Create a page for the existing customers details and name it *Customer_details*. For more information on creating pages, see the [Creating a New Page](/studio8/page-editor) section in *Pages*.
-2.  In **Toolbox** > **Widgets** > **Data Containers**, find **Data View**.
+1. 为现有客户详细信息创建一个页面并命名 *Customer_details*。 关于创建页面的更多信息，见第 [3.2节在 *页面* 中创建一个新页面](page-editor)。
+2.  在 **工具箱**>**小部件** >**数据容器**, 找到 **数据视图**.
 
     ![](attachments/microflows-how-to-configure-decision/data-view.png)
 
-3. Drag and drop **Data View** to the page.
-4.  In the **Properties** tab for the **DATA VIEW**, do the following:<br/> a. Set **Data Source** to **Context.**<br/> b. Set **Entity** to **Customer**.
+3. 拖拽 **数据视图** 到页面。
+4.  在 **属性** 标签中， **DATA VIEW**做以下操作：<br/> a.。 将 **数据源** 设置为 **上下文。**<br/> b. 将 **实体** 设置为 **客户**。
 
     ![](attachments/microflows-how-to-configure-decision/data-view-properties.png)
 
-5. In **Toolbox**>**Widgets** >**Buttons** find **Create Object**, drag and drop it inside the data view container (it is named **New** by default).
-6.  You are going to create a new page that will be opened when a user clicks the **New** button. Open the **Properties** tab for the created button and do the following:<br/> a. Set **Customer** as **Entity** in the **Events** section.<br/> b. Click **Select Page**.<br/>
+5. 在 **工具箱**>**小部件** >**按钮** 找到 **创建对象**, 拖放到数据视图容器内(默认名称是 **新**)。
+6.  您将创建一个新的页面，在用户点击 **新的** 按钮时将被打开。 为创建的按钮打开 **属性** 标签，并执行以下操作：<br/> a。 设置 **客户** 为 **实体** 在 **事件** 部分<br/> b. 点击 **选择页面**。<br/>
 
     ![](attachments/microflows-how-to-configure-decision/create-button-properties.png) <br/>
 
-    c. In the **Select Page** dialog box, click **New** page.<br/> d. In the **Create new page** dialog box, fill out the title of the page, for example, *New_customer*. <br/> e. Tick **Pre-fill page contents based on the Customer entity** and click **Create**.
+    b. 会议文件。 在 **选择页面** 对话框窗口中，点击 **新的** 页面。<br/> d。 在 **创建新页面** 对话框窗口，填写页面标题，例如 *新客户*。 <br/> e. Tick **基于客户实体** 预填充页面内容，然后点击 **创建**
 
     ![](attachments/microflows-how-to-configure-decision/pre-fill-contents.png)
 
-    The page with customer details is generated.
-7. Return to the **Customer_details** page, and in **Toolbox**>**Widgets** >**Data Containers**, find **List View**, drag and drop it to the page.
-8. Open **Properties** for the list view and set **Customer** as **Data Source**>**Entity**.
-9.  In the **Toolbox** > **Building Blocks** > **Lists** select **List 4**, drag and drop it to the list view.
+    包含客户详细信息的页面已生成。
+7. 返回 **Customer_details** 页 和 in **工具箱**>**小部件** >**数据容器**, 找到 **列表视图**，拖放到页面。
+8. 为列表视图打开 **属性** 并将 **客户** 设置为 **数据源**>**实体**.
+9.  在 **工具箱**>**构建块**>**列表** 选择 **邮件列表4**拖放到列表视图中。
 
     ![](attachments/microflows-how-to-configure-decision/list-view-list4.png)
 
-10. Delete the following elements from the list view:<br/> a. The **TEXT** widget with the subtitle. <br/> b. The **IMAGE** widget.<br/>
-11. Open the **Properties** of the **Details** button, and do the following:<br/> a. Set **Events**>**On Click Action** to **Microflow**.<br/> b. Click **Select microflow** and set **Show_grade_specific_page**.
+10. 从列表视图中删除以下元素：<br/> a。 带字幕的**TEXT**部件。 <br/> b. **IMAGE** 部件。<br/>
+11. 打开 **详细信息的 **属性**** 按钮，并执行以下操作：<br/> a。 设置 **事件**>**点击动作** 到 **微流**。<br/> b. 点击 **选择微流** 并设置 **显示级别指定页面**。
 
     ![](attachments/microflows-how-to-configure-decision/details-button-microflow.png)
 
-Congratulations! Now when the end-user clicks **Details**, the form for the corresponding customer grade will be opened.
+恭喜！ 现在当用户点击 **详细信息**时，将打开相应的客户等级表单。
 
-You can now [preview your app](/studio8/publishing-app) or publish it.
+您现在可以发布和查看您的应用程序。
 
-### 3.2 Embedding the Microflow Having a Decision with the Attribute of the Boolean Type
+### 3.2 将微流程带有布尔型属性的决定
 
-To embed the microflow with a decision (the attribute of the Boolean type), do the following:
+若要将微流与决定嵌入(布尔类型的属性)，请执行以下操作：
 
-1. You need to add an option to mark a customer as blocked. To do this, open the **New_customer** page created in the previous section. For more information, see [Embedding the Microflow Having a Decision with Attribute of the Enumeration Type](#embedding-decision-enumeration).
-2. In **Toolbox** > **Widgets** > **Input Elements** select **Radio Buttons**, drag and drop this widget into the **Data view** container.
-3.  In the **Properties** for the radio buttons, click **Data Source** > **Attribute** and select **Blocked Boolean**. This is how it should look like on your page:
+1. 您需要添加一个选项来将客户标记为已屏蔽。 要做到这一点，请打开上一部分创建的 **新客户** 页面。 欲了解更多信息，请参阅 [将微流程与枚举类型的属性结合起来。](#embedding-decision-enumeration)。
+2. 在 **工具箱**>**小部件** >**输入元素** 选择 **单选按钮**, 拖放它到 **数据视图** 容器。
+3.  在无线电按钮的 **属性** 中，点击 **数据源**>**属性** 并选择 **被屏蔽的布尔值**。
 
     ![](attachments/microflows-how-to-configure-decision/new-customer-page-blocked-attribute.png)
 
-4. Now you will add the microflow to pages. Open the page **Order_form_for_bronze_customers.**
-5.  In **Toolbox** > **Widgets** > **Data Containers**, find **Data View**.
+4. 现在您将添加微流程到页面。 打开页面 **Order_form_for_bronze_customers**
+5.  在 **工具箱**>**小部件** >**数据容器**, 找到 **数据视图**.
 
     ![](attachments/microflows-how-to-configure-decision/data-view.png)
 
-6.  Drag and drop **Data View** to the page.
+6.  拖拽 **数据视图** 到页面。
 
     ![](attachments/microflows-how-to-configure-decision/data-view-select-data-view-source.png)
 
-7.  In the **Properties** of the data view, do the following:<br/> a. Set **Data Source** to **Context.**<br/> b. Set **Entity** to **Customer**.
+7.  在数据视图的 **属性** 中，执行以下操作：<br/> a。 将 **数据源** 设置为 **上下文。**<br/> b. 将 **实体** 设置为 **客户**。
 
     ![](attachments/microflows-how-to-configure-decision/data-view-properties.png)
 
-8.  In **Toolbox**>**Widgets**>**Buttons**, find the **Call Microflow** button, drag and drop it into the **Data View** container.
+8.  在 **工具箱**>**小部件**>**按钮**, 找到 **通话微流** 按钮，拖拽到 **数据视图** 容器。
 
     ![](attachments/microflows-how-to-configure-decision/call-microflow-button-in-data-view.png)
 
-9. Click the **Call Microflow** button to view its properties.
-10. In the **Properties** tab, select the **Customers_status_check microflow**.
+9. 点击 **调用 Microflow** 按钮查看其属性。
+10. 在 **属性** 选项卡中，选择 **Customers_status_check microflow**。
 
     ![](attachments/microflows-how-to-configure-decision/call-microflow-button-selected-microflow.png)
 
-11. Change the **Caption** from **Microflow** to **Place Order**.
-12. Open the page **Order_form_for_silver_customers** and repeat steps 4-11.
-13. Open the page **Order_form_for_gold_customers** and repeat steps 4-11.
+11. 更改 **标题** 从 **微流** 到 **下订单**。
+12. 打开页面 **Order_form_for_silver_customs** 并重复步骤 4-11.
+13. 打开页面 **Order_form_for_gold_customs** 并重复步骤 4-11.
 
-Congratulations! Now when the end-user clicks **Place order**, only customers who are not blocked will be able to proceed. If a customer is blocked, they will get an error message.
+恭喜！ 现在用户点击 **下订单**，只有未被屏蔽的客户才能够继续。 如果用户被屏蔽，他将收到一条错误消息。
 
-You can preview and/or publish your app. For more information on how to preview and publish an app, see [Previewing & Publishing Your App](/studio8/publishing-app).
+您可以预览和发布。 欲了解更多信息，请参阅 [预览 & 发布您的应用程序](publishing-app)
