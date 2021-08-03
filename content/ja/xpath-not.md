@@ -1,8 +1,6 @@
 ---
 title: "XPath ではありません"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
