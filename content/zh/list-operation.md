@@ -1,64 +1,110 @@
 ---
-title: "List Operation"
-parent: "list-activities"
+title: "列出操作"
+parent: "列表活动"
+menu_order: 4
+tags:
+  - "studio pro"
 ---
 
-{{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
-{{% /alert %}}
+{{% alert type="warning" %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The List Operation activity can perform various actions on a list. See below for details on these actions.
+**列表操作** 可以在列表中执行各种操作。 该动作的结果是作为新列表返回的，而不是 [更改列表](change-list) 活动。
 
-{{% alert type="info" %}}
+可以采取的行动有：
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+* 联盟
+* 相交
+* 减少
+* 包含
+* 等于
+* 排序
+* 筛选器
+* 按表达式过滤
+* 查找
+* 通过表达式查找
+* 头部
+* 尾宿一
 
-{{% /alert %}}
+有关这些行动的详情见下文。
 
-## 2 Operation Types
+## 2 属性
 
-A list operation action can execute any of the following types of operations.
+列表操作属性的示例在下面的图像中显示：
 
-### 2.1 Binary
+![列出操作属性](attachments/list-activities/list-operation-properties.png)
 
-These binary operations have as an input a list and either another list or an object. The resulting type depends on the type of the operation. All lists and objects must relate to the same entity.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-| Operation | Description                                                                             | Result Type |
-| --------- | --------------------------------------------------------------------------------------- | ----------- |
-| Union     | The result is a combination of the elements of both parameters avoiding duplicates.     | List        |
-| Intersect | The result is a list containing elements that appear in both parameters.                | List        |
-| Subtract  | The result is the first parameter with the element(s) of the second parameter removed.  | List        |
-| Contains  | Checks whether all elements of the second parameter are present in the first parameter. | Boolean     |
-| Equals    | Checks whether the lists contain the same elements.                                     | Boolean     |
+列表操作属性窗格由以下部分组成：
 
-### 2.2 Sort
+* [行 动](#action)
+* [常用的](#common)
 
-| Operation | Description                                                                                                                                                                                                                             | Result Type |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Sort      | Allows you to sort a list based on a number of a attributes. The attributes are ordered to determine their priority while sorting. The input list remains in its original order while the sorted list is stored in the output variable. | List        |
+## 3 行动部分{#action}
 
-### 2.3 Member Inspections
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-These operations take a single list and a member (attribute or association) as input. The resulting type depends on the type of the operation.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
-| Operation | Description                                                                                                           | Result Type |
-| --------- | --------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Find      | Find the first object of which the member has the given value. Return an empty object if no matching object is found. | Object      |
-| Filter    | Find all objects of which the member has the given value. Return an empty list if no matching object is found.        | List        |
+You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 2.4 Unary
+### 3.1 行动
 
-These unary operations have a list as input and either an object or another list as a resulting type, depending on the operation.
+列表操作操作可以执行任何以下操作。 操作按其拥有的操作类型分类：
 
-| Operation | Description                                                                                                                                                           | Result Type |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Head      | The result is the first element of the list, or empty if the parameter contains zero elements or was initialized as empty.                                            | Object      |
-| Tail      | The result is a list containing all elements of the parameter except the first, or an empty list if the parameter contains zero elements or was initialized as empty. | List        |
+* 二进制-适用于第二列表或对象的操作
+* 会员检查——与列表中对象指定元素(属性和关联)工作的操作
+* 无声——没有其他操作可以在列表中工作的操作
 
-## 3 Output Properties
+#### 3.1.1 二进制文件
 
-### 3.1 Name
+这些二进制操作有一个列表和另一个列表或对象。 他们根据操作返回另一个列表或布尔值。 所有列表和对象必须与同一个实体相关。
 
-Defines the name of the resulting List, Object or Boolean variable. The variable can be used by all activities that follow this activity.
+| 操作 | 描述                      | 结果类型    |
+| -- | ----------------------- | ------- |
+| 联盟 | 结果是两个参数的各项要素结合起来，避免重复。  | 列表      |
+| 相交 | 结果是列出了两个参数中出现的元素。       | 列表      |
+| 减少 | 结果是第一个参数，第二个参数的元素被删除。   | 列表      |
+| 包含 | 检查第一个参数中是否存在第二个参数的所有元素。 | Boolean |
+| 等于 | 检查列表是否包含相同的元素。          | Boolean |
+
+#### 3.1.2 成员检查
+
+这些操作需要一个列表和一个或多个成员(属性或关联)作为投入。 他们要么返回对象，要么返回另一个列表视操作而定。
+
+| 操作  | 描述                                                          | 结果类型 |
+| --- | ----------------------------------------------------------- | ---- |
+| 排序  | 允许您根据一些属性排序列表。 属性按顺序排序以确定其优先级。 您不能使用关联来排序列表。 不允许从普通实体中排序属性。 | 列表   |
+| 查找  | 查找成员具有给定值的第一个对象。                                            | 对象   |
+| 筛选器 | 查找会员具有给定值的所有对象。                                             | 列表   |
+
+#### 3.1.3 不小心的
+
+这些不合格的操作有一个列表作为单个操作者，并根据操作返回一个对象或另一个列表。
+
+| 操作  | 描述                                             | 结果类型 |
+| --- | ---------------------------------------------- | ---- |
+| 头部  | 结果是列表中的第一个元素，如果参数包含零元素或初始化为空则为空。               | 对象   |
+| 尾宿一 | 结果是一个包含除第一个以外的所有参数元素的列表。 或空列表，如果参数包含零元素或初始化为空。 | 列表   |
+
+#### 3.1.4 表达式
+
+这些操作需要一个列表并根据表达式筛选它。 在表达式中， `$currentObject` 可以用于执行过滤。
+
+| 操作      | 描述                | 结果类型 |
+| ------- | ----------------- | ---- |
+| 通过表达式查找 | 查找与给定表达式匹配的第一个对象。 | 对象   |
+| 按表达式过滤  | 查找匹配给定表达式的所有对象。   | 列表   |
+
+
+### 3.2 名单名称、对象名称或变量名称
+
+这是生成列表、对象或布尔变量的名称。 这项活动之后的所有活动都可以利用这一结果。
+
+## 4 通用部分{#common}
+
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
