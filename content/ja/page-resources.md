@@ -7,6 +7,10 @@ tags:
   - "ページリソース"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page-resources.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 ページリソースとページリソースの主な違いは、ページが独立したドキュメントであることです。 ページリソースは自力では機能しないヘルプ文書です 例えば、レイアウトは単独で機能することはできませんが、ページに構造を与えます。
@@ -24,11 +28,11 @@ tags:
 
 リソースドキュメントを追加するには、次の操作を行います。
 
-1.  In the [App Explorer](project-explorer), right-click the module or a folder you want to add a resource to and select **Add other**:
+1.  In the [Project Explorer](project-explorer), right-click the module or a folder you want to add a resource to and select **Add other**:
 
     ![](attachments/page-resources/project-explorer-page-resources.png)
 
-2. アプリに追加するドキュメントを選択します。
+2. プロジェクトに追加するドキュメントを選択します。
 
 ## 3 続きを読む
 
