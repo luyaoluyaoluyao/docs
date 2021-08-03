@@ -6,10 +6,6 @@ tags:
   - "data source"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/data-sources.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Widgets that display information stored in entities require you to assign a method by which to retrieve the relevant data. Such methods are collectively known as data sources. Widgets that require a data source include all [data widgets](data-widgets) and [input widgets](input-widgets). [Pluggable widgets](/apidocs-mxsdk/apidocs/pluggable-widgets) can also use data sources.
