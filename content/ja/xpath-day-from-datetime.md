@@ -1,21 +1,17 @@
 ---
-title: "XPath Day-from-DateTime"
+title: "XPath 日付開始日"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-day-from-datetime.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`day-from-dateTime()` 関数は、 **Date and time** 属性から月の値の日を抽出し、値と比較するために使用することができます。
 
-The `day-from-dateTime()` function extracts the day of the month value from a **Date and time** attribute so it can be used to compare to a value.
+## 2つの例
 
-## 2 Example
-
-This query returns all the logs where `DateAttribute` is the 30th day of the month (for example, "2011-12-30"):
+このクエリは、 `DateAttribute` が月の 30 日になるすべてのログを返します(例えば、"2011-12-30")。
 
 ```java
 //Logging.Log[day-from-dateTime(DateAttribute) = 30]
