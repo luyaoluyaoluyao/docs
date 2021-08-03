@@ -1,7 +1,13 @@
 ---
 title: "JSON 構造"
 parent: "統合"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/json-structures.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの全般
 
@@ -20,8 +26,6 @@ JSON スニペットを貼り付けまたは変更すると、自動的に有効
 ![](attachments/18450089/19398781.png)
 
 JSON を有効にせずに "OK" を押すことはできません。
-
-プロパティ名の `:`, `^`, または `|` の JSON スニペットは現在サポートされていません。
 
 {{% /alert %}}
 
@@ -72,7 +76,7 @@ JSON スニペットを変更する場合は、「更新」ボタンをクリッ
 *   "string". String型の属性に変換されました。
 *   123\. 整数型の属性に変換されます。
 *   真か偽か Boolean型の属性に変換されました。
-*   "1985-04-12T23:20:50.52Z"。 DateTime 型の属性に変換されます。
+*   "1985-04-12T23:20:50.52Z"。 **Date and time** 型の属性に変換されました。
 *   12.50\. 10 進数型の属性に変換されます。
 
 ### 2.2 JSON 配列
