@@ -42,8 +42,8 @@ tags:
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
 ## 3 イメージエンティティの作成
 
@@ -101,13 +101,13 @@ tags:
 
 8. ボタンのプロパティで、 **Entity** プロパティをクリックします。
 
-9. In the **Select Entity** dialog box, choose the **Receipt** entity over **Receipt_Report** association (*Receipt_Report/Receipt*) and click **Select**:
+9. **図形の選択** ダイアログボックスで、 **レシート** 図形を **Receipt_Report** 関連付けから **選択** をクリックします。
 
     {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/image-report-association.png){{% /image_container %}}
 
 10. ボタンのプロパティで、 **ページ** をクリックします。
 
-11. **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
+11. **ページの選択** ダイアログボックスで、右上隅のプラスアイコンをクリックします。
 
 12. **新規ページの作成** ダイアログボックスで、次の操作を行います:
 
@@ -138,14 +138,14 @@ tags:
 
 1. **新しいレポート** ページを開きます。
 
-2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach Images** button (*inside* the data view). ウィジェットを含むリストビューがページに追加されます。
+2. In the **Building Blocks**, search for **List with image** and drag and drop it under the **Attach Images** button (*inside* the data view). ウィジェットを含むリストビューがページに追加されます。
 
-    {{% image_container width="550" %}}![](attachments/pages-how-to-upload-images/list-4.png){{% /image_container %}}
+    ![](attachments/pages-how-to-upload-images/list-4.png)
 
 3. リストビューのプロパティを開き、次の操作を行います:
 
     1. **エンティティ** プロパティをクリックします。
-    2. In the **Select Entity** dialog box, choose the **Select Entity** dialog box, choose the **Receipt** entity over **Receipt_Report** association (*Receipt_Report/Receipt*) and click **Select**:
+    2. In the **Select Entity** dialog box, choose the **Select Entity** dialog box, choose the **Receipt** entity over **Receipt_Report** association and click **Select**:
 
         {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/image-report-association.png){{% /image_container %}}
 
@@ -158,28 +158,35 @@ tags:
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-upload-images/image-properties.png){{% /image_container %}}
 
-5. リストビューの字幕を削除します。 *ここでは、字幕* を入れることができます。
+5. *セカンダリテキスト* のサブタイトルをリストビューで削除します。
 
-6. リストビューで **Name** テキストを選択し、そのプロパティを開きます。
+6. リストビューで **リスト アイテム タイトル** テキストを選択し、そのプロパティを開きます。
 
-    1. **Content** プロパティで、 *Name* テキストを削除し、 **Add attribute** をクリックします。
+    1. **Content** プロパティで、 *List item title* テキストを削除し、 **Add**  > **Attribute** をクリックします。
     2. In the **Select Attribute** dialog box, choose the **Name** attribute and click **Select** to display the name of the attached image.
 
         {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/select-attribute.png){{% /image_container %}}
 
-7. リスト ビューで **詳細** ボタンを選択し、プロパティを開き、次の操作を行います:
+7. リストビューでボタンを選択し、プロパティを開き、次の操作を行います:
 
     1. **イベント** セクション > **** プロパティをクリックして、 **詳細** を選択します。
-    2. **Action** プロパティで、 **Delete Object** を選択します。
-    3. **一般** セクション > **図表番号** プロパティで、ボタンキャプションを *詳細* から *削除* に変更します。
-    4. **Style** プロパティで、 **Default** を **Danger** に変更します。
 
-        {{% image_container width="250" %}}![](attachments/pages-how-to-upload-images/button-properties.png){{% /image_container %}}
+    2. **Action** プロパティで、 **Delete Object** を選択します。
+
+    3. **一般** セクション > **図表番号** プロパティで、ボタンキャプションを *削除* に設定します。
+
+    4. iconプロパティをクリックし、 **Select icon** ダイアログボックスの **Clear** をクリックしてアイコンを削除します。
+
+    5. **レンダリングモード** を **リンク** から **ボタン** に変更します。
+
+    6. **Style** プロパティで、 **Default** を **Danger** に変更します。
+
+      ![](attachments/pages-how-to-upload-images/button-properties.png)
 
 よくできました！ これで添付された画像を表示する画像リストがあり、必要に応じてユーザーはリストから画像を削除することができます:
 
-{{% image_container width="600" %}}![](attachments/pages-how-to-upload-images/configured-image-list.png){{% /image_container %}}
+![](attachments/pages-how-to-upload-images/configured-image-list.png)
 
 おめでとうございます ユーザが画像を添付し、リストにこれらの画像を表示できるレポートを構成していること。
 
-[アプリ](/studio8/publishing-app) をプレビューして、画像のアップロードの仕組みをテストします。 画像の代わりにファイルを添付するボタンを設定することもできます。 ファイルの詳細については、 [イメージ & ファイル](/studio8/page-editor-widgets-images-and-files) を参照してください。
+[アプリ](/studio/publishing-app) をプレビューして、画像のアップロードの仕組みをテストします。 画像の代わりにファイルを添付するボタンを設定することもできます。 ファイルの詳細については、 [イメージ & ファイル](/studio/page-editor-widgets-images-and-files) を参照してください。
