@@ -1,126 +1,126 @@
 ---
-title: "Microflow Properties"
-parent: "microflows"
+title: "マイクロフローのプロパティ"
+parent: "マイクロフロー"
 tags:
-  - "microflow"
-  - "entity access"
+  - "マイクロフロー"
+  - "エンティティアクセス"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes the properties of a microflow. If you want to see what microflows are for and what kind of elements they contain, you can check [Microflows](microflows).
+このドキュメントでは、マイクロフローの特性について説明します。 どのマイクロフローがどのような要素を含んでいるかを確認したい場合は、 [Microflow](microflows) を確認できます。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of microflow properties is represented in the image below:
+以下の図に、マイクロフローのプロパティの例を示します。
 
-{{% image_container width="250" %}}![Microflow Properties](attachments/microflows-and-nanoflows/microflow-properties.png)
+{{% image_container width="250" %}}![マイクロフローのプロパティ](attachments/microflows-and-nanoflows/microflow-properties.png)
 {{% /image_container %}}
 
-Microflow properties consist of the following sections:
+マイクロフローのプロパティは、次のセクションで構成されています。
 
-* [Common](#common)
-* [Concurrent execution](#concurrent)
-* [Output](#output)
-* [Security](#security)
-* [Usage](#usage)
+* [一般的な](#common)
+* [同時実行](#concurrent)
+* [出力](#output)
+* [セキュリティ](#security)
+* [使用法](#usage)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-#### 2.1.1 Name
+#### 2.1.1 名前
 
-**Name** is the internal name of the microflow. When referring to the microflow in the app you will use this name. It must be unique within the module, but you can have two microflows with the same name in different modules. When referring to the microflow, you will normally prepend the name of the module to ensure uniqueness and allow you to use microflows in other modules.
+**名前** はマイクロフローの内部名です。 アプリでマイクロフローを参照する場合は、この名前を使用します。 モジュール内で一意である必要がありますが、異なるモジュール内で同じ名前を持つ2つのマイクロフローを持つことができます。 マイクロフローを参照する場合 通常はモジュールの名前を付けて一意性を確保し、他のモジュールでマイクロフローを使用することができます。
 
-#### 2.1.2 Documentation
+#### 2.1.2 ドキュメント
 
-**Documentation** allows you to describe your microflow to make it easier for people to use and modify it.
+**ドキュメント** では、マイクロフローを簡単に記述することで、ユーザーがマイクロフローを簡単に使用したり変更したりできます。
 
-### 2.2 Concurrent Execution Section {#concurrent}
+### 2.2 同時実行セクション {#concurrent}
 
-#### 2.2.1 Disallow
+#### 2.2.1 許可
 
-The **Disallow** property allows you to specify whether the microflow can be executed multiple times concurrently. This applies to all end-users who are using the app, not just within one user session.
+**Disallow** プロパティでは、マイクロフローを同時に複数回実行できるかどうかを指定できます。 これは、1つのユーザーセッション内だけでなく、アプリを使用しているすべてのエンドユーザーに適用されます。
 
-Disallowing concurrent execution of a microflow can be useful if a microflow would interfere with another running instance (for example, if it accesses a global resource).
+マイクロフローの同時実行を禁止することは、マイクロフローが別の実行中のインスタンスに干渉する場合に便利です(例えば、マイクロフローが別の実行中のインスタンスに干渉する場合)。 地球規模のリソースにアクセスすることができます
 
-| Option         | Description                                                                                                                                    |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| No *(default)* | It is possible to execute the microflow more than once concurrently.                                                                           |
-| Yes            | It is not possible to execute the microflow more than once concurrently; the user receives a message or another microflow is executed instead. |
+| Option      | 説明                                                        |
+| ----------- | --------------------------------------------------------- |
+| *なし（デフォルト）* | マイクロフローを複数回同時に実行することが可能です。                                |
+| はい          | 同時にマイクロフローを実行することはできません。ユーザーはメッセージを受信するか、別のマイクロフローを実行します。 |
 
-#### 2.2.2 Error Message
+#### 2.2.2 エラーメッセージ
 
-**Error message** defines the message the user gets when concurrent execution is not allowed and the user tries to start the microflow while it is already being executed. This will not be shown if there is an **Error microflow** defined.
+**エラーメッセージ** は、同時実行が許可されていないときにユーザーが取得するメッセージを定義し、既に実行中にユーザーがマイクロフローを開始しようとします。 **Error microflow** が定義されている場合、これは表示されません。
 
-#### 2.2.3 Error Microflow
+#### 2.2.3 エラーマイクロフロー
 
-**Error microflow** defines another microflow to execute when concurrent execution is not allowed and the user tries to start the microflow while it is already being executed. When set, there will be no further message shown to the user.
+**Error microflow** は、並列実行が許可されていない場合に実行する別のマイクロフローを定義し、ユーザーが既に実行中にマイクロフローを開始しようとします。 設定されている場合、ユーザーに表示されるメッセージは表示されません。
 
-### 2.3 Output Section {#output}
+### 2.3 出力セクション {#output}
 
-#### 2.3.1 Return Type
+#### 2.3.1 戻り値の種類
 
-The return type defines what information the microflow returns. The caller of the microflow will get a result of this type. See [Data Types](data-types) for the possible return types.
-
-{{% alert type="info" %}}
-To indicate whether or not an object should be committed, you can use Boolean as the return type of the microflow.
-{{% /alert %}}
-
-### 2.4 Security Section {#security}
-
-#### 2.4.1 Apply Entity Access
-
-**Apply entity access** indicates whether entity access based on the current user is applied when performing operations on objects. Setting this to yes limits the objects that are retrieved by the [retrieve action](retrieve) to only those that the current user is allowed to see. Similarly, when reading and writing attributes and associations the entity access of the current user is applied. Conversely, if entity access is not applied, all operations are allowed and all objects are retrieved.
-
-| Option          | Description                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Yes             | Entity access is applied to retrieving and manipulating objects. The rights of current user are taken into account. |
-| No  *(default)* | Entity access is not applied.                                                                                       |
+戻り値の型は、マイクロフローが返す情報を定義します。 マイクロフローの呼び出し元はこのタイプの結果を取得します。 返り値の型については、 [Data Types](data-types) を参照してください。
 
 {{% alert type="info" %}}
-By default entity access is not applied. Set **Apply entity access** to **Yes** if you want to perform some actions that respect the access rights of the current user.
+オブジェクトをコミットすべきかどうかを示すには、ブール値をマイクロフローの戻り値の型として使用できます。
+{{% /alert %}}
+
+### 2.4 セキュリティセクション {#security}
+
+#### 2.4.1 エンティティアクセスの適用
+
+**エンティティアクセスの適用** は、オブジェクトに対する操作を実行する際に、現在のユーザーに基づくエンティティアクセスが適用されるかどうかを示します。 これを「はい」に設定すると、 [retrieve action](retrieve) によって取得されたオブジェクトは、現在のユーザーが表示できるオブジェクトのみに制限されます。 同様に、属性や関連付けを読み書きする際には、現在のユーザーのエンティティアクセスが適用されます。 逆に、エンティティアクセスが適用されない場合、すべての操作が許可され、すべてのオブジェクトが取得されます。
+
+| Option      | 説明                                                  |
+| ----------- | --------------------------------------------------- |
+| はい          | エンティティアクセスは、オブジェクトの取得と操作に適用されます。 現在のユーザーの権利は考慮されます。 |
+| *なし（デフォルト）* | エンティティアクセスが適用されていません。                               |
+
+{{% alert type="info" %}}
+デフォルトではエンティティアクセスは適用されていません。 現在のユーザーのアクセス権を尊重するいくつかのアクションを実行したい場合は、 **** に **はい** を適用します。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-Microflows that apply entity access have an **Entity Access** tag in the editor.
+エンティティアクセスを適用するマイクロフローには、エディタに **エンティティアクセス** タグがあります。
 {{% /alert %}}
 
-#### 2.4.2 Allowed Roles
+#### 2.4.2 許可されたロール
 
 **Allowed roles** defines which [module role](module-security#module-role) the user must have to be able to execute the microflow.
 
 {{% alert type="warning" %}}
-These roles are only checked when the microflow is executed from the client. A microflow is always allowed to call another microflow, and these roles are not checked then.
+これらのロールは、マイクロフローがクライアントから実行された場合にのみチェックされます。 マイクロフローは常に別のマイクロフローを呼び出すことができますが、これらのロールはチェックされません。
 {{% /alert %}}
 
-For more information, see [Module Security](module-security).
+詳細については、 [モジュールセキュリティ](module-security) を参照してください。
 
-### 2.5 Usage Section {#usage}
+### 2.5 使用セクション {#usage}
 
-#### 2.5.1 Mark as Used
+#### 2.5.1 使用済みにする
 
-You can search for unused items (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>, then select **Unused items** in the **Search for** drop-down menu) in Studio Pro. Microflows that are only called from Java code will be listed as unused, because Studio Pro cannot look inside the Java source code.
+You can search for unused items (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>, then select **Unused items** in the **Search for** drop-down menu) in Studio Pro. Studio Pro は、Java ソースコード内を参照することができないため、Java コードからのみ呼び出されるマイクロフローは、使用されていないと表示されます。
 
-By setting the property **Mark as used** to **Yes**, you explicitly specify that the microflow is used and Studio Pro will no longer list it when searching for unused items.
+プロパティ **使用済みとして** を **はい**に設定する マイクロフローが使用されていることを明示的に指定し、使用されていない項目を検索するときに Studio Pro がその項目を一覧表示しなくなります。
 
-Default: *No*
+デフォルト: *いいえ*
 
-## 3 Expose as Microflow Action
+## 3 マイクロフローアクションとして公開
 
-This property is accessible by right-clicking in the microflow and selecting **Properties**.
+このプロパティは、マイクロフローの右クリックし、 **プロパティ** を選択することでアクセスできます。
 
-![Expose as Microflow Action](attachments/microflows-and-nanoflows/microflow-expose.jpg)
+![マイクロフローアクションとして公開する](attachments/microflows-and-nanoflows/microflow-expose.jpg)
 
-By selecting the **Expose as microflow action**  option, you can expose the microflow as a microflow action and use the return type of the microflow to generate outcomes / paths in the workflow. Exposing the microflow will make it appear in the **Toolbox** when you are editing a microflow in the category of your choice. When this action is used in a microflow, it will show the provided caption and icon.
+**をマイクロフローアクションとして公開**  オプションとして選択します。 マイクロフローをマイクロフローアクションとして公開し、マイクロフローのリターンタイプを使用して、ワークフロー内でアウトカム/パスを生成できます。 マイクロフローを公開すると、選択したカテゴリのマイクロフローを編集しているときに、 **Toolbox** に表示されます。 このアクションがマイクロフローで使用されると、提供されたキャプションとアイコンが表示されます。
 
-The caption and category of the microflow action are required, but the icon is optional. When no icon is selected, the default microflow call action icon is used. The recommended size for the icon is 16x16 pixels.
+マイクロフローアクションのキャプションとカテゴリが必要ですが、アイコンはオプションです。 アイコンが選択されていない場合、既定のマイクロフロー呼び出しアクションアイコンが使用されます。 アイコンの推奨サイズは16x16ピクセルです。
 
-## 4 Expose as Workflow Action {#expose-as-workflow-action}
+## 4 ワークフローアクションとして公開 {#expose-as-workflow-action}
 
-This property is accessible by right-clicking in the microflow and selecting **Properties**.
+このプロパティは、マイクロフローの右クリックし、 **プロパティ** を選択することでアクセスできます。
 
-![Expose As Workflow Action](attachments/microflows-and-nanoflows/workflow-expose.jpg)
+![ワークフローアクションとして公開](attachments/microflows-and-nanoflows/workflow-expose.jpg)
 
-By selecting the **Expose as workflow action**  option, you can expose the microflow as a [workflow](workflows) action. Exposing the workflow will make it appear in the **Toolbox** of a [workflow editor](workflows) in the category of your choice. When this action is used in a workflow, it will show the provided caption and icon.
+**ワークフローアクション**  オプションとして公開を選択することで、マイクロフローを [ワークフロー](workflows) アクションとして公開できます。 ワークフローを公開すると、選択したカテゴリの **ワークフロー エディター** の [ツールバー](workflows) に表示されます。 このアクションがワークフローで使用されると、指定されたキャプションとアイコンが表示されます。
 
-The caption and category of the workflow action are required, but the icon is optional. When no icon is selected, the default workflow call action icon is used. The recommended size for the icon is 16x16 pixels.
+ワークフローアクションのキャプションとカテゴリが必要ですが、アイコンはオプションです。 アイコンが選択されていない場合、デフォルトのワークフローコールアクションアイコンが使用されます。 アイコンの推奨サイズは16x16ピクセルです。
