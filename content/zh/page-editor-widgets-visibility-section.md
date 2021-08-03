@@ -1,138 +1,125 @@
 ---
-title: "Conditional Visibility Section"
-parent: "page-editor-widgets"
-description: "Describes the Conditional Visibility section in widgets properties in Mendix Studio."
+title: "条件可见性部分"
+parent: "页面编辑器部件"
+description: "描述Mendix Studio小部件属性中的条件可见性部分。"
 menu_order: 30
 tags:
-  - "studio"
-  - "page editor"
-  - "widgets"
-  - "on click action"
-  - "events"
+  - "工作室"
+  - "页面编辑器"
+  - "小部件"
+  - "点击动作"
+  - "事件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Conditional Visibility** section in widget properties allows you to show a widget only when certain conditions are met. You can make widgets visible based on the following conditions:
+小部件属性中的 **条件可见性** 部分只允许您在满足某些条件时显示小部件。 您可以根据以下条件显示部件：
 
-* [An attribute value of a widget](#attribute-based)
-* [User roles in your app](#role-based)
+* [基于数据的可视性](#based-on-data)
+* [基于角色的可见性](#role-based)
 
-For example, you have a web shop and you do not want to bother users with filling in the same address twice when the delivery address matches the billing address. You would like to show fields to fill the billing address in only when a user unchecks the **Billing address is the same as delivery address** option (which is checked by default). In this case you can make the billing address fields visible based on an *attribute value*: the field will be displayed only when the *BillingAddressSame* is unticked (set to *false*):
+例如， 您有一个网上商店，您不想在交货地址匹配账单地址时两次填写同一个地址。 只有当用户取消对 **账单地址与送货地址** 选项相同时，您才想显示字段来填写账单地址。 在这种情况下，您可以根据 *属性值*显示账单地址字段: 只有当 *BillingAddressame* 取消了勾选时才显示字段 *false*
 
-![](attachments/page-editor-widgets-visibility-section/attribute-based-example.png)
+![可见性示例](attachments/page-editor-widgets-visibility-section/attribute-based-example.png)
 
-You can also show a widget to a certain *user role* only. For example, you can show a widget showing salary amounts only to Finance Managers.
+您也可以只显示一个小部件到一个 *用户角色*。 例如，您可以显示一个只显示财务经理的工资金额的小部件。
 
-To see which widgets that have conditional visibility configured, click the eye icon is the **Show** option in the top-left corner of a page: ![](attachments/page-editor-widgets-visibility-section/highlight-conditional-items.png)
+查看已配置条件可见性的部件， 点击眼睛图标是页面左上角的 **显示** 选项： ![显示选项](attachments/page-editor-widgets-visibility-section/highlight-conditional-items.png)
 
-## 2 Conditional Visibility Properties
+## 2 条件可见性属性
 
-You can enable conditional visibility based on the selected attribute value and/or a user role. Conditional visibility properties are described below.
+您可以根据 [动态数据](#based-on-data) 和/或 [用户角色](#role-based) 启用条件可见性。 条件可见性属性描述如下。
 
-### 2.1 Attribute-Based {#attribute-based}
+### 2.1 根据数据可见性 {#based-on-data}
 
-**Attribute-Based** visibility allows you to show widgets only when they match a certain value of the selected attribute.
+**基于数据** 的可见性允许您根据动态数据结果显示小部件。 例如，您只想为有 **Gold** 级的客户显示一个特殊的报价：
+
+![根据数据可见](attachments/page-editor-widgets-visibility-section/visible-based-on-data.jpg)
+
+### 2.2 条件基于： {#condition}
+
+基于</strong> 属性的 **条件仅在 [基于数据](#based-on-data) 的可见性启用时才显示。 以下选项可用：</p>
+
+* **属性** - 定义条件是否基于属性值。 在这种情况下，只有在与所选属性的某个值匹配时才会显示小部件。
+* **表达式** -- 定义条件是否基于表达式。 在这种情况下，只有当表达式返回布尔值 `true` 时才会显示小部件。 关于表达式的更多信息，见 [表达式](expressions)。
+
+### 2.3 属性 {#attribute}
+
+This property is shown only when the expression the [Condition Based on](#condition) is set to **Attribute**. 允许您选择条件将基于的属性。 属性必须是布尔值或枚举类型。
+
+### 2.4 属性值 {#attribute-values}
+
+此属性仅在属性为 [属性](#attribute) 属性被选中时才显示。 **属性值** 允许您选择特定属性值。
+
+如果您只想为有 **Gold** 级的客户显示一个特殊的报价， 您需要在 **属性中选择 *级* 级** 属性和 *金币* 级为 **属性值**：
+
+![基于属性的可见性](attachments/page-editor-widgets-visibility-section/attribute-based-visibility.png)
+
+### 2.5 表达式
+
+此属性允许您创建表达式，并且仅在 [条件基于](#condition) 设置为 **表达式** 时才显示。 表达式应该是布尔型。 关于如何创建表达式的更多信息，见 [表达式](expressions)。
+
+### 2.7 基于角色可见性 {#role-based}
+
+这个小部件可以让仅具有特定用户角色的用户可见. 例如，在出租车预订应用程序， 您想要向客户和管理员显示一个出租车司机评级，但是不显示出租车司机：
+
+![根据角色可见的](attachments/page-editor-widgets-visibility-section/visible-based-on-role.jpg)
 
 {{% alert type="info" %}}
 
-The attribute must be of the Boolean or enumeration type.
+您只能在启用安全性时配置基于角色的条件可见性。 欲了解更多信息，请参阅 [安全性，角色 & 权限](settings-security)
 
-{{% /alert %}}
+{{% /报警 %}}
 
-{{% alert type="info" %}}
+### 2.8 角色
 
-You can only configure attribute-based conditional visibility when a widget is placed in a data container: a data view or a list view.
+**角色** 属性仅在启用 [基于角色的](#role-based) 属性并显示您的应用中可用角色列表时才显示。
 
-{{% /alert %}}
+## 3 执行基本功能
 
-### 2.2 Attribute Values
+### 3.1 根据属性值配置可见性
 
-This property is shown only when an attribute in the [Attribute-Based](#attribute-based) property is selected. The **Attribute Values** property allows you to select certain attribute values.
+要根据属性值配置可见性，请按下面的步骤：
 
-For example, you would like to show a special offer price only for customers with the **Gold** grade. Select *Grade* in the **Attribute-Based** property and *Gold* in as the **Attribute Value**:
+1. 选择一个只显示特定属性值并转到属性的部件。
 
-{{% image_container width="300" %}}
-![](attachments/page-editor-widgets-visibility-section/attribute-based-visibility.png)
-{{% /image_container %}}
+2. 在 **条件可见性** 部分中，切换基于数据</strong> 属性的 **可见性。</p></li>
 
-### 2.3 Role-Based {#role-based}
+3
 
-The widget can be made visible to a specific of the user roles available in your app. When enabled, this setting will render the widget visible to all users that are linked to one of the selected user roles.
+基于</strong> 的 **条件默认设置为 **属性**。 点击 **属性** 属性： </p>
 
-{{% alert type="info" %}}
+    ![](attachments/page-editor-widgets-visibility-section/attribute-based-property.png)</li>
 
-You can only configure role-based conditional visibility when security is enabled. For more information, see [Security, Roles & Permissions](settings-security).
+4
 
-{{% /alert %}}
+在 **选择属性** 对话框中，选择布尔值或枚举类型的属性，然后点击 **选择**。
 
-### 2.4 Roles
+5
 
-The **Roles** property is only shown when the [Role-Based](#role-based) property is enabled and shows a list of roles available in your app. Select the roles that you would like to make a widget visible for. For example, in a taxi booking app, you would like to show a taxi driver rating to customers and administrators, but hide it from taxi drivers:
+**属性值** 属性现在显示在属性中。 取消不符合您想要设置的条件的值：
 
-{{% image_container width="300" %}}
-![](attachments/page-editor-widgets-visibility-section/role-based-visbility.png)
-{{% /image_container %}}
+    {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/attribute-values.png){{% /image_container %}} </ol>
 
-## 3 Performing Basic Functions
+基于属性值的条件可见性被设置为小部件。
 
-### 3.1 Configuring Attribute-Based Conditional Visibility
+### 3.2 根据角色配置条件可见性
 
-To configure attribute-based visibility, do the following:
+要配置基于角色的条件可见性，请执行以下操作：
 
-1. Select a widget you would like to make visible only for certain attribute values and go to its properties.
+1. 选择一个只显示某些用户角色并转到其属性的部件。
 
-2. In **Conditional Visibility** section, click the **Attribute-Based** property:
+2. 在 **条件可见性** 部分中，切换基于</strong> 属性的 **可见性。</p></li>
 
-    {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/attribute-based-property.png){{% /image_container %}}
+3
 
-3. In the **Select Attribute** dialog box, select an attribute of the Boolean or enumeration type and click **Select**.
+您应用中可用角色列表显示在 **角色** 属性中。 取消想要隐藏小部件的角色的勾划：
 
-4. The **Attribute Values** property is now displayed in properties. Untick the values that does not meet the conditions you would like to set:
+    ![](attachments/page-editor-widgets-visibility-section/role-based-example.png)    </ol>
 
-    {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/attribute-values.png){{% /image_container %}}
+基于用户角色的条件可见性被设置为小部件。
 
-Attribute-based conditional visibility is set for the widget.
+## 4 阅读更多
 
-### 3.2 Disabling Attribute-Based Conditional Visibility
-
-To disable attribute-based visibility, follow the steps below:
-
-1. Select a widget you would like to disable attribute-based visibility and go to its properties.
-
-2. In **Conditional Visibility** section, click the **Attribute-Based** property.
-
-3. In the **Select Attribute** dialog box, click **Clear**:
-
-    {{% image_container width="400" %}}![](attachments/page-editor-widgets-visibility-section/clear-attribute-based-visibility.png){{% /image_container %}}
-
-The attribute-based conditional visibility is cleared for the widget.
-
-### 3.3 Configuring Role-Based Conditional Visibility
-
-To configure role-based conditional visibility, do the following:
-
-1. Select a widget you would like to make visible only for certain user roles and go to its properties.
-
-2. In **Conditional Visibility** section, toggle the **Role-Based** property.
-
-3. A list of roles available in your app is displayed in the **Roles** property. Untick the roles who would like to hide the widget from:
-
-    {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/role-based-example.png){{% /image_container %}}
-
-
-Role-based conditional visibility is set for the widget.
-
-### 3.4 Disabling Role-Based Conditional Visibility
-
-To disable role-based conditional visibility, follow the steps below:
-
-1. Select a widget you would like to disable role-based visibility and go to its properties.
-2. In **Conditional Visibility** section, disable the **Role-Based** property.
-
-Role-based conditional visibility is disabled for the widget.
-
-## 4 Read More
-
-* [Widgets](page-editor-widgets)
-* [Security, Roles & Permissions](settings-security)
+* [小部件](页面编辑器部件)
+* [安全性，角色 & 权限](settings-security)
