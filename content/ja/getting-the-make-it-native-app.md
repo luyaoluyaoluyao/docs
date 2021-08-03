@@ -1,59 +1,59 @@
 ---
-title: "Getting the Make It Native App"
-parent: "native-mobile"
+title: "Make It Native Appsの取得"
+parent: "native-Mobile"
 menu_order: 10
 tags:
   - "Android"
   - "iOS"
-  - "native"
+  - "ネイティブ"
   - "debug"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The Make It Native app allows developers to preview, test, and debug native mobile apps in conjunction with Mendix Studio Pro. It currently comes in two versions:
+Make It Native アプリを使用すると、Mendix Studio Pro と組み合わせてネイティブモバイルアプリのプレビュー、テスト、デバッグが可能になります。 現在、2つのバージョンがあります:
 
-* The **Make It Native 8 app** for Mendix Studio Pro 8 (v8.8 and above)
-* The **Make It Native 9 app** for Studio Pro v9.0 and above
+* **Make It Native 8 app** for Mendix Studio Pro 8 (v8.8 以降)
+* Studio Pro v9.0以降の **Make It Native 9 app**
 
-Both of these apps are available for both Android and iOS devices.
+両方のアプリは、AndroidとiOSの両方のデバイスで利用できます。
 
-For more information on using the Make It Native app to test an app, see [How To Get Started with Native Mobile](/howto/mobile/getting-started-with-native-mobile). For advanced information on debugging with the Make It Native app, see [Debug Native Mobile Apps (Advanced)](/howto/mobile/native-debug). If your app will require custom dependencies, such as custom widgets or fonts, see [How to Create a Custom Developer App](/howto/mobile/how-to-devapps).
+アプリをテストするためにMake It Nativeアプリを使用する方法の詳細については、 [Native Mobileを使い始める方法](/howto/mobile/getting-started-with-native-mobile) を参照してください。 Make It Native アプリによるデバッグの詳細については、 [Debug Native Mobile Apps (Advanced)](/howto/mobile/native-debug) を参照してください。 カスタム ウィジェットやフォントなどのカスタム 依存関係が必要な場合は、 [カスタム 開発者アプリの作成方法](/howto/mobile/how-to-devapps) を参照してください。
 
-For information on which mobile operating systems are supported by the Make It Native app, see the [Mobile Operating Systems](system-requirements#mobileos) section of *System Requirements*.
+Make It Native アプリでサポートされているモバイル オペレーティング システムの詳細については、 [システム要件](system-requirements#mobileos) の *Mobile Operating Systems* のセクションを参照してください。
 
-To download the Make It Native app, search for *Make It Native* in your device's app store.
+Make It Native アプリをダウンロードするには、デバイスのApp Storeで *Make It Native* を検索します。
 
-## 2 Archives {#archives}
+## 2件のアーカイブ {#archives}
 
-Occasionally Mendix will introduce features, bug fixes, and functionality that will make the Make It Native app incompatible with older versions of the Mendix Studio Pro.
+Mendixが機能、バグ修正を紹介する場合があります。 Make It Native アプリをMendix Studio Proの古いバージョンと互換性がないようにする機能。
 
-For example, you might be working on a time-critical app where updating to the latest Mendix Studio Pro version might be difficult, and due to incompatible changes on the Make It Native app your latest app might not work.
+たとえば、最新のMendix Studio Proバージョンへのアップデートが難しいかもしれない、タイムクリティカルなアプリを開発している可能性があります。 また、Make It Native アプリの互換性がない変更により、最新のアプリが動作しない可能性があります。
 
-To solve this issue and others like it, the apps provided in this document can be installed side by side with the latest Make It Native app. Those apps working together will allow you to continue your work unimpeded.
+この問題を解決するために、そしてその他の人はそれを好みます このドキュメントで提供されているアプリは、Make It Nativeアプリと並行してインストールできます。 これらのアプリが連携することで、作業を妨げることなく続けることができます。
 
 ### 2.1 Android
 
-To acquire the archive you need, see the [Android Make It Native Archive](https://www.dropbox.com/sh/37s3d4gumhej6j3/AAAdXd97G3s8W0sUE1TQyYW9a?dl=0). To install the APKs, navigate with your device to the link provided, choose the version you would like to install, then download and install it on your device.
+必要なアーカイブを取得するには、 [Android Make It Native Archive](https://www.dropbox.com/sh/37s3d4gumhej6j3/AAAdXd97G3s8W0sUE1TQyYW9a?dl=0) を参照してください。 APK をインストールするには、指定されたリンクに移動します。 インストールしたいバージョンを選択し、お使いのデバイスにインストールしてください。
 
-### 2.2 iOS
+### iOS 2.2
 
-iOS archive versions for Make It Native are served via TestFlight links. To join a specific TestFlight version of the Make It Native app and install it, tap the appropriate link using the device with the account you would like to join TestFlight with. Use the TestFlight app to install the version of the app you already joined.
+Make It NativeのiOSアーカイブのバージョンはTestFlightリンク経由で提供されます。 特定のTestFlightバージョンのMake It Nativeアプリに参加してインストールする TestFlight に参加したいアカウントでデバイスを使用して適切なリンクをタップします。 TestFlight アプリを使用して、すでに参加しているアプリのバージョンをインストールします。
 
-## 3 Direct Download Links {#direct-links}
+## 3つの直接ダウンロードリンク {#direct-links}
 
-For Make it Native 9 apps, please download them in their app stores. If you would like to download an older Make it Native 8 version directly, see the section below.
+Make it Native 9アプリはアプリストアでダウンロードしてください。 古いバージョンを直接ダウンロードしたい場合は、以下のセクションを参照してください。
 
-### 3.1 Make It Native for Studio Pro 8.8 and Below:
+### 3.1 Studio Pro 8.8 および Below 用ネイティブにする:
 
 |                                  Android                                  |                                iOS                                |
 |:-------------------------------------------------------------------------:|:-----------------------------------------------------------------:|
 | ![Android QR Code](attachments/make-it-native-archive/qr-android-8.8.png) | ![iOS QR Code](attachments/make-it-native-archive/qr-ios-8.8.png) |
-|   [Link](https://www.dropbox.com/s/z0255q1gcxpvlwl/MiN%208.8.apk?dl=0)    |        [Link](https://testflight.apple.com/join/ra3QR6iG)         |
+|    [リンク](https://www.dropbox.com/s/z0255q1gcxpvlwl/MiN%208.8.apk?dl=0)    |         [リンク](https://testflight.apple.com/join/ra3QR6iG)         |
 
 
-## 4 Read More
+## 4 続きを読む
 
-* [How to Deploy Your First Mendix Native Mobile App](/howto/mobile/deploying-native-app)
-* [How to Create a Custom Developer App](/howto/mobile/how-to-devapps)
-* [How to Debug Native Mobile Apps (Advanced)](/howto/mobile/native-debug)
+* [最初のMendixネイティブモバイルアプリをデプロイする方法](/howto/mobile/deploying-native-app)
+* [カスタム開発者アプリを作成する方法](/howto/mobile/how-to-devapps)
+* [ネイティブモバイルアプリのデバッグ方法(高度)](/howto/mobile/native-debug)
