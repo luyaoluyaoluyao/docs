@@ -1,67 +1,87 @@
 ---
-title: "画像アップローダー"
+title: "画像アップロード"
 parent: "file-widgets"
+tags:
+  - "studio pro"
+  - "画像アップローダー"
+  - "ファイルウィジェット"
+  - "ウィジェット"
 ---
 
-
-画像アップローダーは、サーバーに画像をアップロードするために使用されます。 また、アップロードされた画像のサムネイルも生成します。 アップロードされた画像またはサムネイルは、画像ビューアを使用して表示できます。
-
 {{% alert type="info" %}}
-
-![](attachments/pages/image-uploader.png) イメージアップローダーはここにネストされたデータビューに配置されます。 プロファイルエンティティは、System.Imageの専門分野です。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image-uploader.pdf) をクリックしてください。
 {{% /alert %}}
 
-画像アップローダーは、エンティティSystem.Imageまたはそれらの特殊化に接続されたデータビューに配置する必要があります。
+{{% alert type="warning" %}}画像アップローダーウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 一般プロパティ
+## 1つの紹介
 
-### 最大ファイルサイズ (MB)
+画像アップローダーは、サーバーに画像をアップロードするために使用されます。 また、アップロードされた画像のサムネイルも生成します。 アップロードされた画像またはサムネイルは、画像ビューアで表示できます。 エンティティシステムに接続されたデータビューの中に配置する必要があります。
 
-このプロパティでは、アップロード可能な画像の最大ファイル サイズ (メガバイト単位) を指定できます。
+以下の例では、イメージアップローダーがネストされたデータビューに配置されます ( *プロファイル* エンティティは System.Imageの専門化です):
 
-_デフォルト値:_ 5
+![画像アップロード](attachments/file-widgets/image-uploader.png)
 
-### 許可されるエクステンション
+## 2つのプロパティ
 
-アップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合は、すべてのファイル拡張子が許可されます。 複数の拡張子をセミコロンで区切ってください。例えば、 `png;jpg`
+以下の画像では、画像アップローダーのプロパティの例を示します。
 
-許可されていない拡張子のファイルが選択されている場合。 システムテキスト (ファイルマネージャー > ファイル拡張子が正しくありません) がファイルマネージャの下に表示されます。
+{{% image_container width="250" %}}![画像アップローダーのプロパティ](attachments/file-widgets/image-uploader-properties.png)
+{{% /image_container %}}
 
-### サムネイルの幅
+画像アップローダーのプロパティは以下のセクションで構成されています:
 
-このプロパティは、生成されたサムネイルの幅をピクセル単位で決定します。 ただし、サムネイル生成時の画像のアスペクト比は変わりません。
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [全般](#general)
+* [ラベル](#label)
+* [公開範囲](#visibility)
 
-### サムネイルの高さ
+### 2.1 共通セクション {#common}
 
-このプロパティは、生成されたサムネイルの高さをピクセル単位で決定します。 ただし、サムネイル生成時の画像のアスペクト比は変わりません。
+{{% snippet file="refguide8/comon-section-link.md" %}}
 
-{{% snippet file="refguide7/Label+Property.md" %}}
+### 2.2 デザインプロパティセクション {#design-properties}
 
-## 編集可能なプロパティ
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-{{% snippet file="refguide7/Editable+Property.md" %}}
+### 2.3 編集可能セクション {#editability}
 
-{{% snippet file="refguide7/Condition+Property.md" %}}
+{{% snippet file="refguide8/editability-section-link.md" %}}
 
-## 表示プロパティ
+### 2.4 一般セクション {#general}
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+#### 2.4.1 最大ファイルサイズ (MB)
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+**最大ファイルサイズ (MB)** アップロード可能なファイルの最大サイズを指定します。
 
-## 共通のプロパティ
+デフォルト: *5*
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+#### 2.4.2 許可されたエクステンション {#allowed-extensions}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+ユーザがアップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください (例: `txt;doc`)。
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+許可されていない拡張子のファイルが選択されている場合。 [システムテキスト](system-texts) **ファイルマネージャ/画像ビューアー** > **エラー: ファイル拡張子** がファイルマネージャの下に表示されます。
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+#### 2.4.3 サムネイル幅
 
-## 関連記事
+**サムネイルの幅** はピクセル単位で生成されるサムネイルの幅を決定します。 ただし、サムネイル生成時の画像のアスペクト比は変わりません。
 
-*   [データビュー](data-view)
-*   [エンティティ](エンティティ)
-*   [関連](関連)
+#### 2.4.4 サムネイル高さ
+
+**サムネイルの高さ** はピクセル単位で生成されたサムネイルの高さを決定します。 ただし、サムネイル生成時の画像のアスペクト比は変わりません。
+
+### 2.5 ラベルセクション {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+### 2.6 表示セクション {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [ファイルウィジェット](file-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
