@@ -1,38 +1,38 @@
 ---
 title: "OQL"
-parent: "data-sets"
+parent: "数据集"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix Object Query Language (OQL) is a relational query language just like [SQL](http://en.wikipedia.org/wiki/Sql). The major advantage of OQL is that it uses entity and association names instead of actual database table names.
+Mendix 对象查询语言 (OQL) 是一个类似 [SQL](http://en.wikipedia.org/wiki/Sql) 的关系查询语言。 OQL的主要优点是它使用实体和协会名称而不是实际的数据库表名称。
 
-In addition, OQL can use predefined relations (associations) to easily join objects without having to calculate which columns should be coupled. Despite these differences, many SQL keywords also work in OQL.
+此外，OQL可以使用预定义的关系(关联)来轻松加入对象，而无需计算哪个列应该是合并的。 尽管存在这些差异，但许多SQL关键词也可以在 OQL 中使用。
 
-These are some examples of OQL queries:
+以下是OQL查询的一些例子：
 
-* `SELECT Name FROM Sales.Customer` –  retrieves the names of all customers
-* `SELECT FirstName FROM Sales.Customer WHERE Name = 'Jansen'`  –  retrieves the first name of all customers with name "Jansen"
-* `SELECT AVG(TotalPrice) FROM Sales."Order" WHERE IsPaid = 1`  –  retrieves the average of the total prices of all paid orders (`Order` needs to be encapsulated in quotes because it is a reserved word, meaning it can be used for `ORDER BY`)
+* `选择来自Sales.客户` - 检索所有客户的名称
+* `选择来自Sales.Customer WHERE name = 'Jansen'`  — 获取所有客户的名字，名字为 "Jansen"
+* `从销售中选择AVG(总计价格)。 订单”WHERE IsPaid = 1`  — 检索所有支付订单总价格的平均值`订单` 需要封装在引号中，因为它是一个保留的单词， 意思是可以用于 `ORDER BY`)
 
 {{% alert type="info" %}}
-OQL queries do not take security into account out-of-the-box. This means that you can use OQL to manually define custom security expressions. In some cases, handling security yourself using OQL—instead of using the out-of-the-box security of XPath—may result in faster queries.
-{{% /alert %}}
+OQL 查询没有考虑到外部安全因素。 这意味着您可以使用 OQL 手动定义自定义安全表达式。 在某些情况下，使用OQL处理您自己的安全性——而不是使用XPath的箱外安全——可能会导致更快的查询。
+{{% /报警 %}}
 
-Try your OQL example online with the [OQL Playground](https://service.mendixcloud.com/p/OQL) demo app.
+使用 [OQL 游戏场](https://service.mendixcloud.com/p/OQL) 演示应用程序在线试用您的 OQL 示例。
 
-## 2 Query Components
+## 2 个查询组件
 
-An OQL query can use these components:
+OQL 查询可以使用这些组件：
 
-| Query Part                                        | OQL                      | Purpose                                                                                                                                                           |
-| ------------------------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Select clause](oql-select-clause) (required)     | `SELECT AVG(TotalPrice)` | Determines which attributes of the object being queried are retrieved. Any functions that need to be performed on the retrieved data should also be defined here. |
-| [From clause](oql-from-clause) (required)         | `FROM Sales.Order`       | Designates the source entity from which the data will be retrieved.                                                                                               |
-| [Where clause](oql-where-clause) (optional)       | `WHERE IsPaid = 1`       | Constrains the data being retrieved.                                                                                                                              |
-| [Group by clause](oql-group-by-clause) (optional) | `GROUP BY Department`    | Groups rows on the values of the specified attributes.                                                                                                            |
-| [Order by clause](oql-order-by-clause) (optional) | `ORDER BY Date`          | Sorts rows on the specified attributes.                                                                                                                           |
-| [Limit clause](oql-limit-clause) (optional)       | `LIMIT 50 OFFSET 30`     | Limits rows to a subset of the total amount.                                                                                                                      |
+| 查询部件                               | OQL                  | 目的                                  |
+| ---------------------------------- | -------------------- | ----------------------------------- |
+| [选择条款](oql-select-clause) (必须)     | `选择AVG(总价格)`         | 决定检索要查询对象的属性。 此处还应界定检索数据上需要履行的任何功能。 |
+| [来自条款](oql-from-clause) (必须)       | `从 ROM Sales.订单`     | 指定将从中检索数据的源实体。                      |
+| [条款](oql-where-clause) (可选)        | `鉴于伊斯帕德=1`           | 限制检索数据。                             |
+| [按条款](oql-group-by-clause) (可选)分组  | `按部门排列的组`            | 将行分组到指定属性的值上。                       |
+| [按条款](oql-order-by-clause) (可选) 排序 | `按日期排序`              | 按指定属性排序行.                           |
+| [限制条款](oql-limit-clause) (可选)      | `LIMIT 50 OFFSET 30` | 限制行到总金额的子集。                         |
 
