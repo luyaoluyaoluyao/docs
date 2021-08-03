@@ -9,12 +9,16 @@ tags:
   - "トップ バー"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/edit-menu.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 **編集** メニューを通じて、特定のドキュメントが使用されているさまざまなアクション、そのようなカット/コピー/ペーストまたは検索を実行できます。 ユーザー固有の設定を含む [環境設定](preferences-dialog) ダイアログを開くこともできます。
 
-![編集メニュー](attachments/edit-menu/edit-menu.png)
-
+{{% image_container width="300" %}}![編集メニュー](attachments/edit-menu/edit-menu.png)
+{{% /image_container %}}
 
 ## 2メニューアイテムの概要
 
@@ -33,7 +37,7 @@ tags:
 | **使い方を探す** (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>) | **検索結果** ペインを開き、選択したオブジェクトの使用状況を表示します。                                                                                                                                                                 |
 | **次の検索結果** (<kbd>M3</kbd>)                                   | **検索結果** ペインで次の検索結果をハイライトし、エディタで開きます。                                                                                                                                                                  |
 | **前の検索結果** (<kbd>Shift</kbd> + <kbd>M3</kbd>)                | **検索結果** ペインで前の検索結果をハイライトし、エディタで開きます。                                                                                                                                                                  |
-| **** (<kbd>Ctrl</kbd> + <kbd>G</kbd> ) に移動                   | いくつかの文字を入力して <kbd>Enter</kbd> を押して、アプリ内の任意のドキュメントまたはドメインモデル要素にすばやく移動します。                                                                                                                               |
+| **** (<kbd>Ctrl</kbd> + <kbd>G</kbd> ) に移動                   | いくつかの文字を入力して <kbd>Enter</kbd> を押して、プロジェクト内の任意のドキュメントまたはドメインモデル要素にすばやく移動します。                                                                                                                            |
 | **次のエラー** (<kbd>F8</kbd>)                                    | **Error List** ペインで次のエラーを強調表示し、エディタで開きます。                                                                                                                                                              |
 | **前のエラー** (<kbd>Shift</kbd> + <kbd>F8</kbd>)                 | **Error List** ペインで前のエラー結果をハイライトし、エディタで開きます。                                                                                                                                                           |
 | **設定**                                                       | **環境設定** ダイアログボックスを開き、一般、モデル、および高度な編集環境設定を設定できます。 **環境設定** ダイアログボックスの詳細については、 [環境設定](preferences-dialog) を参照してください。                                                                                    |
@@ -42,5 +46,5 @@ tags:
 
 * [ペインの変更](changes-pane)
 * [Errors Pane](errors-pane)
-* [アプリエクスプローラー](project-explorer)
+* [プロジェクトエクスプローラー](project-explorer)
 * [Studio Pro Overview](studio-pro-overview)
