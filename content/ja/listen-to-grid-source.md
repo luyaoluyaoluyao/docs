@@ -1,23 +1,26 @@
 ---
-title: "Listen To Widget Source"
-parent: "data-sources"
+title: "ウィジェットのソースを聞く"
+parent: "データソース"
+tags:
+  - "studio pro"
+  - "ウィジェットを再生"
+  - "データソース"
+menu_order: 70
 ---
 
+## 1つの紹介
 
-The listen-to-widget data source allows a data view to display detailed information on an object selected in a list widget on the same page. The data grid, template grid, and list view are list widgets. This is especially useful when displaying large amounts of data, which limits the information available per object, as it allows the user to view details concerning individual objects without having to open a new page.
+listen-to-widgetデータ ソースは、データ グリッドで選択されているオブジェクトの詳細情報をデータ ビューに表示することができるデータ ビューの特定のソースです。 テンプレートグリッド、または同じページのリストビュー。 これは、大量のデータを表示するときに特に便利で、オブジェクトごとに利用可能な情報が制限されます。 新しいページを開かなくても個々のオブジェクトの詳細を見ることができます。
 
-{{% alert type="info" %}}
+{{% image_container width="400" %}}![ウィジェットの例を聞く](attachments/data-widgets/listen-to-widget-example.jpg)
+{{% /image_container %}}
 
-![](attachments/16713834/16843964.jpg) The data view on the right listens to the data grid on the left. In this example, the listening view will display the image attached to the selected product if one is selected.
+上の画像のデータビューは、データ グリッドにリッスンします。 この例では、選択されている製品の名前がデータビューに表示されます。
 
-{{% /alert %}}
+リストビュー、テンプレートグリッド、およびデータグリッドはリストウィジェットであり、聞くことができます。 リストウィジェットでオブジェクトが選択されていない場合、データビューは空のままで反応しません。
 
-Both list views, template grids, and data grids can be listened to.
+## 2つのプロパティ
 
-If no object is selected in the list widget, the data view will remain empty and unresponsive.
+### 2.1 リストウィジェット
 
-## Properties
-
-### List widget
-
-Specifies the list widget from which the data view derives its data.
+データビューに表示されるオブジェクトを制御するリストウィジェットを指定します。
