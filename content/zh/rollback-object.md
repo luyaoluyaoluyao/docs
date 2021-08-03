@@ -1,97 +1,97 @@
 ---
-title: "Rollback Object"
-parent: "object-activities"
+title: "回滚对象"
+parent: "对象活动"
 menu_order: 70
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The rollback object action can be used to undo changes (that have not been committed) made to the object in the part of the flow preceding the activity. Furthermore, it deletes objects that have been created but never committed.
+回滚对象动作可以用来撤销在活动前的流量中对物体所作的更改(未发生)。 此外，它删除已创建但从未承诺的对象。
 
 {{% alert type="info" %}}
-When the rollback object action is performed in a sub-microflow, it rolls back the changes in its parent microflow as well as the sub-microflow.
-{{% /alert %}}
+当回滚对象动在子微流中执行时，它会回滚其父微流和子微流中的变化。
+{{% /报警 %}}
 
-## 2 Properties
+## 2 属性
 
-An example of rollback object properties is represented in the image below:
+下面的图像显示了回滚对象属性的示例：
 
-![rollback object properties](attachments/object-activities/rollback-properties.png)
+![回滚对象属性](attachments/object-activities/rollback-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-The rollback object properties pane consists of the following sections:
+回滚对象属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action{#action}
+## 3 动作{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Object
+### 3.1 对象
 
-**Object** defines the object that needs to be rolled back.
+**对象** 定义了需要回滚的对象。
 
-### 3.2 Refresh in Client
+### 3.2 在客户端刷新
 
-This setting defines how changes are reflected in the pages presented to the end-user.
+此设置定义了如何在向最终用户展示的页面中反映变化。
 
-Default: *No*
+默认： *否*
 
 {{% alert type="info" %}}
-To make pages of a Mendix app efficient, many widgets display values from an attribute of an object which is cached on the page. Attributes in widgets which use cached data are *always* reflected in the client even if they are not committed and irrespective of the value of **Refresh in client**.
+为了提高Mendix 应用页面的效率，许多小部件显示的值来自缓存在页面上的对象属性。 使用缓存数据的小部件中的属性在客户端中总是 *反映在* 中，即使它们没有被提交，也不论客户端</strong>中的 **刷新值如何。</p>
 
-If a widget is only updated when a [data source](data-sources) is loaded, then rollbacks will only be seen if they are committed and **Refresh in client** is set to *Yes*.
+如果小部件仅在加载 [数据源](data-sources) 时更新， 然后只会看到回滚。 **客户端** 中的刷新设置为 *是*
 
-When testing your app, ensure that the desired data is being displayed by the widgets you have chosen.
-{{% /alert %}}
+测试您的应用时，请确保您选择的小部件显示所需的数据。
+{{% /报警 %}}
 
-#### 3.2.1 Microflow Is Called from the Client in an Online App
+#### 3.2.1 在线应用程序中从客户端调用微流
 
-If **Refresh in client** is set to *No*, the rollback is not reflected in the client.
+如果客户端</strong> 中的 **刷新设置为 *no*, 回退不会反映在客户端中。</p>
 
-If set to *Yes*, the object is refreshed across the client, which includes reloading the relevant [data sources](data-sources).
+如果设置为 *是*, 则对象会在客户端上刷新, 包括重新加载相关的 [数据源](data-sources)。
 
-#### 3.2.2 Microflow Is Called in an Offline, Native, or Hybrid App
+#### 3.2.2 微流在离线、非或混合应用程序
 
-When inside a microflow that is called from an offline, native, or hybrid app, the **Refresh in client** option is ignored and functions as if it was set to **No**.
+在从离线、本机或混合应用程序调用的微流程内， 客户端</strong> 选项中的 **刷新被忽略，其功能仿佛设置为 **否**。</p>
 
 For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
 
-#### 3.2.3 Action Is in a Nanoflow
+#### 3.2.3 处于纳诺夫低下的行动
 
-When inside a [nanoflow](nanoflows), the rollback object action reloads [data sources](data-sources) as if **Refresh in client** was set to *Yes*.
+在 [nanoflow](nanoflows)内， 回滚对象动作重新加载 [数据源](data-sources) 似乎客户端 **刷新** 已设置为 *是*
 
-## 4 Common Section{#common}
+## 4 通用部分{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 What Does Rollback Do?
+## 5 回滚怎么办？
 
 {{% alert type="info" %}}
-A rollback action in a microflow or nanoflow is not the same as the rollback option on an [Error Event](error-event#errors-in-microflows) in a microflow.
+微流程或nanoflow 中的回滚动操作与微流程中的 [错误事件](error-event#errors-in-microflows) 的回滚选项不同。
 
-A rollback from an error event does not trigger any rollback events, and does not reflect whether changes to objects have been committed.
-{{% /alert %}}
+从错误事件中回滚不会触发任何回滚事件，也不会反映是否发生对对象的更改。
+{{% /报警 %}}
 
-Pressing a **Cancel** button or triggering a rollback activity will initiate the rollback events.
+按下 **取消** 按钮或触发回滚活动将会启动回滚事件。
 
-* **Events**: all before and after events are executed
-    * If any before-rollback event returns false, an exception can be thrown
-    * If an exception occurs during an event, all the applied changes are reverted with the default error handling behavior
-    * Changes made prior to the rollback will be kept
-* **Database**: there is no database communication happening during this event unless it is specified in a before- or after-create event
-* **Result**: an object with the state **Instantiated** will be removed, and an object with any other state will be reverted back to the values it had during the last commit
+* **事件**: 事件执行之前和之后所有
+    * 如果任何前回滚事件返回错误，可以抛出异常。
+    * 如果在事件中发生异常，所有应用更改都将恢复为默认错误处理
+    * 回滚之前所作的更改将被保留
+* **数据库**: 在这个事件中没有进行数据库通讯，除非它是在事前或事后创建的事件中指定
+* **结果**: 一个具有状态 **实例化的对象** 将被删除， 和任何其他状态的对象将被还原到它在上次提交时拥有的值
 
 ![](attachments/object-activities/18582170.png)
