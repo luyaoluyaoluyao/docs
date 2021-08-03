@@ -1,74 +1,74 @@
 ---
-title: "Simple Menu Bar"
+title: "シンプルなメニューバー"
 parent: "menu-widgets"
 menu_order: 2
 tags:
   - "studio pro"
 ---
 
-{{% alert type="warning" %}}The simple menu bar widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}シンプルなメニューバーウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A simple menu bar shows menu items of a [navigation profile](navigation#profiles) or in a [menu](menu) document in the form of a horizontal or vertical bar. These items are determined by the [Menu source](#menu-source) and are either configured in the [Navigation](navigation) or a [Menu](menu).
+単純なメニューバーには、 [ナビゲーション プロファイル](navigation#profiles) または [メニュー](menu) のメニュー項目が、水平または垂直バーの形式で表示されます。 これらのアイテムは [メニューソース](#menu-source) によって決定され、 [ナビゲーション](navigation) または [メニュー](menu)で構成されます。
 
-Sub-items of menu items are not displayed by this widgets, that means the menu structure can only have one level. For more information on menu items and their properties, see [Menu](menu).
+メニュー項目のサブ項目は、このウィジェットでは表示されません。つまり、メニュー構造は1つのレベルしか持つことができません。 メニュー項目とそのプロパティの詳細については、 [メニュー](menu) を参照してください。
 
-![Simple Menu Bar](attachments/menu-widgets/simple-menu-bar.png)
+![シンプルなメニューバー](attachments/menu-widgets/simple-menu-bar.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of a simple menu bar properties is represented in the image below:
+以下の画像に、単純なメニュー バーのプロパティの例を示します。
 
-{{% image_container width="250" %}}![Simple Menu Bar Properties](attachments/menu-widgets/simple-menu-bar-properties.png)
+{{% image_container width="250" %}}![シンプルなメニューバーのプロパティ](attachments/menu-widgets/simple-menu-bar-properties.png)
 {{% /image_container %}}
 
-Menu bar properties consist of the following sections:
+メニューバーのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design properties](#design)
-* [General](#general)
+* [一般的な](#common)
+* [デザインプロパティ](#design)
+* [全般](#general)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design}
+### 2.2 デザインプロパティセクション {#design}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Menu Source {#menu-source}
+#### 2.3.1 メニュー ソース {#menu-source}
 
-The items that are shown in the menu widget are determined by the **Menu source**. Possible menu sources are described in the table below:
+メニュー ウィジェットに表示されているアイテムは **メニュー ソース** によって決定されます。 可能なメニューソースは以下の表に記載されています:
 
-| Value                           | Description                                                                                |
-| ------------------------------- | ------------------------------------------------------------------------------------------ |
-| Project navigation  *(default)* | The menu items are taken from one of the profiles defined in the [Navigation](navigation). |
-| Menu document                   | The menu items are taken from a [menu](menu) document.                                     |
+| 値                        | 説明                                                           |
+| ------------------------ | ------------------------------------------------------------ |
+| プロジェクトナビゲーション  *(デフォルト)* | メニュー アイテムは、 [ナビゲーション](navigation) で定義されたプロファイルのいずれかから取得されます。 |
+| メニュードキュメント               | メニュー項目は [メニュー](menu) ドキュメントから取得されます。                         |
 
-#### 2.3.2 Profile
+#### 2.3.2 プロファイル
 
-Only available when the [Menu source](#menu-source) is set to **Project navigation**. The **Profile** property specifies what [Navigation profile](navigation#profiles) is used for the widget.
+[メニュー ソース](#menu-source) が **プロジェクト ナビゲーション** に設定されている場合にのみ使用できます。 **Profile** プロパティは、ウィジェットに [ナビゲーション プロファイル](navigation#profiles) が使用されるものを指定します。
 
-Default: *Responsive*
+デフォルト: *レスポンシブ*
 
-#### 2.3.3 Menu
+#### 2.3.3 メニュー
 
-Only available when the [Menu source](#menu-source) is set to **Menu document**. The **Menu** property specifies what [Menu](menu) document is used for the widget.
+[メニュー ソース](#menu-source) が **メニュー ドキュメント** に設定されている場合にのみ使用できます。 **メニュー** プロパティは、ウィジェットに使用される [メニュー](menu) ドキュメントを指定します。
 
-#### 2.3.4 Orientation
+#### 2.3.4 向き
 
-This property determines how the simple menu bar is laid out.
+このプロパティは、単純なメニュー バーのレイアウト方法を決定します。
 
-| Orientation             | Description                                                                       |
-| ----------------------- | --------------------------------------------------------------------------------- |
-| Horizontal  *(default)* | The menu items are next to each other and the images are above the captions.      |
-| Vertical                | The menu items are underneath each other and the images are next to the captions. |
+| 方向         | 説明                                |
+| ---------- | --------------------------------- |
+| 水平  *(既定)* | メニュー項目は隣接しており、画像はキャプションの上にあります。   |
+| 垂直方向       | メニュー項目はお互いの下にあり、画像はキャプションの横にあります。 |
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Menu Widgets](menu-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [メニューウィジェット](menu-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
