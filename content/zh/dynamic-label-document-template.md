@@ -1,70 +1,74 @@
 ---
-title: "Dynamic Label (Document Template)"
-parent: "document-templates"
+title: "动态标签 (文档模板)"
+parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Dynamic+label+(document+template).html
-  - /refguide7/dynamic-label-(document-template).html
+  - /refguide/Dynamic+label+(document+template).html
+  - /refguide/dynamic-label-(document-template).html
 ---
 
+## 1 导言
 
-A dynamic label would be used for the same kind of attributes as a text box from the form builder. It can be used to display a text value.
-
-{{% alert type="info" %}}
-
-![](attachments/819203/918131.png) A dynamic label linking to a customer name.
-
-{{% /alert %}}
-
-## Appearance Properties
-
-### Style
-
-See [Style](style)
-
-### Render XHTML
-
-If you set the property 'Render XHTML' to true, the attribute connected to this label is assumed to contain XHTML and will be rendered as such. This is useful when you want to incorporate rich text in a document template. This property can only be true for attributes of type String.
-
-The contents MUST be valid XHTML to render without errors.
-
-_Default value:_ False
-
-### Decimal Precision (Only for Decimal Attributes)
-
-The precision of a value is defined by the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point) that will be rendered in the widget.
-
-_Default value:_ 2
-
-### Group Digits (Only for Numeric Attributes)
-
-For ease of reading, numbers with many digits in front of the decimal separator may be divided into groups using a delimiter. This property defines whether the end user will see these groups, or not.
-
-_Default value:_ False
-
-### Date Format (Only for Attributes of the DateTime Type)
-
-The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application. Alternatively, as of version 2.5.3 you can completely customize the format of the date and/or time by supplying a date format string.
-
-Possible values: 'Date', 'Time', 'Date and time' and in 2.5.3 'Custom'.
-
-_Default value:_ Date
-
-### Custom Date Format (Only for Attributes of the DateTime Type)
-
-If you choose 'Custom' as the date format (see above) the custom date format determines the way date and/or time are formatted. The custom date format is a string that follows the rules described in [http://download.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html](http://download.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html).
+动态标签用于与页面编辑器的文本框相同的属性。 它可以用来显示文本值。
 
 {{% alert type="info" %}}
 
-The custom date format `EEE, MMM d, yy` results in the following text `Wed, Jul 4, 01`
+![](attachments/document-templates/918131.png)
 
-{{% /alert %}}
+链接到客户名称的动态标签。
 
-## Common Properties
+{{% /报警 %}}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+## 2 外观属性
 
-## Data Source Properties
+### 2.1 样式
 
-### Attribute (Path)
+欲了解详情，请见 [样式](style)。
 
-The attribute (path) property specifies which attribute will be shown in the dynamic label.
+### 2.2 渲染XHTML
+
+如果您设置属性为“渲染XHTML”为true， 连接到此标签的属性被假定为包含 XHTML 并将以此形式呈现。 当您想要在文档模板中包含富文本时，这是有用的。 此属性只适用于类型字符串属性。
+
+内容MUST 是有效的 XHTML 渲染，不存在错误。
+
+默认： *False*
+
+### 2.3 十进制精度(仅适用于十进制属性)
+
+值的精确度由用来表示该值的数字数来界定。 此属性表示小数点后的小数点数（小数点后的数字数）将会在小部件中呈现。
+
+默认： *2*
+
+### 2.4 组数字 (仅限数字属性)
+
+为了便于阅读，小数点分隔符前面有许多数字的数字可以用分隔符分成组。 这种财产确定最终用户是否会看到这些团体。
+
+默认： *False*
+
+### 2.5 日期格式 (仅针对类型 **日期和时间** 的属性)
+
+日期格式决定是否显示日期部分、时间部分或两者。 日期和时间部件的格式取决于用户使用应用程序的本地化。
+
+这些是可能的价值：
+
+* **日期** *(默认)*
+* **时间**
+* **日期和时间**
+* **自定义** (详情见下面)
+
+### 2.6 自定义日期格式 (仅针对类型 **日期和时间** 的属性)
+
+如果您选择 **自定义** 作为日期格式(见上文)，此属性将决定如何格式化属性。 自定义日期格式是一个字符串，允许下面表格中的任何符号组合。 任何标点都将以字面形式呈现。
+
+{{% snippet file="refguide/custom-date-form-tokens.md" %}}
+
+## 3 个公共属性
+
+{{% snippet file="refguide/name-property.md" %}}
+
+## 4 数据源属性
+
+### 4.1 属性(路径)
+
+属性(路径)属性指定在动态标签中显示哪个属性。
