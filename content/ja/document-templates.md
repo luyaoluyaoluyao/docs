@@ -1,9 +1,17 @@
 ---
 title: "ドキュメントテンプレート"
-category: "デスクトップ モデラー"
+parent: "リソース"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "ドキュメントテンプレート"
 aliases:
-  - /ja/refguide7/Document+Templates.html
+  - /refguide8/Document+Templates.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/document-templates.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
@@ -13,7 +21,7 @@ aliases:
 このページでは、どのドキュメントテンプレートに対してどのようなウィジェットを配置できるかについて説明します。 ドキュメントテンプレートのプロパティを確認したい場合は、 [ドキュメントテンプレート](document-template) 自体のドキュメントを確認できます。
 {{% /alert %}}
 
-ドキュメントテンプレートは、 _ウィジェット_ とも呼ばれるコンポーネントを含むことができます。 以下は、すべてのウィジェットのカテゴリの概要です:
+ドキュメントテンプレートには、 _ウィジェット_ とも呼ばれるコンポーネントも含まれています。 以下は、すべてのウィジェットのカテゴリ概要です。 以下のカテゴリが使用されます：
 
 * [コアウィジェット](#core) は Mendix でドキュメントテンプレートを構築する上で中心となります。 これらは、エンティティまたは単一のエンティティのリストを表示できるウィジェットです
 * [レイアウトウィジェット](#layout) は、ドキュメントテンプレートのレイアウトを構成するために使用されます。
@@ -36,7 +44,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918138.png)
+![](attachments/document-templates/918138.png)
 
 説明と参照先の顧客名を含む注文のリストを表示するデータ グリッド。
 
@@ -50,7 +58,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918139.png)
+![](attachments/document-templates/918139.png)
 
 注文行情報を示すデータビュー。
 
@@ -64,7 +72,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918137.png)
+![](attachments/document-templates/918137.png)
 
 名前と説明を持つ商品を示すテンプレートグリッド。
 
@@ -72,17 +80,17 @@ aliases:
 
 ## 3つのレイアウトウィジェット {#layout}
 
-レイアウト ウィジェットはフォームに構造を与えます。 これらはデータを表示せず、他のウィジェットを配置できるレイアウトを提供します。
+レイアウト ウィジェットはページに構造を与えます。 これらはデータを表示せず、他のウィジェットを配置できるレイアウトを提供します。
 
 ### 3.1 テーブル
 
-表はフォームのレイアウトを変更するために使用できます。 これらは、行と列の数を含み、2つの交差はセルと呼ばれます。 各セルにウィジェットを含めることができます。 セルは塗りつぶされる前に水平方向と垂直方向にマージして、非対称レイアウトを可能にすることができます。 テーブルは、データビュー内外の両方またはテンプレートグリッドウィジェットの両方で使用できます。
+表はページのレイアウトを変更するために使用できます。 これらは、行と列の数を含み、2つの交差はセルと呼ばれます。 各セルにウィジェットを含めることができます。 セルは塗りつぶされる前に水平方向と垂直方向にマージして、非対称レイアウトを可能にすることができます。 テーブルは、データビュー内外の両方またはテンプレートグリッドウィジェットの両方で使用できます。
 
 詳細については、 [テーブル (ドキュメントテンプレート)](table-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918134.png)
 
 4行3列のテーブル。 別のテーブルを持つデータビューを含む最後の行。
 
@@ -96,7 +104,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918135.png)
+![](attachments/document-templates/918135.png)
 
 改ページ
 
@@ -114,13 +122,13 @@ aliases:
 
 ### 4.1 動的ラベル
 
-動的なラベルは、フォームビルダーのテキストボックスと同じ属性タイプに使用されます。 テキスト値を表示するために使用できます。
+動的ラベルは、ページエディタのテキストボックスと同じ属性タイプに使用されます。 テキスト値を表示するために使用できます。
 
 詳細については、 [Dynamic Label (Document Template)](dynamic-label-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918131.png)
+![](attachments/document-templates/918131.png)
 
 顧客名にリンクする動的ラベル。
 
@@ -134,7 +142,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918132.png)
+![](attachments/document-templates/918132.png)
 
 テーブルセル内の動的な画像。プリセットのデフォルト画像を表示します。
 
@@ -152,7 +160,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918130.png)
+![](attachments/document-templates/918130.png)
 
 テキスト「顧客名」のラベル。
 
@@ -172,7 +180,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918133.png)
+![](attachments/document-templates/918133.png)
 
 テーブルセル内の静止画像。
 
