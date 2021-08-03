@@ -1,21 +1,17 @@
 ---
-title: "XPath Length"
+title: "XPath の長さ"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-length.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`length()` 関数は、文字列属性または値の長さを返します。
 
-The `length()` function returns the length of a string attribute or value.
+## 2つの例
 
-## 2 Example
-
-This query returns all customers with a `FirstName` of 5 or more characters:
+このクエリは、5文字以上の `FirstName` を持つすべての顧客を返します。
 
 ```java
 //Sales.Customer[length(FirstName) >= 5]
