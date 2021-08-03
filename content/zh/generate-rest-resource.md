@@ -1,52 +1,52 @@
 ---
-title: "Generating a Published REST Resource"
-parent: "published-rest-services"
+title: "生成发布的REST 资源"
+parent: "已发布的rest-service"
 menu_order: 20
-description: "Generate a published REST resource from an entity"
+description: "从实体生成已发布的REST 资源"
 tags:
-  - "published REST"
-  - "resource"
-  - "entity"
-  - "operations"
-  - "expose"
+  - "已发布 REST"
+  - "资源"
+  - "实体"
+  - "操作"
+  - "曝光"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-You can publish a REST resource with basic operations based on an entity by right-clicking an entity in the domain model and selecting **Expose as REST resource**. Alternatively, you can drag an entity or message definition onto the list of resources of a published REST service. This page describes the options you have once you perform one of these actions.
+您可以通过右键单击域模型中的一个实体发布基于实体的基本操作的 REST 资源，并选择 **作为REST 资源**。 或者，您可以将实体或消息定义拖放到已发布的REST 服务的资源列表中。 此页面描述了您在执行其中一个操作时拥有的选项。
 
-## 2 REST Service
+## 2 REST 服务
 
-This only shows up when you click **Expose as REST resource** in the domain model. Next, choose a service in which to generate the resource and operation.
+只有当您在域模型中点击 **显示为REST资源** 时才会显示。 接下来，选择一个服务来生成资源和操作。
 
-## 3 General
+## 3 概况
 
-### 3.1 Resource Name
+### 3.1 资源名称
 
-Type the name of the resource that you want to publish.
+输入您想要发布的资源的名称。
 
-### 3.2 Key Attribute
+### 3.2 密钥属性
 
-To be able to create a **Get by key**, a **Patch** or a **Delete** operation, there needs to be a unique attribute on the entity. Select that attribute here.
+要能够通过密钥</strong>创建一个 **获取， a **补丁** 或 **删除** 操作，实体需要有一个独特的属性。 在此选择该属性。</p>
 
-## 4 Operations
+## 4 业务
 
-Check the operations that you want to generate:
+选中您想要生成的操作：
 
-* **Get all** – allows clients to get all the objects
-* **Get by key** – allows clients to get an object, given its key
-* **Post** – allows clients to add a new object
-* **Patch** – allows clients to update an existing object
-* **Delete** – allows clients to delete an existing object
+* **获取所有** - 允许客户端获取所有对象
+* **通过密钥获得** - 允许客户端根据其密钥获取对象
+* **发布** - 允许客户端添加一个新对象
+* **补丁** - 允许客户端更新现有对象
+* **删除** - 允许客户端删除一个现有对象
 
-When you click **OK**, the following items are created:
+当您点击 **确定**时，以下项目将被创建：
 
-* A resource
-* All the operations that you selected
-* A microflow for each operation
-* A message definition
-* An import mapping (for the **Post** and **Patch** operations)
-* An export mapping (for the **Get all** and **Get by key** operations)
+* 资源
+* 您选择的所有操作
+* 每次操作的微流
+* 消息定义
+* 导入映射(用于 **帖子** and **补丁** 操作)
+* 导出映射(用于 **获取所有** 和 **通过密钥** 操作获取)
 
-If you have already created a message definition for the entity, that message definition will be reused. Existing import and export mappings based on that message definition will also be reused.
+如果您已经为实体创建了消息定义，该消息定义将被重新使用。 基于该消息定义的现有进出口映射也将重新使用。
