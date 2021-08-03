@@ -5,14 +5,18 @@ menu_order: 10
 tags:
   - "图表"
   - "小部件"
-  - "桌面模型"
+  - "Studio Pro"
   - "图表配置"
   - "配置"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-configuration.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
-本指南解释了配置图表部件的选项。 图表小部件包含在 Mendix 应用程序模板中，基于 Atlas UI 。 他们可以通过从 Mendix Marketplace 下载到其他Mendix 应用程序中：https://marketplace.mendix.com/link/component/105695。
+本指南解释了配置图表部件的选项。 图表小部件包含在 Mendix 应用程序模板中，基于 Atlas UI 。 他们可以从 [Mendix Marketplace](https://marketplace.mendix.com/link/component/105695/) 下载其他Mendix 应用程序。 欲了解更多文档，请参阅 *市场指南* 中的 [海图](/appstore/widgets/charts)。
 
 本指南涵盖下列部件：
 
@@ -24,7 +28,7 @@ tags:
 * 行图
 * 饼状图
 * 时间序列
-  * 注意某些应用可能有两个 *时间序列* 小部件。 本文档是指带有此图标的文档： ![正确时间序列部件的图像](attachments/pages/charts/time-series-icon.png)
+  * 注意某些应用可能有两个 *时间序列* 小部件。 本文档是指带有此图标的文档： ![正确时间序列部件的图像](attachments/charts/time-series-icon.png)
 
 *任何图表* 小部件的配置都在另一个文档中，这里： [任何图表小部件](charts-any-configuration)。
 
@@ -34,7 +38,7 @@ tags:
 
 ### 2.1 图表属性
 
-![通用图表属性对话框](attachments/pages/charts/line-chart-chart-properties.png)
+![通用图表属性对话框](attachments/charts/line-chart-chart-properties.png)
 
 #### 2.1.1 系列
 
@@ -44,7 +48,7 @@ tags:
 
   在这种情况下， **数据源** and **数据点** 在小部件中显示为单独的标签。
 
-  ![Pie 图表对话框显示数据源和数据点的标签](attachments/pages/charts/widget-data-source.png)
+  ![Pie 图表对话框显示数据源和数据点的标签](attachments/charts/widget-data-source.png)
 
   字段与下面 [数据源](#data-source) 和 [数据点](#data-points)中描述的字段相同。
 
@@ -52,13 +56,13 @@ tags:
 
   在这种情况下，可以通过点击 **系列 > 新的** 按钮添加新的序列。 **海图属性** 选项卡。
 
-  ●{% alert type="info" %}}从1.4 个版本的海图，您可以用一个变量的数据序列创建海图。 关于如何做到这一点的说明，请参阅 [如何创建动态系列图表](/howto7/extensibility/charts-dynamic-series){%/警示%}}
+  ●{% alert type="info" %}}从1.4 个版本的海图，您可以用一个变量的数据序列创建海图。 关于如何做到这一点的说明，请参阅 [如何创建动态系列图表](/howto8/front-end/charts-dynamic-series){%/警示%}}
 
 1. 数据源<a name="data-source"></a>
 
     每个系列的数据可以来自不同的数据来源。 您可以在 **海图属性** 标签中添加额外的数据系列.
 
-    ![编辑系列数据源标签](attachments/pages/charts/series-item-data-source.png)
+    ![编辑系列数据源标签](attachments/charts/series-item-data-source.png)
 
     * **Static/Dynamic**: 选择是否有固定的数据序列(行数) 例如，数据序列的数量是否可变，将由应用程序决定。
 
@@ -66,7 +70,7 @@ tags:
 
     * **数据源**: 该系列的数据源类型: *数据库*, *微流程* 或 *REST 端点*
 
-    * **REST URL**: 相对或完整的 URL 到REST 端点。 关于设置REST 终端点的更多信息，请参阅 [REST Charts](/howto7/extensibility/charts-basic-rest)
+    * **REST URL**: 相对或完整的 URL 到REST 端点。 关于设置REST 端点的更多信息，请参阅 [REST Charts](/howto8/front-end/charts-basic-rest)
 
     * **XPath 约束**: 实体数据的约束 (当数据源是数据库时使用)
 
@@ -76,7 +80,7 @@ tags:
 
     数据源中用于绘制值的属性。
 
-    ![编辑系列数据点标签](attachments/pages/charts/series-item-data-points.png)
+    ![编辑系列数据点标签](attachments/charts/series-item-data-points.png)
 
     * **X-轴数据属性**: 对于数据源的数据库属性在引用上得到支持，最多一个深度。 对于数据源的 Microflow，不支持引用
 
@@ -97,23 +101,23 @@ tags:
 
 3个配置。</p> 
    
-   ![编辑系列外观标签](attachments/pages/charts/series-item-appearance.png)</li> 
+   ![编辑系列外观标签](attachments/charts/series-item-appearance.png)</li> 
    
    4 静态系列
   
   如果是静态序列，则为该系列外观的额外配置。 每个类型的图表都是自定义的，见：下面每个图表类型</a>3个配置。    </p> 
   
-  ![数据系列静态系列选项卡](attachments/pages/charts/series-item-static.png)</li> 
+  ![数据系列静态系列选项卡](attachments/charts/series-item-static.png)</li> 
   
   5 动态系列
   
   如果是动态系列，则配置该系列。
   
-  ![数据系列动态系列选项卡](attachments/pages/charts/series-item-dynamic.png)</ol> 
+  ![数据系列动态系列选项卡](attachments/charts/series-item-dynamic.png)</ol> 
 
     * **系列实体**: 定义系列的实体 -- 此实体类型的对象列表将用于构建系列； 每个对象有一个序列号。
       
-      每个实体都与将绘制的值相关联，查看 [如何创建动态系列图](/howto7/extensibility/charts-dynamic-series) 以获取更多信息。
+      每个实体都与将绘制的值相关联，查看 [如何创建动态系列图](/howto8/front-end/charts-dynamic-series) 以获取更多信息。
 
     * **系列名称属性**: 如果图例显示为系列的属性将显示为系列名称
 
@@ -127,7 +131,7 @@ tags:
    
    如果用户与图表交互，将支持的事件。
    
-   ![编辑系列事件选项卡](attachments/pages/charts/series-item-events.png)
+   ![编辑系列事件选项卡](attachments/charts/series-item-events.png)
    
    {{% alert type="info" %}}The context of the page, microflow, or nanoflow selected for an event or tooltip will be the plotted object from which the point on the chart is drawn. 这意味着您可以显示或使用存储在该对象中的 x 和 y 值、 _和_ 其它值。<br /><br />例如，您可以使用工具提示来显示某点的精确y 值。 附加数据收集时间信息{{% /提醒 %}}
 
@@ -154,7 +158,7 @@ tags:
 7. 高级版 <a name="advanced"></a>
 
    
-   ![编辑高级选项卡](attachments/pages/charts/series-item-advanced.png)
+   ![编辑高级选项卡](attachments/charts/series-item-advanced.png)
 
     * **选项**: 使用 JSON 格式的 Plotly *系列选项* ; 这些选项只有在 *小部件* 标签 **高级 > 模式** 被设置为 *高级* 或 *开发者*：查看 [高级](#advanced-mode)， 以下：
 
@@ -164,7 +168,7 @@ tags:
 
 **外观** 设置用于设置页面上图表的大小。
 
-![通用图表外观标签](attachments/pages/charts/widget-appearance.png)
+![通用图表外观标签](attachments/charts/widget-appearance.png)
 
 * **宽度单位**: 用于 **宽度** 属性的单位类型 - *百分比* 或 *像素*
 
@@ -185,7 +189,7 @@ tags:
 
 将参数添加到REST 请求(见 [数据源](#data-source))。 默认情况下提供上下文ID和序列名称。
 
-![通用图表REST 标签](attachments/pages/charts/widget-rest.png)
+![通用图表REST 标签](attachments/charts/widget-rest.png)
 
 
 
@@ -195,7 +199,7 @@ tags:
 
 更多关于 plotly.js 和 options: https://plot.ly/javascript/。
 
-![通用图表高级选项卡](attachments/pages/charts/widget-advanced.png)
+![通用图表高级选项卡](attachments/charts/widget-advanced.png)
 
 * **模式**: 您可以用三种不同的模式使用这些图表：
   
@@ -203,7 +207,7 @@ tags:
   * **进阶**: 指定额外的 JSON 配置
   * **开发者**: 这将添加 **切换编辑器** 按钮到运行时的图表中，切换编辑器使用不同的高级配置选项
     
-    ![](attachments/pages/charts/toggle-editor.png)
+    ![](attachments/charts/toggle-editor.png)
 
 * **布局选项**: 包含 Plotly 布局选项的 JSON
   
@@ -219,7 +223,7 @@ tags:
 
 #### 2.1.5 普通的
 
-这些是许多小部件共有的属性。 请参阅 [常见小部件属性](common-widget-properties#common-properties)。
+这些是许多小部件共有的属性。 欲了解信息，请参阅 [常见于页面编辑器](common-widget-properties#common-properties) 的属性。
 
 
 
@@ -237,7 +241,7 @@ tags:
 
     * **系列名称**: 这将在图表上的任何图例中显示
 
-    * **列颜色**: 例如绿色的列的 HTML 颜色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
+    * **列颜色**: 列中的 HTML 颜色, 例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
 
 
 
@@ -255,7 +259,7 @@ tags:
 
     * **系列名称**: 这将在图表上的任何图例中显示
 
-    * **直线颜色**: 例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
+    * **线性颜色**: 线性的 HTML 颜色, 例如绿色, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
 
 
 
@@ -267,9 +271,9 @@ tags:
 
 * **显示图例**: 在Pie 图表上显示一个图例
 
-* **颜色**：例如绿色，#00FF00，rgb(0255,0)，rgba(0,255,0,0.5)
+* **颜色**: 包括每个切片的颜色，例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
 
-* **刷新间隔 (ms)**: 当设置为 0 刷新被禁用时按毫秒刷新图表
+* **刷新间隔 (ms)**: 当设置为 0 刷新被禁用时以毫秒为间隔刷新图表
 
 
 
@@ -289,9 +293,9 @@ tags:
 
 3. **静态系列** 标签
 
-    * **边框颜色**: 边框的 HTML 颜色例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
+    * **边框颜色**: 边界的 HTML 颜色，例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
 
-    * **区域颜色**：例如绿色，#00FF00，rgb(0255,0)，rgba(0,255,0,0.5)。 默认是透明的边框颜色
+    * **区域颜色**: 边界内区域的 HTML 颜色，例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)。 默认是透明的边框颜色
 
 
 
@@ -303,7 +307,7 @@ tags:
 
     * **系列名称**: 这将在图表上的任何图例中显示
 
-    * **条颜色**：例如绿色，#00FF00，rgb(0255,0)，rgba(0,255,0,0.5)
+    * **条颜色**: 条形状的 HTML 颜色，例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
 
 
 
@@ -323,9 +327,9 @@ tags:
 
     * **系列名称**: 这将在图表上的任何图例中显示
 
-    * **直线颜色**: 例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)
+    * **线性颜色**: 线性的 HTML 颜色, 例如绿色, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
 
-    * **区域颜色**：例如绿色，#00FF00，rgb(0255,0)，rgba(0,255,0,0.5)。 默认是透明的线条颜色
+    * **区域颜色**: 边界内区域的 HTML 颜色，例如绿色, #00FF00, rgb(0255,0), rgba(0,255,0, 0.5)。 默认是透明的线条颜色
 
 
 
@@ -339,7 +343,7 @@ tags:
 
 * **显示值**: 在图表上显示数据值: 是 , 否
 
-* **字体值颜色**：例如绿色，#00FF00，rgb(0255,0)，rgba(0,255,0,0.5)
+* **字体值颜色**: 热图上显示的值的 HTML 颜色，例如绿色, #00FF00, rgb(0,255,0), rgba(0,255,0, 0.5)
 
 * **X-轴标签**: 将显示在X-轴上的标签
 
@@ -363,9 +367,9 @@ tags:
 
 ## 4 图表主题
 
-也可以通过您的 mendix 项目根目录的主题文件夹在全局环境中添加高级JSON 设置。
+也可以通过您的 Mendix 项目根目录的主题文件夹在全局环境中添加高级JSON 设置。
 
-在主题文件夹中添加 `.json` 文件，名为 *com.mendix.chats*。 JSON应采用以下格式：
+在主题文件夹中添加 *.json* 文件，名为 *com.mendix.chats*。 JSON应采用以下格式：
 
 
 
