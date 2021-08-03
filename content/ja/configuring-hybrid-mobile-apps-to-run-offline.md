@@ -1,8 +1,6 @@
 ---
-title: "Configuring Hybrid Mobile Apps To Run Offline"
-parent: "hybrid-mobile"
-tags:
-  - "studio pro"
+title: "オフラインで実行するハイブリッドモバイルアプリの設定"
+category: "モバイル開発"
 ---
 
-[Hybrid apps](developing-hybrid-mobile-apps) are built in either connected or [offline](offline-first) mode. This allows you to maintain two mobile device profiles: one for users who are always online, and one for users with intermittent connectivity. The Developer Portal builds connected apps by default. Configuring a hybrid app to run in offline-enabled mode can be done in the Developer Portal in the [Mobile App](/developerportal/deploy/mobileapp) section by checking the **Enable offline capabilities?** setting.
+[ハイブリッドアプリ](developing-hybrid-mobile-apps) は、接続または [オフライン](offline) モードで構築されています。 これにより、2つのモバイルデバイスのプロファイルを維持できます。1つは常にオンラインになっているユーザー、もう1つは断続的な接続を持つユーザーです。 開発者ポータルは、デフォルトで接続されているアプリをビルドします。 Configuring a hybrid app to run in offline-enabled mode can be done in the Developer Portal in the [Mobile App](/developerportal/deploy/mobileapp) section by checking the **Enable offline capabilities?** setting.
