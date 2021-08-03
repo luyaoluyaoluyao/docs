@@ -1,58 +1,91 @@
 ---
 title: "Check Box"
 parent: "input-widgets"
+menu_order: 40
+tags:
+  - "studio pro"
 ---
 
-
-A check box is an [input widget](input-widgets) that can be used to display and edit Boolean attributes. It will display a tick if the value is true and remain empty if it is false.
-
 {{% alert type="info" %}}
-
-![](attachments/pages/check-box.png)
-
-This check box allows you to change whether someone is subscribed to the newsletter.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/check-box.pdf).
 {{% /alert %}}
 
-## Data source properties
+## 1 Introduction
 
-{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
+A **check box** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean*. It displays a tick if the value is true and remain empty if it is false.
 
-{{% snippet file="refguide7/Label+Property.md" %}}
+{{% alert type="info" %}}In native mobile applications, the check box widget is rendered as a toggle.{{% /alert %}}
 
-## Editability properties
+A check box must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the check box widget, between square brackets, and colored blue.
 
-{{% snippet file="refguide7/Editable+Property.md" %}}
+For example, this check box allows you to see, and set, whether someone is subscribed to your newsletter.
 
-{{% snippet file="refguide7/Read+Only+Style.md" %}}
+![](attachments/check-box/check-box.png)
 
-{{% snippet file="refguide7/Condition+Property.md" %}}
+## 2 Properties
 
-## Visibility properties
+An example of check box properties is represented in the image below:
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+{{% image_container width="250" %}}![](attachments/check-box/check-box-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+Check box properties consist of the following sections:
 
-## Events properties
+* [Common](#common)
+* [Data source](#data-source)
+* [Design Properties](#design-properties)
+* [Editability](#editability)
+* [Events](#events)
+* [Label](#label)
+* [Visibility](#visibility)
 
-{{% snippet file="refguide7/On+Change+Event.md" %}}
+### 2.1 Common Section{#common}
 
-{{% snippet file="refguide7/On+Enter+event.md" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
-{{% snippet file="refguide7/On+Leave+Event.md" %}}
+### 2.2 Data Source Section{#data-source}
 
-## Common properties
+{{% snippet file="refguide8/data-source-section-link.md" %}}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 2.3 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 2.4 Editability Section{#editability}
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+{{% snippet file="refguide8/editability-section-link.md" %}}
 
-## Related articles
+### 2.5 Events Section{#events}
+
+#### 2.5.1 On Change{#on-change}
+
+The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+#### 2.5.2 On Enter
+
+The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+#### 2.5.3 On Leave
+
+The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+
+This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+### 2.6 Label Section{#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+### 2.7 Visibility Section{#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 Read More
 
 *   [Data view](data-view)
-*   [Attribute](attributes)s
+*   [Attributes](attributes)
