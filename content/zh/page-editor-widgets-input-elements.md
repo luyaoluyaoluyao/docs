@@ -96,35 +96,42 @@ tags:
 
 * **可编辑** — — 小部件显示的值是可编辑的。
 
-* **只读** -- 值处于只读模式。
+* **只读** - 值处于只读模式。
 
-* **条件** - 只有在基于属性值或基于表达式满足了指定条件的情况下才能编辑部件。
+* **条件** - 只有在特定条件符合基于属性值的条件时才可编辑小部件 (更多信息) 查看  [基于属性](#attribute-based) 和 [属性值](#attribute-values) 下面的章节或基于表达式。 您只能根据Studio Pro 中的表达式创建一个条件(详情, 在 *页面编辑器中常见的属性* 中查看 [编辑部分](/refguide8/common-widget-properties#editability)
 
-    {{%alert type="info" %}} If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.{{%/alert %}}
+    {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
+
+    {{%/提醒 %}}
 
 
-##### 3.3.3.1 条件基于： {#condition}
+#### 3.3.4 基于属性 {#attribute-based}
 
-基于</strong> 属性的 **条件仅在 [条件编辑性](#editability) 被选中时才显示。 以下选项可用：</p>
+**基于属性的** 属性仅在 [条件编辑性](#editability) 被选中时才显示。
 
-* **属性** - 定义条件是否基于属性值。 在这种情况下，小部件只有在符合所选属性的某个值时才可编辑。 属性必须是布尔值或枚举类型。
-* **表达式** -- 定义条件是否基于表达式。 在这种情况下，只有当表达式返回布尔值 `true` 时，小部件才能被编辑。 关于表达式的更多信息，见 [表达式](expressions)。
+**基于属性的** 有条件的可编辑性允许您只在小部件符合所选属性的特定值时才显示这些小部件。
 
-##### 3.3.3.2 属性 {#attribute}
+{{%alert type="info" %}}
 
-This property is shown only when the expression the [Condition Based on](#condition) is set to **Attribute**. 允许您选择条件将基于的属性。 属性必须是布尔值或枚举类型。
+属性必须是布尔值或枚举类型。
 
-##### 3.3.3.3 属性值 {#attribute-values}
+{{%/提醒 %}}
 
-此属性仅在属性为 [属性](#condition) 属性被选中时才显示。 **属性值** 允许您选择特定属性值。
+{{%alert type="info" %}}
 
-例如， 只有当用户填写 **国家** 字段时，才可编辑 **City** 字段。 因为您可以向数量有限的国家发送您的产品。 因此，您需要在 **属性中选择 *国家/地区*** 属性和 *荷兰* *Belgium*, *Germany*, *France* in **属性值** property.
+当一个部件放入数据容器：数据视图或列表视图时，您只能配置基于属性的条件可编辑性。 关于如何在页面上放置小部件的更多信息，请参阅 [在页面](page-editor#adding-elements) 部分中添加元素到 *页面* 中。
 
-##### 3.3.3.4 表达式
+{{%/提醒 %}}
 
-此属性允许您创建表达式，并且只在表达式 [基于](#condition) 的条件设置为 **表达式** 时才显示。 表达式应该是布尔型。 关于如何创建表达式的更多信息，见 [表达式](expressions)。
+#### 3.3.5 属性值 {#attribute-values}
 
-#### 3.3.4 特定属性
+此属性仅在选择 [属性](#attribute-based) 属性时才显示。 **属性值** 允许您选择特定属性值。
+
+例如， 只有当用户填写 **国家** 字段时，才可编辑 **City** 字段。 因为您可以向数量有限的国家发送您的产品。 因此，您需要在 **基于属性的** 属性中选择 *国家/地区* 和 *荷兰* *Belgium*, *Germany*, *France* in **属性** property
+
+![](attachments/page-editor-widgets-input-elements/attribute-based-editability.png)
+
+#### 3.3.6 特定属性
 
 以下表格说明了输入要素的具体特性：
 
