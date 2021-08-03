@@ -1,7 +1,13 @@
 ---
 title: "XPath 式"
-parent: "\"xpath-constraints\"#"
+parent: "xpath-constraints"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-expressions.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの概要
 
@@ -61,7 +67,7 @@ A comparison expression consists of two attributes or values separated by a comp
 
 使用可能な関数については、 [XPath 制約関数](xpath-constraint-functions) を参照してください。
 
-## 4 つの式が存在します
+## 4 つの式が存在します {#exist}
 
 式の最後のタイプは、特定の関連付けが満たされているかどうかを確認するために使用できる exist-expression です。
 
