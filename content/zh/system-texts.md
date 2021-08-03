@@ -1,23 +1,19 @@
 ---
-title: "System Texts"
-parent: "project"
+title: "系统文本"
+parent: "项目"
 tags:
   - "studio pro"
-  - "system text"
+  - "系统文本"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/system-texts.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+系统文本是服务器或客户端向最终用户显示的文本。 例如，如果您将无效文本输入一个需要数字的字段。 系统将给出消息“这个值应该是一个没有分数的数字”。 在系统文本编辑器中，这个文本可以更改并翻译成其他语言。
 
-System texts are texts that are shown to end-users by the server or the client. For example, if you enter invalid text into a field that expects a number, the system will give the message 'This value should be a number without fractions'. This text can be changed and translated to other languages in the system texts editor.
+## 2 种语言
 
-## 2 Languages
+在 [应用程序设置](project-settings) 中，您可以管理您应用程序的可用语言。 对于每种语言，您可以指定系统文本的翻译。 如果您没有提供翻译，文本将以默认语言显示。
 
-In the [project settings](project-settings) you can manage the available languages of your application. For each language you can specify the translation of the system texts. If you do not provide a translation the text will be shown in the default language.
+## 3 参数
 
-## 3 Parameters
-
-Some system texts have parameters that can be inserted into the text. For example, if you delete items in a data grid, the following question will appear: 'Delete {1} items?'. At the position of the text {1} the first parameter will be inserted. In this case, the parameter is the number of objects that are selected for deletion. You are not required to use the parameter and the text 'Delete these items?' would also be a valid text.
+某些系统文本包含可以插入到文本中的参数。 例如，如果您删除数据网格中的项目，下面的问题将出现：“删除 {1} 项？” 在文本的 {1} 位置，将插入第一个参数。 在这种情况下，参数是选择删除的对象数量。 您无需使用参数，文本“删除这些项目？”也是一个有效的文本。
