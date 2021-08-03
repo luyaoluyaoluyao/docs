@@ -1,43 +1,43 @@
 ---
-title: "Loop"
-parent: "microflows-and-nanoflows"
+title: "ループ"
+parent: "マイクロフローとナノフロー"
 menu_order: 80
 tags:
   - "studio pro"
-  - "loop"
-  - "iterate over"
-  - "for each"
-  - "while"
+  - "ループ"
+  - "繰り返します。"
+  - "各"
+  - "中に"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A loop is used to execute repeated actions and is visualized as a frame. For each iteration, the flow inside the loop is executed. The loop can be configured to iterate over a list or be based on a Boolean expression. For more information, see the [Loop Type Property](#loop-type) section below.
+ループは繰り返されたアクションを実行するために使用され、フレームとして視覚化されます。 繰り返しごとに、ループ内のフローが実行されます。 ループは、リスト上で反復するか、ブール式に基づいて設定できます。 詳細については、 [Loop Type プロパティ](#loop-type) を参照してください。
 
-The loop can contain all types of elements used in microflows, except for [start events](start-event) and [end events](end-event). Only a loop can contain [break events](break-event) and [continue events](continue-event).
+ループには、 [開始イベント](start-event) と [終了イベント](end-event) を除き、マイクロフローで使用されるすべての種類の要素を含めることができます。 ループのみが [ブレークイベント](break-event) と [継続イベント](continue-event)を含めることができます。
 
-## 2 Loop Type Property {#loop-type}
+## 2 Loop Type プロパティ {#loop-type}
 
-The two loop types are described below.
+以下に、2 つのループタイプについて説明します。
 
-### 2.1 For Each (Item in the List) {#for-each}
+### 2.1 各 (リスト内の項目) {#for-each}
 
-This is the default type when creating a new loop activity, and it can be used to iterate over a list of objects. The list can be configured by setting the **Iterate over** property to a list in your flow scope, and for each object in the list, the flow inside the loop will be executed. The iterator (which looks the same as a parameter) represents the current object in the list for each iteration, and it can be renamed by setting **Loop object name**. This object is shown in black, and the entity type of the object is in blue.
+これは、新しいループ・アクティビティを作成するときのデフォルトのタイプであり、オブジェクトのリストを繰り返すために使用できます。 リストは、 **** プロパティをフロースコープ内のリストに設定することで構成できます。 リスト内の各オブジェクトに対して、ループ内のフローが実行されます。 イテレータ(パラメータと同じように見えます)は、各イテレーションのリスト内の現在のオブジェクトを表します。 そして、 **Loop object name** を設定することで名前を変更できます。 このオブジェクトは黒で、オブジェクトのエンティティタイプは青で表示されます。
 
 ![](attachments/loop/foreach-loop-edit-form.png)
 
-For example, if you have a list of objects of the **OrderLine** entity and you want to set the purchase date for every object, you can use a loop with a change activity in it that sets the purchase date:
+例えば、 If you have a list of objects of the **OrderLine** entity and you want to set the purchase date for every object 購入日を設定する変更アクティビティを含むループを使用できます。
 
 ![](attachments/loop/foreach-loop.png)
 
 ### 2.1 While (Condition Is True) {#while}
 
-This loop type repeats the flow inside the loop many times until some condition evaluates to `false`. This condition is evaluated before each execution of the loop body. Typically, a **While** loop is used when it is impossible to determine the exact number of loop iterations in advance.
+このループ型は、ある条件が `false` と評価されるまで、ループ内のフローを何度も繰り返します。 この条件は、ループ本体の実行の前に評価されます。 通常、 **While** ループは、事前に繰り返しの正確な数を決定することができない場合に使用されます。
 
-You can provide a description for the loop or the condition by setting the **Caption** field. The loop condition can be entered as an [expression](expressions) in the **Expression** editor, and it should result in a Boolean value. The **While** keyword is shown in blue, and the **Caption** is shown underneath in black.
+**図表番号** フィールドを設定することで、ループまたは条件の説明を指定できます。 ループ条件は [式](expressions) エディタで **式** として入力することができ、ブール値を返す必要があります。 **キーワード** は青で表示され、 **図表番号** は黒で下に表示されます。
 
 ![](attachments/loop/while-loop-edit-form.png)
 
-For example, if you want to [log](log-message) numbers between 1 and 5, you can use a loop with a condition that checks whether a **Counter** [variable](variable-activities) is less than or equal to 5. Inside the loop, you would log the **Counter** value and add 1 to the **Counter** variable in order for the loop to stop executing when the **Counter** is greater than 5:
+For example, if you want to [log](log-message) numbers between 1 and 5, you can use a loop with a condition that checks whether a **Counter** [variable](variable-activities) is less than or equal to 5. ループの中に **Counter** の値を記録し、 **Counter** 変数に 1 を追加して、ループが **Counter** が5より大きいときに実行を停止するようにします。
 
 ![](attachments/loop/while-loop.png)
