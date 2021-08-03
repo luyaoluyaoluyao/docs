@@ -14,10 +14,6 @@ tags:
   - "data input"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/input-widgets.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Input widgets show data to the end-user and, optionally, allow them to edit the data.
@@ -74,7 +70,7 @@ For more information on associations and their properties, see [Associations](as
 
 ## 2 Performing Basic Functions
 
-{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
 ## 3 Read More
 
