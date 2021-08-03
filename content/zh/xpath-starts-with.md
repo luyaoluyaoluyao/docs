@@ -1,24 +1,20 @@
 ---
-title: "XPath Starts-With"
-parent: "xpath-constraint-functions"
+title: "XPath 启动"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-starts-with.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`起始于()` 函数测试字符串属性是否以特定字符串(大小写不敏感)作为子字符串开始。
 
-The `starts-with()` function tests whether a string attribute starts with a specific string (case-insensitive) as a sub-string.
+## 2 个示例
 
-## 2 Example
-
-This query returns all the customers from which the name starts with the string "Jans":
+此查询返回名称以字符串"Jans"开头的所有客户：
 
 ```java
 //Sales.Customer[starts-with(Name, 'Jans')]
 ```
 
-Customers with the name "Jansen" will be returned, for example, because the name starts with "Jans."
+名称为“Jansen”的客户将会被退回，比如，因为名称开头是“Jans.”。
