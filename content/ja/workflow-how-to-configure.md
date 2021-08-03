@@ -1,359 +1,359 @@
 ---
-title: "Configure a Workflow in Studio for the Employee Onboarding Process"
-description: "Describes how to configure a workflow in Mendix Studio."
+title: "従業員のオンボーディングプロセスのスタジオでワークフローを構成する"
+description: "Mendix Studio でワークフローを構成する方法を説明します。"
 menu_order: 5
 tags:
-  - "studio"
-  - "workflow"
-  - "how to"
-  - task", "onboarding"
+  - "スタジオ"
+  - "ワークフロー"
+  - "どうやって?"
+  - タスク", "オンボーディング"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Workflow is a new visual language in Mendix Studio and Mendix Studio Pro that allows you to build extendable processes. It is fully integrated with other visual languages, such as microflow editor and page editor.
+ワークフローは、Mendix StudioとMendix Studio Proの新しい視覚言語であり、拡張可能なプロセスを構築することができます。 これは、マイクロフローエディタやページエディタなどの他の視覚言語と完全に統合されています。
 
-This how-to explains how to build an employee onboarding process using the workflow editor. For more information on how to build a similar process in Studio Pro, see [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure).
+この方法では、ワークフローエディタを使用して従業員のオンボーディングプロセスを構築する方法を説明します。 Studio Proで同様のプロセスをビルドする方法の詳細については、こちらをご覧ください。 を参照してください [従業員のオンボーディングプロセスの Studio Pro でワークフローを構成する方法](/howto/logic-business-rules/workflow-how-to-configure)。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Enabling and creating workflows
-* Configuring a workflow entity
-* Triggering the workflow from a page
-* Creating user tasks for different user roles
-* Configuring pages for the user tasks
-* Restricting page access to the relevant user roles
-* Creating a decision
+* ワークフローの有効化と作成
+* ワークフローエンティティの設定
+* ページからワークフローをトリガーする
+* さまざまなユーザーロールのユーザータスクを作成する
+* ユーザータスク用のページの設定
+* 関連するユーザーロールへのページアクセスを制限する
+* 決定を作成する
 * Configuring navigation
-* Testing your workflow from the perspective of different users
+* さまざまなユーザーの視点からワークフローをテストする
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-You would like to build an employee onboarding process. At first, an HR specialist needs to initiate the onboarding process for a new employee. The employee's manager will then step in, select devices for the employee and specify whether the new hire is working from the office or home . The Facilities department will then need to prepare a workspace. Depending on where the new hire works from (the office or home), the Facilities department will either prepare a desk or ship the devices to the employee's address.
+従業員のオンボーディングプロセスを作成します。 最初は、人事担当者が新規従業員のオンボーディングプロセスを開始する必要があります。 従業員のマネージャーが次にステップインします 従業員のデバイスを選択し、新しい雇用者がオフィスまたは家庭から働いているかどうかを指定します。 その後、施設部門はワークスペースを準備する必要があります。 新しい雇い人(オフィスまたは家庭)の場所によって異なります 施設部門は、机を用意するか、機器を従業員の住所に発送します。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with workflow terms. For more information, see [Workflows](/refguide/workflows).
-* Make sure your app has Mendix version 9
-* Make sure your app is based on the Blank app template
+* ワークフローの用語に慣れましょう。 詳細については、 [ワークフロー](/refguide/workflows) を参照してください。
+* Mendix バージョン9を使用していることを確認してください
+* アプリが空白のアプリテンプレートに基づいていることを確認してください
 
-## 3 Enabling Workflows {#enable-workflows}
+## 3 ワークフローの有効化 {#enable-workflows}
 
-First, you need to enable workflows for your app. Do the following:
+まず、アプリのワークフローを有効にする必要があります。 次の操作を行います:
 
-1. Click the workflow icon in the left menu bar.
+1. 左のメニューバーにあるワークフローアイコンをクリックします。
 
-2. Before enabling workflows, you need to enable security first. Click **Enable Security**:
+2. ワークフローを有効にする前に、まずセキュリティを有効にする必要があります。 **セキュリティを有効にする** をクリックしてください。
 
-    {{% image_container width="250" %}}![Enable Security](attachments/workflow-how-to-configure/enable-security.png)
+    {{% image_container width="250" %}}![セキュリティを有効にする](attachments/workflow-how-to-configure/enable-security.png)
     {{% /image_container %}}
 
-3. After security is enabled, click **Enable Workflows**.
+3. セキュリティが有効になったら、 **ワークフローを有効にする** をクリックします。
 
-4. In the **Workflows Enabled** pop-up menu, click **Create Workflow**:
+4. **ワークフロー有効** ポップアップメニューで、 **ワークフロー作成** をクリックします。
 
-    {{% image_container width="300" %}}![Create Workflow](attachments/workflow-how-to-configure/create-workflow.png)
+    {{% image_container width="300" %}}![ワークフローを作成](attachments/workflow-how-to-configure/create-workflow.png)
     {{% /image_container %}}
 
 5. In the **Create new workflow** dialog box, set the **Title** to **Employee_Onboarding**, and then click the **Workflow Entity** field to create a new workflow entity.
 
-6. In the **Select Workflow Entity** dialog box, click **Create Workflow Entity**.
+6. **ワークフローエンティティを選択** ダイアログボックスで、 **ワークフローエンティティを作成** をクリックします。
 
-7. In The **Create New Workflow Entity** dialog box, set the **Name** to **EmployeeOnboarding** and click **Create**.
+7. **新規ワークフローエンティティの作成** ダイアログボックスで、 **名前** を **EmployeeOnboarding** に設定し、 **作成** をクリックします。
 
-8. Click **Create** to confirm your choice once again.
+8. **Create** をクリックして、もう一度選択を確認してください。
 
-Good job! You have created a workflow and a workflow-specific entity. For more information on workflow entities, see the [Entities and Their Types](/studio/domain-models#entity-types) section in *Domain Model*.
+よくできました！ ワークフローおよびワークフロー固有のエンティティを作成していること。 ワークフローエンティティの詳細については、 [ドメインモデル](/studio/domain-models#entity-types) の *エンティティとそのタイプ* セクションを参照してください。
 
-## 4 Configuring a Domain Model
+## 4 ドメインモデルの設定
 
-1. Open the [domain model](/studio/domain-models).
-2.  The **EmployeeOnboarding** entity you have created will hold the information about the employee to onboard, as well as capture information added during execution of the workflow, such as the laptop model that the new employee requires. Add the following attributes to the **EmployeeOnboarding** entity (for more information on how to create attributes, see [Adding New Attributes](/studio/domain-models#adding-new-attributes) section in the *Domain Model*):
-    1. Add the **FullName** attribute and set the type to string.
-    2. Add the **FirstDay** attribute and set its type to Date and Time.
-    3. Add the **WFH** (Work from home) attribute and set its type to Boolean.
-    4. Add the **PhoneModel** enumeration with the following enumeration items: iPhone, iPhone_Pro, Samsung. For more information on enumerations and how to create them, see the [Creating a New Enumeration](/studio/domain-models-enumeration#create-new-enumeration) section in *Enumerations*.
-    5. Add the **LaptopModel** enumeration with the following enumeration items: Lenovo, Mac, Dell. For more information on enumerations and how to create them, see the [Creating a New Enumeration](/studio/domain-models-enumeration#create-new-enumeration) section in *Enumerations*.
+1. [ドメイン モデル](/studio/domain-models) を開きます。
+2.  作成した **EmployeeOnboarding** エンティティは、従業員に関する情報を船上に保持します。 新しい従業員が必要とするラップトップモデルなど、ワークフローの実行中に追加された情報をキャプチャするだけでなく。 Add the following attributes to the **EmployeeOnboarding** entity (for more information on how to create attributes, see [Adding New Attributes](/studio/domain-models#adding-new-attributes) section in the *Domain Model*):
+    1. **FullName** 属性を追加し、型を文字列に設定します。
+    2. **FirstDay** 属性を追加し、日付と時刻にそのタイプを設定します。
+    3. **WFH** (自宅から作業) 属性を追加し、その型を Boolean に設定します。
+    4. iPhone、iPhone_Pro、Samsungのような、 **PhoneModel** 列挙を追加します。 列挙型の詳細と作成方法については、 [列挙型](/studio/domain-models-enumeration#create-new-enumeration) の *列挙型の作成* セクションを参照してください。
+    5. Lenovo, Mac, Dell の列挙項目で **LaptopModel** 列挙項目を追加します。 列挙型の詳細と作成方法については、 [列挙型](/studio/domain-models-enumeration#create-new-enumeration) の *列挙型の作成* セクションを参照してください。
 
-You have configured the **EmployeeOnboarding** entity: ![Domain Model](attachments/workflow-how-to-configure/domain-model.png)
+**EmployeeOnboarding** エンティティを設定しました: ![ドメインモデル](attachments/workflow-how-to-configure/domain-model.png)
 
-## 5 Configuring Security
+## 5 セキュリティの設定
 
-In the [Enabling Workflows](#enable-workflows) section, you have enabled security for your app, and several roles and permissions were added automatically. However, you need to add more roles to your app: HR, Manager, and Facilities roles. Follow the steps below:
+[ワークフローを有効にする](#enable-workflows) セクションで、アプリのセキュリティを有効にし、いくつかのロールと権限が自動的に追加されました。 ただし、アプリにHR、マネージャ、および施設の役割を追加する必要があります。 以下の手順に従ってください。
 
-1. Open **App Settings** > **Roles and Permissions**.
-2. Click **Add Role** in the right corner.
-3. Set the role's name to **HR** and click **Create**.
-4. Repeat steps 2 and 3 to create **Manager** and **Facilities** roles.
+1. **アプリ設定** > **ロールと権限** を開きます。
+2. 右側の **Add Role** をクリックします。
+3. ロールの名前を **HR** に設定し、 **作成** をクリックします。
+4. 手順 2 と 3 を繰り返して、 **マネージャー** と **施設** の役割を作成します。
 
-Now all necessary roles are created for your app. For more information about security, see [Security, Roles & Permissions](/studio/settings-security).
+これで、必要なすべてのロールがアプリケーション用に作成されます。 セキュリティの詳細については、 [セキュリティ、ロール & 権限](/studio/settings-security) を参照してください。
 
-## 6 Triggering the Workflow from a Page
+## 6 ページからワークフローをトリガーする
 
-To start your workflow, you need to trigger it. In this use case, the workflow is started by an HR specialist who should fill in the new hire's name, the first day, and then click the **Start Onboarding** button that will trigger the workflow. Do the following:
+ワークフローを開始するには、それをトリガーする必要があります。 この使用例では、ワークフローは新しい雇用者の名前を入力する必要があります人事専門家によって開始されます。 最初の日に、ワークフローをトリガーする **オンボーディングを開始** ボタンをクリックします。 次の操作を行います:
 
-1. Create an **EmployeesToOnboard** page that contains a list view with the **EmployeeOnboarding** entity as its data source. (For more information on how to create a page and add widgets to it, see the [Performing Basic Functions](/studio/page-editor#page-editor-basic-functions) section in *Pages*.)
+1. データ ソースとして **EmployeeOnboard** エンティティを含むリスト ビューを含む **EmployeeOnboard** ページを作成します。 (ページを作成し、ウィジェットを追加する方法の詳細については、 [ページ](/studio/page-editor#page-editor-basic-functions) の *基本機能* のセクションを参照してください。
 
-    {{% image_container width="500" %}}![Employees to Onboard List](attachments/workflow-how-to-configure/employees-to-onboard-list.png)
+    {{% image_container width="500" %}}![オンボード一覧への従業員数](attachments/workflow-how-to-configure/employees-to-onboard-list.png)
      {{% /image_container %}}
 
-2. Add a button that will initiate the workflow to the list view. Follow the steps below:
+2. ワークフローをリストビューに開始するボタンを追加します。 以下の手順に従ってください。
 
-    1. Open the **Toolbox** and search for the **Call Workflow** button.
+    1. **Toolbox** を開き、 **Workflow** ボタンを検索します。
 
-    2. Drag and drop the button inside the list view:
+    2. ボタンをリストビュー内にドラッグ&ドロップします。
 
-        ![Start Onboarding Button](attachments/workflow-how-to-configure/start-onboarding-button.png)
+        ![初期登録ボタンを開始する](attachments/workflow-how-to-configure/start-onboarding-button.png)
 
-    3. Open the button properties and set the **Workflow** property to **Employee_Onboarding**.
+    3. ボタンのプロパティを開き、 **ワークフロー** プロパティを **Employee_Onboarding** に設定します。
 
-    4. Set the **Caption** of the button to **Start Onboarding**.
+    4. ボタンの **キャプション** を **初期化を開始**に設定します。
 
-3. The HR specialist also needs a page where they can fill in new hire's details. Add a **Create Object** button on the top of the page (outside the list view):
+3. 人事の専門家はまた新しい雇い人の詳細を記入できるページを必要とする。 **Create Object** ボタンをページ上部に追加します (リストビュー外)。
 
-    {{% image_container width="500" %}}![Employees to Onboard Page](attachments/workflow-how-to-configure/employees-to-onboard-page.png)
+    {{% image_container width="500" %}}![従業員からオンボードページ](attachments/workflow-how-to-configure/employees-to-onboard-page.png)
     {{% /image_container %}}
 
-4. Set **Entity** to **EmployeeOnboarding**:
+4. **エンティティ** を **EmployeeOnboarding** に設定する :
 
     ![](attachments/workflow-how-to-configure/create-object-button.png)
 
-5. Click the **Page** property.
+5. **ページ** プロパティをクリックします。
 
-6. In the **Select Page** dialog box, click the plus icon.
+6. **ページの選択** ダイアログボックスで、プラスアイコンをクリックします。
 
-7. In the **Create new page** dialog box, you can see the templates for forms. Do the following:
+7. **新規ページの作成** ダイアログボックスで、フォームのテンプレートを確認できます。 次の操作を行います:
 
-    1. Set the **Title** to **Employee_Details**.
+    1. **タイトル** を **Employee_Details** に設定します。
 
-    2. Set the **Layout** to **PopupLayout**.
+    2. **レイアウト** を **PopupLayout** に設定します。
 
-    3. Select the **Forms Columns** template.
+    3. **フォーム 列** テンプレートを選択します。
 
-    4. Click **Create**.
+    4. **Create** をクリックします。
 
-        ![Create Employee Details Page](attachments/workflow-how-to-configure/create-employee-details-page.png)
+        ![従業員詳細ページを作成](attachments/workflow-how-to-configure/create-employee-details-page.png)
 
-8. The new page opens. By default all attributes are added to the form. However, the HR specialist needs to specify only the name and the first day of the new hire. Leave the relevant widgets and delete all other ones from the form:
+8. 新しいページが開きます。 デフォルトでは、すべての属性がフォームに追加されます。 ただし、HRスペシャリストは、名前と新しい採用の最初の日だけを指定する必要があります。 関連するウィジェットを残し、フォームから他のすべてのウィジェットを削除します。
 
-    ![Employee Details Form](attachments/workflow-how-to-configure/employee-details-form.png)
+    ![従業員詳細フォーム](attachments/workflow-how-to-configure/employee-details-form.png)
 
-Good job! Now you have a page where the HR specialist can start the workflow.
+よくできました！ これで、HRスペシャリストがワークフローを開始できるページが表示されます。
 
-## 7 Specifying Details of the New Hire {#specify-details}
+## 7 新採用の詳細の指定 {#specify-details}
 
-The manager of a new employee will get a task to specify devices for the new hire. The manager also needs to indicate whether the new hire is working home (WFH) or not. For this functionality you need to add activities to the workflow. Follow the steps below:
+新しい従業員のマネージャーは、新しい雇いのデバイスを指定するタスクを取得します。 マネージャーはまた、新しい雇用者が自宅で働いているかどうかを示す必要があります(WFH)。 この機能を使用するには、ワークフローにアクティビティを追加する必要があります。 以下の手順に従ってください。
 
-1. Open the **Employee_Onboarding** workflow.
+1. **Employee_Onboarding** ワークフローを開きます。
 
-2. In the **Toolbox** tab, find the **User Task** activity, and drag and drop it to the workflow editor.
+2. **Toolbox** タブで、 **User Task** アクティビティを見つけて、それをワークフローエディタにドラッグ&ドロップします。
 
-3. Open the user task properties.
+3. ユーザー タスク プロパティを開きます。
 
-4. Set the **Caption** property to **Manager: Specify Employee Details** to easily see who this task should be assigned to:
+4. **図表番号** プロパティを **マネージャーに設定します: 従業員の詳細を指定** すると、このタスクが誰に割り当てられるかを簡単に確認できます:
 
-    ![Caption](attachments/workflow-how-to-configure/user-task-caption.png)
+    ![図表番号](attachments/workflow-how-to-configure/user-task-caption.png)
 
-5. To create a page where the manager will specify necessary details, click the **Page** property.
+5. 必要な詳細を指定するページを作成するには、 **ページ** プロパティをクリックします。
 
-6. In the **Select Page** dialog box, click the plus icon.
+6. **ページの選択** ダイアログボックスで、プラスアイコンをクリックします。
 
-7. In the **Create new page** dialog box, you can see the templates for workflow pages. Do the following:
+7. **新規ページの作成** ダイアログボックスで、ワークフローページのテンプレートを確認できます。 次の操作を行います:
 
-    1. Set the **Title** to **SpecifyDetails**.
+    1. **タイトル** を **SpecifyDetails** に設定します。
 
-    2. Check that **Layout** is set to **Atlas_Default**.
+    2. **レイアウト** が **Atlas_Default** に設定されていることを確認します。
 
-    3. Select the **UserTask Extended** template.
+    3. **UserTask Extended** テンプレートを選択します。
 
-    4. Click **Create**.
+    4. **Create** をクリックします。
 
-        ![Create New Page](attachments/workflow-how-to-configure/create-new-page.png)
+        ![新しいページを作成](attachments/workflow-how-to-configure/create-new-page.png)
 
-8. Now you need to make sure that only the relevant information is displayed on the **SpecifyDetails** page. By default, all attributes are added to the data view with the employee details and can be edited. You need to leave only the attributes related to the task. You also need to make sure that the manager can change only a specific field in the form. For example, the name of the employee has been entered by the HR department, so the manager does not need to change it and should have this field as read-only.
+8. ここで、関連情報のみが **SpecifyDetails** ページに表示されていることを確認する必要があります。 デフォルトでは、すべての属性が従業員の詳細と共にデータビューに追加され、編集できます。 タスクに関連する属性のみを残す必要があります。 また、マネージャーがフォーム内の特定のフィールドのみを変更できることを確認する必要があります。 たとえば、人事部門によって従業員の名前が入力されています。 マネージャーはそれを変更する必要はなく、読み取り専用としてこのフィールドを持つ必要があります。
 
-    Do the following:
+    次の操作を行います:
 
-    1. Select the text box labelled **Full name** and go to its properties.
+    1. **Full name** というラベルの付いたテキストボックスを選択し、そのプロパティに移動します。
 
-    2. Set the **Editability** property to *Read-Only*.
+    2. **Editability** プロパティを *読み取り専用* に設定します。
 
-    3. Delete the **First day** date picker as it is not relevant for this task.
+    3. このタスクには関連性がないため、 **最初の日** の日付ピッカーを削除します。
 
-    4. Leave **WFH**, **Phone model**, and **Laptop model** fields:
+    4. **WFH**, **電話モデル**, および **ラップトップモデル** フィールドを残します:
 
-        ![Specify Details Form](attachments/workflow-how-to-configure/specify-details-form.png)
+        ![詳細フォームを指定](attachments/workflow-how-to-configure/specify-details-form.png)
 
-9. Only the Manager role can access the **SpecifyDevice** page. Navigate to the page properties > **Allowed Roles** and deselect all roles except **Manager**.
+9. Managerロールのみが **SpecifyDevice** ページにアクセスできます。 ページ プロパティ > **許可されたロール** に移動し、 **マネージャー** を除くすべてのロールの選択を解除します。
 
-10. Navigate back to the workflow and open the user task properties to finish the user task configuration.
+10. ワークフローに戻り、ユーザー タスク プロパティを開き、ユーザー タスクの構成を完了します。
 
-11. As only the manager should specify details for the new employee, you need to make sure that the user task is assigned to users with the Manager role only. Do the following:
+11. マネージャーだけが新しい従業員の詳細を指定する必要があります。 ユーザー タスクが Manager ロールのユーザーにのみ割り当てられていることを確認する必要があります。 次の操作を行います:
 
-    1. Make sure the **Assign Task Using** property is set to **Filter**.
+    1. **タスクの割り当て** プロパティが **フィルター** に設定されていることを確認します。
 
-    2. Click the **Filter** property.
+    2. **フィルター** プロパティをクリックします。
 
-    3. In the **Assign task to** dialog box, the **Where** condition is set to **User Role** by default. Set the other part of the condition to **Manager** and click **Add**:
+    3. **** にタスクを割り当てるダイアログボックスで、 **Where** 条件が **User Role** にデフォルトで設定されます。 条件の他の部分を **Manager** に設定し、 **Add** をクリックします:
 
-        ![Assign Task to Manager](attachments/workflow-how-to-configure/assign-task-to-manager.png)
+        ![タスクをマネージャーに割り当てる](attachments/workflow-how-to-configure/assign-task-to-manager.png)
 
-12. In the **Allowed Roles** property deselect all roles except **Manager** to restrict access to this user task to the relevant role only.
+12. **Allowed Roles** プロパティで、 **Manager** 以外のすべてのロールの選択を解除して、このユーザー タスクへのアクセスを関連するロールのみに制限します。
 
-Great job! You have created the user task for the Manager role:
+よくできました！ マネージャーの役割のユーザー タスクを作成しました:
 
-![Configured User Task](attachments/workflow-how-to-configure/user-task-configured.png)
+![設定されたユーザー タスク](attachments/workflow-how-to-configure/user-task-configured.png)
 
-## 8 Following Different Paths for the Hire's Location
+## 8の場所の異なるパスをたどっている
 
-Depending on whether the new hire is working from the office or home, there are two different processes to onboard this hire: prepare a desk in the office or send the laptop and phone to the home address. This step of the onboarding process should be done by the Facilities department.
+新しい採用者がオフィスで働いているか自宅で働いているかどうかによって異なります この採用には2つのプロセスがありますオフィスに机を用意するか ノートパソコンと電話を自宅の住所に送ります オンボーディングプロセスのこのステップは、施設部門が行う必要があります。
 
-Do the following:
+次の操作を行います:
 
-1. Open the workflow editor > **Toolbox** and drag and drop the **Decision** activity after the **Manager: Specify Location** user task.
+1. ワークフローエディタを開きます > **Toolbox** **Decision** activity after the **Manager: Location** user taskを指定します。
 
-    ![Adding a Decision](attachments/workflow-how-to-configure/decision.png)
+    ![決定を追加する](attachments/workflow-how-to-configure/decision.png)
 
-2. Decision means that the workflow path can split and follow one of the outcomes depending on the condition of the decision. For more information, see the [Decision](/studio/workflows-general-activities#decision) section in *General Activities*. Open the decision properties and do the following:
+2. Decision とは、ワークフローパスが決定の条件に応じて、いずれかの結果を分割およびフォローできることを意味します。 詳細については、 [一般活動](/studio/workflows-general-activities#decision) の *決定* セクションを参照してください。 デシジョン プロパティを開き、次の操作を行います。
 
-    1. Set the **Caption** to **WFH?**.
+    1. **キャプション** を **WFHに設定しますか？**。
 
-    2. Click the **Condition** property.
+    2. **条件** プロパティをクリックします。
 
     3. In the **Configure condition** dialog box, type in the expression that will split one flow into two depending on the **WFH** attribute: `$workflowData/WFH`.
 
         {{% image_container width="500" %}}![Decision Properties](attachments/workflow-how-to-configure/decision-properties.png){{% /image_container %}}
 
-    4. Click **Save**.
+    4. **保存** をクリックします。
 
-3. Since the WFH attribute is a Boolean, it has a true (when the new hire works from home) and a false (when they work from the office) outcome. These outcomes are added to the workflow automatically:
+3. WFH 属性は Boolean であるため、 それは真実(新しい雇い人が自宅で働くとき)と偽(彼らがオフィスで働くとき)の結果を持っています。 これらの結果はワークフローに自動的に追加されます。
 
-    ![Decision Outcomes](attachments/workflow-how-to-configure/decision-outcomes.png)
+    ![意思決定結果](attachments/workflow-how-to-configure/decision-outcomes.png)
 
-4. Now you need to configure what happens in both scenarios: when the new hire works from home (true) and when the new hire works from the office (false). Open the **Toolbox**, drag and drop a **User Task** activity to the **false** path, and do the following:
+4. 今、あなたは両方のシナリオで何が起こるかを設定する必要があります: 新しい雇い人が自宅から動作する場合 (true)、新しい雇い人がオフィスから動作する場合 (false)。 **Toolbox**を開き、 **User Task** アクティビティを **false** パスにドラッグ&ドロップします。
 
-    1. Set its caption to **Facilities: Prepare Desk**.
+    1. キャプションを **に設定します施設:準備デスク**。
 
-    2. As only the Facilities department should prepare a desk for the new employee, you need to make sure that the user task is assigned to users with the Facilities role only. Refer to steps 11a-11c of the [Specifying Details of the New Hire](#specify-details) section to assign the user task to the Facilities role.
+    2. 施設部門のみが新入社員用の机を用意してください。 ユーザータスクが施設の役割を持つユーザーにのみ割り当てられていることを確認する必要があります。 ユーザータスクを施設の役割に割り当てるには、 [の](#specify-details) セクションの手順11a-11cを参照してください。
 
-    3. In the **Allowed Roles** property deselect all roles except **Facilities**.
+    3. **** プロパティで、 **施設** 以外のすべてのロールの選択を解除します。
 
-    4. Create a new page called **PrepareDesk** for the **Page** property referring to steps 7a-7d of the the [Specifying Details of the New Hire](#specify-details) section.
+    4. **ページ** プロパティの **準備デスク** と呼ばれる新しいページを作成し、 [New Hire](#specify-details) セクションのステップ7a-7dを参照します。
 
-    5. You need to make sure that only the relevant information is displayed on the **PrepareDesk** page. By default, all attributes are added to the employee detail form. You need to make sure that the Facilities department will be able to view the fields but not change them. Do the following:
+    5. **PrepareDesk** ページには、関連情報のみが表示されていることを確認する必要があります。 デフォルトでは、すべての属性が従業員詳細フォームに追加されます。 あなたは施設部門がフィールドを表示することができるが、それらを変更しないことを確認する必要があります。 次の操作を行います:
 
-    6. Select the data view with the employee details and go to its properties.
+    6. 従業員の詳細を含むデータビューを選択し、そのプロパティに移動します。
 
-    7. Toggle the **Read-Only** property to make all fields in the form read-only.
+    7. **読み取り専用** プロパティを切り替えて、フォーム内のすべてのフィールドを読み取り専用にします。
 
-       ![Read-Only Data View](attachments/workflow-how-to-configure/data-view-read-only.png)
+       ![読み取り専用のデータビュー](attachments/workflow-how-to-configure/data-view-read-only.png)
 
-    8. Only the Facilities role can access the **PrepareDesk** page. Navigate to the page properties > **Allowed Roles** and deselect all roles except **Facilities**.
+    8. 施設の役割だけが **準備デスク** ページにアクセスできます。 ページのプロパティ > **許可されたロール** に移動し、 **施設** を除くすべてのロールの選択を解除します。
 
-8. Now you need to create a user task for Facilities when the employee is working from home. Open the workflow editor.
+8. これで、従業員が自宅から作業しているときに、施設のユーザー タスクを作成する必要があります。 ワークフローエディタを開きます。
 
-6. Open the **Toolbox**, drag and drop a **User Task** activity to the **true** path, and do the following:
+6. **Toolbox**を開き、 **User Task** アクティビティを **true** のパスにドラッグ&ドロップします。
 
-    1. Set its caption to **Facilities: Ship Devices**.
+    1. キャプションを **設備:船装置**に設定します。
 
-    2. As only the Facilities department should prepare a desk for the new employee, you need to make sure that the user task is assigned to users with the Facilities role only. Refer to steps 11a-11c of the [Specifying Details of the New Hire](#specify-details) section to do so.
+    2. 施設部門のみが新入社員用の机を用意してください。 ユーザータスクが施設の役割を持つユーザーにのみ割り当てられていることを確認する必要があります。 これを行うには、 [新しい採用者の詳細を指定する](#specify-details) セクションの手順11a-11cを参照してください。
 
-    3. In the **Allowed Roles** property deselect all roles except **Facilities**.
+    3. **** プロパティで、 **施設** 以外のすべてのロールの選択を解除します。
 
-    4. Create a new page called **ShipDevices** for the **Page** property referring to steps 7a-7d of the the [Specifying Details of the New Hire](#specify-details) section.
+    4. **ページ** プロパティの **ShipDevices** と呼ばれる新しいページを作成し、 [New Hire](#specify-details) セクションの詳細を指定する手順 7a-7d を参照します。
 
-    5.  On the newly created **ShipDevices** page all attributes are added to the employee detail form by default. You need to make sure that the Facilities department will be able to view the fields but not change them: select the data view with the employee details and go to its properties.
+    5.  新しく作成された **ShipDevices** ページでは、デフォルトですべての属性が従業員詳細フォームに追加されます。 施設部門が項目を表示できるようにする必要がありますが、変更しないようにする必要があります。従業員の詳細を含むデータビューを選択し、その施設に移動します。
 
-    6. Toggle the **Read-Only** property to make all fields in the form read-only:
+    6. **読み取り専用** プロパティを切り替えて、フォーム内のすべてのフィールドを読み取り専用にします。
 
-        ![Read-Only Data View](attachments/workflow-how-to-configure/data-view-read-only.png)
+        ![読み取り専用のデータビュー](attachments/workflow-how-to-configure/data-view-read-only.png)
 
-    7. Only the Facilities role can access the **ShipDevices** page. Navigate to the page properties > **Allowed Roles** and deselect all roles except **Facilities**.
+    7. 施設の役割だけが **ShipDevices** ページにアクセスできます。 ページのプロパティ > **許可されたロール** に移動し、 **施設** を除くすべてのロールの選択を解除します。
 
 
-Great job! You have created the decision and user tasks on whether the new hire is working from the office or from home. Your workflow is configured!
+よくできました！ 新しい雇用者がオフィスで働いているか、自宅で働いているかどうかの決定およびユーザータスクを作成しました。 ワークフローが設定されています！
 
 {{% image_container width="250" %}}
-![Configured Workflow](attachments/workflow-how-to-configure/worfklow-configured.png)
+![ワークフローの設定](attachments/workflow-how-to-configure/worfklow-configured.png)
 {{% /image_container %}}
 
 ## 10 Configuring Navigation
 
-You need to configure navigation otherwise the user roles will not be able to reach any pages and interact with their tasks. Follow the steps below:
+ナビゲーションを構成する必要があります。そうしないと、ユーザーロールはページに到達してタスクとやり取りできなくなります。 以下の手順に従ってください。
 
-1. Open the [Navigation Document](/studio/navigation), where some menu items are already preconfigured for you.
+1. [ナビゲーション ドキュメント](/studio/navigation)を開き、いくつかのメニュー項目がすでに事前に設定されています。
 
-2. The HR roles needs to be able to access the **EmployeesToOnboard** page. Add a new menu item and do the following (for more information on how to add a new menu item, see [Navigation Document](/studio/navigation)):
+2. 人事の役割は、 **EmployeeToOnboard** ページにアクセスできる必要があります。 新しいメニュー項目を追加し、以下を行います（新しいメニュー項目を追加する方法についての詳細はこちら） [ナビゲーション ドキュメント](/studio/navigation) を参照:
 
-    1. Set its **On-Click Action** to **Page**.
+    1. **オンクリックアクション** を **ページ** に設定します。
 
-    2. Click the **Page** property.
+    2. **ページ** プロパティをクリックします。
 
-    3. In the **Select Page** dialog box, select EmployeesToOnboard page.
+    3. **ページの選択** ダイアログボックスで、EmployeeToOnboard ページを選択します。
 
-    4. In the menu item properties, set Caption to **HR: Employees to onboard**.
+    4. メニューアイテムのプロパティで、図表番号を **HR: Employees を** オンボードに設定します。
 
-    5. Set **Icon** to **User**.
+    5. **アイコン** を **ユーザー** に設定します。
 
-        ![Navigation Item for HRs](attachments/workflow-how-to-configure/navigation-hr.png)
+        ![人事のためのナビゲーションアイテム](attachments/workflow-how-to-configure/navigation-hr.png)
 
-3. You need to add menu items for manager to be able to open their task inbox. Add a new menu item and do the following (for more information on how to add a new menu item, see [Navigation Document](/studio/navigation):
+3. マネージャーがタスクの受信トレイを開けるようにメニュー項目を追加する必要があります。 新しいメニュー項目を追加し、以下を行います（新しいメニュー項目を追加する方法についての詳細はこちら） see [Navigation Document](/studio/navigation):
 
-    1. Set its **On-Click Action** to **Page**.
+    1. **オンクリックアクション** を **ページ** に設定します。
 
-    2. Click the **Page** property.
+    2. **ページ** プロパティをクリックします。
 
-    3. In the **Select Page** dialog box, switch from the current module to the Workflow Commons one using the drop-down menu in the top-right corner:
+    3. **ページの選択** ダイアログボックスで。 右上のドロップダウンメニューを使用して、現在のモジュールからワークフローコモンズに切り替えます。
 
         {{% image_container width="400" %}}![Select Page](attachments/workflow-how-to-configure/select-page-for-navigation.png){{% /image_container %}}
 
-    4. Find the **TaskInbox** page in the list and click **Select**.
+    4. リスト内の **TaskInbox** ページを見つけて、 **Select** をクリックします。
 
-    5. In the menu item properties, set **Caption** to **Managers: Task Inbox**.
+    5. メニュー項目のプロパティで、 **図表番号** を **マネージャ: タスク受信トレイ** に設定します。
 
-    6. Set **Icon** to **Envelope**.
+    6. **アイコン** を **エンベロープ**に設定します。
 
-4. You also need to add menu items for the Facilities department to be able to open their task inbox. Create a new **Facilities: Task Inbox** menu item referring to steps 2a-2e above.
+4. また、各施設部門がタスクの受信トレイを開くためには、メニュー項目を追加する必要があります。 新しい **施設を作成する: タスク受信トレイ** のメニュー項目は、上記のステップ2a-2eを参照しています。
 
-You have configured the navigation for your app and now you can preview and test it
+アプリのナビゲーションを設定し、プレビューしてテストできるようになりました
 
-![Configured Navigation](attachments/workflow-how-to-configure/configured-navigation.png)
+![ナビゲーションの設定](attachments/workflow-how-to-configure/configured-navigation.png)
 
-## 11 Testing the Workflow {#test-workflow}
+## 11 ワークフローのテスト {#test-workflow}
 
-Now you can test your workflow from the perspective of different users.
+さまざまなユーザーの視点からワークフローをテストできるようになりました。
 
-For example, users who have tasks assigned to them (Manager, Facilities roles) will see their task inbox and dashboards pages where they can manage and monitor tasks assigned to them:
+たとえば、タスクが割り当てられているユーザー (マネージャー) 施設の役割) タスクの受信トレイとダッシュボードのページが表示され、割り当てられたタスクを管理および監視できます。
 
-![Task Inbox](attachments/workflow-how-to-configure/task-inbox.png)
+![タスク受信トレイ](attachments/workflow-how-to-configure/task-inbox.png)
 
-The Workflow Admin role has access to the Workflow Admin Center and can monitor all workflows, can view the progress of workflows, and change the workflow settings.
+ワークフロー管理者ロールはワークフロー管理者センターにアクセスでき、すべてのワークフローを監視できます。 ワークフローの進行状況を表示したり、ワークフローの設定を変更したりできます。
 
-The Admin role is able to manage users.
+管理者ロールはユーザーを管理することができます。
 
-To test your workflow, you need to switch between different user roles. Follow the steps below:
+ワークフローをテストするには、異なるユーザーロールを切り替える必要があります。 以下の手順に従ってください。
 
-1. Click  the **Preview** button. (For more information on how to preview your app, see [Previewing & Publishing Your App](/studio/publishing-app).)
+1. **プレビュー** ボタンをクリックします。 (アプリをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio/publishing-app) を参照してください。
 
-2. Click the user icon on the right and select a user role:
+2. 右側のユーザーアイコンをクリックし、ユーザーロールを選択します。
 
     {{% image_container width="300" %}}![Demo User Role](attachments/workflow-how-to-configure/user-roles.png){{% /image_container %}}
 
-3. You can switch between different demo user roles to test the use case. Do can do the following:
-    1. Select the HR user role, open the **EmployeesToOnboard** page and add a new onboarding request.
-    2. Switch to the Manager role, see a new task in the inbox, open the task, add data to it, and complete the task.
-    3. Switch to the Facilities user role and complete the process.
+3. ユースケースをテストするために、さまざまなデモユーザーロールを切り替えることができます。 以下の操作ができます:
+    1. HRユーザーロールを選択し、 **EmployeeToOnboard** ページを開き、新しいオンボーディングリクエストを追加します。
+    2. マネージャーロールに切り替え、受信トレイに新しいタスクを表示し、タスクを開き、それにデータを追加し、タスクを完了します。
+    3. 施設ユーザーロールに切り替え、プロセスを完了します。
 
-4. Open the Workflow Admin Center.
+4. ワークフロー管理者センターを開きます。
 
-5. Open the Workflow Dashboard.
+5. ワークフローダッシュボードを開きます。
 
-Great job! You have previewed your app locally and tested your workflow from the perspective of different users. You can now work on adding more functionality to your app or share your app with other users to try it out in real life.
+よくできました！ アプリをローカルにプレビューし、さまざまなユーザーの視点からワークフローをテストしました。 アプリに機能を追加したり、他のユーザーとアプリを共有して、実際に試してみることができます。
 
-## 12 Read More
+## 12 続きを読む
 
-* [Workflows](/studio/workflows)
-* [How to Configure a Navigation Bar](navigation-how-to-configure)
-* [How to Set Fields as Read-Only or Required](pages-how-to-set-validation-and-editability)
+* [ワークフロー](/studio/workflows)
+* [ナビゲーションバーを設定する方法](navigation-how-to-configure)
+* [フィールドを読み取り専用または必須に設定する方法](pages-how-to-set-validation-and-editability)
