@@ -1,125 +1,125 @@
 ---
-title: "Microflows"
-parent: "microflows-and-nanoflows"
+title: "微型流动"
+parent: "微流和微流法"
 menu_order: 10
-description: "Presents an overview of all the elements that can be used in a microflow."
+description: "显示可用于微流的所有元素的概述。"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Microflows allow you to express the logic of your application. A microflow can perform actions such as creating and updating objects, showing pages and making choices. It is a visual way of expressing what traditionally ends up in textual program code.
+Microflow允许您表达应用程序的逻辑。 微流可以执行创建和更新对象、显示页面和选择等操作。 这是一种直观的表达传统的文本程序代码的方式。
 
-Microflows run in the runtime server and can therefore not be used in offline apps. For application logic within offline apps, see [Nanoflows](nanoflows).
+Microflow在运行时服务器中运行，因此无法用于离线应用。 关于离线应用中的应用逻辑，请参阅 [Nanoflows](nanoflows)。
 
-This page is a summary of the elements which make up a microflow, together with their visual representation within the microflow. It also covers [keyboard support](#keyboard) when editing microflows.
+本页概述了构成微观流的要素以及它们在微观流中的视觉表现。 它还包括编辑微流时的 [键盘支持](#keyboard)。
 
 {{% alert type="info" %}}
-For the properties of the microflow itself, see [Microflow Properties](microflow).
-{{% /alert %}}
+对于微流程本身的属性，请参阅 [微流程属性](microflow)。
+{{% /报警 %}}
 
-## 2 Microflow Notation
+## 2 微流标记
 
-The graphical notation of microflows is based on the [Business Process Model and Notation](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (BPMN). BPMN is a standardized graphical notation for drawing business processes in a workflow.
+微流的图形缩写基于 [业务流程模型和符号](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (BPMN)。 BPMN是在工作流程中绘制业务流程的标准化图形标记。
 
-A microflow is composed of elements. Below is a categorized overview of all elements. The following categories are used:
+微流由元素组成。 下面是所有要素的分类概述。 使用了以下类别：
 
-*   [Events](#events) represent start and endpoints of a microflow and special operations in a loop.
-*   [Flows](#flows) form the connection between elements.
-*   [Decisions](#decisions) deal with making choices and merging different paths again.
-*   [Activities](#activities) are the actions that are executed in a microflow.
-*   [Loop](loop) is used to iterate over a list of objects.
-*   [Parameter](#parameter) is data that serves as input for the microflow.
-*   [Annotation](#annotation) is an element that can be used to put comments in a microflow.
+*   [事件](#events) 代表了一个循环中微流和特殊操作的起始点和终点。
+*   [流动](#flows) 形成元素之间的连接。
+*   [决策](#decisions) 涉及做出选择并重新合并不同的路径。
+*   [活动](#activities) 是在微流程中执行的动作。
+*   [循环](loop) 用于在对象列表上迭代。
+*   [参数](#parameter) 是作为微流程输入的数据。
+*   [注释](#annotation) 是一个可以用来将注释放入微流程的元素。
 
-### 2.1 Events{#events}
+### 2.1 事件{#events}
 
-Events represent start and endpoints of a microflow and special operations in a loop.
+事件代表微流和特殊操作在循环中的起始点和终点。
 
-| Graphic                                                                        | Name                             | Description                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](attachments/microflows-and-nanoflows/start-event.png)](start-event)       | [Start Event](start-event)       | A start event is the starting point of the microflow. A microflow can only have one start event.                                                                                                                 |
-| [![](attachments/microflows-and-nanoflows/end-event.png)](end-event)           | [End Event](end-event)           | An end event defines the location where the microflow will stop. Depending on the return type of the microflow in some cases a value must be specified. There can be more than one end event.                    |
-| [![](attachments/microflows-and-nanoflows/error-event.png)](error-event)       | [Error Event](error-event)       | An error event defines a location where the microflow will stop and throw an error that occurred earlier. If you call a microflow, you may want to know whether any errors occurred within the microflow or not. |
-| [![](attachments/microflows-and-nanoflows/continue-event.png)](continue-event) | [Continue Event](continue-event) | A continue event is used to stop the current iteration of a loop and continue with the next iteration. Continue events can only be used inside a [Loop](loop).                                                   |
-| [![](attachments/microflows-and-nanoflows/break-event.png)](break-event)       | [Break Event](break-event)       | A break event is used to stop iterating over the list of objects and continue with the rest of the flow after the loop. Break events can only be used inside a [Loop](loop).                                     |
+| 图形                                                                             | 名称                     | 描述                                                     |
+| ------------------------------------------------------------------------------ | ---------------------- | ------------------------------------------------------ |
+| [![](attachments/microflows-and-nanoflows/start-event.png)](start-event)       | [开始事件](start-event)    | 开始活动是微流的起点。 微流只能有一个起始事件。                               |
+| [![](attachments/microflows-and-nanoflows/end-event.png)](end-event)           | [结束事件](end-event)      | 终端事件定义了微流将停止的位置。 根据微流的返回类型，在某些情况下必须指定一个值。 可以有多个结束事件。   |
+| [![](attachments/microflows-and-nanoflows/error-event.png)](error-event)       | [错误事件](error-event)    | 一个错误事件定义了微流停止并抛出之前发生的错误的位置。 如果您调用微流，您可能想知道微流中是否发生任何错误。 |
+| [![](attachments/microflows-and-nanoflows/continue-event.png)](continue-event) | [继续事件](continue-event) | 持续事件用于停止当前循环的迭代并继续下一次迭代。 继续事件只能在 [循环](loop) 中使用。       |
+| [![](attachments/microflows-and-nanoflows/break-event.png)](break-event)       | [中断事件](break-event)    | 休息活动用于停止对对象列表的迭代，继续循环后的其余流程。 中断事件只能在 [循环](loop) 中使用。   |
 
-### 2.2 Flows{#flows}
+### 2.2 流动{#flows}
 
-Flows form the connection between elements.
+流程形成元素之间的连接。
 
-| Graphic                                                                                     | Name                                          | Description                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](attachments/microflows-and-nanoflows/sequence-flow.png)](sequence-flow)                | [Sequence Flow](sequence-flow)                | A sequence flow is an arrow that links events, activities, decisions, and merges with each other. Together they define the order of execution within a microflow. |
-| [![](attachments/microflows-and-nanoflows/annotation-flow.png)](annotation#annotation-flow) | [Annotation flow](annotation#annotation-flow) | An association is a connection that can be used to connect an annotation to another element.                                                                      |
+| 图形                                                                                          | 名称                                 | 描述                                         |
+| ------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------ |
+| [![](attachments/microflows-and-nanoflows/sequence-flow.png)](sequence-flow)                | [序列流](sequence-flow)               | 序列流程是指将事件、活动、决策和合并相互连接的箭头。 它们共同决定微流中的执行顺序。 |
+| [![](attachments/microflows-and-nanoflows/annotation-flow.png)](annotation#annotation-flow) | [批注流程](annotation#annotation-flow) | 关联是可用来将注解连接到另一个元素的连接。                      |
 
-### 2.3 Decisions {#decisions}
+### 2.3 决 定 {#decisions}
 
-Decisions deal with making choices and merging different paths again.
+决策涉及作出选择和再次合并不同的道路。
 
-| Graphic                                                                                    | Name                                         | Description                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------ | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](attachments/microflows-and-nanoflows/decision.png)](decision)                         | [Decision](decision)                         | A decision makes a decision based on a condition and follows one and only one of the outgoing flows. There is no parallel execution in microflows.                                                              |
-| [![](attachments/microflows-and-nanoflows/object-type-decision.png)](object-type-decision) | [Object Type Decision](object-type-decision) | An object type decision is an element that makes a choice based on the [specialization](entities) of the selected object. You can give the specialized object a name using a [cast object](cast-object) action. |
-| [![](attachments/microflows-and-nanoflows/merge.png)](merge)                               | [Merge](merge)                               | A merge can be used to combine multiple sequence flows into one. If a choice is made in a microflow and afterwards some common work needs to be done, you can combine the two (or more) paths using a merge.    |
+| 图形                                                                                         | 名称                             | 描述                                                                              |
+| ------------------------------------------------------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------- |
+| [![](attachments/microflows-and-nanoflows/decision.png)](决 定)                              | [决 定](决 定)                     | 一项决定是根据一项条件作出的，并且只遵循一项外流量中的一项。 微流中没有并行的施行。                                      |
+| [![](attachments/microflows-and-nanoflows/object-type-decision.png)](object-type-decision) | [对象类型决定](object-type-decision) | 对象类型决定是一个基于所选对象的 [专业](entities) 做出选择的元素。 您可以使用 [投射对象](cast-object) 动作给专门对象一个名字。 |
+| [![](attachments/microflows-and-nanoflows/merge.png)](合并)                                  | [合并](合并)                       | 合并可以用来将多个序列流合并为一个。 如果在微流中作出选择，然后需要做一些共同的工作。 您可以合并两个(或更多)路径。                     |
 
-### 2.4 Activities{#activities}
+### 2.4 活动{#activities}
 
-[Activities](activities) are the actions that are executed in a microflow:
+[活动](activities) 是指在微流中执行的动作：
 
-![Activity](attachments/microflows-and-nanoflows/activity.png)
+![活动](attachments/microflows-and-nanoflows/activity.png)
 
-### 2.5 Loop {#loop}
+### 2.5 循环 {#loop}
 
-A [loop](loop) is used to iterate over a list of objects:
+[循环](loop) 用于在对象列表上迭代：
 
-![Loop](attachments/microflows-and-nanoflows/loop.png)
+![循环](attachments/microflows-and-nanoflows/loop.png)
 
-For every object the flow inside the loop is executed. A loop activity can contain all elements used in microflows, with the exception of start and end events.
+对于每个对象，循环内的流程都会被执行。 循环活动可以包含微流中使用的所有元素，但开始和结束活动除外。
 
-### 2.6 Parameter {#parameter}
+### 2.6 参数 {#parameter}
 
-A [parameter](parameter) is data that serves as input for the microflow.
+一个 [参数](parameter) 是作为微流程输入的数据。
 
-![Parameter](attachments/microflows-and-nanoflows/parameter.png)
+![参数](attachments/microflows-and-nanoflows/parameter.png)
 
-Parameters are filled at the location from where the microflow is triggered.
+参数填写在触发微流的地点。
 
-### 2.7 Annotation {#annotation}
+### 2.7 说明 {#annotation}
 
-An [annotation](annotation) is an element that can be used to put comments in a microflow:
+[注释](annotation) 是一个可以用来在微流程中发表评论的元素：
 
-![Annotation](attachments/microflows-and-nanoflows/annotation.png)
+![批注](attachments/microflows-and-nanoflows/annotation.png)
 
-### 2.6 Item Usages
+### 2.6 物品使用情况
 
-Studio Pro visualizes which items are used by the selected element(s). It does this by showing the used items in white text on a blue background. Conversely, elements that use the item(s) returned by the selected element(s) are marked with the word 'Usage' in white text on a green background.
+Studio Pro 可视化了选定元素使用哪些项目。 通过在蓝色背景上显示白色文本中使用过的物品来做到这一点。 反之，使用选定元素返回的物品的元素在绿色背景上用白色文本中的“使用”标记。
 
-In the example below, the parameter **AccountPasswordData** is highlighted because it is used in the selected activity (**Retrieve Account**). And the activity **Save password** has a **Usage** label because it uses the object returned by **Retrieve Account**.
+在下面的示例中，参数 **账户密码数据** 被高亮，因为它被用于选定的活动(**检索账户**)。 活动 **保存密码** 有一个 **用法** 标签，因为它使用的对象是 **检索帐户**。
 
 ![](attachments/microflows-and-nanoflows/microflow-nanoflow-example.png)
 
-## 3 Keyboard Support{#keyboard}
+## 3 个键盘支持{#keyboard}
 
-The microflow editor offers keyboard support for navigating and manipulating microflows. The following table shows the keys that can be used.
+微流程编辑器提供键盘支持导航和操作微流。 下表显示可以使用的密钥。
 
-| Key                                                   | Effect                                                                                    |
-| ----------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Arrow Keys                                            | Select nearby element (activity, event, loop or parameter) in the direction of the arrow. |
-| <kbd>Enter</kbd>                                      | Edit the properties of the selected element.                                              |
-| <kbd>F2</kbd>                                         | Rename the item returned by the selected element.                                         |
-| <kbd>Shift</kbd> + <kbd>F2</kbd> or just start typing | Edit the caption of the selected element.                                                 |
-| <kbd>Ctrl</kbd> + arrow keys                          | Move the selected element in the direction of the arrow.                                  |
-| <kbd>Tab</kbd>                                        | If a loop is selected, the first element inside the loop will be selected.                |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd>                     | If an element inside a loop is selected, the loop itself will be selected.                |
-| <kbd>Home</kbd>                                       | Select the start event.                                                                   |
-| <kbd>End</kbd>                                        | Cycle through the end events.                                                             |
-| Context-menu key or <kbd>Shift</kbd> + <kbd>F10</kbd> | Open the context-menu for the currently selected element.                                 |
+| 关键字                                       | 效果                         |
+| ----------------------------------------- | -------------------------- |
+| 箭头键                                       | 在箭头方向选择附近的元素(活动、事件、循环或参数)。 |
+| <kbd>输入</kbd>                             | 编辑选中元素的属性。                 |
+| <kbd>F2</kbd>                             | 重命名选中元素返回的项目。              |
+| <kbd>Shift</kbd> + <kbd>F2</kbd> 或只是开始输入  | 编辑选中元素的标题。                 |
+| <kbd>Ctrl</kbd> + 箭头键                     | 向箭头方向移动选中的元素。              |
+| <kbd>Tab</kbd>                            | 如果选择循环，循环中的第一个元素将被选中。      |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd>         | 如果选择循环中的元素，循环本身将被选中。       |
+| <kbd>首页</kbd>                             | 选择开始事件。                    |
+| <kbd>结束</kbd>                             | 循环到结束事件。                   |
+| 上下文菜单键或 <kbd>Shift</kbd> + <kbd>F10</kbd> | 打开当前选中元素的上下文菜单。            |
 
-## 4 Microflow Debugging
+## 4 微流程调试
 
-If you want to see what happens while a microflow is executing, you can use the microflow debugger. See the following how-tos:
+如果您想要看到微流执行时发生什么，您可以使用微流调试器。 看看下面的办法：
 
-*   [Debugging Microflows and Nanoflows](/howto/monitoring-troubleshooting/debug-microflows-and-nanoflows)
-*   [Debugging Microflows Remotely](/howto/monitoring-troubleshooting/debug-microflows-remotely)
+*   [调试微流和纳诺夫罗夫](/howto/monitoring-troubleshooting/debug-microflows-and-nanoflows)
+*   [远程调试微流](/howto/monitoring-troubleshooting/debug-microflows-remotely)
