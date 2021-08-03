@@ -2,7 +2,13 @@
 title: "利用可能なRESTサービス"
 parent: "統合"
 description: "Mendixで消費されたRESTサービスとJSONの概要を提示します。"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-rest-services.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1 REST
 
@@ -36,6 +42,6 @@ Above, the object `person` is described with the corresponding values for the at
 
 ## 3つの例
 
-**MendixでネイティブにRESTを消費する方法**
+**Mendix Studio Pro 8 で REST を消費する方法**
 
-{{% youtube waOlvSqdaP4 %}}
+{{% youtube OhzWTa1kZ00 %}}
