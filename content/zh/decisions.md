@@ -1,6 +1,6 @@
 ---
 title: "决 定"
-parent: "微流和微流法"
+parent: "应用逻辑："
 menu_order: 50
 tags:
   - "studio pro"
@@ -8,7 +8,12 @@ tags:
   - "经济及社会理事会"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/decisions.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
+
 决定是根据为这些要素设定的条件分割或合并顺序流动的要素。 决定的形状是钻石。
 
 此文档中描述的元素在 **Toolbox 的 **Decision** 部分** 中：
