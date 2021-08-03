@@ -43,9 +43,9 @@ Domain model is configured the following way in this use case:
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
-* Familiarize yourself with editability and input validation properties of input elements. For more information, see [Editability](/studio/page-editor-widgets-input-elements#editability) and [Input Validation Section](/studio/page-editor-widgets-input-elements#validation) sections in *Input Elements*.
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* Familiarize yourself with editability and input validation properties of input elements. For more information, see [Editability](/studio8/page-editor-widgets-input-elements#editability) and [Input Validation Section](/studio8/page-editor-widgets-input-elements#validation) sections in *Input Elements*.
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 ## 3 Setting Fields as Read-Only
 
@@ -64,7 +64,7 @@ To make a field read-only, do the following:
 
 3. In the **General** section, set the **Editability** property to read-only:
 
-    ![](attachments/pages-how-to-set-validation-and-editability/editability.png)
+    {{% image_container width="250" %}}![](attachments/pages-how-to-set-validation-and-editability/editability.png){{% /image_container %}}
 
 4. Select the **Employee number** field and open its properties.
 
@@ -109,6 +109,6 @@ Changes will not be saved until all required fields are filled in.
 
 Congratulations! You have configured fields as read-only and required for the form with employee details.
 
-You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio/publishing-app).
+You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
 
 You can also add new functionality to your app, for example, enable employees attach images for their business trip reports. For more information, see [How to Enable End-Users to Attach Images](pages-how-to-attach-images).
