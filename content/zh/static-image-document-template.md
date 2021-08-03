@@ -1,30 +1,43 @@
 ---
 title: "静态图像 (文档模板)"
 parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Static+Image+(document+template).html
-  - /refguide7/static-image-(document-template).html
+  - /refguide8/Static+Image+(document+template).html
+  - /refguide8/static-image-(document-template).html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/static-image-document-template.pdf)。
+{{% /报警 %}}
 
-静态图像显示预定义图像。 它可以放入或放在数据视图或模板类别之外。
+## 1 导言
 
-![](attachments/819203/918133.png) 表单元格内的静态图像。
+静态图像显示预定义图像。 它可以放置在数据视图或模板网格之内或之外。
 
-## 外观属性
+{{% alert type="info" %}}
 
-### 图片
+![](attachments/document-templates/918133.png)
+
+表单元格内的静态图像。
+
+{{% /报警 %}}
+
+## 2 外观属性
+
+### 2.1 图像
 
 此属性定义将显示在文档中的图像。
 
-### Width
+### 2.2 Width
 
 宽度定义文档中图像的宽度。 这是以像素为单位设置的，使用文档模板中的 PPI ，这将被重新计算为实际打印大小。 可以设置宽度或高度；为了防止图像的扭曲，无法同时设置两者。
 
-### 高度
+### 2.3 高度
 
 高度定义文档中图像的高度 这是以像素为单位设置的，使用文档模板中的 PPI ，这将被重新计算为实际打印大小。 可以设置宽度或高度；为了防止图像的扭曲，无法同时设置两者。
 
-## 公共属性
+## 3 个公共属性
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide8/name-property.md" %}}
