@@ -26,13 +26,13 @@ In Studio, the navigation bar is build in most page templates and is available o
 
 ![Configured Menu](attachments/navigation-how-to-configure/navigation-previewed.png)
 
-Currently you have a page called **Home_Web** that is set as the default home page and is also set for the Home menu item. Your navigation document currently looks the following way:
+Currently you have a page called **Home_web** that is set as a home page by default. Your navigation document currently looks the following way:
 
 ![Navigation Default](attachments/navigation-how-to-configure/navigation-default.png)
 
 You have several pages that you would like to add to the navigation:
 
-* **Employees** – a page that lists all employees in your company and should be a default home page
+* **Employees** – a page that lists all employees in your company and should be a home page
 
 * **New_Employee** – a page for creating a new employee
 
@@ -46,37 +46,35 @@ You have several pages that you would like to add to the navigation:
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
-* Familiarize yourself with navigation document terms. For more information, see [Navigation Document](/studio/navigation).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* Familiarize yourself with navigation document terms. For more information, see [Navigation Document](/studio8/navigation).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 ## 3 Creating Menu Items and Sub-Items
 
-### 3.1 Setting the Employees Page as the Default Home Page {#employees-page}
+### 3.1 Setting the Employees Page as the Home Page {#employees-page}
 
 Currently the **Home_web** page is set as the home page for your app. However, you would like to set the **Employees** page as the home page instead. Do the following:
 
 1. Click the **Navigation Document** icon in the left menu bar.
 
-2. Open the Navigation Editor properties > **Default Home Page**.
+2. Select the **Home** menu item:
 
-3. Click the **Page** property to select a different page:
+    ![Default Navigation](attachments/navigation-how-to-configure/navigation-default.png)
 
-    ![Default Home Page](attachments/navigation-how-to-configure/default-home-page.png)
+3. Open its properties. The property **Set as Homepage** is enabled by default for the **Home** menu item. You need to change the page that is currently selected in properties for it. Do the following:
 
-4. In the **Select Page** dialog box, choose **Employees** and click **Select**.
+    1.  Click the **Page** property to change the page that is currently set as home page:
 
-5. Now you need to set the **Employees** page for the **Home** menu item otherwise it will not show in your navigation tree. Click the **Home** menu item and open its properties.
+        ![Home Page Properties](attachments/navigation-how-to-configure/home-page-properties.png)
 
-6. Click the **Page** property:
+    3. In the **Select Page** dialog box, choose **Employees** and click **Select**.
 
-    ![Home Menu Item](attachments/navigation-how-to-configure/home-menu-item.png)
+        ![Select Page Dialog Box](attachments/navigation-how-to-configure/select-page-dialog.png)
 
-7. In the **Select Page** dialog box, choose **Employees** and click **Select**.
+You have changed the page that was selected as the home page by default and set the **Employees** page as the new home page for your app.
 
-You have set the **Employees** page as the new default home page for your app.
-
-### 3.2 Creating a Menu Item for the New Employee Page
+### 3.2 Creating Menu Item for the New Employee Page
 
 The **New_Employee** page contains a form with the details of the new employee, this means that it contains a data view that expects an *Employee* object. Thus, when creating a menu item for it, you need to pass this object.
 
@@ -84,7 +82,7 @@ To create the menu item for the **New_Employee** page, do the following:
 
 1. Click a plus at the bottom of the navigation tree to create a menu item:
 
-    ![Adding Menu Item](attachments/navigation-how-to-configure/adding-menu-item.png)
+    {{% image_container width="350" %}}![Adding Menu Item](attachments/navigation-how-to-configure/adding-menu-item.png){{% /image_container %}}
 
 2. Open the new menu item properties and do the following:
 
@@ -100,7 +98,9 @@ To create the menu item for the **New_Employee** page, do the following:
 
     5. Click the **Page** property.
 
-    6. In the **Select Page** dialog box, choose **New_Employee** page and click **Select**.
+    6. In the **Select Page** dialog box, choose **New_Employee** page and click **Select**:
+
+         ![Select New Employee Page](attachments/navigation-how-to-configure/select-new-employee-page.png)
 
     7. In the **Caption** property, delete the *Navigation item* caption and type in *New Employee*.
 
@@ -114,7 +114,7 @@ Good job! You have added a menu item for the **New Employee** page to your navig
 
 ![New Menu Item Created](attachments/navigation-how-to-configure/new-menu-item-created.png)
 
-Click **Preview** in the top-right corner to [preview your app](/studio/publishing-app) and test how the navigation menu looks like: ![Previewed Menu Items](attachments/navigation-how-to-configure/previewed-menu-items.png)
+Click **Preview** in the top-right corner to [preview your app](/studio8/publishing-app) and test how the navigation menu looks like: ![Previewed Menu Items](attachments/navigation-how-to-configure/previewed-menu-items.png)
 
 ### 3.3 Create a Menu Item for the Employee_Details Page and Configuring Its Sub-Items
 
@@ -158,7 +158,7 @@ Congratulations! You created and configured navigation for your app:
 
 ![Configured Navigation](attachments/navigation-how-to-configure/configured-navigation.png)
 
-[Preview your app](/studio/publishing-app) to see how the navigation menu is displayed:
+[Preview your app](/studio8/publishing-app) to see how the navigation menu is displayed:
 
 ![Previewed Navigation](attachments/navigation-how-to-configure/navigation-previewed.png)
 
