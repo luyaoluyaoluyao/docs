@@ -60,10 +60,8 @@ tags:
 | [输入元素](page-editor-widgets-input-elements)      | 包含可以用于输入数据的元素。                                                                                                                                                      |
 | [文本](page-editor-widgets-text)                  | 包含文本显示部件。                                                                                                                                                           |
 | [图像 & 文件](page-editor-widgets-images-and-files) | 包含帮助您显示图像、上传或下载文件和图像的部件。                                                                                                                                            |
-| [按钮](page-editor-widgets-buttons)               | 包含一般动作的按钮，如打开或关闭一个页面，调用微流程，签名用户，打开链接。                                                                                                                               |
-| [数据按钮](page-editor-widgets-buttons)             | 包含操作数据并用于创建或删除对象、保存或取消更改的按钮。                                                                                                                                        |
-| [工作流按钮](page-editor-widgets-buttons)            | 包含与 [工作流](workflows) 相关且用于调用工作流的按钮， 完成或显示一个 [用户任务](workflows-user-task)，显示一个工作流页面。                                                                                  |
-| [Menus](/refguide/menu-widgets)                 | 包含菜单创建部件。 目前，这些部件只能在 Studio Pro中配置。                                                                                                                                 |
+| [按钮](page-editor-widgets-buttons)               | 包含了放置在页面上的各种按钮。                                                                                                                                                     |
+| [Menus](/refguide8/menu-widgets)                | 包含菜单创建部件。 目前，这些部件只能在 Studio Pro中配置。                                                                                                                                 |
 | 附加组件                                            | 包含之前安装在应用程序中的所有自定义小部件。 如果部件无法与市场匹配，它们将会显示在附加组件中。                                                                                                                    |
 | 图表                                              | 包含不同的图表。 此类别由 [市场小部件](#app-store-widgets) 组成。                                                                                                                       |
 | 显示                                              | 包含在页面上显示变化元素的小部件，例如地图或进度栏。 此类别由 [市场小部件](#app-store-widgets) 组成。                                                                                                     |
@@ -72,7 +70,7 @@ tags:
 ## 5 部件 {#widgets-by-origin}
 
 工作室的小部件可以按原产地划分，如下表所示：
-作为应用程序模板一部分的小部件，或由您或您的团队通过Studio Pro在本地创建的小部件。 关于开发小部件的更多信息，请参阅 [构建插件插件](/howto/extensibility/pluggable-widgets) 如何去开发小部件。 作为规则本地小部件将被列入 **附加组件** 类别。 欲了解更多分类信息，请按类别</a> 部分查看 部件。</td> 
+作为应用程序模板一部分的小部件，或由您或您的团队通过Studio Pro在本地创建的小部件。 关于开发小部件的更多信息，请参阅 [自定义小部件开发](/howto8/extensibility/widget-development)。 作为规则本地小部件将被列入 **附加组件** 类别。 欲了解更多分类信息，请按类别</a> 部分查看 部件。</td> 
 
 </tr> </tbody> </table> 
 
@@ -80,7 +78,7 @@ tags:
 
 ## 添加市场小部件
 
-您可以直接在工作室的 **小部件** 标签中下载市场小部件，从而将其添加到您的应用中。 这些小部件是市场上所有可用的小部件的子集：您只能下载已批准在工作室使用的小部件。 如果有更新，您也可以更新。
+您可以直接在工作室的 **小部件** 标签中下载市场小部件，从而将其添加到您的应用中。 这些小部件是应用商店可用的所有小部件的子集：您只能下载已批准用于Studio的小部件。 如果有更新，您也可以更新。
 
 要添加市场小部件，请执行以下操作：
 
@@ -88,7 +86,7 @@ tags:
 
 2.  做以下一件： <br />
    
-   a. 使用 **查看市场小部件** 选项查找一个类别并点击它。  <br />
+   a. 使用 **查看 App Store 小部件** 选项查找一个分类并点击它。  <br />
    
    {{% image_container width="300" %}}![](attachments/page-editor-widgets/view-app-store-widgets.png)
  {{% /image_container %}}<br />
