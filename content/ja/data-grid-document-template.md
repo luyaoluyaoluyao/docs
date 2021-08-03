@@ -1,65 +1,72 @@
 ---
 title: "データグリッド（ドキュメントテンプレート）"
 parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Data+Grid+(document+template).html
-  - /refguide7/data-grid-(document-template).html
+  - /refguide8/Data+Grid+(document+template).html
+  - /refguide8/data-grid-(document-template).html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/data-grid-document-template.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
 
 データ グリッドには、グリッド内のオブジェクトのリストが表示されます。 たとえば、データ グリッドには、顧客が発注したすべての注文が表示されます。
 
 {{% alert type="info" %}}
 
-[![](attachments/819203/918138.png)](data-grid-document-template) 説明と参照先の顧客名を含む注文のリストを表示するデータ グリッド。
+![](attachments/document-templates/918138.png)
+
+説明と参照先の顧客名を含む注文のリストを表示するデータ グリッド。
 
 {{% /alert %}}
 
-## コンポーネント
+## 2つのコンポーネント
 
-### 列
+### 2.1 列
 
 参照 [列 (ドキュメントテンプレート)](columns-document-template).
 
-### ソートバー
+### 2.2 ソートバー
 
 [ソート バー](sort-bar) を参照してください。
 
-## 外観のプロパティ
+## 3つの外観プロパティ
 
-### 列の重み付け
+### 3.1 列の重量
 
 列の重みは、列の幅を決定するセミコロンで区切られたパーセンテージです。 重量は最大100\まで加算する必要があります。 列の幅を変更する別の方法は、列間の区切り線をドラッグすることです。
 
 {{% alert type="info" %}}
-
 上のスクリーンショットでは、列の重みは 50;25;25 です。
-
 {{% /alert %}}
 
-### セル間隔
+### 3.2 セル間隔
 
 セルの間隔を指定します。
 
-### Cell padding
+### 3.3 Cell Padding
 
 セルのパディングは、セルの内容とセルの壁の間の空間を指定します
 
-### ストライプを有効にする
+### 3.4 ストライプを有効にする
 
-ストライピングを有効にすると、偶数行と不均一な行のプロパティを個別に設定できます。 この方法で、2つの行スタイルに色を変えてストライピング効果を作成できます。
+ストライピングを有効にすると、偶数および不均一なデータグリッド行のプロパティを個別に設定できます。 この方法で、2つの行スタイルに色を変えてストライピング効果を作成できます。
 
-### スタイル
+### 3.5 スタイル
 
 [スタイル](style) を参照
 
-## 共通のプロパティ
+## 4つの一般的なプロパティ
 
-### 名前
+### 4.1 名前
 
-ウィジェットの内部名 ウィジェットに賢明な名前を付けるのに使用できます。 The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto7/integration/selenium-support).
+ウィジェットの内部名 ウィジェットに賢明な名前を付けるのに使用できます。 The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto8/integration/selenium-support).
 
-## データソースのプロパティ
+## 5つのデータソースのプロパティ
 
 データ ソースのプロパティは、データ グリッドに表示されるオブジェクトを決定します。 データ グリッド内のオブジェクトのリストは、以下のメカニズムによって制約されます。
 
@@ -67,10 +74,10 @@ aliases:
 2.  ネストされたデータグリッドの場合、エンティティパスが使用されている場合、包含オブジェクトからパスをたどって到達可能なオブジェクトのみが表示されます。
 3.  ネストされたデータグリッドでは、マイクロフローを使用すると、マイクロフローによって返されるオブジェクトが表示されます。
 
-### エンティティ (パス)
+### 5.1 エンティティ (パス)
 
 エンティティ (path) プロパティは、データ グリッドに表示されるエンティティ インスタンスを指定します。 トップレベルのデータグリッドは常にエンティティに接続されます。 ネストされたデータ グリッドは、エンティティまたは含むデータ ビューのエンティティから始まるエンティティ パスに接続することができます。 エンティティパスは、タイプと所有権に関係なく関連付けに従うことができます。
 
-### マイクロフロー
+### 5.2 マイクロフロー
 
-ネストされたデータ グリッドがテンプレートに接続されると、データを取得するためにマイクロフローが必要になります。 これらのマイクロフローの入力パラメータは常に含まれるデータビューのオブジェクトであり、出力はネストされたデータグリッドの型のオブジェクトのリストです。
+ネストされたデータ グリッドがテンプレートに接続されると、データを取得するためにマイクロフローが必要になります。 これらのマイクロフローの入力パラメータは常に含まれるデータビューのオブジェクトであり、出力はネストされたデータ グリッドのタイプのオブジェクトのリストです。
