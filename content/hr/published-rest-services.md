@@ -11,9 +11,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-The **published REST service** feature was introduced in version 7.10.0.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-services.pdf).
 {{% /alert %}}
 
 ## 1 Introduction
@@ -56,6 +54,6 @@ To log detailed information about interaction with your published REST service, 
 
 ## 6 Example
 
-**How to publish REST natively with Mendix**
+**How to publish REST in Studio Pro 8**
 
-{{% youtube HzrFkv0U4n8 %}}
+{{% youtube Ff_P84NOcZk %}}
