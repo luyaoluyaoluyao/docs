@@ -1,98 +1,146 @@
 ---
-title: "Navigation Document"
-description: "Describes the navigation menu in Mendix Studio."
-menu_order: 40
+title: "Navigation"
+parent: "project"
+menu_order: 20
+description: "Describes the concept of navigation in apps and the properties of a profile."
 tags:
-  - "studio"
+  - "studio pro"
   - "navigation"
-  - "menu item"
-  - "navigation item"
-  - "app menu"
 ---
 
 ## 1 Introduction
 
-A **Navigation Document** in Mendix Studio shows a configured menu of your app in a form of a tree. You can create items and sub-items in your navigation.
+This document describes the concept of navigation in Mendix applications and the properties of a profile. The **Navigation** document can be found by expanding the **App** node in the **App Explorer**. It defines the navigation structure of the application for users. It also allows you to set the home page of your application and to define the menu structures that can be used in [menu widgets](menu-widgets).
 
-![](attachments/navigation/navigation-vs-app.png)
+![](attachments/navigation/navigation-profile-properties.png)
 
-To open the **Navigation Document**, click the corresponding icon in the left menu bar.
+A user's home page can vary based on their [user roles](user-roles).
 
-{{% image_container width="300" %}}![Navigation Document Icon](attachments/navigation/navigation-icon.png)
-{{% /image_container %}}
+## 2 Profiles {#profiles}
 
-The **Navigation Document** consists of menu items that allow end-users navigate your app or that perform certain actions. For example, you can configure a menu item to open a specific page or to log an end-user out of their profile. For more information on actions you can assign to menu items, see the [Events Section](#events-section-navigation).
+At the heart of the navigation model in Mendix, these are the available profiles:
 
-You can also add a sub-item to a menu item. Mind that you cannot assign an action to the menu item that has the sub-item.
+* Responsive
+* Hybrid tablet app online
+* Hybrid tablet app offline
+* Hybrid phone
+* Hybrid phone app offline
+* Tablet web
+* Phone web
+* Native phone
 
-{{% alert type="info" %}}
+Users that access the app via a particular device type are automatically redirected to the homepage of the appropriate profile based on the profile type (for details, see the [Redirection to Profiles](#redirection) section below).
 
-In Studio, you are viewing and editing a Responsive type of the navigation profile, while there are more types of profiles in Studio Pro. For more information on profiles in Studio Pro, see the [Profiles](/refguide8/navigation#profiles) section in *Navigation* in the *Studio Pro Guide*.
+The device type of the currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use `$currentDeviceType` to perform different actions based on the device type. A typical example is to show different pages based on the device type.
 
+### 2.1 Responsive
+
+Every app always has one profile of a Responsive type which cannot be deleted. This is the default profile used by a Mendix app. This profile can be used to make web applications.
+
+### 2.2 Hybrid Profiles {#hybrid-profiles}
+
+A Mendix app can be installed on a tablet or phone as an app by creating a [local build](/howto8/mobile/build-hybrid-locally) hybrid package. Hybrid profiles can be accessed from such a locally built app. Hybrid app profiles are determined by device type (phone or tablet) and by the offline accessibility feature enabled (online or offline). If no profile exists with the requested combination, an error will be displayed in the app.
+
+Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline First](offline-first).
+
+Four different hybrid profiles are available:
+
+* Hybrid tablet app online
+* Hybrid tablet app offline
+* Hybrid phone
+* Hybrid phone app offline
+
+### 2.3 Tablet Web
+
+All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the Tablet web type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
+
+### 2.4 Phone Web
+
+All the users accessing the Mendix app from a browser on a phone will automatically be redirected to a profile of the Phone web type. If no profile exists of that type, the user will be redirected to the Responsive profile. This profile can be used to make web applications.
+
+### 2.5 Native Phone
+
+A Mendix app can be installed on a phone as a native application which has the benefit of a more responsive UI. The app will also be [offline-first](offline-first), which means all the data is stored on the phone and only synchronized with the server on request.
+
+You are required to enable anonymous users in your app's security settings and include anonymous user roles on native login pages. This is because there is no built-in login screen in the native profile; login pages are modeled as regular native pages.
+
+## 3 Redirection to Profiles {#redirection}
+
+Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the `User-Agent` string that is sent by the device. The default configuration for this redirection is as follows:
+
+| User-Agent String Regular Expression                  | Device Type |
+| ----------------------------------------------------- | ----------- |
+| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
+| Android&#124;iPad                                     | Tablet      |
+| _(other)_                                             | Responsive  |
+
+To configure the regular expressions used to match phone or tablet users, see [Runtime Customization](custom-settings).
+
+It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are the names of the profiles, which are Responsive, Tablet, Phone, HybridTablet, and HybridPhone. For example:
+
+`https://myapp.mendixcloud.com/index.html?profile=Responsive`
+
+## 4 Navigation Profile Properties {#properties}
+
+A profile can be added with the **Add navigation profile** button. Only one profile per type is allowed. While adding the profile, it is possible to copy the settings from an existing profile.
+
+![](attachments/navigation/add-navigation-profile.png)
+
+### 4.1 General
+
+#### 4.1.1 Application Title
+
+This specifies the application title. This title is shown in the title bar of the browser.
+
+#### 4.1.2 Application Icon
+
+This specifies the application icon. This icon is shown as favicon in the title bar and bookmarks of the browser. It can only be set in the Responsive profile, but will also be used by the other browser profiles.
+
+### 4.2 Home Pages
+
+#### 4.2.1 Default Home Page
+
+The default home page indicates which [page](page) or [microflow](microflow) is opened after a user signs in. If role-based home pages (see below) are specified for one of the [user roles](user-roles) of the user, then that home page will be used instead.
+
+#### 4.2.2 Role-Based Home Pages
+
+By using role-based home pages, you can show different home pages for different users. If a user logs in, the first role-based home page of which the user role matches the user role of the user is displayed. If no match is found, the default home page is used.
+
+For each role-based home page, you can specify the user role it applies to and the target (page or microflow) that will be opened.
+
+### 4.3 Authentication {#authentication}
+
+If an [anonymous user](anonymous-users) tries to access a resource to which the user has no access, the configured [sign-in page](authentication-widgets) will be displayed, prompting the user to sign in.
+
+If the sign-in page is set to none, a built-in pop-up window will appear instead. The page title is translatable and may be overridden.
+
+### 4.4 Menu
+
+Each device type contains a default menu. You can use these menus in [menu widgets](menu-widgets). Defining the menu for a device type works the same as when editing a menu document. For more details, see [Menu](menu).
+
+{{% alert type="warning" %}}
+If [security](project-security) is enabled, the menu will only show the items to which the user has access.
 {{% /alert %}}
 
-## 2 Properties of Menu Items {#properties-of-menu-items}
+### 4.5 Profile Buttons
 
-Properties of the menu items consists of the following sections:
+#### 4.5.1 Change Profile Type
 
-* [Events](#events-section-navigation)
-* [General](#general-section-navigation)
+Allows for changing the [profile type](navigation).
 
-{{% image_container width="300" %}}![](attachments/navigation/navigation-properties.png)
-{{% /image_container %}}
+#### 4.5.2 Delete
 
-### 2.1 Events Section {#events-section-navigation}
+This deletes the profile. If [menu widgets](menu-widgets) are still referring to the profile, errors will appear. It is possible to undo the deletion of a profile.
 
-You can choose the **On Click Action** in the **Events** section. The **On Click Action** defines what action is performed when the user clicks a menu item.
+#### 4.5.2 Synchronization Configuration {#customize}
 
-{{% alert type="info" %}}
-If a menu item has a sub-item(s), it cannot have an action configured for it.
-{{% /alert %}}
+Only available on profiles supporting offline synchronization.
 
-The available actions are described in the table below:
+This opens the **Customize offline synchronization** dialog box that is used for overriding offline synchronization settings for specific entities. For each entity the download setting is shown. A default is automatically determined by analyzing the model, but can be overridden in which case the setting will appear in boldface. For more details on the settings and when to use them, see the [Offline-First Reference Guide](offline-first#customizable-synchronization).
 
-| Action         | Description                                                                                                                                                                                                                                                                                                          |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nothing        | No action is taken.                                                                                                                                                                                                                                                                                                  |
-| Page           | The specified page is opened.                                                                                                                                                                                                                                                                                        |
-| Microflow      | The selected microflow is executed.                                                                                                                                                                                                                                                                                  |
-| Save Changes   | Saves (commits) all changes made in the currently opened page and closes the page.                                                                                                                                                                                                                                   |
-| Cancel Changes | Rolls back all changes made in the currently opened page and closes the page.                                                                                                                                                                                                                                        |
-| Close Page     | Closes the pop-up window (for pop-up pages) or navigates to the previously visited page. Note that this action will close the page and the changes if any will not be saved. Use **Save Changes** for this purpose.                                                                                                  |
-| Sign Out       | The current user is signed out of the app.                                                                                                                                                                                                                                                                           |
-| Open Link      | Triggers an action based on the link type: <ul><li>**Web** – navigates to a website </li><li>**Email** – composes an email</li><li>**Phone Call** – starts a phone call</li><li>**Text Message** - sends a text message</li></ul>**Note** When you configure **Email**, **Phone Call** or **Message** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message. |
+![](attachments/navigation/customize-offline-synchronization.png)
 
-{{% alert type="info" %}}
+## 5 Read More
 
-If a menu item has a sub-item, the **On Click Action** should be **Nothing**.
-
-{{% /alert %}}
-
-### 2.2 General {#general-section-navigation}
-
-The properties that can be configured in the **General** section, are described in the table below.
-
-| Property        | Description                                                                                                                                                                                                        | Depends on                                                                                                                                                                    |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Caption         | Fill out the name of the menu item here.                                                                                                                                                                           | Nothing                                                                                                                                                                       |
-| Icon            | Set the icon for the menu item here.                                                                                                                                                                               | Nothing                                                                                                                                                                       |
-| Set As Homepage | Allows you to set a page or a microflow that is opened/performed when an end-user opens the app. A homepage icon is displayed in a list of pages or microflows against a page/microflow that is set as a homepage. | **On Click Action**, available only when a page or a microflow is selected as an **On Click Action**. For more information, see [Events Section](#events-section-navigation). |
-
-## 3 Creating a Menu Item
-
-To create a new menu item, do the following:
-
-1. Click the **Navigation Document** icon in the left menu bar to open the **Navigation**.
-
-2. Click a plus at the bottom of the navigation tree to create a menu item, or click a plus next to the existing navigation item to create its sub-item
-
-   ![](attachments/navigation/adding-navigation-items.png)
-
-3. Specify the properties of the created item if needed (For more information, see [Properties of Menu Items](#properties-of-menu-items)).
-
-A new menu item or a sub-item is added to the navigation.
-
-## 4 Read More
-
-* [General Info](general)
-* [Navigation Consistency Errors](consistency-errors-navigation)
+* [App Explorer](project-explorer)
+* [Navigation Tree](navigation-tree)
