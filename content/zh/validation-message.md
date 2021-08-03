@@ -1,53 +1,49 @@
 ---
-title: "Validation Message"
-parent: "authentication-widgets"
+title: "验证消息"
+parent: "认证小部件"
 tags:
   - "studio pro"
-  - "validation message"
-  - "authentication widget"
-  - "authentication"
+  - "验证消息"
+  - "身份验证小部件"
+  - "身份认证"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-message.pdf).
-{{% /alert %}}
+●{% alert type="warning" %}}本机移动页面不支持验证信息小部件。{{% /提醒 %}}
 
-{{% alert type="warning" %}}The validation message widget is not supported on native mobile pages.{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+**验证消息** 小部件在页面上显示验证失败消息：
 
-The **Validation message** widget displays an authentication failure message on a page:
+![验证消息部件](attachments/authentication-widgets/validation-message.png)
 
-![Validation Message Widget](attachments/authentication-widgets/validation-message.png)
+ 它只在满足以下两项条件时显示给最终用户：
 
- It is only displayed to an end-user when both of the following conditions are met:
+1.  在登录按钮的 **验证消息小部件** 属性中选择的验证消息。 欲了解更多关于此属性的信息，请参阅 *登录按钮* 中的 [验证信息小部件](sign-in-button#validation-message-widget) 部分。
+2.  认证失败，即最终用户输入无效凭据。
 
-1.  The validation message selected in the **Validation message widget** property of a sign-in button. For more information on this property, see the [Validation Message Widget](sign-in-button#validation-message-widget) section in *Sign-In Button*.
-2.  An authentication fails, that is the end-user entered invalid credentials.
+## 2 属性
 
-## 2 Properties
+下面的图像是验证消息属性的示例：
 
-An example of validation message properties is represented in the image below:
-
-{{% image_container width="300" %}}![Validation Message Properties](attachments/authentication-widgets/validation-message-properties.png)
+{{% image_container width="300" %}}![验证消息属性](attachments/authentication-widgets/validation-message-properties.png)
 {{% /image_container %}}
 
-Validation message properties consist of the following sections:
+验证消息属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
+* [常用的](#common)
+* [设计属性](#design-properties)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Login ID Text Box](login-id-text-box)
-* [Password Text Box](password-text-box)
-* [Sign-In Button](sign-in-button)
+* [页](page)
+* [登录 ID 文本框](login-id-text-box)
+* [密码文本框](password-text-box)
+* [登录按钮](sign-in-button)
