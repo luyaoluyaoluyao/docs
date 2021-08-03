@@ -1,38 +1,41 @@
 ---
-title: "Dynamic Image (Document Template)"
-parent: "document-templates"
+title: "動的画像 (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Dynamic+Image+(document+template).html
-  - /refguide7/dynamic-image-(document-template).html
+  - /refguide/Dynamic+Image+(document+template).html
+  - /ja/refguide/dynamic-image-(document-template).html
 ---
 
+## 1つの紹介
 
-A dynamic image can be used to show a System.Image. If the image is not available (for example: the image was never saved) it will show the preset default image. It can be put inside a data view or templategrid.
+動的画像は、System.Imageを表示するために使用することができます。 画像が使用できない場合 (例: 画像が保存されていない場合)、プリセットされたデフォルトの画像が表示されます。 データビューまたはテンプレートグリッド内に配置できます。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918132.png) A dynamic image inside a table cell, showing the preset default image.
+![](attachments/document-templates/918132.png) テーブルセル内の動的な画像。プリセットのデフォルト画像を表示します。
 
 {{% /alert %}}
 
-## Appearance Properties
+## 外観のプロパティ
 
-### Default image
+### 2.1 デフォルト画像
 
-The default image is the image that will appear in the document when the dynamic image could not be found (when the entity that specializes the System.Image entity does not contain an actual image.)
+デフォルトの画像は、動的な画像が見つからなかったときにドキュメントに表示される画像です(システムを専門とするエンティティの場合)。 mageエンティティには実際の画像が含まれていません。
 
-### Use thumbnail
+### 2.2 サムネイルを使用
 
-Here you can select whether to use the thumbnail in the document or the full image.
+ここでは、ドキュメント内のサムネイルを使用するか、画像全体を使用するかを選択できます。
 
-### Width
+### 2.3 Width
 
-The width defines the width of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+width はドキュメント内の画像の幅を定義します。 これはピクセル単位で設定されており、ドキュメントテンプレートで PPI を使用して、実際の印刷サイズに再計算されます。 画像の歪みを防ぐために、両方を設定することはできません。
 
-### Height
+### 2.4 高さ
 
-The height defines the height of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+高さは、ドキュメント内の画像の高さを定義します。 これはピクセル単位で設定されており、ドキュメントテンプレートで PPI を使用して、実際の印刷サイズに再計算されます。 画像の歪みを防ぐために、両方を設定することはできません。
 
-## Common Properties
+## 3つの一般的なプロパティ
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
