@@ -1,81 +1,81 @@
 ---
 title: "Parse & Format Float Function Calls"
-parent: "expressions"
+parent: "表現"
 ---
 
 {{% alert type="warning" %}}
 
-These functions are deprecated together with the Float type. Use the high-precision Decimal type and related functions instead.
+これらの関数は Float 型とともに非推奨となります。 代わりに高精度の小数タイプと関連する関数を使用します。
 
 {{% /alert %}}
 
-See [http://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html](http://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html) for all pattern possibilities.
+すべてのパターンの可能性については [http://docs.oracle.com/javase/7/docs/api/java/DecimalFormat.html](http://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html) を参照してください。
 
 ## parseFloat
 
-Parses a String value to a Float value. Takes optional parameters for format and default value.
+文字列の値をFloat値に解析します。 書式とデフォルト値のオプションパラメータを取得します。
 
-### Input parameters
+### 入力パラメータ
 
 *   value to parse Type: String
-*   pattern to match on (optional) Type: String
+*   pattern to match on (任意) Type: String
 *   default value (optional) Type: Float
 
-### Output
+### 出力
 
-A Float value that matches the input String value. If the value cannot be parsed (as in, does not match the format parameter or contains illegal characters) the default value will be returned. If no default value was provided, an error occurs.
+入力文字列値に一致する浮動小数点値。 値を解析できない場合 (書式パラメータと一致しないか、不正な文字が含まれている場合)、デフォルト値が返されます。 デフォルト値が指定されていない場合、エラーが発生します。
 
 ```java
 parseFloat('3.45')
 ```
 
-returns:
+戻り値:
 
 ```java
 3.45
 ```
 
-with default value:
+のデフォルト値を指定します。
 
 ```java
 parseFloat('noFloat',5.05)
 ```
 
-returns:
+戻り値:
 
 ```java
 5.05
 ```
 
-with format parameter:
+書式パラメータ:
 
 ```java
 parseFloat('$3.33', '$#.##')
 ```
 
-returns:
+戻り値:
 
 ```java
 3.33
 ```
 ## formatFloat
 
-Converts a Float value to a String value, according to a specified format.
+指定された書式に従って、Float値を文字列値に変換します。
 
-### Input parameters
+### 入力パラメータ
 
-*   value to convert Type: Float
+*   変換する値 タイプ: Float
 *   format that the result should be in Type: String
 
-### Output
+### 出力
 
-A String representation of the Float value, in the format specified by the 'format' parameter. Type: String
+浮動小数点数の文字列表現。'format' パラメータで指定された形式。 タイプ: 文字列
 
 ```java
-formatFloat(1234.56, '#,###.#')
+formatFloat(1234.56, '#,###')
 ```
 
-returns:
+戻り値:
 
 ```java
 '1,234.5'
