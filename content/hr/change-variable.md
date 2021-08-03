@@ -1,50 +1,26 @@
 ---
 title: "Change Variable"
 parent: "variable-activities"
-tags:
-  - "studio pro"
-  - "change variable"
-  - "variable"
-  - "variable activities"
 ---
-
-{{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
 
 ## 1 Introduction
 
-Change variable allows you to change the value of an existing variable. For example, if you have a *$Discount* variable that gives customers a 50% discount on certain items, you can change this variable and assign a new value to it. You can use this value to give new customers a bigger discount:
+This action can be used to change the value of an existing variable.
 
-![Change Variable](attachments/variable-activities/change-variable.png)
+{{% alert type="info" %}}
 
+See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all microflow activities share (for example, caption). This page only describes the properties specific to the action.
 
+{{% /alert %}}
 
-## 2 Properties
+## 2 Input Properties
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+### 2.1 Variable name
 
-![Change Variable Properties](attachments/variable-activities/change-variable-properties.png)
+The variable of which you want to change the value.
 
-The **Change variable** properties pane consists of the following sections:
+## 3 Action Properties
 
-* [Action](#action)
-* [Common](#common)
+### 3.1 Value
 
-## 3 Action Section {#action}
-
-### 3.1 Variable
-
-The variable which you want to change the value of.
-
-### 3.2 Value
-
-The new value for the variable. The value is entered using an [expression](expressions). The type of the expression must be the same as the type of the selected variable.
-
-## 4 Common Section {#common}
-
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
-
-## 5 Read More
-
-* [Activities](activities)
+The new value for the variable. The value is entered using an [expression](expressions). The type of the expression should be the same as the type of the selected variable.
