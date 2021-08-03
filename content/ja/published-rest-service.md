@@ -1,57 +1,57 @@
 ---
-title: "Published REST Service"
+title: "公開されたRESTサービス"
 parent: "published-rest-services"
 menu_order: 10
-description: "Configuration options for a published REST service"
+description: "公開された REST サービスの設定オプション"
 tags:
-  - "published REST"
-  - "service"
-  - "reserved URL prefixes"
+  - "公開された REST"
+  - "サービス"
+  - "予約済みURLの接頭辞："
   - "swagger"
-  - "security"
+  - "セキュリティ"
   - "CORS"
-  - "resources"
-  - "operation"
+  - "リソース"
+  - "操作"
   - "how-to"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Use a published REST service to expose your entities and microflows to other apps using the REST standard.
+公開された REST サービスを使用して、エンティティとマイクロフローを REST 標準を使用して他のアプリに公開します。
 
-This document describes the published REST service configuration options shown when the published REST service is opened in Studio Pro.
+このドキュメントでは、公開された REST サービスが Studio Pro で開かれたときに表示される、公開された REST サービスの設定オプションについて説明します。
 
-## 2 General
+## 2つの全般
 
-### 2.1 Service Name {#service-name}
+### 2.1 サービス名 {#service-name}
 
-Service name uniquely identifies the service in the app. It is also displayed in [OpenAPI (Swagger) documentation page](open-api).
+サービス名はアプリ内のサービスを一意に識別します。 [OpenAPI (Swagger) ドキュメント ページ](open-api) にも表示されます。
 
-When service is initially created, service name is used in the creation of the default location for the service. If the service name contains any spaces or special characters, they will be replaced with the `_` character in the service location.
+サービスが最初に作成されると、サービスのデフォルトの場所の作成にサービス名が使用されます。 サービス名にスペースや特殊文字が含まれている場合は、サービスロケーションで `_` 文字に置き換えられます。
 
-### 2.2 Version
+### 2.2 バージョン
 
-Version is used to display version information in [OpenAPI (Swagger) documentation page](open-api). You can set any string in the version field, but it is recomended to follow [semantic versioning](https://semver.org/) scheme.
+バージョンは [OpenAPI (Swagger) ドキュメント ページ](open-api) にバージョン情報を表示するために使用されます。 バージョン フィールドで任意の文字列を設定できますが、 [セマンティック バージョン管理](https://semver.org/) スキームに従うことをお勧めします。
 
-By default, version is set to "1.0.0".
+デフォルトでは、バージョンは "1.0.0" に設定されています。
 
-### 2.3 Location {#location}
+### 2.3 場所 {#location}
 
-Location shows URL on which a service can be reached.
+format@@0には、サービスに到達できるURLが表示されます。
 
-By default, location is built up by appending service name and "v1" to the "rest/" prefix. Service name will be stripped off of any invalid URL characters; like spaces and special characters.
+デフォルトでは、場所はサービス名と"v1"を"rest/"プレフィックスに追加することで構築されます。 サービス名は無効なURL文字から除外されます。スペースや特殊文字などです。
 
-Example:
+例
 ```
 http//localhost:8080/rest/my_service_name/v1
 ```
 
-You can change the the default location to almost any valid URL.
+デフォルトの場所をほぼすべての有効な URL に変更できます。
 
-#### 2.3.1 Reserved Prefixes
+#### 2.3.1 予約されたプレフィックス
 
-Following URL prefixes are reserved and are not allowed to be used in location:
+次の URL プレフィックスは予約されており、ロケーションでの使用は許可されていません。
 
 * `ws/`
 * `ws-doc/`
@@ -63,91 +63,91 @@ Following URL prefixes are reserved and are not allowed to be used in location:
 * `p/`
 * `reload/`
 
-When your application is running, you can click the location to open the [interactive documentation page](published-rest-services#interactive-documentation).
+アプリケーションが実行されると、場所をクリックして [インタラクティブなドキュメント ページ](published-rest-services#interactive-documentation) を開くことができます。
 
-### 2.3 Public Documentation {#public-documentation}
+### 2.3 公開ドキュメント {#public-documentation}
 
-The public documentation is used in the service's [OpenAPI 2.0 (Swagger) Documentation](open-api). You can use [GitHub-flavored markdown](gfm-syntax) for rich text.
+公開ドキュメントは、サービスの [OpenAPI 2.0 (Swagger) ドキュメント](open-api) で使用されます。 リッチテキストには、 [GitHub風味のマークダウン](gfm-syntax) を使用できます。
 
-### 2.5 Export swagger.json {#export-swagger-json}
+### 2.5 swagger.json をエクスポート {#export-swagger-json}
 
-To save a service's [OpenAPI (Swagger) documentation](open-api) somewhere on your machine, simply right-click the service in the **App Explorer** and select **Export swagger.json** (or just click the **Export swagger.json** button, depending on your Studio Pro version). This is a machine-readable file in the [OpenAPI 2.0 file format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md). Most API tools support this format.
+To save a service's [OpenAPI (Swagger) documentation](open-api) somewhere on your machine, simply right-click the service in the **App Explorer** and select **Export swagger.json** (or just click the **Export swagger.json** button, depending on your Studio Pro version). これは [OpenAPI 2.0 ファイル形式](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) の機械可読形式のファイルです。 ほとんどのAPIツールはこのフォーマットをサポートしています。
 
-When the app is running, this file is available under */rest-doc/servicename/swagger.json*.
+アプリが実行されているとき、このファイルは */rest-doc/servicename/swagger.json* の下で利用できます。
 
-## 3 Security
+## 3つのセキュリティ
 
-### 3.1 Requires Authentication {#authentication}
+### 3.1 認証が必要 {#authentication}
 
-Select whether clients need to authenticate or not.
+クライアントを認証する必要があるかどうかを選択します。
 
-### 3.2 Authentication Methods
+### 3.2 認証メソッド
 
-If authentication is required, you can select which authentication methods you would like to support
+認証が必要な場合は、サポートしたい認証方法を選択できます。
 
-* Select **Username and password** to allow clients to authenticate themselves using a username and a password in the **Authorization** header (this is called "basic authentication")
-*  Select **Active session** to allow access from JavaScript inside your current application
-  * Once a user has logged into the browser, the JavaScript in your app can access the REST service using the current user's session
-  * [Offline-first](offline-first) apps cannot use active session authentication, because they do not have sessions that stay active while the app is running
-  * To prevent cross-site request forgery, the `X-Csrf-Token` header needs to be set on each request, for example:
+* **ユーザー名とパスワード** を選択すると、クライアントが **Authorization** ヘッダー内のユーザー名とパスワードを使用して自分自身を認証できるようになります (これは「基本認証」と呼ばれます)
+*  現在のアプリケーション内でJavaScriptからのアクセスを許可するには、 **アクティブセッション** を選択してください
+  * ユーザーがブラウザにログインすると、アプリ内の JavaScript は現在のユーザーのセッションを使用して REST サービスにアクセスできます
+  * [オフライン最初の](offline-first) アプリは、アプリの実行中にアクティブなセッションがないので、アクティブなセッション認証を使用できません。
+  * クロスサイト・リクエストの偽造を防ぐには、 `X-Csrf-Token` ヘッダーを各リクエストに設定する必要があります。例えば:
 
   ```javascript
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open("GET", "http://mysite/rest/myservice/myresource", false);
   xmlHttp.setRequestHeader("X-Csrf-Token", mx.session.getConfig("csrftoken"));
-  xmlHttp.send(null);
+  xmlhttp.send(null);
   ```
 
-* Select **Custom** to authenticate using a microflow. This microflow is called every time a user want to access a resource.
+* マイクロフローを使用して認証するには、 **Custom** を選択します。 このマイクロフローは、ユーザーがリソースにアクセスするたびに呼び出されます。
 
-Check more than one authentication method to have the service try each of them. It will first try **Custom** authentication, then **Username and password**, and then **Active session**. For more details, see [Published REST Routing](published-rest-routing).
+サービスがそれらのそれぞれを試してもらうために複数の認証方法を確認してください。 最初に **カスタム** 認証、次に **ユーザー名とパスワード**、次に **アクティブセッション**を試してみます。 詳細については、 [公開された REST ルーティング](published-rest-routing) を参照してください。
 
-### 3.3 Microflow {#authentication-microflow}
+### 3.3 マイクロフロー {#authentication-microflow}
 
-Specify which microflow to use for custom authentication.
+カスタム認証に使用するマイクロフローを指定します。
 
-Select **Parameters** to see the [list of parameters passed to the authentication microflow](published-rest-authentication-parameter). In that window you can indicate whether the authentication microflow's parameters come from request headers or from the query string.
+**パラメータ** を選択すると、 [認証マイクロフロー](published-rest-authentication-parameter) に渡されるパラメータのリストが表示されます。 このウィンドウでは、認証マイクロフローのパラメータがリクエストヘッダから来るか、クエリ文字列から来るかを指定できます。
 
-The microflow may take an [HttpRequest](http-request-and-response-entities#http-request) as a parameter, so it can inspect the incoming request.
+microflow は [HttpRequest](http-request-and-response-entities#http-request) をパラメータとして受け取ることができるため、受信するリクエストを検査することができます。
 
-The microflow may also take an [HttpResponse](http-request-and-response-entities#http-response) as a parameter. When the microflow sets the status code of this response to something other then **200**, this value is returned and the operation will not be executed. In that case, any headers set on the response are returned as well.
+マイクロフローは、パラメータとして [HttpResponse](http-request-and-response-entities#http-response) を取ることもできます。 マイクロフローがこのレスポンスのステータスコードを他のものに設定した場合、 **200**この値は返され操作は実行されません。 その場合、レスポンスに設定されているヘッダも返されます。
 
-The authentication microflow should return a User.
+認証マイクロフローは、ユーザを返す必要があります。
 
-There are three possible outcomes of the authentication microflow:
+認証のマイクロフローには3つの可能性のある結果があります。
 
-* When the status code of the HttpResponse parameter is set to something other then **200**, then this value is returned and the operation will not be executed
-* Otherwise, when the resulting User is not empty, the operation is executed in the context of that user
-* Otherwise, when the resulting User is empty, the next authentication method is attempted. When there are no other authentication methods, the result is **404 Not Found**.
+* HttpResponse パラメータのステータスコードが他のものに設定されている場合 **200**. この値は返され操作は実行されません
+* そうでなければ、結果のユーザーが空でない場合、そのユーザーのコンテキストで操作が実行されます。
+* そうでなければ、結果のUserが空の場合、次の認証方式が試みられます。 他の認証方法がない場合、結果は **404 Not Found** です。
 
-### 3.4 Allowed Roles
+### 3.4 許可されたロール
 
-The allowed roles define which [module role](module-security#module-role) a user must have to be able to access the service. This option is only available when **Requires authentication** is set to **Yes**.
+許可されたロールは、どの [モジュール ロール](module-security#module-role) ユーザがサービスにアクセスできる必要があるかを定義します。 このオプションは、 **** が **はい** に設定されている場合にのみ使用できます。
 
 {{% alert type="warning" %}}
-Web service users cannot access REST services.
+WebサービスユーザーはRESTサービスにアクセスできません。
 {{% /alert %}}
 
-## 4 Enable CORS
+## 4 CORS を有効にする
 
-Check this box when your service needs to be available on websites other than your own.
+自分以外のウェブサイトでサービスを利用する必要がある場合は、このボックスにチェックを入れてください。
 
-Click the [Settings](cors-settings) button to specify this access in more detail (for instance, which websites are allowed to access the service).
+[設定](cors-settings) ボタンをクリックして、このアクセスを詳細に指定します(たとえば、どのウェブサイトにサービスへのアクセスが許可されているか)。
 
-## 5 Resources
+## 5つのリソース
 
-A REST service exposes a number of [resources](published-rest-resource). On a resource you can define GET, PUT, POST, PATCH, DELETE, HEAD and OPTIONS operations.
+REST サービスは、多数の [リソース](published-rest-resource) を公開します。 リソース上では、GET、PUT、POST、PATCH、DELETE、HEAD、OPTIONS 演算を定義できます。
 
-You can drag an entity or a message definition onto this list to [generate a complete resource](generate-rest-resource).
+エンティティまたはメッセージ定義をこのリストにドラッグして [完全なリソース](generate-rest-resource) を生成できます。
 
-## 6 Operations
+## 6つの操作
 
-When you select a resource, you see the [operations](published-rest-operation) that are defined for that resource.
+リソースを選択すると、そのリソースに対して定義されている [操作](published-rest-operation) が表示されます。
 
-Resources and Operations are appended to [Location](#location) to form a URL on which they can be accessed.
+リソースと操作は [Location](#location) に追加され、アクセスできる URL を形成します。
 
 ![](attachments/published-rest-service/example-location-url.png)
 
-## 8 Read More
+## 8 続きを読む
 
-For more information on which operation gets executed for a given request URL, see [Published REST Routing](published-rest-routing).
+特定のリクエスト URL に対してどの操作が実行されるかについての詳細は、 [公開された REST Routing](published-rest-routing) を参照してください。
