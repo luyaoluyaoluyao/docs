@@ -1,30 +1,35 @@
 ---
 title: "ループ"
-parent: "共通要素"
+parent: "application-logic"
+menu_order: 80
+tags:
+  - "studio pro"
+  - "ループ"
+  - "繰り返します。"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/loop.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-ループは、オブジェクトのリストを反復処理するために使用されます。 オブジェクトごとに、ループ内のフローが実行されます。 フローは、受信シーケンスフローがない要素から始まります。 ループには、開始イベントと停止イベントを除き、フローで使用されるすべての要素を含めることができます。 さらに、ループ(およびループのみ)に [break events](break-event) と [continue events](continue-event) を含めることができます。
+ループはオブジェクトのリストを反復処理するために使用され、フレームとして視覚化されます。 オブジェクトごとに、ループ内のフローが実行されます。 引数と同じように見えるiteratorは、繰り返しごとにリスト内の現在のオブジェクトを表します。 オブジェクトの名前は黒で表示され、オブジェクトのエンティティタイプは青で表示されます。
 
-入力オブジェクトと同じように見えるiteratorは、各反復に対してリストの1つの要素を保持する変数を表します。 その下には、変数の名前が黒で、変数の型が青で表示されます。
+例えば、 If you have a list of objects of the *OrderLine* entity and you want to set the purchase date for every object 購入日を設定する変更アクティビティを含むループを使用できます。
 
-{{% alert type="info" %}}
+![](attachments/loop/loop.png)
 
-エンティティ「OrderLine」のオブジェクトのリストがあり、すべてのオブジェクトの購入日を設定したい場合。 購入日を設定する変更アクティビティを含むループを使用できます。
-
-![](attachments/819203/917942.png)
-
-{{% /alert %}}
+ループには、開始イベントと終了イベントを除く、マイクロフローで使用されるすべてのタイプの要素を含めることができます。 ループのみが [ブレークイベント](break-event) と [継続イベント](continue-event)を含めることができます。
 
 ## 2つの入力プロパティ
 
 ### 2.1 上に反復させる
 
-このループを繰り返すリスト変数。
+ループするアイテムのリストである変数。
 
 ## 3 アクションプロパティ
 
-### 3.1 名前
+### 3.1 ループオブジェクト名
 
-一度にリストの1つの要素を保持する変数の名前。 ループ内のフローは、リスト内の各要素に対して実行され、この変数が現在の要素を含むたびに実行されます。 If the list variable over which the loop iterates is of type `List of Order`, the iterator variable will be of type `Order`.
+**Loop object name** は現在作業中のリスト項目の名前です。 ループ内のフローはリスト内の各オブジェクトに対して実行され、オブジェクトは常にこの名前を持ちます。 For example, if the list over which the loop iterates is of type *List of Order*, the iterator object will be of type *Order*.
