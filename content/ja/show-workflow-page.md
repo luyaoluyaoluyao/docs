@@ -1,48 +1,48 @@
 ---
-title: "Show Workflow Admin Page"
-parent: "workflow-activities"
+title: "ワークフロー管理者ページを表示"
+parent: "workflow activities"
 menu_order: 30
 tags:
   - "studio pro"
-  - "workflow page"
-  - "workflow"
+  - "ワークフローページ"
+  - "ワークフロー"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Show workflow admin page** activity can be used to open a workflow overview page.
+**Show workflow admin page** アクティビティを使用して、ワークフロー概要ページを開くことができます。
 
-![Show Workflow Admin Page](attachments/open-workflow-page/open-workflow-page.jpg)
+![ワークフロー管理者ページを表示](attachments/open-workflow-page/open-workflow-page.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of create object properties is represented in the image below:
+以下の画像では、create object プロパティの例を示します。
 
-![Show Workflow Admin Page](attachments/open-workflow-page/open-workflow-page-properties.jpg)
+![ワークフロー管理者ページを表示](attachments/open-workflow-page/open-workflow-page-properties.jpg)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The **Show workflow admin page** properties pane consists of the following sections:
+**ワークフロー管理ページ** プロパティ ペインを表示するには、次のセクションがあります。
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Workflow Object
+### 3.1 ワークフローオブジェクト
 
-A workflow object of which the page you would like to show.
+表示したいページのワークフローオブジェクト。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
