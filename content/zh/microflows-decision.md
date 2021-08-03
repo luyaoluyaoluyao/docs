@@ -1,70 +1,68 @@
 ---
-title: "Decision"
-category: "Microflows"
+title: "决 定"
+category: "微型流动"
 menu_order: 20
-description: "Describes a decision in Mendix Studio."
+description: "在 Mendix Studio 中描述一个决定。"
 tags:
-  - "studio"
-  - "microflow"
-  - "exclusive split"
-  - "decision"
+  - "工作室"
+  - "微流"
+  - "专用拆分"
+  - "决 定"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes a **Decision** in Mendix Studio.
+本文档在 Mendix Studio 描述了一个 **决定**。
 
-A decision is an element based on a condition; it follows one and only one of the outgoing flows. For example, you need to use a decision to show different order forms for the customers with different grades, or to prevent a blocked customer from making orders.
+一项决定是一项基于条件的要素，它遵循的只是一项外流流量。 例如，您需要使用决定为不同级别的客户显示不同的订单表单， 或阻止被屏蔽的客户订单。
 
-## 2 Condition {#condition}
+## 2 条件
 
-There are two ways to configure a condition for the decision:
+有两种方式来配置一个条件用于决策：
 
-* [With **Variables/ Attributes**](#variables-attributes-tab) ( for example, you can use it to create different flows for an attribute of the enumeration type)
-*  [With an **Expression**](#expression-tab) (for example, you can create a comparison with it)
+* [使用 **变量/属性**](#variables-attributes-tab) (例如您可以用它来为枚举类型的属性创建不同的流程)
+*  [使用 **表达式**](#expression-tab) (例如，您可以创建一个与它比较)
 
    ![](attachments/microflows-decision/configure-condition-dialog.png)
 
-### 2.1 Configuring the Condition with Variables or Attributes {#variables-attributes-tab}
+### 2.1 用变量或属性配置条件 {#variables-attributes-tab}
 
-The following elements can be used as a decision condition in the **Variable/Attributes** tab:
+以下元素可以在 **变量/属性** 标签中作为决策条件：
 
-* Variable with Boolean data type
-* Variable with enumeration data type
-* Attribute  of Boolean type
-* Attribute of enumeration type
+* 带布尔值数据类型的变量
+* 有枚举数据类型的变量
+* 布尔类型的属性
+* 枚举类型的属性
 
 {{% alert type="info" %}}
 
-The parameters and entities which you would like to use in configuring the condition of the decision should be present in the microflow, either as input parameter or as a result of an activity.
+您想要在配置决策条件时使用的参数和实体应该存在于微流程中， 要么作为输入参数，要么作为活动的结果。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 2.2 Configuring the Condition with an Expression {#expression-tab}
+### 2.2 用表达式配置条件 {#expression-tab}
 
-You can also configure the condition by writing the expression. For more information on how to write an expression, see [Microflow Expressions](microflows-expressions).
+您也可以通过写入表达式来配置条件。 欲了解更多信息，请参阅 [微流程表达式](microflows-expressions)。
 
-## 3 Cases
+## 3 个案件
 
-**Cases** define the number of outgoing flows and depend on the selected [Condition](#condition).
+可用案例的数量取决于所选的 **条件**。
 
-For the Boolean type of the parameter or attribute, two flows are possible: **true** and **false**.
+对于参数或属性的布尔类型，可能有两个值：true和false。
 
 ![](attachments/microflows-decision/decision-boolean.png)
 
-The number of cases available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* case available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
-
-For example, if a end-user needs to select a customer grade but does not do that, the flow labelled **(empty)** is followed and an error message is shown to the end-user:
+可用于列举类型的案例数量取决于相应的枚举常量/值。 还有可供列举的空案。 如果一个对象的枚举参数或属性未分配，则跟随标题(空)的序列流。
 
 ![](attachments/microflows-decision/decision-enumeration.png)
 
-## 4 Caption
+## 4 个标题
 
-The caption describes what happens in this element.
+标题描述了这个元素发生的情况。
 
-## 5 Read More
+## 5 阅读更多
 
-* [Microflows](microflows)
-* [Microflow Expressions](microflows-expressions)
-* [Configure a  Decision](/studio-how-to8/microflows-how-to-configure-decision) 
+* [微型流动](微流)
+* [微流程表达式](microflows-expressions)
+* [配置决定](microflow-how to config-decision) 
 
