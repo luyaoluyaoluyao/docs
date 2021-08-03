@@ -1,96 +1,96 @@
 ---
-title: "Conditions"
-parent: "page-concepts"
+title: "条件"
+parent: "page-コンセプト"
 ---
 
-## 1 Overview
+## 1つの概要
 
-In pages, certain elements can be shown, hidden, made editable, or made read-only based on the value of an attribute and/or the roles of the user that is signed in. Using this feature, you can reuse one page for different purposes. For example, a page can hide tab pages for users  who have no rights to view or edit the information in those tab pages.
+ページでは、特定の要素を表示、非表示、編集可能にできます。 または、属性の値および/またはサインインされたユーザーのロールに基づいて読み取り専用に設定します。 この機能を使用すると、異なる目的で1つのページを再利用できます。 たとえば、そのタブページで情報を表示または編集する権限がないユーザのタブページを非表示にできます。
 
-The following elements support conditional visibility:
+以下の要素は条件付き可視性をサポートしています。
 
-* All the widgets
-* [Grid control bar buttons](control-bar)
-* [Table rows](table-row), [tab pages](tab-page), and [layout grid rows](layout-grid)
+* すべてのウィジェット
+* [グリッドコントロールバーボタン](control-bar)
+* [テーブル行](table-row), [タブページ](tab-page), [レイアウトグリッド行](layout-grid)
 
-The following elements support conditional editability:
+以下の要素は条件付き編集をサポートしています。
 
-* Input widgets ([text box](text-box), [reference selector](reference-selector), etc.)
+* ウィジェットの入力 ([テキスト ボックス](text-box), [参照セレクター](reference-selector), など)
 
-There are four kinds of conditions:
+条件には4種類があります。
 
-* The value of an attribute of the enclosing data container
-  * The attribute must be of type Boolean or enumeration
-  * For each value, you specify whether the element is visible/editable
-  * Upon entering the page and changing the condition attribute, the conditions will be applied
-* A condition based on an [expression](expressions)
- * The expression must evaluate to a value of the Boolean type
-  * The element is visible/editable when the expression evaluates to `true`
-* Module roles
- * For each module you specify whether the element is visible or not.
-* Ignoring security
- * Buttons are automatically hidden if security prevents the user from executing the action
- * You can ignore this and show the button anyway. This is useful for application with anonymous users. Clicking a button for which you do not have the rights will then trigger a sign in page.
+* データコンテナの属性の値
+  * 属性はブール値または列挙型でなければなりません
+  * 各値に対して、要素が表示/編集可能かどうかを指定します。
+  * ページを入力して条件属性を変更すると、条件が適用されます。
+* [式](expressions) に基づく条件
+ * 式はブール型の値に評価しなければなりません
+  * 式が `true` と評価されると、要素が表示/編集可能になります
+* モジュールの役割
+ * 各モジュールで、要素が表示されているかどうかを指定します。
+* セキュリティを無視
+ * ユーザーがアクションを実行できない場合、ボタンは自動的に非表示になります
+ * これを無視してボタンを表示することもできます。 これは匿名ユーザを持つアプリケーションに便利です。 権限がないボタンをクリックすると、サインインページが起動します。
 
-Module role conditions can only be used for the visibility of table rows and tab pages. They cannot be used to make an input widget read-only or to hide buttons. To make an input widget conditionally editable based on roles, use security to give roles read and write access to attributes. For example, by not giving a role write access to an attribute, the corresponding input widget will automatically turn read-only (as in, not editable). To hide a button based on roles, configure the security of the underlying page or action (for example, by not giving a role create access, **New** buttons will be hidden).
+モジュールロールの条件は、テーブル行とタブページの表示にのみ使用できます。 入力ウィジェットを読み取り専用にしたり、ボタンを非表示にしたりするのには使用できません。 ロールに基づいて条件付きで入力ウィジェットを編集可能にするには、ロールに属性の読み取りおよび書き込みアクセスを与えるためにセキュリティを使用します。 たとえば、ロールへの書き込みアクセス権を属性に与えないと、対応する入力ウィジェットは読み取り専用になります(編集不可能)。 ロールに基づいてボタンを非表示にするには、元のページまたはアクションのセキュリティを構成します (例: ロールを作成しないことで、 **新しい** ボタンは非表示になります)。
 
-## 2 Context
+## 2つのコンテキスト
 
-### 2.1 Show/Enable Element Based on Attribute Value
+### 2.1 属性値に基づく要素の表示/有効化
 
-By selecting this option, visibility or editability becomes conditional based on the value of the attribute that is selected.
+このオプションを選択すると、選択されている属性の値に基づいて可視性または編集性が条件付きになります。
 
-For example, if you have a Boolean indicating whether a user wants to receive email, you can create a check box to edit the value of this Boolean. The row that asks for an email address can be shown only if the check box is checked.
+例えば、ユーザーが電子メールを受信したいかどうかを示す Boolean がある場合。 チェックボックスを作成して、この Boolean の値を編集できます。 電子メールアドレスを要求する行は、チェック ボックスがオンになっている場合にのみ表示できます。
 
-#### 2.1.1 Attribute
+#### 2.1.1 属性
 
-This is the attribute on which the conditions are based. The attribute must be of the Boolean or Enumeration type.
+これは、条件が基づいている属性です。 属性はブール型または列挙型でなければなりません。
 
-#### 2.1.2 Conditions
+#### 2.1.2 条件
 
-For each value of the attribute, you can specify whether the element is editable or visible.
+属性の値ごとに、要素が編集可能か表示可能かを指定できます。
 
-### 2.2 Show/Enable Element Based on Expression
+### 2.2 式に基づく要素の表示/有効化
 
-By selecting this option, visibility or editability becomes conditional based on whether the entered [microflow expression](expressions) evaluates to `true` or `false`.
+このオプションを選択することで visibility または editability は、入力された [マイクロフロー 式](expressions) が `true` または `false` と評価されるかに基づいて条件付きになります。
 
-The expression result must be of the Boolean type. The expression can use the obejct of the enclosing data container available as a `$currentObject` variable.
-
-{{% alert type="warning" %}}
-
-The expression is evaluated in the browser, so we advise against using "secret" values (like access keys) in it. In particular, we disallow usages of [constants](constants). Also, client-side expressions currently do not support all the functions that are available in the microflows. Please refer to an autocomplete list to know what functions are supported in your version.
-
-{{% /alert %}}
-
-## 3 Modules Roles
-
-### 3.1 Show/Enable Element for Selected Module Roles
-
-By selecting this option, visibility or editability becomes conditional based on the module roles of the user who is signed in.
-
-For example, if you have a page that has a tab page containing the current orders of a customer and a tab page containing an order history, you can hide the order history tab for certain roles so that you only need to build one page for different kinds of users.
-
-#### 3.1.1 Conditions
-
-For each module role, you can specify whether the table row or tab page is visible or not.
+式の結果はブール型でなければなりません。 式は、 `$currentObject` 変数として利用可能な、囲まれたデータコンテナのbejctを使用できます。
 
 {{% alert type="warning" %}}
 
-Do not rely on hiding tab pages and table rows for security! Also, use domain model security to give roles the appropriate access to data.
+式はブラウザで評価されるので、その中で "secret" 値 (アクセスキーなど) を使用しないことをお勧めします。 特に、 [定数](constants) の使用は禁止されています。 また、クライアント側の式は現在、マイクロフローで使用可能なすべての機能をサポートしていません。 お使いのバージョンでサポートされている機能については、オートコンプリートリストを参照してください。
 
 {{% /alert %}}
 
-### 3.2 Show/Enable Element for All Module Roles (for Some Widgets)
+## 3つのモジュールロール
 
-Widgets triggering actions (for example, action buttons) are automatically hidden if security prevents the user from executing the action. You can overwrite this rule and show the widget anyway, which is useful for an app that has anonymous users. Clicking a button for which you do not have the rights will then trigger a sign-in page.
+### 3.1 選択したモジュールロールの要素の表示/有効化
 
-In this table, you can see what rights you need to have for the action to be accessible in the normal case:
+このオプションを選択すると、サインインしているユーザのモジュールロールに基づいて表示/編集が条件付きになります。
 
-| Action/Widget Type    | Necessary Rights                  |
-| --------------------- | --------------------------------- |
-| Call microflow action | Execute the microflow.            |
-| Show page action      | Open the page.                    |
-| Create button         | Create objects and open the page. |
-| Edit button           | Open the page.                    |
-| Delete button         | Delete objects.                   |
+例えば、 顧客の現在の注文を含むタブページと注文履歴を含むタブページがある場合。 特定のロールの注文履歴タブを非表示にすることができます。これにより、異なる種類のユーザーのために1つのページを作成する必要があります。
+
+#### 3.1.1 条件
+
+各モジュール ロールに対して、テーブル 行またはタブ ページを表示するかどうかを指定できます。
+
+{{% alert type="warning" %}}
+
+セキュリティのためにタブページとテーブルの行を非表示にしないでください! また、ドメインモデルのセキュリティを使用して、ロールにデータへの適切なアクセスを与えます。
+
+{{% /alert %}}
+
+### 3.2 すべてのモジュールロールのエレメントの表示/有効化 (一部のウィジェット用)
+
+ウィジェットによるアクションのトリガー(例えば、アクションボタン)は、セキュリティによってユーザーがアクションを実行できなくなった場合に自動的に非表示になります。 このルールを上書きしてウィジェットを表示することができます。これは匿名ユーザを持つアプリに便利です。 アクセス権がないボタンをクリックすると、サインインページがトリガーされます。
+
+この表では、通常の場合にアクセス可能なアクションに必要な権限を確認できます。
+
+| アクション/ウィジェットタイプ   | 必要な権利                |
+| ----------------- | -------------------- |
+| マイクロフローアクションを呼び出す | マイクロフローを実行します。       |
+| ページアクションを表示       | ページを開きます。            |
+| 作成ボタン             | オブジェクトを作成し、ページを開きます。 |
+| 編集ボタン             | ページを開きます。            |
+| 削除ボタン             | オブジェクトを削除する          |
 
