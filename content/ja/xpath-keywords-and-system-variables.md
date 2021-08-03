@@ -1,9 +1,6 @@
 ---
-title: "XPath キーワード & システム変数"
+title: "XPath キーワードとシステム変数"
 parent: "xpath-constraints"
-tags:
-  - "studio pro"
-  - "BeginOfCurrent"
 ---
 
 ## 1つの概要
@@ -46,10 +43,6 @@ XPath では、いくつかのキーワードとシステム変数を比較と�
 | ---------------------------- | ----------- |
 | `[%UserRole_Administrator%]` | 管理者ユーザーのロール |
 
-次に、そのユーザーロールを取得する例を示します。
-
-![](attachments/xpath/user-role.png)
-
 ### 3.3 時間関連
 
 以下のトークンを使用して、日付と時刻の値を取得できます。
@@ -91,7 +84,6 @@ XPath では、いくつかのキーワードとシステム変数を比較と�
 | `[%MinuteLength%]` | 1分間の長さ。      |
 | `[%SecondLength%]` | 一秒の長さ。       |
 | `[%WeekLength%]`   | 1週間（7日）の長さ。  |
-| `[%MonthLength%]`  | 1ヶ月の長さ。      |
 | `[%YearLength%]`   | 一年の長さ。       |
 
 {{% alert type="info" %}}
