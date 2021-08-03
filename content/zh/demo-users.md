@@ -6,12 +6,8 @@ tags:
   - "studio pro"
   - "demo users"
   - "demo-users"
-  - "project security"
+  - "app security"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/demo-users.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -21,7 +17,7 @@ When the application is started for the first time, the specified demo users are
 
 The demo users are only created and shown when running your application locally on your development machine, or when running in a Free App environment.
 
-To access demo users and their properties, open **Project Security** > **Demo users**:
+To access demo users and their properties, open **App Security** > **Demo users**:
 
 ![](attachments/demo-users/demo-users-tab.png)
 
@@ -67,7 +63,7 @@ You can use demo user to test what your application looks like to different user
 
 ## 5 Read More
 
-* [Project Security](project-security)
+* [App Security](project-security)
 * [User Roles](user-roles)
 * [Administrator](administrator)
 * [Anonymous Users](anonymous-users)
