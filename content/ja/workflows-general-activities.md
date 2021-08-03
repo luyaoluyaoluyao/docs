@@ -1,120 +1,120 @@
 ---
-title: "General Activities"
-category: "Workflows"
+title: "一般的な活動"
+category: "ワークフロー"
 menu_order: 30
 tags:
-  - "workflow"
-  - "workflows"
-  - "decision"
-  - "parallel split"
-  - "end activity"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "決定"
+  - "平行分割"
+  - "アクティビティを終了する"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**General** activities allow you to manage paths in your workflow. A **Decision** allows you to add a condition and the workflow will follow one of the paths depending on this condition. With the help of the **Jump** activity you can jump to another activity in the workflow. **Parallel Split** adds several parallel paths (processes) to the workflow, and the **End** event ends a path.
+**一般的な** アクティビティでは、ワークフローのパスを管理できます。 **Decision** を使用すると、条件を追加でき、ワークフローはこの条件に応じてパスのいずれかに従います。 **ジャンプ** アクティビティを使用すると、ワークフロー内の別のアクティビティにジャンプできます。 **並列分割** はワークフローに複数の並列パス (プロセス) を追加し、 **End** イベントはパスを終了します。
 
-![General Activities](attachments/workflows/general.jpg)
+![一般的な活動](attachments/workflows/general.jpg)
 
-## 2 Decision {#decision}
+## 2つの決定 {#decision}
 
-A decision is an element that makes a choice based on a condition and follows one and only one of the outgoing paths. For example, you can use it to follow different processes when a new hire works remotely or when they work from the office:
+意思決定は、条件に基づいて選択を行い、発信パスの1つだけに従う要素です。 たとえば、新しい採用者がリモートで作業する場合や、オフィスで作業する場合に異なるプロセスを実行するために使用できます。
 
-![Decision Example](attachments/workflows-general-activities/decision-example.jpg)
+![決定例](attachments/workflows-general-activities/decision-example.jpg)
 
-### 2.1 Decision Properties
+### 2.1 決定プロパティ
 
-An example of decision properties is represented in the image below:
+以下の図に、決定プロパティの例を示します。
 
-![Decision Properties](attachments/workflows-general-activities/decision-properties.jpg)
+![決定プロパティ](attachments/workflows-general-activities/decision-properties.jpg)
 
-Decision properties consist of the following sections:
+決定プロパティは以下のセクションで構成されています:
 
-* [General](#general)
-* [Outcome](#outcome)
+* [全般](#general)
+* [成果](#outcome)
 
-#### 2.1.1 General Section {#general}
+#### 2.1.1 一般セクション {#general}
 
-The **General** section provides the caption for the element and its condition.
+**General** セクションには、要素とその状態のキャプションが表示されます。
 
-The **General** section properties are described in the table below:
+**一般** セクションのプロパティは以下の表に記載されています。
 
-| Property  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Caption   | Describes what happens in this element. It is displayed in the workflow editor to make the workflow easier to read and understand.                                                                                                                                                                                                                                                                                                                                                                                 |
-| Condition | **Condition** is configured based on an [expression](/refguide/expressions). The expression should result in a Boolean or an enumeration.<br />For the expression resulting in a Boolean, two paths are possible: **true** and **false**. For example, you can use the expression resulting in a Boolean to follow different processes whether a new employee is working from home or from the office (and either send their devices to the home address or set up a workstation in the office).<br /> |
+| 属性   | 説明                                                                                                                                                                                                                                                 |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 図表番号 | この要素で何が起こるかを説明します。 ワークフローエディタに表示され、ワークフローの読みやすさと理解が容易になります。                                                                                                                                                                                        |
+| 条件   | **条件** は [式](/refguide/expressions) に基づいて設定される。 式はブール値または列挙値を返します。<br />Boolean型の式では、 **true** と **false** の2つのパスが使用できます。 例えば、 新しい従業員が自宅で働いているか、オフィスで働いているかどうか(自宅の住所にデバイスを送信するか、オフィスでワークステーションをセットアップするか)異なるプロセスに従うために、式を使用できます。<br /> |
 
-#### 2.1.2 Outcomes Section {#outcome}
+#### 2.1.2 出力セクション {#outcome}
 
-**Outcomes** depends on the condition of the decision. For example, for the Boolean, you have **true** and **false** outcomes, and for the enumeration: an outcome per each enumeration value and an empty one when the value is unassigned.
+**結果** は決定の条件に依存する。 例えば、Booleanの場合、 **true** と **false** の結果があります。 とします。各列挙値ごとの結果と、その値が未割り当ての場合の空の値です。
 
-To change the order of outcomes, click the **Outcome** property and drag it.
+結果の順序を変更するには、 **Outcome** プロパティをクリックしてドラッグします。
 
-## 3 Jump Activity {#jump}
+## 3ジャンプアクティビティ {#jump}
 
-The **Jump** activity allows you to jump to other activities in the workflow. This is useful when, for example, you are approving a request and need more details that are provided in one of the previous user tasks:
+**ジャンプ** アクティビティでは、ワークフロー内の他のアクティビティにジャンプできます。 これは、たとえば、リクエストを承認し、以前のユーザータスクのいずれかで提供される詳細を必要とする場合に便利です。
 
-![Jump Activity Example](attachments/workflows-general-activities/jump-example.jpg)
+![ジャンプアクティビティの例](attachments/workflows-general-activities/jump-example.jpg)
 
 {{% alert type="warning" %}}
-You cannot use the **Jump** activity in a Parallel split or in a path where it would end the workflow without any other path continuing it.
+**ジャンプ** アクティビティを並列分割または他のパスが継続せずにワークフローを終了するパスで使用することはできません。
 {{% /alert %}}
 
-### 3.1 Jump Activity Properties
+### 3.1 ジャンプアクティビティのプロパティ
 
-An example of Jump activity properties is represented in the image below:
+以下の画像では、format@@0 アクティビティプロパティの例を示します。
 
 ![](attachments/workflows-general-activities/jump-properties.jpg)
 
-The Jump activity properties consist of the **General** section and are described in the table below:
+**一般的な** セクションで構成されており、以下の表に説明されています。
 
-| Property | Description                                                                                                                        |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Name     | The internal name of the element. When referring to the element in the  you will use this name. It must be unique.                 |
-| Caption  | Describes what happens in this element. It is displayed in the workflow editor to make the workflow easier to read and understand. |
-| Target   | **Target** is the activity the **Jump** goes to. You can select the activity you would like to go to from the drop-down menu.      |
+| 属性     | 説明                                                                       |
+| ------ | ------------------------------------------------------------------------ |
+| 名前     | 要素の内部名。 要素を参照する場合は、この名前を使用します。 それはユニークでなければなりません。                        |
+| 図表番号   | この要素で何が起こるかを説明します。 ワークフローエディタに表示され、ワークフローの読みやすさと理解が容易になります。              |
+| Target | **ターゲット** は、 **ジャンプ** が移動するアクティビティです。 ドロップダウンメニューから、移動したいアクティビティを選択できます。 |
 
-## 4 Parallel Split {#parallel-split}
+## 4つの並列分割 {#parallel-split}
 
-The parallel split is used to have parallel processes in your workflow. For example, when onboarding a new employee, you can have several processes running in parallel: the HR department preparing necessary documents, the IT department preparing a workstation, and the Administration department scheduling a training for the employee:
+並列分割はワークフロー内の並列プロセスに使用されます。 たとえば、新規従業員の登録時には、複数のプロセスが並行して実行されることがあります。HR部門は必要な書類を準備しています。 IT部門がワークステーションを準備し、管理部門が従業員向けの研修を予定しています。
 
-![Parallel Split Example](attachments/workflows-general-activities/parallel-split-example.jpg)
+![並列分割例](attachments/workflows-general-activities/parallel-split-example.jpg)
 
 {{% alert type="info" %}}
 
-The workflow will only continue to the next activity when all paths of the parallel split have been completed.
+並列分割のすべてのパスが完了した場合、ワークフローは次のアクティビティにのみ継続されます。
 
 {{% /alert %}}
 
-### 4.1 Parallel Split Properties
+### 4.1 並列分割プロパティ
 
-An example of parallel split properties is represented in the image below:
+以下の画像では、並列分割プロパティの例を示します。
 
-![Parallel Split Properties](attachments/workflows-general-activities/parallel-split-properties.jpg)
+![並列分割プロパティ](attachments/workflows-general-activities/parallel-split-properties.jpg)
 
-Parallel split properties consist of the following sections:
+並列分割プロパティは以下のセクションで構成されています:
 
-* [General](#general)
-* [Paths](#paths)
+* [全般](#general)
+* [パス](#paths)
 
-#### 4.1.1 General Section {#general}
+#### 4.1.1 一般セクション {#general}
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand.
+**図表番号** では、この要素で何が起こるかを説明します。 ワークフロー要素に表示され、ワークフローが読みやすくなり、理解しやすくなります。
 
-#### 4.1.2 Paths Section {#paths}
+#### 4.1.2 パスセクション {#paths}
 
-The **Paths** property allows you to add as many paths as there are parallel processes.
+**パス** プロパティを使用すると、並列プロセスと同じ数のパスを追加できます。
 
-To change the order of paths, click the **Paths** property and drag it.
+パスの順序を変更するには、 **Paths** プロパティをクリックしてドラッグします。
 
-## 5 End Event {#end}
+## 5つの終了イベント {#end}
 
-The **End** event ends the path of the workflow.
+**End** イベントはワークフローのパスを終了します。
 
 {{% alert type="warning" %}}
-You cannot use the **End** event in a Parallel split or in a path where it would end the workflow without any other path continuing it.
+**End** イベントは、パラレル分割または他のパスが継続せずにワークフローを終了するパスでは使用できません。
 {{% /alert %}}
 
-## 6 Read More
+## 6もっと読む
 
-* [User Task](workflows-user-task)
+* [ユーザータスク](workflows-user-task)
