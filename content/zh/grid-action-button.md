@@ -1,21 +1,21 @@
 ---
-title: "Grid Action button"
-parent: "control-bar"
+title: "网格动作按钮"
+parent: "控制栏"
 ---
 
-An action button can perform various actions such as calling a microflow or nanoflow or opening a page.
+动作按钮可以执行各种动作，如调用微流程或nanoflow 或打开一个页面。
 
-Common properties
+共同属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Events
+## 事件
 
-{{% snippet file="refguide7/On+Click+Event+Action.md" %}}
+{{% snippet file="refguid7/On+Click+Event+Action.md" %}}
 
-## General properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -25,10 +25,10 @@ Common properties
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-## Visibility properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Extended.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Extened.md" %}}
