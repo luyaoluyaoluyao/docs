@@ -8,8 +8,12 @@ tags:
 menu_order: 60
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/synchronize-to-device.pdf) をクリックしてください。
+{{% /alert %}}
+
 {{% alert type="warning" %}}
-このアクティビティは、オフライン最初のアプリ (ネイティブまたはオフライン PWA アプリ) で実行される **Microflow** でのみ使用できます。
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
 ## 1つの紹介
@@ -45,7 +49,7 @@ menu_order: 60
 
 ## 4つの共通セクション {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
 
 ## 5つの制限事項
 
@@ -55,6 +59,7 @@ menu_order: 60
 * 現在のユーザがアクセスルールにより一部のオブジェクトにアクセスできない場合、 それらはデバイスと同期されません。 オフラインデータベースに既に同じオブジェクトが含まれている場合は、削除されます。
 * デバイスに同期するオブジェクトが同じマイクロフローで削除された場合 **デバイスに同期** アクティビティが見つかった場合、オフラインデータベースからそれを削除します。
 * 自動コミットおよび新規オブジェクトはスキップされます。
+* ファイルの同期は許可されていません。
 * これは、イベント・マイクロフローからではなく、ナノフローから呼び出されるマイクロフロー内のオブジェクトのみを同期します。
 
 ## 6つの備考
