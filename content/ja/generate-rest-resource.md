@@ -9,14 +9,11 @@ tags:
   - "エンティティ"
   - "操作"
   - "暴露する"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-この機能はバージョン7.16.0で導入されました。
-
-**Patch** を生成するオプションは、バージョン 7.17.0 で導入されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/generate-rest-resource.pdf) をクリックしてください。
 {{% /alert %}}
 
 ## 1つの紹介
