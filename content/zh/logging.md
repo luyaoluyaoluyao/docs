@@ -1,98 +1,98 @@
 ---
-title: "Logging"
-category: "Mendix Runtime"
+title: "日志记录"
+category: "Mendix 运行时间"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Below we describe what the various log levels of the runtime will show as output. During development, these log levels can be set in the console (advanced -> set log levels), when deployed on a server, please refer to the [Deployment](/developerportal/deploy/mendix-cloud-deploy) pages.
+下面描述运行时的各种日志级别将显示为输出。 开发过程中，这些日志级别可以设置在控制台中 (高级-> 设置日志级别)， 当部署在服务器上，请参阅 [部署](/developerportal/deploy/mendix-cloud-deploy) 页面。
 
-You can also set log levels to provide more or less information when testing locally using the console in Studio Pro. See [Configuring the Log Levels for Standard Log Messages](/howto/monitoring-troubleshooting/log-levels#standard-log-levels) in *How To Set Log Levels* for more information.
+您还可以设置日志级别，在使用Studio Pro中的控制台进行本地测试时提供多少信息。 请参阅 [配置日志级别的标准日志消息](/howto/monitoring-troubleshooting/log-levels#standard-log-levels) *如何设置日志级别* 以获取更多信息。
 
-## 2 Log Levels
+## 2 日志级别
 
-### 2.1 Critical
+### 2.1 临界性
 
-Critical is reserved for rare cases where the application may not be able to function reliably anymore. This should normally not occur. If it does, you should immediately take action. The 3.0 cloud treats these messages as alerts and will notify you on the cloud dashboard.
+对于应用程序可能无法再可靠地运行的极少数情况来说，关键是保留的。 这种情况通常不应发生。 如果是这样的话，你应该立即采取行动。 3.0 云将这些消息作为警报处理，并将在云仪表盘上通知您。
 
-### 2.2 Error
+### 2.2 错误
 
-Error is used to log all unhandled exceptions. These are unexpected events that should not occur, but are not critical. The application should be able to function normally afterwards.
+错误用于记录所有未处理的异常。 这些是出乎意料的事件，不应发生，但并不是危急的。 申请应能够在其后正常运作。
 
-### 2.3 Warning
+### 2.3 警告
 
-Warning is often used for handled 'exceptions' or other important log events. For example, if your application requires a configuration setting but has a default in case the setting is missing, then the Warning level should be used to log the missing configuration setting.
+警告常常用于处理“异常”或其他重要的日志事件。 例如，如果您的应用程序需要配置设置，但在设置丢失时有默认设置， 然后警告级别应用来记录缺失的配置设置。
 
-### 2.4 Information
+### 2.4 信息
 
-The Information level is typically used to output information that is useful to the running and management of your system. Information would also be the level used to log entry and exit points in key areas of your application. However, you may choose to add more entry and exit points at Debug level for more granularity during development and testing.
+信息级别通常用于输出对您系统的运行和管理有用的信息。 信息还将用于记录您应用程序关键领域的出入境点。 然而，您可以选择在调试级别添加更多的出入境点，以便在开发和测试期间更多的粒度。
 
 ### 2.5 Debug
 
-This should be used for debugging systems during development, but never in a production system. It can be used to easily pinpoint problems and the general flow of your application.
+这应用于开发期间的调试系统，但绝不应用于生产系统。 它可以用来轻松地确定您的应用程序的问题和一般流程。
 
-### 2.6 Trace
+### 2.6 轨迹
 
-This is the most verbose logging level, and can be used if you want even more fine-grained logging than debug.
+这是最详细的日志级别，如果你想要比调试更精细的日志，可以使用它。
 
-## 3 Log Nodes
+## 3 个日志节点
 
-This section provides some details on specific log nodes used by Mendix. It is recommended that if you write your own [log messages](log-message) you use your own log node names to avoid confusion with the Mendix log messages.
+本节提供了Mendix使用的特定日志节点的一些详情。 建议如果您写了自己的 [日志消息](log-message) ，您使用自己的日志节点名称来避免与 Mendix 日志消息混淆。
 
-### 3.1 Default Mendix Log Nodes{#mendix-nodes}
+### 3.1 默认 Mendix 日志节点{#mendix-nodes}
 
-The following log nodes are used by Mendix when writing log messages.
+Mendix 在写日志消息时使用以下日志节点。
 
 {{% alert type="info" %}}
-This list is currently incomplete and is being worked on.
-{{% /alert %}}
+这份清单目前尚不完整，正在进行中。
+{{% /报警 %}}
 
-| Log Node                     | Description                                                                                                                                                                                         |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ActionManager                | Log messages related to action scheduling (for example, scheduled events) and action execution (for example, running microflows).                                                                   |
-| Configuration                | Logging related to the configuration of the Mendix app that is read in at startup.                                                                                                                  |
-| ConnectionBus                | General logging related to database startup, synchronization and connections management for Mendix.                                                                                                 |
-| ConnectionBus_Mapping        | Information relating to the translations of XPath Queries and OQL text queries to OQL Queries.                                                                                                      |
-| ConnectionBus_Queries        | Deprecated: This is a legacy node.                                                                                                                                                                  |
-| ConnectionBus_Retrieve       | All information related to the retrieval of data, such as: Incoming requests from the application, the executed statement. Also logs issues encountered during the processing of the received data. |
-| ConnectionBus_Security       | Information regarding access rights needed to access the database.                                                                                                                                  |
-| ConnectionBus_Synchronize    | Deprecated: This is a legacy node.                                                                                                                                                                  |
-| ConnectionBus_Update         | All information related to the update of data in the database. Incoming storage requests, the executed statements and issues encountered during storage.                                            |
-| ConnectionBus_Validation     | Information related modification of the existing database, and database migration.                                                                                                                  |
-| Connector                    |                                                                                                                                                                                                     |
-| Core                         | Logs messages from the core runtime. This can be startup of the runtime, version of the runtime, license being used and issues related to interpreting the model.                                   |
-| DataStorage_QueryHandling    | Logs messages related to the queries that are being executed.                                                                                                                                       |
-| DataStorage_QueryPlan        | Query execution plan information for installations (currently only supported for PostgreSQL databases).                                                                                             |
-| DocumentExporter             | Logs messages related to the templating engine that generates documents.                                                                                                                            |
-| FileDocumentSizesPopulateJob | Logs messages for a background job that populates the file-size field in the database for documents that do not have that field filled (used during legacy migration).                              |
-| I18NProcessor                | Logs messages related to translation of the app.                                                                                                                                                    |
-| JSON                         | JSON messages from the Mendix Client to the Runtime Server. See [JSON](#json), below, for more information                                                                                          |
-| Jetty                        | Logs messages from the internal Jetty webserver that handles HTTP requests between the runtime and the outside world.                                                                               |
-| LocalFileSystemStore         | Logs messages related to file handling if you are using local file system as your file store.                                                                                                       |
-| Logging                      | Logs messages related to the logging framework used by Mendix.                                                                                                                                      |
-| M2EE                         | Log messages from the administration interface with the runtime                                                                                                                                     |
-| MicroflowDebugger            | Log messages related to the status of the microflow debugger, for example, connection status, incoming and outgoing requests, etc.                                                                  |
-| MicroflowEngine              | Log messages related to microflow execution, for example, which microflow / microflow action is being executed and errors that occur during the execution.                                          |
-| ModelStore                   |                                                                                                                                                                                                     |
-| Module                       | Logs messages for modules that are loaded on-demand in the core runtime like the microflow-engine.                                                                                                  |
-| ObjectManagement             | Logs errors relating to attempts to make associations to non-existent object                                                                                                                        |
-| OData Publish                | Log messages related to published OData services.                                                                                                                                                   |
-| QueryParser                  | Logs messages related to the parsing or interpretation of XPath and OQL queries.                                                                                                                    |
-| Queue                        | All actions related to Task Queues                                                                                                                                                                  |
-| REST Publish                 | Log messages related to published REST services.                                                                                                                                                    |
-| RequestStatistics            |                                                                                                                                                                                                     |
-| Services                     |                                                                                                                                                                                                     |
-| StorageAzure                 | Logs messages related to file handling if you are using Azure system as your file store.                                                                                                            |
-| StorageS3                    | Logs messages related to file handling if you are using Amazon S3 system as your file store.                                                                                                        |
-| StorageSwift                 |                                                                                                                                                                                                     |
-| WebServices                  | Traces SOAP call request and response contents.                                                                                                                                                     |
-| WebUI                        |                                                                                                                                                                                                     |
-| Workflow Engine              | Logs messages related to workflow executions, for example, lifecycle events, such as a start or an end of a workflow, execution of workflow actions, and errors that occur during the execution.    |
+| 日志节点                         | 描述                                                         |
+| ---------------------------- | ---------------------------------------------------------- |
+| 动作管理器                        | 记录与排定动作相关的消息(例如，预定的活动)和执行动作(例如，运行微流程)。                     |
+| 配置                           | 登录与 Mendix 应用程序的配置相关，已在启动时读取。                              |
+| 连接总线                         | Mendix 的数据库启动、同步和连接管理相关的常规日志。                              |
+| 连接Bus_映射                     | 关于 XPath 查询和OQL 文本查询的翻译信息。                                 |
+| 连接Bus_查询                     | 废弃：这是一个旧的节点。                                               |
+| 连接Bus_获取                     | 与数据检索有关的所有信息，例如： 从应用程序收到请求、执行的陈述。 此外，在处理收到的数据时还遇到日志问题。     |
+| 连接 Bus_Security              | 存取数据库所需的存取权信息。                                             |
+| 连接Bus_同步                     | 废弃：这是一个旧的节点。                                               |
+| 连接Bus_更新                     | 所有与更新数据库数据有关的信息。 传入存储请求、已执行的声明和存储过程中遇到的问题。                 |
+| 连接 Bus_Validation            | 现有数据库的相关修改和数据库迁移。                                          |
+| 连接器                          |                                                            |
+| 核心文件                         | 从核心运行时间记录消息。 这可以是运行时间的启动、运行时间的版本、正在使用的许可以及与解释模型相关的问题。      |
+| DataStorage_QueryHandling    | 记录与正在执行的查询相关的消息。                                           |
+| DataStorage_QueryPlan        | 查询安装执行计划信息(目前仅支持 PostgreSQL 数据库)。                          |
+| 文档导出器                        | 记录与生成文档的模板引擎相关的消息。                                         |
+| FileDocumentSizesPopulateJob | 记录没有填写文件字段的背景作业的消息 (在旧版迁移中使用)。                             |
+| I18NProcessor                | 记录与应用程序翻译相关的消息。                                            |
+| JSON                         | JSON 消息来自Mendix 客户端到 Runtime 服务器。 查看 [JSON](#json), 了解更多信息 |
+| 吉蒂文                          | 记录来自 Jetty webServer 的消息，该服务器处理运行时间和外部世界之间的 HTTP 请求。       |
+| 本地文件系统商店                     | 如果您使用本地文件系统作为文件存储，记录与文件处理相关的消息。                            |
+| 日志记录                         | 记录与 Mendix 使用的日志框架相关的消息。                                   |
+| M2EE                         | 与运行时间记录管理界面中的消息                                            |
+| Microflow调试器                 | 记录与 microflow debugger 状态相关的信息，例如连接状态、进出请求等。               |
+| 微流程引擎                        | 记录与微流程执行相关的消息，例如正在执行哪些微流程/微流程操作以及执行过程中发生的错误。               |
+| ModelStore                   |                                                            |
+| 模块                           | 记录在核心运行时按需加载的模块的消息，如微流程引擎。                                 |
+| 对象管理                         | 记录与尝试将关联变成不存在对象有关的错误                                       |
+| OData Publish                | 记录与已发布OData服务相关的消息。                                        |
+| QueryParser                  | 记录与 XPath 和 OQL 查询解析或解释相关的消息。                              |
+| 队列                           | 所有与任务队列相关的操作                                               |
+| REST 发布                      | 记录与已发布的REST 服务相关的消息。                                       |
+| 请求统计                         |                                                            |
+| 服务                           |                                                            |
+| 存储 Azure                     | 如果您使用 Azure 系统作为文件存储，记录与文件处理相关的消息。                         |
+| 存储 S3                        | 如果您正在使用Amazon S3系统作为文件存储，记录与文件处理相关的消息。                     |
+| StorageSwift                 |                                                            |
+| 网络服务                         | 追踪SOAP呼叫请求和响应内容。                                           |
+| WebUI                        |                                                            |
+| 工作流引擎                        | 记录与工作流程执行相关的消息，例如生命周期事件，如工作流程的开始或结束， 执行工作流程操作以及执行过程中发生的错误。 |
 
 ### 3.2 JSON{#json}
 
-Has only one relevant level: *Debug*.
+只有一个相关级别： *调试*。
 
-Setting this log level to debug will show you all the JSON requests and responses from the Mendix Client to the Runtime Server. This may degrade performance as this output is normally streamed. This can also be used to gain insight in what users are doing in a production environment. When using it here, make sure you have enough disk space available for your log files though.
+设置此日志级别调试将会显示所有JSON请求以及Mendix 客户端对 Runtime 服务器的回应。 这可能会降低性能，因为这种输出通常是连续的。 这也可以用来了解用户在生产环境中做些什么。 在这里使用它时，请确保您有足够的磁盘空间用于日志文件。
