@@ -1,185 +1,185 @@
 ---
-title: "Configure File Upload and Download"
-category: "Pages"
-description: "Describes how to configure file manager in Mendix Studio."
+title: "配置文件上传和下载"
+category: "页 次"
+description: "描述如何在 Mendix Studio 中配置文件管理器。"
 menu_order: 70
 tags:
-  - "studio"
-  - "pages"
-  - "file"
-  - "upload files"
-  - "attachment"
-  - "file manager"
+  - "工作室"
+  - "页面"
+  - "文件"
+  - "上传文件"
+  - "附件"
+  - "文件管理器"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This how-to explains how you can enable your end-users to attach and download files, such as PDF files or Microsoft Word documents. They will be able to attach files from different devices: phone, tablet, or desktop; as well as download attached files from a list.
+这将解释您如何能够让您的最终用户附加和下载文件，例如PDF文件或Microsoft Word 文档。 他们将能够从不同的设备上附加文件：电话、平板电脑或桌面，以及从列表中下载附加文件。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* Create file entities
-* Create a page with a form that allows your end-users to upload files
-* Display attached files in a list
-* Allow your end-users to download files
+* 创建文件实体
+* 创建一个表格，允许您的最终用户上传文件
+* 在列表中显示附加文件
+* 允许您的最终用户下载文件
 
-The how-to describes the following use case:
+如何描述下面的用例：
 
-Your company has an app where company's IT department keeps track of assets assigned to employees. You have the **Employee Profile** page with a form (a data view) that has such details as employee's name, department, their email, phone, title, and assets assigned to them (for example, a mobile phone or laptop). This information is filled in and updated by IT administrators:
+您的公司有一个应用，公司的IT部门将跟踪分配给雇员的资产。 您有 **员工简介** 页面有一个表单(数据视图)，它有雇员姓名等详细信息。 部门、他们的电子邮件、电话、标题和分配给他们的资产（例如手机或膝上型电脑）。 这些信息由信息技术管理员填写和更新：
 
 {{% image_container width="600" %}}
-![Employee Profile Page](attachments/pages-how-to-attach-files/employee-profile-form.png)
+![员工个人资料页面](attachments/pages-how-to-attach-files/employee-profile-form.png)
 {{% /image_container %}}
 
-The domain model looks the following way:
+域模型看起来如下方式：
 
 {{% image_container width="200" %}}![Domain Model](attachments/pages-how-to-attach-files/domain-model.png){{% /image_container %}}
 
-You would like to add a new functionality: IT administrators should be able to attach files to an employee profile, for example, to attach phone or laptop policy signed by the employee.
+您想要添加一个新功能：IT管理员应该能够将文件附加到员工配置文件， 例如，附加雇员签署的电话或膝上型计算机政策。
 
-You also would like to enable IT administrators to download the attached file from a list of files.
+您还想要启用 IT 管理员从文件列表下载所附文件。
 
-## 2 Prerequisites
+## 2 个前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+在启动此操作之前，请确保您已完成以下前提条件：
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
 
-## 3 Creating a File Entity
+## 3 正在创建文件实体
 
-First of all, to be able to attach and/or download files you need to add a special type of entity to your domain model: a [file entity](/studio8/domain-models#entity-types). Do the following:
+首先，， 要能够附加和/或下载文件，您需要将特殊类型的实体添加到您的域模型： [文件实体](/studio/domain-models#entity-types)。 执行以下操作：
 
-1. Open your domain model and open the **Toolbox** tab.
+1. 打开您的域模型并打开 **工具箱** 标签。
 
-2. Select the **File Entity** and drag and drop it to your domain model.
+2. 选择 **文件实体** 并拖放到您的域模型。
 
 3. In the **Create New File Entity** dialog box, set **Name** to *Document* and click **Create**.
 
     {{% image_container width="450" %}}![Create File Entity](attachments/pages-how-to-attach-files/create-file-entity.png){{% /image_container %}}
 
-4. Now you need to create an association from the **File** entity to the **Employee** entity. Do one of the following:
+4. 现在您需要从 **文件** 实体创建一个关联到 **员工** 实体。 做以下一件：
 
-    1. Hover over the **File** entity, click the dot icon, and drag the dot to the **Employee** entity:
+    1. 悬停在 **文件** 实体上，点击点图标，将点拖动到 **员工** 实体：
 
         {{% image_container width="500" %}}![Create Association](attachments/pages-how-to-attach-files/create-association-method-one.png){{% /image_container %}}
 
-    2. Select the **File** entity, click the arrow icon, and select **Employee** as a second entity for the association:
+    2. 选择 **文件** 实体，点击箭头图标，选择 **员工** 作为关联的第二个实体：
 
         {{% image_container width="250" %}}![Create Association](attachments/pages-how-to-attach-files/create-association-method-two.png){{% /image_container %}}
 
-Good job! You have created the file entity and an association from it to the **Employee** entity:
+干得好！ 您已经创建了文件实体和一个从它到 **员工** 实体的关联：
 
 {{% image_container width="600" %}}![Domain Model Configured](attachments/pages-how-to-attach-files/domain-model-configured.png){{% /image_container %}}
 
-## 4 Adding a File Manager
+## 4 添加文件管理器
 
-A **File Manager** is a widget that allows your end-users to attach and/or download files. However, it can only function inside a data container (a list view or data view), and the list view or data view can only have a file entity as its data source. If you just drag and drop the file manager to your employee profile form, it will not work correctly, because your current data view has the **Employee** entity as its data source, and you need the data source to be a file entity, which is in this case the **Document** entity:
+**文件管理器** 是一个允许您最终用户附加和/或下载文件的小部件。 然而，它只能在数据容器内起作用(列表视图或数据视图)， 和列表视图或数据视图只能有一个文件实体作为其数据源。 如果你只是拖放文件管理器到你的员工个人资料表，它将无法正常工作。 因为您当前的数据视图有 **员工** 实体作为其数据源， 您需要数据源作为一个文件实体，在这种情况下就是 **文档** 实体：
 
 {{% image_container width="600" %}}![Employee Profile Page](attachments/pages-how-to-attach-files/employee-profile-form.png){{% /image_container %}}
 
-To solve this, you can add a button which will open a pop-up page where your end-users (IT administrators) can upload images. This page will be connected to your current report form over the *Document_Employee* association and will upload files that are associated to this specific report.
+为了解决这个问题，您可以添加一个按钮来打开一个弹出页面，您的最终用户 (IT 管理员) 可以上传图像。 此页面将通过 *Document_Employee* 关联连接到您当前的报告表格，并将上传与此特定报告相关的文件。
 
-Follow the steps below:
+遵循下面的步骤：
 
-1. Open the **Employee Profile** page where IT administrators create and edit information on employees and assets assigned to them.
+1. 打开 **员工配置文件** 页面，其中IT管理员创建并编辑有关分配给他们的员工和资产的信息。
 
-2. Open the **Toolbox** and search for the **Create Object** button.
+2. 打开 **工具箱** 并搜索 **创建对象** 按钮。
 
-3. Drag and drop the button above **Save** and **Cancel** buttons:
+3. 拖放按钮到 **上方保存** and **取消** 按钮：
 
     {{% image_container width="450" %}}![Create Object Button](attachments/pages-how-to-attach-files/create-object-button.png){{% /image_container %}}
 
-4. Open button properties and do the following:
+4. 打开按钮属性并执行以下操作：
 
-    1. Select the **Caption** property and rename it from *New* to *Attach File*.
+    1. 选择 **标题** 属性并将其重命名为 *New* 到 *附加文件*.
 
-    2. Click the **Icon** property.
+    2. 点击 **图标** 属性。
 
-    3. In the **Select icon** dialog box, search for the *file* icon, and click **Select**.
+    3. 在 **选择图标** 对话框中，搜索 *文件* 图标，然后点击 **选择**。
 
-    4. Click the **Style** property and change it from **Default** to **Success**. After your changes, the button will look the following way:
+    4. 点击 **风格** 属性并将其从 **默认** 改为 **成功**。 在您的更改后，按钮将显示如下方式：
 
         {{% image_container width="150" %}}![Attach Files](attachments/pages-how-to-attach-files/attach-file-button.png){{% /image_container %}}
 
-    5. Click the **Entity** property.
+    5. 点击 **实体** 属性。
 
-    6. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
+    6. 在 **选择实体** 对话框中，选择 **文档** 于 **文档** 关联并点击 **选择**:
 
         {{% image_container width="400" %}}![Select File Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
-    7. Click the **Page** property.
+    7. 点击 **页面** 属性。
 
-    8. In the **Select Page** dialog box that opens, click **New Page**.
+    8. 在 **选择打开页面** 对话框中，点击右上角的加号图标添加一个新页面。
 
-    9. In the **Create new page** dialog box, do the following:
+    9. 在 **创建新页面** 对话框中，执行以下操作：
 
-         1. Set the **Title** to *Attach File*.
+         1. 将 **标题** 设置为 *附加文件*.
 
-         2. Set the **Layout** to *PopupLayout*.
+         2. 将 **布局** 设置为 *弹出布局*。
 
-         3. The **Pre-fill page contents based on the Document entity** option is on, so the page template (Forms) is selected automatically for you. Choose **Form Vertical** and click **Create**.
+         3. 基于文档实体</strong> 选项的 **预填充页面内容已开启，所以页面模板 (表格) 是为您自动选择的。 选择 **垂直表单** 并点击 **创建**。</p>
 
              {{% image_container width="500" %}}![](attachments/pages-how-to-attach-files/create-attach-file-page.png){{% /image_container %}}
 
-        4. A new pop-up page with a preconfigured form (a data view) is created:
+        4. 创建一个带有预配置表单的弹出页面(数据视图)：
 
              {{% image_container width="500" %}}![Attach Files Page](attachments/pages-how-to-attach-files/attach-file-page.png){{% /image_container %}}
 
-        5. As you only need your end-users to attach files on this page, delete **Name** and **Size** text boxes from the data view.
+        5. 因为您只需要您的最终用户在这个页面上附加文件， 从数据视图中删除 **名称** 和 **大小** 文本框。
 
-        6. Open the **Toolbox**, search for a **File Uploader**, drag and drop it inside the data view.
+        6. 打开 **工具箱**，搜索 **文件上传器**，拖放到数据视图中。 </li> </ol></li> </ol></li> </ol>
 
-You have created a pop-up page that will allow IT administrators to attach files to the employee profile form:
+您已经创建了弹出页面，允许IT管理员将文件附加到员工配置表：
 
 {{% image_container width="450" %}}![Attach Files Page Configured](attachments/pages-how-to-attach-files/attach-file-page-configured.png){{% /image_container %}}
 
 
-## 5 Downloading Files
+## 5 个正在下载文件
 
-After your end-users attach the files, it would be nice to display files in a list and give users an opportunity to download attached files if needed. To do so, you need to add a list:
+在您的最终用户附加文件后， 最好在列表中显示文件并在需要时让用户有机会下载附加文件。 要做到这一点，您需要添加一个列表：
 
-1. Open the **Employee_Profile** page.
+1. 打开 **Employeee_Profile** 页面。
 
-2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach File** button (make sure you drop it *inside* the data view, this way you will be able to list only files associated with a selected employee instead of all files that were attached to any employee profile). A list view with widgets inside it is added to your page:
+2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach File** button (make sure you drop it *inside* the data view, this way you will be able to list only files associated with a selected employee instead of all files that were attached to any employee profile). 包含小部件的列表视图被添加到您的页面：
 
     {{% image_container width="550" %}}![List 4](attachments/pages-how-to-attach-files/list-4.png){{% /image_container %}}
 
-3. Select the list view, open its properties, and do the following:
+3. 选择列表视图，打开其属性，并执行以下操作：
 
-    1. Click the **Entity** property.
+    1. 点击 **实体** 属性。
 
-    2. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
+    2. 在 **选择实体** 对话框中，选择 **文档** 于 **文档** 关联并点击 **选择**:
 
-        ![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png)
+        {{% image_container width="400" %}}![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
-4. Delete the image and a column it is placed in from the list:
+4. 删除图像和从列表中放置的一列：
 
-    ![Delete Column From the List](attachments/pages-how-to-attach-files/column-list.png)
+    ![从列表中删除列](attachments/pages-how-to-attach-files/column-list.png)
 
-5. Delete a subtitle in the list saying *Here you can put a subtitle*.
+5. 删除列表中的字幕，表示 *您可以放置字幕*。
 
-6. Select the **Name** text in the list view, open its properties, and do the following:
+6. 在列表视图中选择 **命名** 文本，打开它的属性，并执行以下操作：
 
-    1. In the **Content** property, delete the *Name* text and click **Add attribute**.
-    2. In the **Select Attribute** dialog box, choose the **Name** attribute and click **Select** to display the name of the attached file.
+    1. 在 **内容** 属性中，删除 *名称* 文本，然后点击 **添加属性**。
+    2. 在 **选择属性** 对话框中 选择 **名称** 属性并点击 **选择** 以显示所附文件的名称。
 
         {{% image_container width="400" %}}![Select Attribute](attachments/pages-how-to-attach-files/select-attribute.png){{% /image_container %}}
 
-7. Delete the **Details** button in the list view.
+7. 删除列表视图中的 **详细信息** 按钮。
 
-8. Open the **Toolbox** and search for a **File Downloader**, drag and drop it to the column where the **Details** button was placed.
+8. 打开 **Toolbox** 并搜索 **文件下载器**, 拖放到放置 **详细信息** 按钮的位置。
 
-9. Open the **File Downloader** (**File Manager**) properties > **Label** property and delete the *File* text from it.
+9. 打开 **文件下载器** (**文件管理器**) 属性 > **标签** 属性并删除 *文件* 文本。
 
-Great job! Now you have the list that shows attached files and your users can download files from this list:
+干得好！ 现在您有显示附加文件的列表，并且您的用户可以从这个列表下载文件：
 
 {{% image_container width="500" %}}![Configured List View](attachments/pages-how-to-attach-files/list-view-configured.png){{% /image_container %}}
 
-Congratulations! You have configured the form that allows IT administrators to attach files and displays these files in the list.
+恭喜！ 您已配置了允许IT管理员附加文件并在列表中显示这些文件的表单。
 
-[Preview your app](/studio8/publishing-app) to test how the file uploading and downloading works:
+[预览您的应用程序](/studio/publishing-app) 来测试文件上传和下载如何运行：
 
-![Previewed List](attachments/pages-how-to-attach-files/list-previewed.png)
+![预览列表](attachments/pages-how-to-attach-files/list-previewed.png)
 
-You can also configure a button to attach images instead of files. For more information, see [How to Enable End-Users to Attach Images](pages-how-to-attach-images).
+您也可以配置一个按钮来附加图像而不是文件。 欲了解更多信息，请参阅 [如何启用最终用户附加图像](pages-how-to-attach-images)。
