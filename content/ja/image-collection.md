@@ -1,76 +1,76 @@
 ---
-title: "Image Collection"
+title: "画像コレクション"
 parent: "page-resources"
 menu_order: 5
-description: "Why and how to create an image collection"
+description: "画像コレクションを作成する理由と方法"
 tags:
   - "Studio Pro"
-  - "Images"
-  - "Image Collection"
+  - "画像"
+  - "画像コレクション"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-If you want to use your own static images within an application, for example for branding or to give your buttons a unique feel, you will need to store them in your app. To do this, you create an **image collection** where you can store your images.
+アプリケーション内で独自の静的画像を使用する場合 例えばブランディングやボタンに独特の感触を与える場合は、アプリに保存する必要があります。 これを行うには、画像を保存できる **画像コレクション** を作成します。
 
-For information on how to use images in your app, see [Images](images).
+アプリで画像を使用する方法については、 [イメージ](images) を参照してください。
 
-Remember that, if you want to use the same set of custom images in several apps, you can export and import complete image collections, with their images, using [Import & Export Objects](/howto/integration/importing-and-exporting-objects).
+複数のアプリで同じ一連のカスタム画像を使用する場合は、完全な画像コレクションをエクスポートしてインポートすることができます。 [インポート & オブジェクトのエクスポート](/howto/integration/importing-and-exporting-objects) を使用して、その画像で。
 
 {{% alert type="warning" %}}
-Too many large static images in your app can lead to performance issues. If you need a lot of large images, you can store them in your database (see [How to Work with Images & Files](/howto/data-models/working-with-images-and-files) for more information).
+アプリ内の静的画像が大きすぎるとパフォーマンスの問題が発生する可能性があります。 大量の大きな画像が必要な場合 データベースに保存することができます (詳細については、 [画像 & ファイルの操作方法](/howto/data-models/working-with-images-and-files) を参照してください)。
 {{% /alert %}}
 
-## 2 Adding an Image Collection
+## 2 画像コレクションを追加する
 
-To add an image collection, do the following.
+画像コレクションを追加するには、以下を行います。
 
-1. Right-click a module in the **App Explorer**.
-2. Select **Add other > Image collection**:
+1. **App Explorer** でモジュールを右クリックします。
+2. **Add other > Image collection**:
 
-    ![Add an image collection](attachments/image-collection/add-collection.png)
+    ![画像コレクションを追加](attachments/image-collection/add-collection.png)
 
-3. Give your image collection a name.
+3. 画像コレクションに名前を付けてください。
 
-## 3 Image Collection Actions
+## 3つの画像コレクションアクション
 
-You can perform the following actions within image collections using the icons at the top of the image collection tab.
+画像コレクションタブの上部にあるアイコンを使用して、画像コレクション内で次のアクションを実行できます。
 
-![Image collection actions](attachments/image-collection/actions.png)
+![画像のコレクションアクション](attachments/image-collection/actions.png)
 
-Some of the actions can be applied to multiple images. You can select all images with <kbd>Ctrl</kbd>+<kbd>A</kbd>, or multiple images by combining your click with <kbd>Ctrl</kbd> or <kbd>Shift</kbd>
+いくつかのアクションは複数の画像に適用できます。 You can select all images with <kbd>Ctrl</kbd>+<kbd>A</kbd>, or multiple images by combining your click with <kbd>Ctrl</kbd> or <kbd>Shift</kbd>
 
-### 3.1 Add
+### 3.1 追加
 
-The **Add** button allows you to add a new image from a file to your image collection. The image will be given the name of the image file you add. If the name already exists, a suffix will be added to make the name unique.
+**追加** ボタンを使用すると、ファイルから新しい画像を画像コレクションに追加できます。 画像には、追加したイメージファイルの名前が付与されます。 名前がすでに存在する場合は、名前を一意にするためにサフィックスが追加されます。
 
 The following image formats are supported: *png*, *jpeg*, *gif*, *bmp*, and *svg*.
 
-You can also add an image to your collection using <kbd>Ctrl</kbd>+<kbd>N</kbd>.
+<kbd>Ctrl</kbd>+<kbd>N</kbd> を使用して、コレクションに画像を追加することもできます。
 
-### 3.2 Rename
+### 3.2 名前の変更
 
-The **Rename** button allows you to change the name of the selected image. As well as being the name you use within your app to refer to this image, this is also the name that **Export to file…** will give to your image if you save it as a file. If you change the name here, the name will also be changed in references to this image elsewhere in your app.
+**Rename** ボタンでは、選択した画像の名前を変更できます。 この画像を参照するためにアプリ内で使用する名前であることだけでなく、 これは、 **ファイルにエクスポート…** をファイルとして保存すると画像に与える名前でもあります。 ここで名前を変更すると、アプリの他の場所でこの画像への参照でも名前が変更されます。
 
-You can also rename an image using <kbd>F2</kbd>.
+<kbd>F2</kbd> を使用して画像の名前を変更することもできます。
 
-### 3.3 Delete
+### 3.3 削除
 
-The **Delete** button removes the selected image(s) from the image collection. You will be warned if the image or images are used elsewhere in the app.
+**削除** ボタンは、選択した画像を画像コレクションから削除します。 アプリの他の場所で画像や画像が使用されている場合は警告されます。
 
-### 3.4 Find Usages
+### 3.4 使用方法を検索
 
-The **Find usages** button displays, in the **Find Results** dock, all the places where this image is used in your app.
+**Find usages** ボタンが **Find Results** ドックに表示され、この画像がアプリで使用されているすべての場所が表示されます。
 
-### 3.5 Move to Other Image Collection
+### 3.5 他の画像コレクションに移動
 
-The **Move to other image collection** button allows you to move the selected image(s) to another image collection. When you move the image(s), all references elsewhere in your app will also be updated.
+**他の画像コレクションに移動** ボタンを使用すると、選択した画像を別の画像コレクションに移動できます。 画像を移動すると、アプリ内の他のすべての参照も更新されます。
 
 {{% alert type="info" %}}
-It is not possible to *copy* an image, you can only *move* it. If you need to make a copy, you can export the image to a file (see below) and then add the image to a different image collection.
+画像を *コピー* することはできません。 *移動* しかできません。 コピーを作成する必要がある場合 をクリックすると、イメージをファイルにエクスポートしてから、別のイメージコレクションに追加できます。
 {{% /alert %}}
 
-### 3.6 Export to File
+### 3.6 ファイルにエクスポート
 
-The **Export to file…** button saves the selected image(s) as image files. You can select the folder where the images will be saved and they will be given the same name as they have in the image collection. If a file with the same name already exists, you will be warned.
+**ファイルにエクスポート…** ボタンは、選択した画像を画像ファイルとして保存します。 画像が保存されるフォルダを選択すると、画像コレクションに保存されているのと同じ名前が付与されます。 同じ名前のファイルが既に存在する場合は、警告されます。
 
