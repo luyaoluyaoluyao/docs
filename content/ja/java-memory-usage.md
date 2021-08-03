@@ -1,65 +1,66 @@
 ---
-title: "Java Memory Usage"
-parent: "runtime-java"
+title: "Java メモリ使用量"
+parent: "runtime-Java"
 menu_order: 2
 tags:
-  - "runtime"
-  - "java"
-  - "memory usage"
-  - "memory"
+  - "ランタイム:"
+  - "ジャバ"
+  - "メモリ使用量"
+  - "メモリ"
+  - "studio pro"
 ---
 
-The Java memory is divided in different Memory Usage blocks. Each of these blocks are a snapshot of the actual memory usage of that segment. Each of the memory usage blocks can be broken down into four different values
+Javaメモリは異なるメモリ使用量ブロックに分割されます。 これらの各ブロックは、そのセグメントの実際のメモリ使用量のスナップショットです。 各メモリ使用量ブロックは4つの異なる値に分割することができます。
 
-| Memory block    | Description                                                                                                                                                                                                                                                                                                     |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **_init_**      | Represents the initial amount of memory (in bytes) that the Java virtual machine requests from the operating system for memory management of this segment during startup. The Java virtual machine may request additional memory from the operating system and may also release memory to the system over time. |
-| **_used_**      | represents the amount of memory that is actively used (in bytes).                                                                                                                                                                                                                                               |
-| **_committed_** | Represents the amount of memory (in bytes) that is guaranteed to be available for use by the Java virtual machine. The amount of committed memory may change over time (increase or decrease).                                                                                                                  |
-| **_max_**       | Represents the maximum amount of memory (in bytes) that can be used for memory management. The maximum amount of memory may change over time if defined. The amount of used and committed memory will always be less than or equal to max if max is defined.                                                    |
+| メモリブロック      | 説明                                                                                                                                             |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **_init_**   | 起動時にこのセグメントのメモリ管理のためにオペレーティングシステムからJava仮想マシンが要求するメモリ量(バイト単位)を表します。 Java仮想マシンは、オペレーティングシステムから追加のメモリを要求することがあり、また、時間の経過とともにメモリをシステムに解放することがあります。 |
+| **_使用中_**    | は、積極的に使用されるメモリ量を表します(バイト単位)。                                                                                                                   |
+| **_コミット済み_** | Java仮想マシンで使用できることが保証されているメモリ量(バイト単位)を表します。 コミットされたメモリの量は、時間とともに変化する可能性があります(増加または減少)。                                                          |
+| **_最大_**     | メモリ管理に使用できる最大メモリ量(バイト単位)を表します。 定義された場合、メモリの最大量は時間とともに変化する可能性があります。 maxが定義されている場合、使用されるメモリとコミットされるメモリの量は常にmax以下になります。                           |
 
-For all Mendix applications the value for init and max start with identical values. Immediately after startup the JVM can execute the garbage collection and correct the memory usage.
+すべてのMendixアプリケーションの場合、initとmaxの値は同じ値で始まります。 JVMは起動直後にガベージコレクションを実行し、メモリ使用量を修正することができます。
 
-## Memory Segments
+## メモリセグメント
 
-### **_Perm Gen & Code Cache    _**
+### **_Perm Gen & Code Cache _**
 
-The Permanent Generation space is allocated to all classes and libraries. The allocated memory to the Perm Gen stays fairly static and only increases when new libraries or classes are loaded into the application. The Perm Gen is not part of the Java Heap, it is added on top of the assigned heap. For more details, see [Presenting the Permanent Generation](https://blogs.oracle.com/jonthecollector/presenting-the-permanent-generation).
+Permanent Generation 領域はすべてのクラスとライブラリに割り当てられます。 Perm Gen に割り当てられたメモリは、かなり静的なままであり、新しいライブラリやクラスがアプリケーションにロードされている場合にのみ増加します。 Perm Gen は Java ヒープの一部ではなく、割り当てられたヒープの上に追加されます。 詳細については、 [永続的な世代の発表](https://blogs.oracle.com/jonthecollector/presenting-the-permanent-generation) を参照してください。
 
-This image on the right shows shows in detail how data moves through the memory. The Stack is made up out of all threads, classes and in case of Mendix also contains all information about microflows domain model and all other Mendix specific information.
+右の画像は、メモリ内でデータがどのように移動するかを詳しく示しています。 スタックはすべてのスレッドから構成されています クラスおよびMendixの場合には、マイクロフロードメインモデルおよびその他すべてのMendix固有の情報に関するすべての情報も含まれています。
 
 ![](attachments/16714070/16844065.png)
 
-All information regarding the stack is stored in memory. All runtime information is stored in the Heap, all program or JVM specific information is stored in the Non Heap.
+スタックに関するすべての情報はメモリに保存されます。 すべてのランタイム情報はヒープに保存され、プログラムまたはJVM固有の情報は非ヒープに保存されます。
 
-All classes from the Mendix Platform, the custom java code, and user libraries are stored in the Non Heap. (Since Mendix 5 this will also hold the information from the deployment archive.
+Mendix Platform、カスタム Java コード、およびユーザー ライブラリのすべてのクラスは、非ヒープに格納されます。 これには、デプロイメントアーカイブの情報も含まれます。
 
 ![](attachments/16714070/16844066.png)
 
-All data in the Heap only moves to a different segment when the garbage collection executes. We can see a difference between a minor garbage collection run and a major collection run.
+ヒープ内のすべてのデータは、ガベージコレクションが実行されると別のセグメントにのみ移動します。 マイナーなガベージコレクションランとメジャーコレクションランの違いがわかります。
 
-The minor garbage collection run is executed frequently and requires little resources to execute.
+マイナーガベージコレクションの実行は頻繁に実行され、実行するリソースがほとんど必要ありません。
 
-The minor garbage collection only reviews the **Eden Space** which is the primary segment of the **Young Generation.**
+マイナーなガベージコレクションは、 **Young Generation** の主要なセグメントである **Eden Space** のみをレビューします。
 
-The Eden Space usually contains a lot of garbage and the minor garbage collection is optimized to get rid of a lot of unused objects at once in a short time span.
+Eden Spaceには通常多くのゴミが含まれており、マイナーなガベージコレクションは短時間で一度に多くの未使用のオブジェクトを取り除くように最適化されています。
 
 Any objects that are in use during the minor garbage collection will be moved to the **Survive Space**, which is part of the **Young Generation** segment.
 
-When the **Young Generation** reaches its capacity the Major Garbage collection process will be triggered. This will evaluate if the objects in the survivor space are still used and remove them if possible, otherwise they will be moved to the **Old / Tenured Generation.**
+**Young Generation** が容量に達すると、主要なガベージ回収プロセスがトリガーされます。 This will evaluate if the objects in the survivor space are still used and remove them if possible, otherwise they will be moved to the **Old / Tenured Generation.**
 
-The Major Garbage Collection process is optimized for speedy garbage collection without wasting a lot of memory.
+主要なごみ回収プロセスは、大量のメモリを無駄にすることなく、迅速なごみ回収のために最適化されています。
 
-The **Old / Tenured Generation** won’t cleaned frequently by the garbage collector. The Tenured Generation space either keeps on increasing until it reaches +/- 70% of its capacity, or after several days. The tenured space will steadily increase and should drop close to 0% after garbage collection.
+**Old / Tened Generation** は、ガベージコレクタによって頻繁に清掃されません。 定年生成領域は、容量の+/- 70%に達するまで、または数日後に増加し続けます。 定住スペースは着実に増加し、ガベージコレクションの後に0%近く落ちるはずです。
 
-### Examples
+### 例
 
 ![](attachments/16714070/16844068.png)
 
-A healthy Mendix application that consumes a small amount of memory will show a graph similar to the first graph on the right.
+少量のメモリを消費する健全なMendixアプリケーションは、右側の最初のグラフに似たグラフを表示します。
 
 ![](attachments/16714070/16844067.png)
 
-The graph on the right shows an unhealthy application. As can be seen here, the memory usage steadily increases throughout the span of one week. This can only be caused by a process that keeps consuming memory.
+右のグラフは不健康なアプリケーションを示しています。 ここで見られるように、メモリ使用量は1週間を通じて着実に増加しています。 これはメモリを消費し続けるプロセスによってのみ引き起こされます。
 
-It is acceptable for an application to consume a lot of memory in the tenured generation space, the JVM should run the major garbage collection and reduce the tenured generation to zero.
+アプリケーションがテニュアされた世代空間で多くのメモリを消費することは許容されます。 JVMは主要なガベージコレクションを実行し、テネリングされた世代をゼロにする必要があります。
