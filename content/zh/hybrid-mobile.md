@@ -1,22 +1,22 @@
 ---
-title: "Hybrid Mobile"
-category: "Mobile"
+title: "混合移动设备"
+category: "移动设备"
 menu_order: 3
 tags:
-  - "mobile"
-  - "hybrid"
+  - "移动网络"
+  - "混合的"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Hybrid mobile apps are deprecated as of Mendix 9. This means that hybrid mobile apps are still supported in Mendix 9 but their usage is discouraged. Accordingly, the creation of new hybrid navigation profiles is disabled.
+混合移动应用程序在 Mendix 9 已废弃。 这意味着在Mendix 9中仍然支持混合移动应用，但不鼓励使用混合应用。 因此，新型混合导航图的制作已被禁用。
 
-For more information see this [Hybrid Mobile Apps Deprecation with Mendix 9](https://www.mendix.com/blog/hybrid-mobile-apps-deprecation-with-mendix-9/) blog entry.
+欲了解更多信息，请查看 [Mendix 9](https://www.mendix.com/blog/hybrid-mobile-apps-deprecation-with-mendix-9/) 博客条目的混合移动应用已废弃。
 
-For hybrid mobile documentation see these Mendix 8 documents:
+关于混合移动文档，请参阅Mendix 8文档：
 
-* [Hybrid Mobile How To Documentation](/howto8/mobile/hybrid-mobile)
-* [Hybrid Mobile Reference Guide](/refguide8/hybrid-mobile)
+* [混合移动如何文档](/howto8/mobile/hybrid-mobile)
+* [混合移动参考指南](/refguide8/hybrid-mobile)
 
 
