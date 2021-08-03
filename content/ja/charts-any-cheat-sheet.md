@@ -8,7 +8,6 @@ tags:
   - "Examples"
   - "Charts"
   - "Widget"
-  - "studio pro"
 ---
 
 ## 1 Introduction
@@ -19,7 +18,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.1 Line Chart {#line-chart}
 
-![LineChartProperties](attachments/charts/line-chart2.png)
+![LineChartProperties](attachments/pages/charts/line-chart2.png)
 
 ``` json
 [
@@ -38,7 +37,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.2 Bubble Chart
 
-![BubbleChartProperties](attachments/charts/bubble-chart.png)
+![BubbleChartProperties](attachments/pages/charts/bubble-chart.png)
 
 ``` json
 [ {
@@ -54,7 +53,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.3 Scatter Chart
 
-![ScatterPlotProperties](attachments/charts/scatter-plot.png)
+![ScatterPlotProperties](attachments/pages/charts/scatter-plot.png)
 
 ``` json
 [ {
@@ -68,7 +67,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.4 Heatmap
 
-![HeatMapProperties](attachments/charts/heat-map2.png)
+![HeatMapProperties](attachments/pages/charts/heat-map2.png)
 
 ``` json
 [ {
@@ -79,7 +78,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.5 Bar Chart
 
-![BarChartProperties](attachments/charts/bar-chart2.png)
+![BarChartProperties](attachments/pages/charts/bar-chart2.png)
 
 ``` json
 [ {
@@ -92,7 +91,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.6 Column Chart
 
-![ColumnChartProperties](attachments/charts/column-chart2.png)
+![ColumnChartProperties](attachments/pages/charts/column-chart2.png)
 
 ``` json
 [ {
@@ -105,7 +104,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.7 Pie Chart
 
-![PieChartProperties](attachments/charts/pie-chart2.png)
+![PieChartProperties](attachments/pages/charts/pie-chart2.png)
 
 ``` json
 [ {
@@ -117,7 +116,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.8 Doughnut Chart
 
-![DoughNutChartProperties](attachments/charts/doughnut-chart.png)
+![DoughNutChartProperties](attachments/pages/charts/doughnut-chart.png)
 
 ```json
 [ {
@@ -130,7 +129,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 2.9 Area Chart
 
-![AreaChartProperties](attachments/charts/area-chart2.png)
+![AreaChartProperties](attachments/pages/charts/area-chart2.png)
 
 ``` json
 [ {
@@ -145,7 +144,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 3.1 Histograms
 
-![HistogramProperties](attachments/charts/histogram.png)
+![HistogramProperties](attachments/pages/charts/histogram.png)
 
 ``` json
 [ {
@@ -156,7 +155,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 3.2 Box Chart
 
-![BoxPlotProperties](attachments/charts/box-plot.png)
+![BoxPlotProperties](attachments/pages/charts/box-plot.png)
 
 ``` json
 [ {
@@ -167,7 +166,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 3.3 2D Histogram
 
-![2DHistogramProperties](attachments/charts/2d-histogram.png)
+![2DHistogramProperties](attachments/pages/charts/2d-histogram.png)
 
 ``` json
 [ {
@@ -181,7 +180,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 4.1 Bubble Map
 
-![BubbleMapProperties](attachments/charts/bubble-map.png)
+![BubbleMapProperties](attachments/pages/charts/bubble-map.png)
 
 ``` json
 [ {
@@ -198,7 +197,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 4.2 Choropleth Map
 
-![ChoroplethMapProperties](attachments/charts/choropleth-map.png)
+![ChoroplethMapProperties](attachments/pages/charts/choropleth-map.png)
 
 #### 4.2.1 Choropleth Map Data
 
@@ -223,7 +222,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 4.3 Scatter Map
 
-![ScatterMapProperties](attachments/charts/scatter-map.png)
+![ScatterMapProperties](attachments/pages/charts/scatter-map.png)
 
 ``` json
 [ {
@@ -239,7 +238,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 5.1 3D Surface Chart
 
-![3DSurfacePlotProperties](attachments/charts/3d-surface-plot.png)
+![3DSurfacePlotProperties](attachments/pages/charts/3d-surface-plot.png)
 
 ``` json
 [ {
@@ -251,7 +250,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 5.2 3D Line Chart
 
-![3DLineChartProperties](attachments/charts/3d-line-chart.png)
+![3DLineChartProperties](attachments/pages/charts/3d-line-chart.png)
 
 ``` json
 [ {
@@ -265,7 +264,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 5.3 3D Scatter Chart
 
-![3DScatterPlotProperties](attachments/charts/3d-scatter-plot.png)
+![3DScatterPlotProperties](attachments/pages/charts/3d-scatter-plot.png)
 
 ``` json
 [ {
@@ -281,7 +280,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 6.1 Contour Chart
 
-![ContourProperties](attachments/charts/contour.png)
+![ContourProperties](attachments/pages/charts/contour.png)
 
 ``` json
 [ {
@@ -292,7 +291,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 6.2 Time Series
 
-![TimeSeriesProperties](attachments/charts/time-series2.png)
+![TimeSeriesProperties](attachments/pages/charts/time-series2.png)
 
 ``` json
 [ {
@@ -305,7 +304,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 6.3 Group By Chart
 
-![GroupByChartProperties](attachments/charts/group-by-chart.png)
+![GroupByChartProperties](attachments/pages/charts/group-by-chart.png)
 
 ``` json
 [ {
@@ -318,7 +317,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 6.4 Symmetric Error Bar
 
-![ErrorBarProperties](attachments/charts/error-bar.png)
+![ErrorBarProperties](attachments/pages/charts/error-bar.png)
 
 ``` json
 [ {
@@ -334,7 +333,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 6.5 Polar Chart
 
-![PolarChartProperties](attachments/charts/polar-chart.png)
+![PolarChartProperties](attachments/pages/charts/polar-chart.png)
 
 ``` json
 [ {
@@ -347,7 +346,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ### 6.6 Ternary Plot
 
-![TernaryPlotProperties](attachments/charts/ternary-plot.png)
+![TernaryPlotProperties](attachments/pages/charts/ternary-plot.png)
 
 #### 6.6.1 Ternary Plot Data
 
@@ -376,4 +375,4 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 * Full chart documentation is here: [https://plot.ly/javascript/](https://plot.ly/javascript/)
 * [Any Chart Widget](charts-any-configuration)
-* [How to Use Any Chart](/howto/front-end/charts-any-usage)
+* [How to Use Any Chart](/howto7/extensibility/charts-any-usage)
