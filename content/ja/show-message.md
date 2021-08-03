@@ -1,83 +1,83 @@
 ---
-title: "Show Message"
+title: "メッセージを表示"
 parent: "client-activities"
 menu_order: 4
 tags:
   - "studio pro"
-  - "show message"
-  - "client activities"
+  - "メッセージを表示"
+  - "クライアントアクティビティ"
 aliases:
-  - /refguide/Show+Message.html
+  - /ja/refguide/Show+Message.html
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline, native, or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+このアクションは無視され、オフライン、ネイティブ、またはハイブリッド・アプリケーションからマイクロフローが呼び出されたときには機能しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Show message** activity shows a blocking or non-blocking message to an end-user. For example, if the end-user did not select the customer grade in a form, you can show an error message telling them to select a grade to proceed:
+**メッセージの表示** アクティビティには、エンドユーザーへのブロックまたはブロック以外のメッセージが表示されます。 たとえば、エンドユーザーがフォーム内の顧客成績を選択していない場合。 次のように成績を選択するように伝えるエラーメッセージを表示できます:
 
 {{% image_container width="300" %}}
-![Show Message](attachments/client-activities/show-message.png)
+![メッセージを表示](attachments/client-activities/show-message.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Show Message Properties](attachments/client-activities/show-message-properties.png)
+![メッセージのプロパティを表示](attachments/client-activities/show-message-properties.png)
 
-The **Show message** properties pane consists of the following sections:
+**メッセージの表示** プロパティ ペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
 ### 3.1 Type
 
-**Type** defines the color scheme and icon of the message.
+**Type** は、メッセージの配色とアイコンを定義します。
 
-There are three message options:
+メッセージには3つのオプションがあります:
 
-* Information *(default)*
-* Warning
-* Error
+* 情報 *(デフォルト)*
+* 警告
+* エラー
 
-### 3.2 Template
+### 3.2 テンプレート
 
-**Template** defines the text of the message. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2, etc.
+**テンプレート** はメッセージのテキストを定義する。 テンプレートには、たとえば、 {1} のようなブレース間の数値として記述されるパラメータを含めることができます。 最初のパラメータは数字1、2番目のパラメータなどを持ちます。
 
-### 3.3 Parameters
+### 3.3 パラメータ
 
-For each parameter in the template, you define an attribute of the context entity or an associated entity. The value of this attribute will be inserted at the position of the parameter. Parameters should be entered using [expressions](expressions) resulting in a string.
+テンプレート内の各パラメータに対して、コンテキストエンティティまたは関連エンティティの属性を定義します。 この属性の値はパラメータの位置に挿入されます。 パラメータは [式](expressions) を使用して文字列に入力する必要があります。
 
-With parameters you can customize your message with data specific to the situation. For example, the message "An e-mail has been sent to customer {1}." with parameter `$customer/FullName` will show the full name of the customer who an e-mail has been sent to.
+パラメータを使用すると、状況に応じたデータでメッセージをカスタマイズできます。 For example, the message "An e-mail has been sent to customer {1}." with parameter `$customer/FullName` will show the full name of the customer who an e-mail has been sent to.
 
-### 3.4 Blocking
+### 3.4 ブロック
 
-The **Blocking** property defines whether the message shown to the end-user is blocking or not. A non-blocking message lets users continue their work in the app with the pop-up window open, while a blocking message does not let the user continue work until the pop-up window is closed.
+**ブロック** プロパティは、エンドユーザーに表示されるメッセージがブロックしているかどうかを定義します。 非ブロッキングメッセージを使用すると、ユーザーはポップアップウィンドウを開いてアプリで作業を続けることができます。 ブロックメッセージでは、ポップアップウィンドウが閉じられるまでユーザーは作業を継続できません。
 
-| Option          | Description                                                                                                                                                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Yes *(default)* | The message appears in a pop-up in the center of the screen and does not let the user continue work until the pop-up window is closed.                                    |
-| No              | The message appears in a pop-up in the center of the screen but does not block the rest of the screen, allowing the end-user to continue their work with the pop-up open. |
+| Option       | 説明                                                                              |
+| ------------ | ------------------------------------------------------------------------------- |
+| はい *(デフォルト)* | メッセージは画面中央のポップアップに表示され、ポップアップウィンドウが閉じられるまでユーザーが作業を続けることはできません。                  |
+| いいえ          | メッセージは画面の中央にポップアップ表示されますが、画面の残りの部分はブロックされません。 エンドユーザーがポップアップを開いて作業を続けられるようにします。 |
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [Activities](activities)
+* [アクティビティ](アクティビティ)
