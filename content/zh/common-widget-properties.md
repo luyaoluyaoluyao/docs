@@ -1,255 +1,255 @@
 ---
-title: "Properties Common in the Page Editor"
-parent: "pages"
+title: "页面编辑器中常见的属性"
+parent: "页面"
 menu_order: 120
 tags:
   - "studio pro"
-  - "widget properties"
-  - "properties"
-  - "common"
-  - "widget"
-  - "classes"
+  - "小部件属性"
+  - "属性"
+  - "常用的"
+  - "小部件"
+  - "类"
 ---
 
-## 1 Introduction
+## 1 导言
 
-These are properties that are shared by many elements in the page editor, such as a page or widgets. For a complete list of properties, take a look at the relevant element.
+这些是页面编辑器中许多元素共享的属性，例如页面或小部件。 完整的属性列表，查看相关元素。
 
-## 2 Accessibility Properties and Widgets{#accessibility-properties}
+## 2 辅助功能属性和部件{#accessibility-properties}
 
-### 2.1 Screen Reader Caption
+### 2.1 屏幕阅读器标题
 
-The Screen reader caption property allows information to be read by screen readers when **Show label** is set to **No** in an input widget.
+当 **显示标签** 设置为 **输入部件中不存在** 时，屏幕阅读器的标题属性允许使用屏幕阅读器读取信息。
 
-{{% alert type="info" %}}The Screen reader caption property is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="info" %}}本机移动页面不支持屏幕阅读器标题属性。{%/提醒 %}}
 
-#### 2.1.1 Screen Reader Caption Input Widgets
+#### 2.1.1 屏幕阅读器标题输入部件
 
-The **Screen reader caption** property can be set on the following widgets:
+**屏幕阅读器标题** 属性可以设置在以下小部件上：
 
-*   [Text Box](text-box)
-*   [Text Area](text-area)
-*   [Drop-down](drop-down)
-*   [Check Box](check-box)
-*   [Radio Buttons](radio-buttons)
-*   [Date Picker](date-picker)
-*   [File Manager](file-manager)
-*   [Reference Selector](reference-selector)
-*   [Input Reference Set Selector](input-reference-set-selector)
+*   [文本框](text-box)
+*   [文本区域](text-area)
+*   [下拉列表](drop-down)
+*   [复选框](check-box)
+*   [单选按钮](radio-buttons)
+*   [日期选择器](date-picker)
+*   [文件管理器](file-manager)
+*   [参考选择器](reference-selector)
+*   [输入参考集选择器](input-reference-set-selector)
 
-## 3 Common Section{#common-properties}
+## 3 通用部分{#common-properties}
 
-![Common Section](attachments/common-widget-properties/common-section.png)
+![共同部分](attachments/common-widget-properties/common-section.png)
 
-### 3.1 Name{#name}
+### 3.1 名称{#name}
 
-The internal name of the widget. You can use this to give sensible names to widgets. The name property also appears in the generated HTML: the widget DOM element automatically includes the class `mx-name-{NAME}`, which can be useful for [Selenium testing](/howto7/integration/selenium-support).
+部件的内部名称。 你可以使用这个给小部件提供合理的名称。 名称属性也出现在生成的 HTML中：小部件DOM 元素自动包含类 `mx-name-{NAME}`可以用于 [Selenium 测试](/howto7/integration/selenium-support)
 
 ### 3.2 Tab Index{#tab-index}
 
-The tab index influences the order in which the end-user navigates through the page using the tab key. By default tab indices are zero and the tab order is determined automatically by the client system. A value of minus one (-1) means that the widget will be skipped when tabbing through the page.
+标签索引影响最终用户使用标签键浏览页面的顺序。 默认标签索引为零，标签顺序由客户系统自动确定。 减一个(-1)值意味着当触摸页面时将跳过小部件。
 
-Default: *0*
+默认： *0*
 
-{{% alert type="info" %}}Tab index is not supported on native mobile pages.{{% /alert %}}
+原生移动页面不支持{% alert type="info" %}}Tab 索引。{{% /提醒 %}}
 
-### 3.3 Class{#class}
+### 3.3 类{#class}
 
-The class property allows you to specify one or more cascading style sheet (CSS) classes for the widget. The classes should be separated by a space. The classes will be applied to the widget in the browser and the widget will get the corresponding styling. The classes should be classes in the theme that is used in the app. It overrules the default styling of the widget.
+类属性允许您为小部件指定一个或多个级层样式表 (CSS)。 类应该用空格分隔。 类将应用于浏览器中的小部件，而小部件将获得相应的样式。 类应该是应用中使用的主题类. 它超越了部件的默认样式。
 
-Styling is applied in the following order:
+风格按以下顺序应用：
 
-1. The default styling defined by the theme the app uses.
-2. The `Class` combined with `Dynamic classes` properties of the widget.
-3. The `Style` property of the widget.
+1. 由应用程序使用的主题定义的默认样式。
+2. `类` 与 `动态类` 小部件的属性。
+3. 小部件的 `风格` 属性。
 
-You can see which widgets in a page have styling applied via the class or style property by clicking the <strong>Show styles</strong> button.
+您可以通过点击 <strong>显示样式</strong> 按钮来看到页面中哪些部件通过类或样式属性应用了样式。
 
 ![](attachments/common-widget-properties/show-styles.png)
 
-### 3.4 Style{#style}
+### 3.4 样式{#style}
 
-The style property allows you to specify additional CSS styling. If a class is also specified, this styling is applied *after* the class. For example, `>background-color:lightblue; color:red;` will result in red text on a blue background:
+样式属性允许您指定额外的 CSS 样式。 如果某个类也被指定, 这个样式将在</em> 类后使用 *。 例如， `>背景颜色:lightblue; 颜色:;` 将在蓝色背景上产生红色文本：</p>
 
 ![](attachments/common-widget-properties/style-example.png)
 
-### 3.5 Dynamic Classes{#dynamicclasses}
+### 3.5 动态类{#dynamicclasses}
 
-The dynamic classes property allows you to specify one or more cascading stylesheet (CSS) class like the class property, but based on an [expression](expressions). This allows you to dynamically construct classes based on data from an enclosing data container. The dynamic classes constructed in the expression are appended to the classes defined in the [`Class`](#class) property.
+动态类属性允许您指定一个或多个类类样式样表 (CSS) 类 但基于 [表达式](expressions)。 这使您能够根据来自封闭数据容器的数据动态构造类。 在表达式中构建的动态类被附加到 [`class`](#class) 属性中定义的类。
 
 ![](attachments/common-widget-properties/dynamic-classes.png)
 
 {{% alert type="info" %}}
-The dynamic classes property was introduced in Mendix Studio Pro v8.14.
-{{% /alert %}}
+动态类属性已被引入Mendix Studio Pro v8.14中。
+{{% /报警 %}}
 
-You can see which widgets in a page have styling applied via the style or class property by clicking the **Show styles** button.
+您可以通过点击 **显示样式** 按钮来看到页面中哪些部件通过样式或类属性应用了样式。
 
-### 3.6 Documentation{#documentation}
+### 3.6 文档{#documentation}
 
-Some widgets, for example snippets and building blocks, have a **Documentation** property which can be used to store developer documentation. This can be used to explain to other developers how to use these widgets. End-users will never see this documentation.
+一些小部件，如代码片段和构建块，有一个 **文档** 属性，可以用于存储开发者文档。 这可以用来向其他开发者解释如何使用这些部件。 最终用户永远不会看到此文档。
 
-## 4 Data Source Section{#data-source}
+## 4 数据源部分{#data-source}
 
-![Data Source Section](attachments/common-widget-properties/data-source-section.png)
+![数据源部分](attachments/common-widget-properties/data-source-section.png)
 
-### 4.1 Attribute(Path)
+### 4.1 属性(Path)
 
-This property identifies an attribute which is used in an input widget.
+此属性用于输入小部件的属性。
 
-#### 4.1.1 Attribute Input Widgets
+#### 4.1.1 属性输入部件
 
-With the following widgets, the Attribute (Path) specifies the attribute which is being changed (or displayed) by the widget:
+使用以下小部件，属性(Path)指定由小部件更改(或显示)的属性：
 
-*   [Text Box](text-box)
-*   [Text Area](text-area)
-*   [Drop-down](drop-down)
-*   [Check Box](check-box)
-*   [Radio Buttons](radio-buttons)
-*   [Date Picker](date-picker)
+*   [文本框](text-box)
+*   [文本区域](text-area)
+*   [下拉列表](drop-down)
+*   [复选框](check-box)
+*   [单选按钮](radio-buttons)
+*   [日期选择器](date-picker)
 
-The attribute can be one of the following:
+属性可以是以下内容之一：
 
-1. An attribute of the entity of the data container that contains the widget.
-2. An attribute of the entity of any enclosing data container that contains the widget.
-3. An attribute of an entity associated with the data container entity by following one or more associations of type reference through the domain model.
+1. 包含部件的数据容器实体属性。
+2. 包含部件的任何附属数据容器的实体属性。
+3. 通过通过域模型跟踪一个或多个类型参考协会与数据容器实体相关联的实体属性。
 
-In the first two cases we say the widget is connected to an **attribute** and in the third case to an **attribute path**.
+在前两个案例中，我们说小部件已连接到一个 **属性** 并且在第三种情况下连接到一个 **属性路径**。
 
-You can edit attributes of any enclosing data container including grandparent data containers.
+您可以编辑任何附加数据容器的属性，包括祖父数据容器。
 
-#### 4.1.2 Association Input Widgets
+#### 4.1.2 联系输入部件
 
-For widgets which manipulate associations, the Attribute (Path) specifies an attribute which is from an entity which is reachable from the current data container using an association. This applies to the following input widgets:
+对于操纵关联的小部件 属性(Path)指定了一个属性，该属性来自一个实体，该实体通过一个关联可以从当前数据容器中访问。 这适用于以下输入部件：
 
-*   [Reference Selector](reference-selector)
-*   [Reference Set Selector](reference-set-selector)
-*   [Input Reference Set Selector](input-reference-set-selector)
+*   [参考选择器](reference-selector)
+*   [参考设置选择器](reference-set-selector)
+*   [输入参考集选择器](input-reference-set-selector)
 
-For these widgets, only an **Attribute path** can be selected. In other words, the selected attribute must be from an entity associated with the data container entity by following an association, of the type which matches the widget, through the domain model.
+对于这些小部件，只能选择一个 **属性路径**。 换言之，所选属性必须来自与数据容器实体有联系的实体，通过关注一个社团。 匹配部件的类型，通过域模型。
 
 {{% alert type="info" %}}
-For these widgets you are selecting an association to another object. The attribute should therefore indicate uniquely to the end-user which object is being selected.
-{{% /alert %}}
+对于这些小部件您正在选择一个关联到另一个对象。 因此，该属性应向选定的最终用户独特指明。
+{{% /报警 %}}
 
-The attribute can be of one of the following [data types](data-types):
+属性可以是以下 [数据类型](data-types)：
 
 * Autonumber
-* Date and Time
-* Decimal
-* Enumeration
-* Integer
-* Long
-* String
+* 日期和时间
+* 小数
+* 枚举数
+* 整数
+* 长
+* 字符串
 
-## 5 Editability Section{#editability}
+## 5 编辑部分{#editability}
 
-![Common Section](attachments/common-widget-properties/editability-section.png)
+![共同部分](attachments/common-widget-properties/editability-section.png)
 
-### 5.1 Editable
+### 5.1 可编辑
 
-The editable property indicates whether the end-user will be able to change the value displayed by the widget. The possible values are:
+可编辑属性表示最终用户是否能够更改部件显示的值。 可能的数值是：
 
-| Value                       | Description                                                                                                                                                                 |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default                     | The value is editable if security allows it such as if the user that is signed in has write access to the selected attribute (default value for widgets outside a snippet). |
-| Inherited from snippet call | Set to **Default** or **Never** by the containing data container of the snippet call (default value for widgets inside a snippet).                                          |
-| Never                       | The value is never editable.                                                                                                                                                |
-| Conditionally               | The value is editable if the specified condition holds (see below).                                                                                                         |
+| 值          | 描述                                                     |
+| ---------- | ------------------------------------------------------ |
+| 默认设置       | 如果安全性允许它，如果签名的用户能够对选定的属性进行写入访问（代码片段外的小部件默认值），则该值是可编辑的。 |
+| 从代码片段调用继承的 | 设置为 **默认** 或 **永远不会通过包含代码片段调用的数据容器** (小部件在代码片段内的默认值)。  |
+| 从不使用       | 该值永远不可编辑。                                              |
+| 有条件的       | 如果保留指定的条件，则该值可以编辑（见下文）。                                |
 
-### 5.2 Condition
+### 5.2 条件
 
-If the editable property is set to **Conditionally**, the widget is made editable only if the object of the data container that contains the widget satisfies the specified criteria.
+如果可编辑属性设置为 **有条件的**, 只有当包含小部件的数据容器对象符合指定的标准时，小部件才可编辑。
 
-For example, imagine you are creating a personal details form in which the end-user must enter their marital status. In this case, you might wish to disable the input of a marriage date until the end-user indicates that they are married.
+例如，请想象一下您正在创建一个个人详细表格，最终用户必须在其中输入他们的婚姻状况。 在这种情况下，你可能希望在最终用户表明已婚之前禁用结婚日期的输入。
 
-#### 5.2.1 Based on Attribute Value
+#### 5.2.1 基于属性值
 
-When selected, this enables the widget when a particular attribute has a certain value. Only Boolean and enumeration attributes can be used for this purpose.
+当选中时，当特定属性具有特定值时，这将使小部件变得开启。 只有布尔值和枚举属性可以用于此目的。
 
-#### 5.2.2 Based on Expression
+#### 5.2.2 基于表达式
 
-When selected, this enables the widget when a provided [expression](expressions) evaluates to true. The object of the containing data container is available inside an expression as the `$currentObject` variable.
+当选中时，当提供了 [表达式](expressions) 评估为真时，这将使小部件变得正常。 包含数据容器的对象可以在表达式中使用 `$currentObject` 变量。
 
-The expression provided is evaluated in the browser and, currently, does not support all the functions that are available in microflows. The autocomplete function will only list those functions which are supported.
+提供的表达式在浏览器中进行评价，目前并不支持微流中所有可用的功能。 自动完成函数只列出支持的函数。
 
 {{% alert type="info" %}}
-As the expression is evaluated in the browser, we advise against using "secret" values (like access keys) in it. In particular, we disallow usages of [constants](constants).
-{{% /alert %}}
+由于表达式是在浏览器中评估的，因此我们建议不要在它中使用“秘密”值(例如访问密钥)。 尤其是，我们不允许使用 [常量](constants)。
+{{% /报警 %}}
 
-### 5.3 Read-Only Style
+### 5.3 只读样式
 
-This property determines how the widget is rendered if it is read-only.
+这个属性决定了部件是如何渲染的，如果它是只读的。
 
-| Value                            | Description                                                                                                                                                                                                                   |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Based on data view               | Set to `Control` or `Text` by the containing data container. *(Default value for widgets inside a data container)*                                                                                                            |
-| Not enclosed by a data container | Defaults to `Text`. *(Default value for widgets outside a data container)*                                                                                                                                                    |
-| Inherited from snippet call      | Set to `Control` or `Text` by the containing data container of the snippet call, or `Text` when the snippet call is not enclosed by a data container. *(Default value for widgets outside a data container inside a snippet)* |
-| Control                          | Widget is displayed but disabled so the value cannot be modified.                                                                                                                                                             |
-| Text                             | Widget is replaced by a textual representation of the value.                                                                                                                                                                  |
+| 值          | 描述                                                                        |
+| ---------- | ------------------------------------------------------------------------- |
+| 基于数据视图     | 由包含数据容器设置为 `控制` 或 `文本`。 *(数据容器内部件的默认值)*                                   |
+| 不被数据容器围栏   | 默认为 `文本`。 *(数据容器外面小部件的默认值)*                                               |
+| 从代码片段调用继承的 | 设置为 `控制` 或 `文本，由片段调用的数据容器` 或 `文本` 当代码片段调用不被数据容器封闭时。 *(代码片段内数据容器外面小部件的默认值* |
+| 控制         | 部件已显示但禁用，因此无法修改该值。                                                        |
+| 文本         | 部件被文本表示值替换。                                                               |
 
 {{% alert type="info" %}}Read-only style is not supported on native mobile pages.{{% /alert %}}
 
-## 6 Label Section {#label}
+## 6 个标签部分 {#label}
 
-![Label Section](attachments/common-widget-properties/label-section.png)
+![标签部分](attachments/common-widget-properties/label-section.png)
 
-A label can be used to described the purpose of the widget to the user. The label is shown next to the widget in the user interface. If a label is configured, the widget will be rendered in the browser wrapped in a form group. See [Bootstrap documentation](http://getbootstrap.com/css/#forms).
-
-{{% alert type="info" %}}
-The position of the label in relation to the widget is configured in the **Form orientation** and **Label width (weight)** properties of the data container.
-{{% /alert %}}
-
-### 6.1 Show Label
-
-This property determines whether the label is rendered and the widget is wrapped in a form group.
-
-### 6.2 Label Caption
-
-This property is shown only when Show label is Yes. It specifies what text is rendered within a label.
-
-#### 6.2.1 Text Template
-
-The template for the label can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. Note that to use template parameters, the widget must be placed in the context of an entity (for example, inside a data container).
-
-#### 6.2.2 Parameters
-
-For each parameter in the template, you define an attribute of the context entity or an associated entity. The value of this attribute will be inserted at the position of the parameter.
-
-## 7 Formatting Section{#numeric-formatting}
-
-![Numeric Formatting Section](attachments/common-widget-properties/numeric-formatting-section.png)
-
-Formatting describes the way that numeric attributes are displayed. These are attributes of the following data types:
-
-* Decimal
-* Integer
-* Long
-
-When a widget contains a numeric attribute, the **Formatting** section allows you to change the way it is displayed.
-
-There are three options, described below:
-
-* Decimal Mode
-* Decimal Precision
-* Group Digits
-
-### 7.1 Decimal Mode{#decimal-mode}
+可以使用标签向用户描述部件的目的。 在用户界面小部件旁边显示标签。 如果标签被配置，小部件将会呈现在一个表单组中的浏览器中。 查看 [Bootstrap 文档](http://getbootstrap.com/css/#forms)。
 
 {{% alert type="info" %}}
-This mode only applies to attributes of type Decimal.
-{{% /alert %}}
+标签相对于部件的位置是在数据容器的 **表单方向** 和 **标签宽度(权重)** 属性中配置的。
+{{% /报警 %}}
 
-If set to _Fixed_, the decimal part always will be displayed with the number of places specified in the [Decimal precision](#decimal-precision) property. The value will be rounded using the method defined in the [Rounding](project-settings#rounding) section of **App Settings**.
+### 6.1 显示标签
 
-If set to _Auto_, the whole decimal part of the attribute value will be displayed. No decimal part will be be displayed if the attribute value is an integer.
+此属性决定标签是否呈现，部件是否被包装在表单组中。
 
-Default: *Fixed*
+### 6.2 标签标题
 
-**Examples**
+此属性仅在显示标签为是时才显示。 它指定了在标签中呈现的文本。
 
-| Value    | Fixed (2)                        | Fixed (4)                          | Auto     |
+#### 6.2.1 文本模板
+
+标签的模板可以包含以数字写在括号之间的参数 (例如， `{1}`)。 第一个参数的数字是 `1`, 第二个 `2`, 等等。 请注意，如果要使用模板参数，小部件必须放置在实体的上下文(例如在数据容器内)。
+
+#### 6.2.2 参数
+
+对于模板中的每个参数，您定义了上下文实体或关联实体的属性。 此属性的值将插入参数的位置。
+
+## 7 格式化部分{#numeric-formatting}
+
+![数字格式部分](attachments/common-widget-properties/numeric-formatting-section.png)
+
+格式化描述数字属性的显示方式。 这些是以下数据类型的属性：
+
+* 小数
+* 整数
+* 长
+
+当小部件包含数字属性时， **格式化** 部分允许您更改它的显示方式。
+
+有三个备选办法，说明如下：
+
+* 十进制模式
+* 十进制精度
+* 组数字
+
+### 7.1 十进制模式{#decimal-mode}
+
+{{% alert type="info" %}}
+此模式仅适用于小数型的属性。
+{{% /报警 %}}
+
+如果设置为 _修复了_， 小数部分始终显示在 [小数点精度](#decimal-precision) 属性中指定的位置数。 The value will be rounded using the method defined in the [Rounding](project-settings#rounding) section of **App Settings**.
+
+如果设置为 _自动_, 将显示属性值的整个十进制部分。 如果属性值为整数，不会显示小数部分。
+
+默认： *已修复*
+
+**示例：**
+
+| 值        | 固定(2)                            | 固定(4)                              | 自动操作     |
 | -------- | -------------------------------- | ---------------------------------- | -------- |
 | 19.0     | 19.00                            | 19.0000                            | 19       |
 | 19.99    | 19.99                            | 19.9900                            | 19.99    |
@@ -257,122 +257,122 @@ Default: *Fixed*
 | 19.9999  | 20.00<sup><small>*</small></sup> | 19.9999                            | 19.9999  |
 | 19.99999 | 20.00<sup><small>*</small></sup> | 20.0000<sup><small>*</small></sup> | 19.99999 |
 
-<sup><small>*</small></sup>The value is rounded to the nearest decimal with the defined number of decimal places.
+<sup><small>*</small></sup>值四舍五入到最近的小数点后面的小数点数。
 
-### 7.2 Decimal Precision{#decimal-precision}
+### 7.2 十进制精度{#decimal-precision}
 
 {{% alert type="info" %}}
-This only applies to attributes of type Decimal and is available only when the [Decimal mode](#decimal-mode) is set to **Fixed**.
-{{% /alert %}}
+这只适用于小数型的属性，只有在 [小数型模式](#decimal-mode) 被设置为 **已修复** 时才可用。
+{{% /报警 %}}
 
-The precision of a value describes the number of decimal places that are used to express that value. This property indicates the number of decimal places (the number of digits following the point).
+一个值的精确度表示用来表示该值的小数点数。 此属性表示小数点后的位数(位数后的位数)。
 
-The way that the number is rounded when displayed is defined in the [Rounding](project-settings#rounding) section of **App Settings**.
+显示数字的四舍五入方式在 **App 设置 [四舍五入](project-settings#rounding) 部分中定义。**。
 
-Default: *2*
+默认： *2*
 
-### 7.3 Group Digits
+### 7.3 小组数字
 
-For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter when they are displayed. If the widget is editable and is the current focus of the page, then the delimiters will *not* be displayed.
+为了便于阅读，小数点分隔符之前有许多数字的数字可能会在显示时被分成使用分隔符的组。 如果小部件是可编辑的并且是当前页面的焦点，那么分隔符将不会显示 **。
 
-This setting applies to all three numeric data types.
+此设置适用于所有三个数值数据类型。
 
-Set **Group digits** to **Yes** to display these groups.
+将 **组数字** 设置为 **是** 来显示这些组。
 
-Default: *No*
+默认： *否*
 
-**Example**
+**示例**
 
-For example, with **Group digits** set to `true`, the number `1100100.01` will be displayed as `1,100,100.01`.
+例如， **组数字** 设置为 `true`, 数字为 `1100100。 1` 将显示为 `1,100,100.01`
 
-## 8 Validation Section{#validation}
+## 8 校验部分{#validation}
 
-![Validation Section](attachments/common-widget-properties/validation-section.png)
+![验证部分](attachments/common-widget-properties/validation-section.png)
 
-Input widgets can include validation to ensure that data is correct before it is used by the app.
+输入小部件可以包括验证，以确保数据在应用程序使用之前是正确的。
 
-There are two settings in the validation section which are described below:
+验证部分中有两个设置描述如下：
 
-* Type
-* Message
+* 类型
+* 留言
 
-### 8.1 Type
+### 8.1 类型
 
-This property indicates whether this widget value should be validated and, if so, how. These are the possible options:
+这个属性表示是否应该验证这个小部件值，如果是的话，如何验证。 以下是可能的备选办法：
 
-* No validation – the data has to be the correct [data type](data-types) for the widget, but otherwise there is no further validation
-* A [predefined validation](#predefined-validation) – see description below
-* A [custom validation](#custom-validation) – see description below
+* 没有验证 — 数据必须是小部件正确的 [数据类型](data-types) ，但是没有进一步的验证
+* [预定义的验证](#predefined-validation) — — 查看下面的描述
+* [自定义验证](#custom-validation) — — 见下面的描述
 
-#### 8.1.1 Predefined Validation{#predefined-validation}
+#### 8.1.1 预定义Validation{#predefined-validation}
 
-The possible values of a predefined validation are the following:
+预定义验证的可能值如下：
 
 * **Required** – can be used for attributes of *all* data types
-* **E-mail** – applies to *String* attributes
-* **Positive number** – applies to *Decimal*, *Integer*, and *Long* attributes
-* **Date in the future** – applies to *Date and time* attributes — compares the date *and time* to `[%CurrentDateTime%]`
-* **Date in the past** – applies to *Date and time* attributes — compares the date *and time* to `[%CurrentDateTime%]`
+* **电邮** - 适用于 *字符串* 属性
+* **正数** - 适用于 *十进制*, *整数*, 和 *长久* 属性
+* **未来日期** - 适用于 *日期和时间* 属性 - 比较日期 *和时间* 到 `[%CurrentDateTime%]`
+* **过去的日期** - 适用于 *日期和时间* 属性 — 比较日期 *和时间* 到 `[%CurrentDateTime%]`
 
-#### 8.1.2 Custom Validation{#custom-validation}
+#### 8.1.2 自定义Validation{#custom-validation}
 
-Custom validation is an expression that follows the [Microflow expression](expressions) syntax.
+自定义验证是一个遵循 [微流程表达式](expressions) 语法的表达式。
 
-There are a number of variables you can use in your expression:
-* `$currentObject` – the current object
-* `$value` – the current member (attribute or association) value
-
-{{% alert type="info" %}}
-The expression can access objects of **all** the data containers enclosing the input widget. The objects are given the name of the widget they originate from (for example, `$dataView1`).
-{{% /alert %}}
-
-When a validation is set and it fails for this widget, the message you specify will be shown before the user can use the value in the app.
-
-Default: *(none)*
-
-### 8.2 Message
-
-This property determines the message that is shown to the user if widget validation is enabled and has failed. This is a translatable text (for more information, see [Language Menu](translatable-texts)).
-
-For example, if an address field is required, the validation message for the text box of the address could be something like, `The address is required.`
-
-## 9 Visibility Section {#visibility-properties}
-
-![Visibility Section](attachments/common-widget-properties/visibility-section.png)
-
-### 9.1 Visible
-
-By default, whether or not an element is displayed in the browser is determined by how the page is designed and the user's roles within the application. However, the page can be configured to hide the element unless a certain condition is met.
+您可以在表达式中使用一些变量：
+* `$currentObject` - 当前对象
+* `$value` -- 当前会员 (属性或关联) 值
 
 {{% alert type="info" %}}
-You can choose both **Context** conditions and **Module roles** conditions to apply to the widget.
-{{% /alert %}}
+The expression can access objects of **all** the data containers enclosing the input widget. 对象是他们来自的小部件的名称(例如， `$dataView1`)。
+{{% /报警 %}}
 
-Note that with the **Visible** property, you only hide data and do not protect it. You can hide a tab or a table row from an end-user, but if they still have access to the data then they could see it some other way. To restrict access to sensitive data, use a constraint on the domain model, not on individual pages.
+当验证设置失败时， 您指定的消息将在用户可以在应用中使用该值之前显示。
 
-#### 9.1.1 Context
+默认： *(无)*
 
-The widget can be made visible only if the object of the data container that contains the widget satisfies the specified criteria.
+### 8.2 信息
 
-A practical example would be a web shop in which the user must submit both billing and delivery information. In this case, you might not wish to bother the user with a second set of address input fields unless they indicate that the billing address and delivery address are not the same. You can accomplish this by making the delivery address fields conditionally visible based on the Boolean attribute `SameBillingAndDeliveryAddress`.
+此属性决定了在小部件验证启用后显示给用户的消息。 这是一个可翻译的文本(详情请参阅 [语言菜单](translatable-texts))。
 
-##### 9.1.1.1 Based on Attribute Value{#visibility-based-on-attribute-value}
+例如，如果地址字段是必需的。 地址文本框的验证消息可能是类似的。 `地址是必需的。`
 
-When selected, this shows the widget while a particular attribute has a certain value. Only Boolean and enumeration attributes can be used for this purpose.
+## 9 可见性科 {#visibility-properties}
 
-##### 9.1.1.2 Based on Expression{#visibility-based-on-expression}
+![可见性部分](attachments/common-widget-properties/visibility-section.png)
 
-When selected, this shows the widget while a provided [expression](expressions) evaluates to true. The object of the containing data container is available inside an expression as a `$currentObject` variable. The expression can access objects of all the data containers enclosing that data container widget. These objects are available under the name of the widget they originate from (for example, `$dataView1`).
+### 9.1 可见
 
-Note that the expression is evaluated in the browser, and hence, we advise against using "secret" values (like access keys) in it. In particular, we disallow usages of [constants](constants). Also, client-side expressions currently do not support all the functions that are available in the microflows. Please refer to an autocomplete list to know what functions are supported in your version.
+默认， 一个元素是否显示在浏览器中，取决于页面的设计方式和用户在应用程序中的角色。 然而，页面可以设置为隐藏元素，除非满足某个条件。
 
-#### 9.1.2 Module Roles
+{{% alert type="info" %}}
+您可以同时选择 **Context** 条件和 **模块角色** 条件来应用于部件。
+{{% /报警 %}}
 
-The widget can be made visible to a specific of the user roles available in your application. When activated, this setting will render the widget invisible to all users that are not linked to one of the selected user roles.
+请注意，使用 **可见的** 属性，您只能隐藏数据，不能保护它。 您可以在最终用户中隐藏标签或表行。 但是，如果他们仍然能够获得数据，他们就可以看到其他一些方法。 要限制访问敏感数据，请使用域模型的约束，而不是单个页面。
 
-| Value            | Description                                                                                                                                                 |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Applicable roles | The widget is visible if access rules allow it (for example if the user that is signed in has a role for which the target is set to be visible/accessible). |
-| All roles        | The widget is always visible.                                                                                                                               |
-| Selected roles   | This setting will render the widget as invisible to all users that are not linked to one of the selected user roles.                                        |
+#### 9.1.1 背景
+
+只有当包含小部件的数据容器对象符合指定的标准时，小部件才能显示。
+
+一个实际例子是用户必须提交账单和送货信息的网上商店。 在这种情况下， 您可能不希望用第二组地址输入字段来打包用户，除非他们表示帐单地址和送货地址不相同。 您可以通过基于布尔属性 `SameBillingAndDeliveryAddress` 的有条件可见送货地址字段来实现这一点。
+
+##### 9.1.1.1 基于属性值{#visibility-based-on-attribute-value}
+
+当选中时，这将显示某个属性具有特定值时的小部件。 只有布尔值和枚举属性可以用于此目的。
+
+##### 9.1.1.2 基于{#visibility-based-on-expression}
+
+当选择时，这将显示小部件，而提供的 [表达式](expressions) 则评估为 true。 包含数据容器的对象可用表达式中的 `$currentObject` 变量。 表达式可以访问所有数据容器的对象，将数据容器部件连接在一起。 这些对象可以使用它们源自小部件的名称(例如， `$dataView1`)。
+
+请注意，表达式是在浏览器中评估的，因此我们建议不要在它中使用“秘密”值(例如访问密钥)。 尤其是，我们不允许使用 [常量](constants)。 此外，客户端表达式目前并不支持微流中所有可用的功能。 请参考自动完成列表以了解您的版本支持哪些功能。
+
+#### 9.1.2 模块角色
+
+小部件可以显示给应用程序中可用的特定用户角色。 激活后，此设置将使所有未链接到所选用户角色的用户不可见的小部件。
+
+| 值     | 描述                                            |
+| ----- | --------------------------------------------- |
+| 适用的角色 | 如果访问规则允许，小部件是可见的(例如，被登录的用户具有目标被设置为可见/可访问的角色)。 |
+| 所有角色  | 小部件总是可见的。                                     |
+| 选定的角色 | 此设置将使小部件无法被所有未链接到所选用户角色之一的用户看到。               |
 
