@@ -1,107 +1,107 @@
 ---
-title: "Consumed OData Service Requirements"
-parent: "consumed-odata-services"
+title: "消費された OData サービス要件"
+parent: "consed-odata-services"
 menu-order: 20
-description: "Requirements on OData services consumed in Mendix."
+description: "Mendixで消費されるODataサービスの要件。"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes the requirements for an OData service that is going to be consumed. These requirements are not further verified at runtime and expected to hold. If these requirements are not met, errors may result.
+このドキュメントでは、消費される予定の OData サービスの要件について説明します。 これらの要件は、実行時にさらに検証されず、保持することが期待されます。 これらの要件が満たされない場合、エラーが発生する可能性があります。
 
-## 2 Requirements for a Consumed OData Service
+## 2消費されたODataサービスの要件
 
-The requirements for a consumed OData service used in a Mendix app are the following:
+Mendix アプリで使用される消費された OData サービスの要件は次のとおりです。
 
-* The OData service must be either an OData v3 service returning Atom XML, or an OData v4 service returning either Atom XML or JSON
+* OData サービスは、Atom XML を返すOData v3 サービスまたは Atom XML または JSON を返すOData v4 サービスである必要があります。
 * It should support queries on the OData feed, including `$filter`, `$orderby`, `$top`, `$skip`, `$expand`, and `$count` (or `$inlinecount`)
 
-## 3 Requirements on the Service Entities and Attributes
+## サービスエンティティおよび属性に関する3つの要件
 
-This section describes the features of a consumed OData service that are supported in Mendix apps. These features are checked before an external entity is used in the domain model.
+このセクションでは、Mendix アプリでサポートされている消費された OData サービスの機能について説明します。 これらの機能は、ドメインモデルで外部エンティティが使用される前にチェックされます。
 
-### 3.1 Entities
+### 3.1 エンティティ
 
-Vocabulary annotations can be used in a service to indicate features that are not supported. The following vocabulary annotations are recognized for entity sets:
+サービスでは、サポートされていない機能を示すために語彙注釈を使用できます。 以下の語彙のアノテーションがエンティティセットに認識されます:
 
-* **Countable** – marking an entity set as `Countable="false"` prevents the user from adding the entity to the app
-* **Filterable** – marking an entity set as `Filterable="false"` sets all properties as non-filterable
-* **Sortable** – marking an entity set as `Sortable="false"` sets all properties as non-sortable
+* **Countable** - `Countable="false"` に設定されたエンティティをマークすると、ユーザーがエンティティをアプリに追加できなくなります
+* **フィルタ可能** - `Filterable="false"` は、すべてのプロパティをフィルタリング不可能として設定します。
+* **ソート可能** - エンティティセットを `Sortable="false"` はすべてのプロパティをソート不可能として設定します
 * Marking an entity set as `Filterable="false"` and `Sortable="false"` sets all properties as non-filterable and non-sortable; marking properties with the `NonFilterableProperties` annotation or the `NonSortableProperties` annotation sets specific attributes as non-filterable or non-sortable
 
-An entity can only be used when it is accessible through an entity set.
+エンティティはエンティティセットを介してアクセス可能な場合にのみ使用できます。
 
-Furthermore, an entity can only be used if it is uniquely identifiable with a key. The key can consist of one or more properties, as long as the following conditions are met:
+さらに、エンティティはキーで一意に識別できる場合にのみ使用できます。 キーは、次の条件が満たされている限り、1 つ以上のプロパティで構成できます。
 
-* The properties cannot be nullable (so they must have `isNullable="false"` specified).
+* プロパティは nullable にできません ( `isNullable="false"` が指定されている必要があります)。
 * Only the following types are allowed: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `Boolean`, `Decimal`, `Single`, `Double`, and `String`.
-* If the type of a key property is `String`, it must have a limited  (maximum) length specified. This is because not all databases support indexes on strings of unlimited length. It is sufficient if  a `MaxLength` is specified in the contract. However, if a `MaxLength` is not specified in the contract, and you know that the string is limited in length, you can still use the entity by specifying the maximum length of the attribute in the the domain model.
+* key プロパティの型が `String`の場合、長さが制限されていなければなりません。 これは、すべてのデータベースが文字列上で無制限の長さのインデックスをサポートしているわけではないからです。 コントラクトで `MaxLength` が指定されている場合に十分です。 ただし、 `MaxLength` が指定されていない場合、文字列の長さが制限されていることがわかります。 ドメインモデルで属性の最大長を指定することで、エンティティを使用できます。
 
 {{% alert type="info" %}}
-This feature of using entities with keys that do not have a maximum length specified in the contract applies to version 9.3.0 and above. In previous versions of Studio Pro, you must change the contract to ensure that `MaxLength` is specified.
+コントラクトで指定された最大長を持たないキーを持つエンティティを使用するこの機能は、バージョン 9.3.0 以降に適用されます。 Studio Pro の以前のバージョンでは、 `MaxLength` が指定されていることを確認するために、コントラクトを変更する必要があります。
 {{% /alert %}}
 
-### 3.2 Attributes
+### 3.2 属性
 
 {{% alert type="warning" %}}
-Attributes marked as `FC_KeepInContent=false` cannot be used.
+`FC_KeepInContent=false` としてマークされた属性は使用できません。
 {{% /alert %}}
 
-Attribute types have to be primitive (not complex, collections, or enumerations). The types of the attributes in your app will be based on the types of the attributes in the OData metadata, as given in the following table:
+属性型はプリミティブでなければなりません (複合体、コレクション、列挙ではありません)。 アプリの属性の種類は、OData メタデータの属性の種類に基づきます。 次の表に示すようになります。
 
 | OData Type                     | Mendix Type                           |
 | ------------------------------ | ------------------------------------- |
-| Binary                         | Binary (but see 3.4)                  |
+| バイナリ                           | バイナリ (ただし、3.4を参照)                     |
 | Boolean                        | Boolean <sup><small>[1]</small></sup> |
-| Byte, SByte, Int16, Int32      | Integer                               |
-| DateTime, DateTimeOffset, Time | Date/time                             |
-| Decimal, Double, Single        | Decimal <sup><small>[2]</small></sup> |
-| Int64                          | Long                                  |
-| String, Guid                   | String                                |
-| (Other)                        | (Ignored)                             |
+| Byte, SByte, Int16, Int32      | 整数                                    |
+| DateTime, DateTimeOffset, Time | 日付/時刻                                 |
+| 小数、ダブル、シングル                    | 小数点 <sup><small>[2]</small></sup>     |
+| Int64                          | 長い順                                   |
+| 文字列、Guid                       | 文字列                                   |
+| (その他)                          | （非接触）                                 |
 
 {{% alert type="warning" %}}
-When the OData endpoint contains operations, these are not imported in the consumed OData service. You can use a [Call REST service](call-rest-action) activity to call these operations.
+OData エンドポイントに操作が含まれている場合、これらは消費された OData サービスにインポートされません。 これらの操作を呼び出すには、 [REST サービスを呼び出す](call-rest-action) アクティビティを使用できます。
 {{% /alert %}}
 
-<sup><small>[1]</small></sup>: In Mendix, Booleans cannot be null. If the service returns null, the value will be false in Mendix.
+<sup><small>[1]</small></sup>: Mendix では、Boolean は null にできません。 サービスが null を返した場合、Mendix では false になります。
 
-<sup><small>[2]</small></sup>: Decimal values outside of the range of a [Mendix decimal](attributes#type) are currently not supported. If the service returns a value outside of the range, there will be an error.
+<sup><small>[2]</small></sup>: [Mendix decimal の範囲外の小数](attributes#type) は現在サポートされていません。 サービスが範囲外の値を返す場合、エラーが発生します。
 
-### 3.3 Generalizations
+### 3.3 一般化
 
-The consumed OData service does not support importing generalizations and specializations. This means that the Published OData service contract from the originating app will show specializations as discrete entities which will include the attributes of the generalization along with the attributes of the specialized entity.
+消費された OData サービスは、一般化および専門化のインポートをサポートしていません。 つまり、元のアプリから公開された OData サービス契約は、専門化されたエンティティの属性とともに一般化の属性を含む離散エンティティとしての専門化を表示します。
 
-This means that when you are consuming a Mendix OData endpoint, it is not necessary to consume both a generalization and its specialization. The specialization will now be an entity with all the attributes and associations of the generalization.
+つまり、Mendix OData エンドポイントを消費する場合、一般化とその特殊化の両方を消費する必要はありません。 専門化は、一般化のすべての属性と関連性を持つエンティティになります。
 
-Associations to the generalizations with other exposed entities in the published OData service will be included for the now discrete "specialized" entities.
+パブリッシュされた OData サービス内の他のエクスポーズされたエンティティとの一般化に関連付けられるものは、今や離散的な "特殊化された" エンティティに含まれます。
 
 {{% alert type="warning" %}}
-When a generalization and a specialized entity are exposed in the same service. Only the association for the generalization will be visible when both entities are consumed. The now discrete specialization will have the inherited association. A possible work-around for this is to publish a service with the specializations without the generalization. Alternatively, the association for the generalization should not be published, allowing for the inherited association in the specialization to be preserved.
+一般化と特殊化されたエンティティが同じサービスで公開される場合。 両方のエンティティが使用されている場合、一般化の関連付けのみが表示されます。 現在の離散的な専門化には、継承された関連があります。 これに対する回避策として、一般化せずに専門性を持つサービスを公開することがあります。 代わりに、汎用化の関連付けが公開されるべきではなく、専門化における継承された関連付けが保存されるようにします。
 {{% /alert %}}
 
-### 3.4 Binary Attributes
+### 3.4 バイナリ属性
 
-The binary data format is supported in the form of *media entities*. When a media entity is dragged into the domain model, a corresponding external entity is created. The entity will have a `contents` attribute with the binary data.
+バイナリデータ形式は *メディア エンティティ* の形式でサポートされています。 メディア エンティティがドメイン モデルにドラッグされると、対応する外部エンティティが作成されます。 エンティティは `contents` 属性とバイナリデータを持ちます。
 
-Currently, the binary data can only be accessed by Java actions.
+現在、バイナリデータはJavaアクションでのみアクセスできます。
 
-### 3.5 Associations
+### 3.5 関連付け
 
-An OData v3 association can only be used if it has two ends.
+OData v3 アソシエーションは、2つのエンドがある場合にのみ使用できます。
 
-An OData v4 navigation property can only be used as an association if it has a partner.
+OData v4 navigation プロパティは、パートナーを持つ場合のみ関連として使用できます。
 
-## 4 Data Hub License Limitations {#license-limitations}
+## 4 Data Hub ライセンスの制限 {#license-limitations}
 
-Mendix Data Hub is a separately licensed product.
+Mendix Data Hubは別途ライセンスされた製品です。
 
-Without a license, an app can retrieve a total of 1000 OData objects per day for each runtime instance. After that limit is exceeded, an error will occur when users try to retrieve more data. The number of consumed objects per day is reset at midnight in the timezone of the Mendix Runtime scheduler (which can be defined in the app [Project Settings](project-settings#scheduled)).
+ライセンスがなければ、アプリケーションは各ランタイムインスタンスに対して1日あたり合計1000 個の OData オブジェクトを取得できます。 この制限を超えると、ユーザーがより多くのデータを取得しようとするとエラーが発生します。 1日あたりの消費されるオブジェクトの数は、Mendix Runtime スケジューラのタイムゾーンで真夜中にリセットされます (アプリで定義することができます [プロジェクト設定](project-settings#scheduled))。
 
-With a Data Hub license, apps are not limited.
+データハブのライセンスでは、アプリは制限されません。
 
-{{% alert type="info" %}}Apps running in development environments (and also when running from the Studios) do not have this limitation. This means that you can run your app from the Studios without Data Hub license limitations.{{% /alert %}}
+{{% alert type="info" %}}開発環境(およびStudiosから実行している場合)で実行されているアプリには、この制限はありません。 これは、データハブのライセンス制限なしにStudiosからアプリを実行できることを意味します。{{% /alert %}}
 
-Contact your [Mendix Admin](/developerportal/control-center/#company) or Data Hub Admin to find out what type of Data Hub license your organization has.
+組織が持っているデータハブのライセンスの種類については、 [Mendix管理者](/developerportal/control-center/#company) またはデータハブ管理者にお問い合わせください。
