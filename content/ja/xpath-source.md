@@ -1,73 +1,69 @@
 ---
-title: "XPath Source"
-parent: "data-sources"
+title: "XPath ソース"
+parent: "データソース"
 tags:
   - "studio pro"
   - "xpath"
-  - "xpath source"
-  - "data source"
+  - "xpath ソース"
+  - "データソース"
 menu_order: 20
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-source.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+**XPath** がウィジェットのデータソースとして選択されている場合、表示されているオブジェクトまたはオブジェクトはクエリを使用してデータベースから直接取得されます。 [XPath 制約](#xpath-constraints) を使用してデータをフィルタリングすることができます。
 
-If **XPath** is selected as the data source for a widget then the object or objects shown are retrieved directly from the database with a query. You can filter data with an [XPath constraint](#xpath-constraints).
+**XPath** データソースは [**データベース** データソース](database-source)によく似ています。 XPath の制約がデータベースよりも柔軟であることを除きます。
 
-The **XPath** data source is very similar to the [**Database** data source](database-source), except that XPath constraints are more flexible than the database ones.
+取得したデータは、以下の要因によって制限される場合があります。
 
-The data retrieved can also be limited by the following factors:
+1. アプリの **セキュリティ** セクションで定義されているアクセス ルール。
+2. 関連付け、ウィジェットが別のデータ ウィジェットにネストされており、説明されているデータ パスが関連付け上で実行されている場合。
 
-1. The access rules defined in the security section of the project.
-2. An association, if the widget is nested in another data widget and the data path described runs over an association.
+単一のウィジェットではなく、複数のウィジェットでデータを制限したい場合。 XPath 制約の代わりにエンティティに [アクセス ルール](access-rules) を適用することもできます。 このようにして、オブジェクトは常にこれらのルールによって制約されます。 また、繰り返し制約がなくなるマイクロフローを実行する際にもアクセスルールが適用されます。
 
-If you want to restrict data not for a single widget, but for several, you may want to apply [access rules](access-rules) for entities instead of XPath constraints. This way you know that the objects will always be constrained by these rules. Access rules will also be applied when executing microflows which saves you from repeating constraints.
+## 2つのプロパティ
 
-## 2 Properties
+### 2.1 エンティティ (パス)
 
-### 2.1 Entity (Path)
+**エンティティ (パス)** プロパティは、データベースクエリのターゲットを指定します。 トップレベルのデータウィジェットを持っている場合、 **Entity (path)** は選択したエンティティのオブジェクトを直接取得します。 ネストされたデータウィジェットがある場合は、親データコンテナのエンティティを選択することもできます。 この場合、関連付けパスの後にオブジェクトが取得され、関連付けはデータベースクエリの追加制約として解析されます。
 
-The **Entity (path)** property specifies the target of the database query. If you have a top-level data widget, **Entity (path)** will get objects of the selected entity directly. If you have a nested data widget, you can also select an entity of a parent data container. In this case objects are retrieved following the association path and the association is parsed as an extra constraint in the database query.
-
-{{% image_container width="400" %}}![Data Source Example](attachments/data-widgets/data-source-example.png)
+{{% image_container width="400" %}}![データソースの例](attachments/data-widgets/data-source-example.png)
 {{% /image_container %}}
 
 {{% alert type="info" %}}
-This differs from the [association data source](association-source) when objects are retrieved from the memory, not database.
+これは、データベースではなく、メモリからオブジェクトが取得されたときに [関連データ ソース](association-source) と異なります。
 {{% /alert %}}
 
-### 2.2 Show Search Bar {#show-search-bar}
+### 2.2 検索バーを表示 {#show-search-bar}
 
-**Show search bar** is only available for data grids. You can select if and when the **[Search bar](search-bar)** of the data grid is shown.
+**Show search bar** is only available for data grids. データグリッドの **[検索バー](search-bar)** が表示されるかどうかを選択できます。
 
-| Value                                       | Description                                                                                                                               |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Never                                       | No search bar or search button are ever shown. Effectively disables search.                                                               |
-| With button (initially open)                | An end-user can open and close the search bar using the [**Search** button](control-bar#search-button); the search bar is initially open. |
-| With button (initially closed)  *(default)* | The user can open and close the search bar using the search button; the search bar is initially closed.                                   |
-| Always                                      | The search bar is always visible and cannot be close, nor is there a search button.                                                       |
+| 値                            | 説明                                                                                  |
+| ---------------------------- | ----------------------------------------------------------------------------------- |
+| 一切なし                         | 検索バーや検索ボタンは表示されません。 検索を効果的に無効にします。                                                  |
+| ボタン付き (最初に開く)                | エンドユーザーは [**Search** ボタン](control-bar#search-button)を使用して検索バーを開閉できます。検索バーは最初に開かれます。 |
+| ボタンあり (最初は閉じています)  *(デフォルト)* | ユーザーは検索ボタンを使用して検索バーを開閉できます。検索バーは最初に閉じられます。                                          |
+| 常に表示                         | 検索バーは常に表示され、閉じることはできません。検索ボタンもありません。                                                |
 
-### 2.3 Wait for Search
+### 2.3 検索待ち
 
-The **Wait for search** property is available if **[Show search bar](#show-search-bar)** is set to *With button (initially open)* or to *Always*.
+**Wait for search** プロパティは、 **[Show search bar](#show-search-bar)** が *With button (initially open)* または *Always* に設定されている場合に使用できます。
 
-When **Wait for search** is set to *Yes*, the grid will remain empty of contents the end-user initiates a search. This can be useful if the target entity contains an extremely large set of objects but most mutations only require a subset of the data. Waiting for search will ensure that no database query is performed until the desired subset is specified, thus skipping the initial loading period associated with major data retrievals.
+**Wait for search** が *Yes*に設定されている場合、エンドユーザーが検索を開始するコンテンツはグリッドが空のままになります。 これは、ターゲットエンティティが非常に大きなオブジェクトセットを含んでいる場合に便利ですが、ほとんどの変異ではデータのサブセットしか必要としません。 検索を待つと、所望のサブセットが指定されるまでデータベースクエリが実行されないようになります。 したがって、主要なデータの取得に関連する最初のロード期間をスキップします。
 
-Default: *false*
+デフォルト: *false*
 
-### 2.4 XPath Constraint {#xpath-constraints}
+### 2.4 XPath 制約 {#xpath-constraints}
 
-The [XPath constraint](xpath-constraints) allows for custom, hard-coded limitations on the data displayed. This constraint will be appended to the constraints (if any) already applied through security and context.
+[XPath 制約](xpath-constraints) を使用すると、表示されるデータに対するカスタムのハードコードされた制限が可能になります。 この制約は、セキュリティとコンテキストを介して既に適用されている制約(もしあれば)に追加されます。
 
 {{% alert type="warning" %}}
-XPath constraints are applied equally to all users and only apply to the data displayed in a single data widget. If the goal is to restrict access to a particular subset of the data for users then [access rules](access-rules) for entities should be used as they can be applied to an individual user role and they apply system-wide.
+XPath 制約はすべてのユーザーに均等に適用され、単一のデータ ウィジェットに表示されるデータにのみ適用されます。 目的がユーザーのためのデータの特定のサブセットへのアクセスを制限する場合、エンティティの [アクセス ルール](access-rules) を個々のユーザー ロールに適用され、システム全体に適用されるために使用する必要があります。
 {{% /alert %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Data Widgets](data-widgets)
-* [Data Grid](data-grid)
+* [データウィジェット](data-widgets)
+* [データグリッド](データグリッド)
 
