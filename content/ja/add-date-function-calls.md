@@ -1,86 +1,86 @@
 ---
-title: "Add Date Function Calls"
-parent: "expressions"
+title: "日付関数呼び出しを追加"
+parent: "表現"
 menu_order: 110
 tags:
   - "studio pro"
-  - "expressions"
-  - "add date function"
+  - "表現"
+  - "日付関数を追加"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Add date function calls add a time period to a date and time and return the modified value.
+日付関数の呼び出しを追加し、日付と時刻に期間を追加し、変更された値を返します。
 
 The first parameter can be an attribute of a domain model entity of type **Date and time**, a variable of type **Date and time**, or a **Date and time** value created using a [Date Creation](date-creation) function.
 
-The second parameter specifies the time period to be added - you can use a negative time period to subtract it from the specified date.
+2 番目のパラメータは、追加する時間周期を指定します。指定した日付から除外するには、負の時間周期を使用できます。
 
 ## 2 addMilliseconds
 
-The `addMilliseconds` function adds a specified number of milliseconds to a date.
+`addMilliseconds` 関数は日付に指定されたミリ秒数を追加します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                  | Type          |
-| -------------------------------------- | ------------- |
-| Initial date                           | Date and time |
-| The number of milliseconds to be added | Integer       |
+| 値        | タイプ   |
+| -------- | ----- |
+| 初期日付     | 日付と時刻 |
+| 追加するミリ秒数 | 整数    |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                   | Type          |
-| ------------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *milliseconds*. | Date and time |
+| 値                                                                                            | タイプ   |
+| -------------------------------------------------------------------------------------------- | ----- |
+| Date and time value that is the sum of the *initial date* and the specified number of *ミリ秒*. | 日付と時刻 |
 
-### 2.3 Example
+### 2.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addMilliseconds(dateTime(2007, 1, 1, 1, 1, 1), 1400)
+addMilliseconds(dateTime(2007, 1, 1, 1), 1400)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 01 01:01:02:400 CET 2007"
 ```
 
-## 3 addSeconds
+## 3秒追加
 
-The `addSeconds` function adds a specified number of seconds to a date.
+`addSeconds` 関数は、日付に指定された秒数を追加します。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                             | Type          |
-| --------------------------------- | ------------- |
-| Initial date                      | Date and time |
-| The number of seconds to be added | Integer       |
+| 値       | タイプ   |
+| ------- | ----- |
+| 初期日付    | 日付と時刻 |
+| 追加される秒数 | 整数    |
 
-### 3.2 Output
+### 3.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                              | Type          |
-| -------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *seconds*. | Date and time |
+| 値                                | タイプ   |
+| -------------------------------- | ----- |
+| *初期日付* と指定された *秒* の合計である日付と時刻の値。 | 日付と時刻 |
 
-### 3.3 Example
+### 3.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addSeconds(dateTime(2007, 1, 1, 1, 1, 1), 2)
+addSeconds(dateTime(2007年、1、1、1、1、2)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 01 01:01:03 CET 2007"
@@ -88,34 +88,34 @@ The output is:
 
 ## 4 addMinutes
 
-The `addMinutes` function adds a number of minutes to a date.
+`addMinutes` 関数は、日付に分数を追加します。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                             | Type          |
-| --------------------------------- | ------------- |
-| Initial date                      | Date and time |
-| The number of minutes to be added | Integer       |
+| 値       | タイプ   |
+| ------- | ----- |
+| 初期日付    | 日付と時刻 |
+| 追加される分数 | 整数    |
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                              | Type          |
-| -------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *minutes*. | Date and time |
+| 値                                | タイプ   |
+| -------------------------------- | ----- |
+| *初期日付* と指定された *分* の合計である日付と時刻の値。 | 日付と時刻 |
 
-### 4.3 Example
+### 4.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addMinutes(dateTime(2007, 1, 1, 1, 1, 1), 3)
+addMinutes(dateTime(2007年、1、1、1、1、1、3)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 01 01:04:01 CET 2007"
@@ -123,34 +123,34 @@ The output is:
 
 ## 5 addHours
 
-The `addHours` function adds a number of hours to a date.
+`addHours` 関数は、日付に時間を追加します。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                           | Type          |
-| ------------------------------- | ------------- |
-| Initial date                    | Date and time |
-| The number of hours to be added | Integer       |
+| 値      | タイプ   |
+| ------ | ----- |
+| 初期日付   | 日付と時刻 |
+| 追加する時間 | 整数    |
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                            | Type          |
-| ------------------------------------------------------------------------------------------------ | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *hours*. | Date and time |
+| 値                               | タイプ   |
+| ------------------------------- | ----- |
+| *初期日付* と指定された *時間* の合計の日付と時刻の値。 | 日付と時刻 |
 
-### 5.3 Example
+### 5.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addHours(dateTime(2007, 1, 1, 1, 1, 1), 25)
+addHours(dateTime(2007年, 1, 1, 1), 25)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 02 02:01:01 CET 2007"
@@ -158,34 +158,34 @@ The output is:
 
 ## 6 addDays[UTC]
 
-The `addDaysUTC` function adds a number of days to a date. `addDays` uses the server's calendar and `addDaysUTC` uses the UTC calendar.
+`addDaysUTC` 関数は日付に日数を追加します。 `addDays` はサーバーのカレンダーを使用し、 `addDaysUTC` は UTC カレンダーを使用します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                          | Type          |
-| ------------------------------ | ------------- |
-| Initial date                   | Date and time |
-| The number of days to be added | Integer       |
+| 値      | タイプ   |
+| ------ | ----- |
+| 初期日付   | 日付と時刻 |
+| 追加する日数 | 整数    |
 
-### 6.2 Output
+### 6.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                           | Type          |
-| ----------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *days*. | Date and time |
+| 値                                | タイプ   |
+| -------------------------------- | ----- |
+| *初期日付* と指定された *日* の合計である日付と時刻の値。 | 日付と時刻 |
 
-### 6.3 Example
+### 6.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addDays(dateTime(2007, 1, 1, 1, 1, 1), 3)
+addDays(dateTime(2007年、1、1、1、1、3)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 04 01:01:01 CET 2007"
@@ -193,120 +193,120 @@ The output is:
 
 ## 7 addWeeks[UTC]
 
-The `addWeeksUTC` function adds a number of weeks to a date using the UTC calendar as opposed to  `addWeeks` which uses the server's one.
+`addWeeksUTC` 関数は、サーバーのカレンダーを使用する  `addWeeks` とは対照的に、UTCカレンダーを使用する日付に週数を追加します。
 
-### 7.1 Input Parameters
+### 7.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                           | Type          |
-| ------------------------------- | ------------- |
-| Initial date                    | Date and time |
-| The number of weeks to be added | Integer       |
+| 値       | タイプ   |
+| ------- | ----- |
+| 初期日付    | 日付と時刻 |
+| 追加される週数 | 整数    |
 
-### 7.2 Output
+### 7.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                            | Type          |
-| ------------------------------------------------------------------------------------------------ | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *weeks*. | Date and time |
+| 値                                  | タイプ   |
+| ---------------------------------- | ----- |
+| *初期日付* と指定された数 *週間* の合計である日付と時刻の値。 | 日付と時刻 |
 
-### 7.3 Example
+### 7.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addWeeks(dateTime(2007, 1, 1, 1, 1, 1), 2)
+addWeeks(dateTime(2007年、1、1、1、1、2)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 15 01:01:01 CET 2007"
 ```
 
-## 8 addMonths[UTC]
+## 8ヶ月追加[UTC]
 
-The `addMonthsUTC` function adds a number of months to a date using the UTC calendar as opposed to  `addMonths` which uses the server's one.
+`addMonthsUTC` 関数は、サーバのカレンダーを使用する  `addMonths` とは対照的に、UTCカレンダーを使用する日付に月数を追加します。
 
-### 8.1 Input Parameters
+### 8.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| Initial date                     | Date and time |
-| The number of months to be added | Integer       |
+| 値      | タイプ   |
+| ------ | ----- |
+| 初期日付   | 日付と時刻 |
+| 追加する月数 | 整数    |
 
-### 8.2 Output
+### 8.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                             | Type          |
-| ------------------------------------------------------------------------------------------------- | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *months*. | Date and time |
+| 値                                 | タイプ   |
+| --------------------------------- | ----- |
+| *初期日付* と指定された *ヶ月* の合計である日付と時刻の値。 | 日付と時刻 |
 
-### 8.3 Example
+### 8.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addMonths(dateTime(2007, 1, 1, 1, 1, 1), 13)
+addMonts(dateTime(2007年、1、1、1、1、13)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Feb 01 01:01:01 CET 2008"
 ```
 
-## 9 addYears[UTC]
+## 9 追加年[UTC]
 
-The `addYearsUTC` function adds a number of years to a date using the UTC calendar as opposed to  `addYears` which uses the server's one.
+`addYearsUTC` 関数は、サーバの日付を使用する  `addYears` とは対照的に、UTCカレンダーを使用する日付に年数を追加します。
 
-### 9.1 Input Parameters
+### 9.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                           | Type          |
-| ------------------------------- | ------------- |
-| Initial date                    | Date and time |
-| The number of years to be added | Integer       |
+| 値      | タイプ   |
+| ------ | ----- |
+| 初期日付   | 日付と時刻 |
+| 追加される年 | 整数    |
 
-### 9.2 Output
+### 9.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                            | Type          |
-| ------------------------------------------------------------------------------------------------ | ------------- |
-| A Date and time value that is the sum of the *initial date* and the specified number of *years*. | Date and time |
+| 値                                | タイプ   |
+| -------------------------------- | ----- |
+| *初期日付* と指定された *年* の合計である日付と時刻の値。 | 日付と時刻 |
 
-### 9.3 Example
+### 9.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 addYears(dateTime(2007, 1, 1, 1, 1, 1), 11)
 ```
 
-The output is:
+出力は:
 
 ```java
 "Mon Jan 01 01:01:01 CET 2018"
 ```
 
-## 10 Passing Values of the Long Type
+## 10 ロングタイプの値を渡す
 
-It is possible to pass values of the Long type to different **Add date function** calls:
+ロング型の値を異なる **日付関数** の呼び出しに渡すことができます:
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-addSeconds(dateTime(1970, 1, 1, 0, 0, 0), (long)(2147483647 + 100))
+addSeconds(dateTime(1970, 1, 0, 0, 0), (long)(2147483647 + 100))
 ```
 
-The output is:
+出力は:
 
 ```java
 "Tue Jan 19 04:15:47 CET 2038"
