@@ -1,39 +1,39 @@
 ---
-title: "Run Menu"
+title: "実行メニュー"
 parent: "menus"
-description: "Describes the Run menu in Mendix Studio Pro."
+description: "Mendix Studio Proの「実行」メニューについて説明します。"
 menu_order: 35
 tags:
   - "Studio Pro"
-  - "run"
-  - "run menu"
+  - "実行する"
+  - "実行メニュー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Run** menu allows you to deploy and monitor your app:
+**** メニューを使用すると、アプリをデプロイして監視できます。
 
-![Run Menu](attachments/run-menu/run-menu.png)
+![実行メニュー](attachments/run-menu/run-menu.png)
 
-## 2 Menu Items Overview
+## 2メニューアイテムの概要
 
-The **Run** menu items are described in the table below:
+**** メニュー項目は以下の表に記載されています。
 
-| Menu Item                       | Description                                                                                                                                                                                                       | Shortcut Key                                       |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| **Run Locally**                 | Runs the app locally so you can view the app.                                                                                                                                                                     | <kbd>F5</kbd>                                      |
-| **Stop**                        | Stops the currently running app.                                                                                                                                                                                  | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
-| **Configuration**               | Sets the configuration level (**Default**).                                                                                                                                                                       |                                                    |
-| **Default Log Level**           | Allows setting the default log level before running the app locally. The options are **Trace**, **Debug**, **Info** (default), **Warning**, **Error**, **Critical**.                                              |                                                    |
-| **Publish**                     | Deploys the app to cloud. The **Console** pane is activated and this shows the output of the server that runs the app.                                                                                            | <kbd>F5</kbd>                                      |
-| **Run on Cloud Foundry**        | Opens the **Edit Cloud Foundry Settings** dialog box so you can run your app on Cloud Foundry.                                                                                                                    |                                                    |
-| **Edit Cloud Foundry Settings** | Opens the **Edit Cloud Foundry Settings** dialog box so you can edit your Cloud Foundry settings. For more information on this dialog box, see [Edit Cloud Foundry Settings](edit-cloud-foundry-settings-dialog). |                                                    |
-| **Debug**                       | Allows you to connect the [Debugger](view-menu#debugger).                                                                                                                                                         |                                                    |
-| **Responsive Web**              | Shows the web client for the currently running app in the browser.                                                                                                                                                | <kbd>F9</kbd>                                      |
-| **Tablet Web**                  | Shows the tablet mobile client for the currently running app in the browser.                                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
-| **Phone Web**                   | Shows the mobile client for the currently running app in the browser.                                                                                                                                             | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
-| **View on your device**         | Provides a link to allow you to view the app.                                                                                                                                                                     |                                                    |
+| メニュー項目                  | 説明                                                                                                                                                               | ショートカットキー                                          |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| **ローカルで実行**             | アプリをローカルに実行し、アプリを表示できます。                                                                                                                                         | <kbd>(F5)</kbd>                                    |
+| **停止**                  | 現在実行中のアプリを停止します。                                                                                                                                                 | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
+| **設定**                  | 設定レベル (**デフォルト** ) を設定。                                                                                                                                          |                                                    |
+| **デフォルトのログレベル**         | アプリをローカルで実行する前にデフォルトのログレベルを設定できます。 The options are **Trace**, **Debug**, **Info** (default), **Warning**, **Error**, **Critical**.                               |                                                    |
+| **公開**                  | アプリをクラウドにデプロイします。 **コンソール** ペインが有効化され、アプリを実行するサーバーの出力が表示されます。                                                                                                    | <kbd>(F5)</kbd>                                    |
+| **Cloud Foundryで実行**    | **Cloud Foundry 設定の編集** ダイアログボックスを開き、Cloud Foundry でアプリケーションを実行できます。                                                                                             |                                                    |
+| **Cloud Foundryの設定を編集** | **Cloud Foundry 設定の編集** ダイアログボックスを開き、Cloud Foundry の設定を編集できます。 このダイアログボックスの詳細については、 [Edit Cloud Foundry Settings](edit-cloud-foundry-settings-dialog) を参照してください。 |                                                    |
+| **Debug**               | [デバッガー](view-menu#debugger) を接続できます。                                                                                                                             |                                                    |
+| **レスポンシブウェブ**           | ブラウザで現在実行中のアプリのWebクライアントを表示します。                                                                                                                                  | <kbd>(F9)</kbd>                                    |
+| **タブレットウェブ**            | ブラウザで現在実行中のアプリのタブレットモバイルクライアントを表示します。                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
+| **電話のウェブ**              | ブラウザで現在実行中のアプリのモバイル・クライアントを表示します。                                                                                                                                | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
+| **お使いのデバイスで表示**         | アプリを表示するためのリンクを提供します。                                                                                                                                            |                                                    |
 
-## 3 Read More
+## 3 続きを読む
 
 * [Studio Pro Overview](studio-pro-overview)
