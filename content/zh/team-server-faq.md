@@ -1,49 +1,49 @@
 ---
-title: "Team Server FAQ"
-parent: "team-server"
+title: "团队服务器常见问题"
+parent: "团队服务器"
 ---
 
 
-## General Questions
+## 一般问题
 
-### How much does the Team Server cost?
+### 团队服务器花费多少？
 
-The Team Server (public version) is free of charge for Mendix partners. We may offer a Premium version with additional features in the future.
+Mendix 合作伙伴免费使用团队服务器 (公共版本)。 我们将来可能会提供高级版本，带有额外的功能。
 
-### How much storage space is provided with the Team Server?
+### 团队服务器提供了多少存储空间？
 
-Storage space is unlimited for projects connected to a commercial license. 1 GB free storage is provided for your company account for projects not (yet) connected to a commercial license.
+存储空间是与商业许可证相关的项目的无限空间。 1 GB 免费存储是为您的公司帐户提供的，用于未连接到商业许可证的项目。
 
-### How do I access the Team Server?
+### 如何访问团队服务器？
 
-The Team Server is delivered as a plugin to the Developer Portal. Start using the Team Server in your Developer Portal project by activating the plugin or by creating a new Team Server project in the Mendix Desktop Modeler.
+团队服务器作为插件发送到开发者门户网站。 通过激活插件或在Mendix 桌面模型中创建一个新的团队服务器项目，开始使用您开发者门户项目中的团队服务器。
 
-### What access controls come standard with the Team Server?
+### 团队服务器的接入控制标准是什么？
 
-The Team Server gives you all the controls you need to manage who has access. Just toggle access on and off for each Developer Portal project member. Once activated, they can use their MxID to access the Team Server from within the Mendix Desktop Modeler.
+团队服务器为您提供了管理谁有访问权限所需的所有控件。 只需切换每个开发者门户项目成员的开关。 激活后，他们可以使用 MxID 从 Mendix 桌面模式中访问团队服务器。
 
-### How secure is the Team Server?
+### 团队服务器的安全性如何？
 
-Mendix is extremely serious about security. The Mendix cloud environment adheres to all of our existing security principles including access via SSL, and those expressed in the Mendix Information and Security Policy.
+门迪克斯对安全极为严重。 Mendix 云端环境遵守我们所有现有的安全原则，包括通过 SSL 访问。 以及Mendix Information and Security Policy中所表述的内容。
 
-### My data is valuable and confidential – what happens to it?
+### 我的数据是宝贵和保密的——对它怎么办？
 
-We adhere to strict security standards and regard you to be the sole owner of your data. Only Mendix Cloud Infrastructure Engineers can access data and will only do so for trouble shooting. Your data is backed up for one year, and the backups are retained for one year after project deletion. You can get a backup of your data at any time by using default Subversion tools, or, if your project was deleted, by filing a support ticket.
+我们遵守严格的安全标准，并认为你是您数据的唯一拥有者。 只有Mendix Cloud Infrastructure Engineers 能够访问数据，并且只会在发生故障时才能访问。 您的数据备份时间为一年，备份时间为项目删除后一年。 您可以随时通过默认Subversion 工具获得数据备份。 或者如果您的项目已被删除，通过提交支持工单。
 
-### How do I know the Team Server will be consistently available?
+### 我如何知道团队服务器将始终可用？
 
-The team server runs in the trusted Mendix cloud environment and on a trusted infrastructure provider. Availability follows the same guidelines as all Mendix products and we always have daily backups of all data.
+团队服务器运行在信任的 Mendix 云环境和受信任的基础设施提供商。 可用性遵循与所有Mendix 产品相同的准则，我们始终有所有数据的每日备份。
 
-## Usage questions
+## 使用问题
 
-### How do I merge changes from one development line to another?
+### 如何将一个发展线的变化合并到另一个发展线上？
 
-The modeler automates most of this process; you can simply merge development lines by selecting model revisions on the team server. The Mendix Desktop Modeler will do the merging and will keep track of consistency. [Read more](version-control)
+Modeler将此过程的大部分自动化；你可以通过在团队服务器上选择模型修订来合并开发行。 Mendix 桌面模式将进行合并并保持一致性。 [阅读更多](version-control)
 
-### How do I resolve a conflict when two changes cannot be combined?
+### 当两种变化无法合并时，我如何解决冲突？
 
-Resolving a conflict can be done in by using the 'Use mine' and 'Use theirs' button in the version control dock. [Read more](using-version-control-in-the-dm)
+可以通过在版本控制面板中使用 '使用地雷' 和 '使用他们' 按钮来解决冲突。 [阅读更多](using-version-control-in-the-dm)
 
-### How can I access the history of my project?
+### 如何访问我的项目历史？
 
-The history of the project is a list of all revisions that have been committed in reverse chronological order. The history form quickly shows you revision number, date, time, author and message of each revision; it can be accessed from within the Mendix Desktop Modeler as well as the Developer Portal. [Read more](using-version-control-in-the-dm)
+该项目的历史是以倒序排列的所有修订清单。 历史表单快速显示每次修订的版本号码、日期、时间、作者和消息； 它可以从 Mendix 桌面模型以及开发者门户中访问。 [阅读更多](using-version-control-in-the-dm)
