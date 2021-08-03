@@ -9,9 +9,13 @@ tags:
   - "変更ペイン"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/changes-pane.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
-バージョン管理が有効になっているアプリ (Team Serverまたは他のSVNサーバーを持つアプリ) **変更** ペインには、最後のコミット以降のアプリのローカル変更が表示されます。 変更をコミットしたり、最新のリビジョンに更新したり、そこから履歴を表示することができます。
+バージョン管理が有効になっているプロジェクト (Team Serverまたは他のSVNサーバーを持つプロジェクト) の場合。 **変更** ペインには、最後のコミット以降のアプリのローカル変更が表示されます。 変更をコミットしたり、最新のリビジョンに更新したり、そこから履歴を表示することができます。
 
 このペインは以下で構成されています:
 
@@ -32,7 +36,7 @@ tags:
 * **タスク** - 変更を最新のコミットに戻す、競合を解決するなど、特定のアクションを実行できます
 * **Update** – retrieves latest changes from the repository (for more information on the update concept, see the [Update](version-control#update) section in *Version Control*)
 * **Commit** – commits your changes to the repository and starts a new revision (for more information on the commit concept, see the [Commit](version-control#commit) section in *Version Control*)
-* **History** – opens the **History** dialog box that shows the changes made on the current development line of the app (for more information on history, see [History](history-dialog))
+* **History** – opens the **History** dialog box that shows the changes made on the current development line of the project (for more information on history, see [History](history-dialog))
 
 **Back** と **** に移動するボタンは、すべてのレベルで共通です。 他のボタンは特定のボタンにのみ適用されます。
 
@@ -63,11 +67,10 @@ tags:
 
 ズームインを終了するには、 **Back** ボタンをクリックするか、 <kbd>Backspace</kbd> を押します。
 
-ズームインレベルには3種類があります。
+ズームインレベルには2種類があります。
 
 * [変更されたドキュメント用](#modified)
 * [競合するドキュメントのため](#conflicts)
-* [ドキュメントをマージするには](#merge-mode)
 
 それぞれ独自のボタンが含まれています。
 
@@ -88,63 +91,67 @@ tags:
 * **要素** – 変更された要素の名前
 * **Mine** – 現在の開発ラインの変更状況を示します
 
-### 4.2 競合するドキュメントのズームインレベル {#conflicts}
-
-競合するドキュメントのズームインレベルは、左側に競合する要素と右側に競合するプロパティを持つ2つのグリッドに分割されます。
-
-{{% alert type="info" %}}
-Mendix 9はMendix 8と比較して競合解決方法が改善されています。 これは **編集 > 環境設定 > 新機能** ダイアログでオフにできます。 これがオフの場合は、このドキュメントのMendix 8バージョンを参照してください [変更ペイン - Mendix 8](/refguide8/changes-pane#conflicts)。
-{{% /alert %}}
-
-2種類の競合があります:
-
-* 標準の競合の場合、各ブランチ内の同じ要素に変更が加えられ、Mendixはマージ後に望ましい変更を自動的に選択することはできません。
-* *リストの注文* の競合については、 *(リストの順序)*というフレーズで表されます。 Mendixは両方の変更を受け入れることができますが、ドキュメントに表示する順序を自動的に決定することはできません。
-
-このレベルのツールバーには、次のボタンがあります。
-
-* **戻る** – トップレベルに戻る
-* **** に移動 - 選択した要素に直接移動します
-* **Merge** - マージプロセスを開始します — 競合を解決するための命令はドキュメント内にあります [微細な競合解決を伴う新しいマージアルゴリズム](new-merge-algorithm)
-* **純粋に視覚的な変更を表示する** – ドメインモデル内の新しい場所にエンティティをドラッグするなど、視覚的な変更を表示します
-
-左側のグリッドには次の列があります
-
-* **要素** - 変更された要素または後続要素が競合するかどうかを識別するヘッダーの名前
-* **Mine** – 現在の開発ラインの変更状況を示します
-* **Theirs** – 別の開発ラインでの変更の状況
-
 右側のグリッドには次の列が含まれています。
 
 * **プロパティ** - 変更されたプロパティ
 * **オリジナル** – 元のプロパティ値
 * **Mine** – 現在の開発ラインで行われたプロパティの変更
-* **Theirs** – 他の開発ラインで行われたプロパティの変更
 
-![変更ペインの競合形式の例](attachments/changes-pane/new-merge-algorithm-conflicts.png)
+### 4.2 競合するドキュメントのズームインレベル {#conflicts}
 
-### 4.3 マージモード{#merge-mode}
+競合するドキュメントのズームインレベルは、左側に要素があり、右側に矛盾するプロパティがあり、2つのグリッドに分割されます。
 
-**Merge** をクリックしてマージモードを開始すると、競合を解決するオプションが表示されます。 競合の解決に関する詳細については、 [微粒子競合の解決を伴う新しいマージアルゴリズム](new-merge-algorithm) を参照してください。
-
-作業中のドキュメントをマージモードで編集して、競合を正常に解決することができます。
-
-ツールバーに次のボタンが表示されるように変更されます:
+このレベルのツールバーには、次のボタンがあります。
 
 * **戻る** – トップレベルに戻る
 * **** に移動 - 選択した要素に直接移動します
-* **Mine** を使用して解決する - **Mine** 列に表示されている変更を選択し、 **Theirs** 列に表示されている変更を破棄することで競合を解決します。
-* **Theirs** を使用して解決する - **Theirs** 列に表示されている変更を選択し、 **Mine** 列に表示されている変更を破棄することで競合を解決します。
-* **解決済みにする** – 以下のいずれか:
-    * **Mine** と **Theirs** の変更が適用される前の状態を保持します
-    * *リストオーダー* の競合の場合 は現在ドキュメントに表示されているようにウィジェットの順序を取ります（正しいことを確認するためにドキュメントを編集できます）
-* **Accept and Exit** - マージが完了し、ドキュメントがコンフリクトなしでマージされた形式で保存されます
-* **Cancel** - マージモードを終了し、1つ以上の未解決の競合をドキュメントに残します
 * **純粋に視覚的な変更を表示する** – ドメインモデル内の新しい場所にエンティティをドラッグするなど、視覚的な変更を表示します
+* **競合の表示** – 競合の詳細を表示します。 このレベルに最初にズームするときにデフォルトで選択されます。
+* **Show Changes in mine** – it shows changes to a document on a current development line (for more information on how to solve conflicts, see the [Dealing With Conflicts](using-version-control-in-studio-pro#conflicts) section in *Using Version Control in Studio Pro*)
+* **Show Changes in theirs** – it shows incoming changes to a document from another development line (for more information on how to solve conflicts, see the [Dealing With Conflicts](using-version-control-in-studio-pro#conflicts) section in *Using Version Control in Studio Pro*)
 
-左右のペインには、上記の [Zoomed-In Level for Conflicted Documents](#conflicts)と同じ情報が含まれます。
+    {{% alert type="info" %}}**Show Conflicts**, **Show Changes in mine**, and **Show Changes in theirs** described above are toggles, and each selection de-selects the other two.
+    {{% /alert %}}
 
-![変更ペインの競合解決フォーマットの例](attachments/changes-pane/new-merge-algorithm-resolve-mode.png)
+グリッドの左側の列は、ツールバーのトグルボタンによって異なります。
+
+グリッドの左側には、 **Show Conflicts** トグルが有効になっているときに次の列が含まれています:
+
+* **要素** – 変更された要素の名前
+* **Theirs** – 別の開発ラインでの変更の状況
+* **Mine** – 現在の開発ラインの変更状況を示します
+
+    ![競合グリッド](attachments/changes-pane/conflict-grid.png)
+
+グリッドの左側には、 **地雷の変更を表示** のトグルが有効になっているときに次の列が含まれています:
+
+* **要素** – 変更された要素の名前
+* **Mine** – 現在の開発ラインの変更状況を示します
+
+    ![競合グリッド](attachments/changes-pane/changes-in-mine-grid.png)
+
+グリッドの左側には、 **変更を表示** のトグルが有効になっているときに次の列が含まれています:
+
+* **要素** – 変更された要素の名前
+* **Theirs** – 他の開発ラインの変更状況を示します
+
+    ![競合グリッド](attachments/changes-pane/changes-in-merge-end-grid.png)
+
+
+右側のグリッド上の列は、左側でどのような競合要素が選択されているかによって異なります。
+
+左側で選択されたアイテムが競合している場合、両側が同じ要素を変更します。 すると、グリッドの右側に次の列が表示されます。
+
+* **プロパティ** - 変更されたプロパティ
+* **オリジナル** – 元のプロパティ値
+* **Theirs** – 他の開発ラインで行われたプロパティの変更
+* **Mine** – 現在の開発ラインで行われたプロパティの変更
+
+左側で選択された項目が競合している場合、片側で要素が変更され、もう片側で削除されます。 すると、グリッドの右側に次の列が表示されます。
+
+* **プロパティ** - 変更されたプロパティ
+* **Theirs** – 元のプロパティ値
+* **Mine** – 現在の開発ラインで行われたプロパティの変更
 
 ## 5 続きを読む
 
