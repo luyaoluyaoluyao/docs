@@ -1,256 +1,256 @@
 ---
-title: "Call Web Service"
-parent: "integration-activities"
+title: "Web サービスに発信"
+parent: "インテグレーションアクティビティ"
 tags:
   - "studio pro"
-  - "integration activity"
-  - "call web service"
+  - "統合アクティビティ"
+  - "Webサービスを呼び出す"
 menu_order: 20
 ---
 
 {{% alert type="warning" %}}
- This activity can only be used in **Microflows**.
+ このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Call web service** activity can be used to call one of the [imported web service](consumed-web-services) operations. You can specify whether or not to use authentication, what the request should look like and how the response of the web service should be handled.
+**Web サービス** を呼び出すアクティビティは、 [インポートされた Web サービス](consumed-web-services) 操作のいずれかを呼び出すために使用できます。 認証を使用するかどうかを指定できます。 リクエストがどのように見えるべきかウェブサービスの反応がどのように処理されるべきか
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of call web service properties is represented in the image below:
+以下の画像に、Web サービスのプロパティを呼び出す例を示します。
 
-![call web service properties](attachments/integration-activities/call-web-service-properties.png)
+![Web サービスのプロパティを呼び出す](attachments/integration-activities/call-web-service-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The call web service properties pane consists of the following sections:
+Web サービスのプロパティペインは以下のセクションで構成されています。
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-The properties dialog box consists of five tabs:
+プロパティ ダイアログ ボックスは 5 つのタブで構成されています:
 
-* [Operation](#operation)
-* [HTTP Headers](#http-headers)
-* [SOAP Request Header](#request-header)
-* [SOAP Request Body](#request-body)
-* [SOAP Response](#response)
+* [操作](#operation)
+* [HTTP ヘッダー](#http-headers)
+* [SOAPリクエストヘッダー](#request-header)
+* [SOAPリクエスト本文](#request-body)
+* [SOAP対応](#response)
 
-## 4 Operation Tab{#operation}
+## 4つの操作タブ{#operation}
 
 ![](attachments/integration-activities/operation-tab.png)
 
-### 4.1 Operation
+### 4.1 操作
 
-**Operation** defines which operation of the web service is called.
+**操作** は、Web サービスのどの操作が呼ばれるかを定義します。
 
-### 4.2 Override Location
+### 4.2 場所を上書き
 
-**Override location** defines whether to override the location where the web service is called.
+**場所を上書きする** は、Web サービスが呼び出される場所を上書きするかどうかを定義します。
 
 {{% alert type="info" %}}
 
-When calling a web service using a call web service activity, the location of the web service is determined as follows.
+コールWebサービスアクティビティを利用してWebサービスを呼び出す場合、以下のようにWebサービスの場所が決定されます。
 
-1.  If the location is overridden in the call web service activity, the location specified in that action is used.
-2.  If the service that defines the operation has a location constant defined, the value of that constant is used.
-3.  Otherwise, the location as specified in the WSDL of the imported web service is used.
+1.  場所がコール Web サービス アクティビティで上書きされている場合、そのアクションで指定された場所が使用されます。
+2.  オペレーションを定義するサービスに位置定数が定義されている場合、その定数の値が使用されます。
+3.  そうでなければ、インポートされた Web サービスの WSDL で指定された場所が使用されます。
 
 {{% /alert %}}
 
-### 4.3 Location
+### 4.3 場所
 
-**Location** defines the address of the web service if you override the location. The location needs to be entered using an [expression](expressions) which results in a valid URL string.
+**Location** は、場所をオーバーライドした場合、Web サービスのアドレスを定義します。 ロケーションは [式](expressions) を使用して入力する必要があり、これにより有効な URL 文字列になります。
 
-### 4.4 Use Timeout on Request
+### 4.4 リクエスト時にタイムアウトを使用
 
-This can be used to throw an exception when the web service takes too long to respond after connecting. After a set amount of time, an exception will be thrown and the microflow will roll back or go into your custom error handler.
+これは、Webサービスが接続後に応答するのに時間がかかる場合に例外をスローするために使用することができます。 一定の時間が経過すると、例外がスローされ、microflow がロールバックまたはカスタムエラーハンドラーに移動します。
 
-Default value: *Yes*
+デフォルト値: *はい*
 
 {{% alert type="warning" %}}
-It is recommended that you keep this set this to **Yes**. Most cloud infrastructure services (including those used by the Mendix Cloud) will close HTTP connections automatically if there is no traffic for a few minutes, even if your activity is still waiting for a response. This means that, if your activity calls a web service which takes a long time to respond, the connection may be closed without the activity being aware of this, and your activity will not receive a response. Under these circumstances, if **Use timeout on request** is set to **No**, your activity will get stuck waiting indefinitely for data to arrive.
+この設定を **はい**にしておくことをお勧めします。 (Mendix Cloudで使用されているものを含む)ほとんどのクラウドインフラストラクチャサービスは、数分間トラフィックがない場合、自動的にHTTP接続を閉じます。 活動がまだ反応を待っていてもね これは、アクティビティがWebサービスを呼び出す場合、応答に長い時間がかかることを意味します。 これを認識せずに接続が切断される可能性があります。あなたのアクティビティには応答がありません。 このような状況では、 **リクエスト時のタイムアウトを使用する** が **いいえ**に設定されている場合 データが届くのを無期限に待ってるんだ
 {{% /alert %}}
 
-Default: *No*
+デフォルト: *いいえ*
 
-### 4.5 Timeout
+### 4.5 タイムアウト
 
-**Timeout** specifies the timeout value in seconds.
+**タイムアウト** は秒単位でタイムアウト値を指定します。
 
-Default value: *300*
+デフォルト値: *300*
 
-### 4.6 Validate Against WSDL
+### 4.6 WSDL に対する検証
 
-**Validate against wsdl** specifies whether the call action should validate the incoming and outgoing XML against the WSDL. Note that Mendix generates correct XML but the application data can cause the XML to become incorrect (for example fields that cannot be empty are empty in the data you're sending).
+**wsdl に対して検証する** 呼び出しアクションが WSDL に対して受信と 送信の XML を検証するかどうかを指定します。 Mendixは正しいXMLを生成しますが、アプリケーションデータによりXMLが正しくなくなる可能性があります (例えば、送信するデータ内で空ではないフィールドが空になります)。
 
-Setting this setting to yes can greatly decrease performance!
+この設定をyesに設定するとパフォーマンスが大幅に低下します！
 
 {{% alert type="warning" %}}
-When consuming a WSDL that uses encoding, turning on validation will lead to a consistency error, because it is not WS-I compliant.
+エンコーディングを使用する WSDL を使用する場合、検証を有効にすると一貫性エラーが発生します。これは、WS-I に準拠していないためです。
 {{% /alert %}}
 
-Schema validation is not supported when you configure the [consumed web service](consumed-web-service) to send binary data as attachments.
+バイナリデータを添付ファイルとして送信するように [使用した Web サービス](consumed-web-service) を構成する場合、スキーマ検証はサポートされません。
 
-Default: *No*
+デフォルト: *いいえ*
 
-### 4.7 Proxy Configuration
+### 4.7 プロキシ設定
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+ほとんどの場合、この設定は無視できます。 **アプリの設定を使用する** は良いデフォルト値です。
 
-If desired, you can configure whether to use a proxy for the request. These are the choices:
+必要に応じて、リクエストにプロキシを使用するかどうかを設定できます。 選択肢は以下の通りです:
 
-* **Use app settings** – use whatever settings are defined at the app level (default)
-* **Override** – override the app-level settings for this action
-* **No proxy** – do not use a proxy for this action, even if there is a proxy configured at the app level
+* **アプリ設定を使用する** – アプリレベルで定義されているすべての設定を使用する (デフォルト)
+* **オーバーライド** – このアクションのアプリレベルの設定を上書きする
+* **プロキシなし** – アプリレベルで設定されたプロキシがあっても、このアクションにプロキシを使用しないでください
 
-When you select **Override**, you can configure dynamically whether to use a proxy. You then supply the host, port, username, and password settings for the proxy.
+**Override**を選択すると、プロキシを使用するかどうかを動的に設定できます。 その後、プロキシのホスト、ポート、ユーザー名、およびパスワードの設定を指定します。
 
-### 4.8 Client certificate{#client-certificate}
+### 4.8 クライアント証明書{#client-certificate}
 
-In almost all cases, you can ignore this setting. **Use app settings** is a good default value.
+ほとんどの場合、この設定は無視できます。 **アプリの設定を使用する** は良いデフォルト値です。
 
-However, you can specify a client certificate to use for the request by selecting **Override**.
+ただし、 **Override** を選択することで、リクエストに使用するクライアント証明書を指定することができます。
 
-The options are:
+オプションは以下の通りです:
 
-* **Use app settings**(default) – use the settings that are defined at the app level
-* **Override** – override the app-level settings for this action
+* **アプリ設定を使用する**(デフォルト) – アプリレベルで定義されている設定を使用する
+* **オーバーライド** – このアクションのアプリレベルの設定を上書きする
 
-When you select **Override**, you can configure which client certificate will be used. Click **Edit** to specify the **Client certificate identifier**. This identifier can be set in different places, depending on where you deploy the app:
+**Override**を選択すると、どのクライアント証明書が使用されるかを設定できます。 **編集** をクリックして、 **クライアント証明書識別子** を指定します。 この識別子は、アプリのデプロイ先によって異なる場所で設定できます。
 
-* When you deploy the app in the Mendix cloud, set the **Client certificate identifier** to the desired **WEB SERVICE CALL NAME** when [pinning a client certificate](/developerportal/deploy/certificates#outgoing-client-certificates).
-* When you deploy the app elsewhere, the identifier is set in the custom setting [ClientCertificateUsages](custom-settings#ca-certificates). For testing locally, this can be set as a custom server setting in a [Configuration](configuration#custom).
+* Mendix クラウドにアプリを展開する場合 **クライアント証明書識別子** を、 **クライアント証明書** のピン留め時に [Web SERVICE CALL NAME](/developerportal/deploy/certificates#outgoing-client-certificates) に設定します。
+* アプリケーションを他の場所にデプロイする場合、識別子はカスタム設定 [ClientCertificateUsages](custom-settings#ca-certificates) で設定されます。 ローカルでテストする場合、これは [Configuration](configuration#custom) でカスタムサーバー設定として設定することができます。
 
 When this identifier is not set for the environment where your app is deployed (either not pinned or not present in _ClientCertificateUsages_), the default settings will be used (as if **Use app settings** were selected).
 
-## 5 HTTP Headers Tab{#http-headers}
+## 5 HTTP ヘッダータブ{#http-headers}
 
 ![](attachments/integration-activities/http-headers-tab-call-web-service.png)
 
-### 5.1 Use HTTP Authentication
+### 5.1 HTTP 認証を使用する
 
-Use HTTP authentication defines whether the basic authentication should be used.
+HTTP 認証を使用すると、基本認証を使用するかどうかが定義されます。
 
-### 5.2 User Name
+### 5.2 ユーザー名
 
-User name defines the user name that will be used to authenticate over HTTP. The user name needs to be entered using [expressions](expressions). The microflow expression should result in a string.
+ユーザ名は、HTTP を介して認証するために使用されるユーザ名を定義します。 ユーザー名は [式](expressions) を使用して入力する必要があります。 microflow 式は文字列になります。
 
-### 5.3 Password
+### 5.3 パスワード
 
-Password defines the password that will be used to authenticate over HTTP. The password needs to be entered using [expressions](expressions). The microflow expression should result in a string.
+Password は、HTTP を介した認証に使用されるパスワードを定義します。 パスワードは [式](expressions) を使用して入力する必要があります。 microflow 式は文字列になります。
 
-### 5.4 Custom HTTP Headers
+### 5.4 カスタム HTTP ヘッダー
 
-These custom headers are added to the HTTP request header. Each custom header is a pair of a key and a value (a microflow expression).
+これらのカスタムヘッダーは HTTP リクエストヘッダーに追加されます。 各カスタムヘッダーは、キーと値(マイクロフロー式)のペアです。
 
-## 6 SOAP Request Header Tab {#request-header}
+## 6SOAPリクエストヘッダータブ {#request-header}
 
-For the request header, Studio Pro provides some common XML structures in a drop-down menu.
+リクエストヘッダーの場合、Studio Proはドロップダウンメニューに共通のXML構造を提供します。
 
-## 7 SOAP Request Body Tab {#request-body}
+## 7SOAPリクエストボディタブ {#request-body}
 
 ![](attachments/integration-activities/soap-request-body-tab.png)
 
-The XML for the request parts (header and body) can be generated in several ways, chosen through the dropdown at the top of the page, that are described in the following sections.
+リクエスト部品の XML (ヘッダーと本文) は、いくつかの方法で生成することができます。 が選択されている場合は、次のセクションで説明されています。
 
-### 7.1 Export Mapping for Entire Request
+### 7.1 リクエスト全体のエクスポートマッピング
 
-Using this option, a single [Export Mapping](export-mappings) can be used to generate the XML for the request part. You can choose the export mapping to use for the request part and, if applicable, the object or list that you want to use as parameter for the mapping.
+このオプションを使用すると、単一の [エクスポートマッピング](export-mappings) を使用してリクエストパーツの XML を生成することができます。 リクエスト部分に使用するエクスポートマッピングを選択し、該当する場合はエクスポートマッピングを選択できます。 マッピングのパラメータとして使用するオブジェクトまたはリスト。
 
-### 7.2 Simple Expressions for Each Request Parameter
+### 7.2 各リクエストパラメータのシンプルな表現
 
-This option for request parts can be used when all children of the XML element of the request part occur at most once and are primitive values. If that is not the case, this option is disabled and cannot be used.
+リクエストパーツのこのオプションは、リクエストパートの XML 要素の全ての子要素が一度に発生し、プリミティブ値である場合に使用することができます。 そうでない場合は、このオプションは無効化されており、使用できません。
 
-Using this option you need to supply an argument value for all elements of a primitive type (parameters). Argument values need to be entered using [expressions](expressions) resulting in the same data type as the parameter.
+このオプションを使用すると、プリミティブ型(パラメータ)のすべての要素に引数の値を指定する必要があります。 引数の値は [式](expressions) を使用して入力する必要があり、パラメータと同じデータ型になります。
 
 ![](attachments/integration-activities/request-parameter-option.png)
 
-For primitive parameters (both optional and nillable) that do not have an export mapping, you can choose to send empty values by setting **Send empty values** to **Yes, as null**.
+エクスポートマッピングを持たないプリミティブパラメータ (オプションとnillableの両方) の場合 空の値を送信するには、 **空の値を** に **に送信する はい、null** を選択します。
 
-### 7.3 Export Mappings for Each Request Parameter
+### 7.3 リクエストパラメータごとにマッピングをエクスポートする
 
-This option can be used when all children of the XML element of the request part occur at most once. You need to supply an argument value for all top-level elements of the request (parameters). For simple parameters you can enter a microflow expression, for complex parameters you define a mapping.
+このオプションは、リクエストパートの XML 要素のすべての子要素が一度に発生する場合に使用することができます。 リクエストのすべてのトップレベル要素(パラメータ)に対して引数の値を指定する必要があります。 単純なパラメーターの場合は、マイクロフロー式を入力し、複雑なパラメーターのためにマッピングを定義することができます。
 
 {{% alert type="warning" %}}
 
-If a primitive request parameter is both optional and nillable, you need to select whether or not to send the empty values.
+プリミティブリクエストパラメータがオプションとnillableの両方である場合、空の値を送信するかどうかを選択する必要があります。
 
-*Default value*: do not send the empty values.
+*デフォルト値*: 空の値を送信しないでください。
 
 {{% /alert %}}
 
-### 7.4 Custom Request Template
+### 7.4 カスタムリクエストテンプレート
 
-This option allows you to generate the XML for the request part using a template. The template defines the XML structure of the request part in plain text.
+このオプションを使用すると、テンプレートを使用してリクエスト部分のXMLを生成できます。 テンプレートにより、リクエスト部分のXML構造がプレーンテキストで定義されます。
 
-#### 7.4.1 String Template{#string-template}
+#### 7.4.1 文字列テンプレート{#string-template}
 
-The template for the XML request can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. You can escape the opening brace (`{`), by using a double opening brace (`{{`).
+XML リクエストのテンプレートには、括弧間の数値として記述されたパラメータを含めることができます (例: `{1}`)。 最初のパラメータは `1`、2 番目の `2`などの数字を持ちます。 opening brace (`{`), double opening brace (`{{` ) を使ってエスケープすることができます。
 
-#### 7.4.2 Parameters
+#### 7.4.2 パラメータ
 
-For each parameter in the template, you can specify its value using a [microflow expression](expressions) resulting in a string value. This value will be inserted at the position of the parameter.
+テンプレート内の各パラメータに対して、文字列値を生成する [マイクロフロー式](expressions) を使用してその値を指定できます。 この値はパラメーターの位置に挿入されます。
 
-## 8 SOAP Response Tab{#response}
+## 8 SOAP応答タブ{#response}
 
 ![](attachments/integration-activities/soap-response-tab.png)
 
-If the data type is a complex XML structure it can be mapped to entities using a [Import Mapping](import-mappings). If it is primitive data, it can be stored in a variable immediately. The response does not have to be used though; it can also be ignored if you are not interested in it.
+データ型が複雑な XML 構造の場合、 [マッピングのインポート](import-mappings) を使用してエンティティにマッピングすることができます。 プリミティブなデータであれば、すぐに変数に格納することができます。 応答は使用する必要はありません。興味がなければ無視することもできます。
 
-### 8.1 Mapping
+### 8.1 マッピング
 
-If you are using complex XML structures you can choose the [Import Mapping](import-mappings) that will be used to transform the XML into objects.
+複雑な XML 構造を使用している場合は、XML をオブジェクトに変換するために使用される [マッピングのインポート](import-mappings) を選択できます。
 
-### 8.2 If No Object Was Found
+### 8.2 オブジェクトが見つからなかった場合
 
-You can indicate what should happen **if not object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
+**オブジェクトが見つからなかった場合、** インポートマッピングがチェックされたとき、 **マッピングが使用される場所でこれを決定する**.
 
-### 8.3 Parameter
+### 8.3 パラメータ
 
-If the selected mapping requires a parameter, you can choose it here.
+選択されたマッピングにパラメータが必要な場合、ここで選択することができます。
 
-### 8.4 Commit
+### 8.4 コミット
 
-Indicates whether the resulting objects should be committed to the database, and whether event handlers should be triggered.
+結果として生成されるオブジェクトをデータベースにコミットするかどうか、およびイベントハンドラをトリガーするかどうかを示します。
 
-| Option             | Description                                                                                                                    |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| Yes                | The objects are saved in the database and the [event handlers](event-handlers) are triggered.                                  |
-| Yes without events | The objects are saved in the database, but the [event handlers](event-handlers) are not triggered (default).                   |
-| No                 | The objects are created without being saved in the database. You will need a [commit action](committing-objects) to save them. |
+| Option    | 説明                                                                             |
+| --------- | ------------------------------------------------------------------------------ |
+| はい        | オブジェクトはデータベースに保存され、 [イベントハンドラ](event-handlers) がトリガーされます。                      |
+| イベントなしではい | オブジェクトはデータベースに保存されますが、 [イベントハンドラ](event-handlers) はトリガーされません(デフォルト)。           |
+| いいえ       | オブジェクトはデータベースに保存されずに作成されます。 それらを保存するには、 [コミットアクション](committing-objects) が必要です。 |
 
-### 8.5 Range (If the Mapping Returns a List)
+### 8.5 範囲 (マッピングがリストを返す場合)
 
-The range determines how many objects are mapped and returned.
+範囲は、マップされ返されるオブジェクトの数を決定します。
 
-| Range  | Meaning                                                                                                             |
-| ------ | ------------------------------------------------------------------------------------------------------------------- |
-| All    | Map and return all objects.                                                                                         |
-| First  | Map and return only the first object. The result of the action will be a single object instead of a list.           |
-| Custom | Map and return a given number of objects (limit). The limit is a microflow expression that must result in a number. |
+| Range | 意味                                                            |
+| ----- | ------------------------------------------------------------- |
+| すべて   | すべてのオブジェクトをマップして返します。                                         |
+| 最初の   | 最初のオブジェクトのみをマップして返します。 アクションの結果はリストの代わりに単一のオブジェクトになります。       |
+| カスタム  | 指定された数のオブジェクトをマップして返します(limit)。 制限は、数字を生成しなければならないマイクロフロー式です。 |
 
-### 8.6 Store in Variable
+### 8.6 変数に保存
 
-Choose whether to store the result of the operation in a variable, object, or list.
+操作の結果を変数、オブジェクト、またはリストに保存するかどうかを選択します。
 
-### 8.7 Type
+### 8.7 タイプ
 
-The type of the output.
+出力のタイプ。
 
-### 8.8 Name
+### 8.8 名前
 
-The name for the output that will hold the result of the operation.
+操作の結果を保持する出力の名前。
 
-## 9 Common Section{#common}
+## 9つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
