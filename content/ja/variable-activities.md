@@ -1,27 +1,23 @@
 ---
-title: "Variable Activities"
-parent: "activities"
+title: "可変アクティビティ"
+parent: "アクティビティ"
 menu_order: 40
 tags:
   - "studio pro"
-  - "variable activities"
-  - "variable"
-  - "variables"
+  - "可変アクティビティ"
+  - "変数"
+  - "変数"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/variable-actiities.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+*変数* はデータの一時的なストレージです。 変数は、情報を保存し、必要に応じて参照するために使用されます。 この目的のための変数には一意の名前が必要です。 マイクロフローまたは nanoflow では、変数を追加し、値を割り当てて、アクティビティやイベントに使用できます。 必要に応じて後でこの値を変更できます。
 
-A *variable* is a temporary storage for data. Variables are used to store information and refer to it when needed. For this purpose variables should have a unique name. In a microflow or nanoflow you can add a variable, assign a value to it and then use it in activities or events. You can then change this value later if necessary.
+このドキュメントで説明されているアクティビティは、 **** ツールボックス **の** セクションにあります:
 
-The activities described in this document are in the **Variable Activities** section of the **Toolbox**:
+![可変アクティビティ](attachments/variable-activities/variable-activities.png)
 
-![Variable Activities](attachments/variable-activities/variable-activities.png)
+以下は、マイクロフローまたはナノフローで使用できる可変アクティビティです。
 
-The following are the client activities you can use in your microflow or nanoflow:
-
-* [Create Variable](create-variable) – allows you to create a new variable and assign a value to it
-* [Change Variable](change-variable) – allows you to change the value of an existing variable 
+* [変数の作成](create-variable) - 新しい変数を作成し、値を割り当てることができます。
+* [変数を変更する](change-variable) – 既存の変数の値を変更することができます 
