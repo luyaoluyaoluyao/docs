@@ -1,21 +1,21 @@
 ---
-title: "Sequence Flow"
-parent: "microflows-and-nanoflows"
+title: "シーケンスフロー"
+parent: "マイクロフローとナノフロー"
 menu_order: 30
 tags:
   - "studio pro"
-  - "sequence flow"
-  - "microflow"
+  - "シーケンス フロー"
+  - "マイクロフロー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A sequence flow is a flow that is shown an arrow that links elements (events, activities, decisions, etc.) with each other. Hereby it defines the order of execution. Flows always flow in one direction where elements follow each other up one by one. Decisions always lead to one direction, so it is not possible that multiple flows take place simultaneously.
+シーケンスフローは、要素(イベント、アクティビティ、決定など)を相互にリンクする矢印を表示するフローです。 ここで、実行の順序を定義します。 フローは常に一方向に流れ、要素が次々に続く。 決定は常に一方向につながるので、複数のフローを同時に行うことはできません。
 
-When you have two activities that you want to link together a sequence flow is used.
+リンクしたい2つのアクティビティがある場合は、シーケンスフローが使用されます。
 
 ![](attachments/sequence-flow/sequence-flow.png)
 
-## 2 Condition Value
+## 2 条件値
 
-The **Condition value** describes which direction should be followed based on the outcome of a [decision](decision) or an [object type decision](object-type-decision).
+**条件** の値は、 [決定](decision) または [オブジェクト タイプ 決定](object-type-decision) の結果に基づいて、どの方向に従うべきかを記述します。
