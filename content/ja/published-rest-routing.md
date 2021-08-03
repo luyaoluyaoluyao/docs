@@ -14,8 +14,13 @@ tags:
   - "認証"
   - "返品コード"
   - "公開された REST"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+**公開されたRESTサービス** 機能はMendix 7.10.0に導入されました。
+
+{{% /alert %}}
 
 REST HTTP リクエストがサーバーに到着すると、サーバーは実行する [操作](published-rest-operation) と適用するセキュリティを決定する必要があります。
 
