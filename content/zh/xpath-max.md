@@ -1,33 +1,29 @@
 ---
-title: "XPath Max"
-parent: "xpath-query-functions"
+title: "XPath 最大"
+parent: "xpath-query函数"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-max.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`max()` 函数返回其参数的最大值。
 
-The `max()` function returns the maximum value of its argument.
+函数需要一个 XPath 查询作为参数。
 
-The function requires an XPath query as argument.
+函数必须在查询中指定要聚合的一列。
 
-The function must specify a column in the query to aggregate.
+查询必须指定一个有数字类型的属性。
 
-The query must specify an attribute that has a numeric type.
+## 2 示例
 
-## 2 Examples
-
-This query returns the highest total price found in any object:
+此查询返回在任何对象中找到的最高总价格：
 
 ```java
 max(//Sales.Order/TotalPrice)
 ```
 
-This query returns the highest total price of an order placed by a customer named "Jansen":
+此查询返回一个客户所下订单的最高总价格，其名称为“Jansen”：
 
 ```java
 max(//Sales.Order[Sales.Customer_Order/Sales.Customer/Name = 'Jansen']/TotalPrice)
