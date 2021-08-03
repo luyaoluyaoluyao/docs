@@ -9,31 +9,30 @@ tags:
   - "消耗的 odata 服务"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-odata-service.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
-当一个外部实体通过 [数据枢纽窗格](data-hub-pane)在一个应用模块中使用时 a 消耗的OData服务文件增加具体说明所消耗服务的细节。 这是发布应用的 API 以及与实体相关联的数据。
+当一个外部实体通过 [数据枢纽窗格](data-hub-pane)在一个项目模块中使用时 a 消耗的OData服务文件增加具体说明所消耗服务的细节。 这是发布应用的 API 以及与实体相关联的数据。
 
-## 2 消耗的 OData 服务屏幕
+## 2 消耗OData服务屏幕
 
-**消耗的 OData 服务** 文档包含以下信息：
+添加到项目的 **消耗的 OData 服务** 文档显示以下信息：
 
 ![连接标签](attachments/consumed-odata-service/consumed-odata-doc-connection-tab.png)
 
 * 原始应用的源应用程序的服务名称和图标
-
 * 消耗的服务的版本号
-
 * **在数据集目录** 链接到 **服务详细信息** 您可以在那里看到注册的完整服务详细信息
-
 * **更新/更新** - 您可以将消费的服务合同更新到其他版本，在 [Mendix Data Hub](/data-hub/) 中检测到相同的应用和服务； 按键将显示下面的内容，这取决于在数据枢纽中消费的合同返回的内容：
-    * **更新** - 此按钮显示为您可以 **更新** 当前消耗的合同(在 **消耗的OData服务** 文档中显示)。 您将收到目前处于服务端的合同。 良好的做法是，只对同一个最终点进行小规模的、没有突破性的改动。
-    *  **切换** - 如果同一服务的其他注册实例(同名) 则显示此按钮 来自同一应用的数据集可以在不同的端点进行部署（例如）。 到另一个环境或因为更改会破坏现有的消耗上一个版本的应用)
+  * **更新** - 此按钮显示为您可以 **更新** 当前消耗的合同(在 **消耗的OData服务** 文档中显示)。 您将收到目前处于服务端的合同。 良好的做法是，只对同一个最终点进行小规模的、没有突破性的改动。
+   * **切换** - 如果同一服务的其他注册实例(同名) 则显示此按钮 来自同一应用的数据集可以在不同的端点进行部署（例如）。 到另一个环境或因为更改会破坏现有的消耗上一个版本的应用)
 
-    {{% alert type="info" %}} Studio Pro will always show the **Update** option for the **Consumed OData Service** where you can check if an update is available. 在 Data Hub 搜索和 **App**  面板中，当在服务端点检测到不同的合同 这将以更新的箭头显示。 欲了解关于更新和切换服务的更多信息，请参阅此文档的 [更新或切换消费的 OData 服务](#updating) 部分。 {{% /报警 %}}
+    {{% alert type="info" %}}Studio Pro displays the **Update** option for the **Consumed OData Service** where you can check if an update is available. 在 Data Hub 搜索和 **Project**  面板中， 当在服务端点检测到不同的合约时，将会显示为服务的更新箭头。 欲了解关于更新和切换服务的更多信息，请参阅此文档的 [更新或切换消费的 OData 服务](#updating) 部分。 {{% /报警 %}}
 
-    {{% alert type="info" %}}In the **Data Hub** pane consumed services that have an available **Update** will have an update arrow to indicate this:
-    {{% image_container width="300" %}}![update data hub pane](./attachments/data-hub-pane/data-hub-pane-update.png){{% /image_container %}}
-
+    {{% alert type="info" %}}In the **Data Hub** pane consumed services that have an available **Update** will have an update arrow to indicate this:<br /> ![更新服务数据中心面板](attachments/consumed-odata-service/data-hub-pane-update-available.png)
     {{% /报警 %}}
 
 ### 2.1 连接选项卡
@@ -44,14 +43,14 @@ tags:
 
 **服务 URL** 显示服务端点的URL：
 
-* 点击 **选择** 来选择另一个 [常量来提供服务](/refguide/constants)
-* 点击 **显示** 以显示 **常量** 显示服务 URL 或端点的对话框：
+* 点击 **选择** 来选择另一个 [常量来提供服务](/refguide8/constants)
+*  点击 **显示** 以显示 **常量** 显示服务 URL 或端点的对话框：
 
     ![连接标签](attachments/consumed-odata-service/consumed-service-constant.png)
 
 ### 2.3 超时
 
-**超时** 是从服务端点获取数据的响应时间。 如果端点在 **超时秒**之后没有响应，将发生异常。 如果在微流活动中发生这种情况，微流将回滚或进入您的自定义 [错误处理](/howto/logic-business-rules/set-up-error-handling)。
+**超时** 是从服务端点获取数据的响应时间。 如果端点在 **超时秒**之后没有响应，将发生异常。 如果在微流活动中发生这种情况，微流将回滚或进入您的自定义 [错误处理](/howto8/logic-business-rules/set-up-error-handling)。
 
 默认值： *300秒*
 
@@ -59,12 +58,12 @@ tags:
 
 **代理配置** 允许您配置是否为请求使用代理：
 
-* **使用应用设置** - 使用在应用级别定义的设置 (默认)
-* **覆盖** - 通过指定代理主机、 端口、 用户名和密码设置来覆盖此操作的应用级别设置
-* **没有代理** - 不为此服务使用代理，即使在应用一级配置了代理服务器
+* **使用项目设置** - 使用在项目级别上定义的设置 (默认)
+* **覆盖** - 通过指定代理的主机、 端口、 用户名和密码设置来覆盖此操作的项目级别设置
+*  **没有代理** - 不为此服务使用代理，即使在项目一级配置了代理服务器
 
 {{% alert type="info" %}}
-在大多数情况下，此设置可能被忽略，默认使用 **使用应用程序设置**。
+在大多数情况下，此设置可能被忽略，默认使用 **使用工程设置**。
 {{% /报警 %}}
 
 ### 2.5 身份验证
@@ -110,7 +109,7 @@ tags:
     * **URL** - 点击 **编辑** 以指定元数据的 URL
     * **文件** - 点击 **浏览** 以选择一个 XML 元数据文件
 
-当从 URL 下载元数据时，服务器可以请求用户名和密码(基本身份验证)。 在这种情况下，对话框会提示您输入您的用户名和密码。 如果元数据文件指的是同一服务器在同一范围内的其他元数据文件，用户名和密码将被重新使用。
+支持基本身份验证已从 [版本 8.16.0](/releasenotes/studio-pro/8.16) 添加。 当从 URL 下载元数据时，服务器可以请求用户名和密码(基本身份验证)。 在这种情况下，对话框会提示您输入您的用户名和密码。 如果元数据文件指的是同一服务器在同一范围内的其他元数据文件，用户名和密码将被重新使用。
 
 {{% alert type="info" %}}
 此信息未存储，所以如果您再次从同一服务器下载元数据。 您必须再次输入您的用户名和密码。
@@ -122,7 +121,7 @@ tags:
 
 单击消耗的 OData 服务的 **属性** 标签，它显示为 OData 服务文档定义的属性和以下附加属性：
 
-{{% image_container width="300" %}}![](attachments/consumed-odata-service/consumed-odata-service-doc-properties.png){{% /image_container %}}
+![](attachments/consumed-odata-service/consumed-odata-service-doc-properties.png)
 
 * **实体** - 定义实体和相关数据集的元数据的 URL
 * **文档** — — 关于当前应用此服务的附加描述
@@ -137,13 +136,13 @@ tags:
 
 ### 4.1 从服务端点消耗{#consume-service-endpoints}
 
-当您向您的应用添加外部实体时， 您正在消耗一个特定版本的服务 ( *服务端*)中的实体，并部署到给定的环境。 服务的元数据文件或合约位于此端点。
+当您将外部实体添加到您的项目时， 您正在消耗一个特定版本的服务 ( *服务端*)中的实体，并部署到给定的环境。 服务的元数据文件或合约位于此端点。
 
-相同的服务， 部署到不同环境的服务端点将是不同的服务端，这将作为不同的资产在数据枢纽目录中注册。 在下面的例子中， **销售1.0有三个终点。** 部署在生产环境和 **接受** 和 **测试** 环境：
+相同的服务， 部署到不同环境的服务端点将是不同的服务端，这将作为不同的资产在数据枢纽目录中注册。 在下面的例子中， **CustomerApi 服务版本1.1有两个端点。** 部署在生产环境和 **接受环境** 环境：
 
 {{% image_container width="250" %}}![2 endpoints](attachments/consumed-odata-service/same-service-different-endpoints.png){{% /image_container %}}
 
-当您拖动 **客户** 实体从 **CustomerApi 版本 1.0。** 部署到 **接受** 环境进入您的应用， Studio Pro 将从该端的合同中检索它所要求的信息。
+当您拖动 **客户** 实体从 **CustomerApi 版本 1.0。** 部署到 **接受** 环境进入您的项目 Studio Pro 将从处于端点的合同中检索它所要求的信息。
 
 ### 4.2 服务版本语义编号 {#semantic}
 
@@ -165,11 +164,11 @@ tags:
 
 当对已发布的服务做出重大改动时，我们建议将该服务部署到 *不同的端点* ，新的服务版本号清楚地表明已经发生了重大变化——语义编号的这将是一个整体的递增数。
 
-在这种情况下，新服务应作为不同的服务在数据中心目录中注册。 并作为单独资产在目录中显示。 在下面的示例中， **订单管理服务** 有4次注册发生：
+在这种情况下，新的服务将作为不同的服务注册在数据集目录中。 并作为单独资产在目录中显示。 在下面的示例中， **订单管理服务** 有4次注册发生：
 
 {{% image_container width="250" %}}![4 endpoints](attachments/consumed-odata-service/consume-major-service-update-version.png){{% /image_container %}}
 
-版本号从 **1.0.0** 更改为 **2.0.0** 显示了一个主要的服务更新。 此外， 这两个主要版本也已部署到 **接受** ，这也导致在不同的端点数据集目录中单独注册的资产。
+版本号从 **1.0.0** 更改为 **2.0.0** 显示了一个主要的服务更新。 此外，这两个版本也已经部署到 **接受** 上，这也导致数据集目录中的单独注册资产。
 
 {{% alert type="info" %}}
 非Mendix OData服务的实体被确定为一个或多个领域的钥匙。 如果在更新服务时更改关键字段，这也将被视为一种突破性的变化。
@@ -177,29 +176,41 @@ tags:
 
 ### 4.3 更新或交换机
 
-当检测到某一消费端点的合同变更时（可能是因为稍有变动所致）； 或者如果相同的服务已经部署了一个主要版本号，但是到了另一个端点， 以下选项可在 **消耗的 OData 服务** 屏幕上获得。
+当在 Data Hub 中检测到消费服务的次要更新和主要更新时，以下选项可在 **消耗的 OData 服务** 屏幕上获得。
 
 #### 4.3.1. 更新
 
-当Studio Pro 检测到目录端的合同与应用当前消费的不同时， **更新** 选项是可用的。 如果选择 **更新** 个选项，新的合同将被加载到应用中。
+**更新** 选项是可用的，当发布已发布的 OData 服务的新版本时。 并部署到与以前版本相同的端点。 Studio Pro 将承认在项目结束时的合同不同于目前在项目中消费的合同。 更新Studio Pro 后将与端口上的合同相同。
 
-##### 4.3.1.1 应用程序面板和数据中心搜索面板
+##### 4.3.1.1 项目面板
 
-在 **App** and **Data Hub Search Pane** 中，更新箭头将表明目录端是否有不同的合同：
+在 **项目** 窗格中，这将显示如下所示：
 
-![更新服务应用面板](attachments/consumed-odata-service/project-pane-update-available.png)
+![更新服务项目窗格](attachments/consumed-odata-service/project-pane-update-available.png)
 
-* *当前消耗的服务版本* 已经显示在这个示例 **1.0.0**
-* 蓝色 **更新** - 点击打开 **更新服务** 框并将合同更新到新合同。 Studio Pro 将在数据集目录端口检索新的合约，这将被加载到应用中。
-* 显示新版本数据集的实体列表， 包括标有绿色标记的当地消费的实体。 然而，这些实体是： 很灰心地表示它们不能拖入域模型，因为前一版本的合同目前正在消耗。 唯一的选项是点击 **更新** 以检索更新OData服务。
+- *当前消耗的服务版本* 已显示在这个示例 **1.0.11**
+- 蓝色 **更新** - 点击打开 **更新服务** 框并将合同更新到新合同。 Studio Pro 将从 Data Hub 检索新的合同，这个项目将被加载。
+- 从当前服务版本消耗的实体列表，这些实体由绿色的检查标记显示
 
-##### 4.3.1.2 更新服务对话框
+##### 4.3.1.2 数据集搜索结果
 
-当您点击 **更新** 在 **消耗的 OData 服务** 文档或更新图标 **数据中心** 和 **应用程序** 部分 显示 **更新** 对话框。
+在 **数据枢纽** 窗格中，相同消耗的服务的搜索结果显示如下所示：
+
+![更新 dhpane 服务](attachments/consumed-odata-service/data-hub-pane-update-available.png)
+
+- 当前端点的服务版本， **1.0.12**
+
+- 蓝色 **更新** - 点击打开 **更新服务** 框并将合同更新到新合同。 Studio Pro 将从 Data Hub 检索新的合同，这个项目将被加载。
+
+- 显示新版本数据集的实体列表， 包括标有绿色标记的当地消费的实体。 然而，这些实体是： 很灰心地表示它们不能拖入域模型，因为前一版本的合同目前正在消耗。 唯一的选项是点击 **更新** 以检索更新OData服务。
+
+##### 4.3.1.3 更新服务对话框
+
+当您点击 **更新** 到 **消耗的OData服务** 文档或更新图标 **数据中心** 和 **项目** 窗格， 显示 **更新** 对话框。
 
 ![更新 dhpane 服务](attachments/consumed-odata-service/update-service-dialog-box.png)
 
-当前在应用程序中消耗的 OData 服务(**1.0 )。**显示在左边， 您可以点击 **更新** 从数据中心检索新的合同 (**2)。 0**
+当前在项目中消耗的 OData 服务**1.0。**显示在左边， 您可以点击 **更新** 从数据中心检索新的合同 (**2)。 0**
 
 #### 4.3.2. 交换机
 
@@ -214,21 +225,21 @@ tags:
 
 已发布的 OData 服务部署到多个环境或者发布时有主要的服务更新(因此部署到不同的端点)将作为单独的项目显示在 **数据枢纽** 面板的搜索结果中。
 
-在下面的例子中，消费的 **订单** 版本 **1.0.0** 部署到 **测试** 环境在应用中消费。 然而，在 **接受** 环境中也部署了同样的服务：
+在下面的例子中，部署到生产环境的消费的 **订单管理服务** 版本 **1.0.0** 在应用程序中消费。 然而，在 **接受** 环境中也部署了同样的服务：
 
 ![主要变化环境](attachments/consumed-odata-service/consume-major-service-update.png)
 
 要消耗部署到 **接受环境**的服务，请按照以下步骤：
 
-1. Click  **Update** > **Switch** on the **Consumed OData Service** document:
+1. 点击  **更新** > **在 **消耗的 OData 服务** 屏幕上切换**
    
    ![主要变化环境](attachments/consumed-odata-service/update-switch.png)
 
-2. 在 **上切换** 对话框，下拉列表中的对话框。 选择您想要消耗的服务 (注意也检测到一个端点被部署到 **Product**)，然后点击 **切换**
+2. 在 **上切换** 对话框，下拉列表中的对话框。 选择您想要消耗的服务，然后点击 **切换**
    
    ![主要变化环境](attachments/consumed-odata-service/switch-environment.png)
 
-3. 消费的服务是从新选定的环境中消费的。 在 **消耗的 OData 服务** 文档上的信息将显示更改的服务详细信息和 **数据中心** 窗格现在显示您正在从选定的环境中消耗：
+3. 消费的服务现在将从新选定的环境中消费。 **消耗的 OData 服务** 屏幕上的信息将显示更改的服务详细信息。 **数据中心** 窗格现在将显示您正在从选定的环境中消费：
    
    {{% image_container width="300" %}}![major change environment dh pane](attachments/consumed-odata-service/switch-new-environment.png){{% /image_container %}}
 
