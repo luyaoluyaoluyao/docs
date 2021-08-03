@@ -1,15 +1,15 @@
 ---
-title: "Desktop Profile"
-parent: "navigation-before-72"
-description: "Describes the desktop profile, which is the default profile used by a Mendix app for Mendix versions 7.0 and 7.1."
+title: "桌面配置文件"
+parent: "导航前-72"
+description: "描述桌面配置，这是Mendix 应用程序用于Mendix 7.0和7.1版本的默认配置文件。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+关于Mendix 版本7.2和7.3如何工作的详细情况，见 [导航在7.2和7.3](navigation-in-72-and-73)。 Mendix 版本 7.4 及以上版本，请参阅 [Navigation](navigation)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The desktop profile is the default profile used by a Mendix application. It cannot be disabled, and if all other profiles are disabled, all device types will automatically redirect to desktop.
+桌面配置文件是Mendix 应用程序使用的默认配置文件。 它不能被禁用，如果所有其他配置文件被禁用，所有设备类型都会自动重定向到桌面。
 
 {{% snippet file="refguide7/Profile+properties.md" %}}
