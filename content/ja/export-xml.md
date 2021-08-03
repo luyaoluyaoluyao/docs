@@ -1,11 +1,11 @@
 ---
-title: "Export XML"
-parent: "integration-activities"
+title: "XMLファイルのエクスポート"
+parent: "インテグレーションアクティビティ"
 ---
 
 
 {{% alert type="warning" %}}
 
-Please see [Export Mapping Action](export-mapping-action) for details on exporting XML.
+XMLのエクスポートの詳細については、 [マッピングのエクスポート アクション](export-mapping-action) を参照してください。
 
 {{% /alert %}}
