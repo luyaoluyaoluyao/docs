@@ -1,23 +1,23 @@
 ---
-title: "Annotations"
-parent: "domain-model"
+title: "说明"
+parent: "域名模型"
 menu_order: 30
 tags:
-  - "domain model"
-  - "annotation"
+  - "域模型"
+  - "注释"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-An **annotation** can be used to add comments to a domain model.
+**注释** 可以用来将注释添加到域模型。
 
-For example, an order entity contains two decimal attributes, **TotalPrice** and **Discount**. You can add an annotation to note that, unlike the total price, the discount represents a percentage and not an amount of money.
+例如，订单实体包含两个小数属性， **总计价格** 和 **折扣**。 您可以添加一个注释来说明，与总价格不同，折扣是一个百分比而不是一个金额。
 
 ![](attachments/domain-model/16844036.png)
 
-## 2 Common Properties
+## 2 公共属性
 
-### 2.1 Caption
+### 2.1 标题
 
-The caption property contains the text of the annotation.
+标题属性包含注释的文本。
