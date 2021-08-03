@@ -2,8 +2,8 @@
 title: "表 (文档模板)"
 parent: "文档模板"
 aliases:
-  - /refguide/table-(document-template).html
-  - /refguide/Table+(document+template.html
+  - /refguide7/Table+(document+template.html
+  - /refguide7/table-(document-template).html
 ---
 
 ## 1 导言
@@ -14,7 +14,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/document-templates/918134.png)
+![](attachments/819203/918134.png)
 
 本表有四行和三栏。 最后一行包含另一个表的数据视图。
 
@@ -56,4 +56,4 @@ aliases:
 
 ## 4 个公共属性
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
