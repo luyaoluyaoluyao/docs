@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/reference-selector.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 A **reference selector** is used to display and, optionally, allow the end-user to select the value of a one-to-one or one-to-many [association](associations) by selecting the associated object.
@@ -53,27 +49,27 @@ Reference selector properties consist of the following sections:
 
 ### 2.1 Common Section{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Data Source Section{#data-source}
 
-{{% snippet file="refguide8/data-source-section-link.md" %}}
+{{% snippet file="refguide/data-source-section-link.md" %}}
 
 The attribute path specifies which attribute of an associated entity is shown in the reference selector. The path must follow one association of type reference starting in the entity of the data view.
 
 ### 2.3 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.4 Editability Section{#editability}
 
-{{% snippet file="refguide8/editability-section-link.md" %}}
+{{% snippet file="refguide/editability-section-link.md" %}}
 
 ### 2.5 Events Section{#events}
 
 The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
 ### 2.6 Formatting Section{#formatting}
 
@@ -83,7 +79,7 @@ The formatting section applies only to the way that numeric attributes are displ
 * Integer
 * Long
 
-{{% snippet file="refguide8/numeric-formatting-link.md" %}}
+{{% snippet file="refguide/numeric-formatting-link.md" %}}
 
 ### 2.7 General Section{#general}
 
@@ -173,7 +169,7 @@ This is activated by checking the **Override page title** check box.
 
 ### 2.8 Label Section{#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
 ### 2.9 Selectable Objects Section{#selectable-objects}
 
@@ -265,11 +261,11 @@ In microflow settings you can specify what parameters are passed to the microflo
 
 ### 2.10 Validation Section{#validation}
 
-{{% snippet file="refguide8/widget-validation-link.md" %}}
+{{% snippet file="refguide/widget-validation-link.md" %}}
 
 ### 2.11 Visibility Section{#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Read More
 
