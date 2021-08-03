@@ -1,44 +1,44 @@
 ---
-title: "Common Widgets"
-parent: "pages"
+title: "一般的なウィジェット"
+parent: "ページ"
 menu_order: 20
 tags:
   - "studio pro"
-  - "common widgets"
-  - "widget"
+  - "共通ウィジェット"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Common widgets category contain widgets that are commonly used. This category contains the following widgets:
+一般的なウィジェットカテゴリには、一般的に使用されるウィジェットが含まれています。 このカテゴリには、次のウィジェットが含まれています:
 
 
-*  [Text](text) – displays a text that can contain parameters:
+*  [テキスト](text) - パラメータを含むテキストを表示します。
 
     ![](attachments/common-widgets/text-widget-example.png)
 
-*  [Image](image) – displays static image:
+*  [イメージ](image) – 静的イメージを表示します。
 
     ![](attachments/common-widgets/image-design-mode-example.png)
 
 * [Label](label) – displays static text (the functionality of this widget is outdated, we recommend using the label property of [input widgets](input-widgets) or a text widget instead)
 
-*  [Snippet Call](snippet-call) – allows you to use a snippet on another snippet, a page, or a layout
+*  [スニペットコール](snippet-call) - 別のスニペット、ページ、またはレイアウトでスニペットを使用することができます
 
     ![](attachments/common-widgets/snippet-call-design-mode-example.png)
 
-*  [Page Title](page-title) – displays page title set in [page properties](page-properties#title)
+*  [ページタイトル](page-title) - [ページプロパティに設定されたページタイトルを表示する](page-properties#title)
 
     ![](attachments/common-widgets/page-title-design-properties-example.png)
 
-## 2 Performing Basic Functions
+## 2 基本機能の実行
 
 {{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
+* [ページ](page)
 
-* [Pages](pages)
+* [ページ](ページ)
 
   
