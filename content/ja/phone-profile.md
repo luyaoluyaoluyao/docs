@@ -1,15 +1,15 @@
 ---
-title: "Phone Profile"
+title: "電話のプロフィール"
 parent: "navigation-before-72"
-description: "Describes usage of the phone profile in a Mendix app for Mendix versions 7.0 and 7.1."
+description: "Mendix バージョン 7.0 および 7.1 の Mendix アプリでの電話プロファイルの使用法について説明します。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+Mendix バージョン 7.2 および 7.3 での動作の詳細については、 [7.2 と 7.3 のナビゲーション](navigation-in-72-and-73) を参照してください。 Mendix バージョン 7.4 以上については、 [Navigation](navigation) を参照してください。
 
 {{% /alert %}}
 
-When enabled, all users accessing the Mendix application from a smart phone will automatically be redirected to this profile. If disabled, smart phone users will be redirected to the [tablet profile](tablet-profile). Lacking that, the user will be redirected to the [desktop profile](desktop-profile).
+有効にすると、スマートフォンからMendixアプリケーションにアクセスするすべてのユーザーが自動的にこのプロファイルにリダイレクトされます。 無効にすると、スマートフォンのユーザーは [タブレット プロファイル](tablet-profile) にリダイレクトされます。 それがないと、ユーザーは [デスクトッププロファイル](desktop-profile)にリダイレクトされます。
 
 {{% snippet file="refguide7/Profile+properties.md" %}}
