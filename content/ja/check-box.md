@@ -1,87 +1,58 @@
 ---
 title: "チェックボックス"
 parent: "input-widgets"
-menu_order: 40
-tags:
-  - "studio pro"
 ---
 
-## 1つの紹介
 
-A **check box** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean*. 値が true の場合はチェックマークを表示し、false の場合は空のままにします。
+このチェック ボックスは、ブール値属性の表示と編集に使用できる [入力 ウィジェット](input-widgets) です。 値が true の場合はチェックマークを表示し、false の場合は空のままにします。
 
-{{% alert type="info" %}}ネイティブ モバイル アプリケーションでは、チェック ボックス ウィジェットは toggle.{{% /alert %}} としてレンダリングされます。
+{{% alert type="info" %}}
 
-チェック ボックスは [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、チェック ボックス ウィジェット内に、角括弧と青色の間で表示されます。
+![](attachments/pages/check-box.png)
 
-たとえば、このチェックボックスをオンにすると、誰かがニュースレターを購読しているかどうかを確認し、設定することができます。
+このチェックボックスをオンにすると、誰かがニュースレターを購読しているかどうかを変更できます。
 
-![](attachments/check-box/check-box.png)
+{{% /alert %}}
 
-## 2つのプロパティ
+## データソースのプロパティ
 
-以下の画像には、チェック ボックス プロパティの例が示されています。
+{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
 
-{{% image_container width="250" %}}![](attachments/check-box/check-box-properties.png)
-{{% /image_container %}}
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-チェック ボックスのプロパティは、次のセクションで構成されています。
+## 編集可能なプロパティ
 
-* [一般的な](#common)
-* [データソース](#data-source)
-* [デザインプロパティ](#design-properties)
-* [編集可能](#editability)
-* [イベント](#events)
-* [ラベル](#label)
-* [公開範囲](#visibility)
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-### 2.1 共通セクション{#common}
+{{% snippet file="refguide7/Read+Only+Style.md" %}}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-### 2.2 データソースセクション{#data-source}
+## 表示プロパティ
 
-{{% snippet file="refguide/data-source-section-link.md" %}}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-### 2.3 デザインプロパティセクション{#design-properties}
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-{{% snippet file="refguide/design-section-link.md" %}}
+## イベントのプロパティ
 
-### 2.4 編集可能セクション{#editability}
+{{% snippet file="refguide7/On+Change+Event.md" %}}
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+{{% snippet file="refguide7/On+Enter+event.md" %}}
 
-### 2.5 イベントセクション{#events}
+{{% snippet file="refguide7/On+Leave+Event.md" %}}
 
-#### 2.5.1 変更時{#on-change}
+## 共通のプロパティ
 
-on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-{{% snippet file="refguide/events-section-link.md" %}}
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-#### 2.5.2 入口で
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 休暇中 2.5.3
-
-on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
-
-これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.6 ラベルセクション{#label}
-
-{{% snippet file="refguide/label-section-link.md" %}}
-
-### 2.7 可視性セクション{#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 続きを読む
+## 関連記事
 
 *   [データビュー](data-view)
-*   [属性](attributes)
+*   [属性](attributes)s
