@@ -1,67 +1,105 @@
 ---
-title: "Event Handlers"
-parent: "entities"
+title: "イベントハンドラー"
+parent: "エンティティ"
 menu_order: 50
 tags:
-  - "domain model"
-  - "entity"
-  - "event handler"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "イベントハンドラ:"
+  - "studio pro"
 ---
 
-Event handlers define microflows that handle certain events related to the entity. Depending on the chosen moment and type, the microflow is executed before or after creating, committing, deleting or rolling back an object.
+## 1つの紹介
+
+イベントハンドラは、エンティティに関連する特定のイベントを処理するマイクロフローを定義します。 選択したモーメントとタイプに応じて、オブジェクトの生成、コミット、削除、またはロールバックの前後にマイクロフローが実行されます。
+
+イベントハンドラーは、対応するイベントが発生するたびにトリガーされるため、適度に使用する必要があります。 それはあなたが常に起こりたいことのためにあるに違いない。 特定のページでのみ何かが起こりたい場合。 そこでは、マイクロフローを使用することができます(例えば、カスタマイズされた **** ボタン)。
 
 {{% alert type="warning" %}}
+イベントハンドラは特定の順序でトリガーされません。 そのため、イベントが相互に依存しないことを確認してください (一般化や専門化のイベントに関しても)。
 
-Use event handlers moderately. Event handlers will be triggered each and every time the corresponding event is raised so it has to be something that you want to always happen. If you just want something to happen in a certain form you can use a local microflow there, for example on a self-made Save button.
-
-{{% /alert %}}{{% alert type="warning" %}}
-
-Event handlers are not triggered in a particular order. So make sure events do not depend on each other in any way (also with regard to events in generalizations and specializations).
-
+マイクロフローからイベントがトリガーされると、マイクロフローアクションのイベントハンドラをバイパスするように選択できます。
 {{% /alert %}}
 
-## Properties
+{{% alert type="info" %}}
+指定されたイベントがオブジェクトのリストに適用される場合 (たとえば、オブジェクトのリストをコミットする場合など) ハンドラは最初にすべてのオブジェクトに対して実行され、その後リストにイベントが適用されます。 指定された例では、ハンドラは最初にすべてのオブジェクトで実行され、リスト内のすべてのオブジェクトが反映されます。
 
-### Moment
+ハンドラがリスト内の別のオブジェクトにすでに適用されているイベントに依存している場合。 リストをループし、各オブジェクトにイベントを順番に適用する必要があります。
+{{% /alert %}}
 
-This property defines whether the microflow is executed before or after the specified event occurs.
+たとえば、 **顧客** エンティティに **郵便番号** 属性があり、これが常に有効であることを確認したいとします。 これを変更できる複数の場所がある場合。 You can add a *before Commit* event which calls a microflow **BCo_Customer_Postcode** which could check the postcode is valid every when a customer object is commited, and pretted the object is invalid.
 
-| Value  | Description                                                  |
-| ------ | ------------------------------------------------------------ |
-| Before | The microflow is executed before the specified event occurs. |
-| After  | The microflow is executed after the specified event occurs.  |
+![顧客エンティティにコミットイベントハンドラの前に追加する例](attachments/domain-model/customer-event-handlers.png)
 
-### Event
+データ検証にイベントハンドラを使用する方法の詳細については、 [データ検証を設定する方法](/howto/data-models/setting-up-data-validation) を参照してください。
 
-This property defines the event that triggers execution of the microflow.
+## 2つのプロパティ
 
-| Value    | Description                                                                                                                                                                                                                                                                                                                                                       |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Create   | The microflow is executed when an object of this entity is created. This happens when a user clicks a **Create** button on a grid, or when creating an object in a microflow. In a microflow create action, an After Create is executed after the object is initialised with its default values, but before any change items specified in the action are applied. |
-| Commit   | The microflow is executed when an object of this entity is committed. This happens when the user clicks a save button on a form, or when committing an object in a microflow.                                                                                                                                                                                     |
-| Delete   | The microflow is executed when an object of this entity is deleted. This happens when a user clicks a delete button in a grid, or when deleting an object in a microflow.                                                                                                                                                                                         |
-| Rollback | The microflow is executed when an object of this entity is rolled back. This happens when a user clicks a cancel button in a form, or when rolling back an object in a microflow.                                                                                                                                                                                 |
+[図形ダイアログボックス](entities#dialog-box)からエンティティのイベントハンドラを追加および編集できます。
 
-### Microflow
+以下の画像では、イベントハンドラプロパティの例を示しています。
 
-This property defines the microflow that is executed for the specified event. The microflow is required to have a certain parameter and return type depending on the moment and event of the event handler:
+![](attachments/domain-model/event-handler-properties.png)
 
-*   Microflows of all event handlers except for 'before create' get the object on which the event occurs as parameter.
-*   Microflows that are executed _before_ the event should return a Boolean value that specifies whether the event should continue (True) or be cancelled (False). When multiple microflows handle the same event, it is cancelled immediately when one of the microflows returns False. In that case, some microflows might not be executed at all. Using this feature it is for example possible to cancel committing an object when a certain condition is not met.
+イベント ハンドラのプロパティは、以下のセクションで構成されます。
 
-| Moment | Event    | Gets object as parameter | Returns a Boolean value |
-| ------ | -------- | ------------------------ | ----------------------- |
-| Before | Create   | No                       | Yes                     |
-| After  | Create   | Yes                      | No                      |
-| Before | Commit   | Yes                      | Yes                     |
-| After  | Commit   | Yes                      | No                      |
-| Before | Delete   | Yes                      | Yes                     |
-| After  | Delete   | Yes                      | No                      |
-| Before | Rollback | Yes                      | Yes                     |
-| After  | Rollback | Yes                      | No                      |
+* [日時](#when)
+* [What](#what)
 
-### Raise an error when the microflow returns false (only if Moment is 'Before')
+### 2.1 セクションの場合 {#when}
 
-By enabling this option the event handler will raise an error when the microflow returns false. You can then use error handling to detect whether the event handler returned false. This makes 'before commit' event handlers more like native validation. If this option is disabled, a 'before commit' event handler can only stop the commit from happening but the rest of the microflow will still be executed.
+#### 2.1.1 モーメント {#moment}
 
-_Default value:_ Yes
+**Moment** は、マイクロフローが実行されるかどうかを指定します **** 前 **後** 指定されたイベントが発生します。
+
+#### 2.1.2 イベント{#event}
+
+**イベント** は、マイクロフローの実行をトリガーするイベントを指定します。
+
+| 値        | 説明                                                                                                                                                                                                                         |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 作成       | マイクロフローは、このエンティティのオブジェクトが作成されたときに実行されます。 これは、ユーザーがグリッド上で **Create** をクリックするか、またはマイクロフロー内でオブジェクトが作成されたときに発生します。 [でマイクロフローで](create-object) アクションを作成 オブジェクトが属性のデフォルト値で初期化された後に、作成後のアクションが実行されます しかし、アクションで指定された変更項目が適用される前に。 |
+| コミット     | このエンティティのオブジェクトがコミットされると、microflow が実行されます。 これは、ユーザーがページの **Save** をクリックした場合、またはオブジェクトがマイクロフローにコミットされた場合に発生します。                                                                                                            |
+| 削除       | このエンティティのオブジェクトが削除されると、マイクロフローが実行されます。 これは、ユーザーがグリッド内で **Delete** をクリックするか、またはマイクロフロー内でオブジェクトが削除されたときに発生します。                                                                                                               |
+| Rollback | マイクロフローは、このエンティティのオブジェクトがロールバックされたときに実行されます。 これは、ユーザーがページで **キャンセル** をクリックした場合、またはオブジェクトがマイクロフローでロールバックされた場合に発生します。                                                                                                        |
+
+### 2.2 セクション{#what}
+
+#### 2.2.1 イベントオブジェクトをパス
+
+このオプションは、このイベントに設定されたマイクロフロー(以下の **マイクロフロー** を参照)が、イベントに関連付けられたオブジェクトをパラメータとして持つかどうかを指定します。 これは、例えば、コミットされているオブジェクトに対してイベントハンドラでバリデーションチェックを行う場合などに便利です。
+
+これを **No**に設定すると、パラメータのないマイクロフローのみを指定できます。
+
+#### 2.2.2 マイクロフロー
+
+このプロパティは、指定したイベントに対して実行されるマイクロフローを定義します。 microflow には、パラメータと戻り値の型がイベントハンドラの瞬間とイベントと一致している必要があります。
+
+* **** を除くすべてのイベントハンドラのマイクロフロー は、イベントがパラメータとして発生するオブジェクトを取得できます。
+* _の前に_ 実行されるマイクロフロー イベントは、イベントを継続するか (true)、キャンセルするか (false) を指定する Boolean 値を返します (false)。 複数のマイクロフローが同じイベントを処理する場合、いずれかのマイクロフローが false を返すと直ちにキャンセルされます。 その場合、一部のマイクロフローがまったく実行されない場合があります。 この機能は、例えば、特定の条件が満たされていない場合にオブジェクトのコミットをキャンセルするために使用できます。
+
+| [Moment](#moment) | [イベント](#event) | オブジェクトをパラメータとして取得できます。 | ブール値を返します。 |
+| ----------------- | -------------- | ---------------------- | ---------- |
+| 前                 | 作成             | いいえ                    | はい         |
+| 後                 | 作成             | はい                     | いいえ        |
+| 前                 | コミット           | はい                     | はい         |
+| 後                 | コミット           | はい                     | いいえ        |
+| 前                 | 削除             | はい                     | はい         |
+| 後                 | 削除             | はい                     | いいえ        |
+| 前                 | Rollback       | はい                     | はい         |
+| 後                 | Rollback       | はい                     | いいえ        |
+
+#### 2.2.3 マイクロフローがFalseを返したときにエラーが発生する
+
+これは、 [Moment](#moment) が **の前に** に設定されている場合にのみ関連します。
+
+このオプションが有効になっている場合、microflow が false を返すと、イベントハンドラはエラーを発生します。 エラー処理を使用して、イベントハンドラが false を返したかどうかを検出できます。
+
+例えば、ネイティブ検証と同様に、 **コミット前** イベントハンドラを使用することができます。 このオプションが **No**に設定されている場合 コミット前のイベントハンドラはコミットを停止することができますが、残りのマイクロフローはまだ実行されます。
+
+デフォルト: *はい*
+
+## 3 続きを読む
+
+* [パフォーマンスを向上させるためにデータを拒否する方法](/howto/data-models/denormalize-data-to-improve-performance)
+* [データ検証を設定する方法](/howto/data-models/setting-up-data-validation)
