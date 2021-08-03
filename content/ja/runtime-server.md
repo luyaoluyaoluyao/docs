@@ -1,128 +1,128 @@
 ---
-title: "Runtime Server"
+title: "ランタイムサーバー"
 category: "Mendix Runtime"
-description: "A description of the Runtime Server and how it functions"
+description: "ランタイムサーバーの説明とそれがどのように機能するか"
 menu_order: 10
 tags:
-  - "runtime"
-  - "runtime server"
-  - "stateless"
-  - "database"
-  - "java"
-  - "microflows"
+  - "ランタイム:"
+  - "ランタイムサーバー"
+  - "ステートレス"
+  - "データベース"
+  - "ジャバ"
+  - "マイクロフロー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The Runtime Server is the part of the Mendix runtime which executes microflows and connects to files, the relational database, and any other required services. It received requests from the Mendix Client, and provides data in response.
+Runtime Serverは、マイクロフローを実行し、ファイル、リレーショナルデータベース、およびその他の必要なサービスに接続するMendixランタイムの一部です。 Mendix クライアントからのリクエストを受け取り、応答でデータを提供します。
 
-This description of the Runtime Server is based on an app running in the cloud. You can also run Mendix locally for testing, but this is conceptually the same.
+このRuntime Serverの説明は、クラウドで実行されているアプリに基づいています。 Mendixはテスト用にローカルで実行することもできますが、これは概念的にも同じです。
 
-## 2 Description
+## 2つの説明
 
-The Runtime Server is deployed to the cloud (see [Runtime Deployment](runtime-deployment) for more information) and waits for requests from the Mendix Client or a call from another app or service. It processes the request and returns the requested data, plus any additional state information where appropriate. For details of how this communication takes place, see [Communication Patterns in the Mendix Runtime](communication-patterns). The Runtime Server itself is stateless, which allows it to be efficiently scaled to multiple instances.
+Runtime Serverはクラウドにデプロイされます (詳細は [Runtime Deployment](runtime-deployment) を参照してください)。Mendix Clientからの要求、または別のアプリまたはサービスからの呼び出しを待ちます。 リクエストを処理し、要求されたデータに加え、適切な場合は追加の状態情報を返します。 この通信がどのように行われるかについては、Mendix Runtime [の通信パターン](communication-patterns) を参照してください。 Runtime Server 自体はステートレスであり、複数のインスタンスに効率的にスケーリングすることができます。
 
-Below is a chart showing the components of the Runtime Server. Each of the components is described below the chart.
+以下は、Runtime Serverのコンポーネントを示すチャートです。 各コンポーネントは、チャートの下に記載されています。
 
-![The makeup of the Runtime Server](attachments/runtime/runtime-server.png)
+![ランタイムサーバーの構成](attachments/runtime/runtime-server.png)
 
 ### 2.1 M2ee
 
-M2ee is used to launch the Runtime Server when your app is deployed to the cloud. Once the Runtime Server is running, m2ee can be used to connect back to the Runtime Server, issuing commands like setting log levels, asking how many users are logged in, showing currently running actions inside the application, or even telling it to shut itself down.
+M2eeは、アプリがクラウドにデプロイされたときにRuntime Serverを起動するために使用されます。 Runtime Serverが実行されると、m2eeを使用してRuntime Serverに戻り、ログレベルを設定するなどのコマンドを発行することができます。 どのくらいのユーザーがログインしているか、アプリケーション内で現在実行中のアクションを表示したり、シャットダウンするように指示したりすることさえあります。
 
-M2ee communicates with the Runtime Server through authenticated POST requests, in JSON format, which are sent to the administration port of the Runtime Server.
+M2eeは、認証されたPOSTリクエストをJSON形式でRuntime Serverの管理ポートに送信し、Runtime Serverと通信します。
 
-### 2.2 Runtime Core
+### 2.2 ランタイムコア
 
-This is an interpreter written in Java and Scala, which uses the app model to decide how to process a request from the Mendix Client or a request from an external service, and controls the various processes which need to take place to service the request.
+これはJavaとScalaで書かれたインタプリタです アプリケーションモデルを使用してMendixクライアントからのリクエストや外部サービスからのリクエストを処理する方法を決定します。 要求に応えるために必要な様々なプロセスを制御することができます
 
-### 2.3 Project Model
+### 2.3 プロジェクトモデル
 
-This contains the model which defines how the app behaves, including domain models, microflows, import mappings etc. This is what the runtime core interprets to run the app.
+これには、ドメインモデル、マイクロフロー、インポートマッピングなど、アプリの動作を定義するモデルが含まれています。 これは、ランタイム・コアがアプリケーションを実行するために解釈するものです。
 
-### 2.4 Temporary Object Storage
+### 2.4 一時的なオブジェクト ストレージ
 
-This holds objects which are being used in the Runtime Server but which are not yet committed to the database. These might be committed in the future (for example, if they are new or changed objects), or may remain uncommitted (for example, if they are non-persistable objects).
+これは、Runtime Server で使用されているが、データベースにまだコミットされていないオブジェクトを保持します。 これらは将来的にコミットされる可能性があります (例えば、新しいオブジェクトや変更されたオブジェクトの場合)。 または未コミットのままである可能性があります (たとえば、永続性のないオブジェクトである場合)。
 
-### 2.5 File Storage Manager
+### 2.5 ファイルストレージマネージャー
 
-This controls retrieving and storing non-relational data. In particular it retrieves the data associated with FileDocument entities.
+これにより、非リレーショナルデータの取得と保存が制御されます。 特に、FileDocument エンティティに関連付けられたデータを取得します。
 
-### 2.6 File Storage
+### 2.6 ファイルストレージ
 
-This is where files are stored which are part of the data used by the app. In particular it contains the value of *FileDocument* objects, including images, which are binary objects that need to be stored outside the database to avoid size and performance restrictions.
+これは、アプリで使用されるデータの一部であるファイルが格納される場所です。 特に画像を含む *FileDocument* オブジェクトの値が含まれています。 サイズやパフォーマンスの制限を避けるためにデータベース外に保存する必要があるバイナリオブジェクトです
 
-### 2.7 Database Synchronization
+### 2.7 データベースの同期
 
-Database Synchronization is initiated when an app is started. It manages changes to the database structure which need to be applied to the database when an app is deployed after the Domain Model in the app is updated. For example, if a new attribute is added to an entity, the database structure will need to be updated to support this.
+データベース同期はアプリの起動時に開始されます。 アプリケーションのDomain Modelが更新された後にアプリケーションがデプロイされると、データベースに適用される必要があるデータベース構造の変更を管理します。 例えば、エンティティに新しい属性が追加された場合、これをサポートするためにデータベース構造を更新する必要があります。
 
-This activity is carried out by the cluster leader instance if there is more than one instance of the Runtime Server. While this activity takes place, all other instances will pause until the database synchronization is complete.
+このアクティビティは、Runtime Serverのインスタンスが複数ある場合、クラスターリーダーインスタンスによって実行されます。 このアクティビティが行われている間、データベースの同期が完了するまで、他のすべてのインスタンスは一時停止します。
 
-### 2.8 External Service Calls
+### 2.8 外部サービス通話
 
-This manages calls to external services to obtain data. An app can make calls to multiple external services, using a variety of different API formats, for example OData or REST.
+外部サービスへの呼び出しを管理し、データを取得します。 アプリケーションは、OData や REST など、さまざまな API 形式を使用して、複数の外部サービスを呼び出すことができます。
 
-### 2.9 External Service
+### 2.9 外部サービス
 
-This is a service which provides data to the app. A service could be another Mendix app accepting external service requests, or a third-party service such as SAP or Google Maps.
+これはアプリにデータを提供するサービスです。 外部サービスリクエストを受け付ける別のMendixアプリ、SAPやGoogleマップなどのサードパーティサービスなどのサービスを利用することができます。
 
-### 2.10 Relational Database
+### 2.10 リレーショナルデータベース
 
-This is the database (or sometimes the schema of a shared database) which holds the objects as defined in the domain model(s) in the app.
+これは、アプリケーション内のドメインモデルで定義されているオブジェクトを保持するデータベース(または共有データベースのスキーマ)です。
 
-### 2.11 Query Executor
+### 2.11 クエリの実行
 
-This manages the CRUD (create, read, update, and delete) operations for retrieving and storing data in the relational database which is bound to the app. The operations are performed using SQL which is tailored to the underlying database.
+これにより、アプリケーションにバインドされたリレーショナルデータベースにデータを取得および保存するためのCRUD (create、read、update、delete)操作が管理されます。 操作はデータベースに合わせて調整された SQL を使用して実行されます。
 
-Where queries are not formatted in SQL, the query executor will convert them from their original format (XPath or OQL for example).
+SQL 内でクエリーがフォーマットされていない場合、クエリー実行者はそれらを元のフォーマットから変換します (例えば、XPath または OQL など)。
 
-It also applies the security which is set within the app.
+また、アプリ内で設定されたセキュリティも適用されます。
 
-### 2.12 Object Manager
+### 2.12 オブジェクトマネージャー
 
-This manages the objects which are maintained in the Runtime Server (non-persistable, new, and changed objects) and ensures that they are passed back to the Mendix Client at the end of the request.
+Runtime Server でメンテナンスされているオブジェクトを管理します (非永続性、新規作成) 変更されたオブジェクト) リクエストの最後に Mendix クライアントに返されるようにします。
 
-### 2.13 Microflow Engine
+### 2.13 マイクロフローエンジン
 
-This runs the logic which is defined in the microflows in the app model.
+これは、アプリモデル内のマイクロフローで定義されているロジックを実行します。
 
-### 2.14 Scheduler
+### 2.14 スケジューラ
 
-The scheduler triggers microflow actions at preconfigured times, or intervals.
+スケジューラは、あらかじめ設定された時間または間隔でマイクロフローアクションをトリガーします。
 
-### 2.15 License Server
+### 2.15 ライセンスサーバー
 
-This is a service which provides information about the license which is being used to run the app. The license being used defines how many named users can be added to the app, and how many users can use the app simultaneously.
+これは、アプリを実行するために使用されているライセンスに関する情報を提供するサービスです。 使用されるライセンスは、アプリに追加できる名前付きユーザーの数と、同時にアプリを使用できるユーザーの数を定義します。
 
-### 2.16 Custom Java
+### 2.16 カスタム Java
 
-This runs custom Java which is held as Java actions in the app model.
+これにより、アプリモデルでJavaアクションとして保持されるカスタム Javaが実行されます。
 
 ### 2.17 Mendix Client API
 
-This receives requests from the Mendix Client, decodes them and passes them to the Runtime Core or the Object Manager, and formats a response to the Mendix Client once the request has been processed. The Mendix Client API is known as *xas* (XML Application Server).
+これは Mendix クライアントからリクエストを受け取り、それらをデコードし、Runtime Core または Object Manager に渡します。 を選択し、リクエストが処理されると、Mendix クライアントへの応答をフォーマットします。 Mendix Client API は *xas* (XML Application Server) として知られています。
 
-### 2.18 Custom Request Handler
+### 2.18 カスタムリクエストハンドラー
 
-This is a request handler added to the app using the com.mendix.core.Core#addRequestHandler(…) API call.
+これはcom.mendix.core.Core.Core#addRequestHandler(… ) を使用してアプリに追加されたリクエストハンドラです。 API コール。
 
-### 2.19 External Service Requests
+### 2.19 外部サービスリクエスト
 
-This receives requests from other services, decodes them and passes them to the Runtime Core or Object Manager, and formats a response to the service once the request has been processed. These requests can be:
+これにより、他のサービスからのリクエストを受け取り、それらをデコードし、Runtime CoreまたはObject Managerに渡します。 を選択し、リクエストが処理されると、サービスへの応答をフォーマットします。 これらのリクエストは次のとおりです。
 
-* Webservice – this exposes microflows via a SOAP interface
-* REST – this exposes microflows via a REST endpoint
-* OData – this exposes entity data as an OData endpoint
-* Other – these are metadata interfaces including WSDL and Swagger
+* Web サービス – SOAP インターフェイスを介してマイクロフローを公開します
+* REST - これは、REST エンドポイントを介してマイクロフローを公開します
+* OData – これは、OData エンドポイントとしてエンティティデータを公開します
+* 他にも、WSDLやSwaggerなどのメタデータインターフェースがあります。
 
-### 2.20 HTTPS Server
+### 2.20 HTTPS サーバー
 
-This decodes HTTPS requests from Mendix Clients or other services and passes them to the Runtime Server.
+これにより、Mendixクライアントまたは他のサービスからのHTTPSリクエストがデコードされ、Runtime Serverに渡されます。
 
 ### 2.21 Mendix Client
 
-This is the browser or device which allow the end-user to interact with the app. This can be a web browser, such as Chrome, or a mobile device, such as an iPhone. It typically has a screen, pointer device, and input device to allow end-users to use the app.
+これは、エンドユーザーがアプリと対話できるようにするブラウザまたはデバイスです。 これは、ChromeなどのWebブラウザ、またはiPhoneなどのモバイルデバイスである可能性があります。 通常、エンドユーザーがアプリを使用できるように、画面、ポインタデバイス、および入力デバイスを備えています。
 
-The Runtime Server communicates with the Mendix Client using a private API called *xas*.
+Runtime Serverは、 *xas* というプライベートAPIを使用してMendixクライアントと通信します。
 
-For a description of the Mendix Client, see [Mendix Client](mendix-client).
+Mendix クライアントの説明については、 [Mendix Client](mendix-client) を参照してください。
