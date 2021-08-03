@@ -1,15 +1,15 @@
 ---
-title: "Desktop Profile"
+title: "デスクトップ プロファイル"
 parent: "navigation-before-72"
-description: "Describes the desktop profile, which is the default profile used by a Mendix app for Mendix versions 7.0 and 7.1."
+description: "Mendixバージョン7.0および7.1でMendixアプリで使用されるデフォルトのプロファイルであるデスクトッププロファイルについて説明します。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+Mendix バージョン 7.2 および 7.3 での動作の詳細については、 [7.2 と 7.3 のナビゲーション](navigation-in-72-and-73) を参照してください。 Mendix バージョン 7.4 以上については、 [Navigation](navigation) を参照してください。
 
 {{% /alert %}}
 
-The desktop profile is the default profile used by a Mendix application. It cannot be disabled, and if all other profiles are disabled, all device types will automatically redirect to desktop.
+デスクトッププロファイルは、Mendix アプリケーションで使用されるデフォルトのプロファイルです。 無効にすることはできません。他のすべてのプロファイルが無効になっている場合、すべてのデバイスタイプが自動的にデスクトップにリダイレクトされます。
 
 {{% snippet file="refguide7/Profile+properties.md" %}}
