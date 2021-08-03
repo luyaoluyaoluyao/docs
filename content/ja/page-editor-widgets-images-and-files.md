@@ -1,191 +1,178 @@
 ---
-title: "Images & Files"
+title: "画像 & ファイル"
 parent: "page-editor-widgets"
-description: "Describes image and file widgets in Mendix Studio."
+description: "Mendix Studioで画像とファイルのウィジェットを説明します。"
 menu_order: 30
 tags:
-  - "studio"
-  - "page editor"
-  - "image"
-  - "image widgets"
-  - "widgets"
-  - "file"
-  - "file manager"
-  - "file uploader"
-  - "file downloader"
+  - "スタジオ"
+  - "ページエディタ"
+  - "画像"
+  - "画像ウィジェット"
+  - "ウィジェット"
+  - "ファイル"
+  - "ファイルマネージャー"
+  - "ファイルアップローダー"
+  - "ファイルダウンローダー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Images & Files** are widgets that allow end-users to view, download, and upload images or files. For example, with an image uploader end-users will be able to upload a profile image:
+**イメージ & ファイル** は、エンドユーザーが画像やファイルを表示、ダウンロード、アップロードできるウィジェットです。 たとえば、アップローダーのエンドユーザーがプロフィール画像をアップロードできるようになります。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets-images-and-files/image-uploader-example.png)
 {{% /image_container %}}
 
-There are the following image and file widgets in Mendix Studio:
+Mendix Studio には以下の画像とファイルのウィジェットがあります:
 
-* **Image** – allows you to show a static (non-changing) image in your app
+* **イメージ** – アプリに静的(変更なし)イメージを表示することができます
 
-*  **Dynamic Image** – allows you to show a dynamic image (for example, a relevant profile picture that is different for each customer) in your app
+*  **ダイナミックイメージ** – 動的イメージを表示することができます(例えば、 アプリ内の関連するプロフィール写真
 
-*  **Image Uploader** – allows end-users to upload an image
+*  **Image Uploader** – エンドユーザーが画像をアップロードできるようにする
 
 *   **File Manager** – allows end-users to upload or/and download a file (in the **Toolbox**, you see  preconfigured file managers: **File Uploader** and **File Downloader**)
 
     {{% image_container width="350" %}}![](attachments/page-editor-widgets-images-and-files/images-and-files.png)
     {{% /image_container %}}
 
-## 2 Image and Dynamic Image
+## 2 画像と動的画像プロパティ
 
-An image and a dynamic image widgets allow you to display an image either from a file (statically) or from the database (dynamically).
+イメージと動的イメージウィジェットを使用すると、ファイル(静的)またはデータベース(動的)からイメージを表示することができます。
 
-You can switch from one widget to another in properties:
+プロパティで、あるウィジェットから別のウィジェットに切り替えることができます。
 
 ![](attachments/page-editor-widgets-images-and-files/static-and-dynamic-image.png)
 
-### 2.1 Properties
+### 2.1 一般セクション {#image-general}
 
-#### 2.1.1 General Section {#image-general}
+**General** セクションでは、静的イメージと動的イメージの切り替え、画像の選択、幅と高さの設定などができます。
 
-In the **General** section, you can switch between static and dynamic image, select an image, configure its width and height, etc.
-
-Before configuring settings in the **General** section for the **Dynamic Image**, keep in mind that it can only function inside a data container (a list view or a data view). You can either place widget in an existing data container; or click **Wrap with a new data view** in **Properties** to create a data view automatically and place an input element inside it.
+**動的画像** の **一般**セクションで設定を行う前に。 データコンテナ(リストビューまたはデータビュー)内でのみ機能することができます。 既存のデータコンテナにウィジェットを配置することができます。 または **プロパティ** の **新しいデータ ビュー** をクリックして自動的にデータ ビューを作成し、その中に入力要素を配置します。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets-images-and-files/dynamic-image-data-view.png)
 {{% /image_container %}}
 
-Settings available for **Static Image** and **Dynamic Image** are described in the table below:
+**Static Image** と **Dynamic Image** の設定は以下の表に示されています:
 
-| Property      | The property applies to   | Description                                                                                                                                                                                                                                                      |
-| ------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Image Source  | Static and Dynamic Images | Switches between static (from a file) and dynamic (from the database) image.                                                                                                                                                                                     |
-| Entity        | Dynamic Image             | Specifies which entity will be shown in the dynamic image. You can only set an entity for the dynamic image if it is an image entity. For more information on image entities, see the [Types of Entities](domain-models#entity-types) section in *Domain Model*. |
-| Image         | Static Image              | Sets an image that will be shown to the end-user.                                                                                                                                                                                                                |
-| Default Image | Dynamic Image             | This is the image that is displayed if is stored in the database.                                                                                                                                                                                                |
-| Width Unit    | Static and Dynamic Images | The width of an image can be specified in the following ways:  <br /><ul><li>**Auto** – the width of the given image is used.</li><li>**Pixels** – the width is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched.</li><li>**Percentage** –  the width is specified in a percentage of the original width. It can be larger than its original width in which case the image is stretched.</li></ul><br />Default value for **Width Unit**: Auto                                                                                                           |
-| Width         | Static and Dynamic Images | The **Width** option is only displayed when **Pixels** or **Percentage** are selected for the **Width Unit**. It specifies the width of the image in pixels or percentage.                                                                                       |
-| Height  Unit  | Static and Dynamic Images | The height of an image can be specified in the following ways:  <br /><ul><li>**Auto** – the height of the given image is used.</li><li>**Pixels** – the height is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched.</li><li>**Percentage** –  the height is specified in a percentage of the original height. It can be larger than its original height in which case the image is stretched.</li></ul><br />Default value for **Height Unit**: Auto                                                                                                         |
-| Height        | Static and Dynamic Images | The **Height** option is only displayed when **Pixels** or **Percentage** are selected for the **Height Unit**. It specifies the height of the image in pixels or percentage.                                                                                    |
+| 属性       | このプロパティは以下に適用されます。 | 説明                                                                                                                                                       |
+| -------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 画像のソース   | 静的および動的画像          | (ファイルから) スタティック画像と (データベースから) ダイナミック画像を切り替えます。                                                                                                           |
+| エンティティ   | 動的画像               | 動的イメージに表示するエンティティを指定します。 動的イメージのエンティティは、イメージエンティティの場合にのみ設定できます。 イメージエンティティの詳細については、 [ドメイン モデル](domain-models#entity-types) の *エンティティの種類* セクションを参照してください。 |
+| 画像       | 静的画像               | エンドユーザーに表示される画像を設定します。                                                                                                                                   |
+| デフォルトの画像 | 動的画像               | データベースに保存されている場合に表示される画像です。                                                                                                                              |
+| 幅の単位     | 静的および動的画像          | 画像の幅は以下の方法で指定できます:  <br /><ul><li>**自動** – 与えられた画像の幅が使用されます。</li><li>**ピクセル** – 幅は数ピクセルで指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。</li><li>**パーセント** – 幅は元の幅のパーセントで指定されます。 画像が伸びている場合は、元の幅よりも大きくすることができます。</li></ul><br />Default value for **Width Unit**: Auto                                              |
+| Width    | 静的および動的画像          | **Width** オプションは、 **Pixel** または **Percentage** が **Width Unit** に選択されている場合にのみ表示されます。 画像の幅をピクセルまたはパーセンテージで指定します。                                          |
+| 高さの単位    | 静的および動的画像          | 画像の高さは以下の方法で指定できます:  <br /><ul><li>**自動** – 指定した画像の高さが使用されます。</li><li>**ピクセル** – 高さはピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。</li><li>**パーセント** – 高さは元の高さのパーセントで指定されます。 画像が伸びている場合は、元の高さよりも大きくすることができます。</li></ul><br />**高さ単位**: 自動                                                                       |
+| 高さ       | 静的および動的画像          | **高さ** オプションは、 **ピクセル** または **パーセント** が **高さユニット**に選択されている場合にのみ表示されます。 画像の高さをピクセルまたはパーセンテージで指定します。                                                       |
 
-#### 2.1.2 Events Section
+### 2.2 イベントセクション
 
-You can choose the **On Click Action** in the **Events** section. The **On Click Action** defines what action is performed when the user clicks an image.
+**イベント** セクションで **クリックアクション** を選択できます。 **on Click Action** は、ユーザーが画像をクリックしたときに実行されるアクションを定義します。
 
-##### 2.1.2.1 Common Properties
+#### 2.2.1 一般的なプロパティ
 
 The static image and the dynamic image share the properties in the **Events** section, except for one property that is [specific for the dynamic image](#events-dynamic-image).
 
-For more information on the **Events** section for static and dynamic images, see [Events Section in Widgets](page-editor-widgets-events-section).
+静的および動的イメージの **イベント** セクションの詳細については、 [ウィジェットのイベント セクション](page-editor-widgets-events-section) を参照してください。
 
-##### 2.1.2.2 Dynamic Image Specific Property {#events-dynamic-image}
+#### 2.2.2 動的画像特有のプロパティ {#events-dynamic-image}
 
-The dynamic image has a specific on-click action **Enlarge on Click**. The full-size image will be displayed when the user clicks it. This property overrides other on-click actions.
+ダイナミックイメージには、特定のオンクリックアクション **クリックで拡大**があります。 フルサイズの画像は、ユーザーがそれをクリックすると表示されます。 このプロパティは、他のオンクリック操作を上書きします。
 
-#### 2.1.3 Conditional Visibility Section
+### 2.3 条件付き表示セクション
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-#### 2.1.4 Design Section
+### 2.4 デザインセクション
 
-For information on the **Design** section and its properties, see [Design Section in Widgets](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-## 3 Image Uploader and File Manager
+## 3 画像アップローダーとファイルマネージャのプロパティ
 
-An **image uploader** allows end-users to upload images to your app and it generates a thumbnail of the uploaded image. For example, users can upload a picture for their profile.
+**画像アップローダー** はエンドユーザーがあなたのアプリに画像をアップロードし、アップロードされた画像のサムネイルを生成します。 たとえば、ユーザーは自分のプロフィールの写真をアップロードできます。
 
-The image uploader must be placed inside a data view or a list view that has an image entity as their data source.  For more information on image entities, see the [Types of Entities](domain-models#entity-types) section in *Domain Model*.
+画像アップローダーは、データビューまたはデータソースとして画像エンティティを持つリストビュー内に配置する必要があります。  イメージエンティティの詳細については、 [ドメイン モデル](domain-models#entity-types) の *エンティティの種類* セクションを参照してください。
 
-A **file manager** allows end-users to upload and/or download files. For example, users can download a spreadsheet with necessary data.
+**ファイルマネージャー** により、エンドユーザーはファイルをアップロードおよび/またはダウンロードできます。 たとえば、ユーザーは必要なデータを含むスプレッドシートをダウンロードできます。
 
-The file manager must be placed inside a data view or a list view that has a file entity as their data source.  For more information on file entities, see the [Types of Entities](domain-models#entity-types) section in *Domain Model*.
+ファイルマネージャは、データビューまたはファイルエンティティをデータソースとして持つリストビュー内に配置する必要があります。  ファイルエンティティの詳細については、 [ドメイン モデル](domain-models#entity-types) の *エンティティの種類* セクションを参照してください。
 
-The default maximum size of files and images that can be uploaded/downloaded is 5 MB. You can change the maximum size in Studio Pro. For more information on properties in Studio Pro, see [File Manager](/refguide8/file-manager) and [Image Uploader](/refguide8/image-uploader).
+アップロード/ダウンロードできるファイルと画像のデフォルトの最大サイズは5MBです。 Studio Pro で最大サイズを変更できます。 Studio Pro のプロパティの詳細については、 [File Manager](/refguide/file-manager) および [Image Uploader](/refguide/image-uploader) を参照してください。
 
-All file extensions are allowed for image uploader and file manager unless specified otherwise in Studio Pro. For more information on properties in Studio Pro, see [File Manager](/refguide8/file-manager) and [Image Uploader](/refguide8/image-uploader).
+Studio Pro で特に指定しない限り、すべてのファイル拡張子はイメージアップローダーとファイルマネージャに使用できます。 Studio Pro のプロパティの詳細については、 [File Manager](/refguide/file-manager) および [Image Uploader](/refguide/image-uploader) を参照してください。
 
-### 3.1 Properties
+### 3.1 データソースセクション
 
-#### 3.1.1 Data Source Section
+**Data Source** セクションは、 **Context Entity** オプションで構成されています。 **Context Entity** は(ファイルマネージャを使用している場合)ファイルエンティティまたは(イメージアップローダーを使用している場合)周辺のデータビューまたはリストビューのイメージエンティティを使用します。 **コンテキストエンティティ** が自動的に設定され、読み取り専用です。
 
-The **Data Source** section consists of the **Context Entity** option. **Context Entity** uses the file entity (if you use a file manager) or the image entity (if you use an image uploader) of the surrounding data view or the list view. **Context Entity** is set automatically and is read-only.
+### 3.2 一般セクション
 
-#### 3.1.2 General Section
+**一般的な** セクションプロパティについては以下に説明します。
 
-The **General** section properties are described below.
+#### 3.2.1 ラベルを表示
 
-##### 3.1.2.1 Show Label
+エンドユーザーにウィジェットのラベル (名前) を表示する場合は、このプロパティを有効にします。 *このプロパティはデフォルトで有効になっています。*
 
-Enable this property if you want to show a label (name) of a widget to the end-user. *This property is enabled by default.*
+#### 3.2.2 ラベル
 
-##### 3.1.2.2 Label
+このプロパティは、 **Show Label** が有効な場合にのみ表示されます。 エンドユーザーに表示される名前を指定します。 属性を選択すると、属性の名前がブレース内のラベルに表示されます。 これは、静的なテキストの代わりに、属性の値がエンドユーザーに表示されることを意味します。
 
-This property only appears if **Show Label** is enabled. Specify the name that will be displayed to end-users. When you select an attribute, the name of the attribute is shown in the label in braces. This means that instead of a static text, the value of the attribute is displayed to end-users.
+#### 3.2.3 編集可能 {#editability}
 
-##### 3.1.2.3 Editability {#editability}
+編集可能性は、エンドユーザーがウィジェットによって表示される値を変更できるかどうかを示します。 可能な値は次のとおりです。
 
-Editability indicates whether the end-user will be able to change the value displayed by the widget. Possible values are the following:
+* **編集可能** - ウィジェットで表示される値は編集可能です。
 
-* **Editable** – the value displayed by the widget is editable
+* **読み取り専用** – 値は読み取り専用モードです。
 
-* **Read-only** – the value is in read-only mode
+* **条件付き** – ウィジェットは、属性値または式に基づいて指定された条件を満たす場合にのみ編集可能です。
 
-* **Conditional** – the widget is editable only if specified conditions are met based on an attribute value (for more information, see  [Attribute-Based](#attribute-based) and [Attribute Values](#attribute-values) sections below) or based on an expression. You can create a condition based on an expression in Studio Pro only (for details, see the [Editability Section](/refguide8/common-widget-properties#editability) in *Properties Common in the Page Editor*)
+    {{%alert type="info" %}} If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.{{%/alert %}}
 
-  {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
+#### 3.2.4 に基づく条件 {#condition}
 
-  {{%/alert %}}
+**** プロパティに基づく条件は、 [条件編集可能性](#editability) が選択されている場合にのみ表示されます。 次のオプションが使用できます。
 
-##### 3.1.2.4 Attribute-Based {#attribute-based}
+* **属性** – 条件が属性値に基づいているかどうかを定義します。 この場合、ウィジェットは選択した属性の特定の値に一致する場合にのみ編集可能になります。 属性は、ブール型または列挙型でなければなりません。
+* **式** – 条件が式に基づいているかどうかを定義します。 この場合、ウィジェットはブール値 `true` を返した場合にのみ編集可能になります。 式の詳細については、 [式](expressions) を参照してください。
 
-The **Attribute-Based** property is only shown when [Conditional Editability](#editability) is selected.
+#### 3.2.5 属性 {#attribute}
 
-**Attribute-Based** conditional editability allows you to show widgets only when they match a certain value of the selected attribute.
+このプロパティは、式が [](#condition) に基づいている **属性** に設定されている場合にのみ表示されます。 条件に基づく属性を選択できます。 属性は、ブール型または列挙型でなければなりません。
 
-{{%alert type="info" %}}
+#### 3.2.6 属性値 {#attribute-values}
 
-The attribute must be of the Boolean or enumeration type.
+このプロパティは、属性が [属性](#condition) プロパティに選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
 
-{{%/alert %}}
+例えば、ユーザーの *メールが認証されている場合にのみ、画像をアップロードすることを許可します*。 So, you need to select *EmailVerified* in the **Attribute** property and *true* in the **Attribute Value** property.
 
-{{%alert type="info" %}}
+#### 3.2.7 式
 
-You can only configure attribute-based conditional editability when a widget is placed in a data container: a data view or a list view. For more information on how to place widgets on a page, see [Adding Elements on a Page](page-editor#adding-elements) section in *Pages*.
+このプロパティでは、式を作成することができ、式が [](#condition) に基づいて **式** に設定されている場合にのみ表示されます。 式はブール型でなければなりません。 式の作成方法の詳細については、 [式](expressions) を参照してください。
 
-{{%/alert %}}
-
-##### 3.1.2.5 Attribute Values {#attribute-values}
-
-This property is shown only when an attribute in the [Attribute-Based](#attribute-based) property is selected. The **Attribute Values** property allows you to select certain attribute values.
-
-For example, you would like to allow users upload images only when their *email is verified*. So, you need to select *EmailVerified* in the **Attribute-Based** property and *true* in the **Attribute Value** property:
-
-{{% image_container width="250" %}}
-![](attachments/page-editor-widgets-input-elements/conditional-editability.png)
-{{% /image_container %}}
-
-#### 3.1.3 Controls Section
+### 3.3 コントロールセクション
 
 {{% alert type="info" %}}
 
-The **Controls** section is available for **File Manager** only.
+**コントロール** セクションは、 **ファイル マネージャー** のみで使用できます。
 
 {{% /alert %}}
 
-The **Show Buttons For** option specifies whether end-users are able to upload and/or download files and has the following options:
+**ボタンの表示** オプションは、エンドユーザーがファイルをアップロードおよび/またはダウンロードできるかどうかを指定し、以下のオプションがあります。
 
-* **Upload** – end-users are able to upload a  file
-* **Download** – end-users are able to download a file
-* **Both** – end-users are able to upload and download files
+* **アップロード** – エンドユーザーはファイルをアップロードできます
+* **ダウンロード** – エンドユーザーはファイルをダウンロードできます
+* **両方とも** - エンドユーザーはファイルをアップロードおよびダウンロードすることができます
 
-#### 3.1.4 Conditional Visibility Section
+### 3.4 条件付き表示セクション
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-#### 3.1.5 Design Section
+### 3.5 デザインセクション
 
-For information on the **Design** section and its properties, see [Design Section in Widgets](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)
