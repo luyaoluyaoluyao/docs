@@ -1,78 +1,78 @@
 ---
-title: "Call Nanoflow"
+title: "Nanoflowに発信"
 parent: "client-activities"
 menu_order: 2
 tags:
   - "studio pro"
-  - "nanoflow call"
-  - "call nanoflow"
+  - "ナノフロー・コール"
+  - "nanoflowを呼べ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="warning" %}}
-This activity can only be used in **Nanoflows**.
+このアクティビティは **Nanoflows** でのみ使用できます。
 {{% /alert %}}
 
-The **Call nanoflow** activity can be used to call another [nanoflow](nanoflows).
+**nanoflow** 活性は、別の [nanoflow](nanoflows) を呼び出すために使用することができる。
 
 {{% image_container width="200" %}}
 ![Nanoflow Call](attachments/action-call-activities/nanoflow-call.png)
 {{% /image_container %}}
 
-Arguments can be passed to the nanoflow and the result can be stored in a variable.
+引数はnanoflowに渡すことができ、その結果を変数に格納することができます。
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Nanoflow Call Properties](attachments/action-call-activities/nanoflow-call-properties.png)
+![Nanoflow 呼び出しプロパティ](attachments/action-call-activities/nanoflow-call-properties.png)
 
-The **Nanoflow call** properties pane consists of the following sections:
+**Nanoflow calls** プロパティ ペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
 ### 3.1 Nanoflow
 
-The nanoflow that is called by this activity.
+この活動によって呼び出されるナノフロー。
 
-### 3.2 Parameters
+### 3.2 パラメータ
 
-Depending on the selected microflow, you will see a list of its parameters in a table. Parameters pass data to the activity.
+選択したマイクロフローに応じて、テーブルにパラメーターのリストが表示されます。 パラメータはアクティビティにデータを渡します。
 
-#### 3.2.1 Name
+#### 3.2.1 名前
 
-The name of the parameter that is read-only.
+読み取り専用のパラメータ名です。
 
-#### 3.2.2 Type
+#### 3.2.2 タイプ
 
-The type of the parameter that is read-only. For more information on possible types of parameters, see [Data Types](data-types).
+読み取り専用のパラメータのタイプ。 パラメータの型についての詳細は、 [Data Types](data-types) を参照してください。
 
-#### 3.2.3 Argument {#argument}
+#### 3.2.3 引数 {#argument}
 
-The **Edit parameter value** button allows you to edit the argument value. For each parameter of the nanoflow, you have to supply an argument of the same type. The values of the arguments are expressed using [expressions](expressions).
+**パラメータ値** を編集ボタンで、引数の値を編集できます。 nanoflowの各パラメータについては、同じ型の引数を指定する必要があります。 引数の値は [式](expressions) を使用して表されます。
 
-### 3.3 Return Type
+### 3.3 戻り値の種類
 
-This read-only property indicates whether you will retrieve a variable, object or list.
+この読み取り専用プロパティは、変数、オブジェクト、またはリストを取得するかどうかを示します。
 
-### 3.4 Use Return Value
+### 3.4 戻り値を使用
 
-This property determines if the returned value from the called nanoflow should be available in the rest of the current nanoflow. If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
+このプロパティは、現在の nanoflow の残りの部分で nanoflow と呼ばれる値を使用できるかどうかを決定します。 If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
 
-### 3.5 Variable Name, Object Name, or List Name {#name}
+### 3.5 変数名、オブジェクト名、またはリスト名 {#name}
 
-The name of the variable, list, or object returned by the activity.
+アクティビティによって返される変数、リスト、またはオブジェクトの名前。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
