@@ -1,98 +1,98 @@
 ---
-title: "Project Menu"
+title: "项目菜单"
 parent: "menus"
-description: "Describes the Project Menu in Studio Pro."
+description: "在Studio Pro中描述项目菜单。"
 menu_order: 30
 tags:
   - "Studio Pro"
-  - "project menu"
-  - "top bar"
+  - "项目菜单"
+  - "顶栏"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/project-menu.pdf).
-{{% /alert %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/project-menu.pdf)。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-In the **Project** menu, you can view and/or manipulate settings that are connected to your project and deployment. For example, you can create a deployment package.
+在 **工程** 菜单中，您可以查看和/或操纵与您的工程和部署相关的设置。 例如，您可以创建一个部署包。
 
-{{% image_container width="300" %}}![Project Menu](attachments/project-menu/project-menu.png)
+{{% image_container width="300" %}}![项目菜单](attachments/project-menu/project-menu.png)
 {{% /image_container %}}
 
-## 2 Tools
+## 2 个工具
 
-Under **Project** > **Tools**, you can find settings on updating widgets, button icons, and layouts, checking widgets, and converting your classes to **Design** properties.
+在 **项目** > **工具**下，您可以在更新小部件时找到设置 按钮图标和布局，检查小部件，并将类转换为 **设计** 属性。
 
-![Tools](attachments/project-menu/tools.png)
+![工具](attachments/project-menu/tools.png)
 
-### 2.1 Batch Update Button Icons
+### 2.1 批量更新按钮图标
 
-The **Batch Update Button Icons** option allows you to update many button icons in a single batch process.
+**批量更新按钮图标** 选项允许您在单批处理过程中更新许多按钮图标。
 
-### 2.2 Batch Update Layouts
+### 2.2 批量更新布局
 
-The **Batch Update Layouts** option allows you to update the layouts of many pages in a single batch process.
+**批量更新布局** 选项允许您在单个批量更新过程中更新多个页面的布局。
 
-### 2.3 Update Widgets {#update-widgets}
+### 2.3 更新部件 {#update-widgets}
 
-The **Update Widgets** option presents the current versions of the widgets you are using in your app, what the latest versions of the widgets are, and an update option.
+**更新小部件** 选项提供了您在应用中使用的小部件的当前版本， 小部件的最新版本以及更新选项。
 
-### 2.4 Check Widgets
+### 2.4 检查小部件
 
-The **Check Widgets** option checks that the widgets you have implemented in the app have been built correctly.
+**检查小部件** 选项检查您在应用程序中实现的小部件是否已经正确构建。
 
-### 2.5 Convert Classes to Design Properties
+### 2.5 将类转换为设计属性
 
-The **Convert classes to design properties** option allows you to convert classes in widgets into design properties to assist in changing the widget styling. See [How To Implement Native Mobile Styling](/howto8/mobile/native-styling) for more information.
+**转换类为设计属性** 选项允许您将小部件中的类转换为设计属性，以帮助更改小部件风格。 获取更多信息，请参阅 [如何实现本地移动样式](/howto8/mobile/native-styling)
 
-## 3 Synchronize Project Directory
+## 3 同步项目目录
 
-The **Synchronize Project Directory** option creates folders inside the project directory (resources, widgets, theme, etc.), if necessary. It also reads the widget packages that are currently inside the widgets folders. For example, if you add widgets to the widgets folder, you needs to synchronize the project directory for them to appear in the **Toolbox**.
+**同步项目目录** 选项可在项目目录中创建文件夹(资源、小部件、主题等)。 它还读取了当前小部件文件夹中的小部件包。 例如，如果您将小部件添加到小部件文件夹， 您需要同步项目目录才能出现在 **Toolbox** 中。
 
-Shortcut key: <kbd>F4</kbd>
+快捷键： <kbd>F4</kbd>
 
-## 4 Show Project Directory in Explorer
+## 4 在资源管理器中显示项目目录
 
-The **Show Project Directory in Explorer** option shows the directory that contains the project file (*.mpr*) and other assets such as resources and Java actions in Windows Explorer. By default, the directory is located in the **MyDocuments** section.
+**在 Explorer** 选项中显示项目目录显示包含项目文件的目录(*)。 pr*) 和 Windows Explorer 中的资源和 Java 动作等其他资产。 默认情况下，目录位于 **MyDocuments** 部分。
 
-The following directories in the project directory are useful for customizing the app style and adding custom widgets and Java actions:
+项目目录下面的目录有助于自定义应用风格和添加自定义小部件和 Java 动作：
 
-* **theme** – stores the *.css* files that can be used to style the application
-* **javasource** – stores the JavaScript actions
-* **widgets** – stores the widgets
+* **主题** — — 存储 *.css* 可以用来样式应用程序的文件
+* **javasource** — — 存储JavaScript 操作
+* **小部件** — — 存储小部件
 
-## 5 Deploy for Eclipse
+## 5 用于Eclipse 的部署
 
-The **Deploy for Eclipse** option deploys the project to the deployment directory. The Java stubs are generated so that you can start editing them in Eclipse. This action does not compile the Java actions. Use this if you are writing Java actions and you want to compile and debug them through Eclipse.
+用于Eclipse</strong> 选项的 **部署项目部署到部署目录。 生成了 Java 根块，以便您可以在 Eclipse 中开始编辑。 此操作不编译 Java 操作。 如果您正在写入 Java 动作，您想要通过 Eclipse 编译和调试这些动作，请使用它。</p>
 
-Shortcut key: <kbd>F6</kbd>
+快捷键： <kbd>F6</kbd>
 
-## 6 Create Deployment Package
+## 6 创建部署包
 
-The **Create Deployment Package** option creates a Mendix Deployment Archive package (*.mda*) that contains all necessary files to run the project. This can be used if you want to deploy your project on a Windows server or on a custom Mendix Cloud.
+**创建部署包** 选项创建一个 Mendix 部署包(*)。 da*包含运行项目所需的所有文件。 如果您想要在Windows服务器上或自定义Mendix Cloud上部署您的项目，就可以使用此功能。
 
-Shortcut key:  <kbd>F7</kbd>
+快捷键：  <kbd>F7</kbd>
 
-For more information on settings displayed on the Create Deployment Package dialog box, see [Create Deployment Package](create-deployment-package-dialog).
+关于创建部署包对话框中显示的设置的更多信息，请参阅 [创建部署包](create-deployment-package-dialog)。
 
-## 7 Clean Deployment Directory
+## 7 清洁部署目录
 
-The **Clean Deployment Directory** option cleans the deployment directory.
+**清理部署目录** 选项清除部署目录。
 
-## 8 Deploy to Licensed Cloud Node {#deploy}
+## 8 部署到许可云节点 {#deploy}
 
-The **Deploy to Licensed Cloud Node** option deploys the latest committed revision of a Team Server project to the associated Mendix Cloud node.
+**部署到 Licensed 云节点** 选项会将团队服务器项目的最新版本部署到相关的 Mendix 云节点。
 
-Shortcut key:  <kbd>Ctrl</kbd> + <kbd>F5</kbd>
+快捷键：  <kbd>Ctrl</kbd> + <kbd>F5</kbd>
 
 {{% alert type="warning" %}}
-The [Mendix Studios Target](/developerportal/deploy/studio-deployment-settings#target) needs to be set and the deploying user needs to have transport rights to the set target.
-{{% /alert %}}
+[Mendix Studios 目标](/developerportal/deploy/studio-deployment-settings#target) 需要设置，部署用户需要有传送到设定目标的权限。
+{{% /报警 %}}
 
-For more information on using this option, see [Deploy to the Cloud](deploy-to-the-cloud-dialog).
+关于使用此选项的更多信息，请参阅 [部署到云端](deploy-to-the-cloud-dialog)。
 
-## 9 Read More
+## 9 阅读更多
 
 * [Studio Pro Overview](studio-pro-overview)
-* [Deployment](/developerportal/deploy)
+* [部署](/developerportal/deploy)
