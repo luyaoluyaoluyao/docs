@@ -8,7 +8,12 @@ tags:
   - "並べ替え"
   - "select"
   - "ページ"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/odata-query-options.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
@@ -27,6 +32,14 @@ tags:
 ### 2.2 単一オブジェクトの取得
 
 URI 内のオブジェクト識別子を渡すことで、単一のオブジェクトを取得できます。 例: `/odata/myservice/myresource(84444249301330581)`.
+
+### 2.3 関連するオブジェクトの取得
+
+関連付けられたオブジェクトは、 `$expand` クエリパラメータを渡すことで取得できます。 例: `/odata/myservice/Exployees?$expand=Cars,Address/City`.
+
+{{% alert type="info" %}}
+`$expand` 機能は、Studio Pro [8.11.0](/releasenotes/studio-pro/8.11#8110) で導入されました。
+{{% /alert %}}
 
 ## 3 オブジェクト数の計算
 
@@ -65,7 +78,6 @@ URI 内のオブジェクト識別子を渡すことで、単一のオブジェ�
 | ge  | 以上     | `/Employees?$filter=年齢 15`           |
 | le  | 以下か等しい | `/Employees?$filter=年齢ル15`           |
 
-
 ### 4.3 算術演算子
 
 | 演算子 | 意味      | 例                                      | Returns            |
@@ -102,15 +114,26 @@ URI 内のオブジェクト識別子を渡すことで、単一のオブジェ�
 | いいえ   | `/Employees ?$filter=not(Name eq 'John’)`                         |
 | ( )   | `/Employees?$filter=Name eq 'John' and (Agge gt 65 or Age lt 11)` |
 
+### 4.6 関連付けによるフィルタリング
+
+関連するエンティティの属性をフィルタリングできます。 これを行う方法は、関連付けが 1 つのオブジェクトまたはオブジェクトのリストを公開するかによって異なります。
+
+| タイプ              | 例                                                  |
+| ---------------- | -------------------------------------------------- |
+| 関連するオブジェクトでフィルター | `People?$filter=BirthPlace/CityName eq 'Rotterdam` |
+| 関連付けられたリストでフィルター | `$filter=BornIn/any(person:person/Year le 1919)`   |
+
+関連付けられているオブジェクトやリストへのフィルタリングは [リンク](odata-representation#associations) として関連付けを公開する場合に可能です。 あなたが [関連するオブジェクト ID として関連付けを公開する場合は不可能です](odata-representation#associations)。
+
 ## 5ソート
 
-`$orderby` クエリオプションを使用して結果をソートできます。 例: `?$orderby=Name`.
+`$orderby` クエリオプションを使用して結果をソートできます。 例: `?$orderby=名前` または `?$orderby=誕生地/都市名`。
 
 デフォルトの方向は昇順で、これを明示的にすることができます。 例: `?$orderby=Name asc`.
 
 結果を降順に並べることもできます。 例: `?$orderby=Name desc`.
 
-複数の属性をカンマ区切りで並べ替えることができます。 例: `?$orderby=Name, Age desc`.
+複数の属性をカンマ区切りで並べ替えることができます。 例: `?$orderby=名前 asc,Age desc`.
 
 ## 6項目の選択
 
