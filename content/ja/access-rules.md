@@ -1,113 +1,113 @@
 ---
-title: "Access Rules"
-parent: "entities"
+title: "アクセスルール"
+parent: "エンティティ"
 menu_order: 70
 tags:
-  - "domain model"
-  - "entity"
-  - "access rule"
-  - "xpath constraint"
-  - "module role"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "アクセスルール"
+  - "xpath 制約"
+  - "モジュールの役割"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **access rules** of an entity define what a user is allowed to do with objects of the entity. Users can be allowed to create and/or delete objects, and to view and/or edit member values. A member is an attribute or an association of an entity. Furthermore, the set of objects available for viewing, editing, and removing can be limited by means of an [XPath constraint](xpath-constraints).
+エンティティの **アクセス ルール** は、ユーザーがエンティティのオブジェクトに対して許可されることを定義します。 ユーザーは、オブジェクトの作成や削除、メンバーの値の表示や編集を許可することができます。 メンバは、エンティティの属性または関連付けです。 更に、 [XPath 制約](xpath-constraints) を使用して、表示、編集、および削除に使用することのできるオブジェクトのセットを制限することができます。
 
-Every access rule is applicable to one or more [module roles](module-security#module-role). An access rule grants certain access rights to those roles. Rules are additive, which means that if multiple access rules apply to the same module role, all access rights of those rules are combined for that module role.
+すべてのアクセスルールは、1つまたは複数の [モジュールロール](module-security#module-role)に適用できます。 アクセスルールは、それらのロールへの特定のアクセス権を付与します。 ルールは付加的なものです。つまり、複数のアクセスルールが同じモジュールロールに適用される場合です。 それらのルールのすべてのアクセス権は、そのモジュールの役割のために結合されます。
 
 {{% alert type="warning" %}}
-Access rules are not inherited from an entity's [generalization](entities#generalization), the security for every entity is specified explicitly. This means that when adding an access rule to an entity, always make sure that all required XPath constraints are applied.
+アクセス ルールはエンティティの [一般化](entities#generalization)から継承されません。すべてのエンティティのセキュリティは明示的に指定されます。 つまり、エンティティにアクセスルールを追加する場合、必要なすべての XPath 制約が適用されることを常に確認してください。
 
-If the entity has a generalization with access rules defining XPath constraints, these will not apply to its specializations and will therefore not limit its visibility.
+XPath 制約を定義するアクセスルールを持つ一般化がエンティティにある場合。 これらはその専門分野には当てはまりませんそのため視認性を制限することはありません
 {{% /alert %}}
 
 
-## 2 Properties
+## 2つのプロパティ
 
 Access rules are defined via entity's **Properties** > **Access rules**, or on the **Access rules** tab of the entity dialog.
 
-![Access Rules for Entities](attachments/domain-model/access-rules-section.png)
+![エンティティのアクセスルール](attachments/domain-model/access-rules-section.png)
 
-![Access Rules for Entities](attachments/domain-model/access-rules-tab.png)
-
-{{% alert type="info" %}}
-The **Access rules** section is visible only if the [App Security](project-security) is set to **Production**.
-{{% /alert %}}
-
-An example of the access rules properties is represented in the image below:
-
-![Access Rules for Entities](attachments/domain-model/access-rules-properties.png)
-
-Access rules properties consist of the following sections:
-
-* [Documentation](#documentation)
-* [Module Roles](#module-roles)
-* [Access rights](#access-rights)
-* [XPath constraint](#xpath-constraint)
-
-### 2.1 Documentation Section {#documentation}
-
-In **Documentation**, you can describe the intention of the access rule. This helps to keep access rules comprehensible, especially in the case of non-trivial XPath constraints.
-
-### 2.2 Rule Applies to the Following Module Roles Section {#module-roles}
-
-#### 2.2.1 Roles
-
-All module roles are listed, and those to which this access rule applies are checked. All users that have at least one of the checked module roles get the access rights that the rule defines.
-
-#### 2.2.2 Select / Deselect All
-
-You can easily select, or deselect, all module roles using this check box.
-
-### 2.3 Access Rights Tab{#access-rights}
-
-The **Access rights** tab allows you to assign rights to users with the selected module roles.
-
-#### 2.3.1 Create and Delete Rights Section
-
-##### 2.3.1.1 Allow creating new objects
-
-If **Allow creating new objects** is checked, users are allowed to create new objects of this entity.
-
-##### 2.3.1.2 Allow deleting existing objects
-
-If **Allow deleting existing objects** is checked, users are allowed to delete existing objects of this entity.
-
-The set of objects that can be deleted can be limited by using an [XPath constraint](#xpath-constraint).
-
-#### 2.3.2 Member Read & Write Rights Section
-
-**Member read and write rights** define the access rights for every member ([attribute](attributes) or [association](associations)) of the entity. These access rights indicate whether users are allowed to view and/or edit the member's value. The set of objects to which these rights apply can be limited by using an [XPath constraint](#xpath-constraint).
-
-| Value       | Description                                                             |
-| ----------- | ----------------------------------------------------------------------- |
-| -           | Users are not allowed to view or edit the value of the member.          |
-| Read        | Users are allowed to view the value of this member, but cannot edit it. |
-| Read, Write | Users are allowed to view and edit the value of this member.            |
+![エンティティのアクセスルール](attachments/domain-model/access-rules-tab.png)
 
 {{% alert type="info" %}}
-You cannot set *write* access to attributes which are calculated. This includes attributes of type *Autonumber* and attributes where the attribute value is set to **Calculated**.
+**アクセス ルール** セクションは、 [アプリ セキュリティ](project-security) が **プロダクション** に設定されている場合にのみ表示されます。
 {{% /alert %}}
 
-**Default rights for new members** specifies the rights which are applied to new attributes or associations of this entity.
+以下の画像にアクセス ルール プロパティの例を示します。
+
+![エンティティのアクセスルール](attachments/domain-model/access-rules-properties.png)
+
+アクセス ルール プロパティは、次のセクションで構成されています。
+
+* [ドキュメント](#documentation)
+* [モジュールの役割](#module-roles)
+* [アクセス権](#access-rights)
+* [XPath 制約](#xpath-constraint)
+
+### 2.1 ドキュメントセクション {#documentation}
+
+**ドキュメント**では、アクセス ルールの意図を説明できます。 これにより、特に些細なXPath 条件式の場合には、アクセスルールを理解することができます。
+
+### 2.2 ルールは次のモジュールロールセクションに適用されます {#module-roles}
+
+#### 2.2.1 ロール
+
+すべてのモジュールロールがリストされ、このアクセスルールが適用されるものがチェックされます。 チェックされたモジュールロールの少なくとも1つを持つすべてのユーザーは、ルールが定義するアクセス権を取得します。
+
+#### 2.2.2 すべての選択/選択解除
+
+このチェックボックスを使用して、すべてのモジュールロールを簡単に選択または選択解除できます。
+
+### 2.3 アクセス権タブ{#access-rights}
+
+**アクセス権** タブでは、選択したモジュールロールを持つユーザーに権限を割り当てることができます。
+
+#### 2.3.1 権限セクションの作成と削除
+
+##### 2.3.1.1 新しいオブジェクトの作成を許可
+
+**新規オブジェクトの作成を許可する** がチェックされている場合、ユーザーはこのエンティティの新しいオブジェクトを作成することができます。
+
+##### 2.3.1.2 既存のオブジェクトの削除を許可
+
+**Allow deleting existing object** is checked, users are allowed to delete existing objects of this entity.
+
+削除することのできるオブジェクトの集合は、 [XPath 制約](#xpath-constraint) を使用して制限することができます。
+
+#### 2.3.2 メンバー 読む & 書き込み権限セクション
+
+**メンバーの読み書き権** は、エンティティのすべてのメンバー([属性](attributes) または [アソシエーション](associations))に対するアクセス権を定義します。 これらのアクセス権は、ユーザーがメンバーの値を表示および/または編集できるかどうかを示します。 これらの権利が適用されるオブジェクトの集合は、 [XPath constraint](#xpath-constraint) を使用することで制限することができます。
+
+| 値         | 説明                                       |
+| --------- | ---------------------------------------- |
+| -         | ユーザーは、メンバーの値を表示または編集することはできません。          |
+| 既読にする     | ユーザーはこのメンバーの値を表示することができますが、編集することはできません。 |
+| 読み込み、書き込み | ユーザーは、このメンバーの値を表示および編集することができます。         |
+
+{{% alert type="info" %}}
+計算された属性に *書き込み* アクセス権を設定できません。 これには、 *Autonumber* 型の属性と、属性値が **Calculated** に設定された属性が含まれます。
+{{% /alert %}}
+
+**新規メンバーのデフォルトの権利** は、このエンティティの新しい属性または関連付けに適用される権利を指定します。
 
 **Set all to** allows you to quickly set all the access rights for members to **None**, **Read**, or **Read, Write**.
 
-For example, a customer is allowed to view the discount, but is not allowed to edit it. The access rights for the discount attribute are **Read**.
+たとえば、顧客は割引を表示することができますが、それを編集することはできません。 割引属性のアクセス権は、 **Read** です。
 
 ![](attachments/domain-model/access-rule-discount-read.png)
 
-### 2.4 XPath Constraint Tab {#xpath-constraint}
+### 2.4 XPath 制約タブ {#xpath-constraint}
 
-An [XPath constraint](xpath-constraints) can be used to constrain the set of objects to which the access rule applies. If the XPath constraint is empty, the rule applies to all objects of the entity.
+[XPath 制約](xpath-constraints) を使用すると、アクセスルールが適用されるオブジェクトの集合を制約することができます。 XPath 制約が空の場合、エンティティのすべてのオブジェクトにルールが適用されます。
 
 ![](attachments/domain-model/access-rule-xpath-tab.png)
 
-For example, the **Customer** entity is a specialization of the **User** entity. The **Order** entity is associated to the **Customer** entity.
+例えば、 **顧客** エンティティは、 **ユーザー** エンティティの専門分野です。 **Order** エンティティは **Customer** エンティティに関連付けられています。
 
-A logged-in customer is allowed to view personal orders, but is not allowed to view the orders of other customers. This is accomplished by using the following XPath constraint in the access rule of the **Order** entity:
+ログイン中の顧客は個人的な注文を表示することができますが、他の顧客の注文を表示することはできません。 これは、 **注文** エンティティのアクセスルール内で以下の XPath 制約を使用することにより実現されます。
 
 ```java
 [Module.Order_Customer = '[%CurrentUser%]']
@@ -115,8 +115,8 @@ A logged-in customer is allowed to view personal orders, but is not allowed to v
 
 ![](attachments/domain-model/access-rule-order-xpath.png)
 
-Because of this XPath constraint, the access rule only applies to orders for which the customer is the currently signed-in user.
+この XPath 制約により、アクセスルールは現在サインインしているユーザーの注文にのみ適用されます。
 
 {{% alert type="warning" %}}
-XPath constraints can only be applied to persistable entities as they are applied by the database. Defining XPath constraints for non-persistable entities results in consistency errors.
+XPath 制約はデータベースにより適用される永続的なエンティティに対してのみ適用することができます。 持続不可能なエンティティのための XPath 制約を定義すると、一貫性エラーが発生します。
 {{% /alert %}}
