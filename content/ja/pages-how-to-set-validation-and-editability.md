@@ -43,9 +43,9 @@ Domain model is configured the following way in this use case:
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
-* 入力要素の編集可能性と入力検証プロパティに慣れています。 詳細については、 [入力要素](/studio8/page-editor-widgets-input-elements#editability) の [](/studio8/page-editor-widgets-input-elements#validation) セクションと *入力検証セクション* を参照してください。
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
+* 入力要素の編集可能性と入力検証プロパティに慣れています。 詳細については、 [入力要素](/studio/page-editor-widgets-input-elements#editability) の [](/studio/page-editor-widgets-input-elements#validation) セクションと *入力検証セクション* を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
 ## 3 読み取り専用として項目を設定する
 
@@ -64,7 +64,7 @@ Domain model is configured the following way in this use case:
 
 3. **一般** セクションで、 **編集可能性** プロパティを読み取り専用に設定します。
 
-    {{% image_container width="250" %}}![](attachments/pages-how-to-set-validation-and-editability/editability.png){{% /image_container %}}
+    ![](attachments/pages-how-to-set-validation-and-editability/editability.png)
 
 4. **Employee 番号** フィールドを選択し、そのプロパティを開きます。
 
@@ -109,6 +109,6 @@ Domain model is configured the following way in this use case:
 
 おめでとうございます 項目を読み取り専用として設定しており、従業員の詳細を持つフォームに必須です。
 
-アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio8/publishing-app) を参照してください。
+アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio/publishing-app) を参照してください。
 
 また、アプリケーションに新しい機能を追加することもできます。たとえば、従業員が出張レポートに画像を添付できるようになります。 詳細については、 [エンドユーザーが画像を添付できるようにする方法](pages-how-to-attach-images) を参照してください。
