@@ -1,212 +1,219 @@
 ---
-title: "Version Control"
-description: "This document gives definitions and explains the version control  process"
+title: "版本控制"
+description: "此文档提供定义并解释版本控制过程"
 tags:
-  - "Version Control"
-  - "Application Lifecycle Management"
-  - "Commit"
-  - "Collaborate"
+  - "版本控制"
+  - "应用生命周期管理"
+  - "提交"
+  - "协作"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Version Control allows you to manage your app development in two ways:
+版本控制允许您以两种方式管理您的应用开发：
 
-* Firstly, it allows you to store ([commit](#commit)) the current revision of your model and all its resources. You give it an identifier so that you can get that revision again and share it with other team members.
-* Secondly, it allows work to take place on multiple [development lines](#development-line) so that several different features can be worked on at once. These development lines can then be [merged](#merge) back together so that your [Main Line](#main-line) contains all the completed features that have been worked on separately.
+* 首先，它允许您存储([提交](#commit))您的模型及其所有资源。 你给它一个标识符，以便你能够再次获得这个版本并与其他团队成员分享它。
+* 第二，它允许在多条 [开发线](#development-line)上进行工作，以便可以同时处理几个不同的功能。 然后这些开发行可以将 [合并为](#merge) ，这样您的 [主行](#main-line) 就可以包含所有已经单独完成的功能。
 
-Version control in Mendix is built on top of [Apache Subversion](https://subversion.apache.org/) and the concepts will be familiar to Subversion users. Mendix simplifies Subversion commands by building them into Studio Pro, Studio, and the Developer Portal.
+Mendix 版本控制基于 [Apache Subversion](https://subversion.apache.org/) or \[Git\] (https://git-scm.com)。 这些版本控制系统（VCS）老练的用户将熟悉这些概念。 Mendix 简化了 VCS 命令，将其构建为 Studio Pro (SVN and Git), Studio 和 Develop Portal (SVN only).
 
-## 2 Concepts {#concepts}
+## 2 概念 {#concepts}
 
-### 2.1 Team Server {#team-server}
+### 2.1 团队服务器 {#team-server}
 
-[Team Server](/developerportal/collaborate/team-server) is where all the committed versions of Mendix apps are stored. If you commit a revision of an app, it is stored on the Team Server.
+[团队服务器](/developerportal/collaborate/team-server) 是所有已提交的 Mendix 应用程序存储的地方。 如果您对应用程序进行了修订，它将存储在团队服务器。
 
-To commit to the Team Server you will need to have a role in the project which allows you to edit the app.
+若要提交到团队服务器，您需要在应用程序中具有一个角色，允许您编辑应用程序。 欲了解更多信息，请参阅 [团队角色](/developerportal/collaborate/app-roles#team-roles) 部分 *应用程序角色*。
 
-### 2.2 Repository {#repository}
+### 2.2 仓库 {#repository}
 
-Within the [Team Server](#team-server) each app is stored in a repository. This repository contains all the [committed revisions](#commit) for the [Branches](#branches) of the app.
+在 [团队服务器](#team-server) 中，每个应用程序都存储在一个仓库中。 This repository contains all the [committed revisions](#commit) for the [Branches](#branches) of the app.
 
-### 2.3 Revision {#revision}
+### 2.3 修订 {#revision}
 
-A revision is the version of your app at a moment in time, stored on the [Team Server](#team-server).
+一个版本是您的应用程序的一次性版本，存储在 [团队服务器](#team-server) 中。
 
-Each revision of your app is given a unique number to identify it and enable you to find it in future. A new revision is created from Studio Pro in two circumstances:
+您的应用程序的每个版本都有一个独特的数字来识别它，并使您能够在未来找到它。 在以下两种情况下从 Studio Pro创建了一个新的版本：
 
-* The app is committed to the repository
-* A Studio Pro working copy is updated from a Studio working copy
+* 应用被提交到资源库
+* Studio Pro 工作副本已从工作室副本更新
 
-### 2.4 Working Copy {#working-copy}
+### 2.4 工作副本 {#working-copy}
 
-A working copy is the version of your app which is currently being worked on in Studio Pro or Studio. For Studio Pro, there is one working copy for each development line of the app. This model is held locally, on each computer where development work is taking place.
+工作副本是您的应用程序版本，目前正在Studio Pro或Studio中使用。 对于Studio Pro，应用程序的每个开发线都有一份工作副本。 这种模型是在当地每台进行开发工作的计算机上进行的。
 
-For Studio, there is one additional working copy, held in the cloud. Only one developer at a time can edit this.
+对于工作室，有一份在云层保存的工作副本。 一次只有一个开发者可以编辑它。
 
-### 2.5 Merge {#merge}
+### 2.5 合并 {#merge}
 
-Merging is the action of taking one [revision](#revision) of an app and applying the differences which have been made in a different revision. See the [Merging Branches](#merging-branches) section for more information.
+合并是指对应用程序进行一个 [版本](#revision) 并应用在不同版本中产生的差异。 更多信息请访问 [合并分支](#merging-branches) 部分。
 
-If any of the differences cannot be applied, then there is a [conflict](#conflict).
+如果任何差异无法应用，那么就会有 [冲突](#conflict)。
 
-### 2.6 Conflict {#conflict}
+### 2.6 冲突 {#conflict}
 
-A conflict occurs when two versions of the app cannot be combined automatically. This happens when the same document has been changed in a Studio Pro working copy and a committed [revision](#revision) and these changes cannot be reconciled. These are some examples:
+当两个版本的应用无法自动合并时，发生冲突。 当同一文档在Studio Pro 工作版中被更改并且提交了 [版本](#revision) 并且这些更改无法调节时，就会发生这种情况。 以下是一些例子：
 
-* The properties of a widget are changed in the revision and the working copy but to different settings
-* A document is moved or deleted in the revision but has been changed in a different way in the working copy
+* 小部件的属性在修订版和工作副本中被更改，但在不同的设置
+* 在修订中移动或删除文档，但工作副本中以不同的方式更改
 
-When a conflict occurs, a developer has to intervene to decide how it should be resolved before it can be committed to the Team Server as a new revision.
+冲突发生时， 开发人员必须进行干预，决定如何解决它，然后才能将其作为一个新的版本提交到团队服务器。
 
-### 2.7 Update {#update}
+### 2.7 更新 {#update}
 
-Updating is the action, invoked in Studio Pro, which gets the latest revision of the current [development line](#development-line) from the Team Server repository and merges the differences into the current working copy.
+更新是Studio Pro中引用的动作， 从团队服务器仓库获取当前 [开发行](#development-line) 的最新版本，并将差异合并到当前的工作副本。
 
-If Studio is enabled for this development line, the process first ensures that the Studio working copy is stored as a new revision.
+如果工作室启用此开发行, 进程首先确保工作室的工作副本作为新的版本存储。
 
-### 2.8 Commit {#commit}
+### 2.8 承诺 {#commit}
 
-Committing is the action, invoked in Studio Pro, of sending all your changes to the [repository](#repository) and making a new [revision](#revision).
+提交是在Studio Pro中引用的动作， 将您所有的更改发送到 [存储库](#repository) 并做一个新的 [版本](#revision)。
 
-If Studio is enabled for this development line, the process first ensures that the Studio working copy is stored as a new revision and merged into the working copy of Studio Pro. If there are not conflicts, the changes are then sent to the repository to make a new revision.
+如果工作室已为此开发线启用 该进程首先确保工作室的工作副本作为新的版本存储并合并到工作室专业版中。 如果没有冲突，然后将更改发送到仓库进行新的修订。
 
-### 2.9 Development Line {#development-line}
+### 2.9 发展线 {#development-line}
 
-Development of an app is done in a Development Line where a set of related changes is made. There are two types of development line: the [Main Line](#main-line) and [Branch Lines](#branch-line).
+在开发线开发应用，进行了一系列相关的更改。 有两种类型的开发线： [主线](#main-line) 和 [分线](#branch-line)。
 
-#### 2.9.1 Main Line {#main-line}
+#### 2.9.1 主线 {#main-line}
 
-The Main Line is the initial development line for the app and is usually kept as the version which will be deployed to the production environment. Simple apps, and apps which do not require a high degree of collaboration, may only have a main line.
+主线是应用的初始开发线，并且通常保持为将部署到生产环境的版本。 简单的应用和不需要高度合作的应用可能只能有一条主线。
 
-#### 2.9.2 Branch Line {#branch-line}
+#### 2.9.2 分线 {#branch-line}
 
-A Branch Line is a way of making an independent set of changes which can be tested away from the Main Line.
+支线是一种使一套独立的改变脱离主线的方法。
 
-See [Branches](#branches), below, for more information on how branch lines can be used.
+更多关于如何使用分支行的信息，请参阅下面 [分支](#branches)。
 
-### 2.10 Studio Enabled {#studio-enabled}
+### 2.10 工作室已启用 {#studio-enabled}
 
-You may enable Studio for one of the development lines. This means that a developer can make changes to the app through Studio and share changes with the team. All changes will be linked to the selected branch and committed as revisions to that branch. Changes made to other development lines will not be available in Studio.
+您可以为开发行之一启用Studio。 这意味着开发者可以通过 Studio 对应用进行更改并与团队共享更改。 所有更改都将链接到选定的分支，并作为对该分支的修订提交。 对其他开发线的更改将不会在工作室提供。
 
-Studio cannot be used to develop the app if it is not enabled for any development lines.
+工作室不能用于开发应用，如果它没有用于任何开发线。
 
-For app templates created via the Developer Portal, the main line of a new app will be Studio enabled.
+对于通过开发者门户创建的应用模板，新应用的主行将启用 Studio。
 
-### 2.11 Tag
+### 2.11 标签
 
-A Tag is a way of identifying a commit in addition to the [revision](#revision) number. It is specified by the developer and has four parts:
+标签是除了 [修订版](#revision) 数字之外识别一个提交的方法。 它是由开发者指定的，有四个部分：
 
-* Major: used to identify significant new functionality, a new user interface, or other important change
-* Minor: used to identify new functionality which augments the main function of the app
-* Patch: used to identify a fix to an error in a previously-released app
-* Revision: this is added automatically and is the revision number of the commit
+* 主要：用于识别重要的新功能、新的用户界面或其他重要更改
+* 次要功能：用于识别新功能以增加应用的主要功能
+* 补丁：用于识别之前发布的应用程序中错误的修复
+* 版本：自动添加，是提交的版本号
 
-### 2.12 Repository Service
+{{% alert type="info" %}}
+Studio Pro Git不支持标签 ([BYO](branch-line-manager-dialog#byo-server-app) and Team Server)
+{{% /报警 %}}
 
-The Repository Service manages communication between Studio or Studio Pro and other supporting services (for example, Team Server). The developer will not generally be aware that they are communicating via the Repository Service.
+### 2.12 仓库服务
 
-## 3 Version Control Processes for a Single Branch {#vc-single}
+仓库服务负责管理Studio 或 Studio Pro 与其他支助服务（如团队服务器）之间的通信。 开发者一般不知道他们是通过仓库服务进行通信。
 
-The figure below shows how two developers might work on a [Studio enabled](#studio-enabled) development line of an app. One developer is working in Studio, and one in Studio Pro. They both work on the same development line (for example, the Main Line).
+## 单一分支的版本控制进程 {#vc-single}
+
+下图显示了两个开发者可能如何在 [工作室启用了应用程序的](#studio-enabled) 开发线。 一个开发者正在工作室工作，另一个在Studio Pro。 它们都是在同一发展线上开展工作（例如主线）。
 
 ![](attachments/version-control/image1.png)
 
-### 3.1 Work in Studio Only
+### 3.1 仅工作室工作
 
-The developer works on the app in Studio. They start with the app in state 1, this can be a new app or a revision of the app. Changes are made continuously to the working copy for Studio, stored in the cloud.
+开发者在工作室中使用该应用程序。 他们从状态1中的应用程序开始，这可以是一个新的应用程序或应用程序的修订。 对存放在云层的工作室的工作副本不断进行修改。
 
 ![](attachments/version-control/image2.png)
 
-### 3.2 Work in Studio Pro Only
+### 3.2 只有Studio Pro的工作
 
-Another (or the same) developer opens the app for the first time in Studio Pro. A new revision (state 2) is created on the Team Server from the current state of the Studio working copy. It is downloaded to the local machine as the working copy for Studio Pro. Studio is locked temporarily so that the Studio working copy is stable while it is copied.
+另一个(或相同的)开发者在Studio Pro中首次打开应用程序。 从工作室工作副本的当前状态，在团队服务器上创建了一个新的版本(状态 2) 。 它被下载到本地机器，作为Studio Pro的工作副本。 工作室暂时锁定，以便工作室复制时保持稳定。
 
-The developer works in Studio Pro on the local working copy of the app. There is no work done in Studio in this scenario.
+开发者在 Studio Pro 中使用应用的本地工作副本。 在这种情况下，工作室没有工作。
 
-The developer can commit this to the Team Server repository at any time to make a new revision (state 3). This revision is copied into the Studio working copy and the developer using Studio will get the changes automatically.
+开发者可以随时将此操作提交给团队服务器仓库进行新的修订(状态 3)。 此版本已复制到工作室版本，使用工作室的开发者将自动获得更改。
 
 ![](attachments/version-control/image3.png)
 
-### 3.3 Work in Studio & Studio Pro
+### 3.3 工作室 & 工作室Pro
 
-Two developers are working on the same [development line](#development-line) of the same app at the same time. One is using Studio Pro, the other is using Studio. Changes from Studio Pro and Studio are stored in the respective working copies: on the local machine for Studio Pro and in the cloud for Studio.
+两位开发者同时在同一应用的相同的 [开发行](#development-line) 上工作。 一个正在使用 Studio Pro，另一个正在使用 Studio。 Studio Pro 和 Studio 的更改存储在各自的工作副本中：Studio Pro 本地机器和Studio 云端。
 
 ![](attachments/version-control/image4.png)
 
-### 3.4 Update Studio Pro Working Copy
+### 3.4 更新Studio Pro 工作副本
 
-The developer using Studio Pro wants to include the changes made by the developer using Studio. They choose to update their working copy.
+使用Studio Pro 的开发者想要包含使用Studio 的开发者所做的更改。 他们选择更新其工作副本。
 
-All the changes from the Studio working copy are put into a new revision on the Team Server (state 4). This revision is merged into the Studio Pro working copy. While the Studio Pro working copy is being updated, Studio is locked temporarily so that the Studio working copy is stable while it is copied.
+工作室工作拷贝中的所有更改都会在团队服务器上（状态4）上进行新的修订。 此版本已合并到 Studio Pro 工作副本。 工作室专业版正在更新，工作室暂时被锁定，以便工作室的工作副本在复制时保持稳定。
 
 {{% alert type="info" %}}
-This will also pick up changes from other developers using Studio Pro, if they have committed changes to this branch.
-{{% /alert %}}
+如果其他使用Studio Pro的开发者已经对此分支做了更改，这也会接收到他们的更改。
+{{% /报警 %}}
 
-If there are conflicts, the developer using Studio Pro will have to resolve them before they can commit the changes to the Team Server repository.
+如果发生冲突，使用Studio Pro 的开发者必须先解决它们，然后才能将更改提交给团队服务器仓库。
 
 ![](attachments/version-control/image5.png)
 
-### 3.5 Commit Changes to Team Server Repository
+### 3.5 对团队服务器仓库的提交更改
 
-The developer using Studio Pro wants to commit a new revision to the Team Server. This will enable the developer using Studio, or a different developer using Studio Pro, to see and work with the changes the developer has made. It also means that the revision can be deployed to the cloud.
+使用Studio Pro 的开发者想要向团队服务器提交新的版本。 这将使使用Studio的开发者或使用Studio Pro的其他开发者能够看到开发者所做的更改并开展工作。 这还意味着可以把修订工作部署到云端。
 
-The developer selects to commit, and the following things happen:
+开发者选择要提交的内容，然后发生以下事情：
 
-* Studio is locked temporarily
-* The Studio working copy is committed as a revision (restore point – state 5)
-* The revision just created (state 5) is merged with the Studio Pro working copy
+* 工作室暂时锁定
+* 工作室工作副本作为修订版提交(还原点-状态 5)
+* 刚刚创建的版本 (状态 5) 已合并到 Studio Pro 工作副本
 
-If there are no merge [conflicts](#conflict), the updated Studio Pro working copy is committed as a new revision (state 6) and the Studio working copy is updated to the new revision and unlocked.
+如果没有合并 [冲突](#conflict), 已更新的Studio Pro 工作副本作为新版本(状态6)提交，Studio 工作副本更新到新版本并已解锁。
 
-If there are conflicts, the developer using Studio Pro will need to resolve these. Studio will be unlocked, without receiving any of the changes from Studio Pro, while they do this. The developer using Studio Pro then needs to commit again, and the process starts from the beginning (Studio is locked ready for a new revision to be committed from the Studio Working Copy).
+如果发生冲突，使用Studio Pro 的开发者需要解决这些问题。 工作室将被解锁，而不会收到Studio Pro的任何更改，同时他们也会这样做。 使用Studio Pro 的开发者需要再次提交 和进程从一开始就开始(Studio已被锁定，可以从Studio工作版进行新的修订)。
 
 ![](attachments/version-control/image6.png)
 
-## 4 Branches {#branches}
+## 4个分支 {#branches}
 
-With more complex apps, you may want to manage your code in a more sophisticated way. For example, you may want to develop new features separately from the currently deployed version of your app so that you can fix any bugs without having to release all the new features.
+有了更复杂的应用，你可能想要以更复杂的方式管理你的代码。 例如， 您可能想要与当前安装的应用程序版本分开开发新功能，以便您可以修复任何bug，而无需释放所有新功能。
 
-This is done using [Branch Lines](#branch-line).
+这是使用 [分支行](#branch-line) 完成的。
 
-### 4.1 Main Line
+### 4.1 主线
 
-All apps are developed along the main line (also referred to as **trunk**). Here you have all development happening along a single line, with all changes built upon the previous revision:
+所有应用都是沿主线开发的。 这里你所有的开发都沿着一条线进行，所有的修改都建立在先前的修订版本的基础上：
 
 ![](attachments/version-control/image7.png)
 
-This is the case for the version control processes described in the section [Version Control Processes for a Single Branch](#vc-single), above.
+对于上面 [版本控制流程介绍的单一分支](#vc-single)的版本控制流程，情况就是如此。
 
-Initially, developers using Studio only have access to the development line for which Studio is enabled. They can be switched to another development line, however, by a developer using Studio Pro.
+最初，使用Studio的开发人员只能访问启用Studio的开发线。 然而，他们可以通过使用 Studio Pro的开发者切换到另一条开发线。
 
-### 4.2 Branch Line
+### 4.2 支线线
 
-When you add a branch line, you take a copy of an existing [revision](#revision) and work separately on that copy. Changes made to one branch do not impact any other branches.
+当您添加分支行时，您将拿走现有的 [版本](#revision) 的副本，并且单独使用该副本。 对一个分支机构所作的更改不影响任何其他分支机构。
 
-In Mendix each revision within a [repository](#repository) is given a unique version number. This means that version numbers given to revisions along any chosen branch line may not be consecutive.
+在 Mendix 中， [版本库](#repository) 中的每个版本都有一个唯一的版本号。 这意味着沿任何选定分支行给版本号的版本号可能不是连续的。
 
 ![](attachments/version-control/image8.png)
 
-### 4.3 Merging Branches {#merging-branches}
+### 4.3 合并分支 {#merging-branches}
 
-You may have a branch line which will continue independently and never need to be combined with any other development lines. For example, you may create a branch for a particular release of your app and only ever use it to fix bugs in that release.
+您可能有一个分支线，这个分支线将继续独立，永远不需要与任何其他开发线合并。 例如，您可以为您的应用程序的特定版本创建一个分支，并且只能使用它来修复该版本中的bug。
 
-On the other hand, you may want to add the features from one branch line into another development line. These are two cases for doing this:
+另一方面，你可能想要将一个分支的功能添加到另一个开发线。 这是两个这样做的情况：
 
-* You develop new features in a branch line and want to include them in your main development line
-* You want to take advantage of a bug fix which was made on another branch line
+* 您在分支行开发了新功能，希望将其纳入您的主要开发行
+* 你想要利用在另一个分支上生成的错误修复
 
-You can merge a specific revision of a branch line into your current [working copy](#working-copy). If, for example, you were working on the main line updated to revision 6, you can [merge](#merge) revision 5 from another branch line into your working copy. Then you can commit the result to create revision 7. If you want to merge several different committed changes from a branch, you will need to select a range of revisions which includes all the changes.
+您可以将分支行的特定版本合并到您当前的 [工作副本](#working-copy)。 例如，如果您正在更新到第6修订版的主行， 你可以 [从另一行合并](#merge) 修订版5到你的工作副本。 然后您可以提交结果来创建版本 7。 如果您想要合并几个不同的承付更改和一个分支， 您将需要选择包含所有更改的修订范围。
 
 ![](attachments/version-control/image9.png)
 
-As with the examples in the [Version Control Processes for a Single Branch](#vc-single) section, there may be conflicts during the merge, and these will have to be resolved before you can commit the changes to your app.
+就像单一分支</a> 部分的
+版本控制流程中的示例。 在合并过程中可能存在冲突，这些冲突必须先解决，然后才能将更改提交您的应用。</p> 
 
-Note that errors can be introduced by the [merge](#merge) process even if no conflicts are identified during the merge. Errors are inconsistencies which are flagged in Studio and Studio Pro and will prevent the app from being deployed. They could lead to a revision not being deployable, so it is important to check for errors after you have done a merge.
+请注意，即使在合并过程中没有发现冲突， [合并](#merge) 进程也可能引入错误。 错误是在Studio and Studio Pro 中标记的不一致之处，将防止应用程序被部署。 它们可能导致无法部署的修订，因此在您完成合并后检查错误是很重要的。
 
-## 5 Main Documents in This Category
 
-* [Using Version Control in Studio Pro](using-version-control-in-studio-pro) – presents technical details for using version control (theoretical concerns are described above)
-* [Collaborative Development](collaborative-development) – describes the process of sharing app model changes when a team of more than one person is working on the app
-* [Team Server](/developerportal/collaborate/team-server) – presents an overview of viewing Team Server information in the Developer Portal (for example, revision summary and details)
+
+## 5 个此类别中的主要文档
+
+* [在Studio Pro 中使用版本控制](using-version-control-in-studio-pro) - 提供使用版本控制的技术细节(上文描述了理论上的关切)
+* [协作开发](collaborative-development) - 描述了一个多人团队正在开发应用时共享应用模型更改的过程
+* [团队服务器](/developerportal/collaborate/team-server) - 提供开发者门户中查看团队服务器信息的概述(例如，修订摘要和详细信息)
