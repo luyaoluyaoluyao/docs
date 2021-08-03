@@ -48,7 +48,7 @@ Mendix Assistを使用して、マイクロフローに挿入するアクティ�
 情報ダイアログボックスでは、次のオプションを使用できます。
 
 * **今後表示しない** - 情報ダイアログボックスを無効にします (他のアクティビティを挿入すると再び表示されません)
-* **詳細を見る** - マイクロフローの活動に関するドキュメントを開く
+* **Lean More** – マイクロフロー活動に関するドキュメントを開く
 * **ありがとうございます** – 現在の情報ダイアログボックスを閉じます
 
 ## 3つの設定
@@ -64,9 +64,10 @@ Mendix Assistで利用可能な設定については、以下の表を参照し�
 | Mendixアシストはオン/オフ      | ツールを有効/無効にする設定を切り替えます。                                                    |
 | format@@0 ダイアログ オン/オフ | 情報ダイアログボックスの有効/無効を切り替えます。 **メモ** Mendix Assistがオフの場合、情報ダイアログボックスは無効になります。 |
 
-Mendix Studioのトップメニューバーにある **その他のオプション** アイコンをクリックすることでMendixアシストを有効/無効にすることもできます:
+Mendix Studioのトップメニューバーにある情報アイコンをクリックしてMendix Assistの有効/無効を切り替えることもできます:
 
-![](attachments/mx-assist/mx-assist-is-on.png)
+{{% image_container width="300" %}}![](attachments/mx-assist/info-icon-setting.png)
+{{% /image_container %}}
 
 {{% alert type="info" %}}
 Mendix Assistを無効にすると、情報ダイアログも無効になります。 Mendix Assistを再び有効にすると、情報ダイアログも再度有効になります。
@@ -95,7 +96,8 @@ Mendix Assistを使用してさまざまなアクティビティを追加でき�
 
 チェックを追加すると、 **Decision** with Boolean attribute type: あなたのフローは、 *true* と *false* とラベル付けされた別のフローに分割されます。 詳細については、 [Decision](microflows-decision) を参照してください。
 
-![](attachments/mx-assist/check-added.png)
+{{% image_container width="300" %}}![](attachments/mx-assist/check-added.png)
+{{% /image_container %}}
 
 {{% alert type="info" %}}
 
