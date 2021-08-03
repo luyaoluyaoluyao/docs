@@ -1,102 +1,102 @@
 ---
-title: "Mapping Documents"
-parent: "integration"
+title: "ドキュメントのマッピング"
+parent: "統合"
 menu_order: 35
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mapping documents are used to define how Mendix objects can be converted to and from XML or JSON, according to a specific XML schema or JSON structure. There are two types of mappings: [Import Mappings](import-mappings) and [Export Mappings](export-mappings).
+ドキュメントのマッピングは、MendixオブジェクトをXMLまたはJSONに変換する方法を定義するために使用されます。 特定の XML スキーマまたは JSON 構造に基づいています。 マッピングには 2 種類あります: [マッピングのインポート](import-mappings) と [マッピングのエクスポート](export-mappings).
 
-## 2 Import Mappings
+## 2 マッピングをインポート
 
-Import mappings are used to define how incoming XML or JSON is converted into Mendix objects, according to a specific XML schema or JSON structure. This is needed to be able to interpret data received from other systems. In Mendix there are three basic scenarios for creating Mendix objects from XML or JSON:
+インポートマッピングは、特定の XML スキーマまたは JSON 構造に従って、入力 XML または JSON が Mendix オブジェクトに変換される方法を定義するために使用されます。 これは、他のシステムから受信したデータを解釈できるようにするために必要です。 Mendixには、XMLまたはJSONからMendixオブジェクトを作成するための3つの基本シナリオがあります:
 
-*   Receiving XML from a web service (defined in an [imported web service](consumed-web-service)) in a [call web service](call-web-service-action) activity.
-*   Receiving XML or JSON from a call action [call REST service](call-rest-action).
-*   Importing XML or JSON directly in an [import from mapping](import-mapping-action) action.
+*   Webサービス（ [インポートされたWebサービス](consumed-web-service)内で定義されている）から [Webサービス](call-web-service-action) アクティビティを呼び出します。
+*   コールアクション [コールRESTサービス](call-rest-action)からXMLまたはJSONを受信する。
+*   マッピング [アクションから直接インポートする](import-mapping-action) 内の XML または JSON をインポートします。
 
-This is an example of an import mapping document that maps an **Order** from a web service to a **ReceivedOrder** entity:
+これは、 **Order** を Web サービスから **ReceivedOrder** エンティティにマップするインポートマッピングドキュメントの例です。
 
 ![](attachments/16713725/16843933.png)
 
-For more details, see [Import Mappings](import-mappings).
+詳細については、 [マッピングのインポート](import-mappings) を参照してください。
 
-## 3 Export Mappings
+## 3つのマッピングのエクスポート
 
-Export mappings are used to define how Mendix objects can be converted to XML according to a specific XML schema. This is needed to be able to send data to other systems in a format the other system can process. In Mendix there are two basic scenarios for converting Mendix objects to XML:
+エクスポートマッピングは、特定の XML スキーマに従ってMendix オブジェクトを XML に変換する方法を定義するために使用されます。 これは、他のシステムが処理できるフォーマットで他のシステムにデータを送信できるようにするために必要です。 MendixではMendixオブジェクトをXMLに変換するための2つの基本的なシナリオがあります:
 
-*   Sending XML to a web service (defined in an [imported web service](consumed-web-service)) in a [call web service](call-web-service-action) activity.
+*   [Web サービス](consumed-web-service)を呼び出すアクティビティで ( [インポートされた Web サービス](call-web-service-action) で定義されている) Web サービスに XML を送信します。
 *   Exporting XML directly in an [export with mapping](export-mapping-action) action.
 
-This is an example of an export mapping document:
+これはエクスポートマッピングドキュメントの例です:
 
 ![](attachments/16713726/16843940.png)
 
-In this example, a **Cheesecake** entity will be passed when the export mapping is called. Subsequently, the **Topping** entities will be fetched by following the **Topping_Cheesecake** association from the passed Cheesecake Mendix object. The result is passed to an XML document or sent to a web service.
+この例では、エクスポート マッピングが呼び出されると **Cheesecake** エンティティが渡されます。 その後、渡された Cheesecake Mendix オブジェクトから **Topping_Cheesecake** 関連付けに従うことで、 **Topping_Cheesecake** エンティティを取得します。 結果は XML ドキュメントに渡されるか、Web サービスに送信されます。
 
-For more details, see [Export Mappings](export-mappings).
+詳細は、 [マッピングのエクスポート](export-mappings) を参照してください。
 
-## 4 Creating a New Mapping Document
+## 4 新規マッピングドキュメントの作成
 
-To specify an import or export mapping, the user needs to do a number of things:
+インポートまたはマッピングをエクスポートするには、ユーザーはいくつかのことを行う必要があります:
 
-1.  Create a new **Import Mapping** or **Export Mapping** document.
+1.  新しい **インポート マッピング** または **マッピングのエクスポート** ドキュメントを作成します。
 
-2.  Click **Select elements...** to select an XML schema, imported web service document, or JSON structure document as the source schema for this mapping. See **Figure 1**.
+2.  **要素の選択...** をクリックして XML スキーマ、インポートされた Web サービスドキュメント、または JSON 構造ドキュメントをこのマッピングのソーススキーマとして選択します。 **図 1** を参照。
 
-    If the schema is large, a subset of elements can be selected so you don't have to map all of them. This is explained in more detail in the [Select Elements](select--elements) section.
+    スキーマが大きい場合、要素のサブセットを選択することができますので、すべてをマップする必要はありません。 これについては、 [要素の選択](select--elements) セクションで詳しく説明されています。
 
-3.  Click **OK**. A structure is created with placeholders for entities on the left, and the selected XSD elements on the right side.
+3.  Click **OK**. 構造は、左側に図形のプレースホルダを、右側に選択された XSD 要素を使用して作成されます。
 
-    It is possible to include a parameter entity in mapping documents. Mapping documents with a parameter entity need to be invoked (in a [call web service](call-web-service-action) or [export with mapping](export-mapping-action) activity) by passing a parameter of the configured type. Mapping documents without a parameter entity can be invoked without passing a parameter. For import mappings, a parameter entity can be included by dragging one onto the placeholder in the created structure using the Connector tool. Export mappings always need to have a parameter entity (the object that is being exported) and the mapped root element is used for this. In both cases, the parameter entity is depicted as a yellow arrow parameter symbol.
+    パラメータエンティティをマッピングドキュメントに含めることができます。 パラメータエンティティを持つドキュメントをマッピングするには、設定された型のパラメータを渡すことによって( [call web service](call-web-service-action) または [export with mapping](export-mapping-action) activity)呼び出される必要があります。 パラメータエンティティを持たないドキュメントのマッピングは、パラメータを渡すことなく呼び出すことができます。 インポートマッピングでは、コネクタツールを使用して作成された構造内のプレースホルダにパラメータエンティティをドラッグすることで、パラメータエンティティを含めることができます。 エクスポートマッピングは常にパラメータエンティティ(エクスポートされているオブジェクト)を持つ必要があり、マップされたルート要素が使用されます。 どちらの場合も、パラメータエンティティは黄色の矢印パラメータシンボルとして描かれます。
 
-4.  Map the child elements of the schema. Entities can be obtained in four ways:
+4.  スキーマの子要素をマップします。 エンティティは以下の4つの方法で取得できます:
 
-    * From a mapping parameter
-    * By associations
-    * From a custom microflow
-    * By entity specializations in the case of choice or inheritance XML elements
+    * マッピングパラメーターから
+    * 関連付け順
+    * カスタムマイクロフローから
+    * 選択または継承XML要素の場合、エンティティの専門化により、
 
-5.  Finally the user needs to configure how entity attributes should be transformed into the XML or JSON structure.
+5.  最後に、ユーザーはエンティティ属性を XML または JSON 構造に変換する方法を構成する必要があります。
 
-## 5 Convenience Functions
+## 5つの便利な関数
 
-*   Map automatically: Automatically look for entities and associations in the domain model that can be used in the mapping. If a matching entity or association is not found, it is created in the domain model. This function is explained in more detail in the [Map Automatically](map-automatically) section.
-*   Clear mappings: Disconnects all mapping elements in the document from entities and associations. They are not deleted in the domain model.
+*   自動的にマップ:マッピングで使用できるドメインモデル内のエンティティと関連性を自動的に探します。 一致するエンティティまたは関連付けが見つからない場合は、ドメインモデル内に作成されます。 この機能は、 [Map Automatically](map-automatically) セクションで詳しく説明されています。
+*   マッピングのクリア: ドキュメント内のすべてのマッピング要素をエンティティと関連付けから切断します。 ドメインモデルでは削除されません。
 
-## 6 Tip: Important Windows
+## 6つのヒント：重要なWindows
 
-Mapping documents rely heavily on two windows. If they are not visible in Studio Pro, they can be enabled from the **View menu**.
+マッピングドキュメントは2つのウィンドウに大きく依存します。 Studio Pro で表示されない場合は、 **ビューメニュー** から有効にすることができます。
 
-*   **Properties window**. Details of individual mapping elements are shown here.
-*   **Connector window**. Entities from the connector window are dragged into the mapping document.
+*   **プロパティ ウィンドウ**。 個々のマッピング要素の詳細はこちらをご覧ください。
+*   **コネクタ ウィンドウ**。 コネクタ ウィンドウからの図形はマッピング ドキュメントにドラッグされます。
 
-## 7 User Interactions
+## 7人のユーザー相互作用
 
-*   Dragging entities. Drag an entity from the Connector Window and drop it on an entity placeholder (dashed box) to relate it to an XML element.
-*   Double clicking on a mapping element (on either the entity side or the XML side). Opens a dialog that allows you to specify details for the individual mapping. If the element is not yet related to an entity, a dialog appears that lets you select the entity first.
-*   Right mouse click, "Select Entity". Change the entity that is coupled to an XML element.
-*   Right mouse click, "Go to Entity". Open the Domain Model that contains the entity and jumps to the entity.
-*   Right mouse click, "Collapse All". Hides all the children of the mapping element, so you can keep overview in large mappings.
-*   Right mouse click, "Expand All". Expands all children of the mapping element; all underlying elements become visible.
-*   Left mouse click "-" icon (below mapping element). Makes underlying elements invisible.
-*   Left mouse, click "+" icon (below mapping element). Makes underlying elements visible again.
+*   エンティティをドラッグします。 コネクタウィンドウからエンティティをドラッグし、エンティティプレースホルダー (破線ボックス) にドロップして、XML 要素に関連付けます。
+*   (エンティティ側または XML 側の) マッピング要素をダブルクリックします。 個々のマッピングの詳細を指定できるダイアログを開きます。 要素がエンティティに関連付けられていない場合、最初にエンティティを選択できるダイアログが表示されます。
+*   マウスを右クリックし、「図形を選択」します。 XML 要素に結合されたエンティティを変更します。
+*   マウスを右クリック、「エンティティに移動」。 エンティティを含むドメインモデルを開き、エンティティにジャンプします。
+*   右クリック、"すべてを折りたたむ"。 マッピング要素のすべての子要素を非表示にするため、大きなマッピング内で概要を保持することができます。
+*   マウスを右クリック、「すべて展開」。 マッピング要素のすべての子要素を展開します。元の要素はすべて表示されます。
+*   左マウスクリック "-" アイコン (マッピング要素の下)。 元の要素を非表示にします。
+*   左マウスで、 "+" アイコン (マッピング要素の下) をクリックします。 元の要素を再び表示します。
 
-## 8 Properties
+## 8 プロパティ
 
-| Property                         | Description                                                                                                                                                                                  |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name                             | The name of the mapping.                                                                                                                                                                     |
-| Documentation                    | Here you can specify extra information to explain what this mapping does.                                                                                                                    |
-| Web Service Operation Properties | This category is only filled in if the mapping is for a web service call and not for an XML Schema.                                                                                          |
-| Web Service                      | The name of the imported web service that this mapping is for.                                                                                                                               |
-| Service name                     | The actual name of the service, as it is defined in the WSDL of the imported service.                                                                                                        |
-| Operation name                   | The name of the specific operation in the service that this mapping is meant for.                                                                                                            |
-| Request part                     | Only applicable for Export Mappings. The name of the header or body parameter that this mapping is for. If the mapping is for all body parameters, the value is "Body".                      |
-| XML Schema Properties            | This category is only filled in if the mapping is for an XML schema and not for a web service call.                                                                                          |
-| XML Schema                       | The name of the XML Schema that this mapping is for.                                                                                                                                         |
-| Start at                         | Determines which part of the XML structure this mapping defines.                                                                                                                             |
-| Send empty values                | Only applicable for export mappings. If a mapping element is optional and nillable, you need to select whether or not to send the empty values. The default is do not send the empty values. |
+| 属性             | 説明                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------- |
+| 名前             | マッピングの名前。                                                                                         |
+| ドキュメント         | ここでは、このマッピングが何を行うかを説明するための追加情報を指定することができます。                                                       |
+| Webサービス運用プロパティ | このカテゴリは、マッピングが XML スキーマのためではなく、Web サービス呼び出しのための場合にのみ記入されます。                                       |
+| Webサービス        | このマッピングが目的のインポートされた Web サービスの名前。                                                                  |
+| サービス名          | インポートされたサービスのWSDLで定義されているサービスの実際の名前。                                                              |
+| 操作名            | このマッピングが意図されているサービス内の特定の操作の名前。                                                                    |
+| 部品を要求する        | エクスポートマッピングにのみ適用できます。 このマッピングが目的のヘッダーまたはbodyパラメーターの名前。 マッピングが全てのボディパラメータのためのものである場合、値は "Body" です。 |
+| XML スキーマプロパティ  | このカテゴリは、マッピングが XML スキーマのためで、Web サービス呼び出しのためではない場合にのみ記入されます。                                       |
+| XML Schema     | このマッピングが XML スキーマの名前です。                                                                           |
+| 開始日            | このマッピングが XML 構造のどの部分を定義するかを決定します。                                                                 |
+| 空の値を送信         | エクスポートマッピングにのみ適用できます。 マッピング要素がオプションでnillable の場合、空の値を送信するかどうかを選択する必要があります。 デフォルトは空の値を送信しません。      |
