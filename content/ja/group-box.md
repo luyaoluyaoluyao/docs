@@ -1,47 +1,80 @@
 ---
 title: "グループボックス"
 parent: "container-widgets"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "グループボックス"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/group-box.pdf) をクリックしてください。
+{{% /alert %}}
+
+{{% alert type="warning" %}}グループボックスウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+## 1つの紹介
 
 グループ ボックスを使用して、関連ウィジェットを視覚的にグループ化できます。 グループボックスは、ネストされたウィジェットの周りのフレームとして任意のヘッダーで表示されます。 グループボックスは、動的に折りたたんだり展開したりするように構成できます。
 
-{{% alert type="info" %}}
+![](attachments/container-widgets/group-box.jpg)
 
-![](attachments/16713857/16843974.jpg) 空のグループ ボックス。
+## 2つのプロパティ
 
-{{% /alert %}}
+グループ ボックス プロパティの例を以下の画像に示します。
 
-## 共通のプロパティ
+{{% image_container width="300" %}}![グループボックスのプロパティ](attachments/container-widgets/group-box-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+グループ ボックス プロパティは、次のセクションで構成されています:
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 2.1 共通セクション {#common}
 
-## 一般プロパティ
+{{% snippet file="refguide8/comon-section-link.md" %}}
 
-### ヘッダーを表示
+### 2.2 デザインプロパティセクション {#design-properties}
 
-グループボックスの上にヘッダーを表示するかどうかを切り替えます。
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-_デフォルト値:_ True
+### 2.3 一般セクション {#general}
 
-### 図表番号
+#### 2.3.1 ヘッダーの表示
 
-ヘッダーのテキスト このプロパティはヘッダーが表示されている場合にのみ適用できます。
+**ヘッダの表示** は、ヘッダがグループボックスの上に表示されるかどうかを定義します。
 
-_デフォルト値:_ グループボックス
+デフォルト: *True*
 
-### 折りたたみ可能
+#### 2.3.2 図表番号
 
-このプロパティは、ヘッダーをクリックすることでグループボックスを折りたたむことができるかどうかを指定します。 このプロパティはヘッダーが表示されている場合にのみ適用できます。
+このプロパティは、 **ヘッダーの表示** オプションが有効な場合にのみ表示されます。 ヘッダーに表示されるキャプションを定義します。
 
-_デフォルト値:_ はい (拡張開始)
+デフォルト: *グループボックス*
 
-## 表示プロパティ
+#### 2.3.3 折りたたみ可能
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+このプロパティは、ヘッダーをクリックすることでグループボックスを折りたたむことができるかどうかを指定します。 このプロパティは、 **Show Header** が有効な場合にのみ表示されます。
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+このプロパティの可能な値は次のとおりです。
+
+* **はい (展開開始)**  *(デフォルト)* - グループボックス内の要素は最初に表示され、ユーザーがヘッダーのマイナスアイコンをクリックすると折りたたむことができます
+* **はい (折りたたみ開始)** - ユーザーがヘッダーのプラスアイコンをクリックすると、グループボックス内の要素は最初に非表示になり、拡張することができます
+* **いいえ** - グループボックス要素は常に表示され、グループボックスを折りたたむことはできません
+
+### 2.4 表示セクション {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
+
+
