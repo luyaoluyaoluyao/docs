@@ -1,113 +1,113 @@
 ---
-title: "New Merge Algorithm with Fine-Grained Conflict Resolution"
-category: "Version Control"
+title: "微細な競合解像度を持つ新しいマージアルゴリズム"
+category: "バージョン管理"
 menu_order: 30
 tags:
-  - "merge"
-  - "algorithm"
-  - "conflict"
-  - "resolution"
+  - "マージ"
+  - "アルゴリズム"
+  - "コンフリクト"
+  - "解像度"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A new merge algorithm with fine-grained conflict resolution is used when you update your app or merge changes in it. The new merge algorithm has the following features:
+アプリを更新したり、変更内の変更をマージしたりするときに、詳細な競合解決を持つ新しいマージアルゴリズムが使用されます。 新しいマージアルゴリズムには、次の機能があります。
 
-* **Fine-grained conflict resolution** – When there are conflicting changes in a document, you do not have to choose between whole documents: resolving a conflict using your change or using their change. Instead, you can resolve conflicts at the level of individual elements, such as widgets, entities, attributes, or microflow actions. Also, all non-conflicting changes from both sides are accepted automatically.
-* **No conflicts on parallel changes to lists of widgets** – When two developers make changes to widgets in the same document there is no conflict, the changes are combined. However, if the changes are made too close to the same place in the document, a **list order conflict** is reported that reminds the developer who is merging the changes to decide on the final order of the widgets in the list.
+* **詳細な葛藤解決** – 文書に矛盾する変更がある場合。 文書全体の中から選択する必要はありません自分の変更やその変更を使って紛争を解決することです 代わりに、ウィジェット、図形、属性、マイクロフローアクションなど、個々の要素のレベルで競合を解決できます。 また、双方からの非競合の変更はすべて自動的に受け入れられます。
+* **ウィジェットのリストに並列変更がない場合** – 2人の開発者が同じ文書内のウィジェットに変更を加えた場合、矛盾はありません。 変更が結合されます しかし、変更がドキュメント内の同じ場所に近すぎる場合。 **リスト注文の競合** が報告され、リスト内のウィジェットの最終的な順序を決定する変更をマージしている開発者に通知されます。
 
-## 2 Enabling the New Algorithm with Fine-Grained Conflict Resolution
+## 2 微細な競合解決による新しいアルゴリズムの有効化
 
 {{% alert type="info" %}}
-Make sure that you repository is in a clean state: everything has been committed and there are no outstanding changes or conflicts.
+リポジトリがクリーンな状態になっていることを確認してください。すべてがコミットされており、顕著な変更や競合はありません。
 {{% /alert %}}
 
-The new algorithm is enabled by default in Studio Pro 9. If you encounter issues, you can revert back to the old algorithm with the following steps:
+新しいアルゴリズムは、Studio Pro 9 でデフォルトで有効になります。 問題が発生した場合は、以下の手順で古いアルゴリズムに戻すことができます。
 
-1. In the Studio Pro top bar, go to **Edit** > **Preferences** > **New features**.
-2. In the **New features** section, disable the **New merge algorithm with fine-grained conflict resolution** option.
+1. Studio Proのトップバーで、 **Edit** > **Preferences** > **New features**.
+2. **New features** セクションで、 **New merge algorithm with fine grained conflation resolution** オプションを無効にします。
 3. Restart Studio Pro.
 
-For more information, see [Preferences](preferences-dialog).
+詳細については、 [環境設定](preferences-dialog) を参照してください。
 
-## 3 Resolving Conflict Example
+## 3 競合の例を解決する
 
-A page document in your app is designed as shown below:
+アプリ内のページ文書は以下のようにデザインされています:
 
-![Original page](attachments/new-merge-algorithm/new-merge-algorithm-base-page.png)
+![元のページ](attachments/new-merge-algorithm/new-merge-algorithm-base-page.png)
 
-Your colleague makes the following changes in the main line:
+同僚がメイン行で次の変更を行います。
 
-* The text *Home* is changed to *Welcome!*
-* A Mendix logo is added above the text *Welcome!*
-* The subtitle *Welcome to your new app* is deleted
-* A text *Write some text here* is added to the bottom layout grid
+* *ホーム* が *ようこそ!* に変更されました。
+* テキストの上にMendixのロゴが追加されました *ようこそ!*
+* サブタイトル *新しいアプリへようこそ* が削除されました
+* テキスト *ここにテキストを書く* が底部レイアウトグリッドに追加されます
 
-Your colleague's new document layout is shown below:
+同僚の新しいドキュメントレイアウトは以下のとおりです。
 
-![Main line page](attachments/new-merge-algorithm/new-merge-algorithm-main-page.png)
+![メインラインページ](attachments/new-merge-algorithm/new-merge-algorithm-main-page.png)
 
-You make the following changes on a branch line:
+ブランチラインで次の変更を行います:
 
-* You change the text *Home* to *My homepage*
-* You add a data grid inside the bottom layout grid
+* テキスト *ホーム* を *私のホームページ*に変更します
+* 下部のレイアウト グリッド内にデータ グリッドを追加します
 
-Your page is now laid out as shown below:
+次のようにページがレイアウトされました：
 
-![Branch line page](attachments/new-merge-algorithm/new-merge-algorithm-branch-page.png)
+![支線ページ](attachments/new-merge-algorithm/new-merge-algorithm-branch-page.png)
 
-## 4 Resolving Conflicts
+## 4つの競合の解決
 
-When you merge changes, the new algorithm shows you the following conflicts:
+変更をマージすると、新しいアルゴリズムは次の競合を表示します。
 
-1. The text that both sides changed.
-2.  A **list order conflict**. Both of you added widgets to the bottom layout grid. The merge algorithm cannot guess the right order for the two new widgets and it reports the list order conflict. This is a reminder for you (the developer who is doing the merge) to look at the final layout and confirm the order.
+1. 両側が変化したテキスト。
+2.  **リスト注文の不一致**。 両方とも下部のレイアウト グリッドにウィジェットを追加しました。 マージアルゴリズムは、2 つの新しいウィジェットの正しい注文を推測することができず、リスト注文の競合を報告します。 これは、最終的なレイアウトを確認し、注文を確認することをあなた(マージを行っている開発者)に通知します。
 
-    ![New algorithm conflicts](attachments/new-merge-algorithm/new-merge-algorithm-conflicts.png)
+    ![新しいアルゴリズムの重複](attachments/new-merge-algorithm/new-merge-algorithm-conflicts.png)
 
-To start the resolution process, click the **Merge** button. The page is opened in a special mode with an orange bar at the top:
+解像度プロセスを開始するには、 **Merge** ボタンをクリックします。 ページは、上部にオレンジ色のバーがある特別モードで開きます。
 
-![Document with orange bar](attachments/new-merge-algorithm/new-merge-algorithm-orange-tab.png)
+![オレンジ色のバー付きドキュメント](attachments/new-merge-algorithm/new-merge-algorithm-orange-tab.png)
 
-The following non-conflicting changes have already been applied to the page:
+以下の競合しない変更は既にページに適用されています:
 
-* The Mendix logo is added above the text *Home* (main line)
-* The subtitle is deleted (main line)
-* The text widget is added to the bottom layout grid (main line)
-* A data grid is added to the bottom layout grid (branch line)
+* テキストの上にMendixのロゴが追加されました *ホーム* (メインライン)
+* 字幕が削除されます (メイン行)
+* テキストウィジェットが下部のレイアウト グリッド (メイン ライン) に追加されます
+* データ グリッドが下部レイアウト グリッド (ブランチ ライン) に追加されます。
 
-### 4.1 Resolving the First Conflict
+### 4.1 最初の競合の解決
 
-For the first conflict, you can inspect changes and decide which version to apply. Select one of the three lines that represent the conflict and choose **Resolve using Mine** or **Resolve using Theirs**.
+最初の競合では、変更を確認し、適用するバージョンを決定することができます。 競合を表す3つの行のいずれかを選択し、 **鉱山** を使用して解決するか、 **Theirs**を使用して解決するを選択します。
 
-![Conflict resolution mode](attachments/new-merge-algorithm/new-merge-algorithm-resolve-mode.png)
+![競合解決モード](attachments/new-merge-algorithm/new-merge-algorithm-resolve-mode.png)
 
-You will see the document update immediately after you click the button. If you are not satisfied with your choice, you can use undo to go back and try another option.
+ボタンをクリックすると、ドキュメントの更新がすぐに表示されます。 選択に満足していない場合は、undo を使用して戻って別のオプションを試すことができます。
 
 {{% alert type="info" %}}
-To use keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Z</kbd> and <kbd>Ctrl</kbd>+<kbd>Y</kbd> to undo your choice, click the document to focus it first.
+キーボードショートカットを使用するには、 <kbd>Ctrl</kbd>+<kbd>Z</kbd> と <kbd>Ctrl</kbd>+<kbd>Y</kbd> を選択を取り消します。 ドキュメントをクリックしてフォーカスします。
 {{% /alert %}}
 
-There is a third option to deal with a conflict: **Mark as Resolved**. This means that you do not choose any side to resolve the conflict and will keep things the way they were in the original. Neither of the new text changes will be applied.
+競合に対処する3つ目のオプションがあります: **解決済みとしてマーク**。 これは、競合を解決するためにどの側面も選択しないことを意味し、彼らが元のように物事を維持します。 新しいテキストの変更は適用されません。
 
-Once you have chosen one of the three options to resolve the conflict, green checkmarks will appear to indicate that this conflict has been dealt with.
+競合を解決するための3つのオプションのいずれかを選択したら、. 緑のチェックマークはこの衝突が処理されたことを示しています
 
-### 4.2 Resolving the Second Conflict
+### 4.2 第二の紛争の解決
 
-The second conflict is a list order conflict. It is a reminder to take a look at the order of the widgets in the layout grid. You can arrange the widgets in the desired order in the page editor and then choose **Mark as Resolved** for the list order conflict.
+２つ目はリストオーダーの競合です これは、レイアウト グリッド内のウィジェットの順序を確認するためのリマインダーです。 ページエディターで目的の順序でウィジェットを配置し、リスト注文の競合のために **解決済みとしてマーク** を選択することができます。
 
-You can also decide to delete one of the widgets or add a new one. The document is fully editable while resolving conflicts.
+ウィジェットのいずれかを削除するか、新しいウィジェットを追加することもできます。 この文書は、競合を解決しながら完全に編集可能です。
 
-After resolving the second conflict, the bar at the top will turn green to indicate that all conflicts have been resolved:
+2番目の競合を解決した後、上部のバーは緑色に変わり、すべての競合が解決されたことを示します:
 
-![All conflicts resolved](attachments/new-merge-algorithm/new-merge-algorithm-all-conflicts-resolved.PNG)
+![すべての競合が解決されました](attachments/new-merge-algorithm/new-merge-algorithm-all-conflicts-resolved.PNG)
 
-Some changes will make it impossible to resolve conflicts using **mine** or **theirs**. For example, if you have not resolved the first conflict yet and you delete the *Home* text widget, you cannot resolve the first conflict any more, because the widget is simply not there. At that point, you can only mark the conflict as resolved:
+いくつかの変更により、 **の** または **の** を使用して競合を解決することは不可能になります。 たとえば、最初の競合を解決しておらず、 *Home* テキストウィジェットを削除した場合などです。 ウィジェットが存在しないため、最初の競合を解決することはできません。 この時点では、競合を解決済みとしてのみマークできます:
 
-![Conflict cannot be resolved](attachments/new-merge-algorithm/new-merge-algorithm-cannot-resolve.PNG)
+![競合は解決できません](attachments/new-merge-algorithm/new-merge-algorithm-cannot-resolve.PNG)
 
-### 4.3 Finishing Conflict Resolution
+### 4.3 競合解決の終了
 
-Once all conflicts have been resolved, click the **Accept and Exit** button to finalize the results. The document will be saved in its merged form and the conflict for that document will be gone. The result is the document that contains changes from both sides and possibly some manual edits.
+すべての競合が解決されたら、 **Accept and Exit** ボタンをクリックして結果を確定します。 ドキュメントはマージされたフォームに保存され、そのドキュメントとの競合は消えます。 その結果、両側からの変更と、おそらくいくつかの手動編集が含まれるドキュメントになります。
 
-At any time, you can also choose to abort conflict resolution by clicking the **Cancel** button. The conflict will remain and you can resolve it later.
+**キャンセル** ボタンをクリックすることで、いつでも競合の解決を中断することもできます。 競合は残り、後で解決できます。
