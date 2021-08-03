@@ -9,10 +9,6 @@ tags:
   - "widget"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/menu-widgets.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Menu widgets display menu items configured in the [Navigation](navigation) or in a [Menu](menu).
@@ -32,7 +28,7 @@ Menu widgets display menu items configured in the [Navigation](navigation) or in
 
 ## 2 Performing Basic Functions
 
-{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
 ## 3 Read More
 
