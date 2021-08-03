@@ -1,448 +1,448 @@
 ---
-title: "Other Mendix Terms"
+title: "その他のMendix利用規約"
 menu_order: 2
 draft: true
 ---
 
-## Introduction
+## はじめに
 
-This document contains various Mendix terms that are used in the product UI and documentation.
+このドキュメントには、製品UIおよびドキュメントで使用されるさまざまなMendix用語が含まれています。
 
-### Under Each Term
+### 各学期以下
 
-Details and cross-references where necessary.
+必要に応じて詳細とクロスリファレンス。
 
 {{% alert type="info" %}}
-Guidelines for usage.
+使用のためのガイドライン
 {{% /alert %}}
 
 {{% alert type="success" %}}
-Example usage.
+使用例
 {{% /alert %}}
 
 ## A-K
 
-### application & app {#app}
+### アプリケーション & アプリ {#app}
 
-An "application" or "app" can be one of the following:
+"application"または"app"は次のいずれかになります:
 
-* A local application
-* A [Free App](#free-app)
-* A licensed application hosted on the Mendix Cloud; another cloud such as AWS, SAP Cloud, or IBM Cloud Portal; or on the user's own server
+* ローカルアプリケーション
+* [無料アプリ](#free-app)
+* Mendix Cloudでホストされているライセンス付きアプリケーション (AWS、SAP Cloud、IBM Cloud Portalなどの別のクラウド、またはユーザー自身のサーバー)
 
 {{% alert type="info" %}}
-Do not capitalize (meaning, do not write "Mendix App").<br />
+大文字にしないでください (意味、"Mendix App"を書かないでください)。<br />
 <br />
-Do not replace with "app project" (or "project") generically, even when referring to project management-like tasks. **Project** is still used in some UI text, but that usage is being phased out. Using  "app" in all instances is prioritized.<br />
+プロジェクト管理のようなタスクを参照しても、一般的に「アプリケーション・プロジェクト」(または「プロジェクト」)に置き換えないでください。 **プロジェクト** は一部の UI テキストではまだ使用されていますが、使用は段階的に廃止されています。 すべてのインスタンスで「アプリ」を使用することが優先されます。<br />
 <br />
-The full word "application" has a more well-rounded meaning to it (as in, web and mobile apps), whereas "app" may suggest just mobile apps to the reader. Accordingly, it can be better to use "application" at the beginning of documents and then switch to "app" later on. We want to make it clear that Mendix is not just for building mobile apps, but all kinds of applications.
+完全な単語「application」には、より丸みを帯びた意味があります (以下のように)。 ウェブとモバイルアプリ)、一方「アプリ」は読者にだけモバイルアプリを提案するかもしれません。 したがって、ドキュメントの先頭に「application」を使用し、後で「app」に切り替える方が良いでしょう。 Mendixはモバイルアプリを構築するためだけではなく、あらゆる種類のアプリケーションであることを明確にしたいと思います。
 {{% /alert %}}
 
-### App ID
+### アプリ ID
 
 {{% alert type="info" %}}
-Always capitalize.
+常に大文字にしてください。
 {{% /alert %}}
 
-### app team
+### アプリチーム
 
 {{% alert type="info" %}}
-Does not need to be capitalized, and "team" should be used without the qualifier "app" where possible.
+大文字にする必要はなく、可能な限り修飾子「app」なしで「team」を使用する必要があります。
 {{% /alert %}}
 
-### app template {#app-template}
+### アプリテンプレート {#app-template}
 
-This is the term to use to reflect the create-new-app flow UI in the Developer Portal.
+開発者ポータルで create-new-app フロー UI を反映するための用語です。
 
-There are two inconsistencies in other areas of the platform UI:
+プラットフォームUIの他の領域には2つの矛盾があります：
 
 {{% alert type="info" %}}
-Do not use "starter app."
+「スターターアプリ」を使用しないでください。
 {{% /alert %}}
 
-### App User
+### アプリユーザー
 
-For a definition of this term, see the [Managing App Users](/developerportal/collaborate/general-settings#managing-app-users) section of the *Developer Portal Guide*.
+この用語の定義については、 [開発者ポータルガイド](/developerportal/collaborate/general-settings#managing-app-users) の *アプリユーザーの管理* セクションを参照してください。
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Atlas UI {#atlas-ui}
+### アトラスUI {#atlas-ui}
 
 {{% alert type="info" %}}
-Capitalize in all instances.<br />
+すべてのインスタンスで大文字にします。<br />
 <br />
-Do not use just "Atlas."
+単に"アトラス"を使用しないでください。
 {{% /alert %}}
 
-### Build Server
+### ビルドサーバー
 
 {{% alert type="info" %}}
-Capitalize in all instances (to parallel "Team Server" and "Model Server").
+すべてのインスタンスを大文字にする (「Team Server」と「Model Server」を並列化する)。
 {{% /alert %}}
 
-### Business Engineer
+### ビジネスエンジニア
 
-This is a team role. As such, it differs from the term "business developer," which is used in the Mendix Platform Evaluation Guide as a generic role and persona term.
+これはチームの役割です。 したがって、一般的な役割とペルソナ用語としてMendixプラットフォーム評価ガイドで使用されている「ビジネス開発者」という用語とは異なります。
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### Buzz
 
 {{% alert type="info" %}}
-Use "Buzz" on its own, unless you need to specify "Company Buzz" or "App Buzz" for context.<br />
+コンテキストに「Company Buzz」または「App Buzz」を指定する必要がない限り、独自に「Buzz」を使用してください。<br />
 <br />
-Do not use "the Buzz" (unless the context demands it).
+「Buzz」を使用しないでください(コンテキストが要求する場合を除きます)。
 {{% /alert %}}
 
-### Company Contact
+### 会社の連絡先
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Custom Developer App
+### カスタム開発者アプリ
 
-For a definition of this term, see [How to Create a Custom Developer App](/howto/mobile/how-to-devapps).
+この用語の定義については、 [カスタム開発者アプリの作成方法](/howto/mobile/how-to-devapps) を参照してください。
 
 {{% alert type="info" %}}
-Do not capitalize.
+大文字にしないでください。
 {{% /alert %}}
 
-### Deployment Package Repository
+### デプロイメントパッケージリポジトリ
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### Fallback
 
-The name of the Mendix *high-availability* option which allows databases to be replicated via streaming between availability zones.
+可用性ゾーン間のストリーミングを介してデータベースを複製することを可能にするMendix *high-availability* オプションの名前。
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### fast deploy & fast deployment
+### 高速デプロイ & 高速デプロイメント
 
 {{% alert type="info" %}}
-Do not use "insta-deploy" or "instant redeploy."
+"insta-deploy" や "instant redeploy" は使用しないでください。
 {{% /alert %}}
 
-### Free App {#free-app}
+### 無料アプリ {#free-app}
 
-A [Free App](/developerportal/deploy/mendix-cloud-deploy#free-app) is an app that can be deployed without a license and is therefore free. There are restrictions on the resources available to a Free App. A Free App environment is a cloud environment, but it does not support complex or large applications. Free Apps are part of the [Free Edition](#free-edition).
+[無料アプリ](/developerportal/deploy/mendix-cloud-deploy#free-app) は、ライセンスなしで展開できるアプリであり、したがって無料です。 無料アプリで利用できるリソースには制限があります。 無料アプリ環境はクラウド環境ですが、複雑なアプリケーションや大規模なアプリケーションには対応していません。 無料アプリは [無料版](#free-edition)の一部です。
 
 {{% alert type="info" %}}
-Capitalize in all instances.<br />
+すべてのインスタンスで大文字にします。<br />
 <br />
-Do not use "Sandbox." For more information, see [Terminology History](terminology-history).
+"Sandbox"を使用しないでください。 詳細については、 [用語履歴](terminology-history) を参照してください。
 {{% /alert %}}
 
-### Free Edition {#free-edition}
+### 無料版 {#free-edition}
 
-This is the package of offerings that users can employ without requiring a paid license.
+これは、有料ライセンスを必要とせずにユーザーが使用できる製品のパッケージです。
 
-"Free Edition" replaced [Community Edition](terminology-history#community-edition) in 2015, and was made a focus of the announcements at [Mendix World 2019](https://www.mendix.com/blog/a-3-step-leap-into-your-digital-future-highlights-from-mendix-world/).
+「Free Edition」は2015年に [Community Edition](terminology-history#community-edition) に置き換えられ、 [Mendix World 2019](https://www.mendix.com/blog/a-3-step-leap-into-your-digital-future-highlights-from-mendix-world/) で発表の焦点を当てました。
 
 {{% alert type="info" %}}
-Use to refer to the whole package of Mendix free offerings (Studio Pro, Studio, and Free Apps), not individual parts of the offering.<br />
+Mendixの無料製品(Studio Pro、Studio、Free Apps)のパッケージ全体を参照するために使用します。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### guided product introduction tour
+### ガイド付き商品紹介ツアー
 
-This describes the user guidance that is built into Mendix Studio. This is a generic term, so it can be applied as more user guidance is built.
+これは Mendix Studio に組み込まれているユーザーガイダンスについて説明します。 これは一般的な用語ですので、より多くのユーザーガイダンスが構築されるにつれて適用できます。
 
-It should be qualified by the context/location. In the case of Studio, the generic term is qualified by the context/location in the [Studio Release Notes](/releasenotes/studio/) like this: "A guided product introduction tour is now shown when you select **Start Your First App** from the **Introduction Tour** category when creating an app in the [Mendix Developer Portal](https://sprintr.home.mendix.com/)."
+コンテキスト/場所によって修飾される必要があります。 In the case of Studio, the generic term is qualified by the context/location in the [Studio Release Notes](/releasenotes/studio/) like this: "A guided product introduction tour is now shown when you select **Start Your First App** from the **Introduction Tour** category when creating an app in the [Mendix Developer Portal](https://sprintr.home.mendix.com/)."
 
 {{% alert type="info" %}}
-Do not capitalize.
+大文字にしないでください。
 {{% /alert %}}
 
 ## L-N
 
-### LTS (Long-Term Support)
+### LTS（長期サポート）
 
 {{% alert type="info" %}}
-As with any acronym the user may not recognize at first, write out the term "long-term support" in full for first usage and use the acronym "LTS" after that. If possible, link to [LTS, MTS & Monthly Releases](/releasenotes/studio-pro/lts-mts) for more information.
+任意の頭字語と同様に、ユーザーは最初に認識できない場合があります。 最初の使用のために「長期サポート」という用語を完全に書き、その後の頭字語「LTS」を使用してください。 可能であれば、詳細については [LTS、MTS & 月間リリース](/releasenotes/studio-pro/lts-mts) へのリンクをクリックしてください。
 {{% /alert %}}
 
-### MTS (Medium-Term Support)
+### MTS（中期サポート）
 
 {{% alert type="info" %}}
-As with any acronym the user may not recognize at first, write out the term "medium-term support" in full for first usage and use the acronym "MTS" after that. If possible, link to [LTS, MTS & Monthly Releases](/releasenotes/studio-pro/lts-mts) for more information.
+任意の頭字語と同様に、ユーザーは最初に認識できない場合があります。 「中期的なサポート」という言葉を初めて使用するために全面的に書き出し、その後の頭字語「MTS」を使用してください。 可能であれば、詳細については [LTS、MTS & 月間リリース](/releasenotes/studio-pro/lts-mts) へのリンクをクリックしてください。
 {{% /alert %}}
 
-### Make It Native app
+### ネイティブアプリにする
 
 {{% alert type="info" %}}
-Capitalize the name of the app ("Make It Native"), but do not capitalize "app."
+アプリの名前を大文字にします(「Make It Native」)が、「アプリ」を大文字にしないでください。
 {{% /alert %}}
 
-### Marketplace component
+### マーケットプレイスコンポーネント
 
-This is the generic name of the individual add-on, widget, module, connector, app template, etc. available in the Mendix Marketplace.
+これは、Mendix Marketplace で利用可能な個々のアドオン、ウィジェット、モジュール、コネクタ、アプリテンプレートなどの一般的な名前です。
 
 {{% alert type="info" %}}
-Do not use "Marketplace item."
+"マーケットプレイスアイテム"を使用しないでください。
 {{% /alert %}}
 
 ### Mendix Admin {#mendix-admin}
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix Assist {#mendix-assist}
+### Mendixアシスタント {#mendix-assist}
 
 {{% alert type="info" %}}
-This replaces "Mx Assistant" and "Mx Assist" (which are not to be used in the product UI or documentation – for more information, see [Terminology History](terminology-history)).<br />
+製品UIやドキュメントでは使用しない「Mx Assistant」と「Mx Assist」を置き換えます。 See [用語集履歴](terminology-history)).<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix mobile app {#mendix-mobile-app}
+### Mendix モバイル アプリ {#mendix-mobile-app}
 
-[Mendix](/refguide8/getting-the-mendix-app) is the name for the mobile app available for developers to test hybrid mobile apps.
+[Mendix](/refguide8/getting-the-mendix-app) は、開発者がハイブリッドモバイルアプリをテストできるモバイルアプリの名前です。
 
 {{% alert type="info" %}}
-This term replaces "Mendix Developer app" and "Mendix Mobile app" (which are not to be used in the product UI or documentation – for more information, see [Terminology History](terminology-history)).<br />
+この用語は "Mendix Developer app" と "Mendix Mobile app" (製品の UI やドキュメントでは使用しない) を置き換えます。 See [用語集履歴](terminology-history)).<br />
 <br />
-To avoid confusion with "Mendix" in all its other usages, always use "the Mendix mobile app" and cross-reference [Getting the Mendix Mobile App](/refguide8/getting-the-mendix-app) where possible.
+他のすべての使用法で「Mendix」と混同を避けるために "Mendixモバイルアプリ"とクロスリファレンス [可能な限りMendixモバイルアプリ](/refguide8/getting-the-mendix-app) を取得してください。
 {{% /alert %}}
 
-### Mendix Client {#client}
+### Mendix クライアント {#client}
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### Mendix Deployment Archive
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix Forum
+### Mendix フォーラム
 
 {{% alert type="info" %}}
-Do not use "the forum," always use "the Mendix Forum."<br />
+「フォーラム」を使用しないでください。常に「メンディックスフォーラム」を使用してください。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix level
+### Mendix レベル
 
 {{% alert type="info" %}}
-Do not capitalize "level."
+「レベル」を大文字にしないでください。
 {{% /alert %}}
 
 ### Mendix Metamodel
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix points
+### メンディックスポイント
 
 {{% alert type="info" %}}
-Do not capitalize "points."
+"ポイントを大文字にしないでください。
 {{% /alert %}}
 
-### Mendix Platform Evaluation Guide
+### Mendixプラットフォームの評価ガイド
 
-Published [here](https://www.mendix.com/evaluation-guide/welcome).
+ここに公開されている [](https://www.mendix.com/evaluation-guide/welcome).
 
 {{% alert type="info" %}}
-Use the full name when referencing, not just "Evaluation Guide."
+「評価ガイド」だけではなく、参照するときに完全な名前を使用してください。
 {{% /alert %}}
 
-### Mendix Profile {#profile}
+### Mendix プロフィール {#profile}
 
 {{% alert type="info" %}}
-This term replaces "Developer Profile" (which is not to be used in the product UI or documentation – for more information, see [Terminology History](terminology-history)).<br />
+この用語は "Developer Profile" を置き換えます (製品の UI やドキュメントでは使用しないでください - 詳細については. See [用語集履歴](terminology-history)).<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### Mendix Runtime {#runtime}
 
 {{% alert type="info" %}}
-This term replaces "Mendix Business Server" and "Business Engine" (which are not to be used in the product UI or documentation – for more information, see [Terminology History](terminology-history)).<br />
+この用語は "Mendix Business Server" と "Business Engine" (製品の UI やドキュメントでは使用しない) を置き換えます。 See [用語集履歴](terminology-history)).<br />
 <br />
-Capitalize in instances when referring to Runtime as part of the Mendix Platform. The best practice is to use a definite article for additional clarity: "the Mendix Runtime."<br />
+RuntimeをMendixプラットフォームの一部として参照する場合、大文字化します。 ベストプラクティスは、「Mendix Runtime」という明確な記事を使うことです。<br />
 <br />
-Do not capitalize when referring to the generic "runtime" concept.
+一般的な「ランタイム」の概念を参照するときは大文字にしないでください。
 {{% /alert %}}
 
 {{% alert type="success" %}}
-The Mendix Runtime executes the application model that is created in Studio Pro.<br />
+Mendix Runtime は、Studio Pro で作成されたアプリケーションモデルを実行します。<br />
 <br />
-This widget enables filtering a list view at runtime with various constraints.
+このウィジェットでは、さまざまな制約を使用して実行時にリストビューをフィルタリングできます。
 {{% /alert %}}
 
-### Mendix Server
+### Mendix サーバー
 
-This term is still in use, even though [Mendix Business Server](terminology-history#business-server) is no longer used. It can be useful when contrasting with [Mendix Client](#client). In addition, it can be used to cover more than [Mendix Runtime](#runtime).
+この用語は、 [Mendix Business Server](terminology-history#business-server) が使用されなくなってもまだ使用されています。 [Mendix Client](#client) と比較するときに便利です。 さらに、 [Mendix Runtime](#runtime) 以上をカバーするために使用することができます。
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix Service Console
+### Mendix サービスコンソール
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix Support
+### Mendixサポート
 
 {{% alert type="info" %}}
-Do not use "Customer Support," "Mendix Customer Support," or simply "Support."<br />
+「カスタマーサポート」、「Mendixカスタマーサポート」、または単に「サポート」を使用しないでください。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Mendix Support Portal
+### Mendixサポートポータル
 
 {{% alert type="info" %}}
-Do not use "Customer Portal" or "Customer Support Portal."<br />
+「カスタマーポータル」や「カスタマーサポートポータル」を使用しないでください。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### Mendix UI Framework
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Model Server
+### モデルサーバー
 
 {{% alert type="info" %}}
-Capitalize in all instances (to parallel "Team Server" and "Build Server").
+すべてのインスタンスを大文字に変換します(「Team Server」と「Build Server」に変換します)。
 {{% /alert %}}
 
 ### MxAssure
 
 {{% alert type="info" %}}
-Spell with "Mx" abbreviation as one word.
+"Mx" の略語を 1 つの単語として綴ります。
 {{% /alert %}}
 
-### Native Builder
+### ネイティブビルダー
 
 {{% alert type="info" %}}
-Do not use "Native Oven".<br />
+"ネイティブ・オーブン"は使用しないでください。<br />
 <br />
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ## O-Z
 
-### on-premises
+### オンプレミス版
 
-When we talk about the physical location of hardware that contains Mendix software, we are referring to a location, or premises. "Premises" means the land and buildings owned by someone, especially by a company or organization.
+Mendixソフトウェアが含まれているハードウェアの物理的な場所について話すとき、我々は場所、または施設を参照しています。 「仮定」とは、誰かが所有する土地や建物、特に企業や組織が所有するものを意味します。
 
-"Premise" means an idea or theory on which a statement or action is based. For example, "Your claim that you cannot build apps six times faster with Mendix than with traditional development is based on a false premise."
+「仮定」とは、声明または行動が基づいているアイデアまたは理論を意味します。 例えば、「Mendixではアプリを6倍高速に構築できないというお客様の主張は、偽の前提に基づいています。
 
 {{% alert type="info" %}}
-Do not use "on-premise," "on premise," "on-prem," or "on prem."
+「敷地内」、「敷地内」、「オンプレミス」、「プレム」、「プレム」を使用しないでください。
 {{% /alert %}}
 
 {{% alert type="success" %}}
-On-premises deployment needs specific security considerations.
+オンプレミスの導入には、特定のセキュリティ上の考慮事項が必要です。
 {{% /alert %}}
 
-### one-to-one & one-to-many associations
+### 一対一 & 一対多の協会
 
-For details on association properties, see [Association Properties](/refguide/association-properties).
+関連プロパティの詳細については、 [関連プロパティ](/refguide/association-properties) を参照してください。
 
 {{% alert type="info" %}}
-Write as "one-to-one" and "one-to-many," not as "1-1" or "1-to-many."
+"1-to-one"と"1-to-many"としてではなく"1-1-1"または"1-to-many"として書きます。
 {{% /alert %}}
 
-### Partner Profile
+### パートナープロフィール
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### persistable & non-persistable
+### persistable & non persistable
 
-For details on the persistability of entities, see [Persistability](/refguide/persistability).
+エンティティの永続性の詳細については、 [永続性](/refguide/persistability) を参照してください。
 
 {{% alert type="info" %}}
-Do not use "persistent" or "non-persistent."<br />
+「永続的」または「永続的でない」を使用しないでください。<br />
 <br />
-Do not use "transient" as a synonym for "persistable."
+「永続性」の同義語として「一時的」を使用しないでください。
 {{% /alert %}}
 
-### Platform APIs
+### プラットフォーム API
 
 {{% alert type="info" %}}
-Capitalize to refer to the collection of [Mendix APIs](/apidocs-mxsdk/apidocs/).
+[Mendix API](/apidocs-mxsdk/apidocs/) のコレクションを参照するには大文字にします。
 {{% /alert %}}
 
-### Platform SDK
+### プラットフォームSDK
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### private/public Mendix Marketplace
 
 {{% alert type="info" %}}
-Do not capitalize "private" and "public" as qualifiers.
+"private" と "public" を修飾子として大文字にしないでください。
 {{% /alert %}}
 
-### private cloud
+### プライベートクラウド
 
 {{% alert type="info" %}}
-Do not capitalize.
+大文字にしないでください。
 {{% /alert %}}
 
-### Product Owner
+### 商品所有者
 
 {{% alert type="info" %}}
-Capitalize in all instances of the [team role](/developerportal/collaborate/app-roles#team-roles).
+[team ロール](/developerportal/collaborate/app-roles#team-roles) のすべてのインスタンスを大文字にします。
 {{% /alert %}}
 
-### production, acceptance & test environments
+### production, acception & test environmentes
 
 {{% alert type="info" %}}
-Do not capitalize.
+大文字にしないでください。
 {{% /alert %}}
 
-### requirements management
+### 要件管理
 
-The [Mendix Platform Evaluation Guide](https://www.mendix.com/evaluation-guide/app-lifecycle/requirements-intro) specifies "requirements management" (or "Agile requirements management") as embedded in the Mendix Platform and not "project management."
+[Mendix Platform 評価ガイド](https://www.mendix.com/evaluation-guide/app-lifecycle/requirements-intro) では、「プロジェクト管理」ではなく、Mendix プラットフォームに埋め込まれた「要件管理」(または「アジャイル要件管理」)を指定しています。
 
-### Scrum
+### スクラム
 
-This implementation of the Agile framework is explained at [Scrum.org](https://www.scrum.org/resources/what-is-scrum).
+アジャイルフレームワークのこの実装は、 [Scrum.org](https://www.scrum.org/resources/what-is-scrum) で説明されています。
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Scrum Master
+### スクラムマスター
 
 {{% alert type="info" %}}
-This is the correct capitalization for this [team role](/developerportal/collaborate/app-roles#team-roles)
+これがこの [チームの役割](/developerportal/collaborate/app-roles#team-roles) の正しい大文字化です
 {{% /alert %}}
 
 ### Sprint
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Studio Pro landing page
+### Studio Pro のランディングページ
 
 The Studio Pro landing page refers to the page that contains **My Apps**, **Marketplace**, and **Developer Portal** tabs.
 
@@ -450,38 +450,38 @@ The Studio Pro landing page refers to the page that contains **My Apps**, **Mark
 Capitalize "Studio Pro".
 {{% /alert %}}
 
-### sub-microflow
+### サブマイクロフロー
 
 {{% alert type="info" %}}
-Spell with a hyphen.
+ハイフンで綴る。
 {{% /alert %}}
 
-### Team Server
+### チームサーバー
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### Technical Contact
+### 技術的連絡先
 
 {{% alert type="info" %}}
-Capitalize in all instances of this [role](/developerportal/collaborate/app-roles#technical-contact).
+この [ロール](/developerportal/collaborate/app-roles#technical-contact) のすべてのインスタンスを大文字にします。
 {{% /alert %}}
 
-### Theme Customizer
+### テーマのカスタマイズ
 
 {{% alert type="info" %}}
-Capitalize in all instances.
+すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
-### UI resources package
+### UIリソースパッケージ
 
 {{% alert type="info" %}}
-Do not capitalize, as this is a generic term. **Atlas UI Resources** is an example of such a package, and the proper name of this package is capitalized in the Studio Pro UI.
+これは一般的な用語であるため、大文字にしないでください。 **Atlas UI Resources** はそのようなパッケージの一例です。 そして、このパッケージの適切な名前はStudio Pro UIで大文字になります。
 {{% /alert %}}
 
 ### version (Mendix, Studio Pro, Runtime)
 
 {{% alert type="info" %}}
-Do not use a lower-case "v" to describe a version for Mendix, Studio Pro, Studio, or Runtime (this is reserved for the [Mendix Cloud version](main-product-names#mx-cloud-version)).
+Mendix、Studio Pro、Studioのバージョンを記述するには、小文字の "v" を使用しないでください。 または Runtime (これは [Mendix Cloud バージョン](main-product-names#mx-cloud-version) 用に予約されています)。
 {{% /alert %}}
