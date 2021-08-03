@@ -1,34 +1,34 @@
 ---
-title: "Inheritance Split"
-parent: "splits"
+title: "継承分割"
+parent: "分割"
 ---
 
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+この活性は、ナノフローではなく、マイクロフローでのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-An inheritance split is an element that makes a choice based on the type of certain variable. For each specialization the microflow can continue in a different way. If you want to use the specialized type in the rest of the microflow you can use a [cast](cast-object) action.
+継承分割は、特定の変数の型に基づいて選択を行う要素です。 それぞれの専門化のために、マイクロフローは異なる方法で継続することができます。 マイクロフローの残りの部分で特殊な型を使用したい場合は、 [キャスト](cast-object) アクションを使用できます。
 
-See [Entities](entities) to read more about specialization and generalization.
+専門化と一般化の詳細については、 [エンティティ](entities) を参照してください。
 
-## 2 Input Properties
+## 2つの入力プロパティ
 
-### 2.1 Variable
+### 2.1 変数
 
-The input variable is the variable of which the type is inspected to see how to continue.
+入力変数は、継続する方法を確認するためにタイプが検査される変数です。
 
 {{% alert type="info" %}}
 
-Let us say you have an entity Student and an entity Professor which have the entity Member as their generalization. For a professor you want to open a different form than for another member. The selected member is available in the parameter SelectedMember and is used as input variable for the inheritance split. Note that the sequence flow for Student is missing. If a sequence flow is missing, the closest generalization is searched that does have a sequence flow. In the case of Student this is Member. The sequence flow with the caption (empty) is followed when the parameter used as input variable does not contain an object.
+私たちは、あなたがエンティティメンバーをその一般化として持っている学生とエンティティ教授があるとしましょう。 教授の場合は、他のメンバーとは異なるフォームを開きたいです。 選択したメンバーは SelectedMember パラメーターで使用でき、継承分割の入力変数として使用されます。 学生のシーケンスフローがありません。 シーケンスフローがない場合、シーケンスフローを持つ最も近い一般化が検索されます。 学生の場合、これはメンバーです。 入力変数として使用されるパラメータにオブジェクトが含まれていない場合、キャプション付きのシーケンスフロー(空)が続く。
 
 ![](attachments/819203/918058.png)
 
 {{% /alert %}}
 
-## 3 Common Properties
+## 3つの一般的なプロパティ
 
-### 3.1 Caption
+### 3.1 図表番号
 
-See [Microflow Element Common Properties](microflow-element-common-properties).
+参照: [マイクロフロー要素の共通プロパティ](microflow-element-common-properties).
