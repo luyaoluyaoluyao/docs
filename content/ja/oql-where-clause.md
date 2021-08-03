@@ -1,41 +1,41 @@
 ---
-title: "OQL Where Clause"
+title: "OQL ここで条項を使用する"
 parent: "oql"
 tags:
   - "studio pro"
-  - "queries"
-  - "where"
+  - "クエリ"
+  - "どこで"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `WHERE` clause specifies how the data being retrieved must be constrained.
+`WHERE` 節では、取得されるデータがどのように制約されるかを指定します。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
-WHERE <constraint>
+場所 <constraint>
 ```
 
-`<constraint>` is an expression for which the value always equals true. Expressions consist of simple comparisons using operators, functions, keywords or system variables.
+`<constraint>` は、値が常に真に等しい式です。 式は演算子、関数、キーワード、システム変数を使用する単純な比較で構成されています。
 
-For more information, see [OQL Expressions](oql-expressions).
+詳細については、 [OQL 式](oql-expressions) を参照してください。
 
-## 3 Examples
+## 3つの例
 
-This query retrieves all customers whose name is equal to "Jansen":
+このクエリは、名前が "Jansen" に等しいすべての顧客を取得します。
 
 ```sql
 SELECT FirstName FROM Sales.Customer
 WHERE LastName = 'Jansen'
 ```
 
-This query retrieves all customers who live in "Rotterdam":
+このクエリは、「Rotterdam」に住んでいるすべての顧客を取得します：
 
 ```sql
 SELECT FirstName FROM Sales.Customer
 INNER JOIN Sales.Customer/Sales.Customer_Address/Sales.Address
-WHERE Sales.Address/City = 'Rotterdam'
+WHERESales.Address/City = 'Rotterdam'
 ```
