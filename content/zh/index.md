@@ -1,9 +1,9 @@
 ---
-title: "优质附加组件指南"
-description: "APM、AQM和ATS的发布指南。"
+title: "APIs & SDK"
+description: "显示 Mendix API 文档以及Mendix Platform SDK 的文档。"
 ---
 
-*质量附加组件指南* 分成以下类别：
+*APIs & SDK* 分为以下类别：
 
 {{% category_block %}}
 
