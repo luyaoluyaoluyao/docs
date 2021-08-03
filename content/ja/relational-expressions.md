@@ -1,283 +1,283 @@
 ---
-title: "Relational Expressions"
-parent: "expressions"
+title: "リレーショナル式"
+parent: "表現"
 menu_order: 30
-description: "Describes relational expressions in Mendix."
+description: "Mendixでリレーショナル式を説明します。"
 tags:
   - "studio pro"
-  - "relational expression"
-  - "expressions"
+  - "関係表現"
+  - "表現"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Relational expressions allow users to compare values and to make changes and perform actions based upon that information. The return type of such expressions is always Boolean.
+リレーショナル式を使用すると、値を比較したり、変更を加えたり、その情報に基づいてアクションを実行したりできます。 このような式の戻り値の型は常に Boolean です。
 
-## 2 Less Than ( < )
+## 2 未満 ( <)
 
-This expression determines whether the first value is less than the second value.
+この式は、最初の値が 2 番目の値より小さいかどうかを決定します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-Possible values are described in the table below:
+利用可能な値は以下の表に記載されています:
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 値    | タイプ                        |
+| ---- | -------------------------- |
+| 2つの値 | 文字列                        |
+| 2つの値 | 数値 (Integer/Long, Decimal) |
+| 2つの値 | 日付と時刻                      |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
+2つの値は同じカテゴリにする必要があります(たとえば、1つが数値の場合、もう1つも数値にする必要があります)。
 {{% /alert %}}
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| `True` または `False`. | Boolean |
 
-### 2.3 Example
+### 2.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 4<3
 ```
 
-the output is:
+出力は
 
 ```java
 False
 ```
-## 3 Greater Than ( > )
+## 3 以上 ( >)
 
-This expression determines whether the first value is greater than the second value.
+この式は、最初の値が 2 番目の値よりも大きいかどうかを決定します。
 
-### 3.2 Input Parameters
+### 3.2 入力パラメータ
 
-Possible values are described in the table below:
+利用可能な値は以下の表に記載されています:
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 値    | タイプ                        |
+| ---- | -------------------------- |
+| 2つの値 | 文字列                        |
+| 2つの値 | 数値 (Integer/Long, Decimal) |
+| 2つの値 | 日付と時刻                      |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
+2つの値は同じカテゴリにする必要があります(たとえば、1つが数値の場合、もう1つも数値にする必要があります)。
 {{% /alert %}}
 
-### 3.3 Output
+### 3.3 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| `True` または `False`. | Boolean |
 
-### 3.4 Example
+### 3.4 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 4>3
 ```
 
-the output is:
+出力は
 
 ```java
 True
 ```
-## 4 Less Than or Equal To ( <= )
+## 以上 ( <= )
 
-This expression determines whether the first value is less than or equal to the second value.
+この式は、最初の値が 2 番目の値以下であるかどうかを決定します。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-Possible values are described in the table below:
+利用可能な値は以下の表に記載されています:
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 値    | タイプ                        |
+| ---- | -------------------------- |
+| 2つの値 | 文字列                        |
+| 2つの値 | 数値 (Integer/Long, Decimal) |
+| 2つの値 | 日付と時刻                      |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
+2つの値は同じカテゴリにする必要があります(たとえば、1つが数値の場合、もう1つも数値にする必要があります)。
 {{% /alert %}}
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| `True` または `False`. | Boolean |
 
-### 4.3 Examples
+### 4.3 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     6<=3
     ```
 
-    the output is:
+    出力は
 
     ```java
     False
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     3<=3
     ```
 
-    the output is:
+    出力は
 
     ```java
     True
     ```
 
-## 5 Greater Than or Equal To ( >= )
+## 5 以上 ( >= )
 
-Determines whether the first value is greater than or equal to the second.
+最初の値が 2 番目の値以上であるかどうかを決定します。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-Possible values are described in the table below:
+利用可能な値は以下の表に記載されています:
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 値    | タイプ                        |
+| ---- | -------------------------- |
+| 2つの値 | 文字列                        |
+| 2つの値 | 数値 (Integer/Long, Decimal) |
+| 2つの値 | 日付と時刻                      |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
+2つの値は同じカテゴリにする必要があります(たとえば、1つが数値の場合、もう1つも数値にする必要があります)。
 {{% /alert %}}
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| `True` または `False`. | Boolean |
 
-### 5.3 Example
+### 5.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 4>=3
 ```
 
-the output is:
+出力は
 
 ```java
 True
 ```
 
-## 6 Is Equal To ( = )
+## 6 に等しい ( = )
 
-This expression determines whether the two values are equal.
+この式は、2 つの値が等しいかどうかを決定します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-Possible values are described in the table below:
+利用可能な値は以下の表に記載されています:
 
-| Value      | Type                                                             |
-| ---------- | ---------------------------------------------------------------- |
-| Two values | String                                                           |
-| Two values | Numeric (Integer/Long, Decimal)                                  |
-| Two values | Date and time                                                    |
-| Two values | Domain entity; equality is checked based on the ID of the object |
+| 値    | タイプ                                      |
+| ---- | ---------------------------------------- |
+| 2つの値 | 文字列                                      |
+| 2つの値 | 数値 (Integer/Long, Decimal)               |
+| 2つの値 | 日付と時刻                                    |
+| 2つの値 | ドメインエンティティ; オブジェクトの ID に基づいて等価性がチェックされます |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
+2つの値は同じカテゴリにする必要があります(たとえば、1つが数値の場合、もう1つも数値にする必要があります)。
 {{% /alert %}}
 
-### 6.2 Output
+### 6.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| `True` または `False`. | Boolean |
 
-### 6.3 Examples
+### 6.3 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     "mystring" = "myotherstring"
     ```
 
-    the output is:
+    出力は
 
     ```java
     False
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     dateTime(2007) = dateTime(2007)
     ```
 
-    the output is:
+    出力は
 
     ```java
     True
     ```
 
-## 7 Is Not Equal To ( != )
+## 7は等しくない ( != )
 
-Determines whether the two values are not equal.
+2 つの値が等しくないかどうかを指定します。
 
-### 7.1 Input Parameters
+### 7.1 入力パラメータ
 
-The values be any of the following types, but the two values should be in the same category (for example, both numbers):
+値は次のいずれかの型ですが、2つの値は同じカテゴリ内にある必要があります (例えば、両方の数字):
 
-Possible values are described in the table below:
+利用可能な値は以下の表に記載されています:
 
-| Value      | Type                                                      |
-| ---------- | --------------------------------------------------------- |
-| Two values | String                                                    |
-| Two values | Numeric (Integer/Long, Decimal)                           |
-| Two values | Date and time                                             |
-| Two values | Object; equality is checked based on the ID of the object |
+| 値    | タイプ                                |
+| ---- | ---------------------------------- |
+| 2つの値 | 文字列                                |
+| 2つの値 | 数値 (Integer/Long, Decimal)         |
+| 2つの値 | 日付と時刻                              |
+| 2つの値 | オブジェクト; オブジェクトの ID に基づいて等価性をチェックする |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
+2つの値は同じカテゴリにする必要があります(たとえば、1つが数値の場合、もう1つも数値にする必要があります)。
 {{% /alert %}}
 
-### 7.2 Output
+### 7.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| `True` または `False`. | Boolean |
 
-### 7.3 Example
+### 7.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 "mystring" != "mystring"
 ```
 
-the output is:
+出力は
 
 ```java
 False
