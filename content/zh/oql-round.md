@@ -1,26 +1,26 @@
 ---
 title: "OQL ROUND"
-parent: "oql-functions"
+parent: "oql-函数"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `ROUND` function rounds a given numeric expression.
+`ROUND` 函数为给定的数值表达式。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-ROUND ( numeric_expression , length )
+ROUND ( numeric_expression , 长度 )
 ```
 
 ### 2.1 numeric_expression
 
-`numeric_expression` specifies the expression which must be rounded. This expression must be a numeric expression.
+`numeric_expression` 指定了必须旋转的表达式。 此表达式必须是一个数字表达式。
 
-### 2.2 length
+### 2.2 长度
 
-`length` specifies the amount of decimals to which the expression must be rounded.
+`长度` 指定表达式必须旋转的小数值。
