@@ -66,5 +66,5 @@ tags:
 
 * [マイクロフロー](マイクロフロー)
 * [マイクロフロー式](microflows-expressions)
-* [決定を設定する](/studio-how-to8/microflows-how-to-configure-decision) 
+* [決定を設定する](/studio-how-to/microflows-how-to-configure-decision) 
 
