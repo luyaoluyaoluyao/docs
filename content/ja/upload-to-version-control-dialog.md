@@ -1,54 +1,48 @@
 ---
 title: "バージョン管理サーバーにアップロード"
-parent: "version-control-menu"
-menu_order: 70
-tags:
-  - "studio pro"
+parent: "ダイアログ"
 aliases:
-  - /refguide/upload-to-team-server-dialog.html
+  - /refguide7/upload-to-team-server-dialog.html
 ---
 
 ## 1つの紹介
 
-このダイアログボックスを使用して、バージョン管理サーバーにまだ保存されていないアプリをアップロードします。
+このダイアログボックスを使用すると、バージョン管理サーバーにまだ保存されていないアプリケーションをアップロードできます。
 
-![バージョン管理サーバーメニューオプションにアップロード](attachments/upload-to-version-control/upload-to-version-control-server.png)
+![](attachments/upload-to-version-control-dialog/upload-to-version-control-server-dialog.png)
 
-## 2つの場所
+To open the **Upload to Version Control Server** dialog box, go to **Project > More Versioning > Upload to Version Control Server**.
 
-この設定を使用して、アプリを保存する場所を選択します。 以下に3つの選択肢があります。
+![](attachments/upload-to-version-control-dialog/project-more-versioning-upload-to-version-control-server.png)
+
+## 2 アプリはどこにアップロードしますか?
+
+この設定を使用して、アプリを保存する場所を選択します。 これは、チームサーバー、プライベートサーバー(Team Server以外のSVNサーバー)、またはローカルディスクです。
 
 ### 2.1 新しいMendixチームサーバー
 
-[Mendix Team Server](/developerportal/collaborate/team-server) で新しいアプリを作成できます。
-
-* **新しいMendix Team Serverを選択**
-* 新しいTeam Serverアプリとリポジトリの名前を **アプリ名** フィールドに入力します。
-
-    ![New Mendix Team Serverのアプリ名を入力してください](attachments/upload-to-version-control/new-team-server-app.png)
+**App name** フィールドに、新しい Team Server プロジェクトとリポジトリの名前を入力します。 **OK**をクリックすると、新しいリポジトリが [Mendix Team Server](team-server) に作成され、アプリを保存します。
 
 ### 2.2 既存のMendixチームサーバー
 
-{{% alert type="warning" %}}
-リポジトリが空の場合にのみ、既存のリポジトリにアップロードできます
+**Team Server App** リストで、対応するTeam Serverアプリを選択します。 **OK**をクリックすると、選択したリポジトリにアプリがアップロードされます。
+
+{{% alert type="info" %}}
+
+これは、既存のリポジトリが空の場合にのみ機能します。
+
 {{% /alert %}}
-
-* **既存のMendixチームサーバーを選択**
-* リストから **チームサーバーアプリ** を選択します
-
-    ![既存のmendixチームサーバーを選択](attachments/upload-to-version-control/existing-team-server-app.png)
 
 ### 2.3 プライベートサーバー
 
-This option is only available when support for other servers is enabled in **Edit** > **Preferences** > **Advanced** > [Enable private version control](preferences-dialog#enable)).
+**App repository address** フィールドに、アプリをアップロードしたいリポジトリアドレスを入力します。 **OK**をクリックすると、このリポジトリにアプリがアップロードされます。
 
-![上級者向けバージョン管理を有効にする](attachments/upload-to-version-control/enable-private-version-control.png)
+{{% alert type="info" %}}
 
-If you select **Private server**, enter the address of the repository to which you want to upload your app in the **App repository address** field.
+このオプションは、 [環境設定](preferences-dialog#enabled) ダイアログボックスで他のサーバーのサポートが有効になっている場合にのみ使用できます。
 
-![上級者向けバージョン管理を有効にする](attachments/upload-to-version-control/private-server-app.png)
+{{% /alert %}}
 
 ## 3 続きを読む
 
-* [オンプレミスSVNバージョン管理サーバーの操作方法](/howto/collaboration-requirements-management/on-premises-svn-howto)
-* [オンプレミスの Git バージョン管理サーバを操作する方法](/howto/collaboration-requirements-management/on-premises-git-howto)
+* [チームサーバー](team-server)
