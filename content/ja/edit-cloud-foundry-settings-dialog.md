@@ -1,53 +1,52 @@
 ---
-title: "Cloud Foundryの設定を編集"
-parent: "run-menu"
+title: "クラウドファウンドリー設定ダイアログを編集"
+parent: "ダイアログ"
 tags:
   - "Cloud Foundry"
   - "デプロイ"
-  - "studio pro"
 ---
 
 ## 1つの紹介
 
-**Edit Cloud Foundry Settings** メニューオプションでは、アプリケーションをCloud Foundryインスタンスにデプロイするために必要な情報を指定できます。
+このダイアログでは、アプリケーションをCloud Foundryインスタンスにデプロイするために必要な情報を指定します。
 
 {{% alert type="info" %}}
-Cloud Foundryへのデプロイの詳細は [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy)をご覧ください。
+
+Cloud Foundryへのデプロイの詳細については、 [Developer Portal Guide](/developerportal/deploy/cloud-foundry-deploy) の *Cloud Foundry: Deploy* を参照してください。
+
 {{% /alert %}}
 
 ## 2 資格情報の入力
 
-Cloud Foundryデプロイメント用にアプリを構成する最初のステップは、使用したいCloud Foundryアカウントのアカウント情報を入力することです。
-
-![クラウドファウンドリー資格情報を入力してください](attachments/run-menu/cloud-foundry-credentials.png)
+Cloud Foundryデプロイメント用のアプリケーションの構成の最初のステップは、使用したいCloud Foundryインスタンスのアカウント情報を入力することです。
 
 以下で説明されているように画面に詳細を入力し、 **Next** をクリックして指定された資格情報を検証し、次の構成ステップを表示します。
 
-### 2.1 API Endpoint
+### 2.1 API endpoint
 
-デプロイに使用されるCloud Foundryプラットフォームの **APIエンドポイント** を定義するURL。
+これは、デプロイに使用されるCloud Foundryプラットフォームの **APIエンドポイント** を定義するURLです。
 
 ### 2.2 ユーザー名
 
-Cloud Foundryアカウントの **ユーザー名**。
+これはCloud Foundryアカウントの **ユーザー名** です。
 
 ### 2.3 パスワード
 
-Cloud Foundryアカウントの **パスワード**。
+これは Cloud Foundry アカウントの **パスワード** です。
 
-## 3クラウドファウンドリアプリの選択
+「次へ」ボタンを押すと、指定した資格情報が検証され、次の設定ステップが表示されます。
 
-2番目のステップでは、既存のアプリを選択したり、新しいアプリを作成したりすることができます。 ここでMendixアプリが展開されます。
+## 3クラウドファウンドリーアプリの選択
 
-![Cloud Foundryアプリの設定を入力](attachments/run-menu/cloud-foundry-app-settings.png)
+2番目のステップでは、MendixアプリがデプロイされるCloud Foundryインスタンス内のアプリを選択できます。
 
 ### 3.1 組織
 
-使用する **組織** を選択します。 利用可能な組織がない場合は、Cloud Foundryアカウントで組織を構成する必要があります。 Mendix Studio Proから新しいものを作成することはできません。
+使用する **組織** を選択します。 利用可能な組織がない場合は、Cloud Foundryアカウントで組織を構成する必要があります。 Desktop Modelerから新しいものを作成することはできません。
 
 ### 3.2 スペース
 
-使用する **スペース** を選択します。 使用する領域は、Cloud Foundryアカウントに既に設定されている必要があります。 Mendix Studio Proから新しいものを作成することはできません。
+使用する **スペース** を選択します。  利用可能なスペースがない場合は、Cloud Foundryアカウントで設定する必要があります。 Desktop Modelerから新しいものを作成することはできません。
 
 ### 3.3 アプリ
 
@@ -55,16 +54,13 @@ Either **Select existing app** if you want to use an existing app environment, o
 
 #### 3.3.1 既存のアプリを選択
 
-**既存のアプリを選択** すると、ドロップダウンリストから正しいアプリを選択することができます。
+**既存のアプリを選択** すると、ドロップダウンリストから正しいアプリを選択できます。
 
 #### 3.3.2 新しいアプリを作成
 
-**新しいアプリを作成** する場合は、次の手順を実行する必要があります。
+If you **Create new app**, you need to select the **Domain** in which the app will run in the drop-down list, and then enter the **App name** for the app.
 
-1. ドロップダウンからアプリを実行する **ドメイン** を選択します。
-2. アプリの **アプリ名** を入力します。
-
-アプリの URL は {App name}(ドメイン) になります。
+アプリの URL は {App name}(ドメイン) になります
 
 ### 3.4 Buildpack
 
