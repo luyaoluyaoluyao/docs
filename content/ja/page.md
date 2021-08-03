@@ -1,105 +1,203 @@
 ---
 title: "ページ"
 parent: "ページ"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "ページ"
+  - "プロパティ"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
 {{% alert type="info" %}}
 
-このドキュメントでは、ページのプロパティについて説明します。 どのページにどのようなウィジェットを配置できるかの詳細については、 [ページ](pages) を参照してください。
+このドキュメントでは、ページエディタとそのモードで実行できる基本的な機能について説明します。 どのページにどのようなウィジェットを配置できるかの詳細については、 [ページ](pages) を参照してください。
 
 {{% /alert %}}
 
 PagesはMendixアプリケーションのエンドユーザーインターフェイスを定義します。 すべてのページは [レイアウト](layout) に基づいています。 [データ ビュー](data-view) や [データ グリッド](data-grid) などのウィジェットでレイアウトによって定義された "ギャップ" をページに埋めます。
 
-{{% alert type="success" %}}
-Mendixバージョンから 7. 6. ページエディタの **ビューモード** ボタンをクリックすると、デザインしているページのプレビューを見ることができます。 **編集モード** をクリックすると、ページの編集に戻ることができます。
+## 2 基本機能の実行
 
-![編集モードと表示モードボタン](attachments/pages/view-mode.png)
+ページエディタで作業する場合、次の基本機能を実行できます。
+
+* ページを開く
+* ページを作成
+* ページを削除
+* ページに要素を追加
+* 要素のプロパティを表示
+* ページ上の要素を整列
+
+### 2.1 ページを開く
+
+Studio Pro でページを開くには、次の操作を行います。
+
+1. [Project Explorer](project-explorer)で、このページがあるモジュールを開きます。
+
+2. モジュール内のページの場所に移動します。 ページは個々の要素としてリストすることも、 **Pages** フォルダーに含めることもできます:
+
+    ![](attachments/page/project-explorer-pages.png)
+
+3. 開くページを選択してダブルクリックします。
+
+選択したページが開きます。
+
+### 2.2 ページの作成
+
+新しいページを作成するには、次の操作を行います。
+
+1.  In the [Project Explorer](project-explorer), right-click the module or a folder you want to create a page in and select **Add page**:
+
+    {{% image_container width="350" %}}![](attachments/page/add-page.png)
+    {{% /image_container %}}
+
+2.  **ページの作成** ダイアログボックスで、 **ページ名** を入力し、 **ナビゲーションレイアウト** を選択します。
+
+    ![](attachments/page/create-page.png)
+
+3. Click **OK**.
+
+新しいページが作成されます。
+
+### 2.3 ページの削除
+
+ページを削除するには、次の操作を行います。
+
+1. [Project Explorer](project-explorer)で、削除したいページを選択し、右クリックします。
+2. 表示されたリストで、 **Delete** を選択し、ポップアップダイアログの **Delete** をクリックして選択を確認します。
+
+選択したページが削除されます。
+
+### 2.4 ページに要素を追加する {#add-elements}
+
+ページに要素を追加する方法は、ページを編集するモードによって異なります。 モードの詳細については、 [ページエディターモード](#page-editor-modes) セクションを参照してください。
+
+**構造モード**では、ページに要素を追加する方法がいくつかあります。
+
+1.  **ツールボックス**:
+
+    1. **Toolbox** を開き、そこで **ウィジェット** または **Building blocks** タブを選択します。
+
+        ![](attachments/page/toolbox.png)
+
+    2. この要素を追加したい要素を選択し、ページにドラッグ&ドロップします。
+
+2. ページ上部のメニューから
+
+    1. 次のいずれかを実行します。
+
+        I. 頻繁に使用されるウィジェット(データビュー、データグリッド、テンプレートグリッド、またはリストビュー)を選択します。
+
+        ii. **Add ウィジェット**  または **Add building block**をクリックし、リスト内の要素を見つけて、 **Select** をクリックします。
+
+        ![](attachments/page/top-menu.png)
+
+    2. ページ上のドロップゾーンをクリックして、要素を配置します。
+
+3. ドロップゾーンを右クリックすると：<br/>
+
+    a 要素を挿入するドロップゾーンを右クリックします。<br/>
+
+    B ウィジェットまたはBuilding Blockを追加するかを選択します。<br/>
+
+    {{% image_container width="400" %}}![](attachments/page/adding-widget-in-drop-zone.png)
+ {{% /image_container %}}<br/>
+
+    C 追加したい要素を選択し、 **** をクリックして選択を確認します。
+
+**デザインモード**では、ツールボックスに要素を追加できます。 次の操作を行います:
+
+1. **Toolbox** を開き、そこで **ウィジェット** または **Building blocks** タブを選択します。
+2. この要素を追加したい要素を選択し、ページにドラッグ&ドロップします。
+
+### 2.5 ビューイングエレメントのプロパティ {#view-properties}
+
+要素のプロパティを表示するには、次のいずれかを実行します。
+
+1. 要素を選択し、 **プロパティ** ペインを開いて、そのプロパティを表示します。
+2. 要素を右クリックし、表示されるオプションのリストから **プロパティ** を選択します。
+3. 要素をダブルクリックします。
+
+### 2.6 ページに要素を配置 {#arrange-elements}
+
+切り取り/コピー/貼り付けするには、次のショートカットを使用できます。
+
+* <kbd>Ctrl</kbd> + <kbd>Z</kbd> /  <kbd>Ctrl</kbd> + <kbd>C</kbd> / <kbd>Ctrl</kbd> + <kbd>V</kbd>
+* <kbd>Cmd</kbd> + <kbd>Z</kbd> /  <kbd>Cmd</kbd> + <kbd>C</kbd> / <kbd>Cmd</kbd> + <kbd>V</kbd>
+
+{{% alert type="info" %}}
+
+同じMendixバージョンがある場合は、ページ上の要素をStudio Proの異なるアプリケーションに切り取り/コピー/貼り付けできます。 ただし、ページ全体をカット/コピー/ペーストすることはできません。
+
+Studio Pro から Studio に切り取り/コピー/貼り付けはできません。
 
 {{% /alert %}}
 
-## 2つの一般的なプロパティ
+ページから要素を削除するには この要素を選択し、 <kbd>Delete</kbd> を押すか、要素を右クリックし、ドロップダウン メニューで **Delete** を選択します。
 
-{{% snippet file="refguide7/Document+Name+Property.md" %}}
+## 3ページエディタモード {#page-editor-modes}
 
-{{% snippet file="refguide7/Documentation+Property.md" %}}
+ページを編集するには2つの方法があります:
 
-{{% snippet file="refguide7/Document+Class+Property.md" %}}
+* [構造モード](#structure-mode)、ページ要素間の関係を明確に示すデフォルトのエディタ、および各要素に関する追加情報。
+* [Design Mode](#design-mode), a WYSIWYG (**W**hat **Y**ou **S**ee **I**s **W**hat **Y**ou **G**et) editor which better reflects what the page will look like when it is published
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+ページエディタの **デザインモード** ボタンをクリックすると、デフォルトエディタからWYSIWYGエディタに切り替えることができます。 構造モード **** をクリックすると、構造エディタに戻ることができます。
 
-## デザイナープロパティ
+![デザインモードとストラクチャーモードボタン](attachments/page/design-mode.png)
 
-{{% snippet file="refguide7/Canvas+Width+Property.md" %}}
+両方のモードでは、次の操作を行ってページを編集できます:
 
-{{% snippet file="refguide7/Canvas+Height+Property.md" %}}
+* ウィジェットを **Toolbox** ペインからページにドラッグします
+* ウィジェットとその内容をページ上のある場所から別の場所にドラッグする
+* **プロパティ** ペイン内の各ウィジェットのプロパティの表示と編集
+* ウィジェットを右クリックしたときに表示されるメニューから **プロパティ** ダイアログボックスを開く
 
-## 4つの一般プロパティ
+### 3.1 ストラクチャーモード {#structure-mode}
 
-### 4.1 タイトル
+**構造モード**では、ページのウィジェットがレイアウトされ、それらの論理的な関係を見やすくなります。 デザインモードでは使用できない以下の機能があります:
 
-[ページ タイトル ウィジェット](page-title) を使用して表示されるページのタイトル。 ページがポップアップウィンドウに表示されると、ポップアップのタイトルバーにタイトルが表示されます。 タイトルは、異なる目的でページを再利用できるようにするために、フォームが開かれた場所から上書きすることができます。 For example, a [grid create button](grid-new-button) and an [edit button](edit-button) can refer to the same page, but they override the titles to **New** and **Edit**, respectively.
+* ウィジェットは追加情報とともに表示されます。たとえば、データ ビューのデータ ソースや列に割り当てられた幅などです。
 
-### 4.2 レイアウト
+    ![よく使用されるウィジェット](attachments/page/structure-mode-info.png)
 
-これは、このページが基になっている [レイアウト](layout) です。
+* 各ウィジェットには、ドロップゾーンの前/上/下にドロップゾーンがあります。これにより、デザインモードでまとめて表示されたときにウィジェットを正しく配置することが容易になります。
+* ドロップゾーンを右クリックすると、ウィジェットを挿入できます
+* データウィジェットのページ上部にメニューがあります。これらはドラッグできません。 しかし、ウィジェットを選択した後にドロップゾーンをクリックすることで配置されます。
 
-### 4.3 URL
+    ![よく使用されるウィジェット](attachments/page/frequently-used.png)
 
-ページの URL を使用して、直接ページに移動することができます (例えば、外部リンクやブックマークから)。 ページにアクセスすると、ブラウザのアドレスバーに表示されます。 URLが設定されていないページに移動すると、最後に訪問したURLが表示されます。 Note that the full URL of the page will be the base URL of your application followed by `/p` and then by the configured URL of the page (for example, `http://example.mendixcloud.com/p/home_page`).
+* ウィジェットはスタイルを適用せずに表示されます しかし、 **スタイルを表示** ボタンをクリックすると、どのウィジェットがクラスまたはstyleプロパティでスタイリングを適用しているかを確認できます。
 
-トップレベルのデータビュー(パラメータ化されたページ)を持つページにはURLもあります。 そのようなページの URL プロパティには、最後に `{Id}` のパスセグメントが含まれている必要があります。 ブラウザーでは、 `{Id}` セグメントはエンティティの実際の識別子に置き換えられます。
+    ![スタイルボタンを表示](attachments/page/show-styles.png)
 
-簡単な電子商取引アプリケーションでは、次のようにURLを構成できます。
+### 3.2 デザインモード {#design-mode}
 
-* */orders/* – the URL for a page with a data grid for `Orders` (in a browser, the URL will look like `http://example.mendixcloud.com/p/orders/`)
+**デザインモード**で ページは公開時に表示されるように配置されています 要素間の空間的な関係を見やすくするためです
 
-* */order/{Id}* – the URL for a page with data from a particular `Order` (actual URLs in a browser will look like `http://example.mendixcloud.com/p/order/3212449487634321`, wherein `3212449487634321` is the unique identifier of the `Order`)
+例えば、上の [構造モード](#structure-mode)に表示されている例では、タブレットの **デザインモード** では、このようになります。
 
-## 5つのナビゲーションプロパティ
+![タブレットに表示されるデザインモードのページ](attachments/page/design-mode-example.png)
 
-### 5.1 表示:
+**ストラクチャーモード** では使用できない以下の機能があります:
 
-これらはページが表示されるモジュールロールです。 This has an effect on [menu widgets](menu-widgets) and on buttons that are visible only if allowed (for example, the [edit button](edit-button)).
+* ウィジェットはページに表示されるように表示されます – 例えば、構造モードで垂直にレイアウトされた2つのテキストウィジェットは、アプリが公開されると実際には水平にレイアウトされる可能性があります。 これはデザインモードに反映されます
+* ページレイアウトは、異なるデバイスモードで見ることができます – 例えば、電話やブラウザは、適切なデバイスモードボタンをクリックすることによって:
 
-詳細については、 [モジュールセキュリティ](module-security) を参照してください。
+    ![スタイルボタンを表示](attachments/page/design-factor.png)
 
-## 6種類のポップアッププロパティ
+* ウィジェットにはデザインプロパティとCSSクラスとスタイルが適用されており、どのように見えるかを確認できます。
+* 上部のバーに条件付きで表示されているウィジェットを表示するかどうかを切り替えます。
 
-ポップアッププロパティはポップアップページにのみ関連します (コンテンツページではなく)。
+    ![条件付き表示を表示](attachments/page/conditional-visibility.jpg)
 
-### 6.1 幅 (ピクセル)
 
-ポップアップの幅をピクセルで指定します。 0に設定すると、幅が自動的に決まります。
+## 4 続きを読む
 
-*デフォルト値:* 0
-
-### 高さ6.2 (ピクセル)
-
-ポップアップの高さをピクセルで指定します。 0に設定すると、高さが自動的に決まります。
-
-*デフォルト値:* 0
-
-### 6.3 Resizable
-
-ポップアップをリサイズ可能(はい)または固定サイズ(いいえ)にするかを指定します。
-
-*デフォルト値:* はい
-
-### 6.4 アクションを閉じる
-
-ポップアップ閉じボタンの動作を設定します(右上の小さな十字)。 ポップアップ閉じボタンのデフォルトの動作は、変更をロールバックしてポップアップを閉じることです。 ポップアップを閉じるボタンの動作をカスタマイズする場合は、ページ上のボタンを指すことができます。 ポップアップ閉じボタンがクリックされると、選択したボタンがクリックされたように動作します。 選択したボタンが使用できない場合、ポップアップ閉じるボタンはデフォルトの動作に戻ります。
-
- _Default value:_ Default (cancel)
-
-## 7つの用法プロパティ
-
-### 7.1 使用済みマーク
-
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> を押すと、モデラー内の未使用の項目を検索できます。 Javaコードからのみ使用されるページは、モデラーがJavaソースコード内を見ることができないため、使用されないページとして表示されます。
-
-プロパティ **を** に **はい**に設定します は、ドキュメントが暗黙的に使用されていることを指定し、モデラーは未使用のアイテムを検索するときにそれをリストしなくなります。
-
-*デフォルト値:* いいえ
+* [ページ](ページ)
+* [ページのプロパティ](page-properties)
