@@ -1,77 +1,105 @@
 ---
 title: "文件管理器"
 parent: "文件小部件"
+tags:
+  - "studio pro"
+  - "文件管理器"
+  - "文件小部件"
+  - "小部件"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/file-manager.pdf)。
+{{% /报警 %}}
+
+●{% alert type="warning" %}}。本地移动页面不支持文件管理器小部件。{{% /提醒 %}}
+
+## 1 导言
 
 文件管理器用于上传和/或下载文件。
 
-{{% alert type="info" %}}
-
-![](attachments/pages/file-manager.png)
-
-{{% /报警 %}}
+![文件管理器](attachments/file-widgets/file-manager.png)
 
 必须将其置于与实体System.FileDocument 或其专门化相关的数据视图内。
 
-## 常规属性
+{{% alert type="info" %}}
+当通过文件管理器上传文件时，文件文件对象将立即执行。
+{{% /报警 %}}
 
-### 类型
+## 2 属性
 
-此属性表示终端用户如何与文件管理器交互。
+下面的图像是文件管理器属性的示例：
 
-| 值    | 描述                |
-| ---- | ----------------- |
-| 上传   | 文件管理器只能用于上传文件。    |
-| 下载   | 文件管理器只能用于下载文件。    |
-| 两者都是 | 文件管理器可以用于上传和下载文件。 |
+{{% image_container width="250" %}}![文件管理器属性](attachments/file-widgets/file-manager-properties.png)
+{{% /image_container %}}
 
-_默认值：_
+文件管理器属性由以下部分组成：
 
-### 最大文件大小(MB)
+* [常用的](#common)
 
-此属性决定了上传文件的最大大小(以兆字节为单位)。
+* [设计属性](#design-properties)
 
-_默认值：_ 5
+* [编辑性](#editability)
 
-### 允许的扩展
+* [A. 概况](#general)
 
-您可以指定允许上传的文件扩展名。 如果没有指定扩展名, 则允许所有文件扩展名。 用半冒号分隔多个扩展，例如 `txt;doc`
+* [标签](#label)
 
-如果选择了一个不允许的扩展名文件, 系统文本(文件管理器 > 不正确的文件扩展名) 将在文件管理器下显示。
+* [可见性](#visibility)
 
-### 在浏览器中显示文件
+### 2.1 共同部分 {#common}
 
-此属性表示该文件是否会在浏览器中显示，而不是下载。
+{{% snippet file="refguide8/common-section-link.md" %}}
 
-_默认值：_ False
+### 2.2 设计属性科 {#design-properties}
 
-{{% snippet file="refguid7/Label+Property.md" %}}
+{{% snippet file="refguide8/design-section-link.md" %}}
 
-## 可编辑属性
+### 2.3 可编辑部分 {#editability}
 
-{{% snippet file="refguide7/Editable+Property.md" %}}
+{{% snippet file="refguide8/editability-section-link.md" %}}
 
-{{% snippet file="refguide7/Condition+Property.md" %}}
+### 2.4 一般部分 {#general}
 
-## 可见性属性
+#### 2.4.1 Type
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+**类型** 属性表示最终用户将如何使用文件管理器。
 
-{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+| 值          | 描述                |
+| ---------- | ----------------- |
+| 上传         | 文件管理器只能用于上传文件。    |
+| 下载         | 文件管理器只能用于下载文件。    |
+| 两者都 *(默认)* | 文件管理器可以同时上传和下载文件。 |
 
-## 共同属性
+#### 2.4.2 最大文件大小 (MB)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+**最大文件大小(MB)** 决定可上传的文件的最大大小(以兆字节为单位)。
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+默认： *5*
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+#### 2.4.3 允许的扩展
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+您可以指定用户可以上传的文件扩展名。 如果没有指定扩展名, 则允许所有文件扩展名。 用半冒号分隔多个扩展，例如 `txt;doc`
 
-## 相关文章
+如果选择了一个不允许的扩展名文件, a [系统文本](system-texts) for **File Manager/image viewer** > **错误：不正确的文件扩展名** 将显示在文件管理器下。
 
-*   [数据视图](data-view)
-*   [实体](实体)
-*   [社会联系](关联)
+#### 2.4.4 在浏览器中显示文件
+
+**在浏览器中显示文件** 表示是否会在浏览器中显示文件而不是下载。
+
+默认： *False*
+
+### 2.5 标签部分 {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+### 2.6 可见性科 {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 阅读更多
+
+* [页](page)
+* [文件部件](文件小部件)
+* [页面编辑器中常见的属性](common-widget-properties)
+* [系统文本](system-texts)
