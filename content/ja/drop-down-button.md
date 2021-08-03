@@ -1,12 +1,12 @@
 ---
-title: "Drop-Down Button"
-parent: "button-widgets"
+title: "ドロップダウンボタン"
+parent: "ボタン-ウィジェット"
 ---
 
 
-Clicking a drop down button shows a list of items. Each item has a caption and an image. Clicking an item may execute a microflow or open a page.
+ドロップダウンボタンをクリックすると、項目一覧が表示されます。 各アイテムにはキャプションと画像があります。 アイテムをクリックすると、マイクロフローを実行したり、ページを開いたりすることができます。
 
-## Button properties
+## ボタンのプロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -18,7 +18,7 @@ Clicking a drop down button shows a list of items. Each item has a caption and a
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -28,15 +28,15 @@ Clicking a drop down button shows a list of items. Each item has a caption and a
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Items
+## アイテム
 
-The dropdown buttons contains a list of items. Each item has the following properties.
+ドロップダウンボタンには、アイテムのリストが含まれています。 各項目には以下のプロパティがあります。
 
-### Action
+### アクション
 
-The action of a drop down button item can specify a page or a microflow to execute when the item is clicked.
+ドロップダウンボタンアイテムのアクションは、アイテムがクリックされたときに実行するページまたはマイクロフローを指定できます。
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
