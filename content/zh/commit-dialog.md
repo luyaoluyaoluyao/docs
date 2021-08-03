@@ -1,48 +1,48 @@
 ---
-title: "Commit"
-parent: "version-control-menu"
+title: "提交"
+parent: "版本控制-菜单"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The commit dialog is used for committing changes to the Team Server. You can enter a message and, if applicable, select related stories.
+提交对话框用于提交对团队服务器的更改。 您可以输入一条消息，如果适用，请选择相关的故事。
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-stories.png)
+![版本控制菜单](attachments/version-control-menu/commit-dialog-stories.png)
 
-## 2 Branch
+## 2 分支
 
-At the top of the dialog box you will see the branch which you are committing. This will be one of the following:
+在对话框的顶端，您将看到您提交的分支。 这将是以下内容之一：
 
-| Branch Description                                                          | Notes                                   |
-| --------------------------------------------------------------------------- | --------------------------------------- |
-| ![Version Control Menu](attachments/version-control-menu/commit-main.png)   | you are committing the main line        |
-| ![Version Control Menu](attachments/version-control-menu/commit-branch.png) | you are committing the specified branch |
+| 分支描述                                                          | 注          |
+| ------------------------------------------------------------- | ---------- |
+| ![版本控制菜单](attachments/version-control-menu/commit-main.png)   | 您正在提交主行    |
+| ![版本控制菜单](attachments/version-control-menu/commit-branch.png) | 您正在提交指定的分支 |
 
-## 3 Message
+## 3 條消息
 
-Enter a message describing the changes you have made. This message may contain multiple lines. If you want to make the commit using the keyboard you can press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
+输入描述您所做更改的消息。 此消息可能包含多行。 如果您想要使用键盘提交，您可以按 <kbd>Ctrl</kbd>+<kbd>输入</kbd>。
 
-## 4 Commit Tabs
+## 4 个提交标签
 
-### 4.1 Related Stories {#stories}
+### 4.1 相关故事 {#stories}
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-stories.png)
+![版本控制菜单](attachments/version-control-menu/commit-dialog-stories.png)
 
-Tick the boxes next to the stories that are related to your commit. We recommend committing a small number of changes at a time, so there is usually just one related story.
+勾选与您的提交相关的故事旁边的方框。 我们建议每次进行少量的更改，因此通常只有一个相关的故事。
 
-### 4.2 Changes in Model
+### 4.2 模式的更改
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-model-changes.png)
+![版本控制菜单](attachments/version-control-menu/commit-dialog-model-changes.png)
 
-If there are changes in the model this tab shows a summary of those changes. See [Changes Pane](changes-pane) for a description of how changes are reported in Studio Pro.
+如果模型中有更改，此选项卡将显示这些更改的摘要。 在 Studio Pro中如何报告更改的描述，请参阅 [Changes Pane](changes-pane)。
 
-### 4.3 Changes on Disk
+### 4.3 磁盘上的更改
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-disk-changes.png)
+![版本控制菜单](attachments/version-control-menu/commit-dialog-disk-changes.png)
 
-If there are changes on disk this page shows a summary of those changes. Click **Open containing folder** to open the folder containing the selected file in Windows Explorer.
+如果磁盘上有更改，此页将显示这些更改的摘要。 点击 **打开包含文件夹** 以打开包含所选文件的 Windows Explorer 文件夹。
 
-The tab page will be hidden if there are no disk changes. Often, there are model changes but the only change on disk is the app file (*.mpr*) reflecting these model changes. In this case, it will also be hidden, because it does not add useful information.
+如果没有磁盘更改，标签页将被隐藏。 经常有模型更改，但是磁盘上唯一的更改是反映这些模型更改的应用程序文件(*.mpr*)。 在这种情况下，它也会被隐藏，因为它没有增加有用的信息。
