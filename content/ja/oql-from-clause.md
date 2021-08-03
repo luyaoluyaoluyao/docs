@@ -1,7 +1,13 @@
 ---
 title: "条項からの OQL"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-from-clause.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
@@ -17,15 +23,15 @@ FROM
     [ AS ] from_alias ]
 
     {
-        { INDER | { { LEFT | RIGHT | FULL } [ OTER ] } JOIN
+        { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } JOIN
         entity_path [ AS ]
-        ON <constraint>
+        [ ON <constraint> ]
     } [ ,. .n
 ```
 
 ## 2 entity_name
 
-データを取得するエンティティを指定します。
+データを取得するエンティティを指定します。 エンティティ名は必要に応じて二重引用符でカプセル化することができます。 エンティティ名が ( `Order` や `Group`のような) 予約済みの OQL 単語である場合、二重引用符は必須です。
 
 ## 3 ( sub_oql_query )
 
@@ -53,6 +59,8 @@ FROM
 これは、結合するエンティティと、 `FROM` 節の以前に定義されたエンティティからこのエンティティへのパスを指定します。
 
 パス `Crm.Customer/Crm.Customer_Address/Crm.Address` は以前に定義されたエンティティ **Crm.Customer** から新しいエンティティ **Crm.Address** までのパスを定義します。
+
+`entity_name`と同様に、二重引用符を使用できます。
 
 ### 4.2 \[ ON \<constraint\>\]
 
