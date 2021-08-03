@@ -1,22 +1,65 @@
 ---
-title: "Menu Bar"
+title: "メニューバー"
 parent: "menu-widgets"
+menu_order: 1
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+{{% alert type="warning" %}}メニューバーウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-The menu bar widget shows a configured menu in the form of a horizontal bar with items. Items can have subitems in which case the main item can be expanded. Subitems cannot have subitems again. In the end a [Menu Item](menu-item) points to either the page or the microflow that will opened or started when the item is clicked.
+## 1つの紹介
 
-![](attachments/pages/menu-bar.png)
+メニューバーには、 [ナビゲーション プロファイル](navigation#profiles) または [メニュー](menu) ドキュメントのメニュー アイテムが水平バーの形式で表示されます。 これらのアイテムは [メニューソース](#menu-source) によって決定され、 [ナビゲーション](navigation) または [メニュー](menu)で構成されます。
 
-## 2 Common Properties
+メニューバーは、メニュー項目がサブ項目を持つことができることを意味する2つのレベル深く行くことができます。 メニュー項目とそのプロパティの詳細については、 [メニュー](menu) を参照してください。
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+![メニューバー](attachments/menu-widgets/menu-bar.png)
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+## 2つのプロパティ
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+メニューバーのプロパティの例を以下の画像に示します。
 
-## 3 General Properties
+{{% image_container width="250" %}}![](attachments/menu-widgets/menu-bar-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Menu+Source+Properties.md" %}}
+メニューバーのプロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+* [デザインプロパティ](#design)
+* [全般](#general)
+
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide/common-section-link.md" %}}
+
+### 2.2 デザインプロパティセクション {#design}
+
+{{% snippet file="refguide/design-section-link.md" %}}
+
+### 2.3 一般セクション {#general}
+
+#### 2.3.1 メニュー ソース {#menu-source}
+
+メニュー ウィジェットに表示されているアイテムは **メニュー ソース** によって決定されます。 可能なメニューソースは以下の表に記載されています:
+
+| 値                        | 説明                                                                    |
+| ------------------------ | --------------------------------------------------------------------- |
+| プロジェクトナビゲーション  *(デフォルト)* | メニュー アイテムは、 [ナビゲーション](navigation#profiles) で定義されたプロファイルのいずれかから取得されます。 |
+| メニュードキュメント               | メニュー項目は [メニュー](menu) ドキュメントから取得されます。                                  |
+
+#### 2.3.2 プロファイル
+
+[メニュー ソース](#menu-source) が **プロジェクト ナビゲーション** に設定されている場合にのみ使用できます。 **Profile** プロパティは、ウィジェットに使用する [ナビゲーション プロファイル](navigation#profiles) を指定します。
+
+デフォルト: *レスポンシブ*
+
+#### 2.3.3 メニュー
+
+[メニュー ソース](#menu-source) が **メニュー ドキュメント** に設定されている場合にのみ使用できます。 **メニュー** プロパティは、ウィジェットに使用される [メニュー](menu) ドキュメントを指定します。
+
+## 3 続きを読む
+
+* [ページ](page)
+* [メニューウィジェット](menu-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
