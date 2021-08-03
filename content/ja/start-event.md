@@ -1,21 +1,21 @@
 ---
-title: "Start Event"
-parent: "events"
+title: "イベントを開始"
+parent: "イベント"
 menu_order: 1
 tags:
   - "studio pro"
-  - "start event"
-  - "event"
+  - "イベントの開始"
+  - "イベント"
 ---
 
-## 1 Introduction
-A start event defines the starting point of a microflow or a nanoflow and is represented by a green circle. A flow can contain only one start event.
+## 1つの紹介
+start イベントは、マイクロフローまたはナノフローの開始点を定義し、緑色の円で表されます。 フローには、1 つの開始イベントしか含めることができません。
 
-Link the start event to an activity with which you would like to start the microflow using a [sequence flow](sequence-flow).
+開始イベントを [シーケンスフロー](sequence-flow)を使用してマイクロフローを開始したいアクティビティにリンクします。
 
 ![](attachments/events/start-event.png)
 
-## 2 Read More
+## 2 続きを読む
 
-* [End Event](end-event)
-* [Sequence Flow](sequence-flow)
+* [イベントを終了](end-event)
+* [シーケンスフロー](sequence-flow)
