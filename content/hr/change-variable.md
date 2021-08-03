@@ -8,10 +8,6 @@ tags:
   - "variable activities"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/change-variable.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
 {{% /alert %}}
@@ -21,6 +17,8 @@ This activity can be used in both **Microflows** and **Nanoflows**.
 Change variable allows you to change the value of an existing variable. For example, if you have a *$Discount* variable that gives customers a 50% discount on certain items, you can change this variable and assign a new value to it. You can use this value to give new customers a bigger discount:
 
 ![Change Variable](attachments/variable-activities/change-variable.png)
+
+
 
 ## 2 Properties
 
@@ -45,7 +43,7 @@ The new value for the variable. The value is entered using an [expression](expre
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
 ## 5 Read More
 
