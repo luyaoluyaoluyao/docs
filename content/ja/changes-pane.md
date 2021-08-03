@@ -1,152 +1,152 @@
 ---
-title: "Changes Pane"
-parent: view-menu
+title: "ペインの変更"
+parent: 表示メニュー
 menu_order: 10
-description: "Describes the Changes pane in Mendix Studio Pro."
+description: "Mendix Studio Proの変更ペインについて説明します。"
 tags:
   - "Studio Pro"
-  - "changes"
-  - "changes pane"
+  - "変更"
+  - "変更ペイン"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-For version control enabled apps (apps with Team Server or other SVN servers), the **Changes** pane shows the local changes to the app since the last commit. You can commit changes, update to the latest revision, and view the history from it.
+バージョン管理が有効になっているアプリ (Team Serverまたは他のSVNサーバーを持つアプリ) **変更** ペインには、最後のコミット以降のアプリのローカル変更が表示されます。 変更をコミットしたり、最新のリビジョンに更新したり、そこから履歴を表示することができます。
 
-This pane consists of the following:
+このペインは以下で構成されています:
 
-* The [top bar](#top-bar) contains various buttons, such as **Back**, **Go to**, **Tasks**.
-* The [top level](#top-level) shows you a list of documents that were changed, for example, a page where a widget was deleted
-* The [zoomed-in level](#zoomed-in-level) of the pane is split into two grids, with elements in the left grid and changed or conflicting properties of the selected element in the right grid
+* トップバー [](#top-bar) には、 **戻る**、 ****、 **タスク**などの様々なボタンが含まれています。
+* [トップレベル](#top-level) には、ウィジェットが削除されたページなど、変更されたドキュメントの一覧が表示されます。
+* ペインの [ズームインレベル](#zoomed-in-level) は 2 つのグリッドに分割されます。 左側のグリッドにある要素と、右側のグリッド内で選択した要素のプロパティが変更または競合しています。
 
-## 2 Top Bar {#top-bar}
+## 2つのトップバー {#top-bar}
 
-The top bar of the top level of the **Changes** pane consists of various buttons:
+**変更** ペインのトップレベルの上部のバーは、さまざまなボタンで構成されています。
 
-![Top Bar of the Changes Pane](attachments/changes-pane/changes-top-bar.png)
+![変更ペインの上部バー](attachments/changes-pane/changes-top-bar.png)
 
-Buttons allow you to perform the following actions:
+ボタンを使用すると、次の操作を実行できます。
 
-* **Back** – goes back up one level; at the top level, this button is disabled
-* **Go to** – opens a zoomed-in level and opens up the selected document
-* **Tasks** – allows you to perform specific actions such as reverting the change to the latest commit, or solving conflicts
+* **戻る** – 1つ上のレベルに戻る; 最上位のレベルでは、このボタンは無効になっています
+* **** に移動 - ズームインレベルを開き、選択したドキュメントを開く
+* **タスク** - 変更を最新のコミットに戻す、競合を解決するなど、特定のアクションを実行できます
 * **Update** – retrieves latest changes from the repository (for more information on the update concept, see the [Update](version-control#update) section in *Version Control*)
 * **Commit** – commits your changes to the repository and starts a new revision (for more information on the commit concept, see the [Commit](version-control#commit) section in *Version Control*)
 * **History** – opens the **History** dialog box that shows the changes made on the current development line of the app (for more information on history, see [History](history-dialog))
 
-The **Back** and **Go to** buttons are common throughout all the levels, while other buttons will only apply to a specific one.
+**Back** と **** に移動するボタンは、すべてのレベルで共通です。 他のボタンは特定のボタンにのみ適用されます。
 
-## 3 Top Level {#top-level}
+## 3つのトップレベル {#top-level}
 
-The top level of the **Changes** pane is a grid listing changed documents, for example, a page or a nanoflow:
+**変更点** ペインの最上位レベルは、変更された文書をリストするグリッドです。たとえば、ページやナノレベルなどです。
 
-![Top Level of the Changes Pane](attachments/changes-pane/changes-top-level.png)
+![変更ペインの最上位レベル](attachments/changes-pane/changes-top-level.png)
 
-The grid contains information on the following items:
+グリッドには、次の項目に関する情報が含まれています:
 
-* **Status** – shows the type of changes applied to the document. The status can be one of the following:
-  * **Added** – a new document was created; indicated with a green circle
-  * **Modified** – changes to an existing document were made, such as adding or deleting elements or changing element properties; indicated with a yellow circle
-  * **Deleted** – a document was deleted; indicated with a red circle with a minus
-  * **Conflicted** – a document contains conflicting changes; indicated with a red circle with an exclamation mark
-* **Item** – indicates a name of the changes document
-* **Module** – a module where the changed document is
-* **Details** – can contain details on the status, for example, when you have conflicting changes
+* **ステータス** – 文書に適用される変更の種類を表示します。 ステータスは次のいずれかになります:
+  * **追加** - 新しいドキュメントが作成されました。緑色の円で示されます。
+  * **Modified** – 要素の追加や削除、要素のプロパティの変更など、既存のドキュメントへの変更が行われました。 黄色の丸で示されています
+  * **Deleted** – ドキュメントが削除されました; マイナスの赤い丸印で示されます
+  * **競合している** - 文書には競合する変更が含まれています。感嘆符付きの赤い丸で示されています。
+* **アイテム** - 変更ドキュメントの名前を示します
+* **モジュール** - 変更された文書があるモジュール
+* **詳細** - 競合する変更がある場合など、状況の詳細を含めることができます
 
-## 4 Zoomed-In Level {#zoomed-in-level}
+## 4 ズームイン レベル {#zoomed-in-level}
 
-You can zoom into a changed or conflicting document, by doing one of the following:
+次のいずれかを実行することで、変更または競合するドキュメントにズームできます。
 
-* Double-click a line in the grid on the top level
-* Click the **Go to** button
-* Press <kbd>Enter</kbd>
+* トップレベルのグリッド内の線をダブルクリックします
+* **** ボタンをクリックします
+* <kbd>Enter</kbd> を押します
 
-To exit the zoomed-in level, click the **Back** button or press <kbd>Backspace</kbd>.
+ズームインを終了するには、 **Back** ボタンをクリックするか、 <kbd>Backspace</kbd> を押します。
 
-There are three types of zoomed-in levels:
+ズームインレベルには3種類があります。
 
-* [For modified documents](#modified)
-* [For conflicting documents](#conflicts)
-* [For merging document](#merge-mode)
+* [変更されたドキュメント用](#modified)
+* [競合するドキュメントのため](#conflicts)
+* [ドキュメントをマージするには](#merge-mode)
 
-Each of them contains their own set of buttons.
+それぞれ独自のボタンが含まれています。
 
-### 4.1 Zoomed-In Level for Modified Documents {#modified}
+### 4.1 変更されたドキュメントのズームインレベル {#modified}
 
-The zoomed-in level for modified documents is split into two grids, with elements on the left and changed properties on the right. If no properties were changed for an element, for example, when an element was added or deleted, the right grid will be empty:
+変更されたドキュメントのズームインレベルは、左側に要素があり、右側にプロパティが変更された2つのグリッドに分割されます。 要素のプロパティが変更されていない場合、例えば要素が追加または削除されたとき、右のグリッドは空になります:
 
-![No Properties to Show](attachments/changes-pane/element-added.png)
+![表示するプロパティがありません](attachments/changes-pane/element-added.png)
 
-The toolbar at this level contains the following buttons:
+このレベルのツールバーには、次のボタンがあります。
 
-* **Back** – takes you back to the top level
-* **Go to** – takes you directly to the changed element
-* **Show purely visual changes** – shows visual changes, such as dragging an entity to a new location in the domain model
+* **戻る** – トップレベルに戻る
+* **** に移動 – 変更された要素に直接移動します
+* **純粋に視覚的な変更を表示する** – ドメインモデル内の新しい場所にエンティティをドラッグするなど、視覚的な変更を表示します
 
-The left side of the grid contains the following columns:
+グリッドの左側には、次の列があります。
 
-* **Element** – the name of the modified element
-* **Mine** – indicates the status of the change on the current development line
+* **要素** – 変更された要素の名前
+* **Mine** – 現在の開発ラインの変更状況を示します
 
-### 4.2 Zoomed-In Level for Conflicted Documents {#conflicts}
+### 4.2 競合するドキュメントのズームインレベル {#conflicts}
 
-The zoomed-in level for conflicted documents is split into two grids, with conflicting elements on the left and conflicting properties on the right.
+競合するドキュメントのズームインレベルは、左側に競合する要素と右側に競合するプロパティを持つ2つのグリッドに分割されます。
 
 {{% alert type="info" %}}
-Mendix 9 has an improved conflict resolution method compared to Mendix 8. You can turn this off in the **Edit > Preferences > New features** dialog. If this is turned off, you should refer to the Mendix 8 version of this documentation [Changes Pane - Mendix 8](/refguide8/changes-pane#conflicts).
+Mendix 9はMendix 8と比較して競合解決方法が改善されています。 これは **編集 > 環境設定 > 新機能** ダイアログでオフにできます。 これがオフの場合は、このドキュメントのMendix 8バージョンを参照してください [変更ペイン - Mendix 8](/refguide8/changes-pane#conflicts)。
 {{% /alert %}}
 
-There are two sorts of conflict:
+2種類の競合があります:
 
-* For a standard conflict a change has been made to the same element in each branch and Mendix cannot automatically choose which is the desired change after the merge
-* For a *list order* conflict, denoted by the phrase *(list order)*, Mendix can accept both changes but cannot automatically decide the order they should appear in the document
+* 標準の競合の場合、各ブランチ内の同じ要素に変更が加えられ、Mendixはマージ後に望ましい変更を自動的に選択することはできません。
+* *リストの注文* の競合については、 *(リストの順序)*というフレーズで表されます。 Mendixは両方の変更を受け入れることができますが、ドキュメントに表示する順序を自動的に決定することはできません。
 
-The toolbar at this level contains the following buttons:
+このレベルのツールバーには、次のボタンがあります。
 
-* **Back** – takes you back to the top level
-* **Go to** – takes you directly to the selected element
-* **Merge** – start the merge process — instructions for resolving conflicts are in the document [New Merge Algorithm with Fine-Grained Conflict Resolution](new-merge-algorithm)
-* **Show purely visual changes** – shows visual changes, such as dragging an entity to a new location in the domain model
+* **戻る** – トップレベルに戻る
+* **** に移動 - 選択した要素に直接移動します
+* **Merge** - マージプロセスを開始します — 競合を解決するための命令はドキュメント内にあります [微細な競合解決を伴う新しいマージアルゴリズム](new-merge-algorithm)
+* **純粋に視覚的な変更を表示する** – ドメインモデル内の新しい場所にエンティティをドラッグするなど、視覚的な変更を表示します
 
-The grid on the left contains the following columns
+左側のグリッドには次の列があります
 
-* **Element** – the name of the modified element or a header identifying whether the subsequent elements conflict or have been accepted
-* **Mine** – indicates the status of the change on the current development line
-* **Theirs** – the status of the incoming change on another development line
+* **要素** - 変更された要素または後続要素が競合するかどうかを識別するヘッダーの名前
+* **Mine** – 現在の開発ラインの変更状況を示します
+* **Theirs** – 別の開発ラインでの変更の状況
 
-The grid on the right contains the following columns:
+右側のグリッドには次の列が含まれています。
 
-* **Property** – the property that was modified
-* **Original** – the original property value
-* **Mine** – the change to the property that was made on the current development line
-* **Theirs** – the change to the property that was made on the other development line
+* **プロパティ** - 変更されたプロパティ
+* **オリジナル** – 元のプロパティ値
+* **Mine** – 現在の開発ラインで行われたプロパティの変更
+* **Theirs** – 他の開発ラインで行われたプロパティの変更
 
-![Example of conflicts format of changes pane](attachments/changes-pane/new-merge-algorithm-conflicts.png)
+![変更ペインの競合形式の例](attachments/changes-pane/new-merge-algorithm-conflicts.png)
 
-### 4.3 Merge Mode{#merge-mode}
+### 4.3 マージモード{#merge-mode}
 
-When you click **Merge** to start the merge mode, you will see options to resolve the conflicts. For more information on resolving resolving conflicts see [New Merge Algorithm with Fine-Grained Conflict Resolution](new-merge-algorithm).
+**Merge** をクリックしてマージモードを開始すると、競合を解決するオプションが表示されます。 競合の解決に関する詳細については、 [微粒子競合の解決を伴う新しいマージアルゴリズム](new-merge-algorithm) を参照してください。
 
-The document you are working on can be edited while in merge mode to allow you to resolve the conflict successfully.
+作業中のドキュメントをマージモードで編集して、競合を正常に解決することができます。
 
-The toolbar will change to show the following buttons:
+ツールバーに次のボタンが表示されるように変更されます:
 
-* **Back** – takes you back to the top level
-* **Go to** – takes you directly to the selected element
-* **Resolve using Mine** – resolves the conflict by choosing the changes shown in the **Mine** column and discarding the changes shown in the **Theirs** column
-* **Resolve using Theirs** – resolves the conflict by choosing the changes shown in the **Theirs** column and discarding the changes shown in the **Mine** column
-* **Mark as Resolved** – either:
-    * keeps things as they were before the **Mine** and the **Theirs** changes were applied
-    * in the case of a *list order* conflict, takes the order of widgets as it is currently shown in the document (you can edit the document to ensure this is correct)
-* **Accept and Exit** – the merge is finalized and the document is saved in its merged form with no conflicts
-* **Cancel** – end merge mode and leave the document with one or more unresolved conflicts
-* **Show purely visual changes** – shows visual changes, such as dragging an entity to a new location in the domain model
+* **戻る** – トップレベルに戻る
+* **** に移動 - 選択した要素に直接移動します
+* **Mine** を使用して解決する - **Mine** 列に表示されている変更を選択し、 **Theirs** 列に表示されている変更を破棄することで競合を解決します。
+* **Theirs** を使用して解決する - **Theirs** 列に表示されている変更を選択し、 **Mine** 列に表示されている変更を破棄することで競合を解決します。
+* **解決済みにする** – 以下のいずれか:
+    * **Mine** と **Theirs** の変更が適用される前の状態を保持します
+    * *リストオーダー* の競合の場合 は現在ドキュメントに表示されているようにウィジェットの順序を取ります（正しいことを確認するためにドキュメントを編集できます）
+* **Accept and Exit** - マージが完了し、ドキュメントがコンフリクトなしでマージされた形式で保存されます
+* **Cancel** - マージモードを終了し、1つ以上の未解決の競合をドキュメントに残します
+* **純粋に視覚的な変更を表示する** – ドメインモデル内の新しい場所にエンティティをドラッグするなど、視覚的な変更を表示します
 
-The left and right panes will contain the same information as in [Zoomed-In Level for Conflicted Documents](#conflicts), above.
+左右のペインには、上記の [Zoomed-In Level for Conflicted Documents](#conflicts)と同じ情報が含まれます。
 
-![Example of conflicts resolution format of changes pane](attachments/changes-pane/new-merge-algorithm-resolve-mode.png)
+![変更ペインの競合解決フォーマットの例](attachments/changes-pane/new-merge-algorithm-resolve-mode.png)
 
-## 5 Read More
+## 5 続きを読む
 
 * [Studio Pro Overview](studio-pro-overview)
-* [Version Control](version-control) 
+* [バージョン管理](version-control) 
