@@ -10,14 +10,10 @@ tags:
   - "range search field"
   - "grid"
 aliases:
-  - /refguide8/comparison-search-field.html
-  - /refguide8/drop-down-search-field.html
-  - /refguide8/range-search-field.html
+  - /refguide/comparison-search-field.html
+  - /refguide/drop-down-search-field.html
+  - /refguide/range-search-field.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/search-bar.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -55,7 +51,7 @@ Search field properties consist of the following sections:
 
 ### 3.1 Common Section {#common}
 
-Properties as **Name**, **Caption**, and **Type** are common for most of the widgets. {{% snippet file="refguide8/common-section-link.md" %}}
+Properties as **Name**, **Caption**, and **Type** are common for most of the widgets. {{% snippet file="refguide/common-section-link.md" %}}
 
 However, there are additional properties that are described in the sections below.
 
@@ -69,7 +65,7 @@ Search input formatting must be an exact day. Custom date formatting is not limi
 
 {{% /alert %}}
 
-{{% snippet file="refguide8/custom-date-format-tokens.md" %}}
+{{% snippet file="refguide/custom-date-format-tokens.md" %}}
 
 #### 3.1.2 Placeholder Text
 
@@ -94,13 +90,7 @@ Many input widgets (like text boxes and drop-down widgets) can be connected to t
 
 In the first case, we say the widget is connected to an attribute, and in the second case it is connected to an attribute path.
 
-{{% alert type="warning" %}}
-
-In Mendix 8.0, an input widget connected to an attribute path must be read-only. Studio Pro will check this for you.
-
-In Mendix 8.1 and above, you can edit attributes presented in input widgets over a path.
-
-{{% /alert %}}
+You can edit attributes presented in input widgets over a path.
 
 #### 3.2.2 Comparison
 
