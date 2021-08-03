@@ -1,29 +1,29 @@
 ---
-title: "Rules"
-parent: "resources"
+title: "规则"
+parent: "资源"
 menu_order: 30
 tags:
-  - "Microflow"
-  - "Nanoflow"
-  - "Decision"
-  - "Logic"
+  - "微流"
+  - "纳诺夫low"
+  - "决 定"
+  - "逻辑值"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A rule is a special kind of microflow. Its result should be an enumeration or a Boolean and it can be used in a [decision](decision) to make a decision based on that result. The idea is that complicated decisions can be consolidated in rules and reused in various places.
+规则是一种特殊类型的微流。 其结果应该是枚举或布尔值，它可以用于 [决定](decision) 根据该结果做出决定。 这样做的想法是，复杂的决定可以合并到规则中，并在各地重新使用。
 
-## 2 Differences from Microflows
+## 2 与微流量的差异
 
-Rules are very similar to microflows; see the documentation on [Microflows](microflows) for more information on how to build a rule. There are only a few differences between rules and microflows:
+规则非常类似于微流；请参阅关于 [微流](microflows) 的文档以了解如何构建一条规则。 规则和微流之间只有少数差异：
 
-*   A rule can only be used in a decision
-*   The return type has to be Boolean or enumeration
-*   A rule cannot change data in the database; the actions to create, delete, change and rollback objects are not available in rules
-*   A rule cannot interact with the client; the actions to show or close forms, show messages, send validation feedback and download files are not available in rules
-*   A rule cannot call web services, generate documents or import XML
+*   规则只能用于决定
+*   返回类型必须是布尔值或枚举值
+*   规则不能更改数据库中的数据；规则中不可用创建、删除、更改和回滚对象的操作
+*   规则不能与客户端交互； 显示或关闭表单、显示消息、发送验证反馈和下载文件的操作在规则中不可用
+*   规则不能调用 web 服务、生成文档或导入 XML
 
-## 3 Read More
+## 3 阅读更多
 
-* [Microflows](microflows)
-* [Decision](decision)
+* [微型流动](微流)
+* [决 定](决 定)
