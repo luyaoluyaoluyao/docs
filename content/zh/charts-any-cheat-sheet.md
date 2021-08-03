@@ -1,25 +1,25 @@
 ---
-title: "Any Chart Cheat Sheet"
-parent: "chart-widgets"
-description: "Shows, with examples, how the most common types of chart can be configured using the Any Chart Widget"
+title: "任何图表作弊表"
+parent: "图表部件"
+description: "以示例显示如何使用任何图表小部件配置最常见的图表类型"
 menu_order: 50
 tags:
-  - "Any Chart"
-  - "Examples"
-  - "Charts"
-  - "Widget"
+  - "任何图表"
+  - "示例："
+  - "图表"
+  - "小部件"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This *cheat sheet* lists the most common chart types, together with a visual sample and the json required to create them. More chart types can be found at [https://plot.ly/javascript/](https://plot.ly/javascript/).
+此 *作弊表* 列出了最常见的图表类型，以及一个视觉示例和创建它们所需的json。 更多图表类型可以在 [https://plot.ly/javascript/](https://plot.ly/javascript/) 中找到。
 
-## 2 Basic Charts
+## 2 基本图表
 
-### 2.1 Line Chart {#line-chart}
+### 2.1 线图 {#line-chart}
 
-![LineChartProperties](attachments/charts/line-chart2.png)
+![线性图属性](attachments/charts/line-chart2.png)
 
 ``` json
 [
@@ -36,39 +36,39 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 ]
 ```
 
-### 2.2 Bubble Chart
+### 2.2 泡泡泡图
 
-![BubbleChartProperties](attachments/charts/bubble-chart.png)
+![BubbleChart属性](attachments/charts/bubble-chart.png)
 
 ``` json
-[ {
+[ 主席:
   "x": [ 1, 2, 3 ],
-  "y": [ 1, 2, 3 ],
-  "marker": {
-    "color": [ "red", "blue", "green" ],
-    "size": [ 20, 50, 80 ]
+  "y": [ 1, 2, 2 3],
+  "marker": *
+    "color": [ "red", "蓝色", "绿色" ],
+    "大小": [ 20, 50, 80 ]
   },
-  "mode": "markers"
+  "模式": "标记"
 } ]
 ```
 
-### 2.3 Scatter Chart
+### 2.3 散列图
 
-![ScatterPlotProperties](attachments/charts/scatter-plot.png)
+![散列图属性](attachments/charts/scatter-plot.png)
 
 ``` json
-[ {
+[ 主席:
   "x": [ 1, 2, 3 ],
-  "y": [ 1, 2, 3 ],
-  "text": [ "A", "B", "C" ],
+  "y": [ 1, 2. 3],
+  "案文": [ "A", "B", ", "C" ,
   "textposition": "left center",
   "mode": "markers+text"
 } ]
 ```
 
-### 2.4 Heatmap
+### 2.4 热图
 
-![HeatMapProperties](attachments/charts/heat-map2.png)
+![热映射属性](attachments/charts/heat-map2.png)
 
 ``` json
 [ {
@@ -77,97 +77,97 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 2.5 Bar Chart
+### 2.5 条形图
 
-![BarChartProperties](attachments/charts/bar-chart2.png)
+![条形图属性](attachments/charts/bar-chart2.png)
 
 ``` json
-[ {
+[ 主席:
   "y": [ "giraffe", "elephant" ],
-  "x": [ 2, 4 ],
+  "x": [ 2, 4],
   "type": "bar",
   "orientation": "h"
 } ]
 ```
 
-### 2.6 Column Chart
+### 2.6 列图
 
-![ColumnChartProperties](attachments/charts/column-chart2.png)
+![列图属性](attachments/charts/column-chart2.png)
 
 ``` json
-[ {
+[ 主席:
   "x": [ "giraffe", "elephant" ],
-  "y": [ 2, 4 ],
+  "y": [ 2, 4],
   "type": "bar",
   "orientation": "v"
 } ]
 ```
 
-### 2.7 Pie Chart
+### 2.7 饼图
 
-![PieChartProperties](attachments/charts/pie-chart2.png)
+![PiChart属性](attachments/charts/pie-chart2.png)
 
 ``` json
-[ {
-  "values": [ 10, 20, 30 ],
-  "labels": [ "Uganda", "Netherlands", "US" ],
+[ 主席:
+  "values": [ 10, 20, 30],
+  "labels": [ "Uganda", "Netherlands", "US" ,
   "type": "pie"
 } ]
 ```
 
-### 2.8 Doughnut Chart
+### 2.8 坚固图
 
-![DoughNutChartProperties](attachments/charts/doughnut-chart.png)
+![GooughNutChart属性](attachments/charts/doughnut-chart.png)
 
 ```json
-[ {
-  "values": [ 10, 20, 30 ],
+[ 主席:
+  "values": [ 10, 20, 30],
   "labels": [ "Uganda", "Netherlands", "US" ],
   "hole": 0.4,
   "type": "pie"
 } ]
 ```
 
-### 2.9 Area Chart
+### 2.9 面积图
 
-![AreaChartProperties](attachments/charts/area-chart2.png)
+![区域图表属性](attachments/charts/area-chart2.png)
 
 ``` json
-[ {
+[ 主席:
   "x": [ 1, 2, 3 ],
   "y": [ 1, 2, 3 ],
-  "mode": "scatter",
-  "fill": "tonexty"
-} ]
+  "模式": "散列",
+  "填充": "tonexty"
+}
 ```
 
-## 3 Statistical Charts
+## 3 统计图
 
 ### 3.1 Histograms
 
-![HistogramProperties](attachments/charts/histogram.png)
+![直方图属性](attachments/charts/histogram.png)
 
 ``` json
-[ {
+[ 主席:
   "x": [ 0, 2, 1, 3, 4, 2 ],
   "type": "histogram"
 } ]
 ```
 
-### 3.2 Box Chart
+### 3.2 方框图
 
-![BoxPlotProperties](attachments/charts/box-plot.png)
+![BoxPlot属性](attachments/charts/box-plot.png)
 
 ``` json
-[ {
+[ 主席:
   "x": [ 1, 2, 3, 4, 5 ],
   "type": "box"
 } ]
 ```
 
-### 3.3 2D Histogram
+### 3.3 2D 直方图
 
-![2DHistogramProperties](attachments/charts/2d-histogram.png)
+![2DHistogram属性](attachments/charts/2d-histogram.png)
 
 ``` json
 [ {
@@ -177,33 +177,33 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-## 4 Maps
+## 4 个地图
 
-### 4.1 Bubble Map
+### 4.1 泡泡图
 
-![BubbleMapProperties](attachments/charts/bubble-map.png)
+![BubleMap属性](attachments/charts/bubble-map.png)
 
 ``` json
-[ {
+[ 主席:
   "lon": [ 100, 400 ],
   "lat": [ 0, 0 ],
   "type": "scattergeo",
-  "marker": {
-    "color": [ "red", "blue" ],
-    "size": [ 20, 50 ]
+  "marker": □
+    "color": [ "red", "蓝色" ],
+    "大小": [ 20, 50 ]
   },
-  "mode": "marker"
+  "模式": "标记"
 } ]
 ```
 
-### 4.2 Choropleth Map
+### 4.2 Choropleth地图
 
 ![ChoroplethMapProperties](attachments/charts/choropleth-map.png)
 
-#### 4.2.1 Choropleth Map Data
+#### 4.2.1 Choropleth地图数据
 
 ``` json
-[ {
+[ 主席:
   "locations": [ "AZ", "CA", "VT" ],
   "locationmode": "USA-states",
   "z": [ 10, 20, 40 ],
@@ -211,158 +211,158 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-#### 4.2.2 Choropleth Map Layout
+#### 4.2.2 Choropleth地图布局
 
 ``` json
-{ 
-  "geo": { 
+主席: 
+  "geo": format@@ 
     "scope": "usa" 
   }
 }
 ```
 
-### 4.3 Scatter Map
+### 4.3 散列地图
 
-![ScatterMapProperties](attachments/charts/scatter-map.png)
+![散列地图属性](attachments/charts/scatter-map.png)
 
 ``` json
-[ {
+[ 主席:
   "lon": [ 12, 22 ],
   "lat": [ 42, 39 ],
-  "type": "scattergeo",
+  "类型": "scattergeo",
   "text": [ "Rome", "Greece" ],
   "mode": "marker"
 } ]
 ```
 
-## 5 3D Charts
+## 5 3D 图表
 
-### 5.1 3D Surface Chart
+### 5.1 3D 表面图表
 
-![3DSurfacePlotProperties](attachments/charts/3d-surface-plot.png)
+![3DSurfacePlot属性](attachments/charts/3d-surface-plot.png)
 
 ``` json
-[ {
+[ 主席:
   "colorscale": "Viridis",
-  "z": [ [ 3, 5, 7, 9 ], [ 21, 13, 8, 5 ] ],
-  "type": "surface"
+  "z": [ 3, 5, 7, 9 ], [ 21, 13, 8, 5 ],
+  "类型": "surface"
 } ]
 ```
 
-### 5.2 3D Line Chart
+### 5.2 3D 线图
 
-![3DLineChartProperties](attachments/charts/3d-line-chart.png)
+![3DLineChartities](attachments/charts/3d-line-chart.png)
 
 ``` json
-[ {
-  "x": [ 9, 8, 5, 1 ],
+[请注意，
+  "x"：[ 9, 8, 5, 1 ],
   "y": [ 1, 2, 4, 8 ],
   "z": [ 11, 8, 15, 3 ],
-  "mode": "lines",
+  "模式": "lines",
   "type": "scatter3d"
 } ]
 ```
 
-### 5.3 3D Scatter Chart
+### 5.3 3D 散列图
 
-![3DScatterPlotProperties](attachments/charts/3d-scatter-plot.png)
+![3DScatterPlot属性](attachments/charts/3d-scatter-plot.png)
 
 ``` json
-[ {
+
   "x": [ "9", "8", "5", "1" ],
   "y": [ "1", "2", "4", "8" ], 
   "z": [ "11", "8", "15", "3" ],
-  "mode": "markers",
+  "模式": "markers",
   "type": "scatter3d"
 } ]
 ```
 
-## 6 Other Charts
+## 6 个其他图表
 
-### 6.1 Contour Chart
+### 6.1 等深图
 
-![ContourProperties](attachments/charts/contour.png)
+![连接属性](attachments/charts/contour.png)
 
 ``` json
-[ {
-  "z": [ [ 2, 2, 4, 11 ], [ 5, 14, 8, 11 ] ],
-  "type": "contour"
+[ 主席:
+  "z": [ 2, 2, 4, 11 ], [ 5, 14, 8, 11 ] ],
+  "类型": "等候"
 } ]
 ```
 
-### 6.2 Time Series
+### 6.2 时间系列
 
-![TimeSeriesProperties](attachments/charts/time-series2.png)
+![时间序列属性](attachments/charts/time-series2.png)
 
 ``` json
-[ {
+
   "type": "scatter",
   "mode": "lines",
-  "x": [ "2018-09-04", "2018-10-04", "2018-11-04", "2018-12-04", "2018-12-04" ],
+  "x": [ "2018-09-04", "2018-10-04", "2018-11-04", "2018-12-04", "2018-12-04",
   "y": [ 5, 2, 7, 10 ]
-} ]
+}
 ```
 
-### 6.3 Group By Chart
+### 6.3 按图表
 
-![GroupByChartProperties](attachments/charts/group-by-chart.png)
+![群组字典属性](attachments/charts/group-by-chart.png)
 
 ``` json
-[ {
+
     "type": "scatter",
-    "x": [ "Arthur","Jolly","Daphine","Arthur","Jolly","Daphine" ],
-    "y": [ 1, 6, 2, 5, 8, 1 ],
-    "mode": "markers"
+    "x": [ "Arthur","Jolly","Daphine","Arthur","Jolly", 奶粉],
+    "y": [ 1, 6, 2, 5, 8, 1],
+    "模式": "标记"
 } ]
 ```
 
-### 6.4 Symmetric Error Bar
+### 6.4 对称错误栏
 
-![ErrorBarProperties](attachments/charts/error-bar.png)
+![错误栏属性](attachments/charts/error-bar.png)
 
 ``` json
-[ {
-  "x": [ 0, 1, 2 ],
-  "y": [ 6, 10, 2 ],
-  "error_y": {
+
+  "x": [ 0, 1, 2],
+  "y": [ 6, 10, 2],
+  "error_y":
     "type": "data",
-    "array": [ 4, 2, 3 ]
+    "数组": [ 4, 2, 3 ]
   },
   "type": "scatter"
 } ]
 ```
 
-### 6.5 Polar Chart
+### 6.5 极地图
 
-![PolarChartProperties](attachments/charts/polar-chart.png)
+![极地图属性](attachments/charts/polar-chart.png)
 
 ``` json
-[ {
-  "type": "scatterpolar",
-  "r": [ 34, 11, 39, 37, 34 ],
+[ 主席:
+  "type": "scatterdial",
+  "r": [ 34, 11, 39, 37, 34],
   "theta": [ "A", "B", "C", "D", "A" ],
   "fill": "toself"
 } ]
 ```
 
-### 6.6 Ternary Plot
+### 6.6 Ternary Plots
 
 ![TernaryPlotProperties](attachments/charts/ternary-plot.png)
 
-#### 6.6.1 Ternary Plot Data
+#### 6.6.1 实用绘图数据
 
 ``` json
-[{
+[□
     "type": "scatterternary",
     "mode": "markers",
     "a": [ 5, 4, 5, 2, 10 ],
-    "b": [ 2, 1, 15, 20, 8 ],
+    "b": [ 2, 1, 15, [20, 8],
     "c": [ 1, 20, 5, 15, 10 ],
-    "text":[ "point 1", "point 2", "point 3", "point 4", "point 5" ]
+    "text":[ "point 1", "点2", "点3", "点4", "点5"]
 }]
 ```
 
-#### 6.6.2 Ternary Plot Layout
+#### 6.6.2 实用布局布局
 
 ```json
 {
@@ -372,8 +372,8 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 }
 ```
 
-## 7 Read More
+## 7 阅读更多
 
-* Full chart documentation is here: [https://plot.ly/javascript/](https://plot.ly/javascript/)
-* [Any Chart Widget](charts-any-configuration)
-* [How to Use Any Chart](/howto/front-end/charts-any-usage)
+* 完整的图表文档在这里： [https://plot.ly/javascript/](https://plot.ly/javascript/)
+* [任何图表部件](charts-any-configuration)
+* [如何使用任何图表](/howto/front-end/charts-any-usage)
