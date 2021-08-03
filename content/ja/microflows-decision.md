@@ -1,70 +1,70 @@
 ---
-title: "Decision"
-category: "Microflows"
+title: "決定"
+category: "マイクロフロー"
 menu_order: 20
-description: "Describes a decision in Mendix Studio."
+description: "Mendix Studioで決定を説明します。"
 tags:
-  - "studio"
-  - "microflow"
-  - "exclusive split"
-  - "decision"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "排他的分割"
+  - "決定"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes a **Decision** in Mendix Studio.
+このドキュメントでは、Mendix Studio の **決定** について説明します。
 
-A decision is an element based on a condition; it follows one and only one of the outgoing flows. For example, you need to use a decision to show different order forms for the customers with different grades, or to prevent a blocked customer from making orders.
+意思決定は、条件に基づく要素であり、それは、発信の流れの1つに過ぎません。 たとえば、異なる成績を持つ顧客に対して異なる注文フォームを表示するには、決定を使用する必要があります。 ブロックされた顧客が注文するのを防ぐためです
 
-## 2 Condition {#condition}
+## 2つの条件 {#condition}
 
-There are two ways to configure a condition for the decision:
+判断に条件を設定するには2つの方法があります:
 
-* [With **Variables/ Attributes**](#variables-attributes-tab) ( for example, you can use it to create different flows for an attribute of the enumeration type)
-*  [With an **Expression**](#expression-tab) (for example, you can create a comparison with it)
+* [ **変数/属性**](#variables-attributes-tab) (例えば、列挙型の属性に異なるフローを作成するために使用できます)
+*  [ **式**](#expression-tab) を使用する (たとえば、それと比較を作成することができます)
 
    ![](attachments/microflows-decision/configure-condition-dialog.png)
 
-### 2.1 Configuring the Condition with Variables or Attributes {#variables-attributes-tab}
+### 2.1 変数または属性を使用した条件の設定 {#variables-attributes-tab}
 
-The following elements can be used as a decision condition in the **Variable/Attributes** tab:
+**変数/属性** タブでは、以下の要素を決定条件として使用できます。
 
-* Variable with Boolean data type
-* Variable with enumeration data type
-* Attribute  of Boolean type
-* Attribute of enumeration type
+* ブール型のデータ型変数
+* 列挙型データ型の変数
+* ブール型の属性
+* 列挙型の属性
 
 {{% alert type="info" %}}
 
-The parameters and entities which you would like to use in configuring the condition of the decision should be present in the microflow, either as input parameter or as a result of an activity.
+決定の条件を設定する際に使用したいパラメータとエンティティは、microflowに存在する必要があります。 入力パラメータとしてか、アクティビティの結果としてか。
 
 {{% /alert %}}
 
-### 2.2 Configuring the Condition with an Expression {#expression-tab}
+### 2.2 式による条件の設定 {#expression-tab}
 
-You can also configure the condition by writing the expression. For more information on how to write an expression, see [Microflow Expressions](microflows-expressions).
+式を書くことで条件を設定することもできます。 式の記述方法の詳細については、 [Microflow Expressions](microflows-expressions) を参照してください。
 
-## 3 Cases
+## 3件のケース
 
-**Cases** define the number of outgoing flows and depend on the selected [Condition](#condition).
+**ケース** は発信フローの数を定義し、選択された [条件](#condition) に依存します。
 
-For the Boolean type of the parameter or attribute, two flows are possible: **true** and **false**.
+パラメータまたは属性の Boolean 型では、2 つのフローが可能です: **true** と **false**。
 
 ![](attachments/microflows-decision/decision-boolean.png)
 
-The number of cases available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* case available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
+列挙型で使用可能なケースの数は、対応する列挙値によって異なります。 There is also the *empty* case available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
 
-For example, if a end-user needs to select a customer grade but does not do that, the flow labelled **(empty)** is followed and an error message is shown to the end-user:
+たとえば、エンドユーザーが顧客の成績を選択する必要がありますが、そうしない場合。 **(空)** とラベル付けされたフローがフォローされ、エンドユーザーにエラーメッセージが表示されます。
 
 ![](attachments/microflows-decision/decision-enumeration.png)
 
-## 4 Caption
+## 4つの図表番号
 
-The caption describes what happens in this element.
+キャプションは、この要素で何が起こるかを説明します。
 
-## 5 Read More
+## 5 続きを読む
 
-* [Microflows](microflows)
-* [Microflow Expressions](microflows-expressions)
-* [Configure a  Decision](/studio-how-to8/microflows-how-to-configure-decision) 
+* [マイクロフロー](マイクロフロー)
+* [マイクロフロー式](microflows-expressions)
+* [決定を設定する](/studio-how-to8/microflows-how-to-configure-decision) 
 
