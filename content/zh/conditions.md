@@ -1,96 +1,96 @@
 ---
-title: "Conditions"
-parent: "page-concepts"
+title: "条件"
+parent: "页面概念"
 ---
 
-## 1 Overview
+## 1 概览
 
-In pages, certain elements can be shown, hidden, made editable, or made read-only based on the value of an attribute and/or the roles of the user that is signed in. Using this feature, you can reuse one page for different purposes. For example, a page can hide tab pages for users  who have no rights to view or edit the information in those tab pages.
+在页面中，某些元素可以显示、隐藏、可编辑 或者根据属性的值和/或用户登录的角色做成只读的。 使用此功能，您可以为不同的目的重新使用一个页面。 例如，一个页面可以为没有权限查看或编辑那些标签页中的信息的用户隐藏标签页。
 
-The following elements support conditional visibility:
+以下元素支持条件可见性：
 
-* All the widgets
-* [Grid control bar buttons](control-bar)
-* [Table rows](table-row), [tab pages](tab-page), and [layout grid rows](layout-grid)
+* 所有小部件
+* [网格控制栏按钮](control-bar)
+* [表格行](table-row), [标签页](tab-page), 和 [布局网格行](layout-grid)
 
-The following elements support conditional editability:
+以下元素支持有条件的可编辑性：
 
-* Input widgets ([text box](text-box), [reference selector](reference-selector), etc.)
+* 输入小部件[文本框](text-box), [参考选择器](reference-selector)等)
 
-There are four kinds of conditions:
+有四种条件：
 
-* The value of an attribute of the enclosing data container
-  * The attribute must be of type Boolean or enumeration
-  * For each value, you specify whether the element is visible/editable
-  * Upon entering the page and changing the condition attribute, the conditions will be applied
-* A condition based on an [expression](expressions)
- * The expression must evaluate to a value of the Boolean type
-  * The element is visible/editable when the expression evaluates to `true`
-* Module roles
- * For each module you specify whether the element is visible or not.
-* Ignoring security
- * Buttons are automatically hidden if security prevents the user from executing the action
- * You can ignore this and show the button anyway. This is useful for application with anonymous users. Clicking a button for which you do not have the rights will then trigger a sign in page.
+* 环境数据容器属性的值
+  * 属性必须是布尔值或枚举的类型
+  * 对于每个值，您指定元素是否可见/可编辑
+  * 当进入页面并更改条件属性时，条件将被应用
+* 基于 [表达式](expressions) 的条件
+ * 表达式必须计算到布尔类型的值
+  * 当表达式评估为 `true 时，元素是可见/可编辑的`
+* 模块角色
+ * 对于每个模块，您指定元素是否可见。
+* 忽略安全
+ * 如果安全阻止用户执行该动作，按钮将自动隐藏
+ * 你可以忽略这个并显示按钮。 这对匿名用户的应用程序是有用的。 点击您没有权限的按钮会触发登录页面。
 
-Module role conditions can only be used for the visibility of table rows and tab pages. They cannot be used to make an input widget read-only or to hide buttons. To make an input widget conditionally editable based on roles, use security to give roles read and write access to attributes. For example, by not giving a role write access to an attribute, the corresponding input widget will automatically turn read-only (as in, not editable). To hide a button based on roles, configure the security of the underlying page or action (for example, by not giving a role create access, **New** buttons will be hidden).
+模块角色条件只能用于表行和选项卡页面的可见性。 它们不能用来使输入小部件只读或隐藏按钮。 要使输入小部件基于角色有条件的可编辑性，使用安全性来赋予角色读取和写入属性的权限。 例如，通过不授予角色写入访问属性的权限，相应的输入小部件将自动转为只读(如在非可编辑的情况下)。 若要隐藏基于角色的按钮，请配置底层页面或动作的安全性(例如) 不赋予角色创建访问权限， **新的** 按钮将被隐藏)。
 
-## 2 Context
+## 2 背景
 
-### 2.1 Show/Enable Element Based on Attribute Value
+### 2.1 基于属性值显示/启用元素
 
-By selecting this option, visibility or editability becomes conditional based on the value of the attribute that is selected.
+通过选择此选项，可见性或可编辑性成为基于所选属性值的条件。
 
-For example, if you have a Boolean indicating whether a user wants to receive email, you can create a check box to edit the value of this Boolean. The row that asks for an email address can be shown only if the check box is checked.
+例如，如果您有一个布尔值表示用户是否想接收电子邮件， 您可以创建一个复选框来编辑这个布尔值。 请求电子邮件地址的行只能在选中复选框时显示。
 
-#### 2.1.1 Attribute
+#### 2.1.1 属性
 
-This is the attribute on which the conditions are based. The attribute must be of the Boolean or Enumeration type.
+这是条件所依据的属性。 属性必须为布尔值或枚举类型。
 
-#### 2.1.2 Conditions
+#### 2.1.2 条件
 
-For each value of the attribute, you can specify whether the element is editable or visible.
+对于属性的每个值，您可以指定该元素是可编辑还是可见。
 
-### 2.2 Show/Enable Element Based on Expression
+### 2.2 基于表达式显示/启用元素
 
-By selecting this option, visibility or editability becomes conditional based on whether the entered [microflow expression](expressions) evaluates to `true` or `false`.
+选择此选项， 能见度或可编辑性取决于输入的 [微流程表达式](expressions) 是否评估为 `true` 或 `false`。
 
-The expression result must be of the Boolean type. The expression can use the obejct of the enclosing data container available as a `$currentObject` variable.
-
-{{% alert type="warning" %}}
-
-The expression is evaluated in the browser, so we advise against using "secret" values (like access keys) in it. In particular, we disallow usages of [constants](constants). Also, client-side expressions currently do not support all the functions that are available in the microflows. Please refer to an autocomplete list to know what functions are supported in your version.
-
-{{% /alert %}}
-
-## 3 Modules Roles
-
-### 3.1 Show/Enable Element for Selected Module Roles
-
-By selecting this option, visibility or editability becomes conditional based on the module roles of the user who is signed in.
-
-For example, if you have a page that has a tab page containing the current orders of a customer and a tab page containing an order history, you can hide the order history tab for certain roles so that you only need to build one page for different kinds of users.
-
-#### 3.1.1 Conditions
-
-For each module role, you can specify whether the table row or tab page is visible or not.
+表达式结果必须是布尔类型。 表达式可以使用可用的对应数据容器作为 `$currentObject` 变量。
 
 {{% alert type="warning" %}}
 
-Do not rely on hiding tab pages and table rows for security! Also, use domain model security to give roles the appropriate access to data.
+表达式在浏览器中被评估，因此我们建议不要在它中使用“秘密”值(例如访问密钥)。 尤其是，我们不允许使用 [常量](constants)。 此外，客户端表达式目前并不支持微流中所有可用的功能。 请参考自动完成列表以了解您的版本支持哪些功能。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 3.2 Show/Enable Element for All Module Roles (for Some Widgets)
+## 3 个模块角色
 
-Widgets triggering actions (for example, action buttons) are automatically hidden if security prevents the user from executing the action. You can overwrite this rule and show the widget anyway, which is useful for an app that has anonymous users. Clicking a button for which you do not have the rights will then trigger a sign-in page.
+### 3.1 显示/启用选定模块角色的元素
 
-In this table, you can see what rights you need to have for the action to be accessible in the normal case:
+通过选择此选项，可见性或可编辑性成为基于登录用户的模块角色的条件。
 
-| Action/Widget Type    | Necessary Rights                  |
-| --------------------- | --------------------------------- |
-| Call microflow action | Execute the microflow.            |
-| Show page action      | Open the page.                    |
-| Create button         | Create objects and open the page. |
-| Edit button           | Open the page.                    |
-| Delete button         | Delete objects.                   |
+例如， 如果您有一个包含客户当前订单的标签页和包含订单历史的标签页页面， 您可以为某些角色隐藏订单历史标签，所以您只需要为不同类型的用户构建一个页面。
+
+#### 3.1.1 条件
+
+对于每个模块的角色，您可以指定表行或标签页是否可见。
+
+{{% alert type="warning" %}}
+
+不要依赖隐藏标签页和表格行来保证安全！ 此外，使用域模型安全来赋予适当的数据访问权限。
+
+{{% /报警 %}}
+
+### 3.2 显示/启用所有模块角色的元素 (针对某些部件)
+
+如果安全阻止用户执行动作，小部件触发动作(如动作按钮)将自动隐藏。 您可以覆盖此规则并展示小部件，这对拥有匿名用户的应用程序是有用的。 点击您没有权限的按钮会触发登录页面。
+
+在此表中，您可以看到您需要哪些权利才能在正常情况下访问该动作：
+
+| 动作/网关类型 | 必要的权利      |
+| ------- | ---------- |
+| 调用微流程操作 | 执行微流。      |
+| 显示页面操作  | 打开页面。      |
+| 创建按钮    | 创建对象并打开页面。 |
+| 编辑按钮    | 打开页面。      |
+| 删除按钮    | 删除对象。      |
 
