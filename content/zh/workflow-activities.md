@@ -1,24 +1,24 @@
 ---
-title: "Workflow Activities"
-parent: "activities"
+title: "工作流活动"
+parent: "活动"
 tags:
   - "studio pro"
-  - "microflow"
-  - "workflow"
-  - "workflow activities"
+  - "微流"
+  - "工作流"
+  - "工作流活动"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The activities described in this document are in the **Workflow Activities** section of the **Toolbox**.
+本文档中描述的活动在 **Toolbox **工作流程活动** 部分** 中。
 
-The following are the workflow activities you can use in your microflow:
+下面是您可以在微流程中使用的工作流活动：
 
-* [Complete user task](complete-task) – sets which outcome the specified [user task](user-task) should follow
-* [Show user task page](show-task-page) – opens a user task page specified in [user task properties](user-task)
-* [Show workflow admin page](show-workflow-page) – opens a workflow overview page
-* [Workflow call](workflow-call) – calls a workflow
+* [完成用户任务](complete-task) - 设置指定的结果 [用户任务](user-task) 应该关注哪些结果
+* [显示用户任务页面](show-task-page) - 打开用户任务页面在 [用户任务属性](user-task) 中指定的用户任务页面
+* [显示 Workflow 管理页面](show-workflow-page) - 打开一个工作流概览页面
+* [工作流调用](workflow-call) - 调用 Workflow
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Activities](activities)
+* [活动](活动)
