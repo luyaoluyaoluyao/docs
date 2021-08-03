@@ -1,63 +1,59 @@
 ---
-title: "Table (Document Template)"
-parent: "document-templates"
+title: "表 (文档模板)"
+parent: "文档模板"
 aliases:
-  - /refguide8/table-(document-template).html
-  - /refguide8/Table+(document+template.html
+  - /refguide/table-(document-template).html
+  - /refguide/Table+(document+template.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table-document-template.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+表格可以用来更改表单的布局。 它们有若干行和栏目，两者的交点被称为一个间。 每个单元格可以包含部件。 单元格可以横向和纵向合并，允许非对称布局。
 
-Tables can be used to change the layout of the form. They contain a number of rows and columns and the intersection of the two is called a cell. Each cell can contain widgets. Cells can be merged horizontally and vertically to allow for asymmetric layouts.
-
-Tables can be used both inside and outside the data view or templategrid widgets.
+表格可以在数据视图内外或模板类部件使用。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918134.png)
 
-This table has four rows and three columns. The last row contains a data view with another table.
+本表有四行和三栏。 最后一行包含另一个表的数据视图。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Components
+## 2 个组件
 
-### 2.1 Column
+### 2.1 列
 
-A column in a table.
+表中的一栏。
 
-### 2.2 Row
+### 2.2 行
 
-A row in a table. See [Row (document template)](row-document-template).
+表中的一行。 查看 [行 (文档模板)](row-document-template)。
 
-## 3 Appearance Properties
+## 3 外观属性
 
-### 3.1 Weights
+### 3.1 权重
 
-The column weights are percentages separated by semi-colons that determine the widths of the columns. The weights have to add up to 100\. An alternative way of changing the widths of columns is by dragging the separating line between columns.
+列重量是以确定列宽度的半冒号隔开的百分比。 重量必须增加到 100\。 改变列宽度的另一种方法是拖动列之间的分隔线。
 
 {{% alert type="info" %}}
 
-In the screenshot above, the column weights of the enclosing table are `25;25;50`.
+在上面的屏幕截图中，表格的列权重是 `25;25;50`。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 3.2 Cell Spacing
+### 3.2 单元格间距
 
-Cell spacing specifies the space in between cells.
+单元格间距指定单元格间距。
 
 ### 3.3 Cell Padding
 
-Cell padding specifies the space between the content of the cell and the cell wall.
+单元格填充指定单元格内容和单元格墙之间的空间。
 
-### 3.4 Style
+### 3.4 样式
 
-For details, see [Style](style).
+欲了解详情，请见 [样式](style)。
 
-## 4 Common Properties
+## 4 个公共属性
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
