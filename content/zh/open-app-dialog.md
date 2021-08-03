@@ -1,56 +1,56 @@
 ---
-title: "Open App"
-parent: "file-menu"
+title: "打开应用程序"
+parent: "文件菜单"
 menu_order: 20
-description: "Describes the Open App flow and the Open App dialog box"
+description: "描述打开的应用流程和打开的应用对话框"
 tags:
   - "studio pro"
-  - "open app"
+  - "打开应用"
 aliases:
   - /refguide/open-project-dialog.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-To open an app in Mendix Studio Pro, do one of the following:
+要在 Mendix Studio Pro中打开一个应用程序，请执行以下操作之一：
 
-* Select **File** > **Open App**
-* Click **Open App** on the Studio Pro landing page
+* 选择 **文件** > **打开应用程序**
+* 点击 **在 Studio Pro 登陆页面上打开**
 
-The **Open App** dialog box will open, where you can select the app location:
+**打开应用程序** 对话框将打开，您可以在那里选择应用位置：
 
-![Open App](attachments/file-menu/open-app.png)
+![打开应用程序](attachments/file-menu/open-app.png)
 
-For more information on the app location, see the [Where Is Your App Stored?](#location) section
+欲了解更多关于应用位置的信息，请查看 [您的应用商店在哪里？](#location) 部分
 
-Apps can be located on the Team Server, on another SVN server, or on the local disk. When opening an app from the Team Server or another SVN server, Studio Pro will check whether you have already downloaded this app. If so, it will simply open it. If not, the app will be downloaded from the version control server first.
+应用可以位于团队服务器、另一个SVN服务器或本地磁盘上。 当从团队服务器或另一个SVN服务器打开应用时，Studio Pro 将检查您是否已经下载过此应用程序。 如果是这样，它将只是打开它。 如果没有，应用程序将先从版本控制服务器下载。
 
-## 2 Where Is Your App Stored? {#location}
+## 2 您的应用存放在哪里？ {#location}
 
-Use this setting to select the location where your app is stored. This can be the [Team Server](#team-server), a [private server](#private-server), that is an SVN server other than the Team Server, or a [local disk](#local). An app on disk can also be stored in the Team Server or another SVN server, in this case there is no difference in opening it using the **Team Server**/**Private server** option and or the **Locally on disk** option.
+使用此设置选择您应用存储的位置。 这可以是 [团队服务器](#team-server), [私人服务器](#private-server), 这是团队服务器以外的 SVN 服务器，或是一个 [本地磁盘](#local)。 磁盘上的应用也可以存储在团队服务器或另一个SVN服务器中。 在这种情况下，使用 **团队服务器**/**私人服务器** 选项和 **本地磁盘上** 选项打开它没有区别。
 
-### 2.1 Mendix Team Server {#team-server}
+### 2.1 Mendix 团队服务器 {#team-server}
 
-Select the Team Server app you would like to open, then choose the development line.
+选择您想要打开的团队服务器应用，然后选择开发线。
 
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
+关于Mendix Team Server的更多信息，请参阅 [Team Server](/developerportal/collaborate/team-server)。
 
-For more information about development lines, see [Version Control](version-control).
+欲了解更多有关开发行的信息，请参阅 [版本控制](version-control)。
 
-### 2.2 Private Server {#private-server}
+### 2.2 私人服务器 {#private-server}
 
 {{% alert type="info" %}}
 
-The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Version Control** > **Enable private version control**.
+**私有服务器** 选项仅在启用对其他 SVN 服务器的支持时可用： **编辑** >**首选项** > **版本控制** > **启用私有版本控制**。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-In the **App repository address** field, enter the address of the app you want to open and press the **Connect** button to load development lines from the repository. Then choose the development line in which you want to start developing.
+在 **应用仓库地址** 字段中 输入您想要打开的应用程序的地址，然后按 **Connect** 按钮从资源库中加载开发行。 然后选择你想要开始开发的开发线。
 
-### 2.3 Locally on Disk {#local}
+### 2.3 本地磁盘上 {#local}
 
-For opening an app you already have on disk, simply point to the app file.
+要打开您已经在磁盘上的应用，只需指向应用文件。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Import App Package](import-project-package-dialog)
+* [导入应用包](import-project-package-dialog)
