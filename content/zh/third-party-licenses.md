@@ -1,22 +1,22 @@
 ---
-title: "Third-Party Licenses"
-category: "General Info"
+title: "第三方许可证"
+category: "常规信息"
 menu_order: 70
 tags:
   - "studio pro"
-  - "license"
-  - "library"
+  - "许可协议"
+  - "媒体库"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix uses various third-party libraries that have their own licenses. All the licenses are available when you download the available [Mendix Studio Pro](https://marketplace.mendix.com/link/studiopro/). They can be found in various sub-folders of your **Mendix** installation folder that are described below:
+Mendix 使用拥有自己许可证的多个第三方库。 当您下载可用的 [Mendix Studio Pro](https://marketplace.mendix.com/link/studiopro/) 时，所有许可都是可用的。 它们可以在您 **Mendix** 安装文件夹的各种子文件夹中找到：
 
-| Libraries and Licenses   | Location                                                                          |
-| ------------------------ | --------------------------------------------------------------------------------- |
-| Runtime Server libraries | **runtime\bundles**                                                              |
-| Studio Pro libraries     | **modeler\Licenses**                                                             |
-| Client licenses          | Client licenses can be found in the following locations: <ul><li>**modeler\deployment.mxz** – this is a ZIP file where you can navigate to **web\lib\bootstrap\css\bootstrap.css** and to **web\lib\rbootstrap\css\rbootstrap.css** for Bootstrap licenses (when you deploy an app, you can also find all these files in your deployment folder)</li><li>**runtime\mxclientsystem\mxui.mxui.js** for the Dojo license</li></ul> |
+| 书库和许可证       | 地点                                     |
+| ------------ | -------------------------------------- |
+| 运行时服务器库      | **运行时间\bundles**                      |
+| Studio Pro 库 | **model\licenses**                    |
+| 客户许可证        | 客户许可可在以下地点找到： <ul><li>**modeler\depment.mxz** - 这是一个ZIP文件，您可以在这里导航到 **web\lib\bootstrap\css\bootstrap.css** 和 **web\lib\rbootstrap\css\rbootstrap。 ss** for Bootstrap licens(当你部署了一个应用程序时，你也可以在你的部署文件夹中找到所有这些文件)</li><li>**运行时间\mxclientsystem\mxui.mxui.js** Dojo 许可协议</li></ul> |
 
 
 
