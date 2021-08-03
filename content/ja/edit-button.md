@@ -1,23 +1,23 @@
 ---
-title: "Edit button"
-parent: "control-bar"
+title: "編集ボタン"
+parent: "コントロール バー"
 ---
 
 {{% alert type="info" %}}
 
-This button was removed in Mendix 7.17. Use a normal [Action button](action-button) with the **Show a page** action instead.
+このボタンは Mendix 7.17 で削除されました。 [ページの](action-button) を代わりに表示する **アクションボタン** を使用します。
 
 {{% /alert %}}
 
-The edit button allows user to edit, or view, an object selected in the grid or reference set selector.
+編集ボタンを使用すると、グリッドまたは参照セットセレクタで選択したオブジェクトを編集または表示できます。
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -29,23 +29,23 @@ The edit button allows user to edit, or view, an object selected in the grid or 
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-### Page
+### ページ
 
-This property indicates the page that is shown to end-end user when he or she clicks this button. The end-user can use this page to edit the selected object. This page should contain a data view connected to the same entity as the grid, or as the reference set selector.
+このプロパティは、エンドエンドエンドユーザーがこのボタンをクリックしたときに表示されるページを示します。 エンドユーザーは、このページを使用して選択したオブジェクトを編集できます。 このページには、グリッドと同じ図形に接続されたデータビュー、または参照セットセレクタが含まれている必要があります。
 
-See [Opening Pages](opening-pages).
+[ページを開く](opening-pages) を参照してください。
 
-### Pages for specializations
+### 専門分野のページ
 
-If the entity that is connected to the grid or reference set selector has specializations you can optionally specify pages for each specialization. When you edit a row in the data grid the most specific page is opened. For each specialization you specify the page to open, where to open it and a title for the page.
+グリッドまたは参照セットセレクターに接続されているエンティティに特殊化がある場合は、オプションで各特殊化のページを指定できます。 データ グリッドで行を編集すると、最も特定のページが開きます。 専門分野ごとに、開くページと開くページのタイトルを指定します。
 
 {{% alert type="info" %}}
 
-Let us say you have an entity Vehicle and two specializations thereof: Bicycle and Car. And there is a specialization of Car called SportsCar. You create a data grid that is connected to Vehicle. With the page property of the data grid you specify what page to open for arbitrary Vehicles. For the specializations Bicycle and Car you create separate pages to edit them. If you now edit a row of type Bicycle the page specific for bicycles will be opened. If you edit a Car, you get the page for cars. If you edit a SportsCar, the page for cars will be opened! There is no page specific for sports cars (in this example) and car is the 'closest' generalization for which there is a page.
+私たちは、エンティティを持っていると言いましょう 車とその2つの専門分野:自転車と車。 そしてSportsCarと呼ばれる車の専門化があります。 車両に接続されたデータグリッドを作成します。 データ グリッドの page プロパティで、任意の車両に対して開くページを指定します。 自転車と車の専門用には、それらを編集するための別々のページを作成します。 自転車タイプの行を編集すると、自転車専用のページが開きます。 車を編集すると、車のページが表示されます。 スポーツカーを編集すると、車のページが開きます! スポーツカーに特有のページはありません(この例では)し、車はページがある「最も近い」一般化です。
 
 {{% /alert %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
