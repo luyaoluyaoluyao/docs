@@ -4,13 +4,9 @@ parent: "data-grid-document-template"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/columns-(document-template).html
-  - /refguide8/Columns+(document+template).html
+  - /refguide/columns-(document-template).html
+  - /refguide/Columns+(document+template).html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/columns-document-template.pdf).
-{{% /alert %}}
 
 ## 1 Appearance Properties
 
@@ -54,7 +50,7 @@ These are the possible values:
 
 If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
 
-{{% snippet file="refguide8/custom-date-format-tokens.md" %}}
+{{% snippet file="refguide/custom-date-format-tokens.md" %}}
 
 ## 2 Data Source Properties
 
