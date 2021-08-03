@@ -1,58 +1,58 @@
 ---
-title: "Nanoflow Properties"
+title: "Nanoflow 属性"
 parent: "nanoflows"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This page describes the properties of nanoflows. For details on using nanoflows and nanoflow elements, see [Nanoflows](nanoflows).
+此页面描述了nanoflows的属性。 关于使用纳米调节器和纳米调节器的详细信息，请参阅 [Nanoflows](nanoflows)。
 
-## 2 Properties
+## 2 属性
 
-An example of nanoflow properties is represented in the image below:
+下面的图像是nanoflow 属性的示例：
 
-{{% image_container width="250" %}}![Nanoflow Properties](attachments/microflows-and-nanoflows/nanoflow-properties.png)
+{{% image_container width="250" %}}![Nanoflow 属性](attachments/microflows-and-nanoflows/nanoflow-properties.png)
 {{% /image_container %}}
 
-Nanoflow properties consist of the following sections:
+Nanoflow 属性由以下部分组成：
 
-* [Common](#common)
-* [Output](#output)
-* [Security](#security)
-* [Usage](#usage)
+* [常用的](#common)
+* [产出](#output)
+* [安全](#security)
+* [用法](#usage)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
-#### 2.1.1 Name
+#### 2.1.1 姓名
 
-**Name** is the internal name of the nanoflow. When referring to the nanoflow in the app you will use this name. It must be unique within the module, but you can have two nanoflows with the same name in different modules. When referring to the nanoflow, you will normally prepend the name of the module to ensure uniqueness and allow you to use nanoflows in other modules.
+**名称** 是nanoflow的内部名称。 当在应用程序中使用 nanoflow 时，您将使用此名称。 它在模块中必须是唯一的，但是你可以在不同的模块中拥有两个同名的 nanoflow。 当提及纳米时， 您通常将在模块名称前面填写，以确保其唯一性，并允许您在其他模块中使用 nanoflow。
 
-#### 2.1.2 Documentation
+#### 2.1.2 文件
 
-**Documentation** allows you to describe your nanoflow to make it easier for people to use and modify it.
+**文档** 允许你描述你的 nanoflow 以使人们更容易使用和修改它。
 
-### 2.2 Output Section{#output}
+### 2.2 输出部分{#output}
 
-#### 2.2.1 Return Type
+#### 2.2.1 返回类型
 
-The return type defines what information the nanoflow returns. The caller of the nanoflow will get a result of this type. For possible return types, see [Data Types](data-types).
+返回类型定义了纳米返回的信息。 调用者会得到这种类型的结果。 关于可能的返回类型，请参阅 [数据类型](data-types)。
 
-### 2.3 Security Section{#security}
+### 2.3 警卫科{#security}
 
-#### 2.3.1 Allowed Roles
+#### 2.3.1 允许的角色
 
-These are the [module roles](module-security#module-role) the user must have to be able to execute the nanoflow.
+这些是用户必须能够执行 nanoflow的 [模块角色](module-security#module-role)。
 
-For more information, see [Module Security](module-security).
+欲了解更多信息，请参阅 [Module Security](module-security)。
 
-### 2.4 Usage Section {#usage}
+### 2.4 使用部分 {#usage}
 
-#### 2.4.1 Mark as Used
+#### 2.4.1 标记为已使用
 
-You can search for unused items (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>, then select **Unused items** in the **Search for** drop-down menu) in Studio Pro. Nanoflows that are only called from JavaScript code will be listed as unused, because Studio Pro cannot look inside the source code.
+You can search for unused items (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>, then select **Unused items** in the **Search for** drop-down menu) in Studio Pro. 仅从 JavaScript 代码调用的 Nanoflow 将被列为未被使用，因为Studio Pro 无法在源代码中查看。
 
 By setting the property **Mark as used** to **Yes**, you explicitly specify that the nanoflow is used and Studio Pro will no longer list it when searching for unused items.
 
-Default: *No*
+默认： *否*
