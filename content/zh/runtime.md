@@ -1,109 +1,109 @@
 ---
-title: "Mendix Runtime"
+title: "Mendix 运行时间"
 tags:
-  - "runtime"
-  - "runtime server"
-  - "mendix client"
-  - "cluster leader"
+  - "运行时间"
+  - "运行时服务器"
+  - "mendix 客户端"
+  - "群组领导者"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix Runtime is effectively an interpreter which "runs" a Mendix model and serves pages to the user.
+Mendix Runtime 实际上是一个“运行”Mendix 模型并为用户提供页面服务的解释器。
 
-Each patch version of Mendix comes with its own version of the runtime which implements the features which are available in that version of Mendix. For example, runtimes for Mendix 8.4.1 and 8.4.2 are different and can only run Mendix apps built for that version.
+每个补丁版本的 Mendix 都有自己的运行时版本，实现Mendix 中可用的功能。 例如，Mendix 8.4.1和8.4.2的运行时间不同，只能为该版本运行Mendix 应用。
 
-## 2 Runtime Overview
+## 2 运行时概述
 
-The Mendix runtime consists of two parts: the [Runtime Server](runtime-server) and the [Mendix Client](mendix-client). The relationship between the two is shown in the chart below.
+Mendix 运行时间由两个部分组成： [运行时服务器](runtime-server) and [Mendix 客户端](mendix-client)。 两者之间的关系见下表。
 
-The Runtime Server is launched on a cloud platform, executes microflows, and connects to files, the relational database, and any other required services. It waits to be contacted by the Mendix Client. The Runtime Server is described in more detail in [Runtime Server](runtime-server).
+运行时服务器在云平台上启动，执行微流并连接到文件、关系数据库和任何其他所需服务。 它等待Mendix 客户端联系。 运行时服务器在 [运行时服务器](runtime-server) 中有更详细的描述。
 
-The Mendix Client is started by the end-user. This can be within a web browser, or on another supported device. If it is in online mode, it starts a session with the Runtime Server which may or may not require authentication. The Runtime Server records the session details in the database so that the Mendix Client can make requests. The Mendix Client is described in more detail in [Mendix Client](mendix-client).
+Mendix 客户端由最终用户启动。 这可以在网页浏览器内，或在其他支持的设备上。 如果它处于在线模式，它会与 Runtime 服务器启动会话，这可能需要或不需要身份验证。 运行时服务器在数据库中记录会话的详细信息，以便Mendix 客户端能够提出请求。 Mendix 客户端在 [Mendix 客户端](mendix-client) 中有更详细的描述。
 
-The end-user interacts with the Mendix Client which then makes requests to the Runtime Server to process data or perform server-side functions (for example, microflows). At the end of the request, all state (including uncommitted data) is passed back to the Mendix Client. You can find more details of how this communication takes place in [Communication Patterns in the Mendix Runtime](communication-patterns).
+最终用户与 Mendix 客户端交互，然后向 Runtime 服务器提出处理数据或执行服务器端函数的请求（例如微流程）。 在请求结束时，所有状态(包括未提交的数据)都会被传回Mendix 客户端。 您可以在 [Mendix Runtime](communication-patterns) 中找到此通信发生方式的更多细节。
 
-Passing state from the Runtime Server to the Mendix Client enables the Runtime Server to be stateless, which means that any Runtime Server instance can respond to a request from the Mendix Client. A load balancer decides which Runtime Server instance will respond to a request. When an end-user session ends, the Runtime Server removes references to that session.
+从 Runtime Server 到Mendix 客户端的状态使得运行时服务器成为无状态的。 这意味着任何运行时服务器实例都可以响应Mendix 客户端的请求。 负载均衡器决定哪些运行时服务器实例将响应请求。 当最终用户会话结束时，运行时服务器会删除对该会话的引用。
 
-Where there is more than one instance of an app, one of the instances will be the *Cluster Leader*. The Runtime Server in that instance will be responsible for a number of activities which cannot easily be distributed. These include:
+在有多个应用程序实例的情况下，其中一个实例将是 *组队长*。 此实例中的 Runtime 服务器将负责一些无法轻松分发的活动。 这些措施包括：
 
-* Session cleanup handling
-* Cluster node expiration handling
-* Background job expiration handling
-* Unblocking blocked users
-* Executing scheduled events
-* Performing database synchronization tasks
-* Clearing persistent sessions after a new deploy
+* 会话清理处理
+* 集群节点过期处理
+* 背景作业过期处理
+* 解除屏蔽的用户
+* 正在执行预定的事件
+* 正在执行数据库同步任务
+* 在新部署后清除持续会话
 
-More information on multiple instances is in [Clustered Mendix Runtime](clustered-mendix-runtime).
+关于多个实例的更多信息在 [聚类Mendix 运行时](clustered-mendix-runtime) 中。
 
-![An overview of the Mendix Runtime](attachments/runtime/runtime-overview.png)
+![Mendix 运行时概述](attachments/runtime/runtime-overview.png)
 
-Each of the components of the chart is described below:
+图表的每个组成部分说明如下：
 
-### 2.1 External Services
+### 2.1 外部服务
 
-External services provide data and other functions from outside your Mendix app. These can be external data sources like SAP, external display widgets like Google maps, or external data processing like IBM Watson machine learning. The Runtime Server communicates with these over HTTP(S) connections.
+外部服务提供您Mendix 应用程序以外的数据和其他功能。 这些可以是外部数据源，如SAP，外部显示小部件，如谷歌地图，或外部数据处理，如IBM Watson机器学习。 运行时服务器通过HTTP(S)连接与这些通信。
 
-### 2.2 Infrastructure
+### 2.2 基础设施
 
-This is the hardware on which the Mendix app will be deployed. It is usually provided as Infrastructure as a Service (IaaS) which provides virtual machines in the public or private cloud. However, the infrastructure can also be physical machines running on-premises. Examples of infrastructure are Amazon Web Services (AWS), Microsoft Azure, or Windows Server machines.
+这是Mendix 应用将被部署的硬件。 它通常作为一种服务基础设施提供，在公共或私人云中提供虚拟机器。 然而，基础设施也可以是房地内运行的有形机器。 例如亚马逊网络服务（AWS）、微软Azure或Windows Server 机器。
 
-### 2.3 Files
+### 2.3 文件
 
-This is where files are stored which are part of the data used by the app. In particular it contains the value of *FileDocument* objects, including images, which are binary objects that are stored outside the database to avoid size and performance restrictions.
+这是存储作为应用程序所使用数据一部分的文件的地方。 特别是它包含 *FileDocument* 对象的值，包括图像， 它是存储在数据库之外的二进制对象，以避免大小和性能限制。
 
-### 2.4 Relational Database
+### 2.4 关联数据库
 
-This is the database (or sometimes the schema of a shared database) which holds the objects as defined in the domain model(s) in the app.
+这是一个数据库（或有时是一个共享数据库的图表），它存有应用中域模型所定义的对象。
 
-### 2.5 Platform
+### 2.5 平台
 
-This is the operating system on which the Mendix app is running plus additional services, such as a database, which have been bound to the app.
+这是Mendix 应用程序正在运行的操作系统以及额外的服务。 例如，一个数据库，这个数据库已经连接到应用程序。
 
-### 2.6 Instance
+### 2.6 实例
 
-Also called the **App Container**. This launches and exposes the Runtime Server. There may be only one instance, but to provide high availability and better performance there can be many instances.
+也调用 **App Container**。 这将启动并暴露运行时服务器。 可能只有一个例子，但为了提供高可用性和更好的性能，可能会有许多例子。
 
-### 2.7 Runtime Server
+### 2.7 运行时服务器
 
-This is the server side of the Mendix runtime. It is described in [Runtime Server](runtime-server).
+这是Mendix 运行时间的服务器端。 [Runtime Server](runtime-server) 描述了它。
 
-### 2.8 Load Balancer
+### 2.8 负载平衡
 
-The load balancer takes incoming requests from the Mendix Client and forwards them to a Runtime Server instance. It balances the load by making sure that requests are distributed evenly to the different instances. The Mendix Client communicates with the load balancer using HTTPS. Communication on the server side of the load balancer, to environment instances and CDN, is performed using HTTP.
+负载均衡器接收Mendix 客户端的传入请求，并将它们转发到 Runtime Server 实例。 它平衡负荷，确保请求平均分配给不同的实例。 Mendix 客户端使用 HTTPS 与负载平衡器通信。 负载均衡器的服务器端与环境实例和 CDN之间的通信使用HTTP进行。
 
-### 2.9 CDN Static Config
+### 2.9 CDN 静态配置
 
-The CDN (Content Delivery Network) contains static configuration information which is needed by the client. These include the files needed to start the Mendix Client from a browser, Cascading Style Sheets (css files) which define the app’s theme, and JavaScript files which define client-side logic.
+CDN (内容交付网络) 包含客户端需要的静态配置信息。 这些包括从浏览器启动Mendix 客户端所需的文件。 定义应用程序主题的级层样式表(ss文件)和定义客户端逻辑的 JavaScript 文件。
 
 ### 2.10 Mendix Client
 
-This is the browser or device which allows the end-user to interact with the app. This can be a web browser, such as Chrome, or a mobile device, such as an iPhone. It typically has a screen, pointer device, and input device to allow end-users to use the app. The Mendix Client is described in [Mendix Client](mendix-client).
+这是允许最终用户与应用交互的浏览器或设备。 这可以是一个 Web 浏览器，如Chrome 或移动设备，如iPhone 。 它通常有屏幕、指针设备和输入设备，允许最终用户使用应用程序。 Mendix 客户端在 [Mendix 客户端](mendix-client) 中描述。
 
-## 3 Licensing
+## 3种许可证
 
-You need a license to run an application in production mode. Without a license, the Runtime Server goes to sleep after a couple of hours. Information on licensing Mendix apps can be found in [Licensing Apps](/developerportal/deploy/licensing-apps-outside-mxcloud).
+您需要许可证才能在生产模式下运行一个应用程序。 没有许可，运行时服务器在几个小时后休眠。 关于Mendix 应用程序的许可信息可以在 [许可应用程序](/developerportal/deploy/licensing-apps-outside-mxcloud) 中找到。
 
-## 4 APIs
+## 4 个APIs
 
-You can extend the functionality of the Runtime Server by writing Java actions. For more information,  see the [Runtime API](/apidocs-mxsdk/apidocs/#runtime) section of *API Documentation*.
+您可以写入 Java 操作来扩展运行服务器的功能。 欲了解更多信息，请参阅 *API 文档的 [运行时间API](/apidocs-mxsdk/apidocs/#runtime) 部分。*。
 
 {{% alert type="info" %}}
-If the app contains published services, links to available API documentation such as [OpenAPI documentation](open-api) for [published REST services](published-rest-services), links to [published OData services](published-odata-services), and WSDLs for [published web services](published-web-services), are available on the URL path `/api-doc` (for example: `https://myapp.mendixcloud.com/api-doc/`).
-{{% /alert %}}
+如果应用程序包含已发布的服务， 链接到可用的 API 文档，例如 [OpenAPI 文档](open-api) 用于 [已发布的REST 服务](published-rest-services), 链接到 [发布的 OData 服务](published-odata-services)和 WSDL [发布的网络服务](published-web-services)可在URL路径上查阅 `/api-doc` (例如： `https://myapp. endixcloud.com/api-doc/`)。
+{{% /报警 %}}
 
-## 5 Main Documents in This Category
+## 5 个此类别中的主要文档
 
-* [Runtime Server](runtime-server) – describes the workings of the Runtime Server
-* [Mendix Client](mendix-client) – describes the workings of the Mendix Client
-* [Runtime Deployment](runtime-deployment) – describes how the Mendix runtime is deployed to the cloud
-* [Clustered Mendix Runtime](clustered-mendix-runtime) – describes the behavior and impact of running Mendix Runtime as a cluster
-* [Runtime Customization](custom-settings) – presents advanced options for customizing Runtime server settings
-* [Data Storage](data-storage) – presents information on data storage configuration options, such as the following:
-* [Date & Time Handling](datetime-handling-faq) – presents details on how to configure Runtime Server operations for the user's date and time
-* [Logging](logging) – discusses the various log levels for Runtime
-* [Monitoring Mendix Runtime](monitoring-mendix-runtime) – describes the Mendix Runtime monitoring actions that are supported (such as [state statistics](monitoring-mendix-runtime#state) and [thread stack traces](monitoring-mendix-runtime#thread)).
-* [Objects & Caching](objects-and-caching) – presents details on what happens when objects are loaded from the database, cached, retrieved, changed, and committed
-* [Mendix Runtime & Java](runtime-java) – explains some of the basic concepts of Java in Mendix
-* [Communication Patterns in the Mendix Runtime](communication-patterns) – outlines the communication patterns used by the Mendix runtime
+* [运行时服务器](runtime-server) - 描述运行时服务器的工作
+* [Mendix 客户端](mendix-client) -- 描述Mendix 客户端的工作
+* [运行时部署](runtime-deployment) - 描述如何将 Mendix 运行时间部署到云端
+* [聚类Mendix Runtime](clustered-mendix-runtime) -- 描述运行 Mendix Runtime 作为集群的行为和影响
+* [运行时自定义](custom-settings) - 提供自定义运行时服务器设置的高级选项
+* [数据存储](data-storage) - 提供数据存储配置选项的信息，例如：
+* [日期 & 时间处理](datetime-handling-faq) -- 介绍如何为用户的日期和时间配置运行服务器操作的详细信息
+* [日志](logging) - 讨论运行时的各种日志级别
+* [Monitoring Mendix Runtime](monitoring-mendix-runtime) — — 描述支持的 Mendix Runtime 监视动作(如 [状态统计](monitoring-mendix-runtime#state) 和 [线程堆栈跟踪](monitoring-mendix-runtime#thread))。
+* [对象 & 缓存](objects-and-caching) - 提供从数据库加载对象、缓存、检索、更改和提交时发生的事项的详细信息
+* [Mendix Runtime & Java](runtime-java) - 解释Mendix 中Java 的一些基本概念
+* [Mendix Runtime 中的通信模式](communication-patterns) - 概述Mendix runtime 使用的通信模式
