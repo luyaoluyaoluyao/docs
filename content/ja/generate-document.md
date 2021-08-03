@@ -1,101 +1,101 @@
 ---
-title: "Generate Document"
-parent: "activities"
+title: "ドキュメントの生成"
+parent: "アクティビティ"
 menu_order: 80
-description: "Describes generating documents from a microflow."
+description: "マイクロフローからドキュメントを生成する方法を説明します。"
 tags:
   - "PDF"
-  - "document"
-  - "document template"
+  - "ドキュメント"
+  - "ドキュメントテンプレート"
   - "HTML"
   - "Microsoft Word"
   - "ODT"
   - "studio pro"
-  - "generate document"
+  - "ドキュメントを生成"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Generate document** activity is used to write a document to a file, based on a [document template](document-templates).
+**ドキュメントの生成** アクティビティは、 [ドキュメント テンプレート](document-templates) に基づいてファイルにドキュメントを書き込むために使用されます。
 
-![Generate Document](attachments/generate-document/generate-document.png)
+![ドキュメントの生成](attachments/generate-document/generate-document.png)
 
-For more information on which types of documents can be created, see [Document Type](#document-type).
+どのタイプのドキュメントを作成できるかについての詳細は、 [ドキュメントタイプ](#document-type) を参照してください。
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Generate Document Properties](attachments/generate-document/generate-document-properties.png)
+![ドキュメントのプロパティを生成](attachments/generate-document/generate-document-properties.png)
 
-The **Generate document** properties pane consists of the following sections:
+**ドキュメントの生成** プロパティ ペインは次のセクションで構成されています。
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 File
+### 3.1 ファイル
 
-The name of the file document that will contain the generated document. It should be an object of entity *System.FileDocument* or its specialization.
+生成されたドキュメントを含むファイルドキュメントの名前。 エンティティ *System.FileDocument* またはその専門化のオブジェクトである必要があります。
 
-### 3.2 Language
+### 3.2 言語
 
-The language in which the titles and labels of the document should appear is described in the table below:
+ドキュメントのタイトルとラベルが表示される言語は以下の表に記載されています:
 
-| Option                   | Description                                                                              |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| Current user *(default)* | Use the language of the current user.                                                    |
-| Project default          | Use the default language that is specified in the [App Settings](project-settings).      |
-| Variable                 | Use the language stored in the selected object, which must be of type *System.Language*. |
+| Option         | 説明                                                      |
+| -------------- | ------------------------------------------------------- |
+| 現在のユーザー *(既定)* | 現在のユーザーの言語を使用します。                                       |
+| プロジェクトのデフォルト   | [アプリ設定](project-settings) で指定されたデフォルト言語を使用します。          |
+| 変数             | *System.Language* 型でなければならない選択したオブジェクトに保存されている言語を使用します。 |
 
-### 3.3 Document Type{#document-type}
+### 3.3 ドキュメントタイプ{#document-type}
 
-The document type specifies the type of the generated document.
+ドキュメント タイプは、生成されたドキュメントの種類を指定します。
 
-| Option           | Description                                      |
-| ---------------- | ------------------------------------------------ |
-| HTML             | Generate a document in HTML format.              |
-| PDF              | Generate a document in PDF format.               |
-| Word 2007        | Generate a document in Word 2007 format.         |
-| Word 2003        | Generate a document in Word 2003 format.         |
-| Rich-text format | Generate a document in Rich-text format.         |
-| ODT              | Generate a document in Open Office (ODT) format. |
+| Option    | 説明                                 |
+| --------- | ---------------------------------- |
+| HTML      | HTML 形式でドキュメントを生成します。              |
+| PDF       | PDF 形式のドキュメントを生成します。               |
+| Word 2007 | Word 2007形式でドキュメントを生成します。          |
+| Word 2003 | Word 2003形式のドキュメントを生成します。          |
+| リッチテキスト形式 | リッチテキスト形式でドキュメントを生成します。            |
+| ODT       | Open Office (ODT) 形式でドキュメントを生成します。 |
 
-### 3.4 Override Margins
+### 3.4 余白を上書き
 
-**Override margins** allows you to set custom margins for your documents. By using variables, these can be defined at runtime.
+**余白を上書きする** では、ドキュメントの余白を設定できます。 変数を使用することで、実行時に定義することができます。
 
-### 3.5 Template
+### 3.5 テンプレート
 
-Template defines which [document template](document-templates) is used to generate the file. Depending on the selected document template one or more [arguments](#argument) need to be specified.
+テンプレートは、 [ドキュメントテンプレート](document-templates) をファイルの生成に使用するものを定義します。 選択したドキュメントテンプレートに応じて、1つまたは複数の [引数](#argument) を指定する必要があります。
 
-### 3.6 Arguments
+### 3.6 引数
 
-Depending on the selected document, you will see a list of its arguments in a table. Arguments pass data to the activity.
+選択したドキュメントに応じて、テーブルに引数のリストが表示されます。 引数はデータをアクティビティに渡します。
 
-#### 3.5.1 Widget
+#### 3.5.1 ウィジェット
 
-The name of the widget in the document template that needs arguments to be passed to it. This property  is read-only.
+ドキュメントテンプレート内のウィジェットの名前で、引数を渡す必要があります。 このプロパティは読み取り専用です。
 
 #### 3.5.2 Type
 
-The type of the argument used in the document template that is read-only.
+ドキュメントテンプレートで使用される引数の種類。読み取り専用です。
 
-#### 3.5.3 Argument {#argument}
+#### 3.5.3 引数 {#argument}
 
-The **Edit argument** button allows you to edit the argument value.  An argument is the input data that you are passing to the document template. For each document template parameter (for each non-nested data view and data grid), you must supply an argument of the same type. The values of the arguments are expressed using [expressions](expressions).
+**引数** の編集ボタンをクリックすると、引数の値を編集できます。  引数はドキュメントテンプレートに渡す入力データです。 各ドキュメントテンプレートパラメータ (非ネストされたデータビューおよびデータグリッド) については、同じ型の引数を指定する必要があります。 引数の値は [式](expressions) を使用して表されます。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
