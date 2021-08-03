@@ -1,151 +1,147 @@
 ---
-title: "Text Area"
+title: "テキストエリア"
 parent: "input-widgets"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text-area.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+A **text area** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *String*. [テキスト ボックス](text-box) とは異なります。値は複数行にわたって表示できます。
 
-A **text area** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *String*. It differs from a [text box](text-box) In that the value can be displayed over several lines.
+テキスト エリアは、 [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、テキスト領域、角括弧、および青色の範囲内に表示されます。
 
-A text area must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the text area, between square brackets, and colored blue.
-
-For example, the following text area allows the end-user to see, and set, the **Notes** about a contact.
+例えば、以下のテキストエリアでは、エンドユーザーがコンタクトについて **ノート** を見、設定することができます。
 
 ![](attachments/text-area/text-area.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of text area properties is represented in the image below:
+以下の画像にテキスト領域のプロパティの例を示します。
 
 {{% image_container width="250" %}}![](attachments/text-area/text-area-properties.png)
 {{% /image_container %}}
 
-Text area properties consist of the following sections:
+テキスト エリアのプロパティは、次のセクションで構成されています。
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [全般](#general)
+* [ラベル](#label)
+* [検証](#validation)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 データソースセクション{#data-source}
 
-{{% snippet file="refguide8/data-source-section-link.md" %}}
+{{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 デザインプロパティセクション{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 編集可能セクション{#editability}
 
-{{% snippet file="refguide8/editability-section-link.md" %}}
+{{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 イベントセクション{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 変更時{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.2 On Enter
+#### 2.5.2 入口で
 
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 休暇中 2.5.3
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
 
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
+これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 General Section{#general}
+### 2.6 一般セクション{#general}
 
-#### 2.6.1 Grow Automatically
+#### 2.6.1 自動的に成長する
 
-{{% alert type="info" %}}The grow automatically property does not impact the behavior of native mobile pages. On iOS, the text area will always grow automatically
+{{% alert type="info" %}}自動的に grow プロパティは、ネイティブ モバイル ページの動作には影響しません。 iOSでは、テキストエリアは常に自動的に拡大されます
 {{% /alert %}}
 
-This property defines whether the text area grows automatically depending on the amount of text in it.
+このプロパティは、テキストの量に応じてテキスト領域が自動的に拡大するかどうかを定義します。
 
-Default: *No*
+デフォルト: *いいえ*
 
-#### 2.6.2 Number of Lines
+#### 2.6.2 行数
 
-**Number of lines** determines the size of the text area, based on the height of the lines. If the text in the text area contains more lines, a scrollbar will enable the end-user to see it all. This property is only used if **Grow automatically** is set to *No*.
+**行数** は行の高さに基づいてテキスト領域のサイズを決定します。 テキスト領域内のテキストがより多くの行を含んでいる場合、スクロールバーはエンドユーザーがすべてを見ることを可能にします。 このプロパティは、 **** が *いいえ* に設定されている場合にのみ使用されます。
 
-Default: *5*
+デフォルト: *5*
 
-#### 2.6.3 Counter Message
+#### 2.6.3 カウンターメッセージ
 
 {{% alert type="info" %}}Counter message is not supported on native mobile pages.{{% /alert %}}
 
-This is the text displayed when typing in the text area. This text has two [parameters](text#parameters). The first parameter contains the number of characters already typed and the second parameter contains the maximum number of characters.
+これは、テキストエリアに入力するときに表示されるテキストです。 このテキストには [パラメータ](text#parameters)が2つあります。 最初のパラメータはすでに入力されている文字数を含み、2番目のパラメータは文字数の最大値を含みます。
 
 For example, if you use the counter message `You've used {1} characters of the {2} characters that are allowed.` for your text area, the end-user will see this message displayed below the text area widget:
 
 ![](attachments/text-area/counter-message.png)
 
-#### 2.6.4 Text Too Long Message
+#### 2.6.4 メッセージが長すぎます
 
 {{% alert type="info" %}}Text too long message is not supported on native mobile pages.{{% /alert %}}
 
-This is the text displayed when the number of typed characters is higher than the maximum allowed number of characters.
+これは、入力された文字の数が最大文字数よりも大きい場合に表示されるテキストです。
 
-#### 2.6.5 Maximum Length
+#### 2.6.5 最大長さ
 
-This property specifies the maximum number of characters that can be typed in this text area.
+このプロパティは、このテキスト領域で入力できる最大文字数を指定します。
 
-| Value                        | Description                                                                                   |
-| ---------------------------- | --------------------------------------------------------------------------------------------- |
-| Attribute length *(default)* | The maximum number of characters is the same as the maximum length of the connected attribute |
-| Unlimited                    | The maximum number of characters is unlimited                                                 |
-| Custom                       | The maximum number of characters is specified in the widget properties                        |
+| 値               | 説明                         |
+| --------------- | -------------------------- |
+| 属性の長さ *(デフォルト)* | 最大文字数は、接続された属性の最大長さと同じです   |
+| 無制限です           | 最大文字数に制限はありません             |
+| カスタム            | ウィジェットのプロパティで文字数の最大値を指定します |
 
-#### 2.6.6 Placeholder Text
+#### 2.6.6 プレースホルダーテキスト
 
-The placeholder text is shown when no text has been entered yet, or when a displayed attribute is empty.
+プレースホルダー テキストは、まだ入力されていない場合、または、表示された属性が空の場合に表示されます。
 
-It can be used, for example, to give a hint to the end-user what kind of text should be entered.
+たとえば、エンドユーザーにどのようなテキストを入力すべきかのヒントを与えるために使用できます。
 
-#### 2.6.7 Autocomplete
+#### 2.6.7 オートコンプリート
 
-The autocomplete property specifies if a text area should have autocomplete enabled. The autocomplete attribute also improves mobile devices' ability to pre-populate fields.
+autocomplete プロパティは、テキスト領域を自動補完可能にするかどうかを指定します。 autocomplete 属性により、モバイルデバイスの項目への事前入力機能も向上します。
 
-{{% alert type="info" %}}This option is only available in native pages.{{% /alert %}}
-{{% alert type="info" %}}In Android when autocomplete is turned off it will remove support for new lines.{{% /alert %}}
+{{% alert type="info" %}}このオプションはネイティブページでのみ利用できます。{{% /alert %}}
+{{% alert type="info" %}}Android でオートコンプリートがオフになっている場合、新しい行のサポートが削除されます。{{% /alert %}}
 
-### 2.8 Label Section{#label}
+### 2.7 ラベルセクション{#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.8 Validation Section{#validation}
+### 2.8 検証セクション{#validation}
 
-{{% snippet file="refguide8/widget-validation-link.md" %}}
+{{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+### 2.9 可視性セクション{#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-*   [Data view](data-view)
-*   [Attributes](attributes)
+*   [データビュー](data-view)
+*   [属性](attributes)
