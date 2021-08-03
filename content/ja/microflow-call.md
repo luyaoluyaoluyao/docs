@@ -8,10 +8,6 @@ tags:
   - "action call activities"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/microflow-call.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
 {{% /alert %}}
@@ -72,15 +68,28 @@ The **Edit parameter value** button allows you to edit the argument value. For e
 When used inside a nanoflow in an offline profile, only primitives and non-persistable entities that have no associations with persistable entities are allowed as arguments for the call. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
 {{% /alert %}}
 
-### 3.3 Return Type
+### 3.3 Task Queue
+
+{{% alert type="warning" %}}
+You cannot execute microflows in a task queue when calling them from a nanoflow.
+{{% /alert %}}
+
+If you want a microflow to call a microflow to run in the background using a task queue, then you need to do the following:
+
+1. Check **Execute this Microflow in a Task Queue**.
+2. Identify which task queue it should run in in **Select Task Queue**.
+
+For more information about task queues, see [Task Queue](task-queue).
+
+### 3.4 Return Type
 
 This read-only property indicates whether you will retrieve a variable, object or list.
 
-### 3.4 Use Return Value
+### 3.5 Use Return Value
 
 This property determines if the returned value from the called microflow should be available in the rest of the current microflow or nanoflow. If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
 
-### 3.5 Variable Name, Object Name, or List Name {#name}
+### 3.6 Variable Name, Object Name, or List Name {#name}
 
 The name of the variable, list, or object returned by the activity.
 
@@ -90,4 +99,4 @@ It is possible to perform a microflow call from an offline-first app. However, i
 
 ## 5 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
