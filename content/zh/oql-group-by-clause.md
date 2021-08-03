@@ -1,56 +1,49 @@
 ---
 title: "按条款排列的 OQL 组"
 parent: "oql"
-tags:
-  - "studio pro"
 ---
 
-## 1 个描述
 
-`GROUP BY` 条款将把所有返回的行压缩成一个单行，这个行对该条款定义的表达式具有相同的值。 此条款中的表达式必须存在于查询的 `SELECT` 条款中。 `SELECT` 条款中的所有表达式，如果在 `GROUP BY` 条款中不存在，则必须是一个聚合或结果是一个合计函数。
-
-## 2 种语法
+GROUP BY 条款会将所有返回的行压缩成一个单行，这个行对本条款中定义的表达式具有相同的值。 该条款中的表述必须存在于查询中的SELECT 条款中。 SELECT 条款中不存在于GROUP BY 条款中的所有表述都必须是一个汇总函数或结果一个汇总函数。
 
 语法如下：
 
-```sql
+```
 由
     表达式 [ ,...]
 
 [已有 <constraint>]
 ```
 
-### 2.1 表达式
+**表达式** 指定了用来分组行数值的表达式。
 
-`表达式` 指定了以哪个值分组的表达式。
+`Having <constraint>` 指定了一个限制。 当使用按表达式分类时，约束必须在已有条款中加以界定。
 
-### 2.2 Having\<constraint\>
+{{% alert type="info" %}}
 
-`having <constraint>` 指定了一个必须在 `已有` 条款中定义的约束， 当使用 `组的` 表达式时使用。
-
-## 3 个示例
-
-此查询返回每个城市所有客户的数量：
-
-```sql
+```
 选择COUNT(Sales.Customer/*)
 ROM Sales.客户
 INNER JOIN Sales.Customer_Address/Sales.Address
 GROUP BY Sales.Address/City
 ```
 
-此查询返回每个城市所有订单总价格的总和：
+此查询返回每个城市所有客户的计数。
 
-```sql
+{{% /警示%}}!{% alert type="info" %}}
+
+```
 SELECT SUM(Sales.Order/ TotalPrice)
 从Sales.Order
 INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer_Address/Sales.Address
 GROUP BY Sales.Address/City
 ```
 
-此查询返回每个城市所有订单总价的总和，总价大于1000。 0 或 City 是丢失的：
+此查询返回每个城市所有订单总价格的和。
 
-```sql
+{{% /警示%}}!{% alert type="info" %}}
+
+```
 SELECT SUM(Sales.Order/TotalPrice)
 从Sales.Order
 INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer_Address/ Sales.Address
@@ -58,3 +51,6 @@ INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer_Address/ Sales.Addres
 已经拥有SUM(Sales.Order/ TotalPrice) > 1000.0 或销售.Address/City = 'Losdun'
 ```
 
+此查询返回每个城市所有订单总价的总和，总价大于1000。 0或城市是Losdun。
+
+{{% /报警 %}}
