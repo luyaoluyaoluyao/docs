@@ -1,43 +1,39 @@
 ---
-title: "XPath Not"
+title: "XPath ではありません"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-not.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
-
-The `not()` function inverts the meaning (and as such; the result) of the argument.
+`not()` 関数は引数の意味(そしてその結果)を反転させます。
 
 {{% alert type="info" %}}
-This can have different results from an inverse comparison (for example `!=` as the negative of `=`) if the XPath is over a one-to-many relationship. See the examples below for more explanation.
+これは逆比較とは異なる結果を持つことができます(例 `! <code> =` の負の値として XPath が1対多の関係を超えている場合には、 `=`になります。 詳細は以下の例をご覧ください。
 {{% /alert %}}
 
-## 2 Examples
+## 2つの例
 
-This query returns all customers whose names are *not* equal to "Jansen":
+このクエリは、 *の名前が* "Jansen" と等しくない format@@2 すべての顧客を返します。
 
 ```java
 //Sales.Customer[not(Name = 'Jansen')]
 ```
 
-In this case, the above query returns the same result as the following query:
+この場合、上記のクエリは次のクエリと同じ結果を返します。
 
 ```java
 //Sales.Customer[Name != 'Jansen']
 ```
 
-The following query returns all the customers who have not placed at least one order:
+次のクエリは、少なくとも 1 つの注文を行っていないすべての顧客を返します:
 
 ```java
 //Sales.Customer[not(Sales.Customer_Order/Sales.Order)]
 ```
 
-The following query returns all the customers who have placed *no* orders with a `TotalPrice` of *more than* 30,000, including those who have not placed any orders at all:
+次のクエリは、 ** 注文が `合計価格` が *以上* 30 のすべての顧客を返します。 注文をしていない人も含めて00:
 
 ```java
 //Sales.Customer[not(Sales.Customer_Order/Sales.Order/TotalPrice > 30000)]
@@ -46,6 +42,6 @@ The following query returns all the customers who have placed *no* orders with a
 The query above does not return the same result as the one below, which returns all the customers who have placed *at least one* order with a `TotalPrice` of *less than* 30,000, regardless of the number of orders they have placed worth more than 30,000:
 
 ```java
-//Sales.Customer[Sales.Customer_Order/Sales.Order/TotalPrice <= 30000]
+//Sales.Customer[Sales.Customer_Order/Sales.Order/TotalPrice <= 300000]
 ```
-For example, if a customer has placed two orders—one for 15,000 and one for 35,000—this query will return this customer, while the *not* query will not. Customers who have not placed any orders will not be returned by this query.
+たとえば、顧客が2つの注文を行った場合、1つは15,000、1つは35です。 00 — このクエリはこの顧客を返しますが、 *not* クエリは返しません。 注文を行っていない顧客は、このクエリによって返されません。
