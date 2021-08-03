@@ -1,61 +1,61 @@
 ---
-title: "OQL CAST"
+title: "OQL キャスト"
 parent: "oql-functions"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `CAST` function converts an expression to a specific data type.
+`CAST` 関数は、式を特定のデータ型に変換します。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
 CAST ( expression AS data_type )
 ```
 
-### 2.1 expression
+### 2.1 式
 
-`expression` specifies the expression to convert.
+`式` は変換する式を指定します。
 
-### 2.2 data_type
+### 2.2 データタイプ
 
-`data_type` specifies the data type to convert the expression to. The data type can be one of the following:
+`data_type` は、式を変換するデータ型を指定する。 データ型は次のいずれかになります:
 
 * `BOOLEAN`
-* `DATETIME`
+* `日時`
 * `DECIMAL`
-* `INTEGER`
-* `LONG`
-* `STRING`
+* `インテガー`
+* `長さ:`
+* `文字列`
 
-## 3 Supported Conversions
+## 3 サポートされている変換
 
-The table below describes which `CAST` conversions are supported:
+以下の表は、 `CAST` の変換をサポートするものを示しています。
 
-* ✔ – the conversion is supported
-* ✔* – the conversion is supported, but the behavior differs per database
-* ✘ – the conversion is not supported
+* ✔ – 変換はサポートされています
+* ✔* – 変換はサポートされていますが、データベースごとに動作が異なります
+* 【 変換はサポートされていません 】
 
-| From \ To | BOOLEAN | DATETIME | DECIMAL | INTEGER | LONG | STRING (unlimited) |       STRING (limited)        |
-| ---------- |:-------:|:--------:|:-------:|:-------:|:----:|:------------------:|:-----------------------------:|
-| BOOLEAN    |    ✔    |    ✘     |    ✘    |    ✘    |  ✘   |         ✔*         | ✔*<sup><small>1</small></sup> |
-| DATETIME   |    ✘    |    ✔     |    ✘    |    ✘    |  ✘   |         ✔*         | ✔*<sup><small>2</small></sup> |
-| DECIMAL    |    ✘    |    ✘     |   ✔*    |   ✔*    |  ✔*  |         ✔*         | ✔*<sup><small>2</small></sup> |
-| INTEGER    |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
-| LONG       |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
-| STRING     |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
-* [1] – BOOLEAN to STRING (limited) is supported only if the resulting string length is ≥ 5.
-* [2] – The conversion of DATETIME and DECIMAL to STRING (limited) is supported only if the value fully fits into the string length. The conversion can fail if the resulting string length is < 20.
+| From \ To | BOOLEAN | 日時 | DECIMAL | インテガー | 長さ: | 文字列（無制限） |            文字列（制限）            |
+| ---------- |:-------:|:--:|:-------:|:-----:|:---:|:--------:|:-----------------------------:|
+| BOOLEAN    |    ✔    | ✘  |    ✘    |   ✘   |  ✘  |    ✔*    | ✔*<sup><small>1</small></sup> |
+| 日時         |    ✘    | ✔  |    ✘    |   ✘   |  ✘  |    ✔*    | ✔*<sup><small>2</small></sup> |
+| DECIMAL    |    ✘    | ✘  |   ✔*    |  ✔*   | ✔*  |    ✔*    | ✔*<sup><small>2</small></sup> |
+| インテガー      |    ✘    | ✘  |    ✔    |   ✔   |  ✔  |    ✔     |               ✔               |
+| 長さ:        |    ✘    | ✘  |    ✔    |   ✔   |  ✔  |    ✔     |               ✔               |
+| 文字列        |    ✘    | ✘  |    ✔    |   ✔   |  ✔  |    ✔     |               ✔               |
+* [1] – 文字列へのBOOLEAN(制限)は、文字列の長さが5以上である場合にのみサポートされます。
+* [2] – 値が文字列の長さに完全に適合する場合にのみ、DATETIMEおよびDECIMALの文字列への変換(制限)がサポートされます。 文字列の長さが < 20 の場合、変換に失敗する可能性があります。
 *
 
-## 4 Examples
+## 4つの例
 
-A frequent use case for `CAST` is to convert your date from the `DATETIME` data type to a more readable `STRING` type:
+`CAST` の頻繁な使用例は、日付を `DATETIME` データ型からより読みやすい `STRING` 型に変換することです。
 
 ```sql
-CAST ( your_datetime_variable AS string )
+CAST ( your_datetime_variable AS 文字列 )
 ```
