@@ -1,139 +1,139 @@
 ---
-title: "Moving from Mendix Studio Pro 8 to 9"
-category: "General Info"
+title: "Mendix Studio Pro 8 から9へ移動"
+category: "一般情報"
 menu_order: 20
-description: "Provides details on updating your app from Mendix 8 to Mendix 9, including sections on converting your app and deprecated features."
+description: "Mendix 8からMendix 9へのアプリケーションの更新に関する詳細を提供します。これには、アプリの変換と非推奨機能に関するセクションが含まれます。"
 tags:
   - "studio pro"
-  - "studio"
+  - "スタジオ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix Studio Pro 9 and Mendix Studio 9 give you powerful new tools to enhance your apps. For the full list of changes, see the Studio Pro 9 and Studio 9 release notes. If you want to upgrade an existing Studio Pro 8 or Studio 8 app to its respective 9 version, please check the information below:
+Mendix Studio Pro 9とMendix Studio 9は、アプリを強化する強力な新しいツールを提供します。 変更の完全なリストについては、Studio Pro 9 および Studio 9 のリリースノートを参照してください。 既存の Studio Pro 8 または Studio 8 アプリをそれぞれの 9 バージョンにアップグレードする場合は、以下の情報を確認してください。
 
-* If you are upgrading your app in Studio from Mendix 8 to 9, see [Upgrading from Mendix 8 to 9 for Studio](#studio-upgrade) below.
-* If you are converting your app from Studio Pro 8 to Studio Pro 9, see [Changing Your App Before Upgrading to Studio Pro 9](#studio-pro-upgrade) below.
+* Studio を Mendix 8 から 9 にアップグレードする場合は、以下の [Mendix 8 から 9 へのアップグレード](#studio-upgrade) を参照してください。
+* Studio Pro 8 から Studio Pro 9 にアプリを変換する場合 Studio Pro 9 にアップグレードする前に、 [アプリを変更する](#studio-pro-upgrade) を参照してください。
 
-## 2 Upgrading from Mendix 8 to 9 for Studio {#studio-upgrade}
+## 2 Mendix 8 から 9 へのアップグレード {#studio-upgrade}
 
-### 2.1 Turn On RCSI for MS SQL Server
+### 2.1 MS SQL Server の RCSI をオンにする
 
-In order to improve performance and reduce the chance of deadlocks, Mendix 9 requires MS SQL Server to be used with **Read Committed Snapshot Isolation** (RCSI) turned **ON**.
+パフォーマンスを向上させ、デッドロックの可能性を減らすために。 Mendix 9では、MS SQL Serverを **Read Committed Snapshot Isolation** (RCSI) を **ON** にする必要があります。
 
-During the synchronization stage, Mendix 9 will perform a check for the RCSI status and could abort the process if it is not **ON** and the database user lacks the necessary privileges to do so automatically.
+同期段階中に Mendix 9はRCSIステータスのチェックを行い、それが **ON** ではなく、データベースユーザに自動的に行うための必要な権限がない場合、プロセスを中止する可能性があります。
 
-## 3 Update from Mendix 8 to 9 for Studio Pro {#studio-pro-upgrade}
+## Studio Pro の Mendix 8 から 9 へのアップデート {#studio-pro-upgrade}
 
-The following sub-sections explain the steps to take in converting your app from Mendix 8 to Mendix 9. We recommend you first review the [Breaking Changes](/releasenotes/studio-pro/9.0#breaking-changes) section of the *Studio Pro 9.0* release notes as well as our updated [System Requirements](/refguide/system-requirements).
+次のサブセクションでは、Mendix 8 から Mendix 9 へのアプリケーションの変換手順について説明します。 We recommend you first review the [Breaking Changes](/releasenotes/studio-pro/9.0#breaking-changes) section of the *Studio Pro 9.0* release notes as well as our updated [System Requirements](/refguide/system-requirements).
 
-### 3.1 Back Up Your App
+### 3.1 アプリのバックアップ
 
-Make sure that you have either committed your latest changes to Team Server, or created a backup of your local app before you start the conversion.
+チームサーバーに最新の変更をコミットしていることを確認してください。 または、変換を開始する前にローカルアプリのバックアップを作成しました。
 
-### 3.2 Upgrade to the Latest Release of Version 8
+### 3.2 バージョン 8 の最新リリースにアップグレード
 
 {{% alert type="warning" %}}
-It is technically required for you to upgrade your app to Mendix 8.12 first to be able to update it to Mendix 9. However, we recommend you update to the latest version of Mendix 8: [8.18](/releasenotes/studio-pro/8.18).
+最初にMendix 8.12にアプリをアップグレードすると、Mendix 9にアップグレードすることが技術的に必要です。 ただし、Mendix 8: [8.18](/releasenotes/studio-pro/8.18) の最新バージョンにアップデートすることをお勧めします。
 {{% /alert %}}
 
-To upgrade to Mendix 8.18, follow these steps:
+Mendix 8.18 にアップグレードするには、以下の手順に従ってください:
 
-1. Download the latest patch release of Studio Pro [8.18](/releasenotes/studio-pro/8.18).
-1. Open your app in Studio Pro v8.18.
-1. Allow it to upgrade the app, if necessary.
+1. Studio Pro [8.18](/releasenotes/studio-pro/8.18) の最新パッチリリースをダウンロードします。
+1. Studio Pro v8.18 でアプリを開きます。
+1. 必要に応じてアプリのアップグレードを許可します。
 
-### 3.3 Review Your Mendix 8 App
+### 3.3 Mendix 8アプリをレビューする
 
-Review your app in combination with the sections below and assess if further action needs to be taken before upgrading to Mendix 9.
+以下のセクションと組み合わせてアプリを確認し、Mendix 9にアップグレードする前にさらにアクションを取る必要があるかどうかを評価します。
 
-You should run your app, test all functionality, and ensure it works without error. If you app uses app services, you should remove them before upgrading as app services are deprecated in Mendix 9.
+アプリを実行し、すべての機能をテストし、エラーなしで動作するようにしてください。 アプリがアプリサービスを使用している場合は、Mendix 9でアプリサービスが非推奨となっているため、アプリをアップグレードする前にそれらを削除する必要があります。
 
-You should also fix any depreciation warnings you see both in development in Studio Pro, as well as in the runtime using your console and browser console.
+Studio Proで開発中に表示される減価償却警告も修正してください。 コンソールとブラウザコンソールを使用してランタイムにも。
 
-### 3.4 Save Your Version 8 App
+### 3.4 バージョン8のアプリを保存
 
-Backup or commit your app so that you can return to it if necessary.
+必要に応じてアプリに戻ることができるように、アプリをバックアップまたはコミットします。
 
-Your app is now ready to be upgraded to Mendix 9. You can now close the app in Studio Pro 8.
+これで、アプリを Mendix 9 にアップグレードする準備ができました。 Studio Pro 8 でアプリを閉じることができます。
 
-### 3.5 Upgrade Your App to Version 9
+### 3.5 アプリをバージョン9にアップグレード
 
-Open your app in Studio Pro 9 and allow Studio Pro to update your app to version 9. Mendix will upgrade your app for you automatically.
+Studio Pro 9 でアプリを開き、Studio Pro がアプリをバージョン 9 にアップデートできるようにします。 Mendixは自動的にアプリをアップグレードします。
 
-Review all error messages and messages about deprecated items and make changes where necessary.
+廃止された項目についてのすべてのエラーメッセージとメッセージを確認し、必要に応じて変更を行います。
 
-### 3.6 Upgrade All Widgets and Modules {#upgrade-widgets}
+### 3.6 すべてのウィジェットとモジュールをアップグレード {#upgrade-widgets}
 
-To minimize the chance of problems, you should update all widgets and other Marketplace modules used by your app to the latest version.
+問題の可能性を最小限に抑えるために、アプリケーションで使用されているすべてのウィジェットやその他のMarketplaceモジュールを最新バージョンに更新する必要があります。
 
-Check if there is a newer version of your modules available in the Marketplace. Read the version release notes in the Marketplace to see whether you need to perform specific actions when upgrading.
+マーケットプレイスで利用可能な新しいバージョンのモジュールがあるか確認してください。 アップグレード時に特定のアクションを実行する必要があるかどうかを確認するには、Marketplace のバージョンリリースノートを参照してください。
 
-Be sure to update these key widgets, resources, and actions:
+これらのキーウィジェット、リソース、アクションを更新してください。
 
-* [Native Mobile Resources](https://marketplace.mendix.com/link/component/109513)
+* [ネイティブ モバイル リソース](https://marketplace.mendix.com/link/component/109513)
 * [Nanoflow Commons](https://marketplace.mendix.com/link/component/109515)
-* [Data Grid 2](https://marketplace.mendix.com/link/component/116540)
+* [データグリッド2](https://marketplace.mendix.com/link/component/116540)
 
-In general you should not remove and reimport modules, unless this is recommended in the release notes. If you do remove and reimport them, you may lose data or configuration related to the module.
+一般的には、リリースノートで推奨されていない限り、モジュールを削除したり再インポートしたりしないでください。 削除して再インポートすると、モジュールに関連するデータや構成が失われる可能性があります。
 
-### 3.7 Update Atlas Module (Optional)
+### 3.7 アトラスモジュールの更新（任意）
 
-Mendix 9 comes with a new Atlas theme including new page templates and building blocks. To get this theme, you can download the [Atlas Core](https://marketplace.mendix.com/link/component/117187), [Atlas Web Content](https://marketplace.mendix.com/link/component/117183) and [Atlas Native Content](https://marketplace.mendix.com/link/component/117175) module packages from the Marketplace.
+Mendix 9には、新しいページテンプレートとビルディングブロックを含む新しいAtlasテーマが付属しています。 To get this theme, you can download the [Atlas Core](https://marketplace.mendix.com/link/component/117187), [Atlas Web Content](https://marketplace.mendix.com/link/component/117183) and [Atlas Native Content](https://marketplace.mendix.com/link/component/117175) module packages from the Marketplace.
 
-### 3.8 Review and Test Your App
+### 3.8 アプリのレビューとテスト
 
-Finally, review the sections below and ensure that you have made all the changes necessary. Test the app for any unexpected results.
+最後に、以下のセクションを確認し、必要なすべての変更を行ったことを確認してください。 予期しない結果をアプリでテストします。
 
 {{% alert type="success" %}}
-Congratulations! Your app has been successfully upgraded to Mendix 9 and you can continue working as normal.
+おめでとうございます アプリは正常にMendix 9にアップグレードされ、通常通り作業を続けることができます。
 {{% /alert %}}
 
-## 4 Runtime API Changes
+## 4回のランタイムAPIの変更
 
-Most of the Java API calls that were deprecated in Mendix 8 have been removed. If you were still using such methods in your Java actions, you must replace or delete them. To check which calls were depreciated, click the **Mendix 8 Server Runtime API** link in our [Runtime API Documentation](/apidocs-mxsdk/apidocs/runtime-api).
+Mendix 8 で廃止された Java API 呼び出しのほとんどは削除されました。 それでもJavaアクションでそのようなメソッドを使用している場合は、それらを交換または削除する必要があります。 減価償却されたコールを確認するには、 **Runtime API ドキュメント** 内の [Mendix 8 Server Runtime API](/apidocs-mxsdk/apidocs/runtime-api) リンクをクリックしてください。
 
-Additionally, refer to the Mendix Studio Pro 9.02 Release notes for more Runtime API change details.
+さらに、Runtime API の変更の詳細については、Mendix Studio Pro 9.02 リリースノートを参照してください。
 
-### 4.1 Changes to Database Uniqueness
+### 4.1 データベース固有の変更
 
-Before Mendix 9, Mendix could ensure data uniqueness using either the Mendix runtime or by relying on the database engine itself. Starting with Mendix 9, **Database** will be the only option.
+Mendix 9より前に、MendixはMendixランタイムまたはデータベースエンジン自体に依存することで、データの一意性を確保することができました。 Mendix 9以降、 **Database** が唯一のオプションとなります。
 
-If your app is still using Mendix runtime for uniqueness validation, then you should set the custom runtime setting `DataStorage.EnableDiagnostics` to `true`  to check for potential data redundancy issues that might exist in the database.
+アプリケーションがまだ一意性検証に Mendix ランタイムを使用している場合は、カスタムランタイム設定 `DataStorage を設定する必要があります。 nableDiagnostics <code> を` に `true`  して、データベースに存在する可能性のあるデータ冗長性の問題をチェックします。
 
-If any are found, an error like **An error occured while initializing the Runtime: Detected unique constraing violation...** will be logged. To solve this, your app will have to be prepared before moving to Mendix 9. You can obtain the tools you need by [submitting a support request](/developerportal/support/submit-support-request).
+見つかった場合は、 **Runtime の初期化中にエラーが発生しました。検出された固有の結合違反...** がログに記録されます。 これを解決するには、Mendix 9に移動する前にアプリを準備する必要があります。 [サポート リクエスト](/developerportal/support/submit-support-request) を送信することで、必要なツールを入手できます。
 
-## 5 Testing Native Mobile Apps
+## 5ネイティブモバイルアプリのテスト
 
-To test and preview native mobile apps in Mendix 9, you must download the Mendix 9 version of the Make It Native app:
+Mendix 9でネイティブモバイルアプリをテストしてプレビューするには、Make It Native AppのMendix 9バージョンをダウンロードする必要があります。
 
-* Download Make It Native 9 for Android in the [Google Play Store](https://play.google.com/store/apps/details?id=com.mendix.developerapp.mx9)
-* Download Make It Native 9 for iOS in the [Apple App Store](https://apps.apple.com/nl/app/make-it-native/id1542182000)
+* [Google Play ストア](https://play.google.com/store/apps/details?id=com.mendix.developerapp.mx9) で Android Native 9 をダウンロード
+* [Apple App Store](https://apps.apple.com/nl/app/make-it-native/id1542182000) で iOS 向け Native 9 をダウンロード
 
-For best results with native apps, make sure you have updated the [Native Mobile Resources](https://marketplace.mendix.com/link/component/109513) module as described in the [Upgrade All Widgets and Modules](#upgrade-widgets) section above.
+ネイティブアプリで最高の結果を得るために 上記の [すべてのウィジェットとモジュールのアップグレード](https://marketplace.mendix.com/link/component/109513) セクションに記載されている [ネイティブモバイルリソース](#upgrade-widgets) モジュールを更新したことを確認してください。
 
-## 6 Client API Changes
+## 6 クライアント API の変更
 
-Client APIs that were deprecated and marked for removal in Mendix 9 were indeed removed. Libraries like `big.js`, `react`, `react-native`, and a few others shipped with the Client have been updated to latest version. This might affect your custom and pluggable widgets and to JavaScript actions. Please refer to the [Breaking Changes](/releasenotes/studio-pro/9.0#breaking-changes) section of the *Studio Pro 9.0* release notes for more details.
+Mendix 9で非推奨で削除されたクライアントAPIは実際に削除されました。 `のような大きなライブラリ。 s <code> ,`react `,`, `react-native`, そして、クライアントに同梱されている他のいくつかは、最新バージョンに更新されました。 これは、カスタムウィジェットやプラグイン可能なウィジェットや JavaScript アクションに影響を与える可能性があります。 詳細については、 [Studio Pro 9.0](/releasenotes/studio-pro/9.0#breaking-changes) リリースノートの *Breaking Changes* セクションを参照してください。
 
-## 7 Native Dependencies
+## 7つのネイティブ依存関係
 
-Mendix 9 native apps no longer include non-essential native libraries like `react-native-maps`, `react-native-ble-plx`, `react-native-geocoder`, and others by default. Instead, new functionality of declaring native dependencies for components has been introduced in Mendix 9. Every pluggable widget or JavaScript action must declare which native libraries it uses. This way, native apps can be bundled with only the libraries they need while unnecessary libraries are not included.
+Mendix 9 native apps no longer include non-essential native libraries like `react-native-maps`, `react-native-ble-plx`, `react-native-geocoder`, and others by default. 代わりに、コンポーネントのネイティブ依存性を宣言する新しい機能が Mendix 9 に導入されました。 すべてのプラグイン可能ウィジェットまたは JavaScript アクションは、使用するネイティブライブラリを宣言する必要があります。 これにより、不要なライブラリが含まれていない場合に必要なライブラリのみにネイティブアプリをバンドルできます。
 
-If your pluggable widget or JavaScript action uses libraries that require native linking, please update your widgets and actions in order to define those native libraries as dependencies for your components. Read more about native dependencies in [Declaring Native Dependencies](/apidocs-mxsdk/apidocs/pluggable-widgets-native-dependencies).
+pluggable ウィジェットまたは JavaScript アクションがネイティブリンクを必要とするライブラリを使用している場合。 それらのネイティブライブラリをコンポーネントの依存関係として定義するには、ウィジェットとアクションを更新してください。 ネイティブ依存関係の詳細については、 [ネイティブ依存関係の宣言](/apidocs-mxsdk/apidocs/pluggable-widgets-native-dependencies) を参照してください。
 
-## 8 XPath Query Engine 9 {#query-engine-9}
+## 8 XPath クエリエンジン 9 {#query-engine-9}
 
-Mendix 9 contains a new XPath query engine called *query engine 9* or QE9, replacing the current engine called *query engine 7* or QE7. There are a few changes in functionality between the query engines:
+Mendix 9 contains a new XPath query engine called *query engine 9* or QE9, replacing the current engine called *query engine 7* or QE7. クエリエンジン間で機能にいくつかの変更があります:
 
-* If an association is [navigable from both sides](/refguide/association-properties#navigability), both entities can have access rules defined which declare the readability of the association. For such associations, QE9 will always use the entity on the left of the current XPath to determine accessibility. For example: in the query `//Customer[Customer_Address/Address/City = 'Rotterdam']`, the access rules defined in `Customer` will be used for the association, whereas in `//Address[Customer_Address/Customer/Lastname = 'Doe']`, the rules in `Address` will be used for that same association. In QE7 the behavior was not well defined.
+* 関連付けが [両側からナビゲート可能な](/refguide/association-properties#navigability)の場合、両方のエンティティは、関連付けの可読性を宣言するアクセスルールを定義することができます。 このような関連付けの場合、QE9 は常に現在の XPath の左側にあるエンティティを使用してアクセシビリティを決定します。 For example: in the query `//Customer[Customer_Address/Address/City = 'Rotterdam']`, the access rules defined in `Customer` will be used for the association, whereas in `//Address[Customer_Address/Customer/Lastname = 'Doe']`, the rules in `Address` will be used for that same association. QE7では、動作がよく定義されていませんでした。
 
-* QE9 has been written to follow the least privilege principle strictly when retrieving data. This might cause less data to be visible to end-users.
+* QE9は、データを取得する際に厳密に最小特権原則に従うように書かれています。 これにより、エンドユーザーに見えるデータが少なくなる可能性があります。
 
-* While not allowed by Studio Pro, it was possible to use a non-boolean attribute as a constraint in a Java action, for example `//Address[City]`. QE7 accepts such queries but, depending on the database, it may give unexpected results. QE9 will reject such queries.
+* Studio Pro では許可されていませんが、Java アクションの制約として boolean ではない属性を使用することができました。 例: `//Address[City]`. QE7はこのような問い合わせを受け付けますが、データベースによっては予期せぬ結果が得られることがあります。 QE9はそのようなクエリを拒否します。
 
-* While not supported or documented, it is possible to use a query like `//Customer/Customer_Address/Address` in a Java action. If an instance of `Address` is reachable from multiple `Customer` instances, QE7 would return the instance of `Address` multiple times. QE9 will return each matching instance of `Address` only once.
+* サポートされていない、またはドキュメントされていないが、Java アクションで `//Customer/Customer/Customer_Address/Address` のようなクエリを使用することができます。 If an instance of `Address` is reachable from multiple `Customer` instances, QE7 would return the instance of `Address` multiple times. QE9は、 `Address` の一致する各インスタンスを一度だけ返します。
 
-## 9 Read More
+## 9 続きを読む
 
-* [Studio Pro 9 Release Notes](/releasenotes/studio-pro/9.0)
+* [Studio Pro 9 リリースノート](/releasenotes/studio-pro/9.0)
