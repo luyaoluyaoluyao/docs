@@ -1,17 +1,17 @@
 ---
-title: "Team Server"
-category: "Version Control"
+title: "团队服务器"
+category: "版本控制"
 menu_order: 20
 ---
 
-## 1 Introduction
+## 1 导言
 
-Written on top of Subversion and delivered as a plugin to the Developer Portal, the Mendix Team Server is designed to make the life of a Mendix developer easier. The Mendix Modeler is tightly integrated with the Team Server, and actions like creating a new app (including a versioned model repository), updating an app, committing changes, and merging model versions are all available from within the Mendix Modeler as a single-click actions.
+在 Subversion 顶部编写并作为插件发送到开发者门户， Mendix 团队服务器旨在使Mendix 开发者的生命更加容易。 Mendix Modeler与团队服务器紧密集成，并且创建一个新应用(包括版本模型仓库)的动作。 更新一个应用，提交更改和合并模型版本都可以在Mendix Modeler中作为单击动作使用。
 
-You can manage Team Server access from the Developer Portal, which allows Mendix to provide you with a efficient ways to combine requirements, implementation, and feedback. When you commit your app model changes to the Team Server from within the Modeler, you can select the user stories (reflecting the requirements) that you have been working on. The Team Server will automatically create links between these user stories and the model changes you made, providing you with a way to navigate from commits to the associated requirements. Furthermore, with these links, Mendix creates a link from a user story to a changeset, which can include a link to a form. While feedback also refers to a form, Mendix can create links between feedback, forms, changesets, and user stories.
+您可以从开发者门户管理团队服务器访问权限， 允许Mendix 为您提供一个高效的方法来结合要求、实现和反馈。 当您将您的应用模型更改从模型内部提交给团队服务器时， 您可以选择您一直在工作的用户故事 (反映要求)。 团队服务器将自动创建这些用户故事和您所做的模型更改之间的链接。 为您提供了一种从承诺到相关要求的导航方式。 此外，通过这些链接，Mendix 创建了一个从用户故事到变更集的链接，这个链接可以包含到表单的链接。 反馈也是指表单，Mendix 可以在反馈、表格、变更集和用户故事之间创建链接。
 
-The Team Server also connects the capture-and-develop phase of the Agile application lifecycle. When you start working on the next version of your application, you just open the Modeler to see the user stories planned for the current sprint and start working on them. If a user story is based on user feedback, you can directly jump to the form mentioned in the metadata of the feedback and start implementing the requested change.
+团队服务器还连接Agile 应用程序生命周期的捕获和开发阶段。 当您开始工作下一个版本的应用程序 您刚刚打开Modeler以查看当前冲压的用户故事，然后开始工作。 如果用户故事基于用户反馈， 您可以直接跳转到反馈元数据中提到的表单，并开始执行请求的更改。
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Team Server FAQ](team-server-faq)
+* [团队服务器常见问题](team-server-faq)
