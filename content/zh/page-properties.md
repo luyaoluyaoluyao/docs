@@ -8,6 +8,10 @@ tags:
   - "属性"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page-properties.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 此文档描述页面属性。 关于哪些页面的详细信息以及哪些小部件可以放置在它们上，参见 [页面](pages)。
@@ -30,11 +34,11 @@ tags:
 
 ### 2.1 共同部分 {#common}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
 ### 2.2 设计师科 {#designer}
 
-{{% snippet file="refguide/designer-properties.md" %}}
+{{% snippet file="refguide8/designer-properties.md" %}}
 
 ### 2.3 一般部分 {#general}
 
