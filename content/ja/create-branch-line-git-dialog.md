@@ -1,40 +1,40 @@
 ---
-title: "Create Branch Line (Git)"
+title: "支線の作成"
 parent: "branch-line-manager-dialog"
 menu_order: 20
 tags:
   - "studio pro"
-  - "create branch line"
+  - "分岐線を作成"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-For Git, use the **Create Branch Line** dialog box to create a new [branch line](version-control#branches) via the **Branch Line Manager**:
+Git用 **分岐線** の作成ダイアログ ボックスを使用して、 [分岐線](version-control#branches) を **分岐線 マネージャー** を介して作成します。
 
 ![](attachments/version-control-menu/create-git-branch-line.png)
 
-To view the **Create Branch Line** dialog box,  do the following:
+**分岐線の作成** ダイアログボックスを表示するには、次の操作を行います:
 
 1. Open **Version Control** > **Manage Branch Lines**.
-2. In the **Branch Line Manager**, click **New**.
+2. **ブランチラインマネージャー**で、 **New** をクリックします。
 
-The **Create Branch Line** dialog box is displayed.
+**分岐線** の作成ダイアログボックスが表示されます。
 
-For more information on how to manage branch lines, see the [Managing Development Lines](collaborative-development#managing-branches) section in *Collaborative Development* and [Branch Line Manager](branch-line-manager-dialog). For information on the version control, see [Version Control](version-control).
+分岐線の管理方法の詳細については、 [Collaborative Development](collaborative-development#managing-branches) と *Branch Line Manager* の [](branch-line-manager-dialog) セクションを参照してください。 バージョン管理の詳細については、 [バージョンコントロール](version-control) を参照してください。
 
-## 2 Base Branch Line
+## 基本支線（2本）
 
-**Base branch line** allows you to choose the development line from which you want to create the branch line.
+**ブランチライン** では、ブランチラインを作成したい開発ラインを選択できます。
 
-## 3 Branch Name
+## 3支店名
 
-Enter a name for the new branch line.
+新しいブランチラインの名前を入力します。
 
 {{% alert type="warning" %}}
-Branch names cannot include special characters (for example, `@`, `$`, `#`).
+ブランチ名に特殊文字を含めることはできません(例: `@`, `$`, `#`)。
 {{% /alert %}}
 
-## 4 Read More
+## 4 続きを読む
 
-* [Version Control](version-control)
-* [Collaborative Development](collaborative-development)
+* [バージョン管理](version-control)
+* [共同開発](collaborative-development)
