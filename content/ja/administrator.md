@@ -1,97 +1,97 @@
 ---
-title: "Administrator"
+title: "管理者"
 parent: "project-security"
 menu_order: 20
 tags:
   - "studio pro"
-  - "administrator"
-  - "app security"
-  - "security"
+  - "管理者"
+  - "アプリのセキュリティ"
+  - "セキュリティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In the **Administrator** tab of **App Security**, you can change the default credentials and a user role for the Administrator user:
+**App Security** の **管理者**タブで 管理者ユーザーのデフォルトの資格情報とユーザーロールを変更できます。
 
 ![](attachments/administrator/project-security-administrator.png)
 
-## 2 Administrator Properties {#administrator-properties}
+## 2件の管理者プロパティ {#administrator-properties}
 
-In the **Administrator** tab the following properties are available:
+**管理者** タブでは、次のプロパティを使用できます。
 
-* [User name](#user-name)
-* [Password](#password)
-* [User role](#user-role)
+* [ユーザー名](#user-name)
+* [パスワード](#password)
+* [ユーザーのロール](#user-role)
 
-### 2.1 User Name {#user-name}
+### 2.1 ユーザー名 {#user-name}
 
-The user name is used to sign into the application as the Administrator.
+ユーザー名は管理者としてアプリケーションにサインインするために使用されます。
 
-Default: *MxAdmin*
-
-{{% alert type="info" %}}
-Since this is general knowledge, it is safer to change this to a custom user name.
-{{% /alert %}}
-
-### 2.2 Password {#password}
-
-The password is used to sign into the application as the Administrator. Click **Show password** to see the password.
-
-Default: *1*
+デフォルト: *MxAdmin*
 
 {{% alert type="info" %}}
-Since the value of the password is general knowledge, it is safer to change this to a custom password.
-
-This password is only used when Mendix is running locally. Changing the password in your model will not update the password in your Cloud environments. You can change the password for your other licensed [environments](/developerportal/deploy/environments-details) in the Developer Portal.
+これは一般的な知識なので、カスタムユーザー名に変更する方が安全です。
 {{% /alert %}}
 
-#### 2.2.1 Free Apps
+### 2.2 パスワード {#password}
 
-The MxAdmin user is not created automatically when you deploy your app as a Free App. For licensed environments the MxAdmin user is created when you change the password for the first time, for example through the [Environment Details](/developerportal/deploy/environments-details) for the Mendix Cloud.
+パスワードは管理者としてアプリケーションにサインインするために使用されます。 **Show password** をクリックしてパスワードを表示します。
 
-When your Free App *has never been deployed and the database still needs to be created*, any data snapshot you have added to your app will be restored to the database of your Free App. You can use this process to add the MxAdmin user to your Free App by doing the following:
+デフォルト: *1*
 
-1. In Studio Pro, go to **App > Security**.
-2. With **Security level** set to **Production**, open the **Administrator** tab.
-3. Change the default password of the administrator user.
-4. Run you project locally. This will create a local database that includes the MxAdmin user.
-5. Once your app is running locally, stop it again.
+{{% alert type="info" %}}
+パスワードの価値は一般的な知識であるため、これをカスタムパスワードに変更する方が安全です。
+
+このパスワードは Mendix がローカルで実行されている場合にのみ使用されます。 モデルでパスワードを変更しても、クラウド環境でパスワードは更新されません。 開発者ポータルで [ライセンスされている他の環境](/developerportal/deploy/environments-details) のパスワードを変更できます。
+{{% /alert %}}
+
+#### 2.2.1 無料アプリ
+
+無料アプリとしてアプリをデプロイすると、MxAdminユーザーは自動的に作成されません。 ライセンス環境の場合、初めてパスワードを変更するとMxAdmin ユーザーが作成されます。 例えば、Mendix Cloud の [環境の詳細](/developerportal/deploy/environments-details) を使用します。
+
+無料アプリ *がデプロイされたことがなく、データベースを作成する必要がある場合*アプリに追加したデータスナップショットは、無料アプリのデータベースに復元されます。 以下の手順で、MxAdminユーザーを無料アプリに追加できます。
+
+1. Studio Proでは、 **App > Security** に移動します。
+2. **セキュリティレベル** を **プロダクション**に設定し、 **管理者** タブを開きます。
+3. 管理者ユーザーのデフォルトパスワードを変更します。
+4. ローカルにプロジェクトを実行します。 これにより、MxAdmin ユーザを含むローカル データベースが作成されます。
+5. アプリがローカルで実行されたら、もう一度停止してください。
 6. Open **Version Control > Add Snapshot of Data**.
-7. Click **Yes** to confirm committing the new data snapshot.
+7. 新しいデータスナップショットのコミットを確認するには、 **はい** をクリックします。
 
-Your app now contains a data snapshot. If you deploy this project for a Free App for the first time, the snapshot will be restored to the database of the Free App. If there is already a database for your Free App, the snapshot will not be restored.
+アプリにデータスナップショットが含まれるようになりました。 このプロジェクトを初めて無料アプリにデプロイすると、スナップショットは無料アプリのデータベースに復元されます。 フリーアプリのデータベースがすでに存在する場合、スナップショットは復元されません。
 
-Alternatively you can log in as an administrator to a Free App deployed to the cloud, by doing the following:
+または、次の手順で、クラウドにデプロイされた無料アプリの管理者としてログインすることもできます。
 
-1. In Studio Pro, go to **App > Security**.
-2. With **Security level** set to **Production**, open the **Demo users** tab.
-3. Set **Enable demo users** to **Yes**.
-4. Add a demo_administrator having **User role** *Administrator*.
-5. Deploy your Free App to the cloud environment by clicking **Publish**.
-6. Log in using the demo-administrator and you can then create some user accounts.
+1. Studio Proでは、 **App > Security** に移動します。
+2. **セキュリティレベル** を **プロダクション**に設定し、 **デモユーザー** タブを開きます。
+3. **デモユーザー** を **はい** に設定します。
+4. **ユーザー ロール** *管理者* を持つdemo_administratorを追加します。
+5. **公開** をクリックすると、無料アプリをクラウド環境にデプロイできます。
+6. デモ管理者を使用してログインすると、いくつかのユーザーアカウントを作成できます。
 
-### 2.3 User Role {#user-role}
+### 2.3 ユーザーロール {#user-role}
 
-The user role assigned to the Administrator. For more information, see [User Roles](user-roles).
+管理者に割り当てられたユーザーロール。 詳細については、 [ユーザー ロール](user-roles) を参照してください。
 
 Default: *Administrator*
 
 {{% alert type="info" %}}
-The administrator is always created and has the System.Administrator role by default. The System.Administrator role allows users of your application to be managed.
+管理者は常に作成され、デフォルトでSystem.Administratorロールを持っています。 System.Administrator ロールを使用すると、アプリケーションのユーザーを管理できます。
 
-For Free Apps, the user that created the application automatically has this role by default as well so you can use it to manage your users in that environment.
+無料アプリの場合 アプリケーションを自動的に作成したユーザーは、デフォルトでこの役割を持っているため、その環境でユーザーを管理するために使用できます。
 
-This role may be helpful in case you have exceeded your user license restriction in which case you can use any user that has this System.Administrator role to sign in to manage your users.
+この役割は、ユーザーライセンス制限を超えた場合に役立ちます。その場合は、このシステムを持つユーザーを使用できます。 あなたのユーザーを管理するためにサインインするためのdunitatorの役割。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
-When your app is not deployed locally, for example to the Mendix Cloud, changes to the user role of the administrator account will not be applied until the administrator password is changed. See the [actions](/developerportal/deploy/environments-details#actions) section of *Environment Detail* for instructions on changing the admin password.
+アプリケーションがローカルにデプロイされていない場合、例えばMendix Cloudにデプロイされます。 管理者アカウントのユーザーロールへの変更は、管理者パスワードが変更されるまで適用されません。 管理者パスワードの変更方法については、 [アクション](/developerportal/deploy/environments-details#actions) *環境詳細* のセクションを参照してください。
 {{% /alert %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [App Security](project-security)
-* [User Roles](user-roles)
-* [Demo Users](demo-users)
-* [Anonymous Users](anonymous-users)
-* [Password Policy](password-policy)
+* [アプリのセキュリティ](project-security)
+* [ユーザーの役割](user-roles)
+* [デモユーザー](demo-users)
+* [匿名ユーザー](anonymous-users)
+* [パスワードポリシー](password-policy)
