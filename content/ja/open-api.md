@@ -10,23 +10,22 @@ tags:
   - "ドキュメント"
   - "パス"
   - "操作"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**公開されたRESTサービス** 機能は、バージョン7.10.0で導入されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/open-api.pdf) をクリックしてください。
 {{% /alert %}}
 
 ## 1つの紹介
 
-[公開された REST サービス](published-rest-service) はすべて自動的に文書化されます。 このシステムは *swagger.json* ファイルを生成し、 [OpenAPI 2.0 仕様](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) (以前は "swagger 仕様"として知られていました) に準拠します。 This file can be [saved from the modeler](published-rest-service#export-swagger-json) or downloaded from `/rest-doc/servicename/swagger.json`.
+[公開された REST サービス](published-rest-service) はすべて自動的に文書化されます。 このシステムは *swagger.json* ファイルを生成し、 [OpenAPI 2.0 仕様](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) (以前は "swagger 仕様"として知られていました) に準拠します。 このファイルは [Studio Pro](published-rest-service#export-swagger-json) から保存することも、 */rest-doc/servicename/swagger.json* からダウンロードすることもできます。
 
 If you need to communicate with the service from another app, you can use the *swagger.json* file to generate an API in many different systems, including Microsoft Visual Studio, React, Angular, and Java. これにより、異なるアプリ間で簡単に通信できます。
 
 Many of the popular API tools support OpenAPI 2.0, including [SoapUI](https://www.soapui.org/), [Postman](https://www.getpostman.com/), and [Swagger UI](https://swagger.io/swagger-ui/) (for a longer list of supported tools, see [swagger.io/commercial-tools](https://swagger.io/commercial-tools/)). つまり、これらのツールから公開されたサービスを簡単にテストできます。
 
-A technical description is presented below of which parts of the `swagger.json` file are generated.
+A technical description is presented below of which parts of the *swagger.json* file are generated.
 
 ## 2つのスキーマ
 
