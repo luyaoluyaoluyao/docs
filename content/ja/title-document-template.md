@@ -1,32 +1,28 @@
 ---
-title: "Title (Document Template)"
-parent: "document-templates"
+title: "タイトル (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/title-(document-template).html
-  - /refguide8/Title+(document+template).html
+  - /ja/refguide/title-(document-template).html
+  - /ja/refguide/Title+(document+template).html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/title-document-template.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+タイトルは静的なラベルのように機能しますが、データビュー、テンプレートグリッド、テーブルの外側に配置することができます。
 
-A title works much like a static label but can be placed outside a data view, templategrid or table.
+## 外観のプロパティ
 
-## 2 Appearance Properties
+### 2.1 図表番号
 
-### 2.1 Caption
+これはドキュメントに表示したい値です。
 
-This is the value you wish to display in the document.
+### 2.2 スタイル
 
-### 2.2 Style
+詳細は [スタイル](style) を参照してください。
 
-For details, see [Style](style).
+## 3つの一般的なプロパティ
 
-## 3 Common Properties
-
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
 
