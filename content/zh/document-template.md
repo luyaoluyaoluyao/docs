@@ -5,10 +5,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/document-template.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This document describes the properties of a document template. If you want to see what document templates are for and what kind of widgets can be placed on them, you can check the [Document Templates](document-templates) overview documentation.
@@ -61,7 +57,7 @@ For details, see [Style](style).
 
 ### 4.1 Name
 
-The name of the document template. You can change the name via the project explorer.
+The name of the document template. You can change the name via the App Explorer.
 
 ### 4.2 Documentation
 
