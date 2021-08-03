@@ -1,42 +1,42 @@
 ---
-title: "Mobile"
+title: "移动设备"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix allows you to quickly build true [native mobile apps](#nativemobile) and [progressive web apps](progressive-web-app). This document gives an overview of mobile app development with Mendix.
+Mendix 允许您快速构建真实的 [本机移动应用程序](#nativemobile) 和 [渐进的 web 应用](progressive-web-app)。 此文档提供了Mendix移动应用开发的概述。
 
-With Mendix, you can create different channels (for example, responsive, native phone) from a single model using navigation profiles. These mobile profiles can be added and removed separately. If you add a profile, you must also provide a home page for it. For more information on navigation profiles, see [Navigation](navigation).
+使用 Mendix ，您可以使用导航配置文件创建不同的频道(例如响应、本地电话)。 这些移动配置文件可以单独添加和删除。 如果您添加了个人资料，您还必须提供一个主页。 欲了解更多导航信息，请参阅 [Navigation](navigation)。
 
-## 2 Native Mobile Apps {#nativemobile}
+## 2 个本地移动应用程序 {#nativemobile}
 
-With Mendix 9, it is possible to build fully native mobile apps. Native mobile apps they do not render inside a web view, but use native UI elements instead. This results in fast performance, smooth animations, natural interaction patterns (like swipe gestures), and improved access to all native device capabilities.  To make such responsive native mobile apps, Mendix leverages the popular open-source framework [React Native](https://facebook.github.io/react-native/).
+使用 Mendix 9 可以建立完全原生的移动应用程序。 本地移动应用程序不会在网络视图中渲染，而是使用本地用户界面元素。 这导致性能快速运行、动画平滑、自然互动模式(如滑动手势)，并改善所有本地设备能力的获取。  要使这种响应性的本地移动应用，Mendix 会利用通用的开源框架 [React Native](https://facebook.github.io/react-native/)。
 
-You can use pages, widgets, nanoflows, JavaScript actions, microflows, and many other familiar elements to build your app. For more information on how to to build a native mobile app, see [Get Started with Native Mobile](/howto/mobile/getting-started-with-native-mobile).
+您可以使用页面、小部件、纳夫洛、JavaScript行动、微流和许多其他熟悉的元素来构建您的应用程序。 关于如何构建本地移动应用的更多信息，请参阅 [使用本地移动应用启动](/howto/mobile/getting-started-with-native-mobile)。
 
-Native mobile apps' theming and styling is based on JavaScript. For more information on styling, see [Native Styling](native-styling-refguide).
+本地移动应用程序的主题和样式是基于 JavaScript 的。 关于样式的更多信息，请参阅 [本机样式](native-styling-refguide)。
 
-## 3 Progressive Web Apps {#pwa}
+## 3 渐进式网络应用程序 {#pwa}
 
-Progressive web apps (PWAs) are an evolution of traditional web apps. Overall, PWAs tend to behave more like native mobile apps. One key difference, however, is that PWAs do not need to be distributed via an app store but can be accessed directly via the browser.
+渐进式网络应用程序(PWAS)是传统网络应用程序的演变。 总的来说，PWA的行为往往更像本机移动应用程序。 然而，一个关键区别是，PWA不需要通过应用商店分发，而是可以直接通过浏览器访问。
 
-Progressive web apps have three main characteristics:
+渐进式网络应用有三个主要特点：
 
-* **Installable —** PWAs let you add your app to your user’s home screen and start a full screen app. This makes PWAs feel more fully-capable native apps.
-* **Reliable —** Using service workers, PWAs can work offline or partially offline. Mendix PWAs can work partially offline (resources like styling, pages, and images are cached) or fully offline (like native mobile apps).
-* **Capable —** PWAs can leverage several device capabilities like the camera and location, and can offer support for web push notifications. Note that support for features depend on which browser is used.
+* **可安装 —** PWAs 让您将您的应用程序添加到您的主屏幕并启动全屏应用。 这使得PWA感觉到能够更充分的本地应用。
+* **可靠的 —** 使用服务工人，PWA可以脱机或部分脱机工作。 Mendix PWA可以部分离线工作 (资源如样式、页面和图像被缓存) 或完全离线(例如本地移动应用程序)。
+* **Capable —** PWA可以调用多个设备功能，如相机和位置，并且可以支持 web 推送通知。 请注意，功能的支持取决于使用哪个浏览器。
 
-## 4 Offline-First Apps
+## 4 个离线第一个应用程序
 
-With Mendix, you can build apps which work regardless of internet connection. Offline-first applications provide end-users with a continuous experience and the confidence that their data is secure in all situations. Pages and logic interact with an offline database on the device itself, and data is synchronized with the server when possible. This results in a nicer UI, increased reliability, and improved device battery life. For more information on offline-first app capabilities, see [Offline First](offline-first).
+通过Mendix，您可以构建能够正常工作的应用，而不论网络连接如何。 离线应用为最终用户提供了持续的经验，并使他们相信他们的数据在所有情况下都是安全的。 页面和逻辑与设备上的离线数据库交互，数据可能时与服务器同步。 这就使得用户界面更加简洁，更加可靠，设备电池寿命更长。 欲了解离线第一应用能力的更多信息，请参阅 [离线第一](offline-first)。
 
-Mendix's native mobile apps are always configured with offline-first capabilities. When building an app app, you can choose to build an online app which continously connects with a server, or an offline-first app that works even without an internet connection. This can be configured by choosing the corresponding navigation profile in Mendix Studio Pro. For more instructions on setting up such a profile, see [Navigation](navigation).
+Mendix的原生移动应用程序总是用离线第一功能配置的。 当构建应用时，您可以选择构建一个能够与服务器连接的在线应用， 或者一个即使没有互联网连接也能运行的离线第一个应用程序。 可以通过在 Mendix Studio Pro中选择相应的导航配置文件。 关于设置此配置文件的更多说明，请参阅 [Navigation](navigation)。
 
-## 5 Main Documents in This Category
+## 5 个此类别中的主要文档
 
-* [Native Mobile](native-mobile) – presents information on building fully native mobile apps with the Mendix Platform that utilize native UI elements
-* [Progressive Web Apps](progressive-web-app) – explains the capabilities and configurations of progressive web apps
-* [Hybrid Mobile](hybrid-mobile) – describes the depreciated state of hybrid mobile in Mendix 9
-* [Offline First](offline-first) – provides details on the architectural concepts of offline-first applications in Mendix
+* [本机移动](native-mobile) - 提供关于使用本机UI元素的 Mendix 平台构建完全本机移动应用的信息
+* [渐进的 Web 应用程序](progressive-web-app) - 解释进步的 web 应用程序的能力和配置
+* [混合移动设备](hybrid-mobile) - 描述混合移动设备在 Mendix 9 中的折旧状态
+* [离线第一个](offline-first) - 提供离线第一个应用程序在Mendix 中的建筑概念的详细信息
