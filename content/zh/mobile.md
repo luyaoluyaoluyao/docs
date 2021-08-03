@@ -1,52 +1,39 @@
 ---
-title: "移动开发"
+title: "移动设备"
+tags:
+  - "studio pro"
 ---
 
 ## 1 导言
 
-Mendix 允许您快速构建移动设备应用程序。 此文档提供了Mendix移动应用开发的概述。
+Mendix 允许您快速构建真实的 [本机移动应用程序](#nativemobile) 和 [混合应用](#hybridmobile)。 此文档提供了Mendix移动应用开发的概述。
 
-## 2 Navigation
+通过Mendix，您可以创建不同的频道(例如响应、混合移动和本地电话)，使用导航配置文件。 这些移动配置文件可以单独添加和删除。 如果您添加了个人资料，您还必须提供一个主页。 欲了解更多导航信息，请参阅 [Navigation](navigation)。
 
-每个应用都从主页开始。 您可以在 [导航](navigation) 文档中为手机和平板电脑指定不同的主页。 移动配置文件可以单独添加和删除。 如果您添加了个人资料，您也必须提供其主页。 除了主页外，可以为不同的用户角色指定不同的主页。 此外，还有一个默认菜单，可以在 [菜单小部件](menu-widgets) 中使用。
+## 2 个本地移动应用程序 {#nativemobile}
 
-![](attachments/modeler-core/18582284.png)
+使用 Mendix 8 可以构建完全原生的移动应用程序。 本地移动应用程序不同于混合应用程序：它们不会在网络视图中渲染，而是使用本地UI元素。 这导致性能快速运行、动画平滑、自然互动模式(如滑动手势)，并改善所有本地设备能力的获取。  要使这种响应性的本地移动应用，Mendix 会利用通用的开源框架 [React Native](https://facebook.github.io/react-native/)。
 
-## 3 个布局
+你构建Mendix 本机移动应用的方式与构建网络或混合应用的方式相同。 您可以使用页面、小部件、纳夫洛、JavaScript行动、微流和许多其他熟悉的元素来构建您的应用程序。 关于如何构建本地移动应用的更多信息，请参阅 [使用本地移动应用启动](/howto8/mobile/getting-started-with-native-mobile)。
 
-理论上，您可以在移动设备上显示整个桌面网站。 但你可能想要使用更简单的布局和更少的信息来优化页面。 [布局](layout) 可以帮助您创建适合设备的页面。
+然而，在构建本地移动应用和构建混合应用之间存在着一些差异。 例如，小部件(及其可用属性)在优化本地移动应用时略有不同。 此外，本机移动应用的主题和样式是基于 JavaScript 而不是SASS/CSS。 关于样式的更多信息，请参阅 [本机样式](native-styling-refguide)。
 
-对于移动设备，您可能想要有一个布局在可折叠的 [侧边栏](sidebar-toggle-button) 中隐藏菜单。
+## 3 混合移动应用程序 {#hybridmobile}
 
-您将需要每个支持的设备类型至少一个布局 (桌面、平板电脑) 您可以通过手机来优化您的应用，但您可以创建尽可能多的应用程序。
+Mendix混合移动应用程序是通过移动网络浏览器查看的多功能应用。 然而，某些移动设备功能无法通过 HTML 和 JavaScript 访问这些应用程序的基础。
 
-![](attachments/modeler-core/16844053.png)
+Mendix 使用 [Cordova](https://cordova.apache.org/) 和 [本地版本](/howto8/mobile/build-hybrid-locally) 来构建移动应用，这些应用可以让某些设备功能发挥杠杆作用，并发布到 Apple App Store 或 Google Play 商店。 Cordova 创建一个围绕网络应用程序的本地包装器，并通过 JavaScript API提供访问本地函数。 这些应用被称为“混合”，因为它们既是网络应用，也是本地应用的混合物。
 
-## 4 部件
+为了让您的混合应用访问设备的原生功能，Mendix 在 [Mendix Marketplace](https://marketplace.mendix.com/) 中提供了几个小部件。 您也可以构建您自己的自定义小部件或 JavaScript 动作来影响本机功能。 关于构建自定义小部件或 JavaScript 动作的更多信息。 查看 [如何构建插件](/howto8/extensibility/pluggable-widgets) and [构建JavaScript 操作](/howto8/extensibility/build-javascript-actions)。
 
-一些小部件比其他小部件更适合移动使用。 例如， [数据网格](data-grid) 不太适合，因为它依赖于多列和多个搜索字段。 [列表视图](list-view) 是一个更简单、更紧凑的小部件，用于显示对象列表。 [数据视图](data-view) 同样适合移动和桌面使用，但这当然取决于你放置在内面的所有部件。 一些自定义小部件只能用于混合移动应用，因为它们访问设备的原生功能。
+## 4 个离线第一个应用程序
 
-## 5 混合移动应用
+通过Mendix，您可以构建能够正常工作的应用，而不论网络连接如何。 离线应用为最终用户提供了持续的经验，并使他们相信他们的数据在所有情况下都是安全的。 页面和逻辑与设备上的离线数据库交互，数据可能时与服务器同步。 这就使得用户界面更加简洁，更加可靠，设备电池寿命更长。 欲了解离线第一应用能力的更多信息，请参阅 [离线第一](offline-first)。
 
-Mendix 应用可以简单地在移动网络浏览器中查看。 然而，移动设备的某些功能无法通过 HTML 和 JavaScript 访问。
+Mendix的原生移动应用程序总是用离线第一功能配置的。 在构建混合移动应用程序时，您可以选择构建一个可与服务器连接的在线应用程序。 或者一个即使没有互联网连接也能运行的离线第一个应用程序。 可以通过在 Mendix Studio Pro中选择相应的导航配置文件。 关于设置此配置文件的更多说明，请参阅 [Navigation](navigation)。
 
-如果您想要在 Apple App Store 或 Google Play 上发布您的应用，您必须将应用包装成本机外壳。 我们使用 [PhoneGap](http://phonegap.com/) 来做这件事。 PhoneGap创建一个围绕网络应用程序的本地包装器，并通过一个 Javascript API提供对本地功能的访问。 这些应用也被称为“混合”应用，因为它们是网络和本地应用的混合物。 Mendix 以多种方式促进混合移动应用程序的创建。
+## 5 个此类别中的主要文档
 
-### 5.1 混合移动部件
-
-为了访问设备的本地功能，我们在Mendix Marketplace中提供了一些PhoneGap小部件。 当然，您可以建立自己的自定义小部件使用本机功能。 PhoneGa小部件可以通过他们的特殊图标确认。 您也可以通过 **在Mendix 桌面模式中编辑** > **查找高级** 搜索它们。
-
-![](attachments/modeler-core/16844052.png)
-
-### 5.2 离线应用
-
-单独的配置文件可用来构建 [离线应用程序](offline)。 这些应用即使没有可用的网络连接也可以运行，因为它们将其数据存储在设备上。 当设备连接到网络时，用户可以与主应用程序同步。 请注意与已连接的应用相比有一些限制。
-
-## 本类别中的文档
-
-* [配置混合移动应用程序以离线运行](configuring-hybrid-mobile-apps-to-run-offline)
-* [自定义混合移动应用程序](customizing-hybrid-mobile-apps)
-* [开发混合移动应用](开发混合移动应用)
-* [获取Mendix 移动应用程序](getting-the-mendix-app)
-* [管理应用签名密钥](managing-app-signing-keys)
-* [包装混合移动应用](packaging-hybrid-mobile-apps)
+* [本机移动](native-mobile) - 提供关于使用本机UI元素的 Mendix 平台构建完全本机移动应用的信息
+* [混合移动](hybrid-mobile) - 描述如何准备、包和自定义Mendix 混合应用
+* [离线第一个](offline-first) - 提供离线第一个应用程序在Mendix 中的建筑概念的详细信息
