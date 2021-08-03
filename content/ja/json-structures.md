@@ -1,92 +1,93 @@
 ---
-title: "JSON Structures"
-parent: "integration"
+title: "JSON 構造"
+parent: "統合"
+menu_order: 40
+tags:
+  - "studio pro"
 ---
 
-## 1 General
+## 1つの全般
 
-A JSON structure document stores a JSON snippet, and converts it into a schema structure that can be used in [Import Mappings](import-mappings) and [Export Mappings](export-mappings) to convert JSON content to Mendix objects and vice versa.
+JSON 構造ドキュメントは、JSON スニペットを格納します。 そして、 [Import Mappings](import-mappings) および [Export Mappings](export-mappings) で使用できるスキーマ構造に変換して、JSON コンテンツを Mendix オブジェクトに変換し、その逆も同様に変換します。
 
 ![](attachments/18450089/19398772.png)
 
 ### 1.1 JSON Snippet
 
-Contains text of the JSON snippet. Usually it is pasted from API documentation, or you can enter it manually for simple JSON.
+JSON スニペットのテキストが含まれています。 通常はAPIドキュメントから貼り付けたり、簡単なJSONのために手動で入力することができます。
 
 {{% alert type="info" %}}
 
-When you paste or modify the JSON snippet, it is automatically checked for validity. If the snippet is not valid, an exclamation mark appears above the snippet:
+JSON スニペットを貼り付けまたは変更すると、自動的に有効性がチェックされます。 スニペットが有効でない場合、スニペットの上に感嘆符が表示されます。
 
 ![](attachments/18450089/19398781.png)
 
-You cannot press "OK" without making the JSON valid.
-
-JSON snippets with `:`, `^`, or `|` in property names are currently not supported.
+JSON を有効にせずに "OK" を押すことはできません。
 
 {{% /alert %}}
 
-### 1.2 Format
+### 1.2 フォーマット
 
-Formattings and whitespacing of JSON snippets that are found in API documentations may vary. You can paste JSON into the document without bothering about whitespaces. The button 'Format' formats the JSON snippet in such a way that it is canonical and readable. The semantic contents of the snippets are not changed.
+API ドキュメントに含まれる JSON スニペットの書式と空白は異なる場合があります。 空白を気にせずにJSONをドキュメントに貼り付けることができます。 ボタン「フォーマット」は、JSONスニペットを正規で読みやすいようにフォーマットします。 スニペットのセマンティックコンテンツは変更されません。
 
 {{% alert type="info" %}}
 
-Special unicode characters are encoded according to JSON standards. For example, if the original snippet contained a heart-shaped symbol (❤️), it is replaced by '\u2764'.
+特殊な Unicode 文字は JSON 標準に従ってエンコードされます。 たとえば、元のスニペットにハート型のシンボル (❤️) が含まれている場合は、'\u2764 'に置き換えられます。
 
 {{% /alert %}}
 
-### 1.3 Structure
+### 1.3 構造
 
-Shows a tree structure with a schema that is parsed from the JSON snippet. The following columns are available:
+JSON スニペットから解析されたスキーマを持つツリー構造を表示します。 次の列を使用できます。
 
-* **Name** – this shows the name of a JSON element. If the JSON element does not have a name, it shows the element type within parentheses: (Object), (Array), (Wrapper) or (Value).
-* **Value** – this shows the original value of the element in the JSON snippet. It is used to make it easier to find back the original element in the snippet. It is not used in the rest of the model.
-* **Primitive Type** – shows the type of element after parsing.
-* **Occurrence** – shows the occurrence of the element. Typically JSON arrays have multiple occurrence (0..*) and JSON objects single occurrence (1).
-* **Custom name** – this column is editable. Often the name JSON objects or arrays can not be inferred from the snippet. For reference, you can modify the name of the JSON element. This name is important when you use Mapping documents based on the JSON schema. You will see this name in mapping elements, and it is used when you want to use "Map Automatically" to generate domain model entities and associations.
+* **名前** – JSON 要素の名前を表示します。 JSON 要素に名前がない場合は、括弧内に要素の型が表示されます: (オブジェクト)、(配列)、(Wrapper)、または (値)。
+* **値** – JSON スニペット内の要素の元の値を示します。 スニペット内の元の要素を簡単に検索できるようにするために使用されます。 モデルの残りの部分では使用されません。
+* **原始タイプ** – 解析後の要素の種類を示す。
+* **** – 要素の発生を示します。 通常、JSON配列には複数の発生(0..*)とJSONオブジェクトの単一発生(1)があります。
+* **カスタム名** - この列は編集可能です。 多くの場合、JSON オブジェクトまたは配列の名前はスニペットから推定できません。 参照のために、JSON 要素の名前を変更できます。 JSON スキーマをベースにしたドキュメントのマッピングを使用する場合、この名前は重要です。 マッピング要素にこの名前が表示されます。 ドメインモデルのエンティティや関連付けを生成するために、"Map Automatically"を使用したい場合に使用されます。
 
 {{% alert type="info" %}}
 
-When you modify the JSON snippet, you need to refresh the structure by clicking the 'Refresh' button. If you have not done so, an error will appear:
+JSON スニペットを変更する場合は、「更新」ボタンをクリックして構造を更新する必要があります。 これを行っていない場合、エラーが表示されます:
 
 ![](attachments/18450089/19399140.png)
 
-You cannot press "OK" without updating the structure.
+構造を更新せずに「OK」を押すことはできません。
 
 {{% /alert %}}
 
-### 1.4 Documentation
+### 1.4 ドキュメント
 
-Documentation that describes the snippet.
+スニペットを記述するドキュメント。
 
-## 2 Parsing of the JSON Snippet
+## 2 JSON スニペットの解析
 
-### 2.1 Simple JSON Objects
+### 2.1 シンプルな JSON オブジェクト
 
-A simple JSON object is contained in curly braces (between '{' and '}'). It contains a comma-separated list of JSON properties. See the following example.
+単純な JSON オブジェクトは中括弧('{' and '}'の間)に含まれています。 カンマ区切りの JSON プロパティのリストが含まれます。 次の例を参照してください。
 
 ![](attachments/18450089/19398772.png)
 
-Each JSON property is composed of a key ("name") and a value ("John"). If the value is between double quotes ("  "), it is considered a string, otherwise the type is derived from the value. The following JSON values are supported:
+各 JSON プロパティは、キー ("name") と値 ("John" で構成されています。 値が二重引用符(""")の間の場合、文字列と見なされます。そうでなければ、型は値から派生します。 次のJSON値がサポートされています。
 
-*   "string". Converted into an attribute of type String.
-*   123\. Converted into an attribute of type Integer.
-*   true or false. Converted into an attribute of type Boolean.
-*   "1985-04-12T23:20:50.52Z". Converted into an attribute of type DateTime.
-*   12.50\. Converted into an attribute of type Decimal.
+*   "string". String型の属性に変換されました。
+*   123\. 整数型の属性に変換されます。
+*   真か偽か Boolean型の属性に変換されました。
+*   "1985-04-12T23:20:50.52Z"。 **Date and time** 型の属性に変換されました。
+*   12.50\. 10 進数型の属性に変換されます。
 
-### 2.2 JSON Arrays
+### 2.2 JSON 配列
 
-A JSON array is contained in square brackets (between `[` and `]`). It contains a comma-separated list of JSON values or JSON objects.
+JSON 配列は角括弧に含まれています ( `[` と `]` の間)。 JSON または JSON オブジェクトのカンマ区切りのリストが含まれています。
 
-*   a JSON array can be the root of the JSON snippet.
+*   JSON 配列は、JSON スニペットのルートになります。
 
-*   a JSON array can be contained within a JSON object
+*   JSON 配列は JSON オブジェクト内に含めることができます
 
-*   a JSON array can be contained within another JSON array.
+*   JSON配列は別のJSON配列内に含めることができます。
 
 {{% alert type="info" %}}
 
-The first item of the array will be used to determine the type of the items in the array. Mixed arrays are unsupported. A mixed array is an array with entries of different data types (for example, string and integer). In the tree structure, a error will appear that you cannot use mixed arrays in your mappings.
+配列の最初の項目は、配列内の項目の型を決定するために使用されます。 混合配列はサポートされていません。 混合配列は、異なるデータ型(例えば、文字列と整数)のエントリを持つ配列です。 ツリー構造では、マッピング内で混在配列を使用することはできません。
 
 {{% /alert %}}
