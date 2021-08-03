@@ -1,42 +1,66 @@
 ---
-title: "Create Deployment Package Dialog"
-parent: "dialogs"
+title: "デプロイパッケージを作成"
+parent: "アプリ メニュー"
+tags:
+  - "studio pro"
+  - "プロジェクトメニュー"
+  - "デプロイパッケージ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-With this dialog box, you can create a deployment package. A deployment package can be deployed on the Developer Portal or on a server that is configured to run Mendix software. While developing you can deploy and run on your local machine, but once you are ready to deploy your project on a real server you will need to create a deployment package.
+デプロイメントパッケージは、Mendix Cloud、別のクラウドプロバイダ(SAP BTPなど)にデプロイできます。 またはMendixソフトウェアを実行するように設定されたサーバー上で。 開発中は、ローカルマシン上でデプロイして実行できます。 しかし、他の場所でアプリをデプロイする準備ができたら、デプロイパッケージを作成する必要があります。 プラットフォームによっては、デプロイプロセスの一部として自動的に行われますが、他のプラットフォームではデプロイパッケージを明示的に作成する必要があります。
 
-To open the **Create Deployment Package** dialog box, go to **Project > Create Deployment Package**.
+![デプロイメント・パッケージの作成ダイアログ](attachments/app-menu/create-deployment-package.png)
 
-![](attachments/create-deployment-package-dialog/create-deployment-package-dialog.png)
+{{% alert type="warning" %}}
+ほとんどのデプロイターゲットには、デプロイ可能な展開パッケージの非圧縮サイズに制限があります。 例:
+
+| Target               | 最大展開パッケージサイズ |
+| -------------------- | ------------ |
+| Mendix Cloud         | 1GB          |
+| SAP BTP              | 1.5GB        |
+| プライベートクラウドのためのMendix | 200MB        |
+
+デプロイメント・パッケージ (.mpk ファイル) の非圧縮サイズです。 [7-Zip](https://www.7-zip.org/) などのファイルアーカイブプログラムでパッケージファイルを開き、ファイルのプロパティまたは **情報** を確認することで、非圧縮サイズを見つけることができます。
+
+残念ながら、デプロイ中にログに表示されるエラーから、パッケージサイズが問題であることが必ずしも明確ではありません。 しかし、アプリケーションのデプロイに問題がある場合は、パッケージサイズを原因として確認する必要があります。
+{{% /alert %}}
 
 ## 2 Versioned
 
-If you select **Yes** for **Versioned**, a versioned deployment package is built from a fresh download of a specific revision in the Team Server. This means that you can always trace its origin and recreate it.
+ここでは、バージョン管理のデプロイパッケージを作成するかどうかを決定できます。
 
-If you select **No** for **Versioned**, an unversioned deployment package will be built based on your local project on disk. An unversioned deployment package cannot be traced back to a specific revision. Therefore, we recommend that you create versioned deployment packages unless you have very good reasons.
+バージョン管理されたデプロイメントパッケージは、Team Serverに保持されている特定のリビジョンの新規ダウンロードからビルドされます。 これは、常にその起源をトレースして再現できることを意味します。 非常に適切な理由がない限り、バージョン管理されたデプロイパッケージを作成することをお勧めします。
 
-## 3 Development Line (for Versioned)
+バージョン以外のデプロイメントパッケージは、ディスク上のローカルアプリケーションに基づいており、特定のリビジョンまで追跡することはできません。
 
-Choose the **Development line** for which you want to create a deployment package. This can be the main line or any branch line. For example, you create a package from a maintenance branch line if your want to put a fix you implemented there online. Or you create a deployment package from the main line because you are ready to deploy the next big version of your application.
+## バージョン配備パッケージの3つのオプション
 
-## 4 Revision (for Versioned)
+バージョン管理されたデプロイパッケージを作成する場合は、以下に説明されている情報を入力する必要があります。 バージョン管理の詳細については、 [バージョン管理](version-control) を参照してください。
 
-Choose the **Revision** of the selected development line for which you want to create a deployment package. This is not necessarily the latest revision because you might want to exclude some recently developed functionality.
+### 3.1 開発ライン
 
-## 5 New Version (for Versioned)
+デプロイメントパッケージを作成する **開発ライン** を選択します。 これはメインラインまたは任意のブランチラインにすることができます。 たとえば、あなたがオンラインで実装した修正をしたい場合は、メンテナンスブランチラインからパッケージを作成します。 または、次の大きなバージョンのアプリケーションをデプロイする準備ができているため、メインラインからデプロイパッケージを作成します。
 
-Choose a **New version** for the deployment package. The version consists of four numbers: **Major** version, **Minor** version, **Patch**, and **Revision**. The revision is fixed and determined by the revision you selected for **Revision**.
+### 3.2 リビジョン
 
-You are free to choose the other numbers, but it is wise to use a convention for the numbering. Major versions typically contain major new features or rewrites of existing features. A minor version contains small new features and fixes. A patch solves minor issues and should not change the data model of the application. A patch release should be interchangeable with another patch release with no changes to the data.
+デプロイパッケージを作成する選択した開発ラインの **リビジョン** を選択します。 最新のリビジョンを望まない理由の1つは、最近開発した機能を除外したい場合です。
 
-The Desktop Modeler will show you the latest version that you created a package for (if any). You can increase major, minor, or patch according to the convention you use.
+### 3.3 新バージョン
 
-## 6 Description (for Versioned)
+デプロイパッケージの **新しいバージョン** を選択します。 バージョンはメジャーバージョン、マイナーバージョン、パッチ、リビジョンの4つの数字で構成されています。 リビジョンは **リビジョン** で選択したリビジョンによって固定されます。
 
-You can enter a custom **Description** for this deployment package. It is purely for your own reference so that you can quickly recognize a package. The Developer Portal will show you this description along with the version number.
+あなたは他の数字を自由に選択することができますが、番号付けには規則を使用することが賢明です。 メジャーバージョンには通常、主要な新機能や既存の機能の書き換えが含まれています。 マイナーバージョンには、小さな新機能と修正が含まれています。 パッチはマイナーな問題を解決し、アプリケーションのデータモデルを変更しないでください。 パッチリリースは、データに変更がない別のパッチリリースと交換可能である必要があります。
 
-## 7 Disk Location
+Studio Pro では、(もしあれば) パッケージを作成した最新バージョンが表示されます。 使用する規則に従って、メジャー、マイナー、パッチを増やすことができます。
 
-This shows the location where the deployment package will be placed. This is not editable. All packages are placed in a directory called **releases** inside your project directory. This directory is automatically ignored so that these packages will not be committed to the repository. You can always recreate a deployment package (assuming you have the Desktop Modeler version you used) so there is no need to put them on the Team Server.
+### 3.4 説明
+
+このデプロイメントパッケージにカスタム **説明** を入力できます。 パッケージをすばやく認識できるように、純粋にあなた自身の参照のためのものです。 開発者ポータルには、バージョン番号とともにこの説明が表示されます。
+
+## 4 ファイル名
+
+バージョン管理されたデプロイメントパッケージとバージョン管理されていないデプロイメントパッケージの両方で、デプロイメントパッケージがどこに保存されるかを知る必要があります。 これは、 **ファイル名** フィールドに表示されます。 これは編集できません。
+
+すべてのパッケージは、アプリケーションディレクトリ内のディレクトリ **リリース** に配置されます。 これらのパッケージがリポジトリに反映されないように、このディレクトリは自動的に無視されます。 いつでもデプロイメントパッケージを再作成することができます(最初に使用したStudio Proバージョンを使用しています)ので、チームサーバーに配置する必要はありません。
