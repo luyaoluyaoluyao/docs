@@ -1,58 +1,58 @@
 ---
-title: "New App"
-parent: "file-menu"
+title: "新应用"
+parent: "文件菜单"
 menu_order: 10
-description: "This document describes the New App flow and the App Settings dialog box."
+description: "此文档描述了新应用流程和应用设置对话框。"
 tags:
   - "studio pro"
-  - "create app"
-  - "new app"
-  - "creating new app"
+  - "创建应用"
+  - "新应用"
+  - "创建新应用"
 aliases:
   - /refguide/app-settings-dialog.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-You can create a new app in Mendix Studio Pro.
+您可以在 Mendix Studio Pro中创建一个新的应用程序。
 
-To create a new app, follow the steps below:
+要创建一个新的应用程序，请按下面的步骤：
 
-1. Do one of the following:
-   1. Open the **File** menu in the top bar > **New App**.
-   2. Click **New App** on the Studio Pro landing page.
+1. 做以下一件：
+   1. 在顶部栏中打开 **文件** 菜单 > **新应用**
+   2. 在Studio Pro 登陆页面点击 **新应用**
 
-2. In **My Apps** tab, select a starting point (an app template).
-3.  Click **Use this app**.
-4. In the **App Settings** dialog box, select the settings for your app and click **Create app**. For more information on app settings, see the [App Settings](#app-settings) section.
+2. 在 **我的应用程序** 标签页中，选择一个起点(一个应用模板)。
+3.  点击 **使用此应用程序**。
+4. 在 **应用程序设置** 对话框中，选择您的应用程序的设置并点击 **创建应用程序**。 欲了解更多关于应用设置的信息，请参阅 [应用设置](#app-settings) 部分。
 
-The new app is created and opened.
+新应用已创建并打开。
 
-## 2 App Settings {#app-settings}
+## 2 款应用设置 {#app-settings}
 
-When creating a new app, the **App Settings** dialog box is opened where you can specify an app name, whether or not to enable the online services provided by the Mendix Platform, the default language, and the location on disk where the app files for your app are stored:
+创建新应用时， **应用设置** 对话框将打开，您可以在那里指定一个应用名称 是否启用Mendix Platform 提供的在线服务， 默认语言和存储应用文件的磁盘位置：
 
-![App Settings](attachments/file-menu/app-settings-dialog.png)
+![应用设置](attachments/file-menu/app-settings-dialog.png)
 
-### 2.1 Name
+### 2.1 名称
 
-The name of your new app. This name is used as the name of the app directory and file on disk. If you enable the online services for this app, the name is also used for the Team Server repository and a corresponding app in **My Apps**.
+您的新应用的名称。 此名称用作磁盘上应用目录和文件的名称。 如果您启用此应用的在线服务， 该名称也用于团队服务器仓库和 **我的应用程序** 中的相应应用程序。
 
-### 2.2 Enable Online Services
+### 2.2 启用在线服务
 
-The Mendix Platform offers online services such as [version control](version-control), [cloud deployment](/developerportal/deploy/), and [collaboration](collaborative-development). When enabled, this will create an app in the Developer Portal and a corresponding version control repository.
+Mendix Platform 提供在线服务，如 [版本控制](version-control), [云端部署](/developerportal/deploy/), 以及 [协作](collaborative-development)。 启用时，这将在开发者门户网站和相应版本控制仓库中创建一个应用程序。
 
-If you choose *No*, you will create an app that is only stored on your local disk. At a later point you can still decide to upload this local app to a version control server and enjoy the benefits of version control.
+如果您选择 *否*，您将创建一个只存储在您本地磁盘上的应用程序。 稍后您仍然可以决定将此本地应用上传到版本控制服务器，并享受版本控制带来的好处。
 
-### 2.3 Default Language
+### 2.3 默认语言
 
-The default language is the language of the user interface of your app. Choose the language that you will initially use in your forms and other user interface elements. You can always add additional languages to your app later.
+默认语言是您应用程序的用户界面的语言。 选择您最初在表单和其他用户界面元素中使用的语言。 您随时可以添加额外语言到您的应用中。
 
-### 2.4 App Directory
+### 2.4 应用目录
 
-Specify the directory in which the files for your app are stored. If you enable the online services for the new app, you will see that the suffix *-main* will be appended to the directory name automatically. This is to indicate that the directory contains the main branch line of your app. While working on your app, you can create new branches and download these to other directories. For more information on the branch line management, see [Branch Line Manager](branch-line-manager-dialog).
+指定您应用的文件存储目录。 如果您为新应用启用在线服务， 你会看到后缀 *-main* 将自动附加到目录名称。 这是为了表明该目录包含您应用的主要分支行。 在你的应用上工作时，你可以创建新分支并将它们下载到其他目录。 关于分支行管理的更多信息，见 [分支行管理器](branch-line-manager-dialog)。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Version Control](version-control)
-* [Open App](open-app-dialog)
+* [版本控制](version-control)
+* [打开应用程序](open-app-dialog)
