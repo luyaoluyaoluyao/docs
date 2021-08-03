@@ -1,76 +1,76 @@
 ---
-title: "Decision"
-parent: "decisions"
+title: "決定"
+parent: "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 menu_order: 3
 tags:
   - "studio pro"
-  - "decision"
-  - "exclusive split"
+  - "決定"
+  - "排他的分割"
 aliases:
-  - /refguide/exclusive-split.html
+  - /ja/refguide/exclusive-split.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A decision is an element that makes a choice based on a condition and follows one and only one of the outgoing sequence flows. For example, you need to use a decision to show different order forms for the customers with different grades, or to prevent a blocked customer from making orders.
+判断は、条件に基づいて選択を行い、出力シーケンスの1つだけが流れる要素です。 たとえば、異なる成績を持つ顧客に対して異なる注文フォームを表示するには、決定を使用する必要があります。 ブロックされた顧客が注文するのを防ぐためです
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of decision properties is represented in the image below:
+以下の図に、決定プロパティの例を示します。
 
 {{% image_container width="50%" %}}
 ![](attachments/decisions/decision-properties.png)
 {{% /image_container %}}
 
-The decision properties pane consists of the following sections:
+デシジョン プロパティ ペインは以下のセクションで構成されています:
 
-* [Common](#common)
+* [一般的な](#common)
 
 ### 2.1 Common {#common}
 
-#### 2.1.1 Caption
+#### 2.1.1 図表番号
 
-For more information, see the [Caption](microflow-element-common-properties#caption) section in *Common Properties*.
+詳細については、 [Common Properties](microflow-element-common-properties#caption) の *図表番号* セクションを参照してください。
 
-#### 2.1.2 Decision Type
+#### 2.1.2 決定タイプ
 
-**Decision type** defines whether an expression or a rule is used to define conditions of the decision. Possible decision types are described in the table below:
+**Decision type** は、決定の条件を定義するために式または規則を使用するかどうかを定義する。 考えられる決定の種類については、以下の表を参照してください。
 
-| Option                    | Description                                                                                                                                                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Expression](#expression) | Expressions can be used to create or change an object or a variable based on logic.                                                                                                                                                                                              |
-| [Rule](#rule)             | A rule is a special kind of microflow, the outcomes of which can be used in a decision instead of calling a sub-microflow and using the return variable of that sub-microflow. The idea is that complicated decisions can be consolidated in rules and reused in various places. |
+| Option           | 説明                                                                                                                   |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------- |
+| [式](#expression) | 式は、ロジックに基づいてオブジェクトや変数を作成または変更するために使用できます。                                                                            |
+| [ルール](#rule)     | ルールは特別な種類のマイクロフローです その結果は、サブマイクロフローを呼び出すのではなく、そのサブマイクロフローのリターン変数を使用することができます。 複雑な決断をルールにまとめて、さまざまな場所で再利用できるという考え方です。 |
 
-##### 2.1.2.1 Expression {#expression}
+##### 2.1.2.1 式 {#expression}
 
-If the **Type** property is set to **Expression**, the expression entered here is used to define the condition of the decision. For more information on expressions, see [Microflow Expressions](expressions).
+**Type** プロパティが **Expression**に設定されている場合 ここで入力された式は、決定の条件を定義するために使用されます。 式の詳細については、 [Microflow Expressions](expressions) を参照してください。
 
-The expression should result in a Boolean or an enumeration.
+式はブール値または列挙値を返します。
 
-For the expression resulting in a Boolean, two flows are possible: **true** and **false**. For example, you can use the expression resulting in a Boolean if you want to check whether a customer's email is verified or not.
+ブール値を生成する式では、 **true** と **false** の 2 つのフローが使用できます。 たとえば、顧客のメールアドレスが検証されているかどうかを確認したい場合は、結果としてブール値になる式を使用できます。
 
-The number of conditions available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* condition available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
+列挙型で利用可能な条件の数は、対応する列挙値によって異なります。 There is also the *empty* condition available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
 
-If you want to open a different order form per customer grade you can use a decision. The microflow parameter is *Customer*. Depending on what grade the customer has, a different sequence flow is followed and a different order form is opened. If an end-user needs to select a customer grade but does not do that, the flow labelled **(empty)** is followed and an error message is shown to the end-user.
+顧客の成績ごとに異なる注文フォームを開く場合は、決定を使用できます。 microflow パラメータは *Customer* です。 顧客が持っているグレードに応じて、異なるシーケンスフローがフォローされ、異なる注文フォームが開かれます。 エンドユーザーが顧客の成績を選択する必要がありますが、そうしない場合。 **(空)** と表示されるフローがフォローされ、エンドユーザーにエラーメッセージが表示されます。
 
 {{% image_container width="400" %}}
 ![](attachments/decisions/decision-example.png)
 {{% /image_container %}}
 
-Since you want to go in a different direction for each value of the enumeration, you only need to use the attribute containing the enumeration. So the expression in the example above is`$Customer/Grade`.
+列挙型の値ごとに異なる方向に移動したいので、列挙型を含む属性のみを使用する必要があります。 上記の例の式は`$Customer/Grade` です。
 
-##### 2.2.2.2 Rule {#rule}
+##### 2.2.2.2 ルール {#rule}
 
-If the **Type** property is set to **Rule**, a [rule](rules) can be selected to define the condition of the decision. You can use the outcome of the rule for the decision instead of calling a sub-microflow and using the return variable of that sub-microflow.
+If the **Type** property is set to **Rule**, a [rule](rules) can be selected to define the condition of the decision. サブマイクロフローを呼び出し、そのサブマイクロフローの戻り値を使用する代わりに、ルールの結果を決定に使用できます。
 
-The properties of the **Rule** decision type are the following ones:
+**ルール** 意思決定タイプのプロパティは次のとおりです。
 
-* **Rule** – allows you to select a rule.
+* **ルール** – ルールを選択できます。
 
-* **Parameter** – for each parameter of the rule an argument needs to be specified using [expressions](expressions). For example, a rule that determines whether a customer deserves a certain status will have a customer object as a parameter.
+* **パラメータ** - ルールの各パラメータについては、 [表現](expressions) を使用して引数を指定する必要があります。 たとえば、顧客が特定のステータスに値するかどうかを決定するルールは、顧客オブジェクトをパラメータとして持つことになります。
 
     {{% image_container width="350" %}} ![](attachments/decisions/rule-properties.png)  {{% /image_container %}}
 
-#### 2.1.3 Error Handling Type
+#### 2.1.3 エラー処理タイプ
 
-For more information, see the [Error Handling Type](microflow-element-common-properties#error-handling) section in *Common Properties*.
+詳細については、 [Common Properties](microflow-element-common-properties#error-handling) の *Error Handling Type* セクションを参照してください。
