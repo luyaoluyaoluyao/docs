@@ -1,155 +1,155 @@
 ---
 title: "Nanoflows"
-parent: "microflows-and-nanoflows"
+parent: "マイクロフローとナノフロー"
 menu_order: 20
-description: "Presents an overview of all the elements that can be used in a nanoflow."
+description: "ナノフローで使用できるすべての要素の概要を示します。"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Nanoflows are similar to [microflows](microflows), in that they allow you to express the logic of your application. However, they do have some specific benefits (for example, they run directly on the browser/device and can be used in an offline app). Furthermore, most of the actions run directly on the device, so there is also a speed benefit for logic which does not need access to the server.
+Nanoflows は [microflow](microflows)に似ており、アプリケーションのロジックを表すことができます。 ただし、特定の利点があります(例えば、ブラウザー/デバイス上で直接実行され、オフラインアプリで使用できます)。 さらに、ほとんどのアクションはデバイス上で直接実行されます。 ロジックにはサーバーへのアクセスを必要としない速度の利点もあります
 
 {{% alert type="info" %}}
-This page is an overview of all the elements that can be used in a nanoflow. For the properties of the nanoflow itself, see [Nanoflow Properties](nanoflow).
+このページは、ナノレベルで使用できるすべての要素の概要です。 nanoflow 自体のプロパティについては、 [Nanoflow Properties](nanoflow) を参照してください。
 {{% /alert %}}
 
-## 2 When to Use Nanoflows
+## 2 ナノフローを使用する場合
 
-### 2.1 Offline Mobile Apps
+### 2.1 オフラインモバイルアプリ
 
-Nanoflows are designed with offline-first applications in mind, as they allow you to model application logic that works in offline apps. Since all database-related actions will be executed on the local offline database, nanoflows in offline apps will be fast.
+Nanoflowはオフラインアプリケーションで動作するアプリケーションロジックをモデル化できるため、オフラインファーストのアプリケーションを念頭に置いて設計されています。 データベースに関連するすべてのアクションは、ローカルオフラインデータベース上で実行されるため、オフラインアプリのナノフローは高速になります。
 
-### 2.2 Logic Where No Connection Is Needed
+### 2.2 接続が不要な場所のLogic
 
-Nanoflows also offer great value to online applications (for example, for UI logic, validations, calculations, and navigation). However, please keep in mind that, when you perform database-related actions, each action will create a separate network request to the Mendix Runtime.
+Nanoflowは、オンラインアプリケーション(例えば、UIロジック、検証、計算、ナビゲーションなど)にも大きな価値を提供します。 ただし、データベース関連のアクションを実行すると、各アクションは Mendix Runtime に対して個別のネットワーク要求を作成することに注意してください。
 
-The following actions interact with the database:
+次のアクションはデータベースと相互作用します:
 
-* Create
-* Commit
-* Retrieve
+* 作成
+* コミット
+* 保留する
 * Rollback
 
-Therefore, the best practice is to use nanoflows in online applications when they do not contain the above actions.
+したがって、ベストプラクティスは、上記のアクションを含まない場合、オンラインアプリケーションでナノフローを使用することです。
 
 {{% alert type="info" %}}
-Changing objects without committing is not a database-related action, as changes are applied on the device or in the browser.
+変更がデバイスやブラウザに適用されるため、コミットせずにオブジェクトを変更することはデータベース関連のアクションではありません。
 {{% /alert %}}
 
-#### 2.2.1 Other Cases
+#### 2.2.1 その他のケース
 
-Although nanoflows perform best in online applications when no database-related actions are used, and these are generally the best cases, nanoflows that contain at most one database-related action can also still perform well. Because such nanoflows only require one network call, they perform as well as a microflow. An example of such a use case is performing validation logic on an object and committing the object in the same nanoflow.
+データベースに関連するアクションが使用されていない場合、nanoflowはオンラインアプリケーションで最も効果的です。 これらは一般的に1つのデータベースに関連する動作を含む最良のケースであり、NANOFLOWは依然としてうまく機能します。 このようなナノフローはネットワーク呼び出しを1回だけ必要とするため、マイクロフローと同様に機能します。 このようなユースケースの例として、あるオブジェクトに対してバリデーションロジックを実行し、同じナノフロー内のオブジェクトをコミットすることがあります。
 
-## 3 Differences from Microflows
+## マイクロフローと3つの違い
 
-There are five main differences between nanoflows and microflows:
+ナノフローとマイクロフローには主に5つの違いがあります。
 
-1. When a nanoflow steps through its actions, client actions are directly executed. For example, an open page action immediately opens a page instead of at the end of the nanoflow. This is different from client actions in a microflow, which only run when the client receives the result from the microflow.
+1. アクションを通じてナノフローのステップを実行すると、クライアントアクションは直接実行されます。 たとえば、開いているページアクションは、ナノフローの終わりではなく、直ちにページを開きます。 これは、マイクロフロー内のクライアントアクションとは異なり、クライアントがマイクロフローから結果を受信したときにのみ実行されます。
 2. When used in nanoflow activities, expressions do not support the following objects and variables: `$latestSoapFault`, `$latestHttpResponse`, `$currentSession`, `$currentUser`, `$currentDeviceType`.
-3. Nanoflows are not run inside a transaction so, if an error occurs in a nanoflow, it will not roll back any previous changes.
-4. Nanoflows and microflows do not provide the same actions. Some actions available in microflows are not available in nanoflows, and vice versa.
-5. Because nanoflows use JavaScript libraries and microflows use Java libraries, there can sometimes be slight differences in the way expressions are executed.
-6. Changes done to the lists in a sub-nanoflow are not reflected in the original nanoflow.
+3. Nanoflows はトランザクション内で実行されないため、nanoflow でエラーが発生した場合、以前の変更はロールバックされません。
+4. Nanoflowとmicroflowは同じ動作を提供しません。 マイクロフローで利用可能ないくつかのアクションは、ナノフローでは利用できません。
+5. ナノフローはJavaScriptライブラリを使用し、マイクロフローはJavaライブラリを使用するため、式の実行方法に若干の違いが生じることがあります。
+6. サブナノフローのリストに行われた変更は、元のナノフローには反映されません。
 
-## 4 Notation & Categories
+## 4つの表記 & カテゴリ
 
-The graphical notation of nanoflows is based on the [Business Process Model and Notation](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (BPMN). BPMN is a standardized graphical notation for drawing business processes in a workflow.
+ナノフローのグラフィカル表記は、 [Business Process Model and Notation](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (BPMN) に基づいています。 BPMN は、ビジネスプロセスをワークフローで描画するための標準化されたグラフィカル表記です。
 
-A nanoflow is composed of elements. The following categories are used:
+ナノフローは元素で構成されています。 以下のカテゴリが使用されます：
 
-* [Events](#events) represent the start and endpoints of a nanoflow and special operations in a loop
-* [Flows](#flows) form the connection between elements
-* [Decisions](#decisions) deal with making choices and merging different paths again
-* [Activities](#activities) are the actions that are executed in a nanoflow
-* [Loop](loop) is used to iterate over a list of objects
-* [Parameter](#parameter) is data that serves as input for the microflow.
-* [Annotation](#annotation) is an element that can be used to put comments in a microflow.
+* [イベント](#events) はループにおけるナノフローおよび特殊演算の開始点と終点を表します
+* [フロー](#flows) が要素間の接続を形成します
+* [決定](#decisions) は選択を行い、異なるパスを再度マージすることを扱います
+* [アクティビティ](#activities) はナノレベルで実行されるアクションです
+* [ループ](loop) はオブジェクトのリストを反復するために使用されます
+* [パラメータ](#parameter) は、マイクロフローの入力となるデータである。
+* [アノテーション](#annotation) は、コメントをマイクロフローに置くために使用できる要素である。
 
-### 4.1 Events {#events}
+### 4.1 イベント {#events}
 
-Events represent the start and endpoints of a nanoflow and special operations in a loop.
+イベントは、ループ内のナノおよび特殊な操作の開始点と終了点を表します。
 
-| Graphic                                                                                      | Name                             | Description                                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![start event](attachments/microflows-and-nanoflows/start-event.png)](start-event)          | [Start event](start-event)       | The starting point of the nanoflow. A nanoflow can only have one start event.                                                                                                                                 |
-| [![end event](attachments/microflows-and-nanoflows/end-event.png)](end-event)                | [End event](end-event)           | Defines the location where the nanoflow will stop. Depending on the return type of the nanoflow, in some cases a value must be specified. There can be more than one end event.                               |
-| ![](attachments/microflows-and-nanoflows/error-event.png)                                    | [Error Event](error-event)       | An error event defines a location where the nanoflow will stop and throw an error that occurred earlier. If you call a nanoflow, you may want to know whether any errors occurred within the nanoflow or not. |
-| [![continue event](attachments/microflows-and-nanoflows/continue-event.png)](continue-event) | [Continue event](continue-event) | Used to stop the current iteration of a loop and continue with the next iteration. Continue events can only be used inside a [loop](loop).                                                                    |
-| [![break event](attachments/microflows-and-nanoflows/break-event.png)](break-event)          | [Break Event](break-event)       | Used to stop iterating over the list of objects and to continue with the rest of the flow after the loop. Break events can only be used inside a [loop](loop).                                                |
+| グラフィック                                                                                 | 名前                         | 説明                                                                                                        |
+| -------------------------------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [![イベントの開始](attachments/microflows-and-nanoflows/start-event.png)](start-event)        | [イベントを開始](start-event)     | ナノフローの出発点。 ナノフローは、1つの開始イベントしかありません。                                                                       |
+| [![イベントを終了する](attachments/microflows-and-nanoflows/end-event.png)](end-event)          | [イベントを終了](end-event)       | ナノフローが停止する位置を指定します。 nanoflow の戻り値の型に応じて、値を指定する必要があります。 複数のエンドイベントが存在する可能性があります。                           |
+| ![](attachments/microflows-and-nanoflows/error-event.png)                              | [エラーイベント](error-event)     | error イベントは、nanoflowが停止し、以前に発生したエラーをスローする場所を定義します。 nanoflow と呼ぶなら、nanoflow 内でエラーが発生したかどうかを知りたいと思うかもしれません。 |
+| [![イベントを続ける](attachments/microflows-and-nanoflows/continue-event.png)](continue-event) | [イベントを続ける](continue-event) | ループの現在の反復を停止し、次の反復を続けるために使用します。 Continue イベントは [ループ](loop) 内でのみ使用できます。                                    |
+| [![休憩イベント](attachments/microflows-and-nanoflows/break-event.png)](break-event)         | [休憩イベント](break-event)      | オブジェクトのリストの反復を停止し、ループの後の残りのフローを継続するために使用されます。 ブレークイベントは、 [ループ](loop) 内でのみ使用できます。                          |
 
-### 4.2 Flows {#flows}
+### 4.2 フロー {#flows}
 
-Flows form the connection between elements.
+フローは要素間の接続を形成します。
 
-| Graphic                                                                                     | Name                                          | Description                                                                                                                                   |
-| ------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](attachments/microflows-and-nanoflows/sequence-flow.png)](sequence-flow)                | [Sequence flow](sequence-flow)                | An arrow that links events, activities, decisions, and merges with each other. Together they define the order of execution within a nanoflow. |
-| [![](attachments/microflows-and-nanoflows/annotation-flow.png)](annotation#annotation-flow) | [Annotation flow](annotation#annotation-flow) | A connection that can be used to connect an annotation to another element.                                                                    |
+| グラフィック                                                                                      | 名前                                  | 説明                                                      |
+| ------------------------------------------------------------------------------------------- | ----------------------------------- | ------------------------------------------------------- |
+| [![](attachments/microflows-and-nanoflows/sequence-flow.png)](sequence-flow)                | [シーケンスフロー](sequence-flow)           | イベント、アクティビティ、決定、および互いに結合する矢印。 彼らは一緒に、1ナノ以内の実行の順序を定義します。 |
+| [![](attachments/microflows-and-nanoflows/annotation-flow.png)](annotation#annotation-flow) | [注釈フロー](annotation#annotation-flow) | 注釈を別の要素に接続するために使用できる接続。                                 |
 
-### 4.3 Decisions {#decisions}
+### 4.3 決定 {#decisions}
 
-Decisions deal with making choices and merging different paths.
+決定は、選択を行い、異なるパスをマージすることに対処します。
 
-| Graphic                                                                    | Name                 | Description                                                                                                                                                                                         |
-| -------------------------------------------------------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![decision](attachments/microflows-and-nanoflows/decision.png)](decision) | [Decision](decision) | Makes a decision based on a condition and follows one and only one of the outgoing flows. **Note**: there is no parallel execution in nanoflows.                                                    |
-| [![merge](attachments/microflows-and-nanoflows/merge.png)](merge)          | [Merge](merge)       | Can be used to combine multiple sequence flows into one. If a choice is made in a nanoflow and afterwards some common work needs to be done, you can combine the two (or more) paths using a merge. |
+| グラフィック                                                         | 名前        | 説明                                                                                                      |
+| -------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| [![決定](attachments/microflows-and-nanoflows/decision.png)](決定) | [決定](決定)  | 条件に基づいて決定を行い、唯一の発信フローをフォローします。 **注**: nanoflowsでは並列実行は行われない。                                            |
+| [![マージ](attachments/microflows-and-nanoflows/merge.png)](マージ)  | [結合](マージ) | 複数のシーケンスフローを1つに結合するために使用できます。 選択がナノの中で行われ、その後、いくつかの一般的な作業が行われる必要がある場合。 マージを使用して、2 つのパス(またはそれ以上)を結合できます。 |
 
-### 4.4 Activities{#activities}
+### 4.4 アクティビティ{#activities}
 
-[Activities](activities) are the actions that are executed in a nanoflow:
+[アクティビティ](activities) は、ナノレベルで実行されるアクションです:
 
-![Activity](attachments/microflows-and-nanoflows/activity.png)
+![アクティビティ](attachments/microflows-and-nanoflows/activity.png)
 
-### 4.5 Loop {#loop}
+### 4.5 ループ {#loop}
 
-A [loop](loop) is used to iterate over a list of objects:
+[ループ](loop) はオブジェクトのリストを繰り返すために使用されます。
 
-![Loop](attachments/microflows-and-nanoflows/loop.png)
+![ループ](attachments/microflows-and-nanoflows/loop.png)
 
-For every object the flow inside the loop is executed. A loop activity can contain all elements used in nanoflow, with the exception of start and end events.
+オブジェクトごとに、ループ内のフローが実行されます。 ループアクティビティには、start イベントと end イベントを除く、nanoflow で使用されるすべての要素を含めることができます。
 
-### 4.6 Parameter {#parameter}
+### 4.6 パラメータ {#parameter}
 
-A [parameter](parameter) is data that serves as input for the nanoflow.
+[パラメータ](parameter) は、ナノフローの入力として機能するデータである。
 
-![Parameter](attachments/microflows-and-nanoflows/parameter.png)
+![パラメータ](attachments/microflows-and-nanoflows/parameter.png)
 
-Parameters are filled at the location from where the nanoflow is triggered.
+パラメータは、nanoflowがトリガーされる場所に入力されます。
 
-### 4.7 Annotation {#annotation}
+### 4.7 注釈 {#annotation}
 
-An [annotation](annotation) is an element that can be used to put comments in a microflow:
+[アノテーション](annotation) は、コメントをマイクロフローに置くために使用できる要素です。
 
-![Annotation](attachments/microflows-and-nanoflows/annotation.png)
+![注釈](attachments/microflows-and-nanoflows/annotation.png)
 
-### 4.8 Item Usages
+### 4.8 アイテムの使用
 
-Studio Pro visualizes which items are used by the selected element(s). It does this by showing the used items in white text on a blue background. Conversely, elements that use the item(s) returned by the selected element(s) are marked with the word 'Usage' in white text on a green background.
+Studio Pro は、選択した要素によって使用される項目を視覚化します。 これは、使用されているアイテムを青色の背景に白いテキストで表示することによって行います。 逆に、選択された要素によって返されたアイテムを使用する要素は、緑色の背景に白いテキストの単語「Usage」でマークされます。
 
-In the example below, the parameter **AccountPasswordData** is highlighted because it is used in the selected activity (**Retrieve Account**). And the activity **Save password** has a **Usage** label because it uses the object returned by **Retrieve Account**.
+以下の例では、パラメータ **AccountPasswordData** は、選択したアクティビティ (**アカウントの取得** ) で使用されているためハイライトされています。 **Save password** には **Usage** ラベルがあります。 なぜなら、 **Retrive Account** が返すオブジェクトを使用するからです。
 
 ![](attachments/microflows-and-nanoflows/microflow-nanoflow-example.png)
 
-## 5 Keyboard Support
+## 5つのキーボードサポート
 
-The nanoflow editor offers keyboard support for navigating and manipulating the nanoflows. The following table shows the keys that can be used.
+nanoflowエディタは、ナノフローのナビゲートと操作のためのキーボードサポートを提供します。 次の表は、使用可能なキーを示しています。
 
-| Key(s)                                                    | Effect                                                                                          |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arrow keys                                                | Selects the nearby element (activity, event, loop, or parameter) in the direction of the arrow. |
-| <kbd>Enter</kbd>                                          | Edits the properties of the selected element.                                                   |
-| <kbd>F2</kbd>                                             | Renames the item returned by the selected element.                                              |
-| <kbd>Shift</kbd> + <kbd>F2</kbd> or just starting to type | Edits the caption of the selected element.                                                      |
-| <kbd>Ctrl</kbd> + arrow keys                              | Moves the selected element in the direction of the arrow.                                       |
-| <kbd>Tab</kbd>                                            | If a loop is selected, the first element inside the loop is selected.                           |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd>                         | If an element inside a loop is selected, the loop itself is selected.                           |
-| <kbd>Home</kbd>                                           | Selects the start event.                                                                        |
-| <kbd>End</kbd>                                            | Cycles through the end events.                                                                  |
-| Context-menu key or <kbd>Shift</kbd> + <kbd>F10</kbd>     | Opens the context menu for the currently selected element.                                      |
+| キーワード                                             | 効果                                             |
+| ------------------------------------------------- | ---------------------------------------------- |
+| 矢印キー                                              | 近くの要素(アクティビティ、イベント、ループ、またはパラメーター)を矢印の方向に選択します。 |
+| <kbd>Enter</kbd>                                  | 選択した要素のプロパティを編集します。                            |
+| <kbd>F2</kbd>                                     | 選択した要素によって返されるアイテムの名前を変更します。                   |
+| <kbd>Shift</kbd> + <kbd>F2</kbd> または入力を開始しました     | 選択した要素のキャプションを編集します。                           |
+| <kbd>Ctrl</kbd> + 矢印キー                            | 選択した要素を矢印の方向に移動します。                            |
+| <kbd>Tab</kbd>                                    | ループが選択されている場合、ループ内の最初の要素が選択されます。               |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd>                 | ループ内の要素が選択されている場合、ループ自体が選択されます。                |
+| <kbd>ホーム</kbd>                                    | 開始イベントを選択します。                                  |
+| <kbd>終了</kbd>                                     | 終了イベントをサイクルします。                                |
+| コンテキストメニューキーまたは <kbd>Shift</kbd> + <kbd>F10</kbd> | 現在選択されている要素のコンテキストメニューを開きます。                   |
 
-## 6 Security
+## 6つのセキュリティ
 
-Nanoflows are executed in the context of the current user. Any operation for which the user is unauthorized will fail. For instance, when objects are retrieved in a nanoflow, only the ones for which the current user has read access will be returned. Committing an object only succeeds when the current user has write access for all changes.
+Nanoflows は、現在のユーザーのコンテキストで実行されます。 ユーザーが許可されていない操作はすべて失敗します。 例えば、オブジェクトが nanoflow で取得された場合、現在のユーザが読み込みアクセス権を持つオブジェクトのみが返されます。 オブジェクトをコミットすることは、現在のユーザーがすべての変更に対して書き込みアクセス権を持っている場合にのみ成功します。
