@@ -1,50 +1,51 @@
 ---
-title: "バージョン管理サーバーダイアログからダウンロード"
-parent: "ダイアログ"
+title: "バージョン管理サーバーからダウンロード"
+parent: "version-control-menu"
+menu_order: 60
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/download-from-team-server-dialog.html
+  - /refguide8/download-from-team-server-dialog.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/download-from-version-control-dialog.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-**バージョン管理サーバーからダウンロード** ダイアログボックスを使用して、SVN バージョン管理サーバーからアプリをダウンロードします。
-
-![](attachments/download-from-version-control-server-dialog/download-from-version-control-server-dialog-original.png)
+Use the **Download from Version Control Server…** menu item to download an app from an SVN version control server (for example, [Team Server](/developerportal/collaborate/team-server)). 現在アプリを編集している場合 プロジェクトは(変更の保存を促した後)閉じられ、新しくダウンロードしたアプリは現在のバージョンの Studio Pro を使用して開きます。
 
 {{% alert type="info" %}}
+ダウンロードしたアプリが Mendix の別のバージョンで作成された場合、現在のバージョンに変換できるかどうかを尋ねられます。
 
-[アプリを開く](open-app-dialog) ダイアログボックスを使用して、Team Serverからアプリをダウンロードして開くことができます。 ただし、 すでにディスクにあるアプリ(および開発ライン)の2番目のコピーをダウンロードする場合は、このオプションを使用する必要があります。
-
+[Open App Dialog](open-app-dialog) を使用して、Team Serverからアプリをダウンロードして開くこともできます。 ただし、 すでにディスクにあるアプリ(および開発ライン)の2番目のコピーをダウンロードする場合は、このオプションを使用する必要があります。
 {{% /alert %}}
 
-To open the **Download from Version Control Server** dialog box, go to **Project > More Versioning > Download from Version Control Server**.
+![バージョン管理サーバーダイアログボックスからダウンロード](attachments/version-control-menu/download-from-version-control-server.png)
 
 ## 2 アプリはどこに保存されていますか?
 
-この設定を使用して、アプリが保存されている場所を選択します。 Team ServerまたはTeam Server以外のSVNサーバーから選択できます。
+If **Enable private version control** is set in the project [Preferences](preferences-dialog#enable), you can choose between the **Mendix Team Server** or a **Private server**. 有効化されていない場合は、Mendix Team Server からのみアプリを選択できます。
 
 ### 2.1 Mendix チームサーバー
 
-In the **Team Server App** drop-down list, select the Team Server app you wish to open, and then choose the development line you want to download in the **Development line** drop-down list.
+**Team Server App** ドロップダウンを使用して、ダウンロードしたいアプリを選択します。
 
-![](attachments/download-from-version-control-server-dialog/download-from-version-control-server.png)
-
-Mendix Team Serverの詳細については、 [Team Server](team-server) を参照してください。
-
-開発ラインの詳細については、 [バージョン管理コンセプト](version-control) を参照してください。
+Mendix Team Serverの詳細については、 [Team Server](/developerportal/collaborate/team-server) を参照してください。
 
 ### 2.2 プライベートサーバー
 
-In the **App repository address** field, enter the repository address of the app you want to open and click **Connect** to load the development lines from the repository. 次に、 **開発ライン** ドロップダウンリストからダウンロードする開発ラインを選択します。
+**App repository address** にプライベートSVNサーバーのURLを入力し、 **Connect** をクリックします。
 
-![](attachments/download-from-version-control-server-dialog/download-from-private-server.png)
+![バージョン管理サーバーダイアログボックスからダウンロード](attachments/version-control-menu/download-from-private-server.png)
 
-{{% alert type="info" %}}
+## 3開発ライン
 
-このオプションは、 [環境設定](preferences-dialog#enabled) ダイアログボックスで他のサーバーのサポートが有効になっている場合にのみ使用できます。
+ダウンロードする **開発ライン** を選択します。
 
-{{% /alert %}}
+開発ラインの詳細については、 [バージョンコントロール](version-control) を参照してください。
 
-## 3 ディスクの場所
+## 4プロジェクトディレクトリ
 
-**プロジェクト ディレクトリ** フィールドで、ダウンロードしたアプリを格納するディレクトリを選択します。 提案された名前は開発行の名前(**main** またはブランチの名前)を含みます。
+アプリをダウンロードしたい **プロジェクトディレクトリ** を選択します。 提案された名前は開発行の名前(*main* またはブランチの名前)を含みます。 でもこれなら変えられるわ
