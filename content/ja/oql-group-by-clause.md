@@ -1,8 +1,13 @@
 ---
 title: "条項によるOQL グループ"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-group-by-clause.pdf) をクリックしてください。
+{{% /alert %}}
 
 GROUP BY 句は、この節で定義された式の同じ値を共有するすべての返された行を単一の行に凝縮します。 この節の式はクエリの SELECT 句内に存在する必要があります。 GROUP BY句に含まれていないSELECT句に含まれるすべての式は集計または集計関数でなければなりません。
 
