@@ -1,153 +1,153 @@
 ---
-title: "Native Navigation"
-parent: "native-mobile"
+title: "原生导航"
+parent: "本地移动版"
 menu_order: 11
 tags:
-  - "mobile"
+  - "移动网络"
   - "navigation"
-  - "native"
+  - "原生的"
   - "iOS"
   - "Android"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Although you model native mobile apps in similar ways to web applications, some aspects of navigation in native mobile apps differ from those in web applications. This guide will explain those navigation differences.
+尽管您以类似于网络应用程序的方式模拟本机移动应用， 本地移动应用导航的某些方面不同于网络应用中的方面。 本指南将解释这些导航差异。
 
-### 1.1 Web Apps
+### 1.1 网络应用
 
-Generally in web apps, there is only one page open at any given time. This is because when you open a page, the previous page is replaced with a new one. When you navigate back, the page you started on is loaded again to replace the current page. This pattern of page loading slows performance.
+通常在网页应用中，任何时间都只打开一个页面。 这是因为当您打开一个页面时，上一个页面被替换为一个新页面。 当您返回时，您启动的页面会被重新加载以替换当前页面。 这种页面加载模式会减慢性能。
 
-### 1.2 Native Mobile Apps
+### 1.2 本地移动应用
 
-In native mobile apps, pages are kept open by default. This makes it possible to instantly navigate back (for example by tapping the back button or by swiping) while retaining the state of previous pages such as scroll location and active tab information. This greatly benefits your app's user experience. We recommend, however, taking open pages into account when developing mobile apps. Specifically, make sure that there will not be too many pages open at once (which will result in bad performance), and that data is refreshed or updated when needed. To achieve these ends, Mendix gives you granular control over your exact navigation flow.
+在本地移动应用中，页面默认保持开启。 这将使得可以在保持上一个页面的状态，如滚动位置和活动标签信息的同时即时导航(例如点击后退按钮或滑动)。 这对您的应用用户体验非常有利。 然而，我们建议在开发移动应用时考虑到开放网页。 具体而言，请确保一次打开的网页不会太多（这会导致不良表现）。 并且该数据在需要时刷新或更新。 要实现这些目标，Mendix 让您能够对您的精确导航流程进行颗粒控制。
 
-## 2 Layout Types
+## 2 个布局类型
 
-### 2.1 Default
+### 2.1 默认
 
-After opening a page that has a default layout, you can navigate back to the previous page by using the back button in the header, the back button of the device (for Android), or by swiping from the left side of the screen (for iOS). When the app’s home page is open, pressing the Android back button closes the app.
+打开一个有默认布局的页面后，您可以使用标题中的后退按钮回到上一页。 设备的后退按钮 (用于 Android)，或从屏幕左侧滑动(用于 iOS)。 当应用主页打开时，按下Android 后退按钮关闭应用程序。
 
-### 2.2 Pop-Up
+### 2.2 弹出窗口
 
-A page with a pop-up layout looks like a default page, but it shows up with a distinct animation and has a close icon instead of a back icon. On iOS it can also be closed by swiping down from the top of the pop-up. On Android it can be closed using the back button of the device. Pop-ups cannot have a bottom bar. A page with a pop-up layout cannot be used as the default home page, nor can it be added to the bottom bar.
+带有弹出式布局的页面看起来像一个默认页面， 但它显示一个不同的动画，它有一个密切的图标而不是背面的图标。 在 iOS 上，它也可以通过从弹出窗口顶部下拉来关闭。 在 Android 上，它可以使用设备的后退按钮关闭。 弹出窗口不能有底部栏。 带有弹出式布局的页面不能用作默认主页，也不能添加到底部栏。
 
-Pop-ups can be very useful when asking for input in certain contexts. For example, they work well when you must scan a QR code. They also make wizards (forms with multiple steps) easier, as you can return to previous steps and change things until the process is finished and all pop-ups are closed.
+在某些情况下请求投入时，弹出弹出可能非常有用。 例如，当您必须扫描二维码时，它们工作良好。 他们还使巫师(表单多步) 更容易， 因为您可以返回之前的步骤并更改事情，直到进程完成并关闭所有弹出窗口。
 
-## 3 Navigation-Related Layout Components
+## 3 与导航相关的布局组件
 
-Native layouts have helpful properties that enable the most common patterns used in native apps.
+本机布局有有用的属性，可以启用本机应用中最常用的模式。
 
-### 3.1 Header
+### 3.1 标题
 
-A layout that has the header property enabled will always show a bar at the top of the screen. A header consists of three parts:
+启用页眉属性的布局将总是在屏幕顶部显示一条栏。 标题由三部分组成：
 
-* Left part: not configurable, but can show a back icon or a close icon depending on the layout type
-* Center part: shows the page's title
-* Right part: configurable with widgets and is often used to contain buttons
+* 左侧部分：不可配置，但可以根据布局类型显示背面图标或近似图标
+* 中心部分：显示页面标题
+* 右侧部分：可与小部件配置，常用来包含按钮
 
-This is an example of the default header on iOS:
+这是iOS上的默认页眉示例：
 
 {{% image_container width="250" %}}![An example of the default header on iOS.](attachments/native-navigation/header.png){{% /image_container %}}
 
-### 3.2 Bottom Bar
+### 3.2 底栏
 
-You can add bottom bar items in the native navigation profile. These items will show up on any page that has a layout with the bottom bar property enabled.
+您可以在本机导航配置文件中添加底部条目。 这些项目将显示在启用底部栏属性的任何页面上。
 
-Every item in the bottom bar has its own navigation stack. This means that if you open a few pages in the first tab, then switch to the second tab and back to the first tab again, your first tab's pages will still be open as you left them.
+底部栏中的每个项目都有自己的导航堆栈。 这意味着如果您在第一个标签中打开了几个页面， 然后切换到第二个标签，然后再回到第一个标签。 你的第一个标签页将在你离开时仍然是打开的。
 
 {{% alert type="warning" %}}
-Pages without a bottom bar are created in a separate stack. If you navigate from a page *without* a bottom bar to a page *with* a bottom bar, then all pages in that stack are closed.
-{{% /alert %}}
+没有底部栏的页面将在一个单独的堆栈中创建。 If you navigate from a page *without* a bottom bar to a page *with* a bottom bar, then all pages in that stack are closed.
+{{% /报警 %}}
 
 {{% image_container width="250" %}}![An example of the default bottom bar on iOS.](attachments/native-navigation/bottombar.png){{% /image_container %}}
 
-## 4 How does Mendix Native Navigation Work?
+## 4 Mendix 本地导航是如何工作的？
 
-By default pages are kept open to provide a better user experience, but they must also be managed correctly for your app to have great performance and a logical flow through the app.
+默认情况下，页面将保持开放，以提供更好的用户体验。 但它们也必须得到正确的管理，您的应用才能有优秀的性能和逻辑流通过应用程序。
 
-### 4.1 Stacks
+### 4.1 应用
 
-To keep pages open, the navigation system uses multiple stacks of pages. A mobile app can contain multiple stacks at the same time. A stack can be compared to a pile of cards: you can add cards to the top, and you can remove cards from the top.
+要保持页面打开，导航系统使用多个页面堆叠。 移动应用程序可以同时包含多个堆栈。 堆栈可以与一堆卡片相比：您可以添加卡片到顶部，您可以从顶部移除卡片。
 
-#### 4.1.1 Single Stack
+#### 4.1.1 单堆放物
 
-If your app does not use a bottom bar, then there is a single stack. This situation resembles navigation on the web most closely. However, it is important to keep in mind that all pages in the stack are kept open until you explicitly close them or press the back button.
+如果您的应用没有使用底部栏，那么就有一个堆栈。 这种情况最类似于网上的导航。 然而，仍然存在着这种情况。 重要的是要记住，堆栈中的所有页面都保持打开，直到您明确关闭它们或按后退按钮。
 
-The first page on the stack is always the home page. When you tap a button that opens a page, then there are two pages on the stack, and so on.
+堆栈上的第一页始终是首页。 当您点击打开页面的按钮时，堆栈上有两页，等等。
 
-When you close a page (via a back button, a close action, or swipe to go back (iOS)), only the current page is closed and the previous page becomes visible again.
+当您关闭一个页面(通过返回按钮，关闭动作，或滑动返回(iOS)) 只有当前页面被关闭，上一个页面再次可见。
 
 {{% image_container width="250" %}}![](attachments/native-navigation/singlestack.gif){{% /image_container %}}
 
-#### 4.1.2 Multiple Stacks
+#### 4.1.2 多个应用
 
-If an app has bottom bar items, every item in the bottom bar will have a separate stack. Within a stack you can navigate by opening and closing pages.
+如果应用程序有底部条目，底部条中的每个项目都有一个单独的堆栈。 在一个堆栈内您可以通过打开和关闭页面导航。
 
-If a bottom bar item is not focused, pressing it will focus that item. Switching to another bottom bar item will not close pages in the focused one. If the item is already focused, pressing it again will dismiss all pages from its stack.
+如果底部条目未被聚焦，按下它会聚焦该项目。 切换到另一条底部条将不会关闭焦点条目的页面。 如果项目已经被聚焦，再次按下它会将所有页面从堆栈中删除。
 
 {{% image_container width="250" %}}![](attachments/native-navigation/multiplestacks.gif){{% /image_container %}}
 
-#### 4.1.3 Pop-Ups
+#### 4.1.3 弹出器
 
-When a page with a pop-up layout is opened, a new stack is created and all pages in this stack fully cover the screen. To get back to the previous stack, the pop-up has to be closed.
+当打开带有弹出布局的页面时，将创建一个新的堆栈，此堆栈中的所有页面都完全覆盖屏幕。 要回到上一个堆栈，弹出窗口必须关闭。
 
-It is possible to open other pop-up pages inside the pop-up, and all of those together behave as a single stack. When opening a normal page from the pop-up, the pop-ups will be closed first.
+在弹出窗口中打开其他弹出页面是可能的，所有这些人的行为都是单一的。 当从弹出窗口打开正常页面时，弹出窗口将先关闭。
 
 {{% image_container width="250" %}}![](attachments/native-navigation/popups.gif){{% /image_container %}}
 
-### 4.2 Opening and Closing Pages
+### 4.2 开幕和闭幕页面
 
-Often you need to have control of page history to determine, for example, which page is shown when you navigate back. By default, the Close page action only closes a single page in the current stack, but it can be configured to close more pages.
+您常常需要控制页面历史才能确定哪个页面在您返回时显示。 默认情况下，关闭页面操作只能关闭当前堆栈中的一个页面，但它可以配置为关闭更多页面。
 
-#### 4.2.1 Closing Multiple Pages
+#### 4.2.1 关闭多页
 
-You can navigate back through multiple pages in history at once by setting the appropriate number of pages in your Close page action. A Close page action that closes multiple pages results in a single animation.
+您可以在关闭页面操作中设置相应的页面数量，一次性导航多个页面。 关闭多个页面的关闭操作导致一个动画。
 
-You can configure this behavior either on Close page actions that you have modeled on your pages, or on the Close page activity in your nanoflows. This number can be set using an expression so that you can set either a static number, or a snapshot-calculated one for more complex cases.
+您可以在关闭页面操作上配置这种行为，您在页面上已经模拟了这些动作， 或在您的nanoflows中的关闭页面活动。 这个数字可以用表达式设置，以便您可以为更复杂的情况设置一个静态数字或一个快照计算的数字。
 
-The **All** option can be used to close all pages in the current stack.
+**所有** 选项都可以用来关闭当前堆栈中的所有页面。
 
-#### 4.2.2 Combining Closing and Opening Pages
+#### 4.2.2 关闭和开启页面
 
-For more complex scenarios, it is possible to transparently remove one or more pages from the history from the current stack when navigating to a new page. Doing so ensures that users cannot inadvertently navigate back to pages that are no longer relevant. For example, when a user reaches the end of a three-step wizard flow, you can configure the Open page activity to open the third page and close the previous two pages at the same time. As a result, the user will see a single transition, and navigating back will not lead them to the first two pages.
+对于更复杂的情景， 当导航到一个新的页面时，可以透明地从当前堆栈中删除一个或多个页面。 这样做可以确保用户不能无意中回到不再相关的页面。 例如，当用户到达三步向导流结束时， 您可以配置打开页面活动来打开第三页，同时关闭前两个页面。 因此，用户将看到单一的过渡，回去将不会导致他们走到头两页。
 
-The **All** option can be used to close all pages in the current stack.
+**所有** 选项都可以用来关闭当前堆栈中的所有页面。
 
-In addition, you can configure the Open page action to **Clear history** when navigating to a page. This effectively resets the entire navigation system, not just the current stack, and the user will not be able to navigate back from the target page.
+此外，您可以在导航到页面时配置打开页面操作来 **清除历史**。 这有效地重置整个导航系统，而不仅仅是当前的堆栈， 而且用户将无法从目标页面返回导航。
 
-### 4.3 Updating Data
+### 4.3 更新数据
 
-It is important to remember that any changes you make to your data will be immediately reflected on all active screens. However, this does not mean that these changes are also committed to the database; that remains an explicit action. Another consequence of this is that your app is responsible for keeping track of (and possibly reverting) changes to data when the user decides to navigate back (for example by pressing the back button) without saving their changes.
+必须记住，您对数据的任何更改都将立即反映在所有活动屏幕上。 然而，这并不意味着这些变化也是对数据库的承诺；这仍然是一项明确的行动。 由此产生的另一个后果是，当用户决定返回时(例如通过按下返回按钮)，您的应用负责跟踪(并可能恢复)数据的更改，而不会保存他们的更改。
 
-## 5 Best Practices and Patterns
+## 5 最佳做法和模式
 
-### 5.1 Make it Simple for the User
+### 5.1 让用户简单易用
 
-It is important for a user to always understand where they are in the app, and what their next options are. Overall it is useful to show the bottom bar so that the user sees where they are and where they can go. However, in some flows it makes sense to create focus and remove distractions by using a layout without a bottom bar or by using a pop-up layout.
+用户必须始终了解他们在应用中的位置以及他们的下一个选项是什么。 总的来说，显示底部栏是有益的，以便用户能够看到他们的去处和去哪里。 然而，仍然存在着这种情况。 在某些流中，通过使用没有底部栏的布局或使用弹出式布局来创建焦点和移除分散位置是有意义的。
 
-### 5.2 Minimize Open Pages to Improve Performance
+### 5.2 最小化打开页面以提高业绩
 
-While the user navigates through an app, all pages stay open in the background. This uses the device's resources, and having too many open pages can cause performance issues. The consequence of this is that the choice between using an Open page or a Close page action should be made more deliberately than with web applications.
+用户导航应用程序时，所有页面都在后台打开. 这使用了设备的资源，打开页面太多可能会导致性能问题。 这样做的结果是，在选择使用打开页面或关闭页面时，应该比使用网页应用程序更加慎重。
 
-Where possible, use the Close page action (or the above-mentioned variants of the Show page action) as often as possible to ensure that you do not keep too many unnecessary pages open.
+如有可能： 尽可能频繁地使用关闭页面动作(或上面提到的“显示页面动作”的变体)，确保您不会打开太多不必要的页面。
 
-### 5.3 Use Pop-Ups for Modal Interactions
+### 5.3 使用弹出式交互功能
 
-Most applications consist of a set of primary user flows, and each primary flow may have secondary flows, for example to request some additional user input. In the case of a calendar app, browsing upcoming events would be the primary flow, and editing one event might be a secondary flow. In general, secondary flows should not disrupt the primary flow, meaning that after the user completes this secondary flow, they should end up where they were in the primary flow.
+大多数应用程序由一组主用户流组成。 和每个主流可能有次要流，例如要求一些额外的用户输入。 如果是日历应用程序，浏览即将发生的事件将是主要的流程，编辑一个事件可能是次要流程。 一般而言，二级流动不应扰乱初级流动， 这意味着，在用户完成这次二次流动之后，他们应该最终走向他们的主要流动地点。
 
-Although such behavior can be modeled using the ability to close multiple pages, we recommend using pop-up pages for such scenarios. Pop-up pages exist entirely outside of the navigation stack, and can be opened and closed without disrupting your app's navigation history.
+虽然这种行为可以使用关闭多页的能力来建模，但我们建议在这种情况下使用弹出页面。 弹出页面完全在导航堆栈之外存在，可以在不扰乱您的应用导航历史的情况下打开和关闭。
 
-### 5.4 Startup Flows
+### 5.4 启动流动
 
-The Open page action's **Clear history** option can be used to model out complex behavior, but one of its most common use cases is a startup flow. Imagine an app that should show a series of tutorial screens on startup. After these screens, the user should land on the main page. From these, it should not be possible to navigate back. This can be achieved by using the Open page action with the **Clear history** option to navigate from the final tutorial screen to the main page.
+打开页面动作的 **清除历史** 选项可以用于模拟复杂的行为， 但它最常用的实例之一是启动流程。 想象一个在启动时显示一系列教程屏幕的应用。 在这些屏幕后，用户应该登陆主页。 从这些因素中我们不应有可能回避。 可以通过使用 **清除历史** 选项来实现这一点，从最后教程屏幕到主页。
 
-## 6 Customization
+## 6 自定义
 
-Out of the box, the bottom bar and top bar have a default styling. To change this styling, see the [Pages](/refguide/native-styling-refguide#pages) section of the *Native Styling Reference Guide*. However, if you want to further customize the styling to match your design, you can create pluggable widgets to replace some of the default navigation components. For more information, see the [Pluggable Widgets API Documentation](/apidocs-mxsdk/apidocs/pluggable-widgets)
+在方框之外，底部栏和顶部栏有默认样式。 To change this styling, see the [Pages](/refguide/native-styling-refguide#pages) section of the *Native Styling Reference Guide*. 但是，如果你想要进一步定制样式以匹配你的设计。 您可以创建插件插件来替换一些默认的导航组件。 欲了解更多信息，请参阅 [插件API 文档](/apidocs-mxsdk/apidocs/pluggable-widgets)
 
-## 7 Read More
+## 7 阅读更多
 
-* [Show Page Reference Guide](/refguide/show-page)
-* [Close Page Reference Guide](/refguide/close-page)
-* [Native Navigation Styling Reference Guide](/refguide/native-styling-refguide#navigation-widget)
+* [显示页面参考指南](/refguide/show-page)
+* [关闭页面参考指南](/refguide/close-page)
+* [本机导航样式参考指南](/refguide/native-styling-refguide#navigation-widget)
