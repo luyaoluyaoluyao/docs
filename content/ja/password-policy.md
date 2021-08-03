@@ -1,37 +1,37 @@
 ---
-title: "Password Policy"
+title: "パスワードポリシー"
 parent: "project-security"
 menu_order: 50
 tags:
   - "studio pro"
-  - "password policy"
-  - "app security"
-  - "security"
+  - "パスワードポリシー"
+  - "アプリのセキュリティ"
+  - "セキュリティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-You can specify a number of requirements for passwords. These requirements will be applied when creating new users or changing passwords of existing users.
+パスワードに必要な数を指定できます。 これらの要件は、新規ユーザーを作成したり、既存ユーザーのパスワードを変更したりするときに適用されます。
 
-## 2 Password Policy Properties
+## 2 パスワードポリシーのプロパティ
 
-To set password policy properties, open **App Security** > the **Password policy** tab:
+パスワードポリシーのプロパティを設定するには、 **App Security** > を開いてください。 **Password policy** タブ:
 
 ![](attachments/password-policy/password-policy-tab.png)
 
-Password policy properties are described in the table below:
+パスワードポリシーのプロパティは以下の表に記載されています。
 
-| Property           | Description                                                                                                                                                  |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Minimum length     | Specifies the minimum length of a password.                                                                                                                  |
-| Require digit      | Specifies whether at least one digit is required in a password.                                                                                              |
-| Require mixed case | Specifies whether a password must contain at least one lowercase character and one uppercase character.                                                      |
-| Require symbol     | Specifies whether passwords must contain at least one special symbol. The following characters are considered symbols: <br /> <code> ` ~ ! @ # $ % ^ & * ( ) - _ = + [ { ] } \ </code> |
+| 属性        | 説明                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------- |
+| 最小の長さ     | パスワードの最小長を指定します。                                                                            |
+| 数字が必要     | パスワードに少なくとも1桁の数字が必要かどうかを指定します。                                                              |
+| 混合案件が必要です | パスワードに少なくとも1つの小文字と1つの大文字を含める必要があるかどうかを指定します。                                                |
+| 記号が必要     | パスワードに 1 つ以上の特殊記号を含める必要があるかどうかを指定します。 次の文字は記号と見なされます: <br /> <code> ` ~ ! @ # $ % ^ & * ( ) - _ = + [ { ] } \ </code> |
 
-## 3 Read More
+## 3 続きを読む
 
-* [App Security](project-security)
-* [User Roles](user-roles)
-* [Administrator](administrator)
-* [Demo Users](demo-users)
-* [Anonymous Users](anonymous-users)
+* [アプリのセキュリティ](project-security)
+* [ユーザーの役割](user-roles)
+* [管理者](管理者)
+* [デモユーザー](demo-users)
+* [匿名ユーザー](anonymous-users)
