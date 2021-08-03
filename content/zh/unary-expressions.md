@@ -1,45 +1,41 @@
 ---
-title: "Unary Expressions"
-parent: "expressions"
+title: "非ary 表达式"
+parent: "表达式"
 menu_order: 10
 tags:
   - "studio pro"
-  - "unary expression"
-  - "expression"
-  - "expressions"
+  - "取消表达式"
+  - "表达式"
+  - "表达式"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/unary-expressions.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
-
-An unary minus operator is used to convert a number from negative to positive or vice versa.
+一个不小心的负操作者被用来将一个数字从负数转换为正数，反之亦然。
 
 {{% alert type="info" %}}
 
-There is no unary plus.
+没有任何疏忽。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Example
+## 2 个示例
 
-The example below represents the negative value of '8'.
+下面的示例表示“8”的负值。
 
 ```java
 -8
 ```
 
-When used with a variable that already has a negative value the result is positive.
+当使用的变量已经具有负值时，结果是正数。
 
-For example, if $myVariable has the integer value "-7":
+例如，如果 $myVariable 有整数值“-7”：
 
 ```java
 -$myVariable
 ```
 
-The output is:
+输出为：
 
 ```java
 7
