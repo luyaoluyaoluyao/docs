@@ -1,22 +1,25 @@
 ---
 title: "シーケンスフロー"
-parent: "共通要素"
+parent: "application-logic"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "シーケンス フロー"
+  - "マイクロフロー"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/sequence-flow.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-シーケンス フローは、イベント、アクティビティ、分割、および互いにマージをリンクする矢印です。 ここで、実行の順序を定義します。 フローは常に一方向に流れ、要素が次々に続く。 スプリットは常に一方向につながるので、複数のフローが同時に行われることはできません。
-
-{{% alert type="info" %}}
+シーケンスフローは、要素(イベント、アクティビティ、決定など)を相互にリンクする矢印を表示するフローです。 ここで、実行の順序を定義します。 フローは常に一方向に流れ、要素が次々に続く。 決定は常に一方向につながるので、複数のフローを同時に行うことはできません。
 
 リンクしたい2つのアクティビティがある場合は、シーケンスフローが使用されます。
 
-![](attachments/819203/917971.png)
+![](attachments/sequence-flow/sequence-flow.png)
 
-{{% /alert %}}
+## 2 条件値
 
-## 2つのビヘイビアプロパティ
-
-### 2.1 条件値
-
-条件の値は、 [排他的スプリット](exclusive-split) または [継承スプリット](inheritance-split) の結果に基づいて、どの方向を従うべきかを記述します。
+**条件** の値は、 [決定](decision) または [オブジェクト タイプ 決定](object-type-decision) の結果に基づいて、どの方向に従うべきかを記述します。
