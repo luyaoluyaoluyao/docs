@@ -1,59 +1,59 @@
 ---
-title: "Columns (Document Template)"
+title: "列 (ドキュメントテンプレート)"
 parent: "data-grid-document-template"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/columns-(document-template).html
-  - /refguide/Columns+(document+template).html
+  - /ja/refguide/columns-(document-template).html
+  - /ja/refguide/Columns+(document+template).html
 ---
 
-## 1 Appearance Properties
+## 1件の外観プロパティ
 
-### 1.1 Caption
+### 1.1 図表番号
 
-The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Internationalization](translatable-texts).
+列のキャプションは、行の上にヘッダーとして表示されるテキストです。 これは翻訳可能なテキストです。 [国際化](translatable-texts) を参照してください。
 
-### 1.2 Enumeration Format (Only for Attributes of the Enumeration Type)
+### 1.2 列挙形式 (列挙型の属性のみ)
 
-A column can show its contexts as text (default) or as image.
+列は、そのコンテキストをテキスト(デフォルト)または画像として表示できます。
 
-| Value | Description                                             |
-| ----- | ------------------------------------------------------- |
-| Text  | Show the contents of the connected attribute as a text. |
-| Image | Show the image of the enumeration value.                |
+| 値    | 説明                       |
+| ---- | ------------------------ |
+| テキスト | 接続された属性の内容をテキストとして表示します。 |
+| 画像   | 列挙値の画像を表示します。            |
 
-### 1.3 Decimal Precision (Only for Decimal Attributes)
+### 1.3 小数点以下の精度（10進数属性のみ）
 
-The precision of a value is defined by the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
+値の精度は、その値を表すために使用される数字によって定義されます。 このプロパティは、小数位(小数点以下の桁数)の数を示します。
 
-Default: *2*
+デフォルト: *2*
 
-### 1.4 Group Digits (Only for Numeric Attributes)
+### 1.4 グループ数 (数値属性のみ)
 
-For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end-user will see these groups, or not.
+読みやすいように、小数点以下の桁が多い数字は、区切り文字を使ってグループに分けることができます。 このプロパティは、エンドユーザーがこれらのグループを表示するかどうかを定義します。
 
-Default: *False*
+デフォルト: *False*
 
-### 1.5 Date Format (Only for Attributes of Type **Date and time**)
+### 1.5 日付フォーマット (タイプ **日付と時刻** の属性のみ)
 
-The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
+日付の書式は、日付の部分、時間の部分、または両方を表示するかどうかを決定します。 日付と時刻の部分がどのようにフォーマットされるかは、アプリケーションを使用しているユーザーのローカライズによって異なります。
 
-These are the possible values:
+可能な値は次のとおりです。
 
 * **Date** *(default)*
-* **Time**
-* **Date and time**
-* **Custom** (see below for more details)
+* **時刻**
+* **日付と時刻**
+* **カスタム** (詳細は以下を参照)
 
-### 1.6 Custom Date Format (Only for Attributes of Type **Date and time**)
+### 1.6 カスタム日付フォーマット (タイプ **日付と時刻** の属性のみ)
 
-If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
+日付書式として **Custom** を選択した場合(上記参照)、このプロパティは属性値のフォーマット方法を決定します。 カスタム日付フォーマットは、以下の表で見つかった任意のシンボルを組み合わせることができる文字列です。 句読点は文字通りレンダリングされます。
 
 {{% snippet file="refguide/custom-date-format-tokens.md" %}}
 
-## 2 Data Source Properties
+## 2 データソースのプロパティ
 
-### 2.1 Attribute (Path)
+### 2.1 属性 (パス)
 
-The attribute (path) property specifies the attribute whose value will be displayed in the column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity. The path over which an associated object is accessed is referred to as an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
+属性 (path) プロパティは、列に値が表示される属性を指定します。 グリッドエンティティの属性にすることも、関連するエンティティの属性にすることもできます。 関連するオブジェクトがアクセスされるパスは、属性パスと呼ばれます。 パスは、型参照の複数の関連付けに従うことができ、最後に(オプションで)型参照セットのいずれかになります。 列に参照セットを表示すると、値はカンマで区切られます。
