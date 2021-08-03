@@ -1,8 +1,6 @@
 ---
 title: "マッピングをインポート"
 parent: "mapping-documents"
-tags:
-  - "studio pro"
 ---
 
 紹介については、 [マッピングドキュメント](mapping-documents) を参照してください。
@@ -11,7 +9,7 @@ tags:
 
 Figure 1 depicts an example of an Import Mapping document in which two elements from an XML Schema have been selected using the **Select elements...** dialog. これに続いて、ReceivedPartnersとReceivedClientエンティティが追加され、結果とクライアントスキーマ要素にマッピングされました。 インポートマッピングが呼び出されるたびに、新しいReceivedPartnersオブジェクトが作成されます。
 
-![](attachments/import-mappings/16843942.png)
+![](attachments/16713727/16843942.png)
 
 **図 1**
 
@@ -19,7 +17,7 @@ Figure 1 depicts an example of an Import Mapping document in which two elements 
 
 XML または JSON オブジェクトごとに、Mendix オブジェクトを取得する必要があります。 作成するか、データベース内に存在するオブジェクトを見つけることができます。 あるいは、オブジェクトを返すカスタムマイクロフローを使用することもできます。 図2に示すウィンドウでMendixオブジェクトがどのように取得されているかを見ることができます。 これは特定のマッピング要素をダブルクリックすると表示されます。
 
-![](attachments/import-mappings/16843943.png)
+![](attachments/16713727/16843943.png)
 
 **図 2**
 
@@ -35,17 +33,21 @@ XML または JSON オブジェクトごとに、Mendix オブジェクトを取
 
 #### 1.2.2 オブジェクトが見つからなかった場合
 
-これは、指定された **Mendix Object** アクションでエラーが発生したときにランタイムが実行されるアクションです。
-
-![](attachments/import-mappings/no-object-found.png)
+これは、指定された **オブジェクト** アクションを取得するためにエラーが発生したときにランタイムが実行するアクションです。
 
 | 属性      | 説明                                                          |
 | ------- | ----------------------------------------------------------- |
-| **作成**  | マップする正しいエンティティのオブジェクトを作成します。                                |
+| **作成**  | マップするドメインエンティティを作成する。                                       |
 | **無視**  | この要素をマッピングし、残りの XML の解析を続行しないでください。                         |
 | **エラー** | XML の解析を明示的に中止し、エラーを投げます。 このエラーは、呼び出し元のマイクロフローで処理する必要があります。 |
 
-これがマッピングのトップレベルである場合、 **マッピングが使用される場所でこれを決定する**. If this is checked the option **if no object was found** can be set whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
+{{% alert type="info" %}}
+
+機能 **バージョン 7.17.0 でマッピングが使用される場所でこれを決定する**
+
+{{% /alert %}}
+
+マッピングのトップレベルでは、マッピングが使用される場所でこれを決定することができます。 In that case, the option **if no object was found** shows up whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
 
 ### 1.3 関連を設定
 
@@ -61,13 +63,13 @@ XML または JSON オブジェクトごとに、Mendix オブジェクトを取
 
 選択された XML または JSON 要素は、ドメインエンティティ内の属性にマップされる必要があります。 特定の要素をマッピングしたくない場合は、 **要素を選択...** ダイアログボックスでチェックを外してください。 属性をマップする方法を設定することは、特定のマッピング要素をダブルクリックした後に表示される図3に示されている画面で行われます。
 
-![](attachments/import-mappings/16843943.png)
+![](attachments/16713727/16843943.png)
 
 **図 3**
 
 属性のマッピングを定義した場合、これらのマッピングはマッピングドキュメントにも表示されます。 特定の属性が選択されると、スキーマ要素も選択されます。 これは他の方法でも動作します。 An example of this is shown in figure 4, where the **dati** attribute is selected in both the Entity and the schema element (in this case dati is mapped to dati).
 
-![](attachments/import-mappings/16843944.png)
+![](attachments/16713727/16843944.png)
 
 **図 4**
 
@@ -83,6 +85,12 @@ XML または JSON オブジェクトごとに、Mendix オブジェクトを取
 | 属性を名前でマップする    | このボタンをクリックすると、名前で属性を一致させようとします。 変更内容を報告するダイアログが表示されます。                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 ## 3 マッピングパラメータ
+
+{{% alert type="info" %}}
+
+バージョン7.16.0から。 プリミティブデータ型(整数、文字列など)を持つマッピングパラメータを定義することができます。
+
+{{% /alert %}}
 
 インポートマッピングには、受信パラメータを受け取るための追加オプションがあります。 このパラメータは、microflow が [import from mapping](import-mapping-action) アクションを使用する場合に、呼び出し元の microflow によって渡すことができます。
 
