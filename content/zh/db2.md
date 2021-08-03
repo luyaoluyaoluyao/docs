@@ -1,61 +1,63 @@
 ---
 title: "DB2"
-parent: "data-storage"
+parent: "数据存储"
 menu_order: 40
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-There are some extra considerations you need to take into account if you are implementing a Mendix app using a DB2 database. In addition, the behavior of Mendix using a DB2 database has some minor differences when compared with using a PostgreSQL database.
+如果您正在使用 DB2 数据库实现Mendix 应用，您需要考虑一些额外的考虑。 此外，Mendix 使用 DB2 数据库的行为与使用 PostgreSQL 数据库相比有一些较小的差异。
 
-These considerations and differences are documented below.
+下文记录了这些考虑因素和分歧。
 
-## 2 Page Size of the Table Space
+## 2 表空间的页面大小
 
-For Mendix to run on DB2, it is very important that the user table space has a page size of at least 8K (but preferably 32K). This is because Mendix uses national character strings (NVARCHAR or VARCHAR with string units CODEUNIT32). This data type consumes more space than an octets-based VARCHAR. For the system administration, Mendix always creates some tables with indexes, which require at least a table space page size of 8K.
+Mendix 在 DB2 上运行 非常重要的是，用户表空间的页面大小至少为8K(但最好是32K)。 这是因为Mendix 使用了国家字符串(NVARCHAR 或 VARCHAR 使用字符串单位 CODEUNT32)。 此数据类型消耗的空间多于八进制VARCHAR。 对于系统管理，Mendix 总是创建一些带索引的表格，这些表格至少需要8K的表空间。
 
-**Exception with SQL Code `-614`**
+**SQL 代码 `-614 异常`**
 
-If the index is too big for the page size, DB2 will throw an exception: `com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-614, SQLSTATE=54008, SQLERRMC=some_index_name`
+如果索引太大，DB2会异常： `com.ibm.db2.jcc.am.SqlException: DB2 SQL 错误：SQLCODE=-614, SQLSTATE=54008, SQLERRMC=some _index_name`
 
-For user-created indexes, if the combined length of the specified columns in the index is greater than the max key length, you should also increase the page size of the table space.
+对于用户创建的索引，如果索引中指定列的总长度大于最大键长度， 您还应该增加表格的页面空间大小。
 
-For more detailed information, see [SQL0614N – The index or index extension index-name cannot be created or altered because the combined length of the specified columns is too long](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.messages.sql.doc/doc/msql00614n.html) in the *SQL messages* section of the *IBM Knowledge Center*.
+更详细的信息 查看 [SQL0614N - 索引或索引扩展索引名称无法创建或更改，因为指定列的合并长度过长](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.messages.sql.doc/doc/msql00614n.html) 在 *SQL 消息* *IBM 知识中心* 中的部分</em>
 
-## 3 Transaction Log Size
+## 3 个交易日志大小
 
-**Exception with SQL Code `-964`**
+**SQL 代码 `-964 异常`**
 
-If the transaction log space is depleted or there is a temporary increase in the number of active transactions, DB2 will throw this exception: `com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-964, SQLSTATE=57011, SQLERRMC=null`.
+如果交易日志空间已经枯竭，或者现行交易数量暂时增加， DB2 会抛出此异常： `com。 bm.db2.jcc.am.SqlException: DB2 SQL 错误：SQLCODE=-964, SQLSTATE=57011, SQLERRMC=null`
 
-In this case, the size of *LOGPRIMARY* must be increased.
+在这种情况下， *LOGPRIMARY* 的大小必须增加。
 
-For more detailed information, see [DB2 SQL error: SQLCODE: -964, SQLSTATE: 57011, SQLERRMC: null](http://www-01.ibm.com/support/docview.wss?uid=swg21298630) on the *IBM Support* pages and [SQL0964C – The transaction log for the database is full](http://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.messages.sql.doc/doc/msql00964c.html) in the *SQL messages* section of the *IBM Knowledge Center*.
+欲了解更多详细信息，请参阅 [DB2 SQL 错误：SQLCODE: -964, SQLSTATE: 57011, SQLERRMC: null](http://www-01.ibm.com/support/docview.wss?uid=swg21298630) on the *IBM Support* pages and [SQL0964C - 数据库的交易日志完整](http://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.messages.sql.doc/doc/msql00964c.html) in *SQL message* section of the *IBM 知识中心*
 
-## 4 Making DB2 Case-Insensitive
+## 5 限制
 
-When applying sort on string column values that have mixed letter cases, DB2 will also take into account the letter cases. However, such situations can be avoided if the DB2 database is created with a collation that is case insensitive.
+### 5.1 字符串比较是对情况敏感的 {#making}
 
-For more detailed information, see the article [Making DB2 case-insensitive](http://www.ibm.com/developerworks/data/library/techarticle/0203adamache/0203adamache.html) in *IBM Developer Works*.
+在字符串列值上排序是区分大小写的 DB2。 为了缓解这种情况，IBM在DB2 9.5 fixack 1中引入了具有本地意识的Unicode collection。 这些整理可以根据无视病例和/或口音量进行调整。
 
-## 5 Known Issues
+欲了解更多详细信息，请参见 [在 *IBM 开发者工作* 中的 DB2 大小写不敏感](https://developer.ibm.com/technologies/databases/articles/making-db2-case-insensitive#refname)。
 
-### 5.1 Sorting on Very Long Strings
+### 5.2 按非常长的字符串排序
 
-It is not possible to sort on unlimited strings or strings with a specified length greater than 8192 characters. This is because such long or unlimited strings are implemented with the data type NCLOB. DB2 does not allow sorting on columns with this data type. Technically, it is possible to cast this type during the execution of the query to a normal VARCHAR type and sort on this, but this increases the execution time. The question is if it really is user-friendly to show such long strings in a data grid. Consider decreasing the length of the string attribute or removing it from data grids.
+无法对无限字符串或字符串进行排序，其长度超过8192个字符。 这是因为这么长或无限的字符串是通过数据类型NCLOB实现的。 DB2 不允许在此数据类型的列中排序。 从技术上讲，可以在执行查询时将此类型投射到正常的 VARCHAR 类型和排序。 但这会增加执行时间。 问题是，在数据网格中显示这么长的字符串是否真的便于使用。 考虑缩短字符串属性的长度或从数据网格中移除。
 
-### 5.2 ORDER BY a Correlated Scalar Fullselect or a Function with an External Action
+### 5.3 由一个相关的Scalar Fullselect 或一个具有外部动作的函数进行的ORD
 
-According to the [order-by-clause](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.sql.ref.doc/doc/r0059211.html) documentation in the *IBM DB2 SQL reference*, DB2 does not support ORDER BY a correlated scalar fullselect (SQLSTATE 42703) or a function with an external action (SQLSTATE 42845).
+根据 [逐个排序](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.sql.ref.doc/doc/r0059211.html) 文档 *IBM DB2 SQL 引用*DB2 不支持完全选择相关比例的 ORDER (SQLSTATE 42703) 或具有外部动作(SQLSTATE 42845)。
 
-Taking this limitation into account, ordering by the associated attribute is not supported when a Mendix application is backed by DB2. Therefore, any associated attribute that is used for ordering is filtered out from the query and the result set is returned as if ordering by the associated attribute had not been presented in the query.
+考虑到这个限制，当Mendix 应用程序由 DB2 支持时，不支持按相关属性排序。 因此， 用于排序的任何相关属性都是从查询中过滤出来的，结果集是返回的，好像在查询中没有显示相关属性的排序一样。
 
-### 5.3 Non-Blocking Read-Isolated Streaming with OData
+### 5.4 与OData无屏蔽读取隔离流
 
-According to the [Isolation levels](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.admin.perf.doc/doc/c0004121.html) documentation in *IBM DB2 Application design*, non-blocking read-isolated queries are not supported by DB2. The default behavior of DB2 is that when one user is retrieving rows from a table and another user is making modifications on the same table at the same time, then those modifications will show up in the data in the retrieve query (which means database reads are not isolated). Configuring a stricter transaction isolation level to prevent this behavior puts locks on those same rows (which means concurrent database actions are blocking).
+根据 [隔离级别](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.admin.perf.doc/doc/c0004121.html) 文档在 *IBM DB2 应用程序设计*中，DB2 不支持非屏蔽的孤立查询。 DB2的默认行为是当一个用户从表中检索行，而另一个用户同时在同一个表上进行修改。 然后这些修改将显示在检索查询中的数据中(这意味着数据库读取不是孤立的)。 配置更严格的交易隔离级别以防止这种行为将锁定在同一行上(这意味着同时的数据库操作正在被阻止)。
 
-Taking this limitation into account, preventing concurrent row modifications from being included in the result set of a data retrieve action is not supported when a Mendix application is using DB2 as a streaming OData datasource.
+考虑到这一限制， 当Mendix 应用程序使用 DB2 作为流媒体OData 数据源时，不支持同时进行行修改。
 
-### 5.4 Select DISTINCT attribute for Very Long Strings
+### 5.5 选择非常长字符串的 DISTINCT 属性
 
-Selecting DISTINCT attributes of type String with size > 8168 characters is not supported by Mendix due to a known DB2 limitation of selecting DISTINCT columns with a CLOB data type. When you run into this limitation, you may encounter an exception in the logs with a message like this: `DB2 SQL Error: SQLCODE=-727, SQLSTATE=56098, SQLERRMC=2;-134;42907`
+选择 DISTINCT 属性的字符串大小 > 8168 个字符不被Mendix 支持，因为已知的DB2 限制选择带有CLOB 数据类型的DISTINCT 列。 当您进入此限制时， 你可能会遇到日志中的异常，比如这样的消息： `DB2 SQL 错误：SQLCODE=-727, SQLSTATE=56098, SQLERRMC=2; 134;42907`
