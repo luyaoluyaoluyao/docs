@@ -1,39 +1,39 @@
 ---
-title: "Static Image (Document Template)"
-parent: "document-templates"
+title: "静的画像 (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/Static+Image+(document+template).html
-  - /refguide/static-image-(document-template).html
+  - /ja/refguide/Static+Image+(document+template).html
+  - /ja/refguide/static-image-(document-template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A static image shows a predefined image. It can be put either inside or outside a data view or template grid.
+静的イメージは定義済みのイメージを示します。 データビューまたはテンプレート グリッドの内側または外側に配置できます。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918133.png)
 
-A static image inside a table cell.
+テーブルセル内の静止画像。
 
 {{% /alert %}}
 
-## 2 Appearance Properties
+## 外観のプロパティ
 
-### 2.1 Image
+### 2.1 画像
 
-This property defines the image that will appear in the document.
+このプロパティは、ドキュメントに表示されるイメージを定義します。
 
 ### 2.2 Width
 
-The width defines the width of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+width はドキュメント内の画像の幅を定義します。 これはピクセル単位で設定されており、ドキュメントテンプレートで PPI を使用して、実際の印刷サイズに再計算されます。 画像の歪みを防ぐために、両方を設定することはできません。
 
-### 2.3 Height
+### 高さ2.3
 
-The height defines the height of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+高さは、ドキュメント内の画像の高さを定義します。 これはピクセル単位で設定されており、ドキュメントテンプレートで PPI を使用して、実際の印刷サイズに再計算されます。 画像の歪みを防ぐために、両方を設定することはできません。
 
-## 3 Common Properties
+## 3つの一般的なプロパティ
 
 {{% snippet file="refguide/name-property.md" %}}
