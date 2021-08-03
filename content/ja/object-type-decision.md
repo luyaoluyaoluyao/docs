@@ -7,8 +7,12 @@ tags:
   - "オブジェクト型の決定"
   - "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 aliases:
-  - /ja/refguide/inherited from
+  - /refguide8/inherited from split.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/object-type-decision.pdf) をクリックしてください。
+{{% /alert %}}
 
 {{% alert type="info" %}}
 この活性は、ナノフローではなく、マイクロフローでのみ使用できます。
