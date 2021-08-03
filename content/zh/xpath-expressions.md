@@ -1,7 +1,13 @@
 ---
 title: "XPath 表达式"
-parent: "\"xpath-constraints\"#"
+parent: "xpat-conditions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-expressions.pdf)。
+{{% /报警 %}}
 
 ## 1 概览
 
@@ -61,7 +67,7 @@ A comparison expression consists of two attributes or values separated by a comp
 
 关于可用函数的信息，请参阅 [XPath 约束函数](xpath-constraint-functions)。
 
-## 4 Exist-Expressions
+## 4 Exist-Expressions {#exist}
 
 最后一种表达式是存在的表达式，可用来检查某个特定的关联是否填写。
 
