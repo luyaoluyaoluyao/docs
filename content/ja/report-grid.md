@@ -7,10 +7,11 @@ tags:
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/report-grid.pdf).
+This widget been deprecated in version 9.0 and will be marked for removal in a future version.
 {{% /alert %}}
-
-{{% alert type="warning" %}}The report grid widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}
+The report grid widget is not supported on native mobile pages.
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -40,7 +41,7 @@ Each column in a report grid also has properties: see [Report Grid Column Proper
 
 ### 2.1 Common Section{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Data Source Section{#data-source}
 
@@ -50,7 +51,7 @@ Each column in a report grid also has properties: see [Report Grid Column Proper
 
 ### 2.3 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.4 General Section{#general}
 
