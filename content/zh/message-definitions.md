@@ -1,92 +1,92 @@
 ---
-title: "Message Definitions"
-parent: "integration"
+title: "消息定义"
+parent: "集成"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Message definitions define the structure of the messages that are sent from and to your app. Defining your messages allows you to create import and export mappings for them.
+消息定义定义定义了发送到您应用的消息结构。 定义您的消息允许您为他们创建导入和导出映射。
 
-A message definition can be used for both JSON and XML, and it can be used for both single objects and lists of objects.
+消息定义可以同时用于JSON和XML，它可以同时用于单个对象和对象列表。
 
-## 2 Adding a Message Definitions Document
+## 添加消息定义文档
 
-Message Definitions is a type of document you can add to modules in your app.
+消息定义是您可以添加到应用模块中的文档类型。
 
-To add a message definitions document do the following:
+要添加消息定义文档，请执行以下操作：
 
-1. Right-click your module or a folder within a module.
+1. 右键单击您的模块或模块中的文件夹。
 
-2. Choose **Add other > Message definitions**.
+2. 选择 **添加其他 > 消息定义**。
 
-    ![Right-click menu - add Message definitions](attachments/message-definitions/add-definitions-document.png)
+    ![右键菜单 - 添加消息定义](attachments/message-definitions/add-definitions-document.png)
 
-3. Give your message definitions a name and click **OK**.
+3. 给您的消息定义一个名称并点击 **确定**。
 
-## 3 Managing Message Definitions
+## 3 管理消息定义
 
-The message definition document shows a list of message definitions.
+消息定义文档显示消息定义列表。
 
-Here you can do the following:
+您可以在这里做以下工作：
 
-* **Add** a new [message definition](#message-definition)
-* **Edit** an existing message definition
-* **Delete** an unwanted message definition
-* **Find usages** of a message definition
-* **Generate mapping(s)…** from a message definition (see below)
+* **添加** 新的 [消息定义](#message-definition)
+* **编辑** 一个现有的消息定义
+* **删除** 个不需要的消息定义
+* **查找消息定义的使用**
+* **从消息定义中生成映射(s)…** (见下文)
 
-### 3.1 Generate Mapping(s)…
+### 3.1 绘制地图(s)…
 
-The **Generate mapping(s)…** button allows you to generate import and/or export mapping documents from the selected message definition. The mappings are added to your module.
+**生成映射…** 按钮允许您从选定的消息定义中生成导入和/或导出映射文件。 映射已添加到您的模块。
 
-To generate mappings, do the following:
+要生成映射，请执行以下操作：
 
-1. Select the message definition you want to use.
+1. 选择您想要使用的消息定义。
 
-2. Click **Generate mapping(s)…**.
+2. 点击 **生成映射(s)…**。
 
-3. Ensure that the required mapping(s) is selected.
+3. 确保选择所需的映射(s)。
 
 4. Click **OK**.
 
-    ![General mappings dialog](attachments/message-definitions/generate-mappings.png)
+    ![常规映射对话框](attachments/message-definitions/generate-mappings.png)
 
-## 4 Defining a Message Definition{#message-definition}
+## 4 定义消息定义{#message-definition}
 
-In the message definitions document, click **Add** to create a new message definition or **Edit** to edit an existing message definition.
+在消息定义文档中，点击 **添加** 创建一个新的消息定义或 **编辑** 来编辑现有的消息定义。
 
-### 4.1 General
+### 4.1 概况
 
-The message definition is defined in the **General** tab.
+消息定义在 **通用** 标签中定义。
 
-![The Message Definition General tab](attachments/message-definitions/message-definition.png)
+![消息定义常规标签](attachments/message-definitions/message-definition.png)
 
-#### 4.1.1 Name
+#### 4.1.1 名称
 
-The name of the message definition.
+消息定义的名称。
 
-#### 4.1.2 Entity
+#### 4.1.2 实体
 
-An entity in your app domain model(s) on which to base the message definition. Using this message definition, you will be able to export and import individual objects and lists of objects of this entity type.
+您的应用域模型中的实体作为消息定义的基础。 使用此消息定义，您可以导出和导入此实体类型的单个对象和对象列表。
 
-#### 4.1.3 Structure
+#### 4.1.3 结构
 
-The structure tree shows the attributes and some of the associations of the entity. Use the **Filter** to find specific attributes.
+结构树显示该实体的属性和一些关联性。 使用 **筛选器** 来查找特定的属性。
 
-| Column                    | Description                                                                                                                   | Can edit? | Notes                                                                                                                                                                                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |:---------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Check box                 | Check if the attribute or association is part of the message.                                                                 |     y     |                                                                                                                                                                                                                                                           |
-| Name                      | The name of the item in the Domain Model.                                                                                     |     n     |                                                                                                                                                                                                                                                           |
-| Type                      | The type of the item in the Domain Model.                                                                                     |     n     |                                                                                                                                                                                                                                                           |
-| Occurrence                | How many times this item can occur for each parent item.                                                                      |     n     |                                                                                                                                                                                                                                                           |
-| External Name             | The name of the XML node or the JSON property.                                                                                |     y     | By default, the name of the attribute or (for associations) entity.<br />For a `0..*` occurrence, a letter `s` is added.                                                                                                                            |
-| External Single Item Name | The XML node that represents a single item.                                                                                   |     y     | Only relevant for XML when the occurrence is `0..*`<br /> By default, the entity name.                                                                                                                                                              |
-| Example value             | A typical value for an attribute.                                                                                             |     y     | For a published REST service, this value shows up in the [interactive documentation](published-rest-services#interactive-documentation).<br />A date/time value is specified in the format `year-month-day` or `year-month-day hour:minute:second`. |
-| Public Documentation      | Additional information to be displayed in the [interactive documentation](published-rest-services#interactive-documentation). |     y     |                                                                                                                                                                                                                                                           |
+| 列      | 描述                                                                     | 可以编辑吗？ | 注                                                                                                                              |
+| ------ | ---------------------------------------------------------------------- |:------:| ------------------------------------------------------------------------------------------------------------------------------ |
+| 复选框    | 检查属性或关联是否为消息的一部分。                                                      |   年    |                                                                                                                                |
+| 名称     | 域模式中项目的名称。                                                             |   n    |                                                                                                                                |
+| 类型     | 域模型中项目的类型。                                                             |   n    |                                                                                                                                |
+| 出现的    | 每个父项目可以出现多少次。                                                          |   n    |                                                                                                                                |
+| 外部名称   | XML 节点或 JSON 属性的名称。                                                    |   年    | 默认情况下，属性名称或 (关联)实体的名称。<br />如果出现 `0..*` 情况，将添加字母 `s`。                                                                    |
+| 外部单项名称 | 代表单项的 XML 节点。                                                          |   年    | 当事件发生 `0..*`<br /> 默认情况下，实体名称仅适合XML。                                                                                     |
+| 示例值    | 属性的典型值。                                                                |   年    | 对于已发布的 REST 服务，这个值在 [交互文档](published-rest-services#interactive-documentation)中显示。<br />日期/时间值在格式中指定 `个月月` 或 `个月月小时:分钟:秒` |
+| 公开文档   | 在 [交互式文档](published-rest-services#interactive-documentation) 中显示的额外信息。 |   年    |                                                                                                                                |
 
-### 4.2 Documentation
+### 4.2 文件
 
-Use the **Documentation** tab to describe what the message definition is used for.
+使用 **文档** 标签来描述信件定义的用途。
