@@ -1,8 +1,6 @@
 ---
 title: "XPath 文字列の長さ"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 
