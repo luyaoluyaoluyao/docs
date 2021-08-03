@@ -10,18 +10,23 @@ tags:
   - "文件"
   - "路径"
   - "操作"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+**已发布的REST service** 功能已引入7.10.0版本。
+
+{{% /报警 %}}
 
 ## 1 导言
 
-所有 [已发布的REST 服务](published-rest-service) 都是自动记录的。 系统生成一个 *swagger.json* 文件，符合 [OpenAPI 2.0 规格](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) (前称“交换规格”)。 This file can be [saved from Studio Pro](published-rest-service#export-swagger-json) or downloaded from */rest-doc/servicename/swagger.json*.
+所有 [已发布的REST 服务](published-rest-service) 都是自动记录的。 系统生成一个 *swagger.json* 文件，符合 [OpenAPI 2.0 规格](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) (前称“交换规格”)。 This file can be [saved from the modeler](published-rest-service#export-swagger-json) or downloaded from `/rest-doc/servicename/swagger.json`.
 
 如果您需要与另一个应用的服务进行沟通，您可以使用 *交换器。 在 Microsoft Visual Studio 、React、Angular 和 Java 等系统中生成一个 API 的 son* 文件。 这使得您的不同应用之间的沟通变得容易。
 
 许多流行的 API 工具支持 OpenAPI 2。 , including [SoapUI](https://www.soapui.org/), [Postman](https://www.getpostman.com/), , , 和 [Swagger UI](https://swagger.io/swagger-ui/) (支持工具的较长列表见 [交换工具)。 o/commercial-tool](https://swagger.io/commercial-tools/) 这意味着您可以很容易地从任何这些工具测试您已发布的服务。
 
-下面是一个技术描述，生成了 *swagger.json* 文件的部分。
+下面是一个技术描述，生成了 `swagger.json` 文件的部分。
 
 ## 2 个模式
 
