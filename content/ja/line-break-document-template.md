@@ -1,17 +1,14 @@
 ---
 title: "改行（ドキュメントテンプレート）"
 parent: "ドキュメントテンプレート"
-tags:
-  - "studio pro"
 aliases:
-  - /ja/refguide/Line+Break++(document+template).html
-  - /ja/refguide/line-break-(document-template).html
+  - /refguide7/Line+Break++(document+template).html
+  - /refguide7/line-break-(document-template).html
 ---
 
-## 1つの紹介
 
 改行の挿入時に新しい行が開始されます。
 
-## 2つの一般的なプロパティ
+## 共通のプロパティ
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
