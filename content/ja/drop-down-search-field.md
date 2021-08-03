@@ -1,9 +1,9 @@
 ---
-title: "Drop-Down Search Field"
-parent: "search-bar"
+title: "ドロップダウン検索フィールド"
+parent: "検索バー"
 ---
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Search+Field+Caption+Property.md" %}}
 
@@ -11,30 +11,30 @@ parent: "search-bar"
 
 {{% snippet file="refguide7/Search+Field+Default+Value+Property.md" %}}
 
-## General properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Search+Field+Attribute+Path+Property.md" %}}
 
 {{% snippet file="refguide7/Search+Field+Comparison+Property.md" %}}
 
-The number of drop-down selection options is capped at 1,000. Therefore, no more than 1,000 unique values of a selected attribute can be selectable. This limit has been set to protect page loading performance on older browsers when these options need to be retrieved from the server. In Mendix 8 this limit has been removed.
+ドロップダウンの選択オプションの数は 1,000 に上限されます。 したがって、選択された属性の一意な値は 1000 を超えることはできません。 この制限は、これらのオプションがサーバーから取得される必要がある場合、古いブラウザでのページの読み込みパフォーマンスを保護するように設定されています。 Mendix 8 では、この制限は削除されました。
 
-### Allow multi-select
+### 複数選択を許可
 
-If this property is set to 'Yes', the resulting drop-down allows you to select multiple values instead of just one. When searching all records match for which the corresponding attribute is equal to one of the selected values. For example, you can search for all orders with status 'Submitted' or 'In progress'.
+このプロパティが「はい」に設定されている場合、結果のドロップダウンでは1つではなく複数の値を選択できます。 すべてのレコードを検索すると、対応する属性が選択された値のいずれかに一致します。 たとえば、「送信済み」または「処理中」のすべての注文を検索できます。
 
-### XPath Constraint
+### XPath 制約
 
-If the 'drop-down' search field is connected to an attribute of an associated entity (as opposed to the grid entity itself) the XPath constraint can be used to limit objects shown in the drop-down.
+'drop-down' 検索フィールドが(グリッドエンティティ自体ではなく)関連するエンティティの属性に接続されている場合、ドロップダウンに表示されるオブジェクトを制限するために XPath 制約を使用することができます。
 
 {{% alert type="info" %}}
 
-Let us say you have a grid showing bicycles. In the domain model the bicycle has an association to the shops where you can buy those bicycles. You can add a search field to the grid allowing the end user to select a shop by name. The XPath can then be used to limit the shops to those that are in a given country. `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
+自転車を示すグリッドがあるとしましょう。 ドメインモデルでは、自転車が買えるお店との関連があります。 検索フィールドをグリッドに追加して、エンドユーザーがショップ名で選択できるようにできます。 XPath を使用すると、特定の国にあるショップを限定することができます。 `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
 
 {{% /alert %}}
 
-### Sort order
+### 並び順
 
-The sort order specifies the order in which the items in the drop-down search field are shown. You can sort on multiple attributes in both directions (ascending and descending). If no sort order is specified, the drop-down search field sorts on the displayed attribute.
+並べ替え順序は、ドロップダウン検索フィールドの項目を表示する順序を指定します。 複数の属性を並べ替えることができます (昇順と降順)。 ソート順が指定されていない場合、ドロップダウンの検索項目が表示される属性をソートします。
 
-_Default value:_ No sort order
+_デフォルト値:_ ソート順なし
