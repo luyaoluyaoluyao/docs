@@ -1,85 +1,81 @@
 ---
-title: "XPath Expressions"
+title: "XPath 式"
 parent: "xpath-constraints"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-expressions.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+式は制約の中で使用され、true の値を生成します。
 
-Expressions are used within constraints to generate a value that is true.
+制約に使用できる式には3種類あります。
 
-There are three types of expressions usable for constraints:
+* 演算子との比較
+* 関数
+* 存在する表現
 
-* Comparisons with operators
-* Functions
-* Exist-expressions
-
-## 2 Comparisons
+## 2つの比較
 
 A comparison expression consists of two attributes or values separated by a comparison [operator](xpath-operators) like `=`, `<=,` and `>`.
 
-### 2.1 Examples
+### 2.1 例
 
-For example, this query retrieves all customers whose name is "Jansen":
+例えば、このクエリでは、名前が "Jansen" のすべての顧客を取得します。
 
 ```java
 //Sales.Customer[Name = 'Jansen']
 ```
 
-This query retrieves all the orders for which the total price is less than 50.00 euros:
+このクエリは、合計価格が50.00ユーロ未満のすべての注文を取得します。
 
 ```java
 //Sales.Order[TotalPrice < 50.00]
 ```
 
-This query retrieves all customers who have at least one unpaid order:
+このクエリは、少なくとも1つの未払い注文を持っているすべての顧客を取得します:
 
 ```java
 //Sales.Customer[Sales.Customer_Order/Sales.Order/HasPayed = false()]
 ```
 
-This query retrieves all the customers who have the same name as the city they live in:
+このクエリは、住んでいる都市と同じ名前を持つすべての顧客を取得します:
 
 ```java
 //Sales.Customer[Name = City]
 ```
 
-This query retrieves the customer who placed the order with the given unique identification number:
+このクエリは、指定された一意の識別番号で注文を行った顧客を取得します:
 
 ```java
 //Sales.Customer[Sales.Customer_Order = 'ID_124123512341']
 ```
 
-The same result can be retrieved by doing the following query:
+次のクエリを実行すると、同じ結果を取得できます。
 
 ```java
 //Sales.Customer[Sales.Customer_Order/Sales.Order/ID = 'ID_124123512341']
 ```
 
-However, it is strongly recommended not to use the notation above. This is because its execution is inefficient and will result in a lower performance due to the manner in which it is processed by the database.
+ただし、上記の表記は使用しないことを強くお勧めします。 これは、その実行が非効率であり、データベースによって処理される方法によってパフォーマンスが低下するためです。
 
-## 3 Functions
+## 3つの機能
 
-For information on the available functions, see [XPath Constraint Functions](xpath-constraint-functions).
+使用可能な関数については、 [XPath 制約関数](xpath-constraint-functions) を参照してください。
 
-## 4 Exist-Expressions {#exist}
+## 4 つの式が存在します {#exist}
 
-The last type of expression is the exist-expression, which can be used to check whether a specific association is filled or not.
+式の最後のタイプは、特定の関連付けが満たされているかどうかを確認するために使用できる exist-expression です。
 
-### 4.1 Examples
+### 4.1 例
 
-This query retrieves all the customers who have placed at least one order:
+このクエリは、少なくとも 1 つの注文を行ったすべての顧客を取得します。
 
 ```java
 //Sales.Customer[Sales.Customer_Order/Sales.Order]
 ```
 
-This query retrieves all the customers who have not placed any orders:
+このクエリは、注文を行っていないすべての顧客を取得します:
 
 ```java
 //Sales.Customer[not(Sales.Customer_Order/Sales.Order)]
