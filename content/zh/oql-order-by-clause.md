@@ -1,26 +1,26 @@
 ---
-title: "OQL Order by Clause"
+title: "按条款排序的 OQL 订单"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `ORDER BY` clause specifies the sort order used on columns returned in a `SELECT` statement. Multiple columns can be specified. Columns are ordered in the sequence of the items in the `ORDER BY` clause.
+`ORDER BY` 条款指定了在 `SELECT` 语句中返回的列的排序顺序。 可以指定多列。 列是按照 `BY` 条款中的项目顺序排序的。
 
-This clause can include items that do not appear in the `SELECT` clause, except when `SELECT DISTINCT` is specified or when a `GROUP BY` clause exists. When `UNION` is used, the column names or aliases must be those specified in the `SELECT` clause of the first part of the query.
+此条款可以包含在 `SELECT` 条款中没有出现的项目， 不适用于 `选择发帖` 已指定或当一个 `组由` 条款存在时。 当使用 `UNION` 时。 列名或别名必须是查询第一部分的 `SELECT` 条款中指定的名称。
 
-## 2 Syntax
+## 2 种语法
 
 
-The syntax is as follows:
+语法如下：
 
 ```sql
 ORDER BY
-    {
+    format@@
         order_by_expression [ ASC | DESC ]
-    }
+}
 ```
 
 ### 2.1 order_by_expression
@@ -29,28 +29,28 @@ ORDER BY
 
 ### 2.2 ASC
 
-`ASC` specifies that the results must be ordered ascending, from the lowest to the highest value. This is the default sort type.
+`ASC` 指定结果必须从最小值升序到最高值。 这是默认排序类型。
 
 ### 2.3 DESC
 
-`DESC` specifies that the results must be ordered descending, from the highest to the lowest value.
+`DESC` 指定结果必须排序从最高值到最低值。
 
 {{% alert type="info" %}}
-For details on the default ordering behavior of NULL values, see the [NULL Values Order Behavior](ordering-behavior#null-ordering-behavior) section of *Order By Behavior*.
-{{% /alert %}}
+关于NULL值的默认排序行为的详细信息。 查看 [NULL Values Order 行为](ordering-behavior#null-ordering-behavior) 部分 *Order by Behavior*。
+{{% /报警 %}}
 
-## 3 Examples
+## 3 个示例
 
-This query retrieves all customers and returns the first names sorted on the last name, ascending:
+此查询可检索所有客户并返回姓氏排序的姓名，升序：
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-ORDER BY LastName
+从销售处选择姓氏。客户
+按姓氏排序
 ```
 
-This query retrieves all customers and returns the first and last name sorted on the last name, descending:
+此查询可检索所有客户并返回按姓氏排序的第一个和姓名，降序：
 
 ```sql
-SELECT FirstName + ' ' + LastName FROM Sales.Customer
-ORDER BY LastName DESC
+选择姓氏+' + 姓氏来自Sales.客户
+BY Lastname DESC
 ```
