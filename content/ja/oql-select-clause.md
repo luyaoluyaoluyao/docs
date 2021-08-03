@@ -5,13 +5,13 @@ tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `SELECT` clause specifies which entity attributes or other specified data must be retrieved. The `SELECT` clause consists of the term `SELECT` and one or more expressions. These expressions must be separated by a comma. Each expression defines a column in the result. Each expression can have an alias, which will be the name of the column in the result.
+`SELECT` 節は、どのエンティティ属性またはその他の指定されたデータを取得する必要があるかを指定します。 `SELECT` 節は、 `SELECT` と1つ以上の式で構成されます。 これらの式はコンマで区切られなければなりません。 各式は、結果の列を定義します。 各式にはエイリアスがあり、結果の列の名前になります。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
 SELECT [ DISTINCT ]
@@ -24,45 +24,45 @@ SELECT [ DISTINCT ]
 
 ### 2.1 DISTINCT
 
-`DISTINCT` specifies that double rows must not be shown in the result.
+`DISTINCT` は、結果に二重行を表示してはいけないことを指定している。
 
-### 2.2 * (asterisk)
+### 2.2 * (アスタリスク)
 
-`*` (asterisk) specifies that all attributes from all entities in the `FROM` clause should be returned.
+`*` (アスタリスク) は、 `FROM` 節に含まれるすべてのエンティティのすべての属性を返すよう指定します。
 
-### 2.3 entity_name.* and from_alias.*
+### 2.3 entity_name.* と from_alias.*
 
-`entity_name.*` and `from_alias.*` specify that all attributes of the specified entity or expression of the `FROM` clause should be returned. `entity_name` can be optionally put in double quotes. Double quotes are mandatory if the entity name is a reserved OQL word (like `Order` or `Group`).
+`entity_name.*` and `from_alias.*` specify that all attributes of the specified entity or expression of the `FROM` clause should be returned. `entity_name` は必要に応じて二重引用符で囲むことができる。 エンティティ名が予約済みの OQL 単語の場合、ダブルクォートは必須です ( `Order` や `Group` のように)。
 
 ```sql
 SELECT Sales.Customer.* FROM Sales.Customer
 ```
 
 ```sql
-SELECT Person.* FROM Sales.Customer AS Person
+担当者を選択してください。* 営業担当者からお客様を担当者にする
 ```
 
 ```sql
 SELECT "Sales.Order".* FROM "Sales.Order"
 ```
-### 2.4 expression
+### 2.4 式
 
-`expression` is either a constant, a function or any combination of attribute names, constants, and functions connected by operator(s) or a subquery. When you add more expressions, place a comma between each expression.
+`式` は、定数、関数、または属性名、定数、および演算子またはサブクエリによって接続された関数の任意の組み合わせです。 より多くの式を追加する場合は、各式の間にカンマを置きます。
 
 ```sql
 SELECT Name AS CustomerName, LastName AS CustomerLastName, Birthday, Category FROM Sales.Customer
 ```
 
-For more information, see [OQL Expressions](oql-expressions).
+詳細については、 [OQL 式](oql-expressions) を参照してください。
 
 ### 2.5 column_alias
 
-`column_alias` is an alternative name to replace the column name in the result. When the name attribute is retrieved, the result column is "Name". With an alias, you can specify another result column name, like "Customer Name". An alias can contain spaces.
+`column_alias` は、結果の列名を置き換える代替名です。 name 属性が取得されると、結果の列は "Name" になります。 エイリアスを使用すると、"顧客名" のように別の結果列名を指定できます。 エイリアスにはスペースを含めることができます。
 
 ```sql
-SELECT Sales.Customer.Name AS CustomerName FROM Sales.Customer
+SELECT Sales.Customer.Name As CustomerName FROM Sales.Customer
 ```
 
 ```sql
-SELECT Sales.Customer.Name AS 'Customer Name' FROM Sales.Customer
+SELECT Sales.Customer.Name as 'Customer Name' FROM Sales.Customer
 ```
