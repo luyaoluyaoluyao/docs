@@ -1,8 +1,6 @@
 ---
-title: "XPath Length"
+title: "XPath length"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1 Overview
