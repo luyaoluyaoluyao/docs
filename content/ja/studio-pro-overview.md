@@ -6,14 +6,18 @@ menu_order: 10
 tags:
   - "Studio Pro"
 aliases:
-  - /refguide/desktop-modeler-overview.html
+  - /refguide8/desktop-modeler-overview.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/studio-pro-overview.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-Mendix Studio Proは、Mendixアプリケーションの作成、表示、および編集のためのツールです。
+Mendix Studio Proは、Mendixアプリケーションの作成、表示、および編集のためのツールです。 Mendix アプリは Studio Pro で [プロジェクト](project) と呼ばれます。
 
-1 つの Studio Pro インスタンスは、1 つのアプリケーションを同時に開くことができますが、必要に応じて 2 つの Studio Pro インスタンスを開くことができます。
+1 つの Studio Pro インスタンスは、1 つのプロジェクトを同時に開くことができますが、必要に応じて 2 つの Studio Pro インスタンスを開くことができます。
 
 {{% alert type="info" %}}
 Studio Pro が開いている場合、 <kbd>F1</kbd> を押すとすぐにドキュメントにジャンプします。
@@ -27,16 +31,11 @@ Studio Pro が開いている場合、 <kbd>F1</kbd> を押すとすぐにドキ
 
 Studio Pro のトップバーには、次の項目が含まれています。
 
-* [メニューの切り替え](#switch-to)
 * [Menus](#menus)
 * [アプリを実行して表示するボタン](#run-and-view)
 * [開発者ポータルおよびマーケットプレイスへのリンク](#links)
 
-### 2.1 切り替えメニュー {#switch-to}
-
-**Switch-to** メニューはStudio Proの左上にあり、プラットフォームのさまざまな部分へのリンクが含まれています。 **Switch-to** メニューの詳細については、 [Developer Portal Guide]() の *Navigation* セクションを参照してください。
-
-### 2.2 Menus {#menus}
+### 2.1 Menus {#menus}
 
 In the Studio Pro top bar, you can see several menus, such as [Edit](edit-menu), [View](view-menu), and [Version Control](version-control-menu). Each menu contains menu items that allow you to perform various actions, for example, to [create a deployment package](create-deployment-package-dialog), set [preferences](preferences-dialog), or view the [Errors](errors-pane) pane.
 
@@ -44,21 +43,21 @@ In the Studio Pro top bar, you can see several menus, such as [Edit](edit-menu),
 
 ### 2.2 実行 & アプリを表示 {#run-and-view}
 
-**公開** ボタンをクリックするか、 (**ローカルで実行**) ボタンをクリックしてアプリをデプロイできます。 デプロイしたアプリを表示するには、 **View App** をクリックします。
+**実行** または **ローカル実行** ボタンをクリックして、アプリケーションをデプロイできます。 デプロイしたアプリを表示するには、 **View** ボタンをクリックします。
 
 Mendix でのデプロイの詳細については、 [Deployment](/developerportal/deploy) を参照してください。
 
-アプリのデプロイとバージョン管理の詳細についてはこちら [クラウドにデプロイした App](using-version-control-in-studio-pro#versioning-project) の *Studio Pro でバージョンコントロールを使用する* セクションを参照してください。
+アプリのデプロイとバージョン管理の詳細についてはこちら [クラウドにデプロイされたプロジェクト](using-version-control-in-studio-pro#versioning-project) の *Studio Pro でバージョンコントロールを使用する* セクションを参照してください。
 
-### 2.3 リンクとユーザープロファイルメニュー {#links}
+### 2.3 開発者ポータル & マーケットプレイスへのリンク {#links}
 
-You can find links to the [Mendix Studio](/studio) (if enabled), [Developer Portal](/developerportal), and [Marketplace](/appstore) in the top-right corner of Studio Pro.
+Studio Pro の右上隅に、 [Developer Portal](/developerportal/) と [Marketplace](/appstore/) へのリンクがあります。
 
-サインインしている場合、プロフィール画像がその横に表示されます。 プロフィール画像をクリックすると、ドロップダウンメニューがあなたのフルネームと電子メールで表示されます。 また、ユーザープロファイル、My Apps画面へのリンク、サインアウトオプションもあります。
+サインインしている場合、アカウントはこれらのボタンの横に表示されます。 アカウント名をクリックして、アプリ、開発者ポータル、プロファイル、またはサインアウトします。
 
-## 3 アプリの構造
+## 3プロジェクト構成
 
-アプリは個々のファイル (*ドキュメント*) とフォルダーと [モジュール](modules) にグループ化されている設定で構成されています。 アプリの完全な構造は、 [App Explorer](project-explorer) で確認できます。
+プロジェクトは個々のファイル (*ドキュメント*) とフォルダーと [モジュール](modules) にグループ化されている設定で構成されています。 プロジェクトの完全な構造は、 [Project Explorer](project-explorer) で確認できます。
 
 ## 4 ワーキングエリア
 
@@ -74,7 +73,9 @@ You can find links to the [Mendix Studio](/studio) (if enabled), [Developer Port
 
 {{% /alert %}}
 
-最新のWebブラウザのように、開いているタブの数を増やすことができます。 彼らは閉じることができます, 並べ替え, 並んで表示されます.
+最新のWebブラウザのように、開いているタブの数を増やすことができます。 彼らは閉じることができます, 並べ替え, 並んで表示されます. 以下のビデオは、タブを操作する方法の例を示しています。
+
+<video controls width="608" height="456" src="attachments/studio-pro-overview/document-tabs.mp4">ビデオ</video>
 
 各ドキュメントはそれぞれ独自の保存状態、履歴、将来を持つため、undo と redo アクションは無制限です。
 
@@ -171,7 +172,7 @@ Studio Pro のメインウィンドウペインの下部にはステータスバ
 
 ## 8 続きを読む
 
-* [アプリエクスプローラー](project-explorer)
+* [プロジェクトエクスプローラー](project-explorer)
 * [Menus](menus)
 
   
