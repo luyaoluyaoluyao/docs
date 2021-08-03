@@ -1,89 +1,89 @@
 ---
-title: "Adding a Workflow to an Existing App: Setting Up the Basics"
-parent: "workflows"
-description: "Describes how to use Workflow Commons in an existing app in Mendix Studio Pro."
+title: "将工作流添加到现有应用程序：设置基础知识"
+parent: "工作流"
+description: "描述如何在 Mendix Studio Pro中的现有应用程序中使用 Workflow Commons."
 menu_order: 55
 tags:
   - "studio pro"
-  - "workflow"
-  - "task"
-  - "onboarding"
+  - "工作流"
+  - "任务"
+  - "上线"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Workflow Commons** is a workflow-specific module that contains a lot of preconfigured documents, such as pages, snippets, page teamples, microflows. You can download the [Workflow Commons module](https://marketplace.mendix.com/link/component/117066) from the Mendix Marketplace and integrate it in your app, however, this requires some preparation first.
+**Workflow Commons** 是一个针对工作流的模块，它包含许多预配置的文档，例如页面、代码片断、页面团队插件和微流。 您可以从 Mendix Marketplace 下载 [工作流共享模块](https://marketplace.mendix.com/link/component/117066) 并将其整合到您的应用中，但这需要先做一些准备。
 
-Before adding the Workflow Commons module to your app, make sure you have completed the following:
+在将工作流共享模块添加到您的应用之前，请确保您已经完成以下工作：
 
-* Upgrade your application to Mendix 9
-* Install Atlas 3 from the Mendix Marketplace, as Workflow Commons depends on it
-* As a result of installing Atlas 3, your app should contain the following modules that Workflow Commons depends on: Atlas Core, Atlas Web Content, and DataGrid
+* 将您的应用程序升级到 Mendix 9
+* 从Mendix Marketplace安装Atlas 3，因为Workflow Commons 依赖它
+* 由于安装了Atlas3, 您的应用应该包含以下模块，Workflow Commons 依赖于： Atlas Core, Atlas Web Content, 和 DataGrid
 
-## 2 Preparing Your App
+## 2 准备您的应用
 
-By default, Workflow Commons will integrate with [Mendix SSO](https://marketplace.mendix.com/link/component/117212) that allows you to invite and manage users and roles in the [Manage App Users page](/developerportal/collaborate/general-settings) in the Developer Portal. You can download Mendix SSO from the Mendix Marketplace. If you do not have Mendix SSO installed, you will see some consistency errors after installing Workflow Commons. After adding the Mendix SSO module, the consistency errors caused by the installation of Workflow Commons will be gone. If you want to implement a different user authentication and user management method, you can replace the references made to Mendix SSO in Workflow Commons with the user entity of your preference.
+默认， 工作流共用将与 [Mendix SSO](https://marketplace.mendix.com/link/component/117212) 集成，允许您在开发者门户中 [管理应用程序用户页面](/developerportal/collaborate/general-settings) 中邀请和管理用户和角色。 您可以从 Mendix 市场下载Mendix SSO 如果您没有安装 Mendix SSO，您将在安装 Workflow Common后看到一些一致性错误。 添加Mendix SSO模块后，安装Workflow Commons所造成的一致性错误将会消失。 如果您想要采用不同的用户认证和用户管理方法， 您可以将工作流共享中Mendix SSO的引用替换为您的首选项的用户实体。
 
-## 3 Workflow Commons Components
+## 3个工作流共享组件
 
-The purpose of Workflow Commons is to provide you with useful pages, page templates, snippets, and microflows that can save you development time. All documents in the **Private** folder are meant for internal purposes within the module itself, but you can find a couple of useful documents that you can make use of in the **UseMe** folder.
+工作流共享的目的是为您提供有用的页面、页面模板、代码片段和微流，可以节省您的开发时间。 **私有** 文件夹中的所有文档都是为内部目的设计的模块本身。 但您可以在 **UseMe** 文件夹中找到一些有用的文档。
 
-### 3.1 Pages
+### 3.1 页
 
-There are three pages provided with the Workflow Commons module to get you and your users started with workflows. The functionality contained in these pages works out-of-the-box. Simply add these pages to the [navigation](navigation) of your app to start using them. You can find the following pages in Workflow Commons:
+有三个页面提供了工作流共享模块，让您和您的用户开始工作流。 这些页面中包含的功能可以用到箱外。 只需将这些页面添加到您应用的 [导航](navigation) 开始使用。 您可以在 Workflow Common中找到以下页面：
 
-*   **DefaultWorkflowAdmin** – The default workflow admin page that a workflow administrator can use to view and manage a workflow instance. This page can be used in the _Show workflow admin page_ microflow activity and button action.
-*   **TaskDashboard** – Gives end-users an overview of their performance in your app's workflows. It contains such information as how many tasks your users have completed, how long they take on average to complete a task, and what percentage of their tasks they complete within the deadline.
-*   **TaskInbox** – Contains a handy list of all tasks that a user can interact with. _My open tasks_ shows the tasks assigned to current users, _All open tasks_ is a list of tasks they could pick up, _Unassigned tasks_ shows all unassigned tasks, and _Completed tasks_ gives an overview of all tasks that were finished.
-*   **WorkflowAdminCenter** – A navigational page for workflow administrators. From here, a workflow administrator can go the the _Workflow dashboard_, which gives them general statistics of workflows, much like the _MyTaskDashboard_ does for users. Workflow administrators also gain access to the _Workflow Admin Center_, where they can see all the instances of specific workflows and make changes to their data or even abort them.
+*   **默认工作流管理** — 工作流管理员可以用来查看和管理一个工作流实例的默认工作流管理页面。 此页面可以在 _显示工作流管理页面_ 微流活动和按钮动作。
+*   **任务仪表盘** — — 向最终用户概述他们在您的应用工作流中的性能。 它包含了诸如您的用户已完成多少任务等信息。 他们平均需要多长时间才能完成一项任务，以及他们在最后期限内完成的任务占多大比例。
+*   **任务收件箱** — — 包含用户可以交互的所有任务的简易列表。 _我的开放任务_ 显示分配给当前用户的任务。 _所有打开的任务_ 是他们可以挑选的任务列表 _未分配任务_ 显示所有未分配任务 和 _已完成的任务_ 概述了所有已完成的任务。
+*   **WorkflowAdminCenter** — — 工作流管理员导航页面。 从这里开始，工作流管理员可以访问 _工作流控制面板_， 提供他们的一般工作流统计信息，就像 _MyTaskDashboard_ 为用户做的那样。 工作流管理员也可以访问 _工作流管理中心_， 他们可以看到所有特定工作流的实例并更改他们的数据，甚至中止它们。
 
-### 3.2 Page Templates
+### 3.2 页面模板
 
-Workflow Commons contains page templates to easily get you started with building workflow-related pages. These templates are automatically suggested to you when you make a new page from either the user task or workflow properties. You can find the following page templates in Workflow Commons:
+Workflow Commons 包含页面模板，便于您开始构建与工作流相关的页面。 当您从用户任务或工作流属性创建新页面时，这些模板将自动推荐给您。 您可以在 Workflow Common 中找到以下页面模板：
 
-*   **UserTask_Basic** – A basic template that shows a header with the task name and description, a sidebar with details about the assignee and status of the task, and a main view where input widgets and buttons to complete the task are generated.
-*   **UserTask_Extended** – Does exactly the same as the basic user task template, but extends it by adding attachments and comments sections, as well as an activity timeline to see what has previously happened in this workflow.
-*   **Workflow_Overview** – Can be used to easily generate an overview page for a specific workflow. It contains a header with the name of the workflow, as well as an action menu for administrators. There are three tabs, _General information_, _Task details_, and _Notes and attachments_. In the _General information_ tab, you will see the current state of the workflow, when it has started and ended, as well as the due date and potential reasons for failure. The activity timeline is displayed, and there is a section with generated input widgets that allows administrators to make changes to the data in the workflow. For more information about the individual tasks: who worked on them and who would have been able to pick them up, go to the _Task details_ tab. Finally, the _Notes and attachments_ tab provides an overview of all the notes and attachments that were added for this workflow.
+*   **UserTask_Basic** — — 一个显示任务名称和描述的页眉的基本模板， (a) 附带关于受让人和任务现状的详细资料， 和生成完成任务的输入小部件和按钮的主视图。
+*   **UserTask_Extended** - 与基本用户任务模板完全相同， 但通过添加附件和评论部分以及查看此工作流中以前发生的事情的活动时间来扩展它。
+*   **Workflow_Overview** — — 可以轻松地生成一个特定工作流的概览页面。 它包含一个包含工作流程名称的标题，以及管理员的操作菜单。 有三个标签， _一般信息_, _任务细节_, 和 _注释和附件_。 在 _常规信息_ 标签中，您将看到工作流的当前状态， 它已经开始和结束，以及应有的日期和可能的失败原因。 显示活动时间轴， 并且有一个包含生成的输入小部件的部分，允许管理员更改工作流程中的数据。 欲了解更多有关个人任务的信息：谁在这些任务中工作，谁会能够挑选这些任务。 转到 _任务详细信息_ 选项卡。 最后， _笔记和附件_ 标签提供了为本工作流程添加的所有笔记和附件的概述。
 
-### 3.3 Snippets
+### 3.3 片段
 
-If you would like to customize page templates, you can do that with the help of the snippets provided by Workflow Commons. You can find them in the **Snippets** folder of the Workflow Commons module.
+如果您想要自定义页面模板，您可以在工作流通提供的代码片段的帮助下这样做。 您可以在工作流共享模块的 **片段** 文件夹中找到它们。
 
-### 3.4 Microflows
+### 3.4 微流
 
-Preconfigured microflows help you assigning user tasks, and one allows you to abort workflows. You can find the following microflows in Workflow Commons:
+预配置的微流程帮助您分配用户任务，允许您中止工作流。 您可以在 Workflow Common中找到以下微流：
 
-*   **ACT_UserTask_AssignToMe** – Assigns a user task, which is passed as a parameter, and assigns it to the current user.
-*   **ACT_UserTask_AssignToUser** – Assigns a user task to a specified user, both passed as parameters.
-*   **ACT_UserTask_Unassign** – Removes the assignee from a user task, which is passed as a parameter.
-*   **ACT_Workflow_Abort** – Aborts a workflow instance and all of its currently running user tasks. The workflow instance is passed in as a parameter.
+*   **ACT_UserTask_AssignToMe** — 指派一个用户任务作为参数传递，然后指派给当前用户。
+*   **ACT_UserTask_AssignToUser** — — 将用户任务分配给指定的用户，两者都作为参数传递。
+*   **ACT_UserTask_Unassigned** — — 移除用户任务的指派者，因为用户任务是作为一个参数传递的。
+*   **ACT_Workflow_Abort** — — 中止一个工作流实例及其所有当前正在运行的用户任务。 工作流实例作为参数传入。
 
-## 4 Setting Up User Assignment and Security
+## 4 设置用户分配和安全
 
-The Workflow Commons module has two module roles for you to make use of. Users with the **User** module role will gain access to the **MyTaskDashboard** and **MyTaskInbox** pages, as well as the ability to create and change their own attachments and notes on workflows. Giving someone **Administrator** privileges allows them to explore the **WorkflowAdminCenter**, manage attachments and notes from anyone, and abort workflows.
+工作流共用模块有两个模块的角色供您使用。 具有 **用户** 模块角色的用户可以访问 **MyTaskDashboard** 和 **MyTaskInbox** 页面， 以及创建和更改自己关于工作流的附件和说明的能力。 给予某人 **管理员** 特权使他们能够探索 **工作流管理中心**管理任何人的附件和笔记，并中止工作流。
 
-Depending on the required user roles for your application, you may have the need to distinguish workflow administrators from regular administrators. If that is the case, follow the steps below:
+根据应用程序所需的用户角色，您可能需要区分工作流管理员和普通管理员。 如果是这样，遵循以下步骤：
 
-1.   Make a new user role for workflow administrators.
-2.   Link the user role to the **Administrator** module role in Workflow Commons.
-3.   Link the user role to both the **User** and **WorkflowAdministrator** module roles in the System module.
+1.   为 Workflow 管理员创建一个新的用户角色。
+2.   在 Workflow Common 中链接用户角色到 **管理员** 模块角色。
+3.   将用户角色链接到系统模块中的 **用户** 和 **工作流管理员** 模块角色。
 
-Finally, go to the Workflows tab in your [project settings](project-settings#workflows) and select the same user entity as the one you are using in Workflow Commons. If you using Mendix SSO, set it to **MendixSSO.MendixSSOUser**. You can then use the properties of this entity to filter the users that can pick up a task in the task's user assignment property. For more information on user task properties, see [User Task](user-task).
+末尾。 前往您的 [工程设置](project-settings#workflows) 中的 Workflows 标签，然后选择您在 Workflow Common 中使用的相同的用户实体。 如果您使用 Mendix SSO，请将其设置为 **MendixSSO.MendixSSOUser**。 然后您可以使用此实体的属性筛选可以在该任务的用户分配属性中接收任务的用户。 关于用户任务属性的更多信息，请参阅 [用户任务](user-task)。
 
-## 5 Customizing Workflow Commons
+## 5 自定义工作流共享
 
-While Workflow Commons does provide useful documents out-of-the-box, you might have the need to change the content and, for example, make pages company-specific. When doing so, we recommend that you make a copy of the document that you will be changing to a local module called **WorkflowCommonsCustomizations**, so that you do not accidentally overwrite your changes in the future when upgrading to a newer version. Feel free to also browse around in the **Private** folder of the module to discover the snippets and sub-microflows. For more information on how to configure a workflow and set up pages and other elements for it, see [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure).
+虽然Workflow Commons 确实提供了有用的非框文件，但您可能需要更改内容，例如使页面针对公司的内容。 在这样做的时候， 我们建议您制作一个文档副本，您将会更改为一个本地模块，名为 **WorkflowCommonsCustomizations**， 为了在升级到新版本时不会意外地覆盖您未来的更改。 随时可以在模块的 **私有** 文件夹中浏览以发现代码片段和子microflow。 关于如何配置工作流和设置页面及其他元素的更多信息。 查看 [如何配置Studio Pro 中的员工待寄流程工作流程](/howto/logic-business-rules/workflow-how-to-configure)。
 
-## 6 Workflow Best Practices
+## 6 工作流程最佳做法
 
-We recommend the following best practices when working with workflows:
+我们在处理工作流程时建议以下最佳做法：
 
-*   When creating your workflow entity, use associations to connect to relevant information and only create attributes that are related to the current workflow instance. An example could be an **Expense** entity containing a description and amount, associated with an **ExpenseApproval** entity which has attributes for the approval state and a reason for rejection.
-*   When creating a user task, add a short description of the target users to the caption of the task. An example could be **HR: Schedule onboarding training** in an employee onboarding workflow.
-*   When creating a microflow for a system task, prefix it with **WF\_**, so everyone knows it is being used in a workflow.
+*   当创建您的 Workflow 实体时，使用关联连接到相关信息，并且只创建与当前工作流实例相关的属性。 一个例子可能是包含描述和金额的 **费用** 实体。 与 **ExpenseActivity** 实体具有批准状态的属性和拒绝的理由。
+*   创建用户任务时，在任务标题中添加目标用户的简短描述。 一个例子可以是 **HR：在员工登机工作流程中安排上岗培训**。
+*   当为系统任务创建微流程时，用 **WF\_**来前缀它，所以大家都知道它在工作流中被使用。
 
-## 7 Read More
+## 7 阅读更多
 
-*   [Workflows](workflows)
-*   [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure)
+*   [工作流](workflows)
+*   [如何配置工作室专业版员工上岗流程的工作流](/howto/logic-business-rules/workflow-how-to-configure)
 
