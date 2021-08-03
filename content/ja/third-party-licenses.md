@@ -1,22 +1,22 @@
 ---
-title: "Third-Party Licenses"
-category: "General Info"
+title: "サードパーティライセンス"
+category: "一般情報"
 menu_order: 70
 tags:
   - "studio pro"
-  - "license"
-  - "library"
+  - "ライセンス"
+  - "ライブラリ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix uses various third-party libraries that have their own licenses. All the licenses are available when you download the available [Mendix Studio Pro](https://marketplace.mendix.com/link/studiopro/). They can be found in various sub-folders of your **Mendix** installation folder that are described below:
+Mendixは独自のライセンスを持つ様々なサードパーティライブラリを使用しています。 利用可能な [Mendix Studio Pro](https://marketplace.mendix.com/link/studiopro/) をダウンロードすると、すべてのライセンスが利用可能になります。 それらは、以下で説明されている **Mendix** インストールフォルダのさまざまなサブフォルダにあります。
 
-| Libraries and Licenses   | Location                                                                          |
-| ------------------------ | --------------------------------------------------------------------------------- |
-| Runtime Server libraries | **runtime\bundles**                                                              |
-| Studio Pro libraries     | **modeler\Licenses**                                                             |
-| Client licenses          | Client licenses can be found in the following locations: <ul><li>**modeler\deployment.mxz** – this is a ZIP file where you can navigate to **web\lib\bootstrap\css\bootstrap.css** and to **web\lib\rbootstrap\css\rbootstrap.css** for Bootstrap licenses (when you deploy an app, you can also find all these files in your deployment folder)</li><li>**runtime\mxclientsystem\mxui.mxui.js** for the Dojo license</li></ul> |
+| ライブラリとライセンス      | 場所                                                |
+| ---------------- | ------------------------------------------------- |
+| ランタイムサーバーライブラリ   | **runtime\bundles**                              |
+| Studio Pro ライブラリ | **modeler\Licenses**                             |
+| クライアントライセンス      | クライアント ライセンスは、次の場所にあります。 <ul><li>**modeler\deployment.mxz** – これはZIPファイルで、**web\lib\bootstrap\css\bootstrap.css** に移動し、**web\lib\rbootstrap\css\rbootstrapに移動できます。 Bootstrapライセンス用のss** (アプリをデプロイするときに、デプロイフォルダ内のこれらのファイルをすべて見つけることもできます)</li><li>道場ライセンス **runtime\mxclientsystem\mxui.mxui.js**</li></ul> |
 
 
 
