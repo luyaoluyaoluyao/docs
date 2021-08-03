@@ -1,8 +1,6 @@
 ---
-title: "XPath 最大"
+title: "XPath 最大值"
 parent: "xpath-query函数"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
