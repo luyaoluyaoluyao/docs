@@ -1,62 +1,70 @@
 ---
-title: "Database Source"
-parent: "data-sources"
+title: "データベース ソース"
+parent: "データソース"
+tags:
+  - "studio pro"
+  - "データベース"
+  - "データソース"
+menu_order: 10
 ---
 
+## 1つの紹介
 
-If database is selected as the data source for a widget then the object or objects shown are retrieved directly from the database with a query. This data source is also supported in [offline](offline) applications in which case the data will come from the database on the mobile device.
+**データベース** がウィジェットのデータ ソースとして選択されている場合、表示されるオブジェクトまたはオブジェクトはクエリを使用してデータベースから直接取得されます。 このデータソースは [オフライン](offline-first) アプリケーションでもサポートされており、その場合、データはモバイルデバイス上のデータベースから取得されます。
 
-{{% alert type="success" %}}
+データベース [制約](#constraints)の助けを借りて表示されるデータをフィルタリングできます。 ただし、単一のウィジェットではなく、いくつかのウィジェットでデータを制限したい場合は、次のようにします。 データベース制約の代わりにエンティティに [アクセス ルール](access-rules) を適用することもできます。 このようにして、オブジェクトは常にこれらのルールによって制約されます。 また、繰り返し制約がなくなるマイクロフローを実行する際にもアクセスルールが適用されます。
 
-Use access rules whenever possible to limit data in data grids. This way you know that the objects will always be constrained by these rules (as opposed to constraints on a single data grid). The access rules will also be applied when executing microflows which saves you from repeating constraints.
+## 2つのプロパティ
+
+### 2.1 エンティティ (パス)
+
+**エンティティ (パス)** プロパティは、データベースクエリのターゲットを指定します。 トップレベルのデータウィジェットを持っている場合、 **Entity (path)** は選択したエンティティのオブジェクトを直接取得します。 ネストされたデータウィジェットがある場合は、親データコンテナのエンティティを選択することもできます。 この場合、関連付けパスの後にオブジェクトが取得され、関連付けはデータベースクエリの追加制約として解析されます。
+
+{{% image_container width="400" %}}![データソースの例](attachments/data-widgets/data-source-example.png)
+{{% /image_container %}}
+
+{{% alert type="info" %}}
+
+これは、データベースではなく、メモリからオブジェクトが取得されたときに [関連データ ソース](association-source) と異なります。
 
 {{% /alert %}}
 
-## Components
+### 2.2 検索バーを表示 {#show-search-bar}
 
-### Search bar
+**Show search bar** is only available for data grids. データグリッドの **[検索バー](search-bar)** が表示されるかどうかを選択できます。
 
-See [Search Bar](search-bar).
+| 値                           | 説明                                                                                  |
+| --------------------------- | ----------------------------------------------------------------------------------- |
+| 一切なし                        | 検索バーや検索ボタンは表示されません。 検索を効果的に無効にします。                                                  |
+| ボタン付き (最初に開く)               | エンドユーザーは [**Search** ボタン](control-bar#search-button)を使用して検索バーを開閉できます。検索バーは最初に開かれます。 |
+| ボタンあり (最初は閉じています) *(デフォルト)* | ユーザーは検索ボタンを使用して検索バーを開閉できます。検索バーは最初に閉じられます。                                          |
+| 常に表示                        | 検索バーは常に表示され、閉じることはできません。検索ボタンもありません。                                                |
 
-### Sort bar
+### 2.3 検索待ち
 
-See [Sort Bar](sort-bar).
+**Wait for search** プロパティは、 **[Show search bar](#show-search-bar)** が *With button (initially open)* または *Always* に設定されている場合に使用できます。
 
-## Properties
+**Wait for search** が *Yes*に設定されている場合、エンドユーザーが検索を開始するコンテンツはグリッドが空のままになります。 これは、ターゲットエンティティが非常に大きなオブジェクトセットを含んでいる場合に便利ですが、ほとんどの変異ではデータのサブセットしか必要としません。 検索を待つと、所望のサブセットが指定されるまでデータベースクエリが実行されないようになります。 したがって、主要なデータの取得に関連する最初のロード期間をスキップします。
 
-### Entity (Path)
+デフォルト: *false*
 
-The entity (path) property specifies the target of the database query. A top-level data grid is always connected to an entity.
+### 2.4 制約{#constraints}
 
-A nested data grid can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path follows one association of type reference in the opposite direction in which the association's arrow is pointing (from * to 1).
+制約は、表示されるデータのカスタム、ハードコードされた制限を許可します。 この制約はセキュリティ制約の上に適用されます。 例えば、エンティティにユーザーに対して読み取り専用にするアクセスルール、または XPath 制約がある場合などです。 XPath 制約が最初に適用されます。
 
-Please note that this differs from the [association data source](association-source) in that the objects are not retrieved from the client cache but directly from the database. The association is simply parsed as an extra constraint in the database query.
+それぞれの制約は、 **属性**、 **演算子**、 **値** で構成されています:
 
-### Show search bar
+![制約例](attachments/data-widgets/constraint-example.png)
 
-With this property you can influence if and when a search bar is shown.
-
-| Value                          | Description                                                                                             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| Never                          | No search bar or search button are ever shown. Effectively disables search.                             |
-| With button (initially open)   | The user can open and close the search bar using the search button; the search bar is initially open.   |
-| With button (initially closed) | The user can open and close the search bar using the search button; the search bar is initially closed. |
-| Always                         | The search bar is always visible and cannot be close, nor is there a search button.                     |
-
-_Default value:_ With button (initially closed)
-
-### Wait for search
-
-If set to true, the grid will remain empty of contents until a search has been performed. This can be useful if the target entity contains an extremely large set of objects but most mutations only require a subset of the data. Waiting for search will ensure that no database query is performed until the desired subset is specified, thus skipping the initial loading period associated with major data retrievals.
-
-_Default value:_ false
-
-### Constraints
-
-Constraints allow for custom, hard-coded limitations on the data displayed. This constraint will be applied after constraints already applied through security. Each constraint consists of an attribute, an operator and a value. Multiple constraints will limit the data even more ("and"). There is no way to create "or" constraints, except by switching to an [XPath data source](xpath-source).
+複数の制約により、データがさらに制限されます(論理演算子 **AND**)。 There is no way to use the logical operator **OR** in constraints, but you can switch to an [XPath data source](xpath-source) and create an XPath constraint.
 
 {{% alert type="warning" %}}
 
-Constraints are applied equally to all users and only apply to the data displayed in a single data widget. If the goal is to shield a particular subset of the data from users then [entity access rules](access-rules) are superior in that they can be tailored to each individual user role and that they apply system-wide.
+制約はすべてのユーザーに均等に適用され、単一のデータウィジェットで表示されるデータにのみ適用されます。 目的がユーザーのためのデータの特定のサブセットへのアクセスを制限する場合、エンティティの [アクセス ルール](access-rules) を個々のユーザー ロールに適用され、システム全体に適用されるために使用する必要があります。
 
 {{% /alert %}}
+
+## 3 続きを読む
+
+* [データウィジェット](data-widgets)
+* [データグリッド](データグリッド)
