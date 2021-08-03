@@ -1,79 +1,146 @@
 ---
-title: "Validation Rules"
-parent: "entities"
+title: "验证规则"
+parent: "实体"
 menu_order: 40
 tags:
-  - "domain model"
-  - "entity"
-  - "validation rule"
+  - "域模型"
+  - "实体"
+  - "验证规则"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-rules.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+验证规则是应在对象完成之前满足的条件。 如果一个由验证规则定义的条件在对象执行时不满意，运行时服务器会产生验证错误。
 
-Validation rules are conditions that should be satisfied before an object is committed. If a condition defined by a validation rule is not satisfied when the object is committed, the runtime server generates a validation error.
+如果对象是使用表单执行的，这将导致验证消息。
 
-If the object was committed using a form, this results in a validation message.
+如果对象是在微流程中，这会导致一个错误，可以使用自定义错误处理处理。
 
-If the object was committed in a microflow, this results in an error that can be handled using custom error handling.
+在所有其他情况下，验证错误导致在 Java 异常被扔出。
 
-In all other cases, a validation error results in a Java exception being thrown.
-
-For example, for entity 'Customer' the name and credit need to be filled in at all times, and the expenses cannot be higher than the credit. This is visualized in the domain model editor as follows:
+例如，对于实体“客户”，任何时候都需要填写名称和贷项。 而且开支不能高于信贷。 这在域模型编辑器中可视化如下：
 
 ![](attachments/domain-model/customer-validation-rules.png)
 
 {{% alert type="warning" %}}
-You can only define validation rules for persistable entities as they are designed to ensure database integrity. Therefore, validation rules are disabled for non-persistable entities.
-{{% /alert %}}
+您只能为可持久实体定义验证规则，因为它们旨在确保数据库的完整性。 因此，不可持续实体的验证规则被禁用。
+{{% /报警 %}}
 
-## 2 Properties
+## 2 属性
 
-You can add and edit validation rules for an entity from the [entity dialog box](entities#dialog-box).
+您可以从 [实体对话框](entities#dialog-box) 添加和编辑实体验证规则。
 
-An example of the validation rule properties is represented in the image below:
+下面的图像是验证规则属性的示例：
 
 ![](attachments/domain-model/validation-rule-properties.png)
 
-Validation rule properties consist of the following sections:
+验证规则属性由以下部分组成：
 
-* [General](#general)
-* [Rule](#rule)
+* [A. 概况](#general)
+* [规 则](#rule)
 
-### 2.1 General Properties {#general}
+### 2.1 一般财产 {#general}
 
-#### 2.1.1 Attribute
+#### 2.1.1 属性
 
-**Attribute** specifies the attribute to which the validation rule applies. The validation rules apply to attributes of the entity and, if it has a generalization, the attributes of its generalization.
+**属性** 指定了验证规则适用的属性。 验证规则适用于实体的属性，如果它具有一般性，则适用其一般化属性。
 
-#### 2.1.2 Error Message
+#### 2.1.2 错误消息
 
-**Error message** defines the message that is displayed to the end-user when the attribute value does not satisfy the condition defined by the validation rule.
+**错误消息** 定义了当属性值不符合验证规则定义的条件时显示给最终用户的消息。
 
-### 2.2 Rule Properties {#rule}
+### 2.2 规则属性 {#rule}
 
-#### 2.2.1 Rule
+#### 2.2.1 规则
 
-The rule defines which condition an attribute should satisfy.
+该规则定义了属性应满足的条件。
 
-| Option               | Description                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Required *(default)* | The attribute needs to have a value. It cannot be empty.                                                                                                                                               |
-| Unique               | The value of this attribute must be different from the values of this attribute in all other objects of the same entity.                                                                               |
-| Equals               | The attribute value needs to be equal to a specified value or equal to the value of another attribute of the same object.                                                                              |
-| Range                | The attribute value needs to be greater than or equal to, less than or equal to, or between two values. The values are either specified fixed values or values of other attributes of the same object. |
-| Regular expression   | The attribute needs to match a regular expression stored in a [regular expression](regular-expressions) resource.                                                                                      |
-| Maximum length       | The attribute may have no more than the specified number of characters.                                                                                                                                |
+| 选项        | 描述                                                         |
+| --------- | ---------------------------------------------------------- |
+| 需要 *(默认)* | 属性需要有一个值。 它不能为空。                                           |
+| 唯一的       | 此属性的值必须不同于同一实体所有其他对象中此属性的值。 更多信息请参阅下面 [异常约束](#uniqueness)。 |
+| 等于        | 属性值必须等于指定的值或等于同一对象的另一个属性的值。                                |
+| Range     | 属性值必须大于或等于或小于等于或等于两个值。 这些值要么是指定的固定值，要么是同一个对象的其他属性的值。       |
+| 正则表达式     | 属性需要匹配正则表达式存储在 [正则表达式](regular-expressions) 资源。            |
+| 最大长度      | 属性可能不超过指定的字符数。                                             |
 
 {{% alert type="info" %}}
-Date values should be entered in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format, for example 2015-07-26.
-{{% /alert %}}
+日期值应以 [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) 格式输入，例如，2015-07-26。
+{{% /报警 %}}
 
-#### 2.2.2 Rule Order
+#### 2.2.2 规则命令
 
-Validation rules can be ordered in Studio Pro. The order of the rules determines the order they are applied. If multiple rules are violated, all their error messages will be recorded (in the defined order) and shown in the page. Although the order can be set for all the validation rules in the entity, only the order per attribute will have an impact as all validation rules are executed for all attributes.
+验证规则可以在 Studio Pro中订购。 规则的顺序决定其适用的顺序。 如果多项规则被违反，他们的所有错误信息都会被录制(按定义的顺序)，并在页面中显示。 尽管可以为实体中的所有验证规则设置订单， 每个属性只有订单才会产生影响，因为所有属性的验证规则都已执行。
 
-The `uniqueness` validations do not follow the defined order. This validation requires a database query and is executed only when the complete object satisfies to all the other validation rules.
+`唯一性` 验证不遵循定义的顺序。 此验证需要数据库查询，并且只在完整对象满足所有其他验证规则时执行。
+
+## 3 唯一约束{#uniqueness}
+
+唯一的验证约束由数据库处理。 这使得能够有效地处理无国籍集群、更多的同时使用者和交易率高的申请。
+
+以下规则在数据库中验证：
+
+* 关于实体属性的唯一规则
+* *多面* 一对多个关联， *两边* 一对一关联
+
+在应用独一无二的限制时，您需要考虑一些东西， 尤其是如果您在您要添加约束的实体中已有数据。
+
+### 3.1 实体唯一性
+
+#### 3.1.1 字符串
+
+这种独特的限制将考虑到基础数据库处理案件敏感性的方式。 关于这个问题的详细讨论，见 [案例敏感数据库行为](case-sensitive-database-behavior)。
+
+#### 3.1.2 现有实体
+
+当您向已经包含数据的实体添加一个唯一的约束 将在部署时检查受影响实体的所有现有对象，以了解属性的独特性。 如果您有一个保险号码应用了唯一性验证，那么有多个保险号码相同的人：
+
+* 如果您从 Studio Pro中部署应用，部署时将显示错误
+* 如果您从部署包中部署了应用程序(例如在 Mendix 云中)， 应用程序将不会启动，错误将被写入日志
+
+![](attachments/datastorage/startup-error.png)
+
+#### 3.1.3 概述
+
+如果您正在使用另一个专门化的实体(一般化)，使用数据库唯一性验证会有限制。
+
+启用数据库唯一性验证选项， 您不能定义专门化实体中唯一的验证规则，用于来自此实体的一般化属性。 如果您这样做，将报告一致性错误，如在这张图像中：
+
+![](attachments/datastorage/unique-validation-rule-unresolved.png)
+
+然而，您可以定义一个独特的验证规则，用于在专门实体中添加的属性。
+
+---
+
+例如，你有两个实体：
+
+* 一个普通实体 **员工** 具有属性 **员工编号**
+* 一个专业实体 **SalesEmployee**, 基于 *Employee* 具有属性 **Email地址**
+
+每一个 *SalesEmployee* 将有一个 *Employee 号码* 与 *Employee* 实体相同。 然而，您不能在 *SalesEmployee* 实体中设置验证规则，使 *Employee Number* 唯一。
+
+然而，您可以设置验证规则使 *电子邮件地址* 独一无二，因为该属性仅出现在 *SalesEmployee* 实体中。
+
+---
+
+您可以简单地解决这个问题，将这些属性的唯一验证规则移动到它定义的属性的一般化实体。
+
+![](attachments/datastorage/unique-validation-rule-resolved.png)
+
+### 3.2 非同类协会
+
+独特的限制也适用于协会。 这是通过更改关联类型，将关联类型设置为 `1` 而不是 `*` (多项)。 当您对已经包含非唯一数据的关联应用唯一约束时，您可能会收到错误。
+
+请考虑以下示例：
+
+![](attachments/datastorage/one-to-many-assoc.PNG)
+
+起初，域模型包含 **地址** 和 **人员** 之间的一对一的关联。 这意味着一个人可以有多个地址。 一段时间后，数据结构会改变，因为每个人只想拥有一个地址。 适当的数据建模指将社团变成一对一社团。 新数据将正确反映更新的关联。
+
+![](attachments/datastorage/one-to-one-assoc.PNG)
+
+数据库中现有的社团数据也必须遵守最新的一对一社团。 在部署时进行检查。 如果一个人有多个地址，模型将不会部署， 并且在Studio Pro或(Mendix)部署日志中出现错误：
+
+![](attachments/datastorage/startup-error-assoc.png)
+
+我们对现有数据实施这种新的更严格的联系，以避免轻易被忽略的错误，这种错误只能使每个人返回一个地址（事实上，每个人在数据库中仍然有多个地址）。 例如，Mendix 平台可以始终如一地返回每次运行的相同地址，但其他地址将是数据库中的潜在条目。
