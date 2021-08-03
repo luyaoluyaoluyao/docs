@@ -18,7 +18,7 @@ The loop is visualized as a frame. The flow inside the loop is executed for each
 
 ![](attachments/microflows-loop/loop.png)
 
-The loop can contain all types of elements used in microflows, except for start and end events. Additionally, only a loop can contain [break events](/refguide/break-event) and [continue events](/refguide/continue-event). A break event is used in loops only to stop iterating over a list of objects and continue with the rest of the flow in a microflow. A continue event is used in loops only to stop the current iteration and start the iteration of the next object.
+The loop can contain all types of elements used in microflows, except for start and end events. Additionally, only a loop can contain [break events](/refguide8/break-event) and [continue events](/refguide8/continue-event). A break event is used in loops only to stop iterating over a list of objects and continue with the rest of the flow in a microflow. A continue event is used in loops only to stop the current iteration and start the iteration of the next object.
 
 ## 2 Loop Properties
 
@@ -41,7 +41,7 @@ Make sure you have the following prerequisites:
 
 1. [Create an entity](domain-models#adding-new-entities) in your domain model and name it *Order*.
 2. [Create an attribute](domain-models#adding-new-attributes) of the Boolean type for this entity to indicate the status of an order and name this attribute *Processed*.
-3. [Create a microflow](microflows#create).
+3. [Create a microflow](microflows#creating-new-microflow).
 
 To start the use-case, do the following:
 
