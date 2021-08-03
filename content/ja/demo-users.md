@@ -1,49 +1,70 @@
 ---
-title: "Demo Users"
+title: "デモユーザー"
 parent: "project-security"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "デモユーザー"
+  - "demo-users"
+  - "アプリのセキュリティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In this section of the [project security](project-security) settings, you can define demo users that may be used during the development phase of your application for testing purposes, or to show the application to other people.
+デモユーザーは、アプリ内に存在するそれぞれの [ユーザーロール](user-roles) のデモです。 デモユーザーを使用して、各ユーザーロールに対するアプリの見た目をテストしたり、他のユーザーにアプリを見せることができます(詳細はこちら)。 See the [Testing your App via Demo Users](#test-your-app) section .
 
-Each demo user can be assigned an entity and one or more user roles that apply when you sign in to your application with that user. When the application is started for the first time, the specified demo users are created automatically.
+アプリケーションが初めて起動されると、指定されたデモユーザーが自動的に作成されます。
 
-After signing in to your application with the [administrator user](administrator), a small tab called the 'user switcher' is presented at the right side of your application. Expanding this tab shows a list with all the demo users that are defined in the project security settings. Selecting a user from this list will sign in to your application using the credentials of this user, thus allowing you to test or demo your application with the user's role(s). This allows for rapid testing of your application with different user roles.
+デモユーザーは、アプリケーションを開発マシン上でローカルに実行する場合、または無料アプリ環境で実行する場合にのみ作成され、表示されます。
 
-![](attachments/16713956/16844040.png)
+デモユーザーとそのプロパティにアクセスするには、 **App Security** > **Demo users**:
 
-The user switcher is only shown and the demo users are only created when running your application locally on your development machine, or when running in a sandbox.
+![](attachments/demo-users/demo-users-tab.png)
+
+## 2 デモユーザーを有効にする
+
+セキュリティが有効な場合、デモユーザーはデフォルトで有効になります。 以下のオプションを持つ **デモユーザーを有効にする** 設定で無効化または有効化できます。
+
+* **はい** - デモユーザーは有効になっています。新しいデモユーザーを作成したり、編集したり削除したりすることができます
+* **いいえ** - デモユーザーは無効になっています。デモユーザーを追加、編集、または削除することはできません
 
 {{% alert type="warning" %}}
 
-After they are created automatically, demo users do not differ in any way from other local users that are defined in your application. This means that you can still use them to manually sign in using their user name and password, even after disabling the demo users feature again. Also, the demo users are never automatically removed from the database.
+自動的に作成された後、アプリケーションで定義されている他のローカルユーザーとデモユーザーは異なりません。 つまり、デモユーザー機能を無効にした後でも、ユーザー名とパスワードを使用して手動でサインインできます。 また、デモユーザーはデータベースから自動的に削除されることはありません。
 
 {{% /alert %}}
 
-## 2 Enabling Demo Users
+## 3 デモユーザープロパティ
 
-Here you can configure whether the specified demo users are created and accessible in the user switcher.
+デモユーザーをダブルクリックしてプロパティを開きます。
 
-| Value | Description                                                                               |
-| ----- | ----------------------------------------------------------------------------------------- |
-| Yes   | Demo users are enabled. A user switcher is shown in the right margin of your application. |
-| No    | Demo users are disabled. The user switcher is not shown in the application.               |
+![](attachments/demo-users/demo-user-properties.png)
 
-## 3 Demo User Properties
+デモのユーザープロパティは以下の表に記載されています。
 
-### 3.1 Username
+| 属性      | 説明                                                                                                        |
+| ------- | --------------------------------------------------------------------------------------------------------- |
+| ユーザー名   | デモユーザの名前。 この名前は一意である必要があり、 [管理者](administrator) の名前と同じにすることはできません。                                        |
+| パスワード   | デモユーザーのパスワードは、デモユーザーが作成されると自動的に作成されます。 変更できませんが、 **パスワードをクリップボードにコピー**をクリックできます。 例えばデモ利用者の資格情報を他の人と共有するとか |
+| エンティティ  | デモユーザーのエンティティ このエンティティは、System.User エンティティまたはその特殊化である必要があります。                                             |
+| ユーザーロール | デモユーザーのユーザーロール。 各デモユーザーには1つ以上のロールが必要です。                                                                   |
 
-The name of the demo user. This name must be unique, and cannot be the same as the name of the [administrator user](administrator).
+## 4 デモユーザーを介してあなたのアプリをテスト {#test-your-app}
 
-### 3.2 Password
+デモユーザーを使用して、アプリケーションがさまざまなユーザーロールにどのように見えるかをテストできます。 次の操作を行います:
 
-The password of the demo user is created automatically when the demo user is created. It cannot be changed, but it's possible to put a copy of this password on the system clipboard. This makes it possible, for example, to share the credentials of a demo user with someone else.
+1. アプリを表示
+2. [管理者](administrator)としてサインインします。
+3.  画面の右側にあるユーザーアイコンをクリックします。 メニューバー **ユーザー選択** が表示されます:
 
-### 3.3 Entity
+    ![](attachments/demo-users/demo-users-example.png)
 
-The entity of the demo user. This must be the System.User entity, or a specialization thereof.
+4. リストからユーザーを選択して、このユーザーの資格情報を使用してアプリケーションにサインインします。 選択したユーザーロールを使用してアプリケーションをテストまたはデモすることができます。
 
-### 3.4 User Roles
+## 5 続きを読む
 
-Here you can select the user roles of the demo user. Each demo user must have one or more roles.
+* [アプリのセキュリティ](project-security)
+* [ユーザーの役割](user-roles)
+* [管理者](管理者)
+* [匿名ユーザー](anonymous-users)
+* [パスワードポリシー](password-policy)
