@@ -1,61 +1,57 @@
 ---
-title: "Template Grid (Document Template)"
-parent: "document-templates"
+title: "模板网格(文档模板)"
+parent: "文档模板"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/Template+Grid+(document+template).html
-  - /refguide8/template-grid-(document-template).html
+  - /refguide/Template+Grid+(document+template).html
+  - /refguide/template-grid-(document-template).html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/template-grid-document-template.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
-
-The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. The template grid has a lot in common with the data grid. The main difference is that the objects are shown in templates (a sort of small data view) instead of rows.
+模板网格在磁贴视图中显示对象列表。 例如，模板网格可以显示产品列表。 模板网格与数据网格有很多共同之处。 主要的区别是对象显示在模板中(某种小数据视图)而不是行中。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918137.png)
 
-A template grid showing products with name, description, and image.
+显示商品名称、描述和图像的模板网格。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Components
+## 2 个组件
 
-### 2.1 Sort Bar
+### 2.1 排序条
 
-See [Sort Bar](sort-bar).
+查看 [排序条](sort-bar)。
 
-## 3 Appearance Properties
+## 3 外观属性
 
-### 3.1 Enable Striping
+### 3.1 启用条纹功能
 
-With striping enabled you can set the contents of even and uneven template grid rows individually. This way you can create a striping effect by varying color for the 2 different row styles.
+启用整条后，您可以单独设置偶数和不均衡的模板网格行的内容。 这种方式你可以为两个不同行风格以不同的颜色创建一个切片效果。
 
-### 3.2 Number of Columns
+### 3.2 栏数
 
-This defines the amount of columns the template grid will contain.
+这定义了模板网格将包含的列数。
 
-## 4 Common Properties
+## 4 个公共属性
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
 
-## 5 Data Source Properties
+## 5 数据源属性
 
-The data source properties determine which objects will be shown in the template grid. The list of objects in the template grid is constrained by the following mechanisms:
+数据源属性决定哪些对象将显示在模板网格中。 模板网格中的对象列表受下列机制的限制：
 
-1.  For top-level template grids, the objects passed in the microflow calling the document export action are shown.
-2.  For nested template grids, if an entity path is used, only the objects reachable by following the path from the containing object are shown.
-3.  For nested template grids, if a microflow is used, the objects returned by the microflow are shown.
+1.  对于顶级模板网格，将显示在调用文档导出操作的微流程中传递的对象。
+2.  对于嵌套的模板网格，如果使用实体路径，只显示从包含对象的路径可以访问的对象。
+3.  对于嵌套的模板网格，如果使用微流，则显示微流返回的对象。
 
-### 5.1 Entity (Path)
+### 5.1 实体(路径)
 
-The entity (path) property specifies from which entity instances will be shown in the template grid. A top-level template grid is always connected to an entity. A nested template grid can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path can follow associations irrespective of type and ownership.
+实体(路径)属性指定了哪些实体实例将显示在模板网格中。 顶级模板网格总是连接到实体的。 嵌套的模板网格可以连接到一个实体或从包含数据视图的实体开始的实体路径。 实体路径可以跟随社团，而不论其类型和所有权。
 
-### 5.2 Microflow
+### 5.2 微流
 
-When a nested template grid is connected to an entity, a microflow is needed to retrieve the data. The input parameter of these microflows is always the object of the containing data view and the output is a list of objects with the type of the nested template grid.
+当嵌套模板网格连接到实体时，需要微流才能检索数据。 这些微流的输入参数总是包含数据视图的对象，输出是包含嵌套模板网格类型的对象列表。
