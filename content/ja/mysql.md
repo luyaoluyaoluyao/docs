@@ -2,8 +2,6 @@
 title: "MySQL/MariaDB"
 parent: "データストレージ"
 menu_order: 50
-tags:
-  - "studio pro"
 ---
 
 ## 1つの紹介
@@ -18,7 +16,7 @@ MendixはInnoDBストレージエンジンのみをサポートし、行ベー�
 
 ## 3 トランザクションの分離数
 
-Mendixはデフォルトで `Read Committed` トランザクション分離レベルを使用します。 行ベースのログは、このトランザクション分離レベルの場合にのみ使用できます。 `binlog_format` データベース設定値を `ROW` または `MIXED` に設定する必要があります。 詳細については、MariaDB [の``](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) または [`binlog_format`](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format) を参照してください。
+Mendixは、Mendix7.2のリリースから始まる `Read Committed` トランザクション分離レベルをデフォルトで使用します。 行ベースのログは、このトランザクション分離レベルの場合にのみ使用できます。 `binlog_format` データベース設定値を `ROW` または `MIXED` に設定する必要があります。 詳細については、MariaDB [の``](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) または [`binlog_format`](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format) を参照してください。
 
 ## 保存例外が4つ存在しません
 
@@ -36,4 +34,4 @@ MariaDBは、タイムゾーン変換のための同一の構成をサポート�
 
 ## 6データベース作成
 
-新しいMySQLデータベースを作成するには、ユーザーがデータベースを作成できるように十分なアクセス権を持つ必要があります。
+Mendix 7.18以降では、MySQLデータベースの新規作成がサポートされています。 ユーザーがデータベースを作成できるようにするための十分なアクセス権限が必要です。
