@@ -1,7 +1,13 @@
 ---
-title: "XPath には以下を含みます"
+title: "XPath を含む"
 parent: "xpath-constraint-functions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-contains.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの概要
 
