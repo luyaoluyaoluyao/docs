@@ -1,30 +1,30 @@
 ---
-title: "WebSockets"
-category: "Mendix Runtime"
-description: "A description of how to use websockets in the Mendix Runtime"
+title: "WebSocket"
+category: "Mendix 运行时间"
+description: "如何在Mendix Runtime中使用websockets的描述"
 #menu_order: 99
 tags:
-  - "runtime"
-  - "web socket"
+  - "运行时间"
+  - "web 套接字"
   - "endpoint"
-  - "java"
+  - "贾瓦"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix Runtime supports registering custom web socket endpoints using the `javax.websocket` API.
+Mendix Runtime 支持使用 `javax.websocket` API注册自定义 Web socket 端点。
 
-All you need to do is to use the method `Core.addWebSocketEndpoint(String path, Endpoint endpoint)` to register an instance of `javax.websocket.Endpoint` to respond to web socket requests on the given path.
+您需要做的只是使用方法 `核心。 ddWebSocketEndpoint(路径，端点端点)` 注册一个 `javax的实例。 ebsocket.Endpoint` 响应给定路径上的 web 套接字请求。 客户端的会话ID可以从 `onOpen` 方法 `端点` 中给出的 `端点配置` 获得。
 
 {{% alert type="info" %}}
-As with `Core#addRequestHandler`, adding a web socket end point only happens on the current cluster node. It is therefore a good practice to call it in an **After Startup** microflow.
-{{% /alert %}}
+就像 `Core#addRequestHandler`一样，只在当前集群节点上添加一个 web 套接字结束点。 因此，在 **启动后** 微流程中调用它是一个好的做法。
+{{% /报警 %}}
 
-Below is an example of how to register a websocket in your Mendix app.
+下面是如何在 Mendix 应用程序中注册Websocket 的一个例子。
 
-## 2 Example
+## 2 个示例
 
-A simple implementation of an endpoint is shown below.
+以下是一个端点的简单实现方式。
 
 ```java
 import javax.websocket.CloseReason;
@@ -35,19 +35,25 @@ import javax.websocket.Session;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
+
+import com.mendix.core.Core;
 
 public class TestEndpoint extends Endpoint {
   Set<Session> sessions = new HashSet<>();
 
   @Override
   public void onOpen(Session session, EndpointConfig config) {
+    String sessionId = (String) config.getUserProperties().get("mxSessionId");
+    ISession mxSession = Core.getSessionById(UUID.fromString(sessionId));
+    String username = mxSession.getUserName();
     sessions.add(session);
     session.addMessageHandler(new MessageHandler.Whole<String>() {
       @Override
       public void onMessage(String message) {
         if ("test message".equals(message)) {
           try {
-            session.getBasicRemote().sendText("test response");
+            session.getBasicRemote().sendText("test response:" + username);
             session.close();
           } catch (IOException e) {
             e.printStackTrace();
@@ -71,7 +77,7 @@ public class TestEndpoint extends Endpoint {
 }
 ```
 
-If this endpoint is registered by calling `Core.addWebSocketEndpoint("/my-endpoint", new websockets.TestEndpoint());` then the following functionality is available at `ws://.../my-endpoint`:
+如果此端点通过调用 `Core.addWebSocketEndpoint("/my-endpoint")，新的 websockets.TestEndpoint() 注册。` 然后在 `ws://.../my-endpoint` 上可以找到以下功能：
 
-* When a connection is established, the server will send the message `socket opened`
-* If the client sends the message `test message`, the server responds with `test response` and closes the web socket
+* 当连接建立时，服务器将发送消息 `套接字打开`
+* 如果客户端发送消息 `测试消息`, 服务器响应 `测试响应: 用户名` 并关闭Web 套接字
