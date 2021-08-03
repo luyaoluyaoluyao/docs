@@ -1,5 +1,5 @@
 ---
-title: "Studio 9 Guide"
+title: "Studio 8 Guide"
 tags:
   - "studio"
   - "web modeler"
@@ -7,13 +7,13 @@ tags:
 
 {{% alert type="warning" %}}
 
-The **Studio 9 Guide** describes Mendix Studio functionality that corresponds to Mendix version 9. It describes the latest Studio functionality and features.
+The **Studio 8 Guide** describes Mendix Studio functionality that corresponds to Mendix 8 version. It describes the latest Studio functionality and features.
 
 {{% /alert %}}
 
 ## 1 Introduction
 
-The Mendix Platform includes [Mendix Studio](general) in addition to [Mendix Studio Pro](/refguide/modeling). Studio is a collaborative, no-code, web-based application development environment. It enables business developers and users with minimal coding or software development experience to create web and mobile applications without having to know how to code.
+The Mendix Platform includes [Mendix Studio](general) in addition to [Mendix Studio Pro](/refguide8/modeling). Studio is a collaborative, no-code, web-based application development environment. It enables business developers and users with minimal coding or software development experience to create web and mobile applications without having to know how to code.
 
 Studio enables you to do the following:
 
@@ -24,16 +24,16 @@ Studio enables you to do the following:
 
 ## 2 Guide Categories
 
-The *Studio 9 Guide* is divided into the following categories:
+The *Studio 8 Guide* is divided into the following categories:
 
 * [General Info](general)
 * [Pages](page-editor)
-* [Working with Data](work-with-data)
+* [Domain Model](domain-models)
 * [Navigation Document](navigation)
 * [Microflows](microflows)
-* [Workflows](workflows)
 * [Previewing & Publishing Your App](publishing-app)
 * [Checks](checks)
 * [Theme Customizer](theme-customizer)
 * [Settings](settings)
+* [Working with Data](work-with-data)
 * [Collaboration](collaboration)
