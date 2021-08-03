@@ -1,9 +1,17 @@
 ---
 title: "Document Templates"
-category: "Desktop Modeler"
+parent: "resources"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "document template"
 aliases:
-  - /refguide7/Document+Templates.html
+  - /refguide8/Document+Templates.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/document-templates.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -13,7 +21,7 @@ Document Templates are used to model a template required as input for a document
 This page describes what document templates are for and what kind of widgets can be placed on them. If you want to see the properties of the document template you can check the documentation for a [document template](document-template) itself.
 {{% /alert %}}
 
-Document templates may contain components, also known as _widgets_. Below is an overview of all widget categories:
+The document templates also contain components, also know as _widgets_. Below is a categorized overview of all widgets. The following categories are used:
 
 * [Core widgets](#core) are central to building document templates in Mendix. These are the widgets that can show a list of entities or a single entity
 * [Layout widgets](#layout) are used to structure the layout of your document templates
@@ -36,7 +44,7 @@ For more information, see [Data Grid (Document Template)](data-grid-document-tem
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918138.png)
+![](attachments/document-templates/918138.png)
 
 A data grid showing a list of orders with a description and the referenced customer name.
 
@@ -50,7 +58,7 @@ For more information, see [Data View (Document Template)](data-view-document-tem
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918139.png)
+![](attachments/document-templates/918139.png)
 
 A data view showing order line information.
 
@@ -64,7 +72,7 @@ For more information, see [Template Grid (Document Template)](template-grid-docu
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918137.png)
+![](attachments/document-templates/918137.png)
 
 A template grid showing products with name and description.
 
@@ -72,17 +80,17 @@ A template grid showing products with name and description.
 
 ## 3 Layout Widgets {#layout}
 
-Layout widgets give structure to a form. They do not show data but provide a layout in which you can place other widgets that do.
+Layout widgets give structure to a page. They do not show data but provide a layout in which you can place other widgets that do.
 
 ### 3.1 Table
 
-Tables can be used to change the layout of the form. They contain a number of rows and columns and the intersection of the two is called a cell. Each cell can contain widgets. Cells can be merged horizontally and vertically before they are filled to allow for asymmetric layouts. Tables can be used both inside and outside data view or templategrid widgets.
+Tables can be used to change the layout of the page. They contain a number of rows and columns and the intersection of the two is called a cell. Each cell can contain widgets. Cells can be merged horizontally and vertically before they are filled to allow for asymmetric layouts. Tables can be used both inside and outside data view or templategrid widgets.
 
 For more information, see [Table (Document Template)](table-document-template).
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918134.png)
 
 A table with four rows and three columns. Last row containing a data view with another table.
 
@@ -96,7 +104,7 @@ For more information, see [Page Break (Document Template)](page-break-document-t
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918135.png)
+![](attachments/document-templates/918135.png)
 
 A page break
 
@@ -114,13 +122,13 @@ Dynamic data widgets are used for showing (dynamic) data. They must be placed in
 
 ### 4.1 Dynamic Label
 
-A dynamic label would be used for the same attributetypes as a text box in form builder. It can be used to display a text value.
+A dynamic label is used for the same attribute types as a text box in the page editor. It can be used to display a text value.
 
 For more information, see [Dynamic Label (Document Template)](dynamic-label-document-template).
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918131.png)
+![](attachments/document-templates/918131.png)
 
 A dynamic label linking to a customer name.
 
@@ -134,7 +142,7 @@ For more information, see [Dynamic Image (Document Template)](dynamic-image-docu
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918132.png)
+![](attachments/document-templates/918132.png)
 
 A dynamic image inside a table cell, showing the preset default image.
 
@@ -152,7 +160,7 @@ For more information, see [Static Label (Document Template)](static-label-docume
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918130.png)
+![](attachments/document-templates/918130.png)
 
 A label with text 'Customer name'.
 
@@ -172,7 +180,7 @@ For more information, see [Static Image (Document Template)](static-image-docume
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918133.png)
+![](attachments/document-templates/918133.png)
 
 A static image inside a table cell.
 
