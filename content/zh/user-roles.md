@@ -1,71 +1,67 @@
 ---
-title: "User Roles"
-parent: "project-security"
+title: "用户角色"
+parent: "项目安全"
 menu_order: 10
 tags:
   - "studio pro"
-  - "user role"
-  - "project security"
-  - "security"
+  - "用户角色"
+  - "应用安全"
+  - "安全"
 aliases:
-  - /refguide8/user-role.html
+  - /refguide/user-role.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/user-roles.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+用户角色汇集了数据、表格和微流方面的一些访问权。 应用程序的最终用户由管理员分配一个或多个用户角色，并获得这些用户角色所代表的所有访问权限。
 
-A user role aggregates a number of access rights on data, forms, and microflows. An end-user of the application is assigned one or more user roles by an administrator, and gets all access rights that these user roles represent.
+每个用户角色都有一个或多个 [模块角色](module-security#module-role)， 这意味着具有该用户角色的用户拥有为这些模块角色定义的所有访问权限。 典型的用户角色有 **System.User** 模块角色和至少一个其他模块角色。
 
-Every user role has one or more [module roles](module-security#module-role), which means that users with that user role have all the access rights that are defined for those module roles. A typical user role has the **System.User** module role and at least one other module role.
+区分用户角色和模块角色的目的是使模块自足(独立于它被定义或使用的应用程序)， 这样它可以在不同的应用中重新使用和/或发布到商城。
 
-The purpose of the distinction between user roles and module roles is to make a module self-contained (independent from the project in which it is defined or used), so that it can be reused in different projects and/or published to the Marketplace.
+您的应用程序的最终用户只看到用户角色，而不是模块角色。
 
-End-users of your application only see the user roles and not the module roles.
-
-To access user roles, open **Project Security** > **User roles** tab:
+要访问用户角色，请打开 **应用安全** > **用户角色** 选项卡：
 
 ![](attachments/user-roles/user-roles-example.png)
 
-## 2 User Role Properties
+## 2 个用户角色属性
 
-Double-click the user role to open its properties.
+双击用户角色以打开其属性。
 
-The user role has the following properties:
+用户角色具有以下属性：
 
-*  [General properties](#general)
-*  [User management properties](#user-management)
+*  [常规属性](#general)
+*  [用户管理属性](#user-management)
 
 ![](attachments/user-roles/user-role-properties.png)
 
-### 2.1 General Properties {#general}
+### 2.1 一般财产 {#general}
 
-General properties of user roles are described in the table below:
+用户角色的一般特性见下表：
 
-| Property       | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name           | The name property defines the name of the user role. This name is shown to end-users who can create or edit user accounts in the application.                                                                                                                                                                                                                               |
-| Documentation  | In this property you can document additional information about the user role. This information is shown to end-users who can create or edit user accounts in the application.                                                                                                                                                                                               |
-| Module roles   | A list of module roles of which the access rights are accumulated in the user role. An end-user that is assigned a user role gets all access rights of the module roles of that user role.                                                                                                                                                                                  |
-| Check security | This specifies whether the consistency of security settings is checked for this user role. You can choose to not check security for a user role. For example, user roles that are used only for web service users do not need to be checked because they never sign in to the client. For more information on the security check, see [Project Security](project-security). |
+| 财产   | 描述                                                                                                                                 |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 名称   | 名称属性定义了用户角色的名称。 此名称将显示给可以在应用程序中创建或编辑用户帐户的最终用户。                                                                                     |
+| 文件   | 在此属性中，您可以记录有关用户角色的额外信息。 此信息将显示给可以在应用程序中创建或编辑用户帐户的最终用户。                                                                             |
+| 模块角色 | 以用户角色积累访问权限的模块角色列表。 被分配给用户角色的最终用户可以获得该用户角色模块角色的所有访问权限。                                                                             |
+| 检查安全 | 此选项指定此用户角色是否检查安全设置的一致性。 您可以选择不检查用户角色的安全性。 例如， 仅供网络服务用户使用的用户角色不需要检查，因为他们从未登录到客户端。 关于安全检查的更多信息，请参阅 [App Security](project-security)。 |
 
-### 2.2 User Management Properties {#user-management}
+### 2.2 用户管理属性 {#user-management}
 
-A user role can be allowed to manage users with a number of other user roles (including itself), called manageable roles. This means that end-users who have this user role, can create, view, edit and delete users with at most the manageable user roles.
+用户角色可以被允许管理一些其他用户角色（包括自身）的用户。 这意味着具有这个用户角色的最终用户可以创建、查看、编辑和删除用户，最多可以管理用户角色。
 
-| Value    | Description                                                                                                                                                                                                                                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| All      | End-users with this user role can manage all users and grant all user roles. Usually this option should only be configured for an administrator.                                                                                                                                                                                |
-| Selected | End-users with this user role can manage users that have at most the selected user roles, and can grant only the selected user roles. Select **(No user roles)** to only manage users without a user role (for example, newly created users). If nothing is selected, end-users with this user role cannot manage users at all. |
+| 值   | 描述                                                                                                              |
+| --- | --------------------------------------------------------------------------------------------------------------- |
+| 所有的 | 具有此用户角色的最终用户可以管理所有用户并授予所有用户角色。 通常，这个选项只能为管理员配置。                                                                 |
+| 已选择 | 具有此用户角色的最终用户可以管理最多具有所选用户角色的用户，只能授予所选用户角色。 选择 **(无用户角色)** 来管理没有用户角色的用户 (例如，新创建的用户)。 如果没有选择，具有此用户角色的最终用户根本无法管理用户。 |
 
-Internally, user manangement properties are translated into entity access rules for **System.User**. This means that they are not applied in microflows that do not check entity access.
+在内部，用户配置属性被翻译成了 **System.User** 的实体访问规则。 这意味着它们不适用于不检查实体接入的微流。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Project Security](project-security)
-* [Administrator](administrator)
-* [Demo Users](demo-users)
-* [Anonymous Users](anonymous-users)
-* [Password Policy](password-policy)
+* [应用安全](项目安全)
+* [管理员](管理员)
+* [演示用户](demo-users)
+* [匿名用户](anonymous-users)
+* [密码策略](password-policy)
