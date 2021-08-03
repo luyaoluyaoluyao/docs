@@ -1,108 +1,151 @@
 ---
 title: "テキストエリア"
 parent: "input-widgets"
+menu_order: 20
+tags:
+  - "studio pro"
 ---
 
-
-テキストエリアは、複数行に分割できる長いテキスト値を表示および/または編集するために使用できます。
-
 {{% alert type="info" %}}
-
-![](attachments/pages/text-area.png)
-
-このテキストエリアでは、エンドユーザーが製品の説明を設定できます。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text-area.pdf) をクリックしてください。
 {{% /alert %}}
 
-テキスト領域は、データビューまたはテンプレート グリッドに配置し、String 型の属性に接続する必要があります。 接続された属性は青色とテキスト領域内の括弧の間に表示されます。
+## 1つの紹介
 
-## 一般プロパティ
+A **text area** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *String*. [テキスト ボックス](text-box) とは異なります。値は複数行にわたって表示できます。
 
-### 自動的に拡大
+テキスト エリアは、 [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、テキスト領域、角括弧、および青色の範囲内に表示されます。
+
+例えば、以下のテキストエリアでは、エンドユーザーがコンタクトについて **ノート** を見、設定することができます。
+
+![](attachments/text-area/text-area.png)
+
+## 2つのプロパティ
+
+以下の画像にテキスト領域のプロパティの例を示します。
+
+{{% image_container width="250" %}}![](attachments/text-area/text-area-properties.png)
+{{% /image_container %}}
+
+テキスト エリアのプロパティは、次のセクションで構成されています。
+
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [全般](#general)
+* [ラベル](#label)
+* [検証](#validation)
+* [公開範囲](#visibility)
+
+### 2.1 共通セクション{#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.2 データソースセクション{#data-source}
+
+{{% snippet file="refguide8/data-source-section-link.md" %}}
+
+### 2.3 デザインプロパティセクション{#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.4 編集可能セクション{#editability}
+
+{{% snippet file="refguide8/editability-section-link.md" %}}
+
+### 2.5 イベントセクション{#events}
+
+#### 2.5.1 変更時{#on-change}
+
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+#### 2.5.2 入口で
+
+on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+#### 休暇中 2.5.3
+
+on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
+
+これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+### 2.6 一般セクション{#general}
+
+#### 2.6.1 自動的に成長する
+
+{{% alert type="info" %}}自動的に grow プロパティは、ネイティブ モバイル ページの動作には影響しません。 iOSでは、テキストエリアは常に自動的に拡大されます
+{{% /alert %}}
 
 このプロパティは、テキストの量に応じてテキスト領域が自動的に拡大するかどうかを定義します。
 
-_デフォルト値:_ いいえ
+デフォルト: *いいえ*
 
-### 行数
+#### 2.6.2 行数
 
-行数は、テキスト領域に同時に表示される行数を決定します。 テキストエリア内のテキストに複数の行が含まれている場合は、スクロールバーを使用してすべてを表示する必要があります。 このプロパティは、自動的に format@@0 が設定されている場合にのみ表示されます。
+**行数** は行の高さに基づいてテキスト領域のサイズを決定します。 テキスト領域内のテキストがより多くの行を含んでいる場合、スクロールバーはエンドユーザーがすべてを見ることを可能にします。 このプロパティは、 **** が *いいえ* に設定されている場合にのみ使用されます。
 
-_デフォルト値:_ 5
+デフォルト: *5*
 
-### カウンターメッセージ
+#### 2.6.3 カウンターメッセージ
 
-これは、テキストエリアに入力するときに表示されるテキストです。 このテキストには、2 つのプレースホルダがあります。 最初のプレースホルダにはすでに入力されている文字の数が表示され、2 番目のプレースホルダには文字の最大数が表示されます。
+{{% alert type="info" %}}Counter message is not supported on native mobile pages.{{% /alert %}}
 
-{{% alert type="info" %}}
+これは、テキストエリアに入力するときに表示されるテキストです。 このテキストには [パラメータ](text#parameters)が2つあります。 最初のパラメータはすでに入力されている文字数を含み、2番目のパラメータは文字数の最大値を含みます。
 
-許可されている {1} 文字の {2} 文字を使用しました。
+For example, if you use the counter message `You've used {1} characters of the {2} characters that are allowed.` for your text area, the end-user will see this message displayed below the text area widget:
 
-{{% /alert %}}
+![](attachments/text-area/counter-message.png)
 
-### テキストが長すぎます
+#### 2.6.4 メッセージが長すぎます
+
+{{% alert type="info" %}}Text too long message is not supported on native mobile pages.{{% /alert %}}
 
 これは、入力された文字の数が最大文字数よりも大きい場合に表示されるテキストです。
 
-### 最大長さ
+#### 2.6.5 最大長さ
 
-このプロパティは、このテキストボックスに入力できる最大文字数を示します。
+このプロパティは、このテキスト領域で入力できる最大文字数を指定します。
 
-| 値     | 説明                       |
-| ----- | ------------------------ |
-| 属性の長さ | 最大文字数は、接続された属性の最大長と同じです。 |
-| 無制限です | 最大文字数は無制限です。             |
-| カスタム  | 最大文字数はユーザーによって設定されます。    |
+| 値               | 説明                         |
+| --------------- | -------------------------- |
+| 属性の長さ *(デフォルト)* | 最大文字数は、接続された属性の最大長さと同じです   |
+| 無制限です           | 最大文字数に制限はありません             |
+| カスタム            | ウィジェットのプロパティで文字数の最大値を指定します |
 
-_デフォルト値: 属性の長さ_
+#### 2.6.6 プレースホルダーテキスト
 
-### プレースホルダーテキスト
+プレースホルダー テキストは、まだ入力されていない場合、または、表示された属性が空の場合に表示されます。
 
-テキストがまだ入力されていない場合、プレースホルダー テキストが表示されます。 ユーザーにどのようなテキストを入力すべきかのヒントを与えるために使用できます。
+たとえば、エンドユーザーにどのようなテキストを入力すべきかのヒントを与えるために使用できます。
 
-## バリデーションプロパティ
+#### 2.6.7 オートコンプリート
 
-{{% snippet file="refguide7/Widget+Validation.md" %}}
+autocomplete プロパティは、テキスト領域を自動補完可能にするかどうかを指定します。 autocomplete 属性により、モバイルデバイスの項目への事前入力機能も向上します。
 
-## データソースのプロパティ
+{{% alert type="info" %}}このオプションはネイティブページでのみ利用できます。{{% /alert %}}
+{{% alert type="info" %}}Android でオートコンプリートがオフになっている場合、新しい行のサポートが削除されます。{{% /alert %}}
 
-{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
+### 2.8 ラベルセクション{#label}
 
-{{% snippet file="refguide7/Label+Property.md" %}}
+{{% snippet file="refguide8/label-section-link.md" %}}
 
-## 編集可能なプロパティ
+### 2.8 検証セクション{#validation}
 
-{{% snippet file="refguide7/Editable+Property.md" %}}
+{{% snippet file="refguide8/widget-validation-link.md" %}}
 
-{{% snippet file="refguide7/Read+Only+Style.md" %}}
+### 2.9 可視性セクション{#visibility}
 
-{{% snippet file="refguide7/Condition+Property.md" %}}
+{{% snippet file="refguide8/visibility-section-link.md" %}}
 
-## 表示プロパティ
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
-
-## イベントのプロパティ
-
-{{% snippet file="refguide7/On+Change+Event.md" %}}
-
-{{% snippet file="refguide7/On+Enter+event.md" %}}
-
-{{% snippet file="refguide7/On+Leave+Event.md" %}}
-
-## 共通のプロパティ
-
-{{% snippet file="refguide7/Name+Property.md" %}}
-
-{{% snippet file="refguide7/Class+Property.md" %}}
-
-{{% snippet file="refguide7/Style+Property.md" %}}
-
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
-
-## 続きを読む
+## 3 続きを読む
 
 *   [データビュー](data-view)
 *   [属性](attributes)
