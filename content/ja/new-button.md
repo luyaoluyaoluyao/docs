@@ -1,17 +1,17 @@
 ---
-title: "Create Button"
-parent: "button-widgets"
+title: "作成ボタン"
+parent: "ボタン-ウィジェット"
 ---
 
 {{% alert type="info" %}}
 
-This button was removed in Mendix 7.17. Use a normal [Action button](action-button) with the **Create object** action instead.
+このボタンは Mendix 7.17 で削除されました。 [オブジェクトの作成](action-button) アクションを代わりに通常の **アクションボタン** を使用します。
 
 {{% /alert %}}
 
-When the user presses the **Create** button, the Mendix application will create a new object and open a page to edit the new object.
+ユーザーが **** ボタンを押した時。 Mendixアプリケーションは新しいオブジェクトを作成し、新しいオブジェクトを編集するページを開きます。
 
-## Button Properties
+## ボタンのプロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -23,7 +23,7 @@ When the user presses the **Create** button, the Mendix application will create 
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -33,19 +33,19 @@ When the user presses the **Create** button, the Mendix application will create 
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
-### Page
+### ページ
 
-This property specifies the page that is opened when the end user presses this button. The end user can use this page to edit the newly created object before it is saved. This page should contain a data view connected to the same entity as this button.
+このプロパティは、エンドユーザーがこのボタンを押した時に開かれるページを指定します。 エンドユーザーは、このページを使用して、新しく作成されたオブジェクトを保存する前に編集できます。 このページには、このボタンと同じエンティティに接続されたデータビューが含まれている必要があります。
 
-See [Opening Pages](opening-pages).
+[ページを開く](opening-pages) を参照してください。
 
-### Entity (Path)
+### エンティティ (パス)
 
-Specifies which type of object will be created when the button is clicked. It is possible to create an object which has an association to an object in an enclosing data view or to the object passed as the page parameter. The association will be set automatically when the new object is created. Only one to one or one to many associations are supported.
+ボタンをクリックしたときに作成するオブジェクトの種類を指定します。 データビュー内のオブジェクトへの関連付けを持つオブジェクト、または page パラメータとして渡されるオブジェクトを作成することができます。 関連付けは、新しいオブジェクトが作成されると自動的に設定されます。 1対1または1の多くの関連付けがサポートされています。
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
