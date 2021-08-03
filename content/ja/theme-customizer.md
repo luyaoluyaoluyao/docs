@@ -120,4 +120,4 @@ In the **Brand Colors** section, you can define colors of different styles: **De
 
 ## 6もっと読む
 
-* [アトラスUI](/howto8/front-end/atlas-ui)
+* [アトラスUI](/howto/front-end/atlas-ui)
