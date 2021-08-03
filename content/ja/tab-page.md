@@ -1,25 +1,25 @@
 ---
 title: "Tab page"
-parent: "tab-container"
+parent: "タブコンテナ"
 ---
 
 
-## General Properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
 ### Default tab page
 
-The tab page with the property 'Default page' set to true will be open when the page is opened. If no tab page is the default page, the first tab page will be shown.
+プロパティ「Default page」がtrueに設定されているタブページは、ページが開かれたときに開かれます。 タブページがデフォルトのページでない場合、最初のタブページが表示されます。
 
-_Default value:_ False
+_デフォルト値:_ False
 
-### Refresh on show
+### ショー時に更新
 
-This property indicates whether the contents of the tab page should be refreshed if the tab page is shown. It is true by default. Set this property to false if refreshing is an expensive operation or if you know that nothing will affect the information on the tab page.
+このプロパティは、タブページが表示されている場合、タブページの内容を更新するかどうかを示します。 デフォルトでは true です。 更新が高価な操作である場合、またはタブページの情報に影響がないことがわかっている場合は、このプロパティを false に設定してください。
 
-_Default value:_ True
+_デフォルト値:_ True
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visible+Property.md" %}}
