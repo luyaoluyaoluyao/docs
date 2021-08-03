@@ -1,62 +1,62 @@
 ---
-title: "Attributes"
+title: "属性"
 parent: "domain-models"
-description: "Describes attribute types in Mendix Studio."
+description: "Mendix Studioで属性タイプを説明します。"
 tags:
-  - "studio"
-  - "domain model"
-  - "attributes"
-  - "attribute types"
+  - "スタジオ"
+  - "ドメインモデル"
+  - "属性"
+  - "属性タイプ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes attributes and their types in Mendix Studio. Attributes are characteristics that describe and/or identify the entity. If we compare these to an database table, attributes are columns of the table. For example, a *Customer* entity typically has attributes for the name of the customer, an e-mail address, and other personal information.
+このドキュメントでは、Mendix Studio で属性とそのタイプについて説明します。 属性は、エンティティを記述および/または識別する特性です。 これらをデータベーステーブルと比較すると、属性はテーブルのカラムです。 例えば、 *顧客* エンティティは通常、顧客の名前、電子メールアドレス、およびその他の個人情報に対する属性を持ちます。
 
-## 2 Types
+## 2種類のタイプ
 
-Attributes in Studio can be of the following types:
+Studio の属性は以下のタイプになります。
 
-| Type          | Description                                                                                                                                                                                                                                                                   |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Autonumber    | A positive or negative whole number. AutoNumber attributes are automatically generated numbers. The default value of the attribute determines the first number that will be generated. Each created object will have an AutoNumber that is one greater than the previous one. |
-| Binary        | Binary data. For example, an entire file.                                                                                                                                                                                                                                     |
-| Boolean       | True or false.                                                                                                                                                                                                                                                                |
-| Date and Time | A point in time that consists of a date and a time component, accurate up to milliseconds.                                                                                                                                                                                    |
-| Decimal       | A positive or negative number that can have digits after the decimal point.                                                                                                                                                                                                   |
-| Enumeration   | A list of predefined values.                                                                                                                                                                                                                                                  |
-| Hashed String | A text that will be stored after it is hashed (encrypted). This type can for example be used to store a password.                                                                                                                                                             |
-| Integer       | A whole number.  The range of this type is –2,147,483,648 to 2,147,483,647.                                                                                                                                                                                                   |
-| Long          | A whole number.  The range of this type is –9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.                                                                                                                                                                           |
-| String        | A text containing letters, spaces, numbers and other characters. You can set this type to unlimited or to limit it with the number of symbols you like.                                                                                                                       |
+| タイプ        | 説明                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
+| Autonumber | 正または負の整数。 AutoNumber 属性は自動的に生成される数値です。 属性のデフォルト値は、生成される最初の数値を決定します。 作成された各オブジェクトには、前のオブジェクトよりも 1 つ大きい自動番号があります。 |
+| バイナリ       | バイナリデータ。 例えば、ファイル全体です。                                                                                          |
+| Boolean    | 正誤問題。                                                                                                           |
+| 日付と時刻      | 日付と時刻コンポーネントから構成されるポイント。ミリ秒単位まで正確です。                                                                            |
+| 小数点以下桁数    | 小数点以下の桁数を持つことができる正または負の数。                                                                                       |
+| 列挙型        | 定義済みの値のリスト。                                                                                                     |
+| ハッシュ文字列    | ハッシュ化(暗号化)後に保存されるテキスト。 このタイプは、例えばパスワードを保存するために使用できます。                                                           |
+| 整数         | 全体の数字。  このタイプの範囲は–2,147,483,648~2,147,483,647です。                                                                |
+| 長い順        | 全体の数字。  このタイプの範囲は–9,223,372,036,854,775,808~9,223,372,036,854,775,807です。                                        |
+| 文字列        | 文字、スペース、数字およびその他の文字を含むテキスト。 このタイプを無制限に設定したり、好きなシンボルの数を制限したりできます。                                                |
 
-For more technical information on attribute types, see the [Type](/refguide8/attributes#type) section in *Attributes* in the *Studio Pro Guide*.
+属性タイプの技術的な情報については、 [Studio Pro Guide](/refguide8/attributes#type) の *属性* の ** セクションを参照してください。
 
-## 3 Attribute Properties {#attribute-properties}
+## 3つの属性属性 {#attribute-properties}
 
-While attributes have common properties, some properties are specific for a particular attribute type.
+属性に共通のプロパティがありますが、特定の属性タイプに固有のプロパティがあります。
 
-### 3.1 Common Properties
+### 3.1 一般的なプロパティ
 
-You can find the description of the common properties in the table below.
+共通のプロパティの説明は以下の表にあります。
 
-| Property      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name          | Defines the name of the attribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Type          | Shows the type of the attribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Default Value | Defines the preset value of the attribute when the object is created. Setting the default value can speed up the process of interacting with your app. For instance, you have an attribute of the enumeration type, defining addresses where customers can pick their orders up. The default value can display the most popular pickup point. <br />The default value should be compatible with the type of the attribute. For example, you cannot write a text as a default value for decimal.  <br />**Note** All attribute types can have a default value except binary. |
+| 属性     | 説明                                                                                                                                                                                                                                                                                          |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名前     | 属性の名前を定義します。                                                                                                                                                                                                                                                                                |
+| タイプ    | 属性の種類を表示します。                                                                                                                                                                                                                                                                                |
+| デフォルト値 | オブジェクトの作成時の属性のプリセット値を指定します。 デフォルト値を設定すると、アプリとのやり取りがスピードアップします。 たとえば、enumeration 型の属性があり、顧客が注文を受け取ることができるアドレスを定義します。 デフォルト値は、最も一般的なピックアップポイントを表示することができます。 <br />デフォルト値は、属性のタイプと互換性がある必要があります。 例えば、10進数のデフォルト値としてテキストを書くことはできません。  <br />**注意** すべての属性型はバイナリ以外のデフォルト値を持つことができます。 |
 
-### 3.2 Specific Properties
+### 3.2 特定のプロパティ
 
-You can find the description of specific properties that differ per attribute type in the table below.
+以下の表に属性タイプごとに異なる特定のプロパティの説明があります。
 
-| Property                                 | Attribute Type | Description                                                                                                                                                                                                                                              |
-| ---------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Localize                                 | Date and Time  | Indicates if local time or server time is used. **Use local time** means the local time zone of a user will be used. **Use server time** means UTC  will be set for all users. <br />*Default value: Use local time*                               |
-| [Enumeration](domain-models-enumeration) | Enumeration    | With this property you can define an enumeration (predefined list of options), by creating a new list or choosing from existing enumerations. For more information, see [Enumeration](domain-models-enumeration).                                        |
-| Length                                   | String         | Specifies whether the length of a string is limited or unlimited. In the case the length is limited, the **Max-Length** property specifies the maximum number of characters that can be stored in the attribute . <br />*Default value: Unlimited* |
+| 属性                               | 属性タイプ | 説明                                                                                                                                                               |
+| -------------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ローカライズする                         | 日付と時刻 | ローカル時間またはサーバー時間が使用されているかどうかを示します。 **現地時間を使用する** は、ユーザのローカルタイムゾーンが使用されることを意味します。 **サーバ時間を使用する** は、すべてのユーザに対して UTC を設定することを意味します。 <br />*デフォルト値: ローカル時間* を使用 |
+| [列挙型](domain-models-enumeration) | 列挙型   | このプロパティを使用すると、新しいリストを作成するか、既存の列挙から選択することによって列挙(オプションの定義済みリスト)を定義できます。 詳細については、 [列挙値](domain-models-enumeration) を参照してください。                                       |
+| 長さ                               | 文字列   | 文字列の長さを制限または無制限にするかを指定します。 長さが制限されている場合。 **Max-Length** プロパティは、属性に保存できる最大文字数を指定します。 <br />*デフォルト値: 無制限*                                                    |
 
-## 4 Read More
+## 4 続きを読む
 
-* [Domain Model](domain-models)
-* [Enumeration](domain-models-enumeration)
+* [ドメインモデル](domain-models)
+* [列挙型](domain-models-enumeration)
