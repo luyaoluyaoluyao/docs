@@ -7,12 +7,8 @@ tags:
   - "download file"
   - "client activities"
 aliases:
-  - /refguide8/Download+File.html
+  - /refguide/Download+File.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/download-file.pdf).
-{{% /alert %}}
 
 {{% alert type="warning" %}}
 This activity can only be used in **Microflows**.
@@ -72,4 +68,4 @@ Many browsers implement pop-up window blockers preventing them from being opened
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
