@@ -1,98 +1,98 @@
 ---
-title: "Logging"
+title: "ログ"
 category: "Mendix Runtime"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Below we describe what the various log levels of the runtime will show as output. During development, these log levels can be set in the console (advanced -> set log levels), when deployed on a server, please refer to the [Deployment](/developerportal/deploy/mendix-cloud-deploy) pages.
+以下では、ランタイムのさまざまなログレベルを出力として表示します。 開発中、コンソールでこれらのログレベルを設定することができます (高度な -> ログレベルの設定) サーバーにデプロイされる場合は、format@@0 [デプロイメント](/developerportal/deploy/mendix-cloud-deploy) ページを参照してください。
 
-You can also set log levels to provide more or less information when testing locally using the console in Studio Pro. See [Configuring the Log Levels for Standard Log Messages](/howto/monitoring-troubleshooting/log-levels#standard-log-levels) in *How To Set Log Levels* for more information.
+Studio Pro でコンソールを使用してローカルでテストする際に、ログレベルを設定することで、多かれ少なかれ情報を提供することもできます。 詳細については、 [](/howto/monitoring-troubleshooting/log-levels#standard-log-levels) *ログレベルを設定する方法* のformat@@4 を参照してください。
 
-## 2 Log Levels
+## 2ログレベル
 
 ### 2.1 Critical
 
-Critical is reserved for rare cases where the application may not be able to function reliably anymore. This should normally not occur. If it does, you should immediately take action. The 3.0 cloud treats these messages as alerts and will notify you on the cloud dashboard.
+クリティカルは、アプリケーションがもはや確実に機能できない場合があるまれなケースのために予約されています。 これは通常起こるべきでない。 もしそうなったら、すぐに行動を起こすべきです。 3.0クラウドはこれらのメッセージをアラートとして扱い、クラウドダッシュボードで通知します。
 
-### 2.2 Error
+### 2.2 エラー
 
-Error is used to log all unhandled exceptions. These are unexpected events that should not occur, but are not critical. The application should be able to function normally afterwards.
+Error is used to log all unhandled exceptions. これらは起こるべきではないが、重要ではない予期せぬ出来事である。 アプリケーションは、その後、正常に機能することができるはずです。
 
-### 2.3 Warning
+### 2.3 警告
 
-Warning is often used for handled 'exceptions' or other important log events. For example, if your application requires a configuration setting but has a default in case the setting is missing, then the Warning level should be used to log the missing configuration setting.
+警告はしばしば「例外」やその他の重要なログイベントの処理に使用されます。 たとえば、アプリケーションが設定を必要とするにもかかわらず、設定が不足している場合にデフォルトを持っている場合。 そして、Warningレベルを使用して、不足している設定をログに記録します。
 
-### 2.4 Information
+### 2.4 情報
 
-The Information level is typically used to output information that is useful to the running and management of your system. Information would also be the level used to log entry and exit points in key areas of your application. However, you may choose to add more entry and exit points at Debug level for more granularity during development and testing.
+情報レベルは通常、システムの実行と管理に役立つ情報を出力するために使用されます。 情報は、アプリケーションの主要な領域のエントリポイントと終了ポイントを記録するために使用されるレベルにもなります。 ただし、開発およびテスト中により細かくするために、より多くのエントリポイントと終了ポイントをDebugレベルに追加することができます。
 
 ### 2.5 Debug
 
-This should be used for debugging systems during development, but never in a production system. It can be used to easily pinpoint problems and the general flow of your application.
+これは開発中のデバッグシステムに使用されるべきですが、本番システムには使用されません。 問題やアプリケーションの一般的なフローを簡単に特定するために使用できます。
 
-### 2.6 Trace
+### 2.6 トレース
 
-This is the most verbose logging level, and can be used if you want even more fine-grained logging than debug.
+これは最も詳細なロギングレベルであり、debug よりもさらに詳細なロギングが必要な場合に使用できます。
 
-## 3 Log Nodes
+## 3つのログノード
 
-This section provides some details on specific log nodes used by Mendix. It is recommended that if you write your own [log messages](log-message) you use your own log node names to avoid confusion with the Mendix log messages.
+このセクションでは、Mendix によって使用される特定のログノードの詳細について説明します。 独自の [ログ メッセージ](log-message) を書く場合は、Mendix ログ メッセージとの混同を避けるために独自のログ ノード名を使用することをお勧めします。
 
-### 3.1 Default Mendix Log Nodes{#mendix-nodes}
+### 3.1 デフォルトのMendixログノード{#mendix-nodes}
 
-The following log nodes are used by Mendix when writing log messages.
+次のログノードは Mendix によってログメッセージを書き込むときに使用されます。
 
 {{% alert type="info" %}}
-This list is currently incomplete and is being worked on.
+このリストは現在不完全で、作業中です。
 {{% /alert %}}
 
-| Log Node                     | Description                                                                                                                                                                                         |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ActionManager                | Log messages related to action scheduling (for example, scheduled events) and action execution (for example, running microflows).                                                                   |
-| Configuration                | Logging related to the configuration of the Mendix app that is read in at startup.                                                                                                                  |
-| ConnectionBus                | General logging related to database startup, synchronization and connections management for Mendix.                                                                                                 |
-| ConnectionBus_Mapping        | Information relating to the translations of XPath Queries and OQL text queries to OQL Queries.                                                                                                      |
-| ConnectionBus_Queries        | Deprecated: This is a legacy node.                                                                                                                                                                  |
-| ConnectionBus_Retrieve       | All information related to the retrieval of data, such as: Incoming requests from the application, the executed statement. Also logs issues encountered during the processing of the received data. |
-| ConnectionBus_Security       | Information regarding access rights needed to access the database.                                                                                                                                  |
-| ConnectionBus_Synchronize    | Deprecated: This is a legacy node.                                                                                                                                                                  |
-| ConnectionBus_Update         | All information related to the update of data in the database. Incoming storage requests, the executed statements and issues encountered during storage.                                            |
-| ConnectionBus_Validation     | Information related modification of the existing database, and database migration.                                                                                                                  |
-| Connector                    |                                                                                                                                                                                                     |
-| Core                         | Logs messages from the core runtime. This can be startup of the runtime, version of the runtime, license being used and issues related to interpreting the model.                                   |
-| DataStorage_QueryHandling    | Logs messages related to the queries that are being executed.                                                                                                                                       |
-| DataStorage_QueryPlan        | Query execution plan information for installations (currently only supported for PostgreSQL databases).                                                                                             |
-| DocumentExporter             | Logs messages related to the templating engine that generates documents.                                                                                                                            |
-| FileDocumentSizesPopulateJob | Logs messages for a background job that populates the file-size field in the database for documents that do not have that field filled (used during legacy migration).                              |
-| I18NProcessor                | Logs messages related to translation of the app.                                                                                                                                                    |
-| JSON                         | JSON messages from the Mendix Client to the Runtime Server. See [JSON](#json), below, for more information                                                                                          |
-| Jetty                        | Logs messages from the internal Jetty webserver that handles HTTP requests between the runtime and the outside world.                                                                               |
-| LocalFileSystemStore         | Logs messages related to file handling if you are using local file system as your file store.                                                                                                       |
-| Logging                      | Logs messages related to the logging framework used by Mendix.                                                                                                                                      |
-| M2EE                         | Log messages from the administration interface with the runtime                                                                                                                                     |
-| MicroflowDebugger            | Log messages related to the status of the microflow debugger, for example, connection status, incoming and outgoing requests, etc.                                                                  |
-| MicroflowEngine              | Log messages related to microflow execution, for example, which microflow / microflow action is being executed and errors that occur during the execution.                                          |
-| ModelStore                   |                                                                                                                                                                                                     |
-| Module                       | Logs messages for modules that are loaded on-demand in the core runtime like the microflow-engine.                                                                                                  |
-| ObjectManagement             | Logs errors relating to attempts to make associations to non-existent object                                                                                                                        |
-| OData Publish                | Log messages related to published OData services.                                                                                                                                                   |
-| QueryParser                  | Logs messages related to the parsing or interpretation of XPath and OQL queries.                                                                                                                    |
-| Queue                        | All actions related to Task Queues                                                                                                                                                                  |
-| REST Publish                 | Log messages related to published REST services.                                                                                                                                                    |
-| RequestStatistics            |                                                                                                                                                                                                     |
-| Services                     |                                                                                                                                                                                                     |
-| StorageAzure                 | Logs messages related to file handling if you are using Azure system as your file store.                                                                                                            |
-| StorageS3                    | Logs messages related to file handling if you are using Amazon S3 system as your file store.                                                                                                        |
-| StorageSwift                 |                                                                                                                                                                                                     |
-| WebServices                  | Traces SOAP call request and response contents.                                                                                                                                                     |
-| WebUI                        |                                                                                                                                                                                                     |
-| Workflow Engine              | Logs messages related to workflow executions, for example, lifecycle events, such as a start or an end of a workflow, execution of workflow actions, and errors that occur during the execution.    |
+| ログノード                        | 説明                                                                                                   |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------- |
+| ActionManager                | アクションスケジューリング(スケジュールされたイベントなど)とアクション実行(実行中のマイクロフローなど)に関連するメッセージをログに記録します。                            |
+| 設定                           | 起動時に読み込まれるMendixアプリの設定に関連するログを記録します。                                                                 |
+| 接続バス                         | Mendixのデータベースの起動、同期および接続管理に関連する一般的なログ。                                                               |
+| 接続バスのマッピング                   | XPath クエリと OQL テキストクエリの OQL クエリへの翻訳に関する情報。                                                           |
+| ConnectionBus_Query          | 非推奨: これはレガシーノードです。                                                                                   |
+| 接続Bus_取得                     | 次のようなデータの取得に関連するすべての情報: アプリケーションからの要求、実行された文。 また、受信したデータの処理中に発生した問題を記録します。                           |
+| ConnectionBus_Security       | データベースにアクセスするために必要なアクセス権に関する情報。                                                                      |
+| ConnectionBus_同期             | 非推奨: これはレガシーノードです。                                                                                   |
+| ConnectionBus_Update         | データベースのデータの更新に関連するすべての情報。 ストレージのリクエスト、実行されたステートメント、およびストレージ中に発生した問題を入力します。                           |
+| ConnectionBus_Validation     | 既存のデータベースの変更、およびデータベースの移行に関する情報。                                                                     |
+| コネクタ                         |                                                                                                      |
+| コア                           | コアランタイムからのメッセージをログに記録します。 これは、ランタイムの起動、ランタイムのバージョン、使用されているライセンス、およびモデルの解釈に関連する問題となります。               |
+| DataStorage_QueryHandling    | 実行中のクエリに関連するメッセージをログに記録します。                                                                          |
+| DataStorage_QueryPlan        | インストールのためのクエリ実行計画情報(現在は PostgreSQL データベースでのみサポートされています)。                                             |
+| ドキュメントエクスポート                 | ドキュメントを生成するテンプレートエンジンに関連するメッセージをログに記録します。                                                            |
+| FileDocumentSizesPopulateJob | バックグラウンドジョブのメッセージをログに記入します。(レガシーマイグレーション時に使用される) フィールドが記入されていないドキュメントに対して、データベースのファイルサイズフィールドを生成します。 |
+| I18NProcessor                | アプリの翻訳に関連するメッセージをログに記録します。                                                                           |
+| JSON                         | Mendix クライアントから Runtime Server への JSON メッセージ。 詳細は [JSON](#json)を参照してください。                            |
+| Jetty                        | ランタイムと外部の間のHTTPリクエストを処理する内部Jettyウェブサーバーからのメッセージをログに記録します。                                            |
+| LocalFileSystemStore         | ローカルファイルシステムをファイルストアとして使用している場合、ファイル処理に関連するメッセージをログに記録します。                                           |
+| ログ                           | Mendixが使用するログフレームワークに関連するメッセージをログに記録します。                                                             |
+| M2EE                         | ランタイムを使用して管理インターフェイスからメッセージをログに記録します                                                                 |
+| MicroflowDebugger            | microflow デバッガの状態に関連するメッセージをログに記録します。たとえば、接続状態、受信要求、送信要求などです。                                        |
+| MicroflowEngine              | 例えば、どのマイクロフロー / マイクロフロー アクションが実行されているか、実行中にエラーが発生するなど、マイクロフロー 実行に関連するメッセージをログに記録します。                 |
+| ModelStore                   |                                                                                                      |
+| モジュール                        | microflow-engineのようにコアランタイムにオンデマンドでロードされるモジュールのメッセージをログに記録します。                                       |
+| オブジェクト管理                     | 存在しないオブジェクトに関連付ける試みに関連するエラーをログに記録                                                                    |
+| OData Publish                | 公開されたODataサービスに関連するログメッセージ。                                                                          |
+| QueryParser                  | XPath と OQL クエリの解析または解釈に関連するメッセージをログに記録します。                                                          |
+| キュー                          | タスクキューに関連するすべてのアクション                                                                                 |
+| REST 公開                      | 公開された REST サービスに関連するログメッセージ。                                                                         |
+| RequestStatistics            |                                                                                                      |
+| サービス                         |                                                                                                      |
+| StorageAzure                 | Azure システムをファイルストアとして使用している場合は、ファイル処理に関連するログメッセージが表示されます。                                            |
+| StorageS3                    | Amazon S3 システムをファイルストアとして使用している場合、ファイル処理に関連するメッセージをログに記録します。                                         |
+| StorageSwift                 |                                                                                                      |
+| Webサービス                      | SOAP コールリクエストとレスポンスの内容をトレースします。                                                                      |
+| WebUI                        |                                                                                                      |
+| ワークフローエンジン                   | ワークフローの実行に関連するメッセージをログに記録します。たとえば、開始やワークフローの終了などのライフサイクルイベント。 ワークフローアクションの実行、および実行中に発生するエラー。         |
 
 ### 3.2 JSON{#json}
 
-Has only one relevant level: *Debug*.
+関連するレベルは 1 つだけです: *デバッグ*.
 
-Setting this log level to debug will show you all the JSON requests and responses from the Mendix Client to the Runtime Server. This may degrade performance as this output is normally streamed. This can also be used to gain insight in what users are doing in a production environment. When using it here, make sure you have enough disk space available for your log files though.
+このログレベルをデバッグに設定すると、MendixクライアントからのRuntime ServerへのJSONリクエストとレスポンスがすべて表示されます。 この出力は通常ストリーミングされるため、パフォーマンスが低下する可能性があります。 また、本番環境でユーザが何をしているかを把握するためにも使用できます。 ここで使用する場合は、ログファイルに十分なディスク容量があることを確認してください。
