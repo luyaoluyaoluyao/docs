@@ -1,42 +1,42 @@
 ---
-title: "Message Definition"
-parent: "message-definitions"
+title: "消息定义"
+parent: "消息定义"
 ---
 
 {{% alert type="info" %}}
 
-This feature was introduced in version 7.10.0.
+这个功能是在版本7.10.0中引入的。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-Message definitions define the messages that are sent from and to your app. Defining your messages allows you to create import and export mappings for them.
+消息定义定义定义了发送到您应用的消息。 定义您的消息允许您为他们创建导入和导出映射。
 
-A message definition can be used for both JSON and XML, and it can be used for both single objects and lists of objects.
+消息定义可以同时用于JSON和XML，它可以同时用于单个对象和对象列表。
 
-## 2 General
+## 2 概况
 
-### 2.1 Name
+### 2.1 名称
 
-The name of the message definition.
+消息定义的名称。
 
-### 2.2 Entity
+### 2.2 实体
 
-Select an entity on which to base the message definition. Using this message definition, you will be able to export and import this entity type and lists of this entity type.
+选择一个实体作为消息定义的基础。 使用此消息定义，您将能够导出和导入此实体类型和该实体类型的列表。
 
-### 2.3 Structure
+### 2.3 结构
 
-The structure tree shows the attributes and some of the associations of the entity. Check all the attributes and associations that are part of the message.
+结构树显示该实体的属性和一些关联性。 检查作为消息一部分的所有属性和关联。
 
-The **External name** is the name of the XML node or the JSON property. By default, it's the name of the attribute (for attributes) or entity (for associations). When the occurrence is `0..*`, it's the external item name plus the letter `s`.
+**外部名称** 是XML 节点或 JSON 属性的名称。 默认情况下，它是属性的名称 (属性) 或实体 (关联)。 当出现 `0..*`时，它是外部项目的名称加上字母 ``。
 
-The **External item name** is only relevant for XML, and only when the occurrence is `0..*`. It is used for the XML node that represents a single item. By default, it's the entity name.
+**外部项目名称** 只适用于 XML，仅当出现 `0..*` 时。 它用于表示单个项目的 XML 节点。 默认情况下，它是实体名称。
 
-As an **Example value**, you can specify a typical value for an attribute. When you use the message definition in a published REST service, this value shows up in the [interactive documentation](published-rest-services#interactive-documentation). Note that you specify a date/time value in the format `year-month-day` or `year-month-day hour:minute:second`.
+作为 **示例值**，您可以指定一个属性的典型值。 当您在发布的REST 服务中使用消息定义时，此值会在 [交互文档](published-rest-services#interactive-documentation) 中显示。 请注意，您指定了日期/时间值，格式为 `year month天` 或 `year month-your:minute:second`
 
-The **Documentation** of an entity, attribute, or association also shows up in the [interactive documentation](published-rest-services#interactive-documentation).
+实体、属性或关联的 **文档** 也会在 [交互式文档](published-rest-services#interactive-documentation) 中显示。
 
-## 3 Documentation
+## 3 文件
 
-Use the **Documentation** to describe what the message definition is used for.
+使用 **文档** 来描述消息定义的用处。
