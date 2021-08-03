@@ -9,10 +9,6 @@ tags:
   - "Studio Pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/images.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Images can be used to brighten up your application. [Navigation items](navigation-tree) and the various kinds of [buttons](button-widgets) have small images (icons) to left of their captions. Images can also be used in the image viewer widgets in [pages](pages) and [document templates](document-templates). Also, [enumeration values](enumerations#enum-value-properties) can have images that can then be shown in data grid columns.
@@ -22,7 +18,7 @@ The **System** module contains some images that are used by the standard compone
 {{% alert type="info" %}}
 This sort of image is called a **static** image as it is always the same. For example, the icon you put on a save button will always look the same whatever object you are saving.
 
-If you want different images to appear for different objects (for example, a picture of a product) these images should be stored as images in the database. See [How To Work with Images & Files](/howto8/data-models/working-with-images-and-files) for more information.
+If you want different images to appear for different objects (for example, a picture of a product) these images should be stored as images in the database. See [How To Work with Images & Files](/howto/data-models/working-with-images-and-files) for more information.
 {{% /alert %}}
 
 ## 2 Supported Formats
