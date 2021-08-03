@@ -1,21 +1,17 @@
 ---
-title: "XPath Weekday-from-DateTime"
+title: "XPath 平日から日付時間"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-weekday-from-datetime.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`weekday-from-dateTime()` 関数は、 **Date and time** 属性から、曜日の日を数値として抽出し、値と比較するために使用することができます。 値は 1 から 7 の範囲です。 (1 = 日曜日、7 = 土曜日)。
 
-The `weekday-from-dateTime()` function extracts the day of the week (as a number) from a **Date and time** attribute so it can be used to compare to a value. Values range from 1 to 7 (1 = Sunday, 7 = Saturday).
+## 2つの例
 
-## 2 Example
-
-This query returns all the logs where the day of the week in `DateAttribute` is 6 (Friday):
+このクエリは、 `DateAttribute` の週の曜日が 6 (金曜日) のすべてのログを返します。
 
 ```java
 //Logging.Log[weekday-from-dateTime(DateAttribute) = 6]
