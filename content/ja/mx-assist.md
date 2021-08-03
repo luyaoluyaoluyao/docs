@@ -1,152 +1,150 @@
 ---
-title: "Mendix Assist"
-category: "Microflows"
+title: "Mendixアシスタント"
+category: "マイクロフロー"
 menu_order: 10
-description: "Describes Mendix Assist in Mendix Studio."
+description: "Descriptions Mendix AssistはMendix Studioにあります。"
 tags:
-  - "studio"
-  - "mendix assist"
+  - "スタジオ"
+  - "メンディックスのアシスタント"
   - "AI"
-  - "assistant"
+  - "アシスタント"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix Assist is an artificial intelligence-powered agent that helps you configure microflows in Mendix Studio. It gives unexperienced users recommendations on configuring the next step of the microflow based on activities, parameters, and events that already exist in the microflow.
+Mendix Assistは、Mendix Studioでマイクロフローを構成するのに役立つ人工知能を搭載したエージェントです。 経験の浅いユーザーには、マイクロフローにすでに存在するアクティビティ、パラメータ、およびイベントに基づいて、マイクロフローの次のステップを設定することをお勧めします。
 
-Mendix Assist was built using machine learning analysis of over twelve million anonymized application flows built with Mendix. Mendix uses Deep Learning to detect best practice patterns in microflows. Based on these patterns Mendix Assist predicts the best options for the next activity in a microflow. Moreover, Mendix Assist keeps learning by analyzing new microflows being built.
+Mendix AssistはMendixで構築された1,200万以上の匿名化されたアプリケーションフローの機械学習分析を使用して構築されました。 Mendixは、Deep Learningを使用して、マイクロフローのベストプラクティスパターンを検出します。 これらのパターンに基づいてMendix Assistは、マイクロフロー内の次のアクティビティに最適なオプションを予測します。 さらに、Mendix Assistは、構築される新しいマイクロフローを分析することによって学習を続けています。
 
-## 2 Mendix Assist Overview
+## 2 Mendix Assistの概要
 
-Mendix Assist is enabled by default and is displayed as a blue dot in a flow of a [microflow](microflows). A bow-tie appears on the dot when you hover over it.
+Mendix Assistはデフォルトで有効になっており、 [マイクロフロー](microflows)の中で青色のドットとして表示されます。 点線の上にカーソルを合わせると、蝶ネクタイが現れます。
 
 ![](attachments/mx-assist/mendix-assist-icon.png)
 
 {{% alert type="info" %}}
 
-It is possible to add activities in a regular way without using Mendix Assist.
+Mendix Assistを使用せずに定期的にアクティビティを追加することができます。
 
 {{% /alert %}}
 
-Click the bow-tie to view Mendix Assist recommendations.
+メンディックスアシストの推奨を表示するには、ボウタイをクリックします。
 
 {{% image_container width="350" %}}![](attachments/mx-assist/mx-assist-recommendations.png)
 {{% /image_container %}}
 
-Mendix Assist lists the top five recommendations from the most probable to less probable ones for the particular microflow. Click the suggestion to proceed with it and insert it into a microflow. For more information, see the [Adding Activities and Elements with Mendix Assist](#add-activities) section.
+Mendixアシストは、特定のマイクロフローの可能性が最も低い推奨事項から上位5つの推奨事項をリストしています。 提案をクリックして、マイクロフローに挿入します。 詳細については、 [Mendix Assistでアクティビティと要素を追加する](#add-activities) セクションを参照してください。
 
 {{% alert type="info" %}}
 
-Some activities still need to be configured in **Properties** to function correctly. This concerns activities such as **Create Object**, when you need to set entity and attribute values manually.
+いくつかのアクティビティは、 **プロパティ** で正しく機能するように設定する必要があります。 これは、手動でエンティティと属性値を設定する必要がある場合、 **Create Object**のようなアクティビティに関係します。
 
 {{% /alert %}}
 
-Once you have selected an activity or an event to insert to the microflow using Mendix Assist, the information dialog with brief description of this activity/event is displayed above the flow.
+Mendix Assistを使用して、マイクロフローに挿入するアクティビティまたはイベントを選択したら。 フローの上には、このアクティビティ/イベントの簡単な説明のある 情報ダイアログが表示されます。
 
 ![](attachments/mx-assist/info-dialog.png)
 
-The following options are available in the information dialog box:
+情報ダイアログボックスでは、次のオプションを使用できます。
 
-* **Don't show again** – disables the information dialog box (it will not be shown again when you insert other activities)
-* **Lean More** – opens documentation on microflow activities
-* **Thanks, I understand** – dismisses the current information dialog box
+* **今後表示しない** - 情報ダイアログボックスを無効にします (他のアクティビティを挿入すると再び表示されません)
+* **詳細を見る** - マイクロフローの活動に関するドキュメントを開く
+* **ありがとうございます** – 現在の情報ダイアログボックスを閉じます
 
-## 3 Settings
+## 3つの設定
 
-To open settings of Mendix Assist, click the gear icon in the top right corner of the information dialog.
+Mendix Assistの設定を開くには、情報ダイアログの右上隅にある歯車アイコンをクリックします。
 
 ![](attachments/mx-assist/settings-mx-assist.png)
 
-Settings available for Mendix Assist are described in the table below:
+Mendix Assistで利用可能な設定については、以下の表を参照してください。
 
-| Setting                      | Description                                                                                                                                |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Mendix Assist Is ON/OFF      | Toggling the setting enables/disables the tool.                                                                                            |
-| Information Dialog Is ON/OFF | Toggling the setting enables/disables the information dialog box. **Note** The information dialog box is disabled if Mendix Assist is OFF. |
+| 設定                    | 説明                                                                        |
+| --------------------- | ------------------------------------------------------------------------- |
+| Mendixアシストはオン/オフ      | ツールを有効/無効にする設定を切り替えます。                                                    |
+| format@@0 ダイアログ オン/オフ | 情報ダイアログボックスの有効/無効を切り替えます。 **メモ** Mendix Assistがオフの場合、情報ダイアログボックスは無効になります。 |
 
-You can also enable/disable Mendix Assist by clicking the information icon in the top menu bar of Mendix Studio:
+Mendix Studioのトップメニューバーにある **その他のオプション** アイコンをクリックすることでMendixアシストを有効/無効にすることもできます:
 
-{{% image_container width="300" %}}![](attachments/mx-assist/info-icon-setting.png)
-{{% /image_container %}}
+![](attachments/mx-assist/mx-assist-is-on.png)
 
 {{% alert type="info" %}}
-If you disable Mendix Assist, the information dialog will be disabled as well. Once you re-enable Mendix Assist, the information dialog is also re-enabled.
+Mendix Assistを無効にすると、情報ダイアログも無効になります。 Mendix Assistを再び有効にすると、情報ダイアログも再度有効になります。
 {{% /alert %}}
 
-## 4 Adding Activities and Elements with Mendix Assist {#add-activities}
+## 4 メンディックスアシストでアクティビティと要素を追加する {#add-activities}
 
-You can add various activities using Mendix Assist. Depending on the complexity of the microflow and on the element/activity, it can be inserted right away, or you will need to provide Mendix Assist with additional information. For example, if you are adding a check, you need to specify what object or variable will be checked, and what condition exactly will be checked: if the object exists, or if the object is true. For more information, see the [Adding a Check](#add-check) section.
+Mendix Assistを使用してさまざまなアクティビティを追加できます。 マイクロフローの複雑さと要素/アクティビティに応じて異なります。 すぐに挿入するか、Mendix Assistに追加情報を提供する必要があります。 たとえば、チェックを追加する場合は、チェックするオブジェクトまたは変数を指定する必要があります。 そして、どのような条件が正確にチェックされます:オブジェクトが存在する場合、またはオブジェクトが真の場合。 詳細については、 [チェックの追加](#add-check) セクションを参照してください。
 
-### 4.1 Adding an Activity
+### 4.1 アクティビティの追加
 
-To add an activity (such as **Change Object**, **Show Page**, **Create Object**, etcetera), do the following:
+アクティビティ（ **オブジェクトの変更**、 **ページの表示**、 **オブジェクトの作成**など）を追加するには、次の操作を行います:
 
-1. Click a blue Mendix Assist dot in a microflow.
+1. マイクロフローの青色のMendixアシストドットをクリックします。
 
-2. Browse the suggestions and select the activity you need.
+2. 提案を参照し、必要なアクティビティを選択します。
 
-3.  Click the selected activity to add it to the flow.
+3.  選択したアクティビティをクリックしてフローに追加します。
 
     {{% image_container width="350" %}}![](attachments/mx-assist/mx-assist-list.png)
     {{% /image_container %}}
 
-The activity is added to the flow.
+アクティビティがフローに追加されます。
 
-### 4.2 Adding a Check {#add-check}
+### 4.2 チェックを追加する {#add-check}
 
-Adding a check means that you will add a **Decision** with Boolean attribute type: your flow will be split into one flow labeled *true* and another one labeled *false*. For more information, see [Decision](microflows-decision).
+チェックを追加すると、 **Decision** with Boolean attribute type: あなたのフローは、 *true* と *false* とラベル付けされた別のフローに分割されます。 詳細については、 [Decision](microflows-decision) を参照してください。
 
-{{% image_container width="300" %}}![](attachments/mx-assist/check-added.png)
-{{% /image_container %}}
+![](attachments/mx-assist/check-added.png)
 
 {{% alert type="info" %}}
 
-If you do not have a variable or/and the attributes of the Boolean type, this option will not be listed in the suggestions.
+変数、または、ブール型の属性を持たない場合、このオプションは提案にリストされていません 。
 
 {{% /alert %}}
 
-To add the check, do the following:
+チェックを追加するには、次の操作を行います。
 
-1. Click a blue Mendix Assist dot in a microflow.
+1. マイクロフローの青色のMendixアシストドットをクリックします。
 
-2.  Find **Add a check** in the suggestions.
+2.  Find **小切手** を提案に追加します。
 
     {{% image_container width="350" %}}![](attachments/mx-assist/adding-check.png)
     {{% /image_container %}}
 
-3. The number of options for the check will be opened, select the check that you want to add and click it.
+3. チェックのためのオプションの数が開かれ、追加するチェックを選択してクリックします。
 
-The decision is added to the microflow.
+この決定は、マイクロフローに追加されます。
 
 {{% alert type="info" %}}
 
-The number of options for the check depend on the number of variables of Boolean type in your microflow and on the number of attributes of Boolean type in your domain model. For more information, see [Domain Model](domain-models) and [Attributes](domain-models-attributes). You can also add a check if an object exists microflow.
+チェックのオプションの数は、マイクロフローのブール型の変数の数と、ドメインモデルのブール型の属性の数によって異なります。 詳細については、 [Domain Model](domain-models) および [属性](domain-models-attributes) を参照してください。 オブジェクトがマイクロフローが存在するかどうかを確認することもできます。
 
 {{% /alert %}}
 
-### 4.3 Adding a Decision
+### 4.3 決定の追加
 
-When you add a decision via Mendix Assist that means you add a decision with attribute of enumeration type to your microflow. For more information, see [Decision](microflows-decision) and [Attributes](domain-models-attributes). This means, if you do not have parameters with enumeration data type, **Add decision** will not appear in the suggestions.
+Mendix Assistを介して決定を追加する場合、それは列挙型の属性を持つ決定をマイクロフローに追加することを意味します。 詳細については、 [Decision](microflows-decision) and [Attributes](domain-models-attributes) を参照してください。 つまり、列挙型データ型のパラメータがない場合、 **Add decision** は提案には表示されません。
 
-To add the decision, do the following:
+決定を追加するには、次の手順を実行します。
 
-1. Click a blue Mendix Assist dot in a microflow.
+1. マイクロフローの青色のMendixアシストドットをクリックします。
 
-2. Find **Add a decision** in the suggestions and select it.
+2. 検索 **候補に意思決定** を追加し、選択します。
 
     {{% image_container width="350" %}}![](attachments/mx-assist/adding-decision.png)
     {{% /image_container %}}
 
-The decision is added to the microflow.
+この決定は、マイクロフローに追加されます。
 
 {{% alert type="info" %}}
 
-The number of options for **Add a decision** depend on the number of parameters with enumeration data type in your microflow. For more information, see [Domain Model in Studio](domain-models) and [Attributes](domain-models-attributes).
+**Add a decision** のオプションの数は、マイクロフロー内の列挙型データ型を持つパラメータの数によって異なります。 詳細については、Studio [の](domain-models) Domain Model と [属性](domain-models-attributes) を参照してください。
 
 {{% /alert %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [General Info](general)
-* [Microflows](microflows)
-* [Decision](microflows-decision)
+* [一般情報](general)
+* [マイクロフロー](マイクロフロー)
+* [決定](microflows-decision)
