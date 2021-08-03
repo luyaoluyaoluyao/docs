@@ -1,88 +1,112 @@
 ---
-title: "Layouts"
-parent: "pages"
+title: "レイアウト"
+parent: "page-resources"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "レイアウトウィジェット"
+  - "レイアウト"
+  - "ページテンプレート"
+  - "ページ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Layouts specify what comes where. Each [page](page) is based on a layout. The layout contains widgets and structures that return on every page based on that layout. For example, it is common to put a menu bar widget in a layout so that the menu is visible on all pages.
+レイアウトでは、どこに来るのかを指定します。 各 [ページ](page) はレイアウトに基づいています。 レイアウトには、そのレイアウトに基づいてすべてのページに戻るウィジェットと構造が含まれています。 たとえば、メニューがすべてのページに表示されるように、メニューバーウィジェットをレイアウトに置くことが一般的です。
 
-A layout consists of content and [placeholders](placeholder). The content is everything that should be present in every page that uses the layout, from navigation bars to sign-out buttons. Placeholders are empty areas that later form the canvas for any pages that make use of the layout. The layout content remains the same in every page, but the placeholders cover what is unique to every individual page.
+{{% image_container width="400" %}}
+![](attachments/layout/layout-example.png)
+{{% /image_container %}}
 
-Layouts can be based on other layouts, in which case the generic layout is referred to as the master layout. If a layout has a master layout, it can use the placeholders defined in the master to create a more specialized configuration. If a page is based on this specialized layout, it makes use of the placeholders defined in the new layout, ignoring those of the master layout.
+レイアウトはコンテンツと [プレースホルダー](placeholder) で構成されています。 コンテンツは、ナビゲーションバーからサインアウトボタンまで、レイアウトを使用するすべてのページに表示されるべきすべてのものです。 プレースホルダは、レイアウトを使用する任意のページのキャンバスを後で形成する空の領域です。 レイアウトの内容はすべてのページで同じままですが、プレースホルダは個々のページに固有の内容をカバーします。
 
-![](attachments/16713875/16843991.png)
+レイアウトは他のレイアウトに基づいて行うことができます。この場合、汎用レイアウトはマスターレイアウトと呼ばれます。 レイアウトにマスターレイアウトがある場合、マスターで定義されたプレースホルダを使用して、より特殊な構成を作成できます。 この特殊なレイアウトに基づいているページの場合。 新しいレイアウトで定義されたプレースホルダを使用し、マスターレイアウトのプレースホルダを無視します。 このチェーンは必要な場合に限ります。 より特定のデータ入力レイアウトのマスターレイアウトとして、アプリ全体で使用される汎用的なレイアウトを使用します。 次に専門的な編集ユーザーレイアウトのマスターレイアウトとして使用されます。
 
-This chain can be as long as is necessary, with a generic layout used throughout the project  as a master layout for a more specific data input layout which is, in turn, used as a master layout for a specialized edit user layout.
-
-When opening a new page in the browser, the content found in the layouts is not reloaded if the layout is re-used by the new page. That is, if a user transitions from page A to page B, both of which use layout X, the placeholder content is refreshed, but the layout content is unaffected. This allows for navigation between pages without losing valuable input or performing a costly refresh on elements that do not require one. Example scenarios include a tab container that does not require the user to select the correct tab every time a new page is opened, or a sidebar menu with user input that should not be cleared after every single refresh.
-
-Mendix will intelligently detect if pages share a layout, so no user input is required. This also applies for nested layouts. If two pages have different layouts but those layouts share a common master layout, the sub-layout will reload, but the master layout will remain static.
-
-## 2 Placeholder Management<a name="phm"></a>
+ブラウザで新しいページを開く時 レイアウトが新しいページで再利用された場合、レイアウトで見つかったコンテンツは再読み込みされません。 つまり、ユーザーがAページからBページに遷移した場合、どちらもレイアウト X を使用しています。 プレースホルダー コンテンツは更新されますが、レイアウト コンテンツは影響を受けません。 これにより、貴重な入力を失ったり、1つを必要としない要素を高価に更新したりすることなく、ページ間を移動することができます。 シナリオの例としては、新しいページが開かれるたびにユーザーが正しいタブを選択する必要がないタブコンテナがあります。 または、ユーザー入力のサイドバーメニューを更新するたびに消去すべきではありません。
 
 {{% alert type="info" %}}
-
-The method for mapping placeholders described in this section was introduced in Mendix 7.9.0. Older versions make use of the placeholder properties described in [6 Page Generation Properties](#pgp).
-
+Mendixはページがレイアウトを共有しているかどうかをインテリジェントに検出しますので、ユーザーの入力は必要ありません。 これはネストされたレイアウトにも適用されます。 2 つのページに異なるレイアウトがあり、それらのレイアウトが共通のマスターレイアウトを共有している場合、サブレイアウトは再読み込みされますが、マスターレイアウトは静的なままになります。
 {{% /alert %}}
 
-A layout contains one or more placeholders. One of these placeholders must be named **Main**, and it can be differentiated from the others by a darker shade of blue. Unlike most other widgets, the name of a placeholder carries a special significance. When a user switches a page from one layout to another, the placeholder names will be used to map the content of the page to the new layout. For every placeholder that has content in the current layout, the Modeler will search for a placeholder with the same name in the new one. As the Main placeholder is mandatory, the user can always be assured that at least some of the page content will be salvaged. Any content found in placeholders not present in the new layout will be moved above the canvas, where it can easily be redistributed over the new placeholders.
+## 2つのプロパティ
 
-The placeholder naming scheme also has an impact on [page templates](page-templates). When creating a new page, the template will map its content based on the names of the placeholders in its preview layout. Consequently, a template might describe the content for a placeholder that is not available in the selected layout. To prevent this, a compatible layout is automatically pre-selected when clicking a page template in the create new page dialog. If an incompatible layout is then selected manually, all the content for the missing placeholders will be discarded.
+以下の画像では、レイアウト プロパティの例を示します。
 
-As a consequence of this behavior, user experience can be improved significantly if all of a project's layouts adhere to the same or a similar naming scheme. This will ensure layouts can be alternated freely without having to consider the effect on the content of each individual placeholder.
+{{% image_container width="250" %}}![レイアウト プロパティ ペインの例](attachments/layout/layout-properties.png)
+{{% /image_container %}}
 
-## 3 Common Properties
+レイアウト プロパティは次のセクションで構成されています:
 
-{{% snippet file="refguide7/Document+Name+Property.md" %}}
+* [一般的な](#common)
+* [デザイナー](#designer)
+* [全般](#general)
 
-{{% snippet file="refguide7/Documentation+Property.md" %}}
+### 2.1 共通セクション{#common}
 
-{{% snippet file="refguide7/Document+Class+Property.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 2.2 デザイナーセクション{#designer}
 
-## 4 Designer Properties
+#### 2.2.1 キャンバス幅
 
-{{% snippet file="refguide7/Canvas+Width+Property.md" %}}
+**キャンバス幅** はページエディターのページ幅をピクセル単位で定義します。 これは純粋に編集目的で使用されます; このプロパティは実際のアプリケーションのページの幅に影響を与えません。
 
-{{% snippet file="refguide7/Canvas+Height+Property.md" %}}
+デフォルト値: *800*
 
-## 5 General Properties
+#### 2.2.2 キャンバスの高さ
 
-### 5.1 Master Layout
+**Canvas height** は、ページエディタのページのピクセル単位で推奨される最小高さを定義します。 これは純粋に編集目的で使用されます; このプロパティは実際のアプリケーションのページの高さに影響を与えません。
 
-This property specifies the master layout on which the layout is based. If no master layout is specified, the layout contains a single widget (for example, a [scroll container](scroll-container)) that defines the structure of pages based on this layout. If a master layout is specified, this layout fills the gaps defined by the master layout. You can introduce new gaps in this layout by using [placeholders](placeholder).
+デフォルト値: *600*
 
-### 5.1 Layout Type<a name="layout-type"></a>
+### 2.3 一般プロパティ{#general}
 
-Every layout has a layout type, which determines the purpose of the layout and how a page using the layout is opened.
+#### 2.3.1 プラットフォーム
 
-| Layout Type         | Description                                                                                                                                                                 |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Responsive**      | Use this layout for pages that will work fine on all types of devices. The [layout grid](layout-grid) and other widgets make it possible to create responsive pages.        |
-| **Tablet specific** | Use this layout for pages on a tablet if the responsive option is not sufficient (for example, if different use cases with different user interfaces have to be supported). |
-| **Phone specific**  | Use this layout for pages on a phone if the responsive option is not sufficient (for example, if different use cases with different user interfaces have to be supported).  |
-| **Modal pop-up**    | Use this layout for pages that should appear as [modal pop-up windows](https://www.wikiwand.com/en/Modal_window).                                                           |
-| **Pop-up**          | Use this layout for pages that should appear as modeless pop-up windows.                                                                                                    |
+**プラットフォーム** はレイアウトが作成されたときにのみ設定できます。
 
-## 6 Page Generation Properties<a name="pgp"></a>
+![新しいレイアウトを追加するためのダイアログ](attachments/layout/add-layout.png)
 
-{{% alert type="warning" %}}
+platformプロパティの値は次のとおりです。
 
-This section (along with the placeholder properties described below) was removed in Mendix 7.9.0 in favor of name-based placeholder mapping. For a full explanation, see [2 Placeholder Management](#phm).
+* Web *(デフォルト)* – これらのレイアウトは、ブラウザまたはハイブリッド・モバイルアプリで表示されるページに使用されます。
+* ネイティブ - これらのレイアウトは、ネイティブモバイルアプリで表示されるページに使用されます
 
-{{% /alert %}}
+既存のレイアウトでは、値は読み取り専用です。
 
-### 6.1 Main Placeholder
+#### 2.3.2 マスターレイアウト
 
-This property defines the placeholder in which the Modeler places the page content when generating a page. For example, when you generate an edit page for the edit button of a data grid, the resulting page will contain a data view in the gap of the main placeholder.
+**マスターレイアウト** は、このレイアウトが基づくレイアウトを指定します。 マスターレイアウトが指定されていない場合、レイアウトには単一のウィジェットが含まれます (例: このレイアウトに基づいてページの構造を定義する [スクロールコンテナ](scroll-container))。 マスターレイアウトが指定されている場合、このレイアウトはマスターレイアウトによって定義されたギャップを埋めます。 [プレースホルダー](placeholder) を使用すると、このレイアウトに新しいギャップを生成できます。
 
-### 6.2 Save Button Placeholder
+#### 2.3.3 レイアウトタイプ<a name="layout-type"></a>
 
-This property defines the placeholder in which the Modeler places the save button when generating a page. If no save button placeholder is defined, the save button is placed in the data view control bar if possible.
+**レイアウト タイプ**は、レイアウトの目的とレイアウトを使用するページの開き方を決定します。
 
-### 6.3 Cancel Button Placeholder
+##### 2.3.3.1 Web レイアウトタイプ
 
-This property defines the placeholder in which the Modeler places the cancel button when generating a page. If no save button placeholder is defined, the cancel button is placed in the data view control bar if possible.
+| レイアウトタイプ       | 説明                                                                       |
+| -------------- | ------------------------------------------------------------------------ |
+| **レスポンシブ**     | あらゆる種類のデバイスで正常に動作するページ。                                                  |
+| **タブレット固有の**   | レスポンシブオプションはタブレット上で良いユーザーインターフェイスを提供しないため、タブレットに表示されるページ。                |
+| **電話番号指定**     | レスポンシブオプションが電話で良いユーザーインターフェイスを提供しないので、電話に表示されるページ。                       |
+| **モーダルポップアップ** | モーダルポップアップウィンドウ [として表示されるページ](https://www.wikiwand.com/en/Modal_window)。 |
+| **ポップアップ**     | *モデル* ポップアップウィンドウとして表示されるページ                                             |
+
+##### 2.3.3.2 ネイティブレイアウトタイプ
+
+| レイアウトタイプ   | 説明                                                                                            |
+| ---------- | --------------------------------------------------------------------------------------------- |
+| **デフォルト**  | すべての目的に使用できるページ。                                                                              |
+| **ポップアップ** | 下からスライドし、ヘッダーに戻るアイコンの代わりに閉じるアイコンを持つページ。 既定のレイアウトのあるページが開いている場合、すべてのポップアップページは削除され、履歴から削除されます。 |
+
+## 3つのレイアウトウィジェット
+
+レイアウトには、次のウィジェットを含めることができます。
+
+*   [レイアウト グリッド](layout-grid)
+*   [コンテナをスクロール](scroll-container)
+*   [プレースホルダー](placeholder)
+*   [ヘッダー](ヘッダー)
+*   [サイドバーの切り替え](sidebar-toggle-button)
+
+プレースホルダ、ヘッダー、サイドバーの切り替えはレイアウトに固有であり、レイアウトグリッドとスクロールコンテナはページ上でも使用できます。
