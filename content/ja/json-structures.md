@@ -1,7 +1,13 @@
 ---
 title: "JSON Structures"
 parent: "integration"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/json-structures.pdf).
+{{% /alert %}}
 
 ## 1 General
 
@@ -20,8 +26,6 @@ When you paste or modify the JSON snippet, it is automatically checked for valid
 ![](attachments/18450089/19398781.png)
 
 You cannot press "OK" without making the JSON valid.
-
-JSON snippets with `:`, `^`, or `|` in property names are currently not supported.
 
 {{% /alert %}}
 
@@ -72,7 +76,7 @@ Each JSON property is composed of a key ("name") and a value ("John"). If the va
 *   "string". Converted into an attribute of type String.
 *   123\. Converted into an attribute of type Integer.
 *   true or false. Converted into an attribute of type Boolean.
-*   "1985-04-12T23:20:50.52Z". Converted into an attribute of type DateTime.
+*   "1985-04-12T23:20:50.52Z". Converted into an attribute of type **Date and time**.
 *   12.50\. Converted into an attribute of type Decimal.
 
 ### 2.2 JSON Arrays
