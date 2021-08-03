@@ -46,9 +46,9 @@ tags:
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
 
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
 * ドメインモデルが次のように構成されていることを確認してください:
 
@@ -72,7 +72,7 @@ tags:
 
     {{% image_container width="250" %}}![Button Properties](attachments/pages-how-to-configure-form/button-properties.png){{% /image_container %}}
 
-3.  **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
+3.  **ページの選択** ダイアログボックスで、右上隅のプラスアイコンをクリックします。
 
 1.  In the **Create new page** dialog box, set the **Title** to **Reports_Details**, and set the **Layout** to **Atlas_Default**.
 
@@ -82,13 +82,10 @@ tags:
 
 3. **Create** をクリックします。
 
-3. フォーム(データビュー)のページが作成されます。 ただし、データビューのデータソースが **List ウィジェット**に自動的に設定されており、それを変更する必要があります。 データ ビューを選択し、そのプロパティに移動します。
-
-1. データ ソースを **リスト ウィジェット** から **コンテキスト** に変更します。
-
-2. **エンティティ** プロパティをクリックし、 **検査レポート** エンティティを設定します。
+7. フォーム(データビュー)のページが作成されます。 データ ビュー プロパティを開き、データ ソースが **コンテキスト** に自動的に設定され、 **エンティティ** が **検査レポート** に設定されていることを確認してください:
 
       {{% image_container width="250" %}}![](attachments/pages-how-to-configure-form/data-view-source.png){{% /image_container %}}
+
 
 ページのフォームが設定されています:
 {{% image_container width="600" %}}![](attachments/pages-how-to-configure-form/data-view-configured.png){{% /image_container %}}
@@ -117,7 +114,7 @@ tags:
 
 4. 現在の検査レポートに関連付けられているチェックリスト項目だけを表示するには 関連する **チェックリスト** 図形(*Checklist_InspectionReport/Checklist*)を選択し、 **図形を選択** ダイアログボックスで **選択**をクリックします:
 
-    {{% image_container width="450" %}}![](attachments/pages-how-to-configure-form/data-grid-over-association.png){{% /image_container %}}
+    ![](attachments/pages-how-to-configure-form/data-grid-over-association.png)
 
 5. ページの主な目的は情報を表示することであるため、データ グリッドに **検索** セクションは必要ありません。 データ グリッドのプロパティを開く > **** セクションを検索し、 **検索を有効にする** トグル:
 
@@ -133,7 +130,7 @@ tags:
 
 9. **ページ** プロパティをクリックします。
 
-10. **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
+10. **ページの選択** ダイアログボックスで、右上隅のプラスアイコンをクリックします。
 
 11. In the **Create new page** dialog box, set the **Title** to **Checklist_Details** and the **Layout** to **PopupLayout**.
 
@@ -167,8 +164,8 @@ tags:
 
 {{% /image_container %}}
 
-アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio8/publishing-app) を参照してください。
+アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio/publishing-app) を参照してください。
 
-ページの詳細などで作業することもできます。 検査レポートのリストに動的画像を追加すると、その名前の横に独自の会社ロゴが表示されます。 動的画像の詳細については、 [イメージ & ファイル](/studio8/page-editor-widgets-images-and-files) を参照してください。
+ページの詳細などで作業することもできます。 検査レポートのリストに動的画像を追加すると、その名前の横に独自の会社ロゴが表示されます。 動的画像の詳細については、 [イメージ & ファイル](/studio/page-editor-widgets-images-and-files) を参照してください。
 
 新しい機能を追加することもできます。 たとえば、検査官がレポートに画像を添付できるようにできます。 詳細については、 [エンドユーザーが画像を添付できるようにする方法](pages-how-to-attach-images) を参照してください。
