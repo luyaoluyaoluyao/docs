@@ -2,6 +2,8 @@
 title: "DB2"
 parent: "データストレージ"
 menu_order: 40
+tags:
+  - "studio pro"
 ---
 
 ## 1つの紹介
@@ -32,7 +34,7 @@ If the transaction log space is depleted or there is a temporary increase in the
 
 For more detailed information, see [DB2 SQL error: SQLCODE: -964, SQLSTATE: 57011, SQLERRMC: null](http://www-01.ibm.com/support/docview.wss?uid=swg21298630) on the *IBM Support* pages and [SQL0964C – The transaction log for the database is full](http://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.messages.sql.doc/doc/msql00964c.html) in the *SQL messages* section of the *IBM Knowledge Center*.
 
-## 4 DB2 大文字と小文字を区別しない
+## 4 DB2 大文字と小文字を区別しない {#making}
 
 文字の場合が混在する文字列列の値にソートを適用する場合、DB2 は文字の場合も考慮されます。 ただし、DB2 データベースが大文字と小文字を区別しない照合順序で作成される場合は、このような状況を避けることができます。
 
