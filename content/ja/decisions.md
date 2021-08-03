@@ -1,6 +1,6 @@
 ---
 title: "決定"
-parent: "マイクロフローとナノフロー"
+parent: "application-logic"
 menu_order: 50
 tags:
   - "studio pro"
@@ -8,7 +8,12 @@ tags:
   - "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/decisions.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
+
 決定は、これらの要素に設定された条件に基づいてシーケンスフローを分割またはマージする要素です。 決定はダイヤモンドの形をしている。
 
 このドキュメントで説明されている要素は、 **Toolbox** の **決定** セクションにあります:
