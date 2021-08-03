@@ -1,38 +1,38 @@
 ---
-title: "OQL RANGEBEGIN"
+title: "OQL範囲"
 parent: "oql-functions"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `RANGEBEGIN` function extracts the initial value of a range parameter.
+`RANGEBEGIN` 関数は、範囲パラメータの初期値を抽出します。
 
-`RANGEBEGIN` and [RANGEEND](oql-rangeend) are OQL functions that use a parameter, and OQL parameters are only available in [datasets](data-sets) (which are used for generating a report). When you create a page and add a report that has a dataset, you can use `RANGEBEGIN` and `RANGEEND` in that dataset.
+`RANGEBEGIN` and [RANGEEND](oql-rangeend) are OQL functions that use a parameter, and OQL parameters are only available in [datasets](data-sets) (which are used for generating a report). ページを作成し、データセットがあるレポートを追加する場合 そのデータセットに `RANGEBEGIN` と `RANGEEND` を使用できます。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
-RANGEBEGIN ( $range )
+RANGEBEGIN( $range)
 ```
 
-`$range` specifies the range parameter.
+`$range` は範囲パラメータを指定する。
 
-## 3 Example
+## 3つの例
 
-This is an example of using a range in OQL, where `$range` is set to last week, which will give you all the customers born in the last week:
+これは、OQL の範囲を使用している例です。 `$range` は先週設定されています。 先週生まれたお客様には次のようなものがあります
 
 ```sql
-SELECT FirstName AS First, LastName AS Last, Name AS Name, Birthday AS BDay, CustomerType AS Type FROM Sales.Customer
-WHERE Birthday IN ($rangeLastWeek)
+姓として最初に姓として、姓として、名前として、名前として、誕生日として、誕生日として、お客様として、FROMセールスを入力してください。
+誕生日は ($rangeLastWeek)
 ```
 
-This example uses the `RANGEBEGIN` function in the `WHERE` clause, which will give you all the customers born since the beginning of last week:
+この例では、 `WHERE` 節の `RANGEBEGIN` 関数を使用します。 先週の初めから生まれてきたお客様全員を紹介します
 
 ```sql
-SELECT FirstName AS First, LastName AS Last, Name AS Name, Birthday AS BDay, CustomerType AS Type FROM Sales.Customer
-WHERE Birthday > RANGEBEGIN($rangeLastWeek)
+First, LastName as Last, Name AS Name, Birthday AS BDay, CustomerType AS Type FROM Sales.Customer
+Where Birthday > RANGEBEGIN($rangeLastWeek)
 ```
