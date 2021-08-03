@@ -1,7 +1,13 @@
 ---
 title: "已发布的 Web 服务"
 parent: "已发布的网络服务"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-web-service.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -23,9 +29,7 @@ parent: "已发布的网络服务"
 
 如果设置为“是”，收到的请求将与WSDL进行验证。
 
-请注意，在Mendix 5.8.0中引进这个属性时，这方面的行为略有改变。 原始值已经用于验证所有情况，但现在我们正在验证整个传入的 XML 消息。 不要打破旧的网络服务请求，这些请求可能无法对照WSDL进行验证，但不会引起实际问题。 在转换旧版本的项目时，我们不会默认打开此功能。 然而，这意味着如果你想再次验证原始，你必须打开此功能。
-
-_默认值：_ 是
+默认： *是*
 
 ### 3.2 身份验证
 
@@ -38,12 +42,6 @@ _默认值：_ 是
 在将您的 WSDL 发布给第三方之前，必须正确配置目标命名空间。 稍后更改可能会破坏第三方应用程序来呼叫您已发布的网络服务。
 
 ### 3.4 生成 XML
-
-{{% alert type="info" %}}
-
-**生成的 XML** 功能是在版本 7.13.0 中引入的。
-
-{{% /报警 %}}
 
 如果您需要在 XML 中包含关联标签，请选择 **包含关联标签**。 这通常是不必要的，对此的支持将在未来的版本中删除。
 
