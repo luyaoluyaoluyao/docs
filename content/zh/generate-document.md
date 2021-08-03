@@ -1,101 +1,101 @@
 ---
-title: "Generate Document"
-parent: "activities"
+title: "生成文档"
+parent: "活动"
 menu_order: 80
-description: "Describes generating documents from a microflow."
+description: "描述从微流程生成文档。"
 tags:
   - "PDF"
-  - "document"
-  - "document template"
+  - "文档"
+  - "文档模板"
   - "HTML"
   - "Microsoft Word"
   - "ODT"
   - "studio pro"
-  - "generate document"
+  - "生成文档"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
-{{% /alert %}}
+此活动只能在 **微流** 中使用。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Generate document** activity is used to write a document to a file, based on a [document template](document-templates).
+**生成文档** 活动用于将文档写入到文件中，基于 [文档模板](document-templates)。
 
-![Generate Document](attachments/generate-document/generate-document.png)
+![生成文档](attachments/generate-document/generate-document.png)
 
-For more information on which types of documents can be created, see [Document Type](#document-type).
+关于哪些类型的文档可以创建的更多信息，见 [文档类型](#document-type)。
 
-## 2 Properties
+## 2 属性
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
 
-![Generate Document Properties](attachments/generate-document/generate-document-properties.png)
+![生成文档属性](attachments/generate-document/generate-document-properties.png)
 
-The **Generate document** properties pane consists of the following sections:
+**生成文档** 属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 File
+### 3.1 档案
 
-The name of the file document that will contain the generated document. It should be an object of entity *System.FileDocument* or its specialization.
+包含生成文档的文件名称。 它应该是实体 *System.FileDocument* 或其专业化的对象。
 
-### 3.2 Language
+### 3.2 语文
 
-The language in which the titles and labels of the document should appear is described in the table below:
+文件标题和标签所用的语言载于下表：
 
-| Option                   | Description                                                                              |
-| ------------------------ | ---------------------------------------------------------------------------------------- |
-| Current user *(default)* | Use the language of the current user.                                                    |
-| Project default          | Use the default language that is specified in the [App Settings](project-settings).      |
-| Variable                 | Use the language stored in the selected object, which must be of type *System.Language*. |
+| 选项          | 描述                                      |
+| ----------- | --------------------------------------- |
+| 当前用户 *(默认)* | 使用当前用户的语言。                              |
+| 项目默认        | 使用 [App 设置](project-settings) 中指定的默认语言。 |
+| 变量          | 使用所选对象中存储的语言，语言类型必须是 *System.Language*。 |
 
-### 3.3 Document Type{#document-type}
+### 3.3 文档类型{#document-type}
 
-The document type specifies the type of the generated document.
+文档类型指定生成的文档类型。
 
-| Option           | Description                                      |
-| ---------------- | ------------------------------------------------ |
-| HTML             | Generate a document in HTML format.              |
-| PDF              | Generate a document in PDF format.               |
-| Word 2007        | Generate a document in Word 2007 format.         |
-| Word 2003        | Generate a document in Word 2003 format.         |
-| Rich-text format | Generate a document in Rich-text format.         |
-| ODT              | Generate a document in Open Office (ODT) format. |
+| 选项        | 描述                          |
+| --------- | --------------------------- |
+| HTML      | 以 HTML 格式生成文档。              |
+| PDF       | 以 PDF 格式生成文档。               |
+| 2007年Word | 用2007年格式生成文件。               |
+| 2003年词    | 生成一个 Word 2003 格式的文档。       |
+| 富文本格式     | 生成一个 Rich-text 格式的文档。       |
+| ODT       | 以 Open Office (ODT) 格式生成文档。 |
 
-### 3.4 Override Margins
+### 3.4 覆盖边距
 
-**Override margins** allows you to set custom margins for your documents. By using variables, these can be defined at runtime.
+**覆盖边距** 允许您设置自定义边距。 通过使用变量，这些变量可以在运行时定义。
 
-### 3.5 Template
+### 3.5 模板
 
-Template defines which [document template](document-templates) is used to generate the file. Depending on the selected document template one or more [arguments](#argument) need to be specified.
+模板定义了用于生成文件的 [文档模板](document-templates)。 根据所选文档模板，需要指定一个或多个 [参数](#argument)。
 
-### 3.6 Arguments
+### 3.6 参数
 
-Depending on the selected document, you will see a list of its arguments in a table. Arguments pass data to the activity.
+根据选定的文档，您将在表格中看到其参数列表。 参数将数据传递到活动中。
 
-#### 3.5.1 Widget
+#### 3.5.1 部件
 
-The name of the widget in the document template that needs arguments to be passed to it. This property  is read-only.
+文档模板中需要传递参数的小部件名称。 此属性是只读的。
 
 #### 3.5.2 Type
 
-The type of the argument used in the document template that is read-only.
+文档模板中使用的只读参数类型。
 
-#### 3.5.3 Argument {#argument}
+#### 3.5.3 参数 {#argument}
 
-The **Edit argument** button allows you to edit the argument value.  An argument is the input data that you are passing to the document template. For each document template parameter (for each non-nested data view and data grid), you must supply an argument of the same type. The values of the arguments are expressed using [expressions](expressions).
+**编辑参数** 按钮允许您编辑参数值。  一个参数是您要传递到文档模板的输入数据。 对于每个文档模板参数(对于每个非嵌套数据视图和数据网格)，您必须提供一个相同类型的参数。 参数的值使用 [表达式](expressions) 表达。
 
-## 4 Common Section {#common}
+## 4 共同部分 {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
