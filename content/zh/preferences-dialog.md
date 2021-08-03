@@ -1,131 +1,131 @@
 ---
-title: "Preferences"
-parent: "edit-menu"
+title: "首选项"
+parent: "编辑菜单"
 menu_order: 50
 tags:
   - "studio pro"
-  - "preferences"
-  - "settings"
-  - "edit menu"
+  - "首选项"
+  - "设置"
+  - "编辑菜单"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Preferences** option in the menu opens a dialog box where you can set user-specific preferences which apply to the whole of Studio Pro:
+菜单中的 **首选项** 打开了一个对话框，您可以在其中设置适用于整个Studio Pro的用户特定偏好：
 
-![Preferences](attachments/preferences-dialog/preferences.jpg)
+![首选项](attachments/preferences-dialog/preferences.jpg)
 
-## 2 General Tab
+## 2 个常规标签
 
-### 2.1 Interface
+### 2.1 接口
 
-#### 2.1.1 Keep Active Document Selected in App Explorer
+#### 2.1.1 在应用程序资源管理器中保留选择活动文档
 
-When enabled, **App Explorer** automatically highlights the document that is currently active. When this property is disabled, the selection in **App Explorer** remains unchanged when the active document changes.
+启用后， **App Explorer** 会自动突出显示当前激活的文档。 当此属性被禁用时， **App Explorer** 中的选择在活动文档更改时保持不变。
 
-### 2.2 Mendix Assist
+### 2.2 Mendix 助手
 
 #### 2.2.1 Logic Bot
 
-The **Logic Bot** tab contains the following settings:
+**逻辑箱** 标签包含以下设置：
 
-* **Enable MxAssist Logic Bot** – when enabled, [MxAssist Logic Bot](mx-assist-logic-bot) is activated and can give you suggestions for microflow activities. You can also switch MxAssist Logic Bot on and off in the top right corner of the microflow editor.
-* **Show Suggestions for System Variables** – when enabled, MxAssist Logic Bot will include system objects in its suggestions (for example, it can suggest that you change system objects like currentUser or currentSession).
+* **启用 MxAssist逻辑箱** - 启用时， [MxAssist逻辑箱](mx-assist-logic-bot) 已激活，可以为您的微流程活动提出建议。 您也可以在微流编辑器右上角切换MxAssist逻辑机器人。
+* **为系统变量显示建议** - 启用后，MxAssist逻辑机器人将会在其建议中包含系统对象 (例如) 它可以建议您更改系统对象，如当前用户或当前会话)。
 
-#### 2.2.2 Performance Bot
+#### 2.2.2 性能机器人
 
-The **Performance Bot** tab contains the **Show recommendation in editors** setting. When enabled, [MxAssist Performance Bot](mx-assist-performance-bot) highlights elements that contain performance issues in visual editors.
+**Performance Bot** 标签包含 **在编辑器** 设置中显示建议。 如果启用， [MxAssist性能箱](mx-assist-performance-bot) 突出显示在视觉编辑器中包含性能问题的元素。
 
-### 2.3 Error List
+### 2.3 错误列表
 
-#### 2.3.1 Auto-Check Delay
+#### 2.3.1 自动检查延迟
 
-The **Auto-check delay** is the number of milliseconds that Studio Pro waits after a change, before starting the consistency checks. Increase this setting for large apps if Studio Pro responses slowly after changes.
+**自动检查延迟** 是Studio Pro 更改后等待的毫秒数，然后再开始一致性检查。 如果Studio Pro 在更改后缓慢响应，请为大型应用程序增加此设置。
 
-#### 2.3.2 Highlight Shown Errors and Warnings in the Editor
+#### 2.3.2 突出显示编辑器中显示的错误和警告
 
-When **Highlight shown errors and warnings in the editor** is checked, the errors and warnings which are currently shown in the Error List (as determined by the **Errors** and **Warnings** toggle buttons and the suppression rules) will be highlighted on the affected elements in the editor.
+当 **高亮显示编辑器** 中显示的错误和警告时, 当前在错误列表中显示的错误和警告(由 **错误** 和 **警告** 切换按钮和抑制规则确定)将在编辑器中的受影响元素上高亮显示。
 
-### 2.4 Deployment
+### 2.4 部署
 
-#### 2.4.1 JDK directory
+#### 2.4.1 JDK 目录
 
-This is the directory in which the Java Development Kit (JDK) is located on the computer on which you deploy the application. Usually, the correct directory is located automatically.
+这是你部署应用程序的计算机上的 Java Development Kit (JDK) 所在的目录。 通常，正确的目录是自动定位的。
 
-The JDK is necessary to run Mendix applications, because the Mendix Runtime is written in Java.
+JDK 是运行 Mendix 应用程序所必需的，因为Mendix Runtime 是在 Java 中写的。
 
-#### 2.4.2 Enable Run Optimizations
+#### 2.4.2 启用运行优化
 
-Enable this setting to increase the speed at which a running application is updated after changes have been made in Studio Pro. When only pages, layouts or snippets have been changed, an entire restart of the application is skipped to decrease deployment time. Also, no Java compilation is performed when no relevant files have changed.
+启用此设置以提高工作室专业版更改后运行应用程序更新速度。 当只有页面、布局或代码片段被更改时，应用程序的整个重启将被跳过以减少部署时间。 另外，当相关文件没有改变时，没有执行Java 编译。
 
-## 3 Model Tab
+## 3 个模型选项卡
 
-### 3.1 When Prompted by a Widget to Automatically Fill Its Contents, Select 'Yes' by Default
+### 3.1 当小部件提示自动填充其内容时，默认选择“是”
 
-This setting defines the default response to the question whether to automatically fill the contents of a data widget. This question is asked, for example, when dragging an Entity onto a Data View widget. When enabled, the pre-selected answer is **yes**; otherwise, it is **no**.
+此设置定义了是否自动填写数据部件内容的默认答案。 例如，当将实体拖放到数据视图部件时会问这个问题。 如果启用，预选答案是 **是**；否则它是 **没有**。
 
-## 4 Version Control Tab
+## 4 版本控制选项卡
 
-### 4.1 File Comparison
+### 4.1 文件比较
 
-#### 4.1.1 Executable
+#### 4.1.1 可执行
 
-This is the path and name of the program that is used to view the details of file changes in the [commit dialog box](commit-dialog).
+这是用于在 [提交对话框](commit-dialog) 中查看文件更改细节的程序的路径和名称。
 
-#### 4.1.2 Argument Pattern
+#### 4.1.2 参数模式
 
-This is the pattern from which the arguments are derived that are passed to the file comparison program. The following two placeholders can be used in this pattern:
+这是传递到文件比较程序的参数生成的模式。 以下两个占位符可以在此模式中使用：
 
-* `{0}` – this is replaced with the name of the original file before the arguments are passed to the file comparison program
-* `{1}` – this is replaced with the name of the changed file before the arguments are passed to the file comparison program
+* `{0}` - 在将参数传递到文件比较程序之前用原始文件的名称替换
+* `{1}` - 在将参数传递到文件比较程序之前，这个名称已被更改的文件所替代。
 
-### 4.2 Enable Private Version Control with Subversion{#enable}
+### 4.2 使用 Subversion{#enable} 启用私有版本控制
 
-Select this option when you want to work on an app that is not stored in [Mendix Team Server](/developerportal/collaborate/team-server), but in another Subversion server to which you have access. This will allow you to specify the location of the app on the Subversion server when opening, downloading, or uploading the app.
+当您想要运行一个未存储在 [Mendix Team Server](/developerportal/collaborate/team-server)中的应用程序时，选择此选项 但在另一个您可以访问的 Subversion 服务器。 这将允许您在打开、下载或上传应用程序时，在 Subversion 服务器上指定应用程序的位置。
 
-### 4.3 Enable Private Version Control with Git
+### 4.3 使用Git启用私人版本控制
 
-Select this option when you want to work on an app that is not stored in [Mendix Team Server](/developerportal/collaborate/team-server), but in a private Git server to which you have access. This will allow you to specify the location of the app on the Git server when opening, downloading, or uploading the app. In this section, you also need to specify name and email values that will be used to identify your commits with Git.
+当您想要运行一个未存储在 [Mendix Team Server](/developerportal/collaborate/team-server)中的应用程序时，选择此选项 但在您可以访问的 Git 私人服务器。 这将允许您在打开、下载或上传应用程序时，在 Git 服务器上指定应用程序的位置。 在本节中，您还需要指定名称和电子邮件值，用于用Git来识别您的提交。
 
-## 5 Advanced Tab
+## 5 个高级标签
 
-### 5.1 Proxy Server
+### 5.1 代理服务器
 
-Sometimes the computer running Studio Pro cannot access the internet directly, but has to connect to a proxy server that requires authentication. If this is the case, then these settings can be used to specify the user name and password to connect to the proxy server.
+有时候，运行 Studio Pro 的计算机无法直接访问互联网，但必须连接到需要身份验证的代理服务器。 如果情况如此，这些设置可以用来指定用户名和密码连接到代理服务器。
 
-## 6 New Features Tab {#new-features}
+## 6 个新功能选项卡 {#new-features}
 
-The **New features** tab allows you to turn new features on and off. These are features which are being worked on but are either not yet developed sufficiently to remove the previous version, or which are currently optional.
+**新功能** 标签允许您打开或关闭新功能。 这些是正在进行的功能，但尚未得到足够的开发，无法删除以前的版本，或是目前是可选的。
 
 {{% alert type="info" %}}
-You need to restart Studio Pro for changes to these settings to take effect.
-{{% /alert %}}
+您需要重新启动 Studio Pro 才能使这些设置生效。
+{{% /报警 %}}
 
-### 6.1 New Version of the Connector {#new-connector}
+### 6.1 连接器的新版本 {#new-connector}
 
-With this option, you can enable the new version of the [Connector](view-menu#connector). Should you find any issues in the new version, you can switch back to the old version by clearing this check box.
+通过此选项，您可以启用新版本的 [连接器](view-menu#connector)。 如果您在新版本中发现任何问题，您可以通过清理此复选框切换到旧版本。
 
-Default: *disabled*
+默认值： *已禁用*
 
-### 6.2 New Version of the App Explorer {#new-project-explorer}
+### 6.2 应用程序探索器的新版本 {#new-project-explorer}
 
-With this option, you can enable the new version of the [App Explorer](project-explorer). Should you find any issues in the new version, you can switch back to the old version by clearing this check box.
+通过此选项，您可以启用新版本的 [App Explorer](project-explorer)。 如果您在新版本中发现任何问题，您可以通过清理此复选框切换到旧版本。
 
-Default: *enabled*
+默认值： *已启用*
 
-### 6.3 New Version of the Toolbox {#new-toolbox}
+### 6.3 工具箱的新版本 {#new-toolbox}
 
-With this option, you can enable the new version of the [Toolbox](/refguide/view-menu#toolbox). Should you find any issues in the new version, you can switch back to the old version by clearing this check box.
+使用此选项，您可以启用新版本的 [Toolbox](/refguide/view-menu#toolbox)。 如果您在新版本中发现任何问题，您可以通过清理此复选框切换到旧版本。
 
-Default: *enabled*
+默认值： *已启用*
 
-### 6.4 New Merge Algorithm with Fine-Grained Conflict Resolution
+### 6.4 新合并算法，精致冲突解决
 
-With this option, you can enable the new merge algorithm that is used when you update your app or merge changes in it. For more information on the algorithm, see [New Merge Algorithm with Fine-Grained Conflict Resolution](new-merge-algorithm).
+通过此选项，您可以启用新的合并算法，当您更新或合并应用程序中的更改时。 关于该算法的更多信息，见 [新合并算法与精致冲突解析](new-merge-algorithm)。
 
-Default: *disabled*
+默认值： *已禁用*
 
-## 7 Read More
+## 7 阅读更多
 
-* [Upload to Version Control Server](upload-to-version-control-dialog)
-* [How to Work with an On-Premises Version Control Server](/howto/collaboration-requirements-management/on-premises-svn-howto)
+* [上传到版本控制服务器](upload-to-version-control-dialog)
+* [如何与前提版本控制服务器合作](/howto/collaboration-requirements-management/on-premises-svn-howto)
