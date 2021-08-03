@@ -1,91 +1,91 @@
 ---
-title: "Import Mappings"
+title: "マッピングをインポート"
 parent: "mapping-documents"
 tags:
   - "studio pro"
 ---
 
-Please refer to [Mapping Documents](mapping-documents) for an introduction.
+紹介については、 [マッピングドキュメント](mapping-documents) を参照してください。
 
-## 1 Obtaining Objects in Import Mappings
+## 1 マッピングをインポートしてオブジェクトを取得する
 
-Figure 1 depicts an example of an Import Mapping document in which two elements from an XML Schema have been selected using the **Select elements...** dialog. Following this the ReceivedPartners and ReceivedClient entities were added, and mapped to the Result and Client schema elements. Each time the Import Mapping is invoked, a new ReceivedPartners object is created.
+Figure 1 depicts an example of an Import Mapping document in which two elements from an XML Schema have been selected using the **Select elements...** dialog. これに続いて、ReceivedPartnersとReceivedClientエンティティが追加され、結果とクライアントスキーマ要素にマッピングされました。 インポートマッピングが呼び出されるたびに、新しいReceivedPartnersオブジェクトが作成されます。
 
 ![](attachments/import-mappings/16843942.png)
 
-**Figure 1**
+**図 1**
 
-### 1.1 Obtaining an Object
+### 1.1 オブジェクトの取得
 
-For each XML or JSON object, a Mendix object needs to be obtained. You can create one or you can find an existing object in the database. Alternatively, you can use a custom microflow that returns an object. You can see how a Mendix object is obtained in the window depicted in figure 2, which is shown after double clicking a specific mapping element.
+XML または JSON オブジェクトごとに、Mendix オブジェクトを取得する必要があります。 作成するか、データベース内に存在するオブジェクトを見つけることができます。 あるいは、オブジェクトを返すカスタムマイクロフローを使用することもできます。 図2に示すウィンドウでMendixオブジェクトがどのように取得されているかを見ることができます。 これは特定のマッピング要素をダブルクリックすると表示されます。
 
 ![](attachments/import-mappings/16843943.png)
 
-**Figure 2**
+**図 2**
 
-### 1.2 Attribute Mapping Properties
+### 1.2 属性マッピングのプロパティ
 
-#### 1.2.1 Obtain Mendix Object Methods
+#### 1.2.1 Mendix オブジェクトメソッドの取得
 
-| Property                    | Description                                                                                                                                                                                                                                                                                                                             |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Create an object**        | Simply creates a new object. An error can be thrown if there are any before create microflows that fail.                                                                                                                                                                                                                                |
-| **Find an object (by key)** | Searches for an object, using keys defined in the attributes list. The runtime searches for the object by taking all attributes marked as **Key** (in the **Value element to attribute mapping** section below) and converting them to an XPath query. If more than one object is returned by the XPath query, an error will be thrown. |
-| **Call a microflow**        | Calls a microflow to obtain an object. If the microflow expects any parameters, these need to be specified in the **Select...** window. Possible parameters are the input parameter (see above), any parent entity in the mapping and of course any attributes in the current XML element.                                              |
+| 属性                  | 説明                                                                                                                                                                     |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **オブジェクトを作成**       | 単に新しいオブジェクトを作成します。 失敗するマイクロフローを作成する前に、エラーが発生する可能性があります。                                                                                                                |
+| **オブジェクトを検索 (キーで)** | 属性リストで定義されているキーを使用してオブジェクトを検索します。 ランタイムは、 **キー** としてマークされたすべての属性 (下記の **値要素でマッピングする** セクション) を使用してオブジェクトを検索し、XPath クエリに変換します。 XPath クエリにより複数のオブジェクトが返されると、エラーがスローされます。 |
+| **マイクロフローを呼び出す**    | オブジェクトを取得するためにマイクロフローを呼び出します。 マイクロフローがパラメータを期待する場合、これらは **Select...** ウィンドウで指定する必要があります。 可能なパラメーターは入力パラメーター(上記参照)であり、マッピング内の親エンティティであり、もちろん現在の XML 要素内の属性です。           |
 
-#### 1.2.2 If No Object Was Found
+#### 1.2.2 オブジェクトが見つからなかった場合
 
-This is the action that the runtime will perform when an error occurred in the specified **Obtain Mendix Object** action.
+これは、指定された **Mendix Object** アクションでエラーが発生したときにランタイムが実行されるアクションです。
 
 ![](attachments/import-mappings/no-object-found.png)
 
-| Property   | Description                                                                                                  |
-| ---------- | ------------------------------------------------------------------------------------------------------------ |
-| **Create** | Create an object of the correct entity to map to.                                                            |
-| **Ignore** | Don't map this element and continue parsing the rest of the XML.                                             |
-| **Error**  | Explicitly stop parsing the XML and throw an error. This error needs to be handled in the calling microflow. |
+| 属性      | 説明                                                          |
+| ------- | ----------------------------------------------------------- |
+| **作成**  | マップする正しいエンティティのオブジェクトを作成します。                                |
+| **無視**  | この要素をマッピングし、残りの XML の解析を続行しないでください。                         |
+| **エラー** | XML の解析を明示的に中止し、エラーを投げます。 このエラーは、呼び出し元のマイクロフローで処理する必要があります。 |
 
-If this is the top level of the mapping, you can check **Decide this at the place where the mapping gets used**. If this is checked the option **if no object was found** can be set whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
+これがマッピングのトップレベルである場合、 **マッピングが使用される場所でこれを決定する**. If this is checked the option **if no object was found** can be set whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
 
-### 1.3 Setting Associations
+### 1.3 関連を設定
 
-Optionally, you may set an association to the parent object. If set to Yes, a list of allowed associations is shown. If an association is selected, it is drawn in the mapping document.
+オプションで、関連付けを親オブジェクトに設定できます。 「はい」に設定した場合、許可された関連付けのリストが表示されます。 関連付けが選択されると、マッピングドキュメント内に描画されます。
 
 {{% alert type="warning" %}}
 
-Be aware that lists are not stored ordered in the Mendix database. XML Schema can prescribe that a grouping of objects is a sequence, but the order of Mendix objects in the database may differ from the order of incoming XML elements.
+リストは Mendix データベースに保存されていないことに注意してください。 XML スキーマは、オブジェクトのグループ化はシーケンスであることを規定することができます。 しかし、データベース内の Mendix オブジェクトの順序は、受信する XML 要素の順序と異なる場合があります。
 
 {{% /alert %}}
 
-## 2 Mapping Attributes in Import Mappings
+## インポートマッピングでのマッピング属性 2
 
-Each selected XML or JSON element needs to be mapped to an attribute in the domain entity. If you don't want to map certain elements, simply uncheck them in the **Select elements...** dialog box. Configuring how to map the attributes is done in the screen depicted in figure 3, which is shown after double clicking a specific mapping element.
+選択された XML または JSON 要素は、ドメインエンティティ内の属性にマップされる必要があります。 特定の要素をマッピングしたくない場合は、 **要素を選択...** ダイアログボックスでチェックを外してください。 属性をマップする方法を設定することは、特定のマッピング要素をダブルクリックした後に表示される図3に示されている画面で行われます。
 
 ![](attachments/import-mappings/16843943.png)
 
-**Figure 3**
+**図 3**
 
-Having defined the mappings for the attributes, these mappings are also shown in the mapping document. When a specific attribute is selected the schema element is also selected. This works the other way around too. An example of this is shown in figure 4, where the **dati** attribute is selected in both the Entity and the schema element (in this case dati is mapped to dati).
+属性のマッピングを定義した場合、これらのマッピングはマッピングドキュメントにも表示されます。 特定の属性が選択されると、スキーマ要素も選択されます。 これは他の方法でも動作します。 An example of this is shown in figure 4, where the **dati** attribute is selected in both the Entity and the schema element (in this case dati is mapped to dati).
 
 ![](attachments/import-mappings/16843944.png)
 
-**Figure 4**
+**図 4**
 
-### 2.1 Mapping Attribute Properties
+### 2.1 属性のプロパティ
 
-| Property                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Entity Attribute         | Here you can select an attribute to map this value element to. Each value mapping needs to be mapped, except when it is used as a parameter in the microflow to obtain an object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Schema value element     | The name and type of the schema value element.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Occurrence               | Reflects how often the element may occur. This can be **0..1** or **1**, depending on if it is required or not. If the value is empty and the minimum required occurrence of the element is 0 (as specified by the schema) the creation of the element will be skipped. In the case you want to never map a value to an optional element, simply disable it in the **Select elements...** dialog.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Convert using (optional) | If the incoming data of a value element is not in the right format, you can use a microflow to convert it to a different data type. The conversion microflow should have one parameter that matches the element type. Alternatively, the parameter may be of type String, as all incoming data is in fact a String. For example, when the incoming data contains an exotic DateTime format, you can parse this format yourself by using a conversion microflow with a String parameter. If this value element maps to an attribute, the return type of the conversion microflow must match the attribute type. Conversion microflows of value elements are executed before these value elements are used as search keys or microflow parameters to obtain an object. This means that when using a value element with a conversion microflow as parameter for the microflow to obtain an object, the parameter type should match the return type of the conversion microflow. |
-| Key                      | This property specifies whether the value element is used as search key to obtain an object. If a value element is used as search key, you must specify the attribute it maps to. The XML value will be matched to the value of this attribute when searching for an object. Attribute with 'binary' type is not supported to be set as key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Map attributes by name   | If this button is clicked, an attempt is made to match attributes by name. A dialog appears reporting what has been changed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 属性             | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| エンティティ属性       | ここでは、この値要素をマップする属性を選択できます。 各値マッピングは、オブジェクトを取得するためにマイクロフロー内のパラメータとして使用される場合を除き、マッピングする必要があります。                                                                                                                                                                                                                                                                                                                                                            |
+| スキーマ値要素        | スキーマ値要素の名前と型。                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| オカレンスformat@@0 | 要素が発生する頻度を反映します。 これは、必要とされるかどうかに応じて、 **0..1** または **1**にすることができます。 値が空で、要素の最小要素が(スキーマによって指定されているように)0の場合、要素の作成はスキップされます。 オプションの要素に値をマッピングしない場合は、 **要素の選択...** ダイアログで値を無効にするだけです。                                                                                                                                                                                                                                                                         |
+| 変換方法 (任意)      | 値要素の受信データが正しい形式でない場合、 マイクロフローを使って別のデータ型に変換できます 変換マイクロフローは、要素の型に一致するパラメータを持つ必要があります。 あるいは、すべての受信データが文字列であるため、パラメータは String 型であることもあります。 たとえば、受信データにエキゾチックなDateTime形式が含まれている場合です。 Stringパラメータを使用した変換マイクロフローを使用して、この形式を自分で解析できます。 この値要素が属性にマップされる場合、変換マイクロフローの戻り値の型は属性の型と一致しなければなりません。 これらの値要素の変換マイクロフローは、オブジェクトを取得するための検索キーやマイクロフローパラメータとして使用される前に実行されます。 つまり、変換マイクロフローを持つ値要素をオブジェクトを取得するためにマイクロフローのパラメータとして使用する場合です。 パラメータ型は、変換マイクロフローの戻り値の型と一致する必要があります。 |
+| キー             | このプロパティは、オブジェクトを取得する検索キーとしてvalue要素を使用するかどうかを指定します。 value 要素が検索キーとして使用される場合は、マップする属性を指定する必要があります。 XML の値は、オブジェクトを検索する際にこの属性の値と一致します。 'binary' 型の属性はキーとして設定できません。                                                                                                                                                                                                                                                                                          |
+| 属性を名前でマップする    | このボタンをクリックすると、名前で属性を一致させようとします。 変更内容を報告するダイアログが表示されます。                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-## 3 Mapping Parameter
+## 3 マッピングパラメータ
 
-Import mappings have the additional option to receive an incoming parameter. The parameter can be passed in by the calling microflow when microflow uses the [import from mapping](import-mapping-action) action.
+インポートマッピングには、受信パラメータを受け取るための追加オプションがあります。 このパラメータは、microflow が [import from mapping](import-mapping-action) アクションを使用する場合に、呼び出し元の microflow によって渡すことができます。
 
-To define a parameter for your mapping, click the parameter box and select the data type. You can also drag an entity to the parameter box.
+マッピングのパラメーターを定義するには、パラメーターボックスをクリックしてデータ型を選択します。 パラメータボックスに図形をドラッグすることもできます。
 
-You can use a parameter as a key or in a microflow to obtain objects. When you use an entity parameter, you can set associations to it. When you use a primitive parameter (string, integer, etc.), you can write the value to an attribute of an object that is being imported.
+パラメータをキーとして、またはマイクロフロー内でオブジェクトを取得することができます。 entity パラメータを使用する場合、関連付けを設定できます。 プリミティブなパラメーター (string, integer など) を使用すると、インポートされるオブジェクトの属性に値を書き込むことができます。
