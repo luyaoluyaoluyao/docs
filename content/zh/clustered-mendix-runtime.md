@@ -1,147 +1,180 @@
 ---
-title: "Clustered Mendix Runtime"
-category: "Mendix Runtime"
-description: "Using the cluster functionality, you can set up your Mendix application to run behind a load balancer to enable a failover and/or high availability architecture."
+title: "集群的 Mendix 运行时间"
+category: "Mendix 运行时间"
+description: "使用集群功能，您可以设置您的 Mendix 应用程序来运行在负载平衡器后面，以启用失败和/或高可用性架构。"
 tags:
-  - "runtime"
-  - "cluster"
-  - "load balancer"
-  - "failover"
+  - "运行时间"
+  - "群組"
+  - "负载平衡器"
+  - "失败"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This page describes the behavior and impact of running Mendix Runtime as a cluster. Using the cluster functionality, you can set up your Mendix application to run behind a load balancer to enable a failover and/or high availability architecture.
+此页面描述运行 Mendix Runtime 作为集群的行为和影响。 使用集群功能，您可以设置您的 Mendix 应用程序来运行在负载平衡器后面，以启用失败和/或高可用性架构。
 
-The main feature enabling clustering is Mendix's stateless runtime architecture. This means that the dirty state (the non-persistable entity instances and not-yet-persisted changes) are stored on the client and not on the server. This enables much easier scaling of the Mendix Runtime, as each cluster node can handle any request from the client. The stateless runtime architecture also allows for better dirty state maintainability and better insight in application state.
+集群的主要功能是Mendix无国籍的运行时架构。 这意味着肮脏状态(不可持续实体实例和尚未保存的更改)存储在客户端上，而不是存储在服务器上。 这使Mendix Runtime更容易缩放，因为每个群集节点都可以处理客户端的任何请求。 无国籍的运行时架构也能够更好地进行肮脏状态的维护和更好地了解应用程序状态。
 
-## 2 Clustering Support
+## 2 个集群支持
 
-Clustering support is built natively into our Cloud Foundry buildpack implementation. This means that you can simply scale up using Cloud Foundry. The buildpack ensures that your system automatically starts behaving as a cluster.
+集群支持是本来就在我们的Cloud Foundry buildpack 实现过程中建立起来的。 这意味着您可以使用云端基金会来扩充。 构建包确保你的系统自动开始作为集群运行。
 
-Clustering is also supported on Kubernetes, but you will have to use a *StatefulSet*. There is more information on this in the [Some Notes on Scaling](/developerportal/deploy/run-mendix-on-kubernetes#scaling) section of *How to Run Mendix on Kubernetes*.
+Kubernetes也支持集群，但您必须使用 *Statelfull Set*。 在
+个关于如何在 Kubernetes 上运行 Mendix 的 *的</a> 部分有更多关于这个问题的信息* 中。</p> 
 
-## 3 Cluster Infrastructure
 
-The Mendix Runtime cluster requires the following infrastructure:
+
+## 3 集群基础设施
+
+Mendix 运行时集群需要以下基础设施：
 
 ![](attachments/16714073/16844074.png)
 
-This means that a Mendix cluster requires a load balancer to distribute the load of the clients over the available Runtime cluster nodes. It also means that all the nodes need to connect to the same Mendix database, and the files need to be stored on S3 (for details, see the [File Storage](#file-storage) section below). The number of nodes in your cluster depends on the application, the high availability requirements, and its usage.
+这意味着Mendix 集群需要负载均衡器来将客户端的负载分配到可用的 Runtime 集群节点。 这也意味着所有节点都需要连接到同一个Mendix 数据库。 文件需要存储在 S3 上(详情请参阅下面的 [文件存储](#file-storage) 部分)。 您的集群中的节点数量取决于应用程序、 高可用性要求及其使用情况。
 
-## 4 Cluster Leader & Cluster Slaves{#cluster-leader-follower}
 
-Mendix Runtime has the concept of a cluster leader. This is a single node within a Mendix Runtime cluster that performs cluster management activities. These are the activities:
 
-* **Session cleanup handling** – each node expires its sessions (meaning, not being used for a configured timespan) and the cluster leader removes the sessions persisted in the database
-    * In exceptional cases (for example, a node crash), some sessions may not be removed from the database, in which case the cluster leader makes sure this removal still happens
-* **Cluster node expiration handling** – removing cluster nodes after they have expired (meaning, not giving a heartbeat for a configured timespan)
-* **Background job expiration handling** – removing data about background jobs after the information has expired (meaning, older than a specific timespan)
-* **Unblocking blocked users**
-* **Executing Scheduled Events** – scheduled events are only executed on the cluster leader
-* **Performing database synchronization after new deploy**
-* **Clear persistent sessions after new deploy** – invalidating all existing sessions so that they get in sync with the latest model version
+## 4 组队长 & 组奴隶{#cluster-leader-follower}
 
-These activities are only performed by the cluster leader. If the cluster leader is not running, the cluster will still function. However, the activities listed above will not be performed.
+Mendix Runtime 有一个集群领先的概念。 这是Mendix Runtime 集群中的一个单一节点，执行集群管理活动。 这些活动是：
 
-The Cloud Foundry Buildpack determines which cluster node becomes the cluster leader and which become cluster slaves.
+* **会话清理处理** - 每个节点过期其会话(意思, 未用于配置的时间窗框，群集领导删除数据库中持续存在的会话 
+      * 在特殊情况下（例如，节点崩溃），某些会话可能无法从数据库中删除。 在这种情况下，群组领导人确保此移除仍在进行
+* **集群节点过期处理** - 在集群节点过期后移除其过期的集群节点(意指，在配置的时间段内不给心打)
+* **背景作业过期处理** - 在信息过期后移除背景作业的数据 (指，超过特定时间)
+* **解除屏蔽的用户**
+* **执行预定事件** - 预定事件只在集群头上执行
+* **在新部署后执行数据库同步**
+* **在新部署后清除持续会话** - 使所有现有会话无效，以便与最新的模型版本同步
+
+这些活动只由分组领导人进行。 如果群组领导人未运行，群组仍将继续运行。 不过，上述活动将不予执行。
+
+Cloud Foundry Buildpack 决定哪个集群节点成为集群领先并成为集群奴隶。
+
+
 
 ## 5 Cluster Startup
 
-Individual nodes in a cluster can be started and stopped with no impact on the uptime of the app. However, when you deploy a new version of the app the whole cluster is restarted and the cluster leader determines whether database synchronization is required. This means that there will be some downtime when the app is deployed while this is done.
+集群中的个别节点可以启动和停止，但对应用程序的运行时间没有影响。 然而，当您部署一个新版本的应用时，整个集群将重新启动，群集领导决定是否需要数据库同步。 这意味着应用程序部署时会出现一些故障。
 
-If database synchronization is required, all the cluster slaves will wait until the cluster leader finishes the database synchronization. When the database synchronization has finished, all the cluster nodes will become fully functional.
+如果需要数据库同步，所有分组奴隶都将等待集群领导人完成数据库同步工作。 当数据库同步完成后，所有集群节点将完全运行。
 
-If no database synchronization is required, all the cluster nodes will become fully functional directly after startup.
+如果不需要数据库同步，所有集群节点将在启动后立即完全运行。
 
-## 6 File Storage {#file-storage}
 
-Uploaded files should be stored in a shared file storage facility, as every Mendix Runtime node should access the same files. Either the local storage facility is shared or the files are stored in a central storage facility such as an Amazon S3 file storage, Microsoft Azure Blob storage, or IBM Bluemix Object Storage.
 
-For more information about configuring the Mendix Runtime to store files on these storage facilities,  see [Runtime Customization](custom-settings).
+## 6 个文件存储 {#file-storage}
 
-## 7 After-Startup & Before-Shutdown Microflows {#startup-shutdown-microflows}
+上传的文件应该存储在共享的文件存储设施中，因为每个Mendix Runtime 节点都应该访问相同的文件。 要么共享本地存储设施，要么将文件存储在中央存储设施中，例如Amazon S3文件存储， Microsoft Azure Blob storage 或 IBM Bluemix Object Storage 
 
-It is possible to configure `After-Startup` and `Before-Shutdown` microflows in Mendix. In a Mendix cluster, this means that those microflows are called per node. This lets you register request handlers and other activities. However, doing database maintenance during these microflows is strongly discouraged, because it might impact other nodes of the same cluster. There is no possibility to run a microflow on cluster startup or shutdown.
+关于配置Mendix Runtime 以存储这些存储设备上的文件的更多信息，请参阅 [Runtime Customization](custom-settings)。
 
-## 8 Cluster Limitations
 
-### 8.1 Microflow Debugging
 
-While running a multi-node cluster, you cannot predict the node on which a microflow will be executed. Therefore, it is not possible to debug such a microflow execution in a cluster from Mendix Studio Pro. However, you can still debug a microflow while running a single instance of the Mendix Runtime.
+## 7 启动后 & 关闭前置微流 {#startup-shutdown-microflows}
 
-### 8.2 Cluster-Wide Locking (Guaranteed Single Execution)
+可以在Mendix中配置 `后启动` and `前导关机` 微流。 在Mendix 集群中，这意味着这些微流被调用到每个节点。 这可以让您注册请求处理程序和其他活动。 然而，在这些微流过程中维护数据库受到强烈阻挠，因为它可能会影响到同一组群的其他节点。 集群启动或关闭时无法运行微流。
 
-Some apps require a guaranteed single execution of a certain activity at a given point in time. In a single node Mendix Runtime, this could be guaranteed by using JVM locks. However, in a distributed scenario, those JVMs run on different machines, so there is no locking system available. Mendix does not support cluster-wide locking, either. If this cannot be circumvented, you might need to resort to an external distributed lock manager. However, keep in mind that locking in a distributed system is complex and prone to failure (for example, via lock starvation or lock expiration.).
+
+
+## 8 集群限制
+
+
+
+### 8.1 微流程调试
+
+在运行多节点集群时，您无法预测将执行微流程的节点。 因此，无法在 Mendix Studio Pro的集群中调试这种微流程。 然而，您仍然可以在运行 Mendix Runtime 的单个实例时调试微流。
+
+
+
+### 8.2 集群锁定(有保障的单一执行)
+
+某些应用需要在某个时间点单次执行某项活动。 在单个节点Mendix Runtime中，可以使用 JVM 锁来保证这一点。 然而，在分布的情况下，这些JVM使用不同的机器运行，因此没有可用的锁系统。 Mendix 也不支持集群锁定。 如果不能避免这种情况，你可能需要使用外部分布式锁管理器。 然而，牢记在分布式系统中锁定是复杂的，容易失败（例如，由于锁定饥饿或锁定过期）。
 
 {{% alert type="info" %}}
-For the reason described above, the **Disallow concurrent execution** property of a microflow only applies to a single node.
-{{% /alert %}}
 
-## 9 Dirty State in a Cluster
+由于上述原因，微流程的 **禁止并行执行** 属性仅适用于单个节点。 
 
-When a user signs in to a Mendix application and starts going through a certain application flow, the system can temporarily retain some data while not persisting it yet in the database. The data is retained in the Mendix Client memory and communicated on behalf of the user to a Mendix Runtime node.
+{{% /报警 %}}
 
-For example, imagine you are booking a vacation through a Mendix app with a flight, hotel, and rental car. In the first step, you select and configure the flight, in the second one your hotel, in the third your rental car, and in the final step, you confirm the booking and payment. Each of these steps could be in a different screen, but when you go from step one to step two, you would still like to remember your booked flight. This is called the "dirty state." The data is not finalized yet, but should be retained between different requests. Because it is necessary to reliably scale out and support failover scenarios, the state cannot be stored in the memory of one Mendix Runtime node between requests. Therefore, the state is returned to the caller (the Mendix Client) and added to subsequent requests, so that every node can work with that state for those requests.
 
-The following image describes this behavior:
+
+## 9 集群中的肮脏状态
+
+当用户登录到Mendix 应用程序并开始通过特定的应用程序流程时， 系统可以暂时保留某些数据，同时不将其保留在数据库中。 数据保存在Mendix 客户端内存中，并代表用户传送到 Mendix Runtime 节点。
+
+例如，请想象您正在通过Mendix 应用程序预定一个假期，带有航班、旅馆和出租车。 在第一步，您选择并配置这个航班，第二步是您的酒店， 在你的第三辆出租车中，在最后一步，你确认预订和付款。 每个步骤都可以在不同的屏幕上，但当你从第一步转到第二步时。 你仍然想记住你预订的航班。 这叫做“肮脏状态”。 数据尚未最后确定，但应在不同请求之间保留。 因为必须可靠地缩小规模并支持失败的假设情景， 状态不能存储在请求之间的 Mendix Runtime 节点的内存。 因此，该州被退回给打电话者(Mendix 客户)，并被添加到其后的请求中。 这样每个节点就可以在这些请求中使用该状态。
+
+下面的图像描述了这种行为：
 
 ![](attachments/16714073/16844072.png)
 
-Reading objects and deleting (unchanged) objects from the Mendix database is still a "clean state." Changing an existing object or instantiating a new object will create "dirty state." Dirty state needs to be sent from the Mendix Client to the Mendix Runtime with every request. Committing objects or rolling back will remove them from the dirty state. The same will happen if an instantiated or changed object is deleted. Non-persistable entities are always part of the dirty state.
+从Mendix 数据库中读取对象并删除(未更改的)对象仍然是一个“清理状态”。 更改一个现有对象或实例化一个新对象将创建"脏状态"。 Dirty 状态需要从Mendix 客户端发送到Mendix Runtime以及每个请求。 提交对象或回滚将从肮脏状态中移除。 如果一个实例化或更改对象被删除，也会发生同样的情况。 不可持续的实体总是肮脏状态的一部分。
 
-Only the dirty state for requests that originate from the Mendix Client (both synchronous and asynchronous calls) can be retained between requests. For all other requests—such as scheduled events, web services, or background executions—the state only lives for the current request. After that, the dirty state either has to be persisted or discarded. The reason for only allowing Mendix Client requests to retain their dirty state is that this is currently the only channel that works with actual user input. User input requires more interaction and flexibility with the data between requests. By only allowing these requests to retain their dirty state, the load on the Mendix Runtime and the external source is minimized, and performance is optimized.
+只有来自 Mendix 客户端的请求(同步和异步调用)的肮脏状态才能保留在请求之间。 对于所有其他请求——例如预定的事件、网络服务或背景执行——国家只能用于当前请求。 此后，肮脏的状态要么必须持续下去，要么被抛弃。 仅允许 Mendix 客户端请求保留其肮脏状态的原因是，这是当前唯一能够使用实际用户输入的频道。 用户输入要求在请求之间对数据有更多的互动和灵活性。 只允许这些请求保留其肮脏状态， Mendix Runtime 和外部源上的负载被最小化，性能被优化。
 
 {{% alert type="info" %}}
-Whenever the Mendix Client is restarted, all the state is discarded, as it is only kept in the Mendix Client memory. The Mendix Client is restarted when reloading the browser tab (for example, when pressing <kbd>F5</kbd>), restarting a mobile hybrid app, or explicitly signing out.
-{{% /alert %}}
+Whenever the Mendix Client is restarted, all the state is discarded, as it is only kept in the Mendix Client memory. 当重新加载浏览器标签时Mendix 客户端会重启(例如，) 按下 <kbd>F5</kbd>), 重新启动移动混合应用或明确退出。
+{{% /报警 %}}
 
-The more objects that are part of the dirty state, the more data has to be transferred in the requests and responses between the Mendix Runtime and the Mendix Client. As such, this has an impact on performance. In cluster environments, it is advised to minimize the amount of dirty state to minimize the impact of the synchronization on performance.
+属于肮脏状态的对象越多， Mendix Runtime 和 Mendix 客户端之间的请求和响应必须传输更多数据。 因此，这对业绩产生影响。 在集群环境中，建议尽量减少肮脏状态的程度，以尽量减少同步对业绩的影响。
 
-The Mendix Client attempts to optimize the amount of state sent to the Mendix Runtime by only sending data that can potentially be read while processing the request. For example, if you call a microflow that gets `Booking` as a parameter and retrieves `Flight` over association, then the client will pass only `Booking` and the associated `Flight`s from the dirty state along with the request, but not the `Hotel`s. Note that this behavior is the best effort; if the microflow is too complex to analyze (for example, when a Java action is called with a state object as a parameter), the entire dirty state will be sent along. This optimization can be disabled via the [Optimize network calls](project-settings#optimize-network-calls) project setting.
-
-{{% alert type="warning" %}}
-It is important to realize that when calling external web services in Mendix to fetch external data, the responses of those actions are converted into Mendix entities. As long as they are not persisted in the Mendix database, they will be part of the dirty state and have a negative impact on the performance of the application. To reduce this impact, this behavior is likely to change in the future.
-{{% /alert %}}
-
-To reduce the performance impact of large requests and responses, an app developer should be aware of the following scenarios that cause large requests and responses:
-
-* A microflow that creates a large number of non-persistable entities and shows them in a page
-* A microflow that calls a web service to retrieve external data and convert them to non-persistable entities
-* A page that has multiple microflow data source data views, each causing the state transferred to the Mendix Runtime to handle the microflow
+Mendix 客户端仅通过发送处理请求时可能读取的数据来优化发送给Mendix Runtime的状态数量。 例如， 如果您调用了一个微流程，它获取 `预订` 作为参数和检索 `飞行在关联上` 然后客户端将只会传递 `预订` 和关联的 `飞行`s来自肮脏状态以及请求。 但不是 `酒店`s。 请注意，这种行为是最好的努力； 如果微流过于复杂，不能分析 (例如) 当一个 Java 动作以状态对象作为参数被调用时，整个肮脏状态将会被发送。 可以通过 [优化网络调用](project-settings#optimize-network-calls) 项目设置禁用此优化。
 
 {{% alert type="warning" %}}
-To make sure the dirty state does not become too big when the above scenarios apply to your app, it's recommended to explicitly delete objects when they are no longer necessary, so that they are not part of the state anymore. This frees up memory for the Mendix Runtime nodes to handle requests and improves performance.
-{{% /alert %}}
 
-## 10 Associating Entities with `System.Session` or `System.User`
+必须认识到，当使用 Mendix 的外部网络服务来获取外部数据时。 这些行动的反应被转换成Mendix 实体。 只要Mendix 数据库中不存在这种武器， 它们将是肮脏状态的一部分，对申请的执行产生不利影响。 为了减少这种影响，这种行为今后可能会改变。 
 
-The `$currentSession` *Session* object is available in microflows so that a reference to the current session can easily be obtained. When an object needs to be stored, its association can be set to `$currentSession`, and when the object needs to be retrieved again, `$currentSession` can be used as a starting point from which the desired object can be retrieved by association. The associated object can be designed so that it meets the desired needs. This same pattern applies to entities associated with `System.User`. In that case, you can use the `$currentUser` *User* object.
+{{% /报警 %}}
+
+减少大量请求和答复对业绩的影响， 一个应用开发者应该知道引起大量请求和响应的以下场景：
+
+* 创建大量不可持续实体并在页面中显示它们的微流
+* 微流调用网络服务来检索外部数据并将其转换为不可持续的实体
+* 一个包含多个微流数据源数据视图的页面。每个页面都会导致状态传输到 Mendix Runtime 来处理微流
+
+{{% alert type="warning" %}}
+
+为了确保在您的应用中适用上述情景时，肮脏状态不会变得太大， 它建议当对象不再需要时明确删除它们，这样它们就不再是状态的一部分。 这将释放Mendix Runtime 节点的内存以处理请求并提高性能。 
+
+{{% /报警 %}}
+
+
+
+## 10 个实体与 `System.Session` 或 `System.User`
+
+`$currentSession` *会话* 对象可在微流中使用，所以可以轻松获取当前会话的引用。 当一个对象需要存储时，其关联可以设置为 `$currentSession`， 和当对象需要再次检索时 `$currentSession` 可以用作起点，从中获取所需的对象可以通过关联获取。 相关对象的设计能够满足人们的需要。 此模式适用于与 `System.User` 相关的实体。 在这种情况下，您可以使用 `$currentUser` *用户* 对象。
 
 ![](attachments/core/2018-03-01_17-49-15.png)
 
-For example, you can add `Key` and `Value` members to a `Data` entity associated with `System.Session` (and have constants for key values).
+例如， 您可以将 `密钥` 和 `值` 成员添加到一个 `数据` 实体与 `系统相关联。 会话` (并有关键值的常量)。
 
 ![](attachments/core/2018-03-01_17-42-38.png)
 
-The `Value` values can easily be obtained by performing a find on the `Key` values of a list of `Data` instances.
+`值` 可以很容易地通过在 `密钥上查找` 的值 `数据` 实例列表中的值。
 
 ![](attachments/core/2018-03-01_17-56-37.png)
 
 {{% alert type="warning" %}}
-When data is associated to the current user or current session, it cannot be automatically garbage-collected. As such, this data will be sent with every request to the server and returned by the responses of those requests. Therefore, associating entity instances with the current user and current session should be done when no other solutions are possible to retain this temporary data.
-{{% /alert %}}
 
-## 11 Sessions Are Always Persistent
+当数据与当前用户或当前会话相关时，它不能自动收集。 因此，这种数据将随每次请求一起发送到服务器，然后根据这些请求的答复退回。 因此，在无法保留这种临时数据的情况下，应将实体实例与当前用户和本届会议联系起来。 
 
-To support seamless clustering, sessions are always persisted in the database. In previous versions, this was a known performance bottleneck. Mendix now contains optimizations to mitigate this performance hit.
+{{% /报警 %}}
 
-Roundtrips to the database for this purpose are reduced by giving the persistent sessions a maximum caching time of thirty seconds (by default). This means that after signing out of a session, the session might still be accessible for thirty seconds on other nodes of the cluster, but only in case that node has handled a previous request on that session just before the logout happened. This timeout can be configured. Lowering it makes the cluster more secure, because the chance that the session is still accessible within the configured time window is smaller. However, this also requires more frequent roundtrips to the database (which impacts performance). Increasing the timeout has the opposite effect. This can be configured by setting `SessionValidationTimeout` (value in milliseconds).
 
-Persistent sessions also store a last-active date upon each request. To improve this particular aspect of the performance, the last-active date attribute of a session is no longer committed to the database immediately on each request. Instead, this information is queued for an action to run at a configurable interval to be stored in the Mendix database. This action verifies whether the session has not been logged out by another node and whether the last active date is more recent than the one in the database. The interval can be configured by setting `ClusterManagerActionInterval` (value in milliseconds).
+
+## 11 次会话总是持久性的
+
+为了支持无缝集群，会话总是在数据库中持续存在。 在以前的版本中，这是一个众所周知的性能瓶颈。 Mendix 现在包含优化以缓存此性能。
+
+为此目的对数据库进行的回程访问会因为给持续会话最多30秒缓存时间（默认情况下）而减少。 这意味着会议结束后仍可在群集的其他节点上进入三十秒钟。 但只有在节点在退出之前处理了此次会话上的请求的情况下。 此超时可以配置。 降低它使集群更安全，因为在配置的时间窗口内会议仍然可以访问的机会较小。 然而，这也需要更经常地走访数据库（这影响到业绩）。 增加超时效果相反。 可以通过设置 `会期验证超时` (以毫秒为单位的值) 来配置它。
+
+持续会话还会在每次请求时存储最后活跃的日期。 改进业绩的这一特定方面； 会话的最后活跃日期属性不再在每个请求下立即承诺到数据库。 与此相反，这个信息已排队，将在一个可配置的间隔下运行，存储在 Mendix 数据库中。 此操作可以验证会话是否被另一个节点注销，以及最后一个活动日期是否比数据库中的日期更近。 可以通过设置 `ClusterManagerActionInterval` (以毫秒为单位的值) 来配置间隔。
 
 {{% alert type="warning" %}}
-Overriding the default values for the `SessionTimeout` and `ClusterManagerActionInterval` custom settings can impact the behavior of "keep alive" and results in an unexpected session logout. The best practice is to set the `ClusterManagerActionInterval` to half of the `SessionTimeout` so that each node gets the chance to run the clean-up action at least once during the session time out interval.
-{{% /alert %}}
+
+覆盖 `SessionTimeout` 和 `ClusterManagerActionInterval` 的默认值可能会影响“保持活着”的行为并导致意外的会话注销. 最佳做法是将 `ClusterManagerActionInterval` 设置为 `SessionTimeout 的` 的一半，以便每个节点有机会在会话间隔期间至少运行一次清理行动。 
+
+{{% /报警 %}}
 
