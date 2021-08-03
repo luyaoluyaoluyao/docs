@@ -1,85 +1,85 @@
 ---
 title: "Errors Pane"
-parent: view-menu
+parent: 视图菜单
 menu_order: 30
-description: "Describes the Errors pane in Mendix Studio Pro."
+description: "描述Mendix Studio Pro中的错误窗格。"
 tags:
   - "Studio Pro"
-  - "errors"
-  - "error list"
+  - "错误"
+  - "错误列表"
   - "errors pane"
 ---
 
-## 1 Introduction
+## 1 导言
 
-To make sure that your app is always consistent and properly built, Studio Pro does consistency checks when you build your app.
+为了确保您的应用始终一致且构建得当，Studio Pro 在构建您的应用时会检查是否一致。
 
-When a consistency check is not met, Studio Pro will notify you about this on the **Errors** pane. The errors and warnings in pages, microflows, domain models, and document templates will be highlighted:
+当不符合一致性检查时，Studio Pro 将在 **错误** 面板上通知您。 将突出强调页面、微流、域模型和文档模板中的错误和警告：
 
 ![Errors Pane](attachments/errors-pane/errors-pane.png)
 
-To display the **Errors** pane, there are two options:
+要显示 **错误** 窗格，有两个选项：
 
-* Right-click the element with the highlighted error and select **Found error** > **Go to Error List**
-* Open the menu option **View > Error List**
+* 右键点击突出显示的错误并选择 **发现错误** > **转到错误列表**
+* 打开菜单选项 **查看 > 错误列表**
 
-## 2 Types of Messages {#message-types}
+## 2 种消息类型 {#message-types}
 
-There are three types of messages, each having its own button and icon:
+有三种消息，每种消息都有自己的按钮和图标：
 
-![Types of Messages](attachments/errors-pane/types-of-messages.png)
+![消息类型](attachments/errors-pane/types-of-messages.png)
 
-The table below provides the details on each type of the message:
+下表提供了每一类信息的详细情况：
 
-| Type         | Icon                                              | Function                                                                                                                                                                                                                            |
-| ------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Errors       | ![](attachments/errors-pane/error-icon.png)       | Consistency errors that prevent your app from functioning in a correct way and being deployed (for example, if you do not specify an entity for the data view, your app cannot function correctly).                                 |
-| Deprecations | ![](attachments/errors-pane/deprecation-icon.png) | This type shows information on features that are deprecated and can be entirely removed in the future versions. This does not affect the app now, but may cause problems when upgrading to the next version.                        |
-| Warnings     | ![](attachments/errors-pane/warning-icon.png)     | Errors that are not critical, so you can publish your app having warnings. However, it is highly recommended to take action based on the warnings, because your app has logical gaps (for example, clicking a button does nothing). |
+| 类型  | 图标                                                | 函数                                                                   |
+| --- | ------------------------------------------------- | -------------------------------------------------------------------- |
+| 错误  | ![](attachments/errors-pane/error-icon.png)       | 一致性错误，阻止您的应用以正确的方式运行并正在部署 (例如) 如果您没有为数据视图指定一个实体，您的应用无法正常运作)。         |
+| 废弃的 | ![](attachments/errors-pane/deprecation-icon.png) | 此类型显示已废弃且可在未来版本中完全删除的功能信息。 这不会影响当前应用，但可能会导致升级到下一个版本时出现问题。            |
+| 警告  | ![](attachments/errors-pane/warning-icon.png)     | 非关键错误，所以您可以发布警告的应用程序。 然而，强烈建议您根据警告采取行动，因为您的应用有逻辑上的漏洞(例如，点击按钮不会做任何事)。 |
 
-## 3 Interacting with the Errors Pane
+## 3 与错误面板互动
 
-### 3.1 Displaying Different Types of Messages
+### 3.1 显示不同类型的消息
 
-You can toggle what messages are displayed in the **Errors** pane by clicking **Errors**, **Deprecations**, and **Warnings** buttons. If the button is highlighted, the corresponding type of message is displayed.
+您可以点击 **错误**来切换 **错误** 窗格中显示的消息 **弃用**, 和 **警告** 按钮。 如果按钮被高亮，则显示相应的消息类型。
 
-For more information on types of messages, see the [Types of Messages](#message-types) section.
+欲了解更多信息类型，请参阅 [消息类型](#message-types) 部分。
 
-### 3.2 Check Now Option
+### 3.2 立即检查可选办法
 
-The **Check now** option initiates the check of your app on consistency failures. This is useful if you have set an auto-check delay in **Edit** > **Preferences**. If the auto-delay is not specified, the check is done immediately after each change.
+**现在检查** 选项启动了对您的应用程序一致性失败的检查。 如果您在 **编辑** > **首选项** 中设置了自动检查延迟，这将是有用的。 如果未指明自动延迟，每次更改后将立即进行检查。
 
-### 3.3 Limit to Current Tab Option
+### 3.3 限制到当前标签选项
 
-Limits the messages displayed in the pane to the current document.
+将窗格中显示的消息限制为当前文档。
 
-### 3.4 Message Overview
+### 3.4 消息概述
 
-To enable you to find your errors, deprecations, and warnings quickly, each message shows you the following:
+为了让您能够快速找到您的错误、过失和警告，每条消息都会向您显示：
 
-* Icon – indicates the [type of the message](#message-types)
-* Index number – an index number assigned to each message
-* **Code** – a unique code that is specific for the errors only; warning and deprecation do not have  error codes
-* **Message** –  description/explanation of the check failure
-* **Element** – an element causing the check failure
-* **Document** – the place where the element is
-* **Module** – the module where the document is
+* 图标 - 表明消息的 [类型](#message-types)
+* 索引编号 — 指派给每个消息的索引号
+* **代码** - 一个唯一的仅适用于错误的代码；警告和废弃没有错误代码
+* **信息** - 检查失败的描述/解释
+* **元素** — 一个导致检查失败的元素
+* **文档** - 元素所在的地方
+* **模块** - 文档所在的模块
 
-Double-clicking the check will take you directly to the element causing the check failure.
+双击检查将直接将您带到导致检查失败的元素。
 
-You can also sort the order which messages are displayed in by clicking the column header in the pane. Thus, you can sort errors in ascending or descending order by the icon, index number, message, error code, module, document, or element.
+您也可以通过点击窗格中的列头来排序哪个消息的显示顺序。 因此，您可以通过图标、索引号码、消息、错误代码、模块、文档或元素来排序升序或降序错误。
 
-Right-clicking the message line opens a drop-down menu:
+右键单击消息行打开下拉菜单：
 
-![Drop-Down Menu](attachments/errors-pane/drop-down-menu.png)
+![下拉菜单](attachments/errors-pane/drop-down-menu.png)
 
-The following actions are available in the drop-down menu:
+下拉菜单中有以下操作：
 
-* **Go to {the name of the element}** – does the same as double-clicking the message, takes you to the element causing the check failure.
-* **View documentation about {an error or the name of the element}** – opens the corresponding document that describes this check failure and gives instructions on how to fix it; if there is no documentation on the current message, the option is greyed-out
-* Message-specific actions – actions that depend on the message, in the example above, you can remove the microflow parameter that is not used in the app
+* **转到 {the name of the element}** - 这与双击消息一样，带给您导致检查失败的元素。
+* **查看关于 {an error or the name of the element}** 的文档——打开描述此检查失败的相应文档，并说明如何修复它； 如果当前消息中没有文档，选项将灰色退出
+* 针对特定消息的动作——依赖消息的动作，上面的示例中 您可以删除应用中没有使用的微流程参数
 
-## 4 Read More
+## 4 阅读更多
 
-* [Consistency Errors](consistency-errors)
+* [一致性错误](一致性错误)
 * [Studio Pro Overview](studio-pro-overview)
