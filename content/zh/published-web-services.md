@@ -1,75 +1,75 @@
 ---
-title: "Published Web Services"
-parent: "integration"
+title: "已发布的网络服务"
+parent: "集成"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes published web services. If you're looking for specific information on the published web services screen, you can check the [Published web service](published-web-service) documentation.
+本文件介绍已发布的网络服务。 如果您在已发布的网页服务屏幕上寻找具体信息，您可以检查 [已发布的网页服务](published-web-service) 文档。
 
-You can publish your own web services in a Mendix application. These webservices are made up of operations. Other applications can then call operations of this webservice and you can return a result. This result is based on a microflow that will be executed when the webservice is called.
+您可以在 Mendix 应用程序中发布您自己的网络服务。 这些网络服务由业务构成。 其它应用程序可以调用此网络服务的操作，您可以返回结果。 这个结果基于一个微流程，它将在调用网络服务时执行。
 
-To enable usage of a microflow as a web service, right-click anywhere in the whitespace of the microflow and select "Publish as web service operation...".
+若要启用微流作为网络服务，请右键点击微流空白处的任意位置，然后选择“发布为网络服务操作...”。
 
-## 2 Runtime Documentation
+## 2 运行时文档
 
-When running, Mendix projects publish webservices documentation. The address is (if running locally) `http://localhost:8080/ws-doc/`. This documentation explains how the service can be used, in two ways:
+运行时，Mendix 项目发布网络服务文档。 地址是(如果本地运行) `http://localhost:8080/ws-doc`。 这份文件以两种方式解释了如何使用这项服务：
 
 ### 2.1 WSDL
 
-This is an XML document that is computer readable. This means that Studio Pro can read this document and automatically figure out how to interact with the webservice.
+这是一个可以读取的XML文档。 这意味着Studio Pro 可以阅读这份文件，并自动确定如何与webservice 交互。
 
-### 2.2 Example Request/Response XML Messages
+### 2.2 请求/响应 XML 消息
 
-On the "Published webservices" page (`http://localhost:8080/ws-doc/`) you will also find a list of all operations, per published webservice. These link to pages which describe sample messages. Note that you do not need these examples when building a Mendix-to-Mendix interaction, they are there purely to help people who want to create their own clients.
+在 "已发布的网页(`http://localhost:8080/ws-doc/`)上，您也会找到每个已发布的网页服务的所有操作列表。 这些链接到描述示例消息的页面。 注意在构建Mendix到Mendix 交互时，您不需要这些示例。 他们在那里纯粹是为了帮助想要创建自己客户的人。
 
-## 3 How Does a Published Web Service Call Work?
+## 3 发布的网络服务通话如何工作？
 
-A microflow that has been published can be called by systems from the outside. In this section, we will take a look at how this process works.
+已经公布的微流可以被外部系统调用。 在本节中，我们将探讨这一进程如何运作。
 
-### 3.1 Call Is Initiated
+### 3.1 呼叫已开始
 
-A webservice call is simply a HTTP call that the runtime receives and recognizes as a webservice call. An XML message is received and parsed to a format that the runtime understands.
+网络服务通话仅仅是运行时间接收并识别为网络服务通话的HTTP通话。 收到了一个 XML 消息，并将其解析为运行时间能够理解的格式。
 
-#### 3.1.1 Authentication
+#### 3.1.1 身份验证
 
-Every webservice call requires authentication. Specifically, the SOAP envelope header should contain an element called "authentication", which contains a username and password:
+每次网络服务通话都需要身份验证。 具体地说，SOAP信封头应包含一个叫做“认证”的元素，包含一个用户名和密码：
 
 ```xml
 <soap:Header>
         <tns:authentication>
             <username>john</username>
-            <password>john'ssecretpassword</password>
+            <password>john'ssecret密码</password>
         </tns:authentication>
     </soap:Header>
 
 ```
 
-These details _must_ match an existing webservice user in the runtime. These users can be created by signing in as an Administrator and clicking on "create webservice user" in the Users datagrid in the system module. Normal (non-webservice) users cannot be used to call webservices and webservice users cannot sign in via the standard login page.
+These details _must_ match an existing webservice user in the runtime. 这些用户可以通过登录管理员并点击系统模块中用户数据网格中的“创建网络服务用户”来创建。 普通(非网络服务)用户不能用来呼叫网络服务，网络服务用户不能通过标准登录页面登录。
 
-Other than that, there is no difference between how normal users and web service users call microflows.
+除此之外，正常用户和网络服务用户如何称得微流之间没有区别。
 
-#### 3.1.2 Parameter Handling
+#### 3.1.2 参数处理
 
-Depending on which types of parameters are inputs to the published Microflow, two things can happen.
+根据哪些类型的参数是对已发布的 Microflow的输入，可以发生两件事情。
 
-If an input is a Domain Entity, the XML is translated to the entity using an XML-to-Domain mapping. Note that these mappings create actual domain objects, depending on the mapping.
+如果输入是域实体, 则XML 会被翻译成使用XML到域映射的实体。 请注意，这些映射创建实际域对象，取决于映射。
 
-Normal parameters (integer, string etc) aren't converted in any way and used as inputs directly.
+普通参数 (整数、字符串等) 没有以任何方式转换并直接用作输入。
 
-### 3.2 Microflow Is Executed
+### 3.2 执行微流
 
-Once the parameters have been parsed from the XML, the microflow call proceeds as normal.
+一旦参数被解析为XML，微流调用将正常进行。
 
-### 3.3 Result Is Converted Back to XML
+### 3.3 结果被转换回XML
 
-If the microflow has a return value, it will be returned as a result of the webservice call. As with the parameters, basic types will be returned directly, and Domain Entities require a mapping to be converted to XML. Formatting of numbers is consistent between consumed and published web services. Trailing zeroes are removed from numbers and no scientific notation is used.
+如果微流具有返回值，它将会在网络服务通话后被恢复。 与参数一样，基本类型将直接返回，域实体需要映射才能转换为XML。 数字格式化在消费和已发布的网络服务之间是一致的。 前线零从数字中删除，没有使用科学标记。
 
-### 3.4 Response Statuses
+### 3.4 反应状态
 
-The default HTTP status code in the response is 200 (OK). When the client sends a malformed request, or when an internal server error occurs, the runtime responds with a SOAP fault. The HTTP header will contain status 500 in these cases.
+响应中默认的 HTTP 状态代码是 200 (OK)。 当客户端发送错误格式的请求时，或当发生内部服务器错误时，运行时间与 SOAP 错误。 HTTP 头将在这些情况下包含状态 500。
 
-Please note that the status code is sent before the actual response. If during the response sending an error occurs, the response status cannot be changed. This means that the receiving side may receive a status code 200, even though the service failed afterwards during the serialization of the response. The reason for this is that to optimize memory usage we do not create the entire response in memory. Instead, during serialization the response is immediately sent to the client to free up memory. This means that you need to make sure you have the data needed to create a valid response before finishing the webservice.
+请注意，状态代码是在实际响应之前发送的。 如果在响应发送错误时发生, 则不能更改响应状态。 这意味着接收方可能会收到一种身份码200, 即使在答复序列化过程中服务后来失败了。 其原因是，为了优化内存使用，我们不会在内存中创建整个响应。 相反，在序列化过程中，应答将立即发送给客户端以释放内存。 这意味着您需要确保您拥有创建有效响应所需的数据，然后才能完成网络服务。
