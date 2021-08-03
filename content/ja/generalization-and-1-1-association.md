@@ -1,78 +1,78 @@
 ---
-title: "Generalization & One-to-One Associations"
-parent: "entities"
+title: "一般化 & 1対1の関連付け"
+parent: "エンティティ"
 menu_order: 5
 ---
 
-Mendix developers have to choose on a daily basis whether or not they want to use inheritance. It starts the moment you initiate a new project; how do you want to setup your users? Are you going to keep using the already available Account entity in the Administration module? Or are you going to work with separate entities with a one-to-one association to the user account? Or are you going to add (multiple) entities that inherit from **System.User**?
+Mendixの開発者は、継承を使用するかどうかを日常的に選択する必要があります。 それはあなたが新しいプロジェクトを開始した瞬間で始まります。どのようにユーザーをセットアップしますか? 管理モジュールで既に利用可能なアカウントエンティティを使用し続けますか？ または、ユーザーアカウントとの1対1の関連を持つ別々のエンティティで作業しますか? または、 **System.User** から継承された(複数)エンティティを追加しますか？
 
-When defining closely related structures, it can be difficult to decide on the best architecture. Should the entity inherit from my structure or do I rather want a one-to-one association? You should consider both options. Both options can have a huge impact on the performance of the application or the speed of development.
+密接に関連する構造を定義する場合、最良のアーキテクチャを決定することは困難です。 エンティティは私の構造から継承すべきか、それとも私はむしろ一対一の関連付けを望むのか。 両方のオプションを検討する必要があります。 どちらのオプションもアプリケーションのパフォーマンスや開発速度に大きな影響を与える可能性があります。
 
-## Generalization, Specialization, and Inheritance in Mendix
+## Mendixの一般化、専門化、継承。
 
-The Mendix domain model is based on the [UML](http://en.wikipedia.org/wiki/Unified_Modeling_Language) [class diagram](http://en.wikipedia.org/wiki/Class_diagram), which allows us to specify the objects/entities, their attributes and associations. The concept of generalization in UML is exactly the same in Mendix, however, the Mendix Domain model uses a different notation to display the Generalization. The UML class diagram uses associations with a hollow triangle (arrow) pointing to the super class. In Mendix generalization is expressed with a blue label above the entity, specifying the entity name.
+Mendixドメインモデルは [UML](http://en.wikipedia.org/wiki/Unified_Modeling_Language) [クラス図](http://en.wikipedia.org/wiki/Class_diagram)に基づいています。 オブジェクト/エンティティ、属性、関連付けを指定することができます。 UMLの一般化の概念はMendixとまったく同じですが、MendixドメインモデルではGeneralizationを表示するために異なる表記を使用しています。 UMLクラス図は、スーパークラスを指す中空の三角形(矢印)との関連付けを使用します。 Mendix では、エンティティの上に青いラベルを付けてエンティティ名を指定します。
 
-UML also allows us to specify the types of associations, such as an [Aggregation](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) or [Composition](http://en.wikipedia.org/wiki/Object_composition). The definition of these associations specify whether or not the objects can exist without each other. Unlike UML we can not specify how strong a relation ship is. Any dependencies between the two objects have to be specified using [event microflows](/refguide7/event-handlers) or [delete behavior/prevention](/refguide7/associations).
+UML では、 [Aggregation](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) や [Composition](http://en.wikipedia.org/wiki/Object_composition) などの関連タイプを指定することもできます。 これらの関連付けの定義は、オブジェクトが互いに存在しないことができるかどうかを指定します。 UMLとは異なり、私たちは関係船がどれほど強いかを指定することはできません。 2つのオブジェクト間の依存関係は、 [イベント microflow](/refguide7/event-handlers) または [delete behavior/prevention](/refguide7/associations) を使用して指定する必要があります。
 
-### Performance
+### パフォーマンス
 
-In order to understand the impact and behavior of the application, you need to understand the basic concepts of [Transactions](http://en.wikipedia.org/wiki/Database_transaction) and [(Database) Isolation Levels](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed). The Mendix Platform uses Transactions, which means that every microflow, commit, and delete will happen in a (database) transaction. The transaction is initialized as soon as the microflow executes its first write to the database. Retrieve activities will never start a transaction.
+アプリケーションの影響と動作を理解するために [トランザクション](http://en.wikipedia.org/wiki/Database_transaction) と [(データベース) 単離レベル](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed) の基本的な概念を理解する必要があります。 Mendix PlatformはTransactionsを使用します。つまり、すべてのmicroflow、commit、deleteは(データベース)トランザクションで発生します。 このトランザクションは、microflow がデータベースへの最初の書き込みを実行するとすぐに初期化されます。 アクティビティの取得はトランザクションを開始することはありません。
 
-The Mendix Platform uses the transaction level [Read Committed](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed), which means, as the name suggests, that only committed objects are visible outside the transaction. Any other microflows trying to access an object that is being changed at the same time, will have to wait until the transaction has completed. This is important to know, since this has significant impact on your choice between inheritance or associated objects.
+Mendix Platformはトランザクションレベル [Read Committed](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed)を使用します。 名前が示すように、コミットされたオブジェクトだけがトランザクションの外に表示されます。 同時に変更されているオブジェクトにアクセスしようとする他のマイクロフローは、トランザクションが完了するまで待たなければなりません。 これは、継承または関連するオブジェクト間の選択に大きな影響を与えるため、知っておくことが重要です。
 
-### Creating and Changing Objects
+### オブジェクトの作成と変更
 
-When changing an object, the Mendix Platform will write those changes to the database as soon as you execute the commit activity. The update or insert query will be performed based on the values you have changed. This behavior varies per database, but most likely this will lock the record and prevent other users from reading it until the transaction has been completed (either finished or rolled back).
+オブジェクトを変更する場合、Mendix Platformはコミットアクティビティを実行するとすぐにデータベースにこれらの変更を書き込みます。 更新または挿入クエリは、変更した値に基づいて実行されます。 この動作はデータベースごとに異なります。 しかし、ほとんどの場合、これはレコードをロックし、トランザクションが完了するまで他のユーザーがそれを読み取るのを防ぎます(完了またはロールバック)。
 
-#### Inheritance
+#### 継承
 
-When you change an object with inheritance the platform will potentially prevent all the retrieves on all entities from the hierarchy, since it will look at the super class, which is required for all retrieves.
+継承でオブジェクトを変更すると、プラットフォームはすべてのエンティティの階層からのすべての取得を妨げる可能性があります。 すべての回収に必要なスーパークラスを見ますので。
 
-#### One-to-One Association
+#### 一対一の協会
 
-When changing an object, none of the associated objects will be changed. There are two exceptions to this rule: of course if you change the associated object in an object event, or because associated objects are being 'auto-committed', see [How to Work with Object Events](/howto7/data-models/working-with-object-events).
+オブジェクトを変更する場合、関連するオブジェクトは変更されません。 このルールには2つの例外があります: もちろん、object イベントで関連付けられているオブジェクトを変更した場合。 または関連するオブジェクトは 'auto-committed' になっているため、 [Object Events](/howto7/data-models/working-with-object-events) を参照してください。
 
-Whenever you have a high number of write transactions in your application, it is far better to choose for a one-to-one association, since this limits the number of tables that are being changed/locked during a transaction. However, if you do more inserts than updates it might be worth using inheritance again. Inheritance uses one less table to store the relationship, it does not have the association table. Therefore, any inserts require one indexed table fewer to be updated.
+アプリケーションに多数の書き込みトランザクションがある場合はいつでも、1対1の関連付けを選択する方がはるかに優れています。 これはトランザクション中に変更/ロックされているテーブルの数を制限するためです。 ただし、更新よりも多くの挿入を行う場合は、再び継承を使用する価値があります。 継承はリレーションを保存するために1つ少ないテーブルを使用し、関連テーブルを持っていません。 したがって、任意の挿入には、更新が少ないインデックス付きテーブルが必要です。
 
-### Retrieving Objects
+### オブジェクトの取得
 
-Mendix is optimized to only retrieve the data that is required for the action that is being executed. That means, for example: if you do not show any associated or inherited attributes, those objects will not be included in the retrieve queries.
+Mendixは、実行中のアクションに必要なデータのみを取得するように最適化されています。 つまり、例えば、関連付けられた属性や継承された属性を表示しない場合、それらのオブジェクトは取得クエリに含まれません。
 
-#### Inheritance
+#### 継承
 
-If you retrieve any specializations from the super class the platform will always include the entire hierarchy in the query, in order to guarantee a consistent data structure. For example, if you have an overview of **Adminstration.Account**, the platform will include the System.User table whether or not you show any System.User attributes, just to make sure that the data is consistent and complete. Both tables have a clustered index on the object id, so joining the information in the database is extremely efficient.
+スーパークラスから専門分野を取得した場合、プラットフォームには常にクエリーの階層全体が含まれます。 一貫性のあるデータ構造を保証するために 例えば、 **Adminstration.Account**の概要がある場合、プラットフォームにはシステムが含まれます。 System.User属性を表示するかどうかに関わらず、データが一貫して完全であることを確認するためのテーブルです。 両方のテーブルは、オブジェクト ID にクラスタ化されたインデックスを持っているため、データベースへの情報の結合は非常に効率的です。
 
-#### One-to-One  Association
+#### 一対一の協会
 
-The associated objects will only be retrieved when they are shown in a page. This is less efficient than with inheritance, because the information is retrieved using the association table, but based on how the information is ordered and filtered, it will be far less efficient to join over the association table than over the clustered index that is used with inheritance.
+関連付けられたオブジェクトは、ページに表示されているときにのみ取得されます。 関連付けテーブルを使用して情報を取得するため、継承よりも効率的ではありません。 情報がどのように整理されフィルタリングされるかに基づいて 継承で使用されるクラスタ化されたインデックスよりも、アソシエーションテーブルを結合する方がはるかに効率的ではありません。
 
-If you require a lot of searching, sorting and displaying of the inherited/associated information it can be significantly more efficient to use inheritance. If the associated information is only required on a few pages, the additional delay retrieving the information over association instead of inheritance might be acceptable compared to the faster retrieve times on any other place in the application.
+継承された/関連付けられた情報の検索、並べ替え、表示がたくさん必要な場合は、継承を使用することが有意に効率的になります。 関連する情報が数ページのみで必要な場合。 継承の代わりに関連情報を取得する追加の遅延は、アプリケーション内の他の場所でより速い取得時間と比較して受け入れられるかもしれません。
 
-## Flexibility
+## 柔軟性
 
-Making a decision between inheritance and associations is something you should do before loading a lot of data into the application. When adding associations, additional data may be required to specify the relationships between objects. When you remove generalizations, the relationship between the two objects will get lost. There are tricks you can use to resolve any previous relationships, however, this can be extremely difficult and time consuming once there is a lot of data available in your application.
+継承と関連付けの間で決定を下すことは、アプリケーションに多くのデータをロードする前に行うべきことです。 関連付けを追加する場合、オブジェクト間のリレーションシップを指定するために追加のデータが必要になる場合があります。 一般化を削除すると、2つのオブジェクト間の関係は失われます。 しかし、以前の関係を解決するために使用できるトリックがあります。 アプリケーションに多くのデータがあると、これは非常に困難で時間がかかることがあります。
 
-### Inheritance
+### 継承
 
-Using inheritance can make your microflows easier to maintain, you can re-use functionality but you also loose flexibility. Once you have applied inheritance to an entity it is difficulty to remove the inheritance and keep all the data with a relationship. Or if a record can change type of subclass, for example an employee object changes and becomes a project manager object. In most scenarios there is no perfect solution and there are always concessions to make, just be aware of the implications when making a choice.
+継承を使用すると、マイクロフローをメンテナンスしやすくなります。機能を再利用できますが、柔軟性を失うこともできます。 一度エンティティに継承を適用すると、継承を削除し、すべてのデータを関連付けて保持することは困難です。 あるいは、レコードがサブクラスのタイプを変更できる場合(例えば従業員オブジェクトの変更など)、プロジェクトマネージャーオブジェクトになります。 ほとんどのシナリオでは完璧な解決策はありませんし、選択するときに意味を認識するだけで作る譲歩が常にあります。
 
-Don't just add inheritance because it is easier, or remove it because it is slower. Especially in scenarios were different object types have to go through a similar process it can be worth it to apply inheritance just so you can re-use functionality and increase the consistency and stability of your application. One place you definitely don't want to use inheritance is in a system with a high transaction volume. Writing and updating records in tables with inheritance is slower than just updating a single table. If there are many new or changed objects loaded through, Excel, web services, or any other integration inheritance can slow the process down significantly.
+単に継承を追加するのは簡単であるため、またはそれが遅いので削除しないでください。 特にシナリオでは異なるオブジェクトのタイプは、それだけで機能を再利用し、アプリケーションの一貫性と安定性を高めることができるので、継承を適用する価値がある同様のプロセスを通過する必要があります。 間違いなく継承を使用したくない場所の1つは、高いトランザクション量のシステムにあります。 テーブルでのレコードの書き込みや更新は、単一のテーブルを更新するよりも遅くなります。 多くの新しいオブジェクトや変更されたオブジェクトがロードされている場合、Excel、Webサービス、またはその他の統合の継承はプロセスを大幅に遅くする可能性があります。
 
-### One-to-One Association
+### 一対一の協会
 
-When loading data through an integration, inheritance can improve the development speed, because functionality can be re-used. This is a huge advantage since all future changes only have to be applied in a single place. Inheritance however, could case the slower performance if all the changes can be stored in a separate entity. If it is possible to separate all data in a separate entity, and this information is only used by the application in a limited number of locations, it will be significantly faster to keep a one-to-one entity.
+統合によりデータを読み込む場合、機能を再利用できるため、継承により開発速度が向上します。 これは、すべての将来の変更を1つの場所に適用する必要があるため、大きな利点です。 ただし、すべての変更を別のエンティティに格納できる場合、継承性はパフォーマンスが低下する可能性があります。 別のエンティティ内のすべてのデータを分離することが可能であれば、 この情報は限られた場所でのみ使用されます 1対1のエンティティを維持する方がかなり速くなります
 
-## Conclusion
+## 結論
 
-This explanation might not have given you an explicit answer to the question on when to use inheritance, but that is because there is no right or wrong answer. Both inheritance and one-to-one associations have their advantages and disadvantages. Based on the situation you need to decide what is better for a particular entity. Below is a short summary of all the pros and cons for each situation. Based on these criteria you will need to decide for your entity which solution is worth it.
+この説明は、継承をいつ使うべきかという質問に対する明確な答えを与えていない可能性があります。 それは正解も間違った答えもないからです 継承と一対一の協会の両方に長所と短所があります。 状況に基づいて、あなたは特定のエンティティのために何が良いかを決定する必要があります。 以下は、各状況のすべての長所と短所の概要です。 これらの基準に基づいて、どのソリューションに価値があるかを決定する必要があります。
 
-There are a few situations where a clear answer can be given:
+明確な答えが与えられる場合がいくつかあります:
 
-_Never use inheritance for entities with:_
+_エンティティに継承を使用しないでください:_
 
-*   _A high number of transactions on the different sub entities (As a high we consider multiple changes or creates per second)_
-*   _Only a handful common attributes. If you feel that it isn't worth creating associated objects for the information, it isn't worth inheriting either_
+*   _異なるサブエンティティ上の多数のトランザクション（ハイとして、複数の変更または1秒あたりの作成を検討します）_
+*   _一握りの共通属性のみ。 情報に関連付けられたオブジェクトを作成する価値がないと感じる場合は、それを継承する価値はありません。_
 
-_Never use one-to-one association for entities:_
+_エンティティに一対一の関連付けを使用しないでください:_
 
-*   _That always require the information from the associated objects, and users intensively search and sort on the associated attributes._
+*   _それは常に関連付けられたオブジェクトからの情報を必要とし、ユーザは関連付けられた属性を集中的に検索してソートします。_
