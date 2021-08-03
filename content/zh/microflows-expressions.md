@@ -1,124 +1,115 @@
 ---
-title: "Microflow Expressions"
-category: "Microflows"
+title: "微流程表达式"
+category: "微型流动"
 menu_order: 40
-description: "Describes the microflow expressions available in Mendix Studio."
+description: "描述Mendix Studio中可用的微流表达式。"
 tags:
-  - "studio"
-  - "microflow"
-  - "expressions"
-  - "expression"
-  - "set value"
-  - "variable"
+  - "工作室"
+  - "微流"
+  - "设置值"
+  - "变量"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes microflow expressions in Mendix Studio. For information on microflow expressions in Studio Pro, see [Expressions](/refguide8/expressions) in the *Studio Pro Guide*.
+本文档描述Mendix Studio中的微流程表达式。 表达式可以用来创建或更改基于逻辑的对象或变量。
 
-Expressions can be used to create or change an object or a variable based on logic.
+**表达式** 标签对于微流程中的以下活动是可用的：
 
-The **Expression** tab is available for the following activities in a microflow:
-
-*  End Event
-*  [Decision](microflows-decision)
-*  Create Object
-*  Change Object
-*  Create Variable
-*  Change Variable
+*  [结束事件](/refguide/end-event)
+*  [决 定](microflows-decision)
+*  [创建对象](/refguide/create-object)
+*  [更改对象](/refguide/change-object)
+*  [创建变量](/refguide/create-variable)
+*  [更改变量](/refguide/change-variable)
 
 ![](attachments/microflows-expressions/expression-tab.png)
 
-For more information on setting and changing values for microflow activities, see [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value).
+更多关于微流活动的设置和改变价值的信息 查看 [如何设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)。
 
-## 2 Writing an Expression
+## 2 正在写入表达式
 
-There are two ways of writing an expression:
+有两种写表达式的方式：
 
-* [Using suggestions](#suggestions)
-* [Writing expressions manually](#manually)
+* 使用建议
+* 手动写入表达式
 
-If an error appears in the expression, error messages with explanations will be displayed.
+如果表达式中出现错误，则会显示含有解释的提示。
 
 {{% image_container width="350" %}}![](attachments/microflows-expressions/expression-error.png)
 {{% /image_container %}}
 
-### 2.1 Writing an Expression Using Suggestions {#suggestions}
+### 2.1 使用建议书写表达式
 
-When you start typing your expression, a list of suggestions appears divided into the following categories:
+当您开始输入您的表达式时，建议列表似乎分为以下类别：
 
-* **Suggestions from your microflow** – variables or attributes that you have created or retrieved in your microflow
-* **Enumeration values** – values of [enumeration type of attributes](domain-models-enumeration) that can be used in an expression
-* **Keywords** – key phrases or words that you can use in an expression
-* **Booleans** – true or false expressions
-* **Operators** – code elements that perform logical or mathematical operations. You can use Boolean or relational expressions (for more information, see the [Expression Types](#expression-types) section below)
+* **来自您微流程的建议** - 您在微流程中创建或检索的变量或属性
+* **枚举值** - 可用于表达式的 [枚举类型属性](domain-models-enumeration) 的值
+* **关键字** -- 您可以在表达式中使用的关键词或单词
+* **布尔值** -- 真或假表达式
+* **运算符** - 执行逻辑操作或数学操作的代码元素。 您可以使用布尔值或关系表达式(详细信息，参见下面 [表达式类型](#expression-types) 部分)
 
 ![](attachments/microflows-expressions/expressions-list.png)
 
-To write an expression using suggestions, do the following:
+要使用建议书写表达式，请执行以下操作：
 
-1. Browse through the list of suggestions and select the element for your expression with a mouse or a keyboard.
-2. Select an element from the list.
-4. Click **Add** when the expression is completed.
+1. 浏览建议列表并用鼠标或键盘选择表达式的元素。
+2. 从列表中选择一个元素。
+4. 当表达式完成时点击 **添加**。
 
 {{% alert type="info" %}}
 
-To call the list of suggestions, press <kbd>Ctrl</kbd> + <kbd>Space</kbd>
+要调用建议清单，请按 <kbd>Ctrl</kbd> + <kbd>空格</kbd>
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 2.2 Writing an Expression Manually {#manually}
+### 2.2 手动写入表达式
 
-If you want to write the expression manually, pay attention to the following:
+如果您想手动写下表达式，请注意：
 
-* Variables in the microflow can be called in an expression by inserting the dollar sign followed by the name of the variable. For example, *$Customer* refers to the variable *Customer*
-* Attributes and associations of object variables are accessed using a slash. For example, *$Customer/Name*, *$Customer/Grade* refer to the attributes Name and Grade of the entity Customer
-* Unary, Boolean, and relational types of expressions are available in Studio (for more information, see the [Expression Types](#expression-types) section)
+* 微流中的变量可以通过在变量名称之后插入美元符号来调用表达式。 例如， *$Customer* 提到了变量 *客户*
+* 使用斜线访问对象变量的属性和关联性。 例如， *$Customer/name*, *$Customer/级别* 指实体客户的属性名称和等级
+* Unit, Boolean, and relational types of expressions are available in Studio (for more information, see [Expression type](#expression-types) section)
 
-### 2.3  Expression Examples
+## 3 表达式示例
 
-Below are two examples that illustrate how expressions can be used.
+下面有两个例子说明如何使用表达方式。
 
-#### 2.3.1 Example 1
+### 3.1 例1
 
-You have a [Decision](microflows-decision) and you want to write an expression that checks whether the customer grade is gold and the price of the order is more than 100 (you can configure a discount after the **Decision** that is allowed if this expression is true):
+您有一个 **[Decision](microflows-decision)** 并且您想要写一个表达式来检查客户等级是否为黄金和订单价格是否超过 100 (您可以在 **Decision** 之后配置折扣，如果此表达式为真的话：
 
 ![](attachments/microflows-expressions/example-decision.png)
 
-The expression will look the following way:
+表达式将显示如下方式：
 
 ![](attachments/microflows-expressions/expression-decision.png)
 
-#### 2.3.2 Example 2
+### 3.2 例2
 
-You add a [Decision](microflows-decision) to check if an object (in the example below the object is *Customer*) exists. And you also check if the Customer's name matches a particular one (in the example below Customer's name is *Mendix*). The expression will look the following way:
+您添加了一个 **[Decision](microflows-decision)** 来检查对象是否存在(下面的示例是 *客户*) 您还要检查客户的名字是否与某个特定的名字相符(在下面的例子中，客户的名字是 *Mendix*)。 表达式将显示如下方式：
 
 ![](attachments/microflows-expressions/customer-empty-and-name-example.png)
 
-## 3 Expression Types {#expression-types}
+## 4 个表达式类型 {#expression-types}
 
-A list of the operators you can use in expressions in Studio can be found below:
+您可以在Studio中使用表达式的操作员列表如下：
 
-### 3.1 Relational Expressions
+### 4.1 关系表达式
 
-You can use the following relational expressions:
+* [小于 ( <)](/refguide/relational-expressions)
+* [大于 ( >)](/refguide/relational-expressions)
+* [小于或等于 ( <= )](/refguide/relational-expressions)
+* [大于或等于 ( >= )](/refguide/relational-expressions)
+* [等于 ( = )](/refguide/relational-expressions)
+* [不等于 ( != )](/refguide/relational-expressions)
 
-* [Less than ( < )](/refguide8/relational-expressions)
-* [Greater than ( > )](/refguide8/relational-expressions)
-* [Less than or equal to ( <= )](/refguide8/relational-expressions)
-* [Greater than or equal to ( >= )](/refguide8/relational-expressions)
-* [Is equal to ( = )](/refguide8/relational-expressions)
-* [Is not equal to ( != )](/refguide8/relational-expressions)
+### 4.2 布尔表达式
 
-### 3.2 Boolean Expressions
+* [和](/refguide/boolean-expressions)
+* [或](/refguide/boolean-expressions)
 
-You can use the following Boolean expressions:
+## 5 阅读更多
 
-* [and](/refguide8/boolean-expressions)
-* [or](/refguide8/boolean-expressions)
-
-## 4 Read More
-
-* [Microflows](microflows)
-* [Set & Change a Value for Different Activities in the Microflows](microflows-setting-and-changing-value)
-* [Expressions](/refguide8/expressions)
+* [微型流动](微流)
+* [设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)
