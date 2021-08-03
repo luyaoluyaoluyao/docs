@@ -3,36 +3,49 @@ title: "Mendix ランタイムの監視"
 category: "Mendix Runtime"
 description: "サポートされているMendixランタイム監視アクションの説明。"
 tags:
-  - "ランタイムjson"
+  - "ランタイム:"
+  - "json"
+  - "studio pro"
+  - "オンプレミス版"
+  - "ローカル"
 ---
 
 ## 1つの紹介
 
-Mendix Runtime 監視アクションは、管理者ハンドラに JSON リクエストを送信することで呼び出すことができます。 これは、アプリケーションの構成設定で指定されたアドミンポートにリクエストを送信することで実現します(デフォルトは 8090 です)。
+オンプレミスとMendixのローカルデプロイの場合、Mendix Runtime監視アクションは、JSONリクエストを管理者ハンドラに送信することで呼び出すことができます。 これは、アプリケーション構成で指定されたアドミンポートにリクエストを送信することによって行われます (デフォルトのポートは 8090 です)。
 
-You can change the admin port from the Desktop Modeler by navigating to **Project** > **Settings** > **Configurations** > *your configuration* > **Server** > **Admin port**.
+{{% alert type="info" %}}
+これは、アプリケーションのローカルおよびオンプレミス展開でのみ使用できます。
+
+Mendix Cloud へのデプロイでは、m2ee管理者ハンドラにアクセスすることはできません。 ただし、開発者ポータルのさまざまなページから同じ情報を得ることができます。 詳細については以下をご覧ください。
+
+* [メトリック](/developerportal/operate/metrics)
+* [Mendix Cloud v4のトレンド](/developerportal/operate/trends-v4)
+* [現在のメトリクスを実行しています](/developerportal/operate/troubleshooting-mxcloud-runningnow)
+{{% /alert %}}
+
+You can change the admin port from Studio Pro by navigating to **Project** > **Settings** > **Configurations** > *your configuration* > **Server** > **Admin port**.
 
 リクエストは **POST** 型の **No Authorization** および以下のヘッダである必要があります:
 
 * Content-Type: **application/json**
 * X-M2EE認証: **yourM2EEPassword_Base64Encoded**
 
-M2EE パスワードは、スーパー管理者パスワードではなく、別のパスワードです。 If you have the application deployed on premises, you can set this password in the **settings.yaml** file, which is located in the **Apps/YourProject** folder. Desktop Modelerからアプリケーションを実行している場合、M2EEパスワードはMendixによって自動的に設定されます。 アプリケーションプロセスの環境変数から取得することができます
+M2EE パスワードは、スーパー管理者パスワードではなく、別のパスワードです。 If you have the application deployed *on premises*, you can set this password in the **settings.yaml** file, which is located in the **Apps/YourProject** folder. If you are *running the application from Studio Pro*, the M2EE password is set automatically by Mendix, and you can retrieve it from the environment variables of your application process.
 
-次のセクションを読んで、どのモニタリングアクションがサポートされているかを確認してください。
+次のセクションでは、どの監視アクションがサポートされているかについて説明します。
 
 ## 2 現在の実行
 
-**リクエスト**
+### 2.1 リクエスト
 
-```java
+```json
 "{"action" : "get_current_runtime_requests", "params":{} })
-
 ```
 
-**回答**
+### 2.2 応答例
 
-```java
+```json
 {
   "feedback":{
     "202de1e51639ae0":{
@@ -92,25 +105,33 @@ M2EE パスワードは、スーパー管理者パスワードではなく、別
 }
 ```
 
-このリクエストは、Mendix Runtime によって知られているアクションの現在の実行を返します。 アクションは、マイクロフロー、Javaアクション、Webサービス呼び出し、スケジュールされたイベントなどがあります。 実行ごとに以下が報告されます:
+### 2.3 戻り値
 
-*   ミリ秒単位の実行の「継続時間」。
-*   実行の"タイプ"。 利用可能なタイプは「CLIENT」、「CLIENT_ASYNC」、「CLIENT_ASYNC_MONITORED」、「CUSTOM」、「WEB_SERVICE」、「SCHEDULED_EVENT」、「UNKNOWN」です。 CLIENT_ASYNCは、ウェブクライアントからトリガーされた非同期マイクロフロー呼び出しです。 「CLIENT_ASYNC_MONITORED」は、異なるスレッドで発生するMendix Runtime内の非同期マイクロフローの実際の実行です。
-*   「user」は、アクションを実行しているセッションに関連付けられたユーザーの名前です。 ユーザ以外のセッションの場合は、"System" という名前が表示されます。
-*   "action_stack" は、この実行のためのアクションのスタックを示します。 例えば、このスタック内の各アクションの詳細情報が表示されます。 マイクロフローの場合、現在の活動とマイクロフローの名前が表示されます。
+このリクエストは、Mendix Runtime によって知られているアクションの現在の実行を返します。 アクションには、マイクロフロー、Javaアクション、Webサービス・コール、スケジュールされたイベントを含めることができます。 実行ごとに以下が報告されます:
+
+*   ミリ秒単位の実行の「継続時間」
+*   実行の"タイプ"。 使用可能なタイプは次のとおりです。
+  * "CLIENT"
+  * "CLIENT_ASYNC" – ウェブクライアントからトリガーされた非同期マイクロフロー呼び出し。
+  * "CLIENT_ASYNC_MONITORED" – CLIENT_ASYNC とは異なるスレッドで発生する Mendix ランタイムにおける非同期マイクロフローの実際の実行
+  * "CUSTOM"
+  * "WEB_SERVICE"
+  * "SCHEDULED_EVENT"
+  * "不明"
+*   アクションを実行しているセッションに関連付けられた「ユーザー」。非ユーザーセッションでは「システム」という名前が返されます。
+*   この実行のための"action_stack"は、このスタック内の各アクションの詳細情報が表示されます。 例えば現在の活動とマイクロフローの名前は
 
 ## 3ランタイム統計
 
-**リクエスト**
+### 3.1 リクエスト
 
-```java
+```json
 "{"action" : "runtime_statistics", "params":{} }"
-
 ```
 
-**回答**
+### 3.2 応答例
 
-```java
+```json
 {
   "feedback":
   {
@@ -186,70 +207,87 @@ M2EE パスワードは、スーパー管理者パスワードではなく、別
           "index":5
         }
       ],
-      "tenured":0,
       "committed_heap":301465600,
       "max_heap":3817865216,
-      "survivor":0,
       "used_nonheap":67844048,
       "max_nonheap":-1,
       "committed_nonheap":72777728,
-      "permanent":0,
       "used_heap":125300600
-    },
-     "result":0
-  }
+  },
+  "result":0
 }
 ```
 
-<u>リクエスト</u> ハンドラごとのリクエストに関する情報を表示します。 value フィールドには、ハンドラあたりのリクエスト数が表示されます。 Mendix 5.3 以降、last_request_timestamp 項目には、最後に処理されたリクエストのミリ秒単位のタイムスタンプが表示されます。 処理されたリクエストがない場合、この項目はハンドラが登録された瞬間を示します。 空のハンドラはリソースリクエストハンドラを表し、画像やフォームなどを処理します。 (静的コンテンツハンドリングにリバースプロキシが使用されない場合にのみ使用されます)。 "file" はファイルのアップロードとダウンロードを処理します "xas/"は、Webクライアントによって発行されたCRUDアクションとマイクロフロー実行呼び出しを処理し、"ws/"と"ws-doc/"は、Webサービス要求を処理し、Webサービス文書を提供します。
+### 3.3 戻り値
 
-<u>キャッシュ</u>
+#### 3.3.1 リクエスト{#request-handlers}
+
+ハンドラごとのリクエストに関する情報を表示します:
+
+* 空のハンドラはリソースリクエストハンドラを表し、画像やフォームなどを処理します。 (静的コンテンツハンドリングにリバースプロキシが使用されない場合にのみ使用されます)。
+* "file" はファイルのアップロードとダウンロードを処理します
+* "xas/"は、Webクライアントによって発行されたCRUDアクションとマイクロフロー実行呼び出しを処理します
+* "ws/" と "ws-doc/" は Web サービスのリクエストを処理し、Web サービスのドキュメントを提供します
+
+各ハンドラーには、2つの情報が表示されます。
+
+* value フィールドには、ハンドラあたりのリクエスト数が表示されます。
+* last_request_timestamp 項目には、最後に処理されたリクエストのミリ秒単位のタイムスタンプが表示されます。 処理されたリクエストがない場合、この項目はハンドラが登録された瞬間を示します。
+
+#### 3.3.2 キャッシュ
 
 ランタイム状態 (すべてのセッションをまとめて) に現在参加しているオブジェクトの合計数を表示します。 ランタイム状態は、メモリ(非クラスターランタイム)またはRedisまたはデータベース(クラスターランタイム)のいずれかに存在します。 状態にあるオブジェクトが多すぎると、Mendix Runtime のパフォーマンスが低下する可能性があります。
 
-<u>セッション</u> 「user_sessions」セクションには、ユーザエージェントを使用している現在のユーザセッションが表示されます。 他のセクションには、カテゴリごとのセッション数が表示されます。 カテゴリは「名前付きユーザー」(ユーザーインスタンス数)、「named_user_sessions」(非匿名の同時セッション数)、「anonymous_sessions」(匿名の同時セッション数)です。
+#### 3.3.3 セッション
 
-<u>Connectionbus</u> データベースのリクエスト数。 "select", "update", "insert", "delete" コマンドとデータベーストランザクションを開始したものを区別します。
+「user_sessions」セクションには、ユーザーエージェントとの現在のユーザーセッションが表示されます。
 
-<u>メモリ</u>
+他のセクションには、カテゴリごとのセッション数が表示されます。 カテゴリ:
+
+* "名前付きユーザー" (ユーザーインスタンスの数)
+* "named_user_sessions" (匿名でない同時セッションの数)
+* "anonymous_sessions" (匿名同時セッション数)
+
+#### 3.3.4 接続バス
+
+データベースリクエストの数 「select」、「update」、「insert」、「delete」コマンドとデータベーストランザクションを開始したコマンドを区別します。
+
+#### 3.3.5 メモリ
 
 {{% alert type="warning" %}}
 
 メモリ統計量は専門家によってのみ解釈されるべきであり、Javaメモリモデルの詳細な知識の欠如は誤った結論につながる可能性があります。
 
-{{% /alert %}}{{% alert type="warning" %}}
-
-後方互換性の理由として、フィールド "code", "eden", "tened", "survivor" と "permanent" はまだ存在しますが、それらはもはや依存すべきではありません。 彼らはMendix 7以降から削除されます。
-
 {{% /alert %}}
 
-指定されたメモリセクションに割り当てられたバイト数を表します。 一般的な説明については、ガベージコレクションのチューニングに関する [Oracleドキュメント](http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/) を参照してください。 ヒープフィールドと非ヒープフィールドについては、 [メモリ使用量](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryUsage.html) ページを参照してください。 「memorypools」セクションには、JVMから受信するのとまったく同じようにすべてのメモリプールの順序付きリストがあります。 [MemoryPoolMxBean](http://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryPoolMXBean.html) のいくつかのフィールドと同じ順序で :
+指定されたメモリセクションに割り当てられたバイト数を表します。 一般的な説明については、ガベージコレクションのチューニングに関する [Oracleドキュメント](http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/) を参照してください。 ヒープフィールドと非ヒープフィールドについては、 [メモリ使用量](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryUsage.html) ページを参照してください。
 
-*   "usage": このメモリ プールのメモリ使用量の推定値(バイト単位)を返します。
-*   "is_heap": このメモリプールはヒープの一部ですか?
-*   "name": JVM によって受信されるメモリープールの説明。 これらの名前は、JDK、メモリマネージャ、またはガベージコレクションオプションなどによって異なる場合があります。
-*   "index": JSON Array内のインデックス。 プールがリストに返されるため、このフィールドは必須ではありません。 プログラムで処理する場合に備えてリストの順番に頼るべきです
+"memorypools" セクションには、 [MemoryPoolMxBean](http://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryPoolMXBean.html) のいくつかのフィールドを持つ JVM から受け取るのと同じように、すべてのメモリプールの順序付きリストが含まれています。
+
+*   "usage" – このメモリプールのメモリ使用量の推定値を返します (バイト単位)
+*   "is_heap" – このメモリプールはヒープの一部ですか?
+*   "name" – JVM によって受信されるメモリープールの説明。 これらの名前は、JDK、メモリマネージャ、ガベージコレクションオプションなどによって異なる場合があります。
+*   "index" – JSON Array内のインデックス。 プールがリストに返されるため、このフィールドは必須ではありません。 プログラムで処理している場合に備えてリストの順番に頼るべきです
 
 {{% alert type="info" %}}
 
-"memorypools" セクションを自動的に処理する場合は、例えばグラフに表示します。 理想的には、ガベージコレクタの設定や Java バージョンなどによって、リスト内の順序や名前に基づいてメモリープールの種類を想定しないでください。
+"memorypools" セクションを自動的に処理している場合、例えばグラフに表示します。 理想的には、ガベージコレクタの設定や Java バージョンなどによって、リスト内の順序や名前に基づいてメモリープールの種類を想定しないでください。
 
-Javaバージョンに基づいて、とにかくこれらのプールを解釈するための戦略を開発したい場合: 「about」管理アクションからJavaバージョンを取得できます。
+Javaバージョンに基づいて、いずれにせよこれらのプールを解釈する戦略を開発したい場合: 「about」管理アクションからJavaバージョンを取得できます。
 
 {{% /alert %}}
 
-## 4要塞統計
+## 4要塞統計 {#state}
 
-**リクエスト**
+### 4.1 リクエスト
 
-```java
+```json
 "{"action" : "cache_statistics", "params":{} }"
-
 ```
 
-**回答**
+### 4.2 応答例
 
-```java
+```json
 {
   "feedback":{
     "totals":{
@@ -271,20 +309,26 @@ Javaバージョンに基づいて、とにかくこれらのプールを解釈�
 }
 ```
 
-この監視アクションは、Mendix Runtime の状態にあるオブジェクトに関する詳細な情報を提供します。 「合計」では、セッションごとのオブジェクト数の合計が表示されます。「user_totals」では、特定のセッションごとのエンティティごとのオブジェクト数が表示されます。 この情報は、どのオブジェクトが多くのメモリ使用量を引き起こすかを把握するのに役立ちます。
+### 4.3 戻り値
 
-## 5つのサーバー統計 {#server-statistics}
+この監視アクションは、Mendix Runtime の状態にあるオブジェクトに関する詳細な情報を提供します。
 
-**リクエスト**
+* 「合計」は、セッションごとのオブジェクトの合計数を表示します
+* "user_totals" は、特定のセッションのエンティティごとのオブジェクト数を表示します
 
-```java
+この情報は、どのオブジェクトが多くのメモリ使用量を引き起こすかを把握するのに役立ちます。
+
+## 5つのサーバー統計
+
+### 5.1 リクエスト
+
+```json
 "{"action" : "server_statistics", "params":{} }"
-
 ```
 
-**回答**
+### 5.2 応答例
 
-```java
+```json
 {
   "feedback":{
     "jetty":{
@@ -307,22 +351,23 @@ Javaバージョンに基づいて、とにかくこれらのプールを解釈�
 }
 ```
 
-サーバー統計モニタのアクションは、埋め込まれた Jetty Web サーバーに関する情報を提供します。 「jetty」セクションには、現在開いている接続の数と開いている接続の最大数が表示されます。 さらに、Jetty が通常の状況下にある場合は、接続が閉じられる前のアイドル時間の最大値がリストされます。 Mendix 7に注意してください。 そしてその上に Jetty がリソースが低い時("max_idle_time_s_low_resources")に接続がクローズされる前のアイドル時間に関する情報は、Jetty のアップグレードの一部として削除されます。 ジェッティによって提供されなくなったからです
+### 5.3 戻り値
+
+サーバー統計モニタのアクションは、埋め込まれた Jetty Web サーバーに関する情報を提供します。 「jetty」セクションには、現在開いている接続の数と開いている接続の最大数が表示されます。 さらに、Jetty が通常の状況下で動作している場合は、閉鎖前の接続のアイドル時間の最大値がリストされます。
 
 "threadpool" セクションは、ランタイムポートを通過するすべてのリクエストを処理するハンドラの threadpool に関する情報を提供します。 詳細は [Jetty QueuedThreadPool ドキュメント](https://www.eclipse.org/jetty/javadoc/9.4.11.v20180605/org/eclipse/jetty/util/thread/QueuedThreadPool.html) を参照してください。
 
 ## 6人のログインユーザー
 
-**リクエスト**
+### 6.1 リクエスト
 
-```java
+```json
 "{"action" : "get_logged_in_user_names", "params":{} }"
-
 ```
 
-**回答**
+### 6.2 応答例
 
-```java
+```json
 {
   "feedback": {
     "count":1,
@@ -332,20 +377,21 @@ Javaバージョンに基づいて、とにかくこれらのプールを解釈�
 }
 ```
 
-現在ログインしているユーザーを表示します。 ユーザに複数のセッションがある場合、このユーザは各セッションに一度だけ表示されます。
+### 6.3 戻り値
 
-## スレッドスタックトレース
+現在ログインしているユーザーを表示します。 ユーザに複数のセッションがある場合、このユーザは各セッションに一度表示されます。
 
-**リクエスト**
+## スレッドスタックトレース {#thread}
 
-```java
+### 7.1 リクエスト
+
+```json
 "{"action" : "get_all_thread_stack_traces", "params":{} }"
-
 ```
 
-**回答**
+### 7.2 応答例
 
-```java
+```json
 {
   "feedback": {
     "qtp1967003817-95":[
@@ -387,26 +433,27 @@ Javaバージョンに基づいて、とにかくこれらのプールを解釈�
       "java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1127)",
       "java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)",
       "java.lang.Thread.run(Thread.java:745)"
-    ]
+    ],
   },
   "result":0
 }
 ```
 
+### 7.3 戻り値
+
 現在のスレッドスタックトレースをすべて名前で返します。 これは、アプリケーションで起こっていることを低レベルで分析する場合に便利です。 "get_current_runtime_executions" リクエストを使用して、より高いレベルの情報(マイクロフローやその他のアクション)を取得します。
-{#check-health}
+
 ## 8回のランタイムステータス {#runtime-status}
 
-**リクエスト**
+### 8.1 リクエスト
 
-```java
+```json
 "{"action" : "runtime_status", "params":{} }"
-
 ```
 
-**回答**
+### 8.2 応答例
 
-```java
+```json
 {
   "feedback":{
     "status":"running"
@@ -415,20 +462,30 @@ Javaバージョンに基づいて、とにかくこれらのプールを解釈�
 }
 ```
 
-現在の Mendix ランタイムステータスを返します。 状態値は次のとおりです: "created", "starting", "broken", "running", "stopped" and "stopped". この情報は、Mendix Runtime がどのような状態で開始または停止されたかを追跡したり、ランタイムがまだ実行されているかどうかを確認したりするために使用できます。
+### 8.3 戻り値
+
+現在の Mendix ランタイムステータスを返します。 利用可能なステータス値は次のとおりです。
+
+* "created"
+* "starting"
+* "壊れた"
+* "実行中"
+* "停止"
+* "停止"
+
+この情報は、コマンドを開始または停止するときにMendix Runtimeがどの状態にあるかを追跡するために使用することができます。 またはランタイムがまだ実行されているかどうかを確認します。
 
 ## 体力を9点確認 {#check-health}
 
-**リクエスト**
+### 9.1 リクエスト
 
-```java
+```json
 "{"action" : "check_health", "params":{} }"
-
 ```
 
-**回答**
+### 9.2 応答例
 
-```java
+```json
 {
   "feedback":{
     "health":"病気",
@@ -438,9 +495,11 @@ Javaバージョンに基づいて、とにかくこれらのプールを解釈�
 }
 ```
 
-Mendix Desktop Modelerでは、 [ヘルスチェックマイクロフロー](project-settings) を設定できます。 このマイクロフローは、アプリケーションの機能状態を報告することができます: アプリケーションの一般的な機能を実行します。 必要な遠隔サービスは利用できるのか?
+### 9.3 戻り値
 
-ヘルスチェックマイクロフローが設定されている場合、このリクエストは現在のヘルスステータスを報告します。 "health" の値は "healthy"、"病気"、または "unknown" のいずれかになります(ヘルスマイクロフローが設定されていない場合)。 値「病気」の場合、「診断」の値は、アプリケーションが健康でない理由を与えます。 この理由は、ヘルスチェックマイクロフローの戻り値です。
+Mendix Studio Proでは、 [ヘルスチェックマイクロフロー](project-settings) を設定できます。 このマイクロフローは、アプリケーションの機能状況を報告することができます。 アプリケーションの一般的な機能は機能し、必要なリモートサービスは利用可能ですか?
+
+ヘルスチェックマイクロフローが設定されている場合、このリクエストは現在のヘルスステータスを報告します。 "health" の値は "healthy"、"病気"、"unknown" のいずれかになります(ヘルスマイクロフローが設定されていない場合)。 値「病気」の場合、「診断」の値は、アプリケーションが健康でない理由を与えます。 この理由は、ヘルスチェックマイクロフローの戻り値です。
 
 ヘルスチェック・マイクロフローは1分間に複数回呼び出されます。 そのため、軽量化と迅速な走行が推奨されます。 重い操作はアプリケーションのパフォーマンスに大きな影響を与える可能性があります。
 
@@ -452,16 +511,15 @@ Mendix Desktop Modelerでは、 [ヘルスチェックマイクロフロー](pro
 
 ## 10 ランタイムについて
 
-**リクエスト**
+### 10.1 リクエスト
 
-```java
+```json
 "{"action" : "about", "params":{} }"
-
 ```
 
-**回答**
+### 10.2 応答例
 
-```java
+```json
 {
    "feedback":{
       "model_version":"unversioned",
@@ -476,5 +534,7 @@ Mendix Desktop Modelerでは、 [ヘルスチェックマイクロフロー](pro
    "result":0
 }
 ```
+
+### 10.3 戻り値
 
 Mendix Runtime についてのフィードバックを返します。
