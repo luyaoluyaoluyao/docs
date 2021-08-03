@@ -1,173 +1,173 @@
 ---
-title: "JavaScript Actions"
-parent: "resources"
+title: "JavaScript 操作"
+parent: "资源"
 menu_order: 20
-description: "This reference guide details the ways JavaScript Actions can extend the functionality of your Mendix app."
+description: "本参考指南详细介绍JavaScript 操作可以扩展Mendix 应用程序功能的方式。"
 tags:
   - "javascript"
-  - "javascript action"
-  - "parameter"
+  - "javascript 操作"
+  - "参数"
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Nanoflows**.
-{{% /alert %}}
+此活动只能用于 **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-With JavaScript actions, you can extend your application's functionality in ways nanoflows alone cannot. To use a JavaScript action, call it from a nanoflow using the [JavaScript Action Call](javascript-action-call).
+用 JavaScript 动作，您可以以非独特的方式扩展您的应用程序的功能。 要使用 JavaScript 动作，使用 [JavaScript 动作调用](javascript-action-call)。
 
 {{% alert type="info" %}}
 
-Each JavaScript action defined in Mendix Studio Pro corresponds to a file *{JavaScript action name}.js* in the subdirectory **javascriptsource{module name}/actions/** in your app directory.
+Mendix Studio Pro 中定义的每个JavaScript 动作对应文件 *{JavaScript action name}。 s* 在子目录 **javascriptsource{module name}/actions/** 在您的应用目录中。
 
-The skeletons of these *.js* files are generated automatically when you save an action, and those JavaScript actions can immediately be edited in the embedded code editor.
+这些 *的骨头. s* 个文件是在您保存一个动作时自动生成的，这些JavaScript操作可以立即被编辑到嵌入代码编辑器中。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-To learn how to create, configure, and use a JavaScript action, see these [Build JavaScript Actions](/howto/extensibility/build-javascript-actions) how-to's.
+要学习如何创建、配置和使用 JavaScript 动作，请参阅 [如何构建JavaScript 动作](/howto/extensibility/build-javascript-actions)。
 
-## 2 General Settings
+## 2 个常规设置
 
-After double-clicking a JavaScript action in your **App Explorer** you will see the JavaScript action's settings:
+在您的 **App Explorer** 中双击JavaScript 动作后，您将看到JavaScript 动作的设置：
 
 {{% image_container width="400" %}}![javascript settings](attachments/javascript-actions/javascript-action-settings-no-para.png){{% /image_container %}}
 
-The settings for JavaScript actions and their implications are detailed below.
+JavaScript 动作及其影响的设置详见下文。
 
-### 2.1 Name
+### 2.1 名称
 
-This setting handles a JavaScript action's name, which a nanoflow refers to when performing a call to it. This name is also the name of the generated *.js* file.
+此设置处理一个 JavaScript 动作的名字，当进行通话时，nanoflow 是指它的。 此名称也是生成的 *.js* 文件的名称。
 
-### 2.2 Parameters
+### 2.2 参数
 
-Parameters pass data to JavaScript actions. For example, if you had a JavaScript action which multiplied numbers, parameters would define the numbers to be multiplied. A JavaScript action can have zero or more parameters. Each parameter should have a unique name. You may add a parameter by clicking **Parameters** > **Add**, and then customize that parameter to pass data into a JavaScript action:
+参数传递数据到 JavaScript 操作。 例如，如果你有一个 JavaScript 动作，乘以数字，参数会定义要乘以的数字。 JavaScript 动作可以有零或更多参数。 每个参数应该有一个唯一的名称。 您可以点击 **参数** > **添加**然后自定义该参数以将数据传递到 JavaScript 动作：
 
-![parameter](attachments/javascript-actions/parameter-naming.png)
+![参数](attachments/javascript-actions/parameter-naming.png)
 
-In a JavaScript action's **Code** tab, you can see its parameters' values and handle its implementation. Each parameter has a name (1), type (2), category, description (3), and return type (4):
+在 JavaScript 动作的 **代码** 标签中，你可以看到它的参数值并处理它的实现。 每个参数有一个名称(1)、类型(2)、类别、描述(3)和返回类型(4)：
 
-![parameter code](attachments/javascript-actions/parameter-code.png)
+![参数代码](attachments/javascript-actions/parameter-code.png)
 
-You will see a parameter's category (1), parameter name (2), and description (3) in the **Call JavaScript Action** dialog box after double-clicking its activity in your nanoflow:
+您将看到一个参数类别(1)，参数名称(2)。 在 **调用 JavaScript 动作** 对话框中，在你的 nanoflow 中双击其活动后的描述（3）:
 
 {{% image_container width="400" %}}![call javascript action dialog](attachments/javascript-actions/call-js-action-dialog.png){{% /image_container %}}
 
-The parameter types supported by JavaScript actions are described below.
+JavaScript 操作支持的参数类型描述如下。
 
-#### 2.2.1 Name
+#### 2.2.1 名称
 
-This setting handles the parameter's name. A name is required. Names must start with a letter and contain only letters. Spaces are not permitted in names.
+此设置处理参数的名称。 名称是必需的。 名称必须以字母开头，只包含字母。 名称中不允许有空格。
 
-#### 2.2.2 Type
+#### 2.2.2 类型
 
-| Name          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object        | The object parameter type allows you to pass a Mendix object to a JavaScript action. You must also select its entity type, which can be either a specific entity or a type parameter. In the generated JavaScript action template code, this type is represented as an MxObject.                                                                                                                                                                                                                                                |
-| List          | The list parameter type allows you to pass a list of Mendix objects to a JavaScript action. You must also select its entity type, which can be either a specific entity or a type parameter. In the generated JavaScript action template code, this type is represented as an array of MxObjects.                                                                                                                                                                                                                               |
-| Entity        | The entity parameter type is a placeholder. It stands in for an entity that will be replaced with a new entity's name when it is called in a nanoflow. Additionally, the entity type can be used to fill in a type parameter. In the generated JavaScript action template code, this type is represented as a string.                                                                                                                                                                                                           |
-| Nanoflow      | The nanoflow parameter type allows you to pass a nanoflow that you can call from your JavaScript action. The value of the parameter is an async function, where calling will trigger the configured nanoflow. You can specify parameters as a JavaScript object, and capture the return value of the nanoflow once execution finishes. For example, you can call a nanoflow that has a string `Name` parameter and returns a `User` object with this given name: `const user = await nanoflowParameter({ Name: "John Doe" });`. |
-| Boolean       | The Boolean parameter type allows you to pass a Boolean value to a JavaScript action.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Date and Time | The date and time parameter type allows you to pass a date and time value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a JavaScript `Date`.                                                                                                                                                                                                                                                                                                                                |
-| Decimal       | The decimal parameter type allows you to pass a decimal value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a [Big](https://www.npmjs.com/package/big-js) object.                                                                                                                                                                                                                                                                                                           |
-| Enumeration   | The enumeration parameter type allows you to pass a enumeration value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a string.                                                                                                                                                                                                                                                                                                                                               |
-| Integer/Long  | The integer/long parameter type allows you to pass a decimal value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a [Big](https://www.npmjs.com/package/big-js) object.                                                                                                                                                                                                                                                                                                      |
-| String        | The string parameter type allows you to pass a string value to a JavaScript action.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 名称      | 描述                                                                                                                                                                                                                                                        |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 对象      | 对象参数类型允许您将 Mendix 对象传递到 JavaScript 动作。 您还必须选择其实体类型，它可以是一个特定的实体或类型参数。 在生成的 JavaScript 动作模板代码中，这种类型表示为 MxObject。                                                                                                                                            |
+| 列表      | 列表参数类型允许您将 Mendix 对象列表传递到 JavaScript 动作。 您还必须选择其实体类型，它可以是一个特定的实体或类型参数。 在生成的 JavaScript 动作模板代码中，这种类型表示为 MxObjects 的数组。                                                                                                                                     |
+| 实体      | 实体参数类型是占位符。 它指的是一个实体，如果一个新的实体被用纳米材料命名，该实体将被替换。 此外，实体类型可以用来填写类型参数。 在生成的 JavaScript 动作模板代码中，这种类型是一个字符串。                                                                                                                                                     |
+| 纳诺夫low  | nanoflow 参数类型允许您传递一个 nanoflow ，您可以通过您的 JavaScript 动作呼叫。 参数值是异步函数，调用将触发配置的 nanoflow 您可以指定参数为 JavaScript 对象，并在执行完成后捕获nanoflow 的返回值。 例如， 您可以调用 nanoflow 具有字符串 `name` 参数并返回一个 `用户` 对象使用给定名称： `const user = requising nanoflowParameter(欧共体名称: "John Doe" });` |
+| Boolean | 布尔参数类型允许您将布尔值传递到 JavaScript 动作。                                                                                                                                                                                                                           |
+| 日期和时间   | 日期和时间参数类型允许您将日期和时间值传递到 JavaScript 动作。 在生成的 JavaScript 动作代码中，这种类型将表示为 JavaScript `日期`。                                                                                                                                                                     |
+| 小数      | 十进制参数类型允许您将十进制值传递到 JavaScript 动作。 在生成的 JavaScript 动作代码中，这种类型将表示为 [大](https://www.npmjs.com/package/big-js) 对象。                                                                                                                                            |
+| 枚举数     | 枚举参数类型允许您将枚举值传递给一个 JavaScript 操作。 在生成的 JavaScript 动作代码中，这种类型将作为字符串表示.                                                                                                                                                                                     |
+| 整数/经度   | 整数/长参数类型允许您将十进制值传递到 JavaScript 动作。 在生成的 JavaScript 动作代码中，这种类型将表示为 [大](https://www.npmjs.com/package/big-js) 对象。                                                                                                                                           |
+| 字符串     | 字符串参数类型允许您将字符串值传递到 JavaScript 操作。                                                                                                                                                                                                                         |
 
-#### 2.2.3 Category
+#### 2.2.3 类别
 
-Use categories to keep parameters apart in a [JavaScript Action Call](javascript-action-call). Categories are useful for making logical groups of parameters when your app has several parameters. If you do not specify a category, the parameter will appear in the **Input** group.
+在 [JavaScript 行动调用](javascript-action-call) 中使用类别来区分参数。 当您的应用有几个参数时，类别对逻辑参数组是有用的。 如果您没有指定类别，参数将出现在 **输入** 组中。
 
-#### 2.2.4 Description
+#### 2.2.4 描述
 
-For apps with several parameters, descriptions serve as useful reminders of parameters' exact purposes. Descriptions also allow you to describe your parameters to app collaborators. Descriptions may contain both upper- and lower-case letters, numbers, and symbols.
+对于有多个参数的应用，描述可以作为参数确切用途的有用提示。 描述还允许您向应用合作者描述您的参数。 描述可以包含大写和小写字母、数字和符号。
 
-### 2.3 Return Type
+### 2.3 返回类型
 
-The return parameter type determines the type of data a JavaScript action returns. Because many APIs are asynchronous, you can also return a `Promise` object which resolves to this type. The return value of the JavaScript action can be given a name and stored so it can be used in the nanoflow where it is called. For all types which you can use for parameters, you can also use a return type. In addition, you can use the return type 'Nothing' if no data should return from the action.
+返回参数类型决定一个 JavaScript 动作返回的数据类型。 因为许多API是异步的，您也可以返回解析此类型的 `承诺` 对象。 JavaScript 动作的返回值可以给出一个名称并存储，以便它可以用于调用的 nanoflow 中。 对于你可以用作参数的所有类型，你也可以使用返回类型。 此外，如果没有数据从该动作返回，您可以使用返回类型“无”。
 
-## 3 Type Parameter
+## 3 类型参数
 
-A type parameter is a placeholder for an entity type which will be filled with a specific entity when called in a nanoflow. Type parameters can be used when configuring the data type of a parameter, which allows users to pass an object or list of an arbitrary entity type. They can easily be added, edited, or deleted:
+类型参数是实体类型的占位符，当调用nanoflow时，该实体类型将填充特定实体。 在配置参数的数据类型时可以使用类型参数， 它允许用户传递任意实体类型的对象或列表。 可以轻松添加、编辑或删除：
 
 {{% image_container width="450" %}}![type parameter](attachments/javascript-actions/type-parameter.png){{% /image_container %}}
 
-A JavaScript action can have zero or more type parameters. Each type parameter should have a unique name.
+JavaScript 动作可以有零或更多类型参数。 每个类型参数应该有一个唯一的名称。
 
-## 4 Expose as Nanoflow Action
+## 4 以Nanoflow Action
 
-In the **Expose as nanoflow action** tab, it is possible to expose a JavaScript action as a nanoflow action. This sample action has been given *Sample Action* caption text, assigned *Workshop* as its category, and given no icon:
+在 **以nanoflow 动作** 标签页显示时，可以将JavaScript 动作作为纳米动作暴露。 这个示例动作已经获得 *示例动作* 标题文本，分配 *Workshop* 作为其类别，并且没有给出图标：
 
 {{% image_container width="450" %}}![expose action](attachments/javascript-actions/expose-jsaction.png){{% /image_container %}}
 
-Exposing the JavaScript action will make it appear in the **Toolbox** window when editing a nanoflow in the category of your choice. When this action is used in a nanoflow, it will show the caption and icon you provided. The category and caption are apparent here, and the default icon is being displayed as no custom one was assigned:
+在编辑您选择的类别中的 nanoflow 时，暴露JavaScript 动作会使它出现在 **工具箱** 窗口。 当这个动作被用在 nanoflow 中时，它将显示您提供的标题和图标。 类别和字幕在这里显现，默认图标被显示为没有自定义图标：
 
-![workshop exposed](attachments/javascript-actions/workshop-exposed.png)
+![工作室曝光](attachments/javascript-actions/workshop-exposed.png)
 
-### 4.1 Caption
+### 4.1 标题
 
-A caption is required when exposing a JavaScript action. This caption will accompany your JavaScript action inside the nanoflow **Toolbox** window and can give helpful reminder information about your JavaScript action there.
+曝光JavaScript操作时需要一个标题。 此字幕将伴随你的 JavaScript 动作在 nanoflow **工具箱** 窗口，并且可以在那里提供关于你的 JavaScript 动作的有用的提醒信息。
 
-### 4.2 Category
+### 4.2 类别
 
-A category is required when exposing a JavaScript action. Use categories to organize JavaScript actions with similar purposes together in the nanoflow **Toolbox** window.
+曝光JavaScript操作时需要一个类别。 在nanoflow **工具箱** 窗口中使用类别组织类似目的的 JavaScript 动作。
 
-### 4.3 Icon
+### 4.3 图标
 
-An icon is optional when exposing a JavaScript action. When no icon is selected, the default JavaScript action icon is used. The recommended size for an icon is 16x16 pixels.
+当曝光JavaScript操作时，图标是可选的。 当没有选择图标时，使用默认的 JavaScript 动作图标。 建议的图标大小为16x16像素。
 
-## 5 Documentation
+## 5 文件
 
-In the **Documentation** tab, press **Edit** to document a JavaScript action:
+在 **文档** 标签页中，按 **编辑** 来记录一个 JavaScript 动作：
 
 {{% image_container width="450" %}}![documentation](attachments/javascript-actions/documentation-pro.png){{% /image_container %}}
 
-Documentation is visible in the **Code** tab. Your documentation also is copied into the JavaScript action as comment on the function in the corresponding *.js* file:
+文档在 **代码** 选项卡中可见。 您的文档也被复制到JavaScript操作中，作为相应函数的 *.js* 文件的评论：
 
 {{% image_container width="450" %}}![documentation js file](attachments/javascript-actions/documentation-js-file.png){{% /image_container %}}
 
-## 6 Code
+## 6 个代码
 
-In the **Code** tab, you can edit the JavaScript action code without leaving Studio Pro. The editor is based on the [Monaco Editor](https://microsoft.github.io/monaco-editor/index.html). It offers features such as syntax highlighting and code completion. The code can be written in modern JavaScript (ES8 / ES2017) and can use functions like `async` with `await` and `Promise`.
+在 **代码** 标签中，您可以不离开Studio Pro编辑JavaScript操作代码。 编辑器基于 [Monaco 编辑器](https://microsoft.github.io/monaco-editor/index.html)。 它提供了诸如语法高亮和代码完成等功能。 代码可以写入现代JavaScript(ES8/ES2017)，并且可以使用像 `async` 这样的功能， `等待` 和 `承诺`。
 
-The code has three sections: an import list, an extra code block, and a user code block. All code that is added should go in one of these blocks. Code outside the blocks will lost when re-generating the template code on deploy or update of the JavaScript action settings.
+代码有三个部分：导入列表、一个额外的代码块和一个用户代码块。 添加的所有代码都应该在其中一个模块中。 当部署或更新JavaScript操作设置时重新生成模板代码时，区块外的代码将丢失。
 
-Additional imports should start with `import` and be placed above `// BEGIN EXTRA CODE`. Extra code should be placed between `// BEGIN USER CODE` and `// END USER CODE`. User implementation code should be placed between `// BEGIN EXTRA CODE` and `// END EXTRA CODE`.
+额外的导入应该从 `导入` 开始，并放置在 `/ BEGIN EXTRA CODE` 上。 额外代码应该放置在 `// BEGIN USER 代码` 和 `// END USER 代码` 之间。 用户执行代码应该放置在 `// BEGIN EXTRA 代码` 和 `/ END EXTRA 代码` 之间。
 
 ``` js
-// This file was generated by Mendix Studio Pro.
+// 此文件由 Mendix Studio Pro生成。
 //
-// WARNING: Only the following code will be retained when actions are regenerated:
-// - the import list
-// - the code between BEGIN USER CODE and END USER CODE
-// - the code between BEGIN EXTRA CODE and END EXTRA CODE
-// Other code you write will be lost the next time you deploy the project.
-import { Big } from "big.js";
+// 警告: 只有以下代码将在重新生成操作时保留：
+// - 导入列表
+// - BEGIN UER CodDE 和 END USER CodDE 之间的代码
+// - BEGIN EXTRA CodE 和 END EXTRA CDE
+// 其他代码下次部署项目时会丢失。
+从 "big.js"导入 { Big } ；
 
-// BEGIN EXTRA CODE
- function sayHello(message) {
-     window.alert("Hello: " + message);
+// BEGIN EXTRA Code
+ function sayHello(message) Windows
+     window。 lert("Hello: " + message);
  }
-// END EXTRA CODE
+// END EXTRA 代码
 
 /**
- * Show an alert message to an user.
- * @param {string} message - Message shown to the user.
- * @returns {Promise.<void>}
+ * 向用户显示警告消息。
+ * @param {string} 消息-向用户显示消息。
+ * @return {Promise.<void>
  */
-export async function Hello(message) {
+导出异步函数 Hello(消息) *
     // BEGIN USER CODE
-    sayHello(message);
-    return Promise.resolve();
+    sayHello(消息);
+    退货承诺。 esolve();
     // END USER CODE
 }
 ```
 
-## 7 Read More
+## 7 阅读更多
 
-* [JavaScript Action Call](javascript-action-call)
-* [Nanoflows](nanoflows)
-* [Build JavaScript Actions](/howto/extensibility/build-javascript-actions)
-* [Java Action Call](java-action-call)
-* [Microflow Call](microflow-call)
+* [JavaScript 动作调用](javascript-action-call)
+* [纳诺夫拉](nanoflows)
+* [生成 JavaScript 操作](/howto/extensibility/build-javascript-actions)
+* [Java 行动电话](java-action-call)
+* [微流程呼叫](microflow-call)
