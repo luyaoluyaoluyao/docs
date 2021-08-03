@@ -14,9 +14,9 @@ tags:
 
 このドキュメントでは、Mendix Studio の **決定** について説明します。
 
-意思決定は、条件に基づく要素であり、それは、発信の流れの1つに過ぎません。 たとえば、異なる成績を持つ顧客に対して異なる注文フォームを表示するには、決定を使用する必要があります。 ブロックされた顧客が注文するのを防ぐためです
+意思決定は、条件に基づく要素であり、発信フローの1つだけに従います。 たとえば、異なる成績を持つ顧客に対して異なる注文フォームを表示するには、決定を使用する必要があります。 ブロックされた顧客が注文するのを防ぐためです
 
-## 2つの条件 {#condition}
+## 2つの条件
 
 判断に条件を設定するには2つの方法があります:
 
@@ -42,19 +42,17 @@ tags:
 
 ### 2.2 式による条件の設定 {#expression-tab}
 
-式を書くことで条件を設定することもできます。 式の記述方法の詳細については、 [Microflow Expressions](microflows-expressions) を参照してください。
+式を書くことで条件を設定することもできます。 詳細については、 [Microflow Expressions](microflows-expressions) を参照してください。
 
 ## 3件のケース
 
-**ケース** は発信フローの数を定義し、選択された [条件](#condition) に依存します。
+利用可能なケースの数は、選択した **条件** によって異なります。
 
-パラメータまたは属性の Boolean 型では、2 つのフローが可能です: **true** と **false**。
+パラメータまたは属性の Boolean 型では、true と false の 2 つの値が使用できます。
 
 ![](attachments/microflows-decision/decision-boolean.png)
 
-列挙型で使用可能なケースの数は、対応する列挙値によって異なります。 There is also the *empty* case available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
-
-たとえば、エンドユーザーが顧客の成績を選択する必要がありますが、そうしない場合。 **(空)** とラベル付けされたフローがフォローされ、エンドユーザーにエラーメッセージが表示されます。
+列挙型で使用可能なケースの数は、対応する列挙定数/値によって異なります。 列挙のために利用可能な空のケースもあります。 オブジェクトの列挙パラメータまたは属性が割り当てられていない場合、キャプション付きのシーケンスフローが続きます (空)。
 
 ![](attachments/microflows-decision/decision-enumeration.png)
 
@@ -66,5 +64,5 @@ tags:
 
 * [マイクロフロー](マイクロフロー)
 * [マイクロフロー式](microflows-expressions)
-* [決定を設定する](/studio-how-to/microflows-how-to-configure-decision) 
+* [決定を設定する](microflows-how-to-configure-decision) 
 
