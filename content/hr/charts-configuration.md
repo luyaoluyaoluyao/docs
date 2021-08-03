@@ -10,10 +10,6 @@ tags:
   - "Configuration"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-configuration.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This guide explains the options for configuring chart widgets. The chart widgets are included in Mendix app templates based on Atlas UI. They can be included in other Mendix apps by downloading them from the [Mendix Marketplace](https://marketplace.mendix.com/link/component/105695/). For more documentation, see [Charts](/appstore/widgets/charts) in the *Marketplace Guide*.
@@ -56,7 +52,7 @@ Add series and configure their properties, each series represents a dataset. For
 
   In this case, new series can be added by clicking the **Series > New** button in the **Chart properties** tab.
 
-  {{% alert type="info" %}}From version 1.4 of charts you can create charts with a variable number of data series. For instructions on how to do this, see [How to Create a Dynamic Series Chart](/howto8/front-end/charts-dynamic-series).{{% /alert %}}
+  {{% alert type="info" %}}From version 1.4 of charts you can create charts with a variable number of data series. For instructions on how to do this, see [How to Create a Dynamic Series Chart](/howto/front-end/charts-dynamic-series).{{% /alert %}}
 
 1. Data source<a name="data-source"></a>
 
@@ -70,7 +66,7 @@ Add series and configure their properties, each series represents a dataset. For
 
     * **Data source**: the data source type for the series: *Database*, *Microflow* or *REST endpoint*
 
-    * **REST URL**: Relative or full URL to REST endpoint. For more information on setting up a REST endpoint see [REST Charts](/howto8/front-end/charts-basic-rest)
+    * **REST URL**: Relative or full URL to REST endpoint. For more information on setting up a REST endpoint see [REST Charts](/howto/front-end/charts-basic-rest)
 
     * **XPath constraint**: The constraint on the data from the entity (used when the data source is Database)
 
@@ -115,7 +111,7 @@ Add series and configure their properties, each series represents a dataset. For
 
     * **Series entity**: the entity which defines a series – the list of objects of this entity type will be used to construct the series; one series for each object.
 
-      Each entity is associated with the values which will be plotted, see [How to Create a Dynamic Series Chart](/howto8/front-end/charts-dynamic-series) for more information.
+      Each entity is associated with the values which will be plotted, see [How to Create a Dynamic Series Chart](/howto/front-end/charts-dynamic-series) for more information.
 
     * **Series name attribute**: the attribute in the series entity which will be displayed as the series name if a legend is displayed
 
@@ -334,7 +330,7 @@ The properties above are common across the chart types. In this section, the pro
 
 ## 4 Chart Theming
 
-Advanced JSON settings can also be added in a global context via the theme folder of your Mendix project root directory.
+Advanced JSON settings can also be added in a global context via the theme folder of your Mendix app root directory.
 
 To the theme folder, add a *.json* file named *com.mendix.charts*. The JSON should be in the following format:
 
