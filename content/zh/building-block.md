@@ -1,41 +1,41 @@
 ---
-title: "Building Block"
-parent: "page-resources"
+title: "构建块"
+parent: "页面资源"
 menu_order: 40
 tags:
   - "studio pro"
-  - "building block"
-  - "page resource"
+  - "积木块"
+  - "页面资源"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Building blocks are components that can be re-used to streamline the page creation process. By pre-configuring and styling building blocks, users can easily click together interfaces without having to worry about the details of styling guidelines or user experience.
+建筑块是可以用来简化页面创建过程的组件。 通过预配置和样式构建块，用户可以轻松地点击接口，而不必担心样式指南或用户体验的细节。
 
-Building blocks are stored in the app's [UI resources package](ui-resources-package). This keeps them in sync with the app theme, and provides a handy place to consolidate all design-related data.
+建筑块存储在应用的 [UI 资源包](ui-resources-package) 中。 这将使它们与应用主题同步，并提供一个方便的场所来合并所有与设计相关的数据。
 
-To create a building block, simply right-click a widget anywhere in your app in Studio Pro and select **Create building block**. The widget along with its contents will be added as a new building block. The building block will now automatically appear in the **Building blocks** tab of the **Toolbox**.
+要创建一个建筑块，只需右键单击您在Studio Pro 应用程序的任何位置的小部件，并选择 **创建建筑块**。 小部件及其内容将作为一个新的建筑块添加。 The building block will now automatically appear in the **Building blocks** tab of the **Toolbox**.
 
-As the purpose of building blocks is to facilitate design rather than functionality, building blocks should be devoid of references to other documents. This is to prevent users from facing confusing errors when using building blocks in their pages. It also mitigates the chance of errors when importing building blocks from a different app.
+由于构件的目的是便利设计而不是便利功能，因此构件应不提及其他文件。 这是为了防止用户在其页面中使用建筑块时遇到混淆的错误。 它还可以减少从另一个应用程序导入构件块时出现错误的可能性。
 
-## 2 Common Properties
+## 2 公共属性
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-## 3 Designer Properties
+## 3 设计师属性
 
 {{% snippet file="refguide/designer-properties.md" %}}
 
-## 4 General Properties
+## 4 个一般属性
 
-### 4.1 Display Name
+### 4.1 显示名称
 
-The display name determines the name of the building block that will appear in the toolbox.
+显示名称决定将出现在工具箱中的建筑块名称。
 
-### 4.2 Image
+### 4.2 图像
 
-The image selected will appear in the **Building Blocks** tab of Studio's **Toolbox**. Selecting a representative image will allow users to easily distinguish between building blocks. If left blank, Studio will display a generic default image. Any image selected will be scaled down to 200x200 pixels.
+选中的图像将出现在Studio的 **建筑块** 标签页 **工具箱** 中。 选择一个具有代表性的图像将使用户能够轻松区分不同的构件。 如果留空，工作室将显示一个通用的默认图像。 所选图像将缩放到 200x200 像素。
 
-### 4.3 Documentation URL
+### 4.3 文件网址
 
-The documentation URL can be used to link to a documentation page for the building block. These links will appear in the **Building Blocks** tab of Studio's **Toolbox**.
+文档URL可以用来链接到构建块的文档页面。 这些链接将出现在Studio的 **Building 块** 标签页 **Toolbox** 中。
