@@ -5,11 +5,16 @@ menu_order: 20
 tags:
   - "图表"
   - "高级版"
-  - "桌面模型"
+  - "Studio Pro"
   - "布局控制"
   - "数据属性"
   - "系列属性"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-advanced-cheat-sheet.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -19,9 +24,9 @@ tags:
 
 这张使用 JSON 代码片段的作弊板将提供一些预设配置的样本。
 
-完整引用可在 [https://plot.ly/javascript/](https://plot.ly/javascript/) 上找到。
+完整引用可在 [https://plot.ly/javascript/](https://plot.ly/javascript/) 上找到。 图表窗口小部件支持 plotly.js 版本 1.47.4。
 
-当高级配置不足以在应用商店查看 [任意图表](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) 小部件。
+当高级配置不足够时，可以看看市场中的 [任何图表](https://marketplace.mendix.com/link/component/106437/Mendix/Any-Chart) 小部件。
 
 ## 2 个布局 (所有图表) {#layout-all}
 
@@ -150,7 +155,7 @@ tags:
 }
 ```
 
-![图例配置](attachments/pages/charts/advanced-layout-legend.gif)
+![图例配置](attachments/charts/advanced-layout-legend.gif)
 
 这里可以找到更多选项： [图例配置](https://plot.ly/javascript/reference/#layout-legend)。
 
@@ -183,7 +188,7 @@ tags:
 }
 ```
 
-![轴配置](attachments/pages/charts/axes.gif)
+![轴配置](attachments/charts/axes.gif)
 
 这里可以找到更多选项： [轴配置](https://plot.ly/javascript/reference/#layout-xaxis)。
 
@@ -214,7 +219,7 @@ tags:
 
 上面的布局属性应该与对应的 [数据属性一起使用](#multiple-y-axes-data-properties)。
 
-![多轴配置](attachments/pages/charts/multiple-y.gif)
+![多轴配置](attachments/charts/multiple-y.gif)
 
 这里可以找到更多选项： [多个Y轴配置](https://plot.ly/javascript/multiple-axes/)。
 
@@ -251,7 +256,7 @@ tags:
 
 上面的布局属性应该与对应的 [数据属性一起使用](#multiple-x-axes-data-properties)。
 
-![多个X轴配置](attachments/pages/charts/multiple-x.gif)
+![多个X轴配置](attachments/charts/multiple-x.gif)
 
 这里可以找到更多选项： [多个X轴配置](https://plot.ly/javascript/multiple-axes/)。
 
@@ -259,7 +264,7 @@ tags:
 
 标题、轴和系列可以包含复杂的数学表达式。
 
-![数学公式。](attachments/pages/charts/math-formula.png)
+![数学公式。](attachments/charts/math-formula.png)
 
 ```
 $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
@@ -288,7 +293,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![标题配置](attachments/pages/charts/title.gif)
+![标题配置](attachments/charts/title.gif)
 
 在这里可以找到更多选项： [标题配置](https://plot.ly/javascript/reference/#layout-title)。
 
@@ -319,7 +324,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![ 边际配置 ](attachments/pages/charts/margin.gif)
+![ 边际配置 ](attachments/charts/margin.gif)
 
 这里可以找到更多选项： [边际配置](https://plot.ly/javascript/reference/#layout-margin)。
 
@@ -343,7 +348,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![工具提示配置](attachments/pages/charts/tooltip.gif).
+![工具提示配置](attachments/charts/tooltip.gif).
 
 这里可以找到更多选项： [Tooltip配置](https://plot.ly/javascript/reference/#layout-hovermode)。
 
@@ -391,7 +396,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
   }
 }
 ```
-![范围模式](attachments/pages/charts/normal.gif)
+![范围模式](attachments/charts/normal.gif)
 
 **非负数：**
 
@@ -405,7 +410,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![范围模式](attachments/pages/charts/nonnegative.gif)
+![范围模式](attachments/charts/nonnegative.gif)
 
 **tozero:**
 
@@ -419,7 +424,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![范围模式](attachments/pages/charts/tozero.gif)
+![范围模式](attachments/charts/tozero.gif)
 
 {{% alert type="info" %}}
 当 **填充** 为系列设置了除 *以外的内容*和 Y轴范围被迫从零开始(*到零*)。 例如：
@@ -443,7 +448,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 ```
 {{% /报警 %}}
 
-![范围模式](attachments/pages/charts/rangemode-note.gif)
+![范围模式](attachments/charts/rangemode-note.gif)
 
 这里可以找到更多选项： [范围模式配置](https://plot.ly/javascript/reference/#layout-yaxis-rangemode)。
 
@@ -455,7 +460,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 
 可以在序列的 **高级** 配置中添加模式和行配置。
 
-![Line styles](attachments/pages/charts/line-styles.png)
+![Line styles](attachments/charts/line-styles.png)
 
 ``` json
 [
@@ -499,7 +504,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 
 系列的类型可以更改。 例如，您可以将一条条序列变成一条线性序列：
 
-![列图数据属性](attachments/pages/charts/combine-list-bar.gif)
+![列图数据属性](attachments/charts/combine-list-bar.gif)
 
 ### 3.3 饼状图
 
@@ -511,7 +516,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![Pie 图表数据属性](attachments/pages/charts/pie-chart.png)
+![Pie 图表数据属性](attachments/charts/pie-chart.png)
 
 这里可以找到更多选项： [Pie 图表数据属性](https://plot.ly/javascript/reference/#pie)。
 
@@ -532,7 +537,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 }
 ```
 
-![区域图表数据属性](attachments/pages/charts/area-chart.png)
+![区域图表数据属性](attachments/charts/area-chart.png)
 
 这里可以找到更多选项： [地区图数据属性](https://plot.ly/javascript/reference/#area)。
 
@@ -540,7 +545,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 
 下面的示例显示您如何设置过滤器按钮按时间过滤图表。
 
-![线条图表数据属性](attachments/pages/charts/time-series-filters.png).
+![线条图表数据属性](attachments/charts/time-series-filters.png).
 
 ``` json
 {
@@ -604,7 +609,7 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 ]
 ```
 
-![多轴属性](attachments/pages/charts/data-multiple-y.png)
+![多轴属性](attachments/charts/data-multiple-y.png)
 
 ### 3.7 多个X轴数据属性 {#multiple-x-axes-data-properties}
 
@@ -625,24 +630,70 @@ $\sqrt{(n_\text{c}(t|{T_\text{early}})})}$
 ]
 ```
 
-![多个X轴属性](attachments/pages/charts/data-multiple-x.png).
+![多个X轴属性](attachments/charts/data-multiple-x.png).
 
 ## 4 个配置选项 (所有图形) {#config-options}
 
-以下配置选项可以在所有图表中找到。
+下面的配置选项可以在所有图表中找到(在这里作为示例呈现，格式为 `nl` `locale`)：
 
 ```json
 主席:
-  "displayModeBar": try,
+  "displayModeBar": tre,
   "displaylogo": false,
-  "modeBarButtonsToRemove": [ "sendDataToCloud", "lasso2d", "select2d", "hoverClosestCartesian", "hoverCompareCartesian", "toggleSpikelines"
+  "modeBarButtonsToRemove": [ "sendDataToCloud", "lasso2d", "select2d", "hoverClosestCartesian", "hoverCompareCartesian", "toggleSpikelines",
   "locale": "nl",
-  "locales": P,
-    "nl": P,
-      "dictionary": P,
-        "下载绘图作为一个png": "Opslaan als PNG"  
-      }
+  "locales": Power"
+        "nl": Power
+            "dictionary": Power
+                "下载绘图作为一个png": "Opslaan als PNG"
+            },
+            "格式": Power
+                "day": ["zondag",
+                "玉米",
+                "dinsdag",
+                "woensdag"
+                "denderdag",
+                "vrijdag",
+                "zaterdag",
+                "短日": ["无区",
+                "maa",
+                "din",
+                "woe",
+                "don",
+                "vri",
+                "zat",
+                "月": ["januari",
+                "februari",
+                "maart",
+                "april",
+                "mei",
+                "初级",
+                "juli",
+                "augustus",
+                "september",
+                "oktober",
+                "新星",
+                "december",
+                "短月": ["jan",
+                "feb",
+                "maa",
+                "apr",
+                "mei",
+                "jun",
+                "jul",
+                "aug",
+                "sep",
+                "确定",
+                "新",
+                "dec",
+                "date": "%d-%m-%Y",
+                "datetime": "%d-%m-%Y %H:%M",
+                "年": "%Y",
+                "月": "%b %Y",
+                "daymonth": "%d %b",
+                "daymonthYear": "%d %b %Y"
+            }
+        }
     }
-  }
 }
 ```
