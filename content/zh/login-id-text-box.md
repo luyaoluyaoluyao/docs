@@ -1,27 +1,61 @@
 ---
-title: "登录 Id 文本框"
+title: "登录 ID 文本框"
 parent: "认证小部件"
+tags:
+  - "studio pro"
+  - "登录 id"
+  - "身份验证小部件"
+  - "身份认证"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/login-id-text-box.pdf)。
+{{% /报警 %}}
 
-登录ID文本框是一个可用于提供登录ID进行身份验证的小部件。 登录ID是用于识别用户的唯一标识符。 例子是用户名或电子邮件地址。
+{{% alert type="warning" %}}The **Login ID text box** widget is not supported on native mobile pages.{{% /alert %}}
 
-必须将其放置在一个页面上，加上 [登录ID文本框](login-id-text-box) 和 [登录按钮](sign-in-button)。
+## 1 导言
 
-## 公共属性
+**登录ID文本框** 是一个可以用于提供登录ID进行身份验证的小部件。 登录ID是用户的唯一标识符，例如用户名或电子邮件地址：
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+![登录 ID 文本框](attachments/authentication-widgets/login-id.png)
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+**登录ID文本框** 应该放在一个页面上，加上 [密码文本框](password-text-box) 和 [登录按钮](sign-in-button)。
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+## 2 属性
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+登录ID文本框属性的示例在下面的图像中显示：
 
-## 常规属性
+{{% image_container width="250" %}}![登录 ID 文本框属性](attachments/authentication-widgets/logid-id-properties.png)
+{{% /image_container %}}
 
-### 占位符
+登录 ID 文本框属性由以下部分组成：
 
-当尚未输入文本时，将显示占位符文本。 它可以用来向用户说明应输入哪种文本。
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [标签](#label)
 
-{{% snippet file="refguid7/Login+Label+Properties.md" %}}
+### 2.1 共同部分 {#common}
+
+{{% snippet file="refguide8/common-section-link.md" %}}
+
+### 2.2 设计属性科 {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 一般部分 {#general}
+
+#### 2.3.1 占位符
+
+**占位符** 显示了当最终用户尚未输入任何文本时的文本。 它可以用来向最终用户说明应在实地输入哪些信息。
+
+### 2.4 标签部分 {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+## 3 阅读更多
+
+* [页](page)
+* [密码文本框](password-text-box)
+* [登录按钮](sign-in-button)
