@@ -43,12 +43,12 @@ You also would like to enable IT administrators to download the attached file fr
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 ## 3 Creating a File Entity
 
-First of all, to be able to attach and/or download files you need to add a special type of entity to your domain model: a [file entity](/studio/domain-models#entity-types). Do the following:
+First of all, to be able to attach and/or download files you need to add a special type of entity to your domain model: a [file entity](/studio8/domain-models#entity-types). Do the following:
 
 1. Open your domain model and open the **Toolbox** tab.
 
@@ -104,13 +104,13 @@ Follow the steps below:
 
     5. Click the **Entity** property.
 
-    6. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association and click **Select**:
+    6. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
 
         {{% image_container width="400" %}}![Select File Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
 
     7. Click the **Page** property.
 
-    8. In the **Select Page** dialog box that opens, click the plus icon in the top right corner to add a new page.
+    8. In the **Select Page** dialog box that opens, click **New Page**.
 
     9. In the **Create new page** dialog box, do the following:
 
@@ -149,9 +149,9 @@ After your end-users attach the files, it would be nice to display files in a li
 
     1. Click the **Entity** property.
 
-    2. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association and click **Select**:
+    2. In the **Select Entity** dialog box, choose the **Document** entity over **Document_Employee** association (*Document_Employee/Document*) and click **Select**:
 
-        {{% image_container width="400" %}}![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png){{% /image_container %}}
+        ![Select Entity](attachments/pages-how-to-attach-files/select-file-entity.png)
 
 4. Delete the image and a column it is placed in from the list:
 
@@ -178,7 +178,7 @@ Great job! Now you have the list that shows attached files and your users can do
 
 Congratulations! You have configured the form that allows IT administrators to attach files and displays these files in the list.
 
-[Preview your app](/studio/publishing-app) to test how the file uploading and downloading works:
+[Preview your app](/studio8/publishing-app) to test how the file uploading and downloading works:
 
 ![Previewed List](attachments/pages-how-to-attach-files/list-previewed.png)
 
