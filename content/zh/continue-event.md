@@ -1,18 +1,31 @@
 ---
-title: "Continue Event"
-parent: "events"
+title: "继续事件"
+parent: "事件"
+menu_order: 4
+tags:
+  - "studio pro"
+  - "继续事件"
+  - "事件"
+  - "循环"
 ---
 
-A continue event is used to stop the current iteration and start the iteration of the next object. Please note that continue events can only be used inside [loops](loop).
+## 1 导言
 
 {{% alert type="warning" %}}
 
-Only if the last activity of the flow inside the loop ends with a break event, the loop will be aborted. Otherwise, the iteration of the next object will be started automatically. So, in theory, a continue event is only necessary after a split (when one of the paths does not have a destination yet), as both paths of a split need a destination. However, for clarity you could choose to always include one.
+继续事件只能在 [循环](loop) 中使用。
 
-{{% /alert %}}{{% alert type="info" %}}
+{{% /报警 %}}
 
-Let us say you have a list of objects of the entity 'OrderLine' and you want to set the purchase date for only the paid order lines. This can be done using a loop with an exclusive split, a continue event and a change activity. The exclusive split determines whether the order line is paid or not. If the order line is paid the purchase date is set by a change activity and the looped activity starts with the next order line. If the order line is not paid the loop starts with the next order line because of the continue event.
+继续事件用于停止当前迭代并在循环中开始下一个对象的迭代。
 
-![](attachments/819203/917941.png)
+通常，下一个对象的迭代将自动开始。 因此，只有在 [决定](decision) 后才需要继续事件(当其中一个路径还没有目标), 因为两个决策路径都需要一个目标。 然而，为了明确起见，你可以选择总是包括一个。
 
-{{% /alert %}}
+例如， 您有 *订单行* 实体的对象列表，并且您想要仅为支付订单线设置购买日期。 这可以通过一个带有决定的循环、一个连续的事件和一个更改活动来实现。 裁决确定是否支付了订单线。 如果订单行已经支付，购买日期由更改活动设定，循环活动开始于下一个订单行。 如果没有支付订单行，循环开始于下一个订单行，因为该事件将继续。
+
+![](attachments/events/continue-event.png)
+
+## 2 次阅读更多
+
+* [循环](循环)
+* [中断事件](break-event)
