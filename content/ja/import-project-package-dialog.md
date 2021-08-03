@@ -1,63 +1,70 @@
 ---
 title: "プロジェクトパッケージのインポート"
-parent: "ダイアログ"
+parent: "ファイルメニュー"
+menu_order: 40
+description: "「プロジェクトパッケージのインポート」プロセスと「プロジェクトパッケージのインポート」ダイアログ・ボックスについて説明します。"
+tags:
+  - "studio pro"
+  - "プロジェクトパッケージをインポート"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/import-project-package-dialog.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-Mendixプロジェクトパッケージ(*.mpk*)から新しいアプリを作成するには、アプリパッケージをインポートする必要があります。 新しいアプリは、バージョン管理サーバーまたはローカルディスクに保存することができます。
+Mendixプロジェクトパッケージ(*.mpk*)ファイルから新しいアプリケーションを作成するには、プロジェクトパッケージをインポートする必要があります。 新しいアプリは、バージョン管理サーバーまたはローカルディスクに保存することができます。
 
-To open this dialog box,  go to **File > Import App Package**, browse to the *.mpk* file, and then open it.
+プロジェクトパッケージをインポートするには、次の手順を実行します。
 
-![](attachments/import-project-package-dialog/import-project-package.png)
+1. トップバーの **ファイル** メニューを選択してください > **プロジェクトパッケージをインポート**
+
+2. インポートしたい *.mpk* ファイルを参照します。
+
+3.  **プロジェクトパッケージのインポート** ダイアログボックスで関連するオプションを選択し、 **OK** をクリックします。 選択できるオプションの詳細については、以下のセクションを参照してください。
+
+    ![「プロジェクトパッケージ」ダイアログ・ウィンドウをインポート](attachments/file-menu/import-project-package.png)
+
+[プロジェクトパッケージのエクスポート](export-project-package-dialog) を使用してプロジェクトパッケージを作成することができます。
 
 ## 2 アプリはどこに保存するべきですか?
 
-この設定を使用して、アプリを保存する場所を選択します。 This can be the [Mendix Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
+この設定を使用して、アプリを保存する場所を選択します。 This can be the [Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
 
 ### 2.1 Mendix チームサーバー {#team-server}
 
-Mendix Team Serverにアプリをアップロードするときは、新しいリポジトリを作成するか、既存のリポジトリにアップロードするかを選択できます。
+Team Serverにアプリをアップロードするときは、新しいリポジトリを作成するか、既存のリポジトリにアップロードするかを選択できます。
 
 #### 2.1.1 新しいMendix チームサーバー
 
-このオプションを選択すると、新しいTeam Serverリポジトリが作成され、アプリを保存します。 新しいTeam Serverアプリとリポジトリの名前を **アプリ名** フィールドに入力する必要があります。
+Mendix Team Serverにアプリを保存することを選択すると、新しいTeam Serverプロジェクトが作成されます。 新しいTeam Serverプロジェクトとリポジトリの名前を **アプリ名** フィールドに入力する必要があります。
 
 #### 2.1.2 既存のMendixチームサーバー
 
-このオプションを選択すると、既存のTeam Serverリポジトリにアプリがアップロードされます。 **Team Server App** ドロップダウンリストでリポジトリを選択する必要があります。
+既存のリポジトリを使用する場合は、 **Team Server App** オプションでアプリを選択します。 これは既存のリポジトリが空の場合にのみ動作することに注意してください。
 
-{{% alert type="info" %}}
-
-これは、既存のリポジトリが空の場合にのみ機能します。
-
-{{% /alert %}}
+Mendix Team Serverの詳細については、 [Team Server](/developerportal/collaborate/team-server) を参照してください。
 
 ### 2.2 プライベートサーバー {#private-server}
 
-このオプションを選択すると、アプリはプライベートサーバーに保存されます。 アプリをアップロードする **アプリリポジトリアドレス** を入力する必要があります。
-
 {{% alert type="info" %}}
 
-このオプションは、 [環境設定](preferences-dialog#enabled) ダイアログボックスで他のサーバーのサポートが有効になっている場合にのみ使用できます。
+The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Advanced** > **Enable private version control**.
 
 {{% /alert %}}
+
+**App repository address** フィールドに、アプリをアップロードしたいリポジトリのアドレスを入力します。
 
 ### 2.3 ローカルディスク {#local}
 
-このオプションを選択すると、Desktop Modelerを実行しているコンピュータのローカルディスクにアプリが保存されます。
+新しいアプリをバージョン管理サーバーにアップロードする必要がない場合は、このオプションを選択します。 この場合、Studio Pro を実行しているコンピュータのローカルディスクにのみ保存されます。
 
-{{% alert type="info" %}}
+## 3プロジェクトディレクトリ
 
-新しいアプリをバージョン管理サーバーにアップロードする必要がない場合は、このオプションを選択します。
-
-{{% /alert %}}
-
-## 3 ディスクの場所
-
-**プロジェクト ディレクトリ** フィールドで、アプリケーションのプロジェクト ファイルを格納するディレクトリを指定します。 バージョン管理が有効な場合。 提案された名前には、アプリのメイン開発ラインになることを示す **-main** の末尾が含まれています。
+このフィールドを使用して、アプリのプロジェクト ファイルを保存するディレクトリを選択します。 バージョンコントロールが有効な場合。 提案された名前は *-main* で終わり、これがアプリの主要な開発ラインになります。
 
 ## 4 続きを読む
 
+* [チームサーバー](/developerportal/collaborate/team-server)
 * [プロジェクトパッケージのエクスポート](export-project-package-dialog)
-
