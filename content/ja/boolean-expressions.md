@@ -1,101 +1,101 @@
 ---
-title: "Boolean Expressions"
-parent: "expressions"
+title: "ブール式"
+parent: "表現"
 menu_order: 50
 tags:
   - "studio pro"
-  - "expression"
-  - "expressions"
+  - "表現"
+  - "表現"
   - "Boolean"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Boolean expressions can be used to perform logical operations that return either true or false.
+ブール式は、true または false を返す論理演算を実行するために使用できます。
 
-## 2 and
+## 2 と
 
-The `and` operator checks two Boolean expressions and only returns `true` if both of the expressions are true.
+`と` 演算子は2つのブール式式をチェックし、両方の式が true の場合にのみ `true` を返します。
 
-### 2.1 Examples
+### 2.1 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     (6 > 4) and (3 < 5)
     ```
 
-    The output is `true` because both of the expressions are `true`.
+    両方の式が `true` であるため、出力は `true` です。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     ('hello' = 'hallo') and (3 < 5)
     ```
 
-    The output is `false`, because only the second expression is `true`.
+    出力は `false`です。なぜなら、2 番目の式だけが `true` だからです。
 
-## 3 or
+## 3 または
 
-The `or` operator combines two Boolean expressions, and returns `true` if at least one of the expressions is true.
+`または` 演算子は2つのブール式を組み合わせ、式の少なくとも1つが真の場合は `true` を返します。
 
-### 3.1 Examples
+### 3.1 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* You have a entity called *product* that has the *price* attribute of the integer type. The *price* attribute equals 3, and you have another attribute called *recommendedPrice* that equals 2.
+* 整数型の *price* 属性を持つ *product* というエンティティがあります。 *price* 属性は 3 に等しく、 *recommendedPrice* と呼ばれる別の属性があります。
 
-    If you use the following input:
+    次の入力を使用する場合:
 
     ```java
     ($product/price < $product/recommendedPrice : 2) or ($product/price     > 0)
     ```
 
-    The expression will return `true` because at least one of the   expressions is true (the second one). Note that the expression would    still return `true` if both statements had been true.
+    式は `true` を返します。式の少なくとも 1 つが true (2 番目のもの) であるためです。 両方の文が true の場合、式は `true` を返すことに注意してください。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
-    ('hello' = 'nothello') or ('byebye' = 'stillnotbyebye')
+    ('hello' = 'nothello') または ('bye' = 'stillnotbye')
     ```
 
-    The expression will return `false`, because both expressions are false.
+    式は `false`を返します。
 
 ## 4 not
 
-The `not` operator negates the specified Boolean expression.
+`ではない` 演算子は指定された Boolean 式を否定します。
 
 ### 4.1 Input
 
-An expression of type Boolean.
+Boolean型の式。
 
-### 4.2 Output
+### 4.2 出力
 
-Returns the negation of the specified expression. If the expression evaluates to `true`, it returns `false`; and vice versa.
+指定した式の否定を返します。 式が `true`と評価された場合、 `false`を返します。
 
-### 4.3 Examples
+### 4.3 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     not('hello' = 'hallo')
 
     ```
 
-    The expression will return `true` .
+    式は `true` を返します。
 
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     not(true)
     ```
 
-    The expression will return `false` .
+    式は `false` を返します。
 
 
 
