@@ -1,21 +1,16 @@
 ---
 title: "Published Web Services"
 parent: "integration"
+menu_order: 30
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-web-services.pdf).
-{{% /alert %}}
-
-{{% alert type="warning" %}}
-This document describes published web services. If you're looking for specific information on the published web services screen, you can check the [Published web service](published-web-service) documentation.
-{{% /alert %}}
-
 ## 1 Introduction
 
-You can publish your own webservices in a Mendix application. These webservices consist of operations. Other applications can then call operations of this webservice and you can return a result. This result is based on a microflow that will be executed when the webservice is called.
+This document describes published web services. If you're looking for specific information on the published web services screen, you can check the [Published web service](published-web-service) documentation.
+
+You can publish your own web services in a Mendix application. These webservices are made up of operations. Other applications can then call operations of this webservice and you can return a result. This result is based on a microflow that will be executed when the webservice is called.
 
 To enable usage of a microflow as a web service, right-click anywhere in the whitespace of the microflow and select "Publish as web service operation...".
 
