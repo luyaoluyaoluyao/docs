@@ -1,94 +1,94 @@
 ---
-title: "Associations"
-parent: "domain-model"
+title: "関連"
+parent: "ドメインモデル"
 menu_order: 20
 tags:
-  - "domain model"
-  - "association"
+  - "ドメインモデル"
+  - "関連"
   - "studio pro"
 ---
 
-## 1 Introduction {#intro}
+## 1つの紹介 {#intro}
 
-An association describes a relation between entities. In the domain model, an association is represented by a line or arrow between two entities.
+関連付けはエンティティ間の関係を記述します。 ドメイン モデルでは、関連付けは、2 つのエンティティ間の線または矢印で表されます。
 
 {{% alert type="info" %}}
-Associations between two external entities from the same data source are defined in the originating app and therefore automatically established when the entities are used in a model. For further details, see the [Associations](external-entities#properties) section of *External Entities*.
+同じデータソースから2つの外部エンティティ間の関連付けは、元のアプリで定義されるため、モデルでエンティティが使用されると自動的に確立されます。 詳細については、 [外部エンティティ](external-entities#properties) の *Associations* セクションを参照してください。
 {{% /alert %}}
 
-### 1.1 Ownership {#ownership}
+### 1.1 所有者 {#ownership}
 
-The value of an association should be viewed and edited from the object of the entity that is the [owner](association-member-properties#owner) of the association. Ownership in an association is signified by an arrow (note that the arrow does not signify direction). Either one entity or both entities can be the owner of the association. If one entity is the owner, there is an arrow that points from the owner to the other entity. If both entities are owners, there is a line between the two entities but no arrow. This is the only way the arrow can be controlled.
+関連付けの値は、アソシエーションの [所有者](association-member-properties#owner) であるエンティティのオブジェクトから参照し、編集する必要があります。 関連付け内の所有権は矢印によって表されます (矢印は方向を示しません)。 どちらか一方または両方のエンティティが関連付けの所有者になることができます。 あるエンティティが所有者である場合、所有者から他のエンティティを指す矢印があります。 両方のエンティティが所有者である場合、2つのエンティティの間に線がありますが、矢印はありません。 これは、矢印を制御することができる唯一の方法です。
 
-It is important to understand why ownership exists. Ownership is implemented in Mendix so that you can change relationships dynamically rather than being stuck with your first design. For example, if you design something as a [one-to-many association](#one-to-many) and then need it to be a [many-to-many association with default ownership](#many-to-many), you do not need to rebuild your database, because Mendix handles it for you.
+所有権がなぜ存在するのかを理解することが重要です。 オーナーシップは Mendix に実装されているので、最初のデザインにこだわるのではなく、リレーションシップを動的に変更することができます。 例えば、 [1対多のアソシエーション](#one-to-many) としてデザインし、デフォルトのオーナーシップを持つ [多対多のアソシエーション](#many-to-many)にする必要がある場合 Mendixがそれを処理するので、データベースを再構築する必要はありません。
 
-### 1.2 Multiplicity
+### 1.2 多重性
 
-The [multiplicity](association-properties#multiplicity) (or number of referred objects) of an association is indicated by the number one (`1`) or a star (`*`) at either side of the association.
+関連付けの [多重度](association-properties#multiplicity) (または参照オブジェクトの数) は、関連付けの両側の数 1 (`1`) または星 (`*`) で示されます。
 
 In the example below, the arrow indicates that **Order** is the owner of the association, and the `1` and `*` indicate that one customer is associated with many orders:
 
 ![](attachments/associations/association-order-customer.png)
 
 {{% alert type="info" %}}
-An association between a persistable entity and a non-persistable entity must start in the non-persistable entity and have the owner **Default**. For more information on persistable and non-persistable entities, see [Persistability](persistability).
+持続可能エンティティと非持続可能エンティティの関連付けは、非持続可能エンティティで開始し、所有者が **デフォルト**でなければなりません。 持続可能で持続不可能なエンティティについての詳細は、 [持続可能性](persistability) を参照してください。
 {{% /alert %}}
 
-## 2 Creating Associations {#creating}
+## 2 関連付けの作成 {#creating}
 
-The quickest way to create an association is to draw the association between two entities in a [domain model](domain-model). By default this will create a one-to-many association starting at the owner/many side of the association and ending at the one side of the association. The association will be named by joining the names of the two entities with an underscore. You can then edit the association as discussed in the next section.
+関連付けを作成する最も簡単な方法は、 [ドメインモデル](domain-model)内の2つのエンティティ間の関連付けを描画することです。 デフォルトでは、関連付けの所有者/多数の側から始まり、関連付けの片側で終わる1対多の関連付けが作成されます。 関連付けは、アンダースコアを持つ2つのエンティティの名前を結合することによって名前が付けられます。 次のセクションで説明したように、関連付けを編集できます。
 
-You can also create associations between entities in different modules of your app. In this case it is not possible to draw the association. You can create an association to an entity in another module's domain model by creating a new association in the **Association** tab of the entity which owns the association. You can then choose any entity within your app as the target of the association. For more information see [Association Tab Properties](association-member-properties).
+アプリの異なるモジュール内のエンティティ間の関連付けを作成することもできます。 この場合、協会を描画することはできません。 関連付けを所有するエンティティの **関連付け** タブで新しい関連付けを作成することで、別のモジュールのドメインモデル内のエンティティへの関連付けを作成できます。 アプリ内のエンティティを関連付けのターゲットとして選択することができます。 詳細については、 [関連タブプロパティ](association-member-properties) を参照してください。
 
 {{% alert type="info" %}}
-You can create and edit associations only between an external entity and a local entity. However, an external entity cannot be the [owner](association-member-properties#owner) for an association with a local entity.
+外部エンティティとローカルエンティティ間のみの関連付けを作成および編集できます。 ただし、外部エンティティをローカルエンティティとの関連付けの [所有者](association-member-properties#owner) にすることはできません。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-If you need to connect two external entities, consider adding a local entity and connect this local entity with both external entities. The local entity must be the owner of both associations, in this case.
+2つの外部エンティティを接続する必要がある場合は、ローカルエンティティを追加し、このローカルエンティティを両方の外部エンティティに接続することを検討してください。 この場合、ローカルエンティティは両方のアソシエーションの所有者でなければなりません。
 {{% /alert %}}
 
-## 3 Editing Associations
+## 3つの関連付けの編集
 
-There are two ways of editing an association.
+関連付けを編集するには2つの方法があります。
 
-### 3.1 Edit the Association Directly
+### 3.1 関連付けを直接編集
 
-You can edit the association itself. In this case you will define the association using multiplicity and navigability.
+関連付け自体を編集できます。 この場合、多重度とナビゲーションを使用して関連付けを定義します。
 
 ![](attachments/associations/edit-association.png)
 
-For more information see [Association Properties](association-properties).
+詳細については、 [関連プロパティ](association-properties) を参照してください。
 
-### 3.2 Edit from Associations in the Entity
+### 3.2 エンティティの関連付けから編集
 
-You can edit the associations as members of the entity. In this case you will define the association using type and owner.
+エンティティのメンバーとしてその関連付けを編集できます。 この場合、typeとownerを使用して関連付けを定義します。
 
 ![](attachments/associations/edit-entity-association.png)
 
-For more information see [Association Tab Properties](association-member-properties).
+詳細については、 [関連タブプロパティ](association-member-properties) を参照してください。
 
-### 3.3 Move the Association Arrow
+### 3.3 関連付けの矢印を移動
 
-You can move the association arrow between two entities without deleting it. Click within the black dot on either side of the association arrow and drag it to the new desired location.
+関連付け矢印は削除せずに2つのエンティティ間で移動できます。 関連付け矢印の両側にある黒い点内をクリックし、新しい目的の場所にドラッグします。
 
 {{% alert type="warning" %}}
-Your mouse pointer should not activate a white dot. This indicates the creation of a new association.
+マウスポインタは白い点を動かすべきではありません。 これは、新しい関連付けの作成を示しています。
 {{% /alert %}}
 
 ![](attachments/associations/association-move-arrow.png)
 
-## 4 Association Examples {#examples}
+## 4つの関連例 {#examples}
 
-### 4.1 One-to-Many Association {#one-to-many}
+### 4.1 1対多の協会 {#one-to-many}
 
-In this example, drawing an association from the **Order** entity to the **Customer** entity results in the following:
+この例では、 **Order** エンティティから **Customer** エンティティへの関連付けを描画すると、次の結果になります:
 
 ![](attachments/associations/association-order-customer.png)
 
-The type property has its default value `Reference`, and the owner (the Order entity) is `Default`. This is the same as having multiplicity set to `One 'Customer' object is associated with multiple 'Order' objects` so a customer can have multiple orders, but an order can only have one customer.
+type プロパティにはデフォルト値 `リファレンス`があり、所有者 (注文エンティティ) は `デフォルト` です。 これは、 `1つの 'Customer' オブジェクトが複数の 'Order' オブジェクトに関連付けられているので、顧客が複数の注文を持つことができます。` しかし注文は1人の顧客しかいません
 
-In XML, instances of these entities and their association look as follows (note that the association is only stored in the **Order** element):
+XML では、これらのエンティティとその関連付けのインスタンスは以下のようになります (関連付けは **Order** 要素にのみ保存されていることに注意してください)。
 
 ```xml
 <Order id="101">
@@ -105,15 +105,15 @@ In XML, instances of these entities and their association look as follows (note 
 
 ```
 
-### 4.2 Many-to-Many Association with Default Ownership {#many-to-many}
+### 4.2 デフォルトの所有権を持つ多くの関連付け {#many-to-many}
 
-A many-to-many association with default ownership is created by drawing an association and then setting the type property to `Reference set` and leaving the owner as `Default`.
+デフォルトの所有権を持つ多対多の関連付けは、関連を描画し、typeプロパティを `参照セット` に設定し、所有者を `デフォルト`のままにすることによって作成されます。
 
-In this example, a **Customer** can have multiple **Groups**, and a **Group** can have multiple **Customers**. This is the same as having multiplicity set to `Multiple 'Group' objects are associated with multiple 'Customer' objects` with Navigability set to `'Customer' objects refer to 'Group' objects`:
+In this example, a **Customer** can have multiple **Groups**, and a **Group** can have multiple **Customers**. これは、 `に多重度が設定されている場合と同じです。複数の 'グループ' オブジェクトが複数の '顧客' オブジェクト` に関連付けられており、 `'顧客' オブジェクトは 'グループ' オブジェクト` を参照します。
 
 ![](attachments/associations/association-customer-group.png)
 
-In XML, instances of these entities and their associations look as follows (note that the association is only stored in the **Customer** element):
+XML では、これらのエンティティとその関連付けのインスタンスは以下のようになります (関連付けは **顧客** 要素にのみ保存されます)。
 
 ```xml
 <Customer id="201">
@@ -133,15 +133,15 @@ In XML, instances of these entities and their associations look as follows (note
 
 ```
 
-### 4.3 One-to-One Association
+### 4.3 ワンツーワン協会
 
-A one-to-one association is created by setting the owner property to `Both` (while leaving the type property at its default value `Reference`).
+owner プロパティを `both` に設定することで、1 対 1 の関連付けが作成されます (typeプロパティはデフォルト値の `Reference` のままにします)。
 
-In this example, a **Customer** can have one **Profile**, and a **Profile** can have one **Customer**. This is the same as having multiplicity set to `One 'Customer' object is associated with one 'Profile' object`:
+In this example, a **Customer** can have one **Profile**, and a **Profile** can have one **Customer**. これは、 `1つの 'Customer' オブジェクトが1つの 'Profile' オブジェクト` に関連付けられているのと同じです。
 
 ![](attachments/associations/association-customer-profile.png)
 
-In XML, instances of these entities and their associations look as follows (note that the association is stored both in the **Profile** element and the **Customer** element):
+XML で これらのエンティティとその関連のインスタンスは以下のようになります (関連付けは **プロファイル** 要素と **顧客** 要素の両方に格納されていることに注意してください)。
 
 ```xml
 <Profile id="401">
@@ -160,16 +160,16 @@ In XML, instances of these entities and their associations look as follows (note
 
 ```
 
-### 4.4 Many-to-Many Association with Dual Ownership {#many-to-many-both}
+### 4.4 二重所有権を持つ多数の協会 {#many-to-many-both}
 
-A many-to-many association where both entities are owners is created by setting the owner property to `Both` and the type property to `Reference set`.
+オーナープロパティを `` に設定し、type プロパティを `参照集合` に設定することで、両方のエンティティがオーナーである多対多の関連付けを作成します。
 
-In this example, an **Accountant** can have multiple **Groups** and a **Group** can have multiple **Accountants**. This is the same as having multiplicity set to `Multiple 'Group' objects are associated with multiple 'Accountant' objects` with Navigability set to `'Accountant' and 'Group' objects refer to each other`:
+この例では、 **Accountant** は複数の **グループ** を持つことができ、 **グループ** は複数の **<unk>** を持つことができます。 これは、 `に多重度が設定されている場合と同じです。複数の「グループ」オブジェクトが複数の「会計」オブジェクト` に関連付けられており、 `「会計」と「グループ」オブジェクトが互いに参照している場合と同じです。`:
 
 {{% image_container width="500" %}}![](attachments/associations/association-accountant-group.png)
 {{% /image_container %}}
 
-In XML, instances of these entities and their association look as follows (note that the association is stored both in the **Accountant** element and the **Group** element):
+XML で これらのエンティティとその関連付けのインスタンスは以下のようになります (関連付けは **Accountant** 要素と **Group** 要素の両方に格納されていることに注意してください)。
 
 ```xml
 <Accountant id="501">
