@@ -1,53 +1,59 @@
 ---
 title: "Eclipse を使用する"
 category: "Javaプログラミング"
-tags:
-  - "studio pro"
 ---
 
-## 1つの紹介
 
-Eclipseを使用して、MendixアプリでJavaアクションを書き込み、デバッグできます。 Mendixモデルがデプロイされると、Eclipseプロジェクトファイル、クラスパスファイル、および起動構成が生成されます。
+MendixプロジェクトでEclipseを使用してJavaアクションを書き、デバッグするのは本当に簡単です。 Mendixモデルがデプロイされると、Eclipseプロジェクト・ファイル、クラスパス・ファイルおよび起動構成が生成されます。
 
-## 2 Eclipse のセットアップ
+Mendix では、すべてのテキストは UTF-8 エンコーディングで保存されます。 まず、ソースコードもUTF-8\に保存されていることを確認してください。 これは、ウィンドウメニューに移動して設定を選択し、下のスクリーンショットに示されるようにUTF-8を選択することで行うことができます。
 
-Mendix では、すべてのテキストは UTF-8 エンコーディングで保存されます。 ソースコードもUTF-8で保存されていることを確認するには、次の操作を行います。
+{{% alert type="info" %}}
 
-1.  **ウィンドウ > 設定** を選択します。
-2.  新しいメニュー ウィンドウで **ワークスペース** を選択します。
-3.  **UTF-8** を選択:
+![](attachments/819203/918120.png) UTF-8エンコーディングの設定
 
-    ![UTF-8 エンコーディング設定](attachments/java-programming/eclipse-utf8-encoding.png)
+{{% /alert %}}
 
 Java Development Kit (JDK)もインストールして選択する必要があります。
 
-![デフォルトの JDK の選択](attachments/java-programming/eclipse-jdk.png)
+{{% alert type="info" %}}
 
-JDK を追加し、Eclipse 内でデフォルトとして選択するようにしてください。
+![](attachments/819203/918186.png) デフォルトの JDK を選択する。
 
-## 3 Mendix アプリの追加
+{{% /alert %}}
 
-Mendix アプリを Eclipse に追加するには、次の手順を実行します。
+JDKを追加し、Eclipseでデフォルトとして選択してください。
 
-1.  **ファイル > インポート** を選択します。
-2.  **General** フォルダを開き、 **Existing Projects into Workspace** を選択し、 **Next >**:
+Mendix プロジェクトを Eclipse に追加するには、次の手順を実行できます。
 
-    ![既存のプロジェクトをインポート](attachments/java-programming/eclipse-select-import.png)
+1. **ファイル** メニューを開き、 **インポート** をクリックします。
+2. **一般** フォルダを開き、 **既存のプロジェクトをワークスペースに** を選択し、 **次へ**をクリックします。
+3. **ルートディレクトリ**を選択し、Mendix プロジェクトフォルダを参照し、 **終了** をクリックします。
 
-3.  **ルートディレクトリ**を選択し、Mendix アプリフォルダを参照し、 **終了** を選択します。
+{{% alert type="info" %}}
 
-    ![ルートディレクトリを選択](attachments/java-programming/import-eclipse-project.png)
+![](attachments/819203/917580.png) 既存のプロジェクトをインポート
 
-## 4 Mendix アプリの起動
+{{% /alert %}}{{% alert type="info" %}}
 
-プロジェクトを起動するには、次の操作を行います。
+![](attachments/819203/917527.png) 既存のプロジェクトをインポートする手順 2.
 
-1.  Select **Run > Run configurations...** or **Run > Debug configurations...**, would you like to start the application
-2.  **Java アプリケーション** を選択すると、Mendix Studio Pro によって生成された起動構成が表示されます。
-3.  **Run** (or **Debug**)を選択してアプリケーションを起動します。
+{{% /alert %}}
 
-    ![設定を起動](attachments/java-programming/eclipse-run-configuration.png)
+これで、通常どおりにJavaアクションの編集を楽しく開始できます。
 
-アプリケーションを起動すると、 **M2EE Admin Console** が表示されます。 これは、通常Mendix Studio Proで見られるのと同じコンソールで、そこからアプリケーションを実行する場合に使用します。 コンソールを閉じることでアプリケーションを停止できます。
+プロジェクトを実際に起動するには、プロジェクトの実行方法に応じて「デバッグ設定」または「実行構成」に移動します。 左側のメニューで「Javaアプリケーション」メニューを選択すると、Mendixデスクトップモデラーによって生成された起動構成が表示されます。 右側の「debug」または「run」をクリックするだけでアプリケーションを起動できます。
 
-![M2EE 管理者コンソール](attachments/java-programming/eclipse-debug-log.png)
+{{% alert type="info" %}}
+
+![](attachments/819203/917586.png) 起動設定を検索します。
+
+{{% /alert %}}
+
+アプリケーションを起動すると、M2EE管理コンソールポップアップが表示されます。 ここからプロジェクトを実行する場合は、通常Mendix Desktop Modelerで見られるのと同じコンソールです。 コンソールを閉じることでアプリケーションを停止できます。
+
+{{% alert type="info" %}}
+
+![](attachments/819203/917582.png) M2EE管理コンソール。
+
+{{% /alert %}}
