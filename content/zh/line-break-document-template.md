@@ -1,14 +1,17 @@
 ---
-title: "Line break (Document Template)"
-parent: "document-templates"
+title: "断线(文档模板)"
+parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Line+Break+(document+template).html
-  - /refguide7/line-break-(document-template).html
+  - /refguide/Line+Break+(document+template).html
+  - /refguide/line-break-(document-template).html
 ---
 
+## 1 导言
 
-A new line will be started at the insertion of a Line Break.
+在插入一条断线时将开始新的一行。
 
-## Common Properties
+## 2 公共属性
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
