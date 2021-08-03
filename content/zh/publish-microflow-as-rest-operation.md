@@ -1,33 +1,33 @@
 ---
-title: "Publishing a Microflow as a REST Operation"
-parent: "published-rest-services"
+title: "将微流程发布为REST 操作"
+parent: "已发布的rest-service"
 menu_order: 30
-description: "How to publish a Microflow as a REST Operation"
+description: "如何发布微流程作为REST 操作"
 tags:
-  - "Microflow"
-  - "REST"
-  - "operation"
-  - "resource"
+  - "微流"
+  - "重力"
+  - "操作"
+  - "资源"
 ---
 
-## 1 Introduction
+## 1 导言
 
-To publish a microflow as a REST service operation, right-click in the microflow editor and select **Publish as REST service operation**.
+要发布微流作为REST 服务操作，右键点击微流编辑器并选择 **发布为REST 服务操作**。
 
-Notice that if the microflow takes more than one parameter of an object or list type, it cannot be published as a REST operation. If you try to publish it, there will be a consistency error.
+请注意，如果微流程需要一个以上的对象或列表类型参数，它不能作为REST 操作发布。 如果您试图发布它，将会出现一致性错误。
 
-## 2 Choosing a Resource
+## 2 选择资源
 
-After you click **Publish as REST service operation**, you need to select a resource under which to publish the microflow. There are several options:
+点击 **后，发布为 REST 服务操作**，您需要选择一个资源来发布microflow。 有几个选项：
 
-* If you already have a service and a resource under which to publish the microflow, select it and click **Select**
-* If you already have a service but you want to create a resource, select the service and click **New**
-* If you want to create a new service, select a module or folder and click **New**
+* 如果您已经拥有发布microflow的服务和资源，请选择它并点击 **选择**
+* 如果您已经有一个服务但您想要创建一个资源，请选择服务并点击 **新**
+* 如果您想要创建一个新的服务，请选择一个模块或文件夹，然后点击 **新**
 
-The suggested name of the resource is the entity of a parameter of the microflow or the entity result of the microflow.
+建议的资源名称是微流参数的实体或微流结果的实体。
 
-## 3 Editing the Operation
+## 3 编辑操作
 
-After you have selected or created a service and a resource, you can edit the operation.
+在您选择或创建服务和资源后，您可以编辑操作。
 
-The suggested value for **Method** is **POST** when the microflow takes an object or list parameter. Otherwise, it is **GET**.
+**方法** 的建议值是 **POST** 当微流程接收对象或列表参数时。 否则，它是 **得到**。
