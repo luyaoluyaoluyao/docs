@@ -10,10 +10,6 @@ tags:
   - "expressions"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/special-checks.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This documents describes special checks in expressions, such as checking whether an object is empty, new, is synced.
@@ -34,9 +30,9 @@ The input parameters are described in the table below:
 
 The output is described in the table below:
 
-| Value                                | Type    |
-| ------------------------------------ | ------- |
-| Returns whether the object is empty. | Boolean |
+| Value                               | Type    |
+| ----------------------------------- | ------- |
+| Returns whether the object is empty | Boolean |
 
 ### 2.3 Example
 
@@ -66,9 +62,9 @@ The input parameters are described in the table below:
 
 The output is described in the table below:
 
-| Value                                   | Type    |
-| --------------------------------------- | ------- |
-| Returns whether the attribute is empty. | Boolean |
+| Value                                  | Type    |
+| -------------------------------------- | ------- |
+| Returns whether the attribute is empty | Boolean |
 
 ### 3.3 Examples
 
@@ -139,4 +135,28 @@ An example of an input can be the following:
 
 ```java
 isSynced($currentObject)
+```
+
+## 6 Checking if a Synchronization is Running {#is-syncing}
+
+This function is available only in client-side expressions (expressions in [nanoflows](nanoflows) and [pages](pages)).
+
+### 6.1 Input Parameters
+
+No input parameter is required for this check.
+
+### 6.1 Output
+
+The output is described in the table below:
+
+| Value                                                                                                        | Type    |
+| ------------------------------------------------------------------------------------------------------------ | ------- |
+| Returns `true` when there is a [synchronization](synchronize) process running, otherwise it returns `false`. | Boolean |
+
+### 6.3 Example
+
+An example of an input can be the following:
+
+```java
+isSyncing()
 ```
