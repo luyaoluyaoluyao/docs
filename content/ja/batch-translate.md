@@ -9,6 +9,10 @@ tags:
   - "翻訳可能なテキスト"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/batch-translate.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 **バッチ翻訳** を使用すると、別の言語のテキストに対応する1つの言語でテキストを入力できます。
