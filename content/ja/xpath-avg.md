@@ -1,33 +1,29 @@
 ---
-title: "XPath Avg"
+title: "XPath 平均"
 parent: "xpath-query-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-avg.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`avg()` 関数は、引数の平均を返します。
 
-The `avg()` function returns the average of its argument.
+関数は引数として XPath クエリを必要とします。
 
-The function requires an XPath query as argument.
+関数は、集計するクエリ内の列を指定する必要があります。
 
-The function must specify a column in the query to aggregate.
+クエリは数値型の属性を指定する必要があります。
 
-The query must specify an attribute that has a numeric type.
+## 2つの例
 
-## 2 Examples
-
-This query returns the average total price of all placed orders:
+このクエリは、すべての注文の平均合計価格を返します:
 
 ```java
 avg(//Sales.Order/TotalPrice)
 ```
 
-This query returns the average total price of all orders placed by a customer named "Jansen":
+このクエリは、「Jansen」という名前の顧客によって発注されたすべての注文の平均合計価格を返します。
 
 ```java
 avg(//Sales.Order[Sales.Customer_Order/Sales.Customer = 'Jansen']/TotalPrice)
