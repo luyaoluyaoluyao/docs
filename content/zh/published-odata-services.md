@@ -1,173 +1,173 @@
 ---
-title: "Published OData Services"
-parent: "integration"
+title: "发布的 OData 服务"
+parent: "集成"
 menu_order: 10
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In Studio Pro, entities can be exposed as [OData resources](published-odata-resource) by adding a new published OData service. You can expose any number of related resources in a published OData service. By default, the plural of the non-qualified names of entities are used in the URI to uniquely identify them, but you can override the name of the resource as well.
+在 Studio Pro，实体可以通过添加一个新发布的 OData 服务来暴露为 [OData 资源](published-odata-resource)。 您可以在发布的 OData 服务中暴露任何数量的相关资源。 默认情况下，没有资格的实体名称的复数在URI中被用来独特识别它们。 但你也可以覆盖资源的名称。
 
-The standards used for OData in Mendix are:
+Mendix 中用于OData的标准是：
 
-* [OData version 3](http://www.odata.org/documentation/odata-version-3-0), which returns data in Atom XML format.
-* [OData version 4](http://www.odata.org/documentation), which returns data in JSON format.
-
-{{% alert type="info" %}}
-The OData version 4 feature was introduced in Studio Pro [9.4.0](/releasenotes/studio-pro/9.4).
-{{% /alert %}}
-
-Not all parts of the standard are implemented. If something is not documented here, it is has not yet been added.
-
-This document describes the options available to you when you create a published OData service, and ends with some runtime considerations.
-
-## 2 General
-
-### 2.1 Service Name
-
-The service name is used to create a unique URI for the OData service. Thus, the service name should be well-formed in accordance with [RFC 3986](https://tools.ietf.org/html/rfc3986) and [RFC 3987](https://tools.ietf.org/html/rfc3987).
-
-### 2.2 Version
-
-Use the **version** field to assign a version number to the service. This number will be shown in the API documentation.
+* [OData 版本 3](http://www.odata.org/documentation/odata-version-3-0), 它以 Atom XML 格式返回数据。
+* [OData 版本 4](http://www.odata.org/documentation), 它以 JSON 格式返回数据。
 
 {{% alert type="info" %}}
+OData 版本 4 功能已经引入Studio Pro [9.4.0](/releasenotes/studio-pro/9.4)。
+{{% /报警 %}}
 
-It is recommended that you adopt semantic numbering for services that you publish.
+该标准并非所有部分都得到执行。 如果此处没有记载，则尚未添加。
 
-{{% /alert %}}
+本文档描述了您在创建发布的 OData 服务时可用的选项，并且结束时有一些运行时的考虑。
 
-### 2.3 Namespace
+## 2 概况
 
-In OData, the namespace is used to refer to data types. On the **Settings** tab, you can customize this namespace. You can change it to any value which starts with a letter followed by letters, digits, or dots with a maximum length of 512 characters.
+### 2.1 服务名称
 
-### 2.4 Resources
+服务名称用于创建 OData 服务唯一的 URI 。 因此，服务名称应该是按照 [RFC 3986](https://tools.ietf.org/html/rfc3986) 和 [RFC 3987](https://tools.ietf.org/html/rfc3987) 格式完善的。
 
-A [resource](published-odata-resource) is a network-accessible data object represented by an entity and identified by a URI.
+### 2.2 版本
 
-## 3 Settings
+使用 **版本** 字段为服务分配一个版本号。 此号码将显示在 API 文档中。
+
+{{% alert type="info" %}}
+
+建议您对您发布的服务采用语义编号。
+
+{{% /报警 %}}
+
+### 2.3 命名空间
+
+在OData中，命名空间用于指数据类型。 在 **设置** 标签页上，您可以自定义这个命名空间。 您可以将它更改为任何以字母、数字或点开头，最大长度为512个字符的值。
+
+### 2.4 资源
+
+[资源](published-odata-resource) 是一个由一个实体代表并由一个 URI 识别的网络访问数据对象。
+
+## 3 个设置
 
 ### 3.1 OData version
 
-You can choose between OData 4 (recommended) and OData 3. One of the main differences is that OData 4 services return results in JSON, and OData 3 services return results in XML.
+您可以在 OData 4 (推荐) 和 OData 3 之间选择。 主要差别之一是OData 4 服务的返回结果产生于JSON，OData 3 服务返回结果产生于XML。
 
 {{% alert type="info" %}}
-This setting was introduced in Studio Pro [9.4.0](/releasenotes/studio-pro/9.4). In earlier versions, all published OData services were OData 3.
-{{% /alert %}}
+此设置被引入Studio Pro [9.4.0](/releasenotes/studio-pro/9.4) 中。 在以前的版本中，所有出版的OData服务都是OData 3。
+{{% /报警 %}}
 
-### 3.2 Associations
+### 3.2 协会
 
-You can select how you want to represent associations. For more information, see the [Associations](odata-representation#associations) section of *OData Representation*.
+您可以选择代表关联的方式。 欲了解更多信息，请参阅 *OData Representation的 [Associations](odata-representation#associations) 部分*。
 
-### 3.3 Security {#security}
+### 3.3 安全 {#security}
 
-You can configure security for the OData service when [App Security](project-security) is enabled.
+当 [App Security](project-security) 启用时，您可以配置OData服务的安全。
 
-#### 3.3.1 Requires Authentication {#authentication}
+#### 3.3.1 需要身份验证 {#authentication}
 
-Select whether clients need to authenticate or not. Choose _No_ to allow access to the resources without restrictions. Choose _Yes_ to be able to select which authentication methods to support.
+选择客户端是否需要身份验证。 选择 _无_ 允许访问资源不受限制。 选择 _是_ 以便能够选择支持哪些认证方法。
 
-Even when you choose _Yes_, you can still expose OData resources to anonymous users. For detailed information on allowing anonymous users, refer to [Anonymous User Role](anonymous-users).
+即使您选择 _是_，您仍然可以向匿名用户暴露OData资源。 关于允许匿名用户的详细信息，请参阅 [匿名用户角色](anonymous-users)。
 
-#### 3.3.2 Authentication Methods
+#### 3.3.2 认证方法
 
-If authentication is required, you can select which authentication methods you would like to support.
+如果需要身份验证，您可以选择您想要支持的验证方法。
 
-* Select **Username and password** to allow clients to authenticate themselves using a username and a password in the **Authorization** header (this is called "basic authentication")
-* Select **Active session** to allow access from JavaScript inside your current application
-* Select **Custom** to authenticate using a microflow (this microflow is called every time a user wants to access a resource)
+* 选择 **用户名和密码** 以允许客户端在 **授权中使用用户名和密码进行身份验证** (这被称为“基本认证”)
+* 选择 **活动会话** 允许您当前应用程序中的 JavaScript 访问
+* 选择 **自定义** 来验证微流程(每次用户想访问资源时都调用这个微流程)
 
-Check more than one authentication method to have the service try each of them. It will first try **Custom** authentication, then **Username and password**, and then **Active session**.
+检查多个身份验证方法使服务尝试每个方法。 先尝试 **自定义** 身份验证，然后 **用户名和密码**然后 **活动会话**。
 
-##### 3.3.2.1 Username & Password {#username-password}
+##### 3.3.2.1 用户名 & 密码 {#username-password}
 
-Authentication can be done by including basic authentication in the HTTP header of the call. To do this you need to construct a header called **Authorization** and its content should be constructed as follows:
+可以通过在通话的 HTTP 头中包含基本身份验证来完成身份验证。 为了做到这一点，您需要构建一个叫做 **Authority** 的头，并且其内容应该按以下方式构建：
 
-1.  Username and password are combined into a string "username:password".
-2.  The resulting string is then encoded using the [RFC2045-MIME](https://tools.ietf.org/html/rfc2045) variant of Base64 (except not limited to 76 char/line).
-3.  The authorization method and a single space (meaning, "Basic " is then put before the encoded string).
+1.  用户名和密码合并为字符串"username: password"。
+2.  生成的字符串然后使用Base64的 [RFC2045-MIME](https://tools.ietf.org/html/rfc2045) 变体编码（但不限于76个字符/线）。
+3.  授权方法和单个空格(意思是“基本”，然后放在编码字符串之前)。
 
-This result is a header which looks like `Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==`.
+这个结果是一个看起来像 `认证：基本的 QWxhZGRpbjpvcGVuIHNlc2FtZQ==` 的标题。
 
-##### 3.3.2.2 Active Session {#authentication-active-session}
+##### 3.3.2.2 有效会议 {#authentication-active-session}
 
-When you check this authentication method, the JavaScript in your app can access the REST service using the current user's session.
+当您选中此身份验证方法时，您的应用程序中的 JavaScript 可以使用当前用户的会话访问REST 服务。
 
-To prevent cross-site request forgery, the `X-Csrf-Token` header needs to be set on each request, for example:
+为了防止跨网站请求的伪造，需要在每个请求上设置 `X-Csrf-Token` 标题，例如：
 
 ```
 var xmlHttp = new XMLHttpRequest();
 xmlHttp.open("GET", "http://mysite/odata/myservice/myresource", false);
-xmlHttp.setRequestHeader("X-Csrf-Token", mx.session.getConfig("csrftoken"));
-xmlHttp.send(null);
+xmlHttp.setRequestHeader("X-Csrf-Token", mx.session.getConfig("csrftoken");
+xmlHttpsend(null);
 ```
 
-##### 3.3.2.3 Custom {#authentication-microflow}
+##### 3.3.2.3 自定义 {#authentication-microflow}
 
-Specify which microflow to use for custom authentication.
+指定用于自定义身份验证的微流。
 
-The microflow may take an [HttpRequest](http-request-and-response-entities#http-request) as a parameter, so it can inspect the incoming request.
+微流可能需要一个 [HttpRequest](http-request-and-response-entities#http-request) 作为参数，所以它可以检查传入的请求。
 
-The microflow may also take an [HttpResponse](http-request-and-response-entities#http-response) as a parameter. When the microflow sets the status code of this response to something other then **200**, this value is returned and the operation will not be executed. Any headers set on the response are returned (except when the microflow returns an empty user).
+微流也可以使用 [HttpResponse](http-request-and-response-entities#http-response) 作为参数。 当微流程将此响应的状态代码设置为其他位置时， **200**， 此值已返回，操作将不会被执行。 在响应中设置的任何头都会返回(除非微流程返回一个空用户)。
 
-The authentication microflow should return a User.
+身份验证microflow 应返回用户。
 
-There are three possible outcomes of the authentication microflow:
+认证微流有三个可能的结果：
 
-  * When the status code of the HttpResponse parameter is set to something other then **200**, this value is returned and the operation will not be executed
-  * When the resulting User is not empty, the operation is executed in the context of that user
-  * When the resulting User is empty, the next authentication method is attempted (when there are no other authentication methods, the result is **404 Not Found**)
+  * 当HttpResponse 参数的状态代码被设置为其它位置则为 **200**此值已返回，操作将不会执行
+  * 当产生的用户不是空的时候，操作将在该用户的上下文中执行
+  * 当生成的用户为空时，将尝试下一个身份验证方法(当没有其他身份验证方法时) 结果是 **404 找不到**)
 
-#### 3.3.3 Allowed Roles
+#### 3.3.3 允许的角色
 
-The allowed roles define which [module role](module-security#module-role) a user must have to be able to access the service. This option is only available when **Requires authentication** is set to **Yes**.
-
-{{% alert type="warning" %}}
-Web service users cannot access OData services.
-{{% /alert %}}
-
-## 4 Properties
-
-In the properties pane when an OData service document is displayed, you can edit some of the values that you can also set in the **General** tab, such as **Service name**, **Version**, and **Namespace**.
-
-This section describes the additional values that you can set.
-
-### 4.1 Documentation
-
-Here you can add a description of the service. This is available to other users working on this app and is not published when the OData service is deployed.
-
-### 4.2 Replace Illegal XML Characters
-
-Some special characters cannot be used in XML. If your data contains these characters, the client will get an error. If you set this setting to *Yes*, those illegal characters are replaced by the DEL character, and the client will not get an error. However, the data that the client receives will not be exactly what is stored in your database, because these characters have been replaced.
-
-This *Replace Illegal XML Characters* option is not available when the OData version is OData 4, because OData 4 returns data in JSON format.
-
-Default value: *No*
-
-### 4.3 Public Documentation
-
-You can write a *summary* and a *description* intended for people using the service.
-
-## 5 Runtime Considerations
-
-### 5.1 General
-
-Once your app is published, the published OData services will be is available on the root URL of the app followed by `/odata-doc/`. For example, `http://localhost:8080/odata-doc/` You can copy and paste the links into for instance Excel to establish a link between your OData resources and Excel.
+允许的角色定义用户必须能够访问服务的 [模块角色](module-security#module-role)。 此选项仅在 **需要身份验证** 设置为 **是** 时才可用。
 
 {{% alert type="warning" %}}
-While the API documentation for OData resources is enabled by default, access to it may be restricted by the administrator for apps running in production.
-{{% /alert %}}
+网络服务用户不能访问 OData 服务。
+{{% /报警 %}}
 
-For details on how to filter the OData response, refer to [OData Query Options](odata-query-options).
+## 4 属性
 
-For details on how Mendix attributes are represented in OData, refer to [OData Representation](odata-representation).
+当OData服务文档显示时在属性窗格中， 您可以编辑一些您也可以在 **通用** 标签中设置的值。 例如： **服务名**, **版本**, 和 **命名空间**.
 
-When exposing entities through OData, the entities are retrieved from the Mendix database in a streaming fashion, to avoid out-of-memory errors in the Mendix Runtime.
+本节描述您可以设置的附加值。
 
-### 5.2 On-Premises Deployments
+### 4.1 文件
 
-Some on-premises servers, in particular those using Microsoft IIS, will strip the host header from requests. This means that your OData service and documentation will be published on an unexpected URL.
+您可以在这里添加服务描述。 此软件可供在本应用上工作的其他用户使用，并且在部署OData服务时不会发布。
 
-To resolve this issue, you will need to ensure your server preserves host headers. See the section [Preserving the Host Header](/developerportal/deploy/deploy-mendix-on-microsoft-windows#preserve-header) in the *Microsoft Windows* deployment documentation.
+### 4.2 替换非法的 XML 字符
+
+一些特殊字符不能在 XML 中使用。 如果您的数据包含这些 个字符，客户端将出现错误。 If you set this setting to *Yes*, those illegal characters are replaced by the DEL character, and the client will not get an error. 然而，客户收到的数据将不是您数据库中存储的 ，因为这些字符已被替换。
+
+此 *替换非法的 XML 字符* 选项在 OData 版本为 OData 4 时不可用 因为OData 4 以 JSON 格式返回数据。
+
+默认值： *否*
+
+### 4.3 公开文件
+
+您可以为使用服务的人写一个 *摘要* 和 *描述*。
+
+## 5 运行时的考虑
+
+### 5.1 概况
+
+一旦您的应用发布， 已发布的 OData 服务将在应用程序的根URL上提供，然后是 `/odata-doc/`。 例如， `http://localhost:8080/odata-doc` 您可以复制并粘贴链接到例如Excel以便在您的 OData 资源和Excel之间建立链接。
+
+{{% alert type="warning" %}}
+虽然OData资源的 API 文档默认已启用，但管理员可能会限制对它的访问权限，对正在生产的应用进行限制。
+{{% /报警 %}}
+
+关于如何过滤OData响应的详细信息，请参阅 [OData查询选项](odata-query-options)。
+
+关于Mendix 属性如何在 OData中表现的详情，请参阅 [OData Representation](odata-representation)。
+
+当通过 OData曝光实体时，实体将以流媒体方式从 Mendix 数据库中检索，以避免Mendix Runtime中的内存错误。
+
+### 5.2 房地上的部署
+
+有些在主机上的服务器，尤其是那些使用微软IIS的服务器，将从主机头上取消请求。 这意味着您的 OData 服务和文档将在意外的 URL 上发布。
+
+要解决这个问题，您需要确保您的服务器保存主机头。 在 *Microsoft Windows* 部署文档中查看 [保存主机头](/developerportal/deploy/deploy-mendix-on-microsoft-windows#preserve-header) 部分。
