@@ -1,74 +1,74 @@
 ---
-title: "Common Runtime & Java Errors"
-parent: "runtime-java"
+title: "一般的なランタイム & Java エラー"
+parent: "runtime-Java"
 menu_order: 3
 tags:
-  - "runtime"
-  - "java"
+  - "ランタイム:"
+  - "ジャバ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Once your application starts performing poorly, becomes unstable or even worse: crashes, the first thing to do is check your application log for hints on what could be causing this. If there are any **FATAL** or **CRITICAL** log lines in there, immediately start working on resolving them. Any **ERROR** log line should be treated as such as well, so you should always strive to get rid of them.
+あなたのアプリケーションが不安定な実行を開始すると、不安定になるか、さらに悪くなります:クラッシュします。 まず最初にアプリケーションのログを確認して何が原因かを確認します そこに **FATAL** または **CRITICAL** のログラインがあれば、すぐにそれらの解決に取り組んでください。 **エラー** のログラインも同様に扱う必要がありますので、常にそれらを取り除くように努める必要があります。
 
-## 2 Common Errors
-Some of the more common errors you can find in the application log that can cause your application to go down are the topic of this article. Let’s dive right in.
+## 2つのよくあるエラー
+アプリケーションをダウンさせる可能性のあるアプリケーションログにある、より一般的なエラーのいくつかは、この記事のトピックです。 さっそく飛び込みましょう。
 
 ### 2.1 java.lang.StackOverflowError
 
-Your application is not going to recover from one of these bad boys. When you encounter one of these while running your Mendix application it is practically always going to be caused by an infinite loop. You can easily recreate this by creating a microflow called *Microflow* with a single microflow call action and selecting the microflow called *Microflow*. The infinite loop will crash your app and produce a stack overflow error.
+あなたのアプリケーションは、これらの悪い男の子の一つから回復するつもりはありません。 Mendixアプリケーションの実行中にこれらのいずれかに遭遇した場合、実質的には無限ループによって引き起こされるでしょう。 単一のマイクロフロー呼び出しアクションで *Microflow* と呼ばれるマイクロフローを作成し、 *Microflow* と呼ばれるマイクロフローを選択することで、これを簡単に再現できます。 無限ループはアプリケーションをクラッシュさせ、スタックオーバーフローエラーが発生します。
 
-### 2.2 java.lang.OutOfMemoryError: Java heap space
+### 2.2 java.lang.OutOfMemoryError: Java ヒープスペース
 
-This is an error you run into when the JVM Heap tells you "Enough is enough. I can’t fit all of this into my memory." Which usually means that the application has become unstable and should be restarted before it crashes and that you also have a real problem to solve.
+これは、JVMヒープが「十分で十分である」と言うときに発生するエラーです。 私はこれのすべてを私の記憶に収めることができません。 通常、アプリケーションが不安定になり、クラッシュする前に再起動する必要があり、解決する本当の問題があることを意味します。
 
-The following things can cause this error:
+次のことはこのエラーの原因となる可能性があります:
 
-*   Memory leak
-    *   Introduced by developer, custom code
-    *   A bug in Mendix Runtime
-    *   A bug in a Java library used by custom code of the developer or by the Mendix Runtime
-    *   A bug in Java Runtime
-*   Massive creation of objects (for example, by retrieving 1 trillion entities in a single microflow at once)
-*   Configuration issue or sizing issue
+*   メモリリーク
+    *   開発者によって導入されたカスタムコード
+    *   Mendix Runtime のバグ
+    *   開発者またはMendix Runtimeのカスタムコードで使用されるJavaライブラリのバグ
+    *   Java Runtime のバグ
+*   オブジェクトの大規模な作成（例えば、1つのマイクロフローで1兆個のエンティティを一度に取得するなど）
+*   設定の問題またはサイジングの問題
 
-A memory leak should look like the garbage collector stops running. See the first half of the graph here for an example:
+メモリリークは、ガベージコレクタが実行を停止したように見えます。 グラフの前半部分を以下に示します。
 
 ![](attachments/mendix-runtime-java-errors/2.jpg)
 
-It is advisable to always take a look at the Object Cache (Mendix objects in the Heap) graph to see if it resembles the Heap. For example:
+Object Cache (Heap 内の Mendix オブジェクト) グラフを常に見て、Heap に似ているかどうかを確認することをお勧めします。 例:
 
 ![](attachments/mendix-runtime-java-errors/3.jpg)
 
-This looks quite healthy.
+これはかなり健康的に見えます。
 
-If you see the Object Cache going up indefinitely you might have introduced a memory leak yourself and it would be best to immediately analyze your application to see if that could be the case.
+Object Cache が無期限に上昇している場合は、メモリリークを自分で導入している可能性があります。アプリケーションをすぐに分析して、その可能性があるかどうかを確認することをお勧めします。
 
-On the other hand, if it looks like the graph below there is much bigger chance you are dealing with a bug outside of your control (for example, Mendix Runtime) that is causing a memory leak.
+一方、 下のグラフに見えるのであれば、コントロール外でバグを扱っている可能性があります (例えば、 メモリリークの原因となっているMendix Runtime)。
 
 ![](attachments/mendix-runtime-java-errors/4.jpg)
 
-### 2.3 java.lang.OutOfMemoryError: GC overhead limit exceeded
+### 2.3 java.lang.OutOfMemoryError: GC のオーバーヘッド制限を超えました
 
-Such a cryptic description. But it is quite simple really. This is the JVM telling you “I am taking an excessive amount of time collecting garbage (by default 98% of all CPU time) and am recovering very little memory (by default <=2% of the total Heap size) each time. Let me just stop your application now, so you can figure out what’s wrong before it crashes.”
+そのような不可解な説明。 しかし、それは本当に非常に簡単です。 これはJVMに「ゴミを集めるのに時間がかかりすぎる（デフォルトではCPU時間の98%）。毎回ほとんどメモリを回収していない（デフォルトではヒープサイズの <2%）。 今すぐアプリケーションを停止させてください。クラッシュする前に何が間違っているか分かるようにしてください。」
 
-The most common causes for this error are:
+このエラーの最も一般的な原因は次のとおりです。
 
-1.  Mostly: creating a lot of objects in a short amount of time.
-2.  Sometimes: creating a lot of objects in rapid succession.
-3.  Rarely: something else.
+1.  ほとんどの場合、短時間で多くのオブジェクトを作成します。
+2.  時には多くのオブジェクトを素早く連続して作成することもあります。
+3.  まれに、何か他のもの。
 
-If you want to reproduce this error, do something like this:
+このエラーを再現したい場合は、以下のようにします。
 
 ![](attachments/mendix-runtime-java-errors/common-errors.png)
 
-Eventually, memory will run low because of all the account being created, which is when the garbage collector will try to free up memory. It won’t be able to do this, so that all these Account objects are still alive. After a while, it will return the error.
+最終的には、ガベージコレクタがメモリを解放しようとするときに作成されたすべてのアカウントのためにメモリが低下します。 アカウントのすべてのオブジェクトがまだ生きているように、これを行うことはできません。 しばらくすると、エラーが返されます。
 
-That concludes this list of some of the more common errors in the application log that can cause your application to go down. But there is one more item to share. While it is not an error in the error log, it might match some of the symptoms outlined.
+以上で、アプリケーションログで一般的なエラーが発生し、アプリケーションがダウンする可能性があります。 しかし、共有するアイテムがもう一つあります。 エラーログのエラーではありませんが、概説した症状の一部と一致する可能性があります。
 
-### 2.4 Lack of Resources on the Application Server
+### 2.4 アプリケーションサーバー上のリソース不足
 
-If you see the grey *committed* line peak into the white part of the *Application node operating system memory* graph, your app node needs more memory. Upgrading to a larger container is strongly recommended in this case. See the following graph for an example of this problem:
+灰色の *コミットした* 行のピークが *アプリケーションノードオペレーティングシステムメモリ* グラフの白い部分に表示されている場合。 あなたのアプリノードはより多くのメモリを必要とします。 この場合、大きなコンテナへのアップグレードを強くお勧めします。 この問題の例については、次のグラフを参照してください。
 
 ![](attachments/mendix-runtime-java-errors/6.jpg)
 
