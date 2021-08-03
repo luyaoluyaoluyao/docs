@@ -1,164 +1,164 @@
 ---
-title: "Published REST Operation"
-parent: "published-rest-service"
+title: "发布的REST 操作"
+parent: "已发布的rest-service"
 menu_order: 10
-description: "Options to configure a published REST operation."
+description: "配置已发布的 REST 操作的选项。"
 tags:
-  - "Published REST"
-  - "operation"
-  - "method"
-  - "path"
-  - "example location"
-  - "mapping"
-  - "operation parameters"
-  - "how to"
+  - "发布的REST"
+  - "操作"
+  - "方法"
+  - "路径"
+  - "示例位置"
+  - "映射"
+  - "操作参数"
+  - "如何处理"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A published REST operation is part of a [published REST resource](published-rest-resource) and defines an endpoint that a client can call to GET, PUT, POST, PATCH, or DELETE items from the resource.
+已发布的REST 操作是 [已发布REST 资源](published-rest-resource) 的一部分，定义了客户端可以调用到GET的端点， PUT、POST、PATCH或从资源中删除项目。
 
-In the **Published REST Service** document you can add items to be included in the service as **Resources**:
+在 **已发布的REST Service** 文档中，您可以将要包含在服务中的项目添加为 **Resources**：
 
-![Published REST Service](attachments/published-rest-operation/publshed-rest-service.png)
+![发布的REST 服务](attachments/published-rest-operation/publshed-rest-service.png)
 
-## 2 Operation Definition
+## 2 操作定义
 
-When you **Add** or **Edit** a resource, you can define the resource in the **Operation** definition dialog box for the selected item as follows:
+当您 **添加** 或 **编辑资源** 时， 您可以在 **操作** 定义对话框中定义选中项的资源如下：
 
-![REST Operation](attachments/published-rest-operation/operation-definition.png)
+![REST 操作](attachments/published-rest-operation/operation-definition.png)
 
-### 2.1 General
+### 2.1 概况
 
-In the **General** tab, you can enter the operation details as described in this section.
+在 **常规** 标签中，您可以输入此部分描述的操作细节。
 
-#### 2.1.1 Method
+#### 2.1.1 方法
 
-The method specifies the type of operation that is performed by the microflow. From the drop-down menu you can select one of the following:
+该方法指定了通过微流执行的操作类型。 从下拉菜单中您可以选择以下一种：
 
-* **GET** – retrieve the entry or entries at the specified location
-* **PUT** – replace the entry or entries at the specified location, or create them if they do not exist
-* **POST** – create an entry in the collection at the specified location
-* **PATCH** – update (part of) the entry at the specified location
-* **DELETE** – delete the entry or entries at the specified location
-* **HEAD** - retrieve information about the entry or entries at the specified location; this is identical to **GET**, except that a message body is not returned
-* **OPTIONS** - return information about the available communication options
+* **获取** - 在指定位置检索条目或条目
+* **PUT** — — 替换在指定位置的条目或条目，如果它们不存在，则创建它们。
+* **POST** — — 在指定位置在集合中创建一个条目
+* **PATCH** — — 更新 (部分) 条目在指定位置
+* **删除** - 删除在指定位置的条目或条目
+* **HEAD** - 检索在指定位置的条目或条目信息； 这与 **GET**完全相同，但没有返回消息内容
+* **选项** - 返回关于可用通信选项的信息
 
-#### 2.1.2 Operation Path{#operation-path}
+#### 2.1.2 操作路径{#operation-path}
 
-The location where the operation can be reached starts with the URL of the resource and the **Operation path** specifies the remainder of the path for the operation. You can leave it empty to use the location of the resource.
+可以达到操作的位置始于资源的 URL 和 **操作路径** ，指定了操作的其余路径。 您可以留空使用资源的位置。
 
-You can use [path parameters](published-rest-path-parameters) to capture part of the location as a microflow parameter or as a parameter to the import mapping. Specify path parameters in the operation path between `{` and `}`. The value that is in the URL for the path parameter will be passed to the microflow or the import mapping.
+您可以使用 [路径参数](published-rest-path-parameters) 来捕获部分位置作为微流程参数或导入映射的参数。 在操作路径中指定路径参数，介于 `named@@` and `}` 之间。 路径参数的 URL 中的值将传递到微流或导入映射。
 
-The **Method** and **Operation path** define the operation that is executed for a given request URL as described in [Published Rest Routing](published-rest-routing).
+**方法** and **操作路径** 定义了在 [发布的路由](published-rest-routing) 中为给定请求的 URL 执行的操作。
 
-#### 2.1.3 Example Location{#example-location}
+#### 2.1.3 示例位置{#example-location}
 
-The **Example Location** gives an example of a URL on which the operation can be reached.
+**示例位置** 提供了一个可以达到操作的 URL 的示例。
 
-#### 2.1.4 Microflow
+#### 2.1.4 微流
 
-An operation can have the following parameters:
+一个操作可以有以下参数：
 
- * [Query parameters](published-rest-query-parameters), which are at the end of the URL in the form of `?name1=value1&name2=value2`
+ * [查询参数](published-rest-query-parameters), 正处于URL结尾的形式 `?name1=value1&name2=value2`
    {{% alert type="info" %}}
-   When a microflow parameter is not in the path and is not an object, then it is considered to be a query parameter.
-   {{% /alert %}}
-* [Path parameters](published-rest-path-parameters), which form part of the path of the URL
-* A body parameter (optional), which is in the body of the request to the operation
+   当微流参数不在路径中且不是对象时，它被视为查询参数。
+   {{% /报警 %}}
+* [路径参数](published-rest-path-parameters)，它是URL 路径的一部分
+* 正文参数(可选)，它在请求操作的正文中
    {{% alert type="info" %}}
-   The **GET**, **HEAD**, and **DELETE** operations do not have a body parameter.
-   {{% /alert %}}
-* Header parameters, which come from the HTTP headers of the request
-* A form parameter (optional), which is a part of the body of a multipart form request
+   **GET**, **HEAD**, 和 **DELETE** 操作没有物体参数。
+   {{% /报警 %}}
+* 源自请求的 HTTP 头参数
+* 一个表单参数(可选)，它是多部分形式请求正文的一部分
 
-A microflow for an operation takes these operation parameters as input.
+一个操作的微流程将这些操作参数作为输入。
 
-A microflow parameter that has the *List* or *Object* type indicates a body parameter. You can specify an import mapping to convert the incoming JSON or XML. A parameter of the *FileDocument* type (or that inherits from a *FileDocument*) is special: It can also be used for form parameters, and an import mapping is not needed.
+包含 *List* 或 *对象* 类型的微流程参数表示一个物体参数。 您可以指定导入映射来转换 JSON 或 XML。 *FileDocument* 类型(或继承自 *FileDocument*)的参数是特殊的：它也可以用于表单参数， 并且不需要导入映射。
 
-An operation microflow may also take an [HttpRequest](http-request-and-response-entities#http-request) parameter. You can add this parameter if you want to inspect the requested URL and headers.
+操作微流也可能需要一个 [HttpRequest](http-request-and-response-entities#http-request) 参数。 如果您想要查看请求的 URL 和头部，您可以添加此参数。
 
-To set the status code, reason phrase, and headers, add an [HttpResponse](http-request-and-response-entities#http-response) object parameter and set the attributes of that object, or return an *HttpResponse*.
+要设置状态代码、理由短语和信头， 添加 [HttpResponse](http-request-and-response-entities#http-response) 对象参数并设置该对象的属性，或返回 *HttpResponse*。
 
-The result of the microflow is the result of the operation and can include the following:
+微流的结果是操作的结果，可包括：
 
-1. **Return a** ***list*** **or an** ***object***– you must specify an export mapping to convert it to XML or JSON.
-2. **Return a primitive** – when the microflow returns a value, for example, a string, integer, or Boolean, then the response to the operation will be that value.
+1. **返回** ***列表*** **或一个** ***对象***- 您必须指定导出映射才能将其转换为 XML 或 JSON
+2. **返回原始** - 当微流程返回值时，例如： 一个字符串，整数或布尔值，然后对操作的响应将是这个值。
    {{% alert type="info" %}}
-   If a non-empty value from the microflow is returned, the *Content* attribute of the *HttpResponse* object is ignored. If an empty value from the microflow is returned, then the *Content* of the *HttpResponse* is taken as the result.
-   {{% /alert %}}
-3.  **Return a file document** – when you want to return data that is a file (such as a PDF or image), then the microflow returns a file document.
-4. **Return a** [HttpResponse](http-request-and-response-entities#http-response) – in the *HttpResponse*, you can set the status code, reason phrase, and content (as a string). You can fill the content with, for example, the result of a mapping or a string from another source. You can also add headers to the response.
+   如果返回来自微流的非空值，则忽略 *HtpResponse* 对象的 *内容* 属性。 If an empty value from the microflow is returned, then the *Content* of the *HttpResponse* is taken as the result.
+   {{% /报警 %}}
+3.  **返回一个文件** - 当你想要返回一个文件的数据(例如PDF或图片), 然后，微流程返回文件文档。
+4. **返回** [HttpResponse](http-request-and-response-entities#http-response) - 在 *HttpResponse*您可以设置状态代码、理智短语和内容(作为字符串)。 例如，您可以用另一个源的映射或字符串的结果来填充内容。 您也可以在响应中添加头部。
    {{% alert type="info" %}}
-   One important header to set is *Content-Type*. Do not return an *empty* *HttpResponse* because that will always result in an error.
-   {{% /alert %}}
+   要设置的一个重要标题是 *Content-Type*。 不返回 *空* *HttpResponse* ，因为这将永远导致错误。
+   {{% /报警 %}}
 
-If the microflow throws an unhandled exception, the response is **500: Internal server error**.
+如果微流程丢失了一个未处理的异常，响应是 **500: 内部服务器错误**。
 
-When security is enabled, then then microflow needs to have at least one role configured to be accessible.
+当启用安全性时，微流需要至少配置一个角色才能访问。
 
-#### 2.1.5 Deprecated
+#### 2.1.5 废弃的
 
-Check this box to mark the operation as deprecated in the service's OpenApi (Swagger) documentation page as described in the [Documentation](published-rest-services#interactive-documentation) section of [Published REST services](published-rest-services). This informs clients not to use it anymore.
+选中此框以标记该操作在服务的 OpenApi (Swagger) 文档页面中已被废弃，正如 [发布的REST 服务](published-rest-services) 部分 [描述的](published-rest-services#interactive-documentation)。 这通知客户端不再使用它。
 
-#### 2.1.6 Parameters
+#### 2.1.6 参数
 
-You can **Add**, **Update** or **Delete** the parameters of the operation which is described in [Operation Parameters for Published REST](published-rest-operation-parameter).
+您可以 **添加**， **更新** 或 **删除** [发布的REST 操作参数](published-rest-operation-parameter)
 
-##### 2.1.6.1 Import Mapping {#import-mapping}
+##### 2.1.6.1 进口映射 {#import-mapping}
 
-For a body parameter, you can select an [import mapping](import-mappings) that converts the body of the request into an object. All object and list parameters except file documents must have an import mapping selected.
+对于实体参数，您可以选择一个 [导入映射](import-mappings) 将请求的正文转换为对象。 除文件外，所有对象和列表参数必须选择导入映射。
 
-To select an import mapping, double-click the parameter or click **Edit** in the grid after you select the parameter. When selecting the import mapping, you can also choose the commit behavior of the mapping: you can choose to either commit, commit without events, or not commit imported objects.
+若要选择导入映射，请双击参数或在选择参数后点击 **编辑网格中的**。 当选择导入映射时，您也可以选择映射的提交行为：您可以选择要么提交， 不提交事件或不提交导入的对象。
 
-You can select an import mapping that takes no parameter, or an import mapping that takes a primitive parameter (for example, string, integer). If you select an import mapping with a primitive parameter, you need to have exactly one [path parameter](published-rest-path-parameters) with the same type. That path parameter will be passed to the import mapping.
+您可以选择一个不需要参数的导入映射，或者一个导入映射使用原始参数(例如字符串、整数)。 If you select an import mapping with a primitive parameter, you need to have exactly one [path parameter](published-rest-path-parameters) with the same type. 该路径参数将传递到导入映射中。
 
 You can indicate what should happen **if no object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
 
-If you select an import mapping that supports both XML and JSON (for example, a mapping that is based on a message definition), then the operation will be able to handle both XML and JSON requests.
+如果您选择同时支持 XML 和 JSON 的导入映射(例如) 一个基于消息定义的映射，然后该操作将能够同时处理XML和JSON请求。
 
-Valid requests must contain a *Content-Type* header. See [Recognized media types](#table1) for a list of media types that are understood by the import mapping. If an unsupported content type is used, the operation will result in a "**400 Bad Request**" response.
+有效请求必须包含 *Content-Type* header。 请参阅 [公认的介质类型](#table1) 以获取导入映射所理解的介质类型列表。 如果使用不支持的内容类型，操作将产生一个 "**400 错误请求**" 响应。
 
-The import mapping is also used to generate object schemas for operation responses in [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation) based on [JSON Schema](published-rest-service-json-schema)
+导入映射也用于生成操作响应的对象方案在 [OpenAPI (Swagger) 文档页](published-rest-services#interactive-documentation) 基于 [JSON Schema](published-rest-service-json-schema)
 
-#### 2.1.7 Response
-This defines the response of the operation. You can specify the type of the microflow result and the export mapping applied to it (if any).
+#### 2.1.7 答复
+这定义了操作的响应。 您可以指定微流结果的类型以及对它的导出映射(如果有的话)。
 
 ##### 2.1.7.1 Type
-This shows the result type of the microflow.
+这显示微流的结果类型。
 
-##### 2.1.7.2 Export Mapping
-When the microflow returns an object or a list of objects, you must specify how this result is mapped to JSON or XML. Select an export mapping that takes the result of the microflow as input.
+##### 2.1.7.2 出口映射
+当微流程返回对象或对象列表时，您必须指定此结果如何映射到 JSON 或 XML。 选择导出映射，将微流结果作为输入。
 
-If you select an export mapping that supports both XML and JSON (for example, a mapping that is based on a message definition), then the output depends on whether the microflow has a parameter of type *System.HttpResponse* and adds a *Content-Type* header to it. The possible scenarios are given below:
+如果您选择同时支持 XML 和 JSON 的导出映射(例如，基于消息定义的映射)， 然后输出取决于微流是否有类型 *System的参数。 ttpResponse* 并添加 *Content-Type* 标题。 可能出现的情况如下：
 
 * When the microflow sets the *Content-Type* header parameter with a media type that is XML, then the operation returns XML as given in the table below.
 
-    <a name="table1">**Recognized media types**</a>
+    <a name="table1">**识别的媒体类型**</a>
 
-    | Media Type                   | Recognized As |
-    | ---------------------------- | ------------- |
-    | *application/xml*            | XML           |
-    | *text/xml*                   | XML           |
-    | anything ending with *+xml*  | XML           |
-    | *application/json*           | JSON          |
-    | anything ending with *+json* | JSON          |
+    | 媒体类型           | 公认为  |
+    | -------------- | ---- |
+    | *应用程序/xml*     | XML  |
+    | *text/xml*     | XML  |
+    | *+xml* 结尾的任何内容 | XML  |
+    | *应用程序/json*    | JSON |
+    | 任何结尾为 *+json*  | JSON |
 
-* When the microflow sets the *Content-Type* header to something else, then the operation returns JSON.
+* 当微流设定 *Content-Type* 头到其他东西时，操作返回JSON。
 
-* When the microflow does not set the *Content-Type* header, then the output is determined by inspecting the *Accept* header in the request. The first media type that is recognized to be XML or JSON (as given in the table above) determines the operation result: the *Content-Type* is *application/xml* (when it is XML) or *application/json* (when it is JSON).
+* 当微流没有设置 *Content-Type* header, 然后通过检查 *接受请求中的* 页眉来决定输出。 被识别为 XML 或 JSON 的第一个媒体类型(如上文表中给出的那样)决定了操作结果： *Content-Type* 是 *application/xml* (当它是 XML) 或 *application/json* (当它是 JSON 时)。
 
-* When there is no *Accept* header or the *Accept* header does not contain a recognizable media type, then the operation returns JSON and the *Content-Type* is *application/json*.
+* 当没有 *时，接受* 头或 *接受* 头不包含可识别的媒体类型 然后操作返回 JSON ， *Content-Type* 为 *application/json*
 
-The export mapping is also used to generate object schemas for operation responses in the [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation) based on the [JSON schema](published-rest-service-json-schema).
+导出映射也用于生成操作响应在 [OpenAPI (Swagger) 文档页](published-rest-services#interactive-documentation) 基于 [JSON schema](published-rest-service-json-schema) 的对象方案。
 
-### 2.2 Public Documentation
+### 2.2 公开文件
 
-In the **Public Documentation** tab you can specify the documentation that will be used in the service's [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation).
+在 **公开文档** 标签页中，您可以指定将用于服务 [OpenAPI (Swagger) 文档页面](published-rest-services#interactive-documentation) 的文档。
 
 #### 2.2.1 Summary {#summary}
-Provide a short description of what the operation does.
+提供操作的简短说明。
 
-#### 2.2.2 Description {#description}
-Enter a complete overview of what the operation does. You can use [GitHub-flavored markdown](gfm-syntax) syntax to style the text.
+#### 2.2.2 描述 {#description}
+输入操作的完整概述。 您可以使用 [GitHub-flavered markdown](gfm-syntax) 语法来风格文本。
 
