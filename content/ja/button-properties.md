@@ -1,228 +1,228 @@
 ---
-title: "Button Properties"
-parent: "button-widgets"
+title: "ボタンのプロパティ"
+parent: "ボタン-ウィジェット"
 tags:
   - "studio pro"
-  - "button"
-  - "action button"
-  - "drop-down button"
-  - "button widget"
-  - "image property"
+  - "ボタン"
+  - "アクションボタン"
+  - "ドロップダウンボタン"
+  - "ボタンウィジェット"
+  - "image プロパティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A button can perform various actions such as calling a microflow or nanoflow or opening a page.
+ボタンは、マイクロフローやナノフローの呼び出しやページを開くなど、さまざまなアクションを実行できます。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of button properties is represented in the image below:
+ボタンプロパティの例を以下の画像に示します。
 
-{{% image_container width="250" %}}![Button Properties](attachments/button-widgets/button-properties.png)
+{{% image_container width="250" %}}![ボタンのプロパティ](attachments/button-widgets/button-properties.png)
 {{% /image_container %}}
 
-Button properties consist of the following sections:
+ボタンのプロパティは以下のセクションで構成されています:
 
-* [Accessibility](#accessibility) (only for web buttons when [Render Mode](#RenderMode) is Link)
-* [Common](#common)
-* [Design Properties](#design)
-* [Events](#events)
-* [General](#general)
-* [Items](#items) (only for a drop-down button)
-* [Visibility](#visibility)
+* [アクセシビリティ](#accessibility) ( [レンダリングモード](#RenderMode) がリンクされている場合のみ)
+* [一般的な](#common)
+* [デザインプロパティ](#design)
+* [イベント](#events)
+* [全般](#general)
+* [アイテム](#items) (ドロップダウンボタンのみ)
+* [公開範囲](#visibility)
 
-### 2.1 Accessibility Section {#accessibility}
+### 2.1 アクセシビリティセクション {#accessibility}
 
 {{% alert type="info" %}}
 
-The **Accessibility** section is only shown for web buttons when [Render Mode](#RenderMode) is Link.
+**アクセシビリティ** セクションは、 [レンダリングモード](#RenderMode) がリンクの場合にのみ表示されます。
 
 {{% /alert %}}
 
-#### 2.1.1 Role Type {#RoleType}
+#### 2.1.1 ロールタイプ {#RoleType}
 
-The **Role type** property determines the `aria-role` attribute value that will be rendered with the button's HTML. `Aria-role` attributes can be used to improve accessibility, because devices such as screen readers interpret them and present the semantics of the role to end-users. Possible options are the following:
+**Role type** プロパティは、ボタンの HTML でレンダリングされる `aria-role` 属性値を決定します。 `Aria-role` 属性は、アクセシビリティを向上させるために使用できます。 スクリーンリーダーなどのデバイスはそれらを解釈し、エンドユーザーに役割の意味を提示するからです。 利用可能なオプションは次のとおりです:
 
-* Button (default)
+* ボタン (既定)
 * Checkbox
-* Link
-* Menu item
-* Menu item checkbox
-* Menu item radio
+* リンク
+* メニュー項目
+* メニューアイテムのチェック
+* メニュー項目ラジオ
 * Option
-* Radio
-* Switch
+* ラジオ
+* 切り替え
 * Tab
 
-### 2.2 Common Section {#common}
+### 2.2 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.3 Design Properties Section {#design}
+### 2.3 デザインプロパティセクション {#design}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Events Section {#events}
+### 2.4 イベントセクション {#events}
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.5 General Section {#general}
+### 2.5 一般セクション {#general}
 
-#### 2.5.1 Caption {#caption}
+#### 2.5.1 図表番号 {#caption}
 
-The **Caption** property defines a text that will be shown on the button. The caption can contain parameters that are written between braces, for example, {1}.
+**図表番号** プロパティは、ボタンに表示されるテキストを定義します。 図表番号には、たとえば、 {1} のように、括弧間で書かれたパラメータを含めることができます。
 
-For more information on using parameters, see the [Parameters](#parameters) section below.
+パラメータの使用に関する詳細は、以下の [パラメータ](#parameters) セクションを参照してください。
 
-#### 2.5.2 Parameters {#parameters}
+#### 2.5.2 パラメータ {#parameters}
 
-Parameters are attributes the value of which will be displayed. To view **Parameters**, do one of the following:
+パラメータは、その値が表示される属性です。 **パラメータ**を表示するには、次のいずれかを実行します。
 
-* Double-click the **Caption** setting in properties
+* プロパティの **図表番号** 設定をダブルクリックします。
 
 * Double-click the button on the page and click **Edit** in the **General** section > **Caption**:
 
-    ![Opening Parameters](attachments/button-widgets/opening-parameters.png)
+    ![パラメータを開く](attachments/button-widgets/opening-parameters.png)
 
-Parameters have the following settings:
+パラメータには以下の設定があります:
 
-* **Index** – an identification number of a parameter
+* **Index** - パラメータの識別番号
 
-* **Attribute (path)** – an attribute a value of which will be displayed
+* **属性 (path)** - 値が表示される属性
 
-* **Format** – a format in which an attribute value will be displayed
+* **書式** - 属性値を表示するフォーマット
 
-    ![Parameter Settings](attachments/button-widgets/button-parameter-settings.png)
+    ![パラメーターの設定](attachments/button-widgets/button-parameter-settings.png)
 
-##### 2.5.2.1 Adding New Parameters
+##### 2.5.2.1 新しいパラメータの追加
 
-To add parameters, do the following:
+パラメータを追加するには、次の操作を行います。
 
-1. Place the **Button** widget in the context of an entity, as in, inside a [data widget](data-widgets).
+1. **ボタン** ウィジェットを、 [データ ウィジェット](data-widgets) 内側のように、エンティティのコンテキストに配置します。
 
-2. Double-click the **Caption** setting in the button widget properties.
+2. ボタンウィジェットのプロパティで **図表番号** 設定をダブルクリックします。
 
-3.  In the **Edit Caption** dialog box > **Parameters** section click **New**:
+3.  **図表番号の編集** ダイアログ ボックス > **パラメータ** セクションで **新規作成**:
 
-    ![Adding New Parameter](attachments/button-widgets/new-parameter.png)
+    ![新しいパラメータの追加](attachments/button-widgets/new-parameter.png)
 
-4. In the **Edit Template Parameter** dialog box, click **Select**, choose an attribute and confirm your choice.
+4. **テンプレートパラメータの編集** ダイアログボックスで、 **を選択**をクリックし、属性を選択して選択を確定します。
 
 5. In the **Caption** setting, write the text you would like to display and type **Index** of the parameter you would like to include. In the example below, to include a name of your customer , you need to use indexes {1} for the *Name* attribute:
 
-    ![Parameter Example](attachments/button-widgets/button-parameter-example.png)
+    ![パラメータの例](attachments/button-widgets/button-parameter-example.png)
 
-##### 2.5.2.2 Performing Other Actions on Parameters
+##### 2.5.2.2 パラメータに対するその他のアクションの実行
 
-In addition to adding new parameters, you can perform the following actions on parameters:
+新しいパラメータの追加に加えて、パラメータに対して以下のアクションを実行できます。
 
-* **Delete** – to delete a parameter click Delete or press <kbd>Delete</kbd> on your keyboard
+* **削除** – パラメータを削除するには、削除をクリックするか、キーボードの <kbd>削除</kbd> を押します
 
-* **Edit** – double-click a parameter to edit it or click Edit
+* **編集** – パラメータをダブルクリックして編集するか、編集をクリックします
 
 * **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
 
 * **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
 
-    ![Parameter Actions](attachments/button-widgets/button-parameter-actions.png)
+    ![パラメーターアクション](attachments/button-widgets/button-parameter-actions.png)
 
-#### 2.5.3 Tooltip
+#### 2.5.3 ツールチップ
 
-The **Tooltip** property determines a text end-users will see in the tooltip that appears when they hover over the button. The tooltip text is translatable. For more information on translatable texts, see [Language Menu](translatable-texts). If the tooltip is not specified, no tooltip will be shown when hovering over the button.
+**Tooltip** プロパティは、ボタンの上にカーソルを合わせたときに表示されるテキストの末端ユーザに表示されるテキストを決定します。 ツールチップテキストは翻訳可能です。 翻訳可能なテキストの詳細については、 [言語メニュー](translatable-texts) を参照してください。 ツールチップが指定されていない場合、ボタンの上にカーソルを合わせるとツールチップは表示されません。
 
-#### 2.5.4 Icon {#icon}
+#### 2.5.4 アイコン {#icon}
 
-The **Icon** property determines the icon that will be shown in front of the caption of the button. Possible options are:
+**アイコン** プロパティは、ボタンのキャプションの前に表示されるアイコンを決定します。 利用可能なオプションは次のとおりです。
 
-* no icon
-* a glyphicon
-* a (bitmap) image
+* アイコンなし
+* グリヒコン
+* a (ビットマップ) image
 
-Glyphicons come from the Bootstrap Halflings collection. The advantages of a glyphicon over a bitmap image are that they are scalable, look sharp on high-resolution screens, and their color can be changed by changing the font color. The advantage of an image icon is that it can have multiple colors.
+グリフはBootstrapのHalfingsコレクションから来ています。 ビットマップ画像を超えるグリヒコンの利点は、それらがスケーラブルであることです。 高解像度の画面でシャープに見えるしフォントの色を変えることで色を変えることができます 画像アイコンの利点は、複数の色を持つことができることです。
 
-#### 2.5.5 Render Mode {#RenderMode}
+#### 2.5.5 レンダリングモード {#RenderMode}
 
-Defines the way the button will be shown to the end-user. Possible options are the following:
+このボタンをエンドユーザーに表示する方法を定義します。 利用可能なオプションは次のとおりです:
 
-* **Button** – the widget will be rendered as a button
-* **Link** – the widget will be rendered as a hyperlink
+* **ボタン** - ウィジェットはボタンとしてレンダリングされます
+* **リンク** - ウィジェットはハイパーリンクとしてレンダリングされます
 
-*Default render mode:* Button
+*デフォルトレンダリングモード:* ボタン
 
-#### 2.5.6 Button Style
+#### 2.5.6 ボタンスタイル
 
-The **Button style** property applies a predefined styling to the button. Possible options are the following:
+**ボタン スタイル** プロパティは、ボタンに定義済みのスタイルを適用します。 利用可能なオプションは次のとおりです:
 
-* Default
-* Inverse
-* Primary
-* Info
-* Success
-* Warning
-* Danger
+* デフォルト
+* 反転
+* プライマリ（プライマリ）
+* 情報
+* 成功
+* 警告
+* 危険
 
-#### 2.5.7 Disabled During Action
+#### 2.5.7 アクション中は無効
 
-This property is only shown when **Call a microflow** or **Call a nanoflow** is selected as the [on-click event](on-click-event). Selecting **Disabled during action** disables the button until the action is completed or failed.
+このプロパティは、 **マイクロフロー** を呼び出すか、 **ナノフローを呼び出す** が [オンクリックイベント](on-click-event) として選択されている場合にのみ表示されます。 **** を選択すると、アクションが完了または失敗するまでボタンが無効になります。
 
-Default: *true*
+デフォルト: *true*
 
-### 2.6 Items Section {#items}
-
-{{% alert type="info" %}}
-
-The **Items** section is only shown for drop-down buttons.
-
-{{% /alert %}}
-
-When an end-user clicks a drop-down button, a pop-up window with a list of items opens. Each item performs an event when an end-user clicks this item. Different items can perform different events. For more information on events that can be assigned, see [On Click Event & Events Section](on-click-event).
+### 2.6 項目セクション {#items}
 
 {{% alert type="info" %}}
 
-* Items with the **Create object** event are only shown when you have sufficient permissions on. For more information, see [Security](security).
+**Items** セクションはドロップダウンボタンでのみ表示されます。
 
-* Items with the **Sign out** event are not shown for anonymous users. For more information on different security levels and anonymous users, see [App Security](project-security) and [Anonymous Users](anonymous-users).
+{{% /alert %}}
+
+エンドユーザーがドロップダウンボタンをクリックすると、項目のリストが表示されるポップアップウィンドウが開きます。 各項目はエンドユーザーがこの項目をクリックしたときにイベントを実行します。 さまざまなアイテムが異なるイベントを実行できます。 割り当てることができるイベントの詳細については、 [[イベント & イベントセクション]を参照してください。](on-click-event).
+
+{{% alert type="info" %}}
+
+* **オブジェクトの作成** イベントのアイテムは、十分な権限がある場合にのみ表示されます。 詳細については、 [セキュリティ](security) を参照してください。
+
+* **サインアウト** イベントのアイテムは匿名ユーザーには表示されません。 異なるセキュリティレベルと匿名ユーザに関する詳細については、 [App Security](project-security) と [匿名ユーザ](anonymous-users) を参照してください。
 
 
 {{% /alert %}}
 
-Each item has the following properties:
+各項目には以下のプロパティがあります:
 
-* **Caption** – defines a caption of the item
+* **図表番号** - アイテムのキャプションを定義する
 
 *  **Action** – defines an on-click event performed when the item is clicked (for more information on-click events, see [On Click Event & Events Section](on-click-event))
 
-    ![Properties of Items](attachments/button-widgets/items-properties.png)
+    ![アイテムのプロパティ](attachments/button-widgets/items-properties.png)
 
 
-#### 2.6.1 Adding New Items
+#### 2.6.1 新しいアイテムの追加
 
-To add items to a drop-down buttons, do the following:
+ドロップダウンボタンに項目を追加するには、次の操作を行います。
 
-1. Double-click the **Items** setting in the button widget properties.
+1. ボタンウィジェットのプロパティで **アイテム** 設定をダブルクリックします。
 
-2.  In the **Edit Items** dialog box, click **New**:
+2.  **アイテムの編集** ダイアログボックスで、 **新規** をクリックします。
 
-    ![Adding New Item](attachments/button-widgets/adding-new-item.png)
+    ![新しいアイテムの追加](attachments/button-widgets/adding-new-item.png)
 
-3. In the **Edit Drop-down Button** Item dialog box, do the following:
-   1. Specify the caption for the item.
-   2. Select an image (icon) to be displayed for this item.
-   3. Select an on-click event to be performed when the end-user clicks this item.
+3. **ドロップダウンボタン** 項目ダイアログボックスで、以下の操作を行います:
+   1. 項目のキャプションを指定します。
+   2. このアイテムに表示する画像 (アイコン) を選択します。
+   3. エンドユーザーがこのアイテムをクリックしたときに実行されるオンクリックイベントを選択します。
    4. Click **OK**.
-4. In the **Edit Items** dialog box, click **OK** to save your changes and add new item.
+4. **アイテムの編集** ダイアログボックスで、 **OK** をクリックして変更を保存し、新しいアイテムを追加します。
 
 
 
-### 2.7 Visibility Section {#visibility}
+### 2.7 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Button Widgets](button-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
-* [On Click Event & Events Section](on-click-event)
+* [ページ](page)
+* [ボタンウィジェット](ボタン-ウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
+* [「イベント & イベント セクション」をクリックしてください](on-click-event)
 
 
