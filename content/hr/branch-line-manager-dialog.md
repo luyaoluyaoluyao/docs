@@ -1,55 +1,49 @@
 ---
-title: "Branch Line Manager"
-parent: "version-control-menu"
-menu_order: 80
-tags:
-  - "studio pro"
-  - "manage branch lines"
-  - "branch line manager"
+title: "Branch Line Manager Dialog"
+parent: "dialogs"
 ---
 
 ## 1 Introduction
 
-The **Branch Line Manager** is used to manage the [branch lines](version-control#branches) of an app that are stored on a version control server. The dialog box looks the same for both SVN and Git version control except for a few minor differences:
-
-*  Dialog box for SVN:
-
-    ![SVN Branch Line Manager](attachments/version-control-menu/branch-line-manager.png)
-
-*  Dialog box for Git:
-
-    ![Git Branch Line Manager](attachments/version-control-menu/git-branch-line-manager.png)
-
-To view the **Branch Line Manager** dialog box, open **Version Control** > **Manage Branch Lines**.
+Use this dialog box to create and delete [branch lines](version-control#branch-line) of an application that is stored on a version control server.
 
 A branch line allows independent development from other development lines. There are two main reasons for creating a branch line:
 
-* To do maintenance development on a version of your app that is running in production. You can keep on developing in the main line while you fix issues in the branch line.
-* To start the development of a very large feature that will take more than a day to develop. By doing this in a branch line, you can commit the half-implemented feature (possibly even with errors) without disturbing other development in the main line.
+* To do maintenance development in the branch line on a version of your app that is running in production, while still keeping on developing in the main line
+* To start developing a very large feature that will take more than a day to develop in the branch line, without disturbing other development in the main line
 
 ## 2 Location
 
-Use this setting to select the location where your app is stored. This can be either the [Team Server](#team-server-app) or a [private SVN or Git repository](#byo-server-app).
+Use this setting to select the location where your app is stored. This can be either the Team Server or another SVN server.
 
-{{% alert type="warning" %}}
-This option is only available when support for private SVN or Git servers is enabled in [Preferences](preferences-dialog).
+### 2.1 Mendix Team Server
+
+Select the Team Server app of which you want to manage the branch lines. If you have an app open in the Desktop Modeler it will be selected automatically. However, you can also manage branch lines without opening an app first, in which case no app will be selected.
+
+For more information, see [Team Server](team-server).
+
+### 2.2 Other SVN Server
+
+In the **SVN repository address** field, enter the address of the app you want to manage and click **Connect** to load the available branches from the repository.
+
+{{% alert type="info" %}}
+
+This option is only available when support for other SVN servers is enabled in the [Preferences](preferences-dialog#enabled) dialog box.
+
 {{% /alert %}}
 
-### 2.1 Team Server App {#team-server-app}
+## 3 Creating Branch Lines
 
-Select the Team Server app for which you want to manage the branch lines. If you have an app open in Studio Pro, it will be selected automatically. However, you can also manage branch lines without opening an app first, in which case no app will be selected.
+You can create a new branch line by clicking **New** above the list of branch lines. This will show a new dialog box where you can specify the properties of the new branch.
 
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
+For more information, see [Create Branch Line Dialog](create-branch-line-dialog).
 
-### 2.2 Bring Your Own (BYO) SVN or Git Server App {#byo-server-app}
+## 4 Deleting Branch Lines
 
-In the **App repository address** field, enter the address of the app you want to manage and click **Connect** to load the available branches from the repository.
+You can delete existing branch lines by selecting them and then clicking **Delete**.
 
-## 3 Managing Branch Lines
+{{% alert type="warning" %}}
 
-In the **Branch Line Manager**, you can create and delete branch lines, and enable and disable Mendix Studio for the app. For more information on how to perform these actions, see the [Managing Studio on Development Lines](collaborative-development#managing-studio) and [Managing Development Lines](collaborative-development#managing-branches) sections in *Collaborative Development*.
+Once a branch line is deleted, the operation cannot be undone.
 
-## 4 Read More
-
-* [Version Control](version-control)
-* [Collaborative Development](collaborative-development)
+{{% /alert %}}
