@@ -42,8 +42,8 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
 
 ## 3 正在创建图像实体
 
@@ -101,13 +101,13 @@ tags:
 
 8. 在按钮属性中，点击 **实体** 属性。
 
-9. 在 **选择实体** 对话框中，选择 **收据** 实体从 **接收报告** 关联并点击 **选择**：
+9. 在 **选择实体** 对话框中 选择 **receipt** 实体通过 **receipt_Report** 关联 (*receipt_Report/receipt*) 并点击 **选择**
 
     {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/image-report-association.png){{% /image_container %}}
 
 10. 在按钮属性中，点击 **页面**。
 
-11. 在 **选择页面** 对话框中，点击右上角的加号图标。
+11. 在 **选择页面** 对话框框中，点击 **新页面**。
 
 12. 在 **创建新页面** 对话框中，执行以下操作：
 
@@ -142,14 +142,14 @@ tags:
 
 1. 打开 **新报告** 页面。
 
-2. 在 **建筑块**， 搜索 **列表中包含图像** 并在 **附加图像** 按钮下拖放它*内* 数据视图)。 包含小部件的列表视图被添加到您的页面：
+2. 在 **建筑块**， 搜索 **邮件列表4** 并将其拖放到 **附加图片** 按钮下(*在* 数据视图内)。 包含小部件的列表视图被添加到您的页面：
 
-    ![](attachments/pages-how-to-upload-images/list-4.png)
+    {{% image_container width="550" %}}![](attachments/pages-how-to-upload-images/list-4.png){{% /image_container %}}
 
 3. 打开列表视图属性，执行以下操作：
 
     1. 点击 **实体** 属性。
-    2. 在 **选择实体** 对话框中，选择 **选择实体** 对话框， 选择 **收据** 实体通过 **收据报告** 关联并点击 **选择**：
+    2. 在 **选择实体** 对话框中，选择 **选择实体** 对话框， 选择 **收据** 实体超过 **receipt_Report** association (*receipt_Report/receipt*) 然后点击 **选择**
 
         {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/image-report-association.png){{% /image_container %}}
 
@@ -162,35 +162,28 @@ tags:
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-upload-images/image-properties.png){{% /image_container %}}
 
-5. 删除列表视图中的字幕，表示 *次要文本*。
+5. 删除列表视图中的字幕，说 *这里你可以放置字幕*。
 
-6. 在列表视图中选择 **列表项标题** 文本并打开其属性。
+6. 在列表视图中选择 **命名** 文本并打开其属性。
 
-    1. 在 **内容** 属性中，删除 *列表项标题* 文本并点击 **添加**  > **属性**。
+    1. 在 **内容** 属性中，删除 *名称* 文本，然后点击 **添加属性**。
     2. 在 **选择属性** 对话框中 选择 **名称** 属性并点击 **选择** 以显示附加图像的名称。
 
         {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/select-attribute.png){{% /image_container %}}
 
-7. 选择列表视图中的按钮，打开其属性，并执行以下操作：
+7. 在列表视图中选择 **详细信息** 按钮，打开其属性，并执行以下操作：
 
     1. 在 **事件** 部分 > 中， **点击动作** 属性，选择 **更多**。
-
     2. 在 **动作** 属性中，选择 **删除对象**。
+    3. In the **General** section > the **Caption** property, change the button caption from *Details* to *Delete*.
+    4. 在 **风格** 属性中，将 **默认** 更改为 **危险**。
 
-    3. 在 **常规** 章节 > 中， **标题** 属性，设置按钮标题为 *删除*。
-
-    4. 点击图标属性，然后点击 **清除 **选择图标** 对话框中的** 来删除图标。
-
-    5. 更改 **渲染模式** 从 **链接** 到 **按钮**
-
-    6. 在 **风格** 属性中，将 **默认** 更改为 **危险**。
-
-      ![](attachments/pages-how-to-upload-images/button-properties.png)
+        {{% image_container width="250" %}}![](attachments/pages-how-to-upload-images/button-properties.png){{% /image_container %}}
 
 干得好！ 现在您有了显示附加图像的图像列表，如果需要，您的用户将能够从列表中删除图像：
 
-![](attachments/pages-how-to-upload-images/configured-image-list.png)
+{{% image_container width="600" %}}![](attachments/pages-how-to-upload-images/configured-image-list.png){{% /image_container %}}
 
 恭喜！ 您已经配置了允许用户附加图像并在列表中显示这些图像的报告。
 
-[预览您的应用程序](/studio/publishing-app) 来测试图像上传的工作方式。 您也可以配置一个按钮来附加文件而不是图像。 关于文件的更多信息，请参阅 [图像 & 文件](/studio/page-editor-widgets-images-and-files)
+[预览您的应用程序](/studio8/publishing-app) 来测试图像上传的工作方式。 您也可以配置一个按钮来附加文件而不是图像。 关于文件的更多信息，请参阅 [图像 & 文件](/studio8/page-editor-widgets-images-and-files)
