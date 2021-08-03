@@ -1,87 +1,87 @@
 ---
-title: "Troubleshooting Collaborative Development"
-parent: "collaborative-development"
-description: "Describes troubleshooting for collaborative development between the Mendix Studio Pro and the Mendix Studio"
+title: "D. 排除合作发展问题"
+parent: "协作发展"
+description: "描述Mendix Studio Pro 和 Mendix Studio 之间合作开发故障排除问题"
 tags:
   - "studio pro"
-  - "studio"
-  - "collaborative development"
-  - "troubleshooting"
-  - "troubleshoot"
+  - "工作室"
+  - "合作发展"
+  - "故障排除"
+  - "疑难解答"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Collaborative development allows users to share model changes with each other. This document will help you to troubleshoot issues that may occur during the process of sharing changes with Mendix Studio.
+合作发展使用户能够相互交流模式变化。 此文档将帮助您解决在与 Mendix Studio 共享更改过程中可能出现的问题。
 
-## 2 Concepts
+## 2 概念
 
-For concepts and definitions, see the [Concepts](version-control#concepts) section in *Version Control*.
+关于概念和定义，请参阅 *版本控制* 中的 [概念](version-control#concepts) 部分。
 
-## 3 Studio Is Out of Sync {#out-of-sync}
+## 3 工作室不同步 {#out-of-sync}
 
-Normally, the Studio working copy is synchronized with Studio Pro when the Studio Pro user updates or commits. However, if a commit or an update happened outside Studio Pro (using Tortoise SVN or any other version control tool), Studio is temporarily out of sync. In this case you will get a warning:
+通常情况下，工作室的工作副本在Studio Pro 用户更新或提交时与Studio Pro 同步。 然而，如果在Studio Pro 之外发生了提交或更新(使用 Tortoise SVN 或任何其他版本控制工具)， 工作室暂时脱离同步。 在这种情况下，您将收到一个警告：
 
 ![](attachments/collaborative-development-troubleshooting/changes-are-out-of-sync.png)
 
-You can do one of the following:
+您可以做以下事情之一：
 
-1.  **Merge** (recommended)–  Studio Pro will try to merge the unsynchronized changes from Studio automatically. Your local changes (if any) will be combined with the Studio changes. The changes from Studio are stored in an automatically created branch to ensure that there no changes lost in the process. The branch is visible in the branch line manager. This process can result in one of the following: <br/>
+1.  **合并** (推荐)-- Studio Pro 将尝试自动合并工作室中未同步的更改。 您的本地更改(如果有的话)将与工作室的更改合并。 工作室的更改存储在一个自动创建的分支中，以确保过程中没有丢失的更改。 分支在分支线管理器中可见。 这个过程可以产生以下结果之一： <br/>
 
-    a.  If the merge process finishes successfully (without conflicts) the created branch is merged to your working copy and you get the Studio changes. You need to review the merged changes and commit them to get Studio and Studio Pro in sync again. And afterwards you can delete the automatically-created branch.<br/>
+    a.  如果合并过程成功完成(没有冲突)，创建的分支将合并到您的工作副本，并且您将得到工作室的更改。 您需要查看合并的更改并提交它们以使Studio 和 Studio Pro 再次同步。 然后您可以删除自动创建的分支。<br/>
 
-    b. If there are any merge conflicts found in the process, you need to resolve them and commit the changes afterwards. Once you resolve the conflicts and commit the changes, you can delete this automatically-created branch.<br/>
+    b. 会议文件。 如果在这个过程中发现任何合并冲突，你需要解决它们，然后进行更改。 一旦您解决冲突并提交更改，您可以删除此自动创建的分支。<br/>
 
     ![](attachments/collaborative-development-troubleshooting/automatically-created-branch.png)
 
-2. **Resolve Later** –  the changes can be merged later. In the meantime, changes from Studio and the Team Server development line will not be kept in sync. In this case, the dialog will appear again when committing/updating/merging changes.
+2. **稍后解决** — — 更改可以稍后合并. 同时，工作室和团队服务器开发线的更改将不会同步进行。 在这种情况下，当提交/更新/合并更改时，对话框将再次出现。
 
-## 4 Failed Merging Studio Pro and Studio Changes
+## 4 合并工作室专业版和工作室更改失败
 
-When a Studio enabled branch with a commit outside Studio Pro is being merged with a different line, you will see the following message:
+当在Studio Pro 之外提交的工作室启用分支与另一行合并时，您将看到以下消息：
 
 ![](attachments/collaborative-development-troubleshooting/cannot-merge-automatically.png)
 
-You can choose one of the following:
+您可以选择以下一种：
 
-1.  **Cancel Merge** (recommended) – you can cancel the process and try to synchronize with Studio first. Do the following:<br/> a.  Open the Studio enabled development line.<br/> b.  The warning described in the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section will be displayed.<br/>
+1.  **取消合并** (推荐) - 您可以取消进程并先尝试与 Studio 同步。 做以下操作：<br/> a。  打开工作室启用的开发行。<br/> b.  [Studio Pro & Studio 不再同步](#out-of-sync) 部分中描述的警告将被显示。<br/>
 
     ![](attachments/collaborative-development-troubleshooting/changes-are-out-of-sync.png)<br/>
 
-    c. Click **Merge** to synchronize the changes with Studio.<br/>
+    b. 会议文件。 点击 **合并** 与工作室同步更改。<br/>
 
-    d. Open the previous branch and do the merge again.
+    b. 平均输出功率超过1瓦； 打开上一个分支并重新合并.
 
-2. **Merge Anyway** – the merge will continue without changes from Studio. In this case only the changes from Studio Pro will be included. Studio Pro and Studio will be out of sync, and you will need to resolve this issue later. See the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section.
+2. **无论如何合并** — — 合并将在不改变工作室的情况下继续。 在这种情况下，将只包含Studio Pro 中的更改。 Studio Pro and Studio 将无法同步，您将需要稍后解决这个问题。 查看 [Studio Pro & Studio 退出了同步](#out-of-sync) 部分。
 
-## 5 The Repository Service Is Unavailable
+## 5 仓库服务不可用
 
-During the **Update** operation, changes are requested from Studio and integrated into the current app.  There is an additional step **Retrieve branch status** in the update process. During this step, Studio changes are retrieved.
+在 **更新** 操作过程中，需要从Studio进行更改并整合到当前应用中。  更新过程中有一个额外步骤 **获取分支状态**。 在此步骤中，将检索工作室的更改。
 
 ![](attachments/collaborative-development-troubleshooting/retrieving-branch-status.png)
 
-If there are network or service issues, Studio Pro will not be able to contact the repository service and a warning message is displayed:
+如果存在网络或服务问题，Studio Pro 将无法联系资源库服务并显示警告信息：
 
 ![](attachments/collaborative-development-troubleshooting/changes-are-not-retrieved.png)
 
-You can do one of the following:
+您可以做以下事情之一：
 
-1. **Cancel** (recommended) – the operation will be cancelled, you can try again later, when the network problems are solved.
+1. **取消** (推荐) - 操作将被取消，您可以稍后在网络问题解决后再试。
 
-2. **Proceed** – the update process will continue, but the changes from Studio will not be retrieved. Studio Pro and Studio will be out of sync, and you will need to resolve this issue later. See the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section.
+2. **继续** - 更新进程将继续，但工作室的更改将无法检索。 Studio Pro and Studio 将无法同步，您将需要稍后解决这个问题。 查看 [Studio Pro & Studio 退出了同步](#out-of-sync) 部分。
 
-## 6 Another Operation Is in Progress
+## 6 另一项行动正在进行中
 
-When your team members initiate a blocking operation (commit/update/merge a Studio enabled branch or switch a Studio enabled branch), and at the same you initiate a blocking operation as well, and you will see the dialog below:
+当您的团队成员启动阻止操作 (提交/更新/合并启用工作室分支或切换启用工作室分支) 同时，您也启动了一个屏蔽操作，您将看到下面的对话框：
 
 ![](attachments/collaborative-development-troubleshooting/another-operation-in-progress.png)
 
-You can do one of the following:
+您可以做以下事情之一：
 
-1. **Cancel** (recommended) – the operation will be cancelled. We recommend you to do an update in a few minutes so that you get the latest changes and your working copy and Studio will be in sync.
-2. **Proceed** – the update process will continue, but the changes from Studio will not be retrieved. Studio Pro and Studio will be out of sync, and you will need to resolve this issue later. See the [Studio Pro & Studio Are Out of Sync](#out-of-sync) section.
+1. **取消** (推荐) - 操作将被取消。 我们建议您在几分钟后进行更新，以便您能够获得最新的更改，您的工作副本和工作室将保持同步。
+2. **继续** - 更新进程将继续，但工作室的更改将无法检索。 Studio Pro and Studio 将无法同步，您将需要稍后解决这个问题。 查看 [Studio Pro & Studio 退出了同步](#out-of-sync) 部分。
 
-## 7 Read More
+## 7 阅读更多
 
-* [Version Control](version-control)
-* [Collaborative Development in Studio](/studio/collaborative-development)
+* [版本控制](version-control)
+* [合作开发工作室](/studio/collaborative-development)
