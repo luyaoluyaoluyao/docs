@@ -1,72 +1,124 @@
 ---
-title: "List view"
-parent: "data-widgets"
+title: "一覧表示"
+parent: "データウィジェット"
+menu_order: 40
+tags:
+  - "studio pro"
 ---
 
+## 1つの紹介
 
-The list view is similar to the template grid. The list view shows a list of objects arranged vertically. Each object is shown using a template. During development, the object template is defined by placing a widget inside the list view's dropzone. The list of objects shown is determined by a datasource.
+リストビューには、オブジェクトのリストが表示されます。 たとえば、すべてのプロファイルのリストを表示できます。
+
+![](attachments/data-widgets/list-view-example-profile.png)
+
+各オブジェクトはテンプレートを使用して表示されます。 このテンプレートは、リストビューのドロップゾーン内にウィジェットを配置することで定義されます。 表示されるオブジェクトのリストは、 [データ ソース](#data-source) によって決定されます。
+
+## 2つのプロパティ
+
+リストビューのプロパティの例を以下の画像に示します。
+
+{{% image_container width="250" %}}![](attachments/data-widgets/list-view-properties.png)
+{{% /image_container %}}
+
+リストビュープロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [テンプレート](#templates)
+* [公開範囲](#visibility)
+
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide/common-section-link.md" %}}
+
+### 2.2. データソースセクション {#data-source}
+
+データソースは、リストビューに表示するオブジェクトを決定します。 データソースに関する一般的な情報については、 [Data Sources](data-sources) を参照してください。
+
+#### 2.2.1 Type
+
+リストビューでは、次の種類のデータ ソースをサポートしています。
+
+* [データベースソース](database-source) – オブジェクトは直接データベースから取得されます。 データベースソースは [オフライン](offline-first) アプリケーションで使用できます。
+* [XPath ソース](xpath-source) - オブジェクトは直接データベースから取得されます
+* [Microflow source](microflow-source) – マイクロフローを実行してオブジェクトのリストを計算する
+* [Nanoflow source](nanoflow-source) - nanoflow を実行することでオブジェクトのリストを計算する
+* [関連のソース](association-source) - オブジェクトに到達するための関連に従います
+
+データベースと XPath ソースは、データベースからオブジェクトを取得し、検索とソートをサポートします。
+
+{{% alert type="warning" %}}検索はネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+### 2.3 デザインプロパティセクション{#design-properties}
+
+{{% snippet file="refguide/design-section-link.md" %}}
+
+### 2.4 一般セクション {#general}
+
+#### 2.4.1 編集可能
+
+このプロパティが *はい*に設定されている場合、リストビューの項目を編集できます。 リストビュー項目に加えられた変更は、 **** ボタンで保存し、 **キャンセル** ボタンで元に戻すことができます。 **** と **ページ サイズ** のプロパティをクリックすると、どのような変更が保存または元に戻されるか混乱を避けるために表示されません。
+
+#### 2.4.2 クリック時
+
+オンクリックイベントは、ユーザーがリストビュー行をクリックしたときに実行されるアクションを定義します。 オンクリックイベントの詳細については、 [](on-click-event) を参照してください。
+
+#### 2.4.3 ページサイズ {#page-size}
+
+ページに表示される行数。指定された上限に達した後、 **もっと読み込む** ボタンがページに表示されます。
+
+{{% alert type="info" %}}The **Load more** button is not visible on native mobile page. リストビューは、現在ロードされているアイテムの最後が表示されると、自動的に新しいアイテムを読み込みます。{{% /alert %}}
+
+#### 2.4.4 スクロールの方向
+
+{{% alert type="info" %}}スクロール方向プロパティはネイティブのモバイルページでのみサポートされています。{{% /alert %}}
+
+このプロパティは、リストビューがアイテムを垂直方向(デフォルト)または水平方向に配置するかを決定します。
+
+#### 2.4.5 列数
+
+{{% alert type="info" %}}列数プロパティはネイティブのモバイルページでのみサポートされています。{{% /alert %}}
+
+このプロパティを使用すると、1行に隣接して表示されるアイテムの数を変更できます。 スクロール方向プロパティを水平方向に設定した場合、このプロパティによって列ごとのアイテム数が決まります。
+
+#### 2.4.6 プルダウンアクション
+
+{{% alert type="info" %}}列数プロパティはネイティブのモバイルページでのみサポートされています。{{% /alert %}}
+
+プルダウンアクションは、リストビューで下にドラッグしたときに実行されるアクションを定義します。 その一般的な動作は、データを同期してリストビューの内容を更新することです。
+
+### 2.5 テンプレートセクション {#templates}
+
+{{% alert type="warning" %}}テンプレートはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+リストビューに接続されているエンティティに専門分野がある場合、必要に応じて専門分野ごとにテンプレートを指定できます。 リストビューの各行に最も特定のテンプレートが表示されます。 専門化テンプレートが追加されると表示される追加ヘッダーをクリックすることで、異なるテンプレートを選択できます。
 
 {{% alert type="info" %}}
 
-![](attachments/pages/list-view.png) A read-only list view showing all profiles.
+私たちは、エンティティを持っていると言いましょう 車とその2つの専門分野:自転車と車。 そしてSportsCarと呼ばれる車の専門化があります。 車両に接続されているリストビューを作成します。 リスト ビューの templates プロパティを使用して、任意の車両に表示するテンプレートを指定します。 自転車と車の専門用には、それらを表示するために別々のテンプレートを作成します。
+
+自転車タイプの行がある場合は、自転車専用のテンプレートが表示されます。 車種の行は、車のテンプレートに表示されます。 タイプSportsCarの行は、車のテンプレートに表示されます。 スポーツカーに固有のテンプレートはありません(この例では)。カーはテンプレートがある「最も近い」一般化です。
 
 {{% /alert %}}
 
-## Common properties
+### 2.6 表示セクション {#visibility}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+## 3 特定のアクションの実行
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+リストビューでアクションを実行するには、ページでアクションを選択して右クリックします。 可能なアクションのリストが開きます。 **データ ソースの選択**, **表示される条件の編集**など、このリストからいくつかのアクションがあります。 は、プロパティを設定するための迅速な方法です。次のアクションは、実行できる特定のアクションです。
 
-## General properties
+* **エンティティに移動** – ドメインモデルを開き、データソースとして使用されるエンティティをハイライトします
+* **データソースに移動します** **microflow **– この動作は、マイクロフローがデータソースとして設定されている場合にのみ表示されます。
+* **nanoflow データソースに移動** - この動作は、nanoflow がデータソースとして設定され、このnanoflow を開くときにのみ表示されます
 
-### Editable
+## 4 続きを読む
 
-If this property is set to 'Yes', items in the list view can be edited. The changes made to list view items can be saved with a save button and reverted with a cancel button. Searching and paging are disabled to avoid confusion about what changes are saved or reverted.
-
-### Click action
-
-The click action defines what action is performed when a list view entry is 'clicked'. This can either be opening a page or calling a microflow. For opening a page see [Opening Pages](opening-pages) and for the microflow settings see [Starting Microflows](starting-microflows). The list view has no Confirmation or Advanced microflow settings.
-
-### Page size
-
-With this property you can change the number of containers that will be shown in one page. You cannot set this property when the list view is editable.
-
-## Data source properties
-
-The data source determines which objects will be shown in the list view. For general information about data sources, see [Data Sources](data-sources).
-
-### Type
-
-The list view supports the following types of data sources: database source, XPath source, association source and microflow Source. The database and XPath sources retrieve objects from the database and supports searching and sorting. The database source can also be used in [offline](offline) applications. The association source follows an association from the enclosing data view to get to the objects. Finally, the microflow source calculates the list of objects by executing a microflow.
-
-### Other properties
-
-See the corresponding data source for its properties:
-
-*   [Database source](database-source)
-*   [XPath source](xpath-source)
-*   [Microflow source](microflow-source)
-*   [Association source](association-source)
-
-## Templates properties
-
-### Templates
-
-If the entity that is connected to the list view has specializations, you can optionally specify templates for each specialization. For each row in the list view the most specific template is shown. The different templates can be selected by clicking the extra header that appears when a specialization template is added.
-
-{{% alert type="info" %}}
-
-Let us say you have an entity Vehicle and two specializations thereof: Bicycle and Car. And there is a specialization of Car called SportsCar. You create a list view that is connected to Vehicle. With the templates property of the list view you specify what template to show for arbitrary Vehicles. For the specializations Bicycle and Car you create separate templates to show them.
-
-Now if there is a row of type Bicycle the template specific for bicycles will be shown. A row of type Car will be shown in the template for Car. A row of type SportsCar is shown in the template for Car. There is no template specific for sports cars (in this example) and Car is the 'closest' generalization for which there is a template.
-
-{{% /alert %}}
-
-## Visibility properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+* [ページ](page)
+* [データウィジェット](data-widgets)
+* [データソース](データソース)
+* [ページエディターで共通のプロパティ](common-widget-properties)
