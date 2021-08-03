@@ -11,15 +11,11 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-any-configuration.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 With **Any Chart**, you can build any chart type that is supported by Plotly.js up to the version mentioned in the widget description in the Marketplace. So if you want to build a chart which is not available as a standard chart widget, such as a 3D chart, Any Chart is your friend.
 
-The configuration of this chart type is complex. For help, you can look at the **building blocks** that are delivered in the [Any Chart](/appstore/modules/any-chart) module from the Mendix Marketplace. Alternatively, use [How to Use Any Chart](/howto8/front-end/charts-any-usage) or the [Any Chart cheat sheet](charts-any-cheat-sheet) for a quick start.
+The configuration of this chart type is complex. For help, you can look at the **building blocks** that are delivered in the [Any Chart](/appstore/modules/any-chart) module from the Mendix Marketplace. Alternatively, use [How to Use Any Chart](/howto/front-end/charts-any-usage) or the [Any Chart cheat sheet](charts-any-cheat-sheet) for a quick start.
 
 Any Charts are configured with a JSON **Data** array and **Layout** object. The configuration can be set statically, via the **Source attribute** and **Sample data** properties.
 
@@ -29,7 +25,7 @@ The Sample data is for demo purposes. It is shown at run time when there is no S
 
 ## 2 Location of Any Chart Widget
 
-The Any Chart Widget must be placed in the context of a **data view**. The data view contains an entity object which has a **Source attribute** (unlimited length string) which contains the JSON representation of the data which you want to plot. Unlike the basic chart widgets, the Any Chart widget does not work directly on the data in your domain model. You have to convert the data you want to plot into the JSON format which Any Chart expects. See [How to Use Any Chart](/howto8/front-end/charts-any-usage) for a step-by-step explanation of how to do this.
+The Any Chart Widget must be placed in the context of a **data view**. The data view contains an entity object which has a **Source attribute** (unlimited length string) which contains the JSON representation of the data which you want to plot. Unlike the basic chart widgets, the Any Chart widget does not work directly on the data in your domain model. You have to convert the data you want to plot into the JSON format which Any Chart expects. See [How to Use Any Chart](/howto/front-end/charts-any-usage) for a step-by-step explanation of how to do this.
 
 ## 3 Data
 
@@ -154,7 +150,7 @@ The form to show when a user hovers over a chart plot point. It has the context 
 
 ## 8 Chart Theming
 
-Advanced JSON settings can also be added in a global context via the theme folder of your Mendix project root directory.
+Advanced JSON settings can also be added in a global context via the theme folder of your Mendix app root directory.
 
 To the theme folder, add a *.json* file named *com.mendix.charts*. The JSON should be in the following format:
 
@@ -203,7 +199,7 @@ To the theme folder, add a *.json* file named *com.mendix.charts*. The JSON shou
 }
 ```
 
-For guidance on how to set up chart theming see: [How to Use the Charts Theme](/howto8/front-end/charts-theme).
+For guidance on how to set up chart theming see: [How to Use the Charts Theme](/howto/front-end/charts-theme).
 
 {{% alert type="info" %}}
 
