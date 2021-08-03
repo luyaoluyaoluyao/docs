@@ -1,66 +1,66 @@
 ---
-title: "Parse & Format Date Function Calls"
-parent: "expressions"
+title: "解析 & 格式日期函数调用"
+parent: "表达式"
 menu_order: 160
-description: "Describes the functions for parsing Date and time values from strings using a specified pattern or producing a string from a Date and time value in Mendix."
+description: "描述使用指定模式的字符串或在Mendix中生成一个字符串的解析日期和时间值的函数。"
 tags:
   - "studio pro"
-  - "expressions"
+  - "表达式"
   - "parsing"
-  - "formatting"
+  - "格式化"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes functions that are used to parse Date and time values from strings using a specified pattern, or to produce a string from a Date and time value.
+本文档描述用来解析字符串的日期和时间值的函数, 或从日期和时间值生成字符串。
 
-For details on all pattern possibilities, see [Class SimpleDateFormat](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html).
+欲了解所有模式可能性的详情，请参阅 [Class SimpleDateFormat](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html)。
 
 ## 2 parseDateTime[UTC] {#parsedatetime-utc}
 
-Takes a string and parses it. If it fails and a default value is specified, it returns the default value. Otherwise, an error occurs. The function `parseDateTime` uses the user's timezone and `parseDateTimeUTC` uses the UTC calendar.
+需要一个字符串并解析它。 如果失败且指定了默认值，则返回默认值。 否则，就会发生错误。 函数 `parseDateTime` 使用用户的时区和 `parseDateTimeUTC` 使用UTC 日历。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                        | Type                                                                                                     |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Date                         | A string which contains the textual representation of a date, meaning, `dd/mm/yyyy` , `mm/dd/yyyy`, etc. |
-| Format                       | String                                                                                                   |
-| Default value (**optional**) | Date and time                                                                                            |
+| 值            | 类型                                                   |
+| ------------ | ---------------------------------------------------- |
+| 日期           | 一个包含日期文本表达式的字符串，表示, `dd/mm/yyyy` , `mmm/dd/yyy`, 等等。 |
+| 格式           | 字符串                                                  |
+| 默认值 (**可选**) | 日期和时间                                                |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                               | Type          |
-| ------------------------------------------------------------------- | ------------- |
-| The parsed date or the default value if a date could not be parsed. | Date and time |
+| 值            | 类型    |
+| ------------ | ----- |
+| 无法解析的日期或默认值。 | 日期和时间 |
 
-### 2.3 Example
+### 2.3 例子
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
-
-    ```java
-    parseDateTime('2015-05-21', 'yyyy-MM-dd')
-    ```
-
-    the output is:
+* 如果您使用以下输入：
 
     ```java
-    The date May 21st, 2015\. The time will be 12 o'clock at night  because it is not specified.
+    解析日期时间('2015-05-21', 'yyyy-MM-dd')
     ```
 
-* If you use the following input:
+    输出为：
 
     ```java
-    parseDateTime('noDateTime', 'dd-MM-yyyy', dateTime(2007))
+    2015年5月21日\。 晚上的时间将是12点，因为没有指定它。
     ```
 
-    the output is:
+* 如果您使用以下输入：
+
+    ```java
+    解析日期时间('noDateTime', 'dd-MM-yyyyy', dateTime(2007))
+    ```
+
+    输出为：
 
     ```java
     'Mon Jan 01 00:00:00 CET 2007'
@@ -68,142 +68,142 @@ The examples below illustrate which value the expression returns:
 
 ## 3 formatDateTime[UTC]
 
-Converts the Date and time value to a string, formatted according to the format parameter. Without the format parameter, a standard format is used. The function `formatDateTime` uses the users calendar and `formatDateTimeUTC` uses the UTC calendar.
+根据格式参数将日期和时间值转换为字符串。 在没有格式参数的情况下，使用标准格式。 函数 `格式化日期时间` 使用了用户日历和 `格式化日期时间` 使用了UTC 日历。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                 | Type          |
-| --------------------- | ------------- |
-| Date                  | Date and time |
-| Format (**optional**) | String        |
+| 值          | 类型    |
+| ---------- | ----- |
+| 日期         | 日期和时间 |
+| 格式(**可选**) | 字符串   |
 
-### 3.2 Output
+### 3.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| A formatted representation of the Date and time value. | String |
+| 值             | 类型  |
+| ------------- | --- |
+| 日期和时间值的格式化表示。 | 字符串 |
 
-### 3.4 Example
+### 3.4 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-formatDateTime($object/Date1,'EEE, d MMM yyyy HH:mm:ss Z')
+格式化日期时间($objectDate1,'EEEE, d MMM yyyy HH:mm:ss Z')
 ```
 
-the output is:
+输出为：
 
 ```java
-'Sun, 8 Jun 2008 10:12:01 +0200'
+'太阳, 8 Jun 2008 10:12:01 +0200'
 ```
 
-To get '1987-12-31T23:59:00', you need to concatenate two formatDateTime[UTC] functions:
+若要获得 '1987-12-31T23:59:00'，您需要连接两个格式的日期时间[UTC] 函数：
 
 ```java
-formatDateTime($object/Date1,'yyyy-MM-dd') + 'T' + formatDateTime($object/Date1,'HH:mm:ss')
+格式化日期时间($object/Date1,'yyy-MM-dd) + 'T' + 格式化日期时间($object/Date1,'HH:mm:ss')
 ```
 
 ## 4 formatTime[UTC]
 
-Converts the time part of Date and time value to a string in a standard format. `formatTime` uses the users calendar and `formatTimeUTC` uses the UTC calendar.
+将日期和时间值的时间部分转换为标准格式的字符串。 `格式化时间` 使用用户日历和 `格式化时间` 使用的 UTC 日历。
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value | Type          |
-| ----- | ------------- |
-| Date  | Date and time |
+| 值  | 类型    |
+| -- | ----- |
+| 日期 | 日期和时间 |
 
-### 4.2 Output
+### 4.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                   | Type   |
-| ----------------------------------------------------------------------- | ------ |
-| A formatted representation of the time part of the Date and time value. | String |
+| 值                  | 类型  |
+| ------------------ | --- |
+| 一个格式化的日期和时间值的时间部分。 | 字符串 |
 
-### 4.3 Example
+### 4.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-formatTime(dateTime(1974, 7, 2, 9, 50, 10))
+格式(日期时间(1974年、7、2、9、50、10))
 ```
 
-the output is:
+输出为：
 
 ```java
 '9:50 AM'
 ```
 
-## 5 formatDate[UTC]
+## 5 个格式日期[UTC]
 
-Converts the date part of Date and time value to a string in a standard format. `formatDate` uses the users calendar and `formatDateUTC` uses the UTC calendar.
+将日期和时间值的一部分转换为标准格式的字符串。 `格式化日期` 使用用户日历和 `格式化DateUTC` 使用UTC 日历。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value | Type          |
-| ----- | ------------- |
-| Date  | Date and time |
+| 值  | 类型    |
+| -- | ----- |
+| 日期 | 日期和时间 |
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                   | Type   |
-| ----------------------------------------------------------------------- | ------ |
-| A formatted representation of the date part of the Date and time value. | String |
+| 值             | 类型  |
+| ------------- | --- |
+| 日期和时间值的格式化表示. | 字符串 |
 
-### 5.3 Example
+### 5.3 实例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-formatDate(dateTime(1974, 7, 2, 9, 50, 10))
+格式化日期(1974年、7、2、9、50、10))
 ```
 
-the output is:
+输出为：
 
 ```java
 '7/2/74'
 ```
 
-## 6 dateTimeToEpoch
+## 6 dateTimeToEponh
 
-Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT to the date.
+返回自1970年1月1日以来的毫秒数，00:00:00 格林尼治标准直到日期。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value | Type          |
-| ----- | ------------- |
-| Date  | Date and time |
+| 值  | 类型    |
+| -- | ----- |
+| 日期 | 日期和时间 |
 
-### 6.2 Output
+### 6.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                       | Type         |
-| --------------------------------------------------------------------------- | ------------ |
-| The number of milliseconds since January 1, 1970, 00:00:00 GMT to the date. | Integer/Long |
+| 值                             | 类型    |
+| ----------------------------- | ----- |
+| 自1970年1月1日起的毫秒数，00:00:00时至今天。 | 整数/经度 |
 
-### 6.3 Example
+### 6.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
-dateTimeToEpoch(dateTime(1974, 7, 2, 9, 50, 10))
+TimeToEpoch(dateTime1974, 7, 2, 9, 50, 10))
 ```
 
-The output is:
+输出为：
 
 ```java
 141990610000
@@ -211,34 +211,34 @@ The output is:
 
 ## 7 epochToDateTime
 
-Creates a Datetime that represents the specified number of milliseconds since January 1, 1970, 00:00:00 GMT.
+创建日期代表自1970年1月1日起指定的毫秒数，00:00:00 GMT。
 
-### 7.1 Input Parameters
+### 7.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value | Type         |
-| ----- | ------------ |
-| Epoch | Integer/Long |
+| 值   | 类型    |
+| --- | ----- |
+| 埃波克 | 整数/经度 |
 
-### 7.2 Output
+### 7.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                | Type          |
-| ---------------------------------------------------------------------------------------------------- | ------------- |
-| A Datetime that represents the specified number of milliseconds since January 1, 1970, 00:00:00 GMT. | Date and time |
+| 值                                     | 类型    |
+| ------------------------------------- | ----- |
+| 一个日期代表自1970年1月1日起指定的毫秒数，00:00:00 GMT。 | 日期和时间 |
 
-### 7.3 Example
+### 7.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 epochToDateTime(141990610000)
 ```
 
-The output is:
+输出为：
 
 ```java
-dateTime(1974, 7, 2, 9, 50, 10)
+日期时间(1974年，7、2、9、50、10)
 ```
