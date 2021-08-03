@@ -1,29 +1,29 @@
 ---
-title: "Microflows & Nanoflows"
+title: "Microflow & Nanoflows"
 parent: "application-logic"
 menu_order: 10
-description: "Presents an overview of microflows and nanoflows."
+description: "マイクロフローとナノフローの概要を紹介します。"
 tags:
   - "studio pro"
-  - "microflow"
+  - "マイクロフロー"
   - "nanoflow"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Microflows and nanoflows allow you to express the logic of your application. They can perform actions such as creating and updating objects, showing pages, and making choices. It is a visual way of expressing what traditionally ends up in textual program code.
+マイクロフローとナノフローを使用すると、アプリケーションのロジックを表すことができます。 オブジェクトの作成や更新、ページの表示、選択などのアクションを実行できます。 それは、伝統的にテキストプログラムコードで終わるものを視覚的に表現する方法です。
 
-Microflows run in the runtime server and can therefore not be used in offline apps, while nanoflows run directly on the browser/device and can be used in an offline app. Furthermore, most of the actions in nanoflows run directly on the device, so there is also a speed benefit for logic which does not need access to the server.
+マイクロフローはランタイムサーバーで実行されるため、オフラインアプリでは使用できません。 一方、nanoflowはブラウザ/デバイス上で直接実行され、オフラインアプリで使用できます。 さらに、ナノフローのほとんどのアクションはデバイス上で直接実行されます。 ロジックにはサーバーへのアクセスを必要としない速度の利点もあります
 
-Explore the documentation for details on microflow and nanoflow definitions, properties, and usages.
+マイクロフローとナノの定義、特性、および使用方法の詳細については、ドキュメントをご覧ください。
 
-* [Microflows](microflows)
-* [Nanoflows](nanoflows)
-* [Sequence Flow](sequence-flow)
-* [Activities](activities)
-* [Decisions](decisions)
-* [Annotation](annotation)
-* [Parameter](parameter)
-* [Loop](loop)
-* [Events](events)
-* [Common Properties](microflow-element-common-properties)
+* [マイクロフロー](マイクロフロー)
+* [Nanoflows](ナノフロー)
+* [シーケンスフロー](sequence-flow)
+* [アクティビティ](アクティビティ)
+* [決定](意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|)
+* [注釈](アノテーション:)
+* [パラメータ](パラメータ)
+* [ループ](ループ)
+* [イベント](イベント)
+* [共通のプロパティ](microflow-element-common-properties)
