@@ -1,10 +1,10 @@
 ---
-title: "Call Web Service"
-parent: "integration-activities"
+title: "Web サービスに発信"
+parent: "インテグレーションアクティビティ"
 ---
 
 {{% alert type="warning" %}}
 
-Please see [Call Web Service Action](call-web-service-action) for details on calling a web service.
+Web サービスの呼び出しの詳細については、 [Web Service Action](call-web-service-action) を参照してください。
 
 {{% /alert %}}
