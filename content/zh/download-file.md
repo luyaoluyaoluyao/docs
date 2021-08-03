@@ -1,62 +1,40 @@
 ---
 title: "下载文件"
 parent: "客户活动"
-menu_order: 20
-tags:
-  - "studio pro"
-  - "下载文件"
-  - "客户活动"
 aliases:
-  - /refguide/Download+File.html
+  - /refguid7/Download+File.html
 ---
 
-{{% alert type="warning" %}}
-此活动只能在 **微流** 中使用。
-{{% /报警 %}}
-
-{{% alert type="warning" %}}
-这个动作被忽略，当从离线、本地或混合应用调用微流时不起作用。 For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+{{% alert type="info" %}}
+这种活动只能用于微流，而不能用于纳米流。
 {{% /报警 %}}
 
 ## 1 导言
 
-**下载文件** 活动可以用于启用浏览器下载特定文件。 最终用户要么看到下载弹出窗口，要么在浏览器中直接显示文件。
+下载文件操作可以用于启用浏览器下载特定文件。 用户获取一个下载弹出窗口或文件在浏览器中直接显示。
 
-{{% image_container width="300" %}}
-![下载文件示例](attachments/client-activities/download-file.png)
-{{% /image_container %}}
+{{% alert type="info" %}}
 
-## 2 属性
+关于所有活动共享的属性，请参阅 [Microflow 元素共同属性](microflow-element-common-properties) (例如标题)。 此页面仅描述该动作特定的属性。
 
-该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
+{{% /报警 %}}
 
-![下载文件属性](attachments/client-activities/download-file-properties.png)
+## 2 输入属性
 
-**下载文件** 属性窗格由以下部分组成：
+### 2.1 文件
 
-* [行 动](#action)
-* [常用的](#common)
+输入文件定义了要下载的文件。 该文件的信息存储在实体系统文件或专业化中。
 
-## 3 行动科 {#action}
+## 3 动作属性
 
-属性窗格的 **动作** 部分显示与此活动相关的动作。
+### 3.1 在浏览器中显示文件
 
-您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
-
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
-
-### 3.1 文件
-
-文件文件指定要下载的文件。 文件数据存储在实体的 System.FileDocument 或该实体的专业化中。
-
-### 3.2 在浏览器中显示文件
-
-**在浏览器中显示文件** 定义文件是下载到最终用户指定的位置还是直接显示在浏览器中。
+在浏览器中显示文件定义文件是下载到用户指定的位置还是直接显示在浏览器中。
 
 | 选项 | 描述                               |
 | -- | -------------------------------- |
 | 真的 | 文件已下载到暂存互联网文件的位置，并显示在浏览器的一个新页面上。 |
-| 错误 | 文件已下载到最终用户指定的位置。                 |
+| 错误 | 文件已下载到用户指定的位置。                   |
 
 {{% alert type="info" %}}
 
@@ -64,8 +42,4 @@ You can also open the dialog box by double-clicking the activity in the microflo
 
 {{% /报警 %}}
 
-许多浏览器实现弹出窗口阻止它们非主动打开，例如通过微流程。 对于移动设备，这意味着只有在禁用弹出窗口拦截器后才能从微流中触发下载。 您可以考虑使用 **文件管理器** 小部件来让用户手动启动下载。
-
-## 4 共同部分 {#common}
-
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+许多浏览器实现弹出阻止窗口无间断打开的弹出屏蔽，例如通过微流程。 对于移动设备，这意味着只有在禁用弹出屏蔽后才能从微流中触发下载。 您可以考虑使用 FileManager 小部件来让用户手动启动下载。
