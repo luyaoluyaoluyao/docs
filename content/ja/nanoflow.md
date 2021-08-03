@@ -1,58 +1,58 @@
 ---
 title: "Nanoflow Properties"
-parent: "nanoflows"
+parent: "ナノフロー"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This page describes the properties of nanoflows. For details on using nanoflows and nanoflow elements, see [Nanoflows](nanoflows).
+このページでは、ナノフローの特性について説明します。 nanoflows と nanoflow 要素の使用の詳細については、 [Nanoflows](nanoflows) を参照してください。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of nanoflow properties is represented in the image below:
+以下の画像では、ナノフロー特性の例を示しています。
 
 {{% image_container width="250" %}}![Nanoflow Properties](attachments/microflows-and-nanoflows/nanoflow-properties.png)
 {{% /image_container %}}
 
-Nanoflow properties consist of the following sections:
+Nanoflowプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Output](#output)
-* [Security](#security)
-* [Usage](#usage)
+* [一般的な](#common)
+* [出力](#output)
+* [セキュリティ](#security)
+* [使用法](#usage)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
-#### 2.1.1 Name
+#### 2.1.1 名前
 
-**Name** is the internal name of the nanoflow. When referring to the nanoflow in the app you will use this name. It must be unique within the module, but you can have two nanoflows with the same name in different modules. When referring to the nanoflow, you will normally prepend the name of the module to ensure uniqueness and allow you to use nanoflows in other modules.
+**名前** はナノフローの内部名である。 アプリでnanoflowを参照するときは、この名前を使用します。 モジュール内では一意でなければなりませんが、異なるモジュール内で同じ名前を持つ2つのナノフローを持つことができます。 ナノフを参照するとき 通常はモジュールの名前を付けて一意性を確保し、他のモジュールでナノフローを使用することができます。
 
-#### 2.1.2 Documentation
+#### 2.1.2 ドキュメント
 
-**Documentation** allows you to describe your nanoflow to make it easier for people to use and modify it.
+**ドキュメント** を使用すると、ナノフローを簡単に説明することができます。
 
-### 2.2 Output Section{#output}
+### 2.2 出力セクション{#output}
 
-#### 2.2.1 Return Type
+#### 2.2.1 戻り値の種類
 
-The return type defines what information the nanoflow returns. The caller of the nanoflow will get a result of this type. For possible return types, see [Data Types](data-types).
+戻り値の型は、nanoflow が返す情報を定義します。 nanoflowの呼び出し元はこのタイプの結果を得るでしょう。 戻り値の型については、 [Data Types](data-types) を参照してください。
 
-### 2.3 Security Section{#security}
+### 2.3 セキュリティセクション{#security}
 
-#### 2.3.1 Allowed Roles
+#### 2.3.1 許可されたロール
 
-These are the [module roles](module-security#module-role) the user must have to be able to execute the nanoflow.
+これらは、ユーザーがナノフローを実行できる必要がある [モジュールロール](module-security#module-role) です。
 
-For more information, see [Module Security](module-security).
+詳細については、 [モジュールセキュリティ](module-security) を参照してください。
 
-### 2.4 Usage Section {#usage}
+### 2.4 使用セクション {#usage}
 
-#### 2.4.1 Mark as Used
+#### 2.4.1 使用済みマーク
 
-You can search for unused items (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>, then select **Unused items** in the **Search for** drop-down menu) in Studio Pro. Nanoflows that are only called from JavaScript code will be listed as unused, because Studio Pro cannot look inside the source code.
+You can search for unused items (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>, then select **Unused items** in the **Search for** drop-down menu) in Studio Pro. Studio Proはソースコード内を見ることができないため、JavaScriptコードからのみ呼び出されるNanoflowは使用されていないものとしてリストされます。
 
-By setting the property **Mark as used** to **Yes**, you explicitly specify that the nanoflow is used and Studio Pro will no longer list it when searching for unused items.
+プロパティ **使用済みとして** を **はい**に設定する あなたは明示的に nanoflow が使用され、使用されていない項目を検索するときに Studio Pro がリストに追加されなくなります。
 
-Default: *No*
+デフォルト: *いいえ*
