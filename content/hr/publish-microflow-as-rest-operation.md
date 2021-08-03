@@ -1,5 +1,5 @@
 ---
-title: "Publishing a Microflow as a REST Operation"
+title: "Publish a Microflow as a REST Operation"
 parent: "published-rest-services"
 menu_order: 30
 description: "How to publish a Microflow as a REST Operation"
@@ -9,6 +9,12 @@ tags:
   - "operation"
   - "resource"
 ---
+
+{{% alert type="info" %}}
+
+This feature was introduced in version 7.15.0.
+
+{{% /alert %}}
 
 ## 1 Introduction
 
