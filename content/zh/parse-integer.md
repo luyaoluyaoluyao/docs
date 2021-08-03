@@ -1,63 +1,63 @@
 ---
-title: "Parse Integer"
-parent: "expressions"
+title: "解析整数"
+parent: "表达式"
 menu_order: 140
-description: "Describes the function for parsing integer from strings in Mendix."
+description: "描述解析来自Mendix字符串的整数的函数。"
 tags:
   - "studio pro"
-  - "expressions"
+  - "表达式"
   - "parse"
-  - "integer"
+  - "整数"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes functions that convert a string to an integer.
+此文档描述了将字符串转换为整数的函数。
 
 ## 2 parseInteger
 
-Takes a string and parses it to an integer.
+带一个字符串并解析为整数。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                        | Type    |
-| ---------------------------- | ------- |
-| The string to parse          | String  |
-| Default value **(optional)** | Integer |
+| 值            | 类型  |
+| ------------ | --- |
+| 要解析的字符串      | 字符串 |
+| 默认值 **(可选)** | 整数  |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                              | Type    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| An integer if it is possible to parse it from the string. If  the string cannot be parsed to an integer, the default value will be returned. If no default value is provided, an error will occur. | Integer |
+| 值                                                       | 类型 |
+| ------------------------------------------------------- | -- |
+| 一个整数，如果可以从字符串解析它。 如果字符串无法解析为整数，则返回默认值。 如果没有提供默认值，将发生错误。 | 整数 |
 
-### 2.3 Examples
+### 2.3 实例
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     parseInteger('42')
     ```
 
-    the output is:
+    输出为：
 
     ```java
     42
     ```
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     parseInteger('not_an_integer', 42)
     ```
 
-    the output is:
+    输出为：
 
     ```java
     42
