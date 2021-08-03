@@ -1,76 +1,76 @@
 ---
-title: "Image Collection"
-parent: "page-resources"
+title: "图像收藏"
+parent: "页面资源"
 menu_order: 5
-description: "Why and how to create an image collection"
+description: "为什么和如何创建图像收藏"
 tags:
   - "Studio Pro"
-  - "Images"
-  - "Image Collection"
+  - "图像"
+  - "图像收藏"
 ---
 
-## 1 Introduction
+## 1 导言
 
-If you want to use your own static images within an application, for example for branding or to give your buttons a unique feel, you will need to store them in your app. To do this, you create an **image collection** where you can store your images.
+如果你想要在应用程序中使用你自己的静态图像 例如，为了标记或给您的按钮一个独特的感觉，您需要将它们存储在您的应用中。 为了做到这一点，您创建了一个 **图像集** ，您可以在那里存储您的图像。
 
-For information on how to use images in your app, see [Images](images).
+关于如何在您的应用中使用图像的信息，请参阅 [图像](images)。
 
-Remember that, if you want to use the same set of custom images in several apps, you can export and import complete image collections, with their images, using [Import & Export Objects](/howto/integration/importing-and-exporting-objects).
+记住，如果你想在几个应用中使用相同的自定义图像集，你可以导出和导入完整的图像集合， 使用他们的图像，使用 [导入 & 导出对象](/howto/integration/importing-and-exporting-objects)
 
 {{% alert type="warning" %}}
-Too many large static images in your app can lead to performance issues. If you need a lot of large images, you can store them in your database (see [How to Work with Images & Files](/howto/data-models/working-with-images-and-files) for more information).
-{{% /alert %}}
+您的应用程序中过多的大型静态图像可能导致性能问题。 如果您需要大量的图像， 您可以将它们存储在您的数据库中(见 [如何使用图像 & 文件](/howto/data-models/working-with-images-and-files) 获取更多信息)。
+{{% /报警 %}}
 
-## 2 Adding an Image Collection
+## 2 正在添加图像收藏
 
-To add an image collection, do the following.
+要添加图像集合，请做以下操作。
 
-1. Right-click a module in the **App Explorer**.
-2. Select **Add other > Image collection**:
+1. 右键点击 **App Explorer** 中的一个模块。
+2. 选择 **添加其他 > 图像收藏**：
 
-    ![Add an image collection](attachments/image-collection/add-collection.png)
+    ![添加图像收藏](attachments/image-collection/add-collection.png)
 
-3. Give your image collection a name.
+3. 给您的图片收藏命名。
 
-## 3 Image Collection Actions
+## 3 图像收藏操作
 
-You can perform the following actions within image collections using the icons at the top of the image collection tab.
+您可以使用图像收藏选项卡顶部的图标在图像收藏中执行以下操作。
 
-![Image collection actions](attachments/image-collection/actions.png)
+![图像收集操作](attachments/image-collection/actions.png)
 
-Some of the actions can be applied to multiple images. You can select all images with <kbd>Ctrl</kbd>+<kbd>A</kbd>, or multiple images by combining your click with <kbd>Ctrl</kbd> or <kbd>Shift</kbd>
+一些操作可以应用于多个图像。 您可以使用 <kbd>Ctrl</kbd>+<kbd>A</kbd>选择所有图像 或多张图片，通过将您的点击与 <kbd>Ctrl</kbd> 或 <kbd>Shift</kbd>
 
-### 3.1 Add
+### 3.1 增加：
 
-The **Add** button allows you to add a new image from a file to your image collection. The image will be given the name of the image file you add. If the name already exists, a suffix will be added to make the name unique.
+**添加** 按钮允许您从文件中添加新图像到您的图像集合。 图像将被命名为您添加的图像文件。 如果名称已经存在，将添加一个后缀，使名称唯一。
 
-The following image formats are supported: *png*, *jpeg*, *gif*, *bmp*, and *svg*.
+支持以下图像格式： *png*, *jpeg*, *gif*, *bmp*, and *svg*.
 
-You can also add an image to your collection using <kbd>Ctrl</kbd>+<kbd>N</kbd>.
+您也可以使用 <kbd>Ctrl</kbd>+<kbd>N</kbd> 向您的收藏添加图像。
 
-### 3.2 Rename
+### 3.2 重命名
 
-The **Rename** button allows you to change the name of the selected image. As well as being the name you use within your app to refer to this image, this is also the name that **Export to file…** will give to your image if you save it as a file. If you change the name here, the name will also be changed in references to this image elsewhere in your app.
+**重命名** 按钮允许您更改所选图像的名称。 同时也是您在应用中用来引用此图像的名称， 如果您将图像保存为文件， **导出到文件…** 的名称也会给您的图像。 如果你在这里更改名字，你的应用的其他地方也会对此图像的引用进行更改。
 
-You can also rename an image using <kbd>F2</kbd>.
+您也可以使用 <kbd>F2</kbd> 重命名图像。
 
-### 3.3 Delete
+### 3.3 删除
 
-The **Delete** button removes the selected image(s) from the image collection. You will be warned if the image or images are used elsewhere in the app.
+**删除** 按钮可将选中的图像从图像集中移除。 如果图像或图像在应用的其他地方被使用，您将被警告。
 
-### 3.4 Find Usages
+### 3.4 查找用法
 
-The **Find usages** button displays, in the **Find Results** dock, all the places where this image is used in your app.
+**查找** 按钮显示的用法，在 **查找结果** 停靠，您的应用中使用此图像的所有地方。
 
-### 3.5 Move to Other Image Collection
+### 3.5 移动到其他图像收藏
 
-The **Move to other image collection** button allows you to move the selected image(s) to another image collection. When you move the image(s), all references elsewhere in your app will also be updated.
+**移动到其他图像收藏** 按钮允许您将选中的图像移动到另一个图像集合。 当您移动图像(s)时，您应用其他地方的所有引用也将被更新。
 
 {{% alert type="info" %}}
-It is not possible to *copy* an image, you can only *move* it. If you need to make a copy, you can export the image to a file (see below) and then add the image to a different image collection.
-{{% /alert %}}
+*无法复制* 图像，您只能 *移动* 图像。 如果您需要制作一个副本， 您可以导出图像到一个文件(见下面)，然后将图像添加到另一个图像集合。
+{{% /报警 %}}
 
-### 3.6 Export to File
+### 3.6 导出到文件
 
-The **Export to file…** button saves the selected image(s) as image files. You can select the folder where the images will be saved and they will be given the same name as they have in the image collection. If a file with the same name already exists, you will be warned.
+**导出到文件…** 按钮将选中的图像保存为图像文件。 您可以选择保存图像的文件夹，图像将与图像收藏中的名称相同。 如果具有相同名称的文件已经存在，您将受到警告。
 
