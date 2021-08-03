@@ -7,12 +7,8 @@ tags:
   - "validation feedback"
   - "client activities"
 aliases:
-  - /refguide8/Validation+Feedback.html
+  - /refguide/Validation+Feedback.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-feedback.pdf).
-{{% /alert %}}
 
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
@@ -73,7 +69,7 @@ Parameters are attributes the value of which will be displayed. Parameters need 
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
 ## 5 Read More
 
