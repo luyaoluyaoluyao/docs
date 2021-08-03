@@ -1,31 +1,31 @@
 ---
-title: "Go to Option"
-parent: "edit-menu"
-description: "Describes the Go to option in Mendix Studio Pro."
+title: "转到选项"
+parent: "编辑菜单"
+description: "在 Mendix Studio Pro中描述转到选项。"
 menu_order: 40
 tags:
-  - "app"
-  - "go to"
+  - "应用"
+  - "转至"
   - "navigation"
-  - "usage"
+  - "使用情况"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In Studio Pro editors, such as navigation, page, or microflow editor, you can access a handy menu by right-clicking items. A **Go to** option is commonly used to find your way in an app. It allows you to navigate from one element to another: for example, to navigate to the target of a button or to the source of a data grid.
+在 Studio Pro 编辑器，如导航、页面或微流程编辑器，您可以通过右键单击项目访问方便菜单。 一个 **转到** 选项通常用于在应用程序中找到您的路径。 它允许您从一个元素到另一个元素： 导航到按钮的目标或数据网格的来源。
 
-## 2 Go To Option
+## 2 转到选项
 
-The examples of using the **Go to** option are described below:
+使用 **转到** 选项的示例描述如下：
 
-* **Opening a target of a menu item** – in **App** > **Navigation**, you can right-click a menu item and select **Go to target**. Studio Pro will open the corresponding target of the menu item,for example, a page. ![Go to Target](attachments/go-to-option/go-to-target.png)
-* **Opening a data source of an element** – on pages, you can navigate to the data source of a widget. For example, you can right-click a button in the data grid and select **Go to microflow**. Mendix Studio Pro will open the corresponding microflow: ![Go to Microflow](attachments/go-to-option/go-to-microflow.png)
-* **Opening an entity from a microflow** – you can navigate to an entity in the domain model if you right-click an activity in the microflow and select **Go to entity**. Mendix Studio Pro will open the corresponding domain model: ![Go to Entity](attachments/go-to-option/go-to-entity.png)
+* **打开菜单项的目标** - 在 **App** > **导航**您可以右键单击菜单项并选择 **转到目标**。 Studio Pro 将打开菜单项的相应目标，例如一个页面。 ![转到目标](attachments/go-to-option/go-to-target.png)
+* **打开元素** - 在页面上，您可以导航到小部件的数据源。 例如，您可以右键单击数据网格中的按钮，然后选择 **转到微流程**。 Mendix Studio Pro 将打开相应的微流程： ![转到微流](attachments/go-to-option/go-to-microflow.png)
+* **从微流程中打开实体** - 如果右键点击微流程中的某项活动，您可以导航到域模型中的实体并选择 **转到实体**。 Mendix Studio Pro 将打开相应的域模型： ![转到实体](attachments/go-to-option/go-to-entity.png)
 
-## 3 Read More
+## 3 阅读更多
 
-* [Find, Find Advanced, and Find Usages](find-and-find-advanced)
+* [查找、找到优秀的用法](find-and-find-advanced)
 * [Navigation](navigation)
-* [Pages](pages)
-* [Microflows](microflows)
-* [Domain Model](domain-model)
+* [页 次](页面)
+* [微型流动](微流)
+* [域模型](域名模型)
