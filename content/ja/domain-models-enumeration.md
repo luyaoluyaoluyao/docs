@@ -1,105 +1,105 @@
 ---
-title: "Enumeration"
+title: "列挙型"
 parent: "domain-models"
-description: "Describes enumerations in Mendix Studio."
+description: "Mendix Studioで列挙について説明します。"
 tags:
-  - "studio"
-  - "domain model"
-  - "attributes"
-  - "enumeration"
+  - "スタジオ"
+  - "ドメインモデル"
+  - "属性"
+  - "列挙型"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes an enumeration in Mendix Studio. An enumeration is a list of one or more items (values). Each item represents one option. For example, a customer can be assigned a *Bronze*, *Silver*, and *Gold* grade. So, the *Customer Grade* is an enumeration, while *Bronze*, *Silver*, and *Gold* are enumeration items.  For more information on items, see the [Enumeration Items](#enumeration-items) section.
+このドキュメントでは、Mendix Studio の列挙について説明します。 列挙型は、1 つ以上の項目(値)のリストです。 各アイテムは一つのオプションを表します。 たとえば、顧客に *ブロンズ*、 *シルバー*、 *ゴールド* のグレードを割り当てることができます。 したがって、 *顧客グレード* は列挙、 *ブロンズ*、 *シルバー*、 *ゴールド* は列挙項目です。  アイテムの詳細については、 [列挙項目](#enumeration-items) セクションを参照してください。
 
-When you create an attribute of *enumeration* type you either assign an existing enumeration to it or create a new one. For details on properties of attributes of the enumeration type, see the [Attribute Properties](domain-models-attributes#attribute-properties) section in *Attributes*.
+*列挙型* の属性を作成するとき、既存の列挙型を割り当てるか、新しい列挙型を作成します。 列挙型の属性のプロパティの詳細については、 [属性](domain-models-attributes#attribute-properties) の *属性*セクションを参照してください。
 
-## 2 Enumeration Items {#enumeration-items}
+## 列挙項目 2 {#enumeration-items}
 
-An enumeration consists of enumeration items or values. Each item represents one of the options.
+列挙は、列挙項目または値で構成されます。 各アイテムはオプションのいずれかを表します。
 
-The enumeration can also represent an *uninitialized state*. For example, if you do not assign any grade to a customer, the grade status is *empty*.
+列挙は *初期化されていない状態* を表すこともできます。 たとえば、顧客に成績を割り当てない場合、成績ステータスは *空*です。
 
-## 3 Basic Actions
+## 3つの基本アクション
 
-An enumeration is configured when you add an attribute of the enumeration type to your domain model. You can either [create a new one](#create-new-enumeration) or [select an existing enumeration](#select-existing-enumeration).
+enumeration は、enumeration 型の属性をドメインモデルに追加するときに構成されます。 [新しい列挙の作成](#create-new-enumeration) または [既存の列挙の選択](#select-existing-enumeration) を選択することができます。
 
-### 3.1 Creating a New Enumeration {#create-new-enumeration}
+### 3.1 新しい列挙の作成 {#create-new-enumeration}
 
-To create a new enumeration, do the following:
+新しい列挙を作成するには、次の手順を実行します。
 
-1. Open your [domain model](domain-models).
+1. [ドメイン モデル](domain-models) を開きます。
 
-2. Select an entity you want to create the attribute for. For more information on how to create the entity, see section [3 Adding New Entities](domain-models#adding-new-entities) in *Domain Models Overview*.
+2. 属性を作成するエンティティを選択します。 For more information on how to create the entity, see section [3 Adding New Entities](domain-models#adding-new-entities) in *Domain Models Overview*.
 
-3.  To create a new attribute of the enumeration type, click **New attribute** and do the following:<br /> a. Set the attribute **Name**. In our example, the name of the attribute is *Grade*.<br /> b. Set the [Type](domain-models-attributes) to **Enumeration**.<br /> c. Click **Select enumeration** to create a new enumeration.<br />d. In the **Select enumeration** dialog box, click **New**.<br/> e. In the **Create new enumeration** dialog box, click **Add Item** to add possible options of the enumeration (**Name** is filled out automatically and is the same as the attribute name).<br />
+3.  列挙型の新しい属性を作成するには、 **新しい属性** をクリックし、次の操作を行います:<br /> a. 属性 **名前** を設定します。 この例では、属性の名前は *Grade*です。<br /> b. [Type](domain-models-attributes)に**列挙値**を設定します。<br /> c. **Select enumeration**をクリックして新しい列挙を作成します。<br />d. **列挙の選択** ダイアログボックスで、 **新規**をクリックします。<br/> e. In the **Create new enumeration** dialog box, click **Add Item** to add possible options of the enumeration (**Name** is filled out automatically and is the same as the attribute name).<br />
 
     ![](attachments/domain-models-enumeration/new-enumeration-add-item.png)<br />
 
-    f. Fill out the name for the **Caption** (**Name** is filled out automatically). In our example, we first fill out  *Bronze*, as one of three possible items of the enumeration: Bronze, Silver, and Gold. <br />
+    F **図表番号** の名前を入力します(**名前** が自動的に入力されます)。 この例では、最初に  *Bronze*に記入し、列挙の3つの可能な項目の1つとして: Bronze, Silver, Gold. <br />
 
     ![](attachments/domain-models-enumeration/new-enumeration-add-item-bronze.png)<br />
 
-    g. Click **Add Item** and repeat the step above to create other enumeration items.<br /> h. Click **Create** to close the dialog boxs and create the new attribute.
+    G **Add Item** をクリックし、上記の手順を繰り返して、他の列挙項目を作成します。<br /> h. **Create**をクリックしてダイアログボックスを閉じ、新しい属性を作成します。
 
     ![](attachments/domain-models-enumeration/new-enumeration-bronze-silver-gold.png)
 
-The attribute and the enumeration items are created.
+属性と列挙項目が作成されます。
 
-### 3.2 Selecting an Enumeration {#select-existing-enumeration}
+### 3.2 列挙を選択する {#select-existing-enumeration}
 
-You can also set an existing enumeration for attributes of the enumeration type. Do the following:
+列挙型の属性に既存の列挙を設定することもできます。 次の操作を行います:
 
-1. Open your [domain model](domain-models).
+1. [ドメイン モデル](domain-models) を開きます。
 
-2. Select an entity you want to create the attribute for. For more information on how to create the entity, see section [3 Adding New Entities](domain-models#adding-new-entities) in *Domain Models Overview*.
+2. 属性を作成するエンティティを選択します。 For more information on how to create the entity, see section [3 Adding New Entities](domain-models#adding-new-entities) in *Domain Models Overview*.
 
-3.  To create a new attribute of the enumeration type, click **New attribute** and do the following:<br />
+3.  列挙型の新しい属性を作成するには、 **新規属性** をクリックして、次の操作を行います:<br />
 
-    a. Set the attribute **Name**. In our example, the name of the attribute is *Grade*.<br /> b. Set the [Type](domain-models-attributes) to **Enumeration**.<br /> c. Click **Select enumeration** to create a new enumeration.<br />
+    a 属性 **名前** を設定します。 この例では、属性の名前は *Grade*です。<br /> b. [Type](domain-models-attributes)に**列挙値**を設定します。<br /> c. **Select enumeration**をクリックして新しい列挙を作成します。<br />
 
     ![](attachments/domain-models-enumeration/new-attribute-select-enumeration.png) <br/>
 
-    d. In the **Select enumeration** dialog box, the existing enumerations are displayed in the list. Click the one you want to use, then click **Select**.<br />
+    D **列挙の選択** ダイアログボックスでは、既存の列挙がリストに表示されます。 使用したいものをクリックし、 **Select** をクリックします。<br />
 
     ![](attachments/domain-models-enumeration/selecting-existing-enumeration.png)
 
-The existing enumeration is selected for the attribute of the enumeration type.
+既存の列挙は列挙型の属性に選択されます。
 
-### 3.3 Copying and Pasting an Enumeration
+### 3.3 列挙のコピーと貼り付け
 
-You can copy and paste an enumeration to another Studio app. Follow the steps below:
+他のStudioアプリにエニュメレーションをコピー&ペーストできます。 以下の手順に従ってください。
 
-1. Open your [domain model](domain-models).
+1. [ドメイン モデル](domain-models) を開きます。
 
-2. Select the attribute of the enumeration type and click **Enumeration** in its properties.
+2. 列挙型の属性を選択し、そのプロパティの **列挙値** をクリックします。
 
-3. In the **Select Enumeration** dialog box, select the enumeration you would like to copy and click the ellipsis icon.
+3. **列挙の選択** ダイアログボックスで、コピーする列挙を選択し、省略記号アイコンをクリックします。
 
-4. Select the **Copy to clipboard** option in the drop-down menu. ![Copy Enumeration](attachments/domain-models-enumeration/copy-to-clipboard.png)
+4. ドロップダウンメニューから **Copy to clipboard** オプションを選択します。 ![列挙をコピー](attachments/domain-models-enumeration/copy-to-clipboard.png)
 
-5. Open a different module or Studio app, navigate to a domain model and press <kbd>Ctrl</kbd> + <kbd>V</kbd>.
+5. 別のモジュールまたはStudioアプリを開き、ドメインモデルに移動し、 <kbd>Ctrl</kbd> + <kbd>V</kbd> を押します。
 
-The enumeration is pasted. For more information on copy/paste function in Studio, see the [Copy/Paste Pages, Microflows, and Enumerations](general#copy-paste-documents) section in *General Info*.
+列挙が貼り付けられます。 Studio のコピー/貼り付け機能の詳細については、 [一般情報](general#copy-paste-documents) の *コピー/貼り付けページ、マイクロフロー、および列挙* セクションを参照してください。
 
-### 3.4 Duplicating an Enumeration
+### 3.4 列挙型を複製
 
-To duplicate an enumeration, follow the steps below:
+列挙を複製するには、以下の手順に従ってください:
 
-1. Open your [domain model](domain-models).
+1. [ドメイン モデル](domain-models) を開きます。
 
-2. Select the attribute of the enumeration type and click **Enumeration** in its properties.
+2. 列挙型の属性を選択し、そのプロパティの **列挙値** をクリックします。
 
-3. In the **Select Enumeration** dialog box, select the enumeration you would like to duplicate and click the ellipsis icon.
+3. **列挙の選択** ダイアログボックスで、複製する列挙を選択し、省略記号アイコンをクリックします。
 
-4.  Select the **Duplicate** option in the drop-down menu.
+4.  ドロップダウンメニューで **複製** オプションを選択します。
 
-    ![Duplicate Enumeration](attachments/domain-models-enumeration/duplicate.png)
+    ![列挙型の重複](attachments/domain-models-enumeration/duplicate.png)
 
-The enumeration is duplicated.
+列挙は重複しています。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Domain Model](domain-models)
-* [Attributes](domain-models-attributes) 
+* [ドメインモデル](domain-models)
+* [属性](domain-models-attributes) 
