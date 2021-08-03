@@ -1,22 +1,16 @@
 ---
 title: "Consumed App Services"
 parent: "integration"
-tags:
-  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-app-services.pdf).
-{{% /alert %}}
-
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [consumed web service](consumed-web-services) to consume existing app services.
+App services have been deprecated in version 7.23.4 and are marked for removal. Use a [consumed web service](consumed-web-services) to consume existing app services.
 {{% /alert %}}
 
 App services are a way of connecting Mendix applications to each other. An app service can be imported and its content can be used. As for now, app services provide the following content:
 
-* Microflow actions
-* Domain model entities
+*   Microflow actions
+*   Domain model entities
 
 In the project explorer, an app service can be selected in the 'Add' context menu on a module. See [Select app service](select-app-service) for more information.
 
