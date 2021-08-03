@@ -1,76 +1,79 @@
 ---
-title: "Data Grid (Document Template)"
-parent: "document-templates"
+title: "データグリッド（ドキュメントテンプレート）"
+parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Data+Grid+(document+template).html
-  - /refguide7/data-grid-(document-template).html
+  - /refguide/Data+Grid+(document+template).html
+  - /refguide/data-grid-(document-template).html
 ---
 
+## 1つの紹介
 
-The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed.
-
-{{% alert type="info" %}}
-
-[![](attachments/819203/918138.png)](data-grid-document-template) A data grid showing a list of orders with a description and the referenced customer name.
-
-{{% /alert %}}
-
-## Components
-
-### Columns
-
-See [Columns (document template)](columns-document-template).
-
-### Sort bar
-
-See [Sort Bar](sort-bar).
-
-## Appearance Properties
-
-### Column weights
-
-The column weights are percentages separated by semi-colons that determine the widths of the columns. The weights have to add up to 100\. An alternative way of changing the widths of columns is by dragging the separating line between columns.
+データ グリッドには、グリッド内のオブジェクトのリストが表示されます。 たとえば、データ グリッドには、顧客が発注したすべての注文が表示されます。
 
 {{% alert type="info" %}}
 
-In the screenshot above the column weights are 50;25;25.
+![](attachments/document-templates/918138.png)
+
+説明と参照先の顧客名を含む注文のリストを表示するデータ グリッド。
 
 {{% /alert %}}
 
-### Cell spacing
+## 2つのコンポーネント
 
-Cell spacing specifies the space in between cells
+### 2.1 列
 
-### Cell padding
+参照 [列 (ドキュメントテンプレート)](columns-document-template).
 
-Cell padding specifies the space between the content of the cell and the cell wall
+### 2.2 ソートバー
 
-### Enable striping
+[ソート バー](sort-bar) を参照してください。
 
-With striping enabled you can set the properties of even and uneven datagrid rows individually. This way you can create a striping effect by varying color for the 2 different row styles.
+## 3つの外観プロパティ
 
-### Style
+### 3.1 列の重量
 
-See [Style](style)
+列の重みは、列の幅を決定するセミコロンで区切られたパーセンテージです。 重量は最大100\まで加算する必要があります。 列の幅を変更する別の方法は、列間の区切り線をドラッグすることです。
 
-## Common Properties
+{{% alert type="info" %}}
+上のスクリーンショットでは、列の重みは 50;25;25 です。
+{{% /alert %}}
 
-### Name
+### 3.2 セル間隔
 
-The internal name of the widget. You can use this to give sensible names to widgets. The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto7/integration/selenium-support).
+セルの間隔を指定します。
 
-## Data Source Properties
+### 3.3 Cell Padding
 
-The data source properties determine which objects will be shown in the data grid. The list of objects in the data grid is constrained by the following mechanisms:
+セルのパディングは、セルの内容とセルの壁の間の空間を指定します
 
-1.  For top-level data grids, the objects passed in the microflow calling the document export action are shown.
-2.  For nested data grids, if an entity path is used, only the objects reachable by following the path from the containing object are shown.
-3.  For nested data grids, if a microflow is used, the objects returned by the microflow are shown.
+### 3.4 ストライプを有効にする
 
-### Entity (Path)
+ストライピングを有効にすると、偶数および不均一なデータグリッド行のプロパティを個別に設定できます。 この方法で、2つの行スタイルに色を変えてストライピング効果を作成できます。
 
-The entity (path) property specifies which entity instances will be shown in the data grid. A top-level data grid is always connected to an entity. A nested data grid can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path can follow associations irrespective of type and ownership.
+### 3.5 スタイル
 
-### Microflow
+[スタイル](style) を参照
 
-When a nested data grid is connected to a template, a microflow is needed to retrieve the data. The input parameter of these microflows is always the object of the containing data view and the output is a list of objects of the type of the nested datagrid.
+## 4つの一般的なプロパティ
+
+### 4.1 名前
+
+ウィジェットの内部名 ウィジェットに賢明な名前を付けるのに使用できます。 The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto/integration/selenium-support).
+
+## 5つのデータソースのプロパティ
+
+データ ソースのプロパティは、データ グリッドに表示されるオブジェクトを決定します。 データ グリッド内のオブジェクトのリストは、以下のメカニズムによって制約されます。
+
+1.  トップレベルのデータグリッドには、文書エクスポートアクションを呼び出すマイクロフローで渡されたオブジェクトが表示されます。
+2.  ネストされたデータグリッドの場合、エンティティパスが使用されている場合、包含オブジェクトからパスをたどって到達可能なオブジェクトのみが表示されます。
+3.  ネストされたデータグリッドでは、マイクロフローを使用すると、マイクロフローによって返されるオブジェクトが表示されます。
+
+### 5.1 エンティティ (パス)
+
+エンティティ (path) プロパティは、データ グリッドに表示されるエンティティ インスタンスを指定します。 トップレベルのデータグリッドは常にエンティティに接続されます。 ネストされたデータ グリッドは、エンティティまたは含むデータ ビューのエンティティから始まるエンティティ パスに接続することができます。 エンティティパスは、タイプと所有権に関係なく関連付けに従うことができます。
+
+### 5.2 マイクロフロー
+
+ネストされたデータ グリッドがテンプレートに接続されると、データを取得するためにマイクロフローが必要になります。 これらのマイクロフローの入力パラメータは常に含まれるデータビューのオブジェクトであり、出力はネストされたデータ グリッドのタイプのオブジェクトのリストです。
