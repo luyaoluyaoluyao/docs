@@ -1,39 +1,39 @@
 ---
 title: "MySQL/MariaDB"
-parent: "data-storage"
+parent: "数据存储"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-There are some extra considerations you need to take into account if you are implementing a Mendix app using a MySQL or MariaDB database. In addition, the behavior of Mendix using a MySQL or MariaDB database has some minor differences when compared with using a PostgreSQL database.
+如果您正在使用 MySQL 或 MariaDB 数据库实现Mendix 应用，您需要考虑一些额外的考虑。 此外，Mendix 使用 MySQL 或 MariaDB 数据库的行为与使用 PostgreSQL 数据库相比有一些小的差异。
 
-These considerations and differences are documented below.
+下文记录了这些考虑因素和分歧。
 
-## 2 Storage Engine
+## 2 个存储引擎
 
-Mendix only supports the InnoDB storage engine, with row-based logging enabled.
+Mendix 只支持 InnoDB 存储引擎，启用了基于行的日志记录。
 
-## 3 Transaction Isolation
+## 3 个交易隔离。
 
-Mendix uses the `Read Committed` transaction isolation level by default. Only row-based logging can be used in the case of this transaction isolation level. You should set the `binlog_format` database configuration value to `ROW` or `MIXED`. For more information, see [`binlog_format` for MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) or [`binlog_format` for MariaDB](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format).
+Mendix 默认使用 `读取提交的` 交易隔离等级。 在这个交易隔离级别的情况下，只能使用基于行的日志记录。 您应该将 `binlog_format` 数据库配置值设置为 `ROW` 或 `MEXED`。 欲了解更多信息，请访问 [`binlog_format` for MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) 或 [`binlog_format` for MariaDB](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format)。
 
-## 4 SAVEPOINT Exception Does Not Exist
+## 4 SAVEPOINT 异常不存在
 
-If you receive a `SAVEPOINT unnamed does not exist` exception, a deadlock has occurred. Mendix cannot correctly handle this situation because MySQL/MariaDB automatically rolls back the transaction and removes all the save points for that transaction. Mendix tries to roll back to a specific save point, but that is not allowed anymore by MySQL and MariaDB. Avoiding deadlocks by keeping transactions as short as possible is advised.
+如果您收到一个未命名的 `SAVEPOINT 不存在` 例外情况，就会出现僵局。 Mendix 无法正确处理此情况，因为MySQL/MariaDB 会自动回滚交易并删除该交易的所有保存点。 Mendix 试图回退到一个特定的保存点，但MySQL 和 MariaDB 不再允许这一点。 建议尽可能缩短交易时间，以避免僵局。
 
-## 5 Time Zone Support
+## 5 时区支持
 
-Mendix supports functionality to extract a part of a date and time in a query. In XPath, you can use functions like [`hours-from-dateTime`](xpath-hours-from-datetime) and [`week-from-dateTime`](xpath-week-from-datetime). In OQL, you can use functions like [`DATEPART(..)`](oql-datepart) and [`DATEDIFF(..)`](oql-datediff).
+Mendix 支持在查询中提取部分日期和时间的功能。 在 XPath，您可以使用如下功能： [`小时从日期时间`](xpath-hours-from-datetime) 和 [`周从日期时间起`](xpath-week-from-datetime) 在 OQL 中，您可以使用如下功能： [`DATEPART(...)`](oql-datepart) 和 [`DATEF(...)`](oql-datediff)
 
-In Mendix, DateTimes are stored in the UTC time zone. For these functions to work correctly, it is important that the database supports converting dates and times from UTC to another time zone. If this is not possible, the functions will operate on the date and time in the UTC time zone. That can lead to incorrect results if the user expects the date to work in their time zone.
+在 Mendix 中，日期时间存储在 UTC 时区。 要使这些函数正常工作，数据库必须支持将日期和时间从 UTC 转换到另一个时区。 如果不可能，函数将在UTC 时区的日期和时间运行。 如果用户期望在他们的时区工作日期，这可能导致错误的结果。
 
-MySQL does not fully support time zone conversion out-of-the-box. You have to fill in some time zone tables (for more details, see [10.6 MySQL Server Time Zone Support](http://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html)). You do not have to do this if you do not use this sort of function in your queries, or if you always want to work with UTC dates and times.
+MySQL 不完全支持时区从箱外转换。 您必须填写一些时区表 (详情请参阅 [10.6 MySQL 服务器时区支持](http://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html))。 如果您不在查询中使用这种功能，您无需这样做。 或者如果您总是想使用 UTC 日期和时间。
 
-MariaDB supports an identical configuration for time zone conversions.
+MariaDB 支持时区转换的相同配置。
 
-## 6 Database Creation
+## 6个数据库创建
 
-To create a new MySQL database, the user must have enough access rights to be able to create a database.
+要创建一个新的 MySQL 数据库，用户必须有足够的访问权限才能创建数据库。
