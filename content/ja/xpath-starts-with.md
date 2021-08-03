@@ -1,8 +1,6 @@
 ---
-title: "XPath で開始"
+title: "XPath の開始"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
