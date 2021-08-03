@@ -1,64 +1,64 @@
 ---
 title: "MxAssist Logic Bot"
-parent: "microflows"
-description: "Describes MxAssist Logic Bot in Mendix Studio Pro."
+parent: "マイクロフロー"
+description: "Mendix Studio ProのMxAssist Logic Botについて説明します。"
 tags:
   - "studio pro"
   - "logic bot"
   - mendix assist", "AI", "assist", "mx assist"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-MxAssist Logic Bot is an AI-powered virtual co-developer bot that helps you to model and configure your application logic (microflows) in Mendix Studio Pro. It gives you contextualized recommendations on the next best activity in your microflow based on the already designed activities, parameters, and other context-related information.
+MxAssist Logic Botは、Mendix Studio Proのアプリケーションロジック(マイクロフロー)のモデリングと構成を支援するAIを搭載した仮想共同開発ボットです。 すでに設計されているアクティビティ、パラメータ、およびその他のコンテキスト関連情報に基づいて、マイクロフローの次の最良のアクティビティについて、コンテキスト化されたおすすめを提供します。
 
-MxAssist Logic Bot is built using machine learning analysis of over twelve million anonymized application logics (microflows)*—*built with Mendix*—*to detect and learn the best practice patterns in microflows.
+MxAssist Logic Botは、1,200万を超える匿名化されたアプリケーションロジック(マイクロフロー)*—*Mendix*—*で構築された、マイクロフローのベストプラクティスパターンを検出して学習する機械学習分析を使用して構築されています。
 
-The key features of MxAssist Logic Bot are the following:
+MxAssistLogic Botの主な機能は以下のとおりです。
 
-* **Next best action suggestion** – it recommends the top five next best activities out of more than 40 different options with accuracy of 95%.
-* **Auto-configuration** – it does not only provide next best action, but automates the development further by pre-populating the parameters for such action.
-* **Contextual  suggestions** – it derives context in different ways, including by 'looking' left and right in a microflow when the developer inserts a new activity or decision mid-flow; and by inferring the context using the page where it is called from.
-* **High accuracy** – continuous improvement and training of the model has elevated the accuracy level from 95%.
+* **次のベストアクション提案** – 精度95%の40種類以上の異なる選択肢の中から、次のベストアクティビティトップ5を推奨しています。
+* **自動構成** – 次の最適なアクションを提供するだけでなく、そのようなアクションのパラメータを事前に入力することで、さらに開発を自動化します。
+* **文脈依存の提案** - 異なる方法で文脈を導きます 開発者が新しいアクティビティまたは決定を中流で挿入したときに、マイクロフローの左右を「見る」ことを含む; 文脈を推測するためにページが呼び出される場所を使っています
+* **高精度** – 継続的な改善とモデルのトレーニングにより、精度レベルが95%から上昇しました。
 
-## 2 MxAssist Logic Bot Settings
+## 2 MxAssist Logic Botの設定
 
-You can switch MxAssist Logic Bot on and off in the top right corner of the microflow editor.
+マイクロフローエディタの右上隅で、MxAssist Logic Botのオンとオフを切り替えることができます。
 
-To access settings of MxAssist Logic Bot, open **Edit** > **Preferences >**the **General** tab >the **MxAssist Logic Bot** tab. For more information, see [Preferences](preferences-dialog).
+MxAssist Logic Botの設定にアクセスする open **Edit** > **Preferences >**the **General** tab > **MxAssist Logic Bot** tab. 詳細については、 [環境設定](preferences-dialog) を参照してください。
 
-In the **MxAssist Logic Bot** tab, you can set the following:
+**MxAssist Logic Bot** タブでは、次のように設定できます:
 
-* **Enable MxAssist Logic Bot** – switches MxAssist Logic Bot on and off
+* **MxAssist Logic Bot を有効にする** – MxAssistLogic Botのオンとオフを切り替えます
 
 * **Show suggestions for system variables** – when enabled, MxAssist Logic Bot will make suggestions for system objects (for example, it can suggest that you change such objects as **currentUser** or **currentSession**):
 
-    ![Mx Assist Logic Bot Suggestions for System Variables](attachments/mx-assist-logic-bot/mx-assist-system-variables.png)
+    ![Mxはシステム変数のためのロジックボットの提案](attachments/mx-assist-logic-bot/mx-assist-system-variables.png)
 
-For more information on preferences, see [Preferences](preferences-dialog).
+環境設定の詳細については、 [環境設定](preferences-dialog) を参照してください。
 
-## 3 Using MxAssist Logic Bot to Build Microflows
+## 3 MxAssist Logic Botを使用してマイクロフローを構築
 
-MxAssist Logic Bot is enabled by default and is displayed as a blue dot in the flow of a [microflow](microflows):
+MxAssist Logic Bot はデフォルトで有効になっており、 [マイクロフロー](microflows) の中で青色のドットとして表示されます :
 
-![Logic Bot Icon](attachments/mx-assist-logic-bot/mendix-assist-icon.png)
+![ロジックボットアイコン](attachments/mx-assist-logic-bot/mendix-assist-icon.png)
 
-It is possible to add elements to the microflow in a regular way without using MxAssist Logic Bot, however, MxAssist Logic Bot helps you add elements to the microflow faster as it suggests a short list of the most relevant activities.
+ただし、MxAssist Logic Botを使用せずに、通常の方法で要素をマイクロフローに追加することは可能です。 MxAssist Logic Botは、最も関連性の高いアクティビティの短いリストを提案するため、要素をマイクロフローにすばやく追加できます。
 
-To use MxAssist Logic Bot, do the following:
+MxAssist Logic Botを使用するには、次の操作を行います。
 
-1. Click the icon to see the next best action recommendations:
+1. アイコンをクリックすると、次の最適なアクションの推奨事項が表示されます。
 
-    ![Logic Bot Recommendations](attachments/mx-assist-logic-bot/mx-assist-recommendations.png)
+    ![ロジックボットの推奨事項](attachments/mx-assist-logic-bot/mx-assist-recommendations.png)
 
-2. Click one of the recommended activities to insert it into a microflow.
+2. 推奨されるいずれかのアクティビティをクリックして、マイクロフローに挿入します。
 
-3. In the **Properties** dialog box, configure the selected activity/event.
+3. **プロパティ** ダイアログボックスで、選択したアクティビティ/イベントを構成します。
 
-The activity/event is added to your microflow.
+アクティビティ/イベントがマイクロフローに追加されます。
 
-If you do not see the desired activity or element in the top-five recommendation list, you can click **Add other element** and choose an activity, loop, decision, merge, or object type decision.
+トップ5のレコメンデーションリストに目的のアクティビティや要素が表示されない場合 **他の要素を追加** をクリックして、アクティビティ、ループ、意思決定、マージ、またはオブジェクトタイプの決定を選択できます。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Microflows](microflows)
+* [マイクロフロー](マイクロフロー)
