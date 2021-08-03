@@ -1,23 +1,23 @@
 ---
-title: "General Info"
+title: "一般情報"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Before installing Mendix 9, it is important to understand the [System Requirements](system-requirements).
+Mendix 9をインストールする前に、 [システム要件](system-requirements) を理解することが重要です。
 
-If you have been using Studio Pro version 8, we advise reading [Moving from Mendix Studio Pro 8 to 9](moving-from-8-to-9).
+Studio Pro バージョン 8 を使用している場合は、 [Mendix Studio Pro 8 から 9 への移動](moving-from-8-to-9) をお勧めします。
 
-## 2 Main Documents in This Category
+## このカテゴリ内の2つのメインドキュメント
 
-* [System Requirements](system-requirements) – details the system requirements for the various parts of the Mendix Platform, such as the following:
+* [システム要件](system-requirements) - Mendix Platformのさまざまな部分のシステム要件について、以下のように詳述します。
 
     * [Mendix Studio Pro](system-requirements#sp)
-    * [Team Server](system-requirements#ts)
+    * [チームサーバー](system-requirements#ts)
     * [Browsers](system-requirements#browsers)
 
-* [Moving from Mendix Studio Pro 8 to 9](moving-from-8-to-9) – presents important information on converting your apps to use in Studio Pro 9
-* [MxBuild](mxbuild) – presents information for building a Mendix deployment package from an app
-* [Third-Party Licenses](third-party-licenses) – lists locations for third-party libraries that have their own licenses
+* [Mendix Studio Pro 8 から 9 への移行](moving-from-8-to-9) - Studio Pro 9 で使用するアプリの変換に関する重要な情報を提供します。
+* [MxBuild](mxbuild) - アプリからMendixデプロイパッケージを構築するための情報を提示する
+* [サードパーティーライセンス](third-party-licenses) - 独自のライセンスを持つサードパーティーライブラリの場所を一覧表示します
