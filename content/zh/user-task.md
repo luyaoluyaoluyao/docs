@@ -1,151 +1,151 @@
 ---
-title: "User Task"
-parent: "workflows"
+title: "用户任务"
+parent: "工作流"
 menu_order: 15
 tags:
-  - "workflow"
-  - "workflows"
-  - "user task"
-  - "task"
+  - "工作流"
+  - "工作流"
+  - "用户任务"
+  - "任务"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-User task allows you to assign a workflow task to a certain user or a group of users.
+用户任务允许您将一个工作流任务分配给某个用户或某个用户组。
 
-For example, you can add filters and assign a task to users with the Manager role:
+例如，您可以添加过滤器并分配任务给管理器角色的用户：
 
-![User Task Example](attachments/user-task/user-task.jpg)
+![用户任务示例](attachments/user-task/user-task.jpg)
 
-When the workflow reaches the user task activity, the task is created and will be displayed in the Task inbox if you are using the **Workflow Commons** module:
+当工作流程到达用户任务活动时， 任务已创建，如果您正在使用 **工作流共享** 模块，任务收件箱将显示于：
 
-![Task Inbox](attachments/user-task/task-inbox.jpg)
+![任务收件箱](attachments/user-task/task-inbox.jpg)
 
-## 2 Properties
+## 2 属性
 
-User task properties consist of the following sections:
+用户任务属性由以下部分组成：
 
-* [Common](#common)
-* [Display information](#display-info)
-* [Due date](#due-date)
-* [Events](#events)
-* [General](#general)
-* [Outcomes](#outcomes)
-* [Security](#security)
-* [Task page](#task-page)
-* [User assignment](#user-assignment)
+* [常用的](#common)
+* [显示信息](#display-info)
+* [截止日期](#due-date)
+* [事件](#events)
+* [A. 概况](#general)
+* [成果](#outcomes)
+* [安全](#security)
+* [任务页面](#task-page)
+* [用户分配](#user-assignment)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-**Name** is the internal name of the user task. When referring to the user task in the app you will use this name. It must be unique within the workflow, but you can have two user tasks with the same name in different workflows.
+**名称** 是用户任务的内部名称。 当在应用程序中提及用户任务时，您将使用此名称。 它在工作流中必须是唯一的，但你可以在不同的工作流中使用相同的名称来执行两个用户任务。
 
-### 2.2 Display Information Section {#display-info}
+### 2.2 显示信息部分 {#display-info}
 
-#### 2.2.1 Task Name
+#### 2.2.1 任务名称
 
-**Task name** is stored in the System module on the **UserTask** entity as an attribute and its data can be dynamically displayed in the running app. If you are using the **Workflow Commons** module, the **Task name** is used in page templates and on preconfigured pages to identify the task.
+**任务名称** 存储在系统模块上 **用户任务** 实体作为一个属性，其数据可以动态显示在运行的应用程序中。 如果您正在使用 **工作流共享** 模块， **任务名称** 用于页面模板和预配置页面以识别任务。
 
-For more information on using parameters, see the [Parameters](#parameters) section below.
+欲了解更多关于使用参数的信息，请参阅下面的 [参数](#parameters) 部分。
 
-#### 2.2.2 Task Description
+#### 2.2.2 任务描述
 
-**Task Description** is stored in the System module on the **UserTask** entity as an attribute and its data can be dynamically displayed in the running app. If you are using the **Workflow Commons** module, the **Task description** is used in page templates.
+**任务描述** 存储在系统模块上 **用户任务** 实体作为一个属性，其数据可以动态显示在运行的应用程序中。 如果您正在使用 **工作流共享** 模块， **任务描述** 将被用于页面模板。
 
-The **Task description** can contain parameters that are written between braces, e.g. {1}.
+**任务描述** 可以包含在括号之间写入的参数，例如 {1}。
 
-#### 2.2.3 Parameters {#parameters}
+#### 2.2.3 参数 {#parameters}
 
-Parameters are attributes the value of which will be displayed. For example, you can display when the task is due using the **DueDate** parameter.
+参数是将显示的属性值。 例如，您可以使用 **到期日** 参数显示任务到期时间。
 
-To view **Parameters**, click the ellipsis icon next to the **Task name** or **Task description** in properties depending on where you would like to display these parameters.
+要查看 **参数**, , 单击 **任务名称** 或 **任务描述** 旁边的椭圆图标，取决于您想要在哪里显示这些参数。
 
-Parameters have the following settings:
+参数有以下设置：
 
-* **Index** – an identification number of a parameter
-* **Expression** – an XPath expression that will be displayed
+* **索引** — — 一个参数的识别号码
+* **表达式** - 将显示的 XPath 表达式
 
-##### 2.2.3.1 Adding New Parameters
+##### 2.2.3.1 添加新参数
 
-To add a parameter to the **Task name** or the **Task description**, do the following:
+要将 **任务名称** 或 **任务描述**添加参数，请执行以下操作：
 
-1. Click the ellipsis icon next to the **Task  name** or the **Task description**.
+1. 点击 **任务名称** 或 **任务描述** 旁边的椭圆图标。
 
-2. In the **Edit task name/description** dialog box > **Parameters** section, click the **New** button.
+2. 在 **编辑任务名称/描述** 对话框 > **参数** 部分，点击 **新** 按钮。
 
-3. In the **Template Parameter (String)** dialog box, specify the expression, and confirm your choice:
+3. 在 **模板参数(String)** 对话框中，指定表达式并确认您的选择：
 
-    ![Parameter Example](attachments/user-task/parameter-example.jpg)
+    ![参数示例](attachments/user-task/parameter-example.jpg)
 
-    {{% alert type="info" %}}Make sure that the attribute you use in the expression is of the string type.{{% /alert %}}
+    ●{% alert type="info" %}}请确保您在表达式中使用的属性是字符串类型的。{%/提醒 %}}
 
-4. In the **Template** setting, write the text you would like to display and type **Index** of the parameter you would like to include. For example, you can add a template for the **Task description** specifying the name of the workflow and what the workflow due date is :
+4. 在 **模板** 设置中 写入您想要显示的文本并输入 **索引** 你想要包含的参数. 例如， 您可以为 **任务描述** 添加一个模板，指定工作流名称和工作流到期日期：
 
-    ![Task Description Example](attachments/user-task/task-description-example.jpg)
+    ![任务描述示例](attachments/user-task/task-description-example.jpg)
 
 
-##### 2.2.3.2 Performing Other Actions on Parameters
+##### 2.2.3.2 对参数采取其他行动
 
-In addition to adding new parameters, you can perform the following actions on parameters:
+除了添加新参数外，您还可以对参数执行以下操作：
 
-* **Delete** – to delete a parameter click **Delete** or press <kbd>Delete</kbd> on your keyboard
-* **Edit** – double-click a parameter to edit it or click **Edit**
-* **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
-* **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
+* **删除** - 若要删除参数，请点击 **删除** 或按 <kbd>删除</kbd> 键盘上
+* **编辑** — 双击一个参数来编辑它或点击 **编辑**
+* **向上移动** - 在参数列表中移动参数并更改其索引， 点击 **向上移动**
+* **向下移动** - 在参数列表中向下移动参数并更改其索引， 点击 **向下移动**
 
-### 2.3 Due Date Section {#due-date}
+### 2.3 截止日期部分 {#due-date}
 
-**Due by** is stored in the System module on the **UserTask** entity as an attribute and its data can be dynamically displayed in the running app. For example, you can use it to set a deadline for the user task and display it in your app. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the user task. If you are using the **Workflow Commons** module, **Due by** is used in page templates and preconfigured dashboards.
+**到期的** 被存储在系统模块上 **用户任务** 实体作为一个属性，其数据可以动态显示在运行的应用程序中。 例如，您可以使用它来设定用户任务的截止日期并在您的应用程序中显示它。 然而，这并不是自动提醒，而是跟踪用户任务的最后期限。 如果您正在使用 **工作流共享** 模块， **到期于** 的页面模板和预配置的仪表板中使用。
 
-### 2.4 Events Section {#events}
+### 2.4 事件部分 {#events}
 
-**On Created** event allows you to select a microflow that is executed immediately after users have been determined for a newly created task instance. You can use this setting for a microflow that will send an email notification about the user task to the assigned users.
+**在创建了** 事件后，您可以选择一个微流程，在用户确定了新创建的任务实例后立即执行。 您可以使用此设置进行微流程，向指定用户发送有关用户任务的电子邮件通知。
 
-### 2.5 General Section {#general}
+### 2.5 一般部分 {#general}
 
-**Caption** defines a title of the user task.
+**标题** 定义了用户任务的标题。
 
-### 2.6 Outcomes Section {#outcomes}
+### 2.6 成果科 {#outcomes}
 
-The outcomes property allows you to create new outcomes for the user task. Outcomes are translated into different outgoing paths of the user task and can be referred to by other elements, such as a button. For example, you have a process when you need to approve or reject a request. One button on a [task page](#task-page) can refer to the **Approve** outcome of the user task, while another one can use the **Reject** outcome.
+结果属性允许您为用户任务创建新结果。 结果被翻译成不同的用户任务输出路径，并且可以被其他元素如按钮引用。 例如，当您需要批准或拒绝请求时，您有一个过程。 [任务页面上的一个按钮](#task-page) 可以参考 **批准** 用户任务的结果。 其他人可以使用 **拒绝** 结果。
 
-### 2.7 Security Section {#security}
+### 2.7 警卫科 {#security}
 
-**Allowed roles** defines which [module role](module-security#module-role) the user must have to be able to execute the user task.
+**允许的角色** 定义了用户必须能够执行用户任务的 [模块角色](module-security#module-role)
 
 {{% alert type="info" %}}
 
-Only assigned users, which are defined in the [User Assignment Section](#user-assignment) below, will be able to see the user task and interact with it.
+仅分配给指定的用户，定义在下面 [用户分配部分](#user-assignment) 将能够看到用户的任务并与之交互。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 2.8 Task Page Section {#task-page}
+### 2.8 任务页部分 {#task-page}
 
-**Task page** is the page that an assigned user will use to inspect their task and complete it. You can also allow users to add comments or attachments on this page.
+**任务页** 是指派用户用来检查和完成任务的页面。 您也可以允许用户在此页面上添加评论或附件。
 
-If you generate the page using the templates in the **Workflows Commons** module, these templates contain necessary data containers and associated context entity.
+如果您使用 **Workflows Commons** 模块中的模板生成页面，这些模板包含必要的数据容器和相关的上下文实体。
 
-### 2.9 User Assignment Section {#user-assignment}
+### 2.9 用户分配科 {#user-assignment}
 
-#### 2.9.1 Assign User Task Using {#assign-user-task}
+#### 2.9.1 使用指定用户任务 {#assign-user-task}
 
-**Assign user task using** allows you to manage what users will the task be assigned to. You can filter users using XPath or implement more flexible logic and add several checks using a microflow.
+**使用** 分配用户任务允许您管理任务分配给哪些用户。 您可以使用 XPath 过滤用户，或者实现更灵活的逻辑，并使用微流程添加多个检查。
 
-Possible options of this property are described in the table below:
+这一财产的可能备选方案见下表：
 
-| Option    | Description                                                                                                                                                                                                                                                                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| XPath     | Allows you to filter users who should be assigned the user task. For example, you can assign a certain task only to users with the Manager user role. You can use attributes of the of the **User Entity** set in [Project Settings](project-settings#workflows).                                                                                                            |
-| Microflow | Allows you to assign the user task to certain users. Using microflow you can check, for example, which users have the right to approve user tasks and are currently not on vacation and assign the task only to users who passed the check.<br />The return type of the microflow should be the **User Entity** set in [Project Settings](project-settings#workflows). |
+| 选项    | 描述                                                                                                                                                         |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| XPath | 允许您过滤应分配给用户任务的用户。 例如，您只能将某个任务分配给具有管理员用户角色的用户。 您可以使用 **用户实体** 的属性，设置在 [项目设置](project-settings#workflows) 中。                                                 |
+| 微流    | 允许您将用户任务分配给某些用户。 例如您可以使用微流程检查 哪些用户有权批准用户任务，目前没有休假，并且只将任务分配给通过检查的用户。<br />microflow 的返回类型应该是 [Project 设置](project-settings#workflows) 设置的 **用户实体** 中。 |
 
-#### 2.9.2 XPath Constraint
+#### 2.9.2 XPath 约束
 
-Specifies the expression used to assign the user task. This option is displayed only when the [Assign user task using](#assign-user-task) is set to **XPath**.
+指定用于分配用户任务的表达式。 This option is displayed only when the [Assign user task using](#assign-user-task) is set to **XPath**.
 
-#### 2.9.3 Microflow
+#### 2.9.3 微流
 
-Specifies the microflow used to assign the user task. This option is displayed only when the [Assign user task using](#assign-user-task) is set to **Microflow**.
+指定用于分配用户任务的微流。 This option is displayed only when the [Assign user task using](#assign-user-task) is set to **Microflow**.
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflows](workflows)
+* [工作流](workflows)
