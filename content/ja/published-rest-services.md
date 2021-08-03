@@ -1,7 +1,7 @@
 ---
 title: "Published REST Services"
 parent: "integration"
-menu_order: 20
+#menu_order:
 description: "An overview of published REST services from Mendix apps"
 tags:
   - "publish"
@@ -9,6 +9,12 @@ tags:
   - "overview"
   - "configuration"
 ---
+
+{{% alert type="info" %}}
+
+The **published REST service** feature was introduced in version 7.10.0.
+
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -48,3 +54,8 @@ The documentation of the services is available in the [OpenAPI 2.0](open-api) fo
 
 To log detailed information about interaction with your published REST service, [set the log level](logging) of the **REST Publish** log node to **Trace**.
 
+## 6 Example
+
+**How to publish REST natively with Mendix**
+
+{{% youtube HzrFkv0U4n8 %}}
