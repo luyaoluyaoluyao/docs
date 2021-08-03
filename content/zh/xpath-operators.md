@@ -1,11 +1,17 @@
 ---
 title: "XPath Operators"
 parent: "xpath-constraints"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-operators.pdf).
+{{% /alert %}}
 
 ## 1 For XPath Query Constraints
 
-The following operators can be used in XPath query constraints, both in the Modeler and in Java code:
+The following operators can be used in XPath query constraints, both in Studio Pro and in Java code:
 
 | Operator | Description              | Example                        | Return value                                                                                                                                                  |
 | -------- | ------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
