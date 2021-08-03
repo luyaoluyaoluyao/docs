@@ -9,23 +9,27 @@ tags:
   - "Image Collection"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image-collection.pdf).
+{{% /alert %}}
+
 ## 1 Introduction
 
 If you want to use your own static images within an application, for example for branding or to give your buttons a unique feel, you will need to store them in your app. To do this, you create an **image collection** where you can store your images.
 
 For information on how to use images in your app, see [Images](images).
 
-Remember that, if you want to use the same set of custom images in several apps, you can export and import complete image collections, with their images, using [Import & Export Objects](/howto/integration/importing-and-exporting-objects).
+Remember that, if you want to use the same set of custom images in several apps, you can export and import complete image collections, with their images, using [Import & Export Objects](/howto8/integration/importing-and-exporting-objects).
 
 {{% alert type="warning" %}}
-Too many large static images in your app can lead to performance issues. If you need a lot of large images, you can store them in your database (see [How to Work with Images & Files](/howto/data-models/working-with-images-and-files) for more information).
+Too many large static images in your app can lead to performance issues. If you need a lot of large images, you can store them in your database (see [How to Work with Images & Files](/howto8/data-models/working-with-images-and-files) for more information).
 {{% /alert %}}
 
 ## 2 Adding an Image Collection
 
 To add an image collection, do the following.
 
-1. Right-click a module in the **App Explorer**.
+1. Right-click a module in the **Project Explorer**.
 2. Select **Add other > Image collection**:
 
     ![Add an image collection](attachments/image-collection/add-collection.png)
