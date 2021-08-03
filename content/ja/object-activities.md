@@ -1,35 +1,35 @@
 ---
-title: "Object Activities"
-parent: "activities"
+title: "オブジェクトのアクティビティ"
+parent: "アクティビティ"
 menu_order: 10
 tags:
   - "studio pro"
-  - "microflow"
-  - "object"
+  - "マイクロフロー"
+  - "オブジェクト"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When working with the Mendix Platform, objects of entities are always being manipulated. This happens implicitly within [data widgets](data-widgets) on a page, or explicitly using activities in microflows and nanoflows.
+Mendix プラットフォームで作業する場合、エンティティのオブジェクトは常に操作されます。 これは、ページの [データ ウィジェット](data-widgets) 内で暗黙的に発生するか、マイクロフローやナノフローのアクティビティを明示的に使用します。
 
-The activities in this section of the microflow and nanoflow toolbox generally work on single objects, however **commit object(s)**, **delete object(s)**, and **retrieve** also work on lists of objects. For other activities which work with lists, see [List Activities](list-activities).
+The activities in this section of the microflow and nanoflow toolbox generally work on single objects, however **commit object(s)**, **delete object(s)**, and **retrieve** also work on lists of objects. リストで動作する他のアクティビティについては、 [リストアクティビティ](list-activities) を参照してください。
 
-The activities described in this document are in the **Object Activities** section of the **Toolbox**:
+このドキュメントで説明されているアクティビティは、 **ツールボックス** の **Object Activities** セクションにあります:
 
 {{% image_container width="40%" %}}
-![Object activities toolbox](attachments/object-activities/object-activities-toolbox.png)
+![オブジェクトアクティビティツールボックス](attachments/object-activities/object-activities-toolbox.png)
 {{% /image_container %}}
 
-The following are the object activities you can use in your microflow or nanoflow:
+以下は、マイクロフローまたはナノフローで使用できるオブジェクトアクティビティです。
 
-* [Cast object](cast-object) *(only in microflows)* – changes the type of object from a generalized object type to the specialized object type
+* [キャストオブジェクト](cast-object) *(マイクロフローのみ)* – 一般化されたオブジェクト型から特殊なオブジェクト型に変更します。
 * [Change object](change-object) – changes the members of an object
-* [Commit objects(s)](committing-objects) – either stores objects of persistable entities in the database or stores objects of non-persistable entities in memory to allow them to be rolled back
-* [Create object](create-object) – creates an object
-* [Delete object(s)](deleting-objects) *(only in microflows)* – activity deletes one or more objects
-* [Retrieve](retrieve) – gets one or more objects of an entity
-* [Rollback object](rollback-object) – undoes uncommitted changes made to an object
+* [Commit objects(s)](committing-objects) - 永続性のあるエンティティのオブジェクトをデータベースに格納するか、または永続性のないエンティティのオブジェクトをメモリに格納してロールバックできるようにします。
+* [オブジェクトの作成](create-object) – オブジェクトを作成
+* [オブジェクトの削除](deleting-objects) *(microflowのみ)* – アクティビティは1つ以上のオブジェクトを削除します
+* [取得](retrieve) – エンティティの 1 つまたは複数のオブジェクトを取得
+* [Rollback object](rollback-object) - オブジェクトに加えられた変更を元に戻す
 
-## 2 Read More
+## 2 続きを読む
 
-* [Activities](activities)
+* [アクティビティ](アクティビティ)
