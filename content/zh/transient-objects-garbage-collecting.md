@@ -1,59 +1,59 @@
 ---
-title: "Non-Persistable Objects & Garbage Collecting"
-parent: "runtime-java"
+title: "不可持久的对象 & 垃圾收集"
+parent: "跑步java"
 menu_order: 1
-description: "This page will explain the life cycle of both persistable and non-persistable objects, and how they flow through the platform memory."
+description: "此页将解释可持久和不可持续对象的生命周期，以及它们如何通过平台内存流动。"
 tags:
-  - "persistable"
-  - "non-persistable"
-  - "objects"
+  - "可保持的"
+  - "不可用"
+  - "对象"
   - "garbage"
-  - "collecting"
+  - "收集"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This page explains the life cycle of both persistable and non-persistable objects, and how they flow through the platform memory. In order to understand the behavior of non-persistable objects there are a few facts that you need to be aware of:
+这个页面解释了可持久和不可持续对象的生命周期，以及它们如何通过平台内存流动。 为了了解不可持续对象的行为，您需要了解以下几个事实：
 
-*   A non-persistable object is an object that is considered temporary and only exists in memory
-*   Changed persistable objects that are not committed only exist in memory and behave similarly to non-persistable objects
-*   The Mendix Platform will remove objects automatically when they are no longer "used" (the definition of "used" will be explained later)
+*   不可持续对象是一个被视为临时且仅存在于内存中的对象
+*   改变的可持久对象不仅存在于内存中，并且与不可持续对象行为相仿。
+*   Mendix 平台将在对象不再“使用”时自动移除对象(稍后将解释“使用”的定义)
 
-## 2 Behavior
+## 2 行为
 
-Non-persistable objects in Mendix are not kept in the [Runtime Server](runtime-server), but maintained in the [Mendix Client](mendix-client). This means there is no server-side garbage collection. This simplifies the handling of objects on the server side because an object will not be garbage collected while it exists on the server.
+Mendix 中不可持续的对象不保存在 [运行服务器](runtime-server)中，但保存在 [Mendix 客户端](mendix-client) 中。 这意味着没有服务器侧的垃圾收集。 这简化了服务器上对对象的处理，因为一个对象在服务器上存在时不会被收集到垃圾。
 
-Objects will be returned to the client together with the response to a request. Objects created outside the context of a request (like Scheduled Event execution) will automatically be discarded when the scheduled event has finished.
+对象将连同对请求的响应一起退还给客户。 在请求范围之外创建的对象 (如预定事件执行) 将在预定事件完成后自动被丢弃。
 
-### 2.1 Influencing the Impact on Response Size
+### 2.1 影响对反应规模的影响
 
-As the objects that are still available are returned with the server call automatically, it is possible to reduce the response size by deleting non-persistable objects that are not useful for the client or subsequent requests. This can happen by deleting non-persistable objects or rolling back changed persistable objects.
+由于仍然可用的对象是自动通过服务器呼叫返回的， 可以通过删除对客户端或随后的请求不有用的不可持续对象来减少响应的大小。 这可以通过删除不可持续的对象或回滚更改的可持久对象来实现。
 
-## 3 Client Side Garbage Collection
+## 3个客户端垃圾收藏
 
-The Mendix Client has a garbage collector. This garbage collector will automatically free up memory by deleting objects that are no longer used or necessary to keep in memory. Objects are used when they are visible in a widget. For non-persistable objects it also means that they are seen as in-use when other used objects refer to them. Unchanged persistable objects are removed from memory when they aren't used because they can be reloaded from the Mendix Database when necessary.
+Mendix 客户端有一个垃圾收集器。 这个垃圾收集器会自动释放内存，删除不再使用或内存所需的物体。 对象在部件中可见时使用。 对于不可持续的物体，它也意味着当其他使用过的物体提及它们时，它们被视为在使用。 当不可更改的可持久对象未被使用时，将从内存中移除，因为它们可以在必要时从 Mendix 数据库中重新装入。
 
-### 3.1 Exceptional Cases
+### 3.1 例外案件
 
-#### 3.1.1 Objects Associated with Current User or Session
+#### 3.1.1 与当前用户或会话相关的对象
 
-When non-persistable objects are associated with the current user or the current session, they (and any non-persistable objects associated with them) are not garbage collected. As such, this can function as a way for objects to survive requests, although this should be used with care as it can easily lead to a growing state.
+当不可持续的对象与当前用户或当前会话相关联时，它们（以及与它们相关联的任何不可持续的对象）不会被收集垃圾。 因此，这可以成为物体生存请求的一种方式。 虽然应该谨慎地使用这种方法，因为它很容易导致一种日益增长的状态。
 
-#### 3.1.2 Objects Which Are Parameters of Web Pages
+#### 3.1.2 是网页参数的对象
 
-Objects which are the parameter of a page which is closed in a web browser are only garbage collected after five new pages have been opened. This means that the end-user can use the back button in their browser (a limited number of times) and still see the same page they saw before, even if the parameter is non-persistable.
+在网页浏览器中关闭页面的参数只能在打开五个新页面后收集到垃圾。 这意味着最终用户可以在浏览器中使用后退按钮(有限的次数)，并且仍然可以看到他们以前看到的那个页面。 即使参数是不可持续的。
 
 {{% alert type="info" %}}
-This is not relevant in mobile apps as pages are not closed in the same way, and always remain alive.
-{{% /alert %}}
+这与移动应用无关，因为页面不是以同样的方式关闭的，而且总是活着的。
+{{% /报警 %}}
 
-## 4 Tracking State Growth
+## 4 跟踪国家增长情况
 
-As state is managed by the client, it can be hard to get an overview of all the state used by all clients in Mendix (it is not available in one place, but distributed over all the clients). However, there are means in Mendix to track state growth by observing the log files.
+因为状态由客户端管理， 很难得到所有客户端在 Mendix 中使用的所有状态的概述 (它在一个地方不可用) 但分发给所有客户）。 然而，Mendix 有通过观察日志文件跟踪状态增长的手段。
 
-### 4.1 Observing State Growth by Session
+### 4.1 按届会观察国家增长情况
 
-By enabling `TRACE` level logging on the `RequestStatistics` log node, Mendix Runtime will log a message for every request that contains information about state. This information is logged in the form of a JSON structure, allowing it to be used in tooling to create graphs over time. See this example of a log statement (formatted for readability in this case):
+启用 `TRACE` 级登录 `请求统计` 日志节点， Mendix Runtime 将记录包含状态信息的每个请求。 此信息是以 JSON 结构的形式登录的，可以用它来工具创建一段时间的图表。 查看日志表示例(此处为可读性格式)：
 ```
 TRACE: Request-State statistics: {
   session: "fd0771fe-8c12-49cf-8667-921058b116a3",
@@ -65,38 +65,38 @@ TRACE: Request-State statistics: {
   }
 }
 ```
-In the details section you find the number of instances per entity type available in the state of a request.
+在详细章节中，您可以在请求状态中找到每个实体类型的实例数目。
 
-### 4.2 Detecting Requests with Large State
+### 4.2 与大国一起侦测请求
 
-By default the Mendix Runtime will log a `WARNING` on the `RequestStatistics` log node when the request state exceeds the configured threshold. See this example of a log statement:
+默认情况下，Mendix 运行时间将在 `RequestStatistics` 日志节点上记录一个 `警告` 当请求状态超过配置的阈值时。 查看日志声明的示例：
 
 ```
-WARNING: Request state size of 551 objects exceeds the threshold of 500 objects. Request details: type `execute-action` in session `fd0771fe-8c12-49cf-8667-921058b116a3`. State consists of:
- * MyModule.MyEntity: 421 objects
- * AnotherModule.SomeEntity: 130 objects
+警告：请求状态大小为551个对象超过500个对象的阈值。 请求详细信息: 在 `fd0771fe-8c12-49cf-8667-921058b116a3` 会话中输入 `execute-action` 。 状态由:
+ * MyModule.MyEntity: 421 个对象
+ * AnotherModule.有些实体: 130个对象
 ```
-This threshold can be configured with the custom setting `com.mendix.webui.StateSizeWarningThreshold` (the value is a number that reflects the total number of objects in the request state).
+此阈值可以通过自定义设置 `com.mendix.webui 进行配置。 tateSizeWarningThreshold` (值是一个反映请求状态中对象总数的数字)。
 
-#### 4.2.1 Choosing a Correct Threshold Level
+#### 4.2.1 选择正确的阈值
 
-Choosing the right level for the threshold is crucial because when it is set too low it will trigger too often and setting it too high will cause the detection of problems too late. It is meant to detect state memory leakage, which means that state grows to certain levels and does not get properly garbage collected. In some apps it is possible that some pages use a large number of non-persistable objects to show the data on-screen. In that case the threshold should be larger then the number of objects that are normally shown on this screen to prevent this warning from being logged too often.
+为阈值选择正确的水平是至关重要的，因为如果设置得太低，那么它会经常触发，而设置得太高会导致问题的侦测时间太晚。 它意在检测国家内存泄漏，这意味着状态增加到一定的水平，并且没有适当收集垃圾。 在某些应用中，某些页面可能会使用大量不可持续的对象在屏幕上显示数据。 在这种情况下，阈值应该大于通常显示在此屏幕上的对象数量，以防止此警告被经常登录。
 
-#### 4.2.2 Acting on Large Request State Problems
+#### 4.2.2 就大请求国问题采取行动
 
-When the request state exceeds the configured threshold, you can look at the following list of possible causes (or a combination of them):
+当请求状态超过配置的阈值时，您可以查看以下可能的原因列表(或它们的组合)：
 
-* A problem in a widget (for example, if the widget does not unsubscribe itself from updates on objects which it showed previously)
-* Too many objects are associated with the current session or user
-* Non-persistable objects are associated with an object shown in a widget in a layout (meaning that this object stays in use as long as this layout is shown, usually a long time)
+* 一个小部件中的问题 (例如，如果小部件没有取消订阅它以前显示的对象上的更新)
+* 与当前会话或用户关联的对象太多了
+* 不可持续的对象与布局小部件中显示的对象相关联(即只要显示此布局，这个对象仍然在使用中) 通常长时间)
 
-In order to find the root cause of this state size, you need to press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> to make a state overview dump using the developer tools in the client. The results are shown in the browser console. This allows you to see the objects that are in the state and why they are not garbage collected.
+为了找到这个状态大小的根本原因， 您需要按 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> 使用开发者工具在客户端进行状态概览导出。 结果显示在浏览器控制台。 这使您可以看到处于状态的对象以及为什么他们不会被收集到垃圾。
 
-## 5 Server-Side Memory Management
+## 5 服务器侧面内存管理
 
-For every request to the Mendix Runtime — be it from the client or via web service calls — objects are cleaned up at the end of the request. This means that if you create a lot of temporary objects in a microflow, they will occupy Runtime memory until the end of the request.
+对于Mendix Runtime的每个请求——无论是从客户端还是通过网络服务呼叫——在请求末尾对对象进行清理。 这意味着如果您在微流程中创建大量的临时对象，它们将占用运行中的内存直到请求结束。
 
-## 6 Read More
+## 6 阅读更多
 
-* Mendix blog [The art of state, Part 1: Introduction to the client state ](https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/)
-* [Java Memory Usage](java-memory-usage)
+* Mendix 博客 [状态艺术，第一部分：客户端状态介绍 ](https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/)
+* [Java 内存使用](java-memory-usage)
