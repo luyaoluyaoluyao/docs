@@ -1,17 +1,56 @@
 ---
 title: "スニペット通話"
 parent: "コモンウィジェット"
+menu_order: 40
+tags:
+  - "studio pro"
+  - スニペット呼び出し", "共通ウィジェット"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/snippet-call.pdf) をクリックしてください。
+{{% /alert %}}
 
-スニペットコールウィジェットでは、 [スニペット](snippet) を別のスニペット、 [ページ](page) または [レイアウト](layout) で使用できます。
+## 1つの紹介
 
-## 共通のプロパティ
+The **Snippet call** widget allows you to use a [snippet](snippet) on a [page](page), a [layout](layout), or another snippet:
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+![スニペット通話の例](attachments/common-widgets/snippet-call-example.png)
 
-## 一般プロパティ
+## 2つのプロパティ
 
-### Snippet
+以下の画像にスニペットコールプロパティの例を示します。
 
-ここに表示される実際の [スニペット](snippet)。
+{{% image_container width="300" %}}![スニペットの呼び出しプロパティ](attachments/common-widgets/snippet-call-properties.png)
+{{% /image_container %}}
+
+スニペットコールプロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.2 デザインプロパティセクション {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 一般セクション {#general}
+
+このセクションには **スニペット** プロパティがあり、ここに表示される実際のスニペットの名前が表示されます。
+
+## 3 特定のアクションの実行
+
+スニペット呼び出しでアクションを実行するには、ページでアクションを選択して右クリックします。 可能なアクションのリストが開きます。 **Select snippet**など、このリストからいくつかのアクションを実行します。 は、プロパティを設定するための迅速な方法です。次のアクションは、実行できる特定のアクションです。
+
+* **Show snippet** – スニペット通話用に選択されたスニペットを開く
+* **インラインスニペット** – 選択されたスニペットが以下のウィジェットにスニペットを変換します。
+
+## 4 続きを読む
+
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
