@@ -1,123 +1,123 @@
 ---
-title: "MxBuild"
-category: "General Info"
+title: "MxBuilding"
+category: "常规信息"
 menu_order: 50
-description: "Describes MxBuild which is a command-line tool for building and deploying Mendix Apps"
+description: "描述一个 MxBuilding 是构建和部署Mendix 应用程序的命令行工具"
 tags:
-  - "build"
-  - "deploy"
-  - "deployment package"
-  - "command-line"
+  - "构建中"
+  - "部署"
+  - "部署包"
+  - "命令行"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-MxBuild is a Windows and Linux command-line tool that can be used to build a Mendix Deployment Package from a Mendix app.
+MxBuild是一个 Windows 和 Linux 命令行工具，可用来从 Mendix 应用程序构建Mendix 部署包。
 
-The version of MxBuild which you need is dependent on the version of the Mendix model you want to build. You can find your correct MxBuild by entering this URL into a browser and replacing `mxversion` with your own, full Mendix version number: `https://cdn.mendix.com/runtime/mxbuild-{mxversion}.tar.gz`.
-
-{{% alert type="info" %}}
-
-A build number is included in the version, and this has to be included in the link path mentioned above — for example`8.12.1.3458` is the 3458 build of the 8.12.1 Studio Pro release.
-
-You can find the build number in path of your Mendix installation (for example if your installation looks like this `C:\Program Files\Mendix\8.12.1.3458`, use this URL to get your files: https://cdn.mendix.com/runtime/mxbuild-8.12.1.3458.tar.gz).
-
-Any public version of Studio Pro in this  [Studio Pro Releases List](https://marketplace.mendix.com/link/studiopro/) will allow you to download MxBuild files. If you experience trouble downloading files, make sure your build is listed there.
-
-{{% /alert %}}
-
-You can extract the files using your favorite archival tool, such as [7-Zip](https://www.7-zip.org/).
-
-For details on the system requirements for MxBuild, see [System Requirements](system-requirements#mxbuild).
+您需要的MxBuild的版本取决于您想要构建的 Mendix 模型的版本。 您可以通过将此 URL 输入浏览器并用您自己替换 `mxversion` 来找到正确的 MxBuild。 完整的 Mendix 版本号: `https://cdn。 endix.com/runtime/mxbuild-{mxversion}.tar.gz`
 
 {{% alert type="info" %}}
-Except where specifically mentioned, the examples used in this document are for Windows.
-{{% /alert %}}
 
-## 2 Command Line
+版本中包含一个构建号码，必须将其包含在上述链接路径中 - 例如`8。 2.1.3458` 是 8.12.1 Studio Pro 版本的3458座构建。
 
-To build your package, you specify the Mendix app file (.mpr) for which you want to build the deployment package (.mda) on the command-line. The file name may be preceded by a relative or absolute path. The app file should be located inside a Mendix app directory.
+您可以在Mendix 安装的路径中找到构建号码(例如，如果您的安装看起来像是 `C:\Program Files\Mendix\8 2.1.3458`, 使用此 URL 获取您的文件：https://cdn.mendix.com/runtime/mxbuild-8.12.1.3458.tar.gz)。
 
-MxBuild takes a number of command-line options which control how the Mendix app is processed. These options precede the name of the app file.
+此  [Studio Pro 发布列表](https://marketplace.mendix.com/link/studiopro/) 中任何公开版本的Studio Pro 将允许您下载 MxBuilding 文件。 如果你在下载文件时遇到问题，请确保你的构建列在那里。
 
-In Windows, use the following format for the command line:
+{{% /报警 %}}
 
-`MxBuild --java-home="JDKDirectory" --java-exe-path="javaExecutable" [options] projectFile`
+您可以使用您最喜欢的归档工具，例如 [7-Zip](https://www.7-zip.org/) 提取文件。
 
-You can also run MxBuild under Linux using the the following command line format:
+关于MxBuild系统要求的详细信息，请参阅 [System Requirements](system-requirements#mxbuild)。
+
+{{% alert type="info" %}}
+除特别提到的情况外，本文件中使用的示例是Windows的。
+{{% /报警 %}}
+
+## 2 个命令行
+
+要构建您的软件包，您需要指定 Mendix 应用程序文件(.mpr)，用于在命令行上构建部署包 (.mda)。 文件名之前可以有一个相对路径或绝对路径。 应用程序文件应该位于Mendix 应用程序目录内。
+
+MxBuild需要一些命令行选项来控制Mendix 应用程序的处理方式。 这些选项在应用文件名称之前。
+
+在Windows中，命令行使用以下格式：
+
+`MxBuilding --java-home="JDKDirectory" --java-exe-path="javaExecutable" [options] projectFile`
+
+您也可以使用以下命令行格式在 Linux 下运行 MxBuilding：
 
 `mono mxbuild.exe --java-home="JDKDirectory" --java-exe-path="javaExecutable" [options] projectFile`
 
-After creating the deployment package, the MxBuild process quits.
+创建部署包后，MxBuild进程退出。
 
-### 2.1 General Command-Line Options
+### 2.1 一般指挥线选项
 
-Command-line options are described in the table below:
+命令行选项见下表：
 
-| Option                     | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-h`, `--help`             | Prints a short description of the MxBuild and a list of all available options.                                                                                                                                                                                                                                                                                                                 |
-| `--java-home=DIRECTORY`    | (Required). The directory in which the JDK is installed.<br/>For example, `--java-home=/usr/lib/jvm/java-8-oracle`.<br/>For Windows the *DIRECTORY* should be enclosed in double-quotes `"`.                                                                                                                                                                                       |
-| `--java-exe-path=FILENAME` | (Required). The **full path** to the Java executable.<br/>For example, `--java-exe-path=/usr/lib/jvm/java-8-oracle/bin/java`.<br/>For Windows the *DIRECTORY* should be enclosed in double-quotes `"`, and must contain the complete file name `...\java.exe`.                                                                                                                    |
-| <code>––target=[package&#124;deploy]</code>  | `package`: default if option is omitted. Creates a deployment package (.mda file)<br/>`deploy`: deploys the app without making a deployment package.                                                                                                                                                                                                                                     |
-| `--loose-version-check`    | Creates a deployment package from an app which was created with a lower Mendix version.<br/>The app will be upgraded to the MxBuild version before the deployment package is created.<br /> Any changes included as a result of this upgrade will **not** be stored in your app.                                                                                                   |
-| `--write-errors=FILENAME`  | Writes all errors, warnings, and deprecations encountered during deployment of the app to the specified file in JSON format.<br />This file is only written when the app contains errors.<br />If the file already exists, it will be overwritten without a warning.<br />For a description of the format of this file, see the [App Errors](#project-errors) section below. |
+| 选项                         | 描述                                                                                                                                                                                                                                                                                           |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-h`, `--help`             | 打印MxBuilding的简短描述和所有可用选项的列表。                                                                                                                                                                                                                                                                 |
+| `--java-home=DIRECTORY`    | (必填)。 安装 JDK 的目录。<br/>例如： `--java-home=/usr/lib/jvm/java-8-oracle`<br/>Windows *DIRECTORY* 应以双引号 `"`                                                                                                                                                                             |
+| `--java-exe-path=FILENAME` | (必填)。 **完整路径** 到 Java 可执行文件。<br/>例如： `--java-exe-path=/usr/lib/jvm/java-8-oracle/bin/java`。<br/>Windows *DIRECTORY* 应以双引号 `"`, 并且必须包含完整的文件名 `.\java.exe`                                                                                                                        |
+| <code>---target=[包&#124;部署]</code>  | `包`: 省略选项时默认。 创建一个部署包 (.mda 文件)<br/>`部署`: 部署应用而不生成部署包。                                                                                                                                                                                                                                 |
+| `--loose-version-检查`       | Creates a deployment package from an app which was created with a lower Mendix version.<br/>The app will be upgraded to the MxBuild version before the deployment package is created.<br /> Any changes included as a result of this upgrade will **not** be stored in your app. |
+| `--wring 错误=FILENAME`      | 以 JSON 格式写入应用部署到指定文件时遇到的所有错误、警告和废弃。<br />此文件仅在应用程序包含错误时写入。<br />如果文件已经存在，它将在没有警告的情况下覆盖。<br />关于此文件格式的描述，请参阅下面的 [应用错误](#project-errors) 部分。                                                                                                                                 |
 
-### 2.2 Options When Creating a Package
+### 2.2 创建包时的选项
 
 {{% alert type="info" %}}
-The following options are only applicable with the `--target=package` option:
-{{% /alert %}}
+以下选项仅适用于 `--target=package` 选项：
+{{% /报警 %}}
 
-Options when creating a package are described in the table below;
+创建包时的选项在下面的表格中描述；
 
-| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-o FILENAME` or<br/>`--output=FILENAME`                                                                                       | The name (with optional relative or absolute path) of the .mda file that is created by MxBuild.<br />If this option is omitted, the file will be saved in the *current* directory under a name `out.mda`. |
-| `--project-name=NAME`                                                                                                                | Changes the name of the application to the one used by the Mendix Runtime.<br />When this option is not specified, the name of the app is used.                                                           |
-| `--model-version=VERSION`                                                                                                            | Applies a specific version number to the model in the package.                                                                                                                                                  |
-| `--model-description=DESCRIPTION`                                                                                                    | Embeds a description of the model in the package.                                                                                                                                                               |
+| Option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| `-o FILENAME` or<br/>`--output=FILENAME`                                                                                       | 由 MxBuild创建的 .mda 文件的名称 (可选的相对路径或绝对路径)。<br />如果省略了此选项，文件将被保存在 *当前* 目录中，名为 `。 da`. |
+| `--project-name=NAME`                                                                                                                | 将应用程序的名称更改为Mendix Runtime所使用的名称。<br />当未指定此选项时，应用的名称被使用。                          |
+| `--model-version=VERSION`                                                                                                            | 应用特定版本号到软件包中的模型。                                                                        |
+| `--model-description=DESCRIPTI`                                                                                                      | 在包中嵌入模型的描述。                                                                             |
 
-For example, to create a deployment package `out.mda` in the current directory using the app `MyApp` using the *Windows* version of MxBuild, you can use the following command:
+例如，创建一个部署包 `out。 da` 在当前目录中，使用 `MyApp` 使用 *Windows* 版本的 MxBuild, 您可以使用以下命令：
 
 ```bat
-mxbuild --target=package --java-home="C:\Program Files\Java\jdk1.8.0_144" --java-exe-path="C:\Program Files\Java\jdk1.8.0_144\bin\java.exe" "C:\Users\username\Documents\Mendix\MyApp\MyApp.mpr"
+mxbuild--target=package --java-home="C:\Program Files\JavaScript1.8.0_144"--java-exe-path="C:\Program Files\Java\jdk1.8.0_144\bin\java.exe" "C:\Uers\users\Documents\Mendix\MyApp\MyApp.mpr"
 ```
 
-## 3 Return Code
+## 3 退货代码
 
-When MxBuild exits, one of the following codes will be returned:
+当MxBuild退出时，将返回以下代码之一：
 
-| Exit Code | Description                                             |
-| --------- | ------------------------------------------------------- |
-| 0         | MxBuild finished successfully.                          |
-| 1         | An internal error occurred.                             |
-| 2         | There is something wrong with the command-line options. |
-| 3         | Deployment of the Mendix app failed.                    |
+| 退出代码 | 描述                |
+| ---- | ----------------- |
+| 0    | MxBuild成功完成。      |
+| 1    | 发生内部错误。           |
+| 2    | 命令行选项有问题。         |
+| 3    | Mendix 应用程序的部署失败。 |
 
 
-If the exit code is larger than 0, MxBuild will show you the message describing the error.
+如果退出代码大于 0，MxBuild将向您显示描述错误的消息。
 
-## 4 App Errors {#project-errors}
+## 4 个应用错误 {#project-errors}
 
-When your Mendix app contains errors, deployment will fail and MxBuild will report these errors. You can use the `--write-errors=FILENAME` command-line option to tell MxBuild to write the errors to a file.
+当您的 Mendix 应用程序包含错误时，部署将失败，MxBuild将报告这些错误。 您可以使用 `--wrarderrors=FILENAME` 命令行选项来告诉MxBuilding 将错误写入文件。
 
-The errors are output as a JSON object that has one property: `problems`. The value of this property is an array of objects that each describe one error, warning, or deprecation in your app. For example:
+错误是作为具有一个属性的 JSON 对象输出： `个问题`。 此属性的值是一个数组对象，每个对象在您的应用中描述了一个错误、警告或弃置的情况。 例如：
 
 ```json
-{
+主席:
   "problems": [
-    {
+    }
       "name": null,
-      "severity": "Error",
-      "message": "Start event cannot be the last object of a flow.",
+      "严重性": "错误",
+      "消息": "开始活动不能是流程的最后对象。 ,
       "locations": [
-        {
+        }
           "elementId": "252e1008-d795-4e49-b3e3-2ba38eb0a56d",
-          "unitId": "1a8a3593-6f01-43a3-bc22-bd22f9244983",
-          "element": "Start event",
-          "document": "Microflow 'MyMicroflow'",
+          "unitId": "1a8a3593-6f01-43a3-bc22-Bd22f9244983",
+          "元素": "开始活动",
+          "文档": "Microflow",
           "module": "MyModule"
         }
       ]
@@ -126,21 +126,21 @@ The errors are output as a JSON object that has one property: `problems`. The va
 }
 ```
 
-The following table describes the various properties of the *problems* JSON object:
+下表描述了 *个问题* JSON 对象的各种属性：
 
-| Property    | Description                                                                                                                    |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `name`      | A unique identifier of the problem or `null` when the consistency check is not yet defined in the Mendix Metamodel.            |
-| `severity`  | Describes the type of problem: `Warning`, `Error`, or `Deprecation`.                                                           |
-| `message`   | The description of the problem. This is the same as the message in the [Errors pane](errors-pane) of Mendix Studio Pro.        |
-| `locations` | Contains zero or more objects that describe the location in the Mendix app where the problem occurs (see the following table). |
+| 财产     | 描述                                                       |
+| ------ | -------------------------------------------------------- |
+| `名称`   | 在Mendix Metamodel中尚未定义一致性检查时，问题的唯一标识符或 `null`            |
+| `严重程度` | 描述问题类型： `警告`, `错误`, 或 `废弃`。                              |
+| `留言`   | 对问题的描述。 这与Mendix Studio Pro的 [错误面板](errors-pane) 中的消息相同。 |
+| `位置`   | 包含描述问题发生时Mendix 应用程序中位置的零或更多对象(见下表)。                     |
 
-The location(s) associated with the problem have the following properties:
+与问题相关的地点具有以下属性：
 
-| Property    | Description                                                     |
-| ----------- | --------------------------------------------------------------- |
-| `elementId` | The unique id of the model element in which the problem occurs. |
-| `unitId`    | The unique id of the document in which the problem occurs.      |
-| `element`   | A description of the model element in which the problem occurs. |
-| `document`  | A description of the document in which the problem occurs.      |
-| `module`    | A description of the module in which the problem occurs.        |
+| 财产          | 描述              |
+| ----------- | --------------- |
+| `elementId` | 发生问题的模型元素的唯一ID。 |
+| `单位ID`      | 发生问题的文件中的唯一标识。  |
+| `元素`        | 对问题发生的模型元素的描述。  |
+| `文档`        | 说明问题发生的文档。      |
+| `模块`        | 问题发生的模块描述。      |
