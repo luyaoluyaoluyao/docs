@@ -1,58 +1,58 @@
 ---
-title: "New App"
-parent: "file-menu"
+title: "新しいアプリ"
+parent: "ファイルメニュー"
 menu_order: 10
-description: "This document describes the New App flow and the App Settings dialog box."
+description: "このドキュメントでは、新規アプリのフローとアプリ設定ダイアログボックスについて説明します。"
 tags:
   - "studio pro"
-  - "create app"
-  - "new app"
-  - "creating new app"
+  - "アプリを作成"
+  - "新しいアプリ"
+  - "新しいアプリを作成中"
 aliases:
   - /refguide/app-settings-dialog.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-You can create a new app in Mendix Studio Pro.
+Mendix Studio Proで新しいアプリを作成できます。
 
-To create a new app, follow the steps below:
+新しいアプリを作成するには、以下の手順に従ってください。
 
-1. Do one of the following:
-   1. Open the **File** menu in the top bar > **New App**.
-   2. Click **New App** on the Studio Pro landing page.
+1. 次のいずれかを実行します。
+   1. トップバーの **ファイル** メニューを開きます > **新規アプリ**。
+   2. Studio Pro のランディングページの **New App** をクリックします。
 
-2. In **My Apps** tab, select a starting point (an app template).
-3.  Click **Use this app**.
-4. In the **App Settings** dialog box, select the settings for your app and click **Create app**. For more information on app settings, see the [App Settings](#app-settings) section.
+2. **My Apps** タブで、開始点(アプリテンプレート)を選択します。
+3.  **このアプリを使用する** をクリックします。
+4. **App Settings** ダイアログボックスで、アプリケーションの設定を選択し、 **Create app** をクリックします。 アプリの設定についての詳細は、 [App Settings](#app-settings) セクションを参照してください。
 
-The new app is created and opened.
+新しいアプリが作成され、開きます。
 
-## 2 App Settings {#app-settings}
+## 2つのアプリ設定 {#app-settings}
 
-When creating a new app, the **App Settings** dialog box is opened where you can specify an app name, whether or not to enable the online services provided by the Mendix Platform, the default language, and the location on disk where the app files for your app are stored:
+新しいアプリを作成する場合、 **アプリ設定** ダイアログボックスが開き、アプリ名を指定できます。 Mendixプラットフォームが提供するオンラインサービスを有効にするかどうか。 デフォルト言語、およびアプリのアプリファイルが保存されているディスク上の場所:
 
-![App Settings](attachments/file-menu/app-settings-dialog.png)
+![アプリの設定](attachments/file-menu/app-settings-dialog.png)
 
-### 2.1 Name
+### 2.1 名前
 
-The name of your new app. This name is used as the name of the app directory and file on disk. If you enable the online services for this app, the name is also used for the Team Server repository and a corresponding app in **My Apps**.
+新しいアプリの名前 この名前は、ディスク上のappディレクトリとファイルの名前として使用されます。 このアプリのオンラインサービスを有効にする場合 この名前は、Team Serverリポジトリと **My Apps**の対応するアプリにも使用されます。
 
-### 2.2 Enable Online Services
+### 2.2 オンラインサービスを有効にする
 
-The Mendix Platform offers online services such as [version control](version-control), [cloud deployment](/developerportal/deploy/), and [collaboration](collaborative-development). When enabled, this will create an app in the Developer Portal and a corresponding version control repository.
+Mendix Platformは、 [バージョンコントロール](version-control)、 [クラウドデプロイメント](/developerportal/deploy/)、 [コラボレーション](collaborative-development)などのオンラインサービスを提供します。 有効にすると、開発者ポータルと対応するバージョン管理リポジトリにアプリが作成されます。
 
-If you choose *No*, you will create an app that is only stored on your local disk. At a later point you can still decide to upload this local app to a version control server and enjoy the benefits of version control.
+*No*を選択すると、ローカルディスクにのみ保存されているアプリが作成されます。 後でも、このローカルアプリをバージョン管理サーバーにアップロードし、バージョン管理のメリットを享受することができます。
 
-### 2.3 Default Language
+### 2.3 標準言語
 
-The default language is the language of the user interface of your app. Choose the language that you will initially use in your forms and other user interface elements. You can always add additional languages to your app later.
+デフォルトの言語は、アプリケーションのユーザーインターフェイスの言語です。 フォームやその他のユーザーインターフェイス要素で最初に使用する言語を選択します。 後でいつでもアプリに追加の言語を追加できます。
 
-### 2.4 App Directory
+### 2.4 アプリディレクトリ
 
-Specify the directory in which the files for your app are stored. If you enable the online services for the new app, you will see that the suffix *-main* will be appended to the directory name automatically. This is to indicate that the directory contains the main branch line of your app. While working on your app, you can create new branches and download these to other directories. For more information on the branch line management, see [Branch Line Manager](branch-line-manager-dialog).
+アプリのファイルを保存するディレクトリを指定します。 新しいアプリのオンラインサービスを有効にする場合 サフィックス *-main* がディレクトリ名に自動的に追加されます。 これは、ディレクトリにアプリケーションのメインブランチラインが含まれていることを示すものです。 アプリで作業中に新しいブランチを作成し、他のディレクトリにダウンロードすることができます。 ブランチ管理の詳細については、 [Branch Line Manager](branch-line-manager-dialog) を参照してください。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Version Control](version-control)
-* [Open App](open-app-dialog)
+* [バージョン管理](version-control)
+* [アプリを開く](open-app-dialog)
