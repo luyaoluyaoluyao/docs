@@ -10,6 +10,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/javascript-actions.pdf)。
+{{% /报警 %}}
+
 {{% alert type="warning" %}}
 此活动只能用于 **Nanoflows**。
 {{% /报警 %}}
@@ -20,17 +24,17 @@ tags:
 
 {{% alert type="info" %}}
 
-Mendix Studio Pro 中定义的每个JavaScript 动作对应文件 *{JavaScript action name}。 s* 在子目录 **javascriptsource{module name}/actions/** 在您的应用目录中。
+Mendix Studio Pro 中定义的每个JavaScript 动作对应文件 *{JavaScript action name}。 s* 在子目录 **javascriptsource{module name}/actions/** 在您的项目目录中。
 
 这些 *的骨头. s* 个文件是在您保存一个动作时自动生成的，这些JavaScript操作可以立即被编辑到嵌入代码编辑器中。
 
 {{% /报警 %}}
 
-要学习如何创建、配置和使用 JavaScript 动作，请参阅 [如何构建JavaScript 动作](/howto/extensibility/build-javascript-actions)。
+要学习如何创建、配置和使用 JavaScript 动作，请参阅 [如何构建JavaScript 动作](/howto8/extensibility/build-javascript-actions)。
 
 ## 2 个常规设置
 
-在您的 **App Explorer** 中双击JavaScript 动作后，您将看到JavaScript 动作的设置：
+After double-clicking a JavaScript action in your **Project Explorer** you will see the JavaScript action's settings:
 
 {{% image_container width="400" %}}![javascript settings](attachments/javascript-actions/javascript-action-settings-no-para.png){{% /image_container %}}
 
@@ -77,11 +81,11 @@ JavaScript 操作支持的参数类型描述如下。
 
 #### 2.2.3 类别
 
-在 [JavaScript 行动调用](javascript-action-call) 中使用类别来区分参数。 当您的应用有几个参数时，类别对逻辑参数组是有用的。 如果您没有指定类别，参数将出现在 **输入** 组中。
+在 [JavaScript 行动调用](javascript-action-call) 中使用类别来区分参数。 当你的工程有几个参数时，类别对逻辑参数组是有用的。 如果您没有指定类别，参数将出现在 **输入** 组中。
 
 #### 2.2.4 描述
 
-对于有多个参数的应用，描述可以作为参数确切用途的有用提示。 描述还允许您向应用合作者描述您的参数。 描述可以包含大写和小写字母、数字和符号。
+对于有几个参数的项目，描述可作为参数确切用途的有用提示。 描述还允许您向项目合作者描述您的参数。 描述可以包含大写和小写字母、数字和符号。
 
 ### 2.3 返回类型
 
@@ -129,7 +133,7 @@ JavaScript 动作可以有零或更多类型参数。 每个类型参数应该�
 
 ## 6 个代码
 
-在 **代码** 标签中，您可以不离开Studio Pro编辑JavaScript操作代码。 编辑器基于 [Monaco 编辑器](https://microsoft.github.io/monaco-editor/index.html)。 它提供了诸如语法高亮和代码完成等功能。 代码可以写入现代JavaScript(ES8/ES2017)，并且可以使用像 `async` 这样的功能， `等待` 和 `承诺`。
+在 **代码** 标签中，您可以不离开Studio Pro编辑JavaScript操作代码。 编辑器基于 [Monaco 编辑器](https://microsoft.github.io/monaco-editor/index.html)。 它提供了诸如语法高亮和代码完成等功能。 从 Mendix 版本 8。 及以上， 代码可以写入现代JavaScript(ES8/ES2017)，并且可以使用像 `async` 这样的功能， `等待` 和 `承诺`。 代码将被翻译并填充供您运行 (甚至在 Internet Explorer 11)。
 
 代码有三个部分：导入列表、一个额外的代码块和一个用户代码块。 添加的所有代码都应该在其中一个模块中。 当部署或更新JavaScript操作设置时重新生成模板代码时，区块外的代码将丢失。
 
@@ -168,6 +172,6 @@ JavaScript 动作可以有零或更多类型参数。 每个类型参数应该�
 
 * [JavaScript 动作调用](javascript-action-call)
 * [纳诺夫拉](nanoflows)
-* [生成 JavaScript 操作](/howto/extensibility/build-javascript-actions)
+* [生成 JavaScript 操作](/howto8/extensibility/build-javascript-actions)
 * [Java 行动电话](java-action-call)
 * [微流程呼叫](microflow-call)
