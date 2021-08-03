@@ -1,93 +1,74 @@
 ---
-title: "Data Hub Guide"
-description: "This guide describes Mendix Data Hub for finding and sharing enterprise data assets."
+title: "Developer Portal Guide"
+description: "Describes the sections of the Mendix Developer Portal and links to more detailed documents in the guide."
 tags:
-  - "data hub"
-  - "data hub catalog"
-  - "data hub landscape"
-aliases:
-  - /data-hub/data-catalog/index.html
+  - "mendix"
+  - "developer portal"
+  - "platform services"
+  - "buzz"
+  - "apps"
+  - "community"
+  - "marketplace"
+  - "academy"
+  - "forum"
+  - "docs"
+  - "documentation"
 ---
 
-## 1 Introduction
+## 1 What Is the Developer Portal?
 
-[Mendix Data Hub](https://hub.mendix.com) is a product for integrating app development with the data available from the many applications in an organization. It is the central hub in an organization for finding and connecting to the relevant shared datasets. It also ensures consistency in the data used throughout the organization. Data Hub enables reliable data sources to be located centrally from one point and for users to connect to them through it.
+The [Developer Portal](http://sprintr.home.mendix.com) is one of the three key components of the Mendix Platform. The other two are [Mendix Studio Pro](/refguide/modeling) and [Mendix Studio](/studio/). In the Developer Portal, Mendix developers can collaborate, deploy, and manage their apps, and manage their company and users.
 
-{{% alert type="info" %}}
-To use the Mendix Data Hub a license is required, which also includes the integration of Data Hub in Studio Pro.
-{{% /alert %}}
+The Developer Portal also offers open, well-defined APIs, enabling third-party developers to integrate their own widgets and plugins. For more information, see [API Documentation](/apidocs-mxsdk/apidocs/).
 
-{{% alert type="info" %}}
-The Data Hub integration is available in Studio Pro version 8.14 and above. To use the latest functionality of Data Hub download the latest version of Studio Pro. {{% /alert %}}
+## 2 Navigation {#navigation}
 
-Follow the journey for building an app using available datasets (or entity sets for services from Mendix apps) from the [Data Hub](https://hub.mendix.com) home page, or try building a quick app by following [How to Share Data Between Apps Using Mendix Data Hub](share-data/).
+To create a new app click **Create App**, which will open a page where you can choose a starting pointing for your new app:
 
-## 2 Overview of Mendix Data Hub
+![](attachments/create-app.png)
 
-Mendix Data Hub has components to enable the flexible sharing of datasets. The following diagram shows how these components enable app development using shared datasets:
+On the right side of the top bar, you can search and access your [Mendix Profile](/developerportal/mendix-profile/). You can also click the **+** icon to create a new app.
 
-![](attachments/overview-schematic-datahub.png)
+On the left side of the top bar, you open an access menu by clicking the **Switch-to** menu:
 
-1. Published apps and other software expose datasets in OData services that can be used to provide a consistent and reliable network of shared data. The data is maintained in the respective source apps.
-2. In Studio Pro, published OData services exposing datasets (or entity sets as they are named in Studio Pro) connecting to the available data are automatically registered in the [Data Hub Catalog](data-hub-catalog/). OData services from other applications can also be manually registered. For each service, structural and descriptive metadata and the location of the datasets is registered in the Data Hub Catalog. Curation of registered services and datasets is done by Owners of the service, [Data Hub Admin](#admin) and [Data Curators](#curator).
-3. Search in the Data Hub Catalog or use the integrated Data Hub in Studio Pro to find suitable shared data assets to use in your app development.
-4. Consume registered datasets in Studio Pro to create new apps.
-5. Upon deployment of an app in Studio Pro, registered services are updated in the Data Hub Catalog to show published dependencies and consumed dependencies, and a connection is established to the shared data sources.
-6. The consuming application directly connects to the source system (as defined in the published service metadata) to use the data associated with the consumed dataset.
-7. The [Data Hub Landscape](data-hub-landscape/) enables users to see the dependencies between components and the relevance of data and to ascertain data lineage.
+{{% image_container width="300" %}}
+![](attachments/switcher.png)
+{{% /image_container %}}
 
-## 3 Roles in Data Hub{#data-hub-roles}
+You can then access the following parts of the Mendix Platform:
 
-In Mendix Data Hub, governance is the cornerstone. Curation of shared assets is essential for defining how the shared data assets can be used, identifying the relevance to users, ensuring that the resources can be found by the right users, and managing the accessibility, security and confidentiality levels of the shared data.
+* **Mendix Home** – the [My Apps](/developerportal/apps-list/) page
+* [Studio](/studio/)
+* **Get Studio Pro** – the [Studio Pro](/refguide/) download page in the [Mendix Marketplace](/appstore/)
+* **Cloud**  – the [Nodes](/developerportal/deploy/node-permissions) page, which shows a list of all the licensed Mendix Cloud nodes to which you have access
+    * Clicking **Details** on this page opens the [Environments](/developerportal/deploy/environments) page for the app that is deployed to a node
+    * For details on the **Cluster Manager** option in the top bar, see [Creating a Private Cloud Cluster](/developerportal/deploy/private-cloud-cluster)
+* [Control Center](/developerportal/control-center/)
+* [Marketplace](/appstore/)
+* [Data Hub](/data-hub/)
+* [Academy](https://academy.mendix.com/link/home)
+* [Docs](https://docs.mendix.com/)
+* [Forum](/developerportal/community-tools/mendix-forum)
+* [Community](community-tools)
 
-This section describes the general Data Hub user as well as the assigned [Data Hub Admin](#admin) and [Data Hub Curator](#curator) roles.
+Click [Company Buzz](collaborate/buzz) to communicate with colleagues, team members, stakeholders, and any other Mendix users in your company.
 
-### 3.1 Data Hub Users
+Click [Company Apps](/developerportal/apps-list/#my-company-apps) to see all the apps created by members of your company.
 
-The typical Mendix user is able to use the Data Hub Catalog to search and use registered services. Users can also register new services through published OData services, and as owners, users are able to have curation rights over their OData services.
+If you want to turn on the old navigation/header, click your avatar and toggle **New Navigation** to **Off**.
 
-Data Hub users can do the following:
+## 3 Getting Assistance
 
-* Publish services and register them in the Data Hub Catalog from Studio Pro
-* Register published OData V4 Services for non-Mendix apps manually
-* Update the metadata such as descriptions, tags, and contact information of their own registered services
-* Owners can set the discoverability of their services, thereby publishing the service and the exposed datasets for use by other users
-* See all the discoverable services and datasets registered in their organization’s Data Hub Catalog and connect to the data by using the published entities as external entities in their apps in the Mendix Studios
+Clicking the question icon in the Developer Portal brings up the options Mendix provides for getting assistance:
 
-{{% alert type="info" %}}
-A user who publishes an OData service is the technical owner of the service and thereby has a [Data Hub Curator](#curator) role over their own services. If they have registered services which are not published and are non-discoverable, only they will be able to find and consume these services.
-{{% /alert %}}
+![](attachments/developerportal-assistance.jpg)
 
-### 3.2 Data Hub Admin {#admin}
-
-The Data Hub Admin role can carry out Data Hub operations and governance in collaboration with the organization's data stewards, security officers, and security architects.
-
-The Data Hub Admin can do the following:
-
-* Act as a technical administrator of the organization’s Data Hub
-* Assign [Data Hub Curator](#curator) roles
-* Curate the Data Hub according to the organization's data governance policy
-* Access all the registered assets in the Data Hub Catalog for the organization
-
-The Data Hub Admin for the current release of Data Hub is assigned by [Mendix Support](https://support.mendix.com/hc/en-us): please contact Mendix Support to set this up.
-
-Admin tasks are described in [Data Hub Administration](general/data-hub-admin-functions).
-
-### 3.3 Data Hub Curator {#curator}
-
-The Data Hub Curator curates registered services in the Data Hub Catalog to ensure that registered services are visible to the relevant users and to enrich the information on registered assets. An organization can have several Data Hub Curators.
-
-Curators are assigned by the the [Data Hub Admin](#admin) and they perform the following functions:
-
-* Maintain registered OData services and manage versions
-* Ensure the discoverability of their assets by the relevant users
-* Enrich the metadata of registered services and datasets – for example descriptions, tags, and contact information
+* **Ask the Community** – click this to go to the [Mendix Forum](https://forum.mendixcloud.com/index4.html)
+* **Check the documentation** – click this to go to the [Mendix Documentation](https://docs.mendix.com/)
+* **Contact Mendix Support** – click this to go to [Mendix Support](https://support.mendix.com/hc/en-us)
 
 ## 4 Guide Categories
 
-The *Data Hub Guide* is divided into the following categories:
+The *Developer Portal Guide* is divided into the following categories:
 
-* [How to Share Data Between Apps Using Mendix Data Hub](share-data/)
-* [General Info](general/)
-* [Data Hub Catalog](data-hub-catalog/)
-* [Data Hub Landscape](data-hub-landscape/)
+{{% category_block %}}
