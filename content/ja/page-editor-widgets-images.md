@@ -1,75 +1,75 @@
 ---
-title: "Image Widgets"
+title: "画像ウィジェット"
 parent: "page-editor-widgets"
-description: "Describes image widgets in Mendix Studio."
+description: "Mendix Studioで画像ウィジェットを説明します。"
 menu_order: 30
 tags:
-  - "studio"
-  - "page editor"
-  - "image"
-  - "image widgets"
-  - "widgets"
+  - "スタジオ"
+  - "ページエディタ"
+  - "画像"
+  - "画像ウィジェット"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Image [widgets](page-editor-widgets) are used to show images to the users.
+イメージ [ウィジェット](page-editor-widgets) は、ユーザーに画像を表示するために使用されます。
 
-There are two image widgets in Mendix Studio:
+Mendix Studio には 2 つのイメージ ウィジェットがあります:
 
-* Image – allows you to show a static (non-changing) image in your app
-*  Dynamic image – allows you to show a dynamic image (for example, a relevant profile picture that is different for each customer) in your app
+* 画像 – アプリに静的（変更なし）画像を表示することができます
+*  Dynamic image – アプリで動的な画像(例えば、お客様ごとに異なる関連するプロフィール画像)を表示できます。
 
    {{% image_container width="350" %}}![](attachments/page-editor-widgets-images/image-widgets.png)
    {{% /image_container %}}
 
 {{% alert type="info" %}}
 
-You can switch between static and dynamic image in widget's properties. For more information, see the [General Section](#image-general).
+ウィジェットのプロパティで静的画像と動的画像を切り替えることができます。 詳細については、 [一般セクション](#image-general) を参照してください。
 
 {{% /alert %}}
 
-## 2 General Section {#image-general}
+## 2 一般セクション {#image-general}
 
-You can switch between static and dynamic image in the **General** section, as well as set the image itself, configure its width and height, etcetera.
+**General** セクションでは、静的イメージと動的イメージを切り替えることができます。 画像自体を設定するだけでなく、幅と高さなどを設定します。
 
-Before configuring settings in the **General** section for the **Dynamic Image**, keep in mind that it can only function inside a data container (a list view or a data view). You can either place widget in an existing data container; or click **Wrap with a new data view** in **Properties** to create a data view automatically and place an input element inside it.
+**動的画像** の **一般**セクションで設定を行う前に。 データコンテナ(リストビューまたはデータビュー)内でのみ機能することができます。 既存のデータコンテナにウィジェットを配置することができます。 または **プロパティ** の **新しいデータ ビュー** をクリックして自動的にデータ ビューを作成し、その中に入力要素を配置します。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets-images/dynamic-image-data-view.png)
 {{% /image_container %}}
 
-Settings available for **Static Image** and **Dynamic Image** are described in the table below:
+**Static Image** と **Dynamic Image** の設定は以下の表に示されています:
 
-| Property      | The property applies to   | Description                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Image Source  | Static and Dynamic Images | Switches between static and dynamic image.                                                                                                                                                                                                                                                                                                                                                                                         |
-| Entity        | Dynamic Image             | Specifies which entity will be shown in the dynamic image. You can only set an entity for the dynamic image if the entity has been configured as image in Studio Pro. For more information, see section [General Properties](/refguide/entities#entities-general-properties) in *Entities* in the *Studio Pro Guide* and [Dynamic Image (document template)](/refguide/dynamic-image-document-template) in the *Studio Pro Guide*. |
-| Image         | Static Image              | Sets an image that will be shown to the end-user.                                                                                                                                                                                                                                                                                                                                                                                  |
-| Default Image | Dynamic Image             | This is the image that is displayed if no image is uploaded.                                                                                                                                                                                                                                                                                                                                                                       |
-| Width Unit    | Static and Dynamic Images | The width of an image can be specified in the following ways:  <br /><ul><li>**Auto** – the width of the given image is used.</li><li>**Pixels** – the width is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched.</li><li>**Percentage** –  the width is specified in a percentage of the original width. It can be larger than its original width in which case the image is stretched.</li></ul><br />Default value for **Width Unit**: Auto                                                                                                                                                                                                                                                                             |
-| Width         | Static and Dynamic Images | The **Width** option is only displayed when **Pixels** or **Percentage** are selected for the **Width Unit**. It specifies the width of the image in pixels or percentage.                                                                                                                                                                                                                                                         |
-| Height  Unit  | Static and Dynamic Images | The height of an image can be specified in the following ways:  <br /><ul><li>**Auto** – the height of the given image is used.</li><li>**Pixels** – the height is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched.</li><li>**Percentage** –  the height is specified in a percentage of the original height. It can be larger than its original height in which case the image is stretched.</li></ul><br />Default value for **Height Unit**: Auto                                                                                                                                                                                                                                                                           |
-| Height        | Static and Dynamic Images | The **Height** option is only displayed when **Pixels** or **Percentage** are selected for the **Height Unit**. It specifies the height of the image in pixels or percentage.                                                                                                                                                                                                                                                      |
+| 属性       | このプロパティは以下に適用されます。 | 説明                                                                                                                                                                                                                                                                                                                                                 |
+| -------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 画像のソース   | 静的および動的画像          | 静的イメージと動的イメージを切り替えます。                                                                                                                                                                                                                                                                                                                              |
+| エンティティ   | 動的画像               | 動的イメージに表示するエンティティを指定します。 Studio Pro でエンティティがイメージとして設定されている場合にのみ、動的イメージのエンティティを設定できます。 For more information, see section [General Properties](/refguide/entities#entities-general-properties) in *Entities* in the *Studio Pro Guide* and [Dynamic Image (document template)](/refguide/dynamic-image-document-template) in the *Studio Pro Guide*. |
+| 画像       | 静的画像               | エンドユーザーに表示される画像を設定します。                                                                                                                                                                                                                                                                                                                             |
+| デフォルトの画像 | 動的画像               | これは画像がアップロードされない場合に表示される画像です。                                                                                                                                                                                                                                                                                                                      |
+| 幅の単位     | 静的および動的画像          | 画像の幅は以下の方法で指定できます:  <br /><ul><li>**自動** – 与えられた画像の幅が使用されます。</li><li>**ピクセル** – 幅は数ピクセルで指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。</li><li>**パーセント** – 幅は元の幅のパーセントで指定されます。 画像が伸びている場合は、元の幅よりも大きくすることができます。</li></ul><br />Default value for **Width Unit**: Auto                                                                                                                                                                                                                                        |
+| Width    | 静的および動的画像          | **Width** オプションは、 **Pixel** または **Percentage** が **Width Unit** に選択されている場合にのみ表示されます。 画像の幅をピクセルまたはパーセンテージで指定します。                                                                                                                                                                                                                                    |
+| 高さの単位    | 静的および動的画像          | 画像の高さは以下の方法で指定できます:  <br /><ul><li>**自動** – 指定した画像の高さが使用されます。</li><li>**ピクセル** – 高さはピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。</li><li>**パーセント** – 高さは元の高さのパーセントで指定されます。 画像が伸びている場合は、元の高さよりも大きくすることができます。</li></ul><br />**高さ単位**: 自動                                                                                                                                                                                                                                                                 |
+| 高さ       | 静的および動的画像          | **高さ** オプションは、 **ピクセル** または **パーセント** が **高さユニット**に選択されている場合にのみ表示されます。 画像の高さをピクセルまたはパーセンテージで指定します。                                                                                                                                                                                                                                                 |
 
-## 3 Events Section
+## 3つのイベントセクション
 
-You can choose the **On Click Action** in the **Events** section. The **On Click Action** defines what action is performed when the user clicks an image.
+**イベント** セクションで **クリックアクション** を選択できます。 **on Click Action** は、ユーザーが画像をクリックしたときに実行されるアクションを定義します。
 
-### 3.1 Common Properties
+### 3.1 一般的なプロパティ
 
 The static image and the dynamic image share the properties in the **Events** section, except for one property that is [specific for the dynamic image](#events-dynamic-image).
 
-For more information on the **Events** section for static and dynamic images, see [Events Section in Widgets](page-editor-widgets-events-section).
+静的および動的イメージの **イベント** セクションの詳細については、 [ウィジェットのイベント セクション](page-editor-widgets-events-section) を参照してください。
 
-### 3.2 Dynamic Image Specific Property {#events-dynamic-image}
+### 3.2 動的画像特有のプロパティ {#events-dynamic-image}
 
-The dynamic image has a specific on-click action **Enlarge on Click**. The full-size image will be displayed when the user clicks it. This property overrides other on-click actions.
+ダイナミックイメージには、特定のオンクリックアクション **クリックで拡大**があります。 フルサイズの画像は、ユーザーがそれをクリックすると表示されます。 このプロパティは、他のオンクリック操作を上書きします。
 
-## 4 Design Section
+## 4デザインセクション
 
-For information on the **Design** section and its properties, see [Design Section in Widgets](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-## 5 Read More
+## 5 続きを読む
 
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)
