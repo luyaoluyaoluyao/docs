@@ -1,164 +1,164 @@
 ---
-title: "Published REST Operation"
+title: "公開されたREST操作"
 parent: "published-rest-service"
 menu_order: 10
-description: "Options to configure a published REST operation."
+description: "公開された REST 操作を構成するオプション。"
 tags:
-  - "Published REST"
-  - "operation"
+  - "公開されたREST"
+  - "操作"
   - "method"
-  - "path"
-  - "example location"
-  - "mapping"
-  - "operation parameters"
-  - "how to"
+  - "小道"
+  - "場所の例"
+  - "マッピング"
+  - "操作パラメータ"
+  - "どうやって?"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A published REST operation is part of a [published REST resource](published-rest-resource) and defines an endpoint that a client can call to GET, PUT, POST, PATCH, or DELETE items from the resource.
+公開された REST 操作は、 [公開された REST リソース](published-rest-resource) の一部であり、クライアントが GETに呼び出すことができるエンドポイントを定義します。 リソースからアイテムをPUT、POST、PATCH、または削除します。
 
-In the **Published REST Service** document you can add items to be included in the service as **Resources**:
+**公開されたRESTサービス** ドキュメントでは、 **リソース**としてサービスに含めるアイテムを追加することができます:
 
-![Published REST Service](attachments/published-rest-operation/publshed-rest-service.png)
+![公開されたRESTサービス](attachments/published-rest-operation/publshed-rest-service.png)
 
-## 2 Operation Definition
+## 2 操作の定義
 
 When you **Add** or **Edit** a resource, you can define the resource in the **Operation** definition dialog box for the selected item as follows:
 
-![REST Operation](attachments/published-rest-operation/operation-definition.png)
+![REST 操作](attachments/published-rest-operation/operation-definition.png)
 
-### 2.1 General
+### 2.1 全般
 
-In the **General** tab, you can enter the operation details as described in this section.
+**一般** タブでは、このセクションで説明されている操作の詳細を入力できます。
 
-#### 2.1.1 Method
+#### 2.1.1 メソッド
 
-The method specifies the type of operation that is performed by the microflow. From the drop-down menu you can select one of the following:
+このメソッドは、マイクロフローによって実行される操作の種類を指定します。 ドロップダウンメニューから、次のいずれかを選択できます。
 
-* **GET** – retrieve the entry or entries at the specified location
-* **PUT** – replace the entry or entries at the specified location, or create them if they do not exist
-* **POST** – create an entry in the collection at the specified location
-* **PATCH** – update (part of) the entry at the specified location
-* **DELETE** – delete the entry or entries at the specified location
+* **GET** – 指定された場所のエントリまたはエントリを取得
+* **PUT** - 指定された場所のエントリまたはエントリを置き換えるか、存在しない場合はそれらを作成します
+* **POST** – 指定された場所にコレクション内のエントリを作成する
+* **PATCH** - 指定された場所のエントリを更新
+* **DELETE** – 指定された場所のエントリまたはエントリを削除する
 * **HEAD** - retrieve information about the entry or entries at the specified location; this is identical to **GET**, except that a message body is not returned
-* **OPTIONS** - return information about the available communication options
+* **OPTIONS** - 利用可能な通信オプションに関する情報を返す
 
-#### 2.1.2 Operation Path{#operation-path}
+#### 2.1.2 操作パス{#operation-path}
 
-The location where the operation can be reached starts with the URL of the resource and the **Operation path** specifies the remainder of the path for the operation. You can leave it empty to use the location of the resource.
+操作が到達できる場所は、リソースの URL から始まり、 **Operation path** は、操作のパスの残りを指定します。 リソースの場所を使用するには、空のままにしておいてください。
 
-You can use [path parameters](published-rest-path-parameters) to capture part of the location as a microflow parameter or as a parameter to the import mapping. Specify path parameters in the operation path between `{` and `}`. The value that is in the URL for the path parameter will be passed to the microflow or the import mapping.
+[パスパラメーター](published-rest-path-parameters) を使用して、ロケーションの一部をマイクロフローパラメーターとして、またはインポートマッピングのパラメーターとしてキャプチャすることができます。 `{` と `}` の間の操作パスにパスパラメータを指定します。 path パラメーターの URL 内にある値は、マイクロフローまたはインポートマッピングに渡されます。
 
-The **Method** and **Operation path** define the operation that is executed for a given request URL as described in [Published Rest Routing](published-rest-routing).
+**メソッド** および **オペレーションパス** は、 [公開された残りのルーティング](published-rest-routing)に記述されているように、指定されたリクエストURLに対して実行される操作を定義します。
 
-#### 2.1.3 Example Location{#example-location}
+#### 2.1.3 場所例{#example-location}
 
-The **Example Location** gives an example of a URL on which the operation can be reached.
+**場所例** は、操作に到達できる URL の例を示します。
 
-#### 2.1.4 Microflow
+#### 2.1.4 マイクロフロー
 
-An operation can have the following parameters:
+操作は以下のパラメータを持つことができます。
 
- * [Query parameters](published-rest-query-parameters), which are at the end of the URL in the form of `?name1=value1&name2=value2`
+ * [クエリパラメータ](published-rest-query-parameters), `?name1=value1&name2=value2`
    {{% alert type="info" %}}
-   When a microflow parameter is not in the path and is not an object, then it is considered to be a query parameter.
+   microflow パラメータがパス内になく、オブジェクトでない場合は、クエリーパラメータと見なされます。
    {{% /alert %}}
-* [Path parameters](published-rest-path-parameters), which form part of the path of the URL
-* A body parameter (optional), which is in the body of the request to the operation
+* [URL のパスの一部を形成するパスパラメータ](published-rest-path-parameters)
+* 操作へのリクエストの本文にあるbodyパラメータ（任意）
    {{% alert type="info" %}}
-   The **GET**, **HEAD**, and **DELETE** operations do not have a body parameter.
+   **GET**, **HEAD**, および **DELETE** 操作には、bodyパラメータがありません。
    {{% /alert %}}
-* Header parameters, which come from the HTTP headers of the request
-* A form parameter (optional), which is a part of the body of a multipart form request
+* リクエストの HTTP ヘッダーから来るヘッダーパラメータ
+* マルチパートフォームリクエストの本文の一部であるフォームパラメータ (オプション)
 
-A microflow for an operation takes these operation parameters as input.
+オペレーションのマイクロフローは、これらのオペレーションパラメータを入力とします。
 
-A microflow parameter that has the *List* or *Object* type indicates a body parameter. You can specify an import mapping to convert the incoming JSON or XML. A parameter of the *FileDocument* type (or that inherits from a *FileDocument*) is special: It can also be used for form parameters, and an import mapping is not needed.
+*List* または *Object* 型を持つマイクロフローパラメータは、body パラメータを示します。 インポートマッピングを指定して、受信する JSON または XML を変換できます。 *FileDocument* タイプのパラメータ (または *FileDocument*から継承する) は特別です: フォームパラメータにも使用できます。 インポートマッピングは必要ありません
 
-An operation microflow may also take an [HttpRequest](http-request-and-response-entities#http-request) parameter. You can add this parameter if you want to inspect the requested URL and headers.
+オペレーションマイクロフローは、 [HttpRequest](http-request-and-response-entities#http-request) パラメータを取ることもできます。 要求されたURLとヘッダを調べたい場合は、このパラメータを追加できます。
 
-To set the status code, reason phrase, and headers, add an [HttpResponse](http-request-and-response-entities#http-response) object parameter and set the attributes of that object, or return an *HttpResponse*.
+ステータスコード、フレーズ、ヘッダを設定する [HttpResponse](http-request-and-response-entities#http-response) オブジェクトパラメータを追加し、そのオブジェクトの属性を設定するか、 *HttpResponse* を返します。
 
-The result of the microflow is the result of the operation and can include the following:
+マイクロフローの結果は、操作の結果であり、以下を含めることができます:
 
 1. **Return a** ***list*** **or an** ***object***– you must specify an export mapping to convert it to XML or JSON.
-2. **Return a primitive** – when the microflow returns a value, for example, a string, integer, or Boolean, then the response to the operation will be that value.
+2. **プリミティブを返す** – マイクロフローが値を返す場合など。 文字列、整数、またはブール値を指定すると、操作への応答がその値になります。
    {{% alert type="info" %}}
-   If a non-empty value from the microflow is returned, the *Content* attribute of the *HttpResponse* object is ignored. If an empty value from the microflow is returned, then the *Content* of the *HttpResponse* is taken as the result.
+   microflow から空でない値が返された場合、 *HttpResponse* オブジェクトの *Content* 属性は無視されます。 microflow から空の値が返された場合、 *HttpResponse* の *Content* が結果として取得されます。
    {{% /alert %}}
-3.  **Return a file document** – when you want to return data that is a file (such as a PDF or image), then the microflow returns a file document.
-4. **Return a** [HttpResponse](http-request-and-response-entities#http-response) – in the *HttpResponse*, you can set the status code, reason phrase, and content (as a string). You can fill the content with, for example, the result of a mapping or a string from another source. You can also add headers to the response.
+3.  **ファイルドキュメントを返す** – ファイルであるデータ(PDFや画像など)を返却する場合 その後、マイクロフローはファイルドキュメントを返します。
+4. **** [HttpResponse](http-request-and-response-entities#http-response) を返します – *HttpResponse*に ステータスコード、理由フレーズ、コンテンツ(文字列として)を設定できます。 例えば、マッピングの結果、または別のソースからの文字列を使用してコンテンツを埋めることができます。 レスポンスにヘッダーを追加することもできます。
    {{% alert type="info" %}}
-   One important header to set is *Content-Type*. Do not return an *empty* *HttpResponse* because that will always result in an error.
+   設定すべき重要なヘッダの一つは *Content-Type* です。 *空の* *HttpResponse* を返さないでください。なぜなら、それは常にエラーになるからです。
    {{% /alert %}}
 
-If the microflow throws an unhandled exception, the response is **500: Internal server error**.
+マイクロフローが未処理の例外を投げた場合、レスポンスは **500: Internal server error** です。
 
-When security is enabled, then then microflow needs to have at least one role configured to be accessible.
+セキュリティが有効になっている場合、マイクロフローにアクセスできるように少なくとも1つのロールが設定されている必要があります。
 
-#### 2.1.5 Deprecated
+#### 2.1.5 非推奨
 
-Check this box to mark the operation as deprecated in the service's OpenApi (Swagger) documentation page as described in the [Documentation](published-rest-services#interactive-documentation) section of [Published REST services](published-rest-services). This informs clients not to use it anymore.
+Check this box to mark the operation as deprecated in the service's OpenApi (Swagger) documentation page as described in the [Documentation](published-rest-services#interactive-documentation) section of [Published REST services](published-rest-services). これにより、クライアントはもはやそれを使用しないように通知します。
 
-#### 2.1.6 Parameters
+#### 2.1.6 パラメータ
 
 You can **Add**, **Update** or **Delete** the parameters of the operation which is described in [Operation Parameters for Published REST](published-rest-operation-parameter).
 
-##### 2.1.6.1 Import Mapping {#import-mapping}
+##### 2.1.6.1 インポートマッピング {#import-mapping}
 
-For a body parameter, you can select an [import mapping](import-mappings) that converts the body of the request into an object. All object and list parameters except file documents must have an import mapping selected.
+body パラメータの場合、リクエストの本文をオブジェクトに変換する [import mapping](import-mappings) を選択できます。 ファイルドキュメント以外のすべてのオブジェクトとリストパラメータは、インポートマッピングを選択している必要があります。
 
-To select an import mapping, double-click the parameter or click **Edit** in the grid after you select the parameter. When selecting the import mapping, you can also choose the commit behavior of the mapping: you can choose to either commit, commit without events, or not commit imported objects.
+インポートマッピングを選択するには、パラメーターをダブルクリックするか、パラメーターを選択した後にグリッド内の **編集** をクリックします。 インポートマッピングを選択すると、マッピングのコミット動作を選択することもできます: コミットを選択することができます。 イベントなしでコミットするか、インポートされたオブジェクトをコミットしません。
 
-You can select an import mapping that takes no parameter, or an import mapping that takes a primitive parameter (for example, string, integer). If you select an import mapping with a primitive parameter, you need to have exactly one [path parameter](published-rest-path-parameters) with the same type. That path parameter will be passed to the import mapping.
+パラメーターを取らないインポートマッピング、またはプリミティブパラメーターを取るインポートマッピングを選択することができます (例えば、文字列、整数)。 プリミティブパラメータでインポートマッピングを選択した場合、同じ型の [パスパラメータ](published-rest-path-parameters) を1つだけ持つ必要があります。 そのパスパラメータはインポートマッピングに渡されます。
 
-You can indicate what should happen **if no object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
+**オブジェクトが見つからなかった場合、** インポートマッピングがチェックされたとき、 **マッピングが使用される場所でこれを決定する**.
 
-If you select an import mapping that supports both XML and JSON (for example, a mapping that is based on a message definition), then the operation will be able to handle both XML and JSON requests.
+XML と JSON の両方をサポートするインポートマッピングを選択すると、 (例えば、 メッセージ定義に基づくマッピング)、操作は XML と JSON リクエストの両方を処理することができます。
 
-Valid requests must contain a *Content-Type* header. See [Recognized media types](#table1) for a list of media types that are understood by the import mapping. If an unsupported content type is used, the operation will result in a "**400 Bad Request**" response.
+有効なリクエストには *Content-Type* ヘッダーを含める必要があります。 インポート マッピングによって理解されるメディア 型のリストについては、 [認識されたメディア 型](#table1) を参照してください。 サポートされていないコンテンツ型が使用されると、この操作は "**400 Bad Request**" 応答になります。
 
-The import mapping is also used to generate object schemas for operation responses in [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation) based on [JSON Schema](published-rest-service-json-schema)
+インポートマッピングは、 [JSON スキーマ](published-rest-services#interactive-documentation) に基づいて [OpenAPI (Swagger) ドキュメンテーションページ](published-rest-service-json-schema) 内で操作応答のためのオブジェクトスキーマを生成するためにも使用されます。
 
-#### 2.1.7 Response
-This defines the response of the operation. You can specify the type of the microflow result and the export mapping applied to it (if any).
+#### 2.1.7 対応
+これは、操作の応答を定義します。 (存在する場合) マイクロフロー結果のタイプとエクスポートマッピングを指定することができます。
 
 ##### 2.1.7.1 Type
-This shows the result type of the microflow.
+これは、マイクロフローの結果の種類を示しています。
 
-##### 2.1.7.2 Export Mapping
-When the microflow returns an object or a list of objects, you must specify how this result is mapped to JSON or XML. Select an export mapping that takes the result of the microflow as input.
+##### 2.1.7.2 エクスポートマッピング
+microflow がオブジェクトまたはオブジェクトのリストを返す場合、この結果が JSON または XML にマップされる方法を指定する必要があります。 マイクロフローの結果を入力として取得するエクスポートマッピングを選択します。
 
-If you select an export mapping that supports both XML and JSON (for example, a mapping that is based on a message definition), then the output depends on whether the microflow has a parameter of type *System.HttpResponse* and adds a *Content-Type* header to it. The possible scenarios are given below:
+If you select an export mapping that supports both XML and JSON (for example, a mapping that is based on a message definition), then the output depends on whether the microflow has a parameter of type *System.HttpResponse* and adds a *Content-Type* header to it. 考えられるシナリオは以下の通りである。
 
-* When the microflow sets the *Content-Type* header parameter with a media type that is XML, then the operation returns XML as given in the table below.
+* マイクロフローが XML のメディアタイプで *Content-Type* ヘッダーパラメーターを設定する場合。 次に、操作は以下の表のようにXMLを返します。
 
-    <a name="table1">**Recognized media types**</a>
+    <a name="table1">**メディアタイプを認識しました**</a>
 
-    | Media Type                   | Recognized As |
-    | ---------------------------- | ------------- |
-    | *application/xml*            | XML           |
-    | *text/xml*                   | XML           |
-    | anything ending with *+xml*  | XML           |
-    | *application/json*           | JSON          |
-    | anything ending with *+json* | JSON          |
+    | メディアタイプ            | 認識された |
+    | ------------------ | ----- |
+    | *application/xml*  | XML   |
+    | *text/xml*         | XML   |
+    | *+xml* で終わるもの      | XML   |
+    | *application/json* | JSON  |
+    | *+json* で終わるもの     | JSON  |
 
-* When the microflow sets the *Content-Type* header to something else, then the operation returns JSON.
+* マイクロフローが *Content-Type* ヘッダーを別のものに設定すると、この操作は JSON を返します。
 
-* When the microflow does not set the *Content-Type* header, then the output is determined by inspecting the *Accept* header in the request. The first media type that is recognized to be XML or JSON (as given in the table above) determines the operation result: the *Content-Type* is *application/xml* (when it is XML) or *application/json* (when it is JSON).
+* When the microflow does not set the *Content-Type* header, then the output is determined by inspecting the *Accept* header in the request. (上のテーブルで指定されているように) XML または JSON であることが認識される最初のメディア型は、オペレーション結果を決定します: *Content-Type* は (XML である場合) *application/xml* または *application/json* (JSON である場合) です。
 
 * When there is no *Accept* header or the *Accept* header does not contain a recognizable media type, then the operation returns JSON and the *Content-Type* is *application/json*.
 
-The export mapping is also used to generate object schemas for operation responses in the [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation) based on the [JSON schema](published-rest-service-json-schema).
+エクスポートマッピングは、 [JSON スキーマ](published-rest-services#interactive-documentation) をベースにした [OpenAPI (Swagger) ドキュメント ページ](published-rest-service-json-schema) 内の操作応答のためのオブジェクトスキーマを生成するためにも使用されます。
 
-### 2.2 Public Documentation
+### 2.2 公開ドキュメント
 
-In the **Public Documentation** tab you can specify the documentation that will be used in the service's [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation).
+**公開ドキュメント** タブでは、サービスの [OpenAPI (Swagger) ドキュメント ページ](published-rest-services#interactive-documentation) で使用するドキュメントを指定できます。
 
 #### 2.2.1 Summary {#summary}
-Provide a short description of what the operation does.
+操作の簡単な説明を提供します。
 
-#### 2.2.2 Description {#description}
-Enter a complete overview of what the operation does. You can use [GitHub-flavored markdown](gfm-syntax) syntax to style the text.
+#### 2.2.2 説明 {#description}
+操作の概要を入力します。 [GitHub風味のマークダウン](gfm-syntax) 構文を使用してテキストのスタイルを設定できます。
 
