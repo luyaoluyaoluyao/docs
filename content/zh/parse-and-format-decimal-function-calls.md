@@ -1,123 +1,123 @@
 ---
-title: "Parse & Format Decimal Function Calls"
-parent: "expressions"
+title: "解析 & 格式十进制函数调用"
+parent: "表达式"
 menu_order: 150
 tags:
   - "studio pro"
-  - "expression"
+  - "表达式"
   - "parsing"
-  - "formatting"
+  - "格式化"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes parsing and formatting decimal function calls. For details on all the pattern possibilities, see [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html).
+此文档描述了解析和格式化小数函数调用。 欲了解所有模式可能性的详情，请参阅 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)。
 
 ## 2 parseDecimal
 
-Parses a string value to a decimal value. Takes optional parameters for the format and default values.
+解析字符串值为十进制值。 允许格式和默认值的可选参数。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                                                                                                                                                          | Type             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Value to parse                                                                                                                                                                                 | String           |
-| Format for the input value based on the Java library `DecimalFormat` (for more information, see [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)) | String           |
-| Default value **(optional)**                                                                                                                                                                   | Decimal or empty |
+| 值                                                                                                                   | 类型     |
+| ------------------------------------------------------------------------------------------------------------------- | ------ |
+| 要解析的值                                                                                                               | 字符串    |
+| 基于 Java 库的输入值格式 `十进制格式` (更多信息，请参阅 [类十进制格式](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)) | 字符串    |
+| 默认值 **(可选)**                                                                                                        | 十进制或为空 |
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                                                                                                                                                                                                       | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The output is a decimal value that matches the supplied string value. If the value cannot be parsed (meaning, it does not match the format parameter or contains illegal characters), the default value will be returned. If no default value is provided, an error occurs. | Decimal |
+| 值                                                                       | 类型 |
+| ----------------------------------------------------------------------- | -- |
+| 输出是一个与提供的字符串匹配的十进制值。 如果无法解析值(意指不匹配格式参数或包含非法字符)，将返回默认值。 如果没有提供默认值，则发生错误。 | 小数 |
 
-### 2.3 Example
+### 2.3 例子
 
-The following examples demonstrate which output you get depending on input parameters:
+下面的示例演示你根据输入参数获得的输出：
 
-* `parseDecimal('3.45')` returns `3.45`
-* `parseDecimal('noDecimal', 5.05)` returns `5.05`
-* `parseDecimal('noDecimal', empty)` returns `empty`
-* `parseDecimal('3,241.98', '#,###.##')` returns `3241.98`
+* `parseDecimal('3.45')` 返回 `3.45`
+* `parseDecimal('noDecimal', 5.05)` 返回 `5.05`
+* `parseDecimal('noDecimal', empty)` 返回 `空`
+* `parseDecimal('3,241.98', '#,##')` 返回 `3241.98`
 
 ## 3 formatDecimal
 
-Converts a decimal value to a string value according to a specified format.
+根据指定格式将十进制值转换为字符串值。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The functionality of formatDecimal depends on whether it is used in a microflow or a nanoflow.
+格式小数点的功能取决于它是用于微流还是纳米。
 
-#### 3.1.1 Input Parameters in Microflows
+#### 3.1.1 微流中输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value                                                                                                                                                                                                                                                                                   | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| Value to convert                                                                                                                                                                                                                                                                        | Decimal |
-| Format for the result based on the Java library `DecimalFormat` (for details, see [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html))                                                                                                        | String  |
-| Locale in which the results should be formatted **(optional)**. For the more information on supported values, see [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-). When omitted, the user configured locale is used. | String  |
+| 值                                                                                                                                                                         | 类型  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| 要转换的值                                                                                                                                                                     | 小数  |
+| 基于 Java 库的结果格式 `十进制格式` (详情，请参阅 [类十进制格式](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html))                                                          | 字符串 |
+| 应该格式化结果的本地化 **(可选)**。 关于支持值的更多信息，见 [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-)。 如果省略，则使用用户配置的区域设置。 | 字符串 |
 
-#### 3.1.2 Input Parameters in Nanoflows
+#### 3.1.2 Nanoflow 的输入参数
 
-In nanoflows, this function only takes a single parameter described below:
+在 nanoflows 中，此函数只需要一个参数描述如下：
 
-| Value            | Type    |
-| ---------------- | ------- |
-| Value to convert | Decimal |
+| 值     | 类型 |
+| ----- | -- |
+| 要转换的值 | 小数 |
 
-### 3.2 Output
+### 3.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value                                                                                     | Type   |
-| ----------------------------------------------------------------------------------------- | ------ |
-| A string representation of the decimal in the format specified by the `format` parameter. | String |
+| 值                         | 类型  |
+| ------------------------- | --- |
+| 在 `格式` 参数指定的格式中的十进制字符串表示. | 字符串 |
 
-### 3.3 Microflow Examples
+### 3.3 微流程示例
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     formatDecimal(1234.56, '#,###.#')
     ```
 
-    the output is (depending on the language settings):
+    输出(取决于语言设置)：
 
     ```java
-    '1,234.5' or '1.234,5'
+    '1,234.5' 或 '1.234,5'
     ```
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     formatDecimal(1234.56, '¤ #,##0.00')
     ```
 
-    the output is (depending on language settings):
+    输出(取决于语言设置)：
 
     ```java
-    '€ 1.234,50' or '$ 1,234.50'
+    “1.234.50欧元”或“1,234.50美元”
     ```
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     formatDecimal(0.56, '% ##0')
     ```
 
-    the output is
+    输出为
 
     ```java
     '% 56' 
     ```
 
-### 3.4 Nanoflow Examples
+### 3.4 Nanoflow 示例
 
-In a nanoflow, this will format the decimal using the format appropriate to the user's locale.
+在 nanoflow 中，这将使用适合用户本地的格式来格式化小数。
