@@ -1,5 +1,5 @@
 ---
-title: "テキスト"
+title: "テキストウィジェット"
 parent: "page-editor-widgets"
 description: "Mendix Studioでタイポグラフィウィジェットを説明します。"
 menu_order: 40
@@ -13,29 +13,49 @@ tags:
 
 ## 1つの紹介
 
-テキストは、 [テキスト、段落、見出し(H1-H6)](page-editor-widgets) 、 [ページタイトル](#text-widget)で構成される [ウィジェット](#page-title-widget)のグループです。 これらはエンドユーザーにテキスト情報を表示するために使用されます。 たとえば、テキスト段落を表示できます。
-
-{{% image_container width="350" %}}![](attachments/page-editor-widgets-text/paragraph-example.png)
-{{% /image_container %}}
+Text is a group of [widgets](page-editor-widgets) that consists of **[Text, Paragraph, Headings (H1-H6)](#text-widget)**, and the [**Page Title**](#page-title-widget). これらはエンドユーザーにテキスト情報を表示するために使用されます。
 
 ## 2 テキスト、段落、見出し一般プロパティ {#text-widget}
 
 You can use **Text**, **Paragraph**, or **Heading** widgets to display a text to the end-user. In **Properties** > **General**, you can type the text that will be displayed, define if it contains attribute values, and set the [render mode](#render-mode).
 
-### 2.1 コンテンツ {#content}
+### 2.1 コンテンツ
 
-**コンテンツ**では、エンドユーザーに表示されるテキストを定義します。 ここで動的データを表示することもできます: 属性値と式の結果。
-
-属性を追加すると、ユーザに属性値が表示されます。 **追加** > **属性** を選択するか、 <kbd>Ctrl</kbd> + <kbd>スペース</kbd> を押して属性を選択します。  たとえば、ユーザーがアカウントにログインすると、グリーティングメッセージを表示できます。 where *Name* and *NumberOfMessages* is attribute value:
+**コンテンツ**では、表示されるテキストを定義します。 属性を追加することもでき、属性値がユーザーに表示されます。 たとえば、ユーザーがアカウントにログインすると、グリーティングメッセージを表示できます。 where *Name* and *NumberOfMessages* is attribute value:
 
 ![](attachments/page-editor-widgets-text/content-example.png)
 
-式を設定し、式の結果を表示することもできます (式の詳細については、 [式](expressions) を参照してください)。 式を書くには、 **追加** > **式結果** を選択してください。 たとえば、付加価値税(VAT)を除く価格を表示できます。
+#### 2.1.1 属性を追加しないコンテンツの設定
 
-![コンテンツ例式](attachments/page-editor-widgets-text/content-example-expression.png)
+属性を追加せずに **コンテンツ** を設定するには、次のいずれかを実行できます。
 
-**コンテンツ**を編集するには、ページのウィジェットをダブルクリックします。
+* ページのウィジェットをダブルクリックし、エンドユーザーに表示したいテキストを入力し始めます。変更を保存するには、 <kbd>Enter</kbd> を押します。
+* Open **Properties** of the widget, delete the default text in the **General** section > **Content**, and type the message you want to show to the end-user
 
+#### 2.1.2 コンテンツの設定と属性の追加
+
+**コンテンツ** を構成し、属性を追加するには、次の操作を行います:
+
+1. Place the widget (**Text**, **Paragraph**, or **Heading**) inside a data container (a list view or a data view) and set an entity for the list view/data view. 詳細については、 [Data View & List View Properties](page-editor-data-view-list-view) を参照してください。 これは、選択した図形の属性をテキストに挿入できるようにするために必要です。
+
+2.  Open **Properties** of the **Text**, **Paragraph**, or **Heading**, delete the default text in the **General** section > **Content** and start typing the message you want to show to the end-user.
+
+    {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/content.png)
+    {{% /image_container %}}
+
+3. メッセージに属性値を挿入するには、 **属性の追加** をクリックするか、 <kbd>Ctrl</kbd> + <kbd>スペース</kbd> を押します。  挿入できる属性のリストが表示されます。
+
+4.  Scroll through the list of attributes (you can also use <kbd>Up</kbd> and <kbd>Down</kbd> arrows for that) and select the attribute you want to add to the **Text**.
+
+    {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/list-of-attributes.png)
+    {{% /image_container %}}
+
+5. 残りのテキストを入力し、必要に応じて属性を追加してメッセージを終了します。
+
+ウィジェットの **コンテンツ** を設定しました。 編集する場合は、ページ内のウィジェットをダブルクリックします。 **テキストの編集** ポップアップダイアログが表示され、ウィジェットの内容に属性が表示されます。
+
+{{% image_container width="350" %}}![](attachments/page-editor-widgets-text/edit-text.png)
+{{% /image_container %}}
 
 ### 2.2 レンダリングモード {#render-mode}
 
@@ -70,15 +90,11 @@ You can use **Text**, **Paragraph**, or **Heading** widgets to display a text to
 
 {{% /alert %}}
 
-## 4 条件付き表示セクション
+## 4デザインセクション {#input-elements-design}
 
-{{% snippet file="studio/visibility-section-link.md" %}}
+**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-## 5デザインセクション {#input-elements-design}
-
-**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
-
-## 6もっと読む
+## 5 続きを読む
 
 * [ページ](page-editor)
 * [ウィジェット](page-editor-widgets)
