@@ -1,76 +1,76 @@
 ---
-title: "Runtime Deployment"
-category: "Mendix Runtime"
-description: "A description of how the Mendix Runtime is deployed"
+title: "运行时部署"
+category: "Mendix 运行时间"
+description: "Mendix Runtime 如何部署的描述"
 menu_order: 30
 tags:
-  - "runtime"
-  - "deploy"
-  - "mxbuild"
-  - "runtime server"
+  - "运行时间"
+  - "部署"
+  - "mxbuilding"
+  - "运行时服务器"
   - "m2ee"
 ---
 
-## 1 Introduction
+## 1 导言
 
-To convert your Mendix model into an app running in the cloud, it needs to be deployed. This document describes the concepts behind the deployment of your app, and the processes it goes through to begin running in the cloud. For technical details on how to deploy your app, see the [Deployment](/developerportal/deploy/) section of the Developer Portal documentation.
+要将您的 Mendix 模型转换为在云端运行的应用，它需要部署。 本文档描述了应用部署背后的概念以及在云端开始运行的过程。 关于如何部署您的应用的技术详情，请查看开发者门户文档的 [部署](/developerportal/deploy/) 部分。
 
-This description of deployment is based on an app running in the cloud. You can also run Mendix locally for testing, but this is conceptually the same.
+此部署描述基于云端中运行的应用程序。 您也可以在本地运行 Mendix 进行测试，但这在概念上是一样的。
 
-## 2 Mendix Runtime Deployment
+## 2 Mendix 运行时部署
 
-When you have created a Mendix app with no structural errors, you need run it by deploying it.
+当你创建了一个没有结构错误的 Mendix 应用程序时，你需要通过部署它来运行它。
 
-Below is a chart showing the processes involved in deploying your app. Each of the processes and components is described below the chart.
+下面是一个图表，显示部署您的应用所涉及的过程。 下图说明每一种过程和构成部分。
 
-![How Mendix Runtime is deployed](attachments/runtime/runtime-deployment.png)
+![如何部署Mendix Runtime](attachments/runtime/runtime-deployment.png)
 
-### 2.1 Deployer
+### 2.1 部署人员
 
-This is initiated by the Mendix Cloud Portal to manage the deployment of an app.
+这是由Mendix Cloud Portal发起的，以管理应用程序的部署。
 
-### 2.2 Docker Environment
+### 2.2 停靠环境
 
-This is the docker environment specification which specifies the docker environment in a Cloud-Foundry-like way for the Buildpack to process
+这是用于构建包的停泊环境规格，它以云层式类似方式指定停泊环境。
 
-### 2.3 Project MPK
+### 2.3 MPK 项目
 
-This is the app model as created by Studio Pro or Studio. It cannot be directly interpreted by the Mendix Runtime.
+这是Studio Pro 或 Studio 创建的应用模型。 Mendix Runtime不能直接解释它。
 
-### 2.4 MX Build
+### 2.4 MX 生成
 
-This converts an app in mpk format to the mda format which can be interpreted by the Mendix Runtime.
+这将mpk格式的应用程序转换为 mda 格式，Mendix Runtime可以解释。
 
 ### 2.5 Cloud Foundry
 
-This is the command line interpreter which allows Cloud Foundry environments to be created, and code to be pushed into the environments to be executed.
+这是命令行解释器，允许创建云层基金会环境，并且将代码推到环境中。
 
-### 2.6 Buildpack
+### 2.6 建筑包
 
-The buildpack is the Mendix script which controls the deployment of Mendix models to a cloud environment. it performs the following tasks:
+Buildpack 是 Mendix 脚本，它控制着Mendix 模型在云端环境中的部署。 它执行以下任务：
 
-* identifies the target environment and bound services such as database and file storage
-* if it receives an app in mpk format it initiates Mxbuild to convert it into mda format
-* it identifies the correct version of the Java Runtime Environment and pushes it to the environment
-* it identifies the correct version of the Mendix Runtime and uses m2ee to push the Runtime Server to the environment, with a link to the app *.mda* which defines the app
+* 识别目标环境和绑定的服务，例如数据库和文件存储
+* 如果它收到以mpk格式的应用，它会启动 Mxbuild，将其转换为 mda 格式
+* 它确定了正确版本的 Java Runtime 环境并推送到环境
+* 它识别了Mendix Runtime的正确版本，并使用 m2ee 将Runtime 服务器推送到环境中。 带有应用程序链接 *。 定义应用程序的*
 
-### 2.7 Project MDA
+### 2.7 MDA项目
 
-This is the Mendix app in mda format, which defines the app in a way which can be interpreted by the Mendix Runtime.
+这是Mendix 应用程序的 Mendix 格式，它定义应用程序的方式可以由 Mendix Runtime 来解释。
 
 ### 2.8 CDN
 
-This data repository stores components of the deployment process such as versions of the Mendix Runtime and Mx Build.
+这个数据储存库存储部署过程中的组件，如Mendix Runtime 和 Mx Build。
 
 ### 2.9 Java RE
 
-This is the Java Runtime Environment (JRE) used to run the Runtime Server. The version of the JRE depends on the version of the Runtime Server. For example, Mendix 7 runs on JRE version 8, and Mendix 8 runs on JRE version 11.
+这是用于运行运行运行时服务器的 Java Runtime 环境 (JRE)。 JRE的版本取决于运行时服务器的版本。 例如，Mendix 7 正在运行JRE 8版本，Mendix 8 正在运行JRE 11版本。
 
 ### 2.10 M2ee
 
-M2ee is a collection of helper tools written in python which is used to deploy Mendix apps. It comes in two forms: m2ee-tools and m2ee-sidecar depending on the target platform. It starts the Runtime Server by starting a Java RE and pointing it at the relevant version of the Runtime Server binary (jar) files. Once it has started, m2ee connects to the Runtime Server to tell it which Mendix application model to load.
+M2ee 是一个使用 python 编写的辅助工具集，用于部署 Mendix 应用。 它有两种形式：m2ee-tool和m2ee-sidecar，这取决于目标平台。 它启动了 Java RE 并指向相关版本的 Runtime 服务器二进制文件 (jar) 来启动运行时服务器。 一旦启动，m2e将连接到 Runtime 服务器，告诉它需要加载哪个Mendix 应用程序模型。
 
-### 2.11 Runtime Server
+### 2.11 运行时服务器
 
-This is the interpreter which runs the app. For more information see [Runtime Server](runtime-server).
+这是运行应用程序的解释器。 欲了解更多信息，请访问 [运行时服务器](runtime-server)。
 
