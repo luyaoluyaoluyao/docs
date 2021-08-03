@@ -1,42 +1,42 @@
 ---
-title: "App Explorer"
-parent: view-menu
+title: "アプリエクスプローラー"
+parent: 表示メニュー
 menu_order: 40
 tags:
   - "studio pro"
-  - "App Explorer"
+  - "アプリエクスプローラー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **App Explorer** shows the complete structure of your app including all documents inside the modules:
+**App Explorer** は、モジュール内のすべてのドキュメントを含むアプリケーションの完全な構造を表示します。
 
 ![](attachments/app-explorer/app-explorer.png)
 
-The **App Explorer** consists of the following:
+**App Explorer** は以下で構成されています。
 
-* **App** folder – contains settings and documents that apply to your app as a whole (for more information, see [Apps](project))
+* **App** フォルダ – アプリ全体に適用される設定とドキュメントが含まれています (詳細は [アプリ](project) を参照してください)
 * **Modules**  – contain settings, a domain model, and *documents* that apply to this module (for more information, see [Modules](modules))
-  * **Domain model** – a model that describes the information (or *data*) used by your application in an abstract way; one module can have one domain model only
-  * **Document** – an individual file, for example, a [page](pages), [microflow](microflows), or a [scheduled event](scheduled-events).
+  * **ドメインモデル** - アプリケーションが使用する情報 (または *データ*) を抽象的な方法で記述するモデル 一つのモジュールは一つのドメインモデルのみを持つことができます
+  * **ドキュメント** – 個々のファイル、例えば、 [ページ](pages)、 [microflow](microflows)、または [スケジュールされたイベント](scheduled-events)。
 
-## 2 Performing Basic Functions
+## 2 基本機能の実行
 
-In the **App Explorer**, you can do the following:
+**App Explorer**では、以下の操作ができます。
 
-* **Filter** – enter the name of a module, folder, or document into the **Filter** field to filter documents of the app and highlight entered text within the **App Explorer**. When filtering by a module or folder name, all content of matching modules and/or folders is displayed. In addition, while focused on the **Filter** field, it is possible to do the following:
-  * Navigate the **App Explorer** using <kbd>↑</kbd> and <kbd>↓</kbd> keys
-  * Expand a folder or open a document by pressing <kbd>Enter</kbd>
-  * Clear the filter query by pressing <kbd>Esc</kbd>
-* **Open the document** – double-click the document to open it
-* **Select the active document** – click the icon in the top-right corner of the **App Explorer** to quickly view the active document in the **App Explorer** tree. By default the active document is always selected so you can quickly see where the document you are editing is located. You can change this behavior in the **Edit** > **Preferences** dialog box.
-* **Expand all documents** – click the plus icon in the top-left corner of the **App Explorer** to expand all document and see the whole structure of your app
-* **Collapse all documents** – click the minus icon in the top-left corner of the **App Explorer** to collapse all documents
-* **Expand or collapse an individual folder** – to expand/collapse documents in an individual folder click the plus/minus icon or double-click the folder
-* **Perform actions specific to the selected folder** – right-click the selected folder to see what functions you can perform. The list of functions depends on the folder, for example, when right-clicking the **System** module, you can only find usages of this module, while when right-clicking **MyFirstModule** you can add a page, add a microflow, rename the module, export the module package, copy/paste documents, and much more.
+* **Filter** – enter the name of a module, folder, or document into the **Filter** field to filter documents of the app and highlight entered text within the **App Explorer**. モジュールまたはフォルダ名でフィルタリングすると、一致するモジュールおよび/またはフォルダのすべてのコンテンツが表示されます。 さらに、 **フィルター** フィールドにフォーカスしている間、次のようにすることができます。
+  * **アプリエクスプローラ** を <kbd></kbd> と <kbd>伏線</kbd> キーで移動します
+  * フォルダを展開するか、 <kbd>Enter キーを押してドキュメントを開きます</kbd>
+  * <kbd>Esc</kbd> を押してフィルタークエリをクリアします
+* **ドキュメントを開く** – ドキュメントをダブルクリックして開きます
+* **アクティブなドキュメントを選択** – **App Explorer** の右上隅にあるアイコンをクリックして、 **App Explorer** ツリーでアクティブなドキュメントをすばやく表示します。 デフォルトでは、アクティブなドキュメントは常に選択されているため、編集するドキュメントの場所をすばやく確認できます。 この動作は、 **編集** > **環境設定** ダイアログボックスで変更できます。
+* **すべてのドキュメントを展開する** - **App Explorer** の左上隅にあるプラスアイコンをクリックして、すべてのドキュメントを展開し、アプリの構造全体を確認します。
+* **すべてのドキュメントを折りたたむ** – **App Explorer** の左上隅にあるマイナスのアイコンをクリックして、すべてのドキュメントを折りたたみます。
+* **個々のフォルダを展開または折りたたむ** – 個々のフォルダ内のドキュメントを展開/折りたたむには、プラス/マイナスアイコンをクリックするか、フォルダをダブルクリックします。
+* **選択したフォルダに固有のアクションを実行する** – 選択したフォルダを右クリックして、どのような機能を実行できるかを確認します。 The list of functions depends on the folder, for example, when right-clicking the **System** module, you can only find usages of this module, while when right-clicking **MyFirstModule** you can add a page, add a microflow, rename the module, export the module package, copy/paste documents, and much more.
 
-## 3 Read More
+## 3 続きを読む
 
-* [Apps](project)
-* [Modules](modules)
-* [Security](security)
+* [アプリ](プロジェクト)
+* [モジュール](モジュール)
+* [セキュリティ](セキュリティ)
