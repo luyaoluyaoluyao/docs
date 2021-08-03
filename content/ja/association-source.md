@@ -1,24 +1,10 @@
 ---
 title: "関連ソース"
 parent: "データソース"
-tags:
-  - "studio pro"
-  - "関連"
-  - "データソース"
-menu_order: 60
 ---
 
-## 1つの紹介
 
-The **Association** source is a data source available to nested [data grids](data-grid), [template grids](template-grid), and [list views](list-view).
-
-{{% alert type="warning" %}}
-
-**アソシエーション** ソースは、データベースからではなくメモリからオブジェクトを取得します。
-
-{{% /alert %}}
-
-**関連付け** データ ソースは、関連付けによって別のオブジェクトにリンクされたオブジェクトでウィジェットを埋めます。 コンテキストを提供するには、データ ウィジェットを別のデータ ウィジェット内にネストする必要があります。
+The association source is a data source available to nested [data grids](data-grid), [template grids](template-grid), and [list views](list-view). これにより、関連付け方法で既にコンテキスト内のオブジェクトにリンクされているオブジェクトがウィジェットに表示されます。 これを機能させるには、そのコンテキストを提供するために、データ ウィジェットを別のデータ ウィジェット内にネストする必要があります。
 
 Data widgets that can function as a container for other data widgets are the [template grid](template-grid), [list view](list-view), and [data view](data-view).
 
@@ -28,13 +14,8 @@ Data widgets that can function as a container for other data widgets are the [te
 
 {{% /alert %}}
 
-## 2つのプロパティ
+## プロパティー
 
-### 2.1 エンティティ (パス)
+### エンティティ (パス)
 
-**エンティティ (パス)** プロパティは、ウィジェットが生成される関連を指定します。 ウィジェットには、関連付けによって周囲のデータコンテナのオブジェクトに接続されているオブジェクトのみが表示されます。
-
-## 3 続きを読む
-
-* [関連](関連)
-* [データウィジェット](data-widgets)
+エンティティ (path) プロパティは、ウィジェットが生成される関連付けを指定します。 ウィジェットに表示される唯一のオブジェクトは、選択された関連付けの方法で含まれているウィジェット内のオブジェクトにリンクされているオブジェクトです。
