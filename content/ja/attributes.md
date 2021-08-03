@@ -1,208 +1,208 @@
 ---
-title: "Attributes"
-parent: "entities"
+title: "属性"
+parent: "エンティティ"
 menu_order: 30
 tags:
-  - "domain model"
-  - "entity"
-  - "attribute"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "属性"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Attributes** are characteristics that describe and/or identify an entity. Each of these attributes is given a name.
+**属性** は、エンティティを記述および/または識別する特徴です。 これらの各属性には名前が与えられます。
 
 A **Customer**, for example, typically has attributes for the name of the customer (for example, **FullName**), an e-mail address (for example, **EmailAddress**) and other personal information.
 
-![Example customer entity](attachments/domain-model/customer-entity.png)
+![顧客エンティティの例](attachments/domain-model/customer-entity.png)
 
-The domain model editor uses the following symbols to help visualize attribute properties:
+ドメインモデルエディタは、属性プロパティを視覚化するために次のシンボルを使用します。
 
-| Symbol                                   | Description                                                                |
-| ---------------------------------------- | -------------------------------------------------------------------------- |
-| ![](attachments/domain-model/917593.png) | This attribute has one or more validation rules.                           |
-| ![](attachments/domain-model/917592.png) | This attribute has a microflow that calculates the value of the attribute. |
-
-{{% alert type="info" %}}
-Attributes for external entities are specified in the **External Entity Properties**. These attributes are defined in the originating app and the only local changes that can be applied to these entities is a local name and description. For further information see the [Attributes](external-entities#attributes) section of *External Entities*.
-{{% /alert %}}
-
-## 2 Properties
-
-You can add attributes to an entity from the [entity properties dialog box](entities#dialog-box). You can also edit them from this dialog box, or by double-clicking the attribute name in the domain model.
+| 記号                                       | 説明                            |
+| ---------------------------------------- | ----------------------------- |
+| ![](attachments/domain-model/917593.png) | この属性には、1 つまたは複数の検証ルールがあります。   |
+| ![](attachments/domain-model/917592.png) | この属性には、属性の値を計算するマイクロフローがあります。 |
 
 {{% alert type="info" %}}
-You can **Add** new attributes to [external entities](external-entities#attributes), **Edit** some of the attribute properties, or **Delete** them. However, the changes will only apply locally, and the values in the originating app will not be affected. For more information on operations on attributes of external entities, see the [Attributes](external-entities#attributes) section of *External Entities*.
+外部エンティティの属性は **外部エンティティプロパティ** で指定されます。 これらの属性は、元のアプリで定義され、これらのエンティティに適用できる唯一のローカル変更は、ローカルの名前と説明です。 詳細については、 [外部エンティティ](external-entities#attributes) の *属性* セクションを参照してください。
 {{% /alert %}}
 
-An example of the attribute properties is represented in the image below:
+## 2つのプロパティ
+
+[図形プロパティ ダイアログ ボックス](entities#dialog-box) から図形に属性を追加できます。 このダイアログボックスから、またはドメインモデルの属性名をダブルクリックして編集することもできます。
+
+{{% alert type="info" %}}
+You can **Add** new attributes to [external entities](external-entities#attributes), **Edit** some of the attribute properties, or **Delete** them. ただし、変更はローカルにのみ適用され、元のアプリの値は影響を受けません。 外部エンティティの属性に関する操作の詳細については、 [外部エンティティ](external-entities#attributes) の *属性* セクションを参照してください。
+{{% /alert %}}
+
+以下の画像に属性プロパティの例を示します。
 
 ![](attachments/domain-model/attribute-properties.png)
 
-Attribute properties consist of the following sections:
+属性プロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Type](#type)
-* [Value](#value)
-* [Limitations](#limitations)
+* [一般的な](#common)
+* [タイプ](#type)
+* [値](#value)
+* [制限事項](#limitations)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-#### 2.1.1 Name
+#### 2.1.1 名前
 
-The **Name** property specifies the name of the attribute. This name is used to refer to the attribute in forms, microflows, queries, constraints, and so forth.
+**Name** プロパティは、属性の名前を指定します。 この名前は、フォーム、マイクロフロー、クエリ、制約などの属性を参照するために使用されます。
 
 {{% alert type="warning" %}}
-If you delete an attribute in your entity and then create a new attribute with the same name, Mendix will consider it a new and different attribute. This means that upon deployment the old column will be dropped, including its data. Then a new, empty, column with the same name will be created.
+エンティティ内の属性を削除し、同じ名前の新しい属性を作成する場合。 Mendixは新しい属性と異なる属性とみなします。 つまり、デプロイ時に、古い列はデータを含めて削除されます。 すると、同じ名前の新しい空の列が作成されます。
 {{% /alert %}}
 
-#### 2.1.3 Documentation
+#### 2.1.3 ドキュメント
 
-This allows you to describe aspects of the entity which may be useful to you or other team members when using the entity within the app.
+これにより、アプリ内のエンティティを使用する際に、あなたや他のチームメンバーが役に立つ可能性のあるエンティティの側面を説明できます。
 
-### 2.2 Type Section {#type}
+### 2.2 タイプセクション {#type}
 
 #### 2.2.1 Type
 
-The type property defines the type of data that can be stored in the attribute. These are related to the data types described in [Data Types](data-types), but there is not a one-to-one mapping.
+type プロパティは、属性に保存できるデータの型を定義します。 これらは [Data Types](data-types)で説明されているデータ型に関連していますが、1 対 1 のマッピングはありません。
 
 {{% alert type="warning" %}}
-Mendix allows you to change attribute and association types on existing domain models. While some attributes can easily be converted, there are limitations and consequences of converting between some types. For more information, see [Attributes Type Migration](attributes-type-migration).
+Mendix を使用すると、既存のドメインモデルの属性と関連タイプを変更できます。 いくつかの属性は簡単に変換できますが、いくつかのタイプ間で変換する際の制限や結果があります。 詳細については、 [属性 Type Migration](attributes-type-migration) を参照してください。
 {{% /alert %}}
 
-An attribute has one of the following types:
+属性には以下のタイプのいずれかがあります。
 
-| Type                                | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Maps to Mendix data type |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
-| AutoNumber                          | A positive or negative whole number.<br/>AutoNumber attributes are automatically generated numbers. The default value of the attribute determines the first number that will be generated. Each created object will have an AutoNumber that is one greater than the previous one. AutoNumbers can only be used for persistable entities as the AutoNumber value is computed in the database.                                                                                                                                                                                                                                                                                                                                                                                                                             | Integer/Long             |
-| Binary<sup><small>[1]</small></sup> | Binary data. Can only be used for persistable entities as the data is stored in the database. For example an entire file. In most cases you want to use an association to a FileDocument or Image to store file contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Binary                   |
-| Boolean                             | True or false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Boolean                  |
-| Date and time                       | A point in time consisting of a date and a time component accurate up to milliseconds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Date and time            |
-| Decimal                             | A positive or negative number that can have digits after the decimal point. The Decimal type can be used for high-precision calculations. Use this type to represent amounts of money for example. When a Decimal type attribute is persisted in the database its value is validated against 2 conditions. In case the number of digits of the integral part (before the decimal separator) is more than 20, an exception is thrown. In case the number of digits of the fractional part (after the decimal separator) is more than 8, the fractional value is automatically rounded according to [the round half to even rule (also known as bankers' rounding)](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even). Therefore the the maximum allowable value for the Decimal type is 99999999999999999999.99999999. | Decimal                  |
-| Enumeration                         | A list of predefined attributes. For more information, see [Enumerations](enumerations).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Enumeration              |
-| Hashed string                       | A string which is hashed using the algorithm specified in the [app settings](project-settings#hash-algorithm). This can be used to store password hashes, for example, so that the original password is not recorded in the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | String                   |
-| Integer                             | A whole number that can be positive (maximum 2<sup>31</sup>-1, thus 2147483647), negative (minimum -2<sup>31</sup>, thus -2147483648), or zero.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Integer/Long             |
-| Long                                | A whole number that can be positive (maximum 2<sup>63</sup>-1), negative (minimum -2<sup>63</sup>), or zero.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Integer/Long             |
-| String *(default)*                  | A text containing letters, spaces, numbers and other characters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | String                   |
+| タイプ                               | 可能な値                                                                                                                                                                                                                                                                                                                                                        | Mendixデータ型にマップ |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| AutoNumber                        | 正または負の整数です。<br/>AutoNumber 属性は自動的に生成されます。 属性のデフォルト値は、生成される最初の数値を決定します。 作成された各オブジェクトには、前のオブジェクトよりも 1 つ大きい自動番号があります。 AutoNumbersはデータベースでAutoNumber値が計算されるため、永続可能なエンティティにのみ使用できます。                                                                                                                                                                       | 整数             |
+| バイナリ<sup><small>[1]</small></sup> | バイナリデータ。 データがデータベースに格納されているため、持続可能エンティティにのみ使用できます。 例えば、ファイル全体です。 ほとんどの場合、FileDocument または Imageへの関連付けを使用してファイルの内容を格納したいと考えています。                                                                                                                                                                                                                             | バイナリ           |
+| Boolean                           | 正誤問題。                                                                                                                                                                                                                                                                                                                                                       | Boolean        |
+| 日付と時刻                             | 日付と時刻成分で構成される時間内のポイント。最大ミリ秒精度。                                                                                                                                                                                                                                                                                                                              | 日付と時刻          |
+| 小数点以下桁数                           | 小数点以下の桁数を持つことができる正または負の数。 10 進数型は高精度の計算に使用できます。 このタイプを使用すると、例えば金額を表示できます。 データベースで Decimal 型属性が継続されると、その値は 2 つの条件に対して検証されます。 整数部分の桁数が (10 進数区切りの前) 20 以上である場合、例外がスローされます。 小数部の桁数が8より大きい場合 分数の値は自動的に [ラウンド半分から均一なルール(銀行のラウンドとも呼ばれる)](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even)に従って四捨五入されます。 したがって、10 進数型の許容最大値は 999999999999999999999999 です。 | 小数点以下桁数        |
+| 列挙型                               | 定義済みの属性のリスト。 詳細については、 [列挙数](enumerations) を参照してください。                                                                                                                                                                                                                                                                                                        | 列挙型            |
+| ハッシュ文字列                           | [アプリ設定](project-settings#hash-algorithm) で指定されたアルゴリズムを使用してハッシュ化された文字列。 これは、例えば、元のパスワードがデータベースに記録されないように、パスワードハッシュを格納するために使用することができます。                                                                                                                                                                                                                       | 文字列            |
+| 整数                                | A whole number that can be positive (maximum 2<sup>31</sup>-1, thus 2147483647), negative (minimum -2<sup>31</sup>, thus -2147483648), or zero.                                                                                                                                                                                                             | 整数             |
+| 長い順                               | 正(最大 2<sup>63</sup>-1)、負(最小 -2<sup>63</sup>)、または 0 にできる整数。                                                                                                                                                                                                                                                                                                  | 整数             |
+| 文字列 *(デフォルト)*                     | 文字、スペース、数字およびその他の文字を含むテキスト。                                                                                                                                                                                                                                                                                                                                 | 文字列            |
 
-<sup><small>[1]</small></sup>The maximum size that can approximately be stored in an attribute of type binary depends on the database:
+<sup><small>[1]</small></sup>バイナリの属性にほぼ保存できる最大サイズは、データベースによって異なります:
 
-| HSQLDB | PostgreSQL | SQL Server | Oracle                                   |
-| ------ | ---------- | ---------- | ---------------------------------------- |
-| 1 MB   | 1 GB       | 2 GB       | 128 TB or limited by hard disk of server |
+| HSQLDB | PostgreSQL | SQL Server | Oracle                       |
+| ------ | ---------- | ---------- | ---------------------------- |
+| 1 MB   | 1 GB       | 2 GB       | 128 TB またはサーバーのハードディスクによって制限 |
 
-**Example**
+**例**
 
-In a web shop, you want to store the id, profile photo, level (for service quality), user name, password, activity, total of minutes spent online, year of subscription, date of birth, total amount of expenses and the standard amount of discount for a customer.
+ウェブショップでは、ID、プロフィール写真、レベル(サービス品質)、ユーザー名、パスワード、アクティビティ、オンラインで過ごした分の合計を格納したい。 購読年、生年月日、経費総額、お客様の標準割引額。
 
-The **CustomerId** should be unique for every customer, so this attribute has type **AutoNumber**.
+**CustomerId** はすべての顧客に対して一意である必要があるので、この属性は **AutoNumber** 型を持ちます。
 
-The **Photo** is represented by an association to an entity that specializes Image. You do not use a Binary attribute for this purpose.
+**写真** は、画像を専門とするエンティティへの関連付けによって表されます。 この目的に Binary 属性を使用しません。
 
-**Level** has three possible values: High, Medium and Low. This is stored in an attribute of type **Enumeration**.
+**レベル** には、高、中、低の3つの値があります。 これは、 **列挙型** の属性に保存されます。
 
 The **Password** itself should not be stored, but only its hash value, thus it is stored in an attribute of type **Hashed string**.
 
-A customer can be active or inactive, which is stored in an attribute named **Active** of type **Boolean**.
+顧客はアクティブまたは非アクティブにすることができます。これは、 **** 型 **ブール値** という名前の属性に保存されます。
 
 ![](attachments/domain-model/customer-attribute-examples.png)
 
-#### 2.2.2 Localize
+#### 2.2.2 ローカライズ
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **Date and time**.
+**Type** が **Date and time** に設定されている場合、このプロパティが表示されます。
 {{% /alert %}}
 
-This property indicates whether the date and time should be localized. By default localization is enabled. If you are _not_ interested in the time component of a date (for example, a birthday), you should set this property to 'No'. Otherwise, the date can change because of time zone differences: a date and time early in the morning on April 2nd in Europe will be on April 1st in the U.S.A.
+このプロパティは、日付と時刻をローカライズするかどうかを示します。 デフォルトでローカライズが有効になっています。 日付の時刻コンポーネントに _関心が_ ない場合 (例えば誕生日など)、このプロパティを「いいえ」に設定する必要があります。 そうでなければ、 日付は、タイムゾーンの違いのために変更することができます:ヨーロッパでは4月2日の早朝の日付と時刻は、4月1日になります。 A.
 
-In technical terms, this property indicates whether the client assumes that the date and time are in a local time zone (Yes) or in UTC (No). In the former case, the date is first converted to UTC before being sent to the server and converted from UTC before being displayed.
+専門用語で このプロパティは、クライアントが日付と時刻がローカルタイムゾーン(Yes)またはUTC(No)であると仮定するかどうかを示します。 前者の場合、日付は最初にサーバに送信され、表示される前にUTCから変換されます。
 
-Default: *Yes*
+デフォルト: *はい*
 
-#### 2.2.3 Enumeration
+#### 2.2.3 列挙型
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **Enumeration**.
+このプロパティは、 **Type** が **列挙値** に設定されている場合に表示されます。
 {{% /alert %}}
 
-The enumeration property indicates which enumeration defines the possible values for this attribute.
+enumeration プロパティは、この属性の可能な値を定義する列挙を示します。
 
-#### 2.2.4 Length
+#### 長さ 2.2.4
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **String**.
+**Type** が **String** に設定されている場合、このプロパティが表示されます。
 {{% /alert %}}
 
-This property specifies whether the length of a String is limited or unlimited. In the case of a limited length, the 'Max length' property specifies the maximum (see below).
+このプロパティは、文字列の長さが制限されるか無制限かを指定します。 制限された長さの場合、'Max length' プロパティは最大値を指定します (下記参照)。
 
-Default: *Limited*
+デフォルト: *限定*
 
-#### 2.2.5 Max Length (Only for String Attribute Type)
+#### 2.2.5 最大長さ (文字列属性タイプのみ)
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **String**.
+**Type** が **String** に設定されている場合、このプロパティが表示されます。
 {{% /alert %}}
 
-The 'Max length' property specifies the number of characters that can be stored in the attribute.
+'Max length' プロパティは、属性に保存できる文字数を指定します。
 
-Default: *200*
+デフォルト: *200*
 
-### 2.3 Value Section {#value}
+### 2.3 値セクション {#value}
 
-#### 2.3.1 Value
+#### 2.3.1 値
 
-The **Value** determines whether the value of the attribute is **Calculated** by a microflow or **Stored** in the database.
+**値** は、属性の値がマイクロフローによって **計算された** か、データベースで **保存された** かを決定します。
 
-Take note of the following things when using **Calculated** attributes:
+**の計算された** 属性を使用する場合、以下のことに注意してください。
 
-* Each time an object with a calculated attribute is retrieved, the attribute is calculated. Depending on the complexity of the microflow and the number of objects you retrieve this can have impact on performance.
-* Attributes that are calculated by a microflow are not stored in the database.
-* It is not possible to sort on an attribute for which this property is used, because sorting is done by the database engine.
-* Uncommitted associated objects cannot be retrieved in calculated attributes.
+* 計算された属性を持つオブジェクトが取得されるたびに、属性が計算されます。 マイクロフローの複雑さと取得したオブジェクトの数に応じて、パフォーマンスに影響を与える可能性があります。
+* マイクロフローによって計算された属性はデータベースに保存されません。
+* ソートはデータベースエンジンによって行われるため、このプロパティが使用される属性をソートすることはできません。
+* 計算された属性では、コミットされていない関連オブジェクトを取得できません。
 
-#### 2.3.2 Microflow
+#### 2.3.2 マイクロフロー
 
 {{% alert type="info" %}}
-This property is shown if **Value** is set to **Calculated**.
+**値** が **計算** に設定されている場合、このプロパティが表示されます。
 {{% /alert %}}
 
-If the value is a computation, the **Microflow** property defines which microflow defines this computation to calculate the value of the attribute when the object is retrieved. The microflow should have a parameter of the type of the entity of the attribute and it should return a value with the same type as the attribute.
+値が計算の場合、 **Microflow** プロパティは、オブジェクトが取得されたときに属性の値を計算するために、どのマイクロフローがこの計算を定義するかを定義します。 microflow では、属性のエンティティの型のパラメータを持つ必要があり、属性と同じ型の値を返す必要があります。
 
-For example, in a web shop, you want to show the total expenses for each customer. These are calculated by retrieving all orders associated with the customer and adding their totals.
+たとえば、Webショップでは、各顧客の総経費を表示したいとします。 これらは、顧客に関連するすべての注文を取得し、合計を追加することによって計算されます。
 
 ![](attachments/domain-model/917570.png)
 
-#### 2.3.3 Default Value
+#### 2.3.3 デフォルト値
 
 {{% alert type="info" %}}
-This property is shown if **Value** is set to **Stored**.
+**値** が **保存された** に設定されている場合、このプロパティが表示されます。
 {{% /alert %}}
 
-The **Default value** property defines the value of this attribute when an object is created. The default value should be compatible with the type of the attribute.
+**既定値** プロパティは、オブジェクトが作成されたときにこの属性の値を定義します。 デフォルト値は、属性の型と互換性がある必要があります。
 
-| Type of Attribute | Default Value When Not Specified | Additional Comments                                                                                                                                                                                                                                                                             |
-| ----------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AutoNumber        | 1                                | Starting value of this attribute. If there are already objects of this entity, the AutoNumber values will be based on the right 32 bits of the id column value. This can cause gaps in the AutoNumber ranges with jumps of 100, because id values are reserved by the Runtime in blocks of 100. |
-| Binary            | N/A                              |                                                                                                                                                                                                                                                                                                 |
-| Boolean           | False                            |                                                                                                                                                                                                                                                                                                 |
-| Date and time     | (empty)                          | The default value can either be a UTC date with the format `year-month-day` (suffixed optionally by `hour:minute`, or `hours:minute:second`), or `[%CurrentDateTime%]` (which sets the value of this attribute to the date and time when the object is created).                                |
-| Decimal           | 0                                |                                                                                                                                                                                                                                                                                                 |
-| Enumeration       | (empty)                          |                                                                                                                                                                                                                                                                                                 |
-| Hashed string     | (empty)                          |                                                                                                                                                                                                                                                                                                 |
-| Integer           | 0                                |                                                                                                                                                                                                                                                                                                 |
-| Long              | 0                                |                                                                                                                                                                                                                                                                                                 |
-| String            | (empty)                          |                                                                                                                                                                                                                                                                                                 |
+| 属性の種類      | 指定されていない場合のデフォルト値 | 追加コメント                                                                                                                                                                                                                                                           |
+| ---------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AutoNumber | 1                 | この属性の開始値。 このエンティティのオブジェクトがすでに存在する場合、AutoNumber の値は id 列値の右側の 32 ビットに基づきます。 これは、id値は100のブロックでRuntimeによって予約されているため、AutoNumber範囲内で100のジャンプが発生する可能性があります。                                                                                                            |
+| バイナリ       | 該当なし              |                                                                                                                                                                                                                                                                  |
+| Boolean    | False             |                                                                                                                                                                                                                                                                  |
+| 日付と時刻      | (空)               | The default value can either be a UTC date with the format `year-month-day` (suffixed optionally by `hour:minute`, or `hours:minute:second`), or `[%CurrentDateTime%]` (which sets the value of this attribute to the date and time when the object is created). |
+| 小数点以下桁数    | 0                 |                                                                                                                                                                                                                                                                  |
+| 列挙型        | (空)               |                                                                                                                                                                                                                                                                  |
+| ハッシュ文字列    | (空)               |                                                                                                                                                                                                                                                                  |
+| 整数         | 0                 |                                                                                                                                                                                                                                                                  |
+| 長い順        | 0                 |                                                                                                                                                                                                                                                                  |
+| 文字列        | (空)               |                                                                                                                                                                                                                                                                  |
 
-### 2.4 Limitations {#limitations}
+### 2.4 制限 {#limitations}
 
-The **Limitations** property specifies whether the attribute can be used for filtering and sorting:
+**制限** プロパティは、属性をフィルタリングや並べ替えに使用できるかどうかを指定します。
 
-* **Non-sortable** – the attribute cannot be used for sorting (for example, you cannot use this attribute in the sort bar of a data grid or for sorting in a Retrieve action)
-* **Non-filterable** – the attribute cannot be used for filtering (for example, you cannot use this attribute in XPath constraints or for filtering in a list operation)
+* **ソート不可能な** - 属性をソートに使用することはできません (例えば、 この属性は、データグリッドの並べ替えバーや、取得アクションで並べ替えには使用できません。
+* **非フィルタ可能** - 属性をフィルタリングに使用できません (例えば、 この属性を XPath 条件式やリスト操作でフィルタリングすることはできません。
 
-Some attribute types in Mendix always have limitations:
+Mendixのいくつかの属性タイプには、常に制限があります。
 
-* Hashed string attributes are non-filterable
-* Binary attributes are non-sortable and non-filterable
-* Calculated attributes are non-sortable and non-filterable
+* ハッシュ化された文字列属性はフィルタリングできません
+* バイナリ属性はソート不可能でフィルタ不可能です
+* 計算された属性はソート不可能でフィルタ不可能です
