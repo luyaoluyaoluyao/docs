@@ -1,27 +1,27 @@
 ---
-title: "Grids"
-parent: "data-widgets"
+title: "グリッド"
+parent: "データウィジェット"
 menu_order: 20
 tags:
   - "studio pro"
-  - "grid"
-  - "data grid"
-  - "template grid"
+  - "グリッド"
+  - "データグリッド"
+  - "テンプレートグリッド"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Grids show a list a objects and include a [data grid](data-grid) and a [template grid](template-grid). The main difference between these grids is the way the list of objects is displayed: a data grid shows it in columns, while a template grid shows it in tiles.
+グリッドにはオブジェクトのリストが表示され、 [データ グリッド](data-grid) と [テンプレート グリッド](template-grid) が含まれます。 これらのグリッド間の主な違いは、オブジェクトのリストが表示される方法です。データグリッドは列に表示されます。 テンプレートグリッドにタイルが表示されています
 
-Grids have the following components in common:
+グリッドには以下のコンポーネントが共通しています:
 
-* [Search bar](search-bar) –  allows end-users to search for objects in the grid
-* [Sort bar](sort-bar) –  allows end-users to sort items in the grid
-* [Control bar](control-bar) –  allows end-users to control the objects displayed in the grid by means of buttons
+* [検索バー](search-bar) - エンドユーザーがグリッド内のオブジェクトを検索できるようにする
+* [ソートバー](sort-bar) - エンドユーザーがグリッド内のアイテムをソートできるようにする
+* [コントロール バー](control-bar) - エンドユーザーがボタンを使用してグリッドに表示されるオブジェクトを制御できます
 
-## 2 Read More
+## 2 続きを読む
 
-* [Data Grid](data-grid)
-* [Template Grid](template-grid)
-* [Data Widgets](data-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [データグリッド](データグリッド)
+* [テンプレートグリッド](template-grid)
+* [データウィジェット](data-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
