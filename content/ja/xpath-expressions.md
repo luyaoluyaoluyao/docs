@@ -1,8 +1,6 @@
 ---
 title: "XPath 式"
-parent: "xpath-constraints"
-tags:
-  - "studio pro"
+parent: "\"xpath-constraints\"#"
 ---
 
 ## 1つの概要
@@ -63,7 +61,7 @@ A comparison expression consists of two attributes or values separated by a comp
 
 使用可能な関数については、 [XPath 制約関数](xpath-constraint-functions) を参照してください。
 
-## 4 つの式が存在します {#exist}
+## 4 つの式が存在します
 
 式の最後のタイプは、特定の関連付けが満たされているかどうかを確認するために使用できる exist-expression です。
 
