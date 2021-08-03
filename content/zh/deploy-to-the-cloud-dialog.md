@@ -1,35 +1,40 @@
 ---
-title: "Deploy To The Cloud Dialog"
-parent: "dialogs"
+title: "部署到云"
+parent: "应用菜单"
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Use this dialog box to create a versioned deployment package and deploy it to your environment in the Mendix Cloud.
+此菜单选项对话框创建一个版本化的部署包，并将其部署到您的 Mendix Cloud 环境中。
 
-## 2 Development Line
+![部署到云对话框](attachments/app-menu/deploy-to-the-cloud.png)
 
-Choose the **Development line** for which you want to create a deployment package. This can be the main line or any branch line. For example, you create a package from a maintenance branch line if your want to put a fix you implemented there online. Or you create a deployment package from the main line because you are ready to deploy the next big version of your application.
+## 2 发展线
 
-## 3 Revision
+选择你想要创建部署包的 **开发行**。 这可以是主线或任何分支线。 例如，如果你想要在网上修复你的操作，你可以从维护分支线创建一个包。 或者您从主行创建一个部署包，因为您准备好部署下一个大版本的应用程序。
 
-Choose the **Revision** of the selected development line for which you want to create a deployment package. This is not necessarily the latest revision because you might want to exclude some recently developed functionality.
+## 3 修订版
 
-## 4 New Version
+Choose the **Revision** of the selected development line for which you want to create a deployment package. 您可能不想要更新的一个原因是如果您想排除一些最近开发的功能。
 
-Choose a **New version** for the deployment package. The version consists of four numbers: **Major** version, **Minor** version, **Patch**, and **Revision**. The revision is fixed and determined by the revision you selected for **Revision**.
+## 4 个新版本
 
-You are free to choose the other numbers, but it is wise to use a convention for the numbering. Major versions typically contain major new features or rewrites of existing features. A minor version contains small new features and fixes. A patch solves minor issues and should not change the data model of the application. A patch release should be interchangeable with another patch release with no changes to the data.
+为部署包选择一个 **新版本**。 该版本由四个数字组成：主要版本、次要版本、补丁和订正。 修订版本由您选择的 **修订版** 固定和决定。
 
-The Desktop Modeler will show you the latest version that you created a package for (if any). You can increase major, minor, or patch according to the convention you use.
+您可以自由选择其它数字，但是最好用约定来进行编号。 主要版本通常含有主要的新特征或重写现有特征。 一个小版本包含小的新功能和修复。 补丁解决了一些小问题，不应更改应用程序的数据模型。 补丁发布应该可以与另一个补丁发布互换，但数据没有变化。
 
-## 5 Description
+Studio Pro 将向您展示您创建软件包的最新版本(如果有的话)。 您可以根据您使用的约定，增加主要、次要或补丁。
 
-You can enter a custom **Description** for this deployment package. It is purely for your own reference so that you can quickly recognize a package. The Developer Portal will show you this description along with the version number.
+## 5 个描述
 
-## 6 App
+您可以为这个部署包输入一个自定义 **描述**。 它纯粹是为了您自己的参考，以便您可以快速识别一个包。 开发者门户将向您展示此描述以及版本号。
 
-This field shows the **App** in the Mendix Cloud where the deployment package will be deployed. This is for information only—you cannot change the **App** here.
+## 6 个应用程序
 
-## 7 Licensee
-This field shows the **Licensee** of this licensed node.
+这将在 Mendix Cloud 中显示 **应用** 部署包。 这只是为了提供信息，您不能在这里更改目标。
+
+## 7 个许可证用户
+
+这将显示此授权节点的 **许可协议**。
