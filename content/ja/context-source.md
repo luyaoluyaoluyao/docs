@@ -1,32 +1,32 @@
 ---
-title: "Context Source"
-parent: "data-sources"
+title: "コンテクストソース"
+parent: "データソース"
 tags:
   - "studio pro"
   - "context"
-  - "data source"
+  - "データソース"
 menu_order: 30
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Context** source is a data source of a data view. Data views with this data source get their object from the context, which can be one of two things:
+**コンテキスト** ソースはデータビューのデータソースです。 このデータソースを使用したデータビューは、コンテキストからオブジェクトを取得します。これは2つのうちの1つです。
 
-* A surrounding data container such as a data view or list view – in this case, the **Entity (path)** property should follow an association
-* The page parameter – the page parameter will contain the object that is passed to the page when opening it (either another page passing the parameter or a microflow passing an object)
+* この場合、データビューまたはリストビューなどの周囲のデータコンテナ **エンティティ (パス)** プロパティは関連付けに従う必要があります
+* ページパラメータ – ページパラメータは、ページを開くときにページに渡されるオブジェクトを含みます (パラメータを渡す別のページまたはオブジェクトを渡すマイクロフローのいずれか)
 
-## 2 Properties
+## 2つのプロパティ
 
-### 2.1 Entity (Path)
+### 2.1 エンティティ (パス)
 
-The **Entity (path)** property specifies the entity that will be shown in the data view. If you have a top-level data view, **Entity (path)** is an entity and the page will expect the object or objects of this entity to be passed to it when opened.
+**エンティティ (パス)** プロパティは、データビューに表示されるエンティティを指定します。 トップレベルのデータビューがある場合 **エンティティ (path)** はエンティティであり、ページが開かれたときにこのエンティティのオブジェクトまたはオブジェクトが渡されることを期待する。
 
-If you have a nested data view, you can select an entity that has associations with the entity of a surrounding data container, and the entity of the surrounding data container should be a parent of this association. For more information on associations, see [Associations](associations).
+ネストされたデータビューがある場合は、周囲のデータコンテナのエンティティに関連付けられているエンティティを選択できます。 そして、周囲のデータコンテナの実体は、この協会の親であるべきです。 関連付けの詳細については、 [Associations](associations) を参照してください。
 
-{{% image_container width="400" %}}![Context Source](attachments/data-widgets/context-source-example.png)
+{{% image_container width="400" %}}![コンテクストソース](attachments/data-widgets/context-source-example.png)
 {{% /image_container %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Data Widgets](data-widgets)
-* [Associations](associations)
+* [データウィジェット](data-widgets)
+* [関連](関連)
