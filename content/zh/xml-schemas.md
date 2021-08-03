@@ -1,32 +1,29 @@
 ---
 title: "XML Schemas"
-parent: "integration"
+parent: "集成"
+menu_order: 55
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xml-schemas.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+XML schema定义在 XML Schema Definition (XSD) 文件中定义，可以导入到您的模型中。 它描述了特定的 XML 文档应该是什么样的。 **图1** 中显示了一个示例。 然后方案可以用于 [导入映射](import-mappings) and [导出映射](export-mappings)。
 
-An XML schema is defined in an XML Schema Definition (XSD) file and can be imported in your model. It describes what a certain XML document should look like. An example is shown in **Figure 1**. The schema can then be used in [Import Mappings](import-mappings) and [Export Mappings](export-mappings).
+![图1](attachments/16713706/18582294.png)
 
-![Figure 1](attachments/16713706/18582294.png)
+**图1：XML模式示例**
 
-**Figure 1: example of an XML schema**
-
-## 2 General
+## 2 概况
 
 ### 2.1 XML Schema
 
-The file path to the XSD file.
+XSD 文件的文件路径。
 
-### 2.2 Preview
+### 2.2 预览
 
-The elements of which the XML file is comprised.
+XML 文件所包含的元素。
 
-## 3 Documentation
+## 3 文件
 
-Documentation that describes the schema.
+描述方案的文件。
