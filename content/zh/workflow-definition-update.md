@@ -1,78 +1,78 @@
 ---
-title: "Updating Your Workflow Definition"
-parent: "workflows"
+title: "更新您的工作流定义"
+parent: "工作流"
 menu_order: 60
 tags:
-  - "workflow"
-  - "workflows"
-  - "versions"
-  - "update"
+  - "工作流"
+  - "工作流"
+  - "版本"
+  - "更新"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Workflows are long running processes. When the workflow definition changes, e.g. tasks or activities are added or removed from the workflow definition, running instances of the workflow may therefore still exist.
+工作流正在运行很长时间。 当工作流定义发生变化时，例如： 从工作流定义中添加或删除任务或活动，因此运行的工作流实例可能仍然存在。
 
-Any time a new workflow definition is deployed and the Runtime starts, it will upgrade running workflow instances to the latest definition that exists. That means the existing workflow instances can remain running successfully. These instances will follow the latest workflow definition from that moment on.
+任何时候都会部署一个新的工作流定义并启动运行时间，它会升级运行的工作流实例到现有的最新定义。 这意味着现有的工作流实例可以继续成功运行。 自那时起，这些实例将遵循最新的 Workflow 定义。
 
-In some cases though, the Runtime will not be able to upgrade running workflow instances.
+但在某些情况下，运行时间将无法升级运行的工作流程实例。
 
-This document describes both these cases in more detail.
+本文件更详细地描述了这两起案件。
 
-## 2 Successful Upgrades to the Latest Workflow Definition
+## 2 成功升级到最新工作流定义
 
-Any of the following changes are interpreted as non-conflicting:
+以下任何更改均被解释为没有冲突：
 
-* Adding activities in the paths that have not been executed by the current workflow yet
-* Removing activities in the path that is being executed by the current workflow
-* Reordering activities in  the path that is being executed by the current workflow
-* Changing properties of activities or outcomes:
-* * Changing names, captions, and titles
-  * Changing a referenced microflow in the **Call microflow** activity, or a referenced workflow in the **Workflow call** activity
-  * Changing a referenced page in a user task
-  * Changing user assignment or user assignment option in a user task
-  * Changing due dates of a user task
-* Adding outcomes in a **Decision**, **Call microflow** or **User task** activities
-* Changing the context entity, referenced microflows, referenced pages, or referenced workflows
+* 在当前工作流尚未执行的路径中添加活动
+* 删除当前工作流正在执行的路径中的活动
+* 当前工作流正在执行的路径中重新排序活动
+* 活动或结果的改变性质：
+* * 更改名称、标题和标题
+  * 在 **调用微流** 活动中更改引用的微流，或在 **工作流调用中的引用工作流** 活动
+  * 更改用户任务中的引用页面
+  * 在用户任务中更改用户分配或用户分配选项
+  * 更改用户任务的到期日期
+* 在 **决策**中添加结果。 **调用微流程** 或 **用户任务** 活动
+* 更改上下文实体、引用微流、引用页面或引用的工作流
 
-## 3 Conflicts When Upgrading to the Latest Workflow Definition
+## 3 次升级到最新工作流定义时冲突
 
-The Runtime detects the following situations as being conflicting when upgrading to the latest workflow definition:
+当升级到最新的工作流定义时，运行时间检测到以下情况相互冲突：
 
-* One of the current active activities of a workflow is removed in the latest **WorkflowDefinition** (e.g. the user task that the workflow instance is currently waiting for, was removed from the definition altogether)
-* A parallel path is introduced in the path that is already being executed
-* An activity is introduced in the path that is already being executed
-* A selected outcome has been replaced
-* An activity that is already being executed is moved to a place where it will be re-executed in the **WorkflowDefinition**
-* The context entity is changed
-* The **WorkflowDefinition** is removed
-
-{{% alert type="info" %}}
-
-Depending on the actual workflow, the above situations may functionally not lead to a problem. Of course, this requires a prior knowledge of the business domain. As a result, the Runtime may detect more conflicts than strictly required from a business perspective.
-
-{{% /alert %}}
-
-Conflicted workflow instances will be marked with state **Incompatible**. The **Reason** field will be updated with a text explaining the found conflicts. The workflow cannot be executed in this state.
+* 当前工作流活动之一已经从最新的 **工作流定义** (e) 中删除。 。目前工作流实例正在等待的用户任务已从定义中全部删除)
+* 在已经执行的路径中引入了一个并行路径
+* 在已经执行的路径中引入了一个活动
+* 选定的结果已被替换
+* 已经执行的活动将被移动到将在 **工作流定义中重新执行的地方**
+* 上下文实体已更改
+* **工作流定义** 已被删除
 
 {{% alert type="info" %}}
 
-The system can change an Incompatible workflow instance into the state **InProgress** and auto-upgrade it when a subsequent app deployment changes the **WorkflowDefinition** to no longer be conflicting.
+根据实际工作流量，上述情况在功能上可能不会造成问题。 当然，这需要事先了解商业领域。 因此，从商业角度来看，运行时间可能发现的冲突比严格需要的多。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 4 System Module Entities
+冲突的 Workflow 实例将被标记为状态 **不兼容**。 **原因** 字段将被更新，包含一个解释找到的冲突的文本。 无法执行此状态下的工作流。
 
-The Runtime will add or change data for the following system entities on startup:
+{{% alert type="info" %}}
 
-* When changes to the workflow definition are detected
-* A new **WorkflowVersion** instance is created (referencing the previous one)
-* The **WorkflowDefinition** is changed to point to the new **WorkflowVersion** as its current version
+系统可以将不兼容的 Workflow 实例更改为状态 **InProgress** 并在随后的应用程序部署更改 **Workflow 定义** 不再冲突时自动升级它。
 
- The **WorkflowVersion** instance also refers to all **WorkflowTaskDefinition** instances present in that version of the model.
+{{% /报警 %}}
+
+## 4 系统模块实体
+
+运行时间将在启动时为以下系统实体添加或更改数据：
+
+* 检测到 Workflow 定义的更改
+* 新的 **工作流版本** 实例已创建 (引用前一个实例)
+* **工作流定义** 更改为指向新的 **工作流版本** 作为当前版本
+
+ **Workflow版本** 实例还提到所有 **WorkflowTaskDefine** 存在于该模型版本的实例。
 
 For more information, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflows](workflows)
+* [工作流](workflows)
