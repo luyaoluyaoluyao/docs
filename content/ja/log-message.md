@@ -1,69 +1,92 @@
 ---
-title: "Log Message"
-parent: "logging-activities"
+title: "ログメッセージ"
+parent: "アクティビティ"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "ログのアクティビティ"
+  - "ログのアクティビティ"
+  - "ログメッセージ"
 ---
 
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
+{{% /alert %}}
+
+## 1つの紹介
+
+**ログ メッセージ** アクティビティでは、Mendix アプリケーションのログに表示されるメッセージを作成できます。
+
+![ログメッセージ](attachments/log-message/log-message.png)
+
+## 2つのプロパティ
+
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
+
+![メッセージの属性のログ](attachments/log-message/log-message-properties.png)
+
+**ログ メッセージ** プロパティ ペインは以下のセクションで構成されています:
+
+* [アクション](#action)
+* [一般的な](#common)
+
+## 3 アクションセクション {#action}
+
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
+
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
+
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.3 ログレベル
+
+ログレベルはログメッセージの重要度を定義します。 [Studio Pro コンソール ペイン](view-menu#console)では、メッセージの色が異なり、ログレベルのアイコンが表示されます。
+
+| Option        | アイコン                                                                                                                     | 説明                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------- |
+| トレース          |                                                                                                                          | 詳細な実行トレースに使用されます。                           |
+| Debug         |                                                                                                                          | デバッグの実行に使用します。                              |
+| 情報  *(デフォルト)* |                                                                                                                          | 有益なメッセージを記録するために使用されます。                     |
+| 警告            | {{% image_container width="15%" %}}![Warning](attachments/log-message/warning.png){{% /image_container %}}               | 警告を記録するために使用されます。 これらのメッセージはオレンジ色で表示されます。   |
+| エラー           | {{% image_container width="15%" %}}![Error](attachments/log-message/error.png){{% /image_container %}}                   | エラーメッセージのログに使用されます。 これらのメッセージは赤で表示されます。     |
+| Critical      | {{% image_container width="15%" %}}![Critical Error](attachments/log-message/critical-error.png){{% /image_container %}} | 致命的なエラーを記録するために使用されます。 これらのメッセージは赤色で表示されます。 |
+
+### 3.2 ログノード名 {#log-node-name}
+
+{{% alert type="warning" %}}
+このプロパティはマイクロフローでのみ利用できます。
+{{% /alert %}}
+
+ログ ノード名は、ログ メッセージのソースを定義する microflow 式です。 例えば、電子メールモジュールからのメッセージを記録する場合、ログノード名は *電子メールモジュール* である可能性があります。 これにより、独自のログノード名を使用すると、Mendix ログノードに書き込まれた Mendix ランタイムからのメッセージと混同を避けることができます。 Mendix ログノードは、 [Logging](logging#mendix-nodes) の ** セクションにリストされています。
+
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+ログノード名には [定数](constants) を使用することをお勧めします。 これにより、ノード名を入力する際のエラーを防ぎ、後でログノード名を変更しやすくなります。
+
+アプリケーションがそのログノードにメッセージを投稿した場合のみ、環境に対してカスタム [ログ ノード レベル](/developerportal/deploy/environments-details#log-levels) を設定できます。 したがって、最初のメッセージをすべてのカスタムログノードに [のマイクロフロー](project-settings#after-startup) 後に送信することをお勧めします。
 {{% /alert %}}
 
-## 1 Introduction
+### 3.3 テンプレート
 
-With the log-message action you can create messages that appear in the log of your Mendix application.
+**テンプレート** がメッセージテキストを定義します。 テンプレートには、例えば、 `{1}` のようにブレース間の数値として記述されるパラメータを含めることができます。 最初のパラメータは `1`、2 番目の `2`などの数字を持ちます。
+
+### 3.4 パラメータ
+
+テンプレート内の各パラメーターに対して、パラメーターの位置に値が挿入されるマイクロフロー式を定義します。 パラメータは [式](expressions) を使用して文字列を入力する必要があります。
 
 {{% alert type="info" %}}
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+パラメータを使用すると、状況に応じたデータでメッセージをカスタマイズできます。 例えば、メッセージ *A e-mail has been sent to customer {1}*. with parameter `$customer/FullName` は、電子メールが送信された顧客のフルネームを表示します。
 
 {{% /alert %}}
 
-## 2 Action Properties
+### 3.5 最新のスタックトレースを含める
 
-### 2.1 Log Level
+このログメッセージに最新のエラーのスタックトレースを含めるかどうかを定義します。 Studio Pro では、スタックトレースを含むログメッセージには、クリップアイコンがマークされます。
 
-The log level defines the severity of the log message. In the modeler console dock, messages have a different color and an icon for some log levels.
+これらのログメッセージをダブルクリックするとスタックトレースが表示されます。
 
-| Option   | Icon                               | Description                                                            |
-| -------- | ---------------------------------- | ---------------------------------------------------------------------- |
-| Trace    |                                    | Used for detailed execution traces.                                    |
-| Debug    |                                    | Used to debug execution.                                               |
-| Info     |                                    | Used to log informative messages.                                      |
-| Warning  | ![](attachments/819203/917893.png) | Used to log warnings. These messages appear in orange.                 |
-| Error    | ![](attachments/819203/917894.png) | Used to log error messages. These messages appear in red.              |
-| Critical | ![](attachments/819203/917895.png) | Used to log critical errors. These messages appear in  white on red  . |
+このオプションは `$latestSoapFault` にも適用されます。 Web サービス呼び出しのエラーハンドラを定義し、ソープ障害エラーをキャッチする場合。 このチェックボックスをオンにすると、Studio Proのログラインにスタックトレースが追加されます。
 
-_Default value:_ Info
+## 4つの共通セクション {#common}
 
-### 2.2 Log Node Name
-
-The log node name is a microflow expression that defines the source of the log message. For example, if you log messages from an email module, the log node name could be 'Email module'.
-
-{{% alert type="success" %}}
-
-It is advised to use a [constant](constants) for the log node name. This prevents typing errors and makes it easier to change the log node name afterwards.
-
-{{% /alert %}}
-
-### 2.3 Template
-
-Template defines the text of the message. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2 etcetera.
-
-### 2.4 Parameters
-
-For each parameter in the template you define a microflow expression of which the value will be inserted at the position of the parameter. Parameters need to be entered using [expressions](expressions) resulting in a string.
-
-{{% alert type="success" %}}
-
-With parameters you can customize your message with data specific to the situation. For example, the message "An e-mail has been sent to customer {1}." with parameter `$customer/FullName` will show the full name of the customer to whom an e-mail has been sent.
-
-{{% /alert %}}
-
-### 2.5 Include Latest Stack Trace
-
-Defines whether to include the stack trace of the latest error in this log message. In the modeler, log messages that include a stack trace are marked with a paperclip icon:
-
-![](attachments/819203/917892.png)
-
-Double-clicking these log messages shows the stack trace.
-
-This option also applies to `$latestSoapFault`. If you define an error handler for a web service call, and it catches a soap fault error, checking this box will add the stacktrace to the logline in the modeler.
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
