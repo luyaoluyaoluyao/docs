@@ -1,68 +1,68 @@
 ---
-title: "Constants"
-parent: "resources"
+title: "定数"
+parent: "リソース"
 menu_order: 60
 tags:
   - "studio pro"
-  - "constant"
-  - "constants"
+  - "定数"
+  - "定数"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Constants are used to define configuration values. These can differ per environment.
+定数は、構成値を定義するために使用されます。 これらは環境ごとに異なる場合があります。
 
-When running the application on a licensed Mendix Cloud environment, SAP BTP, or Private Cloud you can configure the constant values for each environment separately using the [Model Options](/developerportal/deploy/environments-details#model-options) tab of the **Environment Details** page to set your constants.
+Mendix Cloud環境でアプリケーションを実行する場合、SAP BTP。 プライベートクラウドでは、 [環境詳細](/developerportal/deploy/environments-details#model-options) ページの **モデルオプション** タブを使用して、各環境の定数を個別に設定できます。
 
-For other cloud environments – for example, [IBM Cloud](/developerportal/deploy/ibm-cloud) or [MindSphere](/partners/siemens/mindsphere) – the constants can be accessed as **Environment Variables** in, for instance, Cloud Foundry. The constant is exposed with the name **module** + **.** + **constant** (for example, `mymodule.myconstant`).
+その他のクラウド環境 – 例えば、 [IBM Cloud](/developerportal/deploy/ibm-cloud) または [MindSphere](/partners/siemens/mindsphere) - 定数は **環境変数** としてアクセスできます。 例えばCloud Foundryです 定数は **モジュール** + **で公開されます。** + **定数** (例えば、 `mymodule.myconstant` ) で公開されます。
 
-When running the application locally or in a Free App environment, the values defined in Studio Pro are used.
+アプリケーションをローカルまたは無料アプリ環境で実行する場合は、Studio Pro で定義された値が使用されます。
 
 {{% alert type="info" %}}
-The value for a constant can also be overridden in a [configuration](configuration). This allows you to run locally using different values for one or more constants, without having to change the default value for the constant every time.
+定数の値は、 [構成](configuration) で上書きすることもできます。 これにより、1 つ以上の定数に異なる値を使用してローカルで実行できます。 定数のデフォルト値を変更する必要はありません
 {{% /alert %}}
 
-Constants can be used in the following:
+定数は以下で使用できます:
 
-* [Expressions](expressions) – by prefixing the full name of the constant with `@`
-* [Consumed web services](consumed-web-services) – in this case, the constant is a URL that specifies where the web service is located; this can vary based on the environment in which the application is running, so that you can, for example use different web services for development and production
+* [式](expressions) - 定数のフルネームの前に `@`
+* [ウェブサービス](consumed-web-services) – この場合、定数はウェブサービスがどこにあるかを指定する URL です。 これはアプリケーションが動作している環境によって異なります 例えば開発や生産に様々なウェブサービスを利用できるようになります
 
-## 2 Common Properties
+## 2つの一般的なプロパティ
 
-### 2.1 Name
+### 2.1 名前
 
-The name of the constant. This name is used to refer to it.
+定数の名前。 この名前はそれを参照するために使用されます。
 
-### 2.2 Documentation
+### 2.2 ドキュメント
 
-This field is for documentation purposes only: end-users will never see it, and it does not influence the behavior of your application
+このフィールドはドキュメントのみを目的としています：エンドユーザーは表示せず、アプリケーションの動作に影響を与えません
 
-## 3 Type Properties
+## 3 種類のプロパティ
 
 ### 3.1 Type
 
-The [data type](data-types) of the constant. This determines what kind of values a constant can hold. Supported data types are string, Boolean, date and time, decimal, and integer/long.
+定数の [データ タイプ](data-types)。 これは、定数が保持できる値の種類を決定します。 サポートされているデータ型は文字列、ブーリアン、日付と時刻、小数、および整数/longerです。
 
-## 4 Value Properties
+## 4つの値のプロパティ
 
-### 4.1 Default Value
+### 4.1 デフォルト値
 
-This property is the default value of the constant. This value is used when running locally or in a Free App environment. When running locally, the value can be overridden in the currently selected [configuration](configuration).
+このプロパティは、定数のデフォルト値です。 この値は、ローカルまたは無料アプリ環境で実行するときに使用されます。 ローカルで実行する場合、現在選択されている [構成](configuration) で値を上書きすることができます。
 
-### 4.2 Exposed to Client
+### 4.2 クライアントに公開
 
-This property defines whether the constant is accessible from client-side expressions (expressions in [nanoflows](nanoflows) and [pages](pages)).
+このプロパティは、定数がクライアント側の式 ( [ナノフロー](nanoflows) と [ページ](pages) の式 ) からアクセスできるかどうかを定義します。
 
-| Option         | Description                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Yes            | The constant will be sent to the client and will be accessible from client-side expressions                      |
-| No *(default)* | The constant will not be sent to the client and will be only accessible from [microflow](microflows) expressions |
+| Option      | 説明                                                     |
+| ----------- | ------------------------------------------------------ |
+| はい          | 定数はクライアントに送信され、クライアント側の式からアクセスできます                     |
+| *なし（デフォルト）* | 定数はクライアントに送信されず、 [microflow](microflows) 式からのみアクセスできます |
 
 {{% alert type="warning" %}}
-When a constant is exposed to the client, Mendix Runtime sends its value to the client so that in addition to microflow expressions, it will also be accessible from nanoflows and page expressions. This means that you should not use sensitive data or secrets such as passwords when a constant is exposed to the client.
+定数がクライアントに公開された場合、Mendix Runtime はその値をクライアントに送信し、マイクロフロー式に加えてその値をクライアントに送信します。 ナノフローやページ表現からもアクセスできるようになります これは、定数がクライアントにさらされたときに、パスワードなどの機密データや秘密を使用しないことを意味します。
 
-For a web app, changes to a constant's values are reflected when the end-user refreshes the browser or restarts the app. For an offline-first PWA or native application, the app stores the constants' values for offline use. The app updates the constant's values in the following cases:
+Web アプリケーションの場合、エンドユーザーがブラウザをリフレッシュしたり、アプリを再起動したりすると、定数の値への変更が反映されます。 オフラインで最初の PWA またはネイティブアプリケーションの場合、アプリケーションはオフラインで使用するための定数の値を格納します。 以下の場合、定数の値を更新します。
 
-* When an end-user logs in or logs out in the app
-* When you deploy a new version of the app that contains domain model changes used in the offline-first app
+* エンドユーザーがアプリにログインまたはログアウトしたとき
+* ドメインモデルを含む新しいバージョンのアプリをデプロイすると、オフラインファーストアプリで使用される変更があります。
 {{% /alert %}}
