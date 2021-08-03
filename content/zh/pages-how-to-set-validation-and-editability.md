@@ -43,9 +43,9 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
-* 使自己熟悉输入元素的可编辑性和输入验证属性。 欲了解更多信息，请参阅 [编辑性](/studio8/page-editor-widgets-input-elements#editability) and [输入验证部分](/studio8/page-editor-widgets-input-elements#validation) 部分在 *输入元素*。
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
+* 使自己熟悉输入元素的可编辑性和输入验证属性。 欲了解更多信息，请参阅 [编辑性](/studio/page-editor-widgets-input-elements#editability) and [输入验证部分](/studio/page-editor-widgets-input-elements#validation) 部分在 *输入元素*。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
 
 ## 将字段设置为只读
 
@@ -64,7 +64,7 @@ tags:
 
 3. 在 **常规** 部分中，设置 **编辑性** 属性为只读：
 
-    {{% image_container width="250" %}}![](attachments/pages-how-to-set-validation-and-editability/editability.png){{% /image_container %}}
+    ![](attachments/pages-how-to-set-validation-and-editability/editability.png)
 
 4. 选择 **员工号码** 字段并打开其属性。
 
@@ -109,6 +109,6 @@ tags:
 
 恭喜！ 您已将字段设置为只读字段，并包含雇员详细信息。
 
-您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio8/publishing-app)。
+您现在可以预览您的应用并测试您的页面。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio/publishing-app)。
 
 您也可以为您的应用添加新功能，例如，允许员工为他们的商务旅行报告附加图像。 欲了解更多信息，请参阅 [如何启用最终用户附加图像](pages-how-to-attach-images)。
