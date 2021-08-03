@@ -1,27 +1,38 @@
 ---
-title: "Settings"
-description: "Describes the Settings menu in Mendix Studio."
-menu_order: 90
-tags:
-  - "studio"
-  - "settings"
-  - "widgets"
+title: "設定"
+parent: "consed-app-services"
 ---
 
-## 1 Introduction
+{{% alert type="info" %}}
+アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 既存のアプリサービスを利用するには、 [ウェブサービス](consumed-web-services) を使用してください。
+{{% /alert %}}
 
-**Settings** are settings on roles and permissions and app widgets.
+設定画面には、アプリサービスのバージョン、アイコン、および簡単な説明が表示されます。 「アクション」、「設定」、「ドキュメント」の3つのタブが選択可能です。
 
-**Settings** consist of the following:
+## アクション
 
-* [Roles and Permissions](settings-security) – you can manage access to your app and its documents via **Roles and Permissions**
-* [Widget Overview](settings-widget-overview) – contains information on Mendix Marketplace widgets and local widgets in your app
+![](attachments/16713705/16843901.png)
 
-To open the **Settings**, click the gear icon at the left menu bar.
+このタブでは、提供されるマイクロフローアクションの概要が表示されます。 アクションごとにアイコン、図表番号、説明が表示されます。 マイクロフローツールボックスでは、各アクションはアクションの名前としてアイコンとキャプションを表示します。 この名前は、マイクロフローで使用された場合にも表示されます。
 
-![](attachments/settings/settings-icon.png)
+## 設定
 
-## 2 Main Documents in This Category
+「設定」タブには、アプリサービスの場所と認証方法が含まれています。
 
-* [Security, Roles & Permissions](settings-security) – describes security in Mendix Studio, user roles and permissions for them
-* [Widget Overview](settings-widget-overview) – describes settings for Mendix Marketplace and local widgets in your app
+![](attachments/16713705/16843897.png)
+
+### 設定
+
+アプリサービスのデフォルトの場所を変更するには、URLを指定したConstantを指定します。
+
+### 認証
+
+認証方法が表示されます。 消費者として、あなたはこれを担当していないため、これを変更することはできません。
+
+### タイムアウト
+
+このタイムアウトはアプリサービスによって提供されるすべてのアクションに適用されます。 アプリのサービスアクションが指定された時間(秒)以内に返信しない場合、エラーが生成されます。 マイクロフローにおける標準的なエラー処理を使用して、タイムアウト時に何をすべきかを定義することができます。
+
+## パブリッシャードキュメント
+
+このタブには、アプリサービスのサプライヤーが提供するドキュメントが表示されます。
