@@ -1,7 +1,7 @@
 ---
 title: "Published REST Services"
 parent: "integration"
-#menu_order:
+menu_order: 20
 description: "An overview of published REST services from Mendix apps"
 tags:
   - "publish"
@@ -9,10 +9,6 @@ tags:
   - "overview"
   - "configuration"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-services.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -52,8 +48,3 @@ The documentation of the services is available in the [OpenAPI 2.0](open-api) fo
 
 To log detailed information about interaction with your published REST service, [set the log level](logging) of the **REST Publish** log node to **Trace**.
 
-## 6 Example
-
-**How to publish REST in Studio Pro 8**
-
-{{% youtube Ff_P84NOcZk %}}
