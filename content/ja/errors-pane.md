@@ -1,85 +1,85 @@
 ---
 title: "Errors Pane"
-parent: view-menu
+parent: 表示メニュー
 menu_order: 30
-description: "Describes the Errors pane in Mendix Studio Pro."
+description: "Mendix Studio Proのエラーペインについて説明します。"
 tags:
   - "Studio Pro"
-  - "errors"
-  - "error list"
+  - "エラー"
+  - "エラーリスト"
   - "errors pane"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-To make sure that your app is always consistent and properly built, Studio Pro does consistency checks when you build your app.
+アプリケーションが常に一貫して正しくビルドされていることを確認するために、Studio Proはアプリケーションのビルド時に一貫性を確認します。
 
-When a consistency check is not met, Studio Pro will notify you about this on the **Errors** pane. The errors and warnings in pages, microflows, domain models, and document templates will be highlighted:
+一貫性チェックが満たされない場合、Studio Proは **Errors** ペインでこれについて通知します。 ページ、マイクロフロー、ドメインモデル、ドキュメントテンプレートのエラーと警告が強調表示されます。
 
 ![Errors Pane](attachments/errors-pane/errors-pane.png)
 
-To display the **Errors** pane, there are two options:
+**エラー** ペインを表示するには、2つのオプションがあります。
 
-* Right-click the element with the highlighted error and select **Found error** > **Go to Error List**
-* Open the menu option **View > Error List**
+* ハイライトされたエラーを持つ要素を右クリックし、 **Found error** > **Go to Error List**
+* メニューオプションを開きます **表示 > エラーリスト**
 
-## 2 Types of Messages {#message-types}
+## 2種類のメッセージ {#message-types}
 
-There are three types of messages, each having its own button and icon:
+メッセージには、それぞれ独自のボタンとアイコンを持つ3種類があります。
 
-![Types of Messages](attachments/errors-pane/types-of-messages.png)
+![メッセージの種類](attachments/errors-pane/types-of-messages.png)
 
-The table below provides the details on each type of the message:
+以下の表は、メッセージの各タイプの詳細を示しています。
 
-| Type         | Icon                                              | Function                                                                                                                                                                                                                            |
-| ------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Errors       | ![](attachments/errors-pane/error-icon.png)       | Consistency errors that prevent your app from functioning in a correct way and being deployed (for example, if you do not specify an entity for the data view, your app cannot function correctly).                                 |
-| Deprecations | ![](attachments/errors-pane/deprecation-icon.png) | This type shows information on features that are deprecated and can be entirely removed in the future versions. This does not affect the app now, but may cause problems when upgrading to the next version.                        |
-| Warnings     | ![](attachments/errors-pane/warning-icon.png)     | Errors that are not critical, so you can publish your app having warnings. However, it is highly recommended to take action based on the warnings, because your app has logical gaps (for example, clicking a button does nothing). |
+| タイプ  | アイコン                                              | 関数                                                                                                       |
+| ---- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| エラー  | ![](attachments/errors-pane/error-icon.png)       | アプリが正しい方法で動作し、デプロイされることを妨げる一貫性エラー（例えば、 データビューのエンティティを指定しない場合、アプリは正しく機能できません。                             |
+| 廃止予定 | ![](attachments/errors-pane/deprecation-icon.png) | この型は非推奨で将来のバージョンで完全に削除できる機能に関する情報を示しています。 これはアプリには影響しませんが、次のバージョンにアップグレードする際に問題が発生する可能性があります。            |
+| 警告   | ![](attachments/errors-pane/warning-icon.png)     | 重要でないエラー。警告を含むアプリを公開できます。 ただし、アプリには論理的なギャップがあるため(例えば、ボタンをクリックすると何も起こらないため)、警告に基づいてアクションを実行することを強くお勧めします。 |
 
-## 3 Interacting with the Errors Pane
+## 3 エラーペインとの相互作用
 
-### 3.1 Displaying Different Types of Messages
+### 3.1 異なる種類のメッセージを表示する
 
-You can toggle what messages are displayed in the **Errors** pane by clicking **Errors**, **Deprecations**, and **Warnings** buttons. If the button is highlighted, the corresponding type of message is displayed.
+You can toggle what messages are displayed in the **Errors** pane by clicking **Errors**, **Deprecations**, and **Warnings** buttons. ボタンがハイライトされている場合、対応するメッセージタイプが表示されます。
 
-For more information on types of messages, see the [Types of Messages](#message-types) section.
+メッセージの種類についての詳細は、 [メッセージの種類](#message-types) のセクションを参照してください。
 
-### 3.2 Check Now Option
+### 3.2 今すぐチェックオプション
 
-The **Check now** option initiates the check of your app on consistency failures. This is useful if you have set an auto-check delay in **Edit** > **Preferences**. If the auto-delay is not specified, the check is done immediately after each change.
+**Check now** オプションは、一貫性の失敗時にアプリケーションのチェックを開始します。 **Edit** > **Preferences** で自動チェックの遅延を設定している場合に便利です。 自動遅延が指定されていない場合は、変更ごとに直ちにチェックが行われます。
 
-### 3.3 Limit to Current Tab Option
+### 3.3 現在のタブに制限オプション
 
-Limits the messages displayed in the pane to the current document.
+ペインに表示されるメッセージを現在のドキュメントに制限します。
 
-### 3.4 Message Overview
+### 3.4 メッセージの概要
 
-To enable you to find your errors, deprecations, and warnings quickly, each message shows you the following:
+エラー、非推奨、警告をすばやく見つけられるようにするには、各メッセージに次のように表示されます。
 
-* Icon – indicates the [type of the message](#message-types)
-* Index number – an index number assigned to each message
-* **Code** – a unique code that is specific for the errors only; warning and deprecation do not have  error codes
-* **Message** –  description/explanation of the check failure
-* **Element** – an element causing the check failure
-* **Document** – the place where the element is
-* **Module** – the module where the document is
+* アイコン – メッセージ [の種類を示します](#message-types)
+* インデックス番号 - 各メッセージに割り当てられたインデックス番号
+* **コード** - エラーに固有のコード。警告と非推奨にはエラーコードがありません
+* **メッセージ** – チェック失敗の説明/説明
+* **要素** - チェックに失敗する要素
+* **ドキュメント** – 要素がある場所
+* **モジュール** - ドキュメントがあるモジュール
 
-Double-clicking the check will take you directly to the element causing the check failure.
+チェックをダブルクリックすると、チェック失敗の原因となる要素が直接表示されます。
 
-You can also sort the order which messages are displayed in by clicking the column header in the pane. Thus, you can sort errors in ascending or descending order by the icon, index number, message, error code, module, document, or element.
+ペイン内の列ヘッダーをクリックすることで、表示されるメッセージの順序を並べ替えることもできます。 したがって、アイコン、インデックス番号、メッセージ、エラーコード、モジュール、ドキュメント、要素などにより、エラーを昇順または降順で並べ替えることができます。
 
-Right-clicking the message line opens a drop-down menu:
+メッセージ行を右クリックすると、ドロップダウンメニューが開きます。
 
-![Drop-Down Menu](attachments/errors-pane/drop-down-menu.png)
+![ドロップダウンメニュー](attachments/errors-pane/drop-down-menu.png)
 
-The following actions are available in the drop-down menu:
+ドロップダウンメニューでは、次の操作を使用できます。
 
-* **Go to {the name of the element}** – does the same as double-clicking the message, takes you to the element causing the check failure.
-* **View documentation about {an error or the name of the element}** – opens the corresponding document that describes this check failure and gives instructions on how to fix it; if there is no documentation on the current message, the option is greyed-out
-* Message-specific actions – actions that depend on the message, in the example above, you can remove the microflow parameter that is not used in the app
+* ** {the name of the element}** に移動します。メッセージをダブルクリックするとチェックに失敗する要素が表示されます。
+* ** {an error or the name of the element}についてのドキュメントを見る** - このチェックに失敗したことを説明する対応するドキュメントを開き、それを修正する方法を示します。 現在のメッセージにドキュメントがない場合、オプションは greyed-out です
+* メッセージ固有のアクション – 上記の例では、メッセージに依存するアクション アプリで使用されていないmicroflow パラメータを削除できます。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Consistency Errors](consistency-errors)
+* [整合性エラー](一貫性エラー)
 * [Studio Pro Overview](studio-pro-overview)
