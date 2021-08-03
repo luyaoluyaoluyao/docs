@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/integration-activities.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 These activities can only be used in **Microflows**.
 {{% /alert %}}
@@ -24,7 +20,7 @@ The activities described in this document are in the **Integration Activities** 
 ![integration activities toolbox](attachments/integration-activities/integration-activities-toolbox.png)
 {{% /image_container %}}
 
-The following are the list activities you can use in your microflow:
+The following are the integration activities you can use in your microflow:
 
 * [Call REST Service](call-rest-action) – calls a REST endpoint
 * [Call Web Service](call-web-service-action) – calls an imported web service operation
