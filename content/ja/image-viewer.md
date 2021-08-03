@@ -1,114 +1,114 @@
 ---
-title: "Image Viewer"
+title: "画像ビューアー"
 parent: "file-widgets"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-An image viewer can be used to display an image or its thumbnail. For example, you can show a profile picture:
+画像ビューアは、画像やサムネイルを表示するために使用できます。 たとえば、プロフィール画像を表示できます。
 
 ![](attachments/pages/image-viewer.png)
 
-An image viewer must be placed in a data view or a template grid.
+イメージ ビューアーはデータ ビューまたはテンプレート グリッドに配置する必要があります。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of image viewer properties is represented in the image below:
+以下の画像では、画像ビューアのプロパティの例を示します。
 
-{{% image_container width="250" %}}![Image Viewer Properties](attachments/file-widgets/image-viewer-properties.png)
+{{% image_container width="250" %}}![画像ビューアのプロパティ](attachments/file-widgets/image-viewer-properties.png)
 {{% /image_container %}}
 
-Image viewer properties consist of the following sections:
+画像ビューアのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Events](#events)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [イベント](#events)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Data Source Section {#data-source}
+### 2.3 データソースセクション {#data-source}
 
-#### 2.3.1 Entity (Path)
+#### 2.3.1 エンティティ (パス)
 
-The **Entity (path)** property specifies which object will be shown in the image viewer. It must be a System.Image or a specialization thereof. If the object in the data view is (a specialization of) System.Image you can use this object in the image viewer as well.
+**エンティティ (パス)** プロパティは、イメージビューアに表示されるオブジェクトを指定します。 それはシステムでなければなりません。 データビューのオブジェクトが(特殊化された)System.Imageの場合は、このオブジェクトを画像ビューアでも使用できます。
 
-### 2.4  Events Section {#events}
+### 2.4 イベントセクション {#events}
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.5 General Section{#general}
+### 2.5 一般セクション{#general}
 
 #### 2.5.1 Default Image
 
-This is the image that is displayed if no image is uploaded.
+これは画像がアップロードされない場合に表示される画像です。
 
 #### 2.5.2 Width Unit {#width-unit}
 
-The table below describes possible ways to specify the width of an image:
+以下の表に画像の幅を指定する方法を示します。
 
-| Value                   | Definition                                                                                                                                                                                   |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pixels                  | The width is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched. |
-| Percentage  *(default)* | The width is specified in a percentage of the original width. It can be larger than its original width in which case the image is stretched.                                                 |
-| Auto                    | The width of the given image is used.                                                                                                                                                        |
+| 値             | 定義                                                                          |
+| ------------- | --------------------------------------------------------------------------- |
+| Pixels        | 幅はピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。 |
+| 割合  *(デフォルト)* | 幅は元の幅のパーセンテージで指定されます。 画像が伸びている場合は、元の幅よりも大きくすることができます。                       |
+| 自動            | 指定された画像の幅が使用されます。                                                           |
 
 {{% alert type="info" %}}
-Not supported on native mobile pages.
+モバイルネイティブページではサポートされていません。
 {{% /alert %}}
 
 #### 2.5.3 Width
 
-This property is displayed only when the [Width unit](#width-unit) property is set to *Pixels* or *Percentage*. This property determines the width of the image, either in pixels or a percentage.
+このプロパティは、 [幅 単位](#width-unit) プロパティが *ピクセル* または *パーセント* に設定されている場合にのみ表示されます。 このプロパティは、画像の幅をピクセルまたはパーセンテージで決定します。
 
-Default: *0*
+デフォルト: *0 0*
 
-#### 2.5.4 Height Unit {#height-unit}
+#### 2.5.4 高さ単位 {#height-unit}
 
-The table below describes possible ways to specify the height of an image:
+以下の表に画像の高さを指定する方法を示します。
 
-| Value             | Definition                                                                                                                                                                                    |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pixels            | The height is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched. |
-| Percentage        | The height is specified in a percentage of the original height. It can be larger than its original height in which case the image is stretched.                                               |
-| Auto  *(default)* | The height of the given image is used.                                                                                                                                                        |
+| 値                 | 定義                                                                           |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Pixels            | 高さはピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。 |
+| 割合                | 高さは元の高さのパーセンテージで指定されます。 画像が伸びている場合は、元の高さよりも大きくすることができます。                     |
+| Auto  *(default)* | 指定された画像の高さが使用されます。                                                           |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-#### 2.5.5 Height
+#### 高さ2.5.5
 
-This property is displayed only when the [Height unit](#height-unit) property is set to *Pixels* or *Percentage*. This property determines the height of the image, either in pixels or a percentage.
+このプロパティは、 [高さ単位](#height-unit) プロパティが *ピクセル* または *パーセント*に設定されている場合のみ表示されます。 このプロパティは、画像の高さをピクセルまたはパーセンテージで決定します。
 
-Default: *0*
+デフォルト: *0 0*
 
-#### 2.5.6 Responsive
+#### 2.5.6 レスポンシブ
 
-This property determines how the image scales. If the value is set to *Yes*, the image will never get bigger than its original size, but it can become smaller. If the value is set to *No*, the image can become both larger and smaller than its original size.
+このプロパティは、画像の拡大縮小方法を決定します。 値が *はい*に設定されている場合、画像は元のサイズより大きくなることはありませんが、小さくなる可能性があります。 値が *No*に設定されている場合、画像は元のサイズより大きく、小さくなることがあります。
 
-Default: *Yes*
+デフォルト: *はい*
 
-#### 2.5.7 Show
+#### 2.5.7 表示
 
-This property indicates whether the generated thumbnail or the full image is shown.
+このプロパティは、生成されたサムネイルかフル画像が表示されるかを示します。
 
 Default: *Thumbnail*
 
-### 2.6 Visibility Properties{#visibility}
+### 2.6 可視性プロパティ{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [ファイルウィジェット](file-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
