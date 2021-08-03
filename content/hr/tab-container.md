@@ -1,37 +1,76 @@
 ---
-title: "Tab container"
+title: "Tab Container"
 parent: "container-widgets"
+menu_order: 40
+tags:
+  - "studio pro"
+  - "tab container"
+  - "tab page"
+  - "container widget"
+  - "widget"
+aliases:
+  - /refguide8/tab-page.html
 ---
 
-
-Tab containers are used to show information categorized into multiple tab pages. This can be very useful if the amount of information that has to be displayed is larger than the amount of space on the screen.
-
 {{% alert type="info" %}}
-
-![](attachments/pages/tab-container.png) A tab control with two tab pages (Address, Orders).
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/tab-container.pdf).
 {{% /alert %}}
 
-## Components
+## 1 Introduction
 
-### Tab pages
+Tab containers are used to show information categorized into tabs. This can be very useful if the amount of information that has to be displayed is larger than the amount of space on the screen.
 
-A tab control contains one or more tab pages, into which you can again place other widgets. For example, a tab page can contain a grid of orders.
+![Tab Container](attachments/container-widgets/tab-container.png)
 
-See [Tab page](tab-page).
+## 2 Properties
 
-## Common properties
+An example of tab container properties is represented in the image below:
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% image_container width="250" %}}![Tab Container Properties](attachments/container-widgets/tab-container-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+Tab container properties consist of the following sections:
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+* [Common](#common)
+* [Design Properties](#design-properties)
+* [Visibility](#visibility)
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+### 2.1 Common Section {#common}
 
-## Visibility properties
+{{% snippet file="refguide8/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 Visibility Section {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 Tab Page {#tab-page}
+
+A tab container contains one or more tab pages where you place widgets. For example, a tab page can contain a grid of orders.
+
+### 3.1 Tab Page-Specific Properties
+
+#### 3.1.1 Default Tab Page
+
+**Default tab page** defines which tab is displayed when the page is opened. If no tab is set as the default one, the first tab page will be shown.
+
+Default: *False*
+
+#### 3.1.2 Refresh on Show {#refresh}
+
+**Refresh on show** indicates whether the contents of the tab page should be refreshed when the tab page is shown. Set this property to *No* if you know that nothing will affect the information on the tab page.
+
+Default: *True*
+
+{{% alert type="info" %}}
+This property is not supported on native mobile pages.
+{{% /alert %}}
+
+## 4 Read More
+
+* [Page](page)
+* [Container Widgets](container-widgets)
+* [Properties Common in the Page Editor](common-widget-properties)
