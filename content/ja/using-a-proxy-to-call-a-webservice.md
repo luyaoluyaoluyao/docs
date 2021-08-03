@@ -1,12 +1,17 @@
 ---
-title: "Webサービスを呼び出すためのプロキシの使用"
+title: "プロキシを使用してWebサービスを呼び出します"
 parent: "consed-web-services"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-webservice.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
 
 場合によっては、ファイアウォールの後ろに貼り付けられているため、ウェブサービスを直接呼び出すことができません。 このドキュメントでは、そのようなサービスを呼び出すためにプロキシを使用するように JVM を構成する方法を説明します。
 
-## プロキシホストとプロキシ ポート
+## 2 プロキシホストとプロキシ ポート
 
 使用するプロキシサーバーを指定する2つのJVMパラメータ(システムプロパティ)があります。 これらは http.proxyHost と http.proxyPort です。 JVM パラメータの下で .m2eerc で指定できます。
 
@@ -25,7 +30,7 @@ parent: "consed-web-services"
 
 ```
 
-## プロキシユーザーとパスワード
+## 3プロキシユーザーとパスワード
 
 一部のプロキシでは認証が必要です。 ユーザーとパスワードを指定するには、2つのJVMパラメータを渡します。
 
@@ -33,10 +38,10 @@ parent: "consed-web-services"
 -Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
 ```
 
-## SSL
+## 4 SSL
 
 セキュアソケットレイヤー(すなわちhttps)を使用して接続することもできます。 プロキシを設定するには、接続するための **異なる** プロキシ設定を指定する必要があります。 これらの設定は https.proxyHost と https.proxyPort と呼ばれます。 さらに、プロキシサーバーの ssl 証明書を Java キーストアにインポートする必要があります。 詳細については、 [Oracle Web サイト](http://download.oracle.com/javaee/1.4/tutorial/doc/Security6.html) を参照してください。
 
-## 参照
+## 5つの参照
 
 [プロキシに関するOracle ドキュメント](http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html)
