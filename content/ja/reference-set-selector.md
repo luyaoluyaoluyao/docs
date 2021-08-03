@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/reference-set-selector.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}The **reference set selector** widget is not supported on native mobile pages.{{% /alert %}}
 
 ## 1 Introduction
@@ -74,11 +70,11 @@ There are three additional sets of properties which do not appear in the propert
 
 ### 2.1 Common Section{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Data Source Section {#data-source}
 
-{{% snippet file="refguide8/data-source-section-link.md" %}}
+{{% snippet file="refguide/data-source-section-link.md" %}}
 
 The attribute path specifies which attribute(s) of an associated entity is shown in the reference set selector. The path must follow one association of type reference set starting in the entity of the data view.
 
@@ -88,13 +84,13 @@ You cannot currently use non-persistable entities in a reference set selector.
 
 ### 2.3 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.4 Events Section {#events}
 
 The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
 ### 2.5 General Section {#general}
 
@@ -139,21 +135,7 @@ Even if the control bar is invisible there can still be a default button that is
 
 Default: *True*
 
-#### 2.5.7 Show Paging Buttons {#show-paging-buttons}
-
-{{% alert type="warning" %}}
-This property is not available in Mendix 8.13 and above. Use the [Show Paging Bar](#show-paging-bar) property instead.
-{{% /alert %}}
-
-This property indicates whether the buttons to page through the information in the grid are visible or not. Only hide these buttons if you are sure that there will never be more objects than the number of rows of the grid. Note that hiding the control bar also hides the paging buttons.
-
-Default: *True*
-
-#### 2.5.8 Show Paging Bar {#show-paging-bar}
-
-{{% alert type="info" %}}
-This property was introduced in Mendix 8.13. It replaces the [Show Paging Buttons](#show-paging-buttons) property.
-{{% /alert %}}
+#### 2.5.7 Show Paging Bar {#show-paging-bar}
 
 With this property, you can change the way the paging bar is shown.
 
@@ -169,7 +151,7 @@ Default: *Yes (with total count)*
 Hiding the control bar also hides the paging buttons. For details, see [Show Control Bar](#show-control-bar).
 {{% /alert %}}
 
-#### 2.5.9 Selection Mode {#selection-mode}
+#### 2.5.8 Selection Mode {#selection-mode}
 
 The selection mode determines whether and how the user can select items in the reference set selector.
 
@@ -181,7 +163,7 @@ The selection mode determines whether and how the user can select items in the r
 | Multi-selection               | The user can select multiple items by clicking the first one and holding the <kbd>Ctrl</kbd> key while clicking on other items. Clicking an item without the <kbd>Ctrl</kbd> key will deselect all other selected items and make the clicked item the selection. |
 | Simple multi-selection        | The user can select multiple items by clicking on them in turn.                                                                                                                                                                                                  |
 
-#### 2.5.10 Select First {#select-first}
+#### 2.5.9 Select First {#select-first}
 
 Specifies whether the first item should be selected by default when the reference set selector is first shown.
 
@@ -190,7 +172,7 @@ Possible values:
 * No *(default)*
 * Yes
 
-#### 2.5.11 Default Button Trigger {#default-button-trigger}
+#### 2.5.10 Default Button Trigger {#default-button-trigger}
 
 The default button can be triggered by a single or a double click a row.
 
@@ -216,7 +198,7 @@ You cannot use a microflow to define selectable objects in a reference set selec
 
 ### 2.7 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Read More
 
