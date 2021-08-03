@@ -1,272 +1,190 @@
 ---
-title: "Domain Model"
-description: "Describes the domain models in Mendix Studio."
-category: "Working with Data"
-menu_order: 10
+title: "域模型"
+description: "描述Mendix Studio中的域模型。"
+menu_order: 20
 tags:
-  - "studio"
-  - "domain model"
+  - "工作室"
+  - "域模型"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix app consists of *modules*. A module is a unit that divides functionality of your app into separate parts. By default, you have one module in Studio called MyFirstModule.
+域模型是一个数据模型，以抽象的方式描述您应用程序域中的信息。 它是您应用程序架构的核心。
 
-Each module has its own *domain model*. The domain model is a data model that describes the information in your application domain in an abstract way. It is central to the architecture of your application.
+工作室的域模型包括以下内容：
 
-The domain model in Studio consists of the following:
+* [实体](#entity)
+* [社会联系](domain-models-association-properties)
 
-* [Entities](#entity-types)
-* [Associations](domain-models-association-properties)
+{{% alert type="info" %}}
 
-Let us say you have a collection of CDs like the one in the table below:
+让我们说你有一个CD集，就像下表中的集合。
 
-| Title                           | Artist                   |
-| ------------------------------- | ------------------------ |
-| How to Dismantle an Atomic Bomb | U2                       |
-| Exodus                          | Bob Marley & The Wailers |
+| 标题       | 艺人                       |
+| -------- | ------------------------ |
+| 如何拆除原子弹位 | U2                       |
+| Exodus   | Bob Marley & The Wailers |
 
-The rows in the table are CDs. So, a *CD* is an *entity*. A specific CD like "How to Dismantle an Atomic Bomb" of the band U2 is an *object* of the *CD* entity. That means that an *object* is a single instance of an entity. Characteristics like the "Title" and "Artist" are *attributes*.
+表格中的行是CD。 两行的类型是“CD”，这是实体名称。 一个 U2 频带的 "如何拆除原子弹" 特定的 CD 称为"CD" 实体的对象。 像“标题”和“艺术家”这样的特性被称为属性。
 
-To view the **Domain Models** of your app in Studio, click the **Domain Models** icon in the left menu bar of Studio.
+{{% /报警 %}}
+
+要在 Studio 中查看您的应用程序的 **域模式** 点击 **域模型** 工作室左侧菜单栏中的图标。
 
 {{% image_container width="350" %}}![](attachments/domain-models/domain-model.png)
 {{% /image_container %}}
 
-After opening a domain model, you will see an overview of all entities, attributes, and associations. The complexity of your domain model depends on the complexity of your app.
+打开域模型后，您将看到实体的所有实体、属性和协会的概览。
 
 ![](attachments/domain-models/domain-overview.png)
 
-The **Auto Arrange** option in the top-left corner groups and aligns entities by associations. Entities with no associations will be vertically aligned.
+{{% alert type="info" %}}
 
-## 2 Components
+您的域模型的复杂性取决于您的应用的复杂性。
 
-The domain model can contain the following components:
+{{% /报警 %}}
 
-* [Entity](#entity-types) – represents a class of real-world objects; entities can have attributes
-    * [Attribute](#attributes) – describes and/or identify the entity
-* [Association](#associations) – describes a relation between entities
+**自动在域模型组上方排列** 选项，并通过关联对实体进行配对。 没有关联的实体将被垂直对齐。
 
-### 2.1 Entities and Their Types {#entity-types}
+## 2 个组件
 
-An entity represents a class of real-world objects, such as customers, invoices, work items, etc. If we draw a parallel with databases, the entity is a table.
+| 域名模型组件                                     | 描述                                                                          | 属性                                                                                                                                             |
+| ------------------------------------------ |:--------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 实体<a name="entity"></a>                | 一个实体代表一类现实对象，如客户、发票、工程项目等。 <br />如果我们绘制一个与数据库平行的图表，实体就是一个表。           | 名称<br />[持久性](/refguide/persistability)                                                                                                  |
+| [属性](domain-models-attributes)             | 属性是描述和/或确定实体的特征。 例如， *客户* 实体通常具有客户名称、电子邮件地址和其他个人信息的属性。 如果我们与数据库平行绘制，属性就是一列。 | 名称<br />类型                                                                                                                               |
+| [协会](domain-models-association-properties) | 一个协会描述了实体之间的关系。 在域模型中，一个协会由两个实体之间的线/箭头代表。 如果我们绘制与数据库平行的数据库，该协会是一个外国钥匙。      | 名称<br />[多重性](domain-models-association-properties#multiplicity)<br />[删除行为](domain-models-association-properties#delete-behavior) |
 
-You can add different type of entities to your domain model:
+欲了解示例和更多技术详情，请参阅 [域模式](/refguide/domain-model), [实体](/refguide/entities), [属性](/refguide/attributes)和 [关联 *Studio Pro 指南* 中](/refguide/associations)
 
-* **Entity** – an entity that can have attributes, associations, and represents a class of real-world objects.
-* **Image Entity** – a special type of entity that allows you to store an image. For example, on pages, users will be able  to view and upload images with the help of an image entity.
-* **File Entity** – a special type of entity that allows you to store a file. For example, on pages, users will be able to upload and download files (such as, a text document, a pdf, a spreadsheet) with the help of a file entity.
-* **External Entity** – only available if you have the Data Hub functionality enabled for your organization. For more information on external entities, see [Data Hub in Studio](data-hub-in-studio).
+## 3 添加新实体 {#adding-new-entities}
 
-### 2.2 Entity Properties
+您可以在 **工具箱** 中添加新实体。
 
-Entities have the following properties:
-
-* **General** properties define the name of the entity and its [persistability](/refguide8/persistability):
-
-    * **Name** – defines the name of the entity
-
-    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*)
-
-    ![General Properties of an Entity](attachments/domain-models/entity-general-properties.png)
-
-* **Stored Information** properties define whether the information about the entity is stored in the database. If the information is stored, it can be retrieved afterwards and can be used in [page filters](data-filters). For example, you can add a filter and show only objects that were created by the current user.
-
-    You can toggle the following properties:
-
-    * **Store 'Created by'** – when enabled, the user who created the entity is stored in the database
-
-    * **Store 'Creation Date'** – when enabled, the date and time when the entity was created is stored in the database
-
-    * **Store 'Last Changed by'**– when enabled, the user who was the last to make changes to the entity is stored in the database
-
-    * **Store 'Last Changed Date'** – when enabled, the date and time when the entity was last changed is stored in the database
-
-        ![Stored Information Properties of an Entity](attachments/domain-models/entity-stored-info.png)
-
-        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image and File entities.{{% /alert %}}
-
-### 2.3 Attributes {#attributes}
-
-Attributes are characteristics that describe and/or identify the entity. For example, a *Customer* entity typically has attributes for the name of the customer, an e-mail address, and other personal information. If we draw a parallel with databases, the attribute is a column.
-
-For more information on attribute types and their properties, see [Attributes](domain-models-attributes).
-
-### 2.4 Associations {#associations}
-
-An association describes a relation between entities. In the domain model, an association is represented by a line between two entities. If we draw a parallel with databases, the association is a foreign key.
-
-For more information on association types and their properties, see [Associations](domain-models-association-properties).
-
-## 3 Adding New Entities {#adding-new-entities}
-
-You can add new entities in the **Toolbox**.
-
-{{% image_container width="300" %}}![](attachments/domain-models/toolbox-entity.png)
+{{% image_container width="250" %}}![](attachments/domain-models/toolbox-entity.png)
 {{% /image_container %}}
 
-To add an entity, do the following:
+若要添加实体，请执行以下操作：
 
-1. Open the **Toolbox** tab of the domain model.
+1. 打开域模型的 **工具箱** 标签。
 
-2. Choose the entity type you would like to add, and drag and drop it the working area.
+2. 拖拽 **新实体** 到工作区。
 
-3.  Fill out the name for the entity and click **Create**:
+3.  填写名称并点击 **创建**:
 
     ![](attachments/domain-models/create-new-entity-dialog.png)
 
-The new entity is added to the domain model.
+新实体已添加到域模型。
 
 {{% image_container width="250" %}}![](attachments/domain-models/new-entity.png)
 {{% /image_container %}}
 
-### 3.1 Adding New Image or File Entities {#adding-image-or-file-entities}
+## 4 添加新属性 {#adding-new-attributes}
 
-While adding new entities from the **Toolbox** works for all types of entities, you can use a specific way of adding image and file entities to your domain model.
+要在域模式中添加属性，请执行以下操作：
 
-For example, you have an entity named *Laptop* and you want to be able to show users a specific image depending on the laptop model. In this case, you need to create an image entity (for example, named *Product_Image*). However, to get data and dynamically show the right image per laptop model, the *Product_Image* entity should also have a specific connection (an association) to the *Laptop* entity. For more information on associations and their types, see [Associations](domain-models-association-properties).
-
-To create a new image/file entity with an association automatically, follow the process described below:
-
-1. Select an entity of the *Entity* type that will have a connection to the new image or file entity.
-
-2. Click **New attribute** button.
-
-3.  In the **Create New Attribute** dialog box, click **Add image or file** in the bottom-right corner:
-
-    ![Add Image or File](attachments/domain-models/add-image-or-file.png)
-
-4. In the **Image and Files** dialog box, select the type or entity (image or file).
-
-5. In the **Create New Image/File Entity** dialog box, specify the name of the special entity and click **Create**.
-
-The new image or file entity is created with default *Name* and *Size* attributes and the association to the entity that you selected in the first step: ![Image Entity Example](attachments/domain-models/image-entity-example.png)
-
-## 4 Adding New Attributes {#adding-new-attributes}
-
-To add attributes in the domain mode, do the following:
-
-1.  Select a block with entity you want to add an attribute to. The **New attribute** option appears:
+1.  选择一个包含您想要添加属性的实体的块。 **新属性** 选项出现：
 
     {{% image_container width="250" %}}![](attachments/domain-models/adding-attribute.png)
     {{% /image_container %}}
 
-2.  Click **New attribute** and specify its **Name** and **Type**:
+2.  点击 **新属性** 并指定 **名称** 和 **类型**：
 
     ![](attachments/domain-models/create-new-attribute-dialog.png)
 
-3. Click **Create**.
+3. 点击 **创建**。
 
-A new attribute is added to the entity.
+新属性已添加到实体。
 
 {{% image_container width="250" %}}![](attachments/domain-models/new-attribute.png)
 {{% /image_container %}}
 
-## 5 Adding New Associations
+## 5 添加新关联
 
-There are several ways to add an association in the domain model. You can do one of the following:
+若要在域模型中添加关联，请执行以下操作：
 
-1. Click the dot icon that appears and do one the following:
+1. 选择一个与您想要添加关联的实体的块。
+2.  点击显示的箭头图标：
 
-    ![](attachments/domain-models/adding-association-dot-icon.png)
+    {{% image_container width="250" %}}![](attachments/domain-models/adding-association.png)
+    {{% /image_container %}}
 
-    1. To create an association with an existing entity, drag the dot to the second entity.
+3.  从现有实体列表中为新的关联选择第二个实体，然后点击 **选择**。 您也可以从对话框中为关联创建一个新的实体。
 
-    2.  To create an association with a new entity, drag the dot icon and hold it for a couple of seconds until it turns into a plus icon. By dropping the plus icon, you can create a new entity with an association from the first entity:
+    ![](attachments/domain-models/new-association.png)
 
-        ![](attachments/domain-models/plus-icon.png)
+{{% alert type="info" %}}
 
-4. Select a block with an entity you want to add an association to do the following:
+该模块在括号内实体名称旁边标明。 如果您从另一个模块中选择实体，您将创建一个交叉模块关联。 欲了解更多信息，请参阅 [5个交叉模块关联](domain-models-association-properties#cross-module-associations) *关联属性*。 当前模块的实体列在首位。
 
-    1.  Click the arrow icon:
+{{% /报警 %}}
 
-        {{% image_container width="250" %}}![](attachments/domain-models/adding-association.png)
-        {{% /image_container %}}
+## 6 个指定属性
 
-    2.  Select a second entity for the new association from the list of existing entities and click **Select**. You can also create a new entity for the association from the dialog box.
+在域模型中，您可以在 **属性** 标签上管理实体、属性和关联的属性。
 
-        ![](attachments/domain-models/new-association.png)
+在标签的底部，您可以看到 **删除** 个按钮。
 
-        A module name is indicated next to the entity name in brackets.
+### 6.1 实体属性
 
-        {{% alert type="info" %}} If you select the entity from another module, you will create a cross-module association. For more information, see the [Cross-Module Associations](domain-models-association-properties#cross-module-associations) section in *Associations*. The entities of the current module are listed first.
-        {{% /alert %}}
+您可以管理一个实体的以下属性：
 
-## 6 Specifying Properties
+* 实体的 **名称**
 
-In the domain model, you can manage the properties of entities, attributes, and associations on the **Properties** tab.
-
-At the bottom of the tab you can see the **Delete** button.
-
-### 6.1 Specifying Entity Properties
-
-You can manage the following properties of an entity:
-
-* The **Name** of the entity
-
-* [Persistability](/refguide8/persistability) of the entity
+* [实体的持久性](/refguide/persistability)
 
     ![](attachments/domain-models/entity-properties.png)
 
-To change the entity properties, click the entity in the domain model. The **Properties** tab for the selected entity is displayed automatically.
+要更改实体属性，请单击域模型中的实体。 选定实体的 **属性** 标签被自动显示。
 
-### 6.2 Specifying Attribute Properties
+### 6.2 指定属性属性
 
-You can manage the following properties of an attribute:
+您可以管理属性的以下属性：
 
-* The **Name** of the attribute
-* The [Type](domain-models-attributes)  of the attribute
+*   属性的 **名称**
+*   属性的 [**类型**](domain-models-attributes)
 
     ![](attachments/domain-models/attribute-properties.png)
 
-To change the attribute properties, click the attribute in the domain model. The **Properties** tab for the selected attribute is displayed automatically.
+要更改属性属性，请单击域模型中的属性。 所选属性的 **属性** 标签被自动显示。
 
 ![](attachments/domain-models/selecting-attribute.png)
 
 
 {{% alert type="info" %}}
 
-Fields that are displayed in **Properties** may vary depending on the type of the attribute.
+在 **属性中显示的字段** 可能会根据属性的类型而变化。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-{{% alert type="info" %}}
+### 6.3 指定协会财产
 
-Properties of *Name* and *Size* attributes of image and file entities are read-only, as in, you cannot edit them.
+您可以管理一个关联的以下属性：
 
-{{% /alert %}}
+*   关联的 **名称**
+*   **关联的多重性**
+*   删除对象的行为
 
-### 6.3 Specifying Association Properties
+欲了解更多信息，请参阅 [关联属性](domain-models-association-properties)。
 
-You can manage the following properties of an association:
+要更改关联，请点击域模型中的行号。 选定实体的 **属性** 标签被自动显示。
 
-*   The **Name** of the association
-*   **Multiplicity** of the association
-*   The delete behavior of the objects
-
-For more information, see [Associations](domain-models-association-properties).
-
-To change the association, click the line in the domain model. The **Properties** tab for the selected entity is displayed automatically.
-
-If the association type is one-to-many or many-to-many, you can swap direction of it clicking the corresponding icon. For more information, see section [3 Multiplicity](domain-models-association-properties#multiplicity) in *Associations*.
+如果关联类型是一对数或多对数的，您可以交换它的方向，点击相应的图标。 欲了解更多信息，请参见 [3 Mulplicity](domain-models-association-properties#multiplicity) in *Association Properties*。
 
 {{% image_container width="350" %}}![](attachments/domain-models/managing-associations.png)
 {{% /image_container %}}
 
-## 7 Deleting Entities, Attributes, or Associations
+## 7 删除实体、属性或关联
 
-To delete an entity, attribute, or association, do the following:
+若要删除实体、属性或协会，请做以下操作：
 
-1. Select the entity, attribute or association you want to delete.
+1. 选择您想要删除的实体、属性或关联。
 
-2.  Press **Delete** or click the **Delete** button at the bottom of the **Properties** tab.
+2.  按 **删除** 或点击 **删除** 在 **属性底部的按钮** 选项卡。
 
     {{% image_container width="300" %}}![](attachments/domain-models/deletion.png)
     {{% /image_container %}}
 
-{{% alert type="info" %}}
+## 8 阅读更多
 
-You cannot delete *Name* and *Size* attributes of image and file entities.
-
-{{% /alert %}}
-
+* [属性类型](domain-models-attributes)
+* [关联属性](domain-models-association-properties) 
