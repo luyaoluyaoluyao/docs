@@ -7,21 +7,25 @@ tags:
   - "资源"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/resources.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 资源正在帮助无法单独运作但可用于其他文件的模块中的文件。 例如，微流程或页面可以自行运行，但Java 动作只能在微流程中运行。
 
-资源可以在您应用的不同模块中重新使用。
+资源可以在您的项目的不同模块中重新使用。
 
 ## 2 個添加資源
 
 要添加资源文档，请执行以下操作：
 
-1.  在 [App Explorer](project-explorer)右键单击要添加资源到的模块或文件夹并选择 **添加其他**
+1.  在 [工程资源管理器](project-explorer)， 右键单击要添加资源到的模块或文件夹并选择 **添加其他**
 
     ![](attachments/resources/project-explorer-resources.png)
 
-2. 在 **Resources** 类别中，选择您想要添加到应用程序的文档。
+2. 在 **Resources** 类别中，选择您想要添加到项目的文档。
 
 ## 3 资源概览
 
