@@ -14,9 +14,9 @@ tags:
 
 This document describes a **Decision** in Mendix Studio.
 
-A decision is an element based on a condition; it follows one and only one of the outgoing flows. For example, you need to use a decision to show different order forms for the customers with different grades, or to prevent a blocked customer from making orders.
+A decision is an element based on a condition and follows one and only one of the outgoing flows. For example, you need to use a decision to show different order forms for the customers with different grades, or to prevent a blocked customer from making orders.
 
-## 2 Condition {#condition}
+## 2 Condition
 
 There are two ways to configure a condition for the decision:
 
@@ -42,19 +42,17 @@ The parameters and entities which you would like to use in configuring the condi
 
 ### 2.2 Configuring the Condition with an Expression {#expression-tab}
 
-You can also configure the condition by writing the expression. For more information on how to write an expression, see [Microflow Expressions](microflows-expressions).
+You can also configure the condition by writing the expression. For more information, see [Microflow Expressions](microflows-expressions).
 
 ## 3 Cases
 
-**Cases** define the number of outgoing flows and depend on the selected [Condition](#condition).
+The number of available cases depends on the selected **Condition**.
 
-For the Boolean type of the parameter or attribute, two flows are possible: **true** and **false**.
+For the Boolean type of the parameter or attribute, two values are possible: true and false.
 
 ![](attachments/microflows-decision/decision-boolean.png)
 
-The number of cases available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* case available for enumeration: if the enumeration parameter or an attribute of an object is unassigned, the sequence flow with the caption **(empty)** is followed.
-
-For example, if a end-user needs to select a customer grade but does not do that, the flow labelled **(empty)** is followed and an error message is shown to the end-user:
+The number of cases available for the enumeration type depends on the corresponding enumeration constants/values. There is also the empty case available for enumeration. If the enumeration parameter or attribute of an object is unassigned, the sequence flow with the caption (empty) is followed.
 
 ![](attachments/microflows-decision/decision-enumeration.png)
 
@@ -66,5 +64,5 @@ The caption describes what happens in this element.
 
 * [Microflows](microflows)
 * [Microflow Expressions](microflows-expressions)
-* [Configure a  Decision](/studio-how-to8/microflows-how-to-configure-decision) 
+* [Configure a  Decision](microflows-how-to-configure-decision) 
 
