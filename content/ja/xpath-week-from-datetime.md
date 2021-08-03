@@ -5,41 +5,37 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-week-from-datetime.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
-
-The `week-from-dateTime()` function extracts the week number (in the year) from a **Date and time** attribute so it can be used to compare to a value. Values range from 1 to 53.
+`week-from-dateTime()` 関数は、 **Date and time** 属性から週番号を抽出し、値と比較するために使用することができます。 値は 1 から 53 の範囲です。
 
 {{% alert type="warning" %}}
-The value returned depends on which *database* is being used to support your Mendix app. It does *not* take into account the app runtime setting **First day of the week**.
+返される値は、Mendixアプリをサポートするためにどの *データベース* が使用されているかによって異なります。 *は* アプリのランタイム設定 **週の最初の日** を考慮しません。
 
-Many databases implement [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), but please refer to the documentation for the database you are using to find the exact details.
+多くのデータベースは [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)を実装していますが、正確な詳細を見つけるために使用しているデータベースのドキュメントを参照してください。
 {{% /alert %}}
 
-## 2 Example
+## 2つの例
 
-This query returns all the logs where the date `DateAttribute` falls in the second week of the year (for example, "2011-01-13"):
+このクエリは、日付 `DateAttribute` が年の 2 週目になるすべてのログを返します(例: "2011-01-13" )。
 
 ```java
 //Logging.Log[week-from-dateTime(DateAttribute) = 2]
 ```
 
-## 3 Read More
+## 3 続きを読む
 
-The following links are for the relevant documentation on how week number is calculated for a specific date for many of the databases used with Mendix.
+Mendixで使用されている多くのデータベースの特定の日付について週番号が計算される方法に関する関連ドキュメントには、次のリンクがあります。
 
-The HSQLDB database used for testing locally uses JVM's [Calendar.WEEK_OF_YEAR](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html).
+ローカルでテストするために使用されるHSQLDBデータベースは、JVMの [カレンダー.WEEK_OF_YEAR](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Calendar.html)を使用します。
 
-PostgreSQL, Oracle, and MySQL follow [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):
+PostgreSQL, Oracle, MySQL follow [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601):
 
 * [PostgreSQL](https://www.postgresql.org/docs/11/functions-datetime.html)
 * [Oracle](https://docs.oracle.com/cd/B28359_01/olap.111/b28126/dml_commands_1029.htm#OLADM780)
 * [MySQL](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_week)
 
-Other databases have a more specific behavior:
+他のデータベースには、より具体的な動作があります。
 
 * [SQL Server](https://docs.microsoft.com/en-us/sql/t-sql/functions/datepart-transact-sql?view=sql-server-ver15)
 * [DB2](https://www.ibm.com/support/knowledgecenter/en/SSEPEK_10.0.0/sqlref/src/tpc/db2z_bif_week.html)
