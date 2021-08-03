@@ -1,69 +1,65 @@
 ---
 title: "To String"
-parent: "expressions"
+parent: "表現"
 menu_order: 130
 tags:
   - "studio pro"
-  - "to string"
-  - "expression"
-  - "expressions"
+  - "文字列に"
+  - "表現"
+  - "表現"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/to-string.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Intriduction
-
-Basic functions to convert values of various data types to string.
+様々なデータ型の値を文字列に変換するための基本関数です。
 
 ## 2 toString
 
-Converts the specified value to a string representation.
+指定した値を文字列表現に変換します。
 
-If you need full control over the output format, consider using the data type specific format functions. For example, for decimal, use [formatDecimal](parse-and-format-decimal-function-calls).
+出力フォーマットを完全に制御する必要がある場合は、データ型固有のフォーマット関数を使用することを検討してください。 例えば、10 進数の場合、 [formatDecimal](parse-and-format-decimal-function-calls) を使用します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                         | Type                                                                                                                                                                                                                                                          |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A value that should be converted to a string. | Integer/Long, Decimal, Date and time, Boolean and Enumeration.<br />In case of enumeration, the expression returns the key of the enumeration value, not the caption. More information, see [Enumerations in expressions](enumerations-in-expressions). |
+| 値          | タイプ                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 文字列に変換する値。 | Integer/Long, Decimal and time, Boolean and Enumeration.<br />列挙の場合、式はキャプションではなく列挙値のキーを返します。 詳細は、式 [の列挙数](enumerations-in-expressions) を参照してください。 |
 
-### 2.2 Example
+### 2.2 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 toString(1.4)
 ```
 
-The output is:
+出力は:
 
 ```java
 '1.4'
 ```
 
-If you type in an input with a Date and time type:
+日付と時刻の種類で入力した場合:
 
 ```java
 toString(dateTime(2007))
 ```
 
-The output is:
+出力は:
 
 ```java
 'Mon Jan 01 00:00:00 CET 2007'
 ```
 
-If you type in an input with a Boolean:
+ブール値で入力した場合:
 
 ```java
 toString(true)
 ```
 
-The output is:
+出力は:
 
 ```java
 'true'
