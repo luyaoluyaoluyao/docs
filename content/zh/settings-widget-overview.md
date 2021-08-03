@@ -1,39 +1,39 @@
 ---
-title: "Widget Overview"
-category: "Settings"
-description: "Describes the Widget Overview tab in Mendix Studio."
+title: "小部件概述"
+category: "设置"
+description: "描述Mendix Studio中的部件概览选项卡。"
 menu_order: 20
 tags:
-  - "studio"
-  - "settings"
-  - "widgets"
+  - "工作室"
+  - "设置"
+  - "小部件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Widget Overview** contains information on Mendix Marketplace widgets and local widgets in your app. For more details on widgets, see [Widgets](page-editor-widgets).
+**部件概览** 包含您的应用程序中Mendix Marketplace 部件和本地部件的信息。 更多关于小部件的详细信息，见 [小部件](page-editor-widgets)。
 
-## 2 Widget Overview in App Settings
+## 应用设置中的 2 部件概览
 
-**App Settings** contains **Widget Overview** – an overview of all Marketplace widgets and local widgets in your app.
+**应用设置** 包含 **小部件概述** - 您的应用中所有市场小部件和本地小部件的概述。
 
 ![](attachments/settings-widget-overview/widget-overview.png)
 
-The following types of widgets are included into the widget overview of the App Settings:
+以下类型的小部件包含在应用设置的小部件概览中：
 
-* Marketplace widgets that are Studio approved, which are either, widgets that have been added by default when you created your app, or widgets you can download from the [Marketplace](/appstore/) to your app directly from Studio (for more information on widgets, see [Widgets](page-editor-widgets))
-* Local widgets – widgets created by users in Studio Pro (you can create local widgets yourself via Studio Pro, for more information, see [Custom Widget Development](/howto8/extensibility/widget-development))
+* 属于Studio的市场小部件，它们也是您创建应用程序时默认添加的小部件，， 或者小部件可以直接从工作室下载 [市场](/appstore/) 到您的应用程序(关于小部件的更多信息) 见 [小部件](page-editor-widgets))
+* 本地小部件 - 用户在 Studio Pro 中创建的小部件 (您可以通过Studio Pro创建本地小部件， 欲了解更多信息，请参阅 [构建插件](/howto/extensibility/pluggable-widgets))
 
-In the App Settings the following columns are displayed:
+在应用设置中显示以下列：
 
-| Column            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name              | Contains the following information on the widget: <ul><li>Widget icon</li><li> Name – the name of a single widget or the group of widgets</li><li>Version – the version of the widget installed in your app <li>Contributor's name – the name of the contributor who uploaded widgets in the Marketplace</li><li>Number of widgets in a package (when applicable) with a drop-down listing the widget names</li>                                                                                                                                                                                         |
-| Support Level     | Indicates the level of Support for Marketplace content. It is determined by the content support category and the Service Level Agreement (SLA) the user possesses.<br />The following support categories can be displayed in this column: <ul><li>**Platform Support** – Mendix supports all the content in this category when you are equipped with an Service Level Agreement (**platform**, **gold**, or **platinum**) with Mendix. Content in this category is proactively incorporated into test cycles as part of our platform release management. </li><li>**Community Support** – content is provided as-is by members of our Community and support depends on the availability and effort of the owner. </li></ul> For more information, see [Marketplace Content Support](/appstore/general/app-store-content-support).                                                                             |
-| Status            | Indicates if the update is available. Click **Update Available** to update the particular widget. When the widget is updated, the new version of this widget is displayed in the **App Settings**. Also, the widget is updated on all pages where it is used. **Note** You may have a situation that the new version properties differ from the old one, and you can get consistency errors when publishing. For details on errors, see [Checks](checks). |
-| **Delete** button | Deletes the widget from your app and from all pages where it was used.                                                                                                                                                                                                                                                                                                                                                                                    |
+| 列         | 描述                                                                                                                                                                                       |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称        | 在小部件上包含以下信息： <ul><li>小部件图标</li><li> 名称——一个小部件或小部件组的名称</li><li>版本 - 安装在您的应用程序中的小部件版本 <li>贡献者姓名——在市场上上传小部件的贡献者名称</li><li>包含小部件名称下拉列表的软件包小部件数量 (适用时)</li> |
+| 支持级别      | 表示市场内容的支持程度。 它由内容支持类别和用户拥有的服务级别协议来决定。<br />以下支持类别可以显示在此列： <ul><li>**Platform Support** - Mendix 支持此类别中的所有内容，当您装备了服务级别协议(**Platform**) **黄金**，或**白金**与Mendix 作为平台发布管理的一部分，此类别的内容被主动纳入测试周期。 </li><li>**社区支持** - 内容由我们的社区成员提供，支持取决于所有者的能力和努力。 </li></ul> 欲了解更多信息，请访问 [市场内容支持](/appstore/general/app-store-content-support)。                               |
+| 状态        | 指示更新是否可用。 点击 **更新可用的** 来更新特定的部件。 当小部件更新时，这个小部件的新版本将显示在 **应用设置** 中。 此外，小部件会在使用它的所有页面上更新。 **请注意** 您可能有一种新版本属性不同于旧版本属性的情况。 您可以在发布时获得一致性错误。 错误详细信息，请参阅 [检查](checks)。                         |
+| **删除** 按钮 | 从您的应用程序和使用它的所有页面中删除小部件。                                                                                                                                                                  |
 
-## 3 Read More
+## 3 阅读更多
 
-* [General Info](general)
-* [Marketplace Content Support](/appstore/general/app-store-content-support)
+* [常规信息](general)
+* [市场内容支持](/appstore/general/app-store-content-support)
