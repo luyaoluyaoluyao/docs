@@ -1,212 +1,216 @@
 ---
-title: "Version Control"
-description: "This document gives definitions and explains the version control  process"
+title: "バージョン管理"
+description: "このドキュメントは定義を提供し、バージョン管理プロセスを説明します"
 tags:
-  - "Version Control"
-  - "Application Lifecycle Management"
-  - "Commit"
-  - "Collaborate"
+  - "バージョン管理"
+  - "アプリケーションのライフサイクル管理"
+  - "コミット"
+  - "共同作業"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Version Control allows you to manage your app development in two ways:
+バージョン管理では、次の2つの方法でアプリ開発を管理できます。
 
-* Firstly, it allows you to store ([commit](#commit)) the current revision of your model and all its resources. You give it an identifier so that you can get that revision again and share it with other team members.
-* Secondly, it allows work to take place on multiple [development lines](#development-line) so that several different features can be worked on at once. These development lines can then be [merged](#merge) back together so that your [Main Line](#main-line) contains all the completed features that have been worked on separately.
+* まず、モデルの現在のリビジョンとそのすべてのリソースを格納することができます([commit](#commit))。 そのリビジョンを再度取得し、他のチームメンバーと共有できるように、識別子を与えます。
+* 第二に、複数の異なる機能を一度に操作できるようにするために、複数の [開発ライン](#development-line)で作業を行うことができます。 これらの開発ラインは [マージ](#merge) することで、 [メインライン](#main-line) には個別に作業したすべての完了した機能が含まれるようになります。
 
-Version control in Mendix is built on top of [Apache Subversion](https://subversion.apache.org/) and the concepts will be familiar to Subversion users. Mendix simplifies Subversion commands by building them into Studio Pro, Studio, and the Developer Portal.
+Mendix のバージョン管理は [Apache Subversion](https://subversion.apache.org/) または \[Git\] (https://git-scm.com) の上に構築されています。 このコンセプトは、これらのバージョン管理システム(VCS)のベテランユーザーにはよく知られています。 Mendixは、Studio Pro(SVNとGit)、Studio、およびDeveloper Portal(SVNのみ)にそれらを構築することで、VCSコマンドを簡素化します。
 
-## 2 Concepts {#concepts}
+## 2つのコンセプト {#concepts}
 
-### 2.1 Team Server {#team-server}
+### 2.1 チームサーバー {#team-server}
 
-[Team Server](/developerportal/collaborate/team-server) is where all the committed versions of Mendix apps are stored. If you commit a revision of an app, it is stored on the Team Server.
+[Team Server](/developerportal/collaborate/team-server) は、Mendix アプリのコミットされたすべてのバージョンが保存される場所です。 アプリのリビジョンをコミットすると、チームサーバーに保存されます。
 
-To commit to the Team Server you will need to have a role in the project which allows you to edit the app.
+Team Serverにコミットするには、アプリを編集できるロールが必要です。 詳細については、 [チームロール](/developerportal/collaborate/app-roles#team-roles) のセクション *アプリロール* を参照してください。
 
-### 2.2 Repository {#repository}
+### 2.2 リポジトリ {#repository}
 
-Within the [Team Server](#team-server) each app is stored in a repository. This repository contains all the [committed revisions](#commit) for the [Branches](#branches) of the app.
+[Team Server](#team-server) 内には、各アプリがリポジトリに格納されます。 このリポジトリには、アプリの [ブランチ](#commit) のすべての [コミットされたリビジョン](#branches) が含まれています。
 
-### 2.3 Revision {#revision}
+### 2.3 リビジョン {#revision}
 
-A revision is the version of your app at a moment in time, stored on the [Team Server](#team-server).
+リビジョンは、 [Team Server](#team-server) に保存された一瞬のアプリケーションのバージョンです。
 
-Each revision of your app is given a unique number to identify it and enable you to find it in future. A new revision is created from Studio Pro in two circumstances:
+アプリの各リビジョンには、それを識別し、将来的にそれを見つけることができるようにする固有の番号が与えられます。 Studio Pro から新しいリビジョンが作成されます。
 
-* The app is committed to the repository
-* A Studio Pro working copy is updated from a Studio working copy
+* アプリはリポジトリにコミットされています
+* Studio Pro の作業コピーは Studio の作業コピーから更新されます。
 
-### 2.4 Working Copy {#working-copy}
+### 2.4 作業コピー {#working-copy}
 
-A working copy is the version of your app which is currently being worked on in Studio Pro or Studio. For Studio Pro, there is one working copy for each development line of the app. This model is held locally, on each computer where development work is taking place.
+作業コピーは、現在Studio Pro または Studio で作業中のアプリケーションのバージョンです。 Studio Proの場合、アプリの開発ラインごとに作業コピーが1つあります。 このモデルは、開発作業が行われている各コンピュータでローカルに保持されています。
 
-For Studio, there is one additional working copy, held in the cloud. Only one developer at a time can edit this.
+Studio では、クラウド上で作業コピーが 1 つ追加されます。 これを編集できるのは一度に1つの開発者だけです。
 
-### 2.5 Merge {#merge}
+### 2.5 マージ {#merge}
 
-Merging is the action of taking one [revision](#revision) of an app and applying the differences which have been made in a different revision. See the [Merging Branches](#merging-branches) section for more information.
+マージとは、あるアプリの [リビジョン](#revision) を取って、別のリビジョンで行われた差分を適用するアクションです。 詳細は [ブランチ](#merging-branches) のセクションを参照してください。
 
-If any of the differences cannot be applied, then there is a [conflict](#conflict).
+相違点のいずれかを適用できない場合は、 [競合](#conflict)があります。
 
-### 2.6 Conflict {#conflict}
+### 2.6 競合 {#conflict}
 
-A conflict occurs when two versions of the app cannot be combined automatically. This happens when the same document has been changed in a Studio Pro working copy and a committed [revision](#revision) and these changes cannot be reconciled. These are some examples:
+競合は、2つのバージョンのアプリを自動的に組み合わせることができない場合に発生します。 これは、Studio Pro の作業コピーで同じドキュメントが変更され、コミット [のリビジョン](#revision) がされた場合に発生します。これらの変更は調整できません。 以下はいくつかの例です。
 
-* The properties of a widget are changed in the revision and the working copy but to different settings
-* A document is moved or deleted in the revision but has been changed in a different way in the working copy
+* ウィジェットのプロパティはリビジョンと作業コピーで変更されますが、異なる設定に変更されます
+* リビジョンでドキュメントが移動または削除されますが、作業コピーで別の方法で変更されています
 
-When a conflict occurs, a developer has to intervene to decide how it should be resolved before it can be committed to the Team Server as a new revision.
+競合が発生したとき 開発者は、新しいリビジョンとして Team Server にコミットする前にどのように解決すべきかを決定するために介入する必要があります。
 
-### 2.7 Update {#update}
+### 2.7 アップデート {#update}
 
-Updating is the action, invoked in Studio Pro, which gets the latest revision of the current [development line](#development-line) from the Team Server repository and merges the differences into the current working copy.
+Studio Proで起動されたアクションは、更新が実行されます。 これは、Team Serverリポジトリから現在の [開発行の最新のリビジョン](#development-line) を取得し、現在の作業コピーに差分をマージします。
 
-If Studio is enabled for this development line, the process first ensures that the Studio working copy is stored as a new revision.
+Studio がこの開発ラインで有効になっている場合、プロセスはまず、Studio 作業コピーが新しいリビジョンとして保存されます。
 
-### 2.8 Commit {#commit}
+### 2.8 コミット {#commit}
 
-Committing is the action, invoked in Studio Pro, of sending all your changes to the [repository](#repository) and making a new [revision](#revision).
+コミットは、Studio Pro で実行されるアクションです。 をクリックします。 [リポジトリ](#repository) にすべての変更を送信し、新しい [リビジョン](#revision) を作成します。
 
-If Studio is enabled for this development line, the process first ensures that the Studio working copy is stored as a new revision and merged into the working copy of Studio Pro. If there are not conflicts, the changes are then sent to the repository to make a new revision.
+Studio がこの開発ラインで有効になっている場合 この処理により、Studio の作業コピーが新しいリビジョンとして保存され、Studio Pro の作業コピーにマージされます。 競合がない場合は、変更がリポジトリに送信され、新しいリビジョンが作成されます。
 
-### 2.9 Development Line {#development-line}
+### 2.9 開発ライン {#development-line}
 
-Development of an app is done in a Development Line where a set of related changes is made. There are two types of development line: the [Main Line](#main-line) and [Branch Lines](#branch-line).
+アプリの開発は、関連する一連の変更が行われる開発ラインで行われます。 開発ラインには、 [メインライン](#main-line) と [ブランチライン](#branch-line) の 2 種類があります。
 
-#### 2.9.1 Main Line {#main-line}
+#### 2.9.1 本線 {#main-line}
 
-The Main Line is the initial development line for the app and is usually kept as the version which will be deployed to the production environment. Simple apps, and apps which do not require a high degree of collaboration, may only have a main line.
+Main Lineは、アプリの初期開発ラインであり、通常は本番環境にデプロイされるバージョンとして保持されます。 シンプルなアプリや、高度なコラボレーションを必要としないアプリは、メインラインしかない可能性があります。
 
-#### 2.9.2 Branch Line {#branch-line}
+#### 2.9.2 支線 {#branch-line}
 
-A Branch Line is a way of making an independent set of changes which can be tested away from the Main Line.
+支線とは、本線から離れて検証可能な変更を独立して行う方法です。
 
-See [Branches](#branches), below, for more information on how branch lines can be used.
+分岐線の使用方法については、以下の [ブランチ](#branches)を参照してください。
 
-### 2.10 Studio Enabled {#studio-enabled}
+### 2.10 スタジオが有効です {#studio-enabled}
 
-You may enable Studio for one of the development lines. This means that a developer can make changes to the app through Studio and share changes with the team. All changes will be linked to the selected branch and committed as revisions to that branch. Changes made to other development lines will not be available in Studio.
+開発ラインのいずれかで Studio を有効にできます。 これは開発者がStudio経由でアプリを変更し、チームと変更を共有できることを意味します。 すべての変更は選択したブランチにリンクされ、そのブランチのリビジョンとして反映されます。 他の開発ラインに加えられた変更は Studio 内では利用できません。
 
-Studio cannot be used to develop the app if it is not enabled for any development lines.
+開発ラインで有効になっていない場合、Studio を使用してアプリを開発することはできません。
 
-For app templates created via the Developer Portal, the main line of a new app will be Studio enabled.
+開発者ポータル経由で作成されたアプリテンプレートの場合、新しいアプリのメインラインはStudioが有効になります。
 
-### 2.11 Tag
+### 2.11 タグ
 
-A Tag is a way of identifying a commit in addition to the [revision](#revision) number. It is specified by the developer and has four parts:
+タグは [リビジョン](#revision) に加えてコミットを識別する方法です。 開発者によって指定され、以下の4つの部分があります。
 
-* Major: used to identify significant new functionality, a new user interface, or other important change
-* Minor: used to identify new functionality which augments the main function of the app
-* Patch: used to identify a fix to an error in a previously-released app
-* Revision: this is added automatically and is the revision number of the commit
+* メジャー：重要な新機能、新しいユーザーインターフェイス、その他の重要な変更を識別するために使用されます
+* マイナー：アプリのメイン機能を拡張する新しい機能を識別するために使用されます
+* パッチ: 以前リリースされたアプリでエラーの修正を識別するために使用されます
+* リビジョン: これは自動的に追加され、コミットのリビジョン番号です
 
-### 2.12 Repository Service
+{{% alert type="info" %}}
+現時点では、Studio Pro Git ([BYO](branch-line-manager-dialog#byo-server-app) と Team Server) ではタグはサポートされていません
+{{% /alert %}}
 
-The Repository Service manages communication between Studio or Studio Pro and other supporting services (for example, Team Server). The developer will not generally be aware that they are communicating via the Repository Service.
+### 2.12 リポジトリサービス
 
-## 3 Version Control Processes for a Single Branch {#vc-single}
+リポジトリサービスは、Studio または Studio Pro と他のサポートサービス(Team Serverなど)との間の通信を管理します。 開発者は、一般的にリポジトリサービスを介して通信していることを認識していません。
 
-The figure below shows how two developers might work on a [Studio enabled](#studio-enabled) development line of an app. One developer is working in Studio, and one in Studio Pro. They both work on the same development line (for example, the Main Line).
+## 3 単一ブランチのバージョン管理プロセス {#vc-single}
+
+以下の図は、2人の開発者がアプリケーションの [Studio対応](#studio-enabled) 開発ラインでどのように動作するかを示しています。 ある開発者はStudioで、一つはStudio Proで、もう一つはStudio Proで作業しています。 両方とも、同じ開発ライン (メインライン など) で動作します。
 
 ![](attachments/version-control/image1.png)
 
-### 3.1 Work in Studio Only
+### 3.1 Studio only での作業
 
-The developer works on the app in Studio. They start with the app in state 1, this can be a new app or a revision of the app. Changes are made continuously to the working copy for Studio, stored in the cloud.
+開発者は Studio のアプリ上で動作します。 彼らは状態1のアプリから始まり、これは新しいアプリまたはアプリのリビジョンにすることができます。 変更は、Studio の作業コピーに対して継続的に行われ、クラウドに保存されます。
 
 ![](attachments/version-control/image2.png)
 
-### 3.2 Work in Studio Pro Only
+### 3.2 Studio Pro 版のみ
 
-Another (or the same) developer opens the app for the first time in Studio Pro. A new revision (state 2) is created on the Team Server from the current state of the Studio working copy. It is downloaded to the local machine as the working copy for Studio Pro. Studio is locked temporarily so that the Studio working copy is stable while it is copied.
+別の(または同じ)開発者は、Studio Proで初めてアプリを開きます。 Studio 作業コピーの現在の状態からチーム サーバーに新しいリビジョン (状態 2) が作成されます。 Studio Pro の作業コピーとしてローカルマシンにダウンロードされます。 Studio は一時的にロックされているため、コピー中に Studio 作業コピーが安定しています。
 
-The developer works in Studio Pro on the local working copy of the app. There is no work done in Studio in this scenario.
+開発者は、Studio Proでアプリのローカル作業コピーを動作します。 このシナリオではStudioでは作業が行われていません。
 
-The developer can commit this to the Team Server repository at any time to make a new revision (state 3). This revision is copied into the Studio working copy and the developer using Studio will get the changes automatically.
+開発者はいつでもこれをTeam Serverリポジトリにコミットして、新しいリビジョンを作成することができます (状態3)。 このリビジョンはStudio作業コピーにコピーされ、Studioを使用している開発者は自動的に変更を受け取ります。
 
 ![](attachments/version-control/image3.png)
 
-### 3.3 Work in Studio & Studio Pro
+### 3.3 Studio & Studio Pro での作業
 
-Two developers are working on the same [development line](#development-line) of the same app at the same time. One is using Studio Pro, the other is using Studio. Changes from Studio Pro and Studio are stored in the respective working copies: on the local machine for Studio Pro and in the cloud for Studio.
+2人の開発者が、同じアプリの同じ [開発ライン](#development-line) に同時に取り組んでいます。 一つはStudio Proを使用し、もう一つはStudioを使用しています。 Studio Pro と Studio からの変更は、Studio Pro のローカル マシンと Studio のクラウドのそれぞれの作業コピーに保存されます。
 
 ![](attachments/version-control/image4.png)
 
-### 3.4 Update Studio Pro Working Copy
+### 3.4 Studio Pro の作業コピーを更新
 
-The developer using Studio Pro wants to include the changes made by the developer using Studio. They choose to update their working copy.
+Studio Proを使用した開発者は、Studioを使用して開発者によって行われた変更を含めたいと考えています。 作業コピーを更新することを選択します。
 
-All the changes from the Studio working copy are put into a new revision on the Team Server (state 4). This revision is merged into the Studio Pro working copy. While the Studio Pro working copy is being updated, Studio is locked temporarily so that the Studio working copy is stable while it is copied.
+Studio の作業コピーからのすべての変更は、Team Server (state 4) の新しいリビジョンに追加されます。 このリビジョンは、Studio Pro の作業コピーにマージされます。 Studio Pro の作業コピーが更新されている間、Studio は一時的にロックされ、コピー中に Studio の作業コピーが安定しているようになります。
 
 {{% alert type="info" %}}
-This will also pick up changes from other developers using Studio Pro, if they have committed changes to this branch.
+このブランチに変更をコミットしている場合は、Studio Proを使用している他の開発者からも変更が反映されます。
 {{% /alert %}}
 
-If there are conflicts, the developer using Studio Pro will have to resolve them before they can commit the changes to the Team Server repository.
+競合が発生した場合、Studio Pro を使用する開発者は、Team Server リポジトリに変更をコミットする前にそれらを解決する必要があります。
 
 ![](attachments/version-control/image5.png)
 
-### 3.5 Commit Changes to Team Server Repository
+### 3.5 チームサーバーリポジトリへのコミットの変更
 
-The developer using Studio Pro wants to commit a new revision to the Team Server. This will enable the developer using Studio, or a different developer using Studio Pro, to see and work with the changes the developer has made. It also means that the revision can be deployed to the cloud.
+Studio Pro を使用する開発者は、Team Server に新しいリビジョンをコミットしたいと考えています。 これにより、Studio を使用した開発者、または Studio Pro を使用した別の開発者が、開発者が行った変更を確認して作業できるようになります。 また、リビジョンをクラウドにデプロイできることも意味します。
 
-The developer selects to commit, and the following things happen:
+開発者がコミットを選択し、次のことが起こります。
 
-* Studio is locked temporarily
-* The Studio working copy is committed as a revision (restore point – state 5)
-* The revision just created (state 5) is merged with the Studio Pro working copy
+* スタジオは一時的にロックされています
+* Studio 作業コピーはリビジョンとして反映されます (復元ポイント – 状態5)
+* 作成されたばかりのリビジョン（状態5）は、Studio Proの作業コピーと統合されます。
 
-If there are no merge [conflicts](#conflict), the updated Studio Pro working copy is committed as a new revision (state 6) and the Studio working copy is updated to the new revision and unlocked.
+マージがない場合 [コンフリクト](#conflict), 更新された Studio Pro の作業コピーは新しいリビジョン (状態 6) として反映され、Studio の作業コピーは新しいリビジョンに更新され、ロックが解除されます。
 
-If there are conflicts, the developer using Studio Pro will need to resolve these. Studio will be unlocked, without receiving any of the changes from Studio Pro, while they do this. The developer using Studio Pro then needs to commit again, and the process starts from the beginning (Studio is locked ready for a new revision to be committed from the Studio Working Copy).
+競合がある場合は、Studio Pro を使用している開発者がこれらを解決する必要があります。 Studio は、Studio Pro からの変更を受信せずにロック解除されます。 Studio Proを使用している開発者は再度コミットする必要があります そして、プロセスは最初から始まります (Studio は、Studio 作業コピーからコミットされる新しいリビジョンの準備ができてロックされています)。
 
 ![](attachments/version-control/image6.png)
 
-## 4 Branches {#branches}
+## 4ブランチ {#branches}
 
-With more complex apps, you may want to manage your code in a more sophisticated way. For example, you may want to develop new features separately from the currently deployed version of your app so that you can fix any bugs without having to release all the new features.
+より複雑なアプリでは、コードをより洗練された方法で管理することができます。 例えば、 現在デプロイされているバージョンのアプリとは別に新機能を開発して、すべての新機能をリリースせずにバグを修正できるようにすることもできます。
 
-This is done using [Branch Lines](#branch-line).
+これは [分岐線](#branch-line) を使用して行われます。
 
-### 4.1 Main Line
+### 4.1 本線
 
-All apps are developed along the main line (also referred to as **trunk**). Here you have all development happening along a single line, with all changes built upon the previous revision:
+すべてのアプリはメインラインに沿って開発されています。 ここでは、以前のリビジョンに基づいて構築されたすべての変更とともに、すべての開発が単一の行に沿って行われています。
 
 ![](attachments/version-control/image7.png)
 
-This is the case for the version control processes described in the section [Version Control Processes for a Single Branch](#vc-single), above.
+これは、上記の [単一ブランチ](#vc-single)のバージョン管理プロセスで説明されているバージョン管理プロセスの場合です。
 
-Initially, developers using Studio only have access to the development line for which Studio is enabled. They can be switched to another development line, however, by a developer using Studio Pro.
+初期の段階では、Studio を使用している開発者は、Studio が有効になっている開発ラインにのみアクセスできます。 ただし、Studio Pro を使用する開発者は別の開発ラインに切り替えることができます。
 
-### 4.2 Branch Line
+### 4.2 支線
 
-When you add a branch line, you take a copy of an existing [revision](#revision) and work separately on that copy. Changes made to one branch do not impact any other branches.
+ブランチラインを追加すると、既存の [リビジョン](#revision) のコピーを取り、そのコピーで別々に作業します。 一方のブランチに加えられた変更は他のブランチには影響しません。
 
-In Mendix each revision within a [repository](#repository) is given a unique version number. This means that version numbers given to revisions along any chosen branch line may not be consecutive.
+Mendixでは、 [リポジトリ](#repository) 内の各リビジョンに固有のバージョン番号が与えられます。 これは、選択されたブランチ行に沿ってリビジョンに与えられたバージョン番号を連続的に使用することはできないことを意味します。
 
 ![](attachments/version-control/image8.png)
 
-### 4.3 Merging Branches {#merging-branches}
+### 4.3 ブランチの結合 {#merging-branches}
 
-You may have a branch line which will continue independently and never need to be combined with any other development lines. For example, you may create a branch for a particular release of your app and only ever use it to fix bugs in that release.
+独立して継続され、他の開発ラインと組み合わせる必要はありませんブランチラインを持つことができます。 たとえば、アプリケーションの特定のリリース用にブランチを作成し、そのリリースのバグを修正するためにのみそれを使用することができます。
 
-On the other hand, you may want to add the features from one branch line into another development line. These are two cases for doing this:
+一方、あるブランチからの機能を別の開発ラインに追加したい場合があります。 以下の2つのケースがあります:
 
-* You develop new features in a branch line and want to include them in your main development line
-* You want to take advantage of a bug fix which was made on another branch line
+* ブランチラインで新機能を開発し、メインの開発ラインに追加します。
+* 別のブランチラインで行われたバグ修正を利用します。
 
-You can merge a specific revision of a branch line into your current [working copy](#working-copy). If, for example, you were working on the main line updated to revision 6, you can [merge](#merge) revision 5 from another branch line into your working copy. Then you can commit the result to create revision 7. If you want to merge several different committed changes from a branch, you will need to select a range of revisions which includes all the changes.
+ブランチ行の特定のリビジョンを現在の [作業コピー](#working-copy)にマージできます。 たとえば、リビジョン 6 に更新されたメイン行で作業している場合。 別のブランチラインから作業コピーに [マージ](#merge) リビジョン5を行えます。 その後、結果をコミットしてリビジョン 7 を作成できます。 ブランチからの複数の異なるコミット変更をマージする場合。 すべての変更を含むリビジョンの範囲を選択する必要があります。
 
 ![](attachments/version-control/image9.png)
 
-As with the examples in the [Version Control Processes for a Single Branch](#vc-single) section, there may be conflicts during the merge, and these will have to be resolved before you can commit the changes to your app.
+[単一のブランチ](#vc-single) のバージョン管理プロセスの例と同じです。 マージ中に競合が発生する可能性があります。アプリに変更を反映する前にこれを解決する必要があります。
 
-Note that errors can be introduced by the [merge](#merge) process even if no conflicts are identified during the merge. Errors are inconsistencies which are flagged in Studio and Studio Pro and will prevent the app from being deployed. They could lead to a revision not being deployable, so it is important to check for errors after you have done a merge.
+マージ中に競合が特定されない場合でも、 [merge](#merge) プロセスによってエラーが発生する可能性があることに注意してください。 エラーは、Studio と Studio Pro でフラグが立てられており、アプリがデプロイされることを防ぎます。 これらはリビジョンをデプロイできない可能性があるため、マージを行った後にエラーをチェックすることが重要です。
 
-## 5 Main Documents in This Category
+## このカテゴリ内の5つのメインドキュメント
 
-* [Using Version Control in Studio Pro](using-version-control-in-studio-pro) – presents technical details for using version control (theoretical concerns are described above)
-* [Collaborative Development](collaborative-development) – describes the process of sharing app model changes when a team of more than one person is working on the app
-* [Team Server](/developerportal/collaborate/team-server) – presents an overview of viewing Team Server information in the Developer Portal (for example, revision summary and details)
+* [Studio Pro でバージョン管理を使用する](using-version-control-in-studio-pro) – バージョン管理を使用するための技術的な詳細を提示します (理論上の懸念については上述します)
+* [コラボレーション開発](collaborative-development) - 複数のチームがアプリに取り組んでいる場合、アプリモデルの変更を共有するプロセスを説明します
+* [Team Server](/developerportal/collaborate/team-server) – 開発者ポータルでTeam Server情報を表示する概要を説明します (例えば、リビジョンの概要や詳細など)。
