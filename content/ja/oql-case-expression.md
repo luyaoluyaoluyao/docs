@@ -1,52 +1,37 @@
 ---
 title: "OQLケース式"
 parent: "oql演算子"
-tags:
-  - "studio pro"
 ---
 
-## 1つの説明
 
-`CASE` 式は、他のプログラミング言語の if/else ステートメントと同様の条件式です。 各条件は、ブール値の結果を返す式です。 If the condition's result is true, the value of the `CASE` expression is the result that follows the condition, and the remainder of the `CASE` expression is not processed. 条件の結果が true でない場合は、後続の `WHEN` 節も同じ方法で調べられます。 `WHEN` 条件が true の場合、 `CASE` 式の値は `ELSE` 句の結果です。 `ELSE` 節が省略され、条件が true でない場合、結果は null になります。
+CASE 式は、他のプログラミング言語の if/else ステートメントと同様の条件式です。 各条件は、ブール値の結果を返す式です。 条件の結果が true の場合、CASE式の値は条件に従う結果になります。 そして、CASE 式の残りの部分は処理されません。 条件の結果が true でない場合、後続の WHEN 句はすべて同じ方法で調べられます。 WHEN条件が真でない場合、CASE式の値はELSE節の結果です。 ELSE 句が省略され、条件が true でない場合、結果は null になります。
 
-## 2つの使い方
+CASE式は2つの方法で使用できます:
 
-`CASE` の式は、2つの方法で使うことができます。
+_単純な_
 
-```sql
-    CASE input_expression
-    When when_expression THEN result_expression [ ...n ]
-    ELSE else_result_expression
-    END
+```
+CASE input_expression
+When when_expression THEN result_expression [ ...n ]
+ELSE else_result_expression
+END
 ```
 
-または拡張:
+_拡張_
 
-```sql
-    CASE
-    WhEN boolean_expression THEN result_expression [ ...n ] 
-    ELSE else_result_expression
-    END
+```
+CASE
+WhEN boolean_expression THEN result_expression [ ...n ] 
+ELSE else_result_expression
+END
 ```
 
-## 3つの構文
+**input_expression** when_expression と比較される式。 input_expression が when_expression に一致する場合、CASE式全体の結果は THEN の後に与えられた result_expression になります。
 
-### 3.1 input_expression
+**when_expression** input_expression と比較される式。 input_expression が when_expression に一致する場合、CASE式全体の結果は THEN の後に与えられた result_expression になります。
 
-`input_expression` が `when_expression` と比較されます。 If  `input_expression` matches  `when_expression`, the result of the whole `CASE` expression will be `result_expression` given after `THEN`.
+**boolean_expression** 結果がブール値でなければならない式。 この式が true を返した場合、CASE式全体の結果は THEN の後に与えられた result_expression になります。
 
-### 3.2 when_expression
+**result_expression** CASE式全体の可能な結果。
 
-`when_expression` が `input_expression` と比較されます。 When `input_expression` matches this `when_expression`, the result of the whole `CASE` expression will be `result_expression` given after `THEN`.
-
-### 3.3 boolean_expression
-
-`boolean_expression` はブール値でなければなりません。 この式が true を返す場合、 `CASE` 式全体の結果は `THEN` の後に与えられる `result_expression` になります。
-
-### 3.4 result_expression
-
-`result_expression` は、 `CASE` 式全体の可能な結果です。
-
-### 3.5 else_result_expression
-
-`else_result_expression` は `CASE` 式全体の結果で、 `result_expression` が使用できない場合に使用されます。
+**else_result_expression** result_expression がどれも実行できない場合、CASE式全体の結果は else_result_expression になります。
