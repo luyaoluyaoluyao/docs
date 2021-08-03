@@ -1,90 +1,90 @@
 ---
-title: "Task Queue"
-parent: "resources"
+title: "タスクキュー"
+parent: "リソース"
 menu_order: 85
-description: "Concepts and usage of the task queue"
+description: "タスクキューの概念と使用"
 tags:
-  - "task queue"
-  - "process queue"
-  - "parallel"
-  - "scheduling"
-  - "microflow"
+  - "タスクキュー"
+  - "プロセスキュー"
+  - "並列化"
+  - "スケジュール中"
+  - "マイクロフロー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Using a **Task Queue** allows you to run microflows or Java actions asynchronously while controlling the number of tasks that are executed simultaneously by assigning them to a task queue. You can configure the task queue to control the maximum load put on your application by these tasks during peak usage while still ensuring all microflows and Java actions are eventually executed.
+**タスクキュー** を使用すると、タスクキューに割り当てることで同時に実行されるタスクの数を制御しながら、マイクロフローまたは Java アクションを非同期で実行できます。 すべてのマイクロフローとJavaアクションが最終的に実行されることを確保しながら、ピーク使用時にこれらのタスクによってアプリケーションに置かれる最大負荷を制御するようにタスクキューを構成できます。
 
-### 1.1 Replacing the Process Queue module
+### 1.1 プロセスキューモジュールの交換
 
-This way of executing tasks in the background supersedes the earlier [Process Queue](/appstore/modules/process-queue) Marketplace module.
+バックグラウンドでタスクを実行するこの方法は、以前の [プロセスキュー](/appstore/modules/process-queue) マーケットプレイスモジュールよりも優先されます。
 
-See the section [Replacing Process Queue](#process-queue), below, for more information on the differences between the two mechanisms.
+2つのメカニズムの違いについては、後述の [プロセスキュー](#process-queue)のセクションを参照してください。
 
-## 2 Configuration
+## 2 の構成
 
-Microflows or Java actions can be scheduled to run in the background when they are initiated using a **Call Microflow** or **Call Java Action** action in Studio Pro, or through the Java API.
+マイクロフローまたは Java アクションは、Studio Pro で **「Microflow** 」または **「Java Action** を呼び出す」アクションを使用して開始されたときにバックグラウンドで実行するようにスケジュールできます。 またはJava APIを使用します。
 
-### 2.1 Tasks Running in Task Queues
+### 2.1 タスクキューで実行中のタスク
 
-#### 2.1.1 Process Flow When Adding a Task to a Task Queue
+#### 2.1.1 タスクをタスクキューに追加する際のプロセスフロー
 
-Scheduling a microflow or Java action to be executed returns immediately. The task will be executed somewhere in the cluster, as soon as possible after the transaction in which it was called completes.
+実行される microflow または Java アクションをスケジュールすると、すぐに返されます。 タスクは、それが完了と呼ばれたトランザクションの後、できるだけ早くクラスタ内のどこかで実行されます。
 
-Because the task is executed in the background, there is no return value. You can only find out if the task ran successfully. For information on how to do that, see [Interfacing the Queue](#interfacing-queue), below.
+タスクはバックグラウンドで実行されるため、戻り値はありません。 タスクが正常に実行された場合にのみ見つけることができます。 それを行う方法については、以下の [キュー](#interfacing-queue)を参照してください。
 
-#### 2.1.2 Where do the Tasks Run?
+#### 2.1.2 タスクはどこで実行されますか?
 
-In a single node scenario, the tasks in a task queue will simply be executed on the single node.
+単一ノードのシナリオでは、タスクキュー内のタスクは単一ノード上で実行されます。
 
-In a clustered setting, the Mendix runtime distributes these tasks transparently throughout the cluster. Should a cluster node be shutdown or fail halfway during executing a task, then the remaining cluster nodes will pick it up (eventually, when the node is detected to be down) and re-execute it. This happens automatically and does not need to be managed.
+クラスタ化された設定では、Mendixランタイムはクラスタ全体にこれらのタスクを透過的に配布します。 タスク実行中にクラスタノードがシャットダウンまたは失敗した場合。 残りのクラスタノードは(最終的には、ノードがダウンしていることが検出されたとき)、それを再実行します。 これは自動的に発生し、管理する必要はありません。
 
-You can control how many tasks can run in parallel on each node when you create your task queue. See [Creating Task Queues](#create-queue), below, for more information.
+タスクキューを作成する際に、各ノードで並列に実行できるタスクの数を制御できます。 詳細については、 [タスクキュー](#create-queue)の作成を参照してください。
 
-#### 2.1.3 Context in Task Queues
+#### 2.1.3 タスク キューのコンテキスト
 
-For microflows and Java actions which are running in a task queue, the context in which the task runs changes slightly in the following ways:
+タスクキューで実行されている microflow および Java アクションの場合、タスクの実行コンテキストは以下の方法でわずかに変更されます。
 
  * They are always executed in a *sudo* context, even if a scheduling microflow has **Apply entity access** set to *true* (see [Microflow Properties](microflow) for more information).
- * Only committed persistable entities can be passed as parameters to the task. Passing a persistable *New* or *Changed* entity produces a runtime error. Basically, this means an entity must have been committed previously or is committed in the same transaction in which the task is created.
- - The task is not executed immediately. The task is added only to a task queue when (and if) the transaction from which it has been scheduled ends successfully. At that point any cluster node may pick it up.
- - If the execution fails with an exception, the failure is logged in the `System.ProcessedQueueTask` table.
+ * コミットされた持続可能エンティティのみが、タスクのパラメータとして渡すことができます。 持続可能な *New* または *Changed* エンティティを渡すとランタイムエラーが発生します。 基本的には、エンティティが以前にコミットされているか、またはタスクが作成された同じトランザクションでコミットされていることを意味します。
+ - タスクはすぐには実行されません。 タスクは、スケジュールされたトランザクションが正常に終了すると、タスクキューにのみ追加されます。 その時点で、任意のクラスタノードがそれを拾う可能性があります。
+ - 例外が発生して実行に失敗した場合、失敗は `System.ProcessedQueueTask` テーブルに記録されます。
 
  {{% alert type="info" %}}
-The context in which a background task runs is still under discussion and may change in the future.
+バックグラウンドタスクが実行されるコンテキストはまだ議論中であり、将来的に変更される可能性があります。
 {{% /alert %}}
 
-### 2.2 Creating Task Queues{#create-queue}
+### 2.2 タスクキューの作成{#create-queue}
 
-Background execution is done in so called **Task Queues**. They can be created in Studio Pro as follows:
+バックグラウンド実行は、いわゆる **タスクキュー** で行われます。 これらは Studio Pro で以下のように作成できます。
 
-1. Right click on a module or folder.
+1. モジュールまたはフォルダを右クリックします。
 
-2. Select **Add other**.
+2. **Add other** を選択します。
 
-3. Click **Task Queue**.
+3. **タスクキュー** をクリックします。
 
-4. Enter the value for **Threads** for each cluster node (maximum 40).
+4. クラスターノードごとに **スレッド** の値を入力します(最大40)。
 
-    Task Queues have a number threads. Each of these threads can process one task at a time. That is, a queue will pick up as many concurrent tasks as it has threads. Whenever a task is finished, the next one will be picked up.
+    タスクキューには数のスレッドがあります。 これらの各スレッドは、一度に一つのタスクを処理できます。 つまり、キューはスレッドを持つ数だけ並行タスクをピックアップします。 タスクが完了するたびに、次のタスクがピックアップされます。
 
-    In general, one or two threads should be enough, unless there is a large number of tasks or tasks take a long time and need to execute in parallel. Having many threads will put additional load on the database and should not be done if not needed.
+    一般的には、1つまたは2つのスレッドで十分でなければなりません 多数のタスクやタスクがない限り、時間がかかり、並列実行する必要があります。 多くのスレッドを使用すると、データベースに追加のロードが追加され、必要がない場合は行うべきではありません。
 
-    The total number of worker threads is limited to 40 (per cluster node). There is no hard limit on cluster nodes.
+    ワーカースレッドの総数は 40 (クラスターノードあたり) に制限されます。 クラスタノードにはハードリミットはありません。
 
-### 2.3 Scheduling Microflow Executions
+### 2.3 マイクロフローの実行をスケジュールする
 
 #### 2.3.1 In Studio Pro
 
-In Studio Pro, a [Call Microflow](microflow-call) activity can start a microflow in a Task Queue.
+Studio Pro では、 [「Microflow](microflow-call) 」アクティビティを呼び出すと、タスクキューでマイクロフローを開始できます。
 
-1. Edit the **Call Microflow** activity.
-2. Check the box **Execute this Microflow in a Task Queue**.
-3. Set **Select Task Queue** to the task queue in which the microflow should be executed.
+1. **コールマイクロフロー** アクティビティを編集します。
+2. **タスクキュー** でこのマイクロフローを実行します。
+3. **タスクキュー** をマイクロフローを実行するタスクキューに設定します。
 
-#### 2.3.2 Through the API
+#### 2.3.2 API
 
-The `Core` class in `com.mendix.core` contains a method `microflowCall`. It can be used to schedule a microflow for background execution as in the following example:
+`com.mendix.core` の `コア` クラスには、 `microflowCall` メソッドが含まれています。 以下の例のように、バックグラウンド実行のためのマイクロフローをスケジュールするために使用できます。
 
 ```java
 Core.microflowCall("AModule.SomeMicroflow")
@@ -93,21 +93,21 @@ Core.microflowCall("AModule.SomeMicroflow")
   .executeInBackground(context, "AModule.SomeQueueName");
 ```
 
-The method `executeInBackground` takes two parameters: a context and a queue name. The context is only used for creating the task; executing the task will be done with a system context. See the [API documentation](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#microflowCall(java.lang.String)) for more information.
+メソッド `executeInBackground` は、コンテキストとキュー名の 2 つのパラメータを取ります。 コンテキストはタスクを作成するためにのみ使用されます。タスクの実行はシステムコンテキストで行われます。 詳細は [API ドキュメント](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#microflowCall(java.lang.String)) を参照してください。
 
-### 2.4 Scheduling Java Action Executions
+### 2.4 Java アクションの実行をスケジュールする
 
-#### 2.4.1 In Studio Pro
+#### 2.4.1 Studio Pro で
 
-In Studio Pro, a [Call Java action](microflow-call) activity can start a Java action in a Task Queue.
+Studio Pro では、 [[Java アクション](microflow-call) ] アクティビティを呼び出すと、タスクキューで Java アクションを開始できます。
 
-1. Edit the **Call Java Action** activity.
-2. Check the box **Execute this Java action in a Task Queue**.
-3. Set **Select Task Queue** to the task queue in which the Java action should be executed.
+1. **Java Action** を編集します。
+2. **タスクキュー** でこのJavaアクションを実行します。
+3. **Javaアクションを実行するタスクキューにタスクキュー** を選択します。
 
-#### 2.4.2 Through the API
+#### 2.4.2 API
 
-The `Core` class in `com.mendix.core` contains a method `userActionCall`. It can be used to schedule a Java action for background execution as in the following example:
+`com.mendix.core` の `Core` クラスには、 `userActionCall` メソッドが含まれています。 以下の例のように、バックグラウンド実行のための Java アクションをスケジュールするために使用できます。
 
 ```java
 Core.userActionCall("AModule.SomeJavaAction")
@@ -115,122 +115,122 @@ Core.userActionCall("AModule.SomeJavaAction")
   .executeInBackground(context, "AModule.SomeQueueName");
 ```
 
-The method `executeInBackground` takes two parameters: a context and a queue name. The context is only used for creating the task; executing the task will be done with a system context. See the [API documentation](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#userActionCall(java.lang.String)) for more information.
+メソッド `executeInBackground` は、コンテキストとキュー名の 2 つのパラメータを取ります。 コンテキストはタスクを作成するためにのみ使用されます。タスクの実行はシステムコンテキストで行われます。 詳細は [API ドキュメント](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#userActionCall(java.lang.String)) を参照してください。
 
-### 2.5 Configuration options{#configuration}
+### 2.5 設定オプション{#configuration}
 
-The period for a graceful shutdown of queues can be configured as a [custom runtime](custom-settings) setting in Studio Pro.
+キューの優雅なシャットダウン期間は、Studio Pro で [カスタム ランタイム](custom-settings) 設定として設定できます。
 
-| Configuration option            | Example value | Explanation                                               |
-| ------------------------------- | ------------- | --------------------------------------------------------- |
-| `TaskQueue.ShutdownGracePeriod` | 10000         | Time in ms to wait for task to finish when shutting down. |
-
-{{% alert type="info" %}}
-This grace period is applied twice during the [shutdown](#shutdown) (described below) so the maximum time that the runtime will wait for tasks to end is twice this value.
-{{% /alert %}}
-
-### 2.6 Interfacing the Queue{#interfacing-queue}
-
-Besides scheduling and executing tasks, the Mendix platform keeps track of tasks that have been executed in the background: for example, which completed and which failed.
-
-Internally, a scheduled or running task is represented by the Mendix entity `System.QueuedTask`. In a high performance setting, this entity should *not* be used directly by user code, because the underlying database table is heavily used. For example counting how many `System.QueuedTask` objects exist at the moment will lock the table and might cause a serious slowdown in task processing. You should also not Write directly to `System.QueuedTask`. Instead, mark a task for background execution in the **Call Microflow**  or **Call Java Action** activity or using the Java API.
-
-Tasks that have been processed, that is have completed or failed, are saved as objects of entity type `System.ProcessedQueueTask`. These objects are at the user's disposal. They might be used, for example, to do the following:
-
-1. Reschedule failed tasks if desired (this should be done by creating new task(s)),
-2. Verify that tasks have run successfully, or
-3. Debug the application in case of errors.
-
-`System.ProcessedQueueTasks` objects are never deleted. The user is free to delete them when desired.
-
-### 2.7 Task status
-
-The **Status** attribute of `System.QueuedTask` and `System.ProcessedQueueTask` reflects the state that a background task is in. The values are:
-
-* `Idle`: The task was created and is waiting to be executed.
-* `Running`: The task is being executed.
-* `Completed`: The task executed successfully.  A `System.ProcessedQueueTask` is added to reflect this.
-* `Failed`: The task is no longer executing, because an exception occurred. A `System.ProcessedQueueTask` containing the exception is added to reflect the failure. The task will not be retried.
-* `Aborted`: The task is no longer executing, because the cluster node that was executing it went down. A `System.ProcessedQueueTask` is added to reflect this. The task will be retried on another cluster node.
-* `Incompatible`: The task never executed, because the model changed in such a way that it cannot be executed anymore. This could be because the microflow was removed/renamed, the arguments were changed or the Task Queue was removed.
-
-### 2.8 Model changes
-
-During the startup of the Mendix runtime, there is a check to ensure that scheduled tasks in the database fit the current model. The following conditions are checked:
-
-* that the microflows exist
-* that the parameters match
-* that the queue exists
-
-If any of these condition checks fail, tasks are moved to `System.ProcessedQueueTasks` with **Status** `Incompatible`. The Runtime will only start after all scheduled tasks have been checked. This should in general not take very long, even if there are thousands of tasks.
-
-### 2.9 Shutdown{#shutdown}
-
-During shutdown, the `TaskQueueExecutors` will stop accepting new tasks. Running tasks are allowed a [grace period](#configuration) to finish. After this period, the runtime will send an interrupt to all task threads that are still running and again allow a grace period for them to finish. After the second grace period the runtime just continues shutting down, eventually aborting the execution of the tasks. The aborted tasks will be reset, so that they are re-executed later or on another cluster node. In development mode, the first grace period is shortened to 1 second.
+| 設定オプション                         | 値の例   | 説明                                |
+| ------------------------------- | ----- | --------------------------------- |
+| `TaskQueue.ShutdownGracePeriod` | 10000 | シャットダウン時にタスクが完了するまでの時間をミリ秒で指定します。 |
 
 {{% alert type="info" %}}
-Interrupting task threads may cause them to fail. These tasks will be marked as `Aborted` and retried at a later time.
+この猶予期間は [shutdown](#shutdown) (下記) の間に 2 回適用されるため、実行時にタスクが終了するまで待つ最大時間はこの値の 2 倍になります。
 {{% /alert %}}
 
-## 3 Monitoring
+### 2.6 キュー{#interfacing-queue} のインターフェイス
 
-### 3.1 Logging
+タスクのスケジュールと実行のほかに。 Mendixプラットフォームは、バックグラウンドで実行されたタスクを追跡します。例えば、完了したタスクや失敗したタスクなどです。
 
-A [Log Node](logging#mendix-nodes) named `Queue` exists specifically for all actions related to Task Queues.
+内部的には、スケジュールされたタスクまたは実行中のタスクは Mendix エンティティ `System.QueuedTask` によって表されます。 高性能な設定では、基盤となるデータベーステーブルが頻繁に使用されるため、このエンティティは *ではなく* をユーザーコードによって直接使用する必要があります。 For example counting how many `System.QueuedTask` objects exist at the moment will lock the table and might cause a serious slowdown in task processing. `System.QueuedTask` に直接書き込むべきではありません。 代わりに、 ****  または **Java Action** を呼び出す、または Java API を使用してバックグラウンド実行のためのタスクをマークします。
 
-## 4 Other
+処理が完了または失敗したタスクは、エンティティタイプ `System.ProcessedQueueTask` のオブジェクトとして保存されます。 これらのオブジェクトはユーザーが自由に使用できます。 たとえば、以下のように使用される可能性があります。
 
-Executing **Find usages** on a task queue only finds the occurrences of that queue in microflows.
+1. 必要に応じて失敗したタスクをスケジュール変更します(これは新しいタスクを作成することによって行われる必要があります)。
+2. タスクが正常に実行されたことを確認するか、
+3. エラーが発生した場合はアプリケーションをデバッグします。
+
+`System.ProcessedQueueTasks` オブジェクトは削除されません。 ユーザーは自由にそれらを削除することができます。
+
+### 2.7 タスクの状態
+
+**System.QueuedTask** と `System.ProcessedQueueTask` の `ステータス` は、バックグラウンドタスクが存在する状態を反映しています。 値は次のとおりです。
+
+* `Idle`: タスクが作成され、実行されるのを待っている。
+* ``の実行 : タスクが実行中です。
+* `Completed`: 正常に実行されたタスク。  これを反映するために `System.ProcessedQueueTask` が追加されました。
+* `失敗した`: 例外が発生したため、タスクが実行されなくなりました。 失敗を反映するために例外を含む `System.ProcessedQueueTask` が追加されました。 タスクは再試行されません。
+* `中止された`: 実行中のクラスタノードがダウンしたため、タスクは実行されなくなりました。 これを反映するために `System.ProcessedQueueTask` が追加されました。 タスクは別のクラスタノードで再試行されます。
+* `互換性のない`: 実行できないような方法でモデルが変更されたため、タスクは実行されなかった。 これは、マイクロフローが削除/リネームされた、引数が変更された、またはタスクキューが削除されたためである可能性があります。
+
+### 2.8 モデルの変更
+
+Mendix ランタイムの起動時に、データベース内のスケジュールされたタスクが現在のモデルに適合することを保証するチェックがあります。 以下の条件がチェックされます:
+
+* マイクロフローが存在することを
+* パラメータが一致しますが
+* 待ち行列が存在し
+
+これらの条件のいずれかがチェックに失敗した場合、タスクは `システム.ProcessedQueueTasks` に **ステータス** `互換性のない` で移動されます。 ランタイムは、すべてのスケジュールされたタスクがチェックされた後にのみ開始されます。 これは、数千のタスクがある場合でも、一般的には非常に長い時間がかかる必要があります。
+
+### 2.9 シャットダウン{#shutdown}
+
+シャットダウン時に、 `TaskQueueExecutors` は新しいタスクの受け入れを停止します。 実行中のタスクは [猶予期間](#configuration) で終了します。 この期間以降は ランタイムは、まだ実行中のすべてのタスクスレッドに割り込みを送信し、再びそれらの猶予期間が終了することを許可します。 第2の猶予期間の後、ランタイムはちょうどシャットダウンを続け、最終的にタスクの実行を中止します。 中断されたタスクはリセットされ、後からまたは別のクラスタノードで再実行されます。 開発モードでは、最初の猶予期間が1秒に短縮されます。
 
 {{% alert type="info" %}}
-Invocations from Java actions are not found.
+タスクスレッドを中断すると失敗する可能性があります。 これらのタスクは `中断された` としてマークされ、後で再試行されます。
 {{% /alert %}}
 
-### 4.1 Tasks Queue Helper
+## 3つのモニタリング
 
-You can use the [Task Queue Helpers](https://marketplace.mendix.com/link/component/117272) module in the Mendix Marketplace to help you to implement Task Queues. It contains the following:
+### 3.1 ログ
 
-* Pages that can be used to monitor task queues
-* Microflows that can do basic maintenance tasks
+タスクキューに関連するすべてのアクションのために、 [](logging#mendix-nodes) `キュー` という名前のformat@@4 ログノード format@@5 が特別に存在します。
 
-### 4.2 Limitations
+## その他 4
 
-Task queues have the following limitations:
+実行 **タスクキューで使用法** を検索すると、そのキューがマイクロフローで発生した場合のみが見つかります。
 
-* Microflows or Java actions that are executed in the background execute as soon as possible in the order they were created, but possibly in parallel. They are consumed in FIFO order, but then executed in parallel in case of multiple threads. There is no way to execute only a single microflow or Java action at any point in time (meaning, ensure tasks are run sequentially), unless the number of threads is set to 1 and there's only a single runtime node.
-* Microflows or Java actions that are executed in the background can *only* use the following types of parameters: Boolean, Integer/Long, Decimal, String, Date and time, Enumeration, committed Persistent Entity.
-* Microflows or Java actions that are executed in the background use a sudo/system context with all permissions. It is not possible to use a user context with limited permissions.
-* Background microflows or Java actions will start execution as soon as the transaction in which they are created is completed. This ensures that any data that is needed by the background microflow or Java action is committed as well. It is not possible to start a background microflow or Java action immediately, halfway during a transaction. Note that if the transaction is rolled back, the task is not executed at all.
-* The total amount of parallelism per node is limited to 40. This means that at most 40 queues with parallelism 1 can be defined, or a single queue with parallelism 40, or somewhere in between, as long as the total does not exceed 40.
-* Queued actions that have failed can't be rescheduled out-of-the-box currently. You can set up a scheduled microflow to re-attempt failed tasks. They can be queried from `System.ProcessedQueueTask` table.
+{{% alert type="info" %}}
+Javaアクションからの呼び出しが見つかりません。
+{{% /alert %}}
 
-### 4.3 High level implementation overview
+### 4.1 タスクキューヘルパー
 
-Tasks are stored in the database in a `System.QueuedTask` table. For each background task a new object is inserted with a `Sequence` number, `Status = Idle`,  `QueueName`, `QueueId`, `MicroflowName` or `UserActionName`, and `Arguments` of the task. This happens as part of the transaction which calls the microflow  or Java action and places it in the task queue, which means that the task will not be visible in the database until that transaction completes successfully.
+Mendix Marketplaceの [タスクキューヘルパー](https://marketplace.mendix.com/link/component/117272) モジュールを使用して、タスクキューを実装するのに役立ちます。 次のようなものがある。
 
-The tasks are then consumed by executors that perform a `SELECT FOR UPDATE SKIP LOCKS` SQL statement, that will try to claim the next free task. The `SKIP LOCKS` clause will skip over any tasks that are already locked for update by other executors. The corresponding `UPDATE` changes the `Status` to `Running` and sets the owner of the task in the `XASId` and `ThreadId` attributes.
+* タスクキューを監視するために使用できるページ
+* 基本的なメンテナンス作業を行うことができるマイクロフロー
 
-After the task has been executed, it is moved to be an object of the `System.ProcessedQueueTask` entity with `Status` `Completed` or `Failed`. If the task failed with an exception, this is included in the `ErrorMessage` attribute.
+### 4.2 制限
 
-Arguments are stored in the `Arguments` attribute as JSON values. Arguments can be any primitive type ([variable](variable-activities))or a committed persistent object, which is included in the `Arguments` field by its Mendix identifier. Upon execution of the task, the corresponding object is retrieved from the database using the Mendix identifier. For this reason the persistent object must be committed before the task executes, because otherwise a runtime exception will occur.
+タスクキューには以下の制限があります。
 
-When a node crashes, this is eventually detected by another cluster node, because it no longer updates its heartbeat timestamp. At this point the other node will reset all tasks that were running on the crashed node. The reset performs the following actions:
+* バックグラウンドで実行されるマイクロフローまたは Java アクションは、作成された順序でできるだけ早く実行されますが、おそらく並列に実行されます。 これらはFIFO順に消費されますが、複数のスレッドの場合は並列に実行されます。 任意の時点で 1 つの microflow や Java アクションのみを実行する方法はありません。 スレッド数が 1 に設定されていて、単一のランタイムノードしかない場合は、タスクが順次実行されることを確認してください)。
+* バックグラウンドで実行されるマイクロフローまたは Java アクションは *のみ* で、以下のタイプのパラメータを使用します: ブーリアン。 整数/長, 小数, 文字列, 日付と時刻, 列挙, 永続エンティティをコミット.
+* バックグラウンドで実行されるマイクロフローまたは Java アクションは、すべての権限を持つ sudo/system コンテキストを使用します。 限定された権限を持つユーザーコンテキストを使用することはできません。
+* バックグラウンドマイクロフローまたは Java アクションは、作成されたトランザクションが完了するとすぐに実行を開始します。 これにより、バックグラウンドマイクロフローまたは Java アクションによって必要とされるデータも確実に反映されます。 トランザクションの途中でバックグラウンドマイクロフローやJavaアクションをすぐに開始することはできません。 トランザクションがロールバックされた場合、タスクはまったく実行されないことに注意してください。
+* ノードあたりの並列性の総量は40に制限されます。 つまり、並列性1を持つ最大40のキューを定義することができます。 または並列性40を持つ単一のキュー、またはその間のどこかで合計が40を超えない限り。
+* 失敗したキューに入れられたアクションは、現在すぐに使えるボックスにスケジュールを変更することはできません。 スケジュールされたマイクロフローを設定して、失敗したタスクを再試行できます。 `System.ProcessedQueueTask` テーブルから問い合わせることができます。
 
-* create a copy of the task as a `System.ProcessedQueueTask` object with `Status = Aborted`
-* set the `Status` back to `Idle`
-* increment the `Retried` field
-* clear the `XASId` and `ThreadId` fields
+### 4.3 高レベル実装の概要
 
-The task will then automatically be consumed again by one of the remaining nodes in the cluster. Effectively, this means that a task is guaranteed to be executed at least once.
+タスクは `System.QueuedTask` テーブルのデータベースに格納されます。 For each background task a new object is inserted with a `Sequence` number, `Status = Idle`,  `QueueName`, `QueueId`, `MicroflowName` or `UserActionName`, and `Arguments` of the task. これは、microflow または Java アクションを呼び出してタスクキューに配置するトランザクションの一部として発生します。 つまり、トランザクションが正常に完了するまで、タスクはデータベースに表示されません。
+
+次に、タスクは `更新SKIPロック` SQL文を実行する実行者によって消費されます。 次の自由任務を主張しようとします `SKIP LOCKS` 節は、他の実行者が更新するためにすでにロックされているタスクをスキップします。 対応する `UPDATE` は `ステータス` を `実行` に変更し、 `XASId` と `スレッドId` 属性のタスクのオーナーを設定します。
+
+タスクが実行された後、それは `システムのオブジェクトに移動されます。 <code> 状態` の rocessedQueueTask `エンティティ` `完了` または `失敗した`。 タスクが例外で失敗した場合、これは `ErrorMessage` 属性に含まれます。
+
+引数は `引数` に JSON 値として格納されます。 Arguments can be any primitive type ([variable](variable-activities))or a committed persistent object, which is included in the `Arguments` field by its Mendix identifier. タスクの実行時に、対応するオブジェクトは Mendix 識別子を使用してデータベースから取得されます。 このため、永続オブジェクトはタスクの実行前にコミットされなければなりません。実行時例外が発生するためです。
+
+ノードがクラッシュすると、これは最終的に別のクラスタノードによって検出されます。これはハートビートタイムスタンプが更新されなくなったためです。 この時点で、他のノードはクラッシュしたノードで実行されていたすべてのタスクをリセットします。 リセットは次のアクションを実行します。
+
+* `Status = Aborted` を持つ `System.ProcessedQueueTask` オブジェクトとしてタスクのコピーを作成します
+* `ステータス` を `アイドル`に戻します
+* `再試行された` フィールドをインクリメント
+* `XASId` と `スレッドId` の項目をクリアする
+
+タスクは、クラスタ内の残りのノードの 1 つによって再び自動的に消費されます。 これは、タスクが少なくとも一度は実行されることが保証されることを意味します。
 
 {{% alert type="warning" %}}
-Under normal circumstances, a task is executed exactly once, but in the face of node failures a task may be (partially) executed multiple times. This is the best guarantee that a distributed system can provide.
+通常の状況では、タスクは一度だけ実行されますが、ノード障害に直面した場合、タスクは(部分的に)複数回実行される可能性があります。 これは分散システムが提供できる最善の保証です。
 {{% /alert %}}
 
-### 4.4 Replacing Process Queue{#process-queue}
+### 4.4 プロセスキューの置き換え{#process-queue}
 
-The **Task Queue** supersedes the earlier [Process Queue](/appstore/modules/process-queue) Marketplace module, which has been deprecated with the release of Mendix 9. There are several differences between the Process Queue module and the **Task Queue**:
+**タスクキュー** は以前の [プロセスキュー](/appstore/modules/process-queue) マーケットプレイスモジュールに取って代わられており、Mendix 9 のリリースで廃止予定となっています。 Process Queueモジュールと **Task Queue**にはいくつかの違いがあります:
 
-* The **Task Queue** supports a multi-node cluster setup and can therefore be used in a horizontally scaled environment.
-* The **Task Queue** does not require additional entities to be created, since Microflows or Java actions can simply be marked to execute in the background.
-* The **Task Queue** does not yet support automatic retrying of failed tasks.
+* **タスクキュー** はマルチノードクラスタのセットアップをサポートしているため、水平方向のスケーリング環境で使用できます。
+* **タスクキュー** は追加のエンティティを作成する必要はありません マイクロフローまたは Java アクションはバックグラウンドで実行するようにマークすることができるので。
+* **タスクキュー** は、失敗したタスクの自動再試行をまだサポートしていません。
