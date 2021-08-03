@@ -1,6 +1,6 @@
 ---
-title: "Columns (Document Template)"
-parent: "data-grid-document-template"
+title: "列(文档模板)"
+parent: "数据网格文档模板"
 tags:
   - "studio pro"
 aliases:
@@ -8,52 +8,52 @@ aliases:
   - /refguide/Columns+(document+template).html
 ---
 
-## 1 Appearance Properties
+## 1个外观属性
 
-### 1.1 Caption
+### 1.1 标题
 
-The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Internationalization](translatable-texts).
+列的标题是显示在行上方的页眉的文本。 这是一个可翻译的文本。 见 [Internationalization](translatable-texts)。
 
-### 1.2 Enumeration Format (Only for Attributes of the Enumeration Type)
+### 1.2 枚举格式 (仅限枚举类型属性)
 
-A column can show its contexts as text (default) or as image.
+列可以将其上下文显示为文本(默认)或图像。
 
-| Value | Description                                             |
-| ----- | ------------------------------------------------------- |
-| Text  | Show the contents of the connected attribute as a text. |
-| Image | Show the image of the enumeration value.                |
+| 值  | 描述               |
+| -- | ---------------- |
+| 文本 | 以文本形式显示所连接属性的内容。 |
+| 图片 | 显示枚举值的图像。        |
 
-### 1.3 Decimal Precision (Only for Decimal Attributes)
+### 1.3 十进制精度(仅针对十进制属性)
 
-The precision of a value is defined by the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
+值的精确度由用来表示该值的数字数来界定。 此属性表示小数点后的位数(小数点后的数字数)。
 
-Default: *2*
+默认： *2*
 
-### 1.4 Group Digits (Only for Numeric Attributes)
+### 1.4 组数字(仅限数字属性)
 
-For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end-user will see these groups, or not.
+为了便于阅读，小数点分隔符之前有许多数字的数字可能会被分成使用分隔符的组。 这种财产确定最终用户是否会看到这些团体。
 
-Default: *False*
+默认： *False*
 
-### 1.5 Date Format (Only for Attributes of Type **Date and time**)
+### 1.5 日期格式 (仅针对类型 **日期和时间** 的属性)
 
-The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
+日期格式决定是否显示日期部分、时间部分或两者。 日期和时间部件的格式取决于用户使用应用程序的本地化。
 
-These are the possible values:
+这些是可能的价值：
 
-* **Date** *(default)*
-* **Time**
-* **Date and time**
-* **Custom** (see below for more details)
+* **日期** *(默认)*
+* **时间**
+* **日期和时间**
+* **自定义** (详情见下面)
 
-### 1.6 Custom Date Format (Only for Attributes of Type **Date and time**)
+### 1.6 自定义日期格式 (仅适用于类型 **日期和时间** 的属性)
 
-If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
+如果您选择 **自定义** 作为日期格式(见上文)，此属性将决定如何格式化属性。 自定义日期格式是一个字符串，允许下面表格中的任何符号组合。 任何标点都将以字面形式呈现。
 
-{{% snippet file="refguide/custom-date-format-tokens.md" %}}
+{{% snippet file="refguide/custom-date-form-tokens.md" %}}
 
-## 2 Data Source Properties
+## 2 数据源属性
 
-### 2.1 Attribute (Path)
+### 2.1 属性(路径)
 
-The attribute (path) property specifies the attribute whose value will be displayed in the column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity. The path over which an associated object is accessed is referred to as an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
+属性(路径)属性指定了在列中显示值的属性。 它可以是网格实体的属性，也可以是关联实体的属性。 关联对象访问的路径被称为属性路径。 路径可以跟随多个类型引用关联，在末尾(可选) 一个类型参考集。 如果您在一列中显示一个引用集，值将用逗号分隔。
