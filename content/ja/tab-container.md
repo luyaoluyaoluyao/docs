@@ -1,76 +1,72 @@
 ---
-title: "Tab Container"
+title: "タブコンテナ"
 parent: "container-widgets"
 menu_order: 40
 tags:
   - "studio pro"
-  - "tab container"
+  - "タブコンテナ"
   - "tab page"
-  - "container widget"
-  - "widget"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 aliases:
-  - /refguide8/tab-page.html
+  - /refguide/tab-page.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/tab-container.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+タブコンテナは、タブに分類された情報を表示するために使用されます。 これは、表示しなければならない情報の量が画面上のスペースの量よりも大きい場合に非常に便利です。
 
-Tab containers are used to show information categorized into tabs. This can be very useful if the amount of information that has to be displayed is larger than the amount of space on the screen.
+![タブコンテナ](attachments/container-widgets/tab-container.png)
 
-![Tab Container](attachments/container-widgets/tab-container.png)
+## 2つのプロパティ
 
-## 2 Properties
+タブコンテナプロパティの例を以下の画像に示します。
 
-An example of tab container properties is represented in the image below:
-
-{{% image_container width="250" %}}![Tab Container Properties](attachments/container-widgets/tab-container-properties.png)
+{{% image_container width="250" %}}![format@@0 タブ](attachments/container-widgets/tab-container-properties.png)
 {{% /image_container %}}
 
-Tab container properties consist of the following sections:
+format@@0 タブ コンテナプロパティは以下のセクションで構成されます。
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Visibility Section {#visibility}
+### 2.3 表示セクション {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Tab Page {#tab-page}
 
-A tab container contains one or more tab pages where you place widgets. For example, a tab page can contain a grid of orders.
+タブコンテナには、ウィジェットを配置するタブページが1つまたは複数あります。 たとえば、タブページには注文のグリッドを含めることができます。
 
-### 3.1 Tab Page-Specific Properties
+### 3.1 format@@0 タブ
 
 #### 3.1.1 Default Tab Page
 
-**Default tab page** defines which tab is displayed when the page is opened. If no tab is set as the default one, the first tab page will be shown.
+**デフォルトのタブページ** では、ページが開かれたときに表示されるタブを定義します。 デフォルトのタブが設定されていない場合、最初のタブページが表示されます。
 
-Default: *False*
+デフォルト: *False*
 
-#### 3.1.2 Refresh on Show {#refresh}
+#### 3.1.2 表示時に更新 {#refresh}
 
-**Refresh on show** indicates whether the contents of the tab page should be refreshed when the tab page is shown. Set this property to *No* if you know that nothing will affect the information on the tab page.
+**ショー時に更新する** は、タブページが表示されたときにタブページの内容を更新するかどうかを示します。 タブページの情報に影響がないことがわかっている場合は、このプロパティを *いいえ* に設定してください。
 
-Default: *True*
+デフォルト: *True*
 
 {{% alert type="info" %}}
-This property is not supported on native mobile pages.
+このプロパティは、ネイティブのモバイルページではサポートされていません。
 {{% /alert %}}
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
