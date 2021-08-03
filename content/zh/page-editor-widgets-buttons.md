@@ -1,98 +1,110 @@
 ---
-title: "Buttons"
-parent: "page-editor-widgets"
-description: "Describes button widgets in Mendix Studio."
+title: "按钮部件"
+parent: "页面编辑器部件"
+description: "在 Mendix Studio 中描述按钮部件。"
 menu_order: 50
 tags:
-  - "studio"
-  - "page editor"
-  - "button"
-  - "widgets"
+  - "工作室"
+  - "页面编辑器"
+  - "按钮"
+  - "小部件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Button [widgets](page-editor-widgets) allow end-users to perform various actions, for example, saving changes or closing the current page:
+按钮 [小部件](page-editor-widgets) 允许用户执行各种动作，例如打开页面或执行微流程。
 
-{{% image_container width="400" %}}![](attachments/page-editor-widgets-buttons/button-example.png)
+{{% image_container width="300" %}}![](attachments/page-editor-widgets-buttons/button-widgets.png)
 {{% /image_container %}}
 
-The following **Buttons** are available in Mendix Studio as default widgets:
+下面的 **按钮** 可作为默认小部件在 Mendix Studio 中使用：
 
-* Open Page
-* Call Microflow
-* Create Object
-* Save Changes
-* Delete Object
-* Cancel Changes
-* Close Page
-* Sign Out
-* Open Link
+* 打开页面
+* 调用微流
+* 创建对象
+* 保存更改
+* 删除对象
+* 取消更改
+* 关闭页面
+* 登出
+* 打开链接
 
 {{% alert type="info" %}}
 
-Apart from the default button widgets, you can also [download widgets from the Mendix Marketplace](https://marketplace.mendix.com/) to your app. For more information, see the [Widgets by Origin](page-editor-widgets#widgets-by-origin) section in *Widgets*.
+除了默认按钮小部件外，您还可以 [从Mendix Marketplace](https://marketplace.mendix.com/) 下载小部件到您的应用。 欲了解更多信息，请参阅第 [4小部件按起源](page-editor-widgets#widgets-by-origin) *小部件* 部分。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Events Section
+## 2 事件部分
 
-Properties in the **Events** section are partially preset for buttons listed above. They depend on the action a button performs. For example, if the button is supposed to open a page, the **On Click Action** in the **Events** section will be **Page**. However, you need to specify what page exactly the button will open.
+**事件** 部分的属性是上面列出的按钮的部分预设。 他们取决于按键执行的动作。 例如，如果按钮是要打开一个页面， **点击动作** 在 **事件** 部分将是 **页面**。 然而，您需要指定哪个页面将打开该按钮。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets-buttons/events-section-page-button.png)
 {{% /image_container %}}
 
-For more information, see the [Default Properties in the Events Section](#default-properties) section.
+欲了解更多信息，请参阅事件章节 [2.1 默认属性](#default-properties)。
 
 {{% alert type="info" %}}
 
-You can change preset properties, and make the button perform another action.
+您可以更改预设属性，并使按钮执行另一个操作。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-For more information on the **Events** section and on click actions, see [Events Section](page-editor-widgets-events-section).
+关于 **事件** 部分和点击动作的更多信息，请参阅 [小部件中的事件部分](page-editor-widgets-events-section)。
 
-### 2.1 Default Properties in the Events Section {#default-properties}
+### 2.1 事件部分中的默认财产 {#default-properties}
 
-**On Click Action** in the **Events** section determines the action of the button.
+**点击动作** 在 **事件** 部分决定按钮的动作。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets-buttons/events-section.png)
 {{% /image_container %}}
 
-You can find the list of default actions and properties that need to be configured in the table below.
+您可以在下面的表格中找到需要配置的默认动作和属性列表。
 
-| Button         | Default Action | Properties to be Configured                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Open Page      | Page           | **Page** (Select page) <br />If you want to create a new object and pass it as a context to the selected page, enable **Create Object** (disabled by default) and select an **Entity**. For more information on see section the [Create Object Option](page-editor-widgets-events-section#create-object-option) section in *Events Section*. <br /> **Close pages** <br />Control the number of pages to close after navigating to the target page. |
-| Call Microflow | Microflow      | **Microflow** (Select microflow)                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Create Object  | Create Object  | **Page** (Select page) and **Entity** (Select entity) <br /> **Close pages** <br />Control the number of pages to close after navigating to the new or edit page.                                                                                                                                                                                                                                                                                         |
-| Save Changes   | Save Changes   | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Delete Object  | Delete Object  | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Cancel Changes | Cancel Changes | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Close Page     | Close Page     | **Close pages** Control the number of pages to close.                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Sign Out       | Sign Out       | None                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Open Link      | Open Link      | For **Open Link** you need to configure the following properties: <ul><li>**Link Type** (Default: *Web*)</li><li>**Source** (Default: *Use literal value*)</li><li>**Url**</li></ul> For more information on these properties, see the [Open Link Action](page-editor-widgets-events-section#open-link-action) section in *Events Section*.                                                                                                                                                                                                                      |
+| 按钮   | 默认操作 | 要配置的属性                                                                                                                                                                            |
+| ---- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 打开页面 | 页    | **页面** (选择页面) <br />如果您想要创建一个新对象并将其作为上下文传到选定的页面， 启用 **创建对象** (默认禁用) 并选择 **实体**。 欲了解更多信息，请参见 [2.1 创建对象选项](page-editor-widgets-events-section#create-object-option) *小部件事件部分* |
+| 调用微流 | 微流   | **微流** (选择微流)                                                                                                                                                                     |
+| 创建对象 | 创建对象 | **页面** (选择页面) 和 **实体** (选择实体)                                                                                                                                                     |
+| 保存更改 | 保存更改 | 无                                                                                                                                                                                 |
+| 删除对象 | 删除对象 | 无                                                                                                                                                                                 |
+| 取消更改 | 取消更改 | 无                                                                                                                                                                                 |
+| 关闭页面 | 关闭页面 | 无                                                                                                                                                                                 |
+| 登出   | 登出   | 无                                                                                                                                                                                 |
+| 打开链接 | 打开链接 | 对于 **打开链接** ，您需要配置以下属性： <ul><li>**Link Type** (*Default value*: Web)</li><li>**Source** (*默认值*：使用字数值)</li><li>**Url**</li></ul> 欲了解更多关于这些属性的信息，请参阅 [2.2 打开链接行动](page-editor-widgets-events-section#open-link-action) *小部件中的事件部分*                                  |
 
-## 3 General Section
+## 3 一般部分
 
-Properties available in the **General** section are described in the table below.
+下面的表格描述了 **常规** 部分中可用的属性。
 
-| Property    | Description                                                                                                                                                                                                                                   |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Caption     | Defines the text that will be shown on the button. Buttons have preset captions depending on the action they perform.                                                                                                                         |
-| Icon        | Determines the icon that will be shown in front of the caption of the button.                                                                                                                                                                 |
-| Render Mode | Defines the way the button will be shown to the end-user. Possible options are the following: <ul><li>Button  *(default)*  – the widget will be rendered as a button</li><li>Link – the widget will be rendered as a hyperlink</li></ul>                                                                                                                        |
-| Style       | Applies a predefined styling to the button. Possible options are the following: <ul><li>Default <em>(default for all buttons except **Save Changes**)</em></li><li>Inverse</li><li>Primary</li><li>Info</li><li>Success <em>(default for the **Save Changes** button)</em></li><li>Warning</li><li>Danger</li></ul>The color for each style depends on your settings in the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer). |
+| 财产   | 描述                                                                                                                                                                                         |
+| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 标题   | 定义按钮上将显示的文本。 按钮有预设字幕，取决于它们执行的动作。 欲了解更多信息，请参阅第 [3.1 默认标题](#default-caption) 节。                                                                                                              |
+| 图标   | 确定按钮标题前面显示的图标。                                                                                                                                                                             |
+| 渲染模式 | 定义按钮向最终用户显示的方式。 可能的备选办法如下： <ul><li>**按钮** - 小部件将作为按钮渲染。</li><li>**Link** - 小部件将呈现为超链接</li></ul>默认渲染模式：按钮                                                                                                                               |
+| 样式   | 将预定义的样式应用于按钮。 可能的备选办法如下： <ul><li>默认设置</li><li>反转</li><li>主要的</li><li>信息</li><li>成功</li><li>警告</li><li>危险</li></ul>除了 **保存更改** 按钮之外的所有按钮的默认值：默认<br /> **保存更改** 按钮的默认值：成功<br />每个样式的颜色取决于您在 **主题自定义器** 中的设置。 欲了解详情，请参阅 [主题定制器](theme-customizer)。 |
 
-## 4 Conditional Visibility
+### 3.1 默认标题 {#default-caption}
 
-{{% snippet file="studio/visibility-section-link.md" %}}
+**在 **General** 部分中的标题** 被设置取决于按钮的动作。 下面的表格显示每个按钮类型的默认标题。
 
-## 5 Design Section
+| 按钮   | 默认标题 |
+| ---- | ---- |
+| 打开页面 | 页    |
+| 调用微流 | 微流   |
+| 创建对象 | 新的   |
+| 保存更改 | 保存   |
+| 删除对象 | 删除   |
+| 取消更改 | 取消   |
+| 关闭页面 | 关闭   |
+| 登出   | 登出   |
+| 打开链接 | 按钮   |
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+## 4 设计部分
 
-## 6 Read More
+关于 **设计** 部分及其属性的信息，请参阅 [小部件中的设计部分](page-editor-widgets-design-section)。
 
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+## 5 阅读更多
+
+* [页 次](page-editor)
+* [小部件](页面编辑器部件)
