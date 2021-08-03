@@ -1,33 +1,29 @@
 ---
-title: "XPath Sum"
-parent: "xpath-query-functions"
+title: "XPath 总和"
+parent: "xpath-query函数"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-sum.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`sum()` 函数返回其参数的总和。
 
-The `sum()` function returns the sum of its argument.
+函数需要一个 XPath 查询作为参数。
 
-The function requires an XPath query as argument.
+函数必须在查询中指定要聚合的一列。
 
-The function must specify a column in the query to aggregate.
+查询必须指定一个有数字类型的属性。
 
-The query must specify an attribute that has a numeric type.
+## 2 示例
 
-## 2 Examples
-
-This query returns the sum of the total prices of all placed orders:
+此查询返回所有订单总价格的总和：
 
 ```java
 sum(//Sales.Order/TotalPrice)
 ```
 
-This query returns the sum of the total prices of all the orders placed by a customer named "Jansen":
+此查询返回一个客户所下订单总价格的总和，其名称为“Jansen”：
 
 ```java
 sum(//Sales.Order[Sales.Customer_Order/Sales.Customer/Name = 'Jansen']/TotalPrice)
