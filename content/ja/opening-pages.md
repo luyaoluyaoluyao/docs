@@ -1,44 +1,44 @@
 ---
-title: "Opening Pages"
-parent: "page-concepts"
+title: "ページを開く"
+parent: "page-コンセプト"
 ---
 
-You can open other pages from many many places within pages. Pages can be opened either in the content pane of the browser or in a new pop-up window. Where the page is opened depends on the [layout type](layout) of its [layout](layout). Pages with the layout type **Modal pop-up** or **Pop-up** will open as a pop-up window, and other pages will be opened in the content. If the target page layout is of the type **Legacy**, then the page location must be configured manually (for details, see the [Location](#location) section below).
+ページ内の多くの場所から他のページを開くことができます。 ページは、ブラウザのコンテンツペインまたは新しいポップアップウィンドウで開くことができます。 ページが開かれる場所は、 [レイアウト](layout) の [レイアウト](layout) に依存します。 レイアウトタイプ **モーダルポップアップ** または **ポップアップ** のページがポップアップウィンドウとして開きます。 他のページがコンテンツに開かれます If the target page layout is of the type **Legacy**, then the page location must be configured manually (for details, see the [Location](#location) section below).
 
-If the target page contains a [data view](data-view) with a page parameter data source, then an object for this data view must be passed to the page while opening. What object to pass is configured automatically based on the arguments available for the widget opening the page (see [available arguments for microflows](starting-microflows) for details).
+ターゲット ページにページ パラメーターのデータ ソースを持つ [データ ビュー](data-view) が含まれている場合。 このデータビューのオブジェクトは、開くときにページに渡されなければなりません。 渡すオブジェクトは、ウィジェットがページを開く際に使用可能な引数に基づいて自動的に設定されます (詳細については [microflow の](starting-microflows) 利用可能な引数を参照してください)。
 
-Generally speaking, opening a page in content will trigger a full reload of the entire browser contents. However, if the new page uses the same [layout](layout) as the old one, only the page contents will refresh. The layout will retain its state. This allows for navigation without any unnecessary overhead or loss of data.
+一般的に、コンテンツ内のページを開くと、ブラウザのコンテンツ全体が完全に再読み込みされます。 ただし、新しいページが以前と同じ [レイアウト](layout) を使用している場合は、ページの内容だけがリフレッシュされます。 レイアウトは状態を保持します。 これにより、不要なオーバーヘッドやデータの損失を伴わずにナビゲーションが可能になります。
 
-## Properties
+## プロパティー
 
-Mendix allows for a number of methods for opening a page. Each of these methods share a set of properties that determine the conditions in which the page is opened.
+Mendix では、ページを開くためのさまざまな方法を用意しています。 これらの各メソッドは、ページが開かれる条件を決定する一連のプロパティを共有します。
 
-### Page
+### ページ
 
-This is the [page](page) that is shown to the end-user. There can be a number restrictions on the page, depending on the place from which the page is opened. For example, a page that is opened by the **Create** button must contain a data view that is connected to the same entity as the grid.
+これはエンドユーザーに表示される [ページ](page) です。 ページを開いた場所に応じて、ページに数字の制限がある場合があります。 例えば、 **Create** ボタンによって開かれるページには、グリッドと同じエンティティに接続されているデータビューが含まれている必要があります。
 
-### Page title
+### ページタイトル
 
-By default the title of the page is taken from the title property of the selected page. You can replace this title with a custom title if necessary.
+デフォルトでは、ページのタイトルは選択したページの title プロパティから取得されます。 必要に応じて、このタイトルをカスタムタイトルに置き換えることができます。
 
 {{% alert type="success" %}}
-This feature allows you to re-use the same page for the New and Edit buttons of a data grid. By simply setting the titles to, for example, 'New customer' and 'Edit customer', you can save yourself the trouble of duplicating the rest of the page.
+この機能を使用すると、データ グリッドの format@@0 および format@@1 ボタンで同じページを再利用できます。 単純にタイトルを「新規顧客」や「顧客編集」などに設定するだけです。 残りのページを複製する手間を省くことができる
 {{% /alert %}}
 
-### Location {#location}
+### 場所 {#location}
 
 {{% alert type="info" %}}
 
-If the [layout](layout) of the target page has a [layout type](layout) configured, the Location property will be unavailable. Instead, the layout type will determine how the page is opened. This eliminates the risk of accidentally modeling a pop-up form with a huge menu bar.
+ターゲット ページの [レイアウト](layout) に [レイアウト タイプ](layout) が設定されている場合、Location プロパティは使用できなくなります。 代わりに、レイアウトタイプによってページの開き方が決定されます。 これにより、巨大なメニューバーを備えたポップアップフォームを誤ってモデリングするリスクがなくなります。
 
 {{% /alert %}}
 
-This property indicates where the page is shown.
+このプロパティはページがどこに表示されるかを示します。
 
-| Value           | Description                                                                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In content      | The page replaces the page that is currently in the content pane of the browser.                                                                    |
-| Pop-up          | The page is shown as a non-blocking pop-up overlaying the page you were looking at. Non-blocking means that you can still use the underlying page . |
-| Blocking pop-up | The page is shown as a blocking pop-up. Blocking means that you cannot use the underlying page until you close the pop-up.                          |
+| 値          | 説明                                                                           |
+| ---------- | ---------------------------------------------------------------------------- |
+| コンテンツ内     | ページは、ブラウザーのコンテンツペインに現在あるページを置き換えます。                                          |
+| ポップアップ     | ページはノンブロッキングポップアップとして表示され、ページがオーバーレイされます。 ノンブロッキングは、元のページを引き続き使用できることを意味します。 |
+| ブロックポップアップ | ページはブロックポップアップとして表示されます。 Blocking とは、ポップアップを閉じるまで、元のページを使用できないことを意味します。      |
 
-_Default value:_ Pop-up
+_デフォルト値:_ ポップアップ
