@@ -73,7 +73,7 @@ Mendix Cloudは、Mendix Platformを使用する場合のデフォルトのデ�
 
 ## 4つのアプリを表示 {#viewing-your-app}
 
-アプリを公開すると、ブラウザまたはモバイルデバイスで即座に表示できます。 アプリにユーザーを招待することもできます。 For more information on user roles and managing users, see the [Managing App Users](settings-security#managing-app-users) section in *Security, Roles & Permissions*.
+アプリを公開すると、ブラウザまたはモバイルデバイスで即座に表示できます。 アプリにユーザーを招待したり、アプリのユーザーを管理することもできます。 For more information on user roles and managing users, see the [Managing App Users](settings-security#managing-app-users) section in *Security, Roles & Permissions*.
 
 ### 4.1 ブラウザでアプリを表示する
 
@@ -99,7 +99,6 @@ Mendix Cloudは、Mendix Platformを使用する場合のデフォルトのデ�
 
 3. QRコードをスキャンして、モバイルデバイスでアプリを表示します。
 
-    ![モバイル端末で表示オプション](attachments/publishing-app/view-on-mobile.jpg)
 
 モバイル端末でアプリが開きます。
 
