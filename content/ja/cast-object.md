@@ -1,52 +1,32 @@
 ---
 title: "キャストオブジェクト"
 parent: "object-activity"
-menu_order: 10
-tags:
-  - "studio pro"
 ---
 
-{{% alert type="warning" %}}
-このアクティビティは、 **Microflow** でのみ使用できます。
+{{% alert type="info" %}}
+この活性は、ナノフローではなく、マイクロフローでのみ使用できます。
 {{% /alert %}}
 
 ## 1つの紹介
 
-キャストオブジェクトのアクティビティは、 [オブジェクト型の決定](object-type-decision) の後にマイクロフローで使用され、一般化されたオブジェクト型からオブジェクト型の決定からパスの特殊なオブジェクト型に変更されます。
+[継承分割](inheritance-split) の後に、キャストオブジェクトアクティビティをマイクロフローで使用して、一般化されたオブジェクトタイプから継承分割のパスの特殊なオブジェクトタイプに変更できます。
 
 専門化と一般化の詳細については、 [エンティティ](entities) を参照してください。
 
-## 2つのプロパティ
+{{% alert type="info" %}}
 
-以下の画像では、キャストオブジェクトのプロパティの例を示します。
+すべてのアクティビティが共有するプロパティ(例えば、キャプション)については、 [Microflow Element Common Properties](microflow-element-common-properties) を参照してください。 このページでは、アクションに固有のプロパティのみを記述します。
 
-![オブジェクトのプロパティをキャスト](attachments/object-activities/cast-properties.png)
+{{% /alert %}}
 
-このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
+## 2つの出力プロパティ
 
-キャストオブジェクトのプロパティペインは以下のセクションで構成されています:
+### 2.1 変数名
 
-* [アクション](#action)
-* [一般的な](#common)
+これはキャストの結果の変数名です。 このアクティビティに続くすべてのアクティビティで使用できます。
 
-## 3つのアクションセクション{#action}
-
-プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
-
-アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
-
-また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
-
-### 3.1 オブジェクト名
-
-これはキャストの結果の名前です。 このアクティビティに続くすべてのアクティビティで使用できます。
-
-## 4つの共通セクション{#common}
-
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
-
-## 5つの例
+## 3つの例
 
 例えば、 **Question** オブジェクトには3つの専門分野があります。 特殊なタイプ **MultipleChoiceQuestion** のオブジェクトのみが特別なアクションを実行する必要があります。 これらは、入力タイプ **MultipleChoiceQuestion** を持つサブマイクロフローで行われます。 Since an object of the type **Question** cannot get passed to the sub-microflow, the object first needs to be cast to the object type **MultipleChoiceQuestion**.
 
-![マイクロフローでのキャストの例](attachments/object-activities/cast-example.png)
+![](attachments/819203/cast-example.png)
