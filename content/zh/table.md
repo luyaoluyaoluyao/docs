@@ -1,160 +1,156 @@
 ---
-title: "Table"
-parent: "container-widgets"
+title: "表"
+parent: "容器部件"
 menu_order: 60
 tags:
   - "studio pro"
-  - "table"
-  - "container widget"
-  - "widget"
+  - "表"
+  - "容器部件"
+  - "小部件"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table.pdf).
-{{% /alert %}}
+●{% alert type="warning" %}}本机移动页面不支持表格小部件。
+{{% /报警 %}}
 
-{{% alert type="warning" %}}The table widget is not supported on native mobile pages.
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+表格可以用来给一个页面提供结构。 它们包含 [行](table#rows), 列和 [单元](table#cells). 每个单元格可以包含部件。
 
-Tables can be used to give structure to a page. They contain [rows](table#rows), columns, and [cells](table#cells). Each cell can contain widgets.
-
-For example, you can create a table with text widgets, a logo, and a data view information as a customer report:
+例如，您可以创建一个包含文本部件的表格、一个标志和一个数据视图信息作为客户报告：
 
 ![](attachments/container-widgets/table.png)
 
-## 2 Components
+## 2 个组件
 
-A table consist of [rows](#rows), columns, and [cells](#cells).
+一个由 [行](#rows)、列和 [单元组成的表格](#cells)。
 
-### 2.1 Rows and Their Properties {#rows}
+### 2.1 行及其财产 {#rows}
 
-A table can contain one or more rows. Each row contains columns and the number of columns can differ per row.
+一个表可以包含一个或多个行。 每行包含列，每行的列数可能不同。
 
-A row has the following properties:
+行具有以下属性：
 
-* **Class** – allows you to specify one or more cascading style sheet (CSS) classes
-* **Style** – allows you to specify additional CSS styling
-* **Visible** – allows you to hide an element from a page
+* **类** - 允许您指定一个或多个级层样式表 (CSS) 类
+* **样式** - 允许您指定额外的 CSS 样式
+* **可见** - 允许您在页面中隐藏元素
 
-For more information on properties listed above, see [Properties Common in the Page Editor](common-widget-properties).
+欲了解以上所列属性的更多信息，请参阅 [页面编辑器中常见的属性](common-widget-properties)。
 
-### 2.2 Cells and Their Properties {#cells}
+### 2.2 单元及其属性 {#cells}
 
-Each section of a table row or column is called a cell. Cells can contain widgets.
+表列或列的每个部分被称为单元格。 单元可以包含部件。
 
-A cell has the following properties:
+单元格具有以下属性：
 
-* **Class** – allows you to specify one or more cascading style sheet (CSS) classes (for more information on this property, see [Properties Common in the Page Editor](common-widget-properties))
+* **类** - 允许您指定一个或多个级层样式表 (CSS) 类 (关于此属性的更多信息) 查看 [页面编辑器中常见的属性](common-widget-properties)
 
-* **Style** – allows you to specify additional CSS styling (for more information on this property, see [Properties Common in the Page Editor](common-widget-properties))
+* **风格** - 允许您指定额外的 CSS 样式(关于此属性的更多信息) 查看 [页面编辑器中常见的属性](common-widget-properties)
 
-* **Cell type** – indicates the type of the cell, the following options are possible:
+* **单元格类型** - 表示单元格的类型，可能有以下选项：
 
-  * **Normal** – ordinary cell containing data
-  * **Header** – a table header cell
+  * **普通** - 含有数据的普通单元格
+  * **标题** — — 一个表头单元格
 
-### 2.3 Performing Actions on Rows
+### 2.3 在行上执行操作
 
-To perform an action on a row , select a row and right-click it. A list of actions will open.
+若要在一行执行操作，请选择一行并右键单击它。 活动列表将打开。
 
-You can perform the following actions:
+您可以执行以下操作：
 
-* **Add column left** – creates a column to the left of the selected one
-* **Add column right** – creates a column to the right of the selected one
-* **Move left** – moves a column left in the row
-* **Move right** – moves a column right in the row
+* **添加左栏** - 在选中的左侧创建一列
+* **右侧添加列** - 为所选列右侧创建列
+* **左移** - 移动一行左边的列
+* **向右移动** - 行右移列
 
-### 2.4 Performing Actions on Columns
+### 2.4 在列上开展行动
 
-To perform an action on a column , select a column and right-click it. A list of actions will open.
+若要在一列中执行动作，请选择一个列并右键单击它。 活动列表将打开。
 
-You can perform the following actions:
+您可以执行以下操作：
 
-* **Add row above** – creates a row above the selected one
-* **Add row below** – creates a row below the selected one
-* **Move up** – moves a row up
-* **Move down** – moves a row down
+* **在** 上方添加一行 - 在选定一行上方创建一行
+* **在下方添加一行** — — 在选定的一行下面创建一行
+* **向上移动** - 向上移动一行
+* **向下移动** - 向下移动一行
 
-### 2.5 Performing Actions on Cells
+### 2.5 在单元格上执行操作
 
-To perform an action on a cell, select a cell and right-click it. A list of actions will open.
+若要在单元格上执行操作，请选择单元格并右键单击它。 活动列表将打开。
 
-You can perform the following actions:
+您可以执行以下操作：
 
-* **Add widget** – opens a list of widgets, adds the selected widget to the cell
-* **Add building block** – opens a list of building blocks, adds the selected widget to the cell
-* **Add row above** – creates a row above the selected one
-* **Add row below** – creates a row below the selected one
-* **Add column left** – creates a column to the left of the selected one
-* **Add column right** – creates a column to the right of the selected one
-* **Merge left** – merges a cell to the left of the selected one, you can only merge an empty cell
-* **Merge right** – merges a cell to the right of the selected one, you can only merge an empty cell
-* **Merge up** – merges a cell above the selected one, you can only merge an empty cell
-* **Merge down** – merges a cell below the selected one, you can only merge an empty cell
-* **Unmerge** – turns merged cells into separate ones
-* **Delete row** – deletes the selected row
-* **Delete column** – deletes the selected column
+* **添加小部件** - 打开小部件列表，并将选中的小部件添加到单元格
+* **添加建筑块** - 打开一个建筑块列表，并将选中的部件添加到单元格
+* **在** 上方添加一行 - 在选定一行上方创建一行
+* **在下方添加一行** — — 在选定的一行下面创建一行
+* **添加左栏** - 在选中的左侧创建一列
+* **右侧添加列** - 为所选列右侧创建列
+* **将左侧** - 将一个单元合并到所选单元格的左侧，你只能合并一个空单元格
+* **右合并** — — 合并一个单元格到所选单元格的右边，你只能合并一个空单元格
+* **合并** - 合并所选单元格上方的单元格，你只能合并一个空单元格
+* **向下合并** — — 合并一个在选定单元下面的单元格，你只能合并一个空单元格
+* **取消合并** - 将合并单元格变成单独单元格
+* **删除行** - 删除选中的行
+* **删除列** - 删除所选列
 
-To merge cells to the right, left, up, or down, you can also click the corresponding icon:
+要将单元格合并到右侧、左上或下面，您也可以点击相应的图标：
 
-![Merge Icons](attachments/container-widgets/merge-icons.png)
+![合并图标](attachments/container-widgets/merge-icons.png)
 
-## 3 Properties
+## 3 属性
 
-An example of table properties is represented in the image below:
+下表属性的示例在下面的图像中显示：
 
-{{% image_container width="250" %}}![Table Properties](attachments/container-widgets/table-properties.png)
+{{% image_container width="250" %}}![表属性](attachments/container-widgets/table-properties.png)
 {{% /image_container %}}
 
-Table properties consist of the following sections:
+表属性包括以下部分：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-### 3.1 Common Section {#common}
+### 3.1 共同部分 {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 3.2 Design Properties Section {#design-properties}
+### 3.2 设计属性科 {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 3.3 General Section {#general}
+### 3.3 一般部分 {#general}
 
 #### 3.3.1 Width Unit
 
-The **Width Unit** defines whether the [Column widths](#column-widths) property is set in percentage or in pixels.
+**宽度单位** 定义了 [列宽度](#column-widths) 是以百分比或像素为单位设置的。
 
-| Value                   | Description                                                                                                                                                     |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Percentage  *(default)* | The **Column widths** property is specified in percentages. When resizing, columns will become wider/narrower while keeping the same relative widths.           |
-| Pixels                  | The **Column widths** property is specified in pixels. When resizing, the pixel width columns will keep the same size; auto columns will become wider/narrower. |
+| 值           | 描述                                                |
+| ----------- | ------------------------------------------------- |
+| 百分比  *(默认)* | **列宽** 属性是以百分比指定的。 当调整大小时，列将变得更宽/更窄，同时保持相同的相对宽度。  |
+| Pixels      | **列宽** 属性以像素为单位。 调整大小时，像素宽度列将保持相同的大小；自动列将变得更大/更窄。 |
 
-#### 3.3.2 Column Widths {#column-widths}
+#### 3.3.2 列宽度 {#column-widths}
 
-The **Column widths** property defines the widths of each column as a list of numbers separated by semi-colons. The **Width unit** (described above) determines if these numbers mean percentages or pixels.
+**列宽** 属性将每列的宽度定义为用半冒号分隔的数字列表。 **宽单位** (上文描述) 决定这些数字是指百分比还是像素。
 
-![Width Unit and Column Widths](attachments/container-widgets/width-unit-and-column-widths.png)
+![宽度单位和列宽度](attachments/container-widgets/width-unit-and-column-widths.png)
 
-When **Width unit** is set to *Pixels*, you can set column width to the following:
+当 **宽度单位** 设置为 *像素*时，您可以设置列宽度为：
 
-* **Auto** – columns are evenly divided in the available space of the row
-* **Fixed** – columns have a specified pixel value
+* **自动** - 列在行的可用空间中均分了
+* **修复** — 列有指定像素值
 
-For example, you can you can have three columns of which the first is 200 pixels wide (*Fixed* width), the second is 100 pixels (*Fixed* width), and the last one is set to *Auto* which means that it will take up the rest of the space in the row.
+例如，您可以有三列，其中第一列为200像素宽(*固定* 宽度)， 第二个是 100 像素(*固定* 宽度), 最后一个设置为 *自动* ，这意味着它将占用剩余的空格。
 
-### 3.4 Visibility Section {#visibility}
+### 3.4 可见性科 {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 4 Read More
+## 4 阅读更多
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [容器部件](容器部件)
+* [页面编辑器中常见的属性](common-widget-properties)
 
 
