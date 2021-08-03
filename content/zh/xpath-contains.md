@@ -1,24 +1,20 @@
 ---
-title: "XPath Contains"
-parent: "xpath-constraint-functions"
+title: "XPath 包含"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-contains.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`contains()` 函数测试字符串属性是否包含一个特定的字符串 (大小写不敏感) 作为子字符串。
 
-The `contains()` function tests whether a string attribute contains a specific string (case-insensitive) as a sub-string.
+## 2 个示例
 
-## 2 Example
-
-This query returns all the customers from which the name contains the string `an`:
+此查询返回包含字符串 `一个` 的所有客户：
 
 ```java
-//Sales.Customer[contains(Name, 'an')]
+//Sales.Customer[contains(name, 'an')]
 ```
 
-Customers with the name "Andy" or "Jan" will be returned, for example, because "an" is part of those names.
+名称为“Andy”或“Jan”的客户将被退回，例如，“an”是这些名字的一部分。
