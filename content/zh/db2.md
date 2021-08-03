@@ -2,6 +2,8 @@
 title: "DB2"
 parent: "数据存储"
 menu_order: 40
+tags:
+  - "studio pro"
 ---
 
 ## 1 导言
@@ -32,7 +34,7 @@ Mendix 在 DB2 上运行 非常重要的是，用户表空间的页面大小至�
 
 欲了解更多详细信息，请参阅 [DB2 SQL 错误：SQLCODE: -964, SQLSTATE: 57011, SQLERRMC: null](http://www-01.ibm.com/support/docview.wss?uid=swg21298630) on the *IBM Support* pages and [SQL0964C - 数据库的交易日志完整](http://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.messages.sql.doc/doc/msql00964c.html) in *SQL message* section of the *IBM 知识中心*
 
-## 4 使DB2案例不敏感。
+## 4 使DB2案例不敏感。 {#making}
 
 当对字符串列值进行排序时，DB2也会考虑到字母情况。 然而，如果DB2数据库是在对案件不敏感的情况下建立的，就可以避免这种情况。
 
