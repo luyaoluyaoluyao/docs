@@ -9,17 +9,13 @@ tags:
   - "Pages"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/chart-widgets.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Chart widgets allow you to display data series visually on your app pages in a wide range of charts.
 
 [Basic Charts](#basic-charts) are included in Mendix app templates based on Atlas UI. They can be included in other Mendix apps by downloading them from the Mendix Marketplace (for more information, see [Charts](/appstore/widgets/charts)). Basic charts are based on version 1.47.4 of plotly.js.
 
-[Any Chart](#any-chart) gives much more control and allows more flexible use of the features of [plotly.js](https://plot.ly/). The [Any Chart](/appstore/modules/any-chart) widget can be included in your app. See the widget documentation for what version of plotly.js is supported.
+[Any Chart](#any-chart) gives much more control and allows more flexible use of the features of [plotly.js](https://plot.ly/). The [Any Chart](/appstore/modules/any-chart) widget can be included in your app. See the widget description in the Marketplace to see what version of plotly.js is supported.
 
 ## 2 Basic Charts {#basic-charts}
 
@@ -42,7 +38,7 @@ Note that only features up to version 1.47.4 of plotly.js can be used when confi
 
 **Dynamic Series Chart**
 
-From version 1.4 of the basic charts you can create charts with a variable number of data series. For instructions on how to do this, see [How to Create a Dynamic Series Chart](/howto8/front-end/charts-dynamic-series).
+From version 1.4 of the basic charts you can create charts with a variable number of data series. For instructions on how to do this, see [How to Create a Dynamic Series Chart](/howto/front-end/charts-dynamic-series).
 
 ## 3 Any Chart {#any-chart}
 
@@ -60,7 +56,7 @@ The [Any Chart Cheat Sheet](charts-any-cheat-sheet) lists the most common chart 
 
 ## 4 Performing Basic Functions
 
-{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
 ## 5 Documents in This Section
 
