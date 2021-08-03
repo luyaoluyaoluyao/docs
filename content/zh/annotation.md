@@ -1,33 +1,22 @@
 ---
 title: "Annotation"
-parent: "microflows-and-nanoflows"
-menu_order: 60
-tags:
-  - "studio pro"
-  - "annotation"
-  - annotation flow
-aliases:
-  - /refguide/annotation-flow.html
+parent: "common-elements"
 ---
 
 ## 1 Introduction
 
-An annotation is an element that can be used to put comments to a flow.
+An annotation is an element that can be used to put comments in a flow.
 
-In the example below, you use a **Show message** activity to warn end-users about unpaid orders with a pop-up message in the client. Later you want to extend this warning with an e-mail message send to the user. You can use an annotation as a reminder and put it above the current activity.
+{{% alert type="info" %}}
 
-![](attachments/anotation/anotation.png)
+Currently you warn users of unpaid orders with a pop-up message in the client. Later you want to extend this warning with an e-mail message send to the user. To remember this you can use an annotation and put it beside the current activity that warns the user.
+
+![](attachments/819203/918060.png)
+
+{{% /alert %}}
 
 ## 2 Common Properties
 
 ### 2.1 Caption
 
-For details, see [Common Properties](microflow-element-common-properties).
-
-## 3 Annotation Flow {#annotation-flow}
-
-An annotation flow is a connection that can be used to link an annotation to a flow object(s).
-
-For example, this is an annotation flow linking an annotation and a **Microflow call** activity:
-
-![](attachments/anotation/anotation-flow.png)
+For details, see [Microflow Element Common Properties](microflow-element-common-properties).
