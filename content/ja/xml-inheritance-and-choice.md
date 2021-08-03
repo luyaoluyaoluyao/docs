@@ -1,8 +1,6 @@
 ---
-title: "XMLの継承 & 選択"
+title: "XML継承と選択"
 parent: "mapping-documents"
-tags:
-  - "studio pro"
 ---
 
 ## 1 エンティティによるオブジェクトの取得
