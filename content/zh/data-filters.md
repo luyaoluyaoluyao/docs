@@ -1,153 +1,153 @@
 ---
-title: "Data Filters"
-category: "Working with Data"
+title: "数据过滤器"
+category: "使用数据"
 menu_order: 40
-description: "Describes data filtering in page and microflow editors in Mendix Studio."
+description: "描述Mendix Studio页面和微流编辑器中的数据过滤。"
 tags:
-  - "studio"
-  - "microflow"
-  - "filter"
-  - "filters"
-  - "filtering"
-  - "data"
-  - "data filtering"
-  - "retrieve"
-  - "page"
+  - "工作室"
+  - "微流"
+  - "筛选器"
+  - "筛选器"
+  - "筛选中"
+  - "数据"
+  - "数据过滤"
+  - "获取"
+  - "页面"
   - "xpath"
-  - "constraints"
+  - "约束"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In Mendix Studio, you can filter data in pages and microflows.
+在 Mendix Studio 中，您可以过滤页面和微流中的数据。
 
-*In a microflow*, you can filter the retrieved data by creating filters for the **Retrieve** activity. To add a filter objects should be retrieved from the database:
+*在 microflow*中，您可以通过为 **检索活动** 创建过滤器来过滤已检索到的数据。 要添加过滤器对象，应从数据库中检索：
 
 {{% image_container width="300" %}}
 ![](attachments/filters/retrieve-from-database.png)
 {{% /image_container %}}
 
-*In a page*, you can add a filter to a list view or a data grid. Mind that the data source of the list view or the data grid should be **Database**:
+*在一个页面*, 你可以将过滤器添加到列表视图或数据网格中。 希望列表视图或数据网格的数据源应该是 **数据库**：
 
 {{% image_container width="300" %}}
 ![](attachments/filters/page-database.jpg)
 {{% /image_container %}}
 
-## 2 Conditions and Groups
+## 2 条件和组
 
-A filter consists of conditions and groups.
+过滤器由条件和组组成。
 
-A *condition* is an expression that restricts the retrieved data. For example, you can retrieve all customers who do not have an email filled out.
+*条件* 是一个限制检索数据的表达式。 例如，您可以检索所有没有填写电子邮件的客户。
 
 ![](attachments/filters/filter-condition.png)
 
-When you have more than one condition, `and` and `or` operators are used. For *conditions*, operators define if all (`and` operator) or only one of conditions (`or` operator) should be met. In the example below all three conditions should be satisfied for the data to be retrieved:
+当您有多个条件时， `和` 和 `或者` 操作员被使用。 对于 *条件*</em> ， 操作者定义是所有(`和` 操作者)还是只满足一个条件(`或` 操作者)。 在下面的例子中，检索数据时应满足所有三个条件：
 
 ![](attachments/filters/and-operator-in-conditions.png)
 
-*Groups* are sets of conditions that are connected with `and`  or `or` logic.
+*组* 是与 `和`  或 `或` 逻辑相关联的几组条件。
 
-For *groups*, operators define the following:
+对于 *组*, 操作员定义如下：
 
-* `and` – all groups of conditions should be met
-* `or` – only one (or more) of the groups of conditions should be met when filtering the data
+* `和` — — 所有的条件组都应该被满足了
+* `或` — — 在筛选数据时只能满足一组(或更多)条件
 
-In the example below, only program items that meet the following conditions are retrieved:
+在下面的示例中，只能检索符合以下条件的程序项目：
 
-* If the full name is empty, the description is filled in, and email contains "mendix.com"
-* If the full name is empty, the description is filled in, and email contains "siemens.com"
+* 如果全名为空，描述将被填写，电子邮件包含"mendix.com"
+* 如果全名为空，描述将被填写，电子邮件包含“siemens.com”
 
 ![](attachments/filters/operators-between-groups.png)
 
-## 3 Operators Used in Conditions
+## 3 个操作员在条件下使用
 
-While `and` and `or` operators are used between conditions and groups, other operators are used to define the condition itself.
+`和` 和 `或` 操作员在条件和组之间使用，而其他操作员则被用来定义条件本身。
 
 ![](attachments/filters/operator-examples.png)
 
-Available operators depend on the attribute type you have selected in the left part of a condition. Possible operators used in conditions are described in the table below:
+可用运营商取决于您在条件左侧选择的属性类型。 在条件下可能使用的操作员见下表：
 
-| Operator                 | Description                                                                                         | Example                                    |
-| ------------------------ | --------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| is                       | the attribute data exactly matches the given value                                                  | CompanyName is Mendix                      |
-| is not                   | the attribute data should not equal the given value                                                 | CustomerName is not John                   |
-| contains                 | the attribute data should contain the selected value                                                | Address contains Rotterdam                 |
-| does not contain         | the attribute data should not contain the selected value                                            | Address does not contain Boston            |
-| starts with              | the attribute data should start with the given value                                                | CustomerNumber starts with 1000            |
-| ends with                | the attribute data should end with the given value                                                  | PostCode ends with 1122                    |
-| less than                | the value of the attribute data should be less than the given value                                 | Creation Date less than Today              |
-| less than or equal to    | the value of the attribute data should be less than or equal to the given value                     | Price less than 150                        |
-| greater than             | the value of the attribute data should exceed the given value                                       | OrderNumber greater than 555               |
-| greater than or equal to | the value of the attribute data should equal or exceed the given value                              | CustomerNumber greater than or equal to 10 |
-| in same quarter as       | the value (a date) of the attribute data falls into the same quarter of the year as the given value | Last Changed Date in same quarter as Today |
+| 运算符   | 描述                   | 示例             |
+| ----- | -------------------- | -------------- |
+| 是     | 属性数据完全匹配给定的值         | 公司名称是 Mendix   |
+| 不是    | 属性数据不能等于给定的值         | 客户名称不是John     |
+| 包含    | 属性数据应包含选中的值          | 地址包括鹿特丹公约      |
+| 不包含   | 属性数据不应包含选中的值         | 地址不包含波士顿       |
+| 开始于   | 属性数据应该以给定的值开始        | 客户号码以1000开始    |
+| 结束于   | 属性数据应该以给定的值结束        | 邮政编码以1122结束    |
+| 小于    | 属性数据的值应小于给定的值        | 创建日期小于今日       |
+| 小于等于  | 属性数据的值应小于或等于给定的值     | 价格低于150        |
+| 大于    | 属性数据的值应超过给定的值        | 订单号大于 555      |
+| 大于或等于 | 属性数据的值应等于或超过给定的值     | 大于或等于 10 的客户   |
+| 在同一季度 | 属性数据的值(日期)与给定值在同一季度内 | 与今天相同的最后一个变更日期 |
 
-## 4 Creating a New Filter
+## 4 正在创建新过滤器
 
-To create a new filter, do the following:
+要创建一个新的过滤器，请执行以下操作：
 
-1. To add a filter to a *microflow*, open the **Retrieve** action properties.
+1. 要将过滤器添加到一个 *微流*, 请打开 **检索** 动作属性。
 
-    To add a filter to a *page*, open properties of a list view or a data grid).
+    要将 *页面*添加过滤器，打开列表视图或数据网格的属性)。
 
-2. Make sure the database is selected as the data source and that an entity is selected.
+2. 请确保数据库被选为数据源并选择一个实体。
 
-2. Click the **Filter** field.
+2. 点击 **筛选器** 字段。
 
     {{% image_container width="300" %}}![](attachments/filters/filter-field.png){{% /image_container %}}
 
-3. In the **Add Filter** dialog box, specify the attribute/association on the left first, as operators depend on the type of attribute that you have chosen. For example, if you choose *Date and Time* attribute type, you will be able to select the **in same quarter as** operator, while this operator is unavailable for other attribute types.
+3. 在 **添加滤镜** 对话框中，请先指定左边的属性/关联性。 作为操作者依赖于您选择的属性类型。 例如，如果您选择 *日期和时间* 属性类型 您将能够在同一季度中选择 **与** 操作员。而此操作员对于其他属性类型不可用。
 
     ![](attachments/filters/in-same-quarter-as-operator-example.png)
 
-4. Select an operator and a value on the right.
+4. 选择操作员和右侧的值。
 
-    The value on the right can be a literal value that you type in (only available for string, long, integer, decimal, and autonumber attribute types), or it can be an attribute, association, or value you choose from the drop-down list. The options in the drop-down list depend on the left attribute/association.
+    右边的值可以是您输入的字数值(仅适用于字符串、长性、整数、小数点) 自动调整属性类型，或者它可以是一个属性，关联，或者是您从下拉列表中选择的值。 下拉列表中的选项取决于左侧属性/关联。
 
     ![](attachments/filters/list-of-options.png)
 
-5. To add more conditions and manage them, do the following: <br/>
+5. 为了添加更多的条件并加以管理，请做以下工作： <br/>
 
-    a. Click **Add new condition**. <br/>
+    a. 点击 **添加新条件**。 <br/>
 
     ![](attachments/filters/add-new-condition.png)<br/>
 
-    b. If needed, change the `and` operator to `or` operator clicking the drop-down arrow. <br/> c.  If you want to change the order of conditions, click the icon on the left (appears when you hover over it) and drag it.<br/>
+    b. 会议文件。 如果需要，将 `和` 操作员更改为 `或` 操作员点击下拉箭头。 <br/> c.  如果您想要更改条件的顺序，请点击左侧的图标 (当您悬停在它上方时出现) 并拖动它。<br/>
 
     ![](attachments/filters/change-order.png)<br/>
 
-6. To create a new group and manage it, do the following: <br/>
+6. 要创建一个新组并管理它，请执行以下操作： <br/>
 
-    a.  Hover over the bottom of the dialog-box and click **Create a New Group** that appears there.<br/>
+    a.  悬停在对话框底部并点击 **创建出现在那里的新组**。<br/>
 
     ![](attachments/filters/create-new-group.png)<br/>
 
-    b. To change the `and` operator applied to groups to `or` operator, click the drop-down arrow.
+    b. 会议文件。 若要更改 `和` 操作员应用到 `或` 操作员，请单击下拉箭头。
 
-7. Click **Add** to save the filter.
+7. 点击 **添加** 保存过滤器。
 
-The new filter is added. In the properties, you can see the total amount of conditions in the filter.
+新过滤器已添加。 在属性中，您可以在过滤器中看到全部条件。
 
-## 5 Deleting a Filter
+## 5 删除过滤器
 
-To delete a filter, do the following:
+若要删除过滤器，请执行以下操作：
 
-1. In a *microflow*, navigate to properties of the **Retrieve** action.
+1. 在 *微流*中，导航到 **检索的属性** 动作。
 
-    In a *page*, navigate to properties of a list view or a data grid.
+    在 *页面*中，导航到列表视图或数据网格的属性。
 
-2. Click the **Filter** field.
+2. 点击 **筛选器** 字段。
 
-3. In the **Edit Filter** dialog box, click **Clear**.
+3. 在 **编辑滤镜** 对话框中，点击 **清除**。
 
     ![](attachments/filters/clear-filter.png)
 
-All conditions in the filter are deleted.
+过滤器中的所有条件都已删除。
 
 {{% alert type="info" %}}
-If you want to delete just one condition and not all of them, click the trash can icon on the right.
-{{% /alert %}}
+如果您只想删除一个条件而不是所有条件，请点击右边的回收站图标。
+{{% /报警 %}}
 
-## 6 Read More
+## 6 阅读更多
 
-* [Microflows](microflows)
-* [Pages](page-editor)
+* [微型流动](微流)
+* [页 次](page-editor)
