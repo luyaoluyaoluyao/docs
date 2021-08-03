@@ -1,65 +1,65 @@
 ---
-title: "Strategic Partner Terms"
+title: "ストラテジックパートナー利用規約"
 menu_order: 3
 draft: true
 ---
 
-## Introduction
+## はじめに
 
-These are important terms used by Mendix's strategic partners.
+これらは、Mendixの戦略的パートナーが使用する重要な用語です。
 
-For more information on strategic partners, see:
+戦略的パートナーの詳細については、次を参照してください。
 
-* [Strategic Partners](https://www.mendix.com/evaluation-guide/strategic-partners/) in the *Mendix Platform Evaluation Guide*
-* [Strategic Partners Guide](/partners/)
-* [Quality Add-ons Guide](/addons/)
+* [戦略パートナー](https://www.mendix.com/evaluation-guide/strategic-partners/) *Mendix Platform 評価ガイド*
+* [戦略パートナーガイド](/partners/)
+* [高品質のアドオンガイド](/addons/)
 
-### Under Each Term
+### 各学期以下
 
-Details and cross-references where necessary.
+必要に応じて詳細とクロスリファレンス。
 
 {{% alert type="info" %}}
-Guidelines for usage.
+使用のためのガイドライン
 {{% /alert %}}
 
 {{% alert type="success" %}}
-Example usage.
+使用例
 {{% /alert %}}
 
-## CLEVR (Formerly Known as Mansystems) (Add-ons)
+## CLEVR (以前はマンシステムとして知られていました) (アドオン)
 
-### ATS Helper
+### ATSヘルパー
 
 {{% alert type="info" %}}
-Use full name (with "ATS") and capitalize in all instances.
+フルネーム("ATS")を使用し、すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ### ATS Recorder
 
 {{% alert type="info" %}}
-Use full name (with "ATS") and capitalize in all instances.
+フルネーム("ATS")を使用し、すべてのインスタンスで大文字にします。
 {{% /alert %}}
 
 ## SAP
 
-### SAP Rapid Application Development by Mendix
+### Mendix による SAP 迅速なアプリケーション開発
 
-This is the name of the Mendix product that SAP is selling.
+これはSAPが販売しているMendix製品の名前です。
 
-This can sometimes be shortened to "SAP RAD by Mendix."
+これは、場合によっては短縮することができます "MendixによるSAP RAD"。
 
 {{% alert type="info" %}}
-Use the full name in the SAP context.
+SAP コンテキストでフルネームを使用します。
 {{% /alert %}}
 
-This was formerly *SAP Cloud Platform Rapid Application Development by Mendix* and was renamed in January 2021.
+これは以前は *Mendix* によるSAP Cloud Platform Rapid Application Development であり、2021年1月に改名されました。
 
 ## Siemens
 
 ### MindSphere
 
-Text and descriptions for MindSphere should be taken from [This is MindSphere!](https://siemens.com/mindsphere).
+MindSphereのテキストと説明は [これはMindSphereです](https://siemens.com/mindsphere)から取得する必要があります。
 
 {{% alert type="info" %}}
-Note the capitalized "S" in "MindSphere."
+大文字の "S" に注目してください。
 {{% /alert %}}
