@@ -1,83 +1,67 @@
 ---
-title: "Image Uploader"
+title: "Image uploader"
 parent: "file-widgets"
-tags:
-  - "studio pro"
-  - "image uploader"
-  - "file widget"
-  - "widget"
 ---
 
-{{% alert type="warning" %}}The image uploader widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+An image uploader is used to upload images to the server. It also generates a thumbnail of the uploaded image. The uploaded image or its thumbnail can be shown by use of the image viewer.
 
-An image uploader is used to upload images to the server. It also generates a thumbnail of the uploaded image. The uploaded image or its thumbnail can be displayed by an image viewer. It must be placed inside a data view connected to the entity System.Image or a specialization thereof.
+{{% alert type="info" %}}
 
-In the example below, an image uploader is placed in a nested data view (the *Profile* entity is a specialization of System.Image):
+![](attachments/pages/image-uploader.png) The image uploader is placed in a nested data view here. The Profile entity is a specialization of System.Image.
 
-![Image Uploader](attachments/file-widgets/image-uploader.png)
+{{% /alert %}}
 
-## 2 Properties
+An image uploader must be placed in a data view connected to entity System.Image or a specialization thereof.
 
-An example of image uploader properties is represented in the image below:
+## General properties
 
-{{% image_container width="250" %}}![Image Uploader Properties](attachments/file-widgets/image-uploader-properties.png)
-{{% /image_container %}}
+### Maximum file size (MB)
 
-Image uploader properties consist of the following sections:
+With this property you can specify the maximum file size (in megabytes) of images that can be uploaded.
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [General](#general)
-* [Label](#label)
-* [Visibility](#visibility)
+_Default value:_ 5
 
-### 2.1 Common Section {#common}
+### Allowed extensions
 
-{{% snippet file="refguide/common-section-link.md" %}}
+You can specify the file extensions that are allowed to be uploaded. If no extensions are specified all file extensions are allowed. Separate multiple extensions by a semi-colon, for example, `png;jpg`
 
-### 2.2 Design Properties Section {#design-properties}
+If a file with an extension that is not allowed is selected, a system text (File manager > Incorrect file extension) will be shown underneath the file manager.
 
-{{% snippet file="refguide/design-section-link.md" %}}
+### Thumbnail width
 
-### 2.3 Editability Section {#editability}
+This property determines the width of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+### Thumbnail height
 
-### 2.4 General Section {#general}
+This property determines the height of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
 
-#### 2.4.1 Maximum file size (MB)
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-**Max file size (MB)** determines the maximum size of files (in megabytes) that can be uploaded.
+## Editability properties
 
-Default: *5*
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-#### 2.4.2 Allowed Extensions {#allowed-extensions}
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-You can specify file extensions that users are allowed to upload. If no extension is specified, all file extensions are allowed. Separate multiple extensions by a semi-colon (for example, `txt;doc`).
+## Visibility properties
 
-If a file with an extension that is not allowed is selected, a [system text](system-texts) for **File manager/image viewer** > **Error: incorrect file extension** will be shown below the file manager.
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-#### 2.4.3 Thumbnail Width
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-**Thumbnail width** determines the width of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+## Common properties
 
-#### 2.4.4 Thumbnail Height
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-**Thumbnail height** determines the height of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-### 2.5 Label Section {#label}
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-{{% snippet file="refguide/label-section-link.md" %}}
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-### 2.6 Visibility Section {#visibility}
+## Related articles
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 Read More
-
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+*   [Data view](data-view)
+*   [Entities](entities)
+*   [Associations](associations)
