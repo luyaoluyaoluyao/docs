@@ -1,36 +1,32 @@
 ---
-title: "XPath Operators"
-parent: "xpath-constraints"
+title: "XPath 操作符"
+parent: "xpat-conditions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-operators.pdf).
-{{% /alert %}}
+## 1 用于 XPath 查询约束
 
-## 1 For XPath Query Constraints
+以下操作者可以在 Studio Pro 和 Java 代码中使用 XPath 查询约束：
 
-The following operators can be used in XPath query constraints, both in Studio Pro and in Java code:
+| 运算符     | 描述    | 示例                | 退货值                                                                   |
+| ------- | ----- | ----------------- | --------------------------------------------------------------------- |
+| `=`     | 等于    | `价格=9.80`         | 如果价格为 9.80，价格为 9.90 则为 false                                          |
+| `!=`    | 不等于   | `价格 != 9.80`      | 如果价格是9.90, 如果价格是9.80, 则是false                                         |
+| `<`  | 小于    | `价格 < 9.80`    | 如果价格为9.70, 如果价格为9.80, 则为false                                         |
+| `<=` | 小于等于  | `价格 <= 9.80`   | 如果价格为 9.80，价格为 9.90 则为 false                                          |
+| `>`  | 大于    | `价格 > 9.80`    | 如果价格是9.90, 如果价格是9.80, 则是false                                         |
+| `>=` | 大于或等于 | `价格 >= 9.80`   | 如果价格为9.80，价格为9.70，则为false                                             |
+| `或`     | 或     | `价格=9.80或价格=9.70` | 如果价格是9.80，价格是9.60，则是false                                             |
+| `和`     | 和     | `价格=9.80，金额=1`    | 如果价格为9.80，金额为1，价格为9，则为false。 0和金额为1，假如价格为9.80，金额为2，价格为9.70，金额为2，金额为2。 |
 
-| Operator | Description              | Example                        | Return value                                                                                                                                                  |
-| -------- | ------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `=`      | Equal to                 | `price = 9.80`                 | true if price is 9.80, false if price is 9.90                                                                                                                 |
-| `!=`     | Not equal to             | `price != 9.80`                | true if price is 9.90, false if price is 9.80                                                                                                                 |
-| `<`   | Less than                | `price < 9.80`              | true if price is 9.70, false if price is 9.80                                                                                                                 |
-| `<=`  | Less than or equal to    | `price <= 9.80`             | true if price is 9.80, false if price is 9.90                                                                                                                 |
-| `>`   | Greater than             | `price > 9.80`              | true if price is 9.90, false if price is 9.80                                                                                                                 |
-| `>=`  | Greater than or equal to | `price >= 9.80`             | true if price is 9.80, false if price is 9.70                                                                                                                 |
-| `or`     | Or                       | `price = 9.80 or price = 9.70` | true if price is 9.80, false if price is 9.60                                                                                                                 |
-| `and`    | And                      | `price = 9.80 and amount = 1`  | true if price is 9.80 and amount is 1, false if price is 9.70 and amount is 1, false if price is 9.80 and amount is 2, false if price is 9.70 and amount is 2 |
+## Java 代码
 
-## 2 For Java Code
+此外，仅在 Java 代码中支持以下操作员：
 
-Additionally, the following operators are supported in Java code only:
-
-| Operator | Description    | Example   | Return value |
-| -------- | -------------- | --------- | ------------ |
-| `+`      | Addition       | `6 + 4`   | 10           |
-| `-`      | Subtraction    | `6 - 4`   | 2            |
-| `*`      | Multiplication | `6 * 4`   | 24           |
-| `div`    | Division       | `8 div 4` | 2            |
+| 运算符   | 描述         | 示例        | 退货值 |
+| ----- | ---------- | --------- | --- |
+| `+`   | 添加         | `6 + 4`   | 10  |
+| `-`   | 减法         | `6 - 4`   | 2   |
+| `*`   | 乘法         | `6 * 4`   | 24  |
+| `div` | 经常预算： 预算外： | `8 div 4` | 2   |
