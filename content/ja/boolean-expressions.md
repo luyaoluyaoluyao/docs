@@ -1,94 +1,105 @@
 ---
-title: "ブーリアン式"
+title: "ブール式"
 parent: "表現"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "表現"
+  - "表現"
+  - "Boolean"
 ---
 
-### ブーリアン式
-
-
-
-ブール式は、2つの条件が保持されているかどうかをチェックするなどの論理演算を実行するために使用できます。
-
-## と
-
-2つのブール式式を組み合わせて、両方の式が True に評価された場合にのみ、True を返します。
-
 {{% alert type="info" %}}
-
-```java
-(6 > 4) and (3 < 5)
-```
-
-両方の式が True であるため、 True に評価されます。
-
-```java
-('hello' = 'hallo') and (3 < 5)
-```
-
-2番目の式のみが True であるため、 False に評価します。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/boolean-expressions.pdf) をクリックしてください。
 {{% /alert %}}
 
-## または
+## 1つの紹介
 
-2 つの Boolean 式を組み合わせて、少なくとも 1 つの True が評価されている場合に True を返します。
+ブール式は、true または false を返す論理演算を実行するために使用できます。
 
-{{% alert type="info" %}}
+## 2 と
 
-Given a domain entity instance with name "$product" that has an integer attribute "price" with value "3" and another integer attribute "recommendedPrice" with value "2", the following expression:
+`と` 演算子は2つのブール式式をチェックし、両方の式が true の場合にのみ `true` を返します。
 
-```java
-($product/price < $product/recommendedPrice : 2) or ($product/price > 0)
-```
+### 2.1 例
 
-少なくとも1つの式がTrue(正確には2つ目)に評価されるため、Trueが返されます。 両方の文が True であれば、式は True を返すことに注意してください。
+以下の例は、式が返す値を示しています。
 
-以下の例では False を返します。両方の式は False に評価されるため:
+* 次の入力を使用する場合:
 
-```java
-('hello' = 'nothello') または ('bye' = 'stillnotbye')
-```
+    ```java
+    (6 > 4) and (3 < 5)
+    ```
 
-{{% /alert %}}
+    両方の式が `true` であるため、出力は `true` です。
 
-## いいえ
+* 次の入力を使用する場合:
 
-関数 'not' は指定された Boolean 式を否定します。
+    ```java
+    ('hello' = 'hallo') and (3 < 5)
+    ```
 
-### Input
+    出力は `false`です。なぜなら、2 番目の式だけが `true` だからです。
+
+## 3 または
+
+`または` 演算子は2つのブール式を組み合わせ、式の少なくとも1つが真の場合は `true` を返します。
+
+### 3.1 例
+
+以下の例は、式が返す値を示しています。
+
+* 整数型の *price* 属性を持つ *product* というエンティティがあります。 *price* 属性は 3 に等しく、 *recommendedPrice* と呼ばれる別の属性があります。
+
+    次の入力を使用する場合:
+
+    ```java
+    ($product/price < $product/recommendedPrice : 2) or ($product/price     > 0)
+    ```
+
+    式は `true` を返します。式の少なくとも 1 つが true (2 番目のもの) であるためです。 両方の文が true の場合、式は `true` を返すことに注意してください。
+
+* 次の入力を使用する場合:
+
+    ```java
+    ('hello' = 'nothello') または ('bye' = 'stillnotbye')
+    ```
+
+    式は `false`を返します。
+
+## 4 not
+
+`ではない` 演算子は指定された Boolean 式を否定します。
+
+### 4.1 Input
 
 Boolean型の式。
 
-### 出力
+### 4.2 出力
 
-指定した式の否定を返します。 式が True と評価されると、False が返されます。そうでなければ、True が返されます。
+指定した式の否定を返します。 式が `true`と評価された場合、 `false`を返します。
 
-{{% alert type="info" %}}
+### 4.3 例
 
-```java
-not('hello' = 'hallo')
+以下の例は、式が返す値を示しています。
 
-```
+* 次の入力を使用する場合:
 
-戻り値:
+    ```java
+    not('hello' = 'hallo')
 
-```java
-true
+    ```
 
-```
+    式は `true` を返します。
 
-と
 
-```java
-not(true)
+* 次の入力を使用する場合:
 
-```
+    ```java
+    not(true)
+    ```
 
-戻り値:
+    式は `false` を返します。
 
-```java
-false
 
-```
 
-{{% /alert %}}
