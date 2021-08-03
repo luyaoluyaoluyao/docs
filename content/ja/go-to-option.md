@@ -1,31 +1,31 @@
 ---
-title: "Go to Option"
+title: "オプションに移動"
 parent: "edit-menu"
-description: "Describes the Go to option in Mendix Studio Pro."
+description: "Mendix Studio Proのformat@@0オプションについて説明します。"
 menu_order: 40
 tags:
-  - "app"
-  - "go to"
+  - "アプリ"
+  - "次へ移動"
   - "navigation"
-  - "usage"
+  - "使用法"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In Studio Pro editors, such as navigation, page, or microflow editor, you can access a handy menu by right-clicking items. A **Go to** option is commonly used to find your way in an app. It allows you to navigate from one element to another: for example, to navigate to the target of a button or to the source of a data grid.
+Studio Pro エディターでは、ナビゲーション、ページ、マイクロフローエディターなど、右クリックで便利なメニューにアクセスできます。 **** に移動するオプションは、一般的にアプリであなたの方法を見つけるために使用されます。 例えば、ある要素から別の要素に移動することができます。 を選択して、ボタンのターゲットまたはデータ グリッドのソースに移動します。
 
-## 2 Go To Option
+## 2オプションに移動
 
-The examples of using the **Go to** option are described below:
+**Go to** オプションを使用する例を以下に示します。
 
-* **Opening a target of a menu item** – in **App** > **Navigation**, you can right-click a menu item and select **Go to target**. Studio Pro will open the corresponding target of the menu item,for example, a page. ![Go to Target](attachments/go-to-option/go-to-target.png)
-* **Opening a data source of an element** – on pages, you can navigate to the data source of a widget. For example, you can right-click a button in the data grid and select **Go to microflow**. Mendix Studio Pro will open the corresponding microflow: ![Go to Microflow](attachments/go-to-option/go-to-microflow.png)
-* **Opening an entity from a microflow** – you can navigate to an entity in the domain model if you right-click an activity in the microflow and select **Go to entity**. Mendix Studio Pro will open the corresponding domain model: ![Go to Entity](attachments/go-to-option/go-to-entity.png)
+* **Opening a target of a menu item** – in **App** > **Navigation**, you can right-click a menu item and select **Go to target**. Studio Pro は、ページなどのメニュー項目の対応するターゲットを開きます。 ![ターゲットに移動](attachments/go-to-option/go-to-target.png)
+* **要素のデータ ソースを開く** – ページでは、ウィジェットのデータ ソースに移動できます。 たとえば、データ グリッドのボタンを右クリックして、 **Go to microflow** を選択できます。 Mendix Studio Proは、対応するマイクロフローを開きます: ![Microflow へ移動](attachments/go-to-option/go-to-microflow.png)
+* **マイクロフローからエンティティを開く** – マイクロフロー内のアクティビティを右クリックして **エンティティに移動** を選択すると、ドメインモデル内のエンティティに移動できます。 Mendix Studio Proは、対応するドメインモデルを開きます。 ![エンティティに移動](attachments/go-to-option/go-to-entity.png)
 
-## 3 Read More
+## 3 続きを読む
 
-* [Find, Find Advanced, and Find Usages](find-and-find-advanced)
+* [検索、詳細検索、および使用方法を検索](find-and-find-advanced)
 * [Navigation](navigation)
-* [Pages](pages)
-* [Microflows](microflows)
-* [Domain Model](domain-model)
+* [ページ](ページ)
+* [マイクロフロー](マイクロフロー)
+* [ドメインモデル](ドメインモデル)
