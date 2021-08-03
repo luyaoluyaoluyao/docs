@@ -1,76 +1,76 @@
 ---
-title: "Group Box"
-parent: "container-widgets"
+title: "组框"
+parent: "容器部件"
 menu_order: 30
 tags:
   - "studio pro"
-  - "group box"
-  - "container widget"
-  - "widget"
+  - "组框"
+  - "容器部件"
+  - "小部件"
 ---
 
-{{% alert type="warning" %}}The group box widget is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="warning" %}}本机移动页面不支持群组窗口小部件。{{% /提醒 %}}
 
-## 1 Introduction
+## 1 导言
 
-A group box can be used to visually group related widgets together. Group boxes are displayed as a frame around nested widgets with an optional header. Group boxes can be configured to collapse and expand dynamically.
+一个组框可以用来一起视觉分组相关的小部件。 分组框显示为嵌套小部件周围的可选标题。 组框可以配置为折叠和动态扩展。
 
 ![](attachments/container-widgets/group-box.jpg)
 
-## 2 Properties
+## 2 属性
 
-An example of group box properties is represented in the image below:
+下面的图像显示了组框属性的示例：
 
-{{% image_container width="300" %}}![Group Box Properties](attachments/container-widgets/group-box-properties.png)
+{{% image_container width="300" %}}![群组框属性](attachments/container-widgets/group-box-properties.png)
 {{% /image_container %}}
 
-Group box properties consist of the following sections:
+组框属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Show Header
+#### 2.3.1 显示标题
 
-**Show Header** defines whether a header is shown above the group box.
+**显示标题** 定义是否在组框上方显示页眉。
 
-Default: *True*
+默认： *True*
 
-#### 2.3.2 Caption
+#### 2.3.2 标题
 
-This property is only displayed when the **Show Header** option is enabled. It defines the caption that is shown in the header.
+此属性仅在 **显示页眉** 选项启用时才显示。 它定义了标题中显示的标题。
 
-Default: *Group box*
+默认： *组框*
 
-#### 2.3.3 Collapsible
+#### 2.3.3 可折叠性
 
-This property specifies whether the group box can be collapsed by clicking the header and if so, whether it is displayed collapsed or expanded. This property is only displayed when the **Show Header** is enabled.
+此属性指定是否可以通过单击标题折叠组框，如果可以，它是否被折叠或扩展。 此属性仅在 **显示页眉** 启用时才显示。
 
-Possible values of this property are the following:
+此属性的可能值如下：
 
-* **Yes (start expanded)**  *(default)* – the elements inside the group box will be initially displayed and can be collapsed when a user clicks a minus icon in the header
-* **Yes (start collapsed)** – the elements inside the group box will be initially hidden and can be expanded when a user clicks a plus icon in the header
-* **No** – group box elements are always displayed and the group box cannot be collapsed
+* **是 (开始扩展)**  *(默认)* - 当用户点击头部的一个负图标时，组框内的元素将会最初显示并折叠。
+* **是 (开始折叠)** - 当用户点击标题中的加号图标时，组框内的元素将会被隐藏并被扩展
+* **无** - 组框元素总是显示出来的，组框不能折叠。
 
-### 2.4 Visibility Section {#visibility}
+### 2.4 可见性科 {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [容器部件](容器部件)
+* [页面编辑器中常见的属性](common-widget-properties)
 
 
