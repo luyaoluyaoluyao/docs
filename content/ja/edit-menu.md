@@ -1,46 +1,46 @@
 ---
-title: "Edit Menu"
+title: "編集メニュー"
 parent: "menus"
-description: "Describes the Edit Menu in Studio Pro."
+description: "Studio Pro の編集メニューについて説明します。"
 menu_order: 10
 tags:
   - "Studio Pro"
-  - "view menu"
-  - "top bar"
+  - "メニューを表示"
+  - "トップ バー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Via the **Edit** menu you can perform various actions, such cut/copy/paste or search where a particular document is used. You can also open the [Preferences](preferences-dialog) dialog that contains user-specific settings.
+**編集** メニューを通じて、特定のドキュメントが使用されているさまざまなアクション、そのようなカット/コピー/ペーストまたは検索を実行できます。 ユーザー固有の設定を含む [環境設定](preferences-dialog) ダイアログを開くこともできます。
 
-![Edit Menu](attachments/edit-menu/edit-menu.png)
+![編集メニュー](attachments/edit-menu/edit-menu.png)
 
 
-## 2 Menu Item Overview
+## 2メニューアイテムの概要
 
-The **Edit** menu items are described in the table below:
+**編集** メニュー項目は以下の表に記載されています。
 
-| Menu Item (Shortcut Key)                                              | Description                                                                                                                                                                                                                                                                                                                                                                                    |
-| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Undo** (<kbd>Ctrl</kbd> + <kbd>Z</kbd>)                             | Undoes the last action in a document tab. Undo and redo actions are unlimited.                                                                                                                                                                                                                                                                                                                 |
-| **Redo** (<kbd>Ctrl</kbd> + <kbd>Y</kbd>)                             | Redoes the last action that was undone in a document tab.                                                                                                                                                                                                                                                                                                                                      |
-| **Cut** (<kbd>Ctrl</kbd> + <kbd>X</kbd>)                              | Copies the selected element to the clipboard and delete it.                                                                                                                                                                                                                                                                                                                                    |
-| **Copy** (<kbd>Ctrl</kbd> + <kbd>C</kbd>)                             | Copies the selected element to the clipboard.                                                                                                                                                                                                                                                                                                                                                  |
-| **Paste** (<kbd>Ctrl</kbd> + <kbd>V</kbd>)                            | Pastes the contents of the clipboard in the current editor.                                                                                                                                                                                                                                                                                                                                    |
-| **Delete** (<kbd>Delete</kbd>)                                        | Deletes the selected element.                                                                                                                                                                                                                                                                                                                                                                  |
-| **Find** (<kbd>Ctrl</kbd> + <kbd>F</kbd>)                             | Searches the model for text. The following texts are searched: all texts that appear in the end-user interface (for example captions of labels or buttons); names and documentation of documents; entity, association, and attribute names and documentation; access rule documentation; page widget names; captions and documentation of microflow objects; and names of items in microflows. |
-| **Find Advanced** (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>) | Opens a dialog box that allows for advanced search operations. Examples are searching for any document type and searching for unused documents.                                                                                                                                                                                                                                                |
-| **Find Usages** (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>)     | Opens the **Find Results** pane and displays usages of the selected object.                                                                                                                                                                                                                                                                                                                    |
-| **Next Find Result** (<kbd>F3</kbd>)                                  | Highlights the next find result in the **Find Results** pane and open it in an editor.                                                                                                                                                                                                                                                                                                         |
-| **Previous Find Result** (<kbd>Shift</kbd> + <kbd>F3</kbd>)           | Highlights the previous find result in the **Find Results** pane and open it in an editor.                                                                                                                                                                                                                                                                                                     |
-| **Go to** (<kbd>Ctrl</kbd> + <kbd>G</kbd>)                            | Quickly navigates to any document or domain model element in the app by typing a few letters and pressing <kbd>Enter</kbd>.                                                                                                                                                                                                                                                                    |
-| **Next Error** (<kbd>F8</kbd>)                                        | Highlights the next error in the **Error List** pane and open it in an editor.                                                                                                                                                                                                                                                                                                                 |
-| **Previous Error** (<kbd>Shift</kbd> + <kbd>F8</kbd>)                 | Highlights the previous error result in the **Error List** pane and open it in an editor.                                                                                                                                                                                                                                                                                                      |
-| **Preferences**                                                       | Opens the **Preferences** dialog box, where you can set your general, model, and advanced editing preferences. For more information on the **Preferences** dialog box, see [Preferences](preferences-dialog).                                                                                                                                                                                  |
+| メニュー項目（ショートカットキー）                                            | 説明                                                                                                                                                                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **元に戻す** (<kbd>Ctrl</kbd> + <kbd>Z</kbd>)                    | ドキュメントタブの最後の操作を元に戻します。 元に戻す/やり直すアクションは制限されません。                                                                                                                                                         |
+| **Redo** (<kbd>Ctrl</kbd> + <kbd>Y</kbd>)                    | ドキュメントタブで取り消された最後のアクションをやり直します。                                                                                                                                                                        |
+| **カット** (<kbd>Ctrl</kbd> + <kbd>X</kbd>)                     | 選択した要素をクリップボードにコピーし、削除します。                                                                                                                                                                             |
+| **** (<kbd>Ctrl</kbd> + <kbd>C</kbd> ) をコピー                  | 選択した要素をクリップボードにコピーします。                                                                                                                                                                                 |
+| **貼り付け** (<kbd>Ctrl</kbd> + <kbd>V</kbd>)                    | クリップボードの内容を現在のエディタに貼り付けます。                                                                                                                                                                             |
+| **削除** (<kbd>削除</kbd>)                                       | 選択した要素を削除します。                                                                                                                                                                                          |
+| **** を検索 (<kbd>Ctrl</kbd> + <kbd>F</kbd>)                    | テキストのモデルを検索します。 以下のテキストが検索されます: エンドユーザーインターフェイスに表示されるすべてのテキスト (ラベルやボタンのキャプションなど) ドキュメントの名前とドキュメント; エンティティ、関連付け、属性名とドキュメント; ルールドキュメントへのアクセス; ページウィジェット名; マイクロフローオブジェクトのキャプションとドキュメント; マイクロフロー内のアイテムの名前。 |
+| **詳細検索** (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>) | 高度な検索操作を可能にするダイアログボックスを開きます。 例は、任意のドキュメントタイプを検索し、使用されていないドキュメントを検索します。                                                                                                                                 |
+| **使い方を探す** (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>) | **検索結果** ペインを開き、選択したオブジェクトの使用状況を表示します。                                                                                                                                                                 |
+| **次の検索結果** (<kbd>M3</kbd>)                                   | **検索結果** ペインで次の検索結果をハイライトし、エディタで開きます。                                                                                                                                                                  |
+| **前の検索結果** (<kbd>Shift</kbd> + <kbd>M3</kbd>)                | **検索結果** ペインで前の検索結果をハイライトし、エディタで開きます。                                                                                                                                                                  |
+| **** (<kbd>Ctrl</kbd> + <kbd>G</kbd> ) に移動                   | いくつかの文字を入力して <kbd>Enter</kbd> を押して、アプリ内の任意のドキュメントまたはドメインモデル要素にすばやく移動します。                                                                                                                               |
+| **次のエラー** (<kbd>F8</kbd>)                                    | **Error List** ペインで次のエラーを強調表示し、エディタで開きます。                                                                                                                                                              |
+| **前のエラー** (<kbd>Shift</kbd> + <kbd>F8</kbd>)                 | **Error List** ペインで前のエラー結果をハイライトし、エディタで開きます。                                                                                                                                                           |
+| **設定**                                                       | **環境設定** ダイアログボックスを開き、一般、モデル、および高度な編集環境設定を設定できます。 **環境設定** ダイアログボックスの詳細については、 [環境設定](preferences-dialog) を参照してください。                                                                                    |
 
-## 3 Read More
+## 3 続きを読む
 
-* [Changes Pane](changes-pane)
+* [ペインの変更](changes-pane)
 * [Errors Pane](errors-pane)
-* [App Explorer](project-explorer)
+* [アプリエクスプローラー](project-explorer)
 * [Studio Pro Overview](studio-pro-overview)
