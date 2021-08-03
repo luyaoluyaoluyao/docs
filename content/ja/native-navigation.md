@@ -1,153 +1,153 @@
 ---
-title: "Native Navigation"
-parent: "native-mobile"
+title: "ネイティブナビゲーション"
+parent: "native-Mobile"
 menu_order: 11
 tags:
-  - "mobile"
+  - "モバイル"
   - "navigation"
-  - "native"
+  - "ネイティブ"
   - "iOS"
   - "Android"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Although you model native mobile apps in similar ways to web applications, some aspects of navigation in native mobile apps differ from those in web applications. This guide will explain those navigation differences.
+ネイティブのモバイルアプリをWebアプリケーションと同様の方法でモデル化しますが、 ネイティブモバイルアプリのナビゲーションの一部は、Webアプリケーションとは異なります。 このガイドでは、それらのナビゲーションの違いについて説明します。
 
-### 1.1 Web Apps
+### 1.1 ウェブアプリ
 
-Generally in web apps, there is only one page open at any given time. This is because when you open a page, the previous page is replaced with a new one. When you navigate back, the page you started on is loaded again to replace the current page. This pattern of page loading slows performance.
+一般的に、Web アプリでは、いつでも開いているページは 1 つしかありません。 これは、ページを開くときに、前のページが新しいページに置き換えられるためです。 戻ると、開始したページが再び読み込まれ、現在のページが置き換えられます。 このページ読み込みパターンはパフォーマンスを低下させます。
 
-### 1.2 Native Mobile Apps
+### 1.2 ネイティブモバイルアプリ
 
-In native mobile apps, pages are kept open by default. This makes it possible to instantly navigate back (for example by tapping the back button or by swiping) while retaining the state of previous pages such as scroll location and active tab information. This greatly benefits your app's user experience. We recommend, however, taking open pages into account when developing mobile apps. Specifically, make sure that there will not be too many pages open at once (which will result in bad performance), and that data is refreshed or updated when needed. To achieve these ends, Mendix gives you granular control over your exact navigation flow.
+ネイティブ モバイル アプリでは、ページはデフォルトで開いたままになります。 これにより、スクロール位置やアクティブなタブ情報など、以前のページの状態を保持しながら(たとえば、戻るボタンをタップしたりスワイプしたりして)即座に戻ることができます。 これにより、アプリのユーザーエクスペリエンスに大きなメリットがあります。 しかし、モバイルアプリを開発する際には、オープンページを考慮することをお勧めします。 具体的には、一度に開くページが多すぎないことを確認してください(パフォーマンスが悪くなります)。 そのデータは必要に応じて更新されます これらの目的を達成するために、Mendixは正確なナビゲーションフローを詳細に制御できます。
 
-## 2 Layout Types
+## 2種類のレイアウトタイプ
 
-### 2.1 Default
+### 2.1 デフォルト
 
-After opening a page that has a default layout, you can navigate back to the previous page by using the back button in the header, the back button of the device (for Android), or by swiping from the left side of the screen (for iOS). When the app’s home page is open, pressing the Android back button closes the app.
+デフォルトのレイアウトを持つページを開いた後、ヘッダーの戻るボタンを使用して前のページに戻ることができます。 デバイスの戻るボタン(Android用)、または画面の左側(iOS用)からスワイプします。 アプリのホームページが開いたら、Androidの戻るボタンを押してアプリを閉じます。
 
-### 2.2 Pop-Up
+### ポップアップ2.2
 
-A page with a pop-up layout looks like a default page, but it shows up with a distinct animation and has a close icon instead of a back icon. On iOS it can also be closed by swiping down from the top of the pop-up. On Android it can be closed using the back button of the device. Pop-ups cannot have a bottom bar. A page with a pop-up layout cannot be used as the default home page, nor can it be added to the bottom bar.
+ポップアップレイアウトのあるページは、デフォルトのページのようになります。 しかしそれは別個のアニメーションで現れ、バックアイコンの代わりに近いアイコンがあります。 iOSでは、ポップアップの上から下にスワイプして閉じることもできます。 Androidでは、デバイスの戻るボタンを使用して閉じることができます。 ポップアップは下部のバーを持つことはできません。 ポップアップレイアウトのあるページは、デフォルトのホームページとして使用することも、下部のバーに追加することもできません。
 
-Pop-ups can be very useful when asking for input in certain contexts. For example, they work well when you must scan a QR code. They also make wizards (forms with multiple steps) easier, as you can return to previous steps and change things until the process is finished and all pop-ups are closed.
+ポップアップは、特定のコンテキストで入力を求めるときに非常に便利です。 たとえば、QRコードをスキャンする必要がある場合はうまく動作します。 また、ウィザード(複数ステップのフォーム)も簡単になります。 前のステップに戻り、プロセスが完了し、すべてのポップアップが閉じられるまで変更できるように。
 
-## 3 Navigation-Related Layout Components
+## 3 ナビゲーション関連のレイアウトコンポーネント
 
-Native layouts have helpful properties that enable the most common patterns used in native apps.
+ネイティブレイアウトには、ネイティブアプリで最も一般的なパターンを有効にする便利なプロパティがあります。
 
-### 3.1 Header
+### 3.1 ヘッダー
 
-A layout that has the header property enabled will always show a bar at the top of the screen. A header consists of three parts:
+ヘッダープロパティが有効になっているレイアウトは、常に画面上部にバーを表示します。 ヘッダーは以下の3つの部分で構成されています:
 
-* Left part: not configurable, but can show a back icon or a close icon depending on the layout type
-* Center part: shows the page's title
-* Right part: configurable with widgets and is often used to contain buttons
+* 左部：設定できませんが、レイアウトの種類に応じて背面アイコンまたは近いアイコンを表示できます
+* 中央部: ページのタイトルを表示
+* 右部分：ウィジェットで設定可能で、ボタンを含むためによく使用されます
 
-This is an example of the default header on iOS:
+これは、iOS のデフォルトヘッダーの例です。
 
 {{% image_container width="250" %}}![An example of the default header on iOS.](attachments/native-navigation/header.png){{% /image_container %}}
 
-### 3.2 Bottom Bar
+### 底部バー 3.2
 
-You can add bottom bar items in the native navigation profile. These items will show up on any page that has a layout with the bottom bar property enabled.
+ネイティブ ナビゲーション プロファイルに下部のバー項目を追加できます。 これらの項目は、下部バープロパティが有効なレイアウトのあるページに表示されます。
 
-Every item in the bottom bar has its own navigation stack. This means that if you open a few pages in the first tab, then switch to the second tab and back to the first tab again, your first tab's pages will still be open as you left them.
+下部のバーのすべての項目に独自のナビゲーション スタックがあります。 つまり、最初のタブで数ページを開いた場合には、 次に2番目のタブに切り替えて1番目のタブに戻ります あなたの最初のタブのページは開いているあなたがそれらを残したように。
 
 {{% alert type="warning" %}}
-Pages without a bottom bar are created in a separate stack. If you navigate from a page *without* a bottom bar to a page *with* a bottom bar, then all pages in that stack are closed.
+ボトムバーのないページは別のスタックに作成されます。 ページ *から下部のバー* を指定せずに *ページに移動した場合、下部のバーが* で表示されます。 スタック内のすべてのページが閉じられます
 {{% /alert %}}
 
 {{% image_container width="250" %}}![An example of the default bottom bar on iOS.](attachments/native-navigation/bottombar.png){{% /image_container %}}
 
-## 4 How does Mendix Native Navigation Work?
+## 4 Mendixネイティブナビゲーションはどのように機能しますか?
 
-By default pages are kept open to provide a better user experience, but they must also be managed correctly for your app to have great performance and a logical flow through the app.
+デフォルトでは、より良いユーザーエクスペリエンスを提供するためにページを開いたままにします。 しかし、アプリケーションが優れたパフォーマンスと論理的な流れを持つためにも、それらを正しく管理する必要があります。
 
-### 4.1 Stacks
+### 4.1 スタック
 
-To keep pages open, the navigation system uses multiple stacks of pages. A mobile app can contain multiple stacks at the same time. A stack can be compared to a pile of cards: you can add cards to the top, and you can remove cards from the top.
+ページを開いたままにするために、ナビゲーションシステムは複数のページを使用します。 モバイルアプリは同時に複数のスタックを含めることができます。 スタックはカードの山と比較することができます:あなたは上にカードを追加することができ、あなたは上からカードを削除することができます。
 
-#### 4.1.1 Single Stack
+#### 4.1.1 シングルスタック
 
-If your app does not use a bottom bar, then there is a single stack. This situation resembles navigation on the web most closely. However, it is important to keep in mind that all pages in the stack are kept open until you explicitly close them or press the back button.
+アプリがボトムバーを使用していない場合は、1つのスタックがあります。 この状況は、最も密接にウェブ上のナビゲーションに似ています。 ただし、 スタック内のすべてのページは明示的に閉じるか戻るボタンを押すまで開いたままにしておくことが重要です
 
-The first page on the stack is always the home page. When you tap a button that opens a page, then there are two pages on the stack, and so on.
+スタックの最初のページは、常にホームページです。 ページを開くボタンをタップすると、スタックに2ページが表示されます。
 
-When you close a page (via a back button, a close action, or swipe to go back (iOS)), only the current page is closed and the previous page becomes visible again.
+(戻るボタン、閉じるアクション、またはスワイプして戻る) ページを閉じたとき、 現在のページだけが閉じられ、前のページが再び表示されるようになります。
 
 {{% image_container width="250" %}}![](attachments/native-navigation/singlestack.gif){{% /image_container %}}
 
-#### 4.1.2 Multiple Stacks
+#### 4.1.2 複数のスタック
 
-If an app has bottom bar items, every item in the bottom bar will have a separate stack. Within a stack you can navigate by opening and closing pages.
+アプリに下部のバーアイテムがある場合、下部のバーにあるすべてのアイテムには個別のスタックがあります。 スタック内では、ページを開いたり閉じたりすることでナビゲートできます。
 
-If a bottom bar item is not focused, pressing it will focus that item. Switching to another bottom bar item will not close pages in the focused one. If the item is already focused, pressing it again will dismiss all pages from its stack.
+下部のバーアイテムがフォーカスされていない場合は、それを押すとそのアイテムがフォーカスされます。 別の下部のバー項目に切り替えると、フォーカスしたもののページは閉じられません。 アイテムがすでにフォーカスされている場合、もう一度押すとスタックからすべてのページが消去されます。
 
 {{% image_container width="250" %}}![](attachments/native-navigation/multiplestacks.gif){{% /image_container %}}
 
-#### 4.1.3 Pop-Ups
+#### 4.1.3 ポップアップ
 
-When a page with a pop-up layout is opened, a new stack is created and all pages in this stack fully cover the screen. To get back to the previous stack, the pop-up has to be closed.
+ポップアップレイアウトのあるページが開かれると、新しいスタックが作成され、このスタック内のすべてのページが画面を完全に覆います。 前のスタックに戻るには、ポップアップを閉じる必要があります。
 
-It is possible to open other pop-up pages inside the pop-up, and all of those together behave as a single stack. When opening a normal page from the pop-up, the pop-ups will be closed first.
+ポップアップ内の他のポップアップページを開くことができます。ポップアップ内のポップアップページはすべて一つのスタックとして動作します。 ポップアップから通常のページを開くと、ポップアップが最初に閉じられます。
 
 {{% image_container width="250" %}}![](attachments/native-navigation/popups.gif){{% /image_container %}}
 
-### 4.2 Opening and Closing Pages
+### 4.2 ページを開閉する
 
-Often you need to have control of page history to determine, for example, which page is shown when you navigate back. By default, the Close page action only closes a single page in the current stack, but it can be configured to close more pages.
+多くの場合、ページ履歴を制御する必要があります。たとえば、戻るときにどのページが表示されるかを決定します。 デフォルトでは、「ページを閉じる (Close page)」アクションは現在のスタック内の1つのページのみを閉じますが、より多くのページを閉じるように設定できます。
 
-#### 4.2.1 Closing Multiple Pages
+#### 4.2.1 複数のページを閉じる
 
-You can navigate back through multiple pages in history at once by setting the appropriate number of pages in your Close page action. A Close page action that closes multiple pages results in a single animation.
+format@@0 アクションで適切な数のページを設定することで、履歴内の複数のページを一度にナビゲートできます。 複数のページを閉じると、単一のアニメーションになります。
 
-You can configure this behavior either on Close page actions that you have modeled on your pages, or on the Close page activity in your nanoflows. This number can be set using an expression so that you can set either a static number, or a snapshot-calculated one for more complex cases.
+この動作は、ページ上でモデル化したページを閉じるアクションで構成できます。 またはナノレベルの閉じるページの活動で。 この数値は、静的な数字を設定するか、スナップショット計算でより複雑なケースを設定することができるように、式を使用して設定できます。
 
-The **All** option can be used to close all pages in the current stack.
+**All** オプションを使用して、現在のスタック内のすべてのページを閉じることができます。
 
-#### 4.2.2 Combining Closing and Opening Pages
+#### 4.2.2 閉じるページと開くページを結合する
 
-For more complex scenarios, it is possible to transparently remove one or more pages from the history from the current stack when navigating to a new page. Doing so ensures that users cannot inadvertently navigate back to pages that are no longer relevant. For example, when a user reaches the end of a three-step wizard flow, you can configure the Open page activity to open the third page and close the previous two pages at the same time. As a result, the user will see a single transition, and navigating back will not lead them to the first two pages.
+より複雑なシナリオの場合。 新しいページに移動すると、現在のスタックから1つ以上のページを透過的に削除することができます。 これを行うと、ユーザーが不注意にもはや関連性のないページに戻ることができなくなります。 たとえば、ユーザーが 3 段階のウィザードフローの最後に到達するとします。 format@@0 を設定して、3 ページ目を開き、前の 2 ページ目を同時に閉じることができます。 結果として、ユーザーは単一のトランジションが表示され、戻って移動すると最初の2ページにそれらを導くことはありません。
 
-The **All** option can be used to close all pages in the current stack.
+**All** オプションを使用して、現在のスタック内のすべてのページを閉じることができます。
 
-In addition, you can configure the Open page action to **Clear history** when navigating to a page. This effectively resets the entire navigation system, not just the current stack, and the user will not be able to navigate back from the target page.
+さらに、ページに移動するときに **履歴をクリア** するようにページを開くアクションを設定できます。 これにより、現在のスタックだけでなく、ナビゲーションシステム全体が効果的にリセットされます。 そして、ユーザーはターゲットページから戻ることができません。
 
-### 4.3 Updating Data
+### 4.3 データの更新
 
-It is important to remember that any changes you make to your data will be immediately reflected on all active screens. However, this does not mean that these changes are also committed to the database; that remains an explicit action. Another consequence of this is that your app is responsible for keeping track of (and possibly reverting) changes to data when the user decides to navigate back (for example by pressing the back button) without saving their changes.
+データに加えた変更はすぐにすべてのアクティブな画面に反映されることを覚えておくことが重要です。 しかし、これはこれらの変更がデータベースにも反映されていることを意味するものではありません。 これのもう一つの結果は、ユーザーが変更を保存せずに戻る(たとえば戻るボタンを押して)ことを決定したときに、アプリがデータへの変更を追跡する(そしておそらく元に戻す)責任があるということです。
 
-## 5 Best Practices and Patterns
+## 5つのベストプラクティスとパターン
 
-### 5.1 Make it Simple for the User
+### 5.1 ユーザーにとってシンプルにする
 
-It is important for a user to always understand where they are in the app, and what their next options are. Overall it is useful to show the bottom bar so that the user sees where they are and where they can go. However, in some flows it makes sense to create focus and remove distractions by using a layout without a bottom bar or by using a pop-up layout.
+ユーザーがアプリ内のどこにいるのか、そして次のオプションが何であるのかを常に理解することが重要です。 全体的には、ユーザーがどこにいるかを確認し、どこに行くことができるように、下のバーを表示することが便利です。 ただし、 いくつかのフローでは、下のバーのないレイアウトやポップアップレイアウトを使用してフォーカスを作成し、気晴らしを削除することが理にかなっています。
 
-### 5.2 Minimize Open Pages to Improve Performance
+### 5.2 パフォーマンスを向上させるために開いているページを最小化する
 
-While the user navigates through an app, all pages stay open in the background. This uses the device's resources, and having too many open pages can cause performance issues. The consequence of this is that the choice between using an Open page or a Close page action should be made more deliberately than with web applications.
+ユーザーがアプリをナビゲートする間、すべてのページがバックグラウンドで開き続けます。 これにより、デバイスのリソースが使用され、開いているページが多すぎるとパフォーマンスの問題が発生する可能性があります。 これの結果は、Open ページを使用するか、あるいは、Close ページアクションの選択が、Web アプリケーションよりも慎重に行われるべきであるということです。
 
-Where possible, use the Close page action (or the above-mentioned variants of the Show page action) as often as possible to ensure that you do not keep too many unnecessary pages open.
+可能な場合は できるだけ多くの不要なページを開いたままにしないようにするために、ページを閉じるアクション (またはページを表示アクションの上記のバリアント) を使用します。
 
-### 5.3 Use Pop-Ups for Modal Interactions
+### 5.3 モーダル相互作用にポップアップを使用する
 
-Most applications consist of a set of primary user flows, and each primary flow may have secondary flows, for example to request some additional user input. In the case of a calendar app, browsing upcoming events would be the primary flow, and editing one event might be a secondary flow. In general, secondary flows should not disrupt the primary flow, meaning that after the user completes this secondary flow, they should end up where they were in the primary flow.
+ほとんどのアプリケーションは一連のプライマリユーザフローで構成されています 各プライマリフローには、例えば、追加のユーザー入力を要求するなど、セカンダリフローがあります。 カレンダーアプリの場合、今後のイベントを参照することが主流であり、1つのイベントを編集することが二次的なフローになる可能性があります。 一般的に、セカンダリフローはプライマリフローを混乱させてはいけません。 つまり、ユーザーがこのセカンダリフローを完了したら、プライマリフローの場所に到達するはずです。
 
-Although such behavior can be modeled using the ability to close multiple pages, we recommend using pop-up pages for such scenarios. Pop-up pages exist entirely outside of the navigation stack, and can be opened and closed without disrupting your app's navigation history.
+このような動作は、複数のページを閉じる機能を使用してモデル化することができますが、そのようなシナリオにはポップアップページを使用することをお勧めします。 ポップアップページはナビゲーションスタックの外側に完全に存在し、アプリのナビゲーション履歴を中断することなく開いたり閉じたりできます。
 
-### 5.4 Startup Flows
+### 5.4 スタートアップフロー
 
-The Open page action's **Clear history** option can be used to model out complex behavior, but one of its most common use cases is a startup flow. Imagine an app that should show a series of tutorial screens on startup. After these screens, the user should land on the main page. From these, it should not be possible to navigate back. This can be achieved by using the Open page action with the **Clear history** option to navigate from the final tutorial screen to the main page.
+Open page action の **Clear history** オプションを使用して、複雑な挙動をモデル化することができます。 最も一般的なユースケースの1つはスタートアップフローです 起動時に一連のチュートリアル画面を表示するアプリを想像してみてください。 これらの画面の後、ユーザーはメインページに上陸する必要があります。 これらから、戻って移動することはできません。 これは、 **履歴をクリア** オプションを使用して、最後のチュートリアル画面からメインページに移動することで実現できます。
 
-## 6 Customization
+## 6個のカスタマイズ
 
-Out of the box, the bottom bar and top bar have a default styling. To change this styling, see the [Pages](/refguide/native-styling-refguide#pages) section of the *Native Styling Reference Guide*. However, if you want to further customize the styling to match your design, you can create pluggable widgets to replace some of the default navigation components. For more information, see the [Pluggable Widgets API Documentation](/apidocs-mxsdk/apidocs/pluggable-widgets)
+ボックス外では、下部のバーと上部のバーにはデフォルトのスタイルがあります。 このスタイルを変更するには、 [Native Styling Reference Guide](/refguide/native-styling-refguide#pages) の *Pages* セクションを参照してください。 ただし、デザインに合わせてスタイリングをさらにカスタマイズしたい場合は、 プラグ可能なウィジェットを作成してデフォルトのナビゲーションコンポーネントを置き換えることができます 詳細については、 [Pluggable Widgets API Documentation](/apidocs-mxsdk/apidocs/pluggable-widgets) を参照してください。
 
-## 7 Read More
+## 7 続きを読む
 
-* [Show Page Reference Guide](/refguide/show-page)
-* [Close Page Reference Guide](/refguide/close-page)
-* [Native Navigation Styling Reference Guide](/refguide/native-styling-refguide#navigation-widget)
+* [ページ参照ガイドを表示](/refguide/show-page)
+* [ページ参照ガイドを閉じる](/refguide/close-page)
+* [ネイティブナビゲーションスタイルリファレンスガイド](/refguide/native-styling-refguide#navigation-widget)
