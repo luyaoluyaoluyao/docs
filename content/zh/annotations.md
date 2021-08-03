@@ -1,23 +1,27 @@
 ---
 title: "说明"
 parent: "域名模型"
+menu_order: 30
 tags:
   - "域模型"
   - "注释"
+  - "studio pro"
 ---
 
-注解是一个可以用来在域模型中发表评论的元素。
-
 {{% alert type="info" %}}
-
-订单实体包含总金额和折扣属性。 您添加了一个注释来提及与总价格不同的事实。 折扣是由一个百分比而不是一个金额表示的。
-
-![](attachments/domain-model-editor/16844036.png)
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/annotations.pdf)。
 {{% /报警 %}}
 
-## 公共属性
+## 1 导言
 
-### 标题
+**注释** 可以用来将注释添加到域模型。
+
+例如，订单实体包含两个小数属性， **总计价格** 和 **折扣**。 您可以添加一个注释来说明，与总价格不同，折扣是一个百分比而不是一个金额。
+
+![](attachments/domain-model/16844036.png)
+
+## 2 公共属性
+
+### 2.1 标题
 
 标题属性包含注释的文本。
