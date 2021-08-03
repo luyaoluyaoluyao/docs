@@ -1,87 +1,87 @@
 ---
-title: "Troubleshooting Atlas UI Changes"
+title: "アトラスUI変更のトラブルシューティング"
 parent: "moving-from-7-to-8"
 menu_order: 20
-description: "This document explains how to fix your styling when migrating a project from Mendix 7 to Mendix 8."
+description: "このドキュメントでは、Mendix 7からMendix 8にプロジェクトを移行する際のスタイリングを修正する方法を説明します。"
 tags:
-  - "Widgets"
-  - "Themes"
-  - "Classes"
+  - "ウィジェット"
+  - "テーマ"
+  - "クラス"
   - "Atlas"
-  - "Atlas UI"
-  - "Styling"
-  - "SASS"
+  - "アトラスUI"
+  - "スタイル"
+  - "SAS"
   - "CSS"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When you upgrade to Mendix 8, your widgets' DOM structure will be changed. This means that the correlating Sass styling will not work as expected anymore. This document will allow you to make your theming compatible with Mendix 8.
+Mendix 8 にアップグレードすると、ウィジェットの DOM 構造が変更されます。 これは、Sass のスタイルが期待どおりに機能しなくなることを意味します。 このドキュメントでは、Mendix 8とあなたのテーマを互換性があるようにすることができます。
 
-Each section in this document could apply to your app, but some sections may *not* apply. If a section does not apply to your case, you may skip it.
+このドキュメントの各セクションはアプリに適用されますが、いくつかのセクションは *適用されません*。 あなたの場合にセクションが適用されない場合は、それをスキップすることができます。
 
-{{% alert type="warning" %}}If you have added any content in the **Atlas_UI_Resource module**, you have to move that content out of the module. If you do not, it will be overwritten.{{% /alert %}}
+{{% alert type="warning" %}} **Atlas_UI_Resource モジュール**に任意のコンテンツを追加した場合は、そのコンテンツをモジュールから移動する必要があります。 そうでない場合は、上書きされます。{{% /alert %}}
 
-When your app is using unmodified Atlas UI resources, upgrading your app to Mendix 8 will automatically update your Atlas UI resources to version 2.1. If you did not make any changes in the custom folder, you are good to go and you can skip the rest of this guide.
+アプリが変更されていないAtlas UIリソースを使用している場合、Mendix 8にアプリをアップグレードすると、Atlas UIリソースが自動的にバージョン2.1に更新されます。 カスタムフォルダに変更を加えなかった場合は、このガイドの残りの部分をスキップすることができます。
 
-If you are using unmodified Atlas UI resources but you made changes to the custom folder, these changes are preserved and will be used by the new Atlas UI version. You will see a consistency error in this case. Proceed to the steps described in the [Working with a Modified Custom Folder](#modified) section below to resolve this error.
+変更されていないAtlas UIリソースを使用していて、カスタムフォルダに変更を加えた場合。 これらの変更は保存され、新しいAtlas UIバージョンで使用されます。 この場合、一貫性のエラーが表示されます。 このエラーを解決するために、以下の [変更されたカスタムフォルダ](#modified) セクションで説明されている手順に進みます。
 
-If you are using a modified version of Atlas UI resources, Mendix cannot update it automatically. You will see a consistency error in this case. To resolve your theming issues, you need to update Atlas yourself.
+AtlasのUIリソースの変更バージョンを使用している場合、Mendixは自動的に更新できません。 この場合、一貫性のエラーが表示されます。 テーマの問題を解決するには、Atlasを自分でアップデートする必要があります。
 
-Follow the steps below to begin upgrading your Atlas UI Resources module:
+以下の手順に従って、Atlas UI Resources モジュールのアップグレードを開始してください。
 
-1. Download the latest [Atlas UI Resources](/appstore/modules/atlas-ui-resources) module (v2.0.0 or higher).
-2. Import this module into your app and replace the old resource module. This will overwrite the layouts, page templates, and building blocks inside of the resource module. The **theme** folder related to your old resource module will be moved to **theme_old**. You will get a new **theme** folder with the latest changes. From here, you must choose one of the following based on if you have custom styling or not:<br />
-    * If you did not change anything in the old **theme** folder, you can safely remove **theme_old** and leave everything else as is. Your styling will work and you can stop with consulting this document. <br />
-    * If you did change anything in the old **theme** folder, you will have to do some manual work to align your styling. Consult the information below to decide what to do based on your needs.
+1. 最新の [Atlas UI Resources](/appstore/modules/atlas-ui-resources) モジュール (v2.0.0 以上) をダウンロードします。
+2. このモジュールをアプリにインポートし、古いリソースモジュールを置き換えます。 これにより、リソースモジュール内のレイアウト、ページテンプレート、およびビルディングブロックが上書きされます。 古いリソース・モジュールに関連する **テーマ** フォルダは **theme_old** に移動されます。 最新の変更を加えた新しい **テーマ** フォルダを取得します。 ここから、カスタム スタイルを持っているかどうかに応じて、次のいずれかを選択する必要があります。<br />
+    * If you did not change anything in the old **theme** folder, you can safely remove **theme_old** and leave everything else as is. スタイリングが機能し、このドキュメントを参照することはできます。 <br />
+    * 古い **テーマ** フォルダで何か変更があった場合は、スタイルを整列させるために手作業で作業する必要があります。 あなたのニーズに応じて何をすべきかを決定するには、以下の情報を参照してください。
 
-## 2 Integrating the Old Theme Folder into the New One
+## 2 古いテーマフォルダを新しいものに統合
 
-When migrating from Mendix 7 to Mendix 8, you must integrate **theme_old** into **theme** while adhering to several guidelines. Which guidelines you must follow vary based on your specific project. Consult the subsections below for instructions based on your unique case.
+Mendix 7 から Mendix 8 に移行する場合は、いくつかのガイドラインを遵守しつつ、 **theme_old** を **テーマ** に統合する必要があります。 どのガイドラインに従わなければならないかは、特定のプロジェクトによって異なります。 ユニークなケースに基づく手順については、以下のサブセクションを参照してください。
 
 {{% alert type="info" %}}If you customized any widget where the DOM structure has changed, consult [Troubleshoot DOM Changes when Migrating to Mendix 8](migration-dom-issues) to ensure your custom styling works.{{% /alert %}}
 
-### 2.1 Working with HTML Files
+### 2.1 HTMLファイルの操作
 
-If you have altered  your HTML files, consult the instructions below. If you have not, you may ignore this subsection.
+HTMLファイルを変更した場合は、以下の手順を参照してください。 ない場合は、このサブセクションを無視してください。
 
-If you changed any **index\*.html** files, make sure to do the following:
+**index\*.html** ファイルを変更した場合は、以下の操作を行ってください。
 
-* Apply the same changes you did in the old file to the new HTML file
-* Make sure the **bootstrap.min.css**, **bootstrap-rtl.min.css**, and **mxui.css** imports are not there
-* Make sure you do not import **styles/css/lib/lib.css** anymore
-* Make sure you have put either `<link rel="stylesheet" type="text/css" href="styles/web/css/main.css?{{cachebust}}">` or `{{themecss}}` inside of the `<head></head>` tags
+* 古いファイルで行ったのと同じ変更を新しいHTMLファイルに適用します
+* **bootstrap.min.css**, **bootstrap-rtl.min.css**, および **mxui.css** のインポートがないことを確認してください
+* **styles/css/lib/lib.css** をもうインポートしないようにしてください
+* `<link rel="stylesheet" type="text/css" href="styles/web/css/main.css?{{cachebust}}">` または `{{themecss}}` を `<head></head>` タグの中に入れていることを確認してください
 
-If you changed any **login\*.html** files, complete the following actions:
+**login\*.html** ファイルを変更した場合は、以下の操作を行います。
 
-* Apply the same changes you did in the old file to the new HTML file
-* Confirm the **bootstrap.min.css** and **mxui.css** imports are gone (if they are not, delete them)
-* Make sure you do not import `styles/css/lib/lib.css` anymore
-* Place either `<link*rel*="stylesheet" *type*="text/css" *href*="styles/web/css/main.css?{{cachebust}}">` or `{{themecss}}` inside of the `<head></head>` tags
+* 古いファイルで行ったのと同じ変更を新しいHTMLファイルに適用します
+* **bootstrap.min.css** と **mxui.css** のインポートが失われていることを確認します (そうでない場合は削除してください)
+* `styles/css/lib/lib.css` をもうインポートしないようにしてください
+* `<link*rel*="stylesheet" *type*="text/css" *href*="styles/web/css/main.css?{{cachebust}}">` または `{{themecss}}` `<head></head>` タグの中に配置する
 
-### 2.2 Working with JSON Files
+### 2.2 JSON ファイルの操作
 
-If you have altered *settings.json* or *components.json* files, consult the instructions below. If you have not, you may ignore this subsection.
+*settings.json* または *components.json* ファイルを変更した場合は、以下の手順を参照してください。 ない場合は、このサブセクションを無視してください。
 
-#### 2.2.1 Design Properties
+#### 2.2.1 デザインプロパティ
 
-If you changed design properties in your theme, you must manually integrate them into the new Atlas UI.
+テーマでデザインプロパティを変更した場合は、新しいAtlas UIに手動で統合する必要があります。
 
-Design properties are stored in the `designProperties` section in the *settings.json* file.
+デザインプロパティは `settings.json` ファイルの *designProperties* セクションに保存されます。
 
-If you have custom design properties which have not been moved to the new Atlas UI theme, you will see consistency errors (error code **CE6083**) which will notify you about your project's missing design properties.
+新しいAtlas UIテーマに移動されていないカスタムデザインプロパティがある場合。 一貫性エラー(エラーコード **CE6083**)が表示され、プロジェクトのデザインプロパティがないことを通知します。
 
-Please move your custom design properties to the *settings.json* file of the new Atlas UI theme.
+新しいAtlas UIテーマの *settings.json* ファイルにカスタムデザインプロパティを移動してください。
 
-### 2.2.2 Additional CSS Files
+### 2.2.2 追加の CSS ファイル
 
 {{% alert type="warning" %}}
-Changing `cssFiles` is not recommended. Please consider moving custom CSS files to your *theme/styles/web/sass/app/_custom.scss* file.
+`cssFiles` の変更は推奨されません。 カスタム CSS ファイルを *theme/styles/web/sass/app/_custom.scss* ファイルに移動することを検討してください。
 {{% /alert %}}
 
-If you changed `cssFiles` in *settings.json*, you must integrate your changes to the new *settings.json* file.
+`settings.json` で *cssFiles*を変更した場合、新しい *settings.json* ファイルに変更を統合する必要があります。
 
-By default Atlas UI version 1 includes two files:
+デフォルトでAtlasのUIバージョン1には2つのファイルが含まれています:
 
 ```javascript
 "cssFiles": [
@@ -90,7 +90,7 @@ By default Atlas UI version 1 includes two files:
 ],
 ```
 
-Atlas 2.1.0, however, uses a single file:
+Atlas 2.1.0, しかしながら, 単一のファイルを使用します:
 
 ```javascript
 "cssFiles": [
@@ -98,67 +98,67 @@ Atlas 2.1.0, however, uses a single file:
 ],
 ```
 
-If your `cssFiles` section adds more files, you must include them in your new theme's *settings.json* file.
+`cssFiles` セクションにファイルが追加される場合は、新しいテーマの *settings.json* ファイルに追加する必要があります。
 
-If you changed hybrid mobile app imports in *components.json*, make sure to do the following:
+*components.json*でハイブリッドモバイルアプリのインポートを変更した場合は、以下の操作を行ってください。
 
-* Manually integrate your old *components.json* into the new folder
-* Confirm the *bootstrap.min.css*, *bootstrap-rtl.min.css*, and *mxui.css* imports are gone (if they are not, delete them)
-* Confirm that *styles/css/lib/lib.css* is changed to *styles/web/css/main.css*
+* 古い *components.json* を新しいフォルダに手動で統合
+* *bootstrap.min.css*, *bootstrap-rtl.min.css*を確認し、 *mxui.css* のインポートがなくなっている場合は削除してください)
+* *styles/css/lib/lib.css* が *styles/web/css/main.css に変更されていることを確認します*
 
-### 2.3 Working with Custom Folder Files
+### 2.3 カスタムフォルダファイルの操作
 
-If you have altered your custom folders, consult the instructions below. If you have not, you may ignore this subsection.
+カスタムフォルダを変更した場合は、以下の手順を参照してください。 ない場合は、このサブセクションを無視してください。
 
 If you added, removed, or changed custom variables in a custom folder, copy your content from *theme_old/styles/sass/custom/_custom-variables.scss* to *theme/styles/web/sass/app/_custom-variables.scss*.
 
-If you added or changed custom styling in the custom folder, copy your content or files from *theme_old/styles/sass/custom/* to *theme/styles/web/sass/app/*.
-* In this case, also make sure that your old *custom.scss* file is renamed to *_custom.scss*
+カスタム フォルダーにカスタム スタイルを追加または変更した場合は、 *theme_old/styles/sass/custom/* から *theme/styles/web/sass/app/* にコンテンツまたはファイルをコピーします。
+* この場合、古い *custom.scss* ファイルが *_custom.scss に改名されていることを確認してください*
 
-### 2.4 Working with Lib Folder Files
+### 2.4 Libフォルダファイルの操作
 
-If you have altered your *styles/sass/lib* folder, consult the instructions below. If you have not, you may ignore this subsection.
+*styles/sass/lib* フォルダを変更した場合は、以下の手順を参照してください。 ない場合は、このサブセクションを無視してください。
 
-If you changed any files in the *styles/sass/lib* folder, complete the actions below::
+*styles/sass/lib* フォルダ内のファイルを変更した場合は、以下の操作を完了してください::
 
-* If you changed a file’s content or name, you must manually make the same changes in the new file and in the new theme folder (while also keeping the Mendix 8 [DOM changes](migration-dom-issues) in mind)
-* If you removed a file, no action is required
+* ファイルの内容や名前を変更した場合 新しいファイルと新しいテーマフォルダに同じ変更を加える必要があります (Mendix 8 [DOM 変更](migration-dom-issues) を念頭に置いてください)
+* ファイルを削除した場合、アクションは必要ありません
 
-If you added a file to the *lib/base* folder, copy that file from *theme_old/styles/sass/lib/base/* to *theme/styles/web/sass/core/base/*. You must also complete the following action:
+*lib/base* フォルダにファイルを追加した場合、 *theme_old/styles/sass/lib/base/* から *theme/styles/web/sass/core/base/* へそのファイルをコピーしてください。 次のアクションを完了する必要があります：
 
-* Import the file into *theme/styles/web/sass/main.scss* under the `Base` group in alphabetic order
+* *theme/styles/web/sass/main.scss* にアルファベット順の `Base` グループにファイルをインポート
 
-If you added a file to the *lib/components* folder, copy that file from *theme_old/styles/sass/lib/components/* to *theme/styles/web/sass/core/widgets/*. You must also complete the following actions:
+*lib/components* フォルダにファイルを追加した場合、 *theme_old/styles/sass/lib/components/* から *theme/styles/web/sass/core/widgets/* にそのファイルをコピーします。 次の操作も完了する必要があります。
 
-1. Import the file into *theme/styles/web/sass/main.scss* under the `Widgets` group in alphabetical order
-2. Cut all design properties and extra classes from your file (to be pasted later), leaving only the default styling
-3. Create a new file in *theme/styles/web/sass/core/helpers/* with the same name
-4. Paste those design properties and extra classes into this new file
-5. Import the file into *theme/styles/web/sass/main.scss* under the import mentioned above
+1. *theme/styles/web/sass/main.scss* に、アルファベット順の `ウィジェット` グループの下にファイルをインポートします
+2. すべてのデザインプロパティと追加のクラスをファイルから切り取って（後で貼り付ける）、デフォルトのスタイルのみを残します
+3. 同じ名前の *theme/styles/web/sass/helpers/* で新しいファイルを作成する
+4. この新しいファイルにこれらのデザインプロパティと追加クラスを貼り付けます
+5. 上記のインポートの下で *theme/styles/web/sass/main.scss* にファイルをインポート
 
-If you added a file to the *lib/customwidgets* folder, copy your content from *theme_old/styles/sass/lib/customwidgets/* to *theme/styles/web/sass/core/widgetscustom/*. You must also complete the following action:
+*lib/customwidgets* フォルダにファイルを追加した場合は、 *theme_old/styles/sass/lib/customwidgets/* から *theme/styles/web/sass/core/widgetscustom/* へコンテンツをコピーします。 次のアクションを完了する必要があります：
 
-* Import the file into *theme/styles/web/sass/main.scss* under the `Custom Widgets` group in alphabetical order
+* *theme/styles/web/sass/main.scss* に `カスタムウィジェット` グループをアルファベット順にインポートします
 
-If you added a file to the *lib/buildingblocks* folder, copy that file from *theme_old/styles/sass/lib/buildingblocks/* to *theme/styles/web/sass/resources/atlas_resources_default/buildingblocks*. You must also complete the following action:
+*lib/buildingblocks* フォルダにファイルを追加した場合、そのファイルを *theme_old/styles/ss/lib/buildingblocks/* から *theme/styles/web/sass/resources/atlas_resources_default/buildingblocks* にコピーします。 次のアクションを完了する必要があります：
 
-* Import the file into *theme/styles/web/sass/main.scss* under the `Building Blocks` group in alphabetical order
+* *theme/styles/web/sass/main.scss* のアルファベット順の `Building Blocks` グループの下にファイルをインポートします
 
-If you added a file to the *lib/layouts* folder, copy that file from *theme_old/styles/sass/lib/layouts/* to *theme/styles/web/sass/resources/atlas_resources_default/layouts*. You must also complete the following action:
+*lib/layouts* フォルダにファイルを追加した場合、 *theme_old/styles/ss/lib/layouts/* から *theme/styles/web/sass/resources/atlas_default/layouts* にそのファイルをコピーします。 次のアクションを完了する必要があります：
 
-* Import the file into *theme/styles/web/sass/main.scss* under the `Layouts` group in alphabetical order
+* *theme/styles/web/sass/main.scss* に `レイアウト` グループをアルファベット順にインポートします。
 
-Make sure any custom or added Sass files are all imported in either *styles/web/sass/main.scss* or *styles/web/sass/app/_custom.scss*.
+カスタムまたは追加された Sass ファイルが *styles/web/sass/main.scss* または *styles/web/sass/app/_custom.scss* でインポートされていることを確認してください。
 
-After troubleshooting your issues with the guidance above, complete the following steps to test your migrated app:
+上記のガイダンスで問題をトラブルシューティングした後、以下の手順を実行して移行したアプリをテストします。
 
-### 2.5 Working with a Modified Custom Folder {#modified}
+### 2.5 変更されたカスタムフォルダの操作 {#modified}
 
-1. Recompile your Sass to CSS.
-2. Test your app to see if everything works as expected.
-3. Delete *theme_old*.
+1. Sass を CSS に再コンパイルします。
+2. アプリをテストして、すべてが期待どおりに動作するかどうかを確認します。
+3. *theme_old* を削除する。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Troubleshoot DOM Changes](migration-dom-issues)
-* [Atlas UI](/howto8/front-end/atlas-ui)
+* [DOM の変更のトラブルシューティング](migration-dom-issues)
+* [アトラスUI](/howto8/front-end/atlas-ui)
