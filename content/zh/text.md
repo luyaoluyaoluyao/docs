@@ -1,124 +1,120 @@
 ---
-title: "Text"
-parent: "common-widgets"
+title: "文本"
+parent: "普通小部件"
 menu_order: 10
 tags:
   - "studio pro"
-  - "text"
-  - "text widget"
-  - "common widget"
+  - "文本"
+  - "文本部件"
+  - "常见小部件"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+文本小部件显示一个必要时可以包含参数的文本。 每个属性被此属性的值替换。 例如， 您可以在 [数据视图](data-view) 中放置文本小部件并向其添加参数来向用户显示欢迎消息。
 
-The text widget displays a text which can contain parameters if necessary. Every attribute is replaced with the value of this attribute. For example, you can show a greeting message to a user by placing a text widget in a [data view](data-view) and adding parameters to it.
+![文本部件](attachments/common-widgets/text.png)
 
-![Text Widget](attachments/common-widgets/text.png)
+如果您开始在任何空容器中输入，Studio Pro 将自动生成一个文本小部件以显示您的文本。
 
-If you start typing in any empty container, Studio Pro will automatically generate a text widget to display your text.
+## 2 属性
 
-## 2 Properties
+下面的图像是文本属性的示例：
 
-An example of text properties is represented in the image below:
-
-{{% image_container width="300" %}}![Text Properties](attachments/common-widgets/text-properties.png)
+{{% image_container width="300" %}}![文本属性](attachments/common-widgets/text-properties.png)
 {{% /image_container %}}
 
-Text properties consist of the following sections:
+文本属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Caption {#caption}
+#### 2.3.1 标题 {#caption}
 
-**Caption** defines a text that will be shown. The caption can contain parameters that are written between braces, for example, {1}.
+**标题** 定义了将显示的文本。 标题可以包含括号之间写入的参数，例如 {1}。
 
-For more information on using parameters, see the [Parameters]() section below.
+欲了解更多关于使用参数的信息，请参阅下面的 [参数](#parameters) 部分。
 
-#### 2.3.2 Parameters {#parameters}
+#### 2.3.2 参数 {#parameters}
 
-Parameters are attributes the value of which will be displayed. To view **Parameters**, do one of the following:
+参数是将显示的属性值。 要查看 **参数**，请执行以下操作之一：
 
-* Double-click the **Caption** setting in properties
+* 双击属性中的 **标题** 设置
 
 *  Double-click the text widget on the page and click **Edit** in the **General** section > **Caption**:
 
-    ![Opening Parameters](attachments/common-widgets/caption-edit-button.png)
+    ![正在打开参数](attachments/common-widgets/caption-edit-button.png)
 
-Parameters have the following settings:
+参数有以下设置：
 
-* **Index** – an identification number of a parameter
+* **索引** — — 一个参数的识别号码
 
-* **Attribute (path)** – an attribute a value of which will be displayed
+* **属性 (路径)** - 一个将显示其值的属性
 
-*  **Format** – a format in which an attribute value will be displayed
+*  **格式** - 一个将显示属性值的格式
 
-    ![Parameter Settings](attachments/common-widgets/parameter-settings.png)
+    ![参数设置](attachments/common-widgets/parameter-settings.png)
 
-##### 2.3.2.1 Adding New Parameters
+##### 2.3.2.1 添加新参数
 
-To use parameters, do the following:
+要使用参数，请执行以下操作：
 
-1. Place the **Text** widget must be placed in a context of an entity, as in, inside a [data widget](data-widgets).
+1. 将 **文本** 小部件放置在实体的上下文中，就像放置在一个 [数据小部件](data-widgets) 中。
 
-2. Double-click the **Caption** setting in the text widget properties.
+2. 双击文本部件属性中的 **标题** 设置。
 
-3.  In the **Edit Caption** dialog box > **Parameters** section click **New**:
+3.  在 **编辑标题** 对话框 > **参数** 部分点击 **新**
 
-    ![Adding New Parameter](attachments/common-widgets/adding-parameter.png)
+    ![添加新参数](attachments/common-widgets/adding-parameter.png)
 
-4. In the **Edit Template Parameter** dialog box, click **Select**, choose an attribute and confirm your choice.
+4. 在 **编辑模板参数** 对话框中，点击 **选择**，选择属性并确认您的选择。
 
-5.  In the **Caption** setting, write the text you would like to display and type **Index** of the parameter you would like to include. In the example below, to include a full name of your customer and a number of unread messages, you need to use indexes {1} for the *FullName* attribute, and {2} for the *NrOfUnread* attribute:
+5.  在 **标题** 设置中。 写入您想要显示的文本并输入 **索引** 你想要包含的参数. In the example below, to include a full name of your customer and a number of unread messages, you need to use indexes {1} for the *FullName* attribute, and {2} for the *NrOfUnread* attribute:
 
-    ![Parameter Example](attachments/common-widgets/parameters-example.png)
+    ![参数示例](attachments/common-widgets/parameters-example.png)
 
-##### 2.3.2.2 Performing Other Actions on Parameters
+##### 2.3.2.2 在参数上采取其他行动
 
-In addition to adding new parameters, you can perform the following actions on parameters:
+除了添加新参数外，您还可以对参数执行以下操作：
 
-* **Delete** – to delete a parameter click Delete or press <kbd>Delete</kbd> on your keyboard
+* **删除** - 以删除参数，点击删除或按 <kbd>删除您的键盘</kbd>
 
-* **Edit** – double-click a parameter to edit it or click Edit
+* **编辑** — 双击一个参数来编辑它或单击编辑
 
-* **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
+* **向上移动** - 在参数列表中移动参数并更改其索引， 点击 **向上移动**
 
-*  **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
+*  **向下移动** - 在参数列表中向下移动参数并更改其索引， 点击 **向下移动**
 
-    ![Parameter Actions](attachments/common-widgets/parameter-actions.png)
+    ![参数操作](attachments/common-widgets/parameter-actions.png)
 
-#### 2.3.3 Render Mode
+#### 2.3.3 渲染模式
 
-The render mode determines how the text will be displayed.
+渲染模式决定文本如何显示。
 
-| Value                 | Description                                                                                                                                                               |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text  *(default)*     | The text will be rendered inline with the previous/next texts on a page (`<span>` tag in HTML).                                                                     |
-| Paragraph             | The text will be rendered as a separate paragraph (`<p>` tag in HTML).                                                                                              |
-| Heading 1 - Heading 6 | The text will be rendered as a selected heading (for example, `<h1>` tag in HTML). **Heading 1** is the largest type of heading, **Heading 6** is the smallest one. |
+| 值          | 描述                                                                          |
+| ---------- | --------------------------------------------------------------------------- |
+| 文本  *(默认)* | 文本将与页面上的上一个/下一个文本内嵌(HTML中的`<span>` 标签)。                               |
+| 第18段       | 文本将作为单独的一段(`<p>` 标签在 HTML)。                                           |
+| 标题1-标题6    | 文本将被呈现为一个选中的标题 (例如，HTML中的 `<h1>` 标签)。 **标题1** 是最大的标题。 **标题6** 是最小的标题。 |
 
-### 2.4 Visibility Section {#visibility}
+### 2.4 可见性科 {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Common Widgets](common-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [常见小部件](普通小部件)
+* [页面编辑器中常见的属性](common-widget-properties)
