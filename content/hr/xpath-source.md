@@ -9,10 +9,6 @@ tags:
 menu_order: 20
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-source.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 If **XPath** is selected as the data source for a widget then the object or objects shown are retrieved directly from the database with a query. You can filter data with an [XPath constraint](#xpath-constraints).
@@ -21,7 +17,7 @@ The **XPath** data source is very similar to the [**Database** data source](data
 
 The data retrieved can also be limited by the following factors:
 
-1. The access rules defined in the security section of the project.
+1. The access rules defined in the **Security** section of the app.
 2. An association, if the widget is nested in another data widget and the data path described runs over an association.
 
 If you want to restrict data not for a single widget, but for several, you may want to apply [access rules](access-rules) for entities instead of XPath constraints. This way you know that the objects will always be constrained by these rules. Access rules will also be applied when executing microflows which saves you from repeating constraints.
