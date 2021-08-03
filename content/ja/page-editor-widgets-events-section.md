@@ -1,7 +1,6 @@
 ---
-title: "イベントセクション"
+title: "ウィジェット内のイベントセクション"
 parent: "page-editor-widgets"
-menu_order: 70
 description: "Mendix Studioのウィジェットのプロパティでformat@@0セクションを説明します。"
 tags:
   - "スタジオ"
@@ -46,7 +45,7 @@ In the **Events** section, you can set the **On Click Action** for widgets and s
 
 **On Click Action** を **Open Page**に設定すると、 **Create Object** オプションを有効にすることができます。 選択したページがコンテキストを想定している場合は、オブジェクトを渡す必要があります。
 
-たとえば、 **New** ボタンをクリックして新しい顧客を作成します。 このボタンは、新しい顧客の詳細を入力して保存できるページを開きます。 However, the *Customer Details* page needs to get data first, in other words, it expects the object *Customer* to be passed to it.
+例を見てみましょう: **New** ボタンをクリックして、新しい顧客を作成します。 このボタンは、新しい顧客の詳細を入力して保存できるページを開きます。 However, the *Customer Details* page needs to get data first, in other words, it expects the object *Customer* to be passed to it.
 
 {{% image_container width="350" %}}![データビューが顧客オブジェクトを期待する](attachments/consistency-errors-pages/data-view-customer.png)
 {{% /image_container %}}
@@ -57,7 +56,7 @@ Thus, when setting the on-click action of the **New** button to **Page**, you ne
 
 **Create Object** オプションを有効にするには、次のように設定する必要があります。
 
-* **ページ** – 新しいオブジェクトを表示するページを指定します。 このページには、このオブジェクトを期待するデータビューが含まれている必要があります。
+* **ページ** - 新しく作成されたオブジェクトで表示するページを指定します。 このページには、このオブジェクトを期待するデータビューが含まれている必要があります。
 * **エンティティ** – コンテキストとして選択したページにエンティティを作成し、渡すオブジェクトを指定します。
 
 ### 2.2 リンクを開くアクション {#open-link-action}
@@ -71,8 +70,8 @@ Thus, when setting the on-click action of the **New** button to **Page**, you ne
 
 | アクションプロパティ | 説明                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Link Type  | **リンクタイプ** の値は以下のとおりです。 <ul><li>**Web** – ウェブサイトにナビゲートします</li><li>**メール** – メールを作成</li><li>**電話** – 通話を開始</li><li>**テキストメッセージ** – テキストメッセージを送信</li></ul>{{%alert type="info" %}}When you configure **Email**, **Phone Call** or **Message** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message.<br />{{%/alert %}} |
-| ソース        | **ソース** の可能な値は以下のとおりです: <ul><li>**リテラル値を使用** – 値を入力することができます (**Web**に**URL**を指定し、**受信者**を**電子メール**に、**電話番号**を**電話カル**と**メッセージ**にします) </li><li>**属性を使用** – リストビューのデータソースとして**データベース**>**エンティティ**を選択した場合。 エンティティに属する文字列型の属性を選択したり、新しい属性を作成したりできます（**属性を使用** オプションが設定されている場合） 手動で情報を記入する必要はありません。動的に更新されます)</li></ul>                                                                                                                                                                                                                                                                                          |
+| Link Type  | **リンクタイプ** の値は以下のとおりです。 <ul><li>**Web** – ウェブサイトにナビゲートします</li><li>**メール** – メールを作成</li><li>**電話** – 通話を開始</li><li>**テキストメッセージ** – テキストメッセージを送信</li></ul>                                                                                                                                                                                                                                                                                          |
+| ソース        | **ソース** の可能な値は以下のとおりです: <ul><li>**リテラル値を使用** – 値を入力することができます (**Web**に**URL**を指定し、**受信者**を**電子メール**に、**電話番号**を**電話カル**と**メッセージ**にします) </li><li>**属性を使用** – リストビューのデータソースとして**データベース**>**エンティティ**を選択した場合。 エンティティに属する文字列型の属性を選択したり、新しい属性を作成したりできます（**属性を使用** オプションが設定されている場合） 手動で情報を記入する必要はありません。動的に更新されます)</li></ul>{{%alert type="info" %}}When you configure **Email**, **Phone Call** or **Message** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message.<br />{{%/alert %}} |
 
 ### 2.3 オブジェクトの削除アクション {#delete-object-action}
 
