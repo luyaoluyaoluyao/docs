@@ -1,38 +1,39 @@
 ---
 title: "Static Label (Document Template)"
 parent: "document-templates"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Static+label+(document+template).html
-  - /refguide7/static-label-(document-template).html
+  - /refguide8/Static+label+(document+template).html
+  - /refguide8/static-label-(document-template).html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/static-label-document-template.pdf).
+{{% /alert %}}
+
+## 1 Introduction
 
 A static label shows a line of static text. You can use it to place custom text inside a data view, template grid or table.
 
-{{% alert type="info" %}}
+For example, a label with text 'Customer name' will be look like this:
 
-![](attachments/819203/918130.png)] A label with text 'Customer name'.
+![](attachments/document-templates/918130.png)
 
-{{% /alert %}}
+If you want to insert the current page number or the total page count in your document, you can use a token inside a static label (and only in a static label).
 
-If you want to insert the current page number or the total page count in your document, you can use a token inside a static label (and only in a static label). Before version 2.5.4, spaces were automatically inserted on either side of the token. This is no longer the case.
+For example, static label content `Page [%pageNumber%] of [%totalPageCount%]` will print **Page 2 of 4**.
 
-{{% alert type="info" %}}
+## 2 Common Properties
 
-Static label content: Page [%pageNumber%] of [%totalPageCount%] Will print: Page 2 of 4
+{{% snippet file="refguide8/name-property.md" %}}
 
-{{% /alert %}}
+## 3 Appearance Properties
 
-## Common Properties
-
-{{% snippet file="refguide7/Name+Property.md" %}}
-
-## Appearance Properties
-
-### Caption
+### 3.1 Caption
 
 This is the value that will be displayed in the document.
 
-### Style
+### 3.2 Style
 
-See [Style](style)
+For details, see [Style](style).
