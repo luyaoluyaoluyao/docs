@@ -1,56 +1,56 @@
 ---
-title: "Navigation Before Mendix Version 7.2"
-parent: "project"
-description: "Describes the concept of navigation in apps and the properties of a profile for Mendix versions 7.0 and 7.1."
+title: "Mendix バージョン7.2以前のナビゲーション"
+parent: "プロジェクト"
+description: "アプリでのナビゲーションの概念とMendix バージョン 7.0 および 7.1 のプロファイルのプロパティについて説明します。"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="warning" %}}
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. Applicable for Mendix versions 7.0 and 7.1. For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+このドキュメントでは、Mendix アプリケーションとプロファイルのプロパティにおけるナビゲーションの概念について説明します。 Mendixバージョン7.0および7.1に適用されます。 Mendix バージョン 7.2 および 7.3 での動作の詳細については、 [7.2 と 7.3 のナビゲーション](navigation-in-72-and-73) を参照してください。 Mendix バージョン 7.4 以上については、 [Navigation](navigation) を参照してください。
 
 {{% /alert %}}
 
-The **Navigation** document defines the navigation structure of the application for users. It allows you to set the home page of your application as well as to define menu structures that can be used in [menu widgets](menu-widgets). A user's home page can vary based on their [roles](user-roles).
+**ナビゲーション** ドキュメントでは、ユーザーのアプリケーションのナビゲーション構造を定義します。 [メニュー ウィジェット](menu-widgets) で使用できるメニュー構造を定義するだけでなく、アプリケーションのホームページを設定することができます。 ユーザーのホームページは [ロール](user-roles) によって異なります。
 
 ## 2 Profiles
 
-At the heart of the navigation model in Mendix are four navigation profiles: desktop, tablet, phone, and offline device. You can define separate home pages and menus for each of these profiles. The desktop profile is always enabled, while tablet, phone, and offline device can be disabled if you do not want to use them. Users that access the application via a particular device type are automatically redirected to the home page of the appropriate profile (for details, see [4 Redirection to Profiles](#Redirection)).
+Mendixのナビゲーションモデルの中心には、デスクトップ、タブレット、電話、およびオフラインデバイスの4つのナビゲーションプロファイルがあります。 これらのプロファイルごとに別々のホームページとメニューを定義できます。 デスクトッププロファイルは常に有効になりますが、タブレット、電話、オフラインデバイスは使用したくない場合は無効にできます。 特定のデバイスタイプを介してアプリケーションにアクセスするユーザーは、自動的に適切なプロファイルのホームページにリダイレクトされます（詳細については） [4プロファイルへのリダイレクト](#Redirection) を参照してください。
 
 {{% alert type="info" %}}
 
-In Mendix 7.0.2, the Offline device profile is replaced by the [hybrid phone profile](hybrid-phone-profile). In addition to this, a new device profile is now available, called the [hybrid tablet profile](hybrid-tablet-profile). All settings from the Offline device profile are automatically copied to the hybrid phone profile.
+Mendix 7.0.2では、オフラインデバイスプロファイルは [ハイブリッド電話プロファイル](hybrid-phone-profile)に置き換えられます。 これに加えて、新しいデバイスプロファイルが利用可能になりました。これは [ハイブリッド・タブレットプロファイル](hybrid-tablet-profile) と呼ばれます。 オフラインデバイスプロファイルのすべての設定は、自動的にハイブリッド電話プロファイルにコピーされます。
 
 {{% /alert %}}
 
-The device type of a currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use the `$currentDeviceType` variable to perform different actions based on the device type. A typical example is to show different pages based on the device type.
+現在ログインしているユーザーのデバイス タイプは [microflow](microflows) `$currentDeviceType` 変数として利用できます。 The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. デバイス タイプに基づいて、 `$currentDeviceType` 変数を使用して異なる操作を実行できます。 典型的な例は、デバイス タイプに基づいて異なるページを表示することです。
 
 ## 3 Hybrid Profiles
 
-The hybrid tablet and hybrid phone profiles are different from the other profiles in that they do more than simply redirect users based on their device type. These profiles are designed to allow users to continue using their Mendix application even when they have no internet connection, though certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline](offline).
+ハイブリッドタブレットとハイブリッド電話のプロファイルは、単に自分のデバイスの種類に基づいてユーザーをリダイレクトするよりも多くを行うという点で他のプロファイルとは異なります。 これらのプロファイルは、特定の制限が適用されますが、インターネット接続がない場合でも、Mendixアプリケーションの使用を継続できるように設計されています。 オフラインのデバイス プロファイルの実行の影響については、 [オフライン](offline) を参照してください。
 
-## 4 Redirection to Profiles<a name="Redirection"></a>
+## 4 プロファイルにリダイレクト<a name="Redirection"></a>
 
-Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the User-Agent string that is sent by the device's browser. The default configuration for this redirection is as follows:
+Mendix Runtime は、使用しているデバイスに基づいてユーザーを適切なデバイスタイプのホームページに自動的にリダイレクトします。 これは、デバイスのブラウザから送信されるUser-Agent文字列を調べることによって発生します。 このリダイレクトのデフォルト設定は以下のとおりです。
 
-| User-Agent String Regular Expression                  | Device Type |
-| ----------------------------------------------------- | ----------- |
-| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
-| Android&#124;iPad                                     | Tablet      |
-| _(other)_                                             | Desktop     |
+| User-Agent 文字列正規表現                                  | デバイスタイプ |
+| --------------------------------------------------- | ------- |
+| Android.*モバイル&#124;iPhone&#124;iPod&#124;BlackBerry | 電話番号    |
+| Android&#124;iPad                                   | タブレット   |
+| _(その他)_                                             | デスクトップ  |
 
-To configure the regular expressions used to match phone or tablet users, see [Custom Settings](custom-settings).
+携帯電話やタブレットのユーザーと一致する正規表現を設定するには、 [カスタム設定](custom-settings) を参照してください。
 
-If a profile is not enabled, it falls back to another device type as shown in this table:
+プロファイルが有効になっていない場合、この表に示されているように別のデバイスタイプに戻ります。
 
-| Device Type | Fallback                        |
-| ----------- | ------------------------------- |
-| Phone       | Tablet, Desktop                 |
-| Tablet      | Phone, Desktop                  |
-| Desktop     | None, Desktop is always enabled |
+| デバイスタイプ | Fallback          |
+| ------- | ----------------- |
+| 電話番号    | タブレット、デスクトップ      |
+| タブレット   | 電話、デスクトップ         |
+| デスクトップ  | いいえ、デスクトップは常に有効です |
 
-It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are `Desktop`, `Tablet`, and `Phone`. For example:
+Mendixアプリケーションを訪問するときにURLに `プロファイル` のクエリ文字列パラメータを追加することで、クライアントが特定のプロファイルを使用するように強制することもできます。 可能な値は `デスクトップ`、 `タブレット`、 `電話`です。 例:
 
 ```http
 https://myapp.mendixcloud.com/index.html?profile=Phone
