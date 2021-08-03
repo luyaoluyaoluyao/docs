@@ -1,21 +1,21 @@
 ---
-title: "Module Role"
-parent: "module-security"
+title: "モジュールロール"
+parent: "モジュールセキュリティ"
 ---
 
 
-The module roles define which roles users of this module can have. See [Security](security) for more information on module roles and [user roles](user-roles) and their relation.
+モジュールロールは、このモジュールのユーザーが持つことができるロールを定義します。 モジュールのロールと [ユーザのロール](security) とその関係の詳細については、 [セキュリティ](user-roles) を参照してください。
 
-## Name
+## 名前
 
-The name of a module role is used to refer to the module role from other elements in your model.
+モジュールロールの名前は、モデル内の他の要素からのモジュールロールを参照するために使用されます。
 
 {{% alert type="warning" %}}
 
-End users do not see the names of module roles. End users (if they create or view user accounts) only see the names of [user roles](user-roles).
+エンドユーザーにモジュールロールの名前が表示されません。 エンドユーザー(ユーザーアカウントを作成または表示する場合)には、 [ユーザー ロール](user-roles) の名前のみが表示されます。
 
 {{% /alert %}}
 
-## Documentation
+## ドキュメント
 
-The documentation of a module role is there only for the convenience of the people who use the modeler; it is not visible for the end users.
+モジュールロールのドキュメントは、モデラーを使用する人の便宜のためにのみ存在します。 エンドユーザーには見えません
