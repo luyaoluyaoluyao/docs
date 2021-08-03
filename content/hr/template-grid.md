@@ -1,136 +1,185 @@
 ---
 title: "Template Grid"
-parent: "data-widgets"
+parent: "grids"
+menu_order: 20
+tags:
+  - "studio pro"
+  - "grid"
+  - "template grid"
+  - "data widgets"
 ---
 
-The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. Using controls provided by the template grid you can browse, search and manipulate those objects. The template grid has a lot in common with the data grid. The main difference is that the objects are shown in templates (a sort of small data view) instead of rows.
-
-Like data grid rows, single tiles do not have their content updated. For example, a data view inside a tile is not updated via the **Refresh in client** setting in a microflow action. Refreshing the template grid entity refreshes the whole grid.
-
 {{% alert type="info" %}}
-
-![](attachments/pages/template-grid.png)
-
-A template grid showing employees with their profile picture.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/template-grid.pdf).
 {{% /alert %}}
 
-## Common properties
+{{% alert type="warning" %}}The template grid widget is not supported on native mobile pages.{{% /alert %}}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+## 1 Introduction
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+A template grid shows a list of objects in a tile view. For example, a template grid can show a list of employees with their profile pictures. Using controls provided by the template grid you can browse, search, and manipulate those objects:
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+![](attachments/data-widgets/template-grid.png)
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+The template grid has a lot in common with a [data grid](data-grid). The main difference is that the objects are shown in templates instead of rows.
 
-## Components
+## 2 Components
 
-### Control bar
+### 2.1 Control Bar
 
-See [Control Bar](control-bar).
+For more information, see [Control Bar](control-bar).
 
-### Search bar (for data source type 'Database' and 'XPath')
+### 2.2 Search Bar
 
-See [Search Bar](search-bar).
+**Search Bar** is only available for **Database** and **XPath** [data sources](#data-source). For more information on a search bar and its settings, see [Search Bar](search-bar).
 
-### Sort bar (for data source type 'Database' and 'XPath')
+### 2.3 Sort Bar
 
-See [Sort Bar](sort-bar).
+**Sort Bar** is only available for **Database** and **XPath** [data sources](#data-source). For more information on a sort bar and its settings, see [Sort Bar](sort-bar).
 
-## General properties
+## 3 Properties
 
-### Show control bar
+An example of template grid properties is represented in the image below:
 
-This property indicates whether the control bar will be visible in the end user interface. The control bar also includes the paging buttons.
+{{% image_container width="250" %}}![](attachments/data-widgets/template-grid-properties.png)
+{{% /image_container %}}
+
+Template grid properties consist of the following sections:
+
+* [Common](#common)
+* [Data source](#data-source)
+* [Design Properties](#design-properties)
+* [General](#general)
+* [Visibility](#visibility)
+
+### 3.1 Common Section {#common}
+
+{{% snippet file="refguide8/common-section-link.md" %}}
+
+### 3.2 Data Source Properties {#data-source}
+
+The data source determines which objects will be shown in the template grid. For general information about data sources, see [Data Sources](data-sources).
+
+#### 3.2.1 Type
+
+The list view supports the following types of data sources:
+
+* [Database source](database-source) – objects are retrieved directly form the database
+* [XPath source](xpath-source) – objects are retrieved directly form the database
+* [Microflow source](microflow-source) – calculates the list of objects by executing a microflow
+* [Association source](association-source) – follows an association to get to objects
+
+The database and XPath sources retrieve objects from the database and supports searching and sorting.
+
+### 3.3 Design Properties Section {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 3.4 General Section {#general}
+
+#### 3.4.1 Show Control Bar {#show-control-bar}
+
+This property indicates whether the control bar will be visible in the end-user interface. The control bar also includes the paging buttons.
 
 {{% alert type="warning" %}}
-
 Even if the control bar is invisible there can still be a default button that is triggered by (double) clicking a row. See the property 'Default button trigger' and [grid buttons](control-bar) for more information.
-
 {{% /alert %}}
 
-_Default value:_ True
+Default: *True*
 
-### Show paging buttons
+#### 3.4.2 Show Paging Buttons {#show-paging-buttons}
+
+{{% alert type="warning" %}}
+This property is not available in Mendix 8.13 and above. Use the [Show Paging Bar](#show-paging-bar) property instead.
+{{% /alert %}}
 
 This property indicates with the buttons to page through the information in the grid are visible. Only hide these buttons if you are sure that there will never be more objects than the number of rows of the grid. Note that hiding the control bar also hides the paging buttons.
 
-_Default value:_ True
+Default: *True*
 
-### Number of rows
+#### 3.4.3 Show Paging Bar {#show-paging-bar}
+
+{{% alert type="info" %}}
+This property was introduced in Mendix 8.13. It replaces the [Show Paging Buttons](#show-paging-buttons) property.
+{{% /alert %}}
+
+With this property, you can change the way the paging bar is shown.
+
+| Value                     | Description                                                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Yes (with total count)    | The paging bar is shown, including the **Go to last page** button and the total count of objects.                                                      |
+| Yes (without total count) | The paging bar is shown (except for the **Go to last page** button). Also, the total count of objects is not shown, as page numbers are shown instead. |
+| No                        | The paging buttons are not shown.                                                                                                                      |
+
+Default: *Yes (with total count)*
+
+{{% alert type="warning" %}}
+Hiding the control bar also hides the paging buttons. For details, see [Show Control Bar](#show-control-bar).
+{{% /alert %}}
+
+#### 3.4.4 Number of Rows {#number-of-rows}
 
 With this property you can change the number of rows of templates that will be shown on one page.
 
-_Default value:_ 3
+Default: *3*
 
-### Number of columns
+#### 3.4.5 Number of Columns {#number-of-columns}
 
 With this property you can change the number of templates that will be shown next to each other in one row.
 
-_Default value:_ 2
+Default: *2*
 
-### Style template
+#### 3.4.6 Style Template {#style-template}
 
 The style template property allows you to choose from three different styling of the template grid. These stylings depend on your theme package.
 
-### Selection mode
+#### 3.4.7 Selection Mode {#selection-mode}
 
 The selection mode determines whether and how the user can select items in the grid.
 
 | Value                         | Description                                                                                                                                                                                                     |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | No selection                  | The user cannot select items.                                                                                                                                                                                   |
-| Single selection              | The user can select a single item by clicking on it. Clicking another item will make that item the selection.                                                                                                   |
+| Single selection  *(default)* | The user can select a single item by clicking on it. Clicking another item will make that item the selection.                                                                                                   |
 | Single selection and maintain | The user can select one item at a time by clicking on it. Users cannot deselect an item. By default the first item will be selected and removing a selected item will autoselect a subsequent item.             |
 | Multi-selection               | The user can select multiple items by clicking the first one and holding the 'Ctrl' key while clicking on other items. Simply clicking an item will deselect all items and make the clicked item the selection. |
 | Simple multi-selection        | The user can select multiple items by simply clicking on them.                                                                                                                                                  |
 
-_Default value:_ Single selection
-
-### Select first
+#### 3.4.8 Select First {#select-first}
 
 This property indicates whether the first item will be selected initially. This is especially useful if there is a data view listening to this grid.
 
-_Default value:_ False
+Default: *False*
 
-### Default button trigger
+#### 3.4.9 Default Button Trigger {#default-button-trigger}
 
 The default button can be triggered by a single or a double click a row.
 
-| Value        | Description                                                                                                           |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| Single click | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click | A double click triggers the default button.                                                                           |
+| Value                    | Description                                                                                                           |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| Single click             | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
+| Double click *(default)* | A double click triggers the default button.                                                                           |
 
-_Default value:_ Double click
-
-### Refresh time (in seconds)
+#### 3.4.10 Refresh Time (in Seconds) {#refresh-time}
 
 If the refresh time is non-zero, the template grid will refresh its contents every given number of seconds. For example, a task list could be refreshed every minute so that you know when new tasks arrive. By default the refresh time is zero and this means that the grid will not automatically refresh itself.
 
-_Default value:_ 0
+Default: *0*
 
-## Data source properties
+### 3.5 Visibility Section {#visibility}
 
-The data source determines which objects will be shown in the template grid. For general information about data sources, see [Data Sources](data-sources).
+{{% snippet file="refguide8/visibility-section-link.md" %}}
 
-### Type
+## 4 Performing Specific Actions
 
-The template grid supports the following types of data sources: Database Source, Association Source, Microflow Source. The database source retrieves objects from the database and supports searching and sorting. The association source follows an association from the enclosing data view to get to the objects. Finally, the microflow source calculates the list of objects by executing a microflow.
+To perform actions on a template grid, select it on a page and right-click it. The list of possible actions opens. While some actions from this list, such as **Select data source**, **Edit condition for visible**, are a quick way to set the properties, the following actions are specific actions that you can perform:
 
-### Other properties
+* **Go to entity** – opens a domain model and highlights an an entity that is used as the data source
+* **Go to data source** **microflow **– this action is only displayed when a microflow is set as the data source and opens this microflow
 
-See the corresponding data source for its properties:
+## 5 Read More
 
-*   [Database source](database-source)
-*   [XPath source](xpath-source)
-*   [Microflow source](microflow-source)
-*   [Association source](association-source)
-
-## Visibility properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+* [Page](page)
+* [Data Widgets](data-widgets)
+* [Data Sources](data-sources)
+* [Properties Common in the Page Editor](common-widget-properties)
