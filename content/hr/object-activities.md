@@ -1,33 +1,45 @@
 ---
 title: "Object Activities"
 parent: "activities"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "microflow"
+  - "object"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/object-activities.pdf).
+{{% /alert %}}
 
-## Cast
+## 1 Introduction
 
-See [Cast Object](cast-object).
+When working with the Mendix Platform, objects of entities are always being manipulated. This happens implicitly within [data widgets](data-widgets) on a page, or explicitly using activities in microflows and nanoflows.
 
-## Change
+The activities in this section of the microflow and nanoflow toolbox generally work on single objects, however **commit object(s)**, **delete object(s)**, and **retrieve** also work on lists of objects. For other activities which work with lists, see [List Activities](list-activities).
 
-See [Change Object](change-object).
+The activities described in this document are in the **Object Activities** section of the **Toolbox**:
 
-## Commit
+{{% image_container width="40%" %}}
+![Object activities toolbox](attachments/object-activities/object-activities-toolbox.png)
+{{% /image_container %}}
 
-See [Commit Object](committing-objects).
+The following are the object activities you can use in your microflow or nanoflow:
 
-## Create
+* [Cast object](cast-object) *(only in microflows)* – changes the type of object from a generalized object type to the specialized object type
 
-See [Create Object](create-object).
+* [Change object](change-object) – changes the members of an object
 
-## Delete
+* [Commit objects(s)](committing-objects) – either stores objects of persistable entities in the database or stores objects of non-persistable entities in memory to allow them to be rolled back
 
-See [Delete Object(s)](deleting-objects).
+* [Create object](create-object) – creates an object
 
-## Retrieve
+* [Delete object(s)](deleting-objects) *(only in microflows)* – activity deletes one or more objects
 
-See [Retrieve](retrieve).
+* [Retrieve](retrieve) – gets one or more objects of an entity
 
-## Rollback
+* [Rollback object](rollback-object) – undoes uncommitted changes made to an object
 
-See [Rollback Object](rollback-object).
+## 2 Read More
+
+* [Activities](activities)
