@@ -1,15 +1,15 @@
 ---
-title: "Microflow Activities"
-parent: "integration"
+title: "微流程活动"
+parent: "集成"
 ---
 
-## Integration Activitities
+## 集成活动
 
-Integration activities can be used to integrate with other systems, for example by calling a web service.
+集成活动可用于与其他系统集成，例如通过呼叫网络服务。
 
-| Graphic                                | Name                                         | Description                                                                                                                                                                                                                                                                                 |
-| -------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](attachments/16713769/19399144.png) | [Call REST action](call-rest-action)         | Call rest action can be used to call a REST endpoint. You can use mappings to map results to entities or entities to requests. You can also use string templates and store the result in a string variable.                                                                                 |
-| ![](attachments/16713769/19398967.png) | [Call web service](call-web-service-action)  | Call web service action can be used to call one of the [imported web services](consumed-web-services). The content of the request can be edited. Furthermore the response of the webservice can be mapped to entities, stored in a variable or be ignored.                                  |
-| ![](attachments/16713769/19398968.png) | [Import with mapping](import-mapping-action) | Import with mapping can be used to parse the data in a string variable or data stored in a file document, and store them to entities defined in the [domain model](domain-model) of the database. An [Import Mapping](import-mappings) is used to map the incoming XML or JSON to entities. |
-| ![](attachments/16713769/19398969.png) | [Export with mapping](export-mapping-action) | Export with mapping can be used to export the data stored in [domain model](domain-model) entities into an XML or JSON string. It can also be stored in a file document. An [Export Mapping](export-mappings) is used to map domain model entities into XML or JSON.                        |
+| 图形                                     | 名称                                | 描述                                                                                                                        |
+| -------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| ![](attachments/16713769/19399144.png) | [通话REST 操作](call-rest-action)     | 呼叫休息行动可以调用REST 端点。 您可以使用映射将结果映射到实体或实体请求中。 您也可以使用字符串模板并将结果存储在字符串变量中。                                                       |
+| ![](attachments/16713769/19398967.png) | [呼叫网络服务](call-web-service-action) | 调用 web service action 可以调用 [导入的 web 服务](consumed-web-services)。 请求的内容可以编辑。 此外，网络服务的响应可以映射到实体，并存储在变量中或被忽略。                 |
+| ![](attachments/16713769/19398968.png) | [通过映射导入](import-mapping-action)   | 用映射导入可以用来解析字符串变量中的数据或存储在文件中的数据。 并将它们存储到数据库的 [域模型](domain-model) 中定义的实体。 [导入映射](import-mappings) 用于映射进入的 XML 或 JSON 到实体。   |
+| ![](attachments/16713769/19398969.png) | [用映射导出](export-mapping-action)    | 用映射导出可用于将 [域模型](domain-model) 实体中存储的数据导出到一个 XML 或 JSON 字符串。 它也可以存储在文件中。 [导出映射](export-mappings) 用于将域模型实体映射到 XML 或 JSON 中。 |
