@@ -1,80 +1,80 @@
 ---
-title: "Configurations"
-parent: "project-settings"
+title: "構成"
+parent: "プロジェクト設定"
 tags:
   - "studio pro"
-  - "configurations"
-  - "configuration"
+  - "構成"
+  - "構成"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A configuration is a group of settings that are applied when running your app locally. To access configurations, open the **App Explorer** > **App** > **Settings** > the **Configuration** tab.
+構成とは、アプリケーションをローカルで実行するときに適用される設定のグループです。 設定にアクセスするには、 **App Explorer** > **App** > **Settings** > the **Configuration** tab.
 
-You can define any number of configurations. The active configuration, as in, the one that will be used when running your application, is determined by the drop-down in the toolbar of Studio Pro.
+任意の数の構成を定義できます。 アプリケーションの実行時に使用されるアクティブな構成です。 は、Studio Pro のツールバーのドロップダウンによって決定されます。
 
-You can use configurations to have different database settings for different people working on your app. Maybe one person has SQL Server on their computer and the other has PostgreSQL. You can also have a shared configuration for connecting to a database server that you both have access to.
-
-{{% alert type="warning" %}}
-
-When you are deploying your application to a server or the Mendix cloud you will have to configure settings  there. For more information, see [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy).
-
-{{% /alert %}}
-
-## 2 Configuration Settings
-
-A configuration contains the following:
-
-* **Name** – the name of the configuration
-* [Database tab](#database)
-* [Server tab](#server)
-* [Constants tab](#constants)
-* [Custom tab](#custom)
-
-### 2.1 Database {#database}
-
-The **Database** tab has the following settings:
-
-* **Type** – the type of database in which the end-user data of your application is stored
-* **URL (not for built-in database)** – the URL of the database server that contains your app
-* **Database name (called Database SID for Oracle)** – the name of the database that contains your app
-* **Use integrated security (only for SQL Server)** – with SQL Server you can use integrated security to gain access to the database. This means that your Windows credentials are used to sign in to SQL Server. If you disable integrated security you can enter a user name and password manually.
-* **User name (not for built-in database)** – the user name that is used to sign in to the database server. If you use integrated security, no user name has to be specified.
-* **Password (not for built-in database)** – the password that is used to sign in to the database server. If you use integrated security, no password has to be specified.
-
-### 2.2 Server {#server}
-
-The **Server** tab has the following settings:
-
-* **Application root URL** – this URL points to the root of your application as it should be accessible by end-users. This setting is also used in the published WSDL files for the address where your published web services can be called.
-* **Runtime port** – in this setting you can fill in the HTTP port through which a browser accesses the server on which your application is running. Multiple concurrently running servers on the same computer should use different HTTP port numbers. Default: *8080*
-* **Runtime port security** – determines whether the runtime HTTP port will be open to other machines or just to the current machine (localhost).
-* **Admin port** – this port number is used to communicate with the server. Multiple concurrently running servers on the same computer should use different server admin port numbers. Default: *8090*
-* **Admin port security** –  determines whether the admin port will be open to other machines or just to the current machine (localhost).
-* **Java heap** – in this setting you can specify the maximum Java heap memory size. There following options are available:
-  * **Default** – use the default heap memory size of the installed Java virtual machine.
-  * **Custom** – use the value of the **Maximum size (in MB)** setting.
-* **Maximum size (in MB)** – when you set the Java heap setting to *Custom*, you can specify the amount of heap memory that is available for the Java virtual machine on which you deploy your application.
-* **Extra JVM parameters** – here you can enter extra parameters for the Java virtual machine on which you deploy your application. Note: use with care. If the parameters are invalid, the Java VM might not start.
-
-### 2.3 Constants {#constants}
-
-Constants have a default value that you can override per configuration. You only need to add a constant here if you want a different value than the default value. An example is specifying different web service locations for different configurations.
-
-### 2.4 Custom {#custom}
-
-You can use custom server settings to configure the Runtime beyond the standard possibilities offered by Studio Pro.
+設定を使用して、アプリで作業している人によって異なるデータベース設定を行うことができます。 たぶん、ある人が自分のコンピュータにSQL Serverを持ち、もう一方がPostgreSQLを持っているかもしれません。 また、両方にアクセスできるデータベースサーバーに接続するための共有構成を設定することもできます。
 
 {{% alert type="warning" %}}
 
-Only use this functionality if you know exactly what you are doing. Wrong values can prevent the Runtime from starting.
+アプリケーションをサーバーまたはMendixクラウドにデプロイする場合は、そこに設定を構成する必要があります。 詳細については、 [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy) を参照してください。
 
 {{% /alert %}}
 
-Each custom setting consists of a name and a value. For example, to enable persistent sessions you add a custom setting with name `PersistentSessions` and value `true`.
+## 2 設定設定
 
-For settings overview, see [Runtime Customization](custom-settings).
+構成には以下が含まれます。
 
-## 3 Read More
+* **名前** - 設定の名前
+* [データベースタブ](#database)
+* [サーバータブ](#server)
+* [定数タブ](#constants)
+* [カスタムタブ](#custom)
 
-* [App Settings](project-settings)
+### 2.1 データベース {#database}
+
+**データベース** タブには以下の設定があります。
+
+* **Type** - アプリケーションのエンドユーザーデータが保存されるデータベースの種類
+* **URL (組み込みデータベースではありません)** – アプリを含むデータベースサーバーのURL
+* **データベース名 (Oracle の Database SID と呼ばれる)** – アプリを含むデータベースの名前
+* **統合セキュリティ(SQL Serverの場合のみ)** – SQL Serverを使用すると、統合セキュリティを使用してデータベースにアクセスできます。 これは、Windows の資格情報が SQL Server にサインインするために使用されることを意味します。 統合セキュリティを無効にすると、ユーザー名とパスワードを手動で入力できます。
+* **(組み込みデータベースではない)** – データベースサーバへのサインインに使用されるユーザ名。 統合セキュリティを使用する場合、ユーザー名を指定する必要はありません。
+* **パスワード (組み込みデータベース用ではありません)** – データベースサーバへのサインインに使用するパスワード。 統合セキュリティを使用する場合、パスワードを指定する必要はありません。
+
+### 2.2 サーバー {#server}
+
+**サーバー** タブには以下の設定があります:
+
+* **アプリケーション ルート URL** – このURLは、エンドユーザーがアクセスできるよう、アプリケーションのルートを指しています。 この設定は、パブリッシュされた WSDL ファイル内で公開された Web サービスを呼び出すことができるアドレスにも使用されます。
+* **ランタイムポート** – この設定では、ブラウザがアプリケーションを実行しているサーバーにアクセスするHTTPポートを埋めることができます。 同じコンピュータ上で複数の同時実行されているサーバーは、異なるHTTPポート番号を使用する必要があります。 デフォルト: *8080*
+* **ランタイムポートセキュリティ** – ランタイムHTTPポートを他のマシンに開くか、現在のマシン(localhost)に開くかを決定します。
+* **管理ポート** - このポート番号はサーバーとの通信に使用されます。 同じコンピュータ上で同時に実行されている複数のサーバーは、異なるサーバー管理ポート番号を使用する必要があります。 デフォルト: *8090*
+* **管理者ポートセキュリティ** – 管理者ポートを他のマシンに開くか、現在のマシン(localhost)に開くかを決定します。
+* **Java Heap** – この設定では、最大の Java ヒープメモリサイズを指定できます。 次のオプションがあります:
+  * **デフォルト** – インストール済みの Java 仮想マシンのデフォルトのヒープメモリサイズを使用します。
+  * **カスタム** - **最大サイズ (MB単位)** の値を使用します。
+* **最大サイズ (MB単位)** - Javaヒープ設定を *カスタム*に設定した場合 アプリケーションをデプロイする Java 仮想マシンで使用可能なヒープメモリの量を指定できます。
+* **余分なJVMパラメータ** – ここでは、アプリケーションをデプロイするJava仮想マシンの追加パラメータを入力できます。 注意:注意して使用してください。 パラメータが無効な場合、Java VM が起動しない可能性があります。
+
+### 2.3 定数 {#constants}
+
+定数には、設定ごとに上書きできるデフォルト値があります。 デフォルト値とは異なる値を求める場合にのみ、ここに定数を追加する必要があります。 例として、異なる構成に異なる Web サービスの場所を指定します。
+
+### 2.4 カスタム {#custom}
+
+カスタムサーバー設定を使用して、Studio Pro が提供する標準機能を超えてランタイムを構成できます。
+
+{{% alert type="warning" %}}
+
+何をしているかを正確に知っている場合にのみ、この機能を使用してください。 間違った値はランタイムの開始を妨げる可能性があります。
+
+{{% /alert %}}
+
+各カスタム設定は名前と値で構成されています。 たとえば、永続的なセッションを有効にするには、 `PersistentSessions` という名前のカスタム設定を追加し、 `true` の値を指定します。
+
+設定の概要については、 [ランタイムカスタマイズ](custom-settings) を参照してください。
+
+## 3 続きを読む
+
+* [アプリの設定](プロジェクト設定)
