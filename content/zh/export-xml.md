@@ -1,11 +1,11 @@
 ---
-title: "Export XML"
-parent: "integration-activities"
+title: "导出 XML"
+parent: "一体化活动"
 ---
 
 
 {{% alert type="warning" %}}
 
-Please see [Export Mapping Action](export-mapping-action) for details on exporting XML.
+导出XML详细信息请查看 [导出映射操作](export-mapping-action)。
 
-{{% /alert %}}
+{{% /报警 %}}
