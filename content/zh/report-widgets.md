@@ -1,45 +1,45 @@
 ---
-title: "Report Widgets"
-parent: "pages"
+title: "报告小部件"
+parent: "页面"
 menu_order: 50
 tags:
   - "studio pro"
-  - "report widgets"
-  - "report"
-  - "widgets"
-  - "data set"
+  - "报告小部件"
+  - "报告"
+  - "小部件"
+  - "数据集"
 ---
 
-{{% alert type="warning" %}}Report widgets are not supported on native mobile pages.{{% /alert %}}
+●{% alert type="warning" %}}举报小部件不支持本机移动页面。{{% /提醒 %}}
 
-## 1 Introduction
+## 1 导言
 
-With report widgets, you can create reports from the database data. Reporting is mainly used for presenting aggregated information (for example , total sales per customer).
+使用报表小部件您可以从数据库数据创建报告。 报告主要用于提供综合信息（例如，每个客户的总销售额）。
 
-The **Report widgets** category contains the following widgets:
+**报告小部件** 类别包含以下小部件：
 
-* [Report grid](report-grid) – displays data in a form of a table; the data for the reporting widgets is provided by a [Data set](data-sets)
+* [报告网格](report-grid) - 以表格形式显示数据； 报告小部件的数据由 [数据集](data-sets) 提供
 
-    ![Example report grid](attachments/report-widgets/report-grid-example.png)
+    ![示例报告网格](attachments/report-widgets/report-grid-example.png)
 
-* [Report parameter](report-parameter) – allows the end-user to specify a parameter of a [Data set](data-sets) that is then used for filtering the data displayed in a report
+* [报告参数](report-parameter) - 允许最终用户指定一个 [数据集的参数](data-sets) 然后用于过滤在报告中显示的数据
 
-    ![Example report parameter](attachments/report-widgets/report-parameter-example.png)
+    ![示例报告参数](attachments/report-widgets/report-parameter-example.png)
 
-* [Report date parameter](report-date-parameter) – allows the end-user to specify the DateTime parameter of a [data set](data-sets), which is then used for filtering the data displayed in a report
+* [报告日期参数](report-date-parameter) - 允许最终用户指定一个 [数据集的日期时间参数](data-sets)然后用来过滤报表中显示的数据
 
-    ![Example report date parameter](attachments/report-widgets/report-date-parameter-example.png)
+    ![示例报告日期参数](attachments/report-widgets/report-date-parameter-example.png)
 
-* [Generate report button](report-button) – generates a report when the end-user clicks the button
+* [生成报告按钮](report-button) - 当最终用户点击按钮时生成报告
 
-    ![Example generate report button](attachments/report-widgets/generate-report-button-example.png)
+    ![生成报告按钮示例](attachments/report-widgets/generate-report-button-example.png)
 
 
-## 2 Performing Basic Functions
+## 2 执行基本函数
 
-{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performancing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page](page)
-* [Pages](pages)
+* [页](page)
+* [页 次](页面)
