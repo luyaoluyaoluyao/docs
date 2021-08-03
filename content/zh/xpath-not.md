@@ -1,8 +1,6 @@
 ---
 title: "XPath 不是"
 parent: "xpate-constraint-function"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
