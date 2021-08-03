@@ -66,5 +66,5 @@ tags:
 
 * [微型流动](微流)
 * [微流程表达式](microflows-expressions)
-* [配置决定](/studio-how-to/microflows-how-to-configure-decision) 
+* [配置决定](/studio-how-to8/microflows-how-to-configure-decision) 
 
