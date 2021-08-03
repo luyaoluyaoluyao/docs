@@ -1,105 +1,66 @@
 ---
 title: "Radio Buttons"
 parent: "input-widgets"
-menu_order: 50
-tags:
-  - "studio pro"
 ---
 
-## 1つの紹介
 
-{{% alert type="warning" %}}ラジオボタンウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+**Radio Buttons** ウィジェットは、ブール属性と列挙属性の表示と編集に使用できる [入力ウィジェット](input-widgets) です。
 
-**Radio Buttons** are used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean* or *Enumeration*.
+{{% alert type="info" %}}
 
-ページがエンドユーザーに表示されると、利用可能なすべての値が表示されます。 は、選択された値の隣に塗りつぶされた円と、選択されていない値の隣にある空の円で囲まれます。 別の値を選択すると、現在の値の選択が解除されます。 例:
+![](attachments/pages/radio-buttons.png)
 
-![](attachments/radio-buttons/radio-buttons-displayed.png)
+これらのラジオボタンは、ユーザーがニュースレターを受け取るかどうかを示すために使用されます (ブール値)。 水平方向にレンダリングされ、自分の好きな色(列挙、垂直方向にレンダリング)を選択します。
 
-ラジオボタンは [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、角括弧と青色の間のラジオボタンウィジェット内に表示されます。
+{{% /alert %}}
 
-例えば、次の画像には2つのラジオボタンが含まれています。  最初のものはエンドユーザーが見、設定することを可能にします。 この人 (**PreferredContact** ) に連絡するのに好ましい時間を識別する列挙の値。 2 番目は、エンドユーザーが、これが **個人的** コンタクトであるかどうかを示す Boolean を参照および設定することを可能にします。
+## 一般プロパティ
 
-![](attachments/radio-buttons/radio-buttons.png)
+### 方向
 
-## 2つのプロパティ
+このプロパティは、ラジオボタンを水平または垂直にレンダリングするかどうかを定義します。
 
-以下の画像にラジオボタンのプロパティの例を示します。
+_デフォルト値:_ 水平方向
 
-{{% image_container width="250" %}}![](attachments/radio-buttons/radio-buttons-properties.png)
-{{% /image_container %}}
+## バリデーションプロパティ
 
-ラジオボタンのプロパティは以下のセクションで構成されています:
+{{% snippet file="refguide7/Widget+Validation.md" %}}
 
-* [一般的な](#common)
-* [データソース](#data-source)
-* [デザインプロパティ](#design-properties)
-* [編集可能](#editability)
-* [イベント](#events)
-* [全般](#general)
-* [ラベル](#label)
-* [検証](#validation)
-* [公開範囲](#visibility)
+## データソースのプロパティ
 
-### 2.1 共通セクション{#common}
+{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-### 2.2 データソースセクション{#data-source}
+## 編集可能なプロパティ
 
-{{% snippet file="refguide/data-source-section-link.md" %}}
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-### 2.3 デザインプロパティセクション{#design-properties}
+{{% snippet file="refguide7/Read+Only+Style.md" %}}
 
-{{% snippet file="refguide/design-section-link.md" %}}
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-### 2.4 編集可能セクション{#editability}
+## 表示プロパティ
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-### 2.5 イベントセクション{#events}
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-#### 2.5.1 変更時{#on-change}
+## イベントのプロパティ
 
-on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
+{{% snippet file="refguide7/On+Change+Event.md" %}}
 
-{{% snippet file="refguide/events-section-link.md" %}}
+## 共通のプロパティ
 
-#### 2.5.2 入口で
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-{{% snippet file="refguide/events-section-link.md" %}}
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-#### 休暇中 2.5.3
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
-
-これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.6 一般セクション{#general}
-
-#### 2.6.1 向き
-
-このプロパティは、ラジオボタンを **水平** または **垂直** リストとしてレンダリングするかどうかを定義します。
-
-デフォルト: *水平*
-
-### 2.7 ラベルセクション{#label}
-
-{{% snippet file="refguide/label-section-link.md" %}}
-
-### 2.8 検証セクション{#validation}
-
-{{% snippet file="refguide/widget-validation-link.md" %}}
-
-### 2.9 可視性セクション{#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 続きを読む
+## 続きを読む
 
 *   [データビュー](data-view)
 *   [属性](attributes)
