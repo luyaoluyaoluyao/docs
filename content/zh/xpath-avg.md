@@ -1,8 +1,6 @@
 ---
-title: "XPath 平均值"
+title: "XPatroad avg"
 parent: "xpath-query函数"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
