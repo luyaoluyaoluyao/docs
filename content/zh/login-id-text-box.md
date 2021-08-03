@@ -1,27 +1,61 @@
 ---
-title: "Login Id Text Box"
+title: "Login ID Text Box"
 parent: "authentication-widgets"
+tags:
+  - "studio pro"
+  - "login id"
+  - "authentication widget"
+  - "authentication"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/login-id-text-box.pdf).
+{{% /alert %}}
 
-The login id text box is a widget that can be used to provide a login id for authentication. A login id is a unique identifier used to identify a user. Examples are a username or  email address.
+{{% alert type="warning" %}}The **Login ID text box** widget is not supported on native mobile pages.{{% /alert %}}
 
-It must be placed on a page together with a [login id text box](login-id-text-box) and a [sign-in button](sign-in-button).
+## 1 Introduction
 
-## Common Properties
+The **Login ID text box** is a widget that can be used to provide a login id for authentication. A login id is a unique identifier of a user, for example, a username or an email address:
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+![Login ID Text Box](attachments/authentication-widgets/login-id.png)
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+The **Login ID text box** should be placed on a page together with a [Password text box](password-text-box) and a [Sign-in button](sign-in-button).
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+## 2 Properties
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+An example of login ID text box properties is represented in the image below:
 
-## General Properties
+{{% image_container width="250" %}}![Login ID Text Box Properties](attachments/authentication-widgets/logid-id-properties.png)
+{{% /image_container %}}
 
-### Placeholder
+Login ID text box properties consist of the following sections:
 
-The placeholder text is shown when no text has been entered yet. It can be used to give a hint to the user about what kind of text should be entered.
+* [Common](#common)
+* [Design Properties](#design-properties)
+* [General](#general)
+* [Label](#label)
 
-{{% snippet file="refguide7/Login+Label+Properties.md" %}}
+### 2.1 Common Section {#common}
+
+{{% snippet file="refguide8/common-section-link.md" %}}
+
+### 2.2 Design Properties Section {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 General Section {#general}
+
+#### 2.3.1 Placeholder
+
+A **Placeholder** shows a text when an end-user has not entered any text yet. It can be used to give a hint to the end-user on what information should be entered in the field.
+
+### 2.4 Label Section {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+## 3 Read More
+
+* [Page](page)
+* [Password Text Box](password-text-box)
+* [Sign-In Button](sign-in-button)
