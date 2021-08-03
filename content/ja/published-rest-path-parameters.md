@@ -1,27 +1,27 @@
 ---
-title: "Published REST Path Parameters"
+title: "公開された REST パスのパラメータ"
 parent: "published-rest-service"
 menu_order: 30
 tags:
-  - "published REST"
-  - "path parameters"
-  - "Data and Time"
+  - "公開された REST"
+  - "パスパラメータ"
+  - "データと時間"
   - "studio pro"
 ---
 
-The operation path in the [published REST operation](published-rest-operation) specifies the last part of the location (URL) of the operation.
+[公開された REST 操作](published-rest-operation) 内の操作パスは、操作の場所 (URL) の最後の部分を指定します。
 
-You can use one or more path parameters to capture part of the location as a microflow parameter. Specify path parameters in the operation path between `{` and `}`.
+1 つまたは複数のパスパラメーターを使用して、ロケーションの一部をマイクロフローパラメーターとしてキャプチャできます。 `{` と `}` の間の操作パスにパスパラメータを指定します。
 
-Whatever is in the URL at the place of the path parameter will be is passed to the microflow, the import mapping or both.
+pathパラメータの場所にあるURL内にあるものは、microflow、import マッピング、または両方に渡されます。
 
-These are the requirements for path parameters:
+パスパラメータの要件は次のとおりです。
 
-* You cannot use the same path parameter twice in an operation path
-* Path parameter names cannot contain curly braces (`{` or `}`)
-* Path parameters can only have primitive types (Boolean, date and time, decimal, enumeration, integer/long, or string)
-* Path parameters can only appear between slashes (`/`) in the path
+* 同じパスパラメータを2回操作パスで使用することはできません
+* Path parameter names cannot contain curry braces (`{` or `}`)
+* パスパラメータはプリミティブ型のみを持つことができます (ブール値、日付と時刻、小数値、列挙値、整数/長さ、文字列)
+* パスパラメータはパス内のスラッシュ（`/`）間のみ表示できます
 
-When generating a new microflow from the [published REST operation](published-rest-operation) editor window, the resulting microflow will have string parameters for each of the path parameters specified in the operation path. If you want the path parameters to be of a different type, you can change the type in the microflow.
+[公開された REST 操作](published-rest-operation) エディターウィンドウから新しいマイクロフローを生成する場合 その結果のマイクロフローは、オペレーションパスで指定されたパスパラメータごとに文字列パラメータを持つことになります。 パスパラメータを異なるタイプにしたい場合は、マイクロフロー内のタイプを変更できます。
 
 Date and time parameters should be entered in the [ISO-8601](https://www.w3schools.com/xml/schema_dtypes_date.asp) format (for example, `2018-12-31T09:00:00`).
