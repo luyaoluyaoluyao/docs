@@ -15,7 +15,7 @@ tags:
 
 ## 1 Introduction
 
-This reference guide will contextualize the style elements Mendix uses in native mobile apps, as well as explain the classes and style properties of Mendix’s widgets. To learn the basics of native styling, you can consult [How to Implement Native Mobile Styling](/howto/mobile/native-styling) and then follow [How to Style Your Mendix Native Mobile App](/howto/mobile/how-to-use-native-styling).
+This reference guide will contextualize the style elements Mendix uses in native mobile apps, as well as explain the classes and style properties of Mendix’s widgets. To learn the basics of native styling, you can consult [How to Implement Native Mobile Styling](/howto8/mobile/native-styling) and then follow [How to Style Your Mendix Native Mobile App](/howto8/mobile/how-to-use-native-styling).
 
 Mendix apps use layouts to dictate how pages can look and function. For native mobile apps specifically, you can use a native layout to easily integrate navigation and settings optimized for native functionality. For more information on layouts, see [Layout](layout).
 
@@ -80,7 +80,7 @@ export const com_mendix_widget_native_badge_Badge = (Badge = {
 });
 ```
 
-For more information on creating your own classes, see the [Creating Your Own Classes](/howto/mobile/how-to-use-native-styling#creating-your-own-classes) section in *Style Your Mendix Native Mobile App*. That document also shows how to use custom classes as design properties.
+For more information on creating your own classes, see the [Creating Your Own Classes](/howto8/mobile/how-to-use-native-styling#creating-your-own-classes) section in *Style Your Mendix Native Mobile App*. That document also shows how to use custom classes as design properties.
 
 ## 3  Data Widgets {#understanding-data-widgets}
 
@@ -158,7 +158,7 @@ The image widget can be used to show a predefined image on a page, layout, or sn
 | `image`             | This has all ImageStyle properties. |                                                                                                                                                                                            |
 | `imageDisabled`     | Same properties as `image`          | Overrides `image` styles if the image has an on click action and the action cannot be executed or is disabled during action.                                                               |
 
-The default class to style all static image styles is named `Image`. Please note that images loaded from the model are styled with `NativeDynamicImage` as described in the [Image Viewer](#image-viewer) section below.
+The default class to style all static image styles is named `Image`. Please note that images loaded from the model are styled with `ImageViewer` as described in the [Image Viewer](#image-viewer) section below.
 
 ### 4.3 Page Title
 
@@ -242,7 +242,7 @@ A container widget can be used to style or hide a group of widgets. This widget 
 
 The default class to style all page titles is named `Container`.
 
-### 5.2 Tab Container
+### 5.2 Tab Container {#tab-container}
 
 Tab containers are used to show information categorized into multiple tab pages. Tab containers can help display information which exceeds a device’s screen space. This is how a default tab container widget could look in an app:
 
@@ -526,7 +526,7 @@ File widgets help your user app manage images and other files. For more informat
 
 An image viewer can be used to display an image. This widget supports the same style properties and structure as the [Image](#image) widget above.
 
-The default class to style all image viewers is named  `NativeDynamicImage`.
+The default class to style all image viewers is named  `ImageViewer`.
 
 ## 8 Button Widgets
 
@@ -626,7 +626,7 @@ The default class to style the navigation is named  `navigationStyle`. There is 
 
 ## 11 Add-On Widgets
 
-Add-on widgets are distributed through the [Native Mobile Resources](/appstore/modules/native-mobile-resources) module, and are not shipped with Mendix Studio Pro. Other add-on widgets might also be distributed through app templates, as well as modules importing pages from other apps.
+Add-on widgets are distributed through the [Native Mobile Resources](/appstore/modules/native-mobile-resources) module, and are not shipped with Mendix Studio Pro. Other add-on widgets might also be distributed through app templates, as well as modules importing pages from other projects.
 
 ### 11.1 Activity Indicator {#activity-indicator}
 
@@ -1316,47 +1316,7 @@ export myCarouselStyle = {
 
 The default class to style all popup menus is named `com_mendix_widget_native_carousel_Carousel`.
 
-### 11.26 Signature {#signature}
-
-The signature widget allows you to draw and save a signature. The signature widget looks like this:
-
-{{% image_container width="350" %}}![signature](attachments/native-styling-refguide/signature.png){{% /image_container %}}
-
-The widget’s style properties are structured as follows:
-
-```xml
-<container>
-    <signature/>
-    <buttonWrapper>
-        <Button>
-            <Caption>Clear</Caption>
-        </Button>
-        <Button>
-            <Caption>Save</Caption>
-        </Button>
-    </buttonWrapper>
-</container>
-```
-
-| Element                | Style Properties                   | Description                                                      |
-| ---------------------- | ---------------------------------- | ---------------------------------------------------------------- |
-| `container`            | This has all ViewStyle properties. |                                                                  |
-| `container`            | `penColor`                         | This will change the color of the stroke.                        |
-| `buttonWrapper`        | This has all ViewStyle properties. |                                                                  |
-| `buttonClearContainer` | This has all ViewStyle properties. |                                                                  |
-| `buttonClearContainer` | `rippleColor`                      | This will change the color of the ripple on Android.             |
-| `buttonClearContainer` | `activeOpacity`                    | This will change the opacity when touch is active on iOS.        |
-| `buttonClearContainer` | `underlayColor`                    | This will change the underlay color when touch is active on iOS. |
-| `buttonClearCaption`   | This has all TextStyle properties. |                                                                  |
-| `buttonSaveContainer`  | This has all ViewStyle properties. |                                                                  |
-| `buttonSaveContainer`  | `rippleColor`                      | This will change the color of the ripple on Android.             |
-| `buttonSaveContainer`  | `activeOpacity`                    | This will change the opacity when touch is active on iOS.        |
-| `buttonSaveContainer`  | `underlayColor`                    | This will change the underlay color when touch is active on iOS. |
-| `buttonSaveCaption`    | This has all TextStyle properties. |                                                                  |
-
-The default class to style all text boxes is named `com_mendix_widget_native_signature_Signature`.
-
-### 11.27 Line Chart
+### 11.26 Line Chart
 
 The [line chart](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/line-chart-native) widget renders a scalable line graph based on static and dynamic data sets.
 
@@ -1437,9 +1397,9 @@ The widget consists of the following elements:
 
 The default class to style all line chart widgets is named `com_mendix_widget_native_linechart_LineChart`.
 
-### 11.28 Bar Chart
+### 11.27 Bar Chart
 
-The bar chart widget renders a horizontal bar graph based on static and dynamic data sets.
+The [bar chart](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/bar-chart-native) widget renders a horizontal bar graph based on static and dynamic data sets.
 
 The widget consists of the following elements:
 
@@ -1524,6 +1484,6 @@ The default class to style all bar chart widgets is named `com_mendix_widget_nat
 
 ## 12 Read More
 
-* [How to Style Your Mendix Native Mobile App](/howto/mobile/how-to-use-native-styling)
-* [How to Implement Native Mobile Styling](/howto/mobile/native-styling)
+* [How to Style Your Mendix Native Mobile App](/howto8/mobile/how-to-use-native-styling)
+* [How to Implement Native Mobile Styling](/howto8/mobile/native-styling)
 * [Design Properties Documentation](/apidocs-mxsdk/apidocs/design-properties)
