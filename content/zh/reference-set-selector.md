@@ -1,6 +1,6 @@
 ---
-title: "Reference Set Selector"
-parent: "input-widgets"
+title: "参考设置选择器"
+parent: "输入小部件"
 menu_order: 80
 tags:
   - "studio pro"
@@ -8,201 +8,208 @@ tags:
 
 {{% alert type="warning" %}}The **reference set selector** widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+## 1 导言
 
-A **reference set selector** is used to allow the end-user to display or select the value(s) of a many-to-many (reference set) [association](associations) by selecting the associated object(s).
+**引用设置选择器** 用于允许最终用户通过选择相关对象来显示或选择多到多个(参考集) [关联的值](associations)。
 
-A reference set selector must be placed in a [data widget](data-widgets).
+一个参考集选择器必须放置在 [数据小部件](data-widgets) 中。
 
-For example, you could group customers into groups, and each customer could belong to several groups. Each Group can have many customers. The entities **Customer** and **Group** have a many-to-many (reference set) relationship. A reference set selector can be used to select the groups the customer belongs to.
+例如，您可以将客户分组成群，每个客户可以属于几个群组。 每个组可以有许多客户。 **客户** **组** 的实体具有多对多(参考集)关系。 一个参考设置选择器可以用于选择客户所属的组。
 
-What you can do with a reference set selector depends on the **Owner** of the association. In the example domain model below, **Owner** is set to **Default** (in the association properties **'Customer' objects refer to 'Group' objects**).
+您可以对参考集选择器做些什么取决于关联的 **所有者**。 在下面的示例域模型中 **所有者** 已设置为 **默认** (在关联属性 **'客户' 对象指的是'组' 对象**)。
 
-![The domain model for a reference set selector between Customer (parent) and Group where the owner is 'default' (as in, the Customer refers to the Group)](attachments/reference-set-selector/domain-model-owner-default.png)
+![在客户(父)和组之间的引用设置选择器的域模型，所有者为“默认”(如： 客户引用到群组)](attachments/reference-set-selector/domain-model-owner-default.png)
 
-You can put a reference set selector in a Customer data view to allow the user to select the Group(s) to which the customer belongs. However, because the Customer is the owner of the association, you cannot put a reference set selector in a Group data view to select the Customer(s) in the Group.
+您可以在客户数据视图中放置一个参考集选择器，允许用户选择客户所属的组。 然而，由于客户是协会的所有者， 您不能在组数据视图中放置一个参考集选择器来选择组中的客户。
 
-To allow you to both add a Group to a Customer, and add a Customer to a Group, you need to set ownership of the association to **Both**.
+允许您将一个组添加到客户，并将一个客户添加到一个客户组， 您需要将关联的所有权设置为 **这两者都是**。
 
-![The domain model for a reference set selector between Customer (parent) and Group where the owner is 'both' (as in, the Customer and Group refer to each other)](attachments/reference-set-selector/domain-model-owner-both.png)
+![在客户(父)和组之间的引用设置选择器的域模型，所有者为“两者”(如： 客户和组相互参照)](attachments/reference-set-selector/domain-model-owner-both.png)
 
-In the reference set selector, the related entity and association used to connect it to the entity in the data view are displayed at the top of the reference set selector, and the names of the attributes of the associated objects which will be displayed are shown inside the reference set selector. Each attribute is displayed in a [grid column](columns). The association and related entity and attributes are displayed between square brackets, and colored blue.
+在参考集的选择器， 在数据视图中将其连接到实体的相关实体和协会显示在参考集选择器的顶部， 和将显示的关联对象属性的名称显示在参考集选择器中。 每个属性都显示在 [格子列](columns) 中。 该协会及相关实体和属性在方括号内显示并彩色蓝色。
 
-For example, using the domain model above, the following reference set selector allows the end-user to associate a Customer with one or more Groups by setting the association **Customer_Group**. This is done by selecting the **Name**(s) of the **Group**(s) associated with the current **Customer**.
+例如，使用上述域模型。 下面的参考设置选择器允许最终用户通过设置关联 **Customer_Group** 来将客户与一个或多个组联系起来。 这是通过选择 **组的 **名称**(s) 进行的，**(s) 与当前的 **客户** 相关联。
 
 ![](attachments/reference-set-selector/reference-set-selector.png)
 
-The reference set selector looks a lot like a [data grid](data-grid) and consequently shares many properties with it. The main differences are that the reference set selector lacks a search bar and that it has **Add** and **Remove** buttons instead of **New** and **Delete**. This is because they perform slightly different functions:
+参考集选择器看起来很像一个 [数据网格](data-grid) ，因此与它共用了许多属性。 主要区别是参考集选择器缺少搜索栏，它有 **添加** and **删除** 按钮而不是 **新** 和 **删除**。 这是因为他们执行的函数略有不同：
 
-*   The **Add** button adds an association to an existing object. You will need to specify the page which opens when you want to add a new association. For more information, see [Add Button](control-bar#add-button).
-*   The **Remove** button removes the association to an object, but does not change or delete the object itself
+*   **添加** 按钮将关联添加到现有对象。 您需要指定当您想要添加新关联时打开的页面。 欲了解更多信息，请参阅 [添加按钮](control-bar#add-button)。
+*   **删除** 按钮将关联移至对象，但不改变或删除对象本身。
 
 {{% alert type="info" %}}
-You must explicitly commit the object in the data view containing your reference set selector to save the association changes. This can be done, for example, by having a **Save** button for the object in the data view (as shown for the *Customer* entity in the picture above).
-{{% /alert %}}
+您必须在包含参考集选择器的数据视图中明确提交对象以保存关联更改。 例如，可以做到这一点。 通过在数据视图中为对象保存 **保存** 按钮(如在上述图片中为 *客户* 实体所示)。
+{{% /报警 %}}
 
-## 2 Properties
+## 2 属性
 
-An example of reference set selector properties is represented in the image below:
+下面的图像显示了参考设置选择器属性的示例：
 
 {{% image_container width="250" %}}![](attachments/reference-set-selector/reference-set-selector-properties.png)
 {{% /image_container %}}
 
-Reference set selector properties consist of the following sections:
+参考集选择器属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Events](#events)
-* [General](#general)
-* [Selectable Objects](#selectable-objects)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [事件](#events)
+* [A. 概况](#general)
+* [可选对象](#selectable-objects)
+* [可见性](#visibility)
 
-There are three additional sets of properties which do not appear in the properties of the reference set selector widget.
+有三组附加属性没有出现在参考集选择器部件的属性中。
 
-1. The control bar contains the buttons needed to search, add, and remove associations. For more information see [Control Bar](control-bar).
+1. 控制栏包含搜索、添加和删除关联所需的按钮。 欲了解更多信息，请参阅 [Control Bar](control-bar)。
 
-2. The rows of the reference set selector can be sorted using the properties of the sort bar. For more information on using the sort bar, see [Sort Bar](sort-bar).
+2. 参考集选择器的行可以使用排序栏的属性排序。 关于使用排序条的更多信息，请参阅 [排序条](sort-bar)。
 
     ![](attachments/reference-set-selector/sort-bar.png)
 
-3. Each attribute is displayed in a column. You can find out more about the properties of these columns in [Grid Columns](columns)
+3. 每个属性在列中显示。 您可以在 [格志列中找到更多关于这些列属性的信息](columns)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section {#data-source}
+### 2.2 数据源部分 {#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-The attribute path specifies which attribute(s) of an associated entity is shown in the reference set selector. The path must follow one association of type reference set starting in the entity of the data view.
+属性路径指定了关联实体的哪个属性在参考集选择器中显示。 路径必须遵循从数据视图实体开始的类型参考集的一个关联。
 
 {{% alert type="warning" %}}
-You cannot currently use non-persistable entities in a reference set selector.
-{{% /alert %}}
+您目前不能在参考集选择器中使用不可持续的实体。
+{{% /报警 %}}
 
-### 2.3 Design Properties Section {#design-properties}
+### 2.3 设计财产科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Events Section {#events}
+### 2.4 事件部分 {#events}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.5 General Section {#general}
+### 2.5 一般部分 {#general}
 
 #### 2.5.1 Width Unit {#width-unit}
 
-You can decide how to define the widths of the columns in the reference set selector. The possible values are:
+您可以决定如何定义参考集选择器的列宽度。 可能的数值是：
 
-* Pixels – define the width in pixels
-* Percentage – define the width as a percentage of the width of the reference set selector widget
+* 像素 - 定义像素宽度
+* 百分比 - 将宽度定义为参考集选择器部件宽度的百分比
 
-#### 2.5.2 Column Widths {#column-widths}
+#### 2.5.2 栏宽度 {#column-widths}
 
-The column widths are defined as either percentages or pixels. The value for the columns are separated by semi-colons. For example a narrow column and a wide column could be defined as `20;80`. If the widths are defined in percentages, they have to add up to 100.
+列宽定义为百分比或像素。 列的值用半冒号分隔。 例如，狭窄列和宽列可以定义为 `20;80`。 如果宽度以百分比确定，则必须达到100。
 
-If column widths are defined as percentages, you can also change the widths of columns by dragging the separating line between columns.
+如果列宽被定义为百分比，您也可以通过拖动列之间的分隔线来改变列宽度。
 
-#### 2.5.3 Number of Rows {#number-of-rows}
+#### 2.5.3 行数 {#number-of-rows}
 
-With this property you can change the number of rows that will be shown in one page. See also the property 'Show empty rows'.
+使用此属性您可以更改将显示在一个页面中的行数。 另见属性“显示空行”。
 
-Default: *5*
+默认： *5*
 
-#### 2.5.4 Show Empty Rows {#show-empty-rows}
+#### 2.5.4 显示空行 {#show-empty-rows}
 
-If you choose to show empty rows there will always be the grid that shows the same number of rows (see 'Number of rows') even if there are fewer objects to show on the page.
+如果您选择显示空行，即使在页面上显示的对象较少，但总是有显示相同行数的格子(见“行数”)。
 
-Default: *False*
+默认： *False*
 
-#### 2.5.5 Tooltip Page {#tooltip-page}
+#### 2.5.5 工具提示页 {#tooltip-page}
 
-A tooltip page is a page that appears when you hover your mouse over a row. The tooltip page must contain a data view on the same entity as the data grid.
+工具提示页面是在鼠标悬停在一行时出现的页面。 工具提示页面必须包含与数据网格相同的实体上的数据视图。
 
-The tooltip will only be shown for the columns you specify. The default for each column is that the tooltip will _not_ appear. See [Grid Columns](columns) for more information.
+工具提示只会显示为您指定的列数。 每个列的默认值是工具提示 _不会显示_ 欲了解更多信息，请参阅 [网格列](columns)
 
-#### 2.5.6 Show Control Bar {#show-control-bar}
+#### 2.5.6 显示控制栏 {#show-control-bar}
 
-This property indicates whether the control bar will be visible in the end-user interface. The control bar also includes the paging buttons. See [Control Bar](control-bar) for more information.
-
-{{% alert type="warning" %}}
-Even if the control bar is invisible there can still be a default button that is triggered by (double) clicking on a row. See the property 'Default button trigger' and [control bar](control-bar) for more information.
-{{% /alert %}}
-
-Default: *True*
-
-#### 2.5.7 Show Paging Bar {#show-paging-bar}
-
-With this property, you can change the way the paging bar is shown.
-
-| Value                     | Description                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Yes (with total count)    | The paging bar is shown, including the **Go to last page** button and the total count of objects.                                                      |
-| Yes (without total count) | The paging bar is shown (except for the **Go to last page** button). Also, the total count of objects is not shown, as page numbers are shown instead. |
-| No                        | The paging buttons are not shown.                                                                                                                      |
-
-Default: *Yes (with total count)*
+此属性表示控制栏是否在最终用户界面中可见。 控制栏还包括分页按钮。 查看 [Control Bar](control-bar) 了解更多信息。
 
 {{% alert type="warning" %}}
-Hiding the control bar also hides the paging buttons. For details, see [Show Control Bar](#show-control-bar).
-{{% /alert %}}
+即使控制栏不可见，但仍然可能有一个默认按钮，它是由单击一行触发的 (double) 。 查看属性“默认按钮触发器”和“ [控制条](control-bar) 以获取更多信息。
+{{% /报警 %}}
 
-#### 2.5.8 Selection Mode {#selection-mode}
+默认： *True*
 
-The selection mode determines whether and how the user can select items in the reference set selector.
+#### 2.5.7 显示页码 {#show-paging-bar}
 
-| Value                         | Description                                                                                                                                                                                                                                                      |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No selection                  | The user cannot select items. Of this is chosen, then you cannot have a **Remove** button in your reference set selector                                                                                                                                         |
-| Single selection  *(default)* | The user can select a single item by clicking on it. Clicking another item will make that item the selection. Clicking a selected item will deselect it.                                                                                                         |
-| Single selection and maintain | The user can select a single item by clicking on it. The first item is always selected by default. Clicking another item will make that item the selection. Clicking a selected item will not deselect it.                                                       |
-| Multi-selection               | The user can select multiple items by clicking the first one and holding the <kbd>Ctrl</kbd> key while clicking on other items. Clicking an item without the <kbd>Ctrl</kbd> key will deselect all other selected items and make the clicked item the selection. |
-| Simple multi-selection        | The user can select multiple items by clicking on them in turn.                                                                                                                                                                                                  |
+使用此属性，您可以更改分页栏的显示方式。
 
-#### 2.5.9 Select First {#select-first}
+| 值        | 描述                                                 |
+| -------- | -------------------------------------------------- |
+| 是 (总量)   | 显示分页栏，包括 **转到最后一页** 按钮和对象的总数。                      |
+| 是 (不总计数) | 分页栏已显示(除了 **转到最后一页** 按钮外)。 此外，不显示对象的总数量，因为页面编号被显示。 |
+| 否        | 未显示分页按钮。                                           |
 
-Specifies whether the first item should be selected by default when the reference set selector is first shown.
+默认: *是 (总数量)*
 
-Possible values:
+{{% alert type="warning" %}}
+隐藏控制栏也隐藏分页按钮。 欲了解详情，请参阅 [显示控制栏](#show-control-bar)。
+{{% /报警 %}}
 
-* No *(default)*
-* Yes
+#### 2.5.8 选择模式 {#selection-mode}
 
-#### 2.5.10 Default Button Trigger {#default-button-trigger}
+选择模式决定用户是否以及如何在引用设置选择器中选择项目。
 
-The default button can be triggered by a single or a double click a row.
+| 值          | 描述                                                                                              |
+| ---------- | ----------------------------------------------------------------------------------------------- |
+| 没有选择       | 用户不能选择项目。 选择了这个选项，然后你不能在你的参考设置选择器中有 **删除** 按钮                                                   |
+| 单选  *(默认)* | 用户可以通过点击它选择单个项目。 点击另一个项目将使该项目成为选择。 点击选中的项目将取消选择。                                                |
+| 单选并保留      | 用户可以通过点击它选择单个项目。 默认情况下总是选择第一个项目。 点击另一个项目将使该项目成为选择。 点击选中的项目将不会取消选择。                              |
+| 多选         | 用户可以在点击其他项目时按住 <kbd>Ctrl</kbd> 键，选择多个项目。 单击一个没有 <kbd>Ctrl</kbd> 键的项目将取消选择所有其他选中的项目并使单击项目成为选中项目。 |
+| 简单的多选      | 用户可以通过依次点击选择多个项目。                                                                               |
 
-| Value                     | Description                                                                                                           |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Single click              | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click  *(default)* | A double click triggers the default button.                                                                           |
+#### 2.5.9 选择前 {#select-first}
 
-### 2.6 Selectable Objects Section {#selectable-objects}
+指定在首次显示参考设置选择器时是否默认选择第一项。
 
-The properties in the Selectable objects section determine the objects from which the end user can make a selection.
+可能的值：
 
-The **Source** property sets the way to define the selectable objects:
+* 没有 *(默认)*
+* 否
 
-* Database *(default)*
+#### 2.5.10 默认按钮触发 {#default-button-trigger}
+
+默认按钮可以由单击或双击单行触发。
+
+| 值          | 描述                           |
+| ---------- | ---------------------------- |
+| 单次点击       | 单击触发默认按钮。 此选项不能与允许用户选择行一起使用。 |
+| 双击  *(默认)* | 双击触发默认按钮。                    |
+
+### 2.6 可选对象部分 {#selectable-objects}
+
+可选对象部分中的属性决定了最终用户可以从中选择的对象。
+
+**源** 属性设置了定义可选对象的方式：
+
+* 数据库 *(默认)*
 * XPath
 
-For more information, see the [Selectable Objects Section](reference-selector#selectable-objects) section of *Reference Selector*.
+欲了解更多信息，请参阅 *Reference Selector</a> 部分
+Selected Objects Section</em>。</p> 
 
 {{% alert type="info" %}}
-You cannot use a microflow to define selectable objects in a reference set selector.
-{{% /alert %}}
 
-### 2.7 Visibility Section {#visibility}
+您不能在参考集选择器中使用微流来定义可选择的对象。 
+
+{{% /报警 %}}
+
+
+
+### 2.7 可见性科 {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
 
-* [Data view](data-view)
-* [Entities](entities)
-* [Associations](associations)
-* [Control Bar](control-bar)
+
+## 3 阅读更多
+
+* [数据视图](data-view)
+* [实体](实体)
+* [社会联系](关联)
+* [控制栏](control-bar)
