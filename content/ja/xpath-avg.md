@@ -1,7 +1,13 @@
 ---
-title: "XPath avg"
+title: "XPath 平均"
 parent: "xpath-query-functions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-avg.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの概要
 
