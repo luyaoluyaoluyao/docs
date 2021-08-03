@@ -10,10 +10,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/creating-your-own-documents.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Have you been wondering how to create your own documents with Mendix? This reference will tell you how to do it!
