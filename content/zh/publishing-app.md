@@ -1,110 +1,109 @@
 ---
-title: "Previewing & Publishing Your App"
-description: "Describes previewing and publishing processes in the Mendix Studio."
+title: "正在预览 & 发布您的应用"
+description: "描述在 Mendix Studio 中的预览和发布过程。"
 menu_order: 60
 tags:
-  - "studio"
-  - "deployment"
-  - "publishing"
-  - "app publishing"
-  - "deploy"
-  - "deploying"
-  - "publish"
-  - "preview"
+  - "工作室"
+  - "部署"
+  - "发布"
+  - "应用发布"
+  - "部署"
+  - "部署"
+  - "发布"
+  - "预览"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In Mendix Studio, the **Preview** allows you to experience how your app will look like for end-users and business stakeholders when it is published. In this way, you will use the preview mode to verify your own changes while developing your app. This is an opportunity to test your app logic, design, and behavior: since end-users cannot access the preview environment, you can fill your app with various test data. Also, the preview allows you to switch between different user roles in your app (when [security](settings-security) is enable) and test your app from the perspective of each role. For more information on testing your user roles, see [Demo Users](settings-security#demo-users) in *Security, Roles & Permissions*.
+在 Mendix Studio **预览** 允许您体验您的应用在发布时如何看待最终用户和商业利益相关者。 这样，在开发您的应用时，您将使用预览模式来验证您自己的更改。 这是测试您应用逻辑、设计的一次机会。 和行为：由于最终用户无法访问预览环境，您可以用各种测试数据填充您的应用程序。 另外，预览允许您在应用程序中切换不同的用户角色 (启用 [security](settings-security) ) 并从每个角色的角度测试您的应用程序。 关于测试您的用户角色的更多信息，见 [演示用户](settings-security#demo-users) *安全性，角色 & 权限*。
 
-**Publishing** means getting your app up and running in a cloud environment to make it available for the end-users. When the app is ready to be shared with end-users, you need to publish it. At a later stage, when you add new features and improve your app, you need to publish your app to make these changes available to your users.
+**发布** 意味着让您的应用在云端环境中运行，让最终用户可以使用。 当应用程序准备好与最终用户共享时，您需要发布它。 在稍后阶段，当您添加新功能并改进您的应用， 您需要发布您的应用才能将这些更改提供给您的用户。
 
-## 2 Previewing Your App
+## 2 个预览您的应用
 
-The app preview shows you what your app will look like for end-users. Previewing your app does not change the published app. Also, the preview environment has a separate database from the published app, that means you can create your own test data without polluting the data in the published application.
+应用程序预览向您展示您的应用程序将对最终用户看起来是什么。 预览您的应用并不改变已发布的应用程序。 另外，预览环境还有一个与已发布的应用程序分开的数据库， 这意味着您可以创建自己的测试数据，而不会污染已发布应用程序中的数据。
 
-To preview your app, click **Preview** in the top-right corner of Studio.
+要预览您的应用，请点击 **在工作室右上角预览**。
 
 ![](attachments/publishing-app/preview.jpg)
 
-Your app will now get built and launched in a preview environment, and will appear in your browser window so you can interact with the app.
+您的应用现在将在预览环境中构建和启动。 并将出现在您的浏览器窗口中，这样您就可以与应用进行交互。
 
-You can preview your app in the Phone, Tablet, and Responsive (Desktop) mode. Click the corresponding icon to change the mode.
+您可以在 Phone、Table和Responsive (Desktop) 模式预览您的应用程序。 点击相应的图标更改模式。
 
-![Preview Modes](attachments/publishing-app/preview-modes.jpg)
+![预览模式](attachments/publishing-app/preview-modes.jpg)
 
-To exit the preview environment, click **Close Preview** in the top-right corner of the screen.
+要退出预览环境，请单击 **关闭预览** 屏幕右上角。
 
-![Close Preview](attachments/publishing-app/close-preview.jpg)
+![关闭预览](attachments/publishing-app/close-preview.jpg)
 
-You cannot preview your app if it has [consistency errors](consistency-errors). You will be notified if there are, and you need to fix errors first to preview your app.
+You cannot preview your app if it has [consistency errors](consistency-errors). 如果有，您将收到通知，您需要先修复错误才能预览您的应用程序。
 
-If your app has security enabled, in the preview mode you will be able to check how your app looks like for different user roles. For more information on how to test different user roles, see the [Testing Your Roles](settings-security#testing-your-roles) section in *Security, Roles & Permissions*.
+如果您的应用已启用安全性，在预览模式中，您将能够检查您的应用如何看待不同的用户角色。 关于如何测试不同用户角色的更多信息。 查看 [测试您的角色](settings-security#testing-your-roles) 章节在 *安全性，角色 & 权限* 中。
 
 {{% alert type="info" %}}
 
-The app preview is your personal preview of the app. Hence, only users logged into Studio can preview the app, and the preview app will no longer be running when you exit Studio.
+应用程序预览是您对应用的个人预览。 因此，只有登录Studio的用户可以预览应用，当您退出Studio时，预览应用将不再运行。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 3 Publishing Your App {#publishing-your-app}
+## 3个发布您的应用程序 {#publishing-your-app}
 
-Published app is the real app that you and your end-users will access and use. When you publish your app, you deploy it to a cloud environment. A cloud environment is a location in the cloud that can host your app, and deployment is a process to put the latest version of your app in that location. For more technical information, see [Environments](/developerportal/deploy/environments) in the *Developer Portal Guide*.
+已发布的应用是您和您的最终用户访问和使用的真正应用。 当你发布你的应用时，你将它部署到一个云端环境。 云端环境是一个可以托管您应用的位置， 和部署是将您的应用的最新版本放置在这个位置的过程。 欲了解更多技术信息，见 [Environments](/developerportal/deploy/environments) 在 *开发者门户指南* 中。
 
-To publish your application, follow these steps:
+要发布您的应用程序，请遵循以下步骤：
 
-1. Click **Publish** in the top menu bar of Studio.
-2.  In the **Publish your app** pop-up message, click the **Publish** button to push the latest changes from Studio to the published app or to publish the app for the first time.
+1. 点击 **在工作室顶部菜单栏中发布**。
+2.  在 **发布您的应用程序** 弹出消息， 点击 **发布** 按钮将最新的更改从工作室推送到已发布的应用或首次发布该应用。
 
-    ![Publishing and Updating Your App](attachments/publishing-app/publish-button.jpg)
+    ![发布和更新您的应用](attachments/publishing-app/publish-button.jpg)
 
-Your app is published and can be viewed in the browser or on a mobile device. For more information on how to view your app, see the [Viewing Your App](#viewing-your-app) section below.
+您的应用已经发布，可以在浏览器或移动设备上查看。 关于如何查看您的应用的更多信息，请参阅下面的 [查看您的应用](#viewing-your-app) 部分。
 
-By default all apps created in Mendix Studio are Free Apps. A Free App is a complete deployment environment in the Mendix Cloud with some limitations. You can upgrade your Free App to a licensed app. The main differences between a Free App and a licensed app are described in the table below:
+默认情况下，Mendix Studio中创建的所有应用程序都是免费应用程序。 免费应用是Mendix 云端的完整部署环境，但有一些限制。 您可以将您的免费应用升级为许可应用。 免费应用与许可应用之间的主要差异如下表所示：
 
-|                     | Free App                                                                                                                                                      | Licensed App                                                                                           |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| **Number of Users** | Unlimited users.                                                                                                                                              | Depends on your pricing plan.                                                                          |
-| **Storage**         | 100MB of data and 100MB of file storage space.                                                                                                                | Depends on your pricing plan.                                                                          |
-| **Environments**    | Single environment in the Mendix Cloud.                                                                                                                       | A node in the cloud which has one or more environments, for example, production, acceptance, and test. |
-| **Sleep Mode**      | Goes into Sleep Mode after an hour of inactivity and automatically resumes when a user accesses it. All your data is retained while the app is in Sleep Mode. | Does not have a Sleep Mode.                                                                            |
+|          | 免费应用                                                 | 授权应用                        |
+| -------- | ---------------------------------------------------- | --------------------------- |
+| **用户数**  | 无限用户。                                                | 取决于您的定价计划。                  |
+| **存储**   | 100MB 数据和 100MB 文件存储空间。                              | 取决于您的定价计划。                  |
+| **环境**   | Mendix 云中的单一环境。                                      | 云端中具有一个或多个环境的节点，例如生产、接受和测试。 |
+| **睡眠模式** | 在一小时闲置后进入睡眠模式，并在用户访问后自动恢复。 当应用程序处于睡眠模式时，您的所有数据都将被保留。 | 没有睡眠模式。                     |
 
-The Mendix Cloud is the default deployment option when you get started with the Mendix Platform. When you create an app, you can choose dedicated app templates that use other environments, such as SAP BTP. For more technical information, see [Deployment](/developerportal/deploy) in the *Developer Portal Guide*.
+Mendix 云是您开始Mendix 平台时的默认部署选项。 当您创建一个应用时，您可以选择使用其他环境的专用应用模板，如SAPBTP。 欲了解更多技术信息，请访问 [部署](/developerportal/deploy) 在 *开发者门户指南* 中。
 
-## 4 Viewing Your App {#viewing-your-app}
+## 4 次查看您的应用 {#viewing-your-app}
 
-After you have published your app, you are able to instantly view it in your browser or on a mobile device. You can also invite users to your app. For more information on user roles and managing users, see the [Managing App Users](settings-security#managing-app-users) section in *Security, Roles & Permissions*.
+在您发布了您的应用后，您可以在您的浏览器或移动设备上即时查看它。 您也可以邀请用户加入您的应用并管理应用用户。 欲了解更多关于用户角色和管理用户的信息，请参阅 *Security, Roles & Permissions* 中的 [管理应用程序用户](settings-security#managing-app-users) 部分。
 
-### 4.1 Viewing Your App in a Browser
+### 4.1 在浏览器中查看您的应用
 
-To view your app in the browser in the currently selected view mode (Phone, Tablet, or Responsive), do the following:
+要在当前选择的视图模式(电话、平板或责任)中查看您的应用，请执行以下操作：
 
-1. Click **Publish** button in the top-right corner.
-2. In the **Publish your app** pop-up message, click **View current app**.
-3. Click the link under **View the published app here**:
+1. 点击 **在右上角发布** 按钮。
+2. 在 **发布您的应用程序** 弹出消息，点击 **查看当前应用**。
+3. 点击 **下的链接查看已发布的应用程序**:
 
-    ![View in Browser](attachments/publishing-app/view-in-browser.jpg)
+    ![在浏览器中查看](attachments/publishing-app/view-in-browser.jpg)
 
-Your published app is opened in the browser.
+您已发布的应用已在浏览器中打开。
 
-### 4.2 Viewing your App on a Mobile Device
+### 4.2 在移动设备上查看您的应用
 
-To view your app on a mobile device, follow these steps:
+若要在移动设备上查看您的应用，请按照以下步骤：
 
-1.  Click **Publish** button in the top-right corner.
+1.  点击 **在右上角发布** 按钮。
 
-2. In the **Publish your app** pop-up message, click **View current app**:
+2. 在 **发布您的应用程序** 弹出消息，单击 **查看当前应用程序**：
 
-    ![View Current App](attachments/publishing-app/view-current-app.jpg)
+    ![查看当前应用](attachments/publishing-app/view-current-app.jpg)
 
-3. Scan the QR code to view your app on your mobile device:
+3. 扫描二维码以在您的移动设备上查看您的应用。
 
-    ![View on Mobile Device Option](attachments/publishing-app/view-on-mobile.jpg)
 
-Your app is opened on your mobile device.
+您的应用已在您的移动设备上打开。
 
-## 5 Read More
+## 5 阅读更多
 
-* [Checks](checks)
-* [Consistency Errors](consistency-errors)
-* [Security](settings-security)
+* [检查](检查)
+* [一致性错误](一致性错误)
+* [安全](settings-security)
