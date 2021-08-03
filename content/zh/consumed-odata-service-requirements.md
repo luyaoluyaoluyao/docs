@@ -1,107 +1,107 @@
 ---
-title: "Consumed OData Service Requirements"
-parent: "consumed-odata-services"
+title: "消耗的OData服务要求"
+parent: "消费-odata-服务"
 menu-order: 20
-description: "Requirements on OData services consumed in Mendix."
+description: "Mendix消耗的OData服务的要求。"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes the requirements for an OData service that is going to be consumed. These requirements are not further verified at runtime and expected to hold. If these requirements are not met, errors may result.
+本文件说明将要消耗的OData服务的要求。 这些要求在运行时没有得到进一步核实，预计将予以维持。 如果这些要求没有得到满足，就可能产生错误。
 
-## 2 Requirements for a Consumed OData Service
+## 2 消耗的OData服务所需经费
 
-The requirements for a consumed OData service used in a Mendix app are the following:
+Mendix 应用所使用的耗氧物质服务的要求如下：
 
-* The OData service must be either an OData v3 service returning Atom XML, or an OData v4 service returning either Atom XML or JSON
-* It should support queries on the OData feed, including `$filter`, `$orderby`, `$top`, `$skip`, `$expand`, and `$count` (or `$inlinecount`)
+* OData服务必须是返回 Atom XML的 OData v3 服务或返回 Atom XML 或 JSON 的 OData v4 服务
+* 它应该支持OData种子上的查询，包括 `$filter` `$orderby`, `$top`, , `$skip`, `$expand`, 和 `$count` (或 `$inlinecount`)
 
-## 3 Requirements on the Service Entities and Attributes
+## 3 对服务实体和属性的要求
 
-This section describes the features of a consumed OData service that are supported in Mendix apps. These features are checked before an external entity is used in the domain model.
+本节描述在 Mendix 应用程序支持的消耗的 OData 服务。 在域模型中使用外部实体之前检查这些功能。
 
-### 3.1 Entities
+### 3.1 实体
 
-Vocabulary annotations can be used in a service to indicate features that are not supported. The following vocabulary annotations are recognized for entity sets:
+词汇注释可以在服务中用于表示不支持的功能。 实体集识别以下词汇表注释：
 
-* **Countable** – marking an entity set as `Countable="false"` prevents the user from adding the entity to the app
-* **Filterable** – marking an entity set as `Filterable="false"` sets all properties as non-filterable
-* **Sortable** – marking an entity set as `Sortable="false"` sets all properties as non-sortable
-* Marking an entity set as `Filterable="false"` and `Sortable="false"` sets all properties as non-filterable and non-sortable; marking properties with the `NonFilterableProperties` annotation or the `NonSortableProperties` annotation sets specific attributes as non-filterable or non-sortable
+* **可计数** -- 将实体设置为 `Countable="false"` 阻止用户将实体添加到应用程序中
+* **可过滤** -- 将实体设置为 `Filterable="false"` 将所有属性设置为 不可过滤。
+* **可排序** -- 将实体设置为 `Sortable="false"` 将所有属性设置为不可排序。
+* 将一个实体设置为 `Filterable="false"` and `Sortable="false"` 将所有属性设置为不可过滤和不可排序； 用 `NonFilterableProperties标记属性` 注解或 `NonSortableProperties` 注解设置特定属性为不可过滤或不可排序。
 
-An entity can only be used when it is accessible through an entity set.
+一个实体只有在可以通过一个实体集访问时才能使用。
 
-Furthermore, an entity can only be used if it is uniquely identifiable with a key. The key can consist of one or more properties, as long as the following conditions are met:
+此外，一个实体只有在用钥匙识别出来的情况下才能使用。 只要满足以下条件，密钥可以由一个或多个属性组成：
 
-* The properties cannot be nullable (so they must have `isNullable="false"` specified).
-* Only the following types are allowed: `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `Boolean`, `Decimal`, `Single`, `Double`, and `String`.
-* If the type of a key property is `String`, it must have a limited  (maximum) length specified. This is because not all databases support indexes on strings of unlimited length. It is sufficient if  a `MaxLength` is specified in the contract. However, if a `MaxLength` is not specified in the contract, and you know that the string is limited in length, you can still use the entity by specifying the maximum length of the attribute in the the domain model.
+* 属性不能为空(因此他们必须有 `isNullable="false"` 指定)。
+* 只允许以下类型： `Byte`, `SByte`, `Int16`, `Int32`, `Int64`, `布尔`, `十进制`, `单一`, `双倍`和 `字符串`。
+* 如果密钥属性的类型是 `字符串`, 它必须有一个限定的长度 (最大) 。 这是因为并非所有数据库都支持无限长度字符串的索引。 如果合同中指定了 `MaxLength` 就足够了。 然而，如果合同中没有指定一个 `MaxLength` ，您知道该字符串的长度是有限的， 您仍然可以通过指定域模型中属性的最大长度来使用该实体。
 
 {{% alert type="info" %}}
-This feature of using entities with keys that do not have a maximum length specified in the contract applies to version 9.3.0 and above. In previous versions of Studio Pro, you must change the contract to ensure that `MaxLength` is specified.
-{{% /alert %}}
+使用含有合同中没有规定最大长度的密钥的实体的这一特征适用于9.3.0及以上版本。 在以前版本的Studio Pro中，您必须更改合同以确保指定 `MaxLength`。
+{{% /报警 %}}
 
-### 3.2 Attributes
-
-{{% alert type="warning" %}}
-Attributes marked as `FC_KeepInContent=false` cannot be used.
-{{% /alert %}}
-
-Attribute types have to be primitive (not complex, collections, or enumerations). The types of the attributes in your app will be based on the types of the attributes in the OData metadata, as given in the following table:
-
-| OData Type                     | Mendix Type                           |
-| ------------------------------ | ------------------------------------- |
-| Binary                         | Binary (but see 3.4)                  |
-| Boolean                        | Boolean <sup><small>[1]</small></sup> |
-| Byte, SByte, Int16, Int32      | Integer                               |
-| DateTime, DateTimeOffset, Time | Date/time                             |
-| Decimal, Double, Single        | Decimal <sup><small>[2]</small></sup> |
-| Int64                          | Long                                  |
-| String, Guid                   | String                                |
-| (Other)                        | (Ignored)                             |
+### 3.2 属性
 
 {{% alert type="warning" %}}
-When the OData endpoint contains operations, these are not imported in the consumed OData service. You can use a [Call REST service](call-rest-action) activity to call these operations.
-{{% /alert %}}
+无法使用标记为 `FC_KeepInContent=false` 的属性。
+{{% /报警 %}}
 
-<sup><small>[1]</small></sup>: In Mendix, Booleans cannot be null. If the service returns null, the value will be false in Mendix.
+属性类型必须是原始的(而不是复杂的集合或计数)。 您应用中的属性类型将基于OData元数据中的属性类型。 如下表所示：
 
-<sup><small>[2]</small></sup>: Decimal values outside of the range of a [Mendix decimal](attributes#type) are currently not supported. If the service returns a value outside of the range, there will be an error.
-
-### 3.3 Generalizations
-
-The consumed OData service does not support importing generalizations and specializations. This means that the Published OData service contract from the originating app will show specializations as discrete entities which will include the attributes of the generalization along with the attributes of the specialized entity.
-
-This means that when you are consuming a Mendix OData endpoint, it is not necessary to consume both a generalization and its specialization. The specialization will now be an entity with all the attributes and associations of the generalization.
-
-Associations to the generalizations with other exposed entities in the published OData service will be included for the now discrete "specialized" entities.
+| OData Type                | 菜单类型                                  |
+| ------------------------- | ------------------------------------- |
+| 二进制文件                     | 二进制(但见3.4)                            |
+| Boolean                   | Boolean <sup><small>[1]</small></sup> |
+| Byte, SByte, Int16, Int32 | 整数                                    |
+| 日期时间、 日期时间偏移量             | 日期/时间                                 |
+| 十进制, 双倍, 单面               | 小数 <sup><small>[2]</small></sup>      |
+| Int64                     | 长                                     |
+| 字符串，Guid                  | 字符串                                   |
+| (其他)                      | (Ignored)                             |
 
 {{% alert type="warning" %}}
-When a generalization and a specialized entity are exposed in the same service. Only the association for the generalization will be visible when both entities are consumed. The now discrete specialization will have the inherited association. A possible work-around for this is to publish a service with the specializations without the generalization. Alternatively, the association for the generalization should not be published, allowing for the inherited association in the specialization to be preserved.
-{{% /alert %}}
+当OData端点含有操作时，这些操作不会导入消耗的OData服务。 您可以使用 [调用 REST 服务](call-rest-action) 活动来调用这些操作。
+{{% /报警 %}}
 
-### 3.4 Binary Attributes
+<sup><small>[1]</small></sup>: 在 Mendix, Booleans 不能为空。 如果服务返回 null，则Mendix 中的值将为false。
 
-The binary data format is supported in the form of *media entities*. When a media entity is dragged into the domain model, a corresponding external entity is created. The entity will have a `contents` attribute with the binary data.
+<sup><small>[2]</small></sup>: 目前不支持在 [Mendix 十进制范围之外的十进制值](attributes#type)。 如果服务返回范围以外的值，将出现错误。
 
-Currently, the binary data can only be accessed by Java actions.
+### 3.3 概述
 
-### 3.5 Associations
+消耗的OData服务不支持进口一般化和专业化。 这意味着原始应用发布的OData服务合同将显示专业化为独立实体，其中包括一般化的属性以及专门实体的属性。
 
-An OData v3 association can only be used if it has two ends.
+这意味着当您消耗Mendix OData端点时，不必同时消耗一种一般化及其专业化。 专业化现在将成为一个具有一般性特征和协会的实体。
 
-An OData v4 navigation property can only be used as an association if it has a partner.
+目前离散的“专门化”实体将包括与已公布的OData服务中的其他曝光实体进行一般化的社团。
 
-## 4 Data Hub License Limitations {#license-limitations}
+{{% alert type="warning" %}}
+当一个一般化实体和一个专门实体在同一服务部门暴露时， 当这两个实体被消耗时，只有用于概括的协会才能看到。 现在分散的专业化将有继承的协会。 这方面的一个可能的工作是在不作一般化的情况下发布一项专业化的服务。 或者，一般化协会不应公布，从而可以保留专业领域中继承的协会。
+{{% /报警 %}}
 
-Mendix Data Hub is a separately licensed product.
+### 3.4 二进制属性
 
-Without a license, an app can retrieve a total of 1000 OData objects per day for each runtime instance. After that limit is exceeded, an error will occur when users try to retrieve more data. The number of consumed objects per day is reset at midnight in the timezone of the Mendix Runtime scheduler (which can be defined in the app [Project Settings](project-settings#scheduled)).
+支持二进制数据格式为 *个介质实体*。 当媒体实体被拖入域模型时，将创建一个相应的外部实体。 该实体将有一个带有二进制数据的 `内容` 属性。
 
-With a Data Hub license, apps are not limited.
+目前，二进制数据只能通过 Java 操作访问。
 
-{{% alert type="info" %}}Apps running in development environments (and also when running from the Studios) do not have this limitation. This means that you can run your app from the Studios without Data Hub license limitations.{{% /alert %}}
+### 3.5 协会
 
-Contact your [Mendix Admin](/developerportal/control-center/#company) or Data Hub Admin to find out what type of Data Hub license your organization has.
+OData v3 关联只有在有两个目的时才能使用。
+
+OData v4 导航属性只有在有伙伴的情况下才能作为一个社团使用。
+
+## 4 数据集许可限制 {#license-limitations}
+
+Mendix Data Hub 是一个单独的许可产品。
+
+没有许可证，应用可以在每个运行时每日总共检索1000OData物体。 超过这一限制后，用户试图检索更多数据时将发生错误。 每天消耗的物品数量在午夜在 Mendix Runtime 调度器时区重置(可以在应用程序 [Project 设置](project-settings#scheduled) 中定义)。
+
+有数据集许可，应用不受限制。
+
+{{% alert type="info" %}}Apps running in development environments (and also when running from the Studios) do not have this limitation. 这意味着您可以在没有数据集许可限制的情况下从 Studios 运行您的应用程序。{%/提醒 %}}
+
+请联系您的 [Mendix Admin](/developerportal/control-center/#company) 或Data Hub Admin 来找出您的组织拥有哪种类型的数据集许可协议。
