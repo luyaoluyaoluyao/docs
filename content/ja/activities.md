@@ -1,114 +1,114 @@
 ---
-title: "Activities"
-parent: "microflows-and-nanoflows"
+title: "アクティビティ"
+parent: "マイクロフローとナノフロー"
 menu_order: 40
 tags:
   - "studio pro"
-  - "microflows"
-  - "nanoflows"
-  - "activity"
+  - "マイクロフロー"
+  - "ナノフロー"
+  - "アクティビティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Activities define the actions that are executed in a microflow or a nanoflow.
+アクティビティは、マイクロフローまたはナノレベルで実行されるアクションを定義します。
 
-There are different types of activity, and these are grouped together in the Studio Pro toolbox. All the activities are listed below, follow the links for more information.
+さまざまな種類のアクティビティがあり、これらはStudio Proツールボックスにまとめられています。 すべてのアクティビティは以下にリストされています。詳細についてはリンクを参照してください。
 
 {{% alert type="info" %}}
-Most activities can be used in both microflows and nanoflows. However, some can only be used in one of these types of flow, or the behavior may differ between microflows and nanoflows. Follow the links for more information.
+ほとんどのアクティビティは、マイクロフローとナノフローの両方で使用できます。 しかしながら、これらの種類のフローのいずれかでのみ使用できる場合や、マイクロフローとナノフローの間で動作が異なる場合があります。 詳細については、リンクに従ってください。
 {{% /alert %}}
 
 ## 2 Object Activities
 
-Object activities can be used to create and manipulate objects. The [domain model](domain-model) defines the object types ([entities](entities)) that can be used.
+オブジェクトのアクティビティはオブジェクトの作成や操作に使用できます。 [ドメイン モデル](domain-model) は、使用可能なオブジェクト タイプ ([エンティティ](entities)) を定義します。
 
-| Graphic                                                                          | Name                                                     | Description                                                                                                                                                                                                          |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![cast object](attachments/activities/cast-object.png)](cast-object)            | [Cast object](cast-object) *(microflows only)*           | In combination with an [object type decision](object-type-decision) allows you to use the specialized members of the object. For more information on the specialized members of an object, see [Entities](entities). |
-| [![change object](attachments/activities/change-object.png)](change-object)      | [Change object](change-object)                           | Allows you to change the members of an object. This can be done with or without committing, and with or without events.                                                                                              |
-| [![commit object](attachments/activities/commit-object.png)](committing-objects) | [Commit object(s)](committing-objects)                   | Allows you to commit changes to one or more objects.                                                                                                                                                                 |
-| [![create object](attachments/activities/create-object.png)](create-object)      | [Create object](create-object)                           | Creates an object.                                                                                                                                                                                                   |
-| [![delete object](attachments/activities/delete-object.png)](deleting-objects)   | [Delete object(s)](deleting-objects) *(microflows only)* | Deletes an object.                                                                                                                                                                                                   |
-| [![retrieve](attachments/activities/retrieve.png)](retrieve)                     | [Retrieve](retrieve)                                     | Gets one (or more) associated objects of another object. Furthermore, this activity can also get one or more objects directly from a database.                                                                       |
-| [![rollback object](attachments/activities/rollback.png)](rollback-object)       | [Rollback object](rollback-object)                       | Rolls uncommitted changes back that were made to an object in the part of the microflow preceding the activity. Furthermore, it deletes objects that have been created but have never been committed.                |
+| グラフィック                                                                           | 名前                                          | 説明                                                                                                                            |
+| -------------------------------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [![オブジェクトをキャスト](attachments/activities/cast-object.png)](cast-object)            | [オブジェクト](cast-object) *をキャスト (マイクロフローのみ)*   | [オブジェクト型の決定](object-type-decision) と組み合わせることで、オブジェクトの特殊なメンバーを使用できます。 オブジェクトの特殊なメンバーに関する詳細については、 [エンティティ](entities) を参照してください。 |
+| [![オブジェクトの変更](attachments/activities/change-object.png)](change-object)          | [オブジェクトの変更](change-object)                  | オブジェクトのメンバーを変更できます。 これは、イベントの有無にかかわらず、コミットせずに行うことができます。                                                                       |
+| [![commit object](attachments/activities/commit-object.png)](committing-objects) | [コミットオブジェクト](committing-objects)            | 1 つ以上のオブジェクトに変更を反映できます。                                                                                                       |
+| [![オブジェクトを作成](attachments/activities/create-object.png)](create-object)          | [オブジェクトを作成](create-object)                  | オブジェクトを作成                                                                                                                     |
+| [![オブジェクトの削除](attachments/activities/delete-object.png)](deleting-objects)       | [オブジェクトの削除](deleting-objects) *(マイクロフローのみ)* | オブジェクトを削除する                                                                                                                   |
+| [![取得](attachments/activities/retrieve.png)](retrieve)                           | [保留する](retrieve)                            | 別のオブジェクトの 1 つ(または複数) 関連するオブジェクトを取得します。 さらに、このアクティビティは、データベースから直接オブジェクトを取得することもできます。                                           |
+| [![ロールバックオブジェクト](attachments/activities/rollback.png)](rollback-object)          | [オブジェクトのロールバック](rollback-object)            | アクティビティに先立つマイクロフローの一部でオブジェクトに加えられた、反映されていない変更をロールバックします。 さらに、作成されているがコミットされていないオブジェクトを削除します。                                  |
 
-## 3 List Activities
+## 3つのリストアクティビティ
 
-List activities can be used to create and manipulate lists of objects.
+リストアクティビティは、オブジェクトのリストの作成と操作に使用できます。
 
-| Graphic                                                                        | Name                             | Description                                                                                                                               |
-| ------------------------------------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [![aggregate list](attachments/activities/aggregate-list.png)](aggregate-list) | [Aggregate list](aggregate-list) | Allows you to calculate aggregated values such as the maximum, minimum, sum, average, and total amount of objects over a list of objects. |
-| [![change list](attachments/activities/change-list.png)](change-list)          | [Change list](change-list)       | Allows you to change the content of a list variable.                                                                                      |
-| [![create list](attachments/activities/create-list.png)](create-list)          | [Create list](create-list)       | Creates a (empty) list variable.                                                                                                          |
-| [![list operation](attachments/activities/list-operation.png)](list-operation) | [List operation](list-operation) | Combines or compares two lists with objects of the same entity.                                                                           |
+| グラフィック                                                                | 名前                      | 説明                                             |
+| --------------------------------------------------------------------- | ----------------------- | ---------------------------------------------- |
+| [![集約リスト](attachments/activities/aggregate-list.png)](aggregate-list) | [集計リスト](aggregate-list) | オブジェクトのリスト上で、最大値、最小値、合計値、平均値、合計値などの集計値を計算できます。 |
+| [![リストの変更](attachments/activities/change-list.png)](change-list)      | [リストの変更](change-list)   | リスト変数の内容を変更できます。                               |
+| [![リストを作成](attachments/activities/create-list.png)](create-list)      | [リストを作成](create-list)   | (空) リスト変数を作成します。                               |
+| [![リスト操作](attachments/activities/list-operation.png)](list-operation) | [リスト操作](list-operation) | 2 つのリストを同じエンティティのオブジェクトと結合または比較します。            |
 
-## 4 Action Call Activities
+## 4つのアクションコールアクティビティ
 
-Action call activities can be used to call another microflow or to call a Java action.
+アクションコールアクティビティは、別のマイクロフローを呼び出したり、Java アクションを呼び出したりするために使用できます。
 
-| Graphic                                                                                                | Name                                                                   | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [![java action call](attachments/activities/call-java-action.png)](java-action-call)                   | [Call Java action](java-action-call) *(only in microflows)*            | Calls a Java action. Arguments can be passed to the action and the result can be stored in a variable.       |
-| [![javascript action call](attachments/activities/call-javascript-action.png)](javascript-action-call) | [Call JavaScript action](javascript-action-call) *(only in nanoflows)* | Calls a JavaScript action. Arguments can be passed to the action and the result can be stored in a variable. |
-| [![microflow call](attachments/activities/call-microflow.png)](microflow-call)                         | [Microflow call](microflow-call)                                       | Calls a microflow. Arguments can be passed to the microflow and the result can be stored in a variable.      |
+| グラフィック                                                                                             | 名前                                                     | 説明                                                           |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------ |
+| [![javaアクションコール](attachments/activities/call-java-action.png)](java-action-call)                   | [Javaアクション](java-action-call) *(マイクロフローのみ)*            | Javaアクションを呼び出します。 引数はアクションに渡すことができ、結果は変数に格納することができます。        |
+| [![javascriptアクションコール](attachments/activities/call-javascript-action.png)](javascript-action-call) | [JavaScript アクション](javascript-action-call) *(ナノフローのみ)* | JavaScript アクションを呼び出します。 引数はアクションに渡すことができ、結果は変数に格納することができます。 |
+| [![マイクロフロー・コール](attachments/activities/call-microflow.png)](microflow-call)                        | [マイクロフロー通話](microflow-call)                            | マイクロフローを呼び出します。 引数をマイクロフローに渡すことができ、その結果を変数に格納することができます。      |
 
-## 5 Variable Activities
+## 5種類の可変アクティビティ
 
-Variable activities can be used to create or change a variable within a microflow.
+変数アクティビティは、マイクロフロー内で変数を作成または変更するために使用できます。
 
-| Graphic                                                                           | Name                               | Description                                    |
-| --------------------------------------------------------------------------------- | ---------------------------------- | ---------------------------------------------- |
-| [![change variable](attachments/activities/change-variable.png)](change-variable) | [Change variable](change-variable) | Allows you to changes the value of a variable. |
-| [![create variable](attachments/activities/create-variable.png)](create-variable) | [Create variable](create-variable) | Allows you to creates a new variable.          |
+| グラフィック                                                                  | 名前                       | 説明            |
+| ----------------------------------------------------------------------- | ------------------------ | ------------- |
+| [![変数の変更](attachments/activities/change-variable.png)](change-variable) | [変数の変更](change-variable) | 変数の値を変更できます。  |
+| [![変数を作成](attachments/activities/create-variable.png)](create-variable) | [変数を作成](create-variable) | 新しい変数を作成できます。 |
 
-## 6 Client Activities
+## 6つのクライアントアクティビティ
 
-Client activities can be used to have the web client of your application perform an action, such as showing a different page or downloading a file.
+クライアントアクティビティは、アプリケーションのWebクライアントにアクションを実行させるために使用できます。 例えば、別のページを表示したり、ファイルをダウンロードしたりしています。
 
-| Graphic                                                                                             | Name                                                                  | Description                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![nanoflow call](attachments/activities/call-nanoflow.png)](nanoflow-call)                         | [Call nanoflow](nanoflow-call) *(only in nanoflows)*                  | Calls another nanoflow. Arguments can be passed to the nanoflow and the result can be stored in a variable.                                                                                                 |
-| [![close page](attachments/activities/close-page.png)](close-page)                                  | [Close page](close-page)                                              | Closes the page that was opened last by the user who called the microflow in which this activity is used.                                                                                                   |
-| [![download file](attachments/activities/download-file.png)](download-file)                         | [Download file](download-file) *(only in microflows)*                 | Can be used to enable the browser to download a specific file. The user who calls the microflow in which this activity is used gets a download pop-up window, or the file is shown directly in the browser. |
-| [![show home page](attachments/activities/show-home-page.png)](show-home-page)                      | [Show home page](show-home-page) *(only in microflows)*               | Navigates to the home page for the current user.                                                                                                                                                            |
-| [![show message](attachments/activities/show-message.png)](show-message)                            | [Show message](show-message)                                          | Allows you to show a blocking or non-blocking message to the user that calls the microflow in which this activity is used.                                                                                  |
-| [![show page](attachments/activities/show-page.png)](show-page)                                     | [Show page](show-page)                                                | Allows you to show a page to the user that calls the microflow in which this activity is used.                                                                                                              |
-| [![synchronize to device](attachments/activities/synchronize-to-device.png)](synchronize-to-device) | [Synchronize to device](synchronize-to-device) *(only in microflows)* | Can be used to selectively synchronize one or more objects or lists to a device and store them in the offline database.                                                                                     |
-| [![synchronize](attachments/activities/synchronize.png)](synchronize)                               | [Synchronize](synchronize)  *(only in nanoflows)*                     | Synchronizes data.                                                                                                                                                                                          |
-| [![validation feedback](attachments/activities/validation-feedback.png)](validation-feedback)       | [Validation feedback](validation-feedback)                            | Allows you to display a red text below a widget that displays an attribute or association.                                                                                                                  |
+| グラフィック                                                                                | 名前                                             | 説明                                                                                                                      |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| [![ナノフロー・コール](attachments/activities/call-nanoflow.png)](nanoflow-call)               | [nanoflow を呼ぶ](nanoflow-call) *(nanoflowsのみ)*  | 別のナノフローを呼び出します。 引数はnanoflowに渡すことができ、その結果を変数に格納することができます。                                                                |
+| [![ページを閉じる](attachments/activities/close-page.png)](close-page)                       | [ページを閉じる](close-page)                          | このアクティビティが使用されているマイクロフローを呼び出したユーザーが最後に開いたページを閉じます。                                                                      |
+| [![ファイルをダウンロード](attachments/activities/download-file.png)](download-file)             | [ファイル](download-file) をダウンロード *(マイクロフローのみ)*    | ブラウザで特定のファイルをダウンロードできるようにすることができます。 このアクティビティが使用されているマイクロフローを呼び出したユーザーは、ダウンロードポップアップウィンドウを取得します。 またはファイルがブラウザに直接表示されます。 |
+| [![ホームページを表示](attachments/activities/show-home-page.png)](show-home-page)             | [ホームページ](show-home-page) *(マイクロフローのみ)*         | 現在のユーザーのホームページに移動します。                                                                                                   |
+| [![メッセージを表示](attachments/activities/show-message.png)](show-message)                  | [メッセージを表示](show-message)                       | このアクティビティが使用されているマイクロフローを呼び出すユーザーにブロックまたは非ブロックメッセージを表示できます。                                                             |
+| [![ページを表示](attachments/activities/show-page.png)](show-page)                          | [ページを表示](show-page)                            | このアクティビティが使用されているマイクロフローを呼び出すユーザーにページを表示できます。                                                                           |
+| [![デバイスに同期](attachments/activities/synchronize-to-device.png)](synchronize-to-device) | [デバイスに同期](synchronize-to-device) *(マイクロフローのみ)* | 1つ以上のオブジェクトまたはリストをデバイスに選択的に同期し、それらをオフラインデータベースに格納するために使用できます。                                                           |
+| [![synchronize](attachments/activities/synchronize.png)](synchronize)                 | [](synchronize)  *を同期する (ナノフローのみ)*             | データの同期。                                                                                                                 |
+| [![検証フィードバック](attachments/activities/validation-feedback.png)](validation-feedback)   | [検証のフィードバック](validation-feedback)              | 属性または関連付けを表示するウィジェットの下に赤色のテキストを表示できます。                                                                                  |
 
-## 7 Integration Activities
+## 7 つの統合アクティビティ
 
-Integration activities can be used to integrate with other systems, for example by calling a web service.
+統合アクティビティは、Web サービスを呼び出すなど、他のシステムと統合するために使用できます。
 
-| Graphic                                                                                            | Name                                         | Description                                                                                                                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![call REST service](attachments/activities/call-rest-service.png)](call-rest-action)             | [Call REST service](call-rest-action)        | Can be used to call a REST endpoint. You can use mappings to map results to entities or entities to requests. You can also use string templates and store the result in a string variable.                                                                              |
-| [![call web service action](attachments/activities/call-web-service.png)](call-web-service-action) | [Call web service](call-web-service-action)  | Can be used to call one of the [imported web services](consumed-web-services). The content of the request can be edited. Furthermore the response of the webservice can be mapped to entities, stored in a variable or be ignored.                                      |
-| [![import with mapping](attachments/activities/import-with-mapping.png)](import-mapping-action)    | [Import with mapping](import-mapping-action) | Can be used to parse the data in a string variable or data stored in a file document, and store them to entities defined in the [domain model](domain-model) of the database. An [import mapping](import-mappings) is used to map the incoming XML or JSON to entities. |
-| [![export with mapping](attachments/activities/export-with-mapping.png)](export-mapping-action)    | [Export with mapping](export-mapping-action) | Can be used to export the data stored in [domain model](domain-model) entities into an XML or JSON string. It can also be stored in a file document. An [export mapping](export-mappings) is used to map domain model entities into XML or JSON.                        |
+| グラフィック                                                                                       | 名前                                     | 説明                                                                                                                                                                                |
+| -------------------------------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![REST サービスを呼び出す](attachments/activities/call-rest-service.png)](call-rest-action)          | [REST サービスに発信](call-rest-action)       | REST エンドポイントを呼び出すために使用できます。 マッピングを使用して結果をエンティティやエンティティにリクエストにマップすることができます。 文字列テンプレートを使用して、結果を文字列変数に格納することもできます。                                                                   |
+| [![ウェブサービスアクションを呼び出す](attachments/activities/call-web-service.png)](call-web-service-action) | [Web サービスに発信](call-web-service-action) | インポートされた [Webサービス](consumed-web-services) のいずれかを呼び出すために使用できます。 リクエストの内容は編集できます。 さらに、Webサービスの応答は、変数に格納されたエンティティにマップしたり、無視したりすることができます。                                             |
+| [![マッピング付きでインポート](attachments/activities/import-with-mapping.png)](import-mapping-action)    | [マッピングでインポート](import-mapping-action)   | ファイルドキュメントに格納されている文字列変数またはデータを解析するために使用できます。 を選択し、データベースの [ドメイン モデル](domain-model) に定義されたエンティティに保存します。 [インポート マッピング](import-mappings) は、受信する XML または JSON をエンティティにマップするために使用されます。 |
+| [![マッピングでエクスポート](attachments/activities/export-with-mapping.png)](export-mapping-action)     | [マッピングでエクスポート](export-mapping-action)  | [ドメイン モデル](domain-model) に格納されているデータを XML または JSON 文字列にエクスポートするために使用できます。 ファイルドキュメントに保存することもできます。 [エクスポートマッピング](export-mappings) は、ドメインモデルエンティティを XML または JSON にマップするために使用されます。   |
 
-## 8 Logging Activities
+## 8つのログ記録
 
-| Graphic                                                               | Name                       | Description                                                                      |
-| --------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------- |
-| [![log message](attachments/activities/log-message.png)](log-message) | [Log message](log-message) | Allows you to create messages that appear in the log of your Mendix application. |
+| グラフィック                                                            | 名前                     | 説明                                   |
+| ----------------------------------------------------------------- | ---------------------- | ------------------------------------ |
+| [![ログメッセージ](attachments/activities/log-message.png)](log-message) | [ログメッセージ](log-message) | Mendixアプリケーションのログに表示されるメッセージを作成できます。 |
 
-## 9 Document Generation Activities
+## 9 ドキュメント生成アクティビティ
 
-| Graphic                                                                                 | Name                                                         | Description                                                                                  |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| [![generate document](attachments/activities/generate-document.png)](generate-document) | [Generate document](generate-document) *(only in nanoflows)* | Allows you to create a document of a certain type based on a [template](document-templates). |
+| グラフィック                                                                          | 名前                                          | 説明                                                      |
+| ------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------- |
+| [![ドキュメントを生成](attachments/activities/generate-document.png)](generate-document) | [ドキュメント](generate-document) を生成 *(ナノフローのみ)* | [テンプレート](document-templates) に基づいて、特定の種類のドキュメントを作成できます。 |
 
-## 10 Workflow Activities
+## 10 ワークフローアクティビティ
 
-Workflow activities are used in relation to workflows and their user tasks.
+ワークフローアクティビティは、ワークフローとそのユーザータスクに関連して使用されます。
 
-| Graphic                                                                  | Name                                           | Description                                                                                                                                                            |
-| ------------------------------------------------------------------------ | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](attachments/activities/complete-task.png)](complete-task)           | [Complete user task](complete-task)            | Sets which outcome the [user task](user-task) should follow. For example, this activity can be used to complete a user task using a microflow with custom validations. |
-| [![](attachments/activities/open-task-page.png)](show-task-page)         | [Show user task page](show-task-page)          | Opens a user task page specified in [user task properties](user-task).                                                                                                 |
-| [![](attachments/activities/open-workflow-page.png)](show-workflow-page) | [Show workflow admin page](show-workflow-page) | Opens a workflow overview page.                                                                                                                                        |
-| [![](attachments/activities/workflow-call.png)](workflow-call)           | [Workflow call](workflow-call)                 | Triggers the selected workflow.                                                                                                                                        |
+| グラフィック                                                                   | 名前                                   | 説明                                                                                                 |
+| ------------------------------------------------------------------------ | ------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| [![](attachments/activities/complete-task.png)](complete-task)           | [ユーザータスクを完了](complete-task)          | [ユーザー タスク](user-task) が従うべき結果を設定します。 たとえば、このアクティビティを使用して、カスタム バリデーションのマイクロフローを使用してユーザー タスクを完了できます。 |
+| [![](attachments/activities/open-task-page.png)](show-task-page)         | [ユーザータスクページを表示](show-task-page)      | [ユーザー タスク プロパティ](user-task) で指定されたユーザー タスク ページを開きます。                                               |
+| [![](attachments/activities/open-workflow-page.png)](show-workflow-page) | [ワークフロー管理ページを表示](show-workflow-page) | ワークフロー概要ページを開きます。                                                                                  |
+| [![](attachments/activities/workflow-call.png)](workflow-call)           | [ワークフロー通話](workflow-call)            | 選択したワークフローをトリガーします。                                                                                |
