@@ -1,18 +1,18 @@
 ---
-title: "Deselect All Button"
-parent: "control-bar"
+title: "すべてのボタンの選択を解除"
+parent: "コントロール バー"
 ---
 
 
-This button lets the user deselect all rows in the grid or reference set selector.
+このボタンを使用すると、グリッドまたは参照セットセレクタ内のすべての行の選択を解除できます。
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -24,7 +24,7 @@ This button lets the user deselect all rows in the grid or reference set selecto
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
