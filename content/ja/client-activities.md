@@ -1,28 +1,36 @@
 ---
 title: "クライアントのアクティビティ"
 parent: "アクティビティ"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "クライアントアクティビティ"
+  - "アクティビティ"
 ---
 
-## ページを閉じる
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/client-activities.pdf) をクリックしてください。
+{{% /alert %}}
 
-[ページを閉じる](close-page) を参照してください。
+## 1つの紹介
 
-## ファイルをダウンロード
+**クライアントアクティビティ** は、ページを開いたりメッセージを表示したりするなど、クライアントでアクティビティを実行します。 このドキュメントで説明されているアクティビティは、 **ツールボックス** の **クライアントアクティビティ** セクションにあり、マイクロフローとナノフローでは異なる場合があります。
 
-[ダウンロード ファイル](download-file) を参照してください。
+![クライアントのアクティビティ](attachments/client-activities/client-activities.png)
 
-## ページを表示
+以下は、マイクロフローまたはナノフローで使用できるクライアントアクティビティです。
 
-[ページの表示](show-page) を参照してください。
+* [Nanoflow call](nanoflow-call) *(only in nanoflows)* - calls another nanoflow
+* [ページを閉じる](close-page) - 現在開いているページを閉じる
+* [ダウンロード ファイル](download-file) *(マイクロフローのみ)* – ブラウザを使用してファイルをダウンロード
+* [ホームページを表示](show-home-page) *(マイクロフローのみ)* – エンドユーザーのホームページを開く
+* [メッセージを表示する](show-message) – エンドユーザーへのメッセージを表示する
+* [ページの表示](show-page) – エンドユーザーに選択したページを表示する
+* [デバイスに同期](synchronize-to-device) *(マイクロフローのみ)* – ナノフローからマイクロフローを呼び出すときに、デバイスにオブジェクトのセットを選択的に同期させることができます
+* [](synchronize) を同期する *(ナノフローのみ)* - お使いのデバイスとサーバー間でデータを同期する
+* [検証フィードバック](validation-feedback) - 検証がチェックされ、このチェックが失敗した場合、エンドユーザーへのメッセージが表示されます
 
-## ホームページを表示
 
-[Show home page](show-home-page) を参照してください。
+## 2 続きを読む
 
-## メッセージを表示
-
-[メッセージの表示](show-message) を参照してください。
-
-## 検証のフィードバック
-
-[検証フィードバック](validation-feedback) を参照してください。
+* [アクティビティ](アクティビティ)
