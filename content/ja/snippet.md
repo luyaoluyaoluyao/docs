@@ -5,64 +5,64 @@ menu_order: 30
 tags:
   - "studio pro"
   - "snippet"
-  - "page resources"
+  - "ページリソース"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Snippets define reusable interface parts. They can be used on both [pages](page) and [layouts](layout). By using snippets you can make changes in fewer places when you modify the interface. For example, you can have a snippet that is used both in the contents area of a template grid and in a data view. If you change something in the snippet, that change will show up in both places.
+スニペットは再利用可能なインターフェイス部品を定義します。 [ページ](page) と [レイアウト](layout) の両方で使用できます。 スニペットを使用すると、インターフェイスを変更するときに、より少ない場所で変更を加えることができます。 たとえば、テンプレートグリッドのコンテンツエリアとデータビューの両方で使用されるスニペットを持つことができます。 スニペットで何かを変更すると、その変更は両方の場所に表示されます。
 
-A snippet is indicated by a blue bar above a drop-zone. The blue bar has the snippet icon at the left and the name of an entity, if the snippet is in the context of an entity. If the snippet has no context, the bar says `(none)`.
+スニペットは、ドロップゾーンの上に青いバーで示されます。 青いバーにはスニペットアイコンが左側にあり、エンティティの名前があります。 もし断片が実体の文脈にあるとしたら スニペットにコンテキストがない場合、バーは `(なし)` となります。
 
-In the example below, the snippet is used in the context of the **Orders.Order** entity.
+以下の例では、スニペットは **Orders.Order** エンティティのコンテキストで使用されます。
 
-{{% image_container width="400" %}}![Example of a snippet](attachments/page-resources/snippet.png)
+{{% image_container width="400" %}}![スニペットの例](attachments/page-resources/snippet.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of snippet properties is represented in the image below:
+以下の画像にスニペットプロパティの例を示します。
 
-{{% image_container width="250" %}}![Example of the snippet properties pane](attachments/page-resources/snippet-properties.png)
+{{% image_container width="250" %}}![スニペットプロパティペインの例](attachments/page-resources/snippet-properties.png)
 {{% /image_container %}}
 
-Snippet properties consist of the following sections:
+スニペットプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Designer](#designer)
-* [General](#general)
+* [一般的な](#common)
+* [デザイナー](#designer)
+* [全般](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Designer Section{#designer}
+### 2.2 デザイナーセクション{#designer}
 
-#### 2.2.1 Canvas Width
+#### 2.2.1 キャンバス幅
 
-**Canvas width** defines the width in pixels of the page in the page editor. It is purely used for editing purposes; this property has no effect on the width of the page in the actual application.
+**キャンバス幅** はページエディターのページ幅をピクセル単位で定義します。 これは純粋に編集目的で使用されます; このプロパティは実際のアプリケーションのページの幅に影響を与えません。
 
-Default value: *800*
+デフォルト値: *800*
 
-#### 2.2.2 Canvas Height
+#### 2.2.2 キャンバスの高さ
 
-**Canvas height** defines the preferred minimum height in pixels of the page in the page editor. It is purely used for editing purposes; this property has no effect on the height of the page in the actual application.
+**Canvas height** は、ページエディタのページのピクセル単位で推奨される最小高さを定義します。 これは純粋に編集目的で使用されます; このプロパティは実際のアプリケーションのページの高さに影響を与えません。
 
-Default value: *600*
+デフォルト値: *600*
 
-### 2.3 General Properties{#general}
+### 2.3 一般プロパティ{#general}
 
-#### 2.3.1 Platform
+#### 2.3.1 プラットフォーム
 
-The values for the platform property are:
+platformプロパティの値は次のとおりです。
 
-* Web *(default)* – these snippets are used for pages which are going to be displayed in a browser or hybrid mobile app
-* Native – these snippets are used for pages which are going to be displayed in a native mobile app
+* Web *(デフォルト)* – これらのスニペットは、ブラウザまたはハイブリッド・モバイルアプリで表示されるページに使用されます。
+* ネイティブ - これらのスニペットは、ネイティブモバイルアプリで表示されるページに使用されます
 
-#### 2.3.2 Entity
+#### 2.3.2 エンティティ
 
-This property defines the entity that is used as context for the widgets placed on this snippet.
+このプロパティは、このスニペットに配置されたウィジェットのコンテキストとして使用されるエンティティを定義します。
 
-Entity optionally specifies an [entity](entities) that serves as the context for the widgets placed on it. When an entity is defined on a snippet, any usages of the snippet need to be placed inside a context for that entity or a specialization: a data view, for example.
+エンティティは必要に応じて、その上に配置されたウィジェットのコンテキストとして機能する [エンティティ](entities) を指定します。 スニペットにエンティティが定義されている場合 スニペットの使用は、そのエンティティまたは特殊化のためのコンテキスト内に配置する必要があります:データビューなど。
 
-For example, if you wanted to use an attribute of a Customer entity in a snippet, you could place a text box that shows the customer's name in the snippet without having to define a data view first.
+たとえば、スニペット内の顧客エンティティの属性を使用する場合。 最初にデータビューを定義することなく、顧客の名前をスニペットに表示するテキストボックスを配置できます。
