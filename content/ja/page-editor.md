@@ -14,11 +14,12 @@ PagesはMendixアプリケーションのエンドユーザーインターフェ
 
 Mendix Studio でアプリの **ページ** を表示するには、Studio の左メニューバーの **ページ** アイコンをクリックします。
 
-![](attachments/page-editor/pages-icon.png)
+{{% image_container width="300" %}}![](attachments/page-editor/pages-icon.png)
+{{% /image_container %}}
 
 {{% alert type="warning" %}}
 
-Studio は、Atlas UI フレームワークに基づくアプリのみをサポートしています。 Atlas UI の詳細については、 [Atlas UI](/howto/front-end/atlas-ui) を参照してください。
+Studio は、Atlas UI フレームワークに基づくアプリのみをサポートしています。 Atlas UI の詳細については、 [Atlas UI](/howto8/front-end/atlas-ui) を参照してください。
 
 {{% /alert %}}
 
@@ -36,22 +37,11 @@ Studio は、Atlas UI フレームワークに基づくアプリのみをサポ�
 
 ![](attachments/page-editor/page-structure.png)
 
-上記の要素(レイアウト、テンプレート、ウィジェット、およびビルディングブロック)はすべてAtlas UIで動作します。 Atlas UI の詳細については、 [Atlas UI](/howto/front-end/atlas-ui) を参照してください。
+上記の要素(レイアウト、テンプレート、ウィジェット、およびビルディングブロック)はすべてAtlas UIで動作します。 Atlas UI の詳細については、 [Atlas UI](/howto8/front-end/atlas-ui) を参照してください。
 
 ## 2 基本機能の実行 {#page-editor-basic-functions}
 
-以下の基本的な機能は、ページを操作する際に実行できます。
-
-* [ページを開く](#opening-page)
-* [ページを作成](#creating-new-page)
-* [Duplicate a page](#duplicating)
-* [ページをコピーして貼り付け](#copy-pasting)
-* [ページを削除](#deleting-page)
-* [ページに要素を追加](#adding-elements)
-* [要素のプロパティを表示](#viewing-elements)
-* [要素を削除](#deleting-elements)
-
-### 2.1 ページを開く {#opening-page}
+### 2.1 ページを開く
 
 Studio を開くと、アプリのホームページが自動的に開きます。
 
@@ -61,6 +51,9 @@ Studio でページを開くには、次の手順を実行します。
 
 2.  表示されるアプリページのリストで、開きたいアプリを選択してクリックします。
 
+    {{% image_container width="400" %}}![](attachments/page-editor/opening-a-page.png)
+    {{% /image_container %}}
+
 選択したページが開きます。
 
 ### 2.2 新しいページの作成 {#creating-new-page}
@@ -69,11 +62,10 @@ Studio で新しいページを作成するには、次の操作を行います�
 
 1. **Pages** アイコンをクリックします。
 
-2.  新しいページを追加したいモジュールを選択し、このモジュールの横にあるプラスアイコンをクリックします。
+2.  表示されるサイドパネルの右上隅にある **New** をクリックします。
 
-    ![](attachments/page-editor/new-page.png)
-
-    モジュールの詳細については、 [Domain Model](domain-models) を参照してください。
+    {{% image_container width="400" %}}![](attachments/page-editor/new-page.png)
+    {{% /image_container %}}
 
 3.  **新規ページ** の作成ダイアログ ボックスで、ページのタイトルを入力し、レイアウトとページ テンプレートを選択します。
 
@@ -83,7 +75,7 @@ Studio で新しいページを作成するには、次の操作を行います�
 
 新しいページが作成されます。
 
-### 2.3 ページを複製 {#duplicating}
+### 2.3 ページを複製
 
 既存のページを複製するには、次の操作を行います。
 
@@ -91,11 +83,13 @@ Studio で新しいページを作成するには、次の操作を行います�
 
 2. サイドパネルで省略記号アイコンをクリックし、ドロップダウンメニューから **Duplicate** を選択します。
 
-    ![Duplicate Page](attachments/page-editor/duplicate-page.png)
+    {{% image_container width="400" %}}
+![Duplicate Page](attachments/page-editor/duplicate-page.png)
+{{% /image_container %}}
 
 ページが複製されます。
 
-### 2.4 ページのコピーと貼り付け {#copy-pasting}
+### 2.4 ページのコピーと貼り付け
 
 ページをコピーして貼り付けるには、次の操作を行います。
 
@@ -103,27 +97,31 @@ Studio で新しいページを作成するには、次の操作を行います�
 
 2.  サイドパネルで省略記号アイコンをクリックし、ドロップダウンメニューから **Copy to clipboard** を選択します。
 
-    ![ページをコピー中](attachments/page-editor/copy-page.png)
+    {{% image_container width="400" %}}
+![ページをコピー中](attachments/page-editor/copy-page.png)
+{{% /image_container %}}
 
 3. ページを貼り付けるスタジオアプリを開き、 <kbd>Ctrl</kbd> +<kbd>V</kbd> または <kbd>Cmd</kbd> +<kbd>V</kbd> を押します。
 
 ページが貼り付けられました。 Studio のコピー/貼り付け機能の詳細については、 [一般情報](general#copy-paste-documents) の *コピー/貼り付けページ、マイクロフロー、および列挙* セクションを参照してください。
 
-### 2.5 ページの削除 {#deleting-page}
+### 2.5 ページの削除
 
 Studio でページを削除するには、次のいずれかを実行します。
 
 1. 削除したいページを開き、以下の手順に従ってください:
     1. **プロパティ** タブを開きます。
     2. **プロパティ** タブの下部にある **削除** をクリックします。
- {{% image_container width="250" %}}![](attachments/page-editor/page-delete.png)
-        {{% /image_container %}}
+
+    ![](attachments/page-editor/page-delete.png)
 
 2. 左のメニューバーの **ページ** アイコンをクリックし、次の操作を行います:
 
     1. サイドパネルで省略記号アイコンをクリックし、ドロップダウンメニューから **Delete** を選択します。
 
-        ![ページを削除](attachments/page-editor/delete-page.png)
+        {{% image_container width="400" %}}
+![ページを削除](attachments/page-editor/delete-page.png)
+{{% /image_container %}}
 
 選択したページが削除されます。
 
@@ -134,7 +132,7 @@ Studio でページを削除するには、次のいずれかを実行します�
 1. **Toolbox**で、 [ウィジェット](#widgets) タブまたは [Building Blocks](#building-blocks) タブを開きます。
 2. 追加したい要素を選択し、この要素をページにドラッグ&ドロップします。
 
-### 2.7 ページ上の要素の表示 {#viewing-elements}
+### 2.7 ページ上の要素の表示
 
 要素と [プロパティ](#page-editor-properties) を表示するには2つの方法があります:
 
@@ -143,10 +141,10 @@ Studio でページを削除するには、次のいずれかを実行します�
 
 選択された要素には青い枠線が表示されます。 さらに、要素がデータコンテナ内にある場合 (データビューまたはリストビュー)、データコンテナアイコンが表示されます:
 
-{{% image_container width="350" %}}![](attachments/page-editor/input-widget-example.png)
+{{% image_container width="400" %}}![](attachments/page-editor/input-widget-example.png)
 {{% /image_container %}}
 
-### 2.8 ページから要素を削除する {#deleting-elements}
+### 2.8 ページから要素を削除する
 
 ページから要素を削除するには、次のいずれかを実行します:
 
@@ -169,7 +167,7 @@ breadcrumbは2つの関数を提供します:
 
 * ページ上の要素を選択して、そのプロパティを表示できます。 ページ上の要素に移動し、要素のプロパティを表示するには、パンくずリスト内のこの要素をクリックします。
 
-## 5つのツールボックス要素
+## 5 Toolbox Tab
 
 **ツールバー** には、ページで使用できるツールが表示されます。
 
@@ -190,9 +188,7 @@ breadcrumbは2つの関数を提供します:
 
 Building Blocksは、ページを高速に構築するための事前設定されたウィジェットで構成されています。
 
-{{% image_container width="300" %}}
 ![](attachments/page-editor/building-blocks.png)
-{{% /image_container %}}
 
 Studio のBuilding Blockは次のカテゴリに分類されます:
 
@@ -213,8 +209,7 @@ Studio のBuilding Blockは次のカテゴリに分類されます:
 
 特定のBuilding Blockのドキュメントを読んで、いつ、どのように使うかについて詳しく知りたい場合。 ビルディングブロックの右上隅にある小さなアイコンをクリックします。
 
-{{% image_container width="300" %}}![](attachments/page-editor/info-icon-building-blocks.png)
-{{% /image_container %}}
+![](attachments/page-editor/info-icon-building-blocks.png)
 
 {{% alert type="info" %}}
 
@@ -226,12 +221,13 @@ Studio Proを使用してAtlas UIをカスタマイズすることができる�
 
 **プロパティ** タブには、現在選択されている要素のプロパティが表示され、要素ごとに異なる場合があります。
 
-{{% image_container width="250" %}}![](attachments/page-editor/properties.png)
+{{% image_container width="300" %}}![](attachments/page-editor/properties.png)
 {{% /image_container %}}
 
 例えば、 **レイアウト**をクリックすると、パンくずリストで [ページ](#creating-new-page)を作成するときに選択するレイアウトになります。 プロパティには、ページタイトルの変更やページの外観のカスタマイズなど、実行できるページ関連のアクションに参照情報が表示されます。
 
-![](attachments/page-editor/layout.png)
+{{% image_container width="300" %}}![](attachments/page-editor/layout.png)
+{{% /image_container %}}
 
 ## このカテゴリ内の7つのメインドキュメント
 
