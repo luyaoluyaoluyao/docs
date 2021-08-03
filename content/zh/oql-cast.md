@@ -5,35 +5,39 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-cast.pdf).
-{{% /alert %}}
+## 1 Description
 
-## 1 Introduction
+The `CAST` function converts an expression to a specific data type.
 
-The CAST function converts an expression to a specific data type.
+## 2 Syntax
 
 The syntax is as follows:
 
-```
+```sql
 CAST ( expression AS data_type )
 ```
 
-* `expression` – specifies the expression to convert
-* `data_type` – specifies the data type to convert the expression to; the data type can be one of the following:
-  * BOOLEAN
-  * DATETIME
-  * DECIMAL
-  * INTEGER
-  * LONG
-  * STRING
+### 2.1 expression
 
-## 2 Supported Conversions
+`expression` specifies the expression to convert.
 
-The table below describes which CAST conversions are supported:
+### 2.2 data_type
+
+`data_type` specifies the data type to convert the expression to. The data type can be one of the following:
+
+* `BOOLEAN`
+* `DATETIME`
+* `DECIMAL`
+* `INTEGER`
+* `LONG`
+* `STRING`
+
+## 3 Supported Conversions
+
+The table below describes which `CAST` conversions are supported:
 
 * ✔ – the conversion is supported
-* ✔* – the conversion is supported, but the behavior differs per database (see remarks below)
+* ✔* – the conversion is supported, but the behavior differs per database
 * ✘ – the conversion is not supported
 
 | From \ To | BOOLEAN | DATETIME | DECIMAL | INTEGER | LONG | STRING (unlimited) |       STRING (limited)        |
@@ -45,4 +49,13 @@ The table below describes which CAST conversions are supported:
 | LONG       |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
 | STRING     |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
 * [1] – BOOLEAN to STRING (limited) is supported only if the resulting string length is ≥ 5.
-* [2] – The conversion of DATETIME and DECIMAL to STRING (limited) is supported only if the value fully fits into the string length. The conversion can fail if the resulting string length is less than 20.
+* [2] – The conversion of DATETIME and DECIMAL to STRING (limited) is supported only if the value fully fits into the string length. The conversion can fail if the resulting string length is < 20.
+*
+
+## 4 Examples
+
+A frequent use case for `CAST` is to convert your date from the `DATETIME` data type to a more readable `STRING` type:
+
+```sql
+CAST ( your_datetime_variable AS string )
+```
