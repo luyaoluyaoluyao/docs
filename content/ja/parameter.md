@@ -1,28 +1,33 @@
 ---
 title: "パラメータ"
-parent: "共通要素"
+parent: "application-logic"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "パラメータ"
+  - "マイクロフロー"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/parameter.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-パラメータはフローの入力として機能するデータです。 パラメーターは、フローがトリガーされる場所に入力されます。
+パラメータは、マイクロフローの入力を使用する特別な種類の変数です。 マイクロフローがトリガーされると、パラメータは現在の値で埋められます。
 
-{{% alert type="info" %}}
+マイクロフローで *顧客* エンティティのオブジェクトを使用する場合は、パラメータを使用します。 下の画像では、オブジェクト名は *EnclosingCustomer* で、黒色で表示されています。 データ型はオブジェクトであるため、エンティティ名はオブジェクト名の下に青色で表示されます。
 
-microflow で使用するエンティティ「Customer」のオブジェクトがある場合、パラメータが使用されます。 変数名は「EnclosingCustomer」で、黒で表示されています。 データ型はオブジェクトであるため、エンティティ名は変数名の下に青色で表示されます。
-
-![](attachments/819203/917903.png)
-
-{{% /alert %}}
+![](attachments/parameter/parameter.png)
 
 ## 2つの出力プロパティ
 
-### 2.1 変数名
+### 2.1 名前
 
-変数名は、パラメータの引数が格納される変数の名前を定義します。
+**名前** はパラメータの値を指します。
 
 ### 2.2 データ タイプ
 
-フローパラメータのデータ型は、期待される値の型を定義します。 利用可能なデータ型については、 [Data Types](data-types) を参照してください。
+パラメータのデータ型は、期待される値の型を定義します。 利用可能なデータ型については、 [Data Types](data-types) を参照してください。
 
-_デフォルト値:_ オブジェクト
+デフォルト: *オブジェクト*
