@@ -1,34 +1,28 @@
 ---
-title: "Published App Services"
-parent: "integration"
-tags:
-  - "studio pro"
+title: "已发布的应用服务"
+parent: "集成"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-app-services.pdf).
-{{% /alert %}}
+应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [已发布的网页服务](published-web-services) 或 [已发布的REST 服务](published-rest-services) 代替。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [published web service](published-web-services) or a [published REST service](published-rest-services) instead.
-{{% /alert %}}
+可以通过 **文件** > **新文档** 创建应用服务。
 
-An app service can be created via **File** > **New Document**.
-
-Names of published app service documents must be unique (also with regard to published web service).
+已发布的应用服务文档名称必须是独一无二的(也适用于已发布的网络服务)。
 
 ![](attachments/16713717/16843911.png)
 
-## 2 Create Version
+## 2 新建版本
 
-The **Create version** button instantiates a new app service version. For more information, see [Published App Service](published-app-service).
+**创建版本** 按钮实例化一个新的应用服务版本。 欲了解更多信息，请参阅 [已发布的应用服务](published-app-service)。
 
-## 3 Edit
+## 3 编辑
 
-This button opens the selected app service version dialog box. Only **Draft** versions are editable. The settings of **Consumable** versions can only be viewed.
+此按钮打开所选应用的服务版本对话框框。 只能编辑 **草稿** 版本。 **消耗性** 版本的设置只能被查看。
 
-## 4 Delete
+## 4 删除
 
-This button deletes the selected app service version.
+此按钮删除所选应用服务版本。
