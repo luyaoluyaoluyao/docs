@@ -9,6 +9,10 @@ tags:
   - "域模型"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/query-over.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 有时，您想要创建一个更通用的域模型，以便在数据的类型和结构上有更大的灵活性。 在这种情况下，您常常转而使用继承或自我引用来允许使用简单但有效的设计模型。 这使构建您的微流程和应用程序逻辑变得更容易， 但查询正确的对象可能变得很有挑战性，特别是当您使用自引用。
