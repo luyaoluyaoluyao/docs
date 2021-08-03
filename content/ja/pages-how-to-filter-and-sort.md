@@ -1,37 +1,37 @@
 ---
-title: "Filter and Sort Items in a List"
-category: "Pages"
-description: "Describes how to filter and sort items in a list in Mendix Studio."
+title: "リスト内のアイテムのフィルタと並べ替え"
+category: "ページ"
+description: "Mendix Studio でリスト内の項目をフィルタリングおよびソートする方法を説明します。"
 menu_order: 50
 tags:
-  - "studio"
-  - "pages"
-  - "list"
-  - "how to"
-  - "filter"
-  - "sort"
+  - "スタジオ"
+  - "ページ"
+  - "リスト"
+  - "どうやって?"
+  - "フィルター"
+  - "並べ替え"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can filter and sort items in a list view or a data grid in Mendix Studio.
+この方法では、Mendix Studio でリストビューまたはデータ グリッドの項目をフィルタリングおよびソートする方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Configure a filter for items in a list
-* Sort items in a list
+* リスト内の項目のフィルタを設定します
+* リスト内のアイテムをソート
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-You have build a page with a list of inspections reports that shows companies checked on compliance with safety regulations. You would like to display only companies that failed this inspection. You also would like to display reports for today only. In addition, items should be sorted by date and time starting from the latest one.
+安全規制の遵守を確認した企業を示す検査レポートの一覧が表示されたページを構築しています。 この検査に失敗した会社のみを表示したいです。 また、今日のみレポートを表示します。 また、項目は最新のものから始まる日付と時刻でソートする必要があります。
 
-A list of inspection reports is displayed on a page. If you have the list in a list view, the page can look the following way:
+検査レポートの一覧がページに表示されます。 リストビューにリストがある場合は、次のようにページが表示されます。
 
 {{% image_container width="600" %}}
 ![](attachments/pages-how-to-filter-and-sort/list-view-example.png)
 {{% /image_container %}}
 
-Or the page can look the following way if your list is in a data grid:
+または、リストがデータグリッド内にある場合、ページを次のように見ることができます。
 
 {{% image_container width="600" %}}
 ![](attachments/pages-how-to-filter-and-sort/page-example-data-grid.png)
@@ -43,60 +43,60 @@ Domain model is configured the following way in this use-case:
 ![](attachments/pages-how-to-filter-and-sort/domain-model.png)
 {{% /image_container %}}
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with terms on data filters. For more information, see [Data Filters](/studio8/data-filters).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* データフィルタの条件に慣れてください。 詳細については、 [データフィルター](/studio8/data-filters) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
-## 3 Filtering Information
+## 3フィルタリング情報
 
-First, you need to add a filter to your list.  As you would like to show only companies which failed the inspection check, the **Passed** attribute (see the domain model image above) should have been marked in an inspection report as *No*.
+まず、リストにフィルタを追加する必要があります。  検査チェックに失敗した企業だけをお見せしたいと思います。 **Passed** 属性 (上記のドメインモデル画像を参照) は、検査レポートで *No* としてマークされている必要があります。
 
-You also would like to show reports that were created or modified in February 2020, that means the **DateAndTime** attribute should fall into a range from February 1st, 2020 to February 29th, 2020.
+また、2020年2月に作成または変更されたレポートを表示したいと思います。 つまり、 **DateAndTime** 属性は2020年2月1日から2020年2月29日までの範囲に収まるはずです。
 
-To configure a filter, do the following:
+フィルタを設定するには、次の手順を実行します。
 
-1. Select the list view or the data grid and open its properties:
+1. リスト ビューまたはデータ グリッドを選択し、プロパティを開きます。
 
-2. In the **Data Source** section, click **Filter**:
+2. **データ ソース** セクションで、 **フィルター** をクリックします。
 
     {{% image_container width="250" %}}![](attachments/pages-how-to-filter-and-sort/properties-filter.png){{% /image_container %}}
 
-3. In the **Add Filter** dialog box, add conditions of the filter by doing the following:
+3. **フィルター** の追加ダイアログボックスで、以下を行ってフィルターの条件を追加します:
 
-    1. Select the **Passed** attribute in the drop-down menu:
+    1. ドロップダウンメニューから **Passed** 属性を選択します。
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-filter-and-sort/add-filter-select-attribute.png){{% /image_container %}}
 
-    2. Once you select the first part of the condition, you can select the other part to complete it. Select *false*:
+    2. 条件の最初の部分を選択すると、他の部分を選択して完了できます。 *false* を選択:
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-filter-and-sort/add-filter-condition.png){{% /image_container %}}
 
-    3. To filter inspection reports for the current day, you need to add another condition to your filter: click **Add new condition** and select the **DateAndTime** attribute in the drop-down menu.
+    3. 今日の検査レポートをフィルタリングする フィルタに別の条件を追加する必要があります: **新しい条件の追加** をクリックし、ドロップダウン メニューで **DateAndTime** 属性を選択します。
 
-    4. Add the second part of the condition: the date should be today's date. Select *Today* in the drop-down menu:
+    4. 条件の 2 番目の部分を追加: 日付は今日の日付である必要があります。 ドロップダウンメニューで *Today* を選択します:
 
         {{% image_container width="550" %}}![](attachments/pages-how-to-filter-and-sort/filter-date-and-time.png){{% /image_container %}}
 
-    5. Click **Add**.
+    5. **追加** をクリックします。
 
-Good job! You have created the filter that has two conditions and reads the following way: *Select records of InspectionReport where Passed is false and date and time is Today.* This means this filter will show you only the reports that fall under both conditions: which failed the inspection check and which were created or modified in the current day.
+よくできました！ You have created the filter that has two conditions and reads the following way: *Select records of InspectionReport where Passed is false and date and time is Today.* This means this filter will show you only the reports that fall under both conditions: which failed the inspection check and which were created or modified in the current day.
 
-## 4 Sorting Items
+## 4つのソート項目
 
-To sort items in the list by date and time starting from the latest one, follow the steps below:
+リスト内の項目を最新のものから始まる日付と時刻でソートするには、以下の手順に従ってください:
 
-1. Select the list view or the data grid and open its properties.
+1. リスト ビューまたはデータ グリッドを選択し、そのプロパティを開きます。
 
-2. In **Sorting Order** property, click **Add Sorting Rule**.
+2. **並べ替え順序** プロパティで、 **並べ替えルール** を追加をクリックします。
 
-3. In **Add sorting rule** dialog box, select the **DateAndTime** attribute and set **Order** to *Descending*.
+3. **並べ替えルール** ダイアログボックスで、 **DateAndTime** 属性を選択し、 **Order** を *Descending* に設定します。
 
     {{% image_container width="450" %}}![](attachments/pages-how-to-filter-and-sort/add-sorting-rule.png){{% /image_container %}}
 
-4. Click **Add**.
+4. **追加** をクリックします。
 
-Congratulations! You have added a filter and sorting order to your list. You can now preview your app and test your page. For more information on how to preview your page, see [Previewing & Publishing Your App](/studio8/publishing-app).
+おめでとうございます フィルターと並べ替え順序をリストに追加しました。 アプリをプレビューしてページをテストできるようになりました。 ページをプレビューする方法の詳細については、 [プレビュー中 & アプリを公開する](/studio8/publishing-app) を参照してください。
