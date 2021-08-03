@@ -1,7 +1,13 @@
 ---
-title: "XPath キーワードとシステム変数"
+title: "XPath キーワード & システム変数"
 parent: "xpath-constraints"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-keywords-and-system-variables.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの概要
 
@@ -42,6 +48,10 @@ XPath では、いくつかのキーワードとシステム変数を比較と�
 | トークン                         | 説明          |
 | ---------------------------- | ----------- |
 | `[%UserRole_Administrator%]` | 管理者ユーザーのロール |
+
+次に、そのユーザーロールを取得する例を示します。
+
+![](attachments/xpath/user-role.png)
 
 ### 3.3 時間関連
 
@@ -84,6 +94,7 @@ XPath では、いくつかのキーワードとシステム変数を比較と�
 | `[%MinuteLength%]` | 1分間の長さ。      |
 | `[%SecondLength%]` | 一秒の長さ。       |
 | `[%WeekLength%]`   | 1週間（7日）の長さ。  |
+| `[%MonthLength%]`  | 1ヶ月の長さ。      |
 | `[%YearLength%]`   | 一年の長さ。       |
 
 {{% alert type="info" %}}
