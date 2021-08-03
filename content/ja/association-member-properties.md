@@ -1,115 +1,115 @@
 ---
-title: "Association Tab Properties"
-parent: "associations"
+title: "関連タブのプロパティ"
+parent: "関連"
 menu_order: 15
 tags:
-  - "domain model"
-  - "association"
+  - "ドメインモデル"
+  - "関連"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-There are two ways to edit the properties of an [association](associations). This document describes the properties you can edit from the **Associations** tab in the entity properties. If you want to edit the association as described in [Association Properties](association-properties), you can click **Edit** to open the association properties dialog.
+[アソシエーション](associations) のプロパティを編集するには2つの方法があります。 このドキュメントでは、図形プロパティの **関連** タブから編集できるプロパティについて説明します。 If you want to edit the association as described in [Association Properties](association-properties), you can click **Edit** to open the association properties dialog.
 
-For more information on associations, see [Associations](associations).
+関連付けの詳細については、 [Associations](associations) を参照してください。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of the **Associations** tab of the entity properties is represented in the image below:
+エンティティプロパティの **関連** タブの例を以下の画像に示します。
 
 ![](attachments/associations/edit-entity-association.png)
 
-Associations in the Association tab have the following properties:
+format@@0 タブの関連付けには、次のプロパティがあります。
 
-* [Name](#name)
-* [Type](#type)
-* [Owner](#owner)
-* [Parent/Child](#parent-child)
+* [名前](#name)
+* [タイプ](#type)
+* [所有者](#owner)
+* [親/子要素](#parent-child)
 
-You can sort the list of associations by any of these properties (ascending or descending) by clicking the column titles.
+列のタイトルをクリックすると、これらのプロパティ(昇順または降順)で関連のリストを並べ替えることができます。
 
-### 2.1 Name {#name}
+### 2.1 名前 {#name}
 
-The name of the association is used to refer to it. For example, in forms or microflows.
+関連付けの名前は、関連付けを参照するために使用されます。 例えば、フォームやマイクロフローで。
 
 {{% alert type="info" %}}
-You cannot change this name in the association tab. To change the name, click **Edit** (or double-click the association name) to open the [Association Properties](association-properties).
+この名前は関連付けタブで変更できません。 名前を変更するには、 **編集** をクリックするか、関連付け名をダブルクリックして [関連プロパティ](association-properties) を開きます。
 {{% /alert %}}
 
-### 2.2 Type {#type}
+### 2.2 タイプ {#type}
 
-This property defines whether an association is a reference (single) or a reference set (plural).
+このプロパティは、関連付けが参照(単一)であるか、参照セット (複数)であるかを定義します。
 
-| Value                 | Description                                                                                |
-| --------------------- | ------------------------------------------------------------------------------------------ |
-| Reference *(default)* | Single: an object of the owning entity refers to zero or one objects of the other entity.  |
-| Reference set         | Plural: an object of the owning entity refers to zero or more objects of the other entity. |
+| 値            | 説明                                                        |
+| ------------ | --------------------------------------------------------- |
+| 参照 *(デフォルト)* | 単一: 所有しているエンティティのオブジェクトは、ゼロまたは他のエンティティの 1 つのオブジェクトを参照します。 |
+| リファレンスセット    | 複数: 所有しているエンティティのオブジェクトは、他のエンティティの 0 個以上のオブジェクトを参照します。    |
 
 {{% alert type="info" %}}
-The examples for this property are combined with the example of the owner property below.
+このプロパティの例は、以下の owner プロパティの例と組み合わせています。
 {{% /alert %}}
 
-### 2.3 Owner {#owner}
+### 2.3 所有者 {#owner}
 
-This property defines whether an association has one or two owners. If there is one owner, the owner is located at the start of the arrow.
+このプロパティは、関連付けに1つまたは2つの所有者があるかどうかを定義します。 1つの所有者がいる場合、所有者は矢印の先頭に位置します。
 
-| Value               | Description                                |
-| ------------------- | ------------------------------------------ |
-| Default *(default)* | Only one entity is the owner (the parent). |
-| Both                | Both entities are owners.                  |
+| 値               | 説明                   |
+| --------------- | -------------------- |
+| デフォルト *(デフォルト)* | 唯一のエンティティは、所有者(親)です。 |
+| 両方とも            | 両方のエンティティは所有者です。     |
 
-Ownership is important as it defines two aspects of an association:
+所有権は、関連の2つの側面を定義するために重要です:
 
-* how cardinality (many or one) is controlled
-* where the association is recorded
+* カーディナリティ(多くまたは一つ)がどのように制御されるか
+* 記録されているのは
 
 {{% alert type="info" %}}
-An external entity cannot be the owner for an association between a external and a local entity.
+外部エンティティは、外部エンティティとローカルエンティティの間の関連付けの所有者にすることはできません。
 {{% /alert %}}
 
 #### 2.3.1 Cardinality
 
-Cardinality refers to counting the number of associations an object can have. To ensure that an object can count the occurrences of a particular association it needs to have ownership of the association.
+Cardinality とは、オブジェクトが持つことができる関連の数を数えることを指します。 オブジェクトが特定の関連付けの発生をカウントできるようにするには、関連付けの所有権を持つ必要があります。
 
-So, for a one-to-many association the *many* end owns the association to ensure that it can only associate with *one* object. For a one-to-one association, both ends own the association. For a many-to-many relationship cardinality is not important.
+ですから、1対多の関連付けの場合、 *多くの* 端は関連付けを所有し、 *1つの* オブジェクトにのみ関連付けられるようにします。 一対一の団体については、どちらも団体を所有しています。 多対多の関係にとって多対多性は重要ではない。
 
-#### 2.3.2 Association Recording
+#### 2.3.2 関連記録
 
-An association is recorded in the object which owns it. If both objects own the association, then the association is recorded with both objects. You can see examples of where the associations are recorded in the [Association Examples](associations#examples) section of *Associations*.
+関連付けはそれを所有するオブジェクトに記録されます。 両方のオブジェクトが関連付けを所有している場合、関連付けは両方のオブジェクトで記録されます。 [アソシエーション](associations#examples) の *アソシエーションの関連例* セクションに記録されている例を見ることができます。
 
-Where the association is recorded has an important impact on the user of reference and reference set selectors in your app. The selector can only be inside a data view containing the _owning_ object. This is because it is only when you commit the owning object that the association is recorded.
+関連付けが記録されている場合は、アプリケーションの参照と参照セットセレクタのユーザーに重要な影響を与えます。 セレクターは、 _所有している_ オブジェクトを含むデータビュー内でのみ使用できます。 これは、関連付けが記録されている所有しているオブジェクトをコミットする場合にのみです。
 
-For example, imagine you have a many-to-many association, **Customer_Group**, between **Customer** and **Group** owned by the Customer entity. You can put an input reference set selector to select Groups from within a Customer data view. However you _cannot_ put an input reference set selector to select Customers from within a Group data view.
+例えば、 **Customer_Group**、 **顧客** と **グループ** の間に、多対多の関連があるとします。 format@@0ビューからformat@@1を選択するには、入力参照セットセレクタを入れることができます。 ただし、 _では、_ グループデータビュー内から顧客を選択するための入力参照セットセレクタを置くことはできません。
 
-![Selecting Group objects through an input reference set selector in a Customer data view](attachments/associations/input-reference-set-selector.png)
+![顧客データビューの入力参照セットセレクタからグループオブジェクトを選択する](attachments/associations/input-reference-set-selector.png)
 
-If both ends own the association, you can overcome this limitation. However, this has to be balanced by the overhead associated with having to commit all entities where the association is recorded. Therefore, it is recommended that many-to-many relationships are owned by the **Default** entity, unless there is a strong business reason for needing to add the association from either end in your Mendix app.
+両方が協会を所有している場合は、この制限を克服することができます。 しかし、これは、関連付けが記録されているすべてのエンティティをコミットすることに関連するオーバーヘッドによってバランスをとる必要があります。 そのため、多対多のリレーションは **デフォルト** エンティティによって所有されることをお勧めします。 Mendixアプリのいずれかの端から関連付けを追加する必要がある強力なビジネス上の理由がない限り。
 
 {{% alert type="info" %}}
-Recording the association on only one of the entities does not affect your ability to navigate the association from both ends. However, it may be slower to navigate from the non-owning end.
+いずれかのエンティティにのみ関連付けを記録することは、両方の端から関連付けをナビゲートする機能には影響しません。 しかし、所有していない端から移動する方が遅いかもしれません。
 {{% /alert %}}
 
-### 2.4 Type & Owner Relationship with Multiplicity & Navigability {#types}
+### 2.4 タイプ & 多重度と所有者の関係 & ナビゲーション {#types}
 
-**Type** and **Owner** properties of an entity are related to [Multiplicity](association-properties#multiplicity) and [Navigability](association-properties#navigability) properties of an association. When you change **Type** or **Owner**, you change **Multiplicity** and **Navigability** as well.
+**エンティティの** と **所有者** プロパティは、関連付けの [多重度](association-properties#multiplicity) および [ナビゲーション能力](association-properties#navigability) プロパティに関連します。 **Type** または **Owner**を変更すると、 **Multiplicity** と **Navigability** も変更されます。
 
-You can find the correspondence between **Type**/**Owner** and **Multiplicity**/**Navigability** in the table below.
+以下の表の **タイプ**/**オーナー** と **マルチプリシティー**/**ナビゲビリティ** の間で対応しています。
 
-| **Multiplicity** | **Navigability**                    | Type          | Owner   |
-| ---------------- | ----------------------------------- | ------------- | ------- |
-| One-to-one       | —                                   | Reference     | Both    |
-| One-to-many      | —                                   | Reference     | Default |
-| Many-to-many     | X objects refer to Y objects        | Reference set | Default |
-| Many-to-many     | X and Y objects refer to each other | Reference set | Both    |
+| **多重度** | **ナビゲーション**              | タイプ       | 所有者   |
+| ------- | ------------------------ | --------- | ----- |
+| 1 対 1   | —                        | 参照        | 両方とも  |
+| 1対多です   | —                        | 参照        | デフォルト |
+| 多対多で    | X オブジェクトは Y オブジェクトを参照します | リファレンスセット | デフォルト |
+| 多対多で    | XオブジェクトとYオブジェクトは互いを参照します | リファレンスセット | 両方とも  |
 
-For more information on multiplicity and navigability, see the [Multiplicity](association-properties#multiplicity) and [Navigability](association-properties#navigability) sections in *Association Properties*.
+多重度とナビゲーションの詳細については、 [関連プロパティ](association-properties#multiplicity) の [多重度](association-properties#navigability) と *ナビゲビリティ* セクションを参照してください。
 
-## 3 Parent/Child {#parent-child}
+## 3 親/子供 {#parent-child}
 
-Parent and child settings show you the direction of the association. Parent defines the entity the association starts from, and child defines the entity the association ends with.
+親と子の設定には、関連付けの方向が表示されます。 親は、関連付けが開始されるエンティティを定義し、子は関連付けが終了するエンティティを定義します。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Association Properties](association-properties)
-* [Entities](entities)
+* [関連のプロパティ](association-properties)
+* [エンティティ](エンティティ)
