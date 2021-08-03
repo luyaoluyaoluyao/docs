@@ -1,7 +1,13 @@
 ---
 title: "OQL CAST"
 parent: "oql-functions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-cast.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -18,7 +24,6 @@ CAST ( expression AS data_type )
   * BOOLEAN
   * DATETIME
   * DECIMAL
-  * FLOAT (deprecated)
   * INTEGER
   * LONG
   * STRING
@@ -27,18 +32,17 @@ CAST ( expression AS data_type )
 
 The table below describes which CAST conversions are supported:
 
-*  ✔ – the conversion is supported
-*  ✔* – the conversion is supported, but the behavior differs per database (see remarks below)
-*  ✘ – the conversion is not supported
+* ✔ – the conversion is supported
+* ✔* – the conversion is supported, but the behavior differs per database (see remarks below)
+* ✘ – the conversion is not supported
 
-| From \ To | BOOLEAN | DATETIME | DECIMAL | INTEGER | FLOAT | LONG | STRING (unlimited) |       STRING (limited)        |
-| ---------- |:-------:|:--------:|:-------:|:-------:|:-----:|:----:|:------------------:|:-----------------------------:|
-| BOOLEAN    |    ✔    |    ✘     |    ✘    |    ✘    |   ✘   |  ✘   |         ✔*         | ✔*<sup><small>1</small></sup> |
-| DATETIME   |    ✘    |    ✔     |    ✘    |    ✘    |   ✘   |  ✘   |         ✔*         | ✔*<sup><small>2</small></sup> |
-| DECIMAL    |    ✘    |    ✘     |   ✔*    |   ✔*    |  ✔*   |  ✔*  |         ✔*         | ✔*<sup><small>2</small></sup> |
-| INTEGER    |    ✘    |    ✘     |    ✔    |    ✔    |   ✔   |  ✔   |         ✔          |               ✔               |
-| FLOAT      |    ✘    |    ✘     |    ✔    |    ✔    |   ✔   |  ✔   |         ✔*         | ✔*<sup><small>2</small></sup> |
-| LONG       |    ✘    |    ✘     |    ✔    |    ✔    |   ✔   |  ✔   |         ✔          |               ✔               |
-| STRING     |    ✘    |    ✘     |    ✔    |    ✔    |   ✔   |  ✔   |         ✔          |               ✔               |
-*  [1] – BOOLEAN to STRING (limited) is supported only if the resulting string length is ≥ 5.
-*  [2] – The conversion of DATETIME, DECIMAL, and FLOAT to STRING (limited) is supported only if the value fully fits into the string length. The conversion can fail if the resulting string length is less than 20.
+| From \ To | BOOLEAN | DATETIME | DECIMAL | INTEGER | LONG | STRING (unlimited) |       STRING (limited)        |
+| ---------- |:-------:|:--------:|:-------:|:-------:|:----:|:------------------:|:-----------------------------:|
+| BOOLEAN    |    ✔    |    ✘     |    ✘    |    ✘    |  ✘   |         ✔*         | ✔*<sup><small>1</small></sup> |
+| DATETIME   |    ✘    |    ✔     |    ✘    |    ✘    |  ✘   |         ✔*         | ✔*<sup><small>2</small></sup> |
+| DECIMAL    |    ✘    |    ✘     |   ✔*    |   ✔*    |  ✔*  |         ✔*         | ✔*<sup><small>2</small></sup> |
+| INTEGER    |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
+| LONG       |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
+| STRING     |    ✘    |    ✘     |    ✔    |    ✔    |  ✔   |         ✔          |               ✔               |
+* [1] – BOOLEAN to STRING (limited) is supported only if the resulting string length is ≥ 5.
+* [2] – The conversion of DATETIME and DECIMAL to STRING (limited) is supported only if the value fully fits into the string length. The conversion can fail if the resulting string length is less than 20.
