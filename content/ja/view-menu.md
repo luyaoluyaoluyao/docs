@@ -9,13 +9,18 @@ tags:
   - "トップ バー"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/view-menu.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 Studio Pro は、 **変更** や **エラー** ペインなど、ドッキング可能なウィンドウ ペインの数をサポートしています。 いくつかのウィンドウを閉じて、必要なものを表示することができます。 しかし、いつでも **ビュー** メニューから開くことができます。
 
-このメニューを使用すると、 [フルスクリーンモード](#full-screen) または [レイアウト](#reset-layout) をデフォルトにリセットすることもできます。
+Via this menu you can also enable or disable the [full screen mode](#full-screen) or [reset the layout](#reset-layout) of your project to the default.
 
-![表示メニュー](attachments/view-menu/view-menu.png)
+{{% image_container width="300" %}}![表示メニュー](attachments/view-menu/view-menu.png)
+{{% /image_container %}}
 
 ## 2 ペインのレイアウト {#layout-of-panes}
 
@@ -59,9 +64,7 @@ Studio Pro は、 **変更** や **エラー** ペインなど、ドッキング
 
 以下のビデオは、ペインの配置方法の例を示しています。
 
-<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">ビデオ</video>
-
-複数のペインをタブにまとめてグループ化している場合は、上部のバーをドラッグすることで、すべてのタブの位置を一度に変更できます。 個々のタブの位置を変更するには、タブ自体をドラッグします。
+<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">ビデオ</video> 複数のペインをタブにまとめてグループ化している場合は、上部のバーをドラッグすることで、すべてのタブの位置を一度に変更できます。 個々のタブの位置を変更するには、タブ自体をドラッグします。
 
 ## 3つのメニュー項目
 
@@ -69,11 +72,11 @@ Studio Pro は、 **変更** や **エラー** ペインなど、ドッキング
 
 ### 3.1 変更
 
-For version control-enabled apps (meaning, those with [Team Server](/developerportal/collaborate/team-server) or other SVN servers), the [Changes pane](changes-pane) shows the local changes to the app since the last commit. 変更をコミットしたり、最新のリビジョンに更新したり、ここから履歴を見ることができます。
+For version control enabled projects (projects with [Team Server](/developerportal/collaborate/team-server) or other SVN servers), the [Changes pane](changes-pane) shows the local changes to the app since the last commit. 変更をコミットしたり、最新のリビジョンに更新したり、ここから履歴を見ることができます。
 
 このペインには2つのレベルがありますので、変更されたドキュメントにズームインすると、 文書内のすべての変更を確認できますレベル間を行き来することなく ペインのズームインレベルは2つのグリッドに分割され、左側の要素と右側のプロパティがあります。 左側の要素を選択すると、右側に変更されたプロパティが表示されます:
 
-<video width="640" height="360" controls src="attachments/view-menu/changes.mp4">ビデオ</video>
+![](attachments/view-menu/changes.gif)
 
 ### 3.2 コネクタ {#connector}
 
@@ -81,7 +84,7 @@ For version control-enabled apps (meaning, those with [Team Server](/developerpo
 
 ### 3.3 データハブ {#data-hub}
 
-[Data Hub ペイン](data-hub-pane) を使用すると、 [Data Hub カタログ](/data-hub/data-hub-catalog) を参照し、アプリケーション開発で組織で使用できる登録済みのデータ ソースを使用できます。 このペインを介して [外部エンティティ](external-entities) をアプリに追加し、アプリで既に使用されているエンティティとデータソースを確認できます。
+[Data Hub ペイン](data-hub-pane) を使用すると、 [Data Hub カタログ](/data-hub/data-hub-catalog) を参照し、組織で使用可能な登録されたデータ ソースを統合できます。 このペインから [外部エンティティ](external-entities) をアプリに追加し、プロジェクトで既に使用されているエンティティとサービスを表示できます。
 
 ### 3.3 コンソール {#console}
 
@@ -95,15 +98,15 @@ For version control-enabled apps (meaning, those with [Team Server](/developerpo
 
 [エラー ペイン](errors-pane) は、アプリケーションに存在する [エラー](consistency-errors)、警告、および非推奨を表示します。
 
-### 3.6 検索結果
+### 3.6 検索結果 {#find}
 
 このペインには、最新の検索アクションの結果が表示されます。 テキスト、要素の使用 (属性など) 、および使用されていないアイテムを検索できます。
 
 **検索結果** ペインは 2 つあります。 最初のペインの結果をロックすると、最初のペインのロックを解除するまで、2番目のペインはその後の検索操作に使用されます。
 
-### 3.7 App Explorer
+### 3.7 プロジェクト エクスプローラー
 
-[App Explorer](project-explorer) ペインには、モジュール内のすべてのドキュメントを含むアプリケーションの完全な構造が表示されます。 デフォルトでは、アクティブなドキュメントは常に選択されているため、編集するドキュメントがツリー内にある場所をすばやく確認できます。 この動作は、 **編集** > [環境設定](preferences-dialog) で変更できます。
+[プロジェクト エクスプローラー](project-explorer) ペインには、モジュール内のすべてのドキュメントを含む、アプリケーションの完全な構造が表示されます。 デフォルトでは、アクティブなドキュメントは常に選択されているため、編集するドキュメントがツリー内にある場所をすばやく確認できます。 この動作は、 **編集** > [環境設定](preferences-dialog) で変更できます。
 
 ### 3.8 プロパティ
 
@@ -119,7 +122,7 @@ For version control-enabled apps (meaning, those with [Team Server](/developerpo
 
 ### 3.11 Windowsのデバッグ
 
-デバッグの詳細については、 [Microflows と Nanoflows のデバッグ方法](/howto/monitoring-troubleshooting/debug-microflows-and-nanoflows) を参照してください。
+デバッグの詳細については、 [Microflow](/howto8/monitoring-troubleshooting/debug-microflows) を参照してください。
 
 #### 3.11.1 ブレークポイント
 
@@ -129,19 +132,17 @@ For version control-enabled apps (meaning, those with [Team Server](/developerpo
 
 **デバッガー** ツールを使用してアプリケーションのデバッグを行うことができます。
 
-#### 3.11.3 変数 {#variables}
+#### 3.11.3 変数
 
 **変数** ペインで、アプリケーションのデバッグ時に変数、リスト、オブジェクトの現在の値を表示できます。
 
 ### 3.12 全画面 {#full-screen}
 
-**Full Screen** モードはタイトルバーを非表示にし、ウインドウを画面全体に埋めます。
-
-ショートカットキー: <kbd>F11</kbd>
+**Full Screen** モードはタイトルバーを非表示にし、ウインドウを画面全体に埋めます。 This version of **Full Screen** was introduced in Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830); in previous versions, the **Full Screen** mode closed all dockable window panes. ショートカットキー: <kbd>F11</kbd>
 
 ### 3.13 自由モード {#distraction-free}
 
-**Distraction Free Mode** は、上記の **Full Screen** モードと同じ操作を行いますが、すべてのドッキング可能なウィンドウペインも閉じます。
+**Distraction Free Mode** は、上記の **Full Screen** モードと同じ操作を行いますが、すべてのドッキング可能なウィンドウペインも閉じます。 これは Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830) で導入されました。
 
 ショートカットキー: <kbd>Shift</kbd> + <kbd>F11</kbd>
 
@@ -153,5 +154,5 @@ For version control-enabled apps (meaning, those with [Team Server](/developerpo
 
 * [ペインの変更](changes-pane)
 * [Errors Pane](errors-pane)
-* [アプリエクスプローラー](project-explorer)
+* [プロジェクトエクスプローラー](project-explorer)
 * [Studio Pro Overview](studio-pro-overview)
