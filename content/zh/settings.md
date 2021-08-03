@@ -21,6 +21,7 @@ tags:
 
 ![](attachments/settings/settings-icon.png)
 
-## 2 次阅读更多
+## 2 个此类别的主要文档
 
-* [常规信息](general)
+* [安全性，角色 & 权限](settings-security) -- 描述Mendix Studio中的安全性，用户角色和他们的权限
+* [部件概述](settings-widget-overview) - 描述您的应用程序中Mendix 市场和本地窗口小部件的设置
