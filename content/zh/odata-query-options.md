@@ -1,162 +1,162 @@
 ---
-title: "OData Query Options"
-parent: "published-odata-services"
+title: "OData 查询选项"
+parent: "已发布的 odata 服务"
 tags:
   - "OData"
-  - "filter"
-  - "count"
-  - "sort"
-  - "select"
-  - "page"
+  - "筛选器"
+  - "计数"
+  - "排序"
+  - "选择"
+  - "页面"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This is a list of query options for OData.
+这是OData查询选项的列表。
 
 {{% alert type="info" %}}
-We currently only support the options described here.
-{{% /alert %}}
+我们目前只支持这里所述的各种选择。
+{{% /报警 %}}
 
-## 2 Retrieving Objects
+## 2 个检索对象
 
-### 2.1 Retrieving All Objects
+### 2.1 检索所有对象
 
-All objects can be retrieved by specifying the URI. For example: `/odata/myservice/v1/myresource`. You can see this if you specify the URI in a browser.
+所有对象都可以通过指定 URI 来检索。 例如： `/odata/myservice/v1/myresource`。 如果您在浏览器中指定URI，您可以看到这一点。
 
-### 2.2 Retrieving a Single Object
+### 2.2 检索单一对象
 
-A single object can be retrieved by passing the object identifier in the URI. For example: `/odata/myservice/v1/myresource(8444249301330581)`.
+通过传递URI中的对象标识符可以检索单个对象。 例如： `/odata/myservice/v1/myresource(8444249301330581)`。
 
-### 2.3 Retrieving Associated Objects
+### 2.3 检索相关对象
 
-Associated objects can be retrieved by passing the `$expand` query parameter. For example: `/odata/myservice/v1/Exployees?$expand=Cars,Address($expand=City)` (OData 4) or `/odata/myservice/v1/Exployees?$expand=Cars,Address/City` (OData 3).
+相关对象可以通过通过 `$expand` 查询参数获取。 例如： `/odata/myservice/v1/Exploque?$expand=Cars,Address($expand=City)` (OData 4) 或 `/odata/myservice/v1/Explaine?$expand=Cars,Address/City` (OData 3)。
 
-## 3 Counting the Number of Objects
+## 3 计数对象数量
 
-### 3.1 Retrieving a Count of Objects
+### 3.1 检索物体数量
 
-You can find out how many objects there are by passing the `$count` query option. In this case, the result is an integer which is the number of objects. For example: `/odata/myservice/v1/myresource/$count`.
+您可以通过传递 `$count` 查询选项来发现那里有多少对象。 在这种情况下，结果是一个整数，即对象的数量。 例如： `/odata/myservice/v1/myresource/$count`
 
-### 3.2 (Inline) Count
+### 3.2 (内联) 计数
 
-For OData 4, by setting the `$count` query option to `true`, a count of the number of items returned will be included in the result. For example: `?$count=true`.
+为 OData 4, 通过设置 `$count` 查询选项为 `true`a 结果将包括退还的物品数目。 例如： `?$count=true`
 
-For OData 3, by setting the `$inlinecount` query option to `allpages`, a count of the number of items returned will be included in the result. For example: `?$inlinecount=allpages`.
+为 OData 3, 通过设置 `$inlinecount` 查询选项为 `所有页面`a 结果将包括退还的物品数目。 例如： `?$inlinecount=allpages`。
 
-## 4 Filtering
+## 4 个过滤
 
-Filters are applied by appending a `$filter=...` parameter to the request. For example: `/Employees?$filter=Name eq 'John'`.
+筛选器通过附加一个 `$filter=...` 参数应用到请求中。 例如： `/员工？$filter=name eq 'John'`
 
-### 4.1 Passing attributes
+### 4.1 传递属性
 
-This table describes how to pass values for different attribute types:
+此表描述了如何传递不同属性类型的值：
 
-| Type                   | How to Pass                                                                                                                                                                                               |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| String and Enumeration | Enclosed in single quotes (for example, `'John'`)                                                                                                                                                         |
-| Datetime               | For OData 4: a plain value (for example, `2021-12-31`). For OData 3: Preceded with `datetime` and enclosed in single quotes (for example, `datetime'2021-12-31'` or `datetime'<epoch value here>'`) |
-| Other                  | Plain value (for example, 15)                                                                                                                                                                             |
+| 类型      | 如何通过                                                                                                                         |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 字符串和枚举值 | 以单引号内封装(例如， `'John'`)                                                                                                        |
+| 日期时间    | 为 OData 4: 一个普通值 (例如， `2021-12-31`)。 为 OData 3：先于 `日期时间` 并包含在单引文中(例如， `日期时间'2021-12-31'` 或 `日期时间'<epoch value here>'`) |
+| 其他      | A. 原始价值（例如，15）                                                                                                               |
 
-### 4.2 Comparison Operators
+### 4.2 比较运算符
 
-We support the following comparison operators:
+我们支持以下比较操作：
 
-| Operator | Meaning                  | Example                             |
-| -------- | ------------------------ | ----------------------------------- |
-| eq       | equals                   | `/Employees?$filter=Name eq 'John'` |
-| ne       | does not equal           | `/Employees?$filter=Name ne 'John'` |
-| gt       | greater than             | `/Employees?$filter=Age gt 15`      |
-| lt       | less than                | `/Employees?$filter=Age lt 15`      |
-| ge       | greater than or equal to | `/Employees?$filter=Age ge 15`      |
-| le       | less than or equal to    | `/Employees?$filter=Age le 15`      |
+| 运算符 | 含义    | 示例                             |
+| --- | ----- | ------------------------------ |
+| iq  | 等于    | `雇员？$filter=name eq 'John'`    |
+| n   | 不等于   | `/员工？$filter=Name ne 'John'`   |
+| gt  | 大于    | `/employees?$filter=Age gt 15` |
+| 英寸  | 小于    | `/员工？$filter=年龄15分`            |
+| ge  | 大于或等于 | `/employees?$filter=Age 15`    |
+| l   | 小于等于  | `/员工？$filter=15岁`              |
 
-### 4.3 Arithmetic Operators
+### 4.3 算术运算符
 
-| Operator | Meaning       | Example                                | Returns                                |
-| -------- | ------------- | -------------------------------------- | -------------------------------------- |
-| add      | add           | `/Products?$filter=Prices add 2 eq 10` | All products with price 8              |
-| sub      | minus         | `/Products?$filter=Prices sub 2 eq 10` | All products with price 12             |
-| mul      | multiplied by | `/Products?$filter=Prices mul 2 eq 10` | All products with price 5              |
-| div      | divided by    | `/Products?$filter=Prices div 2 eq 10` | All products with price 20             |
-| mod      | modulus       | `/Products?$filter=Prices mod 5 eq 0`  | All products with price divisible by 5 |
+| 运算符 | 含义      | 示例                                        | 返回          |
+| --- | ------- | ----------------------------------------- | ----------- |
+| 添加  | 添加      | `/Production?$filter=价格添加 2 eq 10`        | 所有带价格的产品 8  |
+| 子项  | minus   | `/Products?$filter=价格2eq 10`              | 所有有价格的产品 12 |
+| mul | 乘以：     | `/Production?$filter=价格 2 eq 10`          | 所有价格为5的产品   |
+| div | 除以      | `/Production?$filter= Prices div 2 eq 10` | 所有有价格的产品 20 |
+| mod | modulus | `/Products?$filter=价格 mod 5 eq 0`         | 价格可分为5的所有产品 |
 
-### 4.4 Functions
+### 4.4 职能
 
-| Function             | Example                                         | Returns                                                               |
-| -------------------- | ----------------------------------------------- | --------------------------------------------------------------------- |
-| contains<sup>1</sup> | `/Employees?$filter=contains(Name, 'f')`        | All employees with names that contain an 'f'                          |
-| startswith           | `/Employees?$filter=startswith(Name, 'f')`      | All employees with names that start with 'f'                          |
-| endswith             | `/Employees?$filter=endswith(Name, 'f')`        | All employees with names that end with 'f'                            |
-| length               | `/Employees?$filter=length(Name) eq 5`          | All employees with names that have a length of 5                      |
-| year                 | `/Employees?$filter=year(DateOfBirth) eq 1990`  | All employees born in the year 1990                                   |
-| month                | `/Employees?$filter=month(DateOfBirth) eq 5`    | All employees born in May                                             |
-| day                  | `/Employees?$filter=day(DateOfBirth) eq 31`     | All employees born on the 31st day of the month                       |
-| hour                 | `/Employees?$filter=hour(Registration) eq 13`   | All employees registered between 13:00 (1 PM) and 13:59 (1:59 PM)     |
-| minute               | `/Employees?$filter=minute(Registration) eq 55` | All employees registered on the 55th minute of any hour               |
-| second               | `/Employees?$filter=second(Registration) eq 55` | All employees registered on the 55th second of any minute of any hour |
+| 函数             | 示例                                        | 返回                                  |
+| -------------- | ----------------------------------------- | ----------------------------------- |
+| 包含<sup>1</sup> | `/员工？$filter=contains(名字，'f')`            | 所有包含“f”名称的员工都是                      |
+| 启动             | `/employees?$filter=startswith(名字, 'f')`  | 所有名字以“f”开头的员工。                      |
+| 端sand          | `/员工？$filter=endswith(名字，'f')`            | 所有具有此末尾“f”名称的员工                     |
+| 长度             | `/员工？$filter=length(名称) eq 5`             | 所有名字长度为5的员工数                        |
+| 年              | `/员工？$filter=year(DateOfBirth) eq 1990`   | 1990年出生的所有员工：                       |
+| 月              | `/employees?$filter=月份(DateOfBirth) eq 5` | 5月份出生的所有员工：                         |
+| 天              | `/员工？$filter=day(DateOfBirth) eq 31`      | 月31日出生的所有员工：                        |
+| 小时             | `/员工？$filter=小时(注册) eq 13`                | 所有员工在13:00(1 PM)至13:59(1:59 PM)之间注册 |
+| 分钟             | `/employees?$filter=minute(注册) eq 55`     | 所有员工在任何小时的55分钟注册                    |
+| 秒              | `/员工？$filter=second(注册) eq 55`            | 所有员工都注册在任何一分钟的第55秒内                 |
 
-<sup>1</sup> In OData 3, the `contains` function is called `substringof`, and its arguments are reversed For example, `/Employees?$filter=substringof('f', Name)`
+<sup>1</sup> 在 OData 3 中， `包含` 函数调用 `子字符串的`和它的参数被反转。例如： `/ 员工？$filter=子字符串('f', 名称)`
 
-### 4.5 Combining Filters
+### 4.5 组合过滤器
 
-Filters can be combined with `and`, `or`, `not`, and `()`. For example: `?$filter=Name eq 'John' and (Age gt 65 or Age lt 11)`.
+过滤器可以与 `和`, `或`, `not`, 和 `()` 合并. 例如： `?$filter=name eq 'John' and (ge gt 65 or Age 11)`
 
-| Combination | Example                                                          |
-| ----------- | ---------------------------------------------------------------- |
-| and         | `/Employees?$filter=Name eq 'John' and Age gt 65`                |
-| or          | `/Employees?$filter=Age gt 65 or Age lt 11`                      |
-| not         | `/Employees?$filter=not(Name eq 'John')`                         |
-| ( )         | `/Employees?$filter=Name eq 'John' and (Age gt 65 or Age lt 11)` |
+| 组合  | 示例                                                |
+| --- | ------------------------------------------------- |
+| 和   | `/employees?$filter=name eq 'John' and Age gt 65` |
+| 或   | `/员工？$filter=年龄gt 65 或 11`                        |
+| 不是  | `/员工？$filter=not(Name eq 'John')`                 |
+| ( ) | `/员工？$filter=name eq 'John' 和 (Age gt 65 或 11岁)`  |
 
-### 4.6 Filtering by Association
+### 4.6 按协会筛选
 
-You can filter on attributes of an associated entity. The way you do this depends on whether the association exposes one object or a list of objects.
+您可以筛选关联实体的属性。 您这样做的方式取决于该社团是否暴露了一个对象或一个对象列表。
 
-| Type                           | Example                                               |
-| ------------------------------ | ----------------------------------------------------- |
-| Filter on an associated object | `People?$filter=BirthPlace/CityName eq 'Rotterdam'`   |
-| Filter on an associated list   | `City?$filter=BornIn/any(person:person/Year le 1919)` |
+| 类型       | 示例                                                  |
+| -------- | --------------------------------------------------- |
+| 筛选关联对象   | `人民？$filter=生平地/Cityname eq '鹿特丹'`                  |
+| 在关联列表中过滤 | `城市？$filter=BornIn/any(person:person/year le 1919)` |
 
-Filtering on an associated object or list in this way is possible when you [expose associations as a link](odata-representation#associations). It is not possible when you [expose associations as an associated object ID](odata-representation#associations).
+当您 [透露关联关联为链接](odata-representation#associations) 时，可以这样对关联对象或列表进行过滤。 当您 [以关联对象 ID](odata-representation#associations) 的形式揭示关联时，它是不可能的。
 
-## 5 Sorting
+## 5 排序
 
-You can sort the result using the `$orderby` query option. For example: `?$orderby=Name` or `?$orderby=BirthPlace/CityName`.
+您可以使用 `$orderby` 查询选项排序结果。 例如： `?$orderby=name` 或 `?$orderby=出生地/名称`.
 
-The default direction is ascending, and you can make this explicit. For example: `?$orderby=Name asc`.
+默认方向升高，并且您可以让它变得清晰。 例如： `?$orderby=name asc`
 
-You can also order the result in a descending direction. For example: `?$orderby=Name desc`.
+您也可以按降序排序结果。 例如： `?$orderby=Name desc`
 
-It is possible to sort on multiple attributes, which have to be comma-separated. For example: `?$orderby=Name asc,Age desc`.
+它可以按多个属性排序，这些属性必须用逗号分隔。 例如： `?$orderby=名字升序，年龄降序`
 
-## 6 Selecting fields
+## 6 选择字段
 
-You can select which attributes and associations to return by specifying the `$select` query option. For example: `?$select=Name,Age`.
+您可以通过指定 `$select` 查询选项来选择要返回的属性和关联。 例如： `?$select=Name,年龄`。
 
-## 7 Paging
+## 7页
 
-### 7.1 Top (Limit)
+### 7.1 顶部(限制)
 
-You can limit the number of returned objects using the `$top` query option, where the limit is a positive integer. For example: `?$top=100`.
+您可以使用 `$top` 查询选项限制返回对象的数量，因为限制是一个正整数。 例如： `?$top=100`
 
-### 7.2 Skip (Offset)
+### 7.2 跳过 (Offset)
 
-You can skip a number of objects before retrieving the result using the `$skip` query option, where the offset is a positive integer. For example: `?$skip=100` will return objects starting with the 101st object in the list.
+您可以在使用 `$skip` 查询选项检索结果之前跳过一些对象，而偏移是一个正整数。 例如： `?$skip=100` 会返回从列表中第101个对象开始的对象。
 
 ## 8 Null Literals
 
-You can compare values against the `null` literal. For example: `?$filter=Name eq null`.
+您可以比较值与 `null` 字幕。 例如： `?$filter=name eq nul`
 
-In this example, `Name` is a string attribute that can have no assigned value in the database. Note that `null` means *no value* as opposed to `''` (which is an empty string).
+在这个示例中， `name` 是一个在数据库中没有分配值的字符串属性。 注意 `null` 意味着 *没有值* 而不是 `'` (这是一个空字符串)。
 
-When you filter against associations, null literals can be quite useful. For example: `?$filter=Association_A_B ne null`. In this example, you query for objects of entity type `A` that have at least one association set to objects of entity type `B`.
+当您过滤关联时，空文可能非常有用。 例如： `?$filter=Association_A_B ne null` 在此示例中， 您查询实体类型 `A` 中至少有一个关联设置为实体类型 `B 类型对象的对象`。
 
-## 9 Passing Query Options in the Request Body
+## 9 请求正文中的传递查询选项
 
-If the OData query is too long to be sent as a `GET` request, clients can send the query as a `POST` request to the `/$query` endpoint. For example, `GET /Products?$select=Name,Price` and `POST /Products/$query` with `$select=Name,Price` in the request body give the same result. These `POST` requests must specify the header `Content-Type: text/plain`.
+如果OData查询太长，不能作为 `GET` 请求发送 客户端可以将查询作为 `POST` 请求发送到 `/$query` 端点。 例如， `GET /Product？$select=名称,价格` and `POST /Products/$query` with `$select=姓名, 大米` 在请求正文中提供同样的结果。 这些 `POST` 请求必须指定标题 `Content-Type: text/纯`.
 
 {{% alert type="info" %}}
-The body must adhere to *URL encoding* principles. So, for instance, spaces, tabs, and newlines are not allowed.
-{{% /alert %}}
+该机构必须遵守 *URL 编码* 原则。 因此，例如，不允许有空格、标签和新闻线。
+{{% /报警 %}}
