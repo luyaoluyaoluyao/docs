@@ -1,48 +1,48 @@
 ---
-title: "Import App Package"
-parent: "file-menu"
+title: "アプリパッケージをインポート"
+parent: "ファイルメニュー"
 menu_order: 40
-description: "Describes the Import App Package process and Import App Package dialog box."
+description: "format@@0 および format@@1 ダイアログ ボックスについて説明します。"
 tags:
   - "studio pro"
-  - "import app package"
+  - "アプリパッケージをインポート"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-To create a new app from a Mendix app package (*.mpk*) file, you need to import an app package. The new app can either be stored in a version control server or locally on disk.
+Mendixアプリパッケージ(*.mpk*)から新しいアプリを作成するには、appパッケージをインポートする必要があります。 新しいアプリは、バージョン管理サーバーまたはローカルディスクに保存することができます。
 
-To import an app package, do the following:
+アプリパッケージをインポートするには、次の手順を実行します。
 
-1. Select the **File** menu in the top bar > **Import App Package**
+1. トップバーの **ファイル** メニューを選択してください > **アプリパッケージをインポート**
 
-2. Browse to the *.mpk* file you would like to import.
+2. インポートしたい *.mpk* ファイルを参照します。
 
-3.  Select the relevant options in the **Import App Package** dialog box and click **OK**. For more information on what options you can select, see the sections below.
+3.  **アプリパッケージのインポート** ダイアログボックスで関連するオプションを選択し、 **OK** をクリックします。 選択できるオプションの詳細については、以下のセクションを参照してください。
 
-    ![Import App Package Dialog Window](attachments/file-menu/import-project-package.png)
+    ![format@@0ダイアログ ウィンドウをインポート](attachments/file-menu/import-project-package.png)
 
-App packages can be created using [Export App Package](export-project-package-dialog).
+[アプリパッケージのエクスポート](export-project-package-dialog) を使用してアプリパッケージを作成できます。
 
-## 2 Where Should We Store Your App?
+## 2 アプリはどこに保存するべきですか?
 
-Use this setting to select the location where you want to store your app. This can be the [Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
+この設定を使用して、アプリを保存する場所を選択します。 This can be the [Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
 
-### 2.1 Mendix Team Server {#team-server}
+### 2.1 Mendix チームサーバー {#team-server}
 
-When uploading the app to the Team Server, you can choose between creating a new repository, or uploading to an existing one.
+Team Serverにアプリをアップロードするときは、新しいリポジトリを作成するか、既存のリポジトリにアップロードするかを選択できます。
 
-#### 2.1.1 New Mendix Team Server
+#### 2.1.1 新しいMendix チームサーバー
 
-If you select to store your app in a new Mendix Team Server, a new Team Server app will be created. You need to enter the name for the new Team Server app and repository in the **App name** field.
+Mendix Team Serverにアプリを保存することを選択すると、新しいTeam Serverアプリが作成されます。 新しいTeam Serverアプリとリポジトリの名前を **アプリ名** フィールドに入力する必要があります。
 
-#### 2.1.2 Existing Mendix Team Server
+#### 2.1.2 既存のMendixチームサーバー
 
-If you want to use an existing repository, select the app in the **Team Server App** option. Note that this works only when the existing repository is empty.
+既存のリポジトリを使用する場合は、 **Team Server App** オプションでアプリを選択します。 これは既存のリポジトリが空の場合にのみ動作することに注意してください。
 
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
+Mendix Team Serverの詳細については、 [Team Server](/developerportal/collaborate/team-server) を参照してください。
 
-### 2.2 Private Server {#private-server}
+### 2.2 プライベートサーバー {#private-server}
 
 {{% alert type="info" %}}
 
@@ -50,17 +50,17 @@ The **Private server** option is only available when support for other SVN serve
 
 {{% /alert %}}
 
-In the **App repository address** field, enter the address of the repository you want to upload your app to.
+**App repository address** フィールドに、アプリをアップロードしたいリポジトリのアドレスを入力します。
 
-### 2.3 Locally on Disk {#local}
+### 2.3 ローカルディスク {#local}
 
-Select this option if you don't need to upload the new app to a version control server. In this case it will only be stored on the local disk of the computer that's running Studio Pro.
+新しいアプリをバージョン管理サーバーにアップロードする必要がない場合は、このオプションを選択します。 この場合、Studio Pro を実行しているコンピュータのローカルディスクにのみ保存されます。
 
-## 3 App Directory
+## 3つのアプリディレクトリ
 
-Use this field to choose the directory where the app files of the app will be stored. If the version control is enabled, the suggested name ends with *-main* to indicate this will be the main development line of the app.
+このフィールドを使用して、アプリのアプリファイルを格納するディレクトリを選択します。 バージョンコントロールが有効な場合。 提案された名前は *-main* で終わり、これがアプリの主要な開発ラインになります。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Team Server](/developerportal/collaborate/team-server)
-* [Export App Package](export-project-package-dialog)
+* [チームサーバー](/developerportal/collaborate/team-server)
+* [アプリパッケージのエクスポート](export-project-package-dialog)
