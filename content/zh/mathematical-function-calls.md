@@ -1,313 +1,351 @@
 ---
-title: "Mathematical function calls"
-parent: "expressions"
+title: "数学函数调用"
+parent: "表达式"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "数学函数调用"
+  - "数学函数"
+  - "表达式"
 ---
 
+## 1 导言
 
-## max
+数学函数调用包括数量上的有限数学操作，例如返回最大数值或四舍五入数值。
 
-Returns the largest value from the specified arguments.
+如果你需要更详细的函数(例如方根、沙质、成本、tan、数字OfPermutes、工厂或纤维编号), 然后考虑使用Mendix Marketplace中社区支持的 [数学](https://marketplace.mendix.com/link/component/112522/) 模块。
 
-### Input parameters
+## 最大2
 
-*   Two or more values that are all either of type Date and time or of a numeric type (Integer/Long, Float or Decimal).
+从指定的参数返回最大值。
 
-### Output
+### 2.1 输入参数
 
-Returns the largest value from the specified arguments. If the arguments are of type Date and time, the result will also be of type Date and time. If the arguments are numeric, the result will be of the most precise type. For example, if both an Integer/Long and a Decimal argument are specified, the result will be of type Decimal.
+下面的表格描述了输入参数：
 
-Type: Integer/Long or Decimal
+| 值      | 类型                      |
+| ------ | ----------------------- |
+| 两个或多个值 | 所有数值类型 (整数/小数) 或所有日期和时间 |
+
+### 2.2 产出
+
+产出情况见下表：
+
+| 值         | 类型                                                                                                    |
+| --------- | ----------------------------------------------------------------------------------------------------- |
+| 指定参数的最大值。 | 如果参数是类型日期和时间，结果也将是类型日期和时间。 <br />如果参数是数字的，结果将是最精确的类型。 <br />例如，如果指定了整数/长度和小数点参数，结果将是小数点数。 |
+
+### 2.3 例子
+
+如果您使用以下输入：
 
 ```java
 max(5, 1, 5, 6.7)
 ```
 
-returns:
+输出为十进制：
 
 ```java
 6.7
 ```
 
-of type "Decimal".
+## 3 分钟
 
-## min
+从指定参数返回最小值。
 
-Returns the smallest value from the specified arguments.
+### 3.1 输入参数
 
-### Input
+下面的表格描述了输入参数：
 
-Two or more values that are all either of type Date and time or of a numeric type (Integer/Long, Float or Decimal).
+| 值      | 类型                      |
+| ------ | ----------------------- |
+| 两个或多个值 | 所有数值类型 (整数/小数) 或所有日期和时间 |
 
-### Output
+### 3.2 产出
 
-Returns the smallest value from the specified arguments. If the arguments are of type Date and time, the result will also be of type Date and time. If the arguments are numeric, the result will be of the most precise type. For example, if both an Integer/Long and a Decimal argument are specified, the result will be of type Decimal.
+产出情况见下表：
 
-Type: Integer/Long or Decimal
+| 值           | 类型                                                                                                    |
+| ----------- | ----------------------------------------------------------------------------------------------------- |
+| 来自指定参数的最小值。 | 如果参数是类型日期和时间，结果也将是类型日期和时间。 <br />如果参数是数字的，结果将是最精确的类型。 <br />例如，如果指定了整数/长度和小数点参数，结果将是小数点数。 |
+
+### 3.3 示例
+
+如果您使用以下输入：
 
 ```java
-min(5, 1, 5, 6.7)
+最小(5, 1, 5, 6.7)
 ```
 
-returns:
+输出为十进制：
 
 ```java
 1
 ```
 
-of type "Decimal"
+## 四个圆形
 
-## round
+将一个数调到一定的精度。
 
-Rounds a number to a certain precision.
+### 4.1 输入参数
 
-### Input
+下面的表格描述了输入参数：
 
-*   a number Type: Integer/Long, Float or Decimal
+| 值      | 类型    |
+| ------ | ----- |
+| 一个数字   | 整数/小数 |
+| 精度(可选) | 整数/经度 |
 
-*   a precision (optional) Type: Integer/Long
+### 4.2 产出
 
-### Output
+在 [应用设置](project-settings)中，您的 **循环号码** 的选项可以设置，决定如何处理半个数字 (0.5) ：
+*   在 **距离0** 选项(也叫做“商业环绕”) 一半的地方，+2.5 变成+3 ，-1.5 变成-2
+*   **到最近的偶数** 选项的一半(也称为“银行家环形”)，是 [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point "IEEE floating point") 计算函数和操作员使用的默认四舍五入模式； 例如，+23. 变成+24，变成+24.5；并变成-22，变成-21.5。
 
-In the **Settings**, your option for **Round numbers** can be set:
-*   For the **Half away from zero** option (also called "commercial rounding"), +2.5 becomes +3 and -1.5 becomes -2
-*   The **Half to the nearest even number** option (also called "bankers' rounding") is the default rounding mode used in  [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point "IEEE floating point") computing functions and operators; for example, +23.5 becomes +24, as does +24.5; and -22.5 becomes -22, as does -21.5
+第二个可选参数决定四舍五入的精度。 默认值为0。 结果将是最准确的类型。 如果精度为 0，结果将为整数/长型。 对于所有其他精确值来说，结果将是十进制型。
 
-The second optional parameter determines the precision of the rounding. The default value is 0. The result will be of the most precise type possible. For a precision of 0, the result will be of integer/long type, and for all other precision values, the result will be of the decimal type.
+### 4.3 例子
 
-Type: Integer/Long or Decimal
+如果您使用以下输入：
 
 ```java
-round(3.5)
+圆形(3.5)
 ```
 
-returns:
+输出类型为整数/Long：
 
 ```java
 4
 ```
 
-of type "Integer/Long"
-
-and
+输入的另一个例子是：
 
 ```java
-round(88.725,2)
+圆形(88.725,2)
 ```
 
-returns:
+输出为十进制：
 
 ```java
 88.72
 ```
 
-of type Decimal
+## 5 个随机的
 
-## random
+生成随机数字 >= 0.0 和 < 1.0
 
-Generates a random number >= 0.0 and < 1.0
+### 5.1 产出
 
-### Output
+产出情况见下表：
 
-A random number between 0.0 and 1.0 Type: Decimal
+| 值                   | 类型 |
+| ------------------- | -- |
+| 0.0 和 1.0之间的小数型随机数。 | 小数 |
 
-```java
-random()
-```
+### 5.2 示例
 
-## floor
-
-Rounds down to an integer (returns the largest integer which is less than or equal to the input).
-
-### Input
-
-*   a number Type: Integer/Long, Float or Decimal
-
-### Output
-
-The input value rounded down to the nearest integer.
-
-Type: Integer/Long
+如果您使用以下输入：
 
 ```java
-floor(3.9)
+随机()
 ```
 
-returns:
+输出为：
+
+```java
+0.3
+```
+
+## 6层
+
+向下回转到整数(返回小于或等于输入的最大整数)。
+
+### 6.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值    | 类型    |
+| ---- | ----- |
+| 一个数字 | 整数/小数 |
+
+### 6.2 产出
+
+产出情况见下表：
+
+| 值              | 类型 |
+| -------------- | -- |
+| 输入值四舍五入到最近的整数。 | 整数 |
+
+### 6.3 示例
+
+如果您使用以下输入：
+
+```java
+下限(3.9)
+```
+
+输出为：
 
 ```java
 3
 ```
 
-and
+输入的另一个例子是：
 
 ```java
 floor(-1.2)
 ```
 
-returns:
+输出为：
 
 ```java
 -2
 ```
 
-## ceil
+## 7 首小节
 
-Rounds up to an integer (returns the smallest integer which is greater than or equal to the input).
+响铃到整数(返回大于或等于输入的最小整数)。
 
-### Input
+### 7.1 输入参数
 
-*   a number Type: Integer/Long, Float or Decimal
+下面的表格描述了输入参数：
 
-### Output
+| 值    | 类型    |
+| ---- | ----- |
+| 一个数字 | 整数/小数 |
 
-The input value rounded up to the nearest integer.
+### 7.2 产出
 
-Type: Integer/Long
+产出情况见下表：
+
+| 值              | 类型 |
+| -------------- | -- |
+| 输入值四舍五入到最近的整数。 | 整数 |
+
+### 7.3 示例
+
+如果您使用以下输入：
 
 ```java
-ceil(3.2)
+最高限额（3.2）
 ```
 
-returns:
+输出为：
 
 ```java
 4
 ```
 
-and
+输入的另一个例子是：
 
 ```java
-ceil(-1.9)
+天花板(1.9)
 ```
 
-returns:
+输出为：
 
 ```java
 -1
 ```
 
-## pow
+## 8 pow
 
-Calculates the exponent of a number to a certain power.
+将一个数字提升到一定的力量。
 
-### Input
+### 8.1 输入参数
 
-*   a number Type: Integer/Long, Float or Decimal
-*   a power Type: Integer/Long, Float or Decimal
+下面的表格描述了输入参数：
 
-### Output
+| 值    | 类型    |
+| ---- | ----- |
+| 一个数字 | 整数/小数 |
+| 能量：  | 整数/小数 |
 
-The number to the power, as in, n^p. The result will be of the most precise type necessary.
+### 8.2 产出
 
-Type: Integer/Long or Decimal
+产出情况见下表：
+
+| 值                            | 类型    |
+| ---------------------------- | ----- |
+| 电源的数字，如在n^p中。 结果将是必要的最准确的类型。 | 整数/小数 |
+
+### 8.3 示例
+
+如果您使用以下输入：
 
 ```java
 pow(2, 3)
 ```
 
-returns:
+输出类型为整数/Long：
 
 ```java
 8
 ```
 
-of type "Integer/Long"
-
-and
+输入的另一个例子是：
 
 ```java
 pow(2.5, 3)
 ```
 
-returns:
+输出为十进制类型：
 
 ```java
 15.625
 ```
 
-of type "Decimal"
+小数点后能量的火药的计算可能不准确，因为标准的 Java 库不支持这些计算精确度。 在自定义的 Java 动作中使用一个专业知识库，如果这种情况需要高度精准的话。
 
-Calculation of 'pow' with a decimal exponent might be less accurate, as the standard Java libraries do not support these calculations with high precision. Use a specialized library in a custom Java action if high precision is required for this case.
+### 8.4 (正方形) root
 
-## abs
+要获取小数点的方根，请使用 0.5 作为第二个参数：
 
-Calculates the absolute value of a number (ie not negative).
+* `粉末(16, 0.5)` 结果在 `4`
 
-### Input
 
-*   a number Type: Integer/Long, Float or Decimal
+或者，对特定的根目录使用一个分区：
 
-### Output
+* `粉末(27, 1:3)` 结果在 `3`
 
-The absolute value of the input, which is never negative. Corresponds to taking the square and then the square root.
+* `粉末(16, 1:4)` 结果在 `2`
 
-Type: Integer/Long or Decimal
+## 9 abs
+
+计算数字的绝对值 (表示而不是负值)。
+
+### 9.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值    | 类型    |
+| ---- | ----- |
+| 一个数字 | 整数/小数 |
+
+### 9.2 产出
+
+产出情况见下表：
+
+| 值                                  | 类型    |
+| ---------------------------------- | ----- |
+| 输入的绝对值，从来都不是负值。 相应地把正方形和正方形根基放在一起。 | 整数/小数 |
+
+### 9.3 示例
+
+如果您输入负值作为输入：
 
 ```java
-abs(-5)
+缺席(-5)
 ```
 
-and
+或者，如果您输入正值：
 
 ```java
-abs(5)
+缺席（5）
 ```
 
-both return:
+这两种情况的结果是：
 
 ```java
 5
 ```
-## floatsEqual
-
-Compares the two numbers to decimal point p, which is equal to Precision.
-
-{{% alert type="warning" %}}
-
-This function is deprecated together with the Float type. Use the high-precision Decimal type instead.
-
-{{% /alert %}}
-
-### Input
-
-*   a number Type: Integer/Long or Float
-*   another number Type: Integer/Long or Float
-*   a precision Type: Integer/Long
-
-### Output
-
-A value indicating whether the two numbers are equal given the specified precision.
-
-Type: Boolean
-
-```java
-floatsEqual(0.51, 0.50, 1)
-```
-
-returns:
-
-```java
-true
-```
-
-and
-
-```java
-floatsEqual(0.51, 0.50, 2)
-```
-
-returns:
-
-```java
-false
-```
-
-## currenciesEqual
-
-See floatsEqual.
-
-{{% alert type="warning" %}}
-
-This function is deprecated together with the Float type. Use the high-precision Decimal type instead.
-
-{{% /alert %}}
