@@ -1,185 +1,185 @@
 ---
-title: "Enable End-Users to Attach Images"
-category: "Pages"
-description: "Describes how to configure image uploader in Mendix Studio."
+title: "画像を添付するためにエンドユーザーを有効にする"
+category: "ページ"
+description: "Mendix Studioで画像アップローダーを設定する方法を説明します。"
 menu_order: 60
 tags:
-  - "studio"
-  - "pages"
-  - "image"
-  - "image uploader"
-  - "attachment"
-  - "attach image"
+  - "スタジオ"
+  - "ページ"
+  - "画像"
+  - "画像アップローダー"
+  - "添付ファイル"
+  - "画像を添付"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can enable your end-users to attach images. They will be able to attach images from different devices: phone, tablet, or desktop; or they can take a new image on their phone camera.
+この方法では、エンドユーザーが画像を添付できるようにする方法を説明します。 スマートフォン、タブレット、デスクトップなど、さまざまなデバイスから画像を添付したり、新しい画像を携帯電話のカメラで撮影したりできます。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Create image entities
-* Create a page with a form that allows your end-users to attach images
-* Display attached images in a list
+* 画像エンティティを作成
+* エンドユーザーが画像を添付できるようにするフォームを持つページを作成します
+* 添付画像を一覧に表示
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-You have the **New Report** page with a form (a data view) where employees submit a trip report for  reimbursement. They fill in their name, department, purpose and date of their trip, and total amount to be reimbursed:
+従業員が払い戻しのために旅行レポートを提出するフォーム(データビュー)の **新しいレポート** ページがあります。 彼らは旅行の名前、部署、目的、日付、および払い戻し額を記入します:
 
 {{% image_container width="600" %}}![](attachments/pages-how-to-upload-images/form-example.png){{% /image_container %}}
 
-Your domain model looks the following way:
+ドメインモデルは次のようになります:
 
 {{% image_container width="200" %}}
 ![](attachments/pages-how-to-upload-images/domain-model.png)
 {{% /image_container %}}
 
-You would like to add a new functionality: when creating a reimbursement report, employees need to attach receipts – screenshots or scanned images of what they paid for.
+新しい機能を追加したい場合: 払い戻しレポートを作成する場合。 従業員はレシートを添付する必要があります – スクリーンショットや支払ったもののスキャン画像。
 
-You also would like to display attached images in a list below the report and to enable your end-users delete images from the list if needed.
+レポートの下のリストに添付された画像を表示し、必要に応じてエンドユーザーがリストから画像を削除できるようにしたい場合もあります。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio8/page-editor) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
-## 3 Creating an Image Entity
+## 3 イメージエンティティの作成
 
-First of all, to be able to attach and upload images you need to add a special type of entity to your domain model: an image entity. Do the following:
+まず第一に ドメインモデルに特別なタイプのエンティティを追加する必要がある画像を添付したりアップロードしたりできます:画像エンティティ。 次の操作を行います:
 
-1. Open your domain model and open the **Toolbox** tab.
+1. ドメインモデルを開き、 **Toolbox** タブを開きます。
 
-2. Select the **Image Entity** and drag and drop it to your domain model.
+2. **イメージ エンティティ** を選択し、ドメインモデルにドラッグ&ドロップします。
 
-3. In the **Create New Image Entity** dialog box, set **Name** to *Receipt* and click **Create**.
+3. **Create New Image Entity** ダイアログボックスで、 **Name** を *Receipt* に設定し、 **Create** をクリックします。
 
     {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/create-new-image-entity.png){{% /image_container %}}
 
-4. Now you need to create an association from the **Image** entity to the **Report** entity. Do one of the following:
+4. 次に、 **イメージ** エンティティから **レポート** エンティティへの関連付けを作成する必要があります。 次のいずれかを実行します。
 
-    1. Hover over the **Image** entity, click the dot icon, and drag the dot to the **Report** entity:
+    1. **イメージ** エンティティにカーソルを合わせて、ドットアイコンをクリックし、 **レポート** エンティティに点をドラッグします。
 
         {{% image_container width="500" %}}![](attachments/pages-how-to-upload-images/association-method1.png){{% /image_container %}}
 
-    2. Select the **Image** entity, click the arrow icon, and select **Report** as a second entity for the association:
+    2. **イメージ** エンティティを選択し、矢印アイコンをクリックし、関連付けの2番目のエンティティとして **レポート** を選択します。
 
         {{% image_container width="250" %}}![](attachments/pages-how-to-upload-images/association-method2.png){{% /image_container %}}
 
-Good job! You have created the image entity and an association from it to the **Report** entity:
+よくできました！ 画像エンティティと関連付けを **レポート** エンティティに作成しました。
 
 {{% image_container width="600" %}}![](attachments/pages-how-to-upload-images/domain-model-configured.png){{% /image_container %}}
 
-## 4 Adding an Image Uploader
+## 4 画像アップローダーを追加する
 
-An **Image Uploader** is a widget that allows your end-users to attach images. However, it can only function inside a data container (a list view or data view) and can only have an image entity as its data source. If you just drag and drop the image uploader to your report form, it will not work correctly, because your current data view has the **Report** entity as its data source, which is not an image entity:
+**Image Uploader** は、エンドユーザーが画像を添付できるようにするウィジェットです。 ただし、 データコンテナ(リストビューまたはデータビュー)内でのみ機能することができ、データソースとしてのみイメージエンティティを持つことができます。 画像アップローダーをレポートフォームにドラッグ&ドロップするだけで、正しく動作しません。 現在のデータビューには、 **レポート** エンティティがデータソースとして含まれているため、画像エンティティではありません:
 
 {{% image_container width="600" %}}![](attachments/pages-how-to-upload-images/form-example.png){{% /image_container %}}
 
-To solve this, you can add a button which will open a pop-up page where your end-users can attach images. This page will be connected to your current report form over the *Image_Report* association and will upload images as **Image** entity and associated to this specific report.
+これを解決するために、エンドユーザーが画像を添付できるポップアップページを開くボタンを追加できます。 このページは、 *Image_Report* アソシエーションを介して現在のレポートフォームに接続され、 **Image** エンティティとして画像をアップロードし、この特定のレポートに関連付けられます。
 
-Follow the steps below:
+以下の手順に従ってください。
 
-1. Open the **New Report** page where employees submit a new report.
+1. 従業員が新しいレポートを提出する **新しいレポート** ページを開きます。
 
-2. Open the **Toolbox** and search for **Create Object** button.
+2. **Toolbox** を開き、 **Create Object** ボタンを検索します。
 
-3. Drag and drop the button above **Save** and **Cancel** buttons:
+3. ボタンを **保存** ボタンと **キャンセル** ボタンの上にドラッグ&ドロップします。
 
     {{% image_container width="450" %}}![](attachments/pages-how-to-upload-images/new-button.png){{% /image_container %}}
 
-4. Open button properties > the **Caption** property and rename it from *New* to *Attach Images*.
+4. ボタンのプロパティ > **図表番号** プロパティを開き、 *新規* から *画像を添付* に名前を変更します。
 
-5. Click the **Icon** property.
+5. **アイコン** プロパティをクリックします。
 
-6. In the **Select icon** dialog box, search for the *picture* icon and select it.
+6. **アイコンの選択** ダイアログボックスで、 *画像* アイコンを検索して選択します。
 
-7. In the button properties, click the **Style** property and change it from **Default** to **Success**. After your changes, the button will look the following way:
+7. ボタンのプロパティで、 **Style** プロパティをクリックし、 **Default** から **Success** に変更します。 変更後、ボタンは次のようになります:
 
     {{% image_container width="150" %}}![](attachments/pages-how-to-upload-images/button-style-change.png){{% /image_container %}}
 
-8. In the button properties, click the **Entity** property.
+8. ボタンのプロパティで、 **Entity** プロパティをクリックします。
 
 9. In the **Select Entity** dialog box, choose the **Receipt** entity over **Receipt_Report** association (*Receipt_Report/Receipt*) and click **Select**:
 
     {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/image-report-association.png){{% /image_container %}}
 
-10. In the button properties, click **Page**.
+10. ボタンのプロパティで、 **ページ** をクリックします。
 
-11. In the **Select Page** dialog box, click **New Page**.
+11. **ページの選択** ダイアログボックスで、 **新規ページ** をクリックします。
 
-12. In the **Create new page** dialog box, do the following:
+12. **新規ページの作成** ダイアログボックスで、次の操作を行います:
 
-     1. Set the **Title** to *Attach Images*.
+     1. **タイトル** を *画像を添付する* に設定します。
 
-     2. Set the **Layout** to *PopupLayout*.
+     2. **レイアウト** を *PopupLayout* に設定します。
 
-     3. The **Pre-fill page contents based on the Receipt entity** option is on, so the page template (Forms) is selected automatically for you. Choose **Form Vertical** and click **Create**.
+     3. **レシートエンティティ** オプションに基づいてページを事前に入力するformat@@2 がオンになっているので、ページテンプレート (フォーム) が自動的に選択されます。 **フォームを垂直に** を選択し、 **作成** をクリックします。
 
          {{% image_container width="500" %}}![](attachments/pages-how-to-upload-images/create-new-page-images.png){{% /image_container %}}
 
-13. A new pop-up page with a preconfigured form (a data view) is created:
+13. 事前設定されたフォーム(データビュー)を持つ新しいポップアップページが作成されます。
 
      {{% image_container width="500" %}}![](attachments/pages-how-to-upload-images/attach-images-page.png){{% /image_container %}}
 
      As you only need your end-users to attach images on this page, delete the **Dynamic image** widget, **Name** and **Size** text boxes from the data view.
 
-14. Open the **Toolbox**, search for an **Image Uploader**, drag and drop it inside the data view.
+14. **Toolbox**を開き、 **Image Uploader**を検索し、データビューの中にドラッグ&ドロップします。
 
-You have created a pop-up page that will allow employees to attach images to their reimbursement reports:
+従業員が払い戻しレポートに画像を添付できるポップアップページを作成しました：
 
 {{% image_container width="450" %}}![](attachments/pages-how-to-upload-images/attach-images-pop-up-page.png){{% /image_container %}}
 
 
-## 5 Displaying Attached Images
+## 5添付画像を表示する
 
-After users attach the images, it would be nice to display their attachments and give them an opportunity to delete the ones they do not need. To do so, you need to add a list with dynamic images:
+ユーザーが画像を添付した後 添付ファイルを表示し不要なものを削除する機会を与えるのもいいでしょう これを行うには、動的な画像を含むリストを追加する必要があります。
 
-1. Open the **New Report** page.
+1. **新しいレポート** ページを開きます。
 
-2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach Images** button (*inside* the data view). A list view with widgets inside it is added to your page:
+2. In the **Building Blocks**, search for **List 4** and drag and drop it under the **Attach Images** button (*inside* the data view). ウィジェットを含むリストビューがページに追加されます。
 
     {{% image_container width="550" %}}![](attachments/pages-how-to-upload-images/list-4.png){{% /image_container %}}
 
-3. Open list view properties and do the following:
+3. リストビューのプロパティを開き、次の操作を行います:
 
-    1. Click the **Entity** property.
+    1. **エンティティ** プロパティをクリックします。
     2. In the **Select Entity** dialog box, choose the **Select Entity** dialog box, choose the **Receipt** entity over **Receipt_Report** association (*Receipt_Report/Receipt*) and click **Select**:
 
         {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/image-report-association.png){{% /image_container %}}
 
-4. Click the image in the list view, open its properties, and do the following.
+4. リストビューで画像をクリックし、プロパティを開き、次の操作を行います。
 
-    1. To display images which users attach, change the **Image Source** from **Static Image** to **Dynamic Image**.
-    2. Click the **Image Entity** property.
-    3. In the **Select Image Entity**, choose **Receipt** and click **Select**.
+    1. ユーザがアタッチした画像を表示するには、 **イメージソース** を **スタティックイメージ** から **ダイナミックイメージ** に変更します。
+    2. **Image Entity** プロパティをクリックします。
+    3. **Select Image Entity**で、 **Receipt** を選択し、 **Select** をクリックします。
     4. In the **Default Image** property, click **Select image**, and in the **Select image** dialog box, click **Clear**.
 
         {{% image_container width="300" %}}![](attachments/pages-how-to-upload-images/image-properties.png){{% /image_container %}}
 
-5. Delete a subtitle in the list view saying *Here you can put a subtitle*.
+5. リストビューの字幕を削除します。 *ここでは、字幕* を入れることができます。
 
-6. Select the **Name** text in the list view and open its properties.
+6. リストビューで **Name** テキストを選択し、そのプロパティを開きます。
 
-    1. In the **Content** property, delete the *Name* text and click **Add attribute**.
+    1. **Content** プロパティで、 *Name* テキストを削除し、 **Add attribute** をクリックします。
     2. In the **Select Attribute** dialog box, choose the **Name** attribute and click **Select** to display the name of the attached image.
 
         {{% image_container width="400" %}}![](attachments/pages-how-to-upload-images/select-attribute.png){{% /image_container %}}
 
-7. Select the **Details** button in the list view, open its properties, and do the following:
+7. リスト ビューで **詳細** ボタンを選択し、プロパティを開き、次の操作を行います:
 
-    1. In the **Events** section > the **On Click Action** property, select **More**.
-    2. In the **Action** property, select **Delete Object**.
-    3. In the **General** section > the **Caption** property, change the button caption from *Details* to *Delete*.
-    4. In the **Style** property, change **Default** to **Danger**.
+    1. **イベント** セクション > **** プロパティをクリックして、 **詳細** を選択します。
+    2. **Action** プロパティで、 **Delete Object** を選択します。
+    3. **一般** セクション > **図表番号** プロパティで、ボタンキャプションを *詳細* から *削除* に変更します。
+    4. **Style** プロパティで、 **Default** を **Danger** に変更します。
 
         {{% image_container width="250" %}}![](attachments/pages-how-to-upload-images/button-properties.png){{% /image_container %}}
 
-Great job! Now you have the image list that shows attached images and your users will be able to delete images from the list if necessary:
+よくできました！ これで添付された画像を表示する画像リストがあり、必要に応じてユーザーはリストから画像を削除することができます:
 
 {{% image_container width="600" %}}![](attachments/pages-how-to-upload-images/configured-image-list.png){{% /image_container %}}
 
-Congratulations! You have configured the report that allows your users to attach images and displays these images in the list.
+おめでとうございます ユーザが画像を添付し、リストにこれらの画像を表示できるレポートを構成していること。
 
-[Preview your app](/studio8/publishing-app) to test how the image uploading works. You can also configure a button to attach files instead of images. For more information on files, see [Images & Files](/studio8/page-editor-widgets-images-and-files).
+[アプリ](/studio8/publishing-app) をプレビューして、画像のアップロードの仕組みをテストします。 画像の代わりにファイルを添付するボタンを設定することもできます。 ファイルの詳細については、 [イメージ & ファイル](/studio8/page-editor-widgets-images-and-files) を参照してください。
