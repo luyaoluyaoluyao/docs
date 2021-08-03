@@ -1,7 +1,7 @@
 ---
 title: "ページ"
 description: "Mendix Studioでページエディタを説明します。"
-menu_order: 30
+menu_order: 20
 tags:
   - "スタジオ"
   - "ページエディタ"
@@ -10,12 +10,11 @@ tags:
 
 ## 1つの紹介
 
-ページエディタを使用すると、Mendixアプリケーションのエンドユーザーインターフェイスを定義できます。
+PagesはMendixアプリケーションのエンドユーザーインターフェイスを定義します。 ページは *ページ エディター* で作成および編集されます。
 
 Mendix Studio でアプリの **ページ** を表示するには、Studio の左メニューバーの **ページ** アイコンをクリックします。
 
-{{% image_container width="300" %}}![](attachments/page-editor/pages-icon.png)
-{{% /image_container %}}
+![](attachments/page-editor/pages-icon.png)
 
 {{% alert type="warning" %}}
 
@@ -23,20 +22,36 @@ Studio は、Atlas UI フレームワークに基づくアプリのみをサポ�
 
 {{% /alert %}}
 
-## 2つのコンポーネント
+各ページは ** レイアウトとテンプレートに基づいています。
 
-Pages of Studio は以下のコンポーネントで構成されています:
+* **レイアウト** – ページを入れるフレーム。 すべてのページはレイアウトに基づいています。 たとえば、 **Atlas_Default** または **PopupLayout** は、ページを作成するときに選択できるレイアウトの種類です。 レイアウトでは、そのような UI 要素の位置と外観をページヘッダーとメニューバーとして定義します。
+* **テンプレート** – 新しいページの出発点。 新しいページを作成するたびに で、ページに表示したいデータと表示方法に応じてテンプレートを選択します。 ダッシュボード、フォーム 選択に応じて、ページテンプレートには画像とフォームのリストなど、定義済みの要素が数多く含まれることがあります。 例えば、 **ダッシュボードアクションタイル**、 **リストデフォルト**、 **マスター詳細** はテンプレートの種類です。
 
-* **レイアウト** はページを構成します。 すべてのページはレイアウトに基づいています。 たとえば、 **Atlas_Default** または **PopupLayout** は、ページを作成するときに選択できるレイアウトの種類です。
-* **テンプレート** - 新しいページを作成するための出発点。 新しいページを作成するたびに で、ページに表示したいデータと表示方法に応じてテンプレートを選択します。 ダッシュボード、フォーム 例えば、 **ダッシュボードアクションタイル**、 **リストデフォルト**、 **マスター詳細** はテンプレートの種類です。
-* **ウィジェット** – 単一のユーザーインターフェイス要素。 詳細については、 [5.2 節を参照してください。 ウィジェット](#widgets) と [ウィジェット](page-editor-widgets)。
-* **Building Blocks** – ページの構築とスタイリングのプロセスを高速化する要素を事前に設定しました。 詳細については、 [5.1 Building Blocks](#building-blocks) セクションを参照してください。
+*ページの外観と構造* は、次の要素によって定義されます:
 
-上記のコンポーネントはAtlas UIで動作します。 詳細については、 [Atlas UI](/howto/front-end/atlas-ui) を参照してください。
+* **ウィジェット** – 単一のユーザーインターフェイス要素。 詳しい情報については、 [ウィジェット](#widgets) と [ウィジェット](page-editor-widgets) を参照してください。
+* **Building blocks** - ページの構築とスタイル設定を高速化する *ウィジェット* の事前設定セット。 詳細については、 [Building Blocks](#building-blocks) セクションを参照してください。
 
-## 3 基本機能の実行 {#page-editor-basic-functions}
+以下の図は、レイアウト、テンプレート、およびウィジェットの機能を説明しています。
 
-### 3.1 ページを開く
+![](attachments/page-editor/page-structure.png)
+
+上記の要素(レイアウト、テンプレート、ウィジェット、およびビルディングブロック)はすべてAtlas UIで動作します。 Atlas UI の詳細については、 [Atlas UI](/howto/front-end/atlas-ui) を参照してください。
+
+## 2 基本機能の実行 {#page-editor-basic-functions}
+
+以下の基本的な機能は、ページを操作する際に実行できます。
+
+* [ページを開く](#opening-page)
+* [ページを作成](#creating-new-page)
+* [Duplicate a page](#duplicating)
+* [ページをコピーして貼り付け](#copy-pasting)
+* [ページを削除](#deleting-page)
+* [ページに要素を追加](#adding-elements)
+* [要素のプロパティを表示](#viewing-elements)
+* [要素を削除](#deleting-elements)
+
+### 2.1 ページを開く {#opening-page}
 
 Studio を開くと、アプリのホームページが自動的に開きます。
 
@@ -46,74 +61,115 @@ Studio でページを開くには、次の手順を実行します。
 
 2.  表示されるアプリページのリストで、開きたいアプリを選択してクリックします。
 
-    {{% image_container width="400" %}}![](attachments/page-editor/opening-a-page.png)
-    {{% /image_container %}}
-
 選択したページが開きます。
 
-### 3.2 新規ページの作成 {#creating-new-page}
+### 2.2 新しいページの作成 {#creating-new-page}
 
 Studio で新しいページを作成するには、次の操作を行います。
 
 1. **Pages** アイコンをクリックします。
-2.  表示されるサイドパネルの右上隅にある **New** をクリックします。
 
-    {{% image_container width="400" %}}![](attachments/page-editor/new-page.png)
-    {{% /image_container %}}
+2.  新しいページを追加したいモジュールを選択し、このモジュールの横にあるプラスアイコンをクリックします。
 
-3. **新規ページの作成** ダイアログウィンドウで、ページのタイトルを入力し、レイアウトとページ テンプレートを選択します。
-4.  **Create** をクリックします。
+    ![](attachments/page-editor/new-page.png)
+
+    モジュールの詳細については、 [Domain Model](domain-models) を参照してください。
+
+3.  **新規ページ** の作成ダイアログ ボックスで、ページのタイトルを入力し、レイアウトとページ テンプレートを選択します。
 
     ![](attachments/page-editor/create-new-page-dialog.png)
 
+5. **Create** をクリックします。
+
 新しいページが作成されます。
 
-### 3.3 ページの削除
+### 2.3 ページを複製 {#duplicating}
 
-Studio でページを削除するには、次の操作を行います。
+既存のページを複製するには、次の操作を行います。
 
-1. 削除したいページを開きます。
-2. **プロパティ** タブを開きます。
-3.  **プロパティ** タブの下部にある **削除** をクリックします。
+1. 左のメニューバーの **ページ** アイコンをクリックします。
 
-    ![](attachments/page-editor/page-delete.png)
+2. サイドパネルで省略記号アイコンをクリックし、ドロップダウンメニューから **Duplicate** を選択します。
 
-   選択したページが削除されます。
+    ![Duplicate Page](attachments/page-editor/duplicate-page.png)
 
-### 3.4 ページ上の要素の表示
+ページが複製されます。
 
-要素と [プロパティ](#page-editor-properties)を表示するには、この要素をクリックします。
+### 2.4 ページのコピーと貼り付け {#copy-pasting}
 
-選択された要素には青い枠線が表示されます。 さらに、要素がデータコンテナ内(データビューまたはリストビュー)にある場合、データコンテナアイコンが表示されます。
+ページをコピーして貼り付けるには、次の操作を行います。
 
-{{% image_container width="400" %}}![](attachments/page-editor/input-widget-example.png)
+1. 左のメニューバーの **ページ** アイコンをクリックします。
+
+2.  サイドパネルで省略記号アイコンをクリックし、ドロップダウンメニューから **Copy to clipboard** を選択します。
+
+    ![ページをコピー中](attachments/page-editor/copy-page.png)
+
+3. ページを貼り付けるスタジオアプリを開き、 <kbd>Ctrl</kbd> +<kbd>V</kbd> または <kbd>Cmd</kbd> +<kbd>V</kbd> を押します。
+
+ページが貼り付けられました。 Studio のコピー/貼り付け機能の詳細については、 [一般情報](general#copy-paste-documents) の *コピー/貼り付けページ、マイクロフロー、および列挙* セクションを参照してください。
+
+### 2.5 ページの削除 {#deleting-page}
+
+Studio でページを削除するには、次のいずれかを実行します。
+
+1. 削除したいページを開き、以下の手順に従ってください:
+    1. **プロパティ** タブを開きます。
+    2. **プロパティ** タブの下部にある **削除** をクリックします。
+ {{% image_container width="250" %}}![](attachments/page-editor/page-delete.png)
+        {{% /image_container %}}
+
+2. 左のメニューバーの **ページ** アイコンをクリックし、次の操作を行います:
+
+    1. サイドパネルで省略記号アイコンをクリックし、ドロップダウンメニューから **Delete** を選択します。
+
+        ![ページを削除](attachments/page-editor/delete-page.png)
+
+選択したページが削除されます。
+
+### 2.6 ページに要素を追加する {#adding-elements}
+
+ページに要素を追加するには、次の操作を行います。
+
+1. **Toolbox**で、 [ウィジェット](#widgets) タブまたは [Building Blocks](#building-blocks) タブを開きます。
+2. 追加したい要素を選択し、この要素をページにドラッグ&ドロップします。
+
+### 2.7 ページ上の要素の表示 {#viewing-elements}
+
+要素と [プロパティ](#page-editor-properties) を表示するには2つの方法があります:
+
+* ページ自体の要素をクリックします
+* パンくずリスト内の要素をクリックします (詳細は [パンくずリスト](#breadcrumb) セクションを参照してください)
+
+選択された要素には青い枠線が表示されます。 さらに、要素がデータコンテナ内にある場合 (データビューまたはリストビュー)、データコンテナアイコンが表示されます:
+
+{{% image_container width="350" %}}![](attachments/page-editor/input-widget-example.png)
 {{% /image_container %}}
 
-## 4つのパンくずリスト {#breadcrumb}
+### 2.8 ページから要素を削除する {#deleting-elements}
 
-ページ上で項目を選択すると、Studio の左下隅にパンくずリストが表示されます。
+ページから要素を削除するには、次のいずれかを実行します:
 
-Breadcrumbトレイルは2つの機能を提供します:
+* この要素を選択し、 <kbd>Delete</kbd> を押します
+* この要素の **プロパティ** タブを開き、タブの下部にある **削除** をクリックします
 
-* ページ上に選択したアイテムのボトムアップ層を表示します
-* ユーザーがページ上の要素を選択し、そのプロパティを表示できるようにします
+## 3 表示オプション
 
-たとえば、ページ上のボタンを選択すると、そのボタンが列にあるコンテナに配置されていることがわかります。  一方、列は連続しており、この行はページ上のレイアウト グリッドに配置されます。
+ページの左上隅にある **表示** オプションは、 [条件付き表示](page-editor-widgets-visibility-section) が設定されているアイテムを強調表示します。 このオプションを有効にするには、目のアイコンをクリックします。 条件付き可視性とその仕組みの詳細については、 [条件付き可視性セクション](page-editor-widgets-visibility-section) を参照してください。
 
-![](attachments/page-editor/breadcrumb.png)
+## パンくずリスト4個 {#breadcrumb}
 
-要素の情報を表示するには、ブレッドクラムトレイルでこの要素をクリックすると、その属性が自動的に表示されます。
+Studio の左下隅にあるすべてのページにパンくずリストが表示されます。
 
-### 4.1 パンくずリストでナビゲーションレイアウト情報を表示する
+breadcrumbは2つの関数を提供します:
 
-パンくずリストでクリックすると、ナビゲーションレイアウトの情報を表示することもできます。
+* 選択したアイテムのボトムアップ階層をページに表示します。 たとえば、ページ上のボタンを選択すると、そのボタンが列にあるコンテナに配置されていることがわかります。  一方、列は連続しており、この行はページ上のレイアウト グリッドに配置されます。
 
-以下のオプションは **プロパティ** タブに表示されます。
+    ![](attachments/page-editor/breadcrumb.png)
 
-{{% image_container width="300" %}}![](attachments/page-editor/navigation-layout.png)
-{{% /image_container %}}
+* ページ上の要素を選択して、そのプロパティを表示できます。 ページ上の要素に移動し、要素のプロパティを表示するには、パンくずリスト内のこの要素をクリックします。
 
-## 5 Toolbox Tab
+## 5つのツールボックス要素
 
 **ツールバー** には、ページで使用できるツールが表示されます。
 
@@ -124,19 +180,19 @@ Breadcrumbトレイルは2つの機能を提供します:
 
 ### 5.1 ウィジェット {#widgets}
 
-ウィジェットは、設定可能な単一のユーザーインターフェイス要素です。 ページに追加する際に、ほとんどの非カスタム ウィジェットを [すばやく](page-editor-widgets#quick-config) 設定できます。 詳細については、 [ウィジェット](page-editor-widgets) を参照してください。
+ウィジェットは、設定可能な単一のユーザーインターフェイス要素です。
 
-{{% alert type="info" %}}
+ページに追加する際に、ほとんどの非カスタム ウィジェットを [すばやく](page-editor-widgets#quick-config) 設定できます。 ウィジェットの設定方法の詳細については、 [ウィジェット](page-editor-widgets) を参照してください。
 
 [ウィジェットの概要](settings-widget-overview) でウィジェットを更新できます。
 
-{{% /alert %}}
-
 ### 5.2 Building Block {#building-blocks}
 
-Building Blocksは、ページを高速に構築するための事前設定されたウィジェットで構成されています。ページにドラッグ＆ドロップするだけで構築できます。
+Building Blocksは、ページを高速に構築するための事前設定されたウィジェットで構成されています。
 
+{{% image_container width="300" %}}
 ![](attachments/page-editor/building-blocks.png)
+{{% /image_container %}}
 
 Studio のBuilding Blockは次のカテゴリに分類されます:
 
@@ -155,36 +211,28 @@ Studio のBuilding Blockは次のカテゴリに分類されます:
 | 通知             | 異なる通知に使用されるBuilding Blockが含まれています。                                            |
 | 配置             | 要素を揃えるために、これらの構成要素を使用します。                                                     |
 
-Building Blockを挿入するには、選択したBuilding Blockをページ上にドラッグ&ドロップします。
-
 特定のBuilding Blockのドキュメントを読んで、いつ、どのように使うかについて詳しく知りたい場合。 ビルディングブロックの右上隅にある小さなアイコンをクリックします。
 
-![](attachments/page-editor/info-icon-building-blocks.png)
+{{% image_container width="300" %}}![](attachments/page-editor/info-icon-building-blocks.png)
+{{% /image_container %}}
 
 {{% alert type="info" %}}
 
-Studio Proを使用してAtlasのUIをカスタマイズできるため、Building Blocksのカテゴリは異なる場合があります。
-
-{{% /alert %}}
-
-### 5.2 ウィジェット {#widgets}
-
-ウィジェットは、設定可能な単一のユーザーインターフェイス要素です。 ページに追加する際に、ほとんどの非カスタム ウィジェットを [すばやく](page-editor-widgets#quick-config) 設定できます。 詳細については、 [ウィジェット](page-editor-widgets) を参照してください。
-
-{{% alert type="info" %}}
-
-[ウィジェットの概要](settings-widget-overview) でウィジェットを更新できます。
+Studio Proを使用してAtlas UIをカスタマイズすることができるため、Building Blocksのカテゴリは異なる場合があります。
 
 {{% /alert %}}
 
 ## 6プロパティタブ {#page-editor-properties}
 
-**プロパティ** タブには、現在選択されている要素のプロパティが表示され、この要素によって異なります。
+**プロパティ** タブには、現在選択されている要素のプロパティが表示され、要素ごとに異なる場合があります。
 
-{{% image_container width="300" %}}![](attachments/page-editor/properties.png)
+{{% image_container width="250" %}}![](attachments/page-editor/properties.png)
 {{% /image_container %}}
 
+例えば、 **レイアウト**をクリックすると、パンくずリストで [ページ](#creating-new-page)を作成するときに選択するレイアウトになります。 プロパティには、ページタイトルの変更やページの外観のカスタマイズなど、実行できるページ関連のアクションに参照情報が表示されます。
 
-## 7 続きを読む
+![](attachments/page-editor/layout.png)
 
-* [データ ビュー & リスト ビュー プロパティ](page-editor-data-view-list-view)
+## このカテゴリ内の7つのメインドキュメント
+
+* [ウィジェット](page-editor-widgets) - ウィジェットの種類が異なります
