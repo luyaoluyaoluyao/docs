@@ -34,7 +34,7 @@ OpenApi (Swagger) ドキュメンテーションページのマッピングの�
 
 ### 2.3 [OpenAPI 2.0 ドキュメント](open-api)
 
-*swagger.jso* ファイルの技術的な詳細は、公開された REST サービスを OpenApi (Swagger) のドキュメンテーションページで記述するために作成されました。
+公開された REST サービスを記述するために作成された swagger.json ファイルの技術的な詳細は、OpenApi (Swagger) のドキュメントページで表示されます。
 
 ### 2.4 [カスタム認証マイクロフローのパラメータ](published-rest-authentication-parameter)
 
