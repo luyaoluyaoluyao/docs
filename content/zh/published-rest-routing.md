@@ -14,12 +14,11 @@ tags:
   - "身份认证"
   - "返回代码"
   - "已发布 REST"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**已发布的REST 服务** 功能已被引入Mendix 7.10.0。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-routing.pdf)。
 {{% /报警 %}}
 
 当REST HTTP 请求到达服务器时，服务器需要确定要执行哪个 [操作](published-rest-operation) 以及应用什么安全性。
