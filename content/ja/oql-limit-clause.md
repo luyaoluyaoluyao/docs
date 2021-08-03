@@ -1,41 +1,41 @@
 ---
-title: "OQL Limit Clause"
+title: "OQL制限条項について"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-With the `LIMIT` clause a portion of the result of a query can be returned.
+`LIMIT` 節では、クエリの結果の一部を返すことができます。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
-[ LIMIT number ] [ OFFSET number ]
+[ 制限番号 ] [ オフセット番号 ]
 ```
 
-### 2.1 LIMIT
+### 2.1 制限
 
-`LIMIT` specifies how many rows must be returned.
+`LIMIT` は、何行を返すべきかを指定します。
 
-### 2.2 OFFSET
+### 2.2 オフセット
 
-`OFFSET` specifies how many rows must be skipped before returning the result rows.
+`OFFSET` では、結果行を返す前にスキップする行数を指定します。
 
-## 3 Examples
+## 3つの例
 
-This query retrieves the first ten customers, sorted by their last name:
+このクエリは最初の10人の顧客を取得します。最後の名前でソートされます:
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-ORDER BY LastName
+販売からファーストネームを選択します。顧客
+名でオーダー
 LIMIT 10
 ```
 
-This query retrieves all customers, except the first ten, sorted by their last name:
+このクエリは、最初の10を除くすべての顧客を取得します。名前でソートされた名前:
 
 ```sql
 SELECT FirstName FROM Sales.Customer
@@ -43,10 +43,10 @@ ORDER BY LastName
 OFFSET 10
 ```
 
-This query retrieves the 11th to 20th customer, sorted by their last name:
+このクエリは11番目から20番目までの顧客名でソートされます:
 
 ```sql
-SELECT FirstName FROM Sales.Customer
-ORDER BY LastName
-LIMIT 10 OFFSET 10
+販売からファーストネームを選択してください。顧客
+姓でオーダーする
+オフセット10を制限する
 ```
