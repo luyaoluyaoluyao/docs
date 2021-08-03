@@ -1,165 +1,165 @@
 ---
-title: "Scroll Container"
-parent: "container-widgets"
+title: "滚动容器"
+parent: "容器部件"
 menu_order: 50
 tags:
   - "studio pro"
-  - "scroll container"
-  - "container widget"
-  - "widget"
+  - "滚动容器"
+  - "容器部件"
+  - "小部件"
 aliases:
-  - /refguide/horizontal-split-pane.html
+  - /refguide/水平分割-pane.html
   - /refguide/vertical-split-pane.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-A scroll container is used to divide the layout in regions (for details on regions, see the [Scroll Container Region](#scroll-container-region) section) such as the header, sidebar, or footer. A scroll container must be the only top-level widget. Apart from that, a scroll container can only be placed directly in another scroll container.
+一个滚动容器用于划分区域布局(关于区域的细节)。 查看 [滚动容器区域](#scroll-container-region) 部分，如头、侧边栏或页脚。 滚动容器必须是唯一的顶级部部件。 除此之外，滚动容器只能直接放在另一个滚动容器内。
 
-Scroll containers may be placed on navigation layouts as well as on pages.
+滚动容器可以放在导航布局和页面上。
 
-The scroll container example below divides the layout in three parts: a header containing a logo, a content part with a placeholder and a footer:
+下面的滚动容器示例将布局分成三个部分：一个包含标志的页眉、一个包含占位符的内容部分和一个页脚：
 
-![Scroll Container](attachments/container-widgets/scroll-container.PNG)
+![滚动容器](attachments/container-widgets/scroll-container.PNG)
 
 
-A scroll container can consist of several scroll container regions. For more information on scroll container regions and their properties, see the [Scroll Container Region](#scroll-container-region) section.
+滚动容器可以由几个滚动容器区域组成。 欲了解更多关于滚动容器区域及其特性的信息，请参阅 [滚动容器区域](#scroll-container-region) 部分。
 
-## 2 Properties
+## 2 属性
 
-An example of scroll container properties is represented in the image below:
+滚动容器属性的示例在下面的图像中显示：
 
-{{% image_container width="250" %}}![Scroll Container Properties](attachments/container-widgets/scroll-container-properties.png)
+{{% image_container width="250" %}}![滚动容器属性](attachments/container-widgets/scroll-container-properties.png)
 {{% /image_container %}}
 
-Scroll container properties consist of the following sections:
+滚动容器属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Regions](#regions)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [地区](#regions)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Layout Mode
+#### 2.3.1 布局模式
 
-This property determines in which mode the scroll container operates.
+此属性决定滚动容器在哪种模式下运行。
 
-| Value                 | Description                                                                                                             |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Headline  *(default)* | The top and bottom regions extend the entire width of the container and the remaining regions are placed in the middle. |
-| Sidebar               | The side panels extend the full height of the container.                                                                |
+| 值          | 描述                              |
+| ---------- | ------------------------------- |
+| 标题  *(默认)* | 顶部和底部地区扩大了集装箱的全部宽度，其余地区则置于中间位置。 |
+| Sidebar    | 侧面板延长容器的全身高度。                   |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="info" %}}本机移动页面不支持此属性。{%/提醒 %}}
 
-#### 2.3.2 Scroll Behavior
+#### 2.3.2 滚动行为
 
-This property determines what happens when the content of a region does not fit in the region.
+这个属性决定了当一个区域的内容不适合于该区域时会发生什么情况。
 
-| Value                  | Description                                                                                |
-| ---------------------- | ------------------------------------------------------------------------------------------ |
-| Per region *(default)* | Every region will show its own scroll bar in case its content does not fit.                |
-| Full widget            | The scroll container will grow to fit its contents and will leave scrolling to its parent. |
+| 值          | 描述                       |
+| ---------- | ------------------------ |
+| 每区域 *(默认)* | 每个区域将显示自己的滚动条，以防其内容不适合。  |
+| 完整小部件      | 滚动容器将会成长以适应其内装物，并留给上级滚动。 |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="info" %}}本机移动页面不支持此属性。{%/提醒 %}}
 
 #### 2.3.3 Width {#width}
 
-By default the scroll container will extend the full width of its parent widget. It can also be given a specific width, which can be defined either in pixels or percentage of its parent widget.
+默认情况下，滚动容器会扩展其父部件的全宽度。 也可以给它一个特定宽度，可以用像素或其父部件的百分比来定义。
 
-Default: *Full width*
+默认： *全宽*
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="info" %}}本机移动页面不支持此属性。{%/提醒 %}}
 
-#### 2.3.4 Width Value
+#### 2.3.4 宽度值
 
-This property is displayed only when the [Width](#width) property is set to *Pixels* or *Percentage*. This property determines the width of the scroll container, either in pixels or a percentage.
+此属性仅在 [宽度](#width) 属性设置为 *像素* 或 *百分比* 时才显示。 此属性决定滚动容器的宽度，或者像素，或者百分比值。
 
-#### 2.3.5 Alignment
+#### 2.3.5 对齐
 
-This property is displayed only when the [Width](#width) property is set to *Pixels* or *Percentage*. The scroll container can be aligned to the left, to the right, or in the middle of its parent widget.
+此属性仅在 [宽度](#width) 属性设置为 *像素* 或 *百分比* 时才显示。 滚动容器可以对齐到左、右或其父部件中间。
 
-Default: *Center*
+默认： *居中*
 
-### 2.4 Regions Section {#regions}
+### 2.4 地区科 {#regions}
 
 {{% alert type="info" %}}Regions are not supported on native mobile pages.{{% /alert %}}
 
-Regions define the content area of a scroll container. For more information see the [Scroll Container Region](#scroll-container-region) section.
+区域定义滚动容器的内容区域。 欲了解更多信息，请参阅 [滚动容器区域](#scroll-container-region) 部分。
 
 {{% alert type="info" %}}
-If you add regions in a [layout](layout), they will automatically be filled with [placeholders](placeholder).
-{{% /alert %}}
+如果您在 [布局](layout)中添加区域，它们将自动填充 [占位符](placeholder)。
+{{% /报警 %}}
 
-#### 2.4.1 Enable Top
+#### 2.4.1 启用顶部
 
-Determines whether the scroll container should contain a top region.
+确定滚动容器是否应该包含顶部区域。
 
-#### 2.4.2 Enable Bottom
+#### 2.4.2 启用底部
 
-Determines whether the scroll container should contain a bottom region.
+确定滚动容器是否应包含底部区域。
 
-#### 2.4.3 Enable Left
+#### 2.4.3 启用
 
-Determines whether the scroll container should contain a left region.
+确定滚动容器是否应包含一个左区域。
 
-#### 2.4.4 Enable Right
+#### 2.4.4 右侧启用
 
-Determines whether the scroll container should contain a right region.
+确定滚动容器是否应包含一个正确区域。
 
-## 3 Scroll Container Region {#scroll-container-region}
+## 3 滚动容器区域 {#scroll-container-region}
 
-A scroll container region is part of a scroll container, and defines a content area. A scroll container can contain the following regions:
+滚动容器区域是滚动容器的一部分，定义了一个内容区域。 滚动容器可以包含以下区域：
 
-* Center
-* Left
-* Right
-* Top
-* Bottom
+* 居中
+* 左侧
+* 右侧
+* 顶端
+* 底部
 
-You can add and remove all the regions listed above except the center one.
+您可以添加和移除上面列出的除中心区域以外的所有区域。
 
-### 3.1 Scroll Container Region Properties{#region}
+### 3.1 滚动容器区域属性{#region}
 
-#### 3.1.1 Common Section
+#### 3.1.1 共同部分
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-#### 3.1.2 General Section
+#### 3.1.2 一般部分
 
 ##### 3.1.2.1 Width or Height
 
-A scroll container region has the following properties in the **General** section:
+滚动容器区域在 **常规** 部分中具有以下属性：
 
-| Property     | Property is available for: | Description                                                                                                   |
-| ------------ | -------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Width        | Left and right regions     | Defines whether the **Width value** (described below) of the region is specified in pixels or in percentage.  |
-| Width Value  | Left and right regions     | Allows you to specify the value of the width, either in pixels or in percentage.                              |
-| Height       | Top and bottom regions     | Defines whether the **Height value** (described below) of the region is specified in pixels or in percentage. |
-| Height Value | Top and bottom regions     | Allows you to specify the value of the height, either in pixels or in percentage.                             |
+| 财产          | 财产可用于：  | 描述                                |
+| ----------- | ------- | --------------------------------- |
+| Width       | 左和右区域   | 定义区域的 **宽度值** (下面描述) 是以像素或百分比表示的。 |
+| Width Value | 左和右区域   | 允许您以像素或百分比指定宽度的值。                 |
+| 高度          | 顶部和底部地区 | 定义区域的 **高度** (下面描述) 是以像素或百分比表示的。  |
+| 高度值         | 顶部和底部地区 | 允许您以像素或百分比指定高度的值。                 |
 
-##### 3.1.2.2 Toggle Mode (Layouts Only)
+##### 3.1.2.2 切换模式 (仅布局)
 
-One (left or right) scroll container region within a layout can be set to toggle using a [sidebar toggle button](sidebar-toggle-button). This setting determines which region (here called a sidebar) will be toggled, and how the toggling is implemented.
+一个(左侧或右侧) 滚动容器区域可以设置为使用 [侧边栏切换按钮](sidebar-toggle-button) 来切换。 此设置决定将切换哪个区域 (这里称为侧边栏) 以及切换是如何实现的。
 
-| Mode                              | Effect                                                                                                         |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| None *(default)*                  | This sidebar is not affected by the sidebar toggle button.                                                     |
-| Push content aside                | The sidebar moves the rest of the content off-screen.                                                          |
-| Slide over content                | The sidebar moves over the content.                                                                            |
-| Shrink content (initially open)   | The content is initially shrunk and the sidebar is displayed. The content expands when the sidebar is toggled. |
-| Shrink content (initially closed) | The sidebar is initially hidden and the content shrinks to make space for it when it is toggled.               |
+| 模式          | 效果                         |
+| ----------- | -------------------------- |
+| 无 *(默认)*    | 侧边栏不受侧边栏切换按钮的影响。           |
+| 保留推送内容      | 侧边栏将其余内容移至屏幕外。             |
+| 滑动内容        | 侧边栏在内容上移动。                 |
+| 收缩内容 (初始打开) | 内容最初缩短，侧边栏显示。 切换侧边栏时内容会展开. |
+| 收缩内容 (最初关闭) | 侧边栏最初隐藏，切换时内容会缩短空间。        |
 
-## 4 Read More
+## 4 阅读更多
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [容器部件](容器部件)
+* [页面编辑器中常见的属性](common-widget-properties)
