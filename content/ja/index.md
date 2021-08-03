@@ -1,9 +1,6 @@
 ---
-title: "Release Notes"
-notoc: true
-description: "The release notes for the Mendix Platform are divided into various product categories and versions."
+title: "Mendix Documentation Search"
+type: search
+disable_sitemap: true
 ---
 
-The release notes for the Mendix Platform are divided into the following categories:
-
-{{% category_block %}}
