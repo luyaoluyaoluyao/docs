@@ -1,8 +1,8 @@
 ---
 title: "ハイブリッドアプリのパッケージ"
-category: "モバイル開発"
+parent: "ハイブリッド・モバイル"
+tags:
+  - "studio pro"
 ---
 
-Mendixハイブリッドアプリケーションは、Webとネイティブアプリのハイブリッドです。 ハイブリッドアプリを Apple App Store または Google Play 上で公開する場合。 アプリをネイティブシェルでラップする必要があります Cordova を使用してハイブリッド・アプリケーションを作成します。
-
-アプリを配布してユーザーをテストしたり、App Storeで公開する準備ができたら。 アプリをネイティブアプリにパッケージ化する必要があります。 これを行う方法については、 [ローカルでMendix Hybrid App を構築する方法](/howto8/mobile/build-hybrid-locally) を参照してください。
+Mendixハイブリッドアプリケーションは、Webとネイティブアプリのハイブリッドです。 ハイブリッドアプリを Apple App Store または Google Play 上で公開する場合。 アプリをネイティブシェルでラップする必要があります これを達成するためにローカルビルドを使用します。 ローカルビルドの作成とデプロイ方法については、 [Mendix Hybrid App のローカルビルド方法](/howto8/mobile/build-hybrid-locally) を参照してください。
