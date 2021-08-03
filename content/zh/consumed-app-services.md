@@ -1,16 +1,22 @@
 ---
 title: "已消耗的应用服务"
 parent: "集成"
+tags:
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-app-services.pdf)。
+{{% /报警 %}}
+
+{{% alert type="info" %}}
+应用程序服务已被弃用，并已在Studio Pro 9中删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
 {{% /报警 %}}
 
 应用服务是连接Mendix 应用程序之间的一种方式。 可以导入应用服务并使用其内容。 到目前为止，应用服务提供了以下内容：
 
-*   微流程操作
-*   域模型实体
+* 微流程操作
+* 域模型实体
 
 在项目探险家中，可以在模块上的“添加”上下文菜单中选择应用服务。 查看 [选择应用程序服务](select-app-service) 获取更多信息。
 
