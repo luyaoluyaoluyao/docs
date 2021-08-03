@@ -1,8 +1,6 @@
 ---
-title: "Configuring Hybrid Mobile Apps To Run Offline"
-parent: "hybrid-mobile"
-tags:
-  - "studio pro"
+title: "配置混合移动应用程序以离线运行"
+category: "移动开发"
 ---
 
-[Hybrid apps](developing-hybrid-mobile-apps) are built in either connected or [offline](offline-first) mode. This allows you to maintain two mobile device profiles: one for users who are always online, and one for users with intermittent connectivity. The Developer Portal builds connected apps by default. Configuring a hybrid app to run in offline-enabled mode can be done in the Developer Portal in the [Mobile App](/developerportal/deploy/mobileapp) section by checking the **Enable offline capabilities?** setting.
+[混合应用程序](developing-hybrid-mobile-apps) 是在已连接或 [离线](offline) 模式内构建的。 这将允许您保持两个移动设备配置文件：一个针对总是在线的用户，另一个针对间歇连接的用户。 开发者门户默认会构建已连接的应用。 在离线模式下配置混合应用可以通过勾选 **启用离线能力在开发者门户网站 [移动应用](/developerportal/deploy/mobileapp) 部分完成吗？** 设置。
