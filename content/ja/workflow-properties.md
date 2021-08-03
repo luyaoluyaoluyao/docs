@@ -1,95 +1,129 @@
 ---
-title: "Workflow Properties"
-category: "Workflows"
+title: "ワークフローのプロパティ"
+parent: "ワークフロー"
 menu_order: 10
 tags:
-  - "workflow"
-  - "workflows"
-  - "workflow properties"
-  - "Studio"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "ワークフローのプロパティ"
+  - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes workflow properties. For details on what workflows are for and what kind of elements you can use there, see [Workflows](workflows).
+このドキュメントはワークフローのプロパティを説明します。 どのワークフローに対応しているか、どのような要素を使用できるかの詳細については、 [Workflow](workflows) を参照してください。
 
-## 2 Workflow Properties
+## 2 ワークフローのプロパティ
 
-Workflow properties consist of the following sections:
+ワークフロー プロパティは、次のセクションで構成されています:
 
-* [General](#general)
-* [Data](#data)
-* [Display Information](#display-info)
-* [Permissions](#permissions)
-* [Due Date](#due-date)
-* [Admin Page](#admin-page)
+* [管理者ページ](#admin-page)
+* [一般的な](#common)
+* [データ](#data)
+* [情報を表示](#display-info)
+* [期限](#due-date)
+* [全般](#general)
+* [セキュリティ](#security)
 
-### 2.1 General Section {#general}
+### 2.1 管理ページセクション {#admin-page}
 
-The **General** section contains information on the title and name of the workflow.
+**管理者ページを上書きする** は、ワークフロー管理者にワークフローのインスタンスを表示するために使用される任意のページです。 これは、たとえば、アプリ内のワークフローインスタンスを表示するために使用される一般的なページを上書きします。 **ワークフロー管理ページ** を [オンクリックイベント](on-click-event#show-workflow-page) または [マイクロフローアクション](show-workflow-page) として設定し、このイベント/アクションで選択されたページをオーバーライドしたい場合。
 
-![General Section](attachments/workflow-properties/general.jpg)
+**Workflow Commons** モジュールのテンプレートを使用してページを生成する場合、これらのテンプレートには必要なデータコンテナと関連するコンテキストエンティティが含まれます。
 
-The **General** section properties are described in the table below:
+### 2.2 共通セクション {#common}
 
-| Property | Description                                                                                                              |
-| -------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Title    | Defines a title of the workflow that you see at the top of the working area.                                             |
-| Name     | The internal name of the workflow that must be unique. When referring to the workflow in the app you will use this name. |
+#### 2.2.1 名前 {#name}
 
-### 2.2 Data Section {#data}
+**名前** はワークフロードキュメントの内部名です。 アプリでワークフローを参照する場合は、この名前を使用します。 モジュール内で一意である必要がありますが、異なるモジュール内で同じ名前を持つ2つのワークフローを持つことができます。 ワークフローを参照するとき 通常はモジュールの名前を付けて一意性を確保し、他のモジュールでワークフローを使用することができます。
 
-The **Data** section contains information on what data context the workflow is using.
+ワークフローの **名前** を変更することはできませんが、 [図表番号](#general) を変更することができます。
 
-![Data Section](attachments/workflow-properties/data.jpg)
+#### 2.2.2 ドキュメント
 
-**Workflow entity** is an entity that is used as a workflow context. This entity serves as input for the workflow and can hold the data added during the execution of the workflow. For example, for an expense approval process, it holds the amount to approve and the purpose.
+**ドキュメント** を使用すると、ワークフローを簡単に説明することができます。
 
-This entity should be of a workflow entity type. For more information, see the [Entities and Their Types](domain-models#entity-types) section in the *Domain Model*.
+### 2.3 データセクション {#data}
 
-### 2.3 Display Information Section {#display-info}
+**ワークフロー エンティティ** は、ワークフロー コンテキストとして使用されるエンティティです。 [システム](generalization-and-association) モジュールの **ワークフロー コンテキスト** エンティティの **** 専門化する必要があります。 System モジュール内のワークフロー関連エンティティの詳細について [ワークフロー](workflows#workflow-entities) の *システム モジュール* セクションにある format@@4 ワークフロー エンティティを参照してください。
 
-The **Display Information** section defines the workflow name and its description that are displayed in the running (published) app.
+ワークフローエンティティを「クリーン」、意味を保つことをお勧めします を使用すると、ワークフローの現在のインスタンスで重要な属性のみを持つようになり、関連付けを介して他のデータを追加できます。
 
-![Display Information Section](attachments/workflow-properties/display-information.jpg)
+![ドメインモデルの例](attachments/workflow-properties/domain-model-example.png)
 
-The **Display Information** section properties are described in the table below:
+### 2.4 情報セクション {#display-info}
 
-| Property             | Description                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Workflow Name        | **Workflow name** is displayed in the running app. The **Workflow name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FullName** attribute value from the **Employee Onboarding** data to display the name of the new employee. The expression should be return a string value.                                |
-| Workflow Description | **Workflow Description** is a description of the workflow displayed in the running app. The **Workflow name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FirstDay** attribute value from the **Employee Onboarding** data to display the start date of the new employee and assign them to a training group. |
+#### 2.4.1 ワークフロー名
 
-### 2.4 Permissions Section {#permissions}
+**ワークフロー名** は、属性として **ワークフロー** エンティティのシステム モジュールに格納されており、実行中のアプリで動的にデータを表示することができます。 If you are using the **Workflow Commons** module, the **Workflow name** is used on preconfigured pages: the Admin Center and Workflow Admin page.
 
-**Allowed roles** defines the [user role](settings-security#roles-and-permissions) that can trigger the workflow.
+**ワークフロー名** には、ブレース間で記述されるパラメータを含めることができます。例: {1}.
 
-![Permissions Section](attachments/workflow-properties/permissions.jpg)
+パラメータの使用に関する詳細は、以下の [パラメータ](#parameters) セクションを参照してください。
 
-{{% alert type="info" %}}
-This section is only displayed when the security is on. For more information, see [Security](settings-security).
+#### 2.4.2 ワークフローの説明
+
+**ワークフローの説明** は、属性として **ワークフロー** エンティティのシステム モジュールに格納されており、実行中のアプリで動的にデータを表示することができます。 **Workflow Commons** モジュールを使用している場合は、 **Workflow description** がページテンプレートに使用されます。
+
+**Workflow description** は、ブレース間で記述されるパラメータを含めることができます。例: {1}.
+
+#### 2.4.3 パラメータ {#parameters}
+
+パラメータは、その値が表示される属性です。 たとえば、 **FullName**  パラメータを使用してオンボーディングされている新しい従業員の名前を表示できます。
+
+To view **Parameters**, click the ellipsis icon next to the **Workflow name** or **Workflow description** in properties depending on where you would like to display these parameters.
+
+パラメータには以下の設定があります:
+
+* **Index** - パラメータの識別番号
+* **式** - 表示される XPath 式
+
+##### 2.4.3.1 新しいパラメータの追加
+
+**ワークフロー 名** または **ワークフロー 説明**にパラメータを追加するには、次の操作を行います:
+
+1. **ワークフロー 名** または **ワークフロー 説明** の横にある省略記号アイコンをクリックします。
+
+2. **Edit workflow name** dialog box > **Parameters** section, click the **New** button.
+
+3. **テンプレートパラメーター (文字列)** ダイアログボックスで式を指定し、選択を確認します。
+
+    ![属性の指定](attachments/workflow-properties/specifying-attribute.png)
+
+    {{% alert type="info" %}}式で使用する属性が文字列型であることを確認してください。{{% /alert %}}
+
+4. In the **Template** setting, write the text you would like to display and type **Index** of the parameter you would like to include. 以下の例では、新規採用者のフルネームを含めるには、 {1} インデックスを使用する必要があります:
+
+    ![format@@0ダイアログ ボックス](attachments/workflow-properties/edit-workflow-name.png)
+
+##### 2.4.3.2 パラメータに対するその他のアクションの実行
+
+新しいパラメータの追加に加えて、パラメータに対して以下のアクションを実行できます。
+
+* **Delete** – パラメータを削除するには、 **Delete** をクリックするか、キーボードの <kbd>Delete</kbd> を押します
+* **編集** - パラメータをダブルクリックして編集するか、 **編集** をクリックします
+* **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
+* **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
+
+### 2.5 締切セクション {#due-date}
+
+**によって** によって指定された属性として **ワークフロー** エンティティのシステム モジュールに格納されており、実行中のアプリでそのデータを動的に表示することができます。 たとえば、ワークフローの期限を設定したり、アプリケーションに表示したりできます。 ただし、これは自動リマインダーではなく、ワークフローを追跡する際に期限を参照します。 If you are using the **Workflow Commons** module, **Due by** is used in page templates.
+
+### 2.6 一般セクション {#general}
+
+**説明** はワークフローのタイトルを定義します。 ワークフローの [名前](#name) を変更することはできませんが、 **図表番号** を変更することができます。
+
+### 2.7 セキュリティセクション {#security}
+
+**許可されたロール** は、ユーザがワークフローを実行できる必要がある [モジュールロール](module-security#module-role) を定義します。
+
+{{% alert type="warning" %}}
+これらのロールは、ワークフローがクライアントから実行された場合にのみチェックされます。
 {{% /alert %}}
 
-### 2.4 Due Date Section {#due-date}
+詳細については、 [モジュールセキュリティ](module-security) を参照してください。
 
-The **Due Date** section allows you to set a deadline for the workflow and keep track of it. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the workflow. For example, you can use this due date to show workflows that are overdue in a dashboard.
+## 3 続きを読む
 
-![Due Date Section](attachments/workflow-properties/due-date.jpg)
-
-The **Due Date** section properties are described in the table below:
-
-| Property   | Description                                                                                                                                                                                                                                    |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None       | No due date is set.                                                                                                                                                                                                                            |
-| Duration   | You can set the deadline for the workflow with the **Due In** option, which indicates the number of hours, days, or weeks the workflow is due in. Possible values of the property are the following ones:<br /><ul><li>Hour(s)</li><li>Day(s)</li><li>Week(s)</li> </ul> |
-| Expression | You can set a due date for the workflow writing an expression. For example, to set a due date to tomorrow, you can use `addDays([%CurrentDateTime%], 1)`. For more information on expressions, see [Expressions](expressions).                 |
-
-### 2.5 Admin Page Section {#admin-page}
-
-**Override Admin Page** is an optional page used for displaying all running workflows to the workflow admin. This overrides a generic page used to display any running workflow in the app, for example, when you have a **Show Workflow Page** set as an [on-click action](page-editor-widgets-events-section#show-workflow-page) or as a [microflow activity](microflows#microflow-workflow-activities) and would like to override the page selected for this event/activity.
-
-![Workflow Page Section](attachments/workflow-properties/workflow-page.jpg)
-
-## 3 Read More
-
-* [Workflows](workflows)
+* [Studio Proで従業員のオンボーディングプロセスのワークフローを構成する方法](/howto/logic-business-rules/workflow-how-to-configure)
+* [ワークフロー](workflows)
