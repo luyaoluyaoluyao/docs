@@ -1,47 +1,43 @@
 ---
-title: "Using a Proxy to Call a REST Service"
-parent: "consumed-rest-services"
+title: "使用代理服务器来调用 REST 服务"
+parent: "消耗性服务"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-rest-service.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+在某些情况下，您将被困在防火墙后，因此无法直接调用 REST 服务。 此页面向您展示如何配置您的应用来使用代理服务器来呼叫此类服务。
 
-In some cases, you will be stuck behind a firewall and thus unable to call a REST service directly. This page shows you how to configure your app to use a proxy to call such services.
+## 2 代理服务器 & 代理端口
 
-## 2 Proxy Host & Proxy Port
+有两个参数指定在进行REST 调用时使用哪个代理服务器： `http.proxyhost` and `http.proxyPort`。 一些代理需要身份验证，您可以指定为 `http.proxyUser` 和 `http.proxyPassword`。
 
-There are two parameters that specify which proxy server to use when making REST calls: `http.proxyHost` and `http.proxyPort`. Some proxies require authentication, which you may specify as `http.proxyUser` and `http.proxyPassword`.
-
-You can either specify these as custom settings or as JVM parameters, which are described in the sections below.
+您可以指定这些作为自定义设置或JVM参数，这些参数在下面的章节中描述。
 
 {{% alert type="info" %}}
-If you specify a setting both as a custom setting and as a JVM parameter, the custom setting will be used.
-{{% /alert %}}
+如果您指定了一个既作为自定义设置又为 JVM 参数的设置，则将使用自定义设置。
+{{% /报警 %}}
 
-### 2.1 Custom Settings
+### 2.1 自定义设置
 
-REST proxy settings can be configured as custom settings on the **Project** > **Settings** > **Configurations** > **Custom** tab. For more information, see the [Custom](configuration#custom) section of *Configurations*.
+REST 代理设置可以配置为 **App** > **设置** > **配置** > **自定义** 选项卡。 For more information, see the [Custom](configuration#custom) section of *Configurations*.
 
-### 2.2 JVM Parameters
+### 2.2 JVM参数
 
-REST proxy settings can be configured in the **Project** > **Settings** > **Configurations** > **Server** tab > **Extra JVM parameters** field. For more information, see the [Server](configuration#server) section of *Configurations*.
+REST 代理设置可以在 **App** > **设置** > **配置** > **服务器** 标签 > **额外的 JVM 参数** 字段中配置。 For more information, see the [Server](configuration#server) section of *Configurations*.
 
-They can also be specified as JVM parameters in your *.m2eerc*. This is useful if you want to use these settings to also [consume web services](using-a-proxy-to-call-a-webservice).
+它们也可以在您的 *.m2eerc* 中指定为 JVM 参数。 如果您想要使用这些设置来同时使用 [消耗网页服务](using-a-proxy-to-call-a-webservice) ，这是有用的。
 
 ```java
 ...
-# custom java options, like -Xmx256m or -Djava.foo=bar
- javaopts: [ ..., "-Dhttp.proxyHost=myproxyserver.com", "-Dhttp.proxyPort=3128", "-Dhttp.proxyUser=myusername" "-Dhttp.proxyPassword=mypassword" ]
-...
+# 自定义的 java 选项，如-Xmx256m 或 -Djava.foo=bar
+ javaops: [ ..., "-Dhttp.proxyHost=myproxyserver.com", "-Dhttp.proxyPort=3128", "-Dhttp.proxyUser=myusername" "-Dhttp.proxyPassword=mypassword"
+
 ```
 
-They can also be specified directly when running locally from Studio Pro or calling from Eclipse:
+当从Studio Pro 本地运行或从 Eclips 来电时，也可以直接指定他们：
 
 ```java
--Dhttp.proxyHost=myproxyserver.com  -Dhttp.proxyPort=3128 -Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
+-Dhttp.proxyHost=myproxyserver.com -Dhttp.proxyPort=3128 -Dhttp.proxyUser=myuser-httpD.proxyPassword=mypassword
 ```
