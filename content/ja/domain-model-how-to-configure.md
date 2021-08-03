@@ -1,80 +1,80 @@
 ---
-title: "Configure a Domain Model"
-description: "This how-to describes the process of configuring the domain model in Mendix Studio."
+title: "ドメインモデルの設定"
+description: "この方法では、Mendix Studio でドメイン モデルを構成するプロセスを説明します。"
 menu_order: 30
 tags:
-  - "studio"
-  - "domain model"
-  - "decision"
-  - "domain model"
+  - "スタジオ"
+  - "ドメインモデル"
+  - "決定"
+  - "ドメインモデル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can configure a domain model in Mendix Studio.
+この方法では、Mendix Studio でドメイン モデルを構成する方法を説明します。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Define what data to include to your domain model
-* Create different type of entities
-* Create attributes
-* Create associations
+* ドメインモデルに含めるデータを定義します
+* 異なるタイプのエンティティを作成
+* 属性を作成
+* 関連付けを作成
 
-This how-to describes the following use case:
+この方法では、次のようなユースケースを説明します。
 
-You are configuring the domain model for an online shopping app.
+オンラインショッピングアプリのドメインモデルを設定しています。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
 
-## 3 Defining What Data to Include
+## 3 どのデータを含めるか定義する
 
-Understanding the typical process will help you define what data to include to your domain model. The workflow for new customers of the online shopping app looks the following way:
+典型的なプロセスを理解することで、どのデータをドメインモデルに含めるかを定義することができます。 オンラインショッピングアプリの新規顧客向けのワークフローは次のようになります。
 
-1. A customer registers in the online shopping app and enters the following details:
-   1. Full name
-   2. Address
-   3. Email
-   4. Date of birth
-2. When registration is complete, a *unique ID* is assigned to the customer.
-3. The customer browses through *products* and the following product details are displayed:
-   1. Product image
-   2. Name
-   3. Description
-   4. Availability
-   5. Price
-   6. Vendor
-   7.  Unique product ID
-4. The customer adds products to a shopping cart.
-5. In the shopping cart, every item is presented as a separate line showing *quantity* and *price* per line. The customer checks the order, pays it, and gets a *confirmation* with the *order details* and the *date* the order is purchased on.
+1. 顧客はオンラインショッピングアプリに登録し、以下の詳細を入力します。
+   1. フルネーム
+   2. 住所
+   3. Eメールアドレス
+   4. 誕生日
+2. 登録が完了すると、 *一意の ID* が顧客に割り当てられます。
+3. 顧客が *製品* を閲覧し、次の製品詳細が表示されます:
+   1. 商品画像
+   2. 名前
+   3. 説明
+   4. 在庫状況
+   5. 価格
+   6. 仕入先
+   7.  製品ID
+4. 顧客はショッピングカートに商品を追加します。
+5. ショッピング カートでは、すべてのアイテムは、1 行あたり *数量* と *価格* を示す別の行として表示されます。 顧客は注文をチェックし、支払いを行う そして、 *注文の詳細* と *注文の詳細* の確認 *日付* を取得します。
 
-Based on the description above, you can divide your data to the following elements:
+上記の説明に基づいて、データを次の要素に分割できます。
 
-* [Customer](#customer)
-* [Product](#product)
-* [Order](#order)
+* [顧客](#customer)
+* [商品](#product)
+* [ご注文](#order)
 
-## 4 Defining the Product {#product}
+## 4 製品の定義 {#product}
 
-As a product is one of the main elements of the online shopping app, an entity should be created to represent a product in your domain model. The information that defines the product, such as its name and price, should be attributes of the **Product** entity.
+製品は、オンラインショッピングアプリの主な要素の一つであるとして ドメインモデルの製品を表すエンティティを作成する必要があります。 名前や価格などの製品を定義する情報は、 **Product** エンティティの属性である必要があります。
 
-To add the product to your domain model, follow the steps below:
+ドメインモデルに製品を追加するには、以下の手順に従ってください。
 
-1. Create the **Product** entity. Do the following:
+1. **製品** エンティティを作成します。 次の操作を行います:
 
-    1. Open your [domain model](/studio8/domain-models).
+    1. [ドメイン モデル](/studio8/domain-models) を開きます。
 
-    2. Open **Toolbox**, drag and drop **Entity** in your domain model:
+    2. **ツールボックス**を開き、ドメインモデルで **エンティティ** をドラッグ&ドロップします。
 
        {{% image_container width="350" %}}![Adding a New Entity](attachments/domain-model-how-to-configure/adding-entity.png){{% /image_container %}}
 
-    3. In the **Create New Entity**, dialog box, set the name to **Product** and click **Create**.
+    3. **新規エンティティの作成**、ダイアログボックスで、名前を **Product** に設定し、 **Create** をクリックします。
 
-2. Create attributes for the **Product** entity. Do the following:<br />
-    1. Select the entity and click **New attribute**:
+2. **製品** エンティティの属性を作成します。 次の操作を行います:<br />
+    1. 図形を選択し、 **新規属性** をクリックします。
 
         {{% image_container width="250" %}}![Adding New Attribute](attachments/domain-model-how-to-configure/adding-new-attribute.png){{% /image_container %}}
 
@@ -82,192 +82,192 @@ To add the product to your domain model, follow the steps below:
 
         {{% image_container width="450" %}}![Create New Attribute Dialog Window](attachments/domain-model-how-to-configure/create-new-attribute-dialog.png){{% /image_container %}}
 
-    3. Repeat step 2a to add the *Name* attribute.
+    3. *Name* 属性を追加するには、ステップ 2a を繰り返します。
 
     4. In the **Create New Attribute** dialog box, set the name to *Name*, set the type to *String*, and click **Create**.
 
-   5. Repeat step 2a to add the *Description* attribute.
+   5. *説明* 属性を追加するには、ステップ 2a を繰り返します。
 
    6. In the **Create New Attribute** dialog box, set the name to *Description*, set the type to *String*, and click **Create**.
 
-   7. Repeat step 2a to create the attribute to indicate if the product is available.
+   7. 製品が利用可能かどうかを示す属性を作成するには、ステップ 2 a を繰り返します。
 
    8. In the **Create New Attribute** dialog box, set the name to *Available*, set the type to *Boolean*, and click **Create**.
 
-   9. Repeat step 2a to create the *Price* attribute.
+   9. ステップ2aを繰り返し、 *Price* 属性を作成します。
 
    10. In the **Create New Attribute** dialog box, set the name to *Price*, set the type to *Decimal*, and click **Create**.
 
-   11. Repeat step 2a to create the *Vendor* attribute.
+   11. *ベンダー* 属性を作成するには、ステップ2aを繰り返します。
 
    12. In the **Create New Attribute** dialog box, set the name to *Vendor*, set the type to *String*, and click **Create**.
 
-3. Each product has an *image*, but you did not create it as an attribute. You need to create a special type of entity that allows you to store images – an image entity, and set its name to *Product_Image*. Follow the steps below:
+3. 各製品には *イメージ*がありますが、属性として作成していません。 イメージエンティティを格納できる特別なタイプのエンティティを作成する必要があります。 そして、その名前を *Product_Image* に設定します。 以下の手順に従ってください。
 
-    1.  Open **Toolbox**, drag and drop the **Image Entity** in your domain model:
+    1.  **Toolbox**を開き、 **Image Entity** をドメインモデルにドラッグ&ドロップします。
 
         {{% image_container width="300" %}}![Image Entity](attachments/domain-model-how-to-configure/adding-image-entity.png){{% /image_container %}}
 
-    2. In the **Create New Image Attribute** dialog box, set the name to *Product_Image* and click **Create**.
- {{% alert type="info" %}} *Name* and *Size* attributes are created automatically and are read-only.
+    2. **Create New Image Attribute** ダイアログボックスで、名前を *Product_Image* に設定し、 **Create** をクリックします。
+ {{% alert type="info" %}} *Name* と *Size* 属性は自動的に作成され、読み取り専用です。
         {{% /alert %}}
 
-Good job! You created the **Product** entity, its attributes, and the **Product_Image** image entity:
+よくできました！ **製品** エンティティ、その属性、 **製品画像** イメージエンティティを作成しました:
 
 {{% image_container width="500" %}}![Product and Product Image Entities](attachments/domain-model-how-to-configure/product-and-product-image.png){{% /image_container %}}
 
-## 5 Defining the Order {#order}
+## 5 順序の定義 {#order}
 
-The order information can be divided into following:
+注文情報は以下に分けることができます:
 
-* **Order** – general information about the order such as its status, order number, name of the customer and their address, etc.
-* **Order line** – items ordered, their quantity and price
-* **Order confirmation** – confirmation that is sent to the customer that the order is placed
+* **注文** – 注文の状況、注文番号、顧客の名前、住所などの一般的な情報。
+* **Order line** – 注文された商品、数量、価格
+* **注文の確認** – 注文が完了したことを確認する
 
-So, you need to create three entities: *Order*, *Order_Line*, and *Order_Confirmation*.
+したがって、3つのエンティティを作成する必要があります: *Order*, *Order_Line*, and *Order_Confirmation*.
 
-Do the following:
+次の操作を行います:
 
-1. Create the **Order** entity. Use the same method as for creating the **Product** entity. For more information, see the [Defining the Product](#product) section.
+1. **Order** エンティティを作成します。 **Product** エンティティを作成するのと同じ方法を使用します。 詳細については、 [製品の定義](#product) セクションを参照してください。
 
-2. Create attributes for the **Order** entity: *Order_Number* and *Status*. Do the following:<br />
-    1. Select the entity and click **New attribute**.
+2. **Order** エンティティの属性を作成: *Order_Number* と *Status*. 次の操作を行います:<br />
+    1. 図形を選択し、 **新規属性** をクリックします。
 
     2. In the **Create New Attribute** dialog box, set the name to *Order_Number*, set the type to *Autonumber*, and click **Create**.
 
-    3. Repeat step 2a to create the *Status* attribute.
+    3. ステップ2aを繰り返し、 *Status* 属性を作成します。
 
-    4. Set the attribute **Name** to *Status* and **Type** to *Enumeration*. The enumeration will include different status values, for example, *Placed* or *Shipped*.
+    4. 属性 **名前** を *ステータス* に、 **タイプ** を *列挙* に設定します。 列挙には、 *Placed* や *Shipped* など、さまざまなステータス値が含まれます。
 
-    5. Click **Select enumeration** to create a new [enumeration](/studio8/domain-models-enumeration).
+    5. **Select enumeration** をクリックして、新しい [enumeration](/studio8/domain-models-enumeration) を作成します。
 
         {{% image_container width="450" %}}![Select Enumeration](attachments/domain-model-how-to-configure/select-enumeration.png){{% /image_container %}}
 
-    6. In the **Select enumeration** dialog box, click **New Enumeration**.
+    6. **Select enumeration** ダイアログボックスで、 **New Enumeration** をクリックします。
 
     7. In the **Create new enumeration** dialog box, click **Add Item** (*Status* is filled out automatically for the **Name**).
 
         {{% image_container width="450" %}}![Create New Enumeration](attachments/domain-model-how-to-configure/create-new-enumeration.png){{% /image_container %}}
 
-    8. Enter *Ordered* for the **Caption** (**Name** is filled out as *Ordered* automatically).
+    8. *と* を **図表番号** (**名前** は自動的に *注文済み* として記入されます)。
 
-    9. Click **Add Item** and repeat the step above to create the **Paid**, **Shipped**, **Delivered**, and **Canceled** statuses.
+    9. **Add Item** をクリックし、上記の手順を繰り返して、 **Paid**を作成します。 **出荷済み** , ** ** ステータス ****, **配信済み**, **キャンセル済み** ステータス.
 
         {{% image_container width="450" %}}![Create Enumeration Items](attachments/domain-model-how-to-configure/create-enumeration-items.png){{% /image_container %}}
 
-    10. Click **Create** to close the dialog boxs and create the attribute.
+    10. **Create** をクリックしてダイアログボックスを閉じ、属性を作成します。
 
-3. Create the **Order_Line** entity to hold the order products and quantities. Use the same method as for creating the **Product** entity. For more information, see the [Defining the Product](#product) section.
+3. 注文銘柄と数量を保持するために、 **Order_Line** エンティティを作成します。 **Product** エンティティを作成するのと同じ方法を使用します。 詳細については、 [製品の定義](#product) セクションを参照してください。
 
-4. Create attributes for the **Order_Line** entity. Do the following:<br />
+4. **Order_Line** エンティティの属性を作成します。 次の操作を行います:<br />
 
-    1. Repeat step 2a to create the *Quantity* attribute.
+    1. *Quantity* 属性を作成するには、ステップ 2 a を繰り返します。
     2. In the **Create New Attribute** dialog box, set **Name** to *Quantity*, set **Type** to *Integer*, and click **Create**.
-    3. Repeat step 2a to create the *Order_Price* attribute.
+    3. *Order_Price* 属性を作成するには、ステップ 2a を繰り返します。
     4. In the **Create New Attribute** dialog box, set **Name** to *Order_Price*, set **Type** to *Decimal*, and click **Create**.
 
-5. Create the **Order_Confirmation** entity. As an order confirmation is a file is sent to customers, you need to create a special type of entity that allows you to store files – the **File** entity. Do the following:
+5. **Order_Confirmation** エンティティを作成します。 注文確認は、ファイルが顧客に送信されますので。 **ファイル** エンティティを格納できる特別なタイプのエンティティを作成する必要があります。 次の操作を行います:
 
-    1. Open **Toolbox**, drag and drop the **File Entity** in your domain model:
+    1. **Toolbox**を開き、 **File Entity** をドメインモデルにドラッグ&ドロップします。
 
         {{% image_container width="350" %}}![Image Entity](attachments/domain-model-how-to-configure/adding-file-entity.png){{% /image_container %}}
 
-    2. In the **Create New File Attribute** dialog box, set the name to *Order_Confirmation* and click **Create**.
+    2. **新規ファイル属性の作成** ダイアログボックスで、名前を *Order_Confirmation* に設定し、 **Create** をクリックします。
 
-6. Create attributes for the the **Order_Confirmation** entity. Do the following:<br />
+6. **Order_Confirmation** エンティティの属性を作成します。 次の操作を行います:<br />
 
-    1. Repeat step 2a to create the *Date_Sent* attribute.
+    1. *Date_Sent* 属性を作成するには、ステップ 2a を繰り返します。
 
     2. In the **Create New Attribute** dialog box, set **Name** to *Date_Sent*, set **Type** to *Date and Time*, and click **Create**.
 
-        {{% alert type="info" %}} *Name* and *Size* attributes are created automatically and are read-only.
+        {{% alert type="info" %}} *Name* と *Size* 属性は自動的に作成され、読み取り専用です。
         {{% /alert %}}
 
-You configured three entities that define the order in your online shopping app.
+オンラインショッピングアプリで注文を定義する3つのエンティティを設定しました。
 
-## 6 Defining the Customer {#customer}
+## 6 顧客の定義 {#customer}
 
-A customer is another crucial part of the online shopping app that needs a separate entity. The details that define customers, such as a name and address, should be attributes of this entity.
+顧客は、別のエンティティを必要とするオンラインショッピングアプリのもう一つの重要な部分です。 名前やアドレスなどの顧客を定義する詳細は、このエンティティの属性である必要があります。
 
-Follow the steps below:
+以下の手順に従ってください。
 
-1. Create the **Customer** entity. Use the same method as for creating the **Product** entity. For more information, see the [Defining the Product](#product) section.
-2. Create attributes for the **Customer** entity (for more information on how to create an attribute, see the [Adding New Attributes](/studio8/domain-models#adding-new-attributes) section in *Domain Model*). Do the following:<br />
-1. Select the entity and click **New attribute**.
+1. **顧客** エンティティを作成します。 **Product** エンティティを作成するのと同じ方法を使用します。 詳細については、 [製品の定義](#product) セクションを参照してください。
+2. Create attributes for the **Customer** entity (for more information on how to create an attribute, see the [Adding New Attributes](/studio8/domain-models#adding-new-attributes) section in *Domain Model*). 次の操作を行います:<br />
+1. 図形を選択し、 **新規属性** をクリックします。
     2. In the **Create New Attribute** dialog box, set **Name** to *Customer_ID*, set **Type** to *Autonumber*, and click **Create**.
-3. Repeat step 2a to create the *Name* attribute.
+3. *Name* 属性を作成するには、ステップ 2a を繰り返します。
     4. In the **Create New Attribute** dialog box, set **Name** to *Name*, set **Type** to *String*, and click **Create**.
-5. Repeat step 2a to create the *Address* attribute.
+5. *Address* 属性を作成するには、ステップ 2a を繰り返します。
     6. In the **Create New Attribute** dialog box, set **Name** to *Address*, set **Type** to *String*, and click **Create**.
-7. Repeat step 2a to create the *Email* attribute.
+7. *Email* 属性を作成するには、ステップ 2 a を繰り返します。
     8. In the **Create New Attribute** dialog box, set **Name** to *Email*, set **Type** to *String*, and click **Create**.
-9. Repeat step 2a to create the *Date_Of_Birth* attribute.
+9. ステップ2aを繰り返し、 *Date_Of_Birth* 属性を作成します。
     10. In the **Create New Attribute** dialog box, set **Name** to *Date_Of_Birth*, set **Type** to *Date and Time*, and click **Create**.
 
 
-You created the **Customer** entity and its attributes:
+**顧客** エンティティとその属性を作成しました。
 
 {{% image_container width="200" %}}
-![Customer Entity](attachments/domain-model-how-to-configure/customer_entity.png)
+![顧客エンティティ](attachments/domain-model-how-to-configure/customer_entity.png)
 {{% /image_container %}}
 
-## 7 Creating Associations
+## 7 関連付けの作成
 
-You have created all the entities and their attributes:
+すべてのエンティティとそれらの属性を作成しました:
 
-<img src="attachments/domain-model-how-to-configure/entities.png" alt="Entities" />
+<img src="attachments/domain-model-how-to-configure/entities.png" alt="エンティティ" />
 
-Now you need to define how these entities are connected to each other and create associations. For more information on associations, see [Associations](/studio8/domain-models-association-properties).
+これらのエンティティが相互に関連付けられている方法を定義し、関連付けを作成する必要があります。 関連付けの詳細については、 [Associations](/studio8/domain-models-association-properties) を参照してください。
 
-First, define how entities are connected between each other:
+まず、図形間の接続方法を定義します。
 
-1. One product image is connected to only one product: this means they have a one-to-one association.
-2. One order can contain multiple items (order lines) in it, that means the **Order** and **Order_Line** have a one-to-many association.
-3. The **Order_Line** uses information about the product. One product can be associated with several order lines, so **Product** and **Order_Line** need a one-to-many association.
-4. One order confirmation is issued per order. This means one **Order** object is associated with one **Order_Confirmation** object and has a one-to-one association.
-5.  An order is placed by a customer. Several orders can be connected to one customer, so the **Order** and **Customer** have a one-to-many association.
+1. 1つの製品イメージは1つの製品にのみ接続されています。つまり、1対1の関連付けがあることを意味します。
+2. 1つの注文に複数の商品(注文行)を含めることができます。つまり、 **注文** と **Order_Line** は、1対多の関連付けを持っていることを意味します。
+3. **Order_Line** は、製品に関する情報を使用します。 1つの銘柄は複数の注文行に関連付けることができるため、 **Product** と **Order_Line** は1対多の関連付けが必要です。
+4. 注文ごとに1つの注文確認書が発行されます。 これは、 **Order** オブジェクトが **Order_Confirmation** オブジェクトに関連付けられ、1 対 1 の関連付けがあることを意味します。
+5.  注文は顧客によって行われます。 複数の注文は1つの顧客に接続できるため、 **注文** と **顧客** には1対多の関連があります。
 
-Now that you defined connections between entities, you can start creating these connections. Follow the steps below:
+エンティティ間の接続を定義したので、これらの接続の作成を開始できます。 以下の手順に従ってください。
 
-1. Create an association from the **Product_Image** to **Product**. Do the following:
+1. **Product_Image** から **Product** への関連付けを作成します。 次の操作を行います:
 
-    1. Hover over the **Product_Image** entity and click the dot icon:
+    1. **Product_Image** エンティティにカーソルを合わせ、ドットアイコンをクリックします:
 
        {{% image_container width="500" %}}![Product Image and Product Association](attachments/domain-model-how-to-configure/product-image-product-association.png){{% /image_container %}}
 
-    2. Drag the dot to the **Product** entity.
+    2. ドットを **Product** エンティティにドラッグします。
 
-        {{% alert type="info" %}}Another way to create an association between entities is to select an entity and click the arrow icon.
+        {{% alert type="info" %}}エンティティ間の関連付けを作成する別の方法は、エンティティを選択して矢印アイコンをクリックすることです。
         {{% /alert %}}
 
-    3. Open **Properties** and change the multiplicity (one-to-many is created by default) to one-to-one.
+    3. **プロパティ** を開き、多重度を1対1に変更します。
 
         {{% image_container width="300" %}}![Product_Image and Product Association](attachments/domain-model-how-to-configure/product-image-and-product-association.png){{% /image_container %}}
 
-2. Create an association from **Order_Line** to **Order** following the steps 1a and 1b above. (The one-to-many multiplicity that you need is created by default).
-3. Create an association from **Order** to **Customer** following the steps 1a and 1b above. (The one-to-many multiplicity that you need is created by default).
+2. **Order_Line** から **Order_Line** への関連付けを作成します。上記の手順 1a と 1b に従ってください。 (必要な1対多重度はデフォルトで作成されます)。
+3. 上記の手順 1a と 1b の後に、 **Order** から **Customer** への関連付けを作成します。 (必要な1対多重度はデフォルトで作成されます)。
 
-4. Create an association from **Order** to **Order_Line**. Do the following:
-    1. Follow the steps 1a and 1b above.
-    2. Open **Properties** and change the multiplicity (one-to-many is created by default) to one-to-one.
+4. **Order** から **Order_Line** への関連付けを作成します。 次の操作を行います:
+    1. 上のステップ1aと1bに従ってください。
+    2. **プロパティ** を開き、多重度を1対1に変更します。
 
-All associations are created.
+すべての関連付けが作成されます。
 
 {{% alert type="info" %}}
 
-Alternatively, you can create an image or file entity clicking **New attribute** > **Add file or image**, in this case an association is created by default. For more information, see the [Adding New Image or File Entities](/studio8/domain-models#adding-image-or-file-entities) section in *Domain Model*.
+あるいは、 **新しい属性** > **ファイルまたは画像を追加**をクリックしてイメージまたはファイルエンティティを作成できます。 この場合、関連付けはデフォルトで作成されます。 詳細については、 [ドメインモデル](/studio8/domain-models#adding-image-or-file-entities) の *新規イメージまたはファイルエンティティの追加* セクションを参照してください。
 
 {{% /alert %}}
 
-Congratulations! You have now configured the domain model for the online shopping app!
+おめでとうございます オンラインショッピングアプリのドメインモデルを設定しました！
 
-![Domain Model online shopping app](attachments/domain-model-how-to-configure/domain-model-online-shop.png)
+![ドメインモデルオンラインショッピングアプリ](attachments/domain-model-how-to-configure/domain-model-online-shop.png)
 
-Now you can build [pages](/studio8/page-editor) for it or use [Buzz](/studio8/collaboration-buzz) to collaborate with developers and designers from your team and build the app experience.
+[ページ](/studio8/page-editor) を作成するか、 [Buzz](/studio8/collaboration-buzz) を使用して、チームの開発者やデザイナーとコラボレーションし、アプリエクスペリエンスを構築することができます。
 
-## 8 Read More
+## 8 続きを読む
 
-* [Domain Model](/studio8/domain-models)
-* [Pages](/studio8/page-editor)
-* [Microflows](/studio8/microflows)
+* [ドメインモデル](/studio8/domain-models)
+* [ページ](/studio8/page-editor)
+* [マイクロフロー](/studio8/microflows)
 * [Buzz](/studio8/collaboration-buzz)
