@@ -1,117 +1,117 @@
 ---
-title: "Import with Mapping"
-parent: "integration-activities"
+title: "マッピングでインポート"
+parent: "インテグレーションアクティビティ"
 tags:
   - "studio pro"
-  - "import xml"
-  - "import with mapping"
-  - "import mapping"
-  - "integration activity"
+  - "xmlをインポート"
+  - "マッピング付きでインポート"
+  - "インポートのマッピング"
+  - "統合アクティビティ"
 menu_order: 30
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
 
-## 1 Introduction
+## 1つの紹介
 
-The **Import with mapping** activity allows you to import the data stored in an XML or JSON document into [domain model](domain-model) entities.
+**マッピングでインポート** アクティビティを使用すると、XML または JSON ドキュメントに格納されているデータを [ドメイン モデル](domain-model) エンティティにインポートすることができます。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of import with mapping properties is represented in the image below:
+マッピングプロパティを使用したインポートの例は以下のイメージで表されています:
 
-![import with mapping properties](attachments/integration-activities/import-with-mapping-properties.png)
+![マッピングプロパティでインポート](attachments/integration-activities/import-with-mapping-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The import with mapping properties pane consists of the following sections:
+マッピングプロパティペインを持つインポートは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
 ![](attachments/integration-activities/import-mapping-action.png)
 
-### 3.1 Variable
+### 3.1 変数
 
-The input variable can be the name of a string variable, a file document, an [HttpRequest](http-request-and-response-entities#http-request), or an [HttpRequest](http-request-and-response-entities#http-response). The content of the file document, HttpRequest, or HttpResponse should be XML or JSON.
+入力変数は、文字列変数、ファイルドキュメント、 [HttpRequest](http-request-and-response-entities#http-request)、または [HttpRequest](http-request-and-response-entities#http-response) の名前にすることができます。 ファイルドキュメント、HttpRequest または HttpResponse の内容は XML または JSON にする必要があります。
 
-### 3.2 Mapping
+### 3.2 マッピング
 
-The [import mapping](import-mappings) defines how to transform the XML or JSON into objects.
+[インポート マッピング](import-mappings) は、 XML または JSON をオブジェクトに変換する方法を定義します。
 
-### 3.3 Input Content Type
+### 3.3 入力コンテンツタイプ
 
-If the import mapping is based on a [message definitions](message-definitions), it can import both XML and JSON. Select whether the input object contains XML or JSON.
+インポートマッピングが [メッセージ定義](message-definitions)に基づいている場合、XML と JSON の両方をインポートすることができます。 入力オブジェクトに XML または JSON が含まれているかどうかを選択します。
 
-### 3.4 The Input Contains
+### 3.4 入力に含まれるもの
 
-If the import mapping is based on a [message definitions](message-definitions), it can import both single objects and lists. Select whether the input is a single object or a list of objects.
+インポートマッピングが [メッセージ定義](message-definitions)に基づいている場合、単一のオブジェクトとリストの両方をインポートすることができます。 入力が単一のオブジェクトであるか、オブジェクトのリストであるかを選択します。
 
-### 3.5 If No Object Was Found
+### 3.5 オブジェクトが見つからなかった場合
 
-You can indicate what should happen **if no object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
+**オブジェクトが見つからなかった場合、** インポートマッピングがチェックされたとき、 **マッピングが使用される場所でこれを決定する**.
 
-### 3.6 Parameter
+### 3.6 パラメータ
 
-If the selected mapping requires a parameter, you can choose it here.
+選択されたマッピングにパラメータが必要な場合、ここで選択することができます。
 
 ### 3.7 Range
 
- If the mapping returns a list, you can select a range to determine how many objects are mapped and returned.
+ マッピングがリストを返す場合、マップされ返されるオブジェクトの数を決定するために範囲を選択することができます。
 
-| Range  | Meaning                                                                                                               |
-| ------ | --------------------------------------------------------------------------------------------------------------------- |
-| All    | Map and return all objects.                                                                                           |
-| First  | Map and return only the first object. The result of the action will be a single object instead of a list.             |
-| Custom | Map and return a given number of objects (limit). The limit is a microflow expression that should result in a number. |
+| Range | 意味                                                      |
+| ----- | ------------------------------------------------------- |
+| すべて   | すべてのオブジェクトをマップして返します。                                   |
+| 最初の   | 最初のオブジェクトのみをマップして返します。 アクションの結果はリストの代わりに単一のオブジェクトになります。 |
+| カスタム  | 指定された数のオブジェクトをマップして返します(limit)。 制限は数字になるマイクロフロー式です。     |
 
-### 3.8 Commit {#commit}
+### 3.8 コミット {#commit}
 
-Indicates whether the resulting objects should be committed to the database, and whether event handlers should be triggered.
+結果として生成されるオブジェクトをデータベースにコミットするかどうか、およびイベントハンドラをトリガーするかどうかを示します。
 
-| Option             | Description                                                                                                                    |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| Yes                | The objects are saved in the database and the [event handlers](event-handlers) are triggered.                                  |
-| Yes without events | The objects are saved in the database, but the [event handlers](event-handlers) are not triggered (default).                   |
-| No                 | The objects are created without being saved in the database. You will need a [commit action](committing-objects) to save them. |
+| Option    | 説明                                                                             |
+| --------- | ------------------------------------------------------------------------------ |
+| はい        | オブジェクトはデータベースに保存され、 [イベントハンドラ](event-handlers) がトリガーされます。                      |
+| イベントなしではい | オブジェクトはデータベースに保存されますが、 [イベントハンドラ](event-handlers) はトリガーされません(デフォルト)。           |
+| いいえ       | オブジェクトはデータベースに保存されずに作成されます。 それらを保存するには、 [コミットアクション](committing-objects) が必要です。 |
 
-### 3.9 Validate Against Schema
+### 3.9 スキーマに対する検証
 
 {{% alert type="info" %}}
 
-Validation properties are only applicable if an import mapping is selected that maps from XML based on an [XML schema](xml-schemas) or a [consumed web service](consumed-web-service).
+検証プロパティは、 [XML スキーマ](xml-schemas) または [使用した Web サービス](consumed-web-service) に基づいて XML からマップするインポートマッピングが選択されている場合にのみ適用することができます。
 
 {{% /alert %}}
 
-Determines whether the import action should validate the incoming XML against the [XML schema](xml-schemas).
+インポート アクションが [XML スキーマ](xml-schemas) に対して受信する XML を検証するかどうかを決定します。
 
-Setting this to _yes_ can impact performance!
+_はい_ に設定するとパフォーマンスに影響を与える可能性があります！
 
-Default: *No*
+デフォルト: *いいえ*
 
-### 3.10 Store in Variable
+### 3.10 変数に保存
 
-Choose whether to store the result of the import.
+インポートの結果を保存するかどうかを選択します。
 
-### 3.11 Type
+### 3.11 タイプ
 
-The type of the result.
+結果のタイプ。
 
-### 3.12 Name
+### 3.12 名前
 
-The name of the result of the import.
+インポートの結果の名前。
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
