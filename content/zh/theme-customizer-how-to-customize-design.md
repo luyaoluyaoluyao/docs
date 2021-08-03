@@ -28,8 +28,8 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉主题定制器。 欲了解更多信息，请参阅 [主题定制器](/studio8/theme-customizer)。
-* 熟悉页面条款。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
+* 熟悉主题定制器。 欲了解更多信息，请参阅 [主题定制器](/studio/theme-customizer)。
+* 熟悉页面条款。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
 
 ## 正在上传您公司的徽标
 
@@ -144,4 +144,4 @@ The **Typography** section of the **Theme Customizer** allows you to manage text
 
 6. 点击 **在右上角保存** 以实现您的更改。
 
-恭喜！ 您已经自定义了您的应用风格。 您现在可以 [预览您的应用程序](/studio8/publishing-app) 来测试更改看起来像样的更改。  
+恭喜！ 您已经自定义了您的应用风格。 您现在可以 [预览您的应用程序](/studio/publishing-app) 来测试更改看起来像样的更改。  
