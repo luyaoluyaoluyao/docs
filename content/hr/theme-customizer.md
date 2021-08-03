@@ -120,4 +120,4 @@ The color has been applied to your app.
 
 ## 6 Read More
 
-* [Atlas UI](/howto/front-end/atlas-ui)
+* [Atlas UI](/howto8/front-end/atlas-ui)
