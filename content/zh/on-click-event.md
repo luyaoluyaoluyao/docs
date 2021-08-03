@@ -1,316 +1,323 @@
 ---
-title: "On Click Event & Events Section"
-parent: "pages"
+title: "点击事件 & 事件部分"
+parent: "页面"
 menu_order: 130
 tags:
   - "studio pro"
-  - "events section"
-  - "properties"
-  - "widget"
-  - "on click"
-  - "action"
-  - "on click event"
+  - "事件部分"
+  - "属性"
+  - "小部件"
+  - "点击时"
+  - "行动"
+  - "点击事件"
 aliases:
   - /refguide/opening-pages.html
   - /refguide/starting-microflows.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-Events specify actions which can be triggered when the end-user interacts with a widget. This interaction can occur in a number of ways:
+事件指定了当最终用户与部件互动时可以触发的动作。 这种互动可以通过以下几种方式进行：
 
-* [On click](#on-click) – this is the most common interaction and can be used with many widgets
-* [On change](#on-change) – for input widgets
-* [On enter](#on-enter) – for input widgets
-* [On leave](#on-leave) – for input widgets
+* [点击](#on-click) - 这是最常见的交互，可以在许多小部件中使用
+* [更改](#on-change) - 用于输入小部件
+* [输入](#on-enter) - 输入小部件
+* [离开](#on-leave) - 输入小部件
 
-## 2 Triggering Actions
+## 2 个触发操作
 
-### 2.1 On Click {#on-click}
+### 2.1 点击时 {#on-click}
 
-An **On click** event specifies an event that is executed when a user clicks a widget. Often the **On click** property is a part of the **Events** section in properties. For example, you can specify that when a user clicks a customer's profile image, the page with this customer's details will open:
+在点击 **** 事件指定了一个当用户点击小部件时执行的事件。 Often the **On click** property is a part of the **Events** section in properties. 例如，您可以指定当用户点击客户的个人资料图片时，此客户详细信息的页面将打开：
 
 {{% image_container width="350" %}}![](attachments/on-click-event/on-click-event-example.png)
 {{% /image_container %}}
 
-An on-click event is common for many widgets (for example, image, buttons, list view).
+鼠标点击事件对许多小部件都很常见(例如，图像、按钮、列表视图)。
 
-The **On click** property specifies what [action](#actions) is executed when a user click a widget.
+点击 **** 属性来指定当用户点击小部件时执行的 [动作](#actions)。
 
-#### 2.1.1 Disabled During Action
+#### 2.1.1 行动期间禁用
 
-This property is only shown when **Call a microflow** or **Call a nanoflow** is selected as the on-click event. Selecting **Disabled during action** disables the button until the action is completed or failed.
+此属性仅在 **调用微流程** 或 **调用nanoflow** 被选为点击事件时才显示。 选择 **在动作过程中禁用** 禁用按钮直到动作完成或失败。
 
-### 2.2 On Change {#on-change}
+### 2.2 更改时 {#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
-### 2.3 On Enter {#on-enter}
+### 2.3 进入时 {#on-enter}
 
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+输入小部件时指定了一个执行的动作。 要么使用 <kbd>Tab</kbd> 键，要么用鼠标点击它。
 
-### 2.4 On Leave {#on-leave}
+### 2.4 离开时 {#on-leave}
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+请假属性指定了离开部件时要执行的动作， 要么使用 <kbd>Tab</kbd> 键，要么点击另一个部件。
 
 This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
 
-## 3 Event Actions {#actions}
+## 3 个事件动作 {#actions}
 
-When an event is triggered, you can choose what action is triggered. Possible options are the following ones:
+当事件触发时，您可以选择触发什么动作。 可能的备选办法如下：
 
-* [Do nothing](#do-nothing) *(default)*
-* [Show a page](#show-page)
-* [Call a microflow](#call-microflow)
-* [Call a nanoflow](#call-nanoflow)
-* [Open link](#open-link)
-* [Create object](#create-object)
-* [Save changes](#save-changes)
-* [Cancel changes](#cancel-changes)
-* [Close page](#close-page)
-* [Delete](#delete)
+* [不做任何](#do-nothing) *(默认)*
+* [显示页面](#show-page)
+* [调用微流](#call-microflow)
+* [呼叫nanoflow](#call-nanoflow)
+* [打开链接](#open-link)
+* [创建对象](#create-object)
+* [保存更改](#save-changes)
+* [取消更改](#cancel-changes)
+* [关闭页面](#close-page)
+* [删除](#delete)
 * [Synchronize](#synchronize)
-* [Sign out](#sign-out)
-* [Call workflow](#call-workflow)
-* [Show user task page](#show-user-task-page)
-* [Show workflow admin page](#show-workflow-page)
-* [Complete user task](#complete-task)
+* [登出](#sign-out)
+* [调用 Workflow](#call-workflow)
+* [显示用户任务页面](#show-user-task-page)
+* [显示工作流管理页面](#show-workflow-page)
+* [完成用户任务](#complete-task)
 
-### 3.1 Do Nothing {#do-nothing}
+### 3.1 不采取任何行动 {#do-nothing}
 
-No action is taken. This option is useful for setting up a page without defining the underlying functionality yet.
+没有采取任何行动。 此选项用于设置页面而不定义基本功能。
 
-### 3.2 Show a Page {#show-page}
+### 3.2 显示页 次 {#show-page}
 
-The **Show a page** event opens the specified page. Select the page which opens using the options below:
+**显示一个页面** 事件打开指定的页面。 使用下面的选项选择打开页面：
 
-* **Page** – a [page](page) that should open.
+* **页面** - 一个 [页面应该打开](page)
 
-* **Page title** – the page you open can be given a unique title, depending on where you open it from. This allows you to re-use the same page for different purposes. For example, by setting the title to **New Customer** from one button and **Edit Customer** from another, you can use the same page for editing new and existing customers.
+* **页面标题** - 您打开的页面可以被赋予一个独特的标题，取决于您从哪里打开它。 这允许您为不同的目的重新使用同一页。 例如，通过从一个按钮设置 **新客户** 以及 **从另一个按钮编辑客户** 您可以使用同一页面编辑新客户和现有客户。
 
-    This option is activated by checking the **Override page title** check box in the **Edit** dialog box:
+    在 **编辑** 对话框中勾选 **重写页面标题** 复选框以激活此选项：
 
-    ![Page Title Property](attachments/on-click-event/page-title-property.png)
+    ![页面标题属性](attachments/on-click-event/page-title-property.png)
 
-* **Page for specializations** – allows you to configure a different page for each specialization of the context object. If this action is placed inside a data view, it is possible to configure different page(s) for each specialization of the data view object. If this action is placed in a data grid, it is possible to configure different pages for each specialization of the data grid entity. This setting is not shown when there is not a context object or when the context object has no specializations.
+* **专业化页面** - 允许您为上下文对象的每个专业化配置一个不同的页面。 如果此操作放置在数据视图中，可以为数据视图对象的每个专业化配置不同的页面。 如果此动作放置在数据网格中，可以为数据网格的每个专门化配置不同的页面。 当没有上下文对象或上下文对象没有专业化时，此设置不会显示。
 
-### 3.3 Call a Microflow {#call-microflow}
+### 3.3 调用微流 {#call-microflow}
 
-The **Call a microflow** event executes the specified microflow.
+**调用微流程** 事件执行指定的微流程。
 
 {{%alert type="info" %}}
 
-When setting **Call a microflow** as an action for the **On change**, **On enter**, or **On leave** event of a widget, note that microflows require some time to complete. Any changes to the current form made in the meantime (for example, changing values in input widgets) will be overwritten by the results of the microflow. Therefore, it is not recommended to change entities/attributes on the current page in a microflow triggered by an **On change**, **On enter**, or **On leave** event.
+设置 **在更改时调用 microflow** 作为 **的动作**和 **输入时**, 或者 **请注意小部件事件** 微流程需要一些时间才能完成。 在此期间对当前表格所作的任何改动（例如） 更改输入小部件中的值将被微流的结果覆盖。 因此，不建议更改当前页面上由 **在更改**时触发的微流程中的实体/属性。 **在输入**或 **离开时** 事件。
 
-{{%/alert %}}
+{{%/提醒 %}}
 
-The following settings are specific for this event:
+以下设置是此事件的特定设置：
 
-#### 3.3.1 Microflow {#microflow}
+#### 3.3.1 微流 {#microflow}
 
-The [microflow](microflow) that should be executed.
+应该执行的 [微流](microflow)。
 
-#### 3.3.2 Microflow Settings
+#### 3.3.2 微流设置
 
-**Microflow settings** opens a dialog box enabling you to specify what parameters will be passed to the microflow and how the microflow will be run.
+**微流程设置** 打开一个对话框，使您能够指定哪些参数将传递到微流程以及微流程将如何运行。
 
-![Microflow settings dialog](attachments/on-click-event/microflow-settings.png)
+![微流程设置对话框](attachments/on-click-event/microflow-settings.png)
 
-##### 3.3.2.1 Microflow
+##### 3.3.2.1 微流
 
-This duplicates the [Microflow](#microflow) specified above.
+这重复了上面指定的 [微流程](#microflow)。
 
-##### 3.3.2.2 Microflow Arguments
+##### 3.3.2.2 微流参数
 
-**Microflow arguments** are automatically configured based on the parameters of the selected microflow and the available arguments. In general arguments are taken from any enclosing data widget. If the data widget enclosing the widget calling a microflow is inside another (nested) data widget, then objects from that data widget and any others in which it is nested can also be passed.
+**微流程参数** 是根据选定的微流程参数和可用参数自动配置的。 一般参数来自任何附加数据部件。 如果数据小部件包含调用微流的小部件在另一个(嵌套)数据小部件内， 然后也可以传递来自该数据部件的对象和它嵌套的任何其他对象。
 
-If the microflow is triggered within a grid and has an object list parameter, the objects which are passed in the list depend on the selection mode of the grid. Simple multi-selection allows for either all rows or  selection, and defaults to selection. This can be configured via the drop-down in the microflow settings page.
+如果微流触发在网格内且有对象列表参数， 列表中传递的对象取决于网格的选择模式。 简单的多选区允许所有行或选择，并默认选择。 这可以通过下拉菜单在微流设置页面进行配置。
 
-##### 3.3.2.3 Microflow Call Type
+##### 3.3.2.3 微流调用类型
 
-**Microflow call type** specifies whether the microflow is executed synchronously or asynchronously.
+**微流程调用类型** 指定微流程是同步还是异步执行。
 
-* **Synchronous** *(default)* – The client waits until the microflow is done executing
+* **同步** *(默认)* — 客户端等待完成微流程执行
 
-* **Asynchronous**
+* **异步的**
 
-    * The client executes the microflow but does not wait for the result
+    * 客户端执行微流程，但不会等待结果
 
-    * The client checks the server every ten seconds to see whether the microflow is done executing
+    * 客户端每十秒检查服务器，检查是否执行microflow
 
-    * Only set the call type to asynchronous if you experience problems — sometimes, if a request takes too long to handle, the request will be sent again by an (impatient) proxy server
+    * 仅当您遇到问题时将通话类型设置为异步-有时， 如果请求处理时间过长，请求将由一个(不耐烦的)代理服务器再次发送
 
-##### 3.3.2.4 Show Progress Bar
+##### 3.3.2.4 显示进度条
 
-**Show progress bar** specifies whether a progress bar is shown during the execution of the microflow. The message shown in the progress bar can be set with the 'Progress message' property.
+**显示进度条** 指定在执行微流程时是否显示进度条 在进度条中显示的消息可以使用 '进度消息' 属性。
 
-| Value        | Description                                                                     |
-| ------------ | ------------------------------------------------------------------------------- |
-| None         | No progress bar is shown.                                                       |
-| Non-Blocking | A progress bar is shown, but the end-user can continue working.                 |
-| Blocking     | A progress bar is shown and the end-user must wait until the microflow is done. |
+| 值    | 描述                  |
+| ---- | ------------------- |
+| 无    | 没有显示进度栏。            |
+| 非屏蔽的 | 显示进度栏，但最终用户可以继续工作。  |
+| 屏蔽中  | 显示进度栏，最终用户必须等待微流完成。 |
 
 {{% alert type="warning" %}}
-Non-blocking progress bars are shown with a delay of half a second. If the execution of your microflow takes less than half a second, the progress bar will not be shown at all. Blocking progress bars are shown immediately.
-{{% /alert %}}
+无障碍进度条显示半秒的延迟。 如果执行您的微流所需时间不足半秒，进度条将不会显示。 屏蔽进度条会立即显示。
+{{% /报警 %}}
 
-##### 3.3.2.5 Progress Message
+##### 3.3.2.5 进度信息
 
-If a progress bar is shown, **Progress message** is the text which is shown next to the progress bar.
+如果显示进度栏， **进度消息** 是在进度栏旁边显示的文本。
 
-##### 3.3.2.6 Ask Confirmation
+##### 3.3.2.6 询问确认
 
-If **Ask Confirmation** is set to **Yes**, the end-user will be asked for confirmation before proceeding with the microflow. This is useful in cases where an operation modifies or deletes a lot of data or when it takes a lot of time to complete.
+If **Ask Confirmation** is set to **Yes**, the end-user will be asked for confirmation before proceeding with the microflow. 在操作修改或删除大量数据或需要很多时间才能完成的情况下，这是有用的。
 
-The user will be prompted with the text set in [Question](#question), below. The window title of the confirmation pop-up is determined by a system text (category 'Message dialog title').
+以下 [问题](#question)中的文本将会提示用户。 确认弹出窗口标题是由系统文本确定的('消息对话框标题')。
 
-The default value is **No**.
+默认值为 **没有**。
 
-##### 3.3.2.7 Question {#question}
+##### 3.3.2.7 问题 {#question}
 
-If **Ask confirmation** is set to yes, **Question** is what is shown to the user. Ensure that the question asked is clear and that the captions set on the buttons are unambiguous.
+如果 **确认** 设置为是， **问题** 是显示给用户的内容。 确保所提出的问题是明确的，并确保在按钮上设置的字幕是明确的。
 
-For example, *Are you sure you want to empty the trash can?*
+例如， *您确定要清空回收站？*
 
-##### 3.3.2.8 Proceed Button Caption
+##### 3.3.2.8 按钮标题
 
-If **Ask confirmation** is set to yes, this is the caption for the button that proceeds with the execution of the microflow.
+如果 **请求确认** 已设置为是，这是执行微流程的按键的字幕。
 
-For example, *Empty it*.
+例如， *将其为空*。
 
-##### 3.3.2.9 Cancel Button Caption
+##### 3.3.2.9 取消按钮标题
 
-If **Ask confirmation** is set to yes, this is the caption for the button that cancels the execution of the microflow.
+如果 **请求确认** 已设置为是，这是取消微流程执行的按钮的字幕。
 
-For example, *Do not empty*.
+例如， *不要为空*。
 
-##### 3.3.2.10 Maintain Selection After Microflow
+##### 3.3.2.10 微流程后保持选择
 
-For buttons which call a microflow from inside a grid, **Maintain selection after microflow** specifies whether the current selection of rows in the grid should be maintained after executing the microflow.
+对于调用网格内微流的按钮 **保持微流程后的选择** 指定执行微流程后是否保持当前网格中的行选择。
 
-##### 3.3.2.11 Abort on Validation Errors
+##### 3.3.2.11 验证时中止
 
-For microflows that are used within a data widget, setting **Abort on Validation Errors** to **Yes** forces widget validations to be performed _before_ executing the microflow. If the validations fail, the microflow will not be executed.
+For microflows that are used within a data widget, setting **Abort on Validation Errors** to **Yes** forces widget validations to be performed _before_ executing the microflow. 如果验证失败，微流将不会被执行。
 
-| Value                | Description                                                                                          |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| Yes *(default)*      | This will prevent the microflow from executing if there are any validation errors on the page.       |
-| Only for this widget | This will prevent the microflow from executing if there are validation errors in the current widget. |
-| No                   | The microflow will always be executed.                                                               |
+| 值        | 描述                     |
+| -------- | ---------------------- |
+| 是 *(默认)* | 如果页面上有任何验证错误，这将防止微流执行。 |
+| 仅限此小部件   | 如果当前小部件有验证错误，将防止微流执行。  |
+| 否        | 微流总是被执行。               |
 
-### 3.4 Call a Nanoflow {#call-nanoflow}
+### 3.4 呼叫纳诺夫洛文 {#call-nanoflow}
 
-The **Call a nanoflow** event executes the specified nanoflow.
+**调用 nanoflow** 事件执行指定的 nanoflow。
 
-Set the **Nanoflow** property to specify a [nanoflow](nanoflow) that should be executed.
+设置 **Nanoflow** 属性来指定一个 [nanoflow](nanoflow) 应该执行它。
 
-### 3.5 Open Link {#open-link}
+### 3.5 打开链接 {#open-link}
 
-The **Open link** event triggers an action based on a link type, some of which are specific to mobile devices. The following properties are specific for this event:
+**打开链接** 事件触发了基于链接类型的动作，其中一些是专门针对移动设备的。 以下属性是此事件的特定属性：
 
-* **Link Type** – the type of action triggered when pressing the button. For information on available link types, see the [Link Types](#on-click-link-type) section below.
-* **Address** – usage of the address property depends on the chosen link type and whether you want to use a literal or to use the value of an attribute.
-  * **Use literal value**  – allows you to enter a fixed address.
-  * **Use attribute** – allows you to select an attribute which contains the value to be used as the address. In this case, the widget must have an entity as its context (for example, it is inside a data view).
+* **链接类型** - 按下按钮时触发的动作类型。 关于可用链接类型的信息，请参阅下面的 [链接类型](#on-click-link-type) 部分。
+* **地址** - 地址属性的使用取决于所选的链接类型以及您是否想使用字幕或使用属性的值。
+  * **使用字数值**  - 允许您输入一个固定地址。
+  * **使用属性** - 允许您选择一个包含要用作地址的值的属性。 在这种情况下，小部件必须有一个实体作为其上下文(例如它在数据视图内)。
 
-#### 3.5.1 Link Types {#on-click-link-type}
+#### 3.5.1 链接类型 {#on-click-link-type}
 
-The table below described link types available for the **Open link** on click event:
+下面的表格描述了 **打开链接** 点击事件可用的链接类型：
 
-| Value             | Description                                          | Example                                   |
-| ----------------- | ---------------------------------------------------- | ----------------------------------------- |
-| Web   *(default)* | Navigate to a website URL                            | `https://mysubdomain.mydomain.tld/mypage` |
-| Email             | Specifies an email address to which to send an email | `firstname.secondname@mailprovider.tld`   |
-| Call              | Starts a phone call to this number                   | `+1-202-555-0165`                         |
-| Text              | Specifies a number to which to send a text message   | `+1-202-555-0112`                         |
+| 值                 | 描述               | 示例                                        |
+| ----------------- | ---------------- | ----------------------------------------- |
+| Web   *(default)* | 导航到网站 URL        | `https://mysubdomain.mydomain.tld/mypage` |
+| 电子邮件地址            | 指定要发送电子邮件的电子邮件地址 | `firstname.secondname@mailprovider.tld`   |
+| 来电                | 开始通话到此号码         | `+1-202-555-0165`                         |
+| 文本                | 指定要发送文本消息的数字     | `+1-202-555-0112`                         |
 
 {{%alert type="info" %}}
 
-When you Specify  **Email**, **Call**, or **Text** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message.
+当您指定  **Email**, **调用**, 或 **文本** 选项， 触发动作时将在设备上打开相应的默认应用， 例如，默认的电子邮件客户端将被打开来撰写消息。
 
-{{%/alert %}}
+{{%/提醒 %}}
 
-### 3.6 Create Object {#create-object}
+### 3.6 创建对象 {#create-object}
 
-The **Create object** event creates a new object. The following properties are specific for this event:
+**创建对象** 事件创建了一个新对象。 以下属性是此事件的特定属性：
 
-* **Entity (path)** – specifies which entity to create. It is also possible to choose an association (if available) from the context object. If an entity is configured, a new instance of the entity will be created. If an entity through association from the context object is configured, a new instance of the entity will be created and an object associated with the context will be created.
-* **On {event} page** – specifies which [page](page) should be shown to allow the end-user to enter values for the new created object. This page must accept a context parameter object (for example, a data view) with the same entity or a sub-type of the created entity. **{event}** specifies which event is being used to trigger this action (**click**, for example).
+* **实体 (路径)** - 指定要创建的实体。 也可以从上下文对象中选择一个协会(如果有的话)。 如果一个实体被配置，将创建一个新的实体实例。 如果一个实体通过上下文对象的关联被配置， 将创建一个新的实体实例并创建一个与上下文相关联的对象。
+* **在 {event} 页面** - 指定了哪些 [页面](page) 应该显示为允许最终用户为新创建的对象输入值。 此页面必须接受具有相同实体或创建实体的子类型的上下文参数对象(例如数据视图)。 **{event}** 指定了用于触发此动作的事件(**点击**, 例如)。
 
-### 3.7 Save Changes {#save-changes}
+### 3.7 保存更改 {#save-changes}
 
-The **Save changes** event commits all changes made on the page. The following properties are specific for this event:
+**保存更改** 事件提交了页面上的所有更改。 以下属性是此事件的特定属性：
 
-* **Close page** – specifies whether the current page should be closed.
-* **Auto-synchronize** – specifies whether synchronization should happen when the save button is clicked for a Mendix application running in an offline profile. When an object is saved in a Mendix application running in an offline profile it is stored in a local database until it can be synchronized with the server (for more information on the capabilities of offline apps, see [Offline First](offline-first). In practice, this means that uploading a new object to the server requires two distinct actions: saving the object and [syncing it](offline-first#synchronization).
+* **关闭页面** - 指定当前页面是否应该关闭。
+* **自动同步** - 指定当保存按钮在离线配置文件中运行的 Mendix 应用程序被点击时是否会发生同步。 当一个对象被保存到一个离线配置文件中的 Mendix 应用程序时，它将存储在一个本地数据库中，直到它能够与服务器同步(关于离线应用的能力的更多信息) 查看 [离线第一](offline-first)。 实际上，这意味着上传一个新对象到服务器需要两个不同的动作：保存对象和 [同步它](offline-first#synchronization)。
 
-### 3.8 Cancel Changes {#cancel-changes}
+### 3.8 取消更改 {#cancel-changes}
 
-The Cancel changes event rolls back all changes made on the page.
+取消更改事件回滚页面上的所有更改。
 
-Set the **Close page** property to indicate whether the current page should be closed.
+设置 **关闭页面** 属性，以表明当前页面是否应该关闭。
 
-### 3.9 Close Page {#close-page}
+### 3.9 关闭页面 {#close-page}
 
-The **Close page** event closes a pop-up window (for pop-up pages) or navigates to the previously visited page (for content pages).
+**关闭页面** 事件关闭一个弹出窗口(用于弹出页面)或导航到先前访问的页面 (用于内容页面)。
 
-### 3.10 Delete {#delete}
+### 3.10 删除 {#delete}
 
-The **Delete event** deletes an object. Its behavior depends on a data container it is placed in. When placed in a data view, deletes the connected object; it does not delete objects in a nested data view unless configured through delete behavior. When placed in a data grid, template grid, or reference set selector control bar, it deletes the selected object(s). When placed inside a list view, it deletes the corresponding list view item.
+**删除事件** 删除一个对象。 它的行为取决于它所放置的数据容器。 当放入数据视图时，删除连接的对象；它不会在嵌套数据视图中删除对象，除非通过删除行为进行配置。 当放入数据网格、模板网格或参考设置选择器控制栏时，它会删除所选对象。 当放入列表视图时，它会删除相应的列表视图项。
 
-Set the **Close page** property to indicate whether the current page should be closed.
+设置 **关闭页面** 属性，以表明当前页面是否应该关闭。
 
 ### 3.11 Synchronize {#synchronize}
 
-The **Synchronize** event [synchronizes](offline-first#synchronization) the data stored locally on your device with the server database.
+**同步** 事件 [将本地存储在您设备上的数据与服务器数据库同步](offline-first#synchronization)
 
-### 3.12 Sign Out {#sign-out}
+### 3.12 登出 {#sign-out}
 
-The **Sign out** event signs the currently signed-in user out. When no user is signed in, no action is performed.
+**登出** 事件标志着当前登录的用户。 当没有用户登录时，不执行任何操作。
 
-### 3.13 Call Workflow {#call-workflow}
+### 3.13 调用工作流 {#call-workflow}
 
-The **Call workflow** event triggers the specified workflow.
+**调用工作流程** 事件触发了指定的工作流。
 
-An element calling this event should be placed in a data container connected to the [workflow entity](workflow-properties#data) defined in the workflow properties.
+一个调用此事件的元素应该放在连接到工作流属性中定义的 [工作流实体](workflow-properties#data) 的数据容器中。
 
-The following properties are specific for this event:
+以下属性是此事件的特定属性：
 
-* **Workflow** – A [workflow](workflows) that should be executed.
-* **Close page** – Specifies whether the current page should be closed.
-* **Commit** – Specifies whether the data container object should be committed when running a workflow.
+* **Workflow** -- [Workflow](workflows) 应该执行。
+* **关闭页面** - 指定当前页面是否应该关闭。
+* **提交** - 指定数据容器对象是否应该在运行工作流时提交。
 
-### 3.14 Show Workflow Admin Page {#show-workflow-page}
+### 3.14 显示工作流管理页面 {#show-workflow-page}
 
-**Show workflow admin page** opens a workflow overview page. This page is typically used by a workflow administrator role to inspect status of a workflow instance and to manage the instance, e.g. abort a workflow if required.
+**显示 Workflow 管理页面** 打开一个工作流概览页面。 此页面通常被工作流管理员角色用来检查工作流实例的状态并管理实例。 。如果需要，请中止一个工作流。
 
-An element calling this event should be placed in a data container connected to the **System.WorkflowInstance** entity.
+一个调用此事件的元素应该放置在连接到 **System.Workflow实例** 实体的数据容器中。
 
-For more information on workflow-related entities in the System module, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
+关于系统模块中与工作流程相关实体的更多信息， 查看系统模块</a> 部分中的
+工作流实体 *工作流* 中。 </p> 
 
-### 3.15 Show User Task Page {#show-user-task-page}
 
-**Show user task page** opens an overview page set for the [user task](user-task) in properties. An element calling this event should be placed in a data container connected to the **System.WorkflowUserTask** entity.
 
-For more information on workflow-related entities in the System module, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
+### 3.15 显示用户任务页面 {#show-user-task-page}
 
-### 3.16  Complete User Task {#complete-task}
+**Show user task page** opens an overview page set for the [user task](user-task) in properties. 一个调用此事件的元素应该放置在连接到 **System.WorkflowUserTask** 实体的数据容器中。 
 
-The **Complete user task** event marks the specified user task in the workflow as completed.
+关于系统模块中与工作流程相关实体的更多信息， 查看系统模块</a> 部分中的 工作流实体 *工作流* 中。 </p> 
 
-An element calling this event should be placed in a data container connected to the **System.WorkflowUserTask** entity.
 
-The following properties are specific for this event:
 
-* **User task** – The [user task](user-task) that should be marked as completed.
+### 3.16 完整用户任务 {#complete-task}
 
-* **Outcome** – Lists the outcomes of the selected [user task](user-task) and follows the selected outcome. If the user task has only one outcome, the **Default** is set as an outcome and the property cannot be edited.
+**完整用户任务** 事件将工作流程中指定的用户任务标记为已完成。
 
-* **Close page** – Specifies whether the current page should be closed.
+一个调用此事件的元素应该放置在连接到 **System.WorkflowUserTask** 实体的数据容器中。 
 
-* **Commit** – Specifies whether the data container object should be committed when marking the task as completed.
+以下属性是此事件的特定属性：
 
-## 4 Read More
+* **用户任务** -- [用户任务](user-task) 应该标记为已完成。
 
-* [Pages](pages)
-* [Page](page)
+* **结果** - 列出选定的 [用户任务](user-task) 的结果并遵循选定的结果。 如果用户任务只有一个结果， **默认** 将设置为一个结果，不能编辑属性。
+
+* **关闭页面** - 指定当前页面是否应该关闭。
+
+* **提交** - 指定在将任务标记为已完成时是否应提交数据容器对象。
+
+
+
+## 4 阅读更多
+
+* [页 次](页面)
+* [页](page)
