@@ -1,121 +1,121 @@
 ---
-title: "Operations"
+title: "操作"
 parent: "published-web-services"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Provides the actual methods of which the webservice is composed.
+Webサービスが構成される実際の方法を提供します。
 
-Looking at an operation in more detail, you can see that a microflow can be selected. When you select a microflow, the other fields will be automatically filled. These can be changed as needed.
+操作の詳細を見ると、マイクロフローを選択できることがわかります。 マイクロフローを選択すると、他のフィールドが自動的に入力されます。 これらは必要に応じて変更できます。
 
-An operation has the properties described below.
+操作には以下のプロパティがあります。
 
-## 2 General
+## 2つの全般
 
 ![](attachments/16713701/16843884.png)
 
-### 2.1 Name
+### 2.1 名前
 
-This is what the operation is called in the WSDL.
+これがWSDLで呼ばれる操作です。
 
-### 2.2 Microflow
+### 2.2 マイクロフロー
 
-Defines which microflow will be executed when this webservice is called.
+この Web サービスが呼び出されたときに実行されるマイクロフローを定義します。
 
-### 2.3 Documentation
+### 2.3 ドキュメント
 
-Describes the operation and is included in the WSDL.
+操作について説明し、WSDLに含まれています。
 
-## 3 Parameters
+## 3つのパラメータ
 
 ![](attachments/16713701/16843879.png)
 
-### 3.1 Microflow Parameter
+### 3.1 マイクロフローパラメータ
 
-Defines the name of the parameter in the microflow
+マイクロフロー内のパラメータの名前を定義します。
 
 ### 3.2 Type
 
-Defines which type the parameter is, for example a List of Vehicle entities.
+パラメータのタイプを指定します。たとえば、車両のエンティティのリストなどです。
 
 ### 3.3 Optional
 
-Defines whether this parameter is optional in the webservice call.
+Web サービス呼び出しでこのパラメータがオプションであるかどうかを定義します。
 
 ### 3.4 Nillable
 
-Defines whether this parameter can have a nil value in the webservice call.
+このパラメータが webservice 呼び出し中に nil の値を持つことができるかどうかを定義します。
 
-### 3.5 Operation Parameter
+### 3.5 オペレーションパラメータ
 
-Defines the name of the parameter in the webservice call. This is initially copied from the microflow parameter name but can be modified.
+Webサービス呼び出し時のパラメータの名前を定義します。 これは microflow パラメータ名から最初にコピーされますが、変更することができます。
 
-### 3.6 Operation Object Name
+### 3.6 操作オブジェクト名
 
-Is available when the parameter is a list, and can be used to name the object in the list.
+パラメータがリストであり、リスト内のオブジェクトに名前を付けるために使用することができます。
 
 {{% alert type="info" %}}
-The CountCarsAndHp operation. It takes a non-optional list of Vehicle as a parameter which is called VehicleList and consists of objects called Vehicle. This information is based on the microflow and entity model but can be modified.
+CountCarsAndHp操作。 これは VehicleList と呼ばれるパラメータとしてオプションでないリストを取り、Vehicleと呼ばれるオブジェクトで構成されます。 この情報はマイクロフローと図形モデルに基づいていますが、変更することができます。
 {{% /alert %}}
 
 ![](attachments/16713701/918221.png)
 
-The microflow attached to the CountCarsAndHp operation. It takes a list of objects of the entity Vehicle as input and returns an object that holds the number of cars and the total amount of horsepower of those cars.
+CountCarsAndHp操作に接続されたマイクロフロー。 エンティティの対象物の一覧を取得します 入力として車両の数とそれらの車の馬力の合計量を保持するオブジェクトを返します。
 
-### 3.7 Exposed Attributes & Associations
+### 3.7 公開属性 & 関連
 
-If you click 'Select...' in the parameter tab, you can select individual members of the entity that is being passed as a parameter. The toolbar buttons are available to help you quickly perform operations that would otherwise be laborious.
+パラメータタブで「選択...」をクリックすると、パラメータとして渡されるエンティティの個々のメンバを選択できます。 ツールバーボタンを使用すると、面倒な操作をすばやく実行できます。
 
-| Collapse all     | Collapses the entire tree, so that only the root node remains visible                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| Check all        | Checks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.   |
-| Uncheck all      | Unchecks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected. |
-| All optional     | Checks the Optional box on every expanded node and visible leaf node.                                                    |
-| All non-optional | Unchecks the Optional box on every expanded node and visible leaf node.                                                  |
-| All nillable     | Checks the Nillable box on every expanded node and visible leaf node.                                                    |
-| All non-nillable | Unchecks the Nillable box on every expanded node and visible leaf node.                                                  |
+| すべて閉じる         | ツリー全体を折りたたみ、ルートノードだけが表示されたままになります。                                     |
+| -------------- | ---------------------------------------------------------------------- |
+| すべてチェック        | 展開されたすべてのノードとリーフノードの横のボックスをチェックします。 折りたたまれたノードとその子ノードは影響を受けません。        |
+| すべてのチェックを外す    | 展開されたすべてのノードと表示されるリーフノードの横のボックスのチェックを外します。 折りたたまれたノードとその子ノードは影響を受けません。 |
+| すべての省略可能       | 展開されたすべてのノードと表示されるリーフノードのオプションボックスをチェックします。                            |
+| すべてオプションでないすべて | 展開されたすべてのノードと表示されるリーフノードの format@@0 ボックスのチェックを外します。                    |
+| すべてのnillable   | 展開されたすべてのノードと表示されるリーフノードのNillableボックスをチェックします。                         |
+| すべてのnillable   | 展開されたすべてのノードと表示されるリーフノードのNillableボックスのチェックを外します。                       |
 
 ![](attachments/16713701/16843878.png)
 
-Here you can select which members of the entity can be passed and/or are optional or nillable, as well as set their names. Note that checking Optional or Nillable on the root element has no effect; you should set these values in the operation editor.
+ここでは、エンティティのどのメンバーを渡すことができるか、および/または任意またはnillableであるか、また、名前を設定することができます。 ルート要素上の Optional または Nillable にチェックを入れると効果がありません。これらの値はオペレーションエディタで設定する必要があります。
 
 {{% alert type="info" %}}
 
-The order of XML elements in the WSDL does not by definition reflect the order of attributes in entities in the domain model. The order of members in the dialog is the same as the order of elements in the WSDL (and can be different from the order of attributes in entities). This gives a better overview of the WSDL contract that is exposed from Mendix. The structure you see in the members dialog reflects the structure in the WSDL.
+WSDL 内の XML 要素の順序はドメインモデル内のエンティティの属性の順序を反映していません。 ダイアログ内のメンバーの順序は、WSDL 内の要素の順序と同じです(エンティティ内の属性の順序と異なる場合があります)。 Mendixから公開されるWSDLコントラクトの概要をより詳しく説明します。 format@@0 ダイアログに表示される構造は、WSDL 内の構造を反映します。
 
-New attributes from entities will appear as new elements _below_ members that are already in the WSDL. This will prevent breaking the WSDL contract, because if you insert new XML elements inside a XML _Sequence_ container, existing web service consumers that strictly validate against the WSDL may break.
+New attributes from entities will appear as new elements _below_ members that are already in the WSDL. XML _シーケンス_ コンテナ内に新しい XML 要素を挿入すると、WSDL コントラクトが壊れないようになります。 WSDL に対して厳密に検証される既存の Web サービス利用者が壊れる可能性があります。
 
 {{% /alert %}}{{% alert type="info" %}}
 
-If you expose the Password (hashed string) attribute of a System.User entity (or a specialization thereof), a warning appears that there is a risk that someone does a brute-force attack to obtain the original plain-text password. The risk is considerably less when you use a strong hashing algorithm (preferably 'BCrypt'). The hashing algorithm can be set in the app settings.
+システムの Password (ハッシュ化された文字列) 属性を公開する場合。 ser entity (or a specialization) 警告は、誰かが元のプレーンテキストのパスワードを取得するためにブルートフォース攻撃を行う危険性があることを示しています。 強力なハッシュアルゴリズム(好ましくは「BCrypt」)を使用する場合のリスクはかなり低くなります。 ハッシュアルゴリズムはアプリの設定で設定できます。
 
 {{% /alert %}}
 
-## 4 Return Type
+## 4つの返品タイプ
 
-This section pertains to the return type of the microflow and how it is transformed back to XML.
+このセクションでは、マイクロフローの戻り値の型と XML への変換方法について説明します。
 
-### 4.1 Type
+### 4.1 タイプ
 
-Defines what kind of object will be returned by the microflow. If the returned type is a complex type (as in, something from your entity model) you can use the Members button to select which members will be returned in the same way as parameters.
+マイクロフローによって返されるオブジェクトの種類を定義します。 返される型が複合型の場合（以下のように） エンティティモデルの何か) format@@0ボタンを使用して、パラメータと同じ方法で返却されるメンバーを選択できます。
 
-### 4.2 Name
+### 4.2 名前
 
-The name of the return type. This determines the output element name in the XML that results from a webservice call.
+戻り値の型の名前。 これは、Web サービス呼び出しから生じる出力要素名を XML 内で決定します。
 
-### 4.3 Optional
+### 4.3 オプション
 
-This determines if the element in the XML can be left out if the return value is empty.
+これは、戻り値が空の場合、XML 内の要素を除外することができるかどうかを決定します。
 
 ### 4.4 Nillable
 
-This determines if the element in the XML is sent as nil if the return value is empty.
+これは、戻り値が空の場合、XML 内の要素が nil として送信されるかどうかを決定します。
 
-Optional and Nillable cannot both be checked.
+オプションとNillableは両方ともチェックできません。
 
 ![](attachments/16713701/16843880.png)
 
-Here, you can see an optional Order entity set as the return type of the operation ReturnsOrder.
+ここでは、オプションの Order エンティティが、オペレーションの ReturnsOrder の戻り値として設定されていることを確認できます。
