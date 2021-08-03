@@ -1,41 +1,41 @@
 ---
-title: "XPath id"
-parent: "xpath-query-functions"
+title: "XPath ID"
+parent: "xpath-query函数"
 ---
 
-## 1 Overview
+## 1 概览
 
-This function replaces the default XPath query syntax. It retrieves data based upon the unique identification number supplied. Each individual Mendix object generated in a project is automatically provided with an ID.
+此函数取代默认 XPath 查询语法。 它根据所提供的独特识别号码检索数据。 在一个项目中生成的每个Mendix 对象都会自动获得一个 ID。
 
-The argument of this function can be the following:
+这个函数的理由可以是：
 
-* A string containing one ID
-* A string containing a space-separated sequence of IDs
+* 包含一个 ID 的字符串
+* 一个包含空格分隔序列的 ID 的字符串
 
-## 2 Examples
+## 2 示例
 
-This query returns a list with one object (which has the ID "123423462342"):
+此查询返回一个有一个对象的列表(ID为 123423462342))：
 
 ```java
-id('ID_123423462342')
+id('ID_1234462342')
 ```
 
-This query returns a list with three objects (these objects have the IDs "123423462342," "123423462343," and "123423462344"):
+此查询返回一个包含三个对象的列表(这些对象有IDs "123423462342,"123443,"和 "123423462344")：
 
 ```java
-id('ID_123423462342 ID_123423462343 ID_123423462344')
+id('ID_123423462342 ID_12342346234344')
 ```
 
 {{% alert type="warning" %}}
-ID queries cannot be started by the characters `'//'`. ID queries always start directly with `id(....`.
-{{% /alert %}}
+ID查询不能由字符 `'//'` 开始。 ID查询总是直接以 `id...` 开始的。
+{{% /报警 %}}
 
-This function is often used to constrain retrieving objects to the objects of the current user only:
+此函数常常用于限制检索对象到当前用户的对象：
 
 `[id = $currentUser]`
 
-It will only return results when you are querying `System.Account` or specializations of that entity. Entities with a one-to-one relation to the account will give no results.
+只有当您正在查询 `System.Account` 或该实体的专业化时，它才会返回结果。 与帐户有一对一关系的实体将不会产生任何结果。
 
-If you want to get all the objects (querying any entity) that were created by the current user, you should use the following function:
+如果您想要获取当前用户创建的所有对象 (查询任何实体) ，您应该使用以下函数：
 
-`[System.owner='[%CurrentUser%]']`
+`[System.owners ='[%CurrentUser%]']`
