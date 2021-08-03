@@ -1,127 +1,127 @@
 ---
-title: "Data View & List View"
-parent: "page-editor-widgets"
-description: "Describes the data view and list view in the page editor of Mendix Studio."
+title: "数据视图 & 列表视图"
+parent: "页面编辑器部件"
+description: "描述Mendix Studio页面编辑器中的数据视图和列表视图。"
 menu_order: 10
 tags:
-  - "studio"
-  - "page editor"
-  - "pages"
-  - "data view"
-  - "list view"
+  - "工作室"
+  - "页面编辑器"
+  - "页面"
+  - "数据视图"
+  - "列表视图"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A *data view* is a starting point for showing the contents of one object on a page.  A data view typically contains input widgets like text boxes.
+*数据视图* 是一个页面上显示一个对象内容的起点。  数据视图通常包含像文本框这样的输入小部件。
 
-For example, if you want to fill out the information on each customer, a data view is the best way to do that.
+例如，如果您想要填写每个客户的信息，数据视图是做到这一点的最佳方式。
 
 {{% image_container width="300" %}}![](attachments/page-editor-data-view-list-view/data-view-example.png)
 {{% /image_container %}}
 
-In more complex templates, a data view can contain other data views for related objects, for example, showing customer details and showing customer payment status, if these are modeled as two different entities.
+在更复杂的模板中，数据视图可以包含相关对象的其他数据视图，例如： 显示客户详细信息并显示客户付款状态，如果这些是作为两个不同实体的模型。
 
-A *list view* is a starting point for showing a list of objects. For example, if you want to display a list of all customers, use a list view.
+*列表视图* 是显示对象列表的起始点。 例如，如果您想要显示所有客户的列表，请使用列表视图。
 
 {{% image_container width="300" %}}![](attachments/page-editor-data-view-list-view/list-view-example.png)
 {{% /image_container %}}
 
-A data view and list view belong to the **Data Container** category of widgets. For more information on different widget categories, see [Widgets](page-editor-widgets).
+数据视图和列表视图属于 **数据容器** 小部件类别。 欲了解更多关于不同小部件类别的信息，见 [小部件](page-editor-widgets)。
 
-## 2 Data View Properties {#data-view-properties}
+## 2 个数据视图属性 {#data-view-properties}
 
-Data view consists of the following properties:
+数据视图由下列属性组成：
 
-* [Data Source](#data-source-data-view)
+* [数据源](#data-source-data-view)
 
-* [General](#general-section-data-view)
+* [A. 概况](#general-section-data-view)
 
-* [Conditional Visibility](#visibility-data-view)
+* [条件可见性](#visibility-data-view)
 
-* [Design](#design-section-data-view)
+* [设计](#design-section-data-view)
 
 
 
     {{% image_container width="250" %}}![](attachments/page-editor-data-view-list-view/data-view-properties.png){{% /image_container %}}
 
-### 2.1 Data Source Section {#data-source-data-view}
+### 2.1 数据源部分 {#data-source-data-view}
 
-The data source determines which object will be shown in the data view. For general information on data sources, see [Data Sources](/refguide8/data-sources) in the *Studio Pro Guide*.
+数据源决定在数据视图中显示哪些对象。 关于数据源的一般信息，见[数据源](/refguide/data-sources) 在 *Studio Pro 指南* 中。
 
-| Data Source Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Context              | A data source determining that wherever you are opening the page from, you are passing the selected object. For example, when you add the **Show Page** activity in the microflow, you select the page and the object to pass. (For more information on the microflows, see [Microflows](microflows).) That means that when the page is opened in the microflow, the object of this type is provided and will be shown in the data view on the page. For more technical information on the context source, see [Context Source](/refguide8/context-source) in the *Studio Pro Guide*. |
-| Microflow            | A data source that runs a selected microflow and displays a return value. For more technical information, see [Microflow Source](/refguide8/microflow-source) in the *Studio Pro Guide*.                                                                                                                                                                                                                                                                                                                                                                                              |
-| List widget          | A data source that allows a data view to display detailed information on an object in the list widget (list view) on the same page. For more technical information, see [Listen To Widget Source](/refguide8/listen-to-grid-source) in the *Studio Pro Guide*.                                                                                                                                                                                                                                                                                                                        |
+| 数据源属性 | 描述                                                                                                                                                                                                                           |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 二. 背景 | 一个数据源来确定无论您从哪里打开页面都会传递选中的对象。 例如，当您在microflow中添加 **显示页面** 活动时，您选择要通过的页面和对象。 (关于微流的更多信息，见 [微流](microflows)。) 这意味着当页面在微流中打开时， 此类型的对象被提供，并将显示在页面上的数据视图中。 欲了解更多关于上下文源的技术信息，见 [上下文源](/refguide/context-source) *Studio Pro Guide*。 |
+| 微流    | 一个运行选中微流并显示返回值的数据源。 欲了解更多技术信息，见 [微流程源](/refguide/microflow-source) 在 *Studio Pro 指南* 中。                                                                                                                                      |
+| 列表小部件 | 一个数据源，允许数据视图在列表小部件(列表视图)中显示详细信息。 欲了解更多技术信息，请参阅 *Studio Pro 指南* 中的 [监听小部件源](/refguide/listen-to-grid-source)。                                                                                                                 |
 
-### 2.2 General Section {#general-section-data-view}
+### 2.2 一般部分 {#general-section-data-view}
 
-The **General** section properties of are described in the table below:
+下面的表格描述了 **常规** 章节属性：
 
-| General Section Property           | Description                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Form Orientation                   | Determines the position of the [input element labels](page-editor-widgets-input-elements#show-label) inside the data view. You can choose the following orientation: <ul><li>**Horizontal** – the labels will be placed next to the input elements</li><li>**Vertical** – the labels will be placed above the input widgets</li></ul> Note that a data view with a vertical orientation cannot be placed inside a data view with a horizontal orientation. In that case, the form will be rendered horizontally. |
-| Read-Only *(disabled by default)*  | When enabled, all [input elements](page-editor-widgets-input-elements) (for example, a text area, a check box) in the data view will be in read-only mode.                                                                                                                                                                                                              |
-| Show Footer *(enabled by default)* | A footer is an area at the bottom of the document, usually containing information common for all pages, such as copyrights.                                                                                                                                                                                                                                             |
+| 一般部分 财产       | 描述                                                                                                                                                    |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 表单方向          | 确定数据视图中 [输入元素标签](page-editor-widgets-input-elements#show-label) 的位置。 您可以选择以下方向： <ul><li>**水平** - 标签将放在输入元素旁边。</li><li>**垂直** - 标签将放置在输入小部件上</li></ul> 请注意，垂直方向的数据视图不能放置在水平方向的数据视图内。 在这种情况下，表格将横向呈现。 |
+| 只读 *(默认禁用)*   | 如果启用，数据视图中的所有 [输入元素](page-editor-widgets-input-elements) (例如文本区域，复选框) 将处于只读模式。                                                                        |
+| 显示页脚 *(默认启用)* | 页脚是文件底部的一个区域，通常载有所有网页的共同信息，例如版权。                                                                                                                      |
 
 
-### 2.3 Conditional Visibility {#visibility-data-view}
+### 2.3 条件可见性 {#visibility-data-view}
 
-{{% snippet file="studio/visibility-section-link.md" %}}
+{{% snippet file="studo/visibility-section-link.md" %}}
 
-### 2.4 Design Section {#design-section-data-view}
+### 2.4 设计部分 {#design-section-data-view}
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+关于 **设计** 部分及其属性的信息，请参阅 [设计部分](page-editor-widgets-design-section)。
 
-## 3 List View Properties {#list-view-properties}
+## 3 列表视图属性 {#list-view-properties}
 
-List view consists of the following properties:
+列表视图由下列属性组成：
 
-* [Data Source](#data-source-list-view)
-* [General](#general-section-list-view)
-* [Conditional Visibility](#visibility-list-view)
-* [Design](#design-section-list-view)
+* [数据源](#data-source-list-view)
+* [A. 概况](#general-section-list-view)
+* [条件可见性](#visibility-list-view)
+* [设计](#design-section-list-view)
 
     {{% image_container width="250" %}}![](attachments/page-editor-data-view-list-view/list-view-properties.png){{% /image_container %}}
 
-### 3.1 Data Source Section {#data-source-list-view}
+### 3.1 数据源科 {#data-source-list-view}
 
-The data source determines which objects will be shown in the list view. For general information about data sources, see [Data Sources](/refguide8/data-sources) in the *Studio Pro Guide*.
+数据源决定在列表视图中显示哪些对象。 关于数据源的一般信息，见[数据源](/refguide/data-sources) 在 *Studio Pro 指南* 中。
 
-| Data Source Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Database             | A data source that determines that the object or objects shown are retrieved directly from the database. You need to select an **Entity** (that you have in the domain model), or create a new entity, if you set database as the data source. For more technical information, see [Database Source](/refguide8/database-source) in the *Studio Pro Guide*.<br />**Filter** – limits data in the list view. You can create a filter only after you specify an entity for the list view. For more information on data filtering, see [Data Filters](data-filters).<br />**Sort Order** – the order in which items in the list view are shown. You can specify a sort order only after you select an entity for the list view. You can add multiple sorting rules. For example, you can add two sorting rules: one is to sort item by name in ascending order, and the other one is to sort items by email in descending order. Unique items will be sorted by name in ascending order, but if two or more items have the same name, then these items will be sorted by email. |
-| Microflow            | A data source that runs a selected microflow and displays a return value (as in, a list of objects). For more technical information, see [Microflow Source](/refguide8/microflow-source) in the *Studio Pro Guide*.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| XPath                | Currently, this data source can only be configured in Studio Pro. For more information, see [XPath Source](/refguide8/xpath-source).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Nanoflow             | Currently, this data source can only be configured in Studio Pro. For more information, see [Nanoflows](/refguide8/nanoflows).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Association          | Available when a list view is placed inside another data container, for example, a data view. The list view is filled with the objects linked to the data view object by an association. For example, you can show all orders for a customer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 数据源属性  | 描述                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 数据库    | 确定显示的对象或对象直接从数据库检索的数据源。 您需要选择一个 **实体** (即您在域模型中已有)， 或创建一个新实体，如果您设置数据库为数据源。 欲了解更多技术信息，见 [数据库源](/refguide/database-source) *Studio Pro 指南*。<br />**过滤器** - 限制列表视图中的数据。 您只能在为列表视图指定实体后才能创建过滤器。 欲了解更多关于数据过滤的信息，请参阅 [数据过滤器](data-filters)。<br />**排序顺序** - 列表视图中各项的显示顺序。 您只能在为列表视图选择实体后才能指定排序顺序。 您可以添加多个排序规则。 例如，您可以添加两个分类规则：一个是按名称按升序排序。 另一个是通过电子邮件按降序排序。 唯一的项目将按名称升序排序 但如果两个或多个项目具有相同的名字，那么这些项目将通过电子邮件排序。 |
+| 微流     | 一个运行选定微流并显示返回值的数据源(例如在对象列表中)。 欲了解更多技术信息，见 [微流程源](/refguide/microflow-source) 在 *Studio Pro 指南* 中。                                                                                                                                                                                                                                                                                                                  |
+| XPath  | 目前，此数据源只能在 Studio Pro中配置。 欲了解更多信息，请参阅 [XPath Source](/refguide/xpath-source)。                                                                                                                                                                                                                                                                                                                                      |
+| 纳诺夫low | 目前，此数据源只能在 Studio Pro中配置。 欲了解更多信息，请参阅 [Nanoflows](/refguide/nanoflows)。                                                                                                                                                                                                                                                                                                                                            |
+| 协会     | 当列表视图放置在另一个数据容器中，例如数据视图中时可用。 列表视图中包含关联到数据视图对象的对象。 例如，您可以显示客户的所有订单。                                                                                                                                                                                                                                                                                                                                                 |
 
-### 3.2 Events Section
+### 3.2 活动科
 
- You can choose the **On Click Action** in the **Events** section. The **On Click Action** defines what action is performed when the user clicks a row of the list view.
+ 您可以在 **事件** 部分中选择 **点击动作**。 **点击动作** 定义了用户点击列表视图行时执行的操作。
 
-For more information on the **Events** section and on click actions, see [Events Section](page-editor-widgets-events-section).
+关于 **事件** 部分和点击动作的更多信息，见 [Events Sec](page-editor-widgets-events-section)。
 
-### 3.3 General Section {#general-section-list-view}
+### 3.3 一般部分 {#general-section-list-view}
 
-In the **General** section, you can select the number of rows to be displayed on the page and set the read-only for the list view:
+在 **常规** 部分中 您可以选择要显示在页面上的行数，并为列表视图设置只读行数：
 
-* **Page Size** – the number of rows displayed on the page; after the indicated limit is reached, the **Load more...** button is displayed on the page.
+* **页面大小** - 页面上显示的行数； 达到指定的上限后， **加载更多。 。** 按钮显示在页面上。
 
     {{% image_container width="400" %}}![](attachments/page-editor-data-view-list-view/load-more-list-view.png)
 {{% /image_container %}}
 
-* **Read-Only** (enabled by default) – when enabled, all [input elements](page-editor-widgets-input-elements) (for example, a text area, a check box) in the list view will be in read-only mode
+* **只读** (默认启用) - 启用后，所有 [输入元素](page-editor-widgets-input-elements) (例如，启用) 列表视图中的文本区域，复选框将处于只读模式
 
-### 3.4 Conditional Visibility Section {#visibility-list-view}
+### 3.4 条件可见性部分 {#visibility-list-view}
 
-{{% snippet file="studio/visibility-section-link.md" %}}
+{{% snippet file="studo/visibility-section-link.md" %}}
 
-### 3.5 Design Section {#design-section-list-view}
+### 3.5 设计科 {#design-section-list-view}
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+关于 **设计** 部分及其属性的信息，请参阅 [设计部分](page-editor-widgets-design-section)。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Pages](page-editor)
+* [页 次](page-editor)
