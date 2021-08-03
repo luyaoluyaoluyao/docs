@@ -9,10 +9,6 @@ tags:
   - "widget"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/navigation-list.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 The navigation list widget is not supported on native mobile pages.
 {{% /alert %}}
@@ -40,15 +36,15 @@ Navigation list properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Navigation List Item
 
@@ -58,7 +54,7 @@ A row in a navigation list is a navigation list item. You can set a separate **O
 
 #### 3.1.1 Common Section
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 #### 3.1.2 General Section
 
@@ -72,7 +68,7 @@ Microflows set as an on click event for a navigation list item have no **Executi
 
 #### 3.1.3 Visibility Section
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 4 Read More
 
