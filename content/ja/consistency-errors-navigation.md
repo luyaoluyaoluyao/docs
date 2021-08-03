@@ -1,95 +1,95 @@
 ---
-title: "Navigation Consistency Errors"
-parent: "consistency-errors"
-description: "Describes consistency errors in Mendix Studio Pro and the way to fix them."
+title: "ナビゲーション一貫性エラー"
+parent: "一貫性エラー"
+description: "Mendix Studio Proの一貫性エラーとそれらを修正する方法について説明します。"
 tags:
   - "Studio Pro"
-  - "consistency errors"
-  - "checks"
-  - "errors"
+  - "整合性エラー"
+  - "チェック"
+  - "エラー"
   - "navigation"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In this document, we explain how to solve the most common consistency errors that can occur when configuring navigation in Studio Pro. An example of a consistency error is when you set a page that has a data view as a menu item.
+このドキュメントでは、Studio Pro でナビゲーションを構成する際に発生する最も一般的な一貫性エラーを解決する方法を説明します。 一貫性エラーの例として、データビューをメニュー項目として設定したページがあります。
 
 {{% alert type="info" %}}
 
-This document does not describe *all* the errors, as there are a lot of errors that can occur, some of which are simple and do not need extra explanation, others are rare and/or heavily dependent on a use-case.
+このドキュメントでは、 *すべてのエラー* を記述していません。多くのエラーが発生する可能性があります。 そのうちのいくつかは簡単で、余分な説明は必要ありません、他のものはまれおよび/または大きくユースケースに依存しています。
 
 {{% /alert %}}
 
-Some errors have error codes and if these errors are described in documentation, Studio Pro has a clickable link to the corresponding document. Others do not have an error code, in this case, you can manually search whether a particular error is described in documentation (you can search by a message you see in the **Errors** pane).
+一部のエラーにはエラーコードがあり、これらのエラーがドキュメントに記載されている場合、Studio Proは対応するドキュメントへのクリック可能なリンクを持っています。 この場合、エラーコードがない人もいます。 特定のエラーがドキュメントに記述されているかどうかを手動で検索できます( **エラー** ペインに表示されるメッセージで検索できます)。
 
-## 2 Navigation Consistency Errors
+## 2つのナビゲーション一貫性エラー
 
-The most common errors you can come across when configuring a navigation item are described in the table below:
+ナビゲーション項目を構成するときに発生する最も一般的なエラーは以下の表に記載されています:
 
-| Error Code | Message in the Errors Pane                                                                                                                                                           | Cause of the Error                                                                                                                                                                                                     | Way to Fix                                                                                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE0568     | The selected page {Name of the page} expects an object of type {type of object}, which is not available here.                                                                        | You have set a page that expects an object to be passed to it (a page with a data view and the **Context** data source) as a menu item.                                                                                | Pass an object to the page by changing the **On click** property  of the menu item from **Show a page** to **Create object**. For more information, see the [Error Fix Example for CE0568](#page-expects-an-object) section. |
-| CE0529     | The selected {Name of the page} expects an object of type {type of object} and cannot be used as a home page. Change the page or use a microflow to provide the page with an object. | You have set a page that expects an object to be passed to it (for example, a page with a data view) as a home page. But the home page has no object that is passed to it, because it is the starting point of a flow. | You can use a microflow as the home page that will open the preferred page and pass a specific object to the home page. For more information, see the [Error Fix Example for CE0529](#home-page-expects-an-object).          |
-| CE0548     | Items with subitems cannot have an action themselves.                                                                                                                                | You have assigned an [on-click event](on-click-event) to a menu item that has a sub-item, when menu items with have sub-items cannot have on-click events assigned to them.                                            | You need to either set the on-click event of the menu item to *Nothing*, or delete/move the sub-item.                                                                                                                        |
+| エラーコード | エラーペイン内のメッセージ                                                                                                              | エラーの原因                                                                                                      | 修理方法                                                                                                                                |
+| ------ | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| CE0568 | 選択されたページ {Name of the page} は、 {type of object}型のオブジェクトを想定しています。                                                           | オブジェクト(データビューと **コンテキスト** データソースを持つページ)がメニューアイテムとして渡されることを期待するページを設定しています。                                  | メニュー項目の **プロパティを** から **ページを表示** から **オブジェクトを作成**を変更してページにオブジェクトを渡します。 詳細については、 [CE0568](#page-expects-an-object) のエラー修正例を参照してください。 |
+| CE0529 | 選択された {Name of the page} は {type of object} 型のオブジェクトを想定しており、ホームページとして使用することはできません。 ページを変更するか、マイクロフローを使用してページにオブジェクトを提供します。 | オブジェクトが渡されることを期待するページを設定していること(例えば、 データビューのページ)をホームページとして表示します。 しかし、ホームページには、フローの出発点であるため、渡されるオブジェクトはありません。 | マイクロフローを使用すると、優先ページを開き、特定のオブジェクトをホームページに渡すことができます。 詳細については、 [CE0529 のエラー修正例](#home-page-expects-an-object) を参照してください。               |
+| CE0548 | サブアイテムを持つアイテムはアクション自体を持つことはできません。                                                                                          | サブ項目を持つメニュー項目に [オンクリックイベント](on-click-event) を割り当てていること。 たとえば、サブアイテムがあるメニューアイテムでは、クリック時にイベントを割り当てることはできません。  | メニューアイテムのオンクリックイベントを *何も*に設定するか、サブアイテムを削除/移動する必要があります。                                                                              |
 
-### 2.1 Error Fix Example for CE0568 {#page-expects-an-object}
+### 2.1 CE0568 のエラー修正例 {#page-expects-an-object}
 
-When you set a page with a data view as a menu item, you get a consistency error, because the page expects an object to be passed to it.
+データビューをメニュー項目として設定すると、一貫性エラーが表示されます。 なぜなら、ページはオブジェクトが渡されることを期待しているからです。
 
-For example, you have created a menu item called **Program** for a **Responsive** [profile](navigation#profiles). This menu item opens the **Program** page. However, the **Program** page has a data view on it and expects a *ProgramItem* object to be passed to it, so that it can show the program details of a specific *ProgramItem* on the page. As a result, you get a consistency error, as no object is passed to this page from the navigation.
+For example, you have created a menu item called **Program** for a **Responsive** [profile](navigation#profiles). このメニュー項目は **プログラム** ページを開きます。 However, the **Program** page has a data view on it and expects a *ProgramItem* object to be passed to it, so that it can show the program details of a specific *ProgramItem* on the page. その結果、ナビゲーションからこのページにオブジェクトが渡されないので、一貫性エラーが発生します。
 
-![Scheme Showing the Menu Item Error](attachments/consistency-errors-navigation/page-expects-an-object-error.png)
+![メニューアイテムエラーを表示するスキーム](attachments/consistency-errors-navigation/page-expects-an-object-error.png)
 
-To fix the error, you can create an object and pass it to the page. Do the following:
+エラーを修正するには、オブジェクトを作成してページに渡すことができます。 次の操作を行います:
 
-1. Open the navigation for the responsive profile.
-2.  Open properties of the **Program** menu item, and do the following:
-    1. Change the **On click** property from **Show a page** to **Create object**.
-2. Set **ProgramItem** as **Entity (path)**.
-    3. Set **Program** as **On click page**.
-
-
-Now when an end-user clicks the menu item, a new *ProgramItem* object will be created and passed to the page.
-
-### 2.2. Error Fix Example for CE0529 {#home-page-expects-an-object}
-
-If you set a page that expects an object to be passed to it as a home page for a [navigation profile](navigation#properties), you will get a consistency error.
-
-For example, you have added a data view that expects an object of type *Customer* to the home page of the responsive profile, and you get a consistency error.
-
-![Home Page Error](attachments/consistency-errors-navigation/home-page-error.png)
-
-You can fix this error by creating a microflow that will that will create a new *Customer* object and pass it to the page. Do the following:
-
-1. Open the responsive navigation profile.
-
-2.  In **Default home page field** click **Select**.
-
-    ![Default Home Page Setting](attachments/consistency-errors-navigation/default-home-page-field.png)
-
-3. In the **Select Navigation Target** dialog box, click **New**, then select **Create Microflow**.
-
-4. Name the microflow *ACT_Open_HomePage*.
-
-5. Open the created microflow, add a **Create object** activity to it
-
-6.  For the **Create object** activity, set **Entity** to **Customer**.
-
-    ![Create Object Properties](attachments/consistency-errors-navigation/create-object-properties.png)
-
-7. Add Show Page activity to the microflow and do the following in the **Show Page** pop-up dialog:<br/>
-
-    a. Set **Object to pass** to **NewCustomer**.<br/>
-
-    b. Set **Page** to **Home**.
-
-Now the new object of type *Customer* will be created and passed to the home page.
-
-![Open Home Page Microflow](attachments/consistency-errors-navigation/open-home-page-microflow.png)
+1. 応答プロファイルのナビゲーションを開きます。
+2.  **プログラム** メニュー項目のプロパティを開き、次の操作を行います:
+    1. **を変更する** プロパティから **ページを表示する** から **オブジェクトを作成する** をクリックします。
+2. **ProgramItem** を **エンティティ (パス)** に設定します。
+    3. **Program** を **に設定する ページ** をクリックします。
 
 
-## 3 Read More
+エンドユーザーがメニュー項目をクリックすると、新しい *ProgramItem* オブジェクトが作成され、ページに渡されます。
+
+### 2.2. CE0529のエラー修正例 {#home-page-expects-an-object}
+
+オブジェクトが [ナビゲーションプロファイル](navigation#properties)のホームページとして渡されることを期待するページを設定した場合 一貫性のエラーが発生します
+
+例えば、 応答プロファイルのホームページに *顧客* 型のオブジェクトを想定するデータビューを追加しました。 一貫性の間違いが生じます
+
+![ホームページエラー](attachments/consistency-errors-navigation/home-page-error.png)
+
+新しい *顧客* オブジェクトを作成し、ページに渡すマイクロフローを作成することで、このエラーを修正できます。 次の操作を行います:
+
+1. レスポンシブナビゲーションプロファイルを開きます。
+
+2.  **Default home page field** で **Select** をクリックします。
+
+    ![デフォルトのホームページ設定](attachments/consistency-errors-navigation/default-home-page-field.png)
+
+3. **ナビゲーションターゲット** ダイアログボックスで、 **新規**をクリックし、 **マイクロフローを作成** を選択します。
+
+4. マイクロフローに名前を付けます *ACT_Open_HomePage*.
+
+5. 作成したマイクロフローを開き、 **オブジェクトの作成** アクティビティを追加します。
+
+6.  **オブジェクトの作成** アクティビティでは、 **エンティティ** を **顧客** に設定します。
+
+    ![オブジェクトのプロパティを作成](attachments/consistency-errors-navigation/create-object-properties.png)
+
+7. ページの表示アクティビティをマイクロフローに追加し、 **ページの表示** ポップアップダイアログで以下を行います。<br/>
+
+    a **オブジェクトを** に **新規顧客**に渡すように設定します。<br/>
+
+    B **ページ** を **ホーム** に設定します。
+
+これで、 *Customer* 型の新しいオブジェクトが作成され、ホームページに渡されます。
+
+![ホームページマイクロフローを開く](attachments/consistency-errors-navigation/open-home-page-microflow.png)
+
+
+## 3 続きを読む
 
 * [Navigation](navigation)
-* [Microflows](microflows)
-* [Microflow Properties](microflow)
+* [マイクロフロー](マイクロフロー)
+* [マイクロフローのプロパティ](マイクロフロー)
