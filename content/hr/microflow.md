@@ -6,10 +6,6 @@ tags:
   - "entity access"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/microflow.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This document describes the properties of a microflow. If you want to see what microflows are for and what kind of elements they contain, you can check [Microflows](microflows).
@@ -111,10 +107,20 @@ Default: *No*
 
 ## 3 Expose as Microflow Action
 
-There is one other property which is accessible by right-clicking in the microflow and selecting **Properties**.
+This property is accessible by right-clicking in the microflow and selecting **Properties**.
 
-![Expose as Microflow Actin](attachments/microflows-and-nanoflows/microflow-expose.png)
+![Expose as Microflow Action](attachments/microflows-and-nanoflows/microflow-expose.jpg)
 
-By selecting the **Expose as microflow action**  option, you can expose the microflow as a microflow action. Exposing the microflow will make it appear in the **Toolbox** when you are editing a microflow in the category of your choice. When this action is used in a microflow, it will show the provided caption and icon.
+By selecting the **Expose as microflow action**  option, you can expose the microflow as a microflow action and use the return type of the microflow to generate outcomes / paths in the workflow. Exposing the microflow will make it appear in the **Toolbox** when you are editing a microflow in the category of your choice. When this action is used in a microflow, it will show the provided caption and icon.
 
 The caption and category of the microflow action are required, but the icon is optional. When no icon is selected, the default microflow call action icon is used. The recommended size for the icon is 16x16 pixels.
+
+## 4 Expose as Workflow Action {#expose-as-workflow-action}
+
+This property is accessible by right-clicking in the microflow and selecting **Properties**.
+
+![Expose As Workflow Action](attachments/microflows-and-nanoflows/workflow-expose.jpg)
+
+By selecting the **Expose as workflow action**  option, you can expose the microflow as a [workflow](workflows) action. Exposing the workflow will make it appear in the **Toolbox** of a [workflow editor](workflows) in the category of your choice. When this action is used in a workflow, it will show the provided caption and icon.
+
+The caption and category of the workflow action are required, but the icon is optional. When no icon is selected, the default workflow call action icon is used. The recommended size for the icon is 16x16 pixels.
