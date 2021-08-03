@@ -1,142 +1,143 @@
 ---
-title: "Querying Over Self-References"
-parent: "associations"
+title: "查询超限"
+parent: "关联"
 menu_order: 20
 tags:
-  - "query"
-  - "self-reference"
-  - "association"
-  - "domain model"
+  - "查询"
+  - "自参考"
+  - "关联"
+  - "域模型"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Sometimes, you want to create a more generic domain model to allow more flexibility in the type and structure of your data. In this case, you often turn to using inheritance or self references to allow for simple yet efficiently designed models. This makes building your microflows and application logic much easier, but it can become challenging to query the correct objects: especially when you are using a self-reference.
+有时，您想要创建一个更通用的域模型，以便在数据的类型和结构上有更大的灵活性。 在这种情况下，您常常转而使用继承或自我引用来允许使用简单但有效的设计模型。 这使构建您的微流程和应用程序逻辑变得更容易， 但查询正确的对象可能变得很有挑战性，特别是当您使用自引用。
 
-## 2 The Example
+## 2 示例
 
-This example is for an implementation of folders on a computer, where one folder can contain several subfolders.
+此示例用于实现计算机上的文件夹，一个文件夹可以包含几个子文件夹。
 
 ![](attachments/associations/query-over-example-structure.png)
 
-To implement this, a self-reference to **Folder** is used. The self-reference is an association called **Folder_SubFolder**. This allows you to build a folder structure with unlimited numbers and levels of folders.
+要实现这一点，请使用 **文件夹** 的自引用。 自引用是一个名为 **文件夹子文件夹** 的关联。 这允许您建立一个无限数量和级别的文件夹结构。
 
 {{% alert type="info" %}}
-The association in this case is a one-to-many association, but the same techniques apply to many-to-many or one-to-one associations.
-{{% /alert %}}
+在这种情况下，协会是一个一对多的协会，但对多个或一对一个协会也采用同样的方法。
+{{% /报警 %}}
 
 ![](attachments/associations/self-reference-domain-model.png)
 
-If we create our folder functionality in a module called **QueryOver**, the association **Folder_SubFolder** is described in two ways in the domain model:
+如果我们在一个名为 **QueryOver**的模块中创建我们的文件夹功能， 关联 **文件夹子文件夹** 在域模型中用两种方式描述：
 
-| Name             | Type      | Owner   | Parent           | Child            |
-| ---------------- | --------- | ------- | ---------------- | ---------------- |
-| Folder_Subfolder | Reference | Default | QueryOver.Folder | QueryOver.Folder |
+| 名称      | 类型 | 所有者  | 父级            | 儿童            |
+| ------- | -- | ---- | ------------- | ------------- |
+| 文件夹子文件夹 | 参考 | 默认设置 | QueryOver.文件夹 | QueryOver.文件夹 |
 
-* Multiplicity: One 'Folder' object is associated with multiple 'Folder' objects
+* 多重性：一个'文件夹'对象与多个'文件夹'对象关联
 
-The **Child** is the **Owner** of the association - in other words, the association is always updated through the child.
+**儿童** 是该社团 **所有者** - 换句话说，该社团总是通过该儿童更新的。
 
 ![](attachments/associations/query-over-association.png)
 
-There are six folders in the example above, and the database is structured and the attributes filled as shown below. In the **Folder_SubFolder** table, the **ChildFolderID** is shown on the left as it is the owner of the association.
+上面的示例中有六个文件夹，数据库的结构和属性填充如下所示。 在 **文件夹子文件夹** 表中， **ChildfolderID** 在左侧显示，因为它是关联的所有者。
 
 ![](attachments/associations/query-over-example-database.png)
 
 For more information on how domain models are implemented in databases, see the [Implementation](domain-model#implementation) section of *Domain Model*.
 
-### 2.1 Retrieving the SubFolder(s) (Children) from a Folder (Parent)
+### 2.1 从文件夹(父母)检索子文件夹(子文件夹)
 
-If you have the $ChosenFolder object available in your microflow you can easily retrieve the subfolder(s). Each association has a right side (parent in the association) and a left side (child or owner of the association).  The platform reads each association and determines whether the parent is equal to the $ChosenFolder.
+如果您在您的微流程中有 $ChosenFolder 个对象，您可以轻松地检索子文件夹。 每个协会都有权利方（协会的家长）和左方（儿童或协会的所有者）。  平台读取每个关联并决定父是否等于 $ChosenFolder。
 
-This is implemented using the following XPath constraint: `[QueryOver.Folder_SubFolder=$ChosenFolder]`. The XPath constraint is read from right to left, with the resulting Folder(s) being the result. This is key to how you should interpret which direction you are following the association.
+这是使用以下的 XPath 约束实现的： `[QueryOver.Folder_subFolder=$ChosenFolder]` XPath 约束从右边读取，结果为文件夹。 这是您如何解释您关注的关联方向的关键。
 
 {{% image_container width="400" %}}
 ![](attachments/associations/query-over-retrieve-normal.png)
 {{% /image_container %}}
 
-If the $ChosenFolder object has **Code** `202002141322015` and **Name** `SubFolder2` we have chosen the folder with **ID** `3`. The two folders in the left-hand table, highlighted in orange, will be returned. The platform applies the constraint by default on the right/parent side of the association and returns the relevant ChildFolder(s).
+如果 $ChosenFolder 对象有 **代码** `202002141322015` 和 **名称** `子文件夹 2` 我们选择的文件夹有 **ID** `3`。 左手表中用橙色突出显示的两个文件夹将被还原。 平台默认对社团的权利/父母一方施加约束，并返回相关的 ChildFolder(s)。
 
 ![](attachments/associations/query-over-retrieve-normal-tables.png)
 
-### 2.2 Retrieving the Parent Folder from a Folder
+### 2.2 从文件夹中获取父文件夹
 
-When you have the $ChosenFolder object available and you want to retrieve its ParentFolder (the folder next higher in the hierarchy, for example given **SubFolder2** you want to retrieve **MainFolder**) from the database, it becomes more complicated.
+当你有 $ChosenFolder 个对象可用并且你想要检索它的父文件夹(下一级的文件夹) 例如，给出了 **子文件夹2** 你想要从数据库中获取 **Mainfolder**的数据，因此变得更加复杂。
 
-Use the expression `[reversed ()]` to instruct Mendix to read the constraint in the reverse direction to that which it would normally use.
+使用表达式 `[逆向(]` 来指示Mendix 读取它通常使用的约束.
 
 {{% alert type="info" %}}
-`[reversed()]` only applies to one association. If you have multiple associations they will continue to be interpreted the normal way. See [Creating More Complex Queries](#more-complex), below.
+`[逆变量]` 只适用于一个关联。 如果您有多个关联，它们将继续被正常解读。 查看 [创建更复杂的查询](#more-complex)。
 
-The `[reversed()]` expression can only be applied on self-references. When an association is between two different object types, the platform will be able to determine the direction of the join automatically.
-{{% /alert %}}
+`[reversed()]` 表达式只能应用于自引用上。 当一个关联在两个不同的对象类型之间时，平台将能够自动确定加入的方向。
+{{% /报警 %}}
 
- In our example, we want to find the folder which is the parent of $ChosenFolder. Now, the query becomes `[QueryOver.Folder_SubFolder [reversed ()]=$ChosenFolder]`. Instead of reading the association from right to left (Parent to Child), the association is read from left to right.
+ 在我们的例子中，我们想要找到一个 $ChosenFolder 的父文件夹。 现在，查询将变为 `[QueryOver.Folder_sub文件夹[revers()]=$ChosenFolder]` 该协会不是从左边（父母到孩子）阅读，而是从左边读到右边。
 
 {{% image_container width="400" %}}
 ![](attachments/associations/query-over-retrieve-reversed.png)
 {{% /image_container %}}
 
-If the $ChosenFolder object has **Code** `202002141322015` and **Name** `SubFolder2` we have chosen the folder with **ID** `3`. The folder in the right-hand table, highlighted in orange, will be returned. The platform applies the constraint in reverse, on the left/child side of the association and returns the relevant ParentFolder.
+如果 $ChosenFolder 对象有 **代码** `202002141322015` 和 **名称** `子文件夹 2` 我们选择的文件夹有 **ID** `3`。 右手表中用橙色突出显示的文件夹将被还原。 平台在社团左/儿童一侧反向应用约束并返回相关的父文件夹。
 
 ![](attachments/associations/query-over-retrieve-reversed-tables.png)
 
-### 2.3 Creating More Complex Queries {#more-complex}
+### 2.3 创建更复杂的查询 {#more-complex}
 
-The previous example was a simple one. However the `[reversed()]` expression can be used in more complicated queries.
+前面的例子很简单。 然而， `[reversed()]` 表达式可以用于更复杂的查询。
 
-Say, for example, that each folder can contain multiple files, associated with the folder over the association **File_Folder**.
+例如，说每个文件夹都可以包含多个文件，关联到关联关联的 **File_folder**。
 
 ![](attachments/associations/query-over-extended-domain-model.png)
 
-You want to retrieve all the files in the parent folder of the folder object $ChosenFolder.
+您想要获取文件夹对象 $ChosenFolder 上级文件夹中的所有文件。
 
-Use the constraint `[QueryOver.File_Folder/QueryOver.Folder/QueryOver.Folder_SubFolder [reversed ()]=$ChosenFolder]` to return all the **File** objects associated with the **Folder** which is associated (as parent) with the **Folder** which is the same as **$ChosenFolder**.
+使用约束 `[QueryOver.File_Folder/QueryOver.Folder/QueryOver。 older_subfolder[revers()]=$ChosenFolder]` 返回所有 **文件** 对象与 **文件夹相关联，** 对象（作为父文件夹）与 **文件夹** 相同 **$ChosenFolder**
 
 ![](attachments/associations/query-over-retrieve-complex.png)
 
-If the $ChosenFolder object is `SubFolder2`, you will retrieve all the **File** objects associated with `MainFolder` over the association **File_Folder**.
+如果 $ChosenFolder 对象是 `子文件夹2`, 您将在关联上检索所有 **文件** 与 `Main文件夹相关联的对象` **File_文件夹**
 
-## 3 Associations to Specializations
+## 3个专业协会
 
-In the special case of self-reference when a one-to-many association is with a specialization of itself, you cannot retrieve [by association](retrieve#source).
+当一个一对一的社团具有自己的专业化时，您不能通过社团检索 [](retrieve#source)。
 
-Here is an example inheritance:
+这是一个示例继承：
 
 ![](attachments/associations/limitation.png)
 
 In this example, a list of **Specializations** cannot be retrieved when using a standard by-association retrieve in a microflow if the input is the specialization.
 
-However, there is a workaround for this limitation: The list of Specializations can be retrieved with a Java action using the Java API. This Java action needs two parameters: the **Specialization** and a Boolean **Reverse** via this code snippet:
+然而，这个限制有一个解决方法：可以使用 Java API通过一个 Java 动作检索专业化列表。 此 Java 动作需要两个参数： **Specialization** 和布尔 **通过此代码片段** 反转：
 
 ```
-public class RetrieveAsAssociatedWithB extends CustomJavaAction<java.util.List<IMendixObject>>
-{
+公共类RetrieveAsAssociatedWEB 扩展 CustomJavaScript<java.util.List<IMendixObject>>
+*
     private IMendixObject __B;
-    private main.proxies.Specialization B;
-    private java.lang.Boolean Reverse;
+    私人主机。 roxies.Specialization B;
+    private java.lang.Boolian Reverse;
 
-    public RetrieveAsAssociatedWithB(IContext context, IMendixObject B, java.lang.Boolean Reverse)
-    {
+    public RetrieveAsAssociatedwithout (IContext context, IMendixObject B, java.lang. oolian Reverse)
+    夺取股份权者
         super(context);
-        this.__B = B;
-        this.Reverse = Reverse;
+        _B = B；
+        everse = reverse；
     }
 
-    @java.lang.Override
-    public java.util.List<IMendixObject> executeAction() throws Exception
-    {
-        this.B = __B == null ? null : main.proxies.Specialization.initialize(getContext(), __B);
+    @java。 override
+    public java.util. ist<IMendixObject> executeAction() passes Exception
+    por
+        there = __B == nul？ nul: main.proxies.Specialization.initialize(getContext(), __B);
 
         // BEGIN USER CODE
-        return Core.retrieveByPath(getContext(), __B, "Main.Generalization_Specialization", Reverse);
+        return Core.re.recheveByPath(getContext(), __B, "Main.Generalization_Specialization", Reverse);
         // END USER CODE
     }
-}
+ 
+ format@@}
 ```
 
 {{% alert type="info" %}}
-Be sure to import `com.mendix.core.Core` so you are able to execute `Core.retrieveByPath(..)` in this code snippet.
-{{% /alert %}}
+请务必导入 `com.mendix.core` 以便您能够在这个代码片段中执行 `Core.re.recheveByPath(...)`
+{{% /报警 %}}
 
-When setting the `Reverse` Boolean to true and using the `Specialization` object as the input, the returned list will contain all the generalizations associated to the specialization.
+当设置 `反向` 布尔为真并使用 `专业化` 对象作为输入时， 返回的列表将包含所有与专业化相关的概括。
