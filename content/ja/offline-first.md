@@ -1,265 +1,265 @@
 ---
-title: "Offline-First"
-category: "Mobile"
+title: "オフライン-最初"
+category: "モバイル"
 menu_order: 30
 tags:
-  - "offline"
-  - "native"
-  - "mobile"
+  - "オフライン"
+  - "ネイティブ"
+  - "モバイル"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Offline-first applications work regardless of the connection in order to provide a continuous experience. Pages and logic interact with an offline database on the device itself, and data is synchronized with the server. This results in a snappier UI, increased reliability, and improved device battery life.
+オフラインファーストのアプリケーションは接続に関係なく動作し、継続的な体験を提供します。 ページとロジックは、デバイス自体のオフラインデータベースと相互作用し、データはサーバーと同期されます。 これにより、Snappier UI、信頼性の向上、およびデバイスのバッテリ寿命の向上がもたらされます。
 
 {{% alert type="info" %}}
-It is important to understand that offline-first is an architectural concept and not an approach based on the network state of the device. Offline-first apps do not rely on a connection, but they can use connections (for example, you can call microflows, use a Google Maps widget, or use push notifications).
+オフライン-ファーストは、デバイスのネットワーク状態に基づくアプローチではなく、アーキテクチャの概念であることを理解することが重要です。 オフラインファーストのアプリは接続に依存しませんが、接続を使用することができます (例えば、 マイクロフローを呼び出したり、Google Mapsウィジェットを使用したり、プッシュ通知を使用したりできます)。
 {{% /alert %}}
 
-Mendix supports building offline-first applications for [native mobile](native-mobile) and [hybrid mobile](hybrid-mobile) apps. Both native and hybrid apps share the same core, and this gives them the same offline-first capabilities. Native mobile apps are always offline-first, but for hybrid mobile apps, it depends on the navigation profile that is configured. The data is stored on the device in a local database, and the files are stored on the file storage of the device.
+Mendixは、 [ネイティブモバイル](native-mobile) および [ハイブリッドモバイル](hybrid-mobile) アプリ向けのオフラインファーストアプリケーションの構築をサポートしています。 ネイティブアプリとハイブリッドアプリの両方が同じコアを共有しており、これによりオフラインファーストの機能が同じになります。 ネイティブ モバイル アプリは常にオフライン第一ですが、ハイブリッド モバイル アプリでは、構成されているナビゲーション プロファイルによって異なります。 データはローカルデータベースでデバイスに保存され、ファイルはデバイスのファイルストレージに保存されます。
 
-Mendix Studio Pro performs validations to make sure your app follows an offline-first approach and works even when there is no connection.
+Mendix Studio Proは検証を実行し、オフラインファーストのアプローチに従い、接続がない場合でも機能します。
 
-During development, the [Make It Native mobile app](https://play.google.com/store/apps/details?id=com.mendix.developerapp) (for native mobile apps) or [Mendix mobile app](https://play.google.com/store/apps/details?id=com.mendix.SprintrMobile) (for hybrid mobile apps) can be used to preview and test your Mendix app on a device. The first time your Mendix app is loaded, an internet connection will be required to create a session on the server and download the necessary data and resources. After this initial synchronization, data will remain available in the app even without an internet connection. Subsequent synchronizations will be performed when requested by the user, through application logic or after a model change.
+開発中 [Make It Native mobile app](https://play.google.com/store/apps/details?id=com.mendix.developerapp) (ネイティブ モバイル アプリ用) または [Mendix mobile app](https://play.google.com/store/apps/details?id=com.mendix.SprintrMobile) (ハイブリッド モバイル アプリ用) は、デバイスで Mendix アプリをプレビューしてテストするために使用できます。 Mendixアプリが初めて読み込まれた時 サーバー上でセッションを作成し、必要なデータとリソースをダウンロードするには、インターネット接続が必要です。 この最初の同期後も、インターネットに接続されていなくても、アプリ内でデータが利用可能になります。 後続の同期は、アプリケーションロジックまたはモデルの変更後、ユーザーが要求した場合に実行されます。
 
-## 2 Synchronization{#synchronization}
+## 2 つの同期{#synchronization}
 
-Mendix automatically analyzes your app's data model to determine which entities should be synchronized based on the pages and nanoflows used within your offline navigation profile. In addition, the platform takes entity access into account so that only the data the user is allowed to access is synchronized.
+Mendixはアプリケーションのデータモデルを自動的に分析し、オフラインナビゲーションプロファイル内で使用されるページとナノフローに基づいて同期するエンティティを決定します。 さらに、プラットフォームは、ユーザーがアクセスできるデータのみが同期されるように、エンティティのアクセスを考慮します。
 
-Synchronization is automatically triggered during the following scenarios:
+以下のシナリオで自動的に同期がトリガーされます:
 
-* The initial startup of your mobile app
-* The first startup of your mobile app after your Mendix app is redeployed when the following conditions are matched:
- * There is a network connection
- * You are using a new Mendix version or the domain model used in the offline-first app has changed
-* After the app user logs in or out
+* モバイルアプリの最初の起動
+* 以下の条件が一致したときにMendixアプリを再デプロイした後のモバイルアプリの最初の起動:
+ * ネットワーク接続があります
+ * 新しいMendixバージョンを使用しているか、オフラインファーストアプリで使用されているドメインモデルが変更されました。
+* アプリのユーザーがログインまたは終了した後
 
-Synchronization can also be configured via different places in your Mendix app, for example:
+同期はMendixアプリの異なる場所を介して設定することもできます。
 
-* As an action on a button
-* As an action in a nanoflow
-* As a pull-down action on a list view (for native mobile only)
+* ボタン上のアクション
+* ナノレベルでのアクション
+* リストビューのプルダウン操作（ネイティブモバイルのみ）
 
-Synchronization is performed on the database level. This means if you synchronize while having some uncommitted changes for an object, the attribute values in local database will be synchronized, ignoring the uncommitted changes. Uncommitted changes are still available after a synchronization.
+同期はデータベース レベルで実行されます。 これは、オブジェクトに対して何らかの変更を反映していないときに同期する場合を意味します。 ローカルデータベースの属性値は同期され、反映されていない変更は無視されます。 未コミットの変更は、同期後も使用できます。
 
-### 2.1 Synchronization Types
+### 2.1 同期タイプ
 
-You can perform synchronization on two levels:
+2 つのレベルで同期を実行できます:
 
-* [Full synchronization](#full-sync)
-* [Selective synchronization](#selective-sync)
+* [完全な同期](#full-sync)
+* [選択的同期](#selective-sync)
 
-#### 2.1.1 Full Synchronization {#full-sync}
+#### 2.1.1 完全同期 {#full-sync}
 
-This mode performs both the upload and the download phases for all entities used in the offline-first app. You can customize the behavior of each entity with [customizable synchronization](#customizable-synchronization).
+このモードでは、オフラインファーストアプリで使用されているすべてのエンティティのアップロードとダウンロードの両方を実行します。 [カスタマイズ可能な同期](#customizable-synchronization) を使用して、各エンティティの動作をカスタマイズできます。
 
-#### 2.1.2 Selective Synchronization {#selective-sync}
+#### 2.1.2 選択的同期 {#selective-sync}
 
-Selective synchronization can only be done through a **Synchronize** action inside a nanoflow. In this mode, a specific set of objects will be synchronized. These objects can be either all unsynchronized objects when the [synchronize unsynchronized objects](synchronize#synchronize-unsynchronized-objects) mode is selected, or a manually selected set of objects when the [synchronize selected object(s)](synchronize#synchronize-selected-object-s) mode is selected.
+選択的同期は、ナノフロー内の **** アクションを同期することによってのみ行うことができます。 このモードでは、特定のオブジェクトのセットが同期されます。 These objects can be either all unsynchronized objects when the [synchronize unsynchronized objects](synchronize#synchronize-unsynchronized-objects) mode is selected, or a manually selected set of objects when the [synchronize selected object(s)](synchronize#synchronize-selected-object-s) mode is selected.
 
-Synchronization performed using a UI element (for example, a button or an on-change action) performs the full synchronization.
+UI 要素を使用して実行される同期 (ボタンやオン変更アクションなど) は、完全な同期を実行します。
 
-### 2.2 Synchronization Phases
+### 2.2 同期フェーズ
 
-The synchronization process consists of two phases. In the [upload phase](#upload), your app updates the server database with the new or changed objects that are committed. In the [download phase](#download), your app updates its local database using data from the server database.
+同期プロセスは2つのフェーズで構成されています。 [アップロードフェーズ](#upload)では、アプリはコミットされた新しいオブジェクトまたは変更されたオブジェクトを使用してサーバーデータベースを更新します。 [ダウンロード フェーズ](#download)では、アプリはサーバーデータベースからのデータを使用してローカルデータベースを更新します。
 
-#### 2.2.1 Upload Phase {#upload}
+#### 2.2.1 アップロード段階 {#upload}
 
-The upload phase begins with a referential integrity validation of the new or changed objects that should be committed to the server. This validation checks each to-be-committed object's references to other objects. If this validation fails, the synchronization is aborted and an error message is shown (if the error is not caught).
+アップロードフェーズは、サーバーにコミットする必要がある新規または変更されたオブジェクトの参照整合性の検証から始まります。 この検証は、それぞれのto-be-commitedオブジェクトの他のオブジェクトへの参照をチェックします。 この検証に失敗すると、同期は中止され、エラーメッセージが表示されます (エラーがキャッチされていない場合)。
 
-During [full synchronization](#full-sync) this validation ensures that all referenced objects are committed to the local database. If a referenced object is created on the device and not yet committed to the local database, synchronization is aborted to prevent an invalid reference value on the server database. Note that synchronization only works on the database level.
+[完全な同期](#full-sync) の間、この検証により、参照されるすべてのオブジェクトがローカルデータベースに反映されるようになります。 参照オブジェクトがデバイス上に作成され、まだローカルデータベースに反映されていない場合 サーバーデータベース上の無効な参照値を防ぐため、同期が中止されます。 同期はデータベース レベルでのみ機能することに注意してください。
 
-For example, when a committed `City` object refers to an uncommitted `Country` object, synchronizing the `City` object will yield an invalid `Country` object reference, which will break the app's data integrity. If a synchronization is triggered while data integrity is broken, the following error message will appear (indicating an error in the model to fix): **Sync has failed due to a modeling error. Your database contains objects that reference uncommitted objects: object of type `City` (reference `City_Country`)**. To fix this, such objects must also be committed before synchronizing (in this example, `Country` should be committed before synchronizing).
+For example, when a committed `City` object refers to an uncommitted `Country` object, synchronizing the `City` object will yield an invalid `Country` object reference, which will break the app's data integrity. データ整合性が壊れているときに同期が実行された場合 次のエラーメッセージが表示されます (修正するモデルのエラーを示します): **モデリングエラーのため同期に失敗しました。 あなたのデータベースには、コミットされていないオブジェクトを参照するオブジェクトが含まれています: タイプ `シティ` (参照 `City_Country`)**。 これを修正するには、このようなオブジェクトを同期する前に反映する必要があります(この例では、 `国` を同期する前に反映する必要があります)。
 
-During [selective synchronization](#selective-sync), an additional referential integrity validation is performed to ensure that all referenced objects are at least synchronized once to the server database or included in the selection.
+[選択的同期中](#selective-sync), 参照整合性の検証が実行され、参照されているすべてのオブジェクトが少なくとも一度サーバーデータベースに同期されるか、または選択に含まれているかを確認します。
 
-For example, synchronizing only a committed `City` object referencing an offline `Country` object (created on the device and committed to the local database but not yet synchronized) would break the integrity of the `City` object on the server database since the `Country` object is not stored in the server database. In this case a similar error message will appear, indicating that it is a modeling error. To fix this, such objects must be selected for synchronization. In this example, `Country` should either be selected with synchronization or synchronized before attempting to synchronize `City` object.
+例えば、 オフライン `国` オブジェクトを参照するコミットされた `都市` オブジェクトのみを同期させる（デバイス上で作成され、ローカルデータベースにコミットされていないが、まだ同期されていない）ことは、サーバーデータベース上の `都市` オブジェクトの整合性を壊すことになります。なぜなら `国` オブジェクトはサーバーデータベースには保存されないからです。 この場合、モデリングエラーであることを示す同様のエラーメッセージが表示されます。 これを修正するには、同期のためにそのようなオブジェクトを選択する必要があります。 この例では、 `Country` を `City` オブジェクトを同期する前に同期または同期で選択する必要があります。
 
-The upload phase executes the following operations after validation:
+アップロードフェーズは、検証後に次の操作を実行します。
 
-1. The local database can be modified only by committing an object. Such an object can be a new object created (while offline), or it can be an existing object previously synced from the server. The upload phase detects which objects have been committed to the local database since the last synchronization. This detection differs per synchronization type. For **Synchronize all**, all committed objects in the local database are selected. For **Synchronize objects**, all committed objects from the list of selected objects are selected.
-2. <a name="steptwo"></a>If there are changed or new file objects, their contents are uploaded to the server and stored temporarily. Each file is uploaded in a separate network request.
-3. <a name="stepthree"></a>All the changed and new objects are committed to the server, and the content of the files are linked to the objects. This step is performed in a single network request. Any configured before- or after-commit event handlers on these objects will run on the server as usual, after the data has been uploaded and before it is downloaded.
+1. ローカルデータベースは、オブジェクトをコミットすることによってのみ変更できます。 このようなオブジェクトは(オフラインであれば)新たに作成されたオブジェクトでも、サーバーから以前に同期された既存のオブジェクトでもかまいません。 アップロードフェーズは、最後の同期以降にローカルデータベースにコミットされているオブジェクトを検出します。 この検出は同期タイプごとに異なります。 **すべての**を同期するには、ローカルデータベース内のすべてのコミットされたオブジェクトが選択されます。 **オブジェクト**を同期するには、選択したオブジェクトのリストから、すべてのコミットされたオブジェクトが選択されます。
+2. <a name="steptwo"></a>変更または新規のファイルオブジェクトがある場合、その内容はサーバにアップロードされ、一時的に保存されます。 各ファイルは個別のネットワーク要求にアップロードされます。
+3. <a name="stepthree"></a>変更されたオブジェクトと新しいオブジェクトはすべてサーバーにコミットされ、ファイルの内容はオブジェクトにリンクされます。 この手順は、単一のネットワーク要求で実行されます。 これらのオブジェクトの before-commit または after-commit イベントハンドラは、いつものようにサーバ上で実行されます。 データがアップロードされダウンロードされる前に
 
-#### 2.2.2 Download Phase {#download}
+#### 2.2.2 ダウンロード段階 {#download}
 
-If the upload phase was successful, the download phase starts in which the local database is updated with the newest data from the server database. The behavior of download phase differs per synchronization type.
+アップロードに成功した場合、ダウンロードフェーズは、ローカルデータベースがサーバーデータベースから最新のデータで更新されます。 ダウンロードフェーズの動作は、同期タイプごとに異なります。
 
-**Full synchronization** — A network request is made to the server per entity to retrieve the newest data from the server database. You can manage which entities are synchronized to the local database by customizing your app's synchronization behavior. For more details on this procedure, see the [Customizable Synchronization](#customizable-synchronization) section below. The download process also downloads the file entities' contents and saves that to your device storage. This process is incremental. The app only downloads the contents of a file object if the file has not been downloaded before, or if the file has been changed since it was last downloaded. The changed date attribute of the file entity is used to determine if the contents of a file object have changed.
+**完全同期** — サーバーデータベースから最新のデータを取得するために、エンティティごとにサーバーにネットワーク要求が行われる。 アプリの同期動作をカスタマイズすることで、どのエンティティがローカルデータベースに同期されるかを管理できます。 この手順の詳細については、以下の [カスタマイズ可能な同期](#customizable-synchronization) セクションを参照してください。 ダウンロードプロセスは、ファイルエンティティの内容もダウンロードし、それをデバイスストレージに保存します。 このプロセスは漸進的です。 アプリは、ファイルが以前にダウンロードされていない場合にのみ、ファイルオブジェクトのコンテンツをダウンロードします。 ファイルが前回ダウンロードされてから変更されている場合。 ファイルオブジェクトの内容が変更されたかどうかを判断するために、ファイルエンティティの date 属性が使用されます。
 
-**Selective synchronization** — Only the objects selected for synchronization are synchronized to the local database. There are no extra network requests made to retrieve these objects. The objects are returned in the response of a network request made during the upload phase. If a file entity is selected for synchronization, its content is also updated on the device storage incrementally. The logic is the same in the full synchronization.
+**選択的同期** — 同期のために選択されたオブジェクトのみがローカルデータベースに同期される。 これらのオブジェクトを取得するための追加のネットワーク要求はありません。 オブジェクトは、アップロードフェーズで行われたネットワーク要求に応答して返されます。 ファイルエンティティが同期のために選択されている場合、そのコンテンツはデバイスストレージ上で増分更新されます。 ロジックは完全同期でも同じです。
 
-### 2.3 After Synchronization
+### 同期後の2.3
 
-After synchronization is completed, the widgets on your app's current page will be refreshed to reflect the latest data. If the synchronization is triggered from a nanoflow, all nanoflow object/list variables are updated (uncommitted changes are still preserved).
+同期が完了すると、アプリの現在のページのウィジェットが更新され、最新のデータが反映されます。 同期が nanoflow からトリガーされると、すべての nanoflow オブジェクト/リスト変数が更新されます(コミットされていない変更は保持されます)。
 
-Please note that a nanoflow object variable's value might become `empty` after synchronization, if the object is removed from the device during synchronization. This might happen under the following cases:
+同期中にオブジェクトがデバイスから削除された場合、ナノフローオブジェクト変数の値が `空` になる可能性があることに注意してください。 これは以下の場合に発生する可能性があります。
 
-* The object is deleted on the server
-* The current user does not have enough access to the object (defined by the security access rules)
-* The entity is configured with an XPath constraint on the [customizable synchronization](#customizable-synchronization) screen, and the object no longer matches the specified XPath constraint
-* The entity is configured with **Nothing (clear data)** option on the customizable synchronization screen
-* The upload phase fails for the object — for example when a before commit event handler returns false, or committing fails due to violation of a unique validation
+* オブジェクトはサーバー上で削除されます
+* 現在のユーザーは、オブジェクトへの十分なアクセス権がありません（セキュリティ・アクセス・ルールによって定義されています）
+* エンティティは [カスタマイズ可能な同期](#customizable-synchronization) 画面上の XPath 制約により構成され、オブジェクトは指定された XPath 制約と一致しなくなります。
+* The entity is configured with **Nothing (clear data)** option on the customizable syncing screen
+* オブジェクトのアップロードフェーズは失敗します。例えば before commit イベントハンドラが false を返した場合などです。 一意の検証に違反したためコミットできません
 
-### 2.4 Customizable Synchronization {#customizable-synchronization}
+### 2.4 カスタマイズ可能な同期 {#customizable-synchronization}
 
 {{% alert type="warning" %}}
-These settings are not applied for [selective synchronization](#selective-sync).
+これらの設定は、 [選択的同期](#selective-sync) には適用されません。
 {{% /alert %}}
 
-By default, Mendix automatically determines which objects need to be synchronized as mentioned in [Synchronization](#synchronization).
+デフォルトでは、Mendixは自動的に [同期](#synchronization)に記載されているように同期する必要があるオブジェクトを決定します。
 
-Depending on the use-case, more fine-grained synchronization controls might be required. Therefore, it is possible to change the download behavior for an entity. You can choose between the following options:
+ユースケースによっては、より詳細な同期制御が必要になる場合があります。 したがって、エンティティのダウンロード動作を変更することができます。 次のオプションから選択できます:
 
-* **All Objects** — Download all objects applying the regular security constraints.
-* **By XPath** — Only download the objects which match the [XPath Constraints](xpath-constraints) in addition to the regular security constraints. This means all previously synchronized objects that do not match the XPath constraint will be removed.
+* **All Objects** — 定期的なセキュリティ制約を適用するすべてのオブジェクトをダウンロードする。
+* **By XPath** — 通常のセキュリティ制約に加えて、 [XPath 制約](xpath-constraints) に一致するオブジェクトのみをダウンロードします。 これにより、XPath 制約に一致しない以前に同期されたすべてのオブジェクトが削除されます。
 * **Nothing (clear data)** — Do not download any objects automatically, but do clear the data stored in the database for this entity when performing a synchronization (this can be useful in cases where the objects should only be uploaded, for example a `Feedback` entity).
-* **Nothing (preserve data)** — Do not download any objects automatically, and do not clear the data stored in the database for this entity when performing a synchronization  (this can be useful in cases where you want have full control over the synchronization and should be used in combination with the [Synchronize to device](synchronize-to-device) or [Synchronize](synchronize) activity with specific objects selected).
+* **なし (保存データ)** — 自動的にオブジェクトをダウンロードしない。 そして、同期を実行する際に、このエンティティのデータベースに格納されているデータをクリアしないでください（これは、同期を完全に制御したい場合や、** ** デバイスに同期 [または](synchronize-to-device) [](synchronize) アクティビティを選択した特定のオブジェクトと同期させる場合に便利です）。
 
-If you have custom widgets or JavaScript actions which use an entity that cannot be detected by Studio Pro in your offline-first profile (because its only used in the code), you can use customizable synchronization to include such entities.
+Studio Proでオフラインファーストプロファイルで検出できないエンティティを使用するカスタム ウィジェットまたはJavaScriptアクションがある場合 (コードでのみ使用されているため) カスタマイズ可能な同期を使ってそのようなエンティティを含めることができます
 
 {{% image_container width="450" %}}![custom synchronization](attachments/offline-first/custom-sync.png){{% /image_container %}}
 
-### 2.5 Limitations
+### 2.5 制限
 
-Running multiple synchronization processes at the same time is not supported, regardless the of the type (**full** or **selective**). For more information, see the [Limitations](synchronize#limitations) section of the *Synchronize Reference Guide*.
+型(**full** または **selective**)に関係なく、同時に複数の同期プロセスを実行することはサポートされていません。 詳細については、 [リファレンスガイド](synchronize#limitations) の *制限事項* セクションを参照してください。
 
-### 2.6 Error Handling {#error-handling}
+### 2.6 エラー処理 {#error-handling}
 
-During synchronization, errors might occur. This section describes how Mendix handles these errors and how you can prevent them.
+同期中にエラーが発生する可能性があります。 このセクションでは、Mendixがこれらのエラーをどのように処理し、どのようにそれらを防ぐことができるかについて説明します。
 
-#### 2.6.1 Network-Related Errors {#network-errors}
+#### 2.6.1 ネットワーク関連エラー {#network-errors}
 
-Synchronization requires a connection to the server, so during synchronization, errors may occur due to failing or poor network connections. Network errors may involve a dropped connection or a timeout. By default, the timeout for synchronization is 30 seconds per network request for hybrid mobile apps. For native apps, there is no default timeout, and the timeout is determined by the platform and OS version.
+同期にはサーバーへの接続が必要なので、同期中にエラーが発生したり、ネットワーク接続が不十分な場合があります。 ネットワークエラーには、接続が切断されたりタイムアウトが含まれている場合があります。 既定では、ハイブリッドモバイルアプリのネットワーク要求ごとに同期のタイムアウトは30秒です。 ネイティブアプリの場合、デフォルトのタイムアウトはなく、タイムアウトはプラットフォームとOSのバージョンによって決定されます。
 
-The synchronization is atomic, which means that either everything or nothing is synchronized. Exceptions are described in the [Model- or Data-Related Errors](#othererrors) section below.
+同期は原子で、すべてまたは何も同期されていないことを意味します。 例外は、以下の [Model- またはデータ関連エラー](#othererrors) セクションで説明されています。
 
-If a network error happens during the file upload (via [step 2 in the upload phase](#steptwo)), Mendix retries to upload the failed files. If there is an error for the second time, the synchronization is aborted. The changes at that moment are kept on the local device, so it can be retried later.
+If a network error happens during the file upload (via [step 2 in the upload phase](#steptwo)), Mendix retries to upload the failed files. 2回目のエラーが発生した場合、同期は中止されます。 その時点での変更はローカルデバイスに保存されるため、後で再試行することができます。
 
-If a network error occurs while uploading the data (via [step 3 in the upload phase](#stepthree)), the data is kept on the local device and no changes are made on the server. Any files uploaded in [step 2](#steptwo) will be uploaded again during the next synchronization.
+If a network error occurs while uploading the data (via [step 3 in the upload phase](#stepthree)), the data is kept on the local device and no changes are made on the server. [ステップ 2](#steptwo) にアップロードされたすべてのファイルは、次の同期中に再びアップロードされます。
 
-If a network error (such as a timeout) occurs after uploading the data (at [step 3 in the upload phase](#stepthree)), the data is kept on the local device. However, since the server has already started working on the request it will complete the request and commit the changes to server database. The device cannot distinguish whether the server processed the request or not, so the next synchronization attempt will contain the already-applied changes. In this case, the server will behave differently based on Mendix version. In Mendix Studio Pro v8.18 or below, the server will commit the same changes again, which might overwrite potential changes made by other users between the two synchronizations. From Studio Pro v8.18 and above this process is optimized and the server will not commit the same changes because they have been applied before.
+If a network error (such as a timeout) occurs after uploading the data (at [step 3 in the upload phase](#stepthree)), the data is kept on the local device. しかし、サーバーはすでにリクエストに対して作業を開始しているため、リクエストを完了し、サーバーデータベースに変更をコミットします。 デバイスは、サーバーがリクエストを処理したかどうかを区別できないため、次の同期の試みには、すでに適用されている変更が含まれます。 この場合、サーバは Mendix のバージョンによって異なる動作をします。 Mendix Studio Pro v8で。 8 以下では、サーバーは再び同じ変更をコミットし、2 つの同期間で他のユーザーによって行われた潜在的な変更を上書きする可能性があります。 Studio Pro v8.18 以降では、このプロセスは最適化されており、サーバーは以前に適用されているため、同じ変更を反映しません。
 
-If a network error occurs during the download phase, no data is updated on the device. Therefore the user can keep working or retry. The effects of the upload phase are not rolled back on the server.
+ダウンロードフェーズ中にネットワークエラーが発生した場合、デバイス上でデータは更新されません。 したがって、ユーザーは作業を維持または再試行することができます。 アップロードフェーズの影響は、サーバーにロールバックされません。
 
-If the synchronization is called from a nanoflow, the error can be handled using nanoflow error handling. In other cases (for example, if synchronization is called from a button or at startup), a message will be displayed to the user that the data could not be synchronized.
+同期がnanoflowから呼び出された場合は、nanoflowエラー処理を使用してエラーを処理することができます。 その他の場合(例えば、ボタンや起動時に同期が呼び出された場合) データを同期できなかったことをユーザーにメッセージが表示されます。
 
-#### 2.6.2 Model- or Data-Related Errors {#othererrors}
+#### 2.6.2 モデルまたはデータ関連のエラー {#othererrors}
 
-During the synchronization, changed and new objects are committed. An object's synchronization might encounter problems due to the following reasons:
+同期中に、変更されたオブジェクトと新しいオブジェクトがコミットされます。 以下の理由により、オブジェクトの同期に問題が発生する可能性があります。
 
-* The object is no longer available on the server (either from deletion or inaccessibility due to access rules)
-* A member of the object has become inaccessible due to access rules
-* An error occurs during the execution of a before- or after-commit event microflow
-* The object is not valid according to domain-level validation rules
+* オブジェクトはサーバー上で使用できなくなりました (アクセスルールにより削除またはアクセスできなくなります)
+* アクセスルールによりオブジェクトのメンバにアクセスできなくなりました
+* before-commitイベントマイクロフローまたはafter-commitイベントマイクロフローの実行中にエラーが発生します
+* このオブジェクトはドメインレベルの検証ルールに従って有効ではありません
 
-{{% alert type="warning" %}}When a synchronization error occurs because of one the reasons above, an object's commit is skipped, its changes are ignored, and references from other objects to it become invalid. Objects referencing such a skipped object (which are not triggering errors) will be synchronized normally. Such a situation is likely to be a modeling error and is logged on the server. To prevent data loss, the attribute values for such objects are stored in the `System.SynchronizationError` entity (since Mendix 8.12).  {{% /alert %}}
+{{% alert type="warning" %}}上記の理由により同期エラーが発生した場合。 オブジェクトのコミットはスキップされ、その変更は無視され、他のオブジェクトからの参照は無効になります。 このようなスキップされたオブジェクト(エラーをトリガーしていない)を参照しているオブジェクトは正常に同期されます。 このような状況は、モデリングエラーになり、サーバーにログインする可能性があります。 データの損失を防ぐために、そのようなオブジェクトの属性値は `System.SynchronizationError` エンティティ (Mendix 8.12 以降) に格納されます。  {{% /alert %}}
 
-### 2.6.3 Preventing Synchronization Issues {#prevent-sync-issues}
+### 2.6.3 同期の問題の防止 {#prevent-sync-issues}
 
-To avoid the problems mentioned above, we suggest following these best practices:
+上記の問題を回避するために、以下のベストプラクティスに従うことをお勧めします。
 
-* Do not remove, rename, or change the type of entities or their attributes in offline apps after your initial release — this may cause objects or values to be no longer accessible to offline users (if needed, you can do an "in-between" release that is still backwards-compatible, and then make the changes in the next release after all the apps are synchronized)
-* Do not delete objects which can be synced to offline users (this will result in lost changes on those objects when attempted to synchronize them)
-* Avoid using domain-level validation for offline entities – use nanoflows or input validation instead (it is also a good practice to validate again on the server using microflows)
-* When committing objects that are being referenced by other objects, make sure the other objects are also committed
+* 削除、名前を変更しない または、最初のリリース後にオフラインアプリのエンティティまたはその属性の種類を変更する — これはオフラインユーザーがオブジェクトまたは値にアクセスできなくなる可能性があります(必要に応じて)。 下位互換性のある"in-between"リリースを行い、すべてのアプリが同期された後に次のリリースで変更を加えることができます)
+* オフラインユーザーに同期できるオブジェクトを削除しないでください（同期しようとした場合、これらのオブジェクトの変更が失われます）
+* オフラインエンティティにドメインレベルの検証を使用しないようにする – 代わりにナノフローや入力検証を使用する (マイクロフローを使用してサーバー上で再度検証することも良い習慣です)
+* 他のオブジェクトから参照されているオブジェクトをコミットする場合は、他のオブジェクトも反映されていることを確認してください
 
-If synchronization is triggered using a synchronize action in a nanoflow and an error occurs, it is possible to handle the error gracefully using the nanoflow error handling.
+ナノフローの同期アクションを使用して同期がトリガーされ、エラーが発生した場合。 nanoflowエラーハンドリングを使って優雅にエラーを処理することができます。
 
-### 2.6.4 Conflict Resolution {#conflict-res}
+### 2.6.4 競合解決 {#conflict-res}
 
-It can happen that multiple users synchronize the same state of an object on their device, change it, and then synchronize this object back to the server. In this case, the last synchronization overwrites the entire content of the object on the server. This is also called a "last wins" approach.
+複数のユーザーがデバイス上で同じオブジェクトの状態を同期することがあります。 変更してから、このオブジェクトをサーバーに戻します。 この場合、最後の同期は、サーバー上のオブジェクトの内容全体を上書きします。 これは「ラストウィン」アプローチとも呼ばれます。
 
-If another approach is needed, conflicts can be detected in a before-commit microflow (for example, by using a revision ID attribute on the entity). Based on that, custom conflict resolution can be performed.
+別のアプローチが必要な場合は、before-commit microflow 内で競合を検出することができます (エンティティのリビジョン ID 属性を使用するなど)。 これに基づいて、カスタムの競合解決を実行することができます。
 
-## 3 Best Practices {#best-practices}
+## ベストプラクティス3選 {#best-practices}
 
-To ensure the best user experience for your Mendix application, follow these best practices:
+Mendixアプリケーションの最高のユーザーエクスペリエンスを確保するには、次のベストプラクティスに従ってください。
 
-* Limit the amount of data that will be synchronized by customizing the synchronization configuration or security access rules
-* Because network connections can be slow and unreliable and mobile devices often have limited storage, avoid synchronizing large files or images (for example, by limiting the size of photos)
-* Try to synchronize through a nanoflow instead of a UI element so you can add error handling to the synchronization activity which can handle cases when synchronization fails (connection errors, model and data related errors, and more)
-* Synchronize large files or images using selective synchronization
-* Use an `isDeleted` Boolean attribute for delete functionality so that conflicts can be handled correctly on the server
-* Use before- and after-commit microflows to pre- or post-process data
-* Use a [microflow call](microflow-call) in your nanoflows to perform additional server-side logic such as retrieving data from a REST service, or accessing and using complex logic such as Java actions
-* Help your user remember to synchronize their data so it is processed as soon as possible: you can check for connectivity and automatically synchronize in the nanoflow that commits your object, or remind a user to synchronize while using a notification or before signing out to ensure no data is lost
+* 同期設定またはセキュリティ アクセス ルールをカスタマイズして同期するデータの量を制限します
+* ネットワーク接続が遅く、信頼性が低く、モバイルデバイスにはストレージが限られていることが多いためです。 大きなファイルや画像の同期を避ける（例えば、写真のサイズを制限するなど）
+* UI 要素の代わりに nanoflow を介して同期を試みると、同期に失敗した場合に処理できる同期アクティビティにエラー処理を追加できます (接続エラー)。 モデルとデータ関連のエラーなど)
+* 選択した同期を使用して大容量のファイルや画像を同期
+* サーバー上で競合を正しく処理できるように、 `isDeleted` ブール属性を削除機能に使用します
+* 前または後のプロセスデータにコミットする前と後のマイクロフローを使用する
+* ナノフローで [マイクロフロー呼び出し](microflow-call) を使用して、RESTサービスからデータを取得するなどの追加のサーバーサイドロジックを実行します。 またはJavaアクションなどの複雑なロジックにアクセスして使用する
+* ユーザーがデータを同期させるのを忘れないようにし、できるだけ早く処理されます。接続を確認し、オブジェクトをコミットする nanoflow 内で自動的に同期することができます。 または、通知を使用している間、またはサインアウトする前に、データが失われないようにユーザーに同期するように通知します
 
-## 4 Ensuring Your App Is Offline-First {#limitations}
+## 4 アプリがオフラインであることを確認する {#limitations}
 
-Mendix helps developers build rich offline-first apps. However, there are some limitations. See the subsections below for details.
+Mendixは、開発者がリッチオフラインファーストのアプリを構築するのに役立ちます。 しかし、いくつかの制限があります。 詳細は以下のサブセクションを参照してください。
 
-### 4.1 Microflows {#microflows}
+### 4.1 マイクロフロー {#microflows}
 
-Microflows can be called from offline apps by using [microflow call](microflow-call) action in your nanoflows to perform logic on the server. However, it works a bit different from when used in online profiles, these differences are explained below:
+マイクロフローは、サーバ上でロジックを実行するために、ナノフローで [マイクロフローコール](microflow-call) を使用してオフラインアプリケーションから呼び出すことができます。 ただし、オンラインプロファイルで使用する場合とは少し異なりますが、これらの違いについては以下で説明します。
 
-#### 4.1.1 Microflow Arguments Type
+#### 4.1.1 マイクロフロー引数タイプ
 
-* Passing an object or a list of a persistable entity is not supported
-* Passing an object or a list of a non-persistable entity that has an association with a persistable entity is not supported (such an association can be an indirect association)
-* Passing a non-persistable entity that was created in another microflow is not supported
+* オブジェクトまたは持続可能エンティティのリストを渡すことはサポートされていません
+* オブジェクトまたは持続可能エンティティとの関連を持つ非持続可能エンティティのリストを渡すことはサポートされていません(関連付けは間接的な関連にすることができます)
+* 別のマイクロフローで作成された永続性のないエンティティを渡すことはサポートされていません
 
-#### 4.1.2 UI Actions
+#### 4.1.2 UI アクション
 
-UI-related actions will be ignored and will not have any effect. We encourage you to model such UI-side effects in the caller nanoflow.
+UI関連のアクションは無視され、効果はありません。 このようなUI副作用を呼び出しのnanoflowでモデル化することをお勧めします。
 
-These actions are as the following:
+これらのアクションは以下のとおりです:
 
-* [Show message](show-message)
-* [Show validation message](validation-feedback)
-* [Show home page](show-home-page)
-* [Show page](show-page)
-* [Close page](close-page)
-* [Download file](download-file)
+* [メッセージを表示](show-message)
+* [検証メッセージを表示](validation-feedback)
+* [ホームページを表示](show-home-page)
+* [ページを表示](show-page)
+* [ページを閉じる](close-page)
+* [ファイルをダウンロード](download-file)
 
-#### 4.1.3 Object Side-Effects
+#### 4.1.3 オブジェクトサイドエフェクト
 
-Changes to persistable objects made in a microflow will not be reflected on the client unless you synchronize. Non-persistable objects must be returned in order for changes to be reflected.
+同期しない限り、マイクロフローで作成された持続可能オブジェクトへの変更はクライアントに反映されません。 変更を反映するためには、永続性のないオブジェクトを返さなければなりません。
 
-#### 4.1.4 Microflow Return Value
+#### 4.1.4 マイクロフローの戻り値
 
-* Returning an object or a list of persistable entity is not supported
-* Returning an object or a list of a non-persistable entity that has an association with a persistable entity is not supported (such association can be an indirect association)
+* オブジェクトまたは持続可能エンティティのリストを返すことはサポートされていません
+* オブジェクトまたは持続可能エンティティとの関連を持つ非持続可能エンティティのリストを返すことはサポートされていません (この関連は間接的な関連になることができます)
 
-#### 4.1.5 Language Switching
+#### 4.1.5 言語切り替え
 
-To be able to switch the language of a Mendix app, a device must be online and have access to the Mendix runtime. For more information on the runtime, see the [Runtime Reference Guide](runtime).
+Mendix アプリの言語を切り替えられるようにするには、デバイスがオンラインであり、Mendix ランタイムにアクセスできる必要があります。 ランタイムの詳細については、 [ランタイムリファレンスガイド](runtime) を参照してください。
 
-### 4.2 Offline Microflow Best Practices {#offline-mf-best-practices}
+### 4.2 オフラインマイクロフローのベストプラクティス {#offline-mf-best-practices}
 
-To make microflow calls work from offline-first apps, Mendix stores some microflow information in the offline app. That information is called from the app. This means that changes to microflows used from offline apps must be backwards-compatible, because there can be older apps which have not received an over the air update yet. All microflow calls from such a device will still contain the old microflow call configuration in nanoflows, which means that the request might fail. For more information on over the air updates, see [How to Release Over the Air Updates with App Center's CodePush](/howto/mobile/how-to-ota).
+マイクロフローの呼び出しをオフラインファーストアプリから動作させるために、Mendixはいくつかのマイクロフロー情報をオフラインアプリに格納します。 その情報はアプリから呼び出されます。 つまり、オフラインアプリから使用されるマイクロフローへの変更は後方互換性がある必要があります。 まだ空気のアップデートを受けていない古いアプリがあるからです このようなデバイスからのすべてのマイクロフロー呼び出しには、古いマイクロフロー呼び出し構成がnanoflowsで含まれます。つまり、要求が失敗する可能性があります。 アップデートの詳細については、 [アプリセンターの CodePush でアップデートをリリースする方法](/howto/mobile/how-to-ota) を参照してください。
 
-To avoid backwards-compatibility errors in offline microflow calls after the initial release, we suggest these best practices:
+最初のリリース後のオフラインマイクロフロー呼び出しで後方互換性エラーを避けるために、以下のベストプラクティスをお勧めします。
 
-* Do not rename microflows or move them to different modules
-* Do not rename modules that contain microflows called from offline apps
-* Do not add, remove, rename, or change types of microflow parameters
-* Do not change return types
-* Do not delete a microflow before making sure that all devices have received an update
+* マイクロフローの名前を変更したり、別のモジュールに移動しないでください
+* オフラインアプリから呼び出されるマイクロフローを含むモジュールの名前を変更しない
+* マイクロフローパラメータの追加、削除、名前の変更、変更を行わない
+* 戻り値の型を変更しない
+* すべてのデバイスが更新を受け取ったことを確認する前に、マイクロフローを削除しないでください
 
-If you want to deviate from the practices outlined above, introduce a new microflow. You can change the contents of the microflow, but keep in mind that older apps might call the new version of the microflow until they are updated.
+上記の実践から逸脱したい場合は、新しいマイクロフローを導入します。 マイクロフローの内容を変更できます。 ただし、古いアプリがアップデートされるまで、新しいバージョンのマイクロフローを呼び出す可能性があることに注意してください。
 
-### 4.3 Autonumbers & Calculated Attributes {#autonumbers}
+### 4.3 Autonumbers & 計算された属性 {#autonumbers}
 
-Both autonumbers and calculated attributes require input from the server; therefore, they are not allowed. Objects with these attribute types can still be viewed and created offline, but the attributes themselves cannot be displayed.
+autonumbers と計算された属性の両方がサーバからの入力を必要とします。したがって、それらは許可されません。 これらの属性タイプを持つオブジェクトはオフラインで表示および作成できますが、属性自体は表示できません。
 
-### 4.4 Default Attribute Values {#default-attributive}
+### 4.4 デフォルトの属性値 {#default-attributive}
 
-Default attribute values for entities in the domain model do not have any effect on objects created offline. Boolean attributes will always default to `false`, numeric attributes to `0`, and other attributes to `empty`.
+ドメインモデルのエンティティのデフォルトの属性値は、オフラインで作成されたオブジェクトに影響を与えません。 ブール属性は常に `false`、数値属性は `0`、その他の属性は `空` にデフォルトになります。
 
-### 4.5 Many-to-Many Associations {#many-to-many}
+### 4.5 多数の関連付け {#many-to-many}
 
-Many-to-many associations are not supported. A common alternative is to introduce a third entity that has one-to-many associations with the other entities.
+多くの関連付けはサポートされていません。 一般的な代替手段は、他のエンティティと1対多の関連を持つ第三のエンティティを導入することです。
 
-### 4.6 Inheritance {#inheritance}
+### 4.6 継承 {#inheritance}
 
-It is not possible to use more than one entity from a generalization or specialization relation. For example if you have an `Animal` entity and a `Dog` specialization, you can use either use `Animal` or `Dog`, but not both from your offline profile. An alternative pattern is to use composition (for example, object associations).
+一般化や専門化の関係から複数のエンティティを使用することはできません。 For example if you have an `Animal` entity and a `Dog` specialization, you can use either use `Animal` or `Dog`, but not both from your offline profile. 代替パターンはコンポジションを使用することです (例えば、オブジェクトの関連付け)。
 
-### 4.7 System Members {#system-members}
+### 4.7 システムメンバー {#system-members}
 
-System members (`createdDate`, `changedDate`, `owner`, `changedBy`) are not supported.
+システムメンバー (`createdDate`, `changedDate`, `owner`, `changedBy`) はサポートされていません。
 
-### 4.8 Excel and CSV Export {#excel-cv}
+### 4.8 ExcelとCSVエクスポート {#excel-cv}
 
-Excel and CSV export are not available in offline applications.
+ExcelおよびCSVエクスポートはオフラインアプリケーションでは使用できません。
