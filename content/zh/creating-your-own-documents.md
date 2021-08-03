@@ -1,149 +1,149 @@
 ---
-title: "Creating Your Own Documents"
-parent: "document-templates"
-description: "This documentation will give you insight into creating documents with Mendix."
+title: "创建您自己的文档"
+parent: "文档模板"
+description: "此文档将让您深入了解如何使用 Mendix 创建文档。"
 tags:
-  - "Document"
-  - "Generate"
-  - "Word"
+  - "文件"
+  - "生成"
+  - "单词"
   - "PDF"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Have you been wondering how to create your own documents with Mendix? This reference will tell you how to do it!
+您是否在想如何使用Mendix创建您自己的文档？ 这个引用将告诉你如何做！
 
-With Mendix, you can generate documents in different ways. Here, you will learn the fundamentals of generating a document from your own application.
+使用 Mendix 可以不同方式生成文档。 在这里，您将从自己的应用程序中学习生成文档的基本要素。
 
-Before we start, we recommend you first read the following two pages:
+在我们开始之前，我们建议您首先阅读以下两页：
 
-* [Document Templates](document-templates)
-* [Generate Documents](generate-document)
+* [文档模板](文档模板)
+* [生成文档](generate-document)
 
-## 2 Knowing Your Document
+## 2 知道您的文档
 
-Before you start producing a document with Mendix, it is advisable to make a draft version of the document you want to produce. You can sketch something on a piece of paper or ask your customer to provide you with an example. Either way, it is good to have in mind what you want to achieve.
+在您开始使用 Mendix 生成文档之前，最好是编写您想要生成的文档的草稿。 你可以在一张纸上草绘一些东西，或要求你的客户为你提供一个例子。 不管怎样，牢记你想要实现的目标都是好的。
 
-Using your desired document, you can choose a strategy for producing it. Mendix offers numerous options for producing documents using the out-of-the-box document template functionality, but you may find that the Mendix features are not sufficient to generate your document. Don’t worry. For an alternative way of producing documents with Mendix, see [Alternative Way of Creating Documents](#Alternative).
+使用您想要的文档，您可以选择一个生成文档的策略。 Mendix 提供了许多选项来使用户外文档模板功能制作文档。 但您可能发现Mendix 功能不足以生成您的文档。 不必担心. 使用 Mendix 生成文档的替代方式，见 [创建文档的替代方式](#Alternative)。
 
-For our example, we’ve concluded that the Mendix functionality does suffice. So, let’s have a look at how this works with an example.
+例如，我们的结论是，Mendix 功能已经足够了。 因此，让我们看看这如何用一个例子来运作。
 
-## 3 Business Case
+## 3 商业案件
 
-In this application, customers can purchase products. They will do so by creating orders and selecting the products they want to purchase. To be able to present the customer with an overview of their order, a PDF will be created and sent to the customer as an attachment to their confirmation email. The order should show the customer details, the logo of the company, the products with their price, and the total value of the order.
+在此应用程序中，客户可以购买产品。 他们将通过创建订单和选择他们想要购买的产品来这样做。 能够向客户展示他们的订单概述， a PDF将被创建并作为确认电子邮件的附件发送给客户。 订单应显示客户详情、公司标志、产品价格和订单总价值。
 
-## 4 Generating a Document with Out-of-the-Box Mendix Functionality
+## 正在生成带有Out-of-Box Mendix 功能的文档
 
-### 4.1 Domain Model
+### 4.1 域模型
 
-The domain model for this application looks like this:
+此应用程序的域模型看起来像这样：
 
 ![](attachments/core/2018-02-28_16-37-25.png)
 
-The **Customer** holds the address information and the preferred communication language. The **Order** owns the date and sum of all the order lines. The **OrderLine** entity has the customer-specific price for a **Product**. Because you want to generate a document, the **OrderDocument** entity has been added. This entity inherits from the **System.FileDocument** entity.
+**客户** 持有地址信息和首选通信语言。 **命令** 拥有所有订单行的日期和总和。 **订单行** 实体有一个 **产品** 的客户特定价格。 因为您想要生成文档， **订单文档** 实体已被添加。 此实体继承自 **System.FileDocument** 实体。
 
 {{% alert type="info" %}}
-Do not use the **System.FileDocument** entity directly, because you have no control over the security of that part from the **System** module.
-{{% /alert %}}
+不要使用 **系统。 文件** 实体直接，因为您无法控制 **系统** 模块中的该部分的安全性。
+{{% /报警 %}}
 
-### 4.2 Microflow
+### 4.2 微流
 
-Now the domain model has been set up, you are ready to create the microflow for your new generate document function.
+现在，域模型已经设置，您准备为新的生成文档功能创建微流程。
 
-Create a new folder to organize all the order document creation related sources:
+创建一个新文件夹来组织所有订单文档创建相关源：
 
 ![](attachments/core/2018-02-28_17-02-05.png)
 
-Now you need a microflow to handle the creation of the document:
+现在你需要一个微流程来处理文档的创建：
 
 ![](attachments/core/2018-02-28_17-04-03.png)
 
-The microflow consists of just the default start and endpoint at present:
+微流由当前的默认起始点和终点组成：
 
 ![](attachments/core/2018-02-28_16-30-18.png)
 
-After creating the microflow, decide what information you would like to use in the document. Let’s start with an order as input. Later on, you can retrieve additional data via the order instance.
+创建微流程后，决定您想要在文档中使用的信息。 让我们以订单作为输入。 稍后，您可以通过订单实例检索额外的数据。
 
 {{% alert type="info" %}}
-When you create microflows, it is a best practice to limit the number of input parameters to promote reuse.
-{{% /alert %}}
+当您创建微流时，最佳做法是限制输入参数的数量以促进重新使用。
+{{% /报警 %}}
 
-Here is the input parameter:
+以下是输入参数：
 
 ![](attachments/core/2018-02-28_16-32-33.png)
 
-In the next step, you will create a new OrderDocument. This object will store the actual document. Set the reference to the **Order** object and the name of the document:
+在下一步，您将创建一个新的订单文件。 此对象将存储实际文档。 设置 **订单** 对象和文档名称的引用：
 
 ![](attachments/core/2018-02-28_16-52-43.png)
 
-Now you need to have a **Language** object. In our case, the **Customer** is associated with the preferred communication language. In our microflow example, you first retrieve the **Customer** via the **Order**, and then retrieve the **Language** from that **Customer**:
+现在你需要有一个 **语言** 对象。 在我们的情况下， **客户** 与首选的通信语言相关联。 在我们的微流程示例中，您先通过 **订单**检索 **客户** 然后从该语言中检索 **语言** **客户**：
 
 ![](attachments/core/2018-02-28_16-58-54.png)
 
-The next step is to use the **Generate document** activity. Within this activity, you can use the available objects and select the document template to create the document. However, the document template does not exist yet, so you need to create it and place it in your folder:
+下一步是使用 **生成文档** 活动。 在此活动中，您可以使用可用对象并选择文档模板来创建文档。 然而，文档模板尚不存在，所以您需要创建它并将它放置在您的文件夹中：
 
 ![](attachments/core/2018-02-28_17-06-53.png)
 
-This is the document template configuration:
+这是文档模板配置：
 
 ![](attachments/core/2018-03-01_13-03-55.png)
 
 {{% alert type="info" %}}
-Based on the changes you make to the selected template, the arguments will change.
-{{% /alert %}}
+基于您对所选模板的更改，参数将会更改。
+{{% /报警 %}}
 
-The **Generate document** activity has been added:
+**生成文档** 已被添加：
 
 ![](attachments/core/2018-03-01_13-06-33.png)
 
-After you have configured the general settings of the document template, you do not need a separate commit for **NewOrderDocument**. This entity is automatically committed via the document template activity.
+在您配置文档模板的一般设置后，您不需要为 **NewOrderDocument** 单独提交。 此实体是通过文档模板活动自动提交的。
 
-Now that you have set up the **Generate document** configuration, you can configure the template itself.
+现在您已经设置 **生成文档** 配置，您可以配置模板本身。
 
 {{% alert type="info" %}}
-Make sure to set the correct entity access for entities and their attributes used in the document template. Read access is a must for those attributes that are shown in the template. Here is a **Customer** entity that is configured to **Read, Write** for the **User** module role:
+请确保设置文档模板中使用的实体及其属性的正确的实体访问权限。 读取访问权限是模板中显示的属性的必填项。 这里有一个 **客户** 实体被配置为 **阅读，写入** **用户** 模块角色：
 
 ![](attachments/core/2018-03-01_13-12-28.png)
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 4.3 Document Template
+### 4.3 文件模板
 
-In this example, the following document template is available:
+在此示例中，以下文档模板可用：
 
 ![](attachments/core/2018-03-01_14-05-07.png)
 
-In this document template, you start with a data view containing the order details. From this order, you can get the customer information and, from the order lines, the information about the purchased products.
+在此文档模板中，您以包含订单详细信息的数据视图开始。 您可以从此订单中获取客户信息，并从订单行获取购买产品的信息。
 
-The data view makes use of tables, table cells, labels, pictures, line breaks, and a template grid to compose the document.
+数据视图使用表格、表格单元、标签、图片、行断和模板网格组成文档。
 
-Now that you have created the document template, you can see that there is an error in the error dock:
+现在您已经创建了文档模板，您可以看到错误码头中存在错误：
 
 ![](attachments/core/2018-03-01_14-08-48.png)
 
-To resolve this error, open the **Generate document** activity of the microflow. When the activity is opened, the parameter mapping will be updated and allocated to the mapping parameter.
+要解决这个错误，请打开 **生成文档** 微流程活动。 当活动打开时，参数映射将被更新并分配到映射参数。
 
-Now, your **Generate document** configuration should look like this:
+现在，您的 **生成文档** 配置应该看起来像这样：
 
 ![](attachments/core/2018-03-01_14-12-03.png)
 
-The document template is now configured, and the microflow is ready to be used. If we call this microflow as a sub-microflow, you can add a download activity in the main microflow. This microflow could do the following:
+文档模板已配置，微流程已准备就绪。 如果我们将此微流程称为子微流程，您可以在主微流程中添加下载活动。 这种微流可以做到以下几点：
 
-* Call the sub-microflow to create the document
-* Retrieve the created document
-* Download the file
+* 调用子微流创建文档
+* 检索创建的文档
+* 下载文件
 
 ![](attachments/core/2018-03-01_14-21-38.png)
 
-This is the resulting document:
+这是产生的文档：
 
 ![](attachments/how-to-create-your-own-documents/15_Result.png)
 
-In this example, you retrieved the **OrderLine** information via the **Entity (path)** data source. An alternative way of doing this would be to use a microflow that returns objects for the list presentation. If you do this, make sure to add the correct user role(s) to the microflows that are being used as data source microflows within the document template.
+在此示例中，您通过 **实体 (路径)** 数据源检索了 **命令行** 信息。 这样做的另一种方法是使用微流程返回列表表述中的物体。 如果你这样做， 确保将正确的用户角色添加到文档模板内正在用作数据源微流的微流。
 
-## 5 Alternative Way of Creating Documents {#Alternative}
+## 5 创建文件的替代方法 {#Alternative}
 
-The other way to generate documents is via a Java API called IText. This Java library is free to use.
+生成文档的另一种方式是通过 Java API，称为IText。 此 Java 库是免费使用的。
 
-For more information on this way of working, see [iText Developers](http://developers.itextpdf.com/developers-home).
+关于这种工作方式的更多信息，请参阅 [iText Developers](http://developers.itextpdf.com/developers-home)。
