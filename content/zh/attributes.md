@@ -1,208 +1,208 @@
 ---
-title: "Attributes"
-parent: "entities"
+title: "属性"
+parent: "实体"
 menu_order: 30
 tags:
-  - "domain model"
-  - "entity"
-  - "attribute"
+  - "域模型"
+  - "实体"
+  - "属性"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Attributes** are characteristics that describe and/or identify an entity. Each of these attributes is given a name.
+**属性** 是描述和/或识别实体的特性。 每个属性都有一个名称。
 
-A **Customer**, for example, typically has attributes for the name of the customer (for example, **FullName**), an e-mail address (for example, **EmailAddress**) and other personal information.
+例如， **客户**, 通常具有客户名称的属性(例如) **全名**、 电子邮件地址(例如， **电子邮件地址**) 和其他个人信息。
 
-![Example customer entity](attachments/domain-model/customer-entity.png)
+![客户实体示例](attachments/domain-model/customer-entity.png)
 
-The domain model editor uses the following symbols to help visualize attribute properties:
+域模型编辑器使用以下符号帮助可视化属性属性：
 
-| Symbol                                   | Description                                                                |
-| ---------------------------------------- | -------------------------------------------------------------------------- |
-| ![](attachments/domain-model/917593.png) | This attribute has one or more validation rules.                           |
-| ![](attachments/domain-model/917592.png) | This attribute has a microflow that calculates the value of the attribute. |
-
-{{% alert type="info" %}}
-Attributes for external entities are specified in the **External Entity Properties**. These attributes are defined in the originating app and the only local changes that can be applied to these entities is a local name and description. For further information see the [Attributes](external-entities#attributes) section of *External Entities*.
-{{% /alert %}}
-
-## 2 Properties
-
-You can add attributes to an entity from the [entity properties dialog box](entities#dialog-box). You can also edit them from this dialog box, or by double-clicking the attribute name in the domain model.
+| 符号                                       | 描述                |
+| ---------------------------------------- | ----------------- |
+| ![](attachments/domain-model/917593.png) | 此属性有一个或多个验证规则。    |
+| ![](attachments/domain-model/917592.png) | 此属性有一个可计算属性值的微流程。 |
 
 {{% alert type="info" %}}
-You can **Add** new attributes to [external entities](external-entities#attributes), **Edit** some of the attribute properties, or **Delete** them. However, the changes will only apply locally, and the values in the originating app will not be affected. For more information on operations on attributes of external entities, see the [Attributes](external-entities#attributes) section of *External Entities*.
-{{% /alert %}}
+外部实体的属性在 **外部实体属性** 中被指定。 这些属性是在原始应用中定义的，唯一可以应用于这些实体的本地更改是本地名称和描述。 For further information see the [Attributes](external-entities#attributes) section of *External Entities*.
+{{% /报警 %}}
 
-An example of the attribute properties is represented in the image below:
+## 2 属性
+
+您可以从 [实体属性对话框](entities#dialog-box) 添加属性到实体。 您也可以从此对话框中编辑它们，或者双击域模型中的属性名称。
+
+{{% alert type="info" %}}
+您可以 **添加** 个新属性到 [外部实体](external-entities#attributes), **编辑** 部分属性属性，或 **删除** 然而，这些变化只能在本地应用，原始应用中的值不会受到影响。 欲了解更多关于外部实体属性的操作信息，请参阅 *外部实体* 的 [属性](external-entities#attributes) 部分。
+{{% /报警 %}}
+
+属性属性的示例在下面的图像中显示：
 
 ![](attachments/domain-model/attribute-properties.png)
 
-Attribute properties consist of the following sections:
+属性属性由以下部分组成：
 
-* [Common](#common)
-* [Type](#type)
-* [Value](#value)
-* [Limitations](#limitations)
+* [常用的](#common)
+* [类型](#type)
+* [值](#value)
+* [限制](#limitations)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-#### 2.1.1 Name
+#### 2.1.1 姓名
 
-The **Name** property specifies the name of the attribute. This name is used to refer to the attribute in forms, microflows, queries, constraints, and so forth.
+**名称** 属性指定了属性的名称。 这个名称用来指形状、微流、查询、约束等属性。
 
 {{% alert type="warning" %}}
-If you delete an attribute in your entity and then create a new attribute with the same name, Mendix will consider it a new and different attribute. This means that upon deployment the old column will be dropped, including its data. Then a new, empty, column with the same name will be created.
-{{% /alert %}}
+如果您删除实体中的属性，然后创建具有相同名称的新属性， Mendix 将认为它是一个新的和不同的属性。 这意味着部署时旧列将被删除，包括其数据。 然后创建一个新的空的列名和相同的名称。
+{{% /报警 %}}
 
-#### 2.1.3 Documentation
+#### 2.1.3 文件
 
-This allows you to describe aspects of the entity which may be useful to you or other team members when using the entity within the app.
+这使您能够描述实体中可能对您或其他团队成员有用的某些方面。
 
-### 2.2 Type Section {#type}
+### 2.2 类型部分 {#type}
 
 #### 2.2.1 Type
 
-The type property defines the type of data that can be stored in the attribute. These are related to the data types described in [Data Types](data-types), but there is not a one-to-one mapping.
+类型属性定义了可以存储在属性中的数据类型。 这些与 [数据类型](data-types)中描述的数据类型相关，但没有一对一的映射。
 
 {{% alert type="warning" %}}
-Mendix allows you to change attribute and association types on existing domain models. While some attributes can easily be converted, there are limitations and consequences of converting between some types. For more information, see [Attributes Type Migration](attributes-type-migration).
-{{% /alert %}}
+Mendix 允许您在现有域模型上更改属性和关联类型。 虽然某些属性可以很容易地转换，但在某些类型之间转换却有局限性和后果。 欲了解更多信息，请参阅 [属性类型迁移](attributes-type-migration)。
+{{% /报警 %}}
 
-An attribute has one of the following types:
+属性具有以下类型之一：
 
-| Type                                | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Maps to Mendix data type |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
-| AutoNumber                          | A positive or negative whole number.<br/>AutoNumber attributes are automatically generated numbers. The default value of the attribute determines the first number that will be generated. Each created object will have an AutoNumber that is one greater than the previous one. AutoNumbers can only be used for persistable entities as the AutoNumber value is computed in the database.                                                                                                                                                                                                                                                                                                                                                                                                                             | Integer/Long             |
-| Binary<sup><small>[1]</small></sup> | Binary data. Can only be used for persistable entities as the data is stored in the database. For example an entire file. In most cases you want to use an association to a FileDocument or Image to store file contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Binary                   |
-| Boolean                             | True or false.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Boolean                  |
-| Date and time                       | A point in time consisting of a date and a time component accurate up to milliseconds.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Date and time            |
-| Decimal                             | A positive or negative number that can have digits after the decimal point. The Decimal type can be used for high-precision calculations. Use this type to represent amounts of money for example. When a Decimal type attribute is persisted in the database its value is validated against 2 conditions. In case the number of digits of the integral part (before the decimal separator) is more than 20, an exception is thrown. In case the number of digits of the fractional part (after the decimal separator) is more than 8, the fractional value is automatically rounded according to [the round half to even rule (also known as bankers' rounding)](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even). Therefore the the maximum allowable value for the Decimal type is 99999999999999999999.99999999. | Decimal                  |
-| Enumeration                         | A list of predefined attributes. For more information, see [Enumerations](enumerations).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Enumeration              |
-| Hashed string                       | A string which is hashed using the algorithm specified in the [app settings](project-settings#hash-algorithm). This can be used to store password hashes, for example, so that the original password is not recorded in the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | String                   |
-| Integer                             | A whole number that can be positive (maximum 2<sup>31</sup>-1, thus 2147483647), negative (minimum -2<sup>31</sup>, thus -2147483648), or zero.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Integer/Long             |
-| Long                                | A whole number that can be positive (maximum 2<sup>63</sup>-1), negative (minimum -2<sup>63</sup>), or zero.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Integer/Long             |
-| String *(default)*                  | A text containing letters, spaces, numbers and other characters.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | String                   |
+| 类型                               | 可能的值                                                                                                                                                                                                                                                                                                   | Mendix 数据类型地图 |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| AutoNumber                       | 正整数或负整数。<br/>自动编号属性自动生成数字。 属性的默认值决定将生成的第一个数字。 每个创建的对象将有一个比上一个对象大的自动编号。 自动编号只能用于可持久的实体，因为自动编号值是在数据库中计算的。                                                                                                                                                                                          | 整数/经度         |
+| 二进制<sup><small>[1]</small></sup> | 二进制数据。 只能用于可持久的实体，因为数据存储在数据库中。 例如，整个文件。 在大多数情况下，您想要使用文件文档或图像的关联来存储文件内容。                                                                                                                                                                                                                                | 二进制文件         |
+| Boolean                          | 判断题：                                                                                                                                                                                                                                                                                                   | Boolean       |
+| 日期和时间                            | 一个由日期和时间组件组成的时间点精确到毫秒。                                                                                                                                                                                                                                                                                 | 日期和时间         |
+| 小数                               | 小数点后可以有数字的正数或负数。 十进制类型可以用于高精度计算。 例如使用这种类型来表示钱的金额。 当一个十进制类型属性在数据库中持续存在时，它的值会根据两个条件验证。 如果积分部分的数字数（小数点后）大于20，就会抛出例外情况。 如果分数（小数点后）的数字数超过8位， 分数值根据 [自动四舍五入到甚至规则(也称为银行家四舍五入)](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) 因此，小数型号最大允许值为99999999999999999999999999999999999999999999999999949。 | 小数            |
+| 枚举数                              | 预定义属性列表。 欲了解更多信息，请参阅 [枚举](enumerations)。                                                                                                                                                                                                                                                               | 枚举数           |
+| 哈希字符串                            | 一个用 [应用设置](project-settings#hash-algorithm) 中指定的算法哈希的字符串。 例如，这可以用来存储密码哈希，以免数据库中记录原始密码。                                                                                                                                                                                                                 | 字符串           |
+| 整数                               | 整个数字可以是正数 (最多2<sup>31</sup>-1, 从而为 2147483647), 负(最小-2<sup>31</sup>, 从而-2147483648)或零。                                                                                                                                                                                                                 | 整数/经度         |
+| 长                                | 整个数字可以是正数 (最多2<sup>63</sup>-1), 负数 (最小2<sup>63</sup>), 或 0.                                                                                                                                                                                                                                            | 整数/经度         |
+| 字符串 *(默认)*                       | 包含字母、空格、数字和其他字符的文本。                                                                                                                                                                                                                                                                                    | 字符串           |
 
-<sup><small>[1]</small></sup>The maximum size that can approximately be stored in an attribute of type binary depends on the database:
+<sup><small>[1]</small></sup>可以大致存储在二进制属性中的最大大小取决于数据库：
 
-| HSQLDB | PostgreSQL | SQL Server | Oracle                                   |
-| ------ | ---------- | ---------- | ---------------------------------------- |
-| 1 MB   | 1 GB       | 2 GB       | 128 TB or limited by hard disk of server |
+| HSQDB | PostgreSQL | SQL 服务器 | Oracle           |
+| ----- | ---------- | ------- | ---------------- |
+| 1 MB  | 1 GB       | 2 GB    | 128 TB 或受服务器硬盘限制 |
 
-**Example**
+**示例**
 
-In a web shop, you want to store the id, profile photo, level (for service quality), user name, password, activity, total of minutes spent online, year of subscription, date of birth, total amount of expenses and the standard amount of discount for a customer.
+在网上商店，您想要存储id、个人资料照片、级别(服务质量)、用户名、密码、活动总共在线时间。 订阅年份、出生日期、费用总额和客户的标准折扣额。
 
-The **CustomerId** should be unique for every customer, so this attribute has type **AutoNumber**.
+**CustomerId** 应对每个客户都是唯一的，所以此属性有 **AutoNumbers** 类型。
 
-The **Photo** is represented by an association to an entity that specializes Image. You do not use a Binary attribute for this purpose.
+**照片** 由一个社团代表到一个专门图像的实体。 您没有为此目的使用二进制属性。
 
-**Level** has three possible values: High, Medium and Low. This is stored in an attribute of type **Enumeration**.
+**等级** 有三个可能的值：高、中、低值。 它存储在类型 **枚举** 的属性中。
 
-The **Password** itself should not be stored, but only its hash value, thus it is stored in an attribute of type **Hashed string**.
+**密码** 本身不应该被存储，而只应该是其散列值. 因此它被存储在类型 **哈希字符串** 的属性中。
 
 A customer can be active or inactive, which is stored in an attribute named **Active** of type **Boolean**.
 
 ![](attachments/domain-model/customer-attribute-examples.png)
 
-#### 2.2.2 Localize
+#### 2.2.2 本地化
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **Date and time**.
-{{% /alert %}}
+如果 **类型** 设置为 **日期和时间** 则显示此属性。
+{{% /报警 %}}
 
-This property indicates whether the date and time should be localized. By default localization is enabled. If you are _not_ interested in the time component of a date (for example, a birthday), you should set this property to 'No'. Otherwise, the date can change because of time zone differences: a date and time early in the morning on April 2nd in Europe will be on April 1st in the U.S.A.
+此属性表示日期和时间是否应该本地化。 默认启用本地化。 如果您对某一天的时间组件（例如生日）不 __ 感兴趣，您应该将此属性设置为“否”。 否则， 日期可能因时区差异而改变：4月2日早上欧洲的日期和时间是4月1日。 Original: ENGLISH
 
-In technical terms, this property indicates whether the client assumes that the date and time are in a local time zone (Yes) or in UTC (No). In the former case, the date is first converted to UTC before being sent to the server and converted from UTC before being displayed.
+技术方面 此属性表示客户是否假定日期和时间在本地时区 (是)或UTC (否)。 在前一种情况下，在发送到服务器之前先将日期转换为 UTC 并在显示之前从UTC 转换。
 
-Default: *Yes*
+默认： *是*
 
-#### 2.2.3 Enumeration
-
-{{% alert type="info" %}}
-This property is shown if **Type** is set to **Enumeration**.
-{{% /alert %}}
-
-The enumeration property indicates which enumeration defines the possible values for this attribute.
-
-#### 2.2.4 Length
+#### 2.2.3 枚举
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **String**.
-{{% /alert %}}
+如果 **类型** 设置为 **枚举** 则显示此属性。
+{{% /报警 %}}
 
-This property specifies whether the length of a String is limited or unlimited. In the case of a limited length, the 'Max length' property specifies the maximum (see below).
+枚举属性表示哪个枚举定义了此属性的可能值。
 
-Default: *Limited*
-
-#### 2.2.5 Max Length (Only for String Attribute Type)
+#### 2.2.4 长度
 
 {{% alert type="info" %}}
-This property is shown if **Type** is set to **String**.
-{{% /alert %}}
+如果 **类型** 设置为 **字符串** 则显示此属性。
+{{% /报警 %}}
 
-The 'Max length' property specifies the number of characters that can be stored in the attribute.
+此属性指定字符串的长度是有限还是无限的。 在限定长度的情况下，“最大长度”属性指定了最大值(见下文)。
 
-Default: *200*
+默认： *限制*
 
-### 2.3 Value Section {#value}
+#### 2.2.5 最大长度 (仅适用于字符串属性类型)
 
-#### 2.3.1 Value
+{{% alert type="info" %}}
+如果 **类型** 设置为 **字符串** 则显示此属性。
+{{% /报警 %}}
+
+“最大长度”属性指定了可以存储在属性中的字符数。
+
+默认： *200*
+
+### 2.3 价值部分 {#value}
+
+#### 2.3.1 价值
 
 The **Value** determines whether the value of the attribute is **Calculated** by a microflow or **Stored** in the database.
 
-Take note of the following things when using **Calculated** attributes:
+使用 **计算出的** 属性时注意到以下事项：
 
-* Each time an object with a calculated attribute is retrieved, the attribute is calculated. Depending on the complexity of the microflow and the number of objects you retrieve this can have impact on performance.
-* Attributes that are calculated by a microflow are not stored in the database.
-* It is not possible to sort on an attribute for which this property is used, because sorting is done by the database engine.
-* Uncommitted associated objects cannot be retrieved in calculated attributes.
+* 每次检索一个具有计算属性的对象时，该属性将被计算。 取决于微流的复杂性和您检索到的对象的数量，可以对性能产生影响。
+* 由微流计算的属性没有存储在数据库中。
+* 无法对使用此属性的属性进行排序，因为排序是由数据库引擎进行的。
+* 无法在计算属性中检索未提交的关联对象。
 
-#### 2.3.2 Microflow
+#### 2.3.2 微流
 
 {{% alert type="info" %}}
-This property is shown if **Value** is set to **Calculated**.
-{{% /alert %}}
+是否将 **值** 设置为 **计算的** 显示此属性。
+{{% /报警 %}}
 
-If the value is a computation, the **Microflow** property defines which microflow defines this computation to calculate the value of the attribute when the object is retrieved. The microflow should have a parameter of the type of the entity of the attribute and it should return a value with the same type as the attribute.
+如果值是计算， **Microflow** 属性定义了哪个微流程定义了当检索对象时计算属性的值。 microflow 应该有属性类型的参数，它应该返回与属性相同的值。
 
-For example, in a web shop, you want to show the total expenses for each customer. These are calculated by retrieving all orders associated with the customer and adding their totals.
+例如，在网上商店，您想要显示每个客户的总费用。 计算方法是检索所有与客户相关的订单并增加其总数。
 
 ![](attachments/domain-model/917570.png)
 
-#### 2.3.3 Default Value
+#### 2.3.3 默认价值
 
 {{% alert type="info" %}}
-This property is shown if **Value** is set to **Stored**.
-{{% /alert %}}
+是否将 **值** 设置为 **存储** 则显示此属性。
+{{% /报警 %}}
 
-The **Default value** property defines the value of this attribute when an object is created. The default value should be compatible with the type of the attribute.
+**默认值** 属性定义了对象创建时此属性的值。 默认值应与属性类型兼容。
 
-| Type of Attribute | Default Value When Not Specified | Additional Comments                                                                                                                                                                                                                                                                             |
-| ----------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AutoNumber        | 1                                | Starting value of this attribute. If there are already objects of this entity, the AutoNumber values will be based on the right 32 bits of the id column value. This can cause gaps in the AutoNumber ranges with jumps of 100, because id values are reserved by the Runtime in blocks of 100. |
-| Binary            | N/A                              |                                                                                                                                                                                                                                                                                                 |
-| Boolean           | False                            |                                                                                                                                                                                                                                                                                                 |
-| Date and time     | (empty)                          | The default value can either be a UTC date with the format `year-month-day` (suffixed optionally by `hour:minute`, or `hours:minute:second`), or `[%CurrentDateTime%]` (which sets the value of this attribute to the date and time when the object is created).                                |
-| Decimal           | 0                                |                                                                                                                                                                                                                                                                                                 |
-| Enumeration       | (empty)                          |                                                                                                                                                                                                                                                                                                 |
-| Hashed string     | (empty)                          |                                                                                                                                                                                                                                                                                                 |
-| Integer           | 0                                |                                                                                                                                                                                                                                                                                                 |
-| Long              | 0                                |                                                                                                                                                                                                                                                                                                 |
-| String            | (empty)                          |                                                                                                                                                                                                                                                                                                 |
+| 属性类型       | 未指定时的默认值 | 附加评论                                                                                             |
+| ---------- | -------- | ------------------------------------------------------------------------------------------------ |
+| AutoNumber | 1        | 此属性的起始值。 如果此实体已经有对象，则自动编号值将基于正确的 32 位ID列值。 这可能会在跳跃100的自动编号范围内造成空白，因为ID值是由 Runtime 在 100 个区块中保留的。 |
+| 二进制文件      | 无        |                                                                                                  |
+| Boolean    | 错误       |                                                                                                  |
+| 日期和时间      | (空)      | 默认值可以是 UTC 日期，格式 `全天` (可选的 `小时`后缀) 或 `小时:分钟:秒`), 或者 `[%CurrentDateTime%]` (将此属性的值设置为创建对象的日期和时间)。 |
+| 小数         | 0        |                                                                                                  |
+| 枚举数        | (空)      |                                                                                                  |
+| 哈希字符串      | (空)      |                                                                                                  |
+| 整数         | 0        |                                                                                                  |
+| 长          | 0        |                                                                                                  |
+| 字符串        | (空)      |                                                                                                  |
 
-### 2.4 Limitations {#limitations}
+### 2.4 限制 {#limitations}
 
-The **Limitations** property specifies whether the attribute can be used for filtering and sorting:
+**限制** 属性指定了该属性是否可以用于过滤和排序：
 
-* **Non-sortable** – the attribute cannot be used for sorting (for example, you cannot use this attribute in the sort bar of a data grid or for sorting in a Retrieve action)
-* **Non-filterable** – the attribute cannot be used for filtering (for example, you cannot use this attribute in XPath constraints or for filtering in a list operation)
+* **不可排序** - 属性不能用于排序(例如，) 您不能在数据网格的排序栏中使用此属性，也不能在检索操作中排序)
+* **不可过滤** - 属性不能用于过滤 (例如) 您不能在 XPath 约束中使用此属性或在列表操作中过滤此属性)
 
-Some attribute types in Mendix always have limitations:
+Mendix 中的某些属性类型总是有限制：
 
-* Hashed string attributes are non-filterable
-* Binary attributes are non-sortable and non-filterable
-* Calculated attributes are non-sortable and non-filterable
+* 哈希字符串属性不可过滤
+* 二进制属性不可排序和不可过滤
+* 计算出来的属性不可排序和不可过滤
