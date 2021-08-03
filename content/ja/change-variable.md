@@ -1,50 +1,50 @@
 ---
-title: "Change Variable"
-parent: "variable-activities"
+title: "変数の変更"
+parent: "変数アクティビティ"
 tags:
   - "studio pro"
-  - "change variable"
-  - "variable"
-  - "variable activities"
+  - "変数の変更"
+  - "変数"
+  - "可変アクティビティ"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-Change variable allows you to change the value of an existing variable. For example, if you have a *$Discount* variable that gives customers a 50% discount on certain items, you can change this variable and assign a new value to it. You can use this value to give new customers a bigger discount:
+変数を変更すると、既存の変数の値を変更できます。 例えば、特定の商品の50%割引を顧客に提供する *$Discount* 変数がある場合。 この変数を変更して、新しい値を割り当てることができます。 この値を使用して、新しい顧客に大きな割引を与えることができます:
 
-![Change Variable](attachments/variable-activities/change-variable.png)
+![変数の変更](attachments/variable-activities/change-variable.png)
 
 
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Change Variable Properties](attachments/variable-activities/change-variable-properties.png)
+![変数のプロパティを変更](attachments/variable-activities/change-variable-properties.png)
 
-The **Change variable** properties pane consists of the following sections:
+**変数の変更** プロパティ ペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-### 3.1 Variable
+### 3.1 変数
 
-The variable which you want to change the value of.
+値を変更する変数。
 
-### 3.2 Value
+### 3.2 値
 
-The new value for the variable. The value is entered using an [expression](expressions). The type of the expression must be the same as the type of the selected variable.
+変数の新しい値。 [式](expressions) を使用して値を入力します。 式の型は、選択した変数の型と同じでなければなりません。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [Activities](activities)
+* [アクティビティ](アクティビティ)
