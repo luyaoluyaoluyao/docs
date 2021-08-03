@@ -1,74 +1,74 @@
 ---
-title: "Navigation in Mendix Versions 7.2 & 7.3"
-parent: "project"
-description: "Describes the concept of navigation in apps and the properties of a profile for Mendix versions 7.2 and 7.3."
+title: "Mendix Versions 7.2 & 7.3 のナビゲーション"
+parent: "プロジェクト"
+description: "Mendix バージョン 7.2 および 7.3 のアプリのナビゲーションとプロファイルのプロパティの概念について説明します。"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 {{% alert type="warning" %}}
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. This is applicable to Mendix versions 7.2 and 7.3. For details on how this works in Mendix versions 7.0 and 7.1, see [Navigation Before Mendix Version 7.2](navigation-before-72). For Mendix version 7.4 and above, see [Navigation](navigation).
+このドキュメントでは、Mendix アプリケーションとプロファイルのプロパティにおけるナビゲーションの概念について説明します。 これはMendixバージョン7.2および7.3に適用できます。 Mendix バージョン 7.0 および 7.1 での動作の詳細については、 [Mendix バージョン 7.2 以前のナビゲーション](navigation-before-72) を参照してください。 Mendix バージョン 7.4 以上については、 [Navigation](navigation) を参照してください。
 
 {{% /alert %}}
 
 {{% alert type="info" %}}
 
-This document describes the concept of navigation in Mendix applications and the properties of a profile. In Mendix 7.2.0 and in Mendix 7.4.0, the profiles received updates. For details on how this works in Mendix versions 7.0 and 7.1, see [Navigation Before Mendix Version 7.2](navigation-before-72). For 7.2 and 7.3 see [Navigation in 7.2 and 7.3](navigation-in-72-and-73).
+このドキュメントでは、Mendix アプリケーションとプロファイルのプロパティにおけるナビゲーションの概念について説明します。 Mendix 7.2.0とMendix 7.4.0では、プロファイルが更新されました。 Mendix バージョン 7.0 および 7.1 での動作の詳細については、 [Mendix バージョン 7.2 以前のナビゲーション](navigation-before-72) を参照してください。 7.2と7.3については、 [7.2と7.3のナビゲーション](navigation-in-72-and-73)を参照してください。
 
 {{% /alert %}}
 
-The **Navigation** document can be found by expanding the **Project** node in the Project Explorer. It defines the navigation structure of the application for users. It allows you to set the home page of your application and to define the menu structures that can be used in [menu widgets](menu-widgets). A user's home page can vary based on their [user roles](user-roles).
+**ナビゲーション** ドキュメントは、プロジェクトエクスプローラの **プロジェクト** ノードを展開することで見つけることができます。 ユーザーのためのアプリケーションのナビゲーション構造を定義します。 アプリケーションのホームページを設定し、 [メニュー ウィジェット](menu-widgets) で使用できるメニュー構造を定義することができます。 ユーザーのホームページは [ユーザー ロール](user-roles) によって異なります。
 
 ## 2 Profiles
 
-At the heart of the navigation model in Mendix, there are five kinds of profiles: responsive, tablet (browser), phone (browser), hybrid app, and hybrid offline app. Users that access the app via a particular device type are automatically redirected to the homepage of the appropriate profile based on the profile kind (for details, see [3 Redirection to Profiles](#Redirection)).
+Mendixのナビゲーションモデルの中心には、5種類のプロファイルがあります。 タブレット(ブラウザ)、電話(ブラウザ)、ハイブリッドアプリ、ハイブリッドオフラインアプリ。 特定の端末タイプを介してアプリにアクセスするユーザーは、プロファイルの種類に基づいて適切なプロファイルのホームページに自動的にリダイレクトされます(詳細はこちら)。 [プロファイルへのリダイレクト](#Redirection) を参照してください。
 
 {{% alert type="info" %}}
 
-In Mendix 7.0.2, the offline device profile was replaced by the [hybrid phone profile](hybrid-phone-profile). In addition to this, a new device profile was made available, which was called the [hybrid tablet profile](hybrid-tablet-profile). All the settings from the offline device profile were automatically copied to the hybrid phone profile.
+Mendix 7.0.2では、オフラインデバイスプロファイルを [ハイブリッド電話プロファイル](hybrid-phone-profile)に置き換えました。 これに加えて、新しいデバイスプロファイルが利用可能になり、これは [ハイブリッド・タブレットプロファイル](hybrid-tablet-profile) と呼ばれました。 オフラインのデバイスプロファイルからすべての設定が自動的にハイブリッド電話プロファイルにコピーされました。
 
-In Mendix 7.2.0, the hybrid tablet and hybrid phone profiles were converted to profiles of the hybrid app or hybrid offline app type, based on the offline enabled option.
+Mendix 7.2で。 、ハイブリッドタブレットとハイブリッド電話のプロファイルは、ハイブリッドアプリまたはハイブリッドオフラインアプリタイプのプロファイルに変換されます。 オフライン対応のオプションに基づいています
 
 {{% /alert %}}
 
-The device type of the currently logged-in user is available in [microflows](microflows) as the `$currentDeviceType` variable. The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. You can use the `$currentDeviceType` variable to perform different actions based on the device type. A typical example is to show different pages based on the device type.
+現在ログインしているユーザーのデバイス タイプは [microflow](microflows) `$currentDeviceType` 変数として利用できます。 The type of this variable is the [enumeration](enumerations) `System.DeviceType`, which has the values `Phone`, `Tablet`, and `Desktop`. デバイス タイプに基づいて、 `$currentDeviceType` 変数を使用して異なる操作を実行できます。 典型的な例は、デバイス タイプに基づいて異なるページを表示することです。
 
-### 2.1 Responsive
+### 2.1 レスポンシブ
 
-Every app always has one profile of a responsive type which cannot be deleted. This is the default profile used by a Mendix app.
+すべてのアプリには、常に削除できないレスポンシブタイプのプロファイルが1つあります。 これはMendixアプリで使用されるデフォルトのプロファイルです。
 
-### 2.2 Tablet (Browser)
+### 2.2 タブレット（ブロウサー）
 
-All the users accessing a Mendix app from a browser on a tablet will automatically be redirected to a profile of the tablet type. If no profile exists of that type, the user will be redirected to the responsive profile. Only one profile of the tablet (browser) type may exist.
+タブレット上のブラウザからMendixアプリにアクセスするすべてのユーザーは、自動的にタブレットタイプのプロファイルにリダイレクトされます。 そのタイプのプロファイルが存在しない場合、ユーザはレスポンシブプロファイルにリダイレクトされます。 タブレット(ブラウザ)タイプのプロファイルは1つだけ存在できます。
 
-### 2.3 Phone (Browser)
+### 2.3 スマートフォン（ブロウサー）
 
-All the users accessing a Mendix app from a browser on a phone will automatically be redirected to a profile of the phone type. If no profile exists of that type, the user will be redirected to the responsive profile. Only one profile of the phone (browser) type may exist.
+携帯電話上のブラウザからMendixアプリにアクセスするすべてのユーザーは、自動的に電話タイプのプロファイルにリダイレクトされます。 そのタイプのプロファイルが存在しない場合、ユーザはレスポンシブプロファイルにリダイレクトされます。 携帯電話(ブラウザ)タイプのプロファイルは1つだけ存在できます。
 
-### 2.4 Hybrid App
+### 2.4 ハイブリッドアプリ
 
-A Mendix app can be installed on a tablet or phone as an app by creating a PhoneGap hybrid package. Profiles of the hybrid app type can be accessed from such a PhoneGap app. Hybrid app profiles are requested by profile name. If no profile exists with the requested name, an error will be displayed in the app.
+MendixアプリはPhoneGapハイブリッドパッケージを作成することで、アプリとしてタブレットや携帯電話にインストールすることができます。 ハイブリッドアプリタイプのプロファイルには、PhoneGap アプリからアクセスできます。 ハイブリッドアプリのプロファイルはプロファイル名で要求されます。 要求された名前のプロファイルが存在しない場合、エラーがアプリに表示されます。
 
-### 2.5 Hybrid Offline App
+### 2.5 ハイブリッドオフラインアプリ
 
-The Mendix app can be installed on a tablet or phone as an app by creating a PhoneGap hybrid package. Profiles of the Hybrid offline app type can be accessed from such a PhoneGap app. Hybrid offline app profiles are requested by profile name. If no profile exists with the requested name, an error will be displayed in the app.
+Mendixアプリは、PhoneGapハイブリッドパッケージを作成することで、アプリとしてタブレットや携帯電話にインストールできます。 このようなPhoneGapアプリからハイブリッドオフラインアプリタイプのプロフィールにアクセスすることができます。 ハイブリッドオフラインアプリプロファイルはプロファイル名で要求されます。 要求された名前のプロファイルが存在しない場合、エラーがアプリに表示されます。
 
-Hybrid offline apps are designed to allow users to continue using their Mendix app even when they have no internet connection. However, certain restrictions apply. For an overview of the ramifications of running an offline device profile, see [Offline](offline).
+ハイブリッドオフラインアプリは、インターネットに接続されていない場合でも、Mendixアプリの使用を継続できるように設計されています。 ただし、特定の制限が適用されます。 オフラインのデバイス プロファイルの実行の影響については、 [オフライン](offline) を参照してください。
 
-## 3 Redirection to Profiles<a name="Redirection"></a>
+## 3プロファイルにリダイレクト<a name="Redirection"></a>
 
-Mendix Runtime automatically redirects users to the home page of the appropriate device type based on the device they are using. This happens by examining the `User-Agent` string that is sent by the device's browser. Hybrid apps do not use this mechanism, as they are referred to by name. The default configuration for this redirection is as follows:
+Mendix Runtime は、使用しているデバイスに基づいてユーザーを適切なデバイスタイプのホームページに自動的にリダイレクトします。 これは、デバイスのブラウザによって送信される `User-Agent` 文字列を調べることによって発生します。 ハイブリッドアプリは名前で呼ばれているので、このメカニズムを使用しません。 このリダイレクトのデフォルト設定は以下のとおりです。
 
-| User-Agent String Regular Expression                  | Device Type |
-| ----------------------------------------------------- | ----------- |
-| Android.*Mobile&#124;iPhone&#124;iPod&#124;BlackBerry | Phone       |
-| Android&#124;iPad                                     | Tablet      |
-| _(other)_                                             | Responsive  |
+| User-Agent 文字列正規表現                                  | デバイスタイプ |
+| --------------------------------------------------- | ------- |
+| Android.*モバイル&#124;iPhone&#124;iPod&#124;BlackBerry | 電話番号    |
+| Android&#124;iPad                                   | タブレット   |
+| _(その他)_                                             | レスポンシブ  |
 
-To configure the regular expressions used to match phone or tablet users, see [Custom Settings](custom-settings).
+携帯電話やタブレットのユーザーと一致する正規表現を設定するには、 [カスタム設定](custom-settings) を参照してください。
 
-It is also possible to force the client to use a specific profile by adding a `profile` query string parameter to the URL when visiting a Mendix application. The possible values are the names of the profiles. For example:
+Mendixアプリケーションを訪問するときにURLに `プロファイル` のクエリ文字列パラメータを追加することで、クライアントが特定のプロファイルを使用するように強制することもできます。 可能な値はプロファイルの名前です。 例:
 
 ```http
 https://myapp.mendixcloud.com/index.html?profile=Responsive
