@@ -1,17 +1,17 @@
 ---
-title: "Search button"
-parent: "control-bar"
+title: "検索ボタン"
+parent: "コントロール バー"
 ---
 
-The search button toggles the search bar on and off. It is only present if the 'Show search bar' property of the grid is either 'With button (initially open)' or 'With button (initially closed)'.
+検索ボタンは、検索バーのオンとオフを切り替えます。 グリッドの「検索バーを表示」プロパティが「ボタン(最初に開く)」または「ボタン(最初に閉じる)」のいずれかの場合にのみ存在します。
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -23,7 +23,7 @@ The search button toggles the search bar on and off. It is only present if the '
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
