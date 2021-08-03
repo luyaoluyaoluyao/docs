@@ -8,7 +8,12 @@ tags:
   - "sort"
   - "select"
   - "page"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/odata-query-options.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
@@ -27,6 +32,14 @@ All objects can be retrieved by specifying the URI. For example: `/odata/myservi
 ### 2.2 Retrieving a Single Object
 
 A single object can be retrieved by passing the object identifier in the URI. For example: `/odata/myservice/myresource(8444249301330581)`.
+
+### 2.3 Retrieving Associated Objects
+
+Associated objects can be retrieved by passing the `$expand` query parameter. For example: `/odata/myservice/Exployees?$expand=Cars,Address/City`.
+
+{{% alert type="info" %}}
+The `$expand` feature was introduced in Studio Pro [8.11.0](/releasenotes/studio-pro/8.11#8110).
+{{% /alert %}}
 
 ## 3 Counting the Number of Objects
 
@@ -65,7 +78,6 @@ We support the following comparison operators:
 | ge       | greater than or equal to | `/Employees?$filter=Age ge 15`      |
 | le       | less than or equal to    | `/Employees?$filter=Age le 15`      |
 
-
 ### 4.3 Arithmetic Operators
 
 | Operator | Meaning       | Example                                | Returns                                |
@@ -102,15 +114,26 @@ Filters can be combined with `and`, `or`, `not`, and `()`. For example: `?$filte
 | not         | `/Employees?$filter=not(Name eq 'John')`                         |
 | ( )         | `/Employees?$filter=Name eq 'John' and (Age gt 65 or Age lt 11)` |
 
+### 4.6 Filtering by Association
+
+You can filter on attributes of an associated entity. The way you do this depends on whether the association exposes one object or a list of objects.
+
+| Type                           | Example                                               |
+| ------------------------------ | ----------------------------------------------------- |
+| Filter on an associated object | `People?$filter=BirthPlace/CityName eq 'Rotterdam'`   |
+| Filter on an associated list   | `City?$filter=BornIn/any(person:person/Year le 1919)` |
+
+Filtering on an associated object or list in this way is possible when you [expose associations as a link](odata-representation#associations). It is not possible when you [expose associations as an associated object ID](odata-representation#associations).
+
 ## 5 Sorting
 
-You can sort the result using the `$orderby` query option. For example: `?$orderby=Name`.
+You can sort the result using the `$orderby` query option. For example: `?$orderby=Name` or `?$orderby=BirthPlace/CityName`.
 
 The default direction is ascending, and you can make this explicit. For example: `?$orderby=Name asc`.
 
 You can also order the result in a descending direction. For example: `?$orderby=Name desc`.
 
-It is possible to sort on multiple attributes, which have to be comma-separated. For example: `?$orderby=Name, Age desc`.
+It is possible to sort on multiple attributes, which have to be comma-separated. For example: `?$orderby=Name asc,Age desc`.
 
 ## 6 Selecting fields
 
