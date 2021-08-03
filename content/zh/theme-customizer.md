@@ -1,80 +1,80 @@
 ---
-title: "Theme Customizer"
-description: "Describes the Theme Customizer in Mendix Studio."
+title: "主题自定义器"
+description: "描述Mendix Studio中的自定义主题。"
 menu_order: 80
 tags:
-  - "studio"
-  - "theme customizer"
-  - "atlas ui"
+  - "工作室"
+  - "主题自定义器"
+  - "地图集"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Theme Customizer** is a tool that helps you customize your app in Mendix Studio. For example, you can adjust colors, upload logo, change text style, thus making your app look the way you want.
+**主题定制器** 是一个帮助您在 Mendix Studio 自定义应用程序的工具。 例如，您可以调整颜色，上传标志，更改文本样式，从而使您的应用看起来是你想要的。
 
-![Default Style vs. Customized Style](attachments/theme-customizer/default-vs-customized.png)
+![默认样式与自定义样式](attachments/theme-customizer/default-vs-customized.png)
 
-To open the **Theme Customizer**, click the paintbrush icon at the left menu bar.
+要打开 **主题定制器**，请点击左侧菜单栏上的 pathintbrush 图标。
 
-![Theme Customizer Icon](attachments/theme-customizer/theme-customizer-icon.png)
+![主题自定义图标](attachments/theme-customizer/theme-customizer-icon.png)
 
-The **Theme Customizer** is divided into two panes:
+**主题定制器** 被分成两个窗格：
 
-* [Settings](#theme-customizer-settings)
-* [Preview](#theme-customizer-preview)
+* [设置](#theme-customizer-settings)
+* [预览](#theme-customizer-preview)
 
-At the bottom of the **Theme Customizer** you can see two buttons with following functions:
+在 **主题自定义器** 的底部，您可以看到两个具有以下功能的按钮：
 
-* **Reset Style** – click it to reset changes and restore the values that were there when you opened the **Theme Customizer** (but you can't reset changes once you have clicked **Apply Style**)
-* **Apply Style** – click it to save changes
+* **重置样式** - 点击它来重置更改并还原打开 **主题定制器时出现的值** (但一旦您点击了 **应用样式** 后，您无法重置更改)
+* **应用样式** - 点击它来保存更改
 
-## 2 Settings Pane {#theme-customizer-settings}
+## 2 个设置面板 {#theme-customizer-settings}
 
-In **Settings** you can change the way your app looks. The changes that you can make using the **Settings** pane are described in the table below.
+在 **设置中，** 您可以更改您的应用程序的外观方式。 您可以使用 **设置** 窗格进行的更改在下面的表格中描述。
 
-| Section          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Upload Logo      | You can upload a picture that will be used as a logo in your app. You can upload  images with extensions png, jpg, jpeg, gif, svg. <br />Once the logo is uploaded, its colors will appear in the drop-down window for adjusting colors of such elements as buttons, text, top and side bars in the **Theme Customizer**. Thus, you can select colors from **Logo Colors** to make your app the same style as your logo. For more information, see [**Adjusting Colors**](#adjusting-colors). |
-| Brand Colors     | In this section you can choose the main colors of your app (mostly used for buttons).                                                                                                                                                                                                                                                                                                                                                                                                               |
-| UI Customization | In this section, you can adjust the style and color of the main UI elements: <ul><li>Topbar</li><li>Sidebar</li><li>Backgrounds</li></ul>                                                                                                                                                                                                                                                                                                                                                                                               |
-| Typography       | Use this section to override the text styles and text colors for your app.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| 1 P-5, 1 P-4, 1 P-3, | 描述                                                                                                                                                                                                                  |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 上传徽标                 | 您可以上传一张图片，它将用作您应用中的一个徽标。 您可以上传图片扩展名 png, jpg, jpeg, gif, svg. <br />上传标志后，其颜色将出现在下拉窗口中，以调整按钮等元素的颜色。 **主题定制器** 中的文本、顶部和侧边栏。 因此，您可以从 **徽标颜色** 中选择颜色，使您的应用与您的徽标一样的样式。 欲了解更多信息，请参阅 [**调整颜色**](#adjusting-colors)。 |
+| 品牌颜色                 | 在本节中，您可以选择应用的主要颜色 (大多用于按钮)。                                                                                                                                                                                         |
+| 界面自定义                | 在本节中，您可以调整主界面元素的风格和颜色： <ul><li>Topbar</li><li>Sidebar</li><li>背景</li></ul>                                                                                                                                                                     |
+| 图形                   | 使用此部分来覆盖您的应用的文本样式和文本颜色。                                                                                                                                                                                             |
 
-## 3 Preview Pane {#theme-customizer-preview}
+## 3 个预览面板 {#theme-customizer-preview}
 
-**Preview** allows you to get an impression of how your changes will look like in the app.
+**预览** 可以让您了解您的更改在应用程序中将如何看待。
 
-## 4 Performing Basic Functions in the Theme Customizer
+## 4 在主题自定义器中执行基本函数
 
-### 4.1 Uploading a Logo {#uploading-logo}
+### 4.1 上传徽标 {#uploading-logo}
 
-To upload the logo, do the following:
+要上传标志，请执行以下操作：
 
-1. Open the **Theme Customizer**.
-2.  In the **Upload Logo** section, click **Select File**.
+1. 打开 **主题定制器**。
+2.  在 **上传徽标** 部分中，点击 **选择文件**.
 
-    ![Uploading Your Logo](attachments/theme-customizer/upload-logo.png)
+    ![上传您的徽标](attachments/theme-customizer/upload-logo.png)
 
-3. In the dialog window, select the picture you want to use as logo.
-4.  The selected picture is uploaded and shown in the **Preview**.
+3. 在对话框窗口中，选择您想要使用的图片作为标志。
+4.  所选图片已上传并显示在 **预览** 中。
 
-    ![Previewing Your Logo](attachments/theme-customizer/logo-preview.png)
+    ![预览您的徽标](attachments/theme-customizer/logo-preview.png)
 
-5. Click **Apply Style** to save changes.
+5. 点击 **应用样式** 以保存更改。
 
-### 4.2 Adjusting Colors {#adjusting-colors}
+### 4.2 调整颜色 {#adjusting-colors}
 
-You can override the default colors of different elements in your app. You can change the colors of the elements that have a color palette in the drop-down window.
+您可以覆盖应用中不同元素的默认颜色。 您可以更改在下拉窗口中具有色板的元素的颜色。
 
-To change the color, do the following:
+要更改颜色，请执行以下操作：
 
-1. In **Brand Colors**, **UI Customization** or **Typography** sections, select the element you want to change.
-2.  Click this element and select color by clicking on the palette, filling out the code of the color, or selecting the color from **Brand Colors** and **Logo Colors** (only available when you upload a logo, for more information, see [Uploading a Logo](#uploading-logo)).
+1. 在 **品牌颜色**, **UI 定制** 或 **类型** 部分, 选择您想要更改的元素.
+2.  点击此元素并通过点击调色板选择颜色，填写颜色代码， 或者从 **品牌颜色** 和 **徽标颜色** 中选择颜色(只有当您上传标志时才可用) 欲了解更多信息，请查看 [上传徽标](#uploading-logo)
 
-    ![Brand Colors and Logo Colors](attachments/theme-customizer/adjusting-color.png)
+    ![品牌颜色和徽标颜色](attachments/theme-customizer/adjusting-color.png)
 
-3. See the result in the **Preview**.
-4. Click **Apply Style** to save changes.
+3. 在 **预览** 中查看结果。
+4. 点击 **应用样式** 以保存更改。
 
-## 5 Read More
+## 5 阅读更多
 
-* [Atlas UI](/howto/front-end/atlas-ui)
+* [Atlas界面](/howto/front-end/atlas-ui)
