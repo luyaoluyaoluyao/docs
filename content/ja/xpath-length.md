@@ -1,8 +1,6 @@
 ---
 title: "XPath の長さ"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
