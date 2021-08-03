@@ -1,42 +1,42 @@
 ---
-title: "Map Automatically"
-parent: "mapping-documents"
+title: "自动地图"
+parent: "映射文档"
 tags:
   - "studio pro"
 ---
 
-## 1 Creating Entities, Attributes & Associations from Import or Export Mappings
+## 1 正在创建实体，属性 & 关联从导入或导出映射
 
-After you have selected a schema source for the mapping document, you need to connect it to entities, associations and attributes. When you do not yet have suitable entities available in your domain model, creating new ones by hand can be quite cumbersome, especially in large mappings. The button "Map automatically" does the majority of the work for you. Based on the selected schema elements, it creates domain model entities and uses them in the mapping.
+在您选择映射文档的schema源后，您需要将它连接到实体、社团和属性。 当您还没有合适的实体在您的域模型中可用， 手创立新的系统可能相当麻烦，特别是在大型制图中。 按钮“自动地图”为您做了大部分工作。 基于选定的schema元素，它创建域模型实体并在映射中使用它们。
 
 ![](attachments/16713730/18579457.png)
 
-In the above picture, no entities are connected to the schema elements, and the domain model in the module is empty. After clicking on "Map automatically", the situation is as follows:
+在上述图片中，没有任何实体连接到方案元素，模块中的域模型是空的。 在点击“自动地图”后，情况如下：
 
 ![](attachments/16713730/18579459.png)
 
-The following actions will be applied:
+以下操作将被应用：
 
-*   Entities are created for each schema object element. The name is set to the complex type name in the schema.
-*   For XML extension types and choice options, the entity generalization is set to the entity corresponding to the XML base type, or choice container.
-*   Entity attributes are generated for schema primitive types and attributes.
+*   为每个schema对象元素创建实体。 名称设置为方案中复合类型名称。
+*   对于XML扩展类型和选择选项，实体的一般化设置为与XML基本类型或选择容器相对应的实体。
+*   实体属性是为模式类型和属性生成的。
 
-A dialog is shown with the changes that have been applied to the domain model and mapping document. (press "Details" to expand the dialog).
+显示一个对话框，显示应用于域模型和映射文档的更改。 (按“细节”来展开对话框)
 
 ![](attachments/16713730/18579458.png)
 
-## 2 Using Existing Entities, Attributes & Associations
+## 2 使用现有实体，属性 & 关联
 
-If the domain model already contains entities that map to schema elements, they are re-used in the mapping. By default, an entity with the same name of the schema type is used. New attributes may be added, or a generalization may be set if the entity did not already have one. New associations may be created as well if they do not yet exist. The result dialog reports if it reuses existing domain model elements:
+如果域模型已经包含了映射到图示元素的实体，这些实体将在映射中重新使用。 默认情况下，使用方案类型具有相同名称的实体。 新属性可能被添加，如果实体没有一个属性，则可能设置概括。 如果还没有新的协会，也可以创建。 如果重新使用现有域模型元素，结果对话框报告:
 
 ![](attachments/16713730/18579460.png)
 
-## 3 Limitations
+## 3 限制
 
-The parameter entity for import mappings is not created by "Map Automatically". By default, non-persistable entities are created. You can change that manually in the domain model.
+导入映射的参数实体不是由“自动地图”创建的。 默认情况下，将创建不可持续的实体。 您可以手动更改域模型。
 
-Note that "Map Automatically" is not going to create entity generalization if there is any impact on the persistence behaviour of the entity.
+请注意，如果对实体的持久性有任何影响，“自动地图”不会创建实体概括。
 
-## 4 Manual Verification
+## 4次手动验证
 
-"Map automatically" is a helper tool. It creates domain model entities and associations to relieve you from doing a lot of manual work. It is advised that you make sure the changes in the domain model are correct. You can use the reporting dialog, or look at the changes dock of Studio Pro to see what has been changed effectively. Often, in more complex mappings, you may want to rename elements in the domain model, reconnect schema elements to other attributes, or revise entity generalizations. Be aware that if a generalization is set to an entity, this may have consequences for the database tables that store Mendix objects.
+“自动地图”是一个助手工具。 它创建域模型实体和协会来免除您做大量手工工作。 建议您确保域模型中的更改是正确的。 您可以使用报告对话框，或查看Studio Pro 的更改基座，查看已经有效改变的内容。 在更复杂的映射中，您可能想要重命名域模型中的元素，重新连接schema元素到其他属性，或者修改实体概括。 请注意，如果一个实体已设置了概括，这可能会对存储Mendix 对象的数据库表产生影响。
