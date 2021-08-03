@@ -1,88 +1,88 @@
 ---
-title: "Sidebar Toggle"
-parent: "layout"
+title: "侧边栏切换"
+parent: "布局"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-{{% alert type="info" %}}Sidebar toggles are not supported on native mobile pages, as scroll container regions are not supported.{{% /alert %}}
+●{% alert type="info" %}}Sidebar 开关不支持本地移动页面，因为不支持滚动容器区域。{%/提醒 %}}
 
-A **sidebar toggle** is a button that when pressed will make either a left or a right region of a [scroll container](scroll-container) appear or disappear. This makes it possible to create a sidebar that is hidden by default and can be shown by clicking the button.
+A **sidebar toggle** is a button that when pressed will make either a left or a right region of a [scroll container](scroll-container) appear or disappear. 这就可以创建一个默认隐藏的侧边栏，并可以通过单击按钮显示。
 
 {{% alert type="info" %}}
-You can only have one sidebar toggle in a scroll container, and the behavior of the sidebar toggle is configured in the [scroll container region](scroll-container#region) properties.
-{{% /alert %}}
+您只能在滚动容器中使用一个侧边栏切换， 侧边栏切换的行为在 [滚动容器区域](scroll-container#region) 属性中配置。
+{{% /报警 %}}
 
-For example, the image below shows for an example layout that uses the sidebar toggle to hide and make visible the **Left** region of the **Scroll Container**.
+例如， 下面的图像展示了一个示例布局, 它使用侧边栏切换来隐藏并使得 **滚动容器的 **左侧** 区域**
 
 ![](attachments/layout/sidebar-toggle-button.png)
 
-## 2 Properties
+## 2 属性
 
-An example of sidebar toggle properties is represented in the image below:
+侧边栏切换属性的示例显示在下面的图像中：
 
 {{% image_container width="250" %}}![](attachments/layout/sidebar-toggle-properties.png)
 {{% /image_container %}}
 
-Sidebar toggle properties consist of the following sections:
+侧边栏切换属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般部分 {#general}
 
-#### 2.3.1 Caption {#caption}
+#### 2.3.1 标题 {#caption}
 
-The **Caption** property defines a text that will be shown on the sidebar toggle.
+**标题** 属性定义了将显示在侧边栏切换上的文本。
 
-#### 2.3.3 Tooltip
+#### 2.3.3 工具提示
 
-The **Tooltip** property determines a text end-users will see in the tooltip that appears when they hover over the sidebar toggle. The tooltip text is translatable. For more information on translatable texts, see [Language Menu](translatable-texts). If the tooltip is not specified, no tooltip will be shown when hovering over the sidebar toggle.
+**Tooltip** 属性决定了文本最终用户将会在当他们悬停在侧边栏切换时出现的工具提示中看到。 工具提示文本可以翻译。 关于可翻译文本的更多信息，见 [语言菜单](translatable-texts)。 如果未指明工具提示, 当悬停在侧边栏切换时不会显示工具提示。
 
-#### 2.3.4 Icon {#icon}
+#### 2.3.4 图标 {#icon}
 
-The **Icon** property determines the icon that will be shown in front of the caption of the sidebar toggle. Possible options are:
+**图标** 属性决定了将显示在侧边栏切换标题前面的图标。 可能的备选办法是：
 
-* No icon
+* 没有图标
 * Glyphicon
-* (Bitmap) image
+* (Bitmap) 图像
 
-Glyphicons come from the Bootstrap Halflings collection. The advantages of a glyphicon over a bitmap image are that they are scalable, look sharp on high-resolution screens, and their color can be changed by changing the font color. The advantage of an image icon is that it can have multiple colors.
+Glyphicons来自Bootstrap 合集。 比特图图像上的 glyphicon 的优点是它们是可以缩放的。 在高分辨率屏幕上看得很清楚，其颜色可以通过更改字体颜色而改变。 图像图标的优点是它可以有多个颜色。
 
-#### 2.3.5 Render Mode
+#### 2.3.5 渲染模式
 
-Defines the way the sidebar toggle will be shown to the end-user. Possible options are the following:
+定义侧边栏切换到最终用户的方式。 可能的备选办法如下：
 
-* **Button** – the widget will be rendered as a button
-* **Link** – the widget will be rendered as a hyperlink
+* **按钮** — 小部件将作为按钮渲染。
+* **链接** - 小部件将呈现为超链接
 
-*Default render mode:* Button
+*默认渲染模式：* 按钮
 
-#### 2.3.6 Button Style
+#### 2.3.6 按钮样式
 
-The **Button style** property applies a predefined styling to the sidebar toggle. Possible options are the following:
+**按钮风格** 属性适用于侧边栏切换的预定义样式。 可能的备选办法如下：
 
-* Default
-* Inverse
-* Primary
-* Info
-* Success
-* Warning
-* Danger
+* 默认设置
+* 反转
+* 主要的
+* 信息
+* 成功
+* 警告
+* 危险
 
-### 2.4 Visibility Section{#visibility}
+### 2.4 可见部分{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
