@@ -1,113 +1,113 @@
 ---
-title: "New Merge Algorithm with Fine-Grained Conflict Resolution"
-category: "Version Control"
+title: "新的合并算法与精致冲突解决"
+category: "版本控制"
 menu_order: 30
 tags:
-  - "merge"
-  - "algorithm"
-  - "conflict"
-  - "resolution"
+  - "合并"
+  - "算法"
+  - "冲突"
+  - "决 定"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A new merge algorithm with fine-grained conflict resolution is used when you update your app or merge changes in it. The new merge algorithm has the following features:
+当你更新你的应用或合并它中的更改时，将使用一个新的精密冲突解析算法。 新的合并算法具有以下功能：
 
-* **Fine-grained conflict resolution** – When there are conflicting changes in a document, you do not have to choose between whole documents: resolving a conflict using your change or using their change. Instead, you can resolve conflicts at the level of individual elements, such as widgets, entities, attributes, or microflow actions. Also, all non-conflicting changes from both sides are accepted automatically.
-* **No conflicts on parallel changes to lists of widgets** – When two developers make changes to widgets in the same document there is no conflict, the changes are combined. However, if the changes are made too close to the same place in the document, a **list order conflict** is reported that reminds the developer who is merging the changes to decide on the final order of the widgets in the list.
+* **精致的冲突解析** - 当文档中有冲突的更改时 您无需在整个文档之间做出选择：使用您的更改或使用更改来解决冲突。 相反，你可以解决个别元素的冲突，例如小部件、实体、属性或微流程动作。 此外，双方的所有不冲突的改动都是自动接受的。
+* **在小部件列表的并行更改上没有冲突** - 当两个开发者在同一文档中对小部件进行更改时，没有冲突。 这些变化合并在一起。 然而，如果改动过于接近文件中的同一位置， **邮件列表顺序冲突** 被报告为提醒正在合并更改的开发者决定列表中部件的最终顺序。
 
-## 2 Enabling the New Algorithm with Fine-Grained Conflict Resolution
+## 2 启用新算法与精致冲突解决
 
 {{% alert type="info" %}}
-Make sure that you repository is in a clean state: everything has been committed and there are no outstanding changes or conflicts.
-{{% /alert %}}
+请确保你的仓库处于一个干净的状态：一切都已被投入使用，不存在任何尚未解决的更改或冲突。
+{{% /报警 %}}
 
-The new algorithm is enabled by default in Studio Pro 9. If you encounter issues, you can revert back to the old algorithm with the following steps:
+Studio Pro 9默认启用新算法。 如果你遇到问题，你可以通过以下步骤恢复旧算法：
 
-1. In the Studio Pro top bar, go to **Edit** > **Preferences** > **New features**.
-2. In the **New features** section, disable the **New merge algorithm with fine-grained conflict resolution** option.
+1. 在 Studio Pro 顶部栏中，前往 **编辑** > **首选项** > **新功能**
+2. 在 **新功能** 部分中，禁用 **新合并算法，精密冲突解决** 选项。
 3. Restart Studio Pro.
 
-For more information, see [Preferences](preferences-dialog).
+欲了解更多信息，请参阅 [首选项](preferences-dialog)。
 
-## 3 Resolving Conflict Example
+## 3 解决冲突示例
 
-A page document in your app is designed as shown below:
+您应用中的页面文档设计如下所示：
 
-![Original page](attachments/new-merge-algorithm/new-merge-algorithm-base-page.png)
+![原始页面](attachments/new-merge-algorithm/new-merge-algorithm-base-page.png)
 
-Your colleague makes the following changes in the main line:
+你的同事在主行中作了以下更改：
 
-* The text *Home* is changed to *Welcome!*
-* A Mendix logo is added above the text *Welcome!*
-* The subtitle *Welcome to your new app* is deleted
-* A text *Write some text here* is added to the bottom layout grid
+* 文本 *Home* 已更改为 *Welcome！*
+* Mendix 徽标已添加在文本 *Welcome上方！*
+* 字幕 *欢迎来到您的新应用* 已被删除
+* 文本 *在此处写一些文本* 被添加到底部布局网格
 
-Your colleague's new document layout is shown below:
+您的同事的新文档布局显示如下：
 
-![Main line page](attachments/new-merge-algorithm/new-merge-algorithm-main-page.png)
+![主行页](attachments/new-merge-algorithm/new-merge-algorithm-main-page.png)
 
-You make the following changes on a branch line:
+您在分支行上做出以下更改：
 
-* You change the text *Home* to *My homepage*
-* You add a data grid inside the bottom layout grid
+* 您更改文本 *Home* 到 *我的主页*
+* 在底部布局网格中添加数据网格
 
-Your page is now laid out as shown below:
+您的页面现在如下所示：
 
-![Branch line page](attachments/new-merge-algorithm/new-merge-algorithm-branch-page.png)
+![分支行页](attachments/new-merge-algorithm/new-merge-algorithm-branch-page.png)
 
-## 4 Resolving Conflicts
+## 4 解决冲突
 
-When you merge changes, the new algorithm shows you the following conflicts:
+当您合并更改时，新算法向您显示以下冲突：
 
-1. The text that both sides changed.
-2.  A **list order conflict**. Both of you added widgets to the bottom layout grid. The merge algorithm cannot guess the right order for the two new widgets and it reports the list order conflict. This is a reminder for you (the developer who is doing the merge) to look at the final layout and confirm the order.
+1. 双方都改变了案文。
+2.  **邮件列表顺序冲突**。 您都向底部布局网格添加了小部件。 合并算法无法猜测两个新小部件的正确顺序，它报告列表顺序冲突。 这是提醒您(正在进行合并的开发者)查看最终布局并确认订单。
 
-    ![New algorithm conflicts](attachments/new-merge-algorithm/new-merge-algorithm-conflicts.png)
+    ![新算法冲突](attachments/new-merge-algorithm/new-merge-algorithm-conflicts.png)
 
-To start the resolution process, click the **Merge** button. The page is opened in a special mode with an orange bar at the top:
+要开始解析过程，请单击 **合并** 按钮。 页面以特殊模式打开，顶部有橙色栏：
 
-![Document with orange bar](attachments/new-merge-algorithm/new-merge-algorithm-orange-tab.png)
+![带橙色条的文档](attachments/new-merge-algorithm/new-merge-algorithm-orange-tab.png)
 
-The following non-conflicting changes have already been applied to the page:
+以下非冲突的更改已经应用到该页面：
 
-* The Mendix logo is added above the text *Home* (main line)
-* The subtitle is deleted (main line)
-* The text widget is added to the bottom layout grid (main line)
-* A data grid is added to the bottom layout grid (branch line)
+* Mendix 徽标添加在文本 *Home* (主行)
+* 字幕已删除 (主行)
+* 文本部件添加到底部布局网格 (主行)
+* 数据网格已添加到底部布局网格(网格线)
 
-### 4.1 Resolving the First Conflict
+### 4.1 解决第一场冲突
 
-For the first conflict, you can inspect changes and decide which version to apply. Select one of the three lines that represent the conflict and choose **Resolve using Mine** or **Resolve using Theirs**.
+对于第一个冲突，您可以检查更改并决定应用哪个版本。 选择代表冲突的三行之一并选择 **使用我的** 或 **通过他们解决**。
 
-![Conflict resolution mode](attachments/new-merge-algorithm/new-merge-algorithm-resolve-mode.png)
+![冲突解决模式](attachments/new-merge-algorithm/new-merge-algorithm-resolve-mode.png)
 
-You will see the document update immediately after you click the button. If you are not satisfied with your choice, you can use undo to go back and try another option.
+点击按钮后，您将立即看到文档更新。 如果您对您的选择不满意，您可以使用撤消来返回并尝试另一个选项。
 
 {{% alert type="info" %}}
 To use keyboard shortcuts <kbd>Ctrl</kbd>+<kbd>Z</kbd> and <kbd>Ctrl</kbd>+<kbd>Y</kbd> to undo your choice, click the document to focus it first.
-{{% /alert %}}
+{{% /报警 %}}
 
-There is a third option to deal with a conflict: **Mark as Resolved**. This means that you do not choose any side to resolve the conflict and will keep things the way they were in the original. Neither of the new text changes will be applied.
+有第三个选项来处理冲突： **标记为已解决**。 这意味着你不选择任何一方来解决冲突，并将保持原来的状况。 这两项新的文字改动都不适用。
 
-Once you have chosen one of the three options to resolve the conflict, green checkmarks will appear to indicate that this conflict has been dealt with.
+一旦您选择了解决冲突的三个选项之一， 绿色的检查标志似乎表明这场冲突已经得到解决。
 
-### 4.2 Resolving the Second Conflict
+### 4.2 解决第二次冲突
 
-The second conflict is a list order conflict. It is a reminder to take a look at the order of the widgets in the layout grid. You can arrange the widgets in the desired order in the page editor and then choose **Mark as Resolved** for the list order conflict.
+第二个冲突是列表顺序冲突。 看看布局网格中部件的顺序是一个提醒。 您可以在页面编辑器中按需要的顺序排列小部件，并在列表顺序冲突中选择 **标记为已解决的**。
 
-You can also decide to delete one of the widgets or add a new one. The document is fully editable while resolving conflicts.
+您也可以决定删除一个小部件或添加一个新的小部件。 该文件在解决冲突时是完全可以编辑的。
 
-After resolving the second conflict, the bar at the top will turn green to indicate that all conflicts have been resolved:
+在解决了第二个冲突之后，顶部的栏将变得绿色，表明所有冲突都已经解决：
 
-![All conflicts resolved](attachments/new-merge-algorithm/new-merge-algorithm-all-conflicts-resolved.PNG)
+![所有冲突已解决](attachments/new-merge-algorithm/new-merge-algorithm-all-conflicts-resolved.PNG)
 
-Some changes will make it impossible to resolve conflicts using **mine** or **theirs**. For example, if you have not resolved the first conflict yet and you delete the *Home* text widget, you cannot resolve the first conflict any more, because the widget is simply not there. At that point, you can only mark the conflict as resolved:
+有些更改将无法使用 **我的** 或 **他们的** 解决冲突。 例如，如果您尚未解决第一场冲突，您删除 *主页* 文本部件， 你不能再解决第一次冲突，因为小部件根本不存在。 在这一点上，你只能标记冲突已经解决：
 
-![Conflict cannot be resolved](attachments/new-merge-algorithm/new-merge-algorithm-cannot-resolve.PNG)
+![冲突无法解决](attachments/new-merge-algorithm/new-merge-algorithm-cannot-resolve.PNG)
 
-### 4.3 Finishing Conflict Resolution
+### 4.3 完成冲突解决
 
-Once all conflicts have been resolved, click the **Accept and Exit** button to finalize the results. The document will be saved in its merged form and the conflict for that document will be gone. The result is the document that contains changes from both sides and possibly some manual edits.
+一旦解决了所有冲突，请点击 **接受并退出** 按钮以完成结果。 文档将被保存为其合并表单，冲突将被消失。 其结果是文件载有双方的改动，可能还有一些手工编辑。
 
-At any time, you can also choose to abort conflict resolution by clicking the **Cancel** button. The conflict will remain and you can resolve it later.
+您也可以随时点击 **取消** 按钮来中止冲突解决。 冲突将继续存在，你可以在以后解决。
