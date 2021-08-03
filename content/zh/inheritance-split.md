@@ -1,34 +1,34 @@
 ---
-title: "Inheritance Split"
-parent: "splits"
+title: "继承权拆分"
+parent: "拆分"
 ---
 
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
-{{% /alert %}}
+这种活动只能用于微流，而不能用于纳米流。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-An inheritance split is an element that makes a choice based on the type of certain variable. For each specialization the microflow can continue in a different way. If you want to use the specialized type in the rest of the microflow you can use a [cast](cast-object) action.
+继承分割是一个基于某些变量类型的选择。 对于每一种专业，微观流动可以不同的方式继续。 如果您想要在微流的其余部分使用专门类型，您可以使用 [cast](cast-object) 操作。
 
-See [Entities](entities) to read more about specialization and generalization.
+查看 [实体](entities) 阅读更多关于专业化和一般化的信息。
 
-## 2 Input Properties
+## 2 输入属性
 
-### 2.1 Variable
+### 2.1 变量
 
-The input variable is the variable of which the type is inspected to see how to continue.
+输入变量是检查类型以查看如何继续的变量。
 
 {{% alert type="info" %}}
 
-Let us say you have an entity Student and an entity Professor which have the entity Member as their generalization. For a professor you want to open a different form than for another member. The selected member is available in the parameter SelectedMember and is used as input variable for the inheritance split. Note that the sequence flow for Student is missing. If a sequence flow is missing, the closest generalization is searched that does have a sequence flow. In the case of Student this is Member. The sequence flow with the caption (empty) is followed when the parameter used as input variable does not contain an object.
+让我们说，你有一个实体学生和一个实体教授，其成员是该实体成员。 对于教授，您想要打开一个不同于其他会员的表格。 选中的成员在选定的成员中可用，并且被用作继承分割的输入变量。 请注意缺少学生的序列流。 如果缺少序列流，则搜索最接近的一般化并确实有序列流。 对于学生，这是会员。 当用作输入变量的参数不包含对象时，跟随带有标题(空)的序列流。
 
 ![](attachments/819203/918058.png)
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 3 Common Properties
+## 3 个公共属性
 
-### 3.1 Caption
+### 3.1 标题
 
-See [Microflow Element Common Properties](microflow-element-common-properties).
+查看 [微流程元素共同属性](microflow-element-common-properties)。
