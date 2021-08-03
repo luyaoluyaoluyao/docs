@@ -1,53 +1,74 @@
 ---
-title: "Studio Pro 9 Guide"
-description: "The various sections of the Mendix Studio Pro Guide provide details on the features and functionality of the Mendix Platform."
+title: "Developer Portal Guide"
+description: "Describes the sections of the Mendix Developer Portal and links to more detailed documents in the guide."
 tags:
-  - "studio pro"
+  - "mendix"
+  - "developer portal"
+  - "platform services"
+  - "buzz"
+  - "apps"
+  - "community"
+  - "marketplace"
+  - "academy"
+  - "forum"
+  - "docs"
+  - "documentation"
 ---
 
-## 1 Introduction
+## 1 What Is the Developer Portal?
 
-The *Mendix Studio Pro 9 Guide* covers important topics concerning [Studio Pro](modeling), the [Mendix Runtime](runtime), and other components of the Mendix Platform.
+The [Developer Portal](http://sprintr.home.mendix.com) is one of the three key components of the Mendix Platform. The other two are [Mendix Studio Pro](/refguide/modeling) and [Mendix Studio](/studio/). In the Developer Portal, Mendix developers can collaborate, deploy, and manage their apps, and manage their company and users.
 
-Before installing Studio Pro 9, please read [System Requirements](system-requirements). For information on how to install Studio Pro, see [How to Install Mendix Studio Pro](/howto/general/install).
+The Developer Portal also offers open, well-defined APIs, enabling third-party developers to integrate their own widgets and plugins. For more information, see [API Documentation](/apidocs-mxsdk/apidocs/).
 
-If you have been using Studio Pro version 8, we recommend reading [Moving from Mendix Studio Pro 8 to 9](moving-from-8-to-9).
+## 2 Navigation {#navigation}
 
-If you are looking for step-by-step guides on performing various Mendix actions, browse the [Studio Pro 9 How-to's](/howto).
+To create a new app click **Create App**, which will open a page where you can choose a starting pointing for your new app:
 
-## 2 Studio Pro Functionality
+![](attachments/create-app.png)
 
-Studio Pro allows you to create, test, and run apps.
+On the right side of the top bar, you can search and access your [Mendix Profile](/developerportal/mendix-profile/). You can also click the **+** icon to create a new app.
 
-### 2.1 Modeling
+On the left side of the top bar, you open an access menu by clicking the **Switch-to** menu:
 
-Modeling an app is the process of creating an app and involves creating pages, adding logic, configuring security, etc. For more information on what functionality you can use to model your app, see [App Modeling](modeling).
+{{% image_container width="300" %}}
+![](attachments/switcher.png)
+{{% /image_container %}}
 
-### 2.2 Testing
+You can then access the following parts of the Mendix Platform:
 
-When it comes to testing your application, you first need to decide what you are going to test: integration with external services, app logic (microflows), etc. For more information on how to test your application, see [Testing](/howto/testing).
+* **Mendix Home** – the [My Apps](/developerportal/apps-list/) page
+* [Studio](/studio/)
+* **Get Studio Pro** – the [Studio Pro](/refguide/) download page in the [Mendix Marketplace](/appstore/)
+* **Cloud**  – the [Nodes](/developerportal/deploy/node-permissions) page, which shows a list of all the licensed Mendix Cloud nodes to which you have access
+    * Clicking **Details** on this page opens the [Environments](/developerportal/deploy/environments) page for the app that is deployed to a node
+    * For details on the **Cluster Manager** option in the top bar, see [Creating a Private Cloud Cluster](/developerportal/deploy/private-cloud-cluster)
+* [Control Center](/developerportal/control-center/)
+* [Marketplace](/appstore/)
+* [Data Hub](/data-hub/)
+* [Academy](https://academy.mendix.com/link/home)
+* [Docs](https://docs.mendix.com/)
+* [Forum](/developerportal/community-tools/mendix-forum)
+* [Community](community-tools)
 
-### 2.3 Deploying
+Click [Company Buzz](collaborate/buzz) to communicate with colleagues, team members, stakeholders, and any other Mendix users in your company.
 
-Studio Pro allows you to run and view your app locally or in the default environment.
+Click [Company Apps](/developerportal/apps-list/#my-company-apps) to see all the apps created by members of your company.
 
-For more information on options for deploying your app see [Deployment](/developerportal/deploy).
+If you want to turn on the old navigation/header, click your avatar and toggle **New Navigation** to **Off**.
 
-## 3 Version Control
+## 3 Getting Assistance
 
-[Version Control](version-control) allows you to manage your app development, work on multiple development lines, as well as collaboratively work with [Mendix Studio](/studio).  For information on how Studio Pro handles versioning of apps, see the [Versioning an App Deployed to the Cloud](using-version-control-in-studio-pro#versioning-project) section in *Using Version Control in Studio Pro*.
+Clicking the question icon in the Developer Portal brings up the options Mendix provides for getting assistance:
 
-## 4 Mendix Runtime
+![](attachments/developerportal-assistance.jpg)
 
-The [Mendix Runtime](runtime) executes the application model that is created in Studio Pro. It is included in the Studio Pro 9 Guide as it is uses the same version numbering.
+* **Ask the Community** – click this to go to the [Mendix Forum](https://forum.mendixcloud.com/index4.html)
+* **Check the documentation** – click this to go to the [Mendix Documentation](https://docs.mendix.com/)
+* **Contact Mendix Support** – click this to go to [Mendix Support](https://support.mendix.com/hc/en-us)
 
-## 5 Mobile
+## 4 Guide Categories
 
-Mobile app development allows you to create native mobile and hybrid apps and an important part of Studio Pro. For more information, see [Mobile](mobile).
-
-## 6 Guide Categories
-
-The *Studio Pro 9 Guide* is divided into the following categories:
+The *Developer Portal Guide* is divided into the following categories:
 
 {{% category_block %}}
-
