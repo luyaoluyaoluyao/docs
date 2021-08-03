@@ -11,9 +11,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-この機能はバージョン7.15.0で導入されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/publish-microflow-as-rest-operation.pdf) をクリックしてください。
 {{% /alert %}}
 
 ## 1つの紹介
