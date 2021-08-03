@@ -1,15 +1,15 @@
 ---
-title: "Microflow Activities"
-parent: "integration"
+title: "マイクロフローアクティビティ"
+parent: "統合"
 ---
 
-## Integration Activitities
+## 連携アクティビティ
 
-Integration activities can be used to integrate with other systems, for example by calling a web service.
+統合アクティビティは、Web サービスを呼び出すなど、他のシステムと統合するために使用できます。
 
-| Graphic                                | Name                                         | Description                                                                                                                                                                                                                                                                                 |
-| -------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](attachments/16713769/19399144.png) | [Call REST action](call-rest-action)         | Call rest action can be used to call a REST endpoint. You can use mappings to map results to entities or entities to requests. You can also use string templates and store the result in a string variable.                                                                                 |
-| ![](attachments/16713769/19398967.png) | [Call web service](call-web-service-action)  | Call web service action can be used to call one of the [imported web services](consumed-web-services). The content of the request can be edited. Furthermore the response of the webservice can be mapped to entities, stored in a variable or be ignored.                                  |
-| ![](attachments/16713769/19398968.png) | [Import with mapping](import-mapping-action) | Import with mapping can be used to parse the data in a string variable or data stored in a file document, and store them to entities defined in the [domain model](domain-model) of the database. An [Import Mapping](import-mappings) is used to map the incoming XML or JSON to entities. |
-| ![](attachments/16713769/19398969.png) | [Export with mapping](export-mapping-action) | Export with mapping can be used to export the data stored in [domain model](domain-model) entities into an XML or JSON string. It can also be stored in a file document. An [Export Mapping](export-mappings) is used to map domain model entities into XML or JSON.                        |
+| グラフィック                                 | 名前                                     | 説明                                                                                                                                                                                                   |
+| -------------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![](attachments/16713769/19399144.png) | [REST アクションを呼び出す](call-rest-action)    | コールレストアクションは、REST エンドポイントを呼び出すために使用できます。 マッピングを使用して結果をエンティティやエンティティにリクエストにマップすることができます。 文字列テンプレートを使用して、結果を文字列変数に格納することもできます。                                                                         |
+| ![](attachments/16713769/19398967.png) | [Web サービスに発信](call-web-service-action) | Web サービスを呼び出すアクションは、 [インポートされた Web サービス](consumed-web-services) のいずれかを呼び出すために使用できます。 リクエストの内容は編集できます。 さらに、Webサービスの応答は、変数に格納されたエンティティにマップしたり、無視したりすることができます。                                          |
+| ![](attachments/16713769/19398968.png) | [マッピングでインポート](import-mapping-action)   | マッピングによるインポートは、ファイルドキュメントに格納されている文字列変数またはデータのパースに使用することができます。 を選択し、データベースの [ドメイン モデル](domain-model) に定義されたエンティティに保存します。 [インポート マッピング](import-mappings) は、受信する XML または JSON をエンティティにマッピングするために使用されます。 |
+| ![](attachments/16713769/19398969.png) | [マッピングでエクスポート](export-mapping-action)  | マッピングによるエクスポートは、 [ドメイン モデル](domain-model) に格納されているデータを XML または JSON 文字列にエクスポートするために使用できます。 ファイルドキュメントに保存することもできます。 [エクスポートマッピング](export-mappings) は、ドメインモデルエンティティを XML または JSON にマッピングするために使用されます。   |
