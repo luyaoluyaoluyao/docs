@@ -1,44 +1,44 @@
 ---
-title: "Authentication Widgets"
-parent: "pages"
+title: "認証ウィジェット"
+parent: "ページ"
 menu_order: 55
 tags:
-  - "authentication"
-  - "widgets"
+  - "認証"
+  - "ウィジェット"
   - "studio pro"
-  - "login"
-  - "password"
+  - "ログイン"
+  - "パスワード"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Authentication widgets are used to sign users in and log them out.
+認証ウィジェットは、ユーザーにサインインしてログアウトするために使用されます。
 
-Use a [navigation profile setting](navigation#authentication) to direct users to the correct authentication page.
+[ナビゲーション プロファイル](navigation#authentication) 設定を使用して、ユーザーを正しい認証ページに誘導します。
 
-The **Authentication widgets** category contains the following widgets:
+**認証ウィジェット** カテゴリには、次のウィジェットが含まれています:
 
-* [Login ID text box](login-id-text-box) – allows users to provide a login id for authentication
+* [ログインIDテキストボックス](login-id-text-box) - ユーザーが認証のためのログインIDを提供することができます
 
-    ![Login ID Text Box Example](attachments/authentication-widgets/logid-id-example.png)
+    ![ログインIDテキストボックスの例](attachments/authentication-widgets/logid-id-example.png)
 
-* [Password text box](password-text-box) – allows users to provide a password for authentication
+* [パスワードテキスト ボックス](password-text-box) - ユーザーが認証のためのパスワードを提供することができます
 
-    ![Password Text Box Example](attachments/authentication-widgets/password-text-box-example.png)
+    ![パスワードテキストボックスの例](attachments/authentication-widgets/password-text-box-example.png)
 
-* [Sign-in button](sign-in-button) – sends a user’s login id and password to the server for authentication ![Sign-In Button Example](attachments/authentication-widgets/sign-in-button-example.png)
+* [サインインボタン](sign-in-button) – ユーザーのログインIDとパスワードをサーバーに送信します。 ![サインインボタンの例](attachments/authentication-widgets/sign-in-button-example.png)
 
-* **Sign-out button** – signs the currently signed-in user out. The sign-out button is a button with an on-click event set to **Sign out**. For more information on on-click events, see the [On Click Event & Events Section](on-click-event). For details on button properties. see [Button Properties](button-properties).
+* **サインアウトボタン** – 現在サインイン中のユーザーにサインアウトします。 サインアウトボタンは、オンクリックイベントが **サインアウト**に設定されたボタンです。 オンクリックイベントの詳細については、 [[イベント & イベント]セクション](on-click-event)を参照してください。 ボタンのプロパティの詳細。 [ボタンプロパティ](button-properties) を参照してください。
 
-* [Validation message](validation-message) – informs a user about authentication failures if any
+* [バリデーションメッセージ](validation-message) – 認証に失敗した場合、ユーザーに通知します
 
-    ![Validation Message Example](attachments/authentication-widgets/validation-message-example.png)
+    ![検証メッセージの例](attachments/authentication-widgets/validation-message-example.png)
 
-## 2 Performing Basic Functions
+## 2 基本機能の実行
 
 {{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Pages](pages)
+* [ページ](page)
+* [ページ](ページ)
