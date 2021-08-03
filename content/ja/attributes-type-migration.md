@@ -1,43 +1,43 @@
 ---
-title: "Attribute Type Migration"
-parent: "data-storage"
+title: "属性タイプの移行"
+parent: "データストレージ"
 menu_order: 10
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix allows you to change attribute and association types on existing domain models. This document explains the consequences of doing this.
+Mendix を使用すると、既存のドメインモデルの属性と関連タイプを変更できます。 この文書では、その結果について説明します。
 
-## 2 Data Type Changes on Existing Attributes
+## 2 既存の属性に対するデータ型の変更
 
 ### 2.1 Data Type Change Behavior
 
-If the type of an existing attribute is changed in Mendix Studio or Mendix Studio Pro, the existing attribute will usually be deleted and a new attribute will be created. For some attribute type changes Mendix tries to convert existing data in the database to the new type.
+既存の属性のタイプが Mendix Studio または Mendix Studio Pro で変更された場合。 既存の属性は通常削除され、新しい属性が作成されます。 いくつかの属性型の変更については、Mendixはデータベース内の既存のデータを新しい型に変換しようとします。
 
-If data should NOT be converted to the new type, you must remove the attribute in Studio or Studio Pro and create a new column (with the same name). If you change the type and rename the column, Mendix remembers the old column name and will try to convert the column values if possible.
+If data should not be convert to the new type, Studio または Studio Pro で属性を削除し、(同じ名前で) 新しい列を作成する必要があります。 型を変更して列の名前を変更すると、Mendix は古い列名を記憶し、可能であれば列の値を変換しようとします。
 
-### 2.2 Conversion Table
+### 2.2 コンバージョン表
 
-The table below shows, for each data type change, whether Mendix will convert the values.
+以下の表は、データ型が変更されるごとに、Mendixが値を変換するかどうかを示しています。
 
-| Key                                    | Means                                                                                                                                                                                               |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **&#x2713;**                           | Conversion always possible.                                                                                                                                                                         |
-| **\*<sup><small>note</small></sup>** | Conversion is not always possible, or data will be changed during conversion. See related note for more information. If conversion is not possible, the behavior is the same as for "**X**", below. |
-| **X**                                  | Conversion not possible. The original column will be removed and a new column will be created with default values for the existing rows.                                                            |
+| キー                                    | 方法                                                                                           |
+| ------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **&#x2713;**                          | 変換は常に可能です。                                                                                   |
+| **\*<sup><small>ノート</small></sup>** | 変換は必ずしも可能ではない、または変換中にデータが変更されます。 詳細については、関連するノートを参照してください。 もし変換が不可能な場合、下記の挙動は "**X**" と同じです。 |
+| **X**                                 | 変換できません。 元の列が削除され、新しい列が既存の行のデフォルト値で作成されます。                                                   |
 
-![Table of conversions - click to enlarge](attachments/attributes-type-migration/conversion-table.png) (*Click the image to enlarge*)
+![変換表 - クリックで拡大](attachments/attributes-type-migration/conversion-table.png) (*クリックして拡大する*)
 
-### 2.3 Manual Conversion
+### 2.3 手動変換
 
-Even if Mendix cannot convert the values of a specific column to another type, you can still manage that manually. Change the name of the attribute, for example append the text 'Deleted' to its name. Create a new attribute with the same name and the new data type. Look up each occurrence of the old (renamed) attribute in the whole model and change this to the new attribute. Be sure that there is no microflow or page anymore which refers to the old attribute.
+Mendixが特定の列の値を別の型に変換できない場合でも、それを手動で管理することができます。 属性の名前を変更します。例えば、テキスト「削除済み」をその名前に追加します。 同じ名前と新しいデータ型を持つ新しい属性を作成します。 モデル全体で古い (renamed) 属性の各発生を調べ、これを new 属性に変更します。 古い属性を参照するマイクロフローやページがもう存在しないことを確認してください。
 
-Create a microflow in which you retrieve all instances of the entity, loop through the instances and for each instance, read the value of the old attribute, convert the value, store it in the new attribute and commit the instance. Place a button on an administrator page which calls this microflow.
+エンティティのすべてのインスタンス、インスタンスのループ、および各インスタンスを取得するマイクロフローを作成します 古い属性の値を読み取り、値を変換し、新しい属性に格納し、インスタンスをコミットします。 このマイクロフローを呼び出す管理者ページにボタンを配置します。
 
-When you deploy, you have to run this microflow one time, after which you can remove both the microflow and the button pointing to it, and then you can also remove the old attribute.
+デプロイ時に、このマイクロフローを1回実行する必要があります。 その後、マイクロフローと、それを指すボタンの両方を削除して、古い属性を削除することもできます。
 
-## 3 Association Type Changes on Existing Associations
+## 3 既存の関連付けの関連タイプの変更
 
-When you have a one-to-many association and change it into a one-to-one association, be aware that duplicate associations are not cleaned up in the database. For example, a one-to-many association from entity A to entity B allows multiple references: a1 to b1, a1 to b2, etc. One-to-one associations only allow a single reference per object: a1 to b1. Duplicate association entries like a1 to b2 are not cleaned up when you redeploy your app.
+1対1の関連付けがあり、それを1対1の関連付けに変更する場合は、データベース内で重複した関連付けがクリーンアップされないことに注意してください。 例えば、エンティティAからエンティティBへの1対多の関連付けは、a1からb1、a1からb2などの複数の参照を許可します。 1対1の関連付けでは、オブジェクトごとに1つの参照しか許可されません:a1からb1です。 アプリケーションを再デプロイすると、a1 から b2 のような重複した関連エントリはクリーンアップされません。
