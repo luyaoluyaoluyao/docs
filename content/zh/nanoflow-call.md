@@ -1,78 +1,78 @@
 ---
-title: "Call Nanoflow"
-parent: "client-activities"
+title: "呼叫Nanoflow"
+parent: "客户活动"
 menu_order: 2
 tags:
   - "studio pro"
-  - "nanoflow call"
-  - "call nanoflow"
+  - "nanoflow 呼叫"
+  - "调用 nanoflow"
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="warning" %}}
-This activity can only be used in **Nanoflows**.
-{{% /alert %}}
+此活动只能用于 **Nanoflows**。
+{{% /报警 %}}
 
-The **Call nanoflow** activity can be used to call another [nanoflow](nanoflows).
+**调用 nanoflow** 活动可以调用另一个 [nanoflow](nanoflows)。
 
 {{% image_container width="200" %}}
-![Nanoflow Call](attachments/action-call-activities/nanoflow-call.png)
+![Nanoflow 呼叫](attachments/action-call-activities/nanoflow-call.png)
 {{% /image_container %}}
 
-Arguments can be passed to the nanoflow and the result can be stored in a variable.
+参数可以传递到 nanoflow 中，结果可以存储在变量中。
 
-## 2 Properties
+## 2 属性
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
 
-![Nanoflow Call Properties](attachments/action-call-activities/nanoflow-call-properties.png)
+![Nanoflow 通话属性](attachments/action-call-activities/nanoflow-call-properties.png)
 
-The **Nanoflow call** properties pane consists of the following sections:
+**Nanoflow 调用** 属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Nanoflow
+### 3.1 纳诺夫low
 
-The nanoflow that is called by this activity.
+这种活动叫做纳米。
 
-### 3.2 Parameters
+### 3.2 参数
 
-Depending on the selected microflow, you will see a list of its parameters in a table. Parameters pass data to the activity.
+根据选定的微流程，您将在表中看到其参数列表。 参数将数据传递到活动中。
 
-#### 3.2.1 Name
+#### 3.2.1 名称
 
-The name of the parameter that is read-only.
+只读参数的名称。
 
-#### 3.2.2 Type
+#### 3.2.2 类型
 
-The type of the parameter that is read-only. For more information on possible types of parameters, see [Data Types](data-types).
+只读参数的类型。 欲了解更多关于参数类型的信息，请参阅 [数据类型](data-types)。
 
-#### 3.2.3 Argument {#argument}
+#### 3.2.3 参数 {#argument}
 
-The **Edit parameter value** button allows you to edit the argument value. For each parameter of the nanoflow, you have to supply an argument of the same type. The values of the arguments are expressed using [expressions](expressions).
+**编辑参数值** 按钮允许您编辑参数值。 对于nanoflow的每个参数，您必须提供一个相同类型的参数。 参数的值使用 [表达式](expressions) 表达。
 
-### 3.3 Return Type
+### 3.3 退货类型
 
-This read-only property indicates whether you will retrieve a variable, object or list.
+此只读属性表示您是否将检索变量、对象或列表。
 
-### 3.4 Use Return Value
+### 3.4 使用退货价值
 
-This property determines if the returned value from the called nanoflow should be available in the rest of the current nanoflow. If **Use return value** is set to *Yes*, you will need to fill in the [name](#name) of the variable, object, or list returned by the activity.
+这个属性决定是否应该在当前纳米调节的其余部分提供来自所谓纳米调节器的返回值。 如果 **使用返回值** 设置为 *是*, 您需要填写活动返回的变量、对象或列表的 [名称](#name)。
 
-### 3.5 Variable Name, Object Name, or List Name {#name}
+### 3.5 变量名称、对象名称或列表名称 {#name}
 
-The name of the variable, list, or object returned by the activity.
+活动返回的变量、列表或对象的名称。
 
-## 4 Common Section {#common}
+## 4 共同部分 {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
