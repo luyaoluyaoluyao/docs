@@ -1,24 +1,24 @@
 ---
-title: "Workflow Activities"
-parent: "activities"
+title: "ワークフローのアクティビティ"
+parent: "アクティビティ"
 tags:
   - "studio pro"
-  - "microflow"
-  - "workflow"
-  - "workflow activities"
+  - "マイクロフロー"
+  - "ワークフロー"
+  - "ワークフローアクティビティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The activities described in this document are in the **Workflow Activities** section of the **Toolbox**.
+このドキュメントで説明されているアクティビティは、 **ツールボックス** の **ワークフロー活動**セクションにあります。
 
-The following are the workflow activities you can use in your microflow:
+以下は、マイクロフローで使用できるワークフローアクティビティです。
 
-* [Complete user task](complete-task) – sets which outcome the specified [user task](user-task) should follow
-* [Show user task page](show-task-page) – opens a user task page specified in [user task properties](user-task)
-* [Show workflow admin page](show-workflow-page) – opens a workflow overview page
-* [Workflow call](workflow-call) – calls a workflow
+* [ユーザー タスクを完了する](complete-task) - 指定された [ユーザー タスク](user-task) に従うべき結果を設定する
+* [ユーザータスクページ](show-task-page) を表示 – [ユーザータスクプロパティ](user-task) で指定されたユーザータスクページを開く
+* [Show workflow admin page](show-workflow-page) – Open a workflow overview page
+* [ワークフローコール](workflow-call) – ワークフローを呼び出す
 
-## 2 Read More
+## 2 続きを読む
 
-* [Activities](activities)
+* [アクティビティ](アクティビティ)
