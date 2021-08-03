@@ -1,6 +1,8 @@
 ---
 title: "Order By Behavior"
 parent: "data-storage"
+tags:
+  - "studio pro"
 menu_order: 20
 ---
 
@@ -14,11 +16,11 @@ However, in certain cases, the behavior is slightly different, either due to the
 
 When a column is used to display an attribute from an entity associated by a many-to-many association, the sorting will rely on the SQL `MIN()` function to determine the `MIN(attribute)` values and use those instead of the displayed text.
 
-Below is an example that uses the `Order` and `Product` entities, which have a mny-to-many association. The **Product Names** column in the data grid displays for each order the names of the products that are associated to it:
+Below is an example that uses the `Order` and `Product` entities, which have a many-to-many association. The **Product Names** column in the data grid displays for each order the names of the products that are associated to it:
 
-![](attachments/datastorage/sorting-reference-sets.png)
+![](attachments/runtime/sorting-reference-sets.png)
 
-Sorting the **Product Names** column will use the underlined values and not the displayed text. These values are the result of `MIN(productName)` for each order.
+Sorting the **Product Names** column will use the underlined values and not the displayed text. These values are the result of `MIN(productName)` for each Order.
 
 ## 3 NULL Values Order Behavior {#null-ordering-behavior}
 
@@ -32,7 +34,7 @@ If you specify the `ORDER BY` clause, a `NULL` value always comes first before a
 
 #### 3.1.2 MARIADB, MYSQL, SAP HANA & SQLSERVER
 
-If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. Using the `ASC` order, a `NULL` value comes first before any non-`NULL` value. Using the `DESC` order, the `NULL` comes last.
+If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. Using the `ASC` order, a `NULL` value comes before any non-`NULL` value. Using the `DESC` order, the `NULL` comes last.
 
 #### 3.1.3 DB2, ORACLE & POSTGRESQL
 
@@ -42,9 +44,9 @@ If you specify the `ORDER BY` clause, `NULL` values by default are ordered as mo
 
 This table presents the `NULLs` default sort ordering provided by different database types:
 
-| NULL Ordering Behavior/ Database Types | MARIADB/MYSQL | SQLSERVER | HSQLDB | DB2 | ORACLE | POSTGRESQL |
-| -------------------------------------- | ------------- | --------- | ------ | --- | ------ | ---------- |
-| **ASC NULLS FIRST**                    | ✔             | ✔         | ✔      |     |        |            |
-| **ASC NULLS LAST**                     |               |           |        | ✔   | ✔      | ✔          |
-| **DESC NULLS FIRST**                   |               |           | ✔      | ✔   | ✔      | ✔          |
-| **DESC NULLS LAST**                    | ✔             | ✔         |        |     |        |            |
+| NULL Ordering Behavior/Database Types | DB2 | HSQLDB | MARIADB/ MYSQL | ORACLE | POSTGRESQL | SAP HANA | SQL SERVER |
+| -------------------------------------:|:---:|:------:|:--------------:|:------:|:----------:|:--------:|:----------:|
+|                   **ASC NULLS FIRST** |     |   ✔    |       ✔        |        |            |    ✔     |     ✔      |
+|                    **ASC NULLS LAST** |  ✔  |        |                |   ✔    |     ✔      |          |            |
+|                  **DESC NULLS FIRST** |  ✔  |   ✔    |                |   ✔    |     ✔      |          |            |
+|                   **DESC NULLS LAST** |     |        |       ✔        |        |            |    ✔     |     ✔      |
