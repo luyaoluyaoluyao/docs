@@ -1,36 +1,36 @@
 ---
-title: "Developing Hybrid Mobile Apps"
-category: "Mobile Development"
+title: "ハイブリッドモバイルアプリの開発"
+category: "モバイル開発"
 aliases:
-  - /refguide7/Developing+Hybrid+Mobile+Apps.html
+  - /ja/refguide7/Developing+Hybrid+Mobile+Apps.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix apps can simply be viewed in mobile web browsers. However, some features of mobile devices cannot be accessed through HTML and JavaScript. Also, if you want to publish your app on the Apple App Store, Google Play, or Microsoft Phone Store, you have to wrap your app in a native shell. We use [PhoneGap](http://phonegap.com/) to do this. PhoneGap creates a native wrapper around a web application and provides access to native functions through a JavaScript API.
+MendixアプリはモバイルWebブラウザで簡単に表示できます。 しかし、モバイルデバイスの一部の機能はHTMLやJavaScriptではアクセスできません。 また、Apple App Store、Google Playでアプリを公開したい場合もあります。 またはMicrosoft Phone Storeでは、アプリをネイティブシェルでラップする必要があります。 これを行うには [PhoneGap](http://phonegap.com/) を使用します。 PhoneGap は、Web アプリケーションの周りにネイティブラッパーを作成し、JavaScript API を介してネイティブ関数へのアクセスを提供します。
 
-These apps are also called "hybrid" apps because they are a hybrid of a web and a native app. Mendix facilitates the creation of hybrid mobile apps in a number of ways.
+これらのアプリは、ウェブとネイティブアプリのハイブリッドであるため、「ハイブリッド」アプリとも呼ばれます。 Mendixは、さまざまな方法でハイブリッドモバイルアプリの作成を容易にします。
 
-## 2 The Mendix Mobile App
+## 2 Mendix モバイルアプリ
 
-While developing a hybrid mobile app, you can quickly preview it in in the browser by using the **View Hybrid Phone App Online** or **View Hybrid Tablet App Online** from the toolbar or through the **Run** menu.
+ハイブリッドモバイルアプリの開発 ツールバーまたは **** **ハイブリッドタブレットアプリオンラインを表示** または **** メニューを使用して、ブラウザで素早くプレビューできます。
 
-However, when you use native widgets on your hybrid pages, some of these widgets might not work in the browser. Some of these widgets will offer an alternative implementation for when they are running in an ordinary browser; others will not work at all. To see what your app will look like inside the PhoneGap wrapper, you can use the Mendix Mobile app. In the Desktop Modeler, you can reach the hybrid mobile app dialog box via **View in the Mendix App** in the toolbar or through the **Run** menu. It shows a QR code that can be scanned with that app. This is a quick way to load your app into a PhoneGap compatible environment.
+ただし、ハイブリッドページでネイティブウィジェットを使用する場合、これらのウィジェットの一部がブラウザで動作しない場合があります。 これらのウィジェットの中には、通常のブラウザで動作している場合に代替の実装を提供するものがあります。他のウィジェットはまったく動作しません。 PhoneGap ラッパー内でアプリがどのように見えるかを確認するには、Mendix Mobile アプリを使用できます。 デスクトップ モデラーで ツールバーの **メニュー App の** ビューまたは **** メニューから、ハイブリッド・モバイル・アプリのダイアログ・ボックスにアクセスできます。 それはそのアプリでスキャンすることができるQRコードを表示します。 これは、PhoneGap 互換環境でアプリケーションを読み込むための迅速な方法です。
 
 ![](attachments/Developing+Hybrid+Mobile+Apps/View_Hybrid_Mobile_App_Popup.png)
 
-For more information about how to download the Mendix Mobile app, see [Getting the Mendix Mobile App](getting-the-mendix-app).
+Mendix Mobile アプリのダウンロード方法については、 [Mendix Mobile App の取得](getting-the-mendix-app) を参照してください。
 
 {{% alert type="warning" %}}
 
-Your mobile device has to be on the same network as your development machine for the Mendix Mobile app to work. If this is the case and the connection still fails, make sure that communication between devices is allowed in the Wi-Fi access point.
+Mendix Mobileアプリを動作させるには、モバイルデバイスが開発マシンと同じネットワーク上にある必要があります。 この場合でも接続に失敗する場合は、Wi-Fiアクセスポイントでデバイス間の通信が許可されていることを確認してください。
 
 {{% /alert %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Mobile](mobile)
-* [Getting the Mendix Mobile App](getting-the-mendix-app)
-* [Customizing Hybrid Mobile Apps](customizing-hybrid-mobile-apps)
-* [Packaging Hybrid Mobile Apps](packaging-hybrid-mobile-apps)
+* [モバイル](モバイル)
+* [Mendix モバイルアプリの取得](getting-the-mendix-app)
+* [ハイブリッドアプリのカスタマイズ](customizing-hybrid-mobile-apps)
+* [ハイブリッドアプリのパッケージ](packaging-hybrid-mobile-apps)
 
