@@ -1,37 +1,37 @@
 ---
-title: "Numeric Formatting"
-parent: "consumed-web-services"
+title: "数字格式"
+parent: "已消耗的网络服务"
 tags:
   - "studio pro"
 ---
 
-## 1 Behavior in Your Mendix Application
+## Mendix 应用程序中的行为
 
-A number will be translated into XML untouched, except that any trailing zeroes will be stripped and the representation will always be in non-scientific notation. The rounding mode used is configured in the [App Settings](project-settings).
+一个数字将被翻译成XML，除非任何尾随零将被删除，表示将始终使用非科学标记。 所使用的舍入模式在 [应用设置](project-settings) 中配置。
 
 ## 2 XML Schema Facets
 
-How numbers in XML should be represented can be specified in an XSD (or WSDL) by using schema facets.
+使用 schema 约束面可以在 XSD (或WSDL) 中指定如何表示XML 中的数字。
 
-Mendix currently supports `totalDigits` and `fractionDigits` for numeric elements:
+Mendix 目前支持 `totalDigits` and `fractionDigits` 用于数字元素：
 
-* `totalDigits` -  defines the maximum number of digits in the number (excluding the dot and minus sign)
-*  `fractionDigits` - defines the maximum number of digits after the decimal dot
+* `总计数字` - 定义数字中的最大数字数(不包括点和减号)
+*  `分数` - 定义小数点后的最大数字数
 
-This means that if a number is encountered that does not match the required output format,  it will be rounded it so it does match. If it is not possible to represent the number correctly by formatting the number, then it will simply be put in the XML as is. For example, an XSD specifies a maximum amount of digits of 3, but the number is 1000.
+这意味着，如果遇到一个不符合要求的输出格式的数字，它将被四舍五入，所以它是匹配的。 如果无法通过格式化数字来正确地代表数字，那么它就会像现在一样简单地放入XML。 例如，一个 XSD 指定的最大数字为3位，但数字为1000。
 
-Mendix does not enforce compliance to these restrictions unless **Validate against WSDL** is enabled in web service calls or **Validate against schema** is enabled in XML export actions.
+Mendix 不强制遵守这些限制，除非在 web 服务通话中启用 **验证 WSDL** 或 **在 XML 导出操作中启用针对schema** 的验证。
 
-| Orginal Value | Total Digits | Fraction Digits | Formatted Value       | Comment                                             |
-| ------------- | ------------ | --------------- | --------------------- | --------------------------------------------------- |
-| 20.0055       | 3            | Undefined       | 20                    |                                                     |
-| 20.0055       | Undefined    | 3               | 20.006                |                                                     |
-| 0.0           | Undefined    | Undefined       | 0                     |                                                     |
-| 110.9555      | 5            | 3               | 110.96                |                                                     |
-| -110.9555     | 5            | 3               | -110.96               |                                                     |
-| 0.0000001     | Undefined    | 6               | 0                     |                                                     |
-| 99.99         | 3            | Undefined       | 100                   |                                                     |
-| 99.99         | 2            | Undefined       | 99.99                 | Not possible to format correctly, so left untouched |
-| 999.99        | 2            | 1               | 999.99                | Not possible to format correctly, so left untouched |
-| 1.19E-17      | Undefined    | Undefined       | 0.0000000000000000119 |                                                     |
+| 垂直值       | 总数字 | 分数数字 | 格式化值                  | 评论             |
+| --------- | --- | ---- | --------------------- | -------------- |
+| 20.0055   | 3   | 未定义  | 20                    |                |
+| 20.0055   | 未定义 | 3    | 20.006                |                |
+| 0.0       | 未定义 | 未定义  | 0                     |                |
+| 110.9555  | 5   | 3    | 110.96                |                |
+| -110.9555 | 5   | 3    | -110.96               |                |
+| 0.0000001 | 未定义 | 6    | 0                     |                |
+| 99.99     | 3   | 未定义  | 100                   |                |
+| 99.99     | 2   | 未定义  | 99.99                 | 无法正确格式化，因此未触摸。 |
+| 999.99    | 2   | 1    | 999.99                | 无法正确格式化，因此未触摸。 |
+| 1.19E-17  | 未定义 | 未定义  | 0.0000000000000000119 |                |
 
