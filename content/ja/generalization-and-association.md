@@ -10,11 +10,15 @@ tags:
   - "一般化"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/generalization-and-association.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 場合によっては、別のモジュールで使用されるエンティティに情報を追加したい場合があります。 おそらくMendixマーケットプレイスからインポートされたモジュールです。 エンティティをカスタマイズしたくない場合、モジュールの更新バージョンを取得できなくなります。 別の場合には、エンティティのオブジェクトに追加情報を追加する場合がありますが、他のオブジェクトには追加情報を追加しない場合があります。 これらの場合、2つの方法があります: **一般化** (または、 *継承* と呼ばれることが多い) と **関連エンティティ**。
 
-Mendixの開発者は、継承または関連付けを使用するかどうかを日常的に選択する必要があります。 ほとんどのアプリで発生する1つの例は、ユーザーをどのように設定するかを決めることです。 管理モジュールで既に利用可能なアカウントエンティティを使用し続けますか？ または、ユーザーアカウントとの1対1の関連を持つ別々のエンティティで作業しますか? または、 **System.User** から継承された(複数)エンティティを追加しますか？ この場合、システムに直接追加情報を追加するのは悪い方法です。 実際には、メンディックスはあなたがそうすることを防いでいます。
+Mendixの開発者は、継承または関連付けを使用するかどうかを日常的に選択する必要があります。 ほとんどのプロジェクトで発生する1つの例は、ユーザーの設定方法を決定することです。 管理モジュールで既に利用可能なアカウントエンティティを使用し続けますか？ または、ユーザーアカウントとの1対1の関連を持つ別々のエンティティで作業しますか? または、 **System.User** から継承された(複数)エンティティを追加しますか？ この場合、システムに直接追加情報を追加するのは悪い方法です。 実際には、メンディックスはあなたがそうすることを防いでいます。
 
 密接に関連する構造を定義する場合、最良のアーキテクチャを決定することは困難です。 エンティティは基底構造から継承する必要がありますか、それともむしろ1対1の関連を使用する必要がありますか? アプリケーションのパフォーマンスや開発速度に大きな影響を与える可能性があるため、両方のオプションを検討する必要があります。
 
@@ -24,7 +28,7 @@ Mendix ドメインモデルは [UML](http://en.wikipedia.org/wiki/Class_diagram
 
 ![一般化表記の例](attachments/domain-model/generalization-indication.png)
 
-UML では、 [Aggregation](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) や [Composition](http://en.wikipedia.org/wiki/Object_composition) などの関連タイプを指定することもできます。 これらの関連付けの定義は、オブジェクトが互いに存在しないことができるかどうかを指定します。 UMLとは異なり、私たちは関係がどれほど強いかを指定することはできません。 2つのオブジェクト間の依存関係は、 [イベント microflow](/refguide/event-handlers) または [delete behavior/prevention](/refguide/association-properties#delete-behavior) を使用して指定する必要があります。
+UML では、 [Aggregation](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) や [Composition](http://en.wikipedia.org/wiki/Object_composition) などの関連タイプを指定することもできます。 これらの関連付けの定義は、オブジェクトが互いに存在しないことができるかどうかを指定します。 UMLとは異なり、私たちは関係がどれほど強いかを指定することはできません。 2つのオブジェクト間の依存関係は、 [イベント microflow](/refguide8/event-handlers) または [delete behavior/prevention](/refguide8/association-properties#delete-behavior) を使用して指定する必要があります。
 
 ### 2.1 パフォーマンス
 
