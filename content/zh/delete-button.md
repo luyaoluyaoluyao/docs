@@ -1,23 +1,23 @@
 ---
-title: "Delete button"
-parent: "control-bar"
+title: "删除按钮"
+parent: "控制栏"
 ---
 
 {{% alert type="info" %}}
 
-This button was removed in Mendix 7.17. Use a normal [Action button](action-button) instead.
+此按钮已在 Mendix 7.17中删除。 使用普通的 [动作按钮](action-button) 代替。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The delete button allows end-users to delete objects from the database that are selected in the grid, or in the reference set selector. If this button is placed on a reference set selector it will delete both the references, and the referred objects from the database. If you only want the references to be deleted, then you should use a [Remove button](remove-button).
+删除按钮允许最终用户从网格或参考集选择器中选择的数据库中删除对象。 如果此按钮放在参考集选择器上，它将从数据库中删除引用和所引用的对象。 如果你只想删除引用，那么你应该使用 [删除按钮](remove-button)。
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -27,14 +27,14 @@ The delete button allows end-users to delete objects from the database that are 
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-## Visibility properties
+## 可见性属性
 
 {{% alert type="info" %}}
-Conditional visibility settings were added in version 5.10.0.
-{{% /alert %}}
+5.10.0版本中添加了条件可见设置。
+{{% /报警 %}}
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Extended.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Extened.md" %}}
