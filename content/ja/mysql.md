@@ -1,39 +1,39 @@
 ---
 title: "MySQL/MariaDB"
-parent: "data-storage"
+parent: "データストレージ"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-There are some extra considerations you need to take into account if you are implementing a Mendix app using a MySQL or MariaDB database. In addition, the behavior of Mendix using a MySQL or MariaDB database has some minor differences when compared with using a PostgreSQL database.
+MySQLまたはMariaDBデータベースを使用してMendixアプリケーションを実装する場合は、いくつかの追加の考慮事項があります。 また、MySQLまたはMariaDBデータベースを使用したMendixの動作には、PostgreSQLデータベースの使用と比較していくつかの微妙な違いがあります。
 
-These considerations and differences are documented below.
+これらの考慮事項と相違点は以下のとおりです。
 
-## 2 Storage Engine
+## 2つのストレージエンジン
 
-Mendix only supports the InnoDB storage engine, with row-based logging enabled.
+MendixはInnoDBストレージエンジンのみをサポートし、行ベースのログを有効にします。
 
-## 3 Transaction Isolation
+## 3 トランザクションの分離数
 
-Mendix uses the `Read Committed` transaction isolation level by default. Only row-based logging can be used in the case of this transaction isolation level. You should set the `binlog_format` database configuration value to `ROW` or `MIXED`. For more information, see [`binlog_format` for MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) or [`binlog_format` for MariaDB](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format).
+Mendixはデフォルトで `Read Committed` トランザクション分離レベルを使用します。 行ベースのログは、このトランザクション分離レベルの場合にのみ使用できます。 `binlog_format` データベース設定値を `ROW` または `MIXED` に設定する必要があります。 詳細については、MariaDB [の``](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) または [`binlog_format`](https://mariadb.com/kb/en/mariadb/replication-and-binary-log-server-system-variables/#binlog_format) を参照してください。
 
-## 4 SAVEPOINT Exception Does Not Exist
+## 保存例外が4つ存在しません
 
-If you receive a `SAVEPOINT unnamed does not exist` exception, a deadlock has occurred. Mendix cannot correctly handle this situation because MySQL/MariaDB automatically rolls back the transaction and removes all the save points for that transaction. Mendix tries to roll back to a specific save point, but that is not allowed anymore by MySQL and MariaDB. Avoiding deadlocks by keeping transactions as short as possible is advised.
+`SAVEPOINT という名前のない` を受け取った場合、例外は存在しません。デッドロックが発生しました。 MySQL/MariaDBは自動的にトランザクションをロールバックし、そのトランザクションのすべてのセーブポイントを削除するため、Mendixはこの状況を正しく処理できません。 Mendixは特定のセーブポイントにロールバックしようとしますが、MySQLとMariaDBではそれはもう許可されていません。 可能な限りトランザクションを短縮してデッドロックを回避することをお勧めします。
 
-## 5 Time Zone Support
+## 5つのタイムゾーンサポート
 
-Mendix supports functionality to extract a part of a date and time in a query. In XPath, you can use functions like [`hours-from-dateTime`](xpath-hours-from-datetime) and [`week-from-dateTime`](xpath-week-from-datetime). In OQL, you can use functions like [`DATEPART(..)`](oql-datepart) and [`DATEDIFF(..)`](oql-datediff).
+Mendixは、クエリで日付と時刻の一部を抽出する機能をサポートしています。 XPathでは、 [`hours-from-dateTime`](xpath-hours-from-datetime) や [`week-from-dateTime`](xpath-week-from-datetime) のような関数を使用できます。 OQL では、 [`DATEPART(..)`](oql-datepart) や [`DATEDIFF(..)`](oql-datediff) のような関数を使用できます。
 
-In Mendix, DateTimes are stored in the UTC time zone. For these functions to work correctly, it is important that the database supports converting dates and times from UTC to another time zone. If this is not possible, the functions will operate on the date and time in the UTC time zone. That can lead to incorrect results if the user expects the date to work in their time zone.
+Mendix, DateTimesはUTCタイムゾーンに保存されます。 これらの関数が正しく動作するためには、データベースがUTCから別のタイムゾーンに日付と時刻を変換することが重要です。 これが不可能であれば、関数はUTCタイムゾーンの日付と時刻で動作します。 これは、ユーザーが日付が自分のタイムゾーンで動作することを期待する場合、誤った結果をもたらす可能性があります。
 
-MySQL does not fully support time zone conversion out-of-the-box. You have to fill in some time zone tables (for more details, see [10.6 MySQL Server Time Zone Support](http://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html)). You do not have to do this if you do not use this sort of function in your queries, or if you always want to work with UTC dates and times.
+MySQLは、すぐに使えるタイムゾーン変換を完全にサポートしていません。 タイムゾーン表を入力する必要があります(詳細については、 [10.6 MySQL Server Time Zone Support](http://dev.mysql.com/doc/refman/5.5/en/time-zone-support.html) を参照してください)。 クエリでこの種の関数を使用しない場合は、これを行う必要はありません。 または常にUTCの日付と時刻を使用したい場合。
 
-MariaDB supports an identical configuration for time zone conversions.
+MariaDBは、タイムゾーン変換のための同一の構成をサポートしています。
 
-## 6 Database Creation
+## 6データベース作成
 
-To create a new MySQL database, the user must have enough access rights to be able to create a database.
+新しいMySQLデータベースを作成するには、ユーザーがデータベースを作成できるように十分なアクセス権を持つ必要があります。
