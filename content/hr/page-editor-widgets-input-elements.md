@@ -94,37 +94,44 @@ This property only appears if **Show Label** is enabled. Specify the name that w
 
 Editability indicates whether the end-user will be able to change the value displayed by the widget. Possible values are the following:
 
-* **Editable** – The value displayed by the widget is editable.
+* **Editable** – the value displayed by the widget is editable.
 
-* **Read-Only** – The value is in read-only mode.
+* **Read-only** – the value is in read-only mode.
 
-* **Conditional** – The widget is editable only if specified conditions are met based on an attribute value or based on an expression.
+* **Conditional** – the widget is editable only if specified conditions are met based on an attribute value (for more information, see  [Attribute-Based](#attribute-based) and [Attribute Values](#attribute-values) sections below) or based on an expression. You can create a condition based on an expression in Studio Pro only (for details, see the [Editability Section](/refguide8/common-widget-properties#editability) in *Properties Common in the Page Editor*)
 
-    {{%alert type="info" %}} If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.{{%/alert %}}
+    {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
+
+    {{%/alert %}}
 
 
-##### 3.3.3.1 Condition Based on {#condition}
+#### 3.3.4 Attribute-Based {#attribute-based}
 
-The **Condition Based on** property is only shown when [Conditional Editability](#editability) is selected. The following options are available:
+The **Attribute-Based** property is only shown when [Conditional Editability](#editability) is selected.
 
-* **Attribute** – Defines whether the condition is based on the attribute value. In this case the widget will be editable only when it matches a certain value of the selected attribute. The attribute must be of the Boolean or enumeration type.
-* **Expression** – Defines whether the condition is based on the expression. In this case the widget will be editable only when the expression returns the Boolean value `true`. For more information on expressions, see [Expressions](expressions).
+**Attribute-Based** conditional editability allows you to show widgets only when they match a certain value of the selected attribute.
 
-##### 3.3.3.2 Attribute {#attribute}
+{{%alert type="info" %}}
 
-This property is shown only when the expression the [Condition Based on](#condition) is set to **Attribute**. Allows you to select the attribute the condition will be based on. The attribute must be of the Boolean or enumeration type.
+The attribute must be of the Boolean or enumeration type.
 
-##### 3.3.3.3 Attribute Values {#attribute-values}
+{{%/alert %}}
 
-This property is shown only when the attribute is selected for the [Attribute](#condition) property. The **Attribute Values** property allows you to select certain attribute values.
+{{%alert type="info" %}}
 
-For example, you would like to make the **City** field editable only when users fill the **Country** field in, because you can deliver your products to a limited number of countries. So, you need to select *Country* in the **Attribute** property and *Netherlands*, *Belgium*, *Germany*, *France* in the **Attribute Value** property.
+You can only configure attribute-based conditional editability when a widget is placed in a data container: a data view or a list view. For more information on how to place widgets on a page, see [Adding Elements on a Page](page-editor#adding-elements) section in *Pages*.
 
-##### 3.3.3.4 Expression
+{{%/alert %}}
 
-This property allows you to create an expression and shown only when the expression the [Condition Based on](#condition) is set to **Expression**. The expression should be of the Boolean type. For more information on how to create expressions, see [Expressions](expressions).
+#### 3.3.5 Attribute Values {#attribute-values}
 
-#### 3.3.4 Specific Properties
+This property is shown only when an attribute in the [Attribute-Based](#attribute-based) property is selected. The **Attribute Values** property allows you to select certain attribute values.
+
+For example, you would like to make the **City** field editable only when users fill the **Country** field in, because you can deliver your products to a limited number of countries. So, you need to select *Country* in the **Attribute-Based** property and *Netherlands*, *Belgium*, *Germany*, *France* in the **Attribute Value** property:
+
+![](attachments/page-editor-widgets-input-elements/attribute-based-editability.png)
+
+#### 3.3.6 Specific Properties
 
 Specific properties of the input elements are described in the table below:
 
