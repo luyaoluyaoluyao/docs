@@ -1,33 +1,52 @@
 ---
 title: "域模型"
-category: "桌面模型"
+category: "应用程序模型"
+menu_order: 30
 tags:
   - "域模型"
   - "实体"
   - "关联"
   - "注释"
+  - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/domain-model.pdf)。
+{{% /报警 %}}
 
-域模型是一个数据模型，以抽象的方式描述您应用程序域中的信息。 它是您应用程序架构的核心。 域模型由 [entities](entities) 及其由 [associations](associations) 所代表的关系。
+## 1 导言
 
-这是一个定义客户和订单的域模型。 它们之间的界线是一个协会。 “客户”和“订单”是实体的名称。 实体名称下面的词是实体的属性。
+**域模型** 是一个抽象描述您应用程序使用的信息(或 *数据*)的模型。 它是您应用程序架构的核心。 每个 [模块](modules) 有自己的域模型来描述该模块中使用的数据。 应用程序中的所有模块都可以使用应用程序中所有域模型的数据。
 
-![](attachments/domain-model-editor/917531.png)
+一个域模型由 [个实体](entities) 组成，它们与其他实体的关系由 [associations](associations) 代表。 您还可以将 [个注释](annotations) 添加到您的域模型中，以解释如何使用它。
 
-## 组件
+下面是定义客户和订单的域模型。 实体名称是 `客户` 和 `订单`。 它们之间的界线是一个协会。 `订单客户`。 一个客户可以有很多订单，但每个订单是针对一个客户的。 Within the boxes representing the entities you can see the [attributes](attributes) of the entities together with the [type](attributes#type) of data they hold. 还有 [个不可持续的](persistability) 实体。 `ProductQueryResult`, 用于记录从单独的产品系统检索到的产品信息。
 
-*   [实体](实体)
-*   [社会联系](关联)
-*   [说明](annotations)
+![带结构注释的域模型](attachments/domain-model/annotated-domain-model.png)
 
-## 技术附录
+| 元素     | 显示                                                                         |
+| ------ | -------------------------------------------------------------------------- |
+| 批注     | 解释域模型某个方面的评论                                                               |
+| 实体名称   | 如何在数据库中引用 [实体](entities)                                                   |
+| 事件处理器  | 已为此实体设置一个或多个 [事件处理程序](event-handlers)                                      |
+| 图片     | 帮助识别该实体的图像                                                                 |
+| 验证规则   | 已为此属性设置一个或多个 [验证规则](validation-rules)                                      |
+| 计算的值   | An indication that the value of this [attribute](attributes) is calculated |
+| 一个     | 表示该实体中的一个与该实体在社团另一端的数量有关。                                                  |
+| 关联名称   | 如何在数据库中引用 [关联](associations)                                               |
+| 多      | 表示其中许多实体与协会另一端的实体数量有关。                                                     |
+| 关联所有者  | 没有箭头的社团结束表明这个实体 [拥有](associations#ownership) 个社团(这两个社团也可以拥有社团)             |
+| 属性名称   | 如何在数据库中引用此属性                                                               |
+| 属性类型   | 此属性中存储的数据的 [类型](attributes#type)                                           |
+| 不可持续实体 | 这是一个没有存储在数据库中但仅暂时存储在应用程序内的实体                                               |
 
-在数据库中，每个实体都存储在一个单独的表中，并且有模型中定义的属性的列. 对象的系统属性和唯一标识符。 如果某一实体具有专业性，也有一列注明该对象属于哪一种专业化。 一个社团存放在一个交叉表中，带有这两个物件的标识符（ID）。
+## 2 执行 {#implementation}
+
+在数据库中，每个实体都存储在一个单独的表中，并且有用于Studio Pro 定义的属性的列(计算出来的属性除外)， 系统属性和唯一的对象标识符。 如果某一实体具有专业性，也有一列注明该对象属于哪一种专业化。 一个协会存放在一个带有这两个物体的标识符(ID)的交叉表中。
 
 查看下面的域模型。
 
-![](attachments/domain-model-editor/917890.png)
+![](attachments/domain-model/customer-order.png)
 
 实体“客户”存储在下面显示的表格 '模块$customer' 中。 注意来自'系统' 模块的 'system$owner' 和 'system$changedby' 列，其中包含 'User' 对象的 ID。
 
