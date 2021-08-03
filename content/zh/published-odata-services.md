@@ -1,85 +1,163 @@
 ---
 title: "发布的 OData 服务"
 parent: "集成"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/consumed-odata-services.html
+  - /refguide8/consumed-odata-services.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-odata-services.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
-在模型中，实体可以通过添加一个新发布的 OData 服务来暴露为 [OData 资源](published-odata-resource)。 您可以在发布的 OData 服务中暴露任何数量的相关资源。 默认情况下，在URI中使用非限定的实体名称来独特识别它们。 但你也可以覆盖资源的名称。
+在 Studio Pro，实体可以通过添加一个新发布的 OData 服务来暴露为 [OData 资源](published-odata-resource)。 您可以在发布的 OData 服务中暴露任何数量的相关资源。 默认情况下，在URI中使用非限定的实体名称来独特识别它们。 但你也可以覆盖资源的名称。
 
-## 2 OData Version
+Mendix 中用于OData的标准是 [OData 版本 3](http://www.odata.org/documentation/odata-version-3-0) ，默认表示设置为 Atom XML。 该标准并非所有部分都得到执行。 如果此处没有记载，则尚未添加。
 
-Mendix 中用于OData的标准是 [OData 版本 3](http://www.odata.org/documentation/odata-version-3-0)，默认表示设置为 Atom XML。 该标准并非所有部分都得到执行。 如果此处没有记载，则尚未添加。
+本文档描述了您在创建发布的 OData 服务时可用的选项，并且结束时有一些运行时的考虑。
 
-## 3 查询选项
+## 2 概况
 
-关于如何过滤OData响应的详细信息，请参阅 [OData查询选项](odata-query-options)。
-
-## 4 支持的类型
-
-关于Mendix 属性如何在 OData中表现的详情，请参阅 [OData Representation](odata-representation)。
-
-## 5 服务名称
+### 2.1 服务名称
 
 服务名称用于创建 OData 服务唯一的 URI 。 因此，服务名称应该是按照 [RFC 3986](https://tools.ietf.org/html/rfc3986) 和 [RFC 3987](https://tools.ietf.org/html/rfc3987) 格式完善的。
 
-## 6 资源
+### 2.2 版本
 
-[资源](published-odata-resource) 是一个可通过网络访问的数据对象，代表一个经URI确认的实体。 您可以从 **资源** 选项卡中添加、编辑或删除资源及其独特的标识符。
+使用 **版本** 字段为服务分配一个版本号。 此号码将显示在 API 文档中。
 
-## 7 个服务命名空间
+### 2.3 命名空间
 
 在OData中，命名空间用于指数据类型。 在 **设置** 标签页上，您可以自定义这个命名空间。 您可以将它更改为任何以字母、数字或点开头，最大长度为512个字符的值。
 
-## 8 业绩
+### 2.4 资源
 
-当通过 OData曝光实体时，实体将以流媒体方式从 Mendix 数据库中检索，以避免Mendix 运行时出现内存错误。
+[资源](published-odata-resource) 是一个可通过网络访问的数据对象，代表一个经URI确认的实体。
 
-## 9个协会
+## 3 个设置
+
+### 3.1 社会联系
 
 您可以选择代表关联的方式。 欲了解更多信息，请参阅 *OData Representation的 [Associations](odata-representation#associations) 部分*。
 
-## 10 security
+### 3.2 安全 {#security}
 
-能消耗Mendix中的OData， 您需要有两种访问权：访问OData服务的权利以及对您正在检索的特定实体的权利。 只要关联的用户角色同时可以访问OData服务和实体，就可以通过认证或匿名用户授予访问权限。
+当 [项目安全](project-security) 启用时，您可以配置OData服务的安全性。
 
-### 10.1 经认证的访问
+#### 3.2.1 需要身份验证 {#authentication}
+
+{{% alert type="info" %}}
+
+**无身份验证** 功能是在版本 8.0.0 中引入的。 在以前的版本中，它总是 **用户名和密码**。
+
+**主动会话** and **自定义** 认证也被引入到版本 8.0.0.0。
+
+{{% /报警 %}}
+
+选择客户端是否需要身份验证。 选择 _无_ 允许访问资源不受限制。 选择 _是_ 以便能够选择支持哪些认证方法。
+
+即使您选择 _是_，您仍然可以向匿名用户暴露OData资源。 关于允许匿名用户的详细信息，请参阅 [匿名用户角色](anonymous-users)。
+
+#### 3.2.2 认证方法
+
+如果需要身份验证，您可以选择您想要支持的验证方法。
+
+* 选择 **用户名和密码** 以允许客户端在 **授权中使用用户名和密码进行身份验证** (这被称为“基本认证”)
+* 选择 **活动会话** 允许您当前应用程序中的 JavaScript 访问
+* 选择 **自定义** 来验证微流程(每次用户想访问资源时都调用这个微流程)
+
+检查多个身份验证方法使服务尝试每个方法。 先尝试 **自定义** 身份验证，然后 **用户名和密码**然后 **活动会话**。
+
+##### 3.2.2.1 用户名 & 密码 {#username-password}
 
 可以通过在通话的 HTTP 头中包含基本身份验证来完成身份验证。 为了做到这一点，您需要构建一个叫做 **Authority** 的头，并且其内容应该按以下方式构建：
 
-1.  用户名和密码合并为字符串 "username: password"
-2.  生成的字符串然后使用Base64的 [RFC2045-MIME](https://tools.ietf.org/html/rfc2045) 变体编码，但不限于76 个字符/行
+1.  用户名和密码合并为字符串"username: password"。
+2.  生成的字符串然后使用Base64的 [RFC2045-MIME](https://tools.ietf.org/html/rfc2045) 变体编码（但不限于76个字符/线）。
 3.  授权方法和单个空格(意思是“基本”，然后放在编码字符串之前)。
 
 这个结果是一个看起来像 `认证：基本的 QWxhZGRpbjpvcGVuIHNlc2FtZQ==` 的标题。
 
-### 10.2 匿名访问
+##### 3.2.2.2 有效会议 {#authentication-active-session}
 
-启用项目安全后，OData资源仍然可以向匿名用户曝光。 关于允许匿名用户的详细信息，请参阅 [匿名用户角色](anonymous-users)。
+当您选中此身份验证方法时，您的应用程序中的 JavaScript 可以使用当前用户的会话访问REST 服务。
 
-### 10.3 项目安全关闭
+为了防止跨网站请求的伪造，需要在每个请求上设置 `X-Csrf-Token` 标题，例如：
 
-如果项目安全性被关闭，为了调试目的，您可以检索所有数据，而无需进行身份验证，也无需应用任何安全保障。 这在生产环境中是不可能的。
+```
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", "http://mysite/odata/myservice/myresource", false);
+xmlHttp.setRequestHeader("X-Csrf-Token", mx.session.getConfig("csrftoken");
+xmlHttpsend(null);
+```
 
-### 10.4 基于角色的访问
+##### 3.2.2.3 自定义 {#authentication-microflow}
 
-如果启用了安全性，需要配置哪些用户有权访问特定的 OData 服务文档。 可以通过打开特定发布的OData服务文档来做到这一点。 导航到设置选项卡并更改安全部分中允许的角色。 默认情况下，没有选择允许的用户角色。 安全设置在 [模块安全](module-security) 中得到反映。
+指定用于自定义身份验证的微流。
 
-![](attachments/16713721/16843927.png)
+微流可能需要一个 [HttpRequest](http-request-and-response-entities#http-request) 作为参数，所以它可以检查传入的请求。
 
-### 10.5 警卫是如何工作的
+微流也可以使用 [HttpResponse](http-request-and-response-entities#http-response) 作为参数。 当微流程将此响应的状态代码设置为其他位置时， **200**， 此值已返回，操作将不会被执行。 在响应中设置的任何头都会返回(除非微流程返回一个空用户)。
 
-1.  通常客户端发出初始匿名请求。 然后将匿名请求与OData服务进行验证。 如果不给予相应的OData服务匿名访问， 服务器将返回错误代码401(未经授权)，响应将包含WW-Authenticate 头部指示客户端进行基本身份验证。
-2.  如果客户没有提供正确的凭据或根本没有提供基本的身份验证， 服务器返回错误代码 401 (未经授权) 和 WWW-Authenticate 头像上一步一样。
-3.  如果客户端被允许访问(要么匿名访问，要么通过基本身份验证)， 客户端访问权限将根据OData资源的安全配置进行检查。 所有可访问的资源都在附加 `/$metadata` 的服务 root URL下可用的元数据XML 文档中描述。
-4.  每次客户端调用OData服务，无论是服务描述， 或元数据，或资源，将重新评估认证信息。
+身份验证microflow 应返回用户。
 
-### 11 API 文档
+认证微流有三个可能的结果：
+
+  * 当HttpResponse 参数的状态代码被设置为其它位置则为 **200**此值已返回，操作将不会执行
+  * 当产生的用户不是空的时候，操作将在该用户的上下文中执行
+  * 当生成的用户为空时，将尝试下一个身份验证方法(当没有其他身份验证方法时) 结果是 **404 找不到**)
+
+#### 3.2.3 允许的角色
+
+允许的角色定义用户必须能够访问服务的 [模块角色](module-security#module-role)。 此选项仅在 **需要身份验证** 设置为 **是** 时才可用。
+
+{{% alert type="warning" %}}
+网络服务用户不能访问 OData 服务。
+{{% /报警 %}}
+
+## 4 属性
+
+在发布的 OData 服务的属性窗格中，您可以编辑一些您也可以在 *常规* 标签中设置的属性， 例如： *服务名*, *版本*, 和 *命名空间*.
+
+本节描述您可以设置的附加属性。
+
+### 4.1 文件
+
+您可以在这里描述服务的目的。 这是为其他人 在这个项目上工作，但OData服务的用户不可用。
+
+### 4.2 替换非法的 XML 字符
+
+一些特殊字符不能在 XML 中使用。 如果您的数据包含这些 个字符，客户端将出现错误。 If you set this setting to *Yes*, those illegal characters are replaced by the DEL character, and the client will not get an error. 然而，客户收到的数据将不是您数据库中存储的 ，因为这些字符已被替换。
+
+默认值： *否*
+
+此属性可在 Studio Pro 8.12.0 及以后查阅。
+
+### 4.3 公开文件
+
+您可以为使用服务的人写一个 *摘要* 和 *描述*。
+
+## 5 运行时的考虑
+
+### 5.1 概况
 
 一旦您的 OData-enabled 应用程序运行，暴露的 OData 资源的概览就可以在 root URL 上获取，然后是 `/odata-doc/`。 例如， `http://localhost:8080/odata-doc` 您可以复制并粘贴链接到例如Excel以便在您的 OData 资源和Excel之间建立链接。
 
 {{% alert type="warning" %}}
 虽然OData资源的 API 文档默认已启用，但管理员可能会限制对它的访问权限，对正在生产的应用进行限制。
 {{% /报警 %}}
+
+关于如何过滤OData响应的详细信息，请参阅 [OData查询选项](odata-query-options)。
+
+关于Mendix 属性如何在 OData中表现的详情，请参阅 [OData Representation](odata-representation)。
+
+当通过 OData曝光实体时，实体将以流媒体方式从 Mendix 数据库中检索，以避免Mendix Runtime中的内存错误。
+
+### 5.2 房地上的部署
+
+有些在主机上的服务器，尤其是那些使用微软IIS的服务器，将从主机头上取消请求。 这意味着您的 OData 服务和文档将在意外的 URL 上发布。
+
+要解决这个问题，您需要确保您的服务器保存主机头。 在 *Microsoft Windows* 部署文档中查看 [保存主机头](/developerportal/deploy/deploy-mendix-on-microsoft-windows#preserve-header) 部分。
