@@ -1,17 +1,15 @@
 ---
-title: "XPath 時間 - 日付時間"
+title: "XPath hours-from-dateTime"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
 
-`hours-from-dateTime()` 関数は、 **Date and time** 属性から hours の値を抽出し、値と比較するために使用します。
+`hours-from-dateTime()` 関数は、DateTime 属性から時間の量を抽出し、値と比較するために使用します。
 
 ## 2つの例
 
-このクエリは、 `DateAttribute` の時間部分が 8 のすべてのログを返します(例: "2011-12-30 08:00:00")。
+このクエリは、 `DateAttribute` の時間数が8であるすべてのログを返します(例えば、"2011-12-30 08:00:00")。
 
 ```java
 //Logging.Log[hours-from-dateTime(DateAttribute) = 8]
