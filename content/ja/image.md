@@ -1,125 +1,125 @@
 ---
-title: "Image"
-parent: "common-widgets"
+title: "画像"
+parent: "コモンウィジェット"
 menu_order: 20
 tags:
   - "studio pro"
-  - "image"
-  - "image widget"
+  - "画像"
+  - "画像ウィジェット"
 aliases:
-  - /refguide/image-property.html
+  - /ja/refguide/image-property.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The image widget can be used to show a static image on a page, layout, or snippet.
+イメージ ウィジェットは、ページ、レイアウト、スニペットに静的なイメージを表示するために使用できます。
 
-For example, you can configure an image clicking which a page with customer details opens:
+たとえば、お客様の詳細が開くページをクリックするイメージを構成できます。
 
-![Image Example](attachments/common-widgets/image-example.png)
+![画像の例](attachments/common-widgets/image-example.png)
 
 {{% alert type="info" %}}
 
-If you want to dynamically show different images based on data, you need to add [image viewer](image-viewer) on your page.
+データに基づいて異なる画像を動的に表示したい場合は、ページに [画像ビューアー](image-viewer) を追加する必要があります。
 
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of image properties is represented in the image below:
+以下の画像では、イメージ プロパティの例を示します。
 
-{{% image_container width="300" %}}![Image Properties](attachments/common-widgets/image-properties.png)
+{{% image_container width="300" %}}![画像のプロパティ](attachments/common-widgets/image-properties.png)
 {{% /image_container %}}
 
-Image properties consist of the following sections:
+イメージ プロパティは以下のセクションで構成されています。
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Events](events)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [イベント](イベント)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Events Section {#events}
+### 2.3 イベントセクション {#events}
 
-For information on the Events section and its properties, see [On Click Event & Events Section](on-click-event).
+イベント セクションとそのプロパティの詳細については、 [[イベント & イベント セクションをクリック] を参照してください。](on-click-event).
 
-### 2.4 General Section {#general}
+### 2.4 一般セクション {#general}
 
-#### 2.4.1 Image
+#### 2.4.1 画像
 
-The file name that this widget shows. For more information on when to use images and supported formats, see [Images](images).
+このウィジェットに表示されるファイル名 画像とサポートされているフォーマットをいつ使用するかについての詳細は、 [イメージ](images) を参照してください。
 
 #### 2.4.2 Width Unit
 
-The width of an image. Possible values of this property are described in the table below:
+画像の幅。 このプロパティの可能な値は以下の表で説明されています:
 
-| Value             | Definition                                                                                                                                                                                  |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auto  *(default)* | The width of the given image is used.                                                                                                                                                       |
-| Pixels            | he width is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched. |
-| Percentage        | The width is specified in a percentage of the original width. It can be larger than its original width in which case the image is stretched                                                 |
+| 値                 | 定義                                                                           |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Auto  *(default)* | 指定された画像の幅が使用されます。                                                            |
+| Pixels            | 幅はピクセル数で指定されています 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。 |
+| 割合                | 幅は元の幅のパーセンテージで指定されます。 画像が伸びている場合、元の幅よりも大きくすることができます。                         |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
 #### 2.4.3 Width
 
-Specifies the width of the image in pixels or percentage. This option is displayed only when **Pixels** or **Percentage** are selected for the **Width Unit** described above.
+画像の幅をピクセルまたはパーセンテージで指定します。 このオプションは、上記の **幅単位** で **ピクセル** または **パーセント** が選択されている場合のみ表示されます。
 
-Default: *not applicable*
+デフォルト: *適用できません*
 
-#### 2.4.4 Height Unit
+#### 2.4.4 高さの単位
 
-The height of an image. Possible values of this property are described in the table below:
+画像の高さ このプロパティの可能な値は以下の表で説明されています:
 
-| Value             | Definition                                                                                                                                                                                    |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Auto  *(default)* | The height of the given image is used.                                                                                                                                                        |
-| Pixels            | The height is specified in a number of pixels. If you specify both width and height, the image will be scaled automatically: the proportions will be kept, the picture will not be stretched. |
-| Percentage        | The height is specified in a percentage of the original height. It can be larger than its original height in which case the image is stretched.                                               |
+| 値                 | 定義                                                                           |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Auto  *(default)* | 指定された画像の高さが使用されます。                                                           |
+| Pixels            | 高さはピクセル数で指定されます。 幅と高さの両方を指定すると、画像は自動的にスケーリングされます。プロポーションは保持され、画像はストレッチされません。 |
+| 割合                | 高さは元の高さのパーセンテージで指定されます。 画像が伸びている場合は、元の高さよりも大きくすることができます。                     |
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-#### 2.4.5 Height
+#### 高さ 2.4.5
 
-Specifies the width of the image in pixels or percentage. This option is displayed only when **Pixels** or **Percentage** are selected for the **Width Unit** described above.
+画像の幅をピクセルまたはパーセンテージで指定します。 このオプションは、上記の **幅単位** で **ピクセル** または **パーセント** が選択されている場合のみ表示されます。
 
-Default: *not applicable*
+デフォルト: *適用できません*
 
-#### 2.4.6 Responsive
+#### 2.4.6 レスポンシブ
 
-This property influences how the image scales. If the value is 'Yes', the image will never get bigger than its original size. It can become smaller. If the value is 'No', the image can become both larger and smaller than its original size.
+このプロパティは、画像の拡大率に影響します。 値が「はい」の場合、画像は元のサイズより大きくなることはありません。 それは小さくなることができます。 値が「いいえ」の場合、画像は元のサイズより大きくなり、小さくなります。
 
-Default: *Yes*
+デフォルト: *はい*
 
-{{% alert type="info" %}}This property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}このプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-### 2.5 Visibility Section {#visibility}
+### 2.5 可視性 セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Converting to an Image Viewer
+## 3 画像ビューアへの変換
 
-You can convert an image to an image viewer that allows you to display dynamic data. For more information on image viewer and its properties, see [Image Viewer](image-viewer).
+動的なデータを表示できる画像ビューアに変換することができます。 画像ビューアとそのプロパティの詳細については、 [画像ビューアー](image-viewer) を参照してください。
 
-To convert an image widget into an image viewer, do the following:
+イメージ ウィジェットをイメージ ビューアーに変換するには、次の操作を行います。
 
-1. Select the image widget on a page and right-click it.
-2. From the list of actions, select **Convert to image viewer**.
+1. ページでイメージ ウィジェットを選択し、右クリックします。
+2. アクションのリストから、 **画像ビューアに変換** を選択します。
 
-The image widget is converted to the image viewer and you can configure it.
+イメージ ウィジェットはイメージ ビューアーに変換され、設定できます。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page](page)
-* [Common Widgets](common-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [一般的なウィジェット](コモンウィジェット)
+* [ページエディターで共通のプロパティ](common-widget-properties)
 
 
