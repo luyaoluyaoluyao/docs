@@ -1,77 +1,127 @@
 ---
-title: "解析和格式小数点函数调用"
+title: "解析 & 格式十进制函数调用"
 parent: "表达式"
+menu_order: 150
+tags:
+  - "studio pro"
+  - "表达式"
+  - "parsing"
+  - "格式化"
 ---
 
-欲了解所有模式可能性的详情，请参阅 [Class DecimalFormat](http://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html)。
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/parse-and-format-decimal-function-calls.pdf)。
+{{% /报警 %}}
 
-## parseDecimal
+## 1 导言
+
+此文档描述了解析和格式化小数函数调用。 欲了解所有模式可能性的详情，请参阅 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)。
+
+## 2 parseDecimal
 
 解析字符串值为十进制值。 允许格式和默认值的可选参数。
 
-### 输入参数
+### 2.1 输入参数
 
-* 要解析的值
-    * 类型：字符串
-* 默认值(可选)
-    * 类型：十进制或为空
+下面的表格描述了输入参数：
 
-### 产出
+| 值                                                                                                                   | 类型     |
+| ------------------------------------------------------------------------------------------------------------------- | ------ |
+| 要解析的值                                                                                                               | 字符串    |
+| 基于 Java 库的输入值格式 `十进制格式` (更多信息，请参阅 [类十进制格式](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html)) | 字符串    |
+| 默认值 **(可选)**                                                                                                        | 十进制或为空 |
 
-与输入字符串匹配的十进制值。 如果无法解析值(意指不匹配格式参数或包含非法字符)，将返回默认值。 如果没有提供默认值，则发生错误。
+### 2.2 产出
 
-* `parseDecimal('3.45')` 返回 3.45
-* `parseDecimal('noDecimal', 5.05)` 返回 5.05
-* `parseDecimal('noDecimal'，空)` 返回
+产出情况见下表：
 
-## formatDecimal
+| 值                                                                       | 类型 |
+| ----------------------------------------------------------------------- | -- |
+| 输出是一个与提供的字符串匹配的十进制值。 如果无法解析值(意指不匹配格式参数或包含非法字符)，将返回默认值。 如果没有提供默认值，则发生错误。 | 小数 |
+
+### 2.3 例子
+
+下面的示例演示你根据输入参数获得的输出：
+
+* `parseDecimal('3.45')` 返回 `3.45`
+* `parseDecimal('noDecimal', 5.05)` 返回 `5.05`
+* `parseDecimal('noDecimal', empty)` 返回 `空`
+* `parseDecimal('3,241.98', '#,##')` 返回 `3241.98`
+
+## 3 formatDecimal
 
 根据指定格式将十进制值转换为字符串值。
 
-### 输入参数
+### 3.1 输入参数
 
-* 要转换的值
-    * 类型：小数
-* 基于 Java 库的结果格式 `十进制格式` (详情，请参阅 [类十进制格式](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html))
-    * 类型：字符串
-* 结果应格式化的区域(可选)
-   * 支持的值，请参阅 [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-)
-   * 当忽略时，用户配置的区域设置已被使用
-   * 由 Mendix 7.3 支持
-   * 类型：字符串
+格式小数点的功能取决于它是用于微流还是纳米。
 
-### 产出
+#### 3.1.1 微流中输入参数
 
-在 `格式` 参数指定的格式中的十进制字符串表示.
+下面的表格描述了输入参数：
 
-* 类型：字符串
+| 值                                                                                                                                                                         | 类型  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| 要转换的值                                                                                                                                                                     | 小数  |
+| 基于 Java 库的结果格式 `十进制格式` (详情，请参阅 [类十进制格式](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html))                                                          | 字符串 |
+| 应该格式化结果的本地化 **(可选)**。 关于支持值的更多信息，见 [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-)。 如果省略，则使用用户配置的区域设置。 | 字符串 |
 
-```java
-formatDecimal(1234.56, '#,###.#')
-```
+#### 3.1.2 Nanoflow 的输入参数
 
-返回 (取决于语言设置):
+在 nanoflows 中，此函数只需要一个参数描述如下：
 
-```java
-'1,234.5' 或 '1.234,5'
-```
+| 值     | 类型 |
+| ----- | -- |
+| 要转换的值 | 小数 |
 
-```java
-formatDecimal(1234.56, '¤ #,##0.00')
-```
+### 3.2 产出
 
-返回 (取决于语言设置):
+产出情况见下表：
 
-```java
-“1.234.50欧元”或“1,234.50美元”
-```
+| 值                         | 类型  |
+| ------------------------- | --- |
+| 在 `格式` 参数指定的格式中的十进制字符串表示. | 字符串 |
 
-```java
-formatDecimal(0.56, '% ##0')
-```
+### 3.3 微流程示例
 
-返回：
+下面的例子说明表达式返回的价值：
 
-```java
-'% 56' 
-```
+* 如果您使用以下输入：
+
+    ```java
+    formatDecimal(1234.56, '#,###.#')
+    ```
+
+    输出(取决于语言设置)：
+
+    ```java
+    '1,234.5' 或 '1.234,5'
+    ```
+
+* 如果您使用以下输入：
+
+    ```java
+    formatDecimal(1234.56, '¤ #,##0.00')
+    ```
+
+    输出(取决于语言设置)：
+
+    ```java
+    “1.234.50欧元”或“1,234.50美元”
+    ```
+
+* 如果您使用以下输入：
+
+    ```java
+    formatDecimal(0.56, '% ##0')
+    ```
+
+    输出为
+
+    ```java
+    '% 56' 
+    ```
+
+### 3.4 Nanoflow 示例
+
+在 nanoflow 中，这将使用适合用户本地的格式来格式化小数。
