@@ -1,50 +1,50 @@
 ---
-title: "Published REST Services"
-parent: "integration"
+title: "公開された REST サービス"
+parent: "統合"
 menu_order: 20
-description: "An overview of published REST services from Mendix apps"
+description: "Mendix アプリから公開された REST サービスの概要"
 tags:
-  - "publish"
-  - "REST service"
-  - "overview"
-  - "configuration"
+  - "公開"
+  - "REST サービス"
+  - "概要"
+  - "構成"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Add a [published REST service](published-rest-service) to expose your entities and microflows to other apps using the REST standard.
+[公開された REST サービス](published-rest-service) を追加して、エンティティやマイクロフローを REST 標準を使用して他のアプリに公開します。
 
-## 2 Published REST Service
+## 2件の公開されたRESTサービス
 
-For an overview of the available options when you add a published service, see [Published REST Service](published-rest-service).
+公開されたサービスを追加する際の利用可能なオプションの概要については、 [Publiced REST Service](published-rest-service) を参照してください。
 
-You can easily expose an entity via REST by right-clicking the entity in the [domain model](domain-model) and selecting [Expose as REST resource](generate-rest-resource).
+[ドメインモデル](domain-model) 内のエンティティを右クリックし、 [RESTリソースとして公開](generate-rest-resource)を選択すると、RESTを介してエンティティを簡単に公開できます。
 
-To publish a microflow as a REST operation, right-click anywhere in the editor and select [Publish as REST service operation](publish-microflow-as-rest-operation).
+REST 操作としてマイクロフローを発行するには、エディタ内の任意の場所を右クリックし、 [REST サービス操作として公開](publish-microflow-as-rest-operation) を選択します。
 
-## <a name="authorization"></a>3 Authentication
+## <a name="authorization"></a>3 認証
 
-Published REST services can be secured with basic authentication, active session authentication and custom authentication. Basic and active session authentication are the default, and are automatically applied when you set the [security level](project-security) of your app to **Prototype / demo**  or **Production**.
+公開された REST サービスは、基本認証、アクティブセッション認証、カスタム認証で保護できます。 基本およびアクティブなセッション認証はデフォルトです。 そして、アプリの [セキュリティレベル](project-security) を **プロトタイプ/デモ**  または **プロダクション**に設定すると、自動的に適用されます。
 
-If you don't want basic authentication, there are three options:
+基本認証をしたくない場合は、次の3つのオプションがあります。
 
-* You can choose to have [no authentication](published-rest-service#authentication) for specific published REST services, or
-* When you [allow anonymous users](project-security#anonymous-users) to your app, all published REST services become available without authentication, or
-* You can implement [custom authentication using a microflow](published-rest-service#authentication-microflow)
+* 特定の公開された REST サービスに対して、 [認証なし](published-rest-service#authentication) を選択するか、または
+* [匿名ユーザー](project-security#anonymous-users) をアプリに許可すると、公開された REST サービスはすべて認証なしで利用可能になり、または
+* microflow [を使用して](published-rest-service#authentication-microflow) カスタム認証を実装できます。
 
 {{% alert type="warning" %}}
-Note that web service users cannot access REST services.
+なお、Web サービスユーザは REST サービスにアクセスできません。
 {{% /alert %}}
 
-For more details, see [Published REST Routing](published-rest-routing) and the [Requires Authentication](published-rest-service#authentication) section in *Published REST Service*.
+詳細については、 [公開された REST ルーティング](published-rest-routing) および [](published-rest-service#authentication) *公開された REST サービス* の認証が必要です 。
 
-## <a name="interactive-documentation"></a>4 Documentation
+## <a name="interactive-documentation"></a>4 ドキュメント
 
-Every [published REST service](published-rest-service) is automatically documented. This documentation is available in the app under `http://yourapp.com/rest-doc/`. Each service has an interactive documentation page using [Swagger UI](https://swagger.io/swagger-ui/). You can interact with the service to see how it behaves.
+[公開された REST サービス](published-rest-service) はすべて自動的に文書化されます。 このドキュメントは `http://yourapp.com/rest-doc/` のアプリから入手できます。 各サービスには、 [Swagger UI](https://swagger.io/swagger-ui/) を使用したインタラクティブなドキュメントページがあります。 サービスとやり取りして、サービスがどのように動作するかを確認できます。
 
-The documentation of the services is available in the [OpenAPI 2.0](open-api) format, which is readable by many systems and tools. It contains [JSON Schemas](published-rest-service-json-schema) for the messages definitions.
+サービスのドキュメントは [OpenAPI 2.0](open-api) 形式で入手可能で、多くのシステムやツールで読めます。 メッセージ定義のための [JSON スキーマ](published-rest-service-json-schema) を含んでいます。
 
-## 5 Logging
+## 5件のログ
 
-To log detailed information about interaction with your published REST service, [set the log level](logging) of the **REST Publish** log node to **Trace**.
+公開された REST サービスとのやり取りに関する詳細情報を記録するには [](logging) REST 公開 **のログノードのログレベル** を **トレース** に設定します。
 
