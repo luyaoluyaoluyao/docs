@@ -1,34 +1,30 @@
 ---
-title: "XPath Avg"
-parent: "xpath-query-functions"
+title: "XPath 平均值"
+parent: "xpath-query函数"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-avg.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`avg()` 函数返回其参数的平均值。
 
-The `avg()` function returns the average of its argument.
+函数需要一个 XPath 查询作为参数。
 
-The function requires an XPath query as argument.
+函数必须在查询中指定要聚合的一列。
 
-The function must specify a column in the query to aggregate.
+查询必须指定一个有数字类型的属性。
 
-The query must specify an attribute that has a numeric type.
+## 2 示例
 
-## 2 Examples
-
-This query returns the average total price of all placed orders:
+此查询返回所有订单的平均总价格：
 
 ```java
 avg(//Sales.Order/TotalPrice)
 ```
 
-This query returns the average total price of all orders placed by a customer named "Jansen":
+此查询函数返回一个名为“Jansen”的客户下达的所有订单的平均总价格：
 
 ```java
-avg(//Sales.Order[Sales.Customer_Order/Sales.Customer = 'Jansen']/TotalPrice)
+avg(//Sales.Order[Sales.Customer_Order/Sales.Client = 'Jansen']/TotalPrice)
 ```
