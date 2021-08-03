@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/header.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 
@@ -30,7 +26,6 @@ For example, the image below shows an edit page derived from a layout with a hea
 {{% image_container width="350" %}}![](attachments/layout/header-page.png)
 {{% /image_container %}}
 
-
 ## 2 Properties
 
 An example of header properties is represented in the image below:
@@ -45,8 +40,8 @@ Header properties consist of the following sections:
 
 ### 2.1 Common Section{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}} 
+{{% snippet file="refguide/design-section-link.md" %}} 
