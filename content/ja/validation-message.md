@@ -1,17 +1,53 @@
 ---
 title: "検証メッセージ"
 parent: "認証ウィジェット"
+tags:
+  - "studio pro"
+  - "検証メッセージ"
+  - "認証ウィジェット"
+  - "認証"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-message.pdf) をクリックしてください。
+{{% /alert %}}
 
-検証メッセージウィジェットは、認証に失敗したことをユーザーに知らせます。 デフォルトでは非表示になり、エラーメッセージが存在する場合にのみ表示されます。
+{{% alert type="warning" %}}バリデーションメッセージウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 共通のプロパティ
+## 1つの紹介
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+**検証メッセージ** のウィジェットは、ページに認証失敗メッセージを表示します:
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+![検証メッセージウィジェット](attachments/authentication-widgets/validation-message.png)
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+ 以下の両方の条件が満たされている場合にのみ、エンドユーザーに表示されます。
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+1.  サインインボタンの **検証メッセージ ウィジェット** プロパティで選択された検証メッセージ。 このプロパティの詳細については、 [サインインボタン](sign-in-button#validation-message-widget) の *メッセージウィジェット* のセクションを参照してください。
+2.  無効な資格情報を入力したエンドユーザーである認証に失敗します。
+
+## 2つのプロパティ
+
+検証メッセージプロパティの例は以下の画像で表されています:
+
+{{% image_container width="300" %}}![検証メッセージのプロパティ](attachments/authentication-widgets/validation-message-properties.png)
+{{% /image_container %}}
+
+検証メッセージのプロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.2 デザインプロパティセクション {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [ログインIDテキストボックス](login-id-text-box)
+* [パスワードのテキストボックス](password-text-box)
+* [サインインボタン](sign-in-button)
