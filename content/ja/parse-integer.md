@@ -1,63 +1,63 @@
 ---
-title: "Parse Integer"
-parent: "expressions"
+title: "整数の解析"
+parent: "表現"
 menu_order: 140
-description: "Describes the function for parsing integer from strings in Mendix."
+description: "Mendix で文字列から整数を解析する関数を説明します。"
 tags:
   - "studio pro"
-  - "expressions"
+  - "表現"
   - "parse"
   - "integer"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes functions that convert a string to an integer.
+この文書では、文字列を整数に変換する関数について説明します。
 
 ## 2 parseInteger
 
-Takes a string and parses it to an integer.
+文字列を取得して整数に解析します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                        | Type    |
-| ---------------------------- | ------- |
-| The string to parse          | String  |
-| Default value **(optional)** | Integer |
+| 値               | タイプ |
+| --------------- | --- |
+| 解析する文字列         | 文字列 |
+| デフォルト値 **(任意)** | 整数  |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                              | Type    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| An integer if it is possible to parse it from the string. If  the string cannot be parsed to an integer, the default value will be returned. If no default value is provided, an error will occur. | Integer |
+| 値                                                                        | タイプ |
+| ------------------------------------------------------------------------ | --- |
+| 文字列から解析できる整数。 文字列を整数に解析できない場合、デフォルト値が返されます。 デフォルト値が指定されていない場合、エラーが発生します。 | 整数  |
 
-### 2.3 Examples
+### 2.3 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     parseInteger('42')
     ```
 
-    the output is:
+    出力は
 
     ```java
     42
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     parseInteger('not_an_integer', 42)
     ```
 
-    the output is:
+    出力は
 
     ```java
     42
