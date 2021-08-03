@@ -1,29 +1,29 @@
 ---
-title: "Parameter"
-parent: "microflows-and-nanoflows"
+title: "パラメータ"
+parent: "マイクロフローとナノフロー"
 menu_order: 70
 tags:
   - "studio pro"
-  - "parameter"
-  - "microflow"
+  - "パラメータ"
+  - "マイクロフロー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A parameter is a special kind of variable that is used an input for the microflow. When a microflow is triggered, the parameters are filled with the current values.
+パラメータは、マイクロフローの入力を使用する特別な種類の変数です。 マイクロフローがトリガーされると、パラメータは現在の値で埋められます。
 
-If you want to use an object of the *Customer* entity in a microflow, use the parameter. In the picture below, the object name is *EnclosingCustomer* and is shown in black. The data type is object, therefore the entity name is shown underneath the object name in blue.
+マイクロフローで *顧客* エンティティのオブジェクトを使用する場合は、パラメータを使用します。 下の画像では、オブジェクト名は *EnclosingCustomer* で、黒色で表示されています。 データ型はオブジェクトであるため、エンティティ名はオブジェクト名の下に青色で表示されます。
 
 ![](attachments/parameter/parameter.png)
 
-## 2 Output Properties
+## 2つの出力プロパティ
 
-### 2.1 Name
+### 2.1 名前
 
-**Name** refers to the value of the parameter.
+**名前** はパラメータの値を指します。
 
-### 2.2 Data Type
+### 2.2 データ タイプ
 
-The data type of a parameter defines the type of the value that it expects. See [Data Types](data-types) for the possible data types.
+パラメータのデータ型は、期待される値の型を定義します。 利用可能なデータ型については、 [Data Types](data-types) を参照してください。
 
-Default: *Object*
+デフォルト: *オブジェクト*
