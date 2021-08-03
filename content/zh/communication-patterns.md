@@ -1,125 +1,125 @@
 ---
-title: "Communication Patterns in the Mendix Runtime"
-category: "Mendix Runtime"
+title: "Mendix 运行时的通信模式"
+category: "Mendix 运行时间"
 tags:
   - "studio pro"
-  - "Mendix Runtime"
-  - "Communications"
-  - "Runtime Server"
-  - "Mendix Client"
+  - "Mendix 运行时间"
+  - "通信"
+  - "运行时服务器"
+  - "Mendix 客户端"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document outlines the communication patterns used by the Mendix Runtime environment for some typical application use cases.
+本文档概述Mendix Runtime 环境对某些典型应用程序使用案例使用的通信模式。
 
-The goals of this document are to present information for:
+本文件的目的是提供以下方面的资料：
 
-*   assessing the quality of the Mendix Runtime regarding efficiency of communication
-*   determining the impact of their design decisions on communication efficiency and performance
+*   评估Mendix Runtime在通信效率方面的质量
+*   确定其设计决定对通信效率和性能的影响
 
-## 2 Outline of Communication Within the Mendix Runtime
+## 2 Mendix Runtime 内的通讯大纲
 
-The Mendix Platform consists of the following components:
+Mendix 平台由以下部分组成：
 
-*   Mendix Platform – a completely integrated application platform-as-a-service (aPaaS) for designing, building, deploying, and managing apps
-*   Developer Portal – a web-based collaborative environment for designing, developing, and deploying apps, managing users and environments, deploying apps to the cloud with a single click, and managing and monitoring their performance
-*   Marketplace – a portal with hundreds of publicly-available building blocks to speed up app development
-*   Mendix Studio and Studio Pro – multi-user modeling studios of the Mendix Platform
-*   Team Server – a central repository for managing application model versions
-*   Mendix Runtime – runs applications using a server part (the [Runtime Server](runtime-server)) and a client part ([Mendix Client](mendix-client))
-*   Build – a process which creates deployment packages from artifacts such as models, style sheets, and custom Java classes
-*   MxID – a user management and provisioning service that applies the OpenID standard
+*   Mendix Platform — — 一个用于设计、建造、部署和管理应用程序的完全集成的应用程序平台(aPaaS)
+*   开发者门户——用于设计、开发和部署应用的基于网络的协作环境 管理用户和环境，只需单击即可即可即可将应用部署到云端，管理和监测其性能。
+*   市场 — — 一个门户，拥有数百个公开可用的建筑块来加速应用开发
+*   Mendix Studio and Studio Pro — Mendix 平台多用户建模工作室
+*   团队服务器 - 管理应用程序模型版本的中央仓库
+*   Mendix Runtime - 使用服务器部件( [Runtime Server](runtime-server))和客户端部件([Mendix 客户端](mendix-client))
+*   编译——一个从伪装品如模型、样式表单和自定义 Java 类创建部署包
+*   MxID - 一个适用OpenID 标准的用户管理和供给服务
 
-The focus of this document is on the Mendix Runtime, more specifically the collaboration between the following parts:
+本文件的重点是Mendix Runtime，更具体地说是以下部分之间的协作：
 
-*   [Mendix Client](mendix-client) – a React, React Native, or JavaScript client running on the device of a user
-*   [Runtime Server](runtime-server) – a Java/Scala runtime running on a server, responsible for executing microflow logic, business rules, and persisting objects
-*   RDBMS – where the data is persisted
+*   [Mendix 客户端](mendix-client) -- 一个React, React Native, 或 JavaScript 客户端运行在用户的设备上
+*   [运行时服务器](runtime-server) — 一个运行在服务器上的 JavaScript 运行时, 负责执行微流程逻辑, 业务规则和持续的对象
+*   RDBMS — — 在哪里保存数据
 
-Communication between these components operates as follows:
+这些组成部分之间的联系如下：
 
-*   The Mendix Client issues two types of requests:
-    *   Static resources like pages, stylesheets, widgets, images, etc.
-    *   Application data-related communication, which includes CRUD commands on data and logic that may require data
-*   The Runtime Server communicates with different RDBMSs using SQL statements handled by a JDBC library
-    *   Application data is stored in a ER-model in an RDBMS
+*   Mendix 客户端发出两种类型的请求：
+    *   静态资源，如页面、样式表、小部件、图像等。
+    *   与应用数据相关的通讯，包括CRUD 关于可能需要数据的数据和逻辑的命令
+*   运行时服务器使用由 JDBC 库处理的 SQL 语句与不同的 RDBMS 通信。
+    *   应用程序数据存储在一个ER模型中的 RDBMS
 
-## 3 Basic CRUD Communication Pattern
+## 3 基本CRUD通信模式
 
-The core of most Mendix applications involves variations on the CRUD (create, read, update, and delete) pattern on data stored in Mendix entities.
+大多数Mendix 应用程序的核心涉及在 Mendix 实体中存储的数据上的 CRUD (创建、读取、更新和删除) 模式的变化。
 
-A basic scenario using an *Employee* entity can be modeled in Mendix using the following two pages:
+使用 *员工* 实体的基本场景可以用以下两个页面在Mendix 中建模：
 
-* An overview page displaying a table of data for a specific entity, like this: ![](attachments/communication-patterns/19399028.png)
-* A details page where a specific object of an entity can be edited, like this: ![](attachments/communication-patterns/19399029.png)
-   * This details page can be reached from the first page using the New and Edit buttons
+* 显示特定实体数据表的概览页面，如： ![](attachments/communication-patterns/19399028.png)
+* 可以编辑实体的特定对象的详细页面，如： ![](attachments/communication-patterns/19399029.png)
+   * 此详细信息页面可以使用新编辑按钮从第一个页面连接
 
-The following sections outline the actions involved when processing these pages. As stated earlier, this pattern can be seen in many Mendix applications, but the exact runtime result depends on many details and design decisions taken while building the application. More advanced data models and pages will result in more (and more complex) queries.
+以下各节概述处理这些页数时所涉及的行动。 如前所述，这种模式可以在许多Mendix 应用程序中看到。 但准确的运行时间结果取决于在构建应用程序时所做的许多细节和设计决定。 更先进的数据模型和网页将导致更多(和更复杂)的查询。
 
-### 3.1 Read the Objects Required to Display an Object Table
+### 3.1 读取需要显示对象表的对象
 
-Displaying a table of objects consists of the following steps:
+显示天体表由以下步骤组成：
 
-1. Getting the definition of the page (which may already be cached).
-2. Getting the data to be displayed in the page.
-3. Updating the page.
+1. 获取页面的定义(可能已经缓存)。
+2. 获取将显示在页面中的数据。
+3. 正在更新页面。
 
-A basic sequence diagram looks like this:
+基本序列图表看起来像这样：
 
 ![](attachments/communication-patterns/19399030.png)
 
-The Mendix Client uses a REST-like protocol to request data from the Runtime Server. The following example shows what this looks like when requesting objects from the Employee entity:
+Mendix 客户端使用 REST 式的协议向运行时服务器请求数据。 下面的示例显示当向员工实体请求对象时它看起来是什么样子：
 
 ```json
-{
+主席:
    "action":"retrieve_by_xpath",
-   "params":{
-      "xpath":"//MyFirstModule.Employee",
-      "schema":{
+   "params":□
+      "xpath":"//MyFirstModule". mpluse”，
+      "schema":□
          "id":"a2916c7c-af2f-4267-a8e9-99604f045861",
-         "offset":0,
+         "偏移":0,
          "sort":[
             [
-               "Firstname",
-               "asc"
+               "sirname",
+               "as"
             ]
-         ],
+
          "amount":20
       },
-      "count":true,
-      "aggregates":false
+      "计数":true"
+      "汇总":fals"
    },
    "context":[],
-   "profiledata":{
+   "profiledata":□
       "204ee5ad0c056a0":15
    }
 }
 ```
 
-The XPath expression states what data is needed. This can be an object containing data of an entity — or just some attributes of an object — as required by the application.
+XPath 表达式表示需要什么数据。 这可以是一个包含某个实体的数据的对象，或者只是某个对象的某些属性，这是应用程序所要求的。
 
-The schema section can be used to specify additional restrictions on what data is required (what attributes and how many objects). This approach ensures that the amount of data transferred between Runtime Server and Mendix Client is minimized.
+schema部分可以用来具体规定对需要什么数据(属性和多少对象)的额外限制。 这种方法确保最大限度地减少运行时服务器和 Mendix 客户端之间传输的数据量。
 
-This retrieve action results in two SQL queries – one to retrieve the data, and one to retrieve the total number of objects.
+这个检索两个SQL查询结果。一个是检索数据，另一个是检索对象总数。
 
 ```sql
- SELECT "myfirstmodule$employee"."id",
- "myfirstmodule$employee"."dateofbirth",
- "myfirstmodule$employee"."department",
+ SELECT "myfirst module$employee"."id",
+ "myfirstmodule$employee"."日期出生",
+ "myfirfirst module$employee". 部门”，
  "myfirstmodule$employee"."firstname",
  "myfirstmodule$employee"."jobtitle",
- "myfirstmodule$employee"."lastname"
- FROM "myfirstmodule$employee"
- ORDER BY "myfirstmodule$employee"."firstname" ASC,
- "myfirstmodule$employee"."id" ASC LIMIT 20
+ "myfirfirstmodule$employee". 姓氏”
+ FROM "myfirst module$employee"
+ ORDER BY "myfirst module$employee". firstname” ASC,
+ "myfirst module$employee"."id" ASC LIMIT 20
  SELECT COUNT(*)
- FROM "myfirstmodule$employee"
+ FROM "myfirst module$employee"
 ```
 
-Depending on the data displayed and the domain model (for example the security applied to objects or attributes, or the usage of inheritance to support generalizations and specializations), a retrieve may result in more queries or additional WHERE clauses.
+取决于显示的数据和域模型(例如适用于对象或属性的安全性) 检索可能导致更多查询或增加WHERE条款。
 
-The response of the Runtime Server to the Mendix Client is as follows:
+Runtime 服务器对Mendix 客户端的响应如下：
 
 ```json
 {
@@ -151,252 +151,252 @@ The response of the Runtime Server to the Mendix Client is as follows:
 }
 ```
 
-### 3.2 Create New Object
+### 3.2 创建新对象
 
-The typical create-new-object flow consists of these steps:
+创建新对象流的典型步骤包括：
 
-1. Instantiate a new object (the primary key is generated by the database, and the Runtime Server keeps a cache of PKS).
-2. Display the Edit/New page (which may already be cached).
-3. Save the updated object in the Runtime Server.
-4. Commit the updated object to the database.
+1. 实例化一个新对象(主键由数据库生成，运行服务器保存一个PKS缓存)。
+2. 显示编辑/新页面 (可能已被缓存)。
+3. 将更新对象保存到 Runtime 服务器。
+4. 将更新对象提交到数据库。
 
 ![](attachments/communication-patterns/19399031.png)
 
-Create a new object:
+创建一个新对象：
 
 ```json
-{
+主席:
    "action":"instantiate",
-   "params":{
-      "objecttype":"MyFirstModule.Employee",
-      "preventCache":1455032246146
+   "params":□
+      "objectype":"MyFirstModule.Employee",
+      "preventCache":14550322466146
    },
-   "context":[],
-   "profiledata":{
+   "context"::[],
+   "profiledata":
       "204ee68c92aea60":27
    }
-}
+
 ```
 
-Save the object to the database:
+保存对象到数据库：
 
 ```json
-{
-   "action":"change",
-   "params":{
-      "281474976710757":{
+主席:
+   "行动":"改变",
+   "params":□
+      "281474976710757":□
          "Firstname":"peter",
          "Lastname":"jones",
          "Jobtitle":"sales",
-         "Department":"sales",
+         "部门":"销售",
          "DateOfBirth":-315622800000
       }
    },
    "context":[],
-   "profiledata":{
+   "profiledata":□
       "204ee6970d53960":18
    }
 }
 ```
 
-Commit the updates to the database:
+将更新提交数据库：
 
 ```json
-{
+很抱歉，
    "action":"commit",
-   "params":{
+   "params":format@@
       "guid":"281474976710757"
    },
    "context":[],
-   "profiledata":{
+   "profiledata":
       "204ee6e9b5eddc0":25
    }
 }
 ```
 
-The commit will cause the Runtime Server to save the object to the RDBMS. Before the commit, the data is only kept in the Runtime Server to optimize performance and minimize impact on the database.
+提交将导致运行时服务器将对象保存到 RDBMS。 在提交之前，数据仅保存在运行服务器中，以优化性能并最大限度地减少对数据库的影响。
 
 ```sql
- INSERT INTO "myfirstmodule$employee" ("id",
+ INSERT INTO "myfirst module$employee" ("id",
  "firstname",
- "dateofbirth",
+ "dateof出生",
  "jobtitle",
- "department",
+ "departy",
  "lastname")
- VALUES (?,
+ VALUES (?
  ?,
  ?,
  ?,
  ?,
- ?)
+?)
 ```
 
-### 3.3 Edit an Existing Object
+### 3.3 编辑现有对象
 
-The typical edit-existing-object flow consists of these steps:
+典型的编辑现有对象流程由以下步骤组成：
 
-1. Select an object in a table of objects page (overview page).
-2. Display the Edit/New page (which may already be cached).
-3. Show object values already available in the page displayed by the browser.
-4. Save the changed attributes of the object to the Runtime Server.
-5. Retrieve the object from the database.
-6. Validate the object changes.
-7. Commit the changes in the database.
+1. 选择对象页面表中的对象(概览页面)。
+2. 显示编辑/新页面 (可能已被缓存)。
+3. 在浏览器显示的页面中显示对象值。
+4. 将对象的属性保存到 Runtime 服务器。
+5. 从数据库中获取对象。
+6. 验证对象更改。
+7. 提交数据库中的更改。
 
 ![](attachments/communication-patterns/19399032.png)
 
-Save the changes to the database:
+保存对数据库的更改：
 
 ```json
-{
+很抱歉，
    "action":"change",
-   "params":{
-      "281474976710757":{
+   "params":
+      "2814749767107757":
          "Firstname":"peter1"
       }
    },
    "context":[],
-   "profiledata":{
-      "204ee8bb633f9a0":25
+   "profiledata":
+      "204ee8b633f9a0":25
    }
-}
+
 ```
 
-This will trigger the following actions on the database:
+这将在数据库中触发以下行动：
 
-*   Get the original object from the database
-*   Update the attribute(s) changed by the user in the Runtime
+*   从数据库获取原始对象
+*   更新用户在 Runtime 中更改的属性
 
-The first step is required to determine all the data business logic and validations defined on the entity.
+第一个步骤是确定实体上定义的所有数据业务逻辑和验证。
 
 ```sql
- SELECT "myfirstmodule$employee"."id",
- "myfirstmodule$employee"."firstname",
- "myfirstmodule$employee"."dateofbirth",
- "myfirstmodule$employee"."jobtitle",
- "myfirstmodule$employee"."department",
- "myfirstmodule$employee"."lastname"
- FROM "myfirstmodule$employee"
- WHERE "myfirstmodule$employee"."id" = (281474976710857)
+ SELECT "myfirfirst module$employee"."id",
+ "myfirfirst module$employee"."firfiredname",
+ "myfirfirst module$employee"."dateofbir",
+ "myfirst module$employee". jobtitle”，
+ "myfirstmodule$employee"."."department",
+ "myfirfirstmodule$employee"."lastname"
+ FROM "myfiredmodule$employee"
+ WHERE "myfirst module$employee"."id" = (281474976710857)
 ```
 
-If all validations run correctly, the client can commit the changes to the database:
+如果所有验证运行正确，客户端可以将更改提交数据库：
 
 ```json
-{
+很抱歉，
    "action":"commit",
-   "params":{
+   "params":
       "guid":"281474976710757"
    },
    "context":[],
-   "profiledata":{
+   "profiledata":□
       "204ee8ca8f775a0":20
    }
 }
 ```
 
-This will trigger the actual database update and commit.
+这将触发数据库的实际更新和提交。
 
 ```sql
- UPDATE "myfirstmodule$employee"
- SET "dateofbirth" = ?
- WHERE "id" = ?
+ 更新"myfirst module$employee"
+ SET "dateofbiry" = ?
+ “id” = ？
 ```
 
-### 3.4 Delete an Existing Object
+### 3.4 删除现有对象
 
-The typical delete flow consists of these steps:
+典型的删除流程由以下步骤组成：
 
-1. Select an object in a table of objects (overview page).
-2. Send a delete request to the Runtime Server.
-3. Runtime Server validates the delete request.
-4. Runtime Server deletes object from database.
-5. Commit the changes in the database.
-6. Inform the client that the delete has succeeded.
-7. Refresh the data and update page.
+1. 选择对象表中的对象(概览页面)。
+2. 向 Runtime 服务器发送删除请求。
+3. 运行时服务器验证删除请求。
+4. 运行时服务器从数据库中删除对象。
+5. 提交数据库中的更改。
+6. 通知客户端删除成功。
+7. 刷新数据并更新页面。
 
-The following sequence diagram outlines the typical delete scenario:
+以下序列图概述典型的删除场景：
 
 ![](attachments/communication-patterns/19399033.png)
 
-Delete the object:
+删除对象：
 
 ```json
-{
+主席:
    "action":"delete",
-   "params":{
+   "params":
       "guids":["281474976710757"]
    },
    "context":[],
-   "profiledata":{
-      "204eeae128284c0":323
+   "profiledata":□
+      "204eae128284c0":323
    }
 }
 ```
 
-Get the object to enable the running of business logic, rules, and events before the actual deletion of the data:
+在实际删除数据之前获取对象以启用运行业务逻辑、规则和事件：
 
 ```sql
- SELECT "myfirstmodule$employee"."id",
- "myfirstmodule$employee"."firstname",
- "myfirstmodule$employee"."dateofbirth",
- "myfirstmodule$employee"."jobtitle",
- "myfirstmodule$employee"."department",
- "myfirstmodule$employee"."lastname"
- FROM "myfirstmodule$employee"
- WHERE "myfirstmodule$employee"."id" = (281474976710857)
+ SELECT "myfirfirst module$employee"."id",
+ "myfirfirst module$employee"."firfiredname",
+ "myfirfirst module$employee"."dateofbir",
+ "myfirst module$employee". jobtitle”，
+ "myfirstmodule$employee"."."department",
+ "myfirfirstmodule$employee"."lastname"
+ FROM "myfiredmodule$employee"
+ WHERE "myfirst module$employee"."id" = (281474976710857)
 ```
 
-Delete the object from database:
+从数据库中删除对象：
 
 ```sql
-DELETE FROM "myfirstmodule$employee"
-WHERE "id" = ?
+从"myfirst module$employee"
+“id” = ?
 ```
 
-Refresh the data grid:
+刷新数据网格：
 
 ```json
-{
+主席:
    "action":"retrieve_by_xpath",
-   "params":{
-      "xpath":"//MyFirstModule.Employee",
-      "schema":{
+   "params":□
+      "xpath":"//MyFirstModule". mpluse”，
+      "schema":□
          "id":"a2916c7c-af2f-4267-a8e9-99604f045861",
-         "offset":0,
-         "sort":[["Firstname","asc"]],
+         "偏移":0,
+         "sort":[["名字","asc"]],
          "amount":20
       },
-      "count":true,
-      "aggregates":false
+      "计数":true,
+      "合计":fals"
    },
-   "context":[],
+   "上下文":[…],
    "releaseids":["281474976710757"],
-   "profiledata":{
+   "profiledata":w
       "204eeb2972550c0":28
    }
 }
 ```
 
-## 4 Executing Business Logic
+## 4 执行业务日志
 
-The business logic is modeled using microflows in Mendix. The following sections present some typical flows involving microflows.
+在Mendix中使用微流模拟业务逻辑。 以下各节介绍了涉及微型流动的一些典型流量。
 
-### 4.1 Displaying the Grid of Data Retrieved by Microflow
+### 4.1 显示微流获取的数据网格
 
-A data grid on a page is often directly linked to an entity in the domain model. An alternative approach is to use a microflow to create a list of objects to be displayed in a data grid.
+页面上的数据网格往往与域模型中的实体直接相连。 另一种办法是使用微流创建一个要在数据网格中显示的对象列表。
 
-A microflow retrieving all objects from an entity can be modeled as follows:
+一个从一个实体中检索所有对象的微流模式如下：
 
 ![](attachments/communication-patterns/19399034.png)
 
-In this situation, all objects are transported to the browser in one request. A user can page through all the objects without triggering communication to the Runtime Server.
+在这种情况下，所有对象都在一个请求中被传送到浏览器。 用户可以在不触发到 Runtime 服务器的通信的情况下通过所有对象。
 
-A high-level sequence diagram for this scenario looks like this:
+这个情景的高级序列图表看起来就像这样：
 
 ![](attachments/communication-patterns/19399035.png)
 
-JSON action executed from Mendix Client to Runtime Server:
+JSON 操作从 Mendix 客户端到 Runtime 服务器：
 
 ```json
 {
@@ -412,19 +412,19 @@ JSON action executed from Mendix Client to Runtime Server:
 }
 ```
 
-SQL statement executed on the database:
+数据库中执行的 SQL 语句：
 
 ```sql
-SELECT "myfirstmodule$employee"."id",
-"myfirstmodule$employee"."firstname",
-"myfirstmodule$employee"."dateofbirth",
-"myfirstmodule$employee"."jobtitle",
-"myfirstmodule$employee"."department",
-"myfirstmodule$employee"."lastname"
-FROM "myfirstmodule$employee"
+SELECT "myfirfirst module$employee"."id",
+"myfirfirst module$employee"."firfiredname",
+"myfirfirst module$employee"."dateofbir",
+"myfirst module$employee". jobtitle",
+"myfirst module$employee"."."department",
+"myfirst module$employee"."lastname"
+FROM "myfirst module$employee"
 ```
 
-Response from the Runtime Server to the Mendix Client:
+从 Runtime 服务器到Mendix 客户端的响应：
 
 ```json
 {
@@ -463,54 +463,54 @@ Response from the Runtime Server to the Mendix Client:
 
 ## 5 Mendix Runtime Internals
 
-As can be seen in the description of the CRUD scenario, the Mendix Platform ensures efficiency while running the application in a number of ways:
+从CRUD 场景描述可以看出，Mendix Platform 确保了效率，同时以多种方式运行应用程序：
 
-*   Only data required for user actions is involved in communication and processing
-*   An efficient transport protocol is used when communicating between different processes
-    * Terse JSON format between Mendix Client and Runtime Server
-    * Native SQL protocol for RDBMS communication
-*   Data already available in the Mendix Client is reused if possible (see the edit scenario where the data fetched for the data grid is reused in the Edit/New page)
+*   只有用户操作所需的数据才能参与通信和处理
+*   在不同流程之间通信时使用高效的运输协议
+    * 在 Mendix 客户端和 Runtime 服务器之间使用JSON 格式
+    * RDBMS通信的原生SQL协议
+*   Mendix 客户端中已经可用的数据可能被重新使用(见编辑情景，在编辑/新页面中为数据网格获取的数据被重新使用)
 
-### 5.1 Data Transformation
+### 5.1 数据转换
 
-Data is transported between Mendix Client and database as required. The following transformation are applied when going full circle from Mendix Client to database and back again:
+数据将根据需要在 Mendix 客户端和数据库之间传输。 从Mendix 客户端到数据库并返回全圈时应用以下转换：
 
-*   Data entered by a user in a page is stored in JavaScript objects
-*   For communication to the Runtime Server, JavaScript objects are serialized to JSON
-*   The Runtime Server transforms the JSON objects to java MxObjects
-*   MxObject properties are bound to SQL statement parameters as needed by SQL queries
-*   JDBC result set data is transformed to MxObjects
-*   MxObjects are serialized to JSON when send to the Mendix Client
+*   用户在页面中输入的数据存储在 JavaScript 对象中
+*   若要连接到 Runtime 服务器，JavaScript 对象将序列化为 JSON
+*   运行时服务器将 JSON 对象转换为 java MxObjects
+*   MxObject 属性绑定到 SQL 查询所需的 SQL 语句参数
+*   JDBC 结果集数据转换为 MxObjects
+*   MxObjects 发送到Mendix 客户端时序列化为 JSON
 
-### 5.2 State
+### 5.2 状态
 
-To facilitate (horizontal) scalability, the Mendix Runtime retains no state between requests. The overall strategy is to only have dirty objects in memory during a request. Objects are considered dirty if they have been changed, but the changes have not yet been persisted to the RDBMS.
+为方便(水平) 可缩放，Mendix Runtime 没有保留请求之间的状态。 总的策略是在请求时仅有脏天体存内存. 对象如果被更改则被视为肮脏，但这些更改尚未持续到RDBMS。
 
 ![](attachments/communication-patterns/19399036.png)
 
-### 5.3 Persistency
+### 5.3 持久性
 
-Mendix automatically takes care of the translation of an application-specific entity model (domain model) to a technical RDBMS specific ER-model. As illustrated in the read part of the CRUD scenarios, data retrieval is expressed by an XPath construct that is easy to understand. For example, to retrieve all employee objects, the following XPath can be used:
+Mendix 自动注意将应用程序特定实体模型(域模型)翻译成技术的 RDBMS 特定ER模型。 如CRUD 场景中读取的部分所示，数据检索用易于理解的 XPath 构造表示。 例如，要检索所有员工对象，可以使用下列XPath
 
-`//MyFirstModule.Employee`
+`//MyFirstModule.employee`
 
-This XPath expression is translated in a number of steps to a database query:
+此 XPath 表达式被翻译成若干步骤到数据库查询：
 
-1. XPath is translated to an internal OQL syntax. OQL is similar to SQL, but still expresses application data in terms of the application domain model entities, instead of actual RDBMS tables.
-2. Additional required expressions are added to the OQL statement as specified in the domain model (for example, to add information from a superclass entity).
-3. Domain model security constraints are applied to the OQL statement.
-4. OQL is translated to SQL and executed through JDBC on the configured RDBMS.
+1. XPath 被翻译为内部的 OQL 语法。 OQL类似于SQL，但仍以应用程序域模型实体表示应用程序数据，而不是实际的 RDBMS 表。
+2. 在域模型中指定的 OQL 语句中添加了额外的必要表达式（例如添加超类实体的信息）。
+3. 域名模型安全限制适用于OQL报表。
+4. OQL被翻译成SQL并在已配置的 RDBMS 上通过 JDBC 执行。
 
-### 5.4 Scalability
+### 5.4 范围
 
-The Runtime Server can run as a single process, or it can be horizontally scaled to facilitate more concurrent users and improve availability. In this scenario, multiple Mendix Studio Pro instances are running. These instances run independently, there will not be any communication between the processes.
+运行时服务器可以作为单一进程运行，或者可以水平缩放，以方便更多的并行用户并提高可用性。 在此情景下，正在运行多个Mendix Studio Pro 实例。 这些情况是独立发生的，各进程之间不会有任何交流。
 
-#### 5.4.1 Single Instance
+#### 5.4.1 单一实例
 
-Within a single instance, the Scala Akka actor model is used to handle all processing in the Runtime Server efficiently. Using an actor model for concurrency has this benefit:  The number of concurrent users that can be processed is not limited by the number of threads available, as threads are not allocated per request, but rather by processing responsibility
+在一个实例中，Scala Akka 执行者模型用于高效处理运行服务器中的所有处理。 使用一个演员模型具有这种好处：可以处理的并行用户数量不受可用线程数的限制。 因为线程不是按请求分配的，而是通过处理责任
 
-To process Mendix Client requests received by the Runtime Server, the actions required are dispatched to an Akka actor. This actor has a dedicated thread pool. Every (microflow) action is handled by a separate message to the action dispatcher actor. This optimizes usage of threads for blocking actions. For example, if an action part of a microflow calls an external web service and is blocked waiting for a response, this only impacts the threadpool for the action dispatcher, not for the HTTP request handler.
+若要处理 Runtime Server 收到的 Mendix 客户端请求，所需行动将被发送到Akka 演员。 这个演员拥有一个专用的线程池。 每一个 (microflow) 动作由一个单独的消息处理给动作调度员. 这优化了屏蔽操作的线程使用率。 例如，如果微流的一个动作部分呼叫外部网络服务并被阻止等待响应。 这只会影响动作调度器的线程池，而不是HTTP请求处理器。
 
-#### 5.4.2 Multi-Instance
+#### 5.4.2 多实例
 
-Mendix Runtime state is stored in the Mendix Client. This means that, when running in a horizontally scaled scenario, all instances run behind a load balancer and requests are sent to whichever instance is most appropriate.
+Mendix 运行状态保存在Mendix 客户端。 这意味着当在水平缩放场景中运行时, 所有实例都会在负载均衡器后运行，请求都会发送到任何最合适的实例。
