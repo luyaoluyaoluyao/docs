@@ -1,97 +1,102 @@
 ---
-title: "Associations"
-parent: "domain-models"
-description: "Describes the association properties in Mendix Studio."
+title: "关联属性"
+category: "域模型"
+description: "在 Mendix Studio 中描述关联属性。"
 tags:
-  - "studio"
-  - "domain model"
+  - "工作室"
+  - "域模型"
 ---
 
-## 1 Introduction
+## 1 导言
 
-An association describes a relation between entities. In the domain model, an association is represented by a line or an arrow between two entities.
+一个协会描述了实体之间的关系。 在域模型中，一个协会由两个实体之间的一条线或箭头来表示。
 
-In Mendix Studio, associations have the following properties:
+在 Mendix Studio 中，社团拥有以下属性：
 
-* [Name](#name)
-* [Multiplicity](#multiplicity)
-*  [Delete behavior](#delete-behavior)
+* [名称](#name)
+
+* [多重性](#multiplicity)
+
+*  [删除行为](#delete-behavior)
 
    {{% image_container width="300" %}}![](attachments/domain-models-association-properties/association-properties.png)
    {{% /image_container %}}
 
-In relation to the module the associations can be of two types:
+关于该单元，社团可分为两类：
 
-* Associations within one module
-* [Cross module associations](#cross-module-associations)
+* 一个模块内的关联
+* [交叉模块关联](#cross-module-associations)
 
-## 2 Name {#name}
+## 2 个名称 {#name}
 
-The name of the association is used to refer to it from forms, microflows, etc.
+协会的名称用来指它来自表格、微流等。
 
-## 3 Multiplicity {#multiplicity}
+## 3 多重性 {#multiplicity}
 
-Multiplicity  defines the number of possible referred objects. The cardinality (or number of referred objects) of an association is indicated by the number one (`1`) or a star (`*`) at either side of the association.
+多重性定义了可能推荐对象的数量。 一个社团的信用度(或被推荐对象的数量)在社团的任何一侧都以第一位(`1`)或星号(`*`)表示出来。
 
-Multiplicity can be of the following types:
+多重性可以是以下类型：
 
-* One-to-one – one X object is associated with one Y object
-* one-to-many – one X object is associated with multiple Y object
-* Many-to-many – multiple X objects are associated with multiple Y objects
+* 一对一——一个X对象与一个Y对象关联
+* 一对多-一个X对象与多个Y对象关联
+* 多对多——多个X对象与多个Y对象关联
 
-Multiplicity shows the owner and the direction of association if the association is of the one-to-many or many-to-many type. In the domain model it is displayed as an arrow pointing the direction. The owner is the entity the association starts from, so it is located at the start of the arrow. In one-to-one associations both entities are owners.
+多重性显示社团的所有者和方向，如果社团是一对多或多对多类型。 在域模型中，它显示为指向方向的箭头。 所有者是社团起始的实体，因此它位于箭头之初。 在一对一的协会中，两个实体都是业主。
 
 {{% image_container width="400" %}}![](attachments/domain-models-association-properties/association-domainmodel.png)
 {{% /image_container %}}
 
-You can swap the direction of the multiplicity if its type is one-to-many or many-to-many. In this case you will change the owner of association.
+如果其类型是一对多或多对多的，您可以交换多重性的方向。 在这种情况下，您将更改关联所有者。
+
+## 4 删除行为 {#delete-behavior}
+
+删除行为定义删除对象时相关对象应发生的情况。 以下选项可以为每一结尾的关联配置。
+
+| 值                                                            | 描述                                                                                                        |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
+| 保留 {name of entity} 对象(s)                                    | 当一个对象被删除时，关联对象不会被删除。                                                                                      |
+| 删除 {name of entity} 对象(s)                                    | 当一个对象被删除时，关联对象也会被删除。                                                                                      |
+| 只有当对象未与 {name of other entity} 对象相关时，才删除 {name of entity} 对象 | 一个对象只能在与任何其他对象无关的情况下被删除。 <br />当最终用户试图删除与其他实体对象相关联的对象时，您也可以为他们指定一个错误消息。 例如："您不能删除这个位置，因为一个课程与它相关联。" |
+
+对于删除行为配置的例子， 查看第
+
+7 节在 *中删除行为</a> 。* 如何创建基本数据层 *Mendix Studio Pro How-to's*</p> 
+
+
+
+
+## 5 跨模块关联 {#cross-module-associations}
+
+跨单元协会是不同单元实体之间的协会。
 
 {{% alert type="info" %}}
-For more details on the reasoning underlying associations, ownership, and multiplicity, see the [Introduction](/refguide8/associations#intro) section of *Associations* in the *Studio Pro Guide*.
-{{% /alert %}}
 
-## 4 Delete Behavior {#delete-behavior}
+您不能在 Studio 中创建单独的模块。 但如果您在 Studio Pro中拥有不同的模块， 您可以看到不同域模型的列表(系统模块和市场模块除外)，并在工作室进行跨模块关联。 
 
-Delete behavior defines what should happen to the associated object when an object is deleted. The following options can be configured for each end of the association.
+{{% /报警 %}}
 
-| Value                                                                                             | Description                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Keep {name of entity} object(s)                                                                   | When an object is deleted, the associated object(s) are not deleted.                                                                                                                                                                                                                                                           |
-| Delete {name of entity} object(s) as well                                                         | When an object is deleted, the associated object(s) are also deleted.                                                                                                                                                                                                                                                          |
-| Delete {name of entity} object only if it is not associated with {name of other entity} object(s) | An object can only be deleted if it is not associated with any other object(s). <br />You can also specify an error message for your end-users when they try to delete an object that is associated with other entity's objects. For example: "You cannot delete this location, because a course is associated with it." |
+在Studio中，跨模块的联系如下所示：
 
-For examples of delete behavior configuring, see section [7 Delete Behavior](/howto8/data-models/create-a-basic-data-layer#delete-behavior) in *How to Create a Basic Data Layer* in the *Mendix Studio Pro How-to’s*.
+*  具有此关联的实体旁边的图标：
+  
+  ![](attachments/domain-models-association-properties/association-icon.png)
+
+*  一个弹出窗口，当您点击图标时显示：
+  
+  ![](attachments/domain-models-association-properties/association-pop-up.png)
+
+交叉模块关联具有以下属性：
+
+| 财产                   | 描述                                 |
+| -------------------- | ---------------------------------- |
+| 类型                   | 定义关联的方向，可以是两种类型： **输出** and **输入** |
+| 名称                   | 定义关联名称                             |
+| [多重性](#multiplicity) | 定义多重性的类型                           |
+| Target               | 定义关联的模块(点前的名称)和第二个实体(紧随点之后)。       |
 
 
-## 5 Cross-Module Associations {#cross-module-associations}
 
-Cross-module association makes an association between entities of different modules.
 
-{{% alert type="info" %}}
+## 6 阅读更多
 
-You cannot create separate modules in Studio. But if you have different modules in Studio Pro, you can see the list of different domain models (except the System module and Marketplace modules) and make cross-module associations in Studio.
-
-{{% /alert %}}
-
-In Studio, cross-module association is indicated with the following:
-
-*  An icon next to the entity that has such association:
-
-   ![](attachments/domain-models-association-properties/association-icon.png)
-
-*  A pop-up window, which displays when you click the icon:
-
-   ![](attachments/domain-models-association-properties/association-pop-up.png)
-
-Cross module associations have the following properties:
-
-| Property                      | Description                                                                                         |
-| ----------------------------- | --------------------------------------------------------------------------------------------------- |
-| Type                          | Defines the direction of the association and can be of two types: **Outgoing** and **Incoming**     |
-| Name                          | Defines the name of the association                                                                 |
-| [Multiplicity](#multiplicity) | Defines the type of multiplicity                                                                    |
-| Target                        | Defines the module (name before the dot) and second entity of the association (goes after the dot). |
-
-## 6 Read More
-
-* [Domain Model](domain-models)
+* [域模型](域名模型)
