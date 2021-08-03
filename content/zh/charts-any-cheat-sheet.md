@@ -8,7 +8,12 @@ tags:
   - "示例："
   - "图表"
   - "小部件"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-any-cheat-sheet.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -18,7 +23,7 @@ tags:
 
 ### 2.1 线图 {#line-chart}
 
-![线性图属性](attachments/pages/charts/line-chart2.png)
+![线性图属性](attachments/charts/line-chart2.png)
 
 ``` json
 [
@@ -37,7 +42,7 @@ tags:
 
 ### 2.2 泡泡泡图
 
-![BubbleChart属性](attachments/pages/charts/bubble-chart.png)
+![BubbleChart属性](attachments/charts/bubble-chart.png)
 
 ``` json
 [ 主席:
@@ -53,7 +58,7 @@ tags:
 
 ### 2.3 散列图
 
-![散列图属性](attachments/pages/charts/scatter-plot.png)
+![散列图属性](attachments/charts/scatter-plot.png)
 
 ``` json
 [ 主席:
@@ -67,7 +72,7 @@ tags:
 
 ### 2.4 热图
 
-![热映射属性](attachments/pages/charts/heat-map2.png)
+![热映射属性](attachments/charts/heat-map2.png)
 
 ``` json
 [ {
@@ -78,7 +83,7 @@ tags:
 
 ### 2.5 条形图
 
-![条形图属性](attachments/pages/charts/bar-chart2.png)
+![条形图属性](attachments/charts/bar-chart2.png)
 
 ``` json
 [ 主席:
@@ -91,7 +96,7 @@ tags:
 
 ### 2.6 列图
 
-![列图属性](attachments/pages/charts/column-chart2.png)
+![列图属性](attachments/charts/column-chart2.png)
 
 ``` json
 [ 主席:
@@ -104,7 +109,7 @@ tags:
 
 ### 2.7 饼图
 
-![PiChart属性](attachments/pages/charts/pie-chart2.png)
+![PiChart属性](attachments/charts/pie-chart2.png)
 
 ``` json
 [ 主席:
@@ -116,7 +121,7 @@ tags:
 
 ### 2.8 坚固图
 
-![GooughNutChart属性](attachments/pages/charts/doughnut-chart.png)
+![GooughNutChart属性](attachments/charts/doughnut-chart.png)
 
 ```json
 [ 主席:
@@ -129,7 +134,7 @@ tags:
 
 ### 2.9 面积图
 
-![区域图表属性](attachments/pages/charts/area-chart2.png)
+![区域图表属性](attachments/charts/area-chart2.png)
 
 ``` json
 [ 主席:
@@ -144,7 +149,7 @@ tags:
 
 ### 3.1 Histograms
 
-![直方图属性](attachments/pages/charts/histogram.png)
+![直方图属性](attachments/charts/histogram.png)
 
 ``` json
 [ 主席:
@@ -155,7 +160,7 @@ tags:
 
 ### 3.2 方框图
 
-![BoxPlot属性](attachments/pages/charts/box-plot.png)
+![BoxPlot属性](attachments/charts/box-plot.png)
 
 ``` json
 [ 主席:
@@ -166,7 +171,7 @@ tags:
 
 ### 3.3 2D 直方图
 
-![2DHistogram属性](attachments/pages/charts/2d-histogram.png)
+![2DHistogram属性](attachments/charts/2d-histogram.png)
 
 ``` json
 [ {
@@ -180,7 +185,7 @@ tags:
 
 ### 4.1 泡泡图
 
-![BubleMap属性](attachments/pages/charts/bubble-map.png)
+![BubleMap属性](attachments/charts/bubble-map.png)
 
 ``` json
 [ 主席:
@@ -197,7 +202,7 @@ tags:
 
 ### 4.2 Choropleth地图
 
-![ChoroplethMapProperties](attachments/pages/charts/choropleth-map.png)
+![ChoroplethMapProperties](attachments/charts/choropleth-map.png)
 
 #### 4.2.1 Choropleth地图数据
 
@@ -222,7 +227,7 @@ tags:
 
 ### 4.3 散列地图
 
-![散列地图属性](attachments/pages/charts/scatter-map.png)
+![散列地图属性](attachments/charts/scatter-map.png)
 
 ``` json
 [ 主席:
@@ -238,7 +243,7 @@ tags:
 
 ### 5.1 3D 表面图表
 
-![3DSurfacePlot属性](attachments/pages/charts/3d-surface-plot.png)
+![3DSurfacePlot属性](attachments/charts/3d-surface-plot.png)
 
 ``` json
 [ 主席:
@@ -250,7 +255,7 @@ tags:
 
 ### 5.2 3D 线图
 
-![3DLineChartities](attachments/pages/charts/3d-line-chart.png)
+![3DLineChartities](attachments/charts/3d-line-chart.png)
 
 ``` json
 [请注意，
@@ -264,7 +269,7 @@ tags:
 
 ### 5.3 3D 散列图
 
-![3DScatterPlot属性](attachments/pages/charts/3d-scatter-plot.png)
+![3DScatterPlot属性](attachments/charts/3d-scatter-plot.png)
 
 ``` json
 
@@ -280,7 +285,7 @@ tags:
 
 ### 6.1 等深图
 
-![连接属性](attachments/pages/charts/contour.png)
+![连接属性](attachments/charts/contour.png)
 
 ``` json
 [ 主席:
@@ -291,7 +296,7 @@ tags:
 
 ### 6.2 时间系列
 
-![时间序列属性](attachments/pages/charts/time-series2.png)
+![时间序列属性](attachments/charts/time-series2.png)
 
 ``` json
 
@@ -304,7 +309,7 @@ tags:
 
 ### 6.3 按图表
 
-![群组字典属性](attachments/pages/charts/group-by-chart.png)
+![群组字典属性](attachments/charts/group-by-chart.png)
 
 ``` json
 
@@ -317,7 +322,7 @@ tags:
 
 ### 6.4 对称错误栏
 
-![错误栏属性](attachments/pages/charts/error-bar.png)
+![错误栏属性](attachments/charts/error-bar.png)
 
 ``` json
 
@@ -333,7 +338,7 @@ tags:
 
 ### 6.5 极地图
 
-![极地图属性](attachments/pages/charts/polar-chart.png)
+![极地图属性](attachments/charts/polar-chart.png)
 
 ``` json
 [ 主席:
@@ -346,7 +351,7 @@ tags:
 
 ### 6.6 Ternary Plots
 
-![TernaryPlotProperties](attachments/pages/charts/ternary-plot.png)
+![TernaryPlotProperties](attachments/charts/ternary-plot.png)
 
 #### 6.6.1 实用绘图数据
 
@@ -375,4 +380,4 @@ tags:
 
 * 完整的图表文档在这里： [https://plot.ly/javascript/](https://plot.ly/javascript/)
 * [任何图表部件](charts-any-configuration)
-* [如何使用任何图表](/howto7/extensibility/charts-any-usage)
+* [如何使用任何图表](/howto8/front-end/charts-any-usage)
