@@ -1,69 +1,69 @@
 ---
-title: "Chart Widgets"
-parent: "pages"
+title: "グラフのウィジェット"
+parent: "ページ"
 menu_order: 70
 tags:
-  - "Charts"
-  - "Any Chart"
+  - "グラフ"
+  - "任意のグラフ"
   - "Studio Pro"
-  - "Pages"
+  - "ページ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Chart widgets allow you to display data series visually on your app pages in a wide range of charts.
+format@@0ウィジェットを使用すると、幅広いグラフでアプリのページにデータ系列を視覚的に表示できます。
 
-[Basic Charts](#basic-charts) are included in Mendix app templates based on Atlas UI. They can be included in other Mendix apps by downloading them from the Mendix Marketplace (for more information, see [Charts](/appstore/widgets/charts)). Basic charts are based on version 1.47.4 of plotly.js.
+[基本チャート](#basic-charts) は、Atlas UIに基づいたMendixアプリテンプレートに含まれています。 Mendix Marketplace からダウンロードすることで、他のMendix アプリに含めることができます (詳細については、 [チャート](/appstore/widgets/charts) を参照してください)。 基本チャートは、plotly.jsのバージョン1.47.4に基づいています。
 
-[Any Chart](#any-chart) gives much more control and allows more flexible use of the features of [plotly.js](https://plot.ly/). The [Any Chart](/appstore/modules/any-chart) widget can be included in your app. See the widget description in the Marketplace to see what version of plotly.js is supported.
+[任意のチャート](#any-chart) は、 [plotly.js](https://plot.ly/) の機能をより柔軟に使用することができます。 [任意のチャート](/appstore/modules/any-chart) ウィジェットをアプリに含めることができます。 plotly.js がサポートしているバージョンについては、Marketplace のウィジェットの説明を参照してください。
 
-## 2 Basic Charts {#basic-charts}
+## 2つの基本チャート {#basic-charts}
 
-With Mendix Charts you can quickly create beautiful charts. The following charts are included:
+Mendix Chartsを使用すると、すばやく美しいチャートを作成できます。 次のグラフが含まれています:
 
-* **Area** chart – a line chart with a fill to the X-axis {{% image_container width="200" %}}![Sample Area Chart](attachments/charts/sample-area-chart.png){{% /image_container %}}
-* **Bar** chart – horizontal bars, grouped or stacked {{% image_container width="200" %}}![Sample Bar Chart](attachments/charts/sample-bar-chart.png){{% /image_container %}}
-* **Bubble** chart – add a size dimension to your chart {{% image_container width="200" %}}![Sample Bubble Chart](attachments/charts/sample-bubble-chart.png){{% /image_container %}}
-* **Column** chart – vertical bars, grouped or stacked {{% image_container width="200" %}}![Sample Column Chart](attachments/charts/sample-column-chart.png){{% /image_container %}}
-* **Heat map** – show data values by color in a 2D matrix {{% image_container width="200" %}}![Sample Heat Map](attachments/charts/sample-heat-map.png){{% /image_container %}}
-* **Line** chart – straight or curved lines, with or without markers {{% image_container width="200" %}}![Sample Line Chart](attachments/charts/sample-line-chart.png){{% /image_container %}}
-* **Pie** chart – a pie or a doughnut chart {{% image_container width="200" %}}![Sample Pie Chart](attachments/charts/sample-pie-chart.png){{% /image_container %}}
-* **Time series** – show data ordered by time {{% image_container width="200" %}}![Sample Time Series](attachments/charts/sample-time-series.png){{% /image_container %}}
+* **エリア** チャート – X-axis {{% image_container width="200" %}}![Sample Area Chart](attachments/charts/sample-area-chart.png){{% /image_container %}}
+* **Bar** chart – 水平棒, grouped or stacked {{% image_container width="200" %}}![Sample Bar Chart](attachments/charts/sample-bar-chart.png){{% /image_container %}}
+* **Bubble** chart – グラフにサイズ寸法を追加 {{% image_container width="200" %}}![Sample Bubble Chart](attachments/charts/sample-bubble-chart.png){{% /image_container %}}
+* **列** チャート – 垂直バー, grouped or stacked {{% image_container width="200" %}}![Sample Column Chart](attachments/charts/sample-column-chart.png){{% /image_container %}}
+* **Heat map** – 2D matrix {{% image_container width="200" %}}![Sample Heat Map](attachments/charts/sample-heat-map.png){{% /image_container %}}
+* **折れ線** グラフ – マーカーの有無にかかわらず直線または曲線。{{% image_container width="200" %}}![Sample Line Chart](attachments/charts/sample-line-chart.png){{% /image_container %}}
+* **Pie** chart – a 円またはドーナツチャート {{% image_container width="200" %}}![Sample Pie Chart](attachments/charts/sample-pie-chart.png){{% /image_container %}}
+* **Time series** – 時間の順序でデータを表示する {{% image_container width="200" %}}![Sample Time Series](attachments/charts/sample-time-series.png){{% /image_container %}}
 
-The widgets contain several settings which can be changed in Studio Pro to customize the look and feel and also offer support for on click events and custom tooltips. See [Chart Configuration](charts-configuration) to learn how to configure Mendix charts.
+ウィジェットにはいくつかの設定が含まれており、Studio Proで外観や雰囲気をカスタマイズしたり、クリックイベントやカスタムツールチップのサポートを提供することができます。 Mendix チャートの設定方法については、 [チャート構成](charts-configuration) を参照してください。
 
-If the standard chart settings are not sufficient for your purposes, see [Chart Advanced Cheat Sheet](charts-advanced-cheat-sheet) for information on advanced configuration of your basic charts.
+標準的なチャート設定があなたの目的に十分でない場合。 基本チャートの詳細設定については、 [チャート詳細チートシート](charts-advanced-cheat-sheet) を参照してください。
 
-Note that only features up to version 1.47.4 of plotly.js can be used when configuring charts.
+Plotly.jsのバージョン1.47.4までの機能のみが、チャートの設定時に使用できます。
 
-**Dynamic Series Chart**
+**動的な系列チャート**
 
-From version 1.4 of the basic charts you can create charts with a variable number of data series. For instructions on how to do this, see [How to Create a Dynamic Series Chart](/howto/front-end/charts-dynamic-series).
+ベーシックチャートのバージョン1.4から、可変数のデータ系列でチャートを作成できます。 これを行う方法については、 [動的系列チャートの作成方法](/howto/front-end/charts-dynamic-series) を参照してください。
 
-## 3 Any Chart {#any-chart}
+## 3 任意のチャート {#any-chart}
 
-With *Any Chart* you can build all the chart types that are possible with Plotly.js up to the version supported by the widget (see the widget description in the Marketplace for more details). If you want to build a chart which is not available in the Basic charts, *Any Chart* is your friend.
+*任意のチャート* を使用すると、Plolyで可能なすべてのチャートタイプを構築できます。 sは、ウィジェットでサポートされているバージョンまでです(詳細については、マーケットプレイスのウィジェットの説明を参照してください)。 基本チャートでは利用できないチャートを作成したい場合は、 *任意のチャート* が友達です。
 
 {{% image_container width="400" %}}![Sample Contour Chart made with Any Chart](attachments/charts/contour.png){{% /image_container %}}
 
-The plotly charts require a configuration based on JSON, therefore *Any Chart* has JSON as input parameters. You can create this JSON dynamically in your microflow via a JSON Structure document and use this in the *Any Chart* configuration. It is also possible to define static JSON configuration which is combined with the dynamic JSON.
+プロットチャートはJSONに基づいた構成が必要なので、 *任意のチャート* はJSONを入力パラメータとして持っています。 JSON 構造ドキュメントを使用してマイクロフロー内でこの JSON を動的に作成し、これを *チャート* 構成で使用できます。 動的な JSON と組み合わせた静的な JSON 構成を定義することもできます。
 
-This module also contains several [building blocks](charts-any-building-blocks) for inspiration and as starting point. If you want to create a new chart, we suggest you check out the plotly.js website.
+このモジュールには、インスピレーションと出発点として、いくつかの [構成要素](charts-any-building-blocks) が含まれています。 新しいグラフを作成したい場合は、plotly.js Webサイトを確認することをお勧めします。
 
 See [Any Chart Widgets](charts-any-configuration) to learn how to configure *Any charts* widgets.
 
-The [Any Chart Cheat Sheet](charts-any-cheat-sheet) lists the most common chart types and the JSON required to create them in Any Chart.
+[任意のチャート シート](charts-any-cheat-sheet) には、最も一般的なチャート タイプと、任意のチャートでそれらを作成するために必要な JSON がリストされています。
 
-## 4 Performing Basic Functions
+## 4 基本機能の実行
 
 {{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
-## 5 Documents in This Section
+## このセクション内の5つのドキュメント
 
-The following documents explain how to use charts in more detail:
+以下のドキュメントでは、チャートの使い方を詳しく説明しています。
 
-* [Chart Configuration](charts-configuration)
-* [Chart Advanced Cheat Sheet](charts-advanced-cheat-sheet)
-* [Any Chart Widgets](charts-any-configuration)
-* [Any Chart Building Blocks](charts-any-building-blocks)
-* [Any Chart Cheat Sheet](charts-any-cheat-sheet)
+* [グラフの構成](charts-configuration)
+* [チャート詳細チートシート](charts-advanced-cheat-sheet)
+* [任意のグラフのウィジェット](charts-any-configuration)
+* [任意のグラフのBuilding Blocks](charts-any-building-blocks)
+* [任意のチャートチートシート](charts-any-cheat-sheet)
