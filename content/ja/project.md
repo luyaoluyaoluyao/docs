@@ -1,41 +1,41 @@
 ---
-title: "App"
+title: "アプリ"
 parent: "project-explorer"
 menu_order: 10
 tags:
   - "studio pro"
-  - "app"
+  - "アプリ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A Mendix app consists of app-level documents and a number of modules. Each module can contain many documents. At the app level, there are some settings and documents that apply to your app as a whole. For example, navigation is an app-level document; the menu bar is app-wide and can refer to functionality in all modules. Most documents, however, live at the level of a [module](modules).
+Mendixアプリは、アプリレベルのドキュメントと多数のモジュールで構成されています。 各モジュールは多くのドキュメントを含むことができます。 アプリレベルでは、アプリ全体に適用される設定やドキュメントがいくつかあります。 例えば、navigation は app-level ドキュメントです。メニューバーはアプリワイドで、すべてのモジュールの機能を参照できます。 しかし、ほとんどの文書は [モジュール](modules)のレベルに住んでいます。
 
-## 2 Settings
+## 2の設定
 
-App settings include the languages for the end-user, app directory and database and server settings.
+アプリの設定には、エンドユーザー、アプリディレクトリとデータベースとサーバーの設定のための言語が含まれます。
 
-See [App Settings](project-settings).
+[アプリ設定](project-settings) をご覧ください。
 
-## 3 Security
+## 3つのセキュリティ
 
-At the app level you can change the security level, manage user roles and manage administrator and anonymous user access.
+アプリ レベルでは、セキュリティ レベルの変更、ユーザー ロールの管理、管理者と匿名ユーザー アクセスの管理ができます。
 
-See [App Security](project-security).
+[App Security](project-security) を参照してください。
 
 ## 4 Navigation
 
-In navigation you can configure the menu bar and navigation tree for your application. Also you can specify what the home page is, as in, the page you see right after signing in.
+ナビゲーションでは、アプリケーションのメニュー バーとナビゲーション ツリーを設定できます。 また、サインイン後に表示されるページのように、ホームページが何であるかを指定することもできます。
 
-See [Navigation](navigation).
+[ナビゲーション](navigation) を参照してください。
 
-## 5 System Texts
+## 5つのシステムテキスト
 
-System texts are texts like information and error messages that are produced by the server or the client. You can translate these texts so that they appear in the preferred language of the user.
+システムテキストは、サーバーまたはクライアントによって生成される情報やエラーメッセージのようなテキストです。 ユーザーの好みの言語で表示されるように、これらのテキストを翻訳できます。
 
-See [System Texts](system-texts).
+[システムテキスト](system-texts) をご覧ください。
 
-## 6 Read More
+## 6もっと読む
 
-* [Modules](modules)
-* [Security](security)
+* [モジュール](モジュール)
+* [セキュリティ](セキュリティ)
