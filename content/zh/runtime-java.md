@@ -1,69 +1,69 @@
 ---
-title: "Mendix Runtime & Java"
-category: "Mendix Runtime"
+title: "Mendix 运行时间 & Java"
+category: "Mendix 运行时间"
 tags:
-  - "runtime"
-  - "java"
+  - "运行时间"
+  - "贾瓦"
 ---
 
-## 1 Introduction
-When you're developing or running Mendix you will sooner or later come in contact with Java. In this document we'll explain some of the basic concepts of Java in Mendix.
+## 1 导言
+当你正在开发或运行 Mendix 时，你迟早会与 Java 取得联系。 在本文件中，我们将解释Mendix中Java 的一些基本概念。
 
-## 2 Concepts
-The Java concepts are listed below.
+## 2 概念
+Java 概念列举如下。
 
-### 2.1 Java Virtual Machine (JVM)
-When using Mendix you will use it together with Java (JDK) to deploy and run the actual application in a Java Virtual Machine (JVM). The JVM is a container in which the Mendix application runs. It looks like this:
+### 2.1 Java 虚拟机 (JVM)
+当使用 Mendix 时，您将与 Java (JDK) 一起使用它来部署和运行一个在 Java 虚拟机中的实际应用程序 (JVM)。 JVM 是Mendix 应用程序运行的容器。 看起来像这样：
 
 ![](attachments/mendix-runtime-java/2.jpg)
 
-Or as shown in the Mendix Cloud:
+或如Mendix 云中所示：
 
 ![](attachments/mendix-runtime-java/4.jpg)
 
-### 2.2 Stack
+### 2.2 应用
 
-Another interesting area is the Stack. This is what holds, among other things, all information about microflows, domain models and other Mendix specific information. Any microflow that is executed will also end up in the stack (see *thread stacks* in the graph above).
+另一个令人感兴趣的领域是堆栈。 除其他外，这是关于微流、域模型和其他Mendix特定信息的所有信息。 执行的任何微流也将最终进入堆栈(见上图中的 *线程堆栈*)。
 
-### 2.3 Heap, Garbage Collector and OOM Errors
+### 2.3 Heap、垃圾收集器和OOM错误
 
-Next up is the heap space (Heap). But before we go into that, let’s briefly discuss another important part of the JVM: the Garbage Collector (GC).
+下一步是堆空间(Heap)。 但在我们这样做之前，让我们简短地讨论JVM的另一个重要部分：垃圾收集者。
 
-A GC is responsible for:
+总理事会负责：
 
-*   allocating memory
-*   ensuring that any referenced objects remain in memory
-*   recovering memory used by objects that are no longer reachable from references in executing code
+*   分配内存
+*   确保任何被引用的对象保持在内存中
+*   从执行代码中的引用中恢复不再能够访问的对象所使用的内存
 
-Simply put, any object in the Heap that is currently in use (which is a fairly broad concept) is considered to be alive. Any object that is no longer used is considered dead. The GC takes care of removing all these dead objects to free up memory in the Heap again.
+简言之，目前正在使用的Heap中的任何物体（这是一个相当宽泛的概念）都被认为是活着的。 任何不再使用的物体都被认为已经死亡。 GC 负责清除所有这些尸体以再次释放Heap中的内存。
 
-A GC is not responsible for preventing out of memory errors (OOM errors) in itself. You could, for example, keep creating objects indefinitely, and since they will stay alive until you are done doing so, the GC wouldn’t even touch those objects, but you would still end up with an OOM error.
+GC 本身不负责防止内存错误 (OOM错误)。 例如，您可以无限期地保留创建对象，并且因为他们会活着，直到您这样做。 GC 甚至不会触摸这些对象，但你最后还会遇到OOM错误。
 
-Back to the Heap. We can divide it into three parts:
+回到Heap。 我们可以将其分为三部分：
 
-1.  Eden Space (young generation)
-2.  Survivor Space (young generation)
-3.  Tenured Generation (old generation)
+1.  Eden Space (年轻一代)
+2.  生存者空间（年轻一代）
+3.  租用生成(旧一代)
 
-When the GC executes a minor garbage collection it will try to clean up all the objects in the young generation only. If it fails to clean up an Eden Space object it will move it to the Survivor Space. If it fails to clean up a Survivor Space object enough times, it will move it to the Tenured Generation. If the Tenured Generation grows large enough (around 60% of the total space available to the Heap) it will execute a major garbage collection and try to clean up all the objects in both the young and the old generation. So a healthy JVM would have a Heap that goes up and down in relation to its memory usage in the various parts.
+当GC 执行一个小垃圾收集时，它会尝试仅清理年轻一代中的所有物体。 如果它未能清理艾登空间物体，它将会将其移动到生存者空间。 如果它未能清理生存者空间物体足够的时间，它将会将其移动到田间发电厂。 如果租用一代人成长得足够大(约占供暖使用的总面积的60%)，它将进行大规模垃圾收集，并试图清理年轻人和老一代的所有物体。 因此，健康的JVM会有一个比它在各个部分的内存使用率更高和更低的Heap。
 
-You can see this quite well in the following JVM Object Heap graph taken from the Mendix Cloud:
+您可以在下面从 Mendix 云获取的 JVM 对象Heap 图表中看到这一点：
 
 ![](attachments/mendix-runtime-java/5.jpg)
 
-The purple and green spikes are minor garbage collections. The large drops in the red part are major garbage collections. This is a healthy looking Heap.
+紫外线和绿色长矛是小垃圾收藏。 红色部分的大量滴落是主要的垃圾收集。 这是一种健康的景象。
 
-### 2.4 Application Server
+### 2.4 应用程序服务器
 
-And finally a Mendix Cloud graph where all of the above comes together:
+最后是Mendix 云图，所有这些都在一起：
 
 ![](attachments/mendix-runtime-java/6.jpg)
 
-The green part (apps) is basically the JVM in which the Mendix application is running. Anything else is reserved for the operating system of the application server.
+绿色部分 (应用) 基本上是 Mendix 应用程序正在运行的 JVM 。 任何其他东西都保留给应用程序服务器的操作系统。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Non-Persistable Objects & Garbage Collecting](transient-objects-garbage-collecting)
-* [Java Memory Usage](java-memory-usage)
-* [Common Runtime & Java Errors](runtime-java-errors)
+* [不可持久的对象 & 垃圾收集](transient-objects-garbage-collecting)
+* [Java 内存使用](java-memory-usage)
+* [常见运行时间 & Java 错误](runtime-java-errors)
 
