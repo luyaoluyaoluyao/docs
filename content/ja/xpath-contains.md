@@ -1,8 +1,6 @@
 ---
-title: "XPath を含む"
+title: "XPath には以下を含みます"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
