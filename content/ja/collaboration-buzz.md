@@ -1,81 +1,81 @@
 ---
 title: "Buzz"
-category: "Collaboration"
+category: "コラボレーション"
 menu_order: 20
-description: "Describes Studio Buzz."
+description: "スタジオBuzzについて説明します。"
 tags:
-  - "studio"
+  - "スタジオ"
   - "buzz"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Via the **Buzz** tab, you can collaborate on your app with team members – leave comments  or create feedback items on pages, microflows, the domain model, or a navigation document. With such in-context commenting it is easy to communicate clearly and plan your future work.
+**Buzz** タブを介して。 アプリ上でチームメンバーとコラボレーションすることができます – コメントを残したり、ページにフィードバック項目を作成することができます マイクロフロー、ドメインモデル、またはナビゲーションドキュメント。 このような文脈でコメントすることで、明確にコミュニケーションをとり、将来の仕事を計画するのは簡単です。
 
-Comments from Studio Buzz are automatically posted in [App Buzz](/developerportal/collaborate/buzz#app-buzz) in the Developer Portal giving your team members an opportunity to respond to comments both in Studio and the Developer Portal.
+Studio Buzzのコメントは、開発者ポータルの [App Buzz](/developerportal/collaborate/buzz#app-buzz) に自動的に投稿され、StudioとDeveloper Portalの両方でチームメンバーがコメントに返信できるようになります。
 
-## 2 Leaving and Editing Comments {#comment}
+## 2 コメントの残りと編集 {#comment}
 
-To *leave a comment*, navigate to the **Buzz** tab, write your comment, and click **Post**:
+*コメントを残す*には、 **バズ** タブに移動し、コメントを書き込み、 **投稿**をクリックします。
 
-![Posting a Comment](attachments/collaboration-buzz/posting-a-comment.png)
+![コメントの投稿](attachments/collaboration-buzz/posting-a-comment.png)
 
-To *tag a person* by their name, use *@*.
+名前で *を人に* にタグ付けするには、 *@* を使用します。
 
-To *edit* a comment, do the following:
+コメントを ** 編集するには、以下の操作を行います:
 
-1. Open a page, microflow, the domain model, or the navigation document the comment refers to.
+1. ページ、microflow、ドメインモデル、またはコメントが参照するナビゲーションドキュメントを開きます。
 
-2. Open the **Buzz** tab and click the comment.
+2. **Buzz** タブを開き、コメントをクリックします。
 
-3.  Click the edit icon and change the comment.
+3.  編集アイコンをクリックし、コメントを変更します。
 
     ![](attachments/collaboration-buzz/edit-comment.png)
 
-4. Click **Save**.
+4. **保存** をクリックします。
 
 {{% alert type="info" %}}
 
-You cannot delete comments in Studio, this is only possible in the [App Buzz](/developerportal/collaborate/buzz#app-buzz) in the Developer Portal.
+Studio でコメントを削除することはできません。これは開発者ポータルの [App Buzz](/developerportal/collaborate/buzz#app-buzz) でのみ可能です。
 
 {{% /alert %}}
 
-## 2 Viewing App Buzz
+## 2 アプリのバズ表示
 
-Your comments are posted and shown in the **App Buzz** in the Developer Portal. To view the **App Buzz**, click the ellipsis icon > **View app buzz**:
+コメントは投稿され、Developer Portal の **App Buzz** に表示されます。 **App Buzz**を表示するには、省略記号 > **アプリのバズ表示** をクリックしてください。
 
-![App Buzz](attachments/collaboration-buzz/viewing-app-buzz.png)
+![アプリのバズ](attachments/collaboration-buzz/viewing-app-buzz.png)
 
-You will be automatically taken to the Developer Portal. For more information on the App Buzz, see the [App Buzz](/developerportal/collaborate/buzz#app-buzz) section in *Buzz*.
+開発者ポータルに自動的に移動します。 App Buzzの詳細については、 [Buzz](/developerportal/collaborate/buzz#app-buzz) の *App Buzz* セクションを参照してください。
 
-## 3 Creating a Feedback Item
+## 3 フィードバック項目を作成する
 
-You can create a feedback item via the **Buzz** tab. Feedback items allow you to submit ideas, questions, or issues on the app, and let your team work on them in the Developer Portal.
+**Buzz** タブからフィードバック項目を作成できます。 フィードバック項目を使用すると、アプリでアイデア、質問、問題を提出し、開発者ポータルでチームに作業させることができます。
 
-In a thread in Studio Buzz, you and your team may conclude that the subject discussed needs more thorough refinement or needs to be postponed to be picked up in future sprints. In that case, a feedback item is a useful way to bring the item under attention of the product owner in the team. From there it can evolve into a story and be planned for a sprint. For more information on feedback items, see [Feedback Management](/developerportal/collaborate/feedback), especially the [Adding a Feedback Item to Your Backlog](/developerportal/collaborate/feedback#adding) section.
+Studio Buzzのスレッドで あなたとあなたのチームは議論された被験者がより徹底的な改良が必要であると結論付けるかもしれない 将来のスプリントで拾われるために延期される必要がある その場合、フィードバック項目は、チーム内の製品所有者の注意を引くための便利な方法です。 そこからストーリーに進化し、スプリントの計画を立てることができます。 フィードバックアイテムの詳細については、 [フィードバック管理](/developerportal/collaborate/feedback)、特に [バックログにフィードバックアイテムを追加する](/developerportal/collaborate/feedback#adding) セクションを参照してください。
 
-To create a feedback item, do the following:
+フィードバック項目を作成するには、次の操作を行います。
 
-1. Click the posted comment. For more information on how to leave a comment, see the [Leaving and Editing Comments](#comment) section.
+1. 投稿したコメントをクリックします。 コメントを残す方法の詳細については、 [コメントの残りと編集](#comment) セクションを参照してください。
 
-2.  Click the ellipsis icon and select **Create Feedback Item**:
+2.  省略記号アイコンをクリックし、 **フィードバック項目を作成** を選択します。
 
-    {{% image_container width="350" %}}![Creating Feedback Item](attachments/collaboration-buzz/creating-feedback-item.png)
+    {{% image_container width="350" %}}![フィードバックアイテムの作成](attachments/collaboration-buzz/creating-feedback-item.png)
     {{% /image_container %}}
 
-3.  In the **Create feedback item** dialog box, fill in the type of feedback, its title, and additional information if necessary.
+3.  **フィードバックアイテムの作成** ダイアログボックスで、フィードバックの種類、タイトル、および必要に応じて追加情報を入力します。
 
-    {{% image_container width="450" %}}![Create Feedback Item Dialog Box](attachments/collaboration-buzz/feedback-item-info.png)
+    {{% image_container width="450" %}}![フィードバック項目ダイアログボックスを作成](attachments/collaboration-buzz/feedback-item-info.png)
     {{% /image_container %}}
 
-4. Click **Create**.
+4. **Create** をクリックします。
 
-The feedback item is submitted and a corresponding comment is posted in the **Buzz** tab with a link to the Developer Portal:
+フィードバック項目が送信され、対応するコメントが **Buzz** タブに投稿され、開発者ポータルへのリンクが表示されます。
 
-{{% image_container width="350" %}}![Created Feedback Item](attachments/collaboration-buzz/feedback-item-created.png)
+{{% image_container width="350" %}}![フィードバックアイテムを作成しました](attachments/collaboration-buzz/feedback-item-created.png)
 {{% /image_container %}}
 
-## 4 Read More
+## 4 続きを読む
 
 * [Buzz](/developerportal/collaborate/buzz)
-* [Feedback Management](/developerportal/collaborate/feedback)
+* [フィードバック管理](/developerportal/collaborate/feedback)
