@@ -1,65 +1,65 @@
 ---
-title: "Sign-In Button"
-parent: "authentication-widgets"
+title: "サインインボタン"
+parent: "認証ウィジェット"
 tags:
   - "studio pro"
-  - "sign-in button"
-  - "sign in"
-  - "authentication widget"
-  - "authentication"
+  - "サインインボタン"
+  - "サインイン"
+  - "認証ウィジェット"
+  - "認証"
 ---
 
 {{% alert type="warning" %}}The **Sign-in button** is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Sign-in button** sends a user's login ID and password to the server for authentication:
+**サインイン ボタン** は、ユーザーのログイン ID とパスワードをサーバーに送信します。
 
-![Sign-In Button](attachments/authentication-widgets/sign-in-button.png)
+![サインインボタン](attachments/authentication-widgets/sign-in-button.png)
 
-Any errors are displayed in a [validation message widget](#validation-message-widget) or in a pop-up window.
+エラーは、 [検証メッセージ ウィジェット](#validation-message-widget) またはポップアップ ウィンドウに表示されます。
 
-The **Sign-in button** should be placed on a page together with a [Login ID text box](login-id-text-box) and a [Password text box](password-text-box).
+**サインイン ボタン** は、 [ログイン ID テキスト ボックス](login-id-text-box) と [パスワード テキスト ボックス](password-text-box) と一緒にページに配置する必要があります。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of sign-in button properties is represented in the image below:
+以下の画像にサインインボタンプロパティの例を示します。
 
-{{% image_container width="250" %}}![Sign-In Button Properties](attachments/authentication-widgets/sign-in-button-properties.png)
+{{% image_container width="250" %}}![サインインボタンのプロパティ](attachments/authentication-widgets/sign-in-button-properties.png)
 {{% /image_container %}}
 
-Sign-in button properties consist of the following sections:
+サインインボタンのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-Most properties of a sign-in button are the same as properties of button widgets. For more information on button properties in the **General** section, see the [General Section](button-properties#general) in *Button Properties*.
+サインインボタンのほとんどのプロパティは、ボタンウィジェットのプロパティと同じです。 **General** セクションの button プロパティの詳細については、 [Button Properties](button-properties#general) の *General セクション* を参照してください。
 
-#### 2.3.1 Validation Message Widget {#validation-message-widget}
+#### 2.3.1 検証メッセージウィジェット {#validation-message-widget}
 
-**Validation message widget** is a specific property of a sign-in button. It defines the [Validation message widget](validation-message) that displays authentication failure messages on a page. If no widget is selected in this property, authentication failure messages will be displayed in a pop-up window: ![Validation Failure](attachments/authentication-widgets/validation-failure.png)
+**検証メッセージウィジェット** は、サインインボタンの特定のプロパティです。 認証失敗メッセージをページに表示する [検証メッセージ ウィジェット](validation-message) を定義します。 このプロパティでウィジェットが選択されていない場合、認証失敗メッセージはポップアップウィンドウに表示されます: ![バリデーション失敗](attachments/authentication-widgets/validation-failure.png)
 
-Default: *None*
+デフォルト: *なし*
 
-### 2.4 Visibility Section {#visibility}
+### 2.4 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Login ID Text Box](login-id-text-box)
-* [Password Text Box](password-text-box)
-* [Validation Message](validation-message)
+* [ページ](page)
+* [ログインIDテキストボックス](login-id-text-box)
+* [パスワードのテキストボックス](password-text-box)
+* [検証メッセージ](validation-message)
