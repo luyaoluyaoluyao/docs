@@ -1,83 +1,83 @@
 ---
 title: "XPath"
-category: "App Modeling"
+category: "アプリモデリング"
 menu_order: 90
-description: "Describes how the XPath query language is used in Mendix by presenting functions and examples."
+description: "Mendix での XPath クエリ言語の使用方法と例を説明します。"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+Mendix XPath は、データを取得するために設計された Mendix クエリ言語の1つです。 XPath は、Mendix オブジェクトとその属性または関連付けのデータを選択するためにパス式を使用します。
 
-Mendix XPath is one of the Mendix query languages designed to retrieve data. XPath uses path expressions to select data of Mendix objects and their attributes or associations.
+XPath queries can be written both in Studio Pro, for example when you want to specify a constraint on the data retrieved in a Retrieve microflow activity, and directly in code in the *.java* files of your Java actions. すべての演算子がStudio Proでサポートされているわけではなく、クエリの構文はStudio ProとJava環境で異なることに注意してください。
 
-XPath queries can be written both in Studio Pro, for example when you want to specify a constraint on the data retrieved in a Retrieve microflow activity, and directly in code in the .java files of you Java actions. Note that not all operators are supported by Studio Pro, and that the syntax of your query may differ between Studio Pro and Java environments.
+XPath クエリの例は次のとおりです。
 
-Examples of XPath queries are:
-
-*   `//Sales.Customer` Retrieve all customers.
-*   `//Sales.Customer[Name='Jansen']` Retrieve all customers with name 'Jansen'.
-*   `avg(//Sales.Order[IsPaid = true()]/TotalPrice)` Retrieve the average of the total prices of all paid orders.
+*   `//Sales.Customer` すべての顧客を取得します。
+*   `//Sales.Customer[Name='Jansen']` 「Jansen」という名前ですべての顧客を取得します。
+*   `avg(//Sales.Order[IsPaid = true()]/TotalPrice)` すべての支払済み注文の合計価格の平均を取得します。
 
 {{% alert type="warning" %}}
-In Studio Pro, you do not write complete queries, only the constraints. The entity is implicitly determined by the context. So, instead of `//Sales.Customer[Name='Jansen']`, you only need to write `[Name='Jansen']` in the context of a customer. In Java, you do need to write the whole queries, including the double slashes (`//`) and the entity name.
+Studio Pro では、完全なクエリを記述せず、制約のみを記述します。 エンティティはコンテキストによって暗黙的に決定されます。 ですから、 `//Sales.Customer[Name='Jansen']`の代わりに、顧客のコンテキストで `[Name='Jansen']` を記述するだけです。 Java では、double スラッシュ (`//`) とエンティティ名を含む、クエリ全体を記述する必要があります。
 {{% /alert %}}
 
-## 2 XPath Elements
+## 2つの XPath 要素
 
-A common Mendix XPath query consists of a several elements.
+一般的な Mendix XPath クエリは、いくつかの要素で構成されています。
 
-| A                             | B                             | C                     | D                                |
-| ----------------------------- | ----------------------------- | --------------------- | -------------------------------- |
-| Aggregate function (optional) | Entity to retrieve (required) | Constraint (optional) | Attribute to retrieve (optional) |
-| avg                           | //Sales.Order                 | [IsPaid = true()]     | /TotalPrice                      |
+| A            | B               | C                 | D           |
+| ------------ | --------------- | ----------------- | ----------- |
+| 集計関数 (オプション) | 取得するエンティティ (必須) | 制約（任意）            | 取得する属性 (任意) |
+| avg          | //Sales.Order   | [IsPaid = true()] | /合計価格       |
 
-Element B describes the core of each query and consists of a description of the object being retrieved. This segment always starts with two forward slashes '//' and includes the name of the entity you wish to access preceded by the module containing the entity separated by a period. E.g. //Sales.Customer would return all objects of entity 'Customer' in the module 'Sales'.
+要素 B は、各クエリのコアを記述し、取得されるオブジェクトの説明で構成されます。 このセグメントは常に2つのスラッシュで始まり、ピリオドで区切られたエンティティを含むモジュールによって先頭にアクセスしたいエンティティの名前を含みます。 例えば、 //Sales.Customer は、モジュール 'Sales' 内のエンティティ 'Customer' のすべてのオブジェクトを返します。
 
-Element C of a query is optional and contains one or more constraints to restrict the data being retrieved.
+クエリの要素 C はオプションで、取得されるデータを制限するための 1 つ以上の制約を含んでいます。
 
-Consider the following query:
+次のクエリを検討してください:
 
 `//Sales.Customer[Name='Jansen']`
 
-The constraint is clearly visible between brackets and restricts the objects retrieved to those for which the attribute 'Name' equals 'Jansen'. Objects with any other name than Jansen are excluded from the list. The number of possible constraints on a single query is unlimited. For more information on how to add and manipulate these constraints, see [XPath Constraints](xpath-constraints).
+この制約は、括弧の間で明確に表示され、'Name' 属性が 'Jansen' に等しいオブジェクトに取得されたオブジェクトを制限します。 Jansen 以外の名前のオブジェクトはリストから除外されます。 単一のクエリで可能な制約の数は無制限です。 これらの制約を追加および操作する方法の詳細については、 [XPath 制約](xpath-constraints) を参照してください。
 
-Element D of a query is optional and specifies an attribute of the retrieved entity. This option is rarely used in Studio Pro itself as all data is stored in objects, making it cumbersome and needlessly complicated to deal with a list of single attribute. However, various Java actions have use of such lists. Also, this functionality can be used in conjunction with Part A to create aggregates of certain attributes easily.
+クエリの要素 D はオプションで、取得したエンティティの属性を指定します。 このオプションは、すべてのデータがオブジェクトに保存されているため、Studio Pro 自体ではほとんど使用されません。 1つの属性のリストを扱うのを煩雑で複雑にする ただし、様々なJavaアクションはそのようなリストを使用しています。 また、この機能は Part A と組み合わせて使用することで、特定の属性の集計を簡単に作成できます。
 
-Element A of a query is optional and specifies an aggregation. Element A can be one of the following functions: [avg](xpath-avg), [count](xpath-count), [max](xpath-max), [min](xpath-min) and [sum](xpath-sum). With the exception of 'count', each of these functions require that a particular attribute is specified in element D.
+要素 クエリのAはオプションで、集計を指定します。 Element A can be one of the following functions: [avg](xpath-avg), [count](xpath-count), [max](xpath-max), [min](xpath-min) and [sum](xpath-sum). 'count' を除き、これらの各関数は、D 要素に特定の属性を指定する必要があります。
 
-## 3 Tokens
+## 3トークン
 
-For details, see [XPath Tokens](xpath-tokens).
+詳細に関しては、 [XPath トークン](xpath-tokens) を参照してください。
 
-## 4 Operators
+## 4 演算子
 
-For details, see [XPath Operators](xpath-operators).
+詳細に関しては、 [XPath 演算子](xpath-operators) を参照してください。
 
-## 5 Functions
+## 5つの機能
 
-The following XPath functions are available:
+以下の XPath 関数を使用できます。
 
-* [XPath functions](xpath-query-functions):
+* [XPath 関数](xpath-query-functions):
     * [avg](xpath-avg)
-    * [count](xpath-count)
-    * [max](xpath-max)
-    * [min](xpath-min)
+    * [カウント](xpath-count)
+    * [最大](xpath-max)
+    * [分](xpath-min)
     * [sum](xpath-sum)
-* [Constraint functions](xpath-constraint-functions):
-    * [contains](xpath-contains)
-    * [starts-with](xpath-starts-with)
+* [制約関数](xpath-constraint-functions):
+    * [を含む](xpath-contains)
+    * [Starts-with](xpath-starts-with)
     * [ends-with](xpath-ends-with)
-    * [not](xpath-not)
+    * [いいえ](xpath-not)
     * [true](xpath-true)
     * [false](xpath-false)
-## 6 Example
 
-**How to find the right path to XPath**
+## 6例
+
+**XPath への正しいパスを見つける方法**
+
+{{% alert type="info" %}}
+このビデオは [Studio Pro 8](/refguide8/)で行われましたが、この概念は適用可能なままです。
+{{% /alert %}}
 
 {{% youtube sdabUY-w4ZU %}}
-
