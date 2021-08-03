@@ -1,54 +1,95 @@
 ---
-title: "Enumerations in Expressions"
-parent: "expressions"
+title: "表达式的枚举数"
+parent: "表达式"
+menu_order: 170
+tags:
+  - "studio pro"
+  - "表达式"
+  - "枚举数"
+  - "表达式"
 ---
 
+## 1 导言
 
-Enumerations are referenced by <modulename>.<enumerationname>.<enumerationvalue>
+枚举由 `<modulename>引用。<enumerationname>。<enumerationvalue>`。
 
-Assume a module "OrderProcessing", in which an enumeration "Status" is defined with two possible values: "started" and "completed". To set the value of an attribute in a change action to "completed", use the following code:
+例如，您有一个名为 *订单处理*的模块， 枚举 *状态* 定义了两个可能的值： *开始* 和 *完成*。
+
+To set the value of an attribute in a change list, object, or variable activity to *completed*, use the following input:
 
 ```java
-OrderProcessing.Status.completed
+已完成
 ```
 
-Conditional statements are also possible:
+条件语句也是可能的：
 
 ```java
-if 4>3 then
+如果4>3 则
+  orderProcessing.Status.completed
+否则
   OrderProcessing.Status.completed
-else
-  OrderProcessing.Status.completed
 ```
 
-## getCaption
+## 2 getCaption
 
-Takes an enumeration value and returns the caption of this value. The caption is a translatable string and the result of this function depends on the current language.
+`getCaption` 函数需要一个枚举值并返回此值的标题。 *标题* 是一个可翻译的字符串，这个函数的结果取决于当前语言。
 
-### Input parameters
+### 2.1 输入参数
 
-*   an enumeration value Type: any enumeration
+作为输入参数，您可以使用任何枚举的枚举值。
 
-### Output
+### 2.2 产出
 
-The caption of the enumeration value in the current language. Type: String
+产出情况见下表：
+
+| 值            | 类型  |
+| ------------ | --- |
+| 当前语言中枚举值的标题。 | 字符串 |
+
+### 2.3 例子
+
+如果您使用以下输入：
 
 ```java
-getCaption($NewEntity/TestEnum)
+getCaption($Customer/成绩)
 ```
 
-## getKey
-
-Takes an enumeration value and returns the key (called Name in the Modeler) of this value. The key is the technical name for the enumeration value and is language independent. See also [Enumeration Values](enumeration-values).
-
-### Input parameters
-
-*   an enumeration value Type: any enumeration
-
-### Output
-
-The key/name of the enumeration value Type: String
+输出可以是：
 
 ```java
-getKey($NewEntity/TestEnum)
+Gouden
 ```
+
+## 3 getKey
+
+`getKey` 函数需要枚举值并返回此值的密钥 (Studio Pro中称为 *Name*)。 密钥是枚举值的技术名称，语言是独立的。 欲了解更多信息，请参阅 [枚举](enumerations)。
+
+### 3.1 输入参数
+
+作为输入参数，您可以使用任何枚举的枚举值。
+
+### 3.2 产出
+
+产出情况见下表：
+
+| 值                | 类型  |
+| ---------------- | --- |
+| 当前语言的枚举值的键值(名称)。 | 字符串 |
+
+### 3.3 示例
+
+如果您使用以下输入：
+
+```java
+getKey($Customer/成绩)
+```
+
+输出可以是：
+
+```java
+金色
+```
+
+## 4 阅读更多
+
+* [枚举数](enumerations)
