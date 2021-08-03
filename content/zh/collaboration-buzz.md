@@ -1,81 +1,81 @@
 ---
-title: "Buzz"
-category: "Collaboration"
+title: "布兹斯"
+category: "合作"
 menu_order: 20
-description: "Describes Studio Buzz."
+description: "描述工作室Buzz。"
 tags:
-  - "studio"
-  - "buzz"
+  - "工作室"
+  - "调速器"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Via the **Buzz** tab, you can collaborate on your app with team members – leave comments  or create feedback items on pages, microflows, the domain model, or a navigation document. With such in-context commenting it is easy to communicate clearly and plan your future work.
+通过 **Buzz** 标签， 您可以与团队成员合作开发您的应用——在页面上留下评论或创建反馈项目， microflow, the domain model or a navigation document. 有了这种结合背景的评论，很容易清楚地沟通和规划你们今后的工作。
 
-Comments from Studio Buzz are automatically posted in [App Buzz](/developerportal/collaborate/buzz#app-buzz) in the Developer Portal giving your team members an opportunity to respond to comments both in Studio and the Developer Portal.
+Studio Buzz的评论会自动发布在 [App Buzz](/developerportal/collaborate/buzz#app-buzz) 的开发者门户中，让您的团队成员有机会在Studio 和开发者门户中回复评论。
 
-## 2 Leaving and Editing Comments {#comment}
+## 2 个离开和编辑评论 {#comment}
 
-To *leave a comment*, navigate to the **Buzz** tab, write your comment, and click **Post**:
+若要 *留下一条评论*, 导航到 **Buzz** 标签, 写评论, 然后点击 **帖子**:
 
-![Posting a Comment](attachments/collaboration-buzz/posting-a-comment.png)
+![发表评论](attachments/collaboration-buzz/posting-a-comment.png)
 
-To *tag a person* by their name, use *@*.
+若要 *按用户名标记一个人* ，请使用 *@*。
 
-To *edit* a comment, do the following:
+若要 *编辑* 个评论，请执行以下操作：
 
-1. Open a page, microflow, the domain model, or the navigation document the comment refers to.
+1. 打开页面、微流程、域模型或评论引用的导航文档。
 
-2. Open the **Buzz** tab and click the comment.
+2. 打开 **Buzz** 标签，然后单击评论。
 
-3.  Click the edit icon and change the comment.
+3.  点击编辑图标并更改评论。
 
     ![](attachments/collaboration-buzz/edit-comment.png)
 
-4. Click **Save**.
+4. 点击 **保存**。
 
 {{% alert type="info" %}}
 
-You cannot delete comments in Studio, this is only possible in the [App Buzz](/developerportal/collaborate/buzz#app-buzz) in the Developer Portal.
+您不能删除Studio中的评论，这只能在开发者门户中的 [App Buzz](/developerportal/collaborate/buzz#app-buzz) 中实现。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Viewing App Buzz
+## 2 查看App Buzz
 
-Your comments are posted and shown in the **App Buzz** in the Developer Portal. To view the **App Buzz**, click the ellipsis icon > **View app buzz**:
+您的评论已经发布并显示在开发者门户中的 **App Buzz** 中。 要查看 **App Buzz**, 点击椭圆图标 > **查看应用程序buzz**:
 
 ![App Buzz](attachments/collaboration-buzz/viewing-app-buzz.png)
 
-You will be automatically taken to the Developer Portal. For more information on the App Buzz, see the [App Buzz](/developerportal/collaborate/buzz#app-buzz) section in *Buzz*.
+您将被自动带到开发者门户。 欲了解更多关于App Buzzz的信息，请在 *Buzz* 中查看 [App Buzz](/developerportal/collaborate/buzz#app-buzz) 部分。
 
-## 3 Creating a Feedback Item
+## 3 创建反馈项目
 
-You can create a feedback item via the **Buzz** tab. Feedback items allow you to submit ideas, questions, or issues on the app, and let your team work on them in the Developer Portal.
+您可以通过 **Buzz** 标签创建一个反馈项目。 反馈项目可以让您在应用上提交想法、问题或问题，让您的团队在开发者门户上开展工作。
 
-In a thread in Studio Buzz, you and your team may conclude that the subject discussed needs more thorough refinement or needs to be postponed to be picked up in future sprints. In that case, a feedback item is a useful way to bring the item under attention of the product owner in the team. From there it can evolve into a story and be planned for a sprint. For more information on feedback items, see [Feedback Management](/developerportal/collaborate/feedback), especially the [Adding a Feedback Item to Your Backlog](/developerportal/collaborate/feedback#adding) section.
+在Studio Buzzz中的一个线程， 你和你的团队可能会得出结论，讨论的议题需要更彻底的完善，或者需要推迟，以便在今后的喷雾中挑选。 在这种情况下，反馈项目是提请团队中产品所有者注意该项目的一种有益方式。 它可以从那里演变成一个故事，并且可以用喷洒作规划。 关于反馈项目的更多信息，请参阅 [反馈管理](/developerportal/collaborate/feedback)，特别是 [将反馈项目添加到您的待办事项](/developerportal/collaborate/feedback#adding) 部分。
 
-To create a feedback item, do the following:
+要创建一个反馈项目，请执行以下操作：
 
-1. Click the posted comment. For more information on how to leave a comment, see the [Leaving and Editing Comments](#comment) section.
+1. 点击发布的评论。 关于如何留下评论的更多信息，见 [离开和编辑评论](#comment) 部分。
 
-2.  Click the ellipsis icon and select **Create Feedback Item**:
+2.  点击椭圆图标并选择 **创建反馈项目**:
 
-    {{% image_container width="350" %}}![Creating Feedback Item](attachments/collaboration-buzz/creating-feedback-item.png)
+    {{% image_container width="350" %}}![创建反馈项目](attachments/collaboration-buzz/creating-feedback-item.png)
     {{% /image_container %}}
 
-3.  In the **Create feedback item** dialog box, fill in the type of feedback, its title, and additional information if necessary.
+3.  在 **中创建反馈项** 对话框，必要时填写反馈类型、标题和额外信息。
 
-    {{% image_container width="450" %}}![Create Feedback Item Dialog Box](attachments/collaboration-buzz/feedback-item-info.png)
+    {{% image_container width="450" %}}![创建反馈项目对话框](attachments/collaboration-buzz/feedback-item-info.png)
     {{% /image_container %}}
 
-4. Click **Create**.
+4. 点击 **创建**。
 
-The feedback item is submitted and a corresponding comment is posted in the **Buzz** tab with a link to the Developer Portal:
+反馈条目已提交，相关的评论已发布在 **Buzz** 标签中，链接到开发者门户：
 
-{{% image_container width="350" %}}![Created Feedback Item](attachments/collaboration-buzz/feedback-item-created.png)
+{{% image_container width="350" %}}![创建反馈项](attachments/collaboration-buzz/feedback-item-created.png)
 {{% /image_container %}}
 
-## 4 Read More
+## 4 阅读更多
 
-* [Buzz](/developerportal/collaborate/buzz)
-* [Feedback Management](/developerportal/collaborate/feedback)
+* [布兹斯](/developerportal/collaborate/buzz)
+* [反馈管理](/developerportal/collaborate/feedback)
