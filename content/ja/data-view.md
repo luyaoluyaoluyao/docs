@@ -1,127 +1,133 @@
 ---
-title: "Data view"
-parent: "data-widgets"
+title: "データビュー"
+parent: "データウィジェット"
+menu_order: 10
 tags:
-  - "Page"
-  - "Display"
-  - "widget"
-  - "object"
+  - "ページ"
+  - "データビュー"
+  - "ウィジェット"
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The data view is a central component of Mendix applications. It is the starting point for showing the contents of exactly one object. For example, if you want to show the details of a single customer, you can use a data view to do this. The data view typically contains input widgets like text boxes with labels. In more complex screens, a data view can contain tab controls per topic (for example, address and payment information) and data views and data grids for related objects (for example, order history or wish list).
+データビューは、1つのオブジェクトの内容を表示するための出発点です。 たとえば、単一のプログラム項目の詳細を表示したい場合は、データビューを使用して以下を行うことができます。
 
-{{% alert type="info" %}}
+![](attachments/data-widgets/data-view-example-structure-mode.png)
 
-![](attachments/pages/data-view.png)
+より複雑な例では、データビューに特定のトピックごとの顧客情報と [タブコンテナ](tab-container) を含めることができます (例えば、 関連するオブジェクトのネストされたデータグリッドを持つアドレスと支払い情報:
 
-A more advanced data view with a tab control and a data grid inside.
+![](attachments/data-widgets/data-view-complex-example.png)
 
-{{% /alert %}}
+## 2つのデータビューフッター
 
-## 2 Components
+データ ビューのフッターは、データビューの下部にあるセクションで、変更を確認またはキャンセルするためのボタンが多く含まれています。
 
-### 2.1 Data View Contents Area
+## 3つのプロパティ
 
-The data view contents area is where all the layout and input widgets go. Often the contents area contains a table with two columns: the first column showing labels and the second column containing input widgets. Other layouts are possible, as you can see in the examples above.
+以下の画像に、データビューのプロパティの例を示します。
 
-### 2.2 Data View Footer
+{{% image_container width="250" %}}![](attachments/data-widgets/data-view-properties.png)
+{{% /image_container %}}
 
-The footer of the data view is the section at the bottom of the data view that often contains buttons to confirm or cancel the page. However, arbitrary widgets are allowed. The footer will stick to the bottom if the data view is the only top-level widget.
+データ ビュー プロパティは、次のセクションで構成されています。
 
-## 3 Common Properties
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 3.1 一般的なセクション {#common}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 3.2 データソースセクション {#data-source}
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+データソースは、データビューに表示されるオブジェクトを決定します。 データソースの詳細については、 [Data Sources](data-sources) を参照してください。
 
-## 4 General Properties
+データ ビューでは、context、microflow、nanoflow、および listen のデータ ソースの種類がサポートされます。
 
-### 4.1 Form Orientation
+| データソースの種類 | 説明                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| コンテキスト    | データソースは、ページを開いている場所から、選択したオブジェクトを渡していることを決定します。 たとえば、microflow に **Show Page** アクティビティを追加すると、渡すページとオブジェクトを選択します。 (マイクロフローの詳細については、 [Microflow](microflows) を参照してください。 つまり、ページがマイクロフローで開かれたとき、 このタイプのオブジェクトが指定され、ページのデータビューに表示されます。 <br />データビューが別のデータウィジェット内にネストされている場合。 コンテキストオブジェクトから始まり、1 つまたは複数の関連付けに従うエンティティパスを指定できます。 コンテキスト ソースの詳細については、 [コンテキスト ソース](context-source) を参照してください。<br /> |
+| マイクロフロー   | 選択したマイクロフローを実行し、戻り値を表示するデータ ソース。 マイクロフローソースの詳細については、 [Microflow Source](microflow-source) を参照してください。                                                                                                                                                                                                                                                                                                      |
+| Nanoflow  | 選択したnanoflowを実行し、戻り値を表示するデータソース。 ナノフローソースの詳細については、 [Nanoflow Source](nanoflow-source) を参照してください。                                                                                                                                                                                                                                                                                                          |
+| ウィジェットを聴く | データ ビューが同じページのリスト ウィジェット内のオブジェクトに詳細情報を表示できるデータ ソース。 ウィジェットのソースについての詳細は、 [Listen To Widget Source](microflow-source) を参照してください。                                                                                                                                                                                                                                                                            |
 
-With this property, you can specify the position of the input widget labels inside the data view. If the orientation is horizontal, the labels will be placed next to the input widgets. If the orientation is vertical, the labels will be placed above the input widgets.
+### 3.3 デザインプロパティセクション{#design-properties}
 
-Note that form groups are responsive and the labels may be placed above input widgets, even if the orientation is set to horizontal, depending on the viewport size. Also, note that a data view with a vertical orientation cannot be nested inside a data view with a horizontal orientation. In that case, the form groups will be rendered horizontally, regardless of the value of the orientation property.
+{{% snippet file="refguide/design-section-link.md" %}}
 
-_Default value:_ Horizontal
+### 3.4 編集可能セクション {#editability}
 
-### 4.2 Label Width (Weight)
+#### 3.4.1 編集可能 {#editable}
 
-If the form orientation is set to horizontal, this property can be used to specify the width of the input widget labels inside the data view. The width is specified using column weights from the [Bootstrap grid system](http://getbootstrap.com/css/#grid). For more details, see [Layout Grid](layout-grid).
+編集可能なプロパティは、データビュー全体が編集可能かどうかを示します。
 
-_Default value:_ 3
+| 値                | 説明                                                                               |
+| ---------------- | -------------------------------------------------------------------------------- |
+| はい               | データ ビューは編集可能です: 各ウィジェットは、独自の編集可能なプロパティ (スニペット外のデータ ビューの既定値) に基づいて編集可能であると判断されます。 |
+| スニペット通話から継承されました | スニペットコールのデータコンテナ(スニペット内のデータビューのデフォルト値)で **はい** または **いいえ** に設定します。               |
+| いいえ              | データ ビューは編集できません。データ ビュー内のウィジェットは編集できません。                                         |
 
-### 4.3 Show Footer
+#### 3.4.2 読み取り専用スタイル
 
-With this property, you can specify whether you want the footer of the data view to be visible. The footer of nested data views is always invisible, regardless of the value of this property.
+このプロパティは、入力ウィジェットが読み取り専用の場合にどのようにレンダリングされるかを決定します。
 
-_Default value:_ True
+| 値                 | 説明                                  |
+| ----------------- | ----------------------------------- |
+| *(デフォルト)* をコントロール | ウィジェットは表示されますが無効になっているため、値は変更できません。 |
+| テキスト              | ウィジェットは、値のテキスト表現によって置き換えられます。       |
 
-### 4.4 Empty Entity Message
+{{% alert type="info" %}}読み取り専用スタイルはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-If this message is specified, a data view that receives no source data will show this message instead of its content. Otherwise, the data view will show its static content and disabled input widgets. This property is a translatable text. For more details, see [Translatable Texts](translatable-texts).
+### 3.5 一般セクション {#general}
 
-There are a number of ways a data view can end up without source data. For instance, a data view with a **Listen to widget** data source will remain empty until an object is selected in the target grid. In this scenario, **Empty entity message** can be used to guide the user to select an item from the grid.
+#### 3.5.1 フォームの向き
 
-_Default value:_ empty
+このプロパティを使用して、データ ビュー内の入力 ウィジェット ラベルの位置を指定できます。 向きが水平の場合、入力ウィジェットの隣にラベルが配置されます。 向きが垂直の場合、ラベルは入力ウィジェットの上に配置されます。
 
-## 5 Editability Properties
+フォームグループは応答性があり、ラベルが入力ウィジェットの上に配置されることに注意してください。 ビューポートのサイズに応じて、向きを水平に設定しても構いません。 また、垂直方向のデータ ビューは、水平方向のデータ ビュー内に入れ子にすることはできません。 この場合、フォーム グループは orientation プロパティの値に関係なく水平方向にレンダリングされます。
 
-### 5.1 Editable
+デフォルト: *水平*
 
-The editable property indicates whether the data view as a whole is editable or not. If the data view is not editable, no widget inside the data view will be editable. On the other hand, if the data view is editable, each widget is determined to be editable based on its own editable property.
+#### 3.5.2. ラベルの幅（重量）
 
-_Default value:_ True
+フォームの向きが水平に設定されている場合。 このプロパティは、データ ビュー内の入力 ウィジェット ラベルの幅を指定するために使用できます。 幅は、 [ブートストラップグリッドシステム](http://getbootstrap.com/css/#grid)の列重みを使用して指定します。 詳細については、 [Layout Grid](layout-grid) を参照してください。
 
-### 5.2 Read-Only Style
+デフォルト: *3*
 
-This property determines how input widgets are rendered if read-only.
+#### 3.5.3 フッターを表示
 
-| Value   | Description                                                            |
-| ------- | ---------------------------------------------------------------------- |
-| Control | The widget is displayed but disabled, so the value cannot be modified. |
-| Text    | The widget is replaced by a textual representation of the value.       |
+このプロパティを使用して、データ ビューのフッターを表示するかどうかを指定できます。 ネストされたデータ ビューのフッターは、このプロパティの値に関係なく常に表示されません。
 
-*Default value:* Control
+デフォルト: *True*
 
-## 6 Data Source Properties
+#### 3.5.4 エンティティメッセージを空にする
 
-The data source determines which object will be shown in the data view. For general information about data sources, see [Data Sources](data-sources).
+このメッセージが指定されている場合、ソースデータを受信しないデータビューには内容の代わりにこのメッセージが表示されます。 それ以外の場合、データ ビューには静的なコンテンツと無効な入力ウィジェットが表示されます。 このプロパティは翻訳可能なテキストです。 詳細は [言語メニュー](translatable-texts) を参照してください。
 
-### 6.1 Type
+データビューには、ソースデータなしで終わる方法がいくつかあります。 例えば、 **ウィジェット** データソースをリッスンするデータビューは、ターゲット グリッドでオブジェクトが選択されるまで空のままになります。 このシナリオでは、 **空のエンティティ メッセージ** を使用して、ユーザーがグリッドからアイテムを選択するようにガイドできます。
 
-The data view supports the following types of data source: context, microflow, and listen to widget. Whatever data source you select, the data view will always return one single object.
+デフォルト: *空*
 
-### 6.2 Entity, Microflow, Listen To Widget
+### 3.6 表示セクション {#visibility}
 
-See the corresponding data source for specific properties:
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-* [Context source](entity-path-source) - either a page parameter or a surrounding data element
-* [Microflow source](microflow-source) - a microflow returning only one object
-* [Listen to widget source](listen-to-grid-source) - any widget returning only one object
+## 4具体的なアクションの実行
 
-### 6.3 Use Schema
+データ ビューでアクションを実行するには、ページでアクションを選択して右クリックします。 可能なアクションのリストが開きます。 **データ ソースの選択**, **表示される条件の編集**など、このリストからいくつかのアクションがあります。 は、プロパティを設定するための迅速な方法です。次のアクションは、実行できる特定のアクションです。
 
-{{% alert type="info" %}}
+* **エンティティに移動** – ドメインモデルを開き、データソースとして使用されるエンティティをハイライトします
+* **データソースに移動します** **microflow **– この動作は、マイクロフローがデータソースとして設定されている場合にのみ表示されます。
+* **nanoflow データソースに移動** - この動作は、nanoflow がデータソースとして設定され、このnanoflow を開くときにのみ表示されます
 
-This property has been deprecated in version 7.2.0 and is marked for removal in version 8.0.0.
+## 5 続きを読む
 
-{{% /alert %}}
-
-Curently this has no effect.
-
-## 7 Visibility Properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
-
-## 8 Read More
-
-* [Entities](entities)
-* [Associations](associations)
+* [ページ](page)
+* [データウィジェット](data-widgets)
+* [データソース](データソース)
+* [ページエディターで共通のプロパティ](common-widget-properties)
