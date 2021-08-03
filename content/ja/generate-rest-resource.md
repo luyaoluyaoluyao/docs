@@ -1,52 +1,52 @@
 ---
-title: "Generating a Published REST Resource"
+title: "公開された REST リソースの生成"
 parent: "published-rest-services"
 menu_order: 20
-description: "Generate a published REST resource from an entity"
+description: "エンティティから公開された REST リソースを生成"
 tags:
-  - "published REST"
-  - "resource"
-  - "entity"
-  - "operations"
-  - "expose"
+  - "公開された REST"
+  - "リソース"
+  - "エンティティ"
+  - "操作"
+  - "暴露する"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-You can publish a REST resource with basic operations based on an entity by right-clicking an entity in the domain model and selecting **Expose as REST resource**. Alternatively, you can drag an entity or message definition onto the list of resources of a published REST service. This page describes the options you have once you perform one of these actions.
+ドメインモデル内のエンティティを右クリックして **RESTリソースとして公開**を選択すると、エンティティに基づく基本的な操作でRESTリソースを公開できます。 または、エンティティまたはメッセージ定義を公開された REST サービスのリソースのリストにドラッグすることもできます。 このページでは、これらのアクションのいずれかを実行すると、オプションが表示されます。
 
-## 2 REST Service
+## 2 REST サービス
 
-This only shows up when you click **Expose as REST resource** in the domain model. Next, choose a service in which to generate the resource and operation.
+ドメインモデルで **RESTリソースとして公開** をクリックした場合にのみ表示されます。 次に、リソースと操作を生成するサービスを選択します。
 
-## 3 General
+## 3つの全般
 
-### 3.1 Resource Name
+### 3.1 リソース名
 
-Type the name of the resource that you want to publish.
+公開するリソースの名前を入力します。
 
-### 3.2 Key Attribute
+### 3.2 キー属性
 
-To be able to create a **Get by key**, a **Patch** or a **Delete** operation, there needs to be a unique attribute on the entity. Select that attribute here.
+To be able to create a **Get by key**, a **Patch** or a **Delete** operation, there needs to be a unique attribute on the entity. ここでその属性を選択します。
 
-## 4 Operations
+## 4つの操作
 
-Check the operations that you want to generate:
+生成したい操作を確認してください:
 
-* **Get all** – allows clients to get all the objects
-* **Get by key** – allows clients to get an object, given its key
-* **Post** – allows clients to add a new object
-* **Patch** – allows clients to update an existing object
-* **Delete** – allows clients to delete an existing object
+* **すべてを取得する** - クライアントがすべてのオブジェクトを取得できるようにする
+* **Get by key** - クライアントがオブジェクトを取得することができます。
+* **Post** - クライアントが新しいオブジェクトを追加できます
+* **パッチ** - クライアントが既存のオブジェクトを更新できるようにする
+* **Delete** - クライアントが既存のオブジェクトを削除することができます
 
-When you click **OK**, the following items are created:
+**OK**をクリックすると、以下の項目が作成されます。
 
-* A resource
-* All the operations that you selected
-* A microflow for each operation
-* A message definition
-* An import mapping (for the **Post** and **Patch** operations)
-* An export mapping (for the **Get all** and **Get by key** operations)
+* リソース
+* 選択したすべての操作
+* 各操作のマイクロフロー
+* メッセージの定義
+* インポートのマッピング ( **ポスト** および **パッチ** 操作)
+* エクスポートマッピング ( **すべての** と **キー** 操作で取得)
 
-If you have already created a message definition for the entity, that message definition will be reused. Existing import and export mappings based on that message definition will also be reused.
+エンティティのメッセージ定義がすでに作成されている場合は、そのメッセージ定義が再び使用されます。 そのメッセージ定義に基づいた既存のインポートとエクスポートのマッピングも再利用されます。
