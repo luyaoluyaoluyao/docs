@@ -1,56 +1,51 @@
 ---
-title: "Consumed Web Service"
-parent: "consumed-web-services"
+title: "消耗的网络服务"
+parent: "已消耗的网络服务"
+tags:
+  - "studio pro"
 ---
 
+## 1 导言
+
+此文档描述导入网络服务的属性。 关于导入网页服务的一般概况，请参阅 [消费网络服务](consumed-web-services) 概览文档。
+
+## 2 WSDL 源
+
+您可以从 URL 或从您磁盘上保存的 WSDL 文件加载WSDL
 
 {{% alert type="warning" %}}
 
-This document describes the properties of an imported web service. If you want a general overview of imported web services, you can check the [Consumed Web Services](consumed-web-services) overview documentation.
+如果您尝试从需要身份验证的 URL 中加载一个 WSDL 文件，您将被要求获取用户名和密码。
 
-{{% /alert %}}
+{{% /警示%}}!{% alert type="warning" %}}
 
-![](attachments/16713734/16843949.png)
+WSDL 文件可能包含多个服务，服务可能包含多个端口。 在加载WSDL时，对话框将要求您为包含多个端口的每个服务选择一个端口。
 
-## General
+{{% /报警 %}}
 
-### WSDL Source
+## 3 服务
 
-You can load the WSDL from an URL or from a WSDL file saved on your disk. After selecting an option and adding the required url or file location, press import to fetch the services/operations in this WSDL.
+这一部分具体规定了WSDL中要找到的服务。
+
+* **名称** -- 服务名称。
+* **端口** - 选定的端口。
+* **位置** - 服务所在的地方。
+* **位置常量** - 可以用于添加服务的额外位置， 例如，当SOAP服务的URL从开发环境转向生产环境时会发生变化。 也见 [常数](constants)。
+
+如果在 WSDL 中定义了多端口服务，弹出式对话框将使您能够选择使用哪个端口。
+
+## 4 业务
+
+本部分显示WSDL中发现的所有操作。 您可以在右侧面板中扩展列表并查看有关个别操作的额外信息。
+
+## 5 高级设置
+
+检查 **发送二进制数据作为附件 (MTOM)** 以启用 MTOM (_Message Transmission Optimization Mechanism_)：一种将二进制数据有效发送到网络服务的方法。 在 [w3.org](https://www.w3.org/TR/soap12-mtom/) 处阅读更多关于它的信息。
 
 {{% alert type="warning" %}}
+只有当您使用一个或多个导出映射在通话网络服务操作中创建请求正文时，消息优化才会被应用。
+{{% /报警 %}}
 
-A dialog will ask for a username and password if you try to load a WSDL file from a URL that requires authentication.
+## 6 呼叫消耗的网络服务
 
-{{% /alert %}}{{% alert type="warning" %}}
-
-A WSDL file can contain multiple services. A service can contain multiple ports. Upon loading a WSDL, a dialog will ask you to select a port for each service if a service contains multiple ports.
-
-{{% /alert %}}
-
-### Services
-
-This part contains the services to be found in the WSDL.
-
-*   Name is the name of the service.
-*   Port is selected port in multiple-port service.
-*   Location is where the service is located.
-*   Location constant can be used to add additional locations for a service, for example: the URL of the soap service may change when moving from a development to a production environment. See also [Constants](constants).
-
-If there is a multiple-port service defined in the WSDL, a dialog will pop up that allows the user to select which one of the ports to use_._
-
-### Operations
-
-This part contains all the operations found in the WSDL. You can expand the list and see additional information about individual operations in the right pane.
-
-### Advanced Settings
-
-*   Send binary data as attachment (MTOM) - enable or disable MTOM: the _Message Transmission Optimization Mechanism_, a method of efficiently sending binary data to and from Web services. Read more about it at [w3.org](https://www.w3.org/TR/soap12-mtom/). Please note that message optimization will only be applied when you use one or more export mappings to create the request body in the Call web service action.
-
-## Documentation
-
-The documentation of the imported web service. Here you can describe the purpose of the web service.
-
-## Calling consumed web services
-
-Please refer to the section [Call Web Service Action](call-web-service-action).
+关于如何调用消费的网络服务的详情，请见 [调用网络服务](call-web-service-action)。
