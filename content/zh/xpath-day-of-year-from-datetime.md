@@ -1,22 +1,18 @@
 ---
-title: "XPath Day-of-Year-from-DateTime"
-parent: "xpath-constraint-functions"
+title: "XPath 年从日期开始"
+parent: "xpate-constraint-function"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-day-of-year-from-datetime.pdf).
-{{% /alert %}}
+## 1 概览
 
-## 1 Overview
+`从-dateTime()` 函数从当年的一个 **日期和时间摘取当天** 属性，以便它可以用来比较一个值。 数值从1月1日到366日不等（因为跳跃年份）。
 
-The `day-of-year-from-dateTime()` function extracts the day in the year from a **Date and time** attribute so it can be used to compare to a value. Values range from 1 (January 1st) to 366 (due to leap years).
+## 2 个示例
 
-## 2 Example
-
-This query returns all the logs where the day in the year in `DateAttribute` is 30 (for example, "2011-01-30" and "2012-01-30"):
+此查询函数返回所有年份在 `日期属性` 中的日子是 30 的日志(例如，"2011-01-30" 和 "2012-01-30")：
 
 ```java
-//Logging.Log[day-of-year-from-dateTime(DateAttribute) = 30]
+//Logging.log[日从日期时间(DateAttribute) = 30]
 ```
