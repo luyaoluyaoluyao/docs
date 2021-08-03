@@ -1,8 +1,8 @@
 ---
-title: "Document Generation Activities"
-parent: "activities"
+title: "文档生成活动"
+parent: "活动"
 ---
 
-## Generate Document
+## 生成文档
 
-See [Generate Document](generate-document).
+查看 [生成文档](generate-document)。
