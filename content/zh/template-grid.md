@@ -1,185 +1,167 @@
 ---
-title: "Template Grid"
-parent: "grids"
+title: "模板网格"
+parent: "格子"
 menu_order: 20
 tags:
   - "studio pro"
-  - "grid"
-  - "template grid"
-  - "data widgets"
+  - "网格"
+  - "模板网格"
+  - "数据部件"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/template-grid.pdf).
-{{% /alert %}}
 
 {{% alert type="warning" %}}The template grid widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+## 1 导言
 
-A template grid shows a list of objects in a tile view. For example, a template grid can show a list of employees with their profile pictures. Using controls provided by the template grid you can browse, search, and manipulate those objects:
+模板网格显示图形视图中的对象列表。 例如，模板网格可以显示带有个人资料图片的雇员列表。 使用模板网格提供的控件，您可以浏览、搜索和操作这些对象：
 
 ![](attachments/data-widgets/template-grid.png)
 
-The template grid has a lot in common with a [data grid](data-grid). The main difference is that the objects are shown in templates instead of rows.
+模板网格与 [数据网格](data-grid) 有很多共同之处。 主要区别是对象显示在模板中而不是行中。
 
-## 2 Components
+## 2 个组件
 
-### 2.1 Control Bar
+### 2.1 控制栏
 
-For more information, see [Control Bar](control-bar).
+欲了解更多信息，请参阅 [Control Bar](control-bar)。
 
-### 2.2 Search Bar
+### 2.2 搜索栏
 
-**Search Bar** is only available for **Database** and **XPath** [data sources](#data-source). For more information on a search bar and its settings, see [Search Bar](search-bar).
+**搜索栏** 仅用于 **数据库** 和 **XPath** [数据源](#data-source)。 关于搜索栏及其设置的更多信息，请参阅 [搜索栏](search-bar)。
 
-### 2.3 Sort Bar
+### 2.3 排序栏
 
-**Sort Bar** is only available for **Database** and **XPath** [data sources](#data-source). For more information on a sort bar and its settings, see [Sort Bar](sort-bar).
+**排序条** 仅用于 **数据库** 和 **XPath** [数据源](#data-source)。 关于排序条及其设置的更多信息，请参阅 [排序条](sort-bar)。
 
-## 3 Properties
+## 3 属性
 
-An example of template grid properties is represented in the image below:
+模板网格属性的示例出现在下面的图像中：
 
 {{% image_container width="250" %}}![](attachments/data-widgets/template-grid-properties.png)
 {{% /image_container %}}
 
-Template grid properties consist of the following sections:
+模板网格属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-### 3.1 Common Section {#common}
+### 3.1 共同部分 {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 3.2 Data Source Properties {#data-source}
+### 3.2 数据源属性 {#data-source}
 
-The data source determines which objects will be shown in the template grid. For general information about data sources, see [Data Sources](data-sources).
+数据源决定哪些对象将显示在模板网格中。 关于数据源的一般信息，请参阅 [数据源](data-sources)。
 
 #### 3.2.1 Type
 
-The list view supports the following types of data sources:
+列表视图支持以下类型的数据源：
 
-* [Database source](database-source) – objects are retrieved directly form the database
-* [XPath source](xpath-source) – objects are retrieved directly form the database
-* [Microflow source](microflow-source) – calculates the list of objects by executing a microflow
-* [Association source](association-source) – follows an association to get to objects
+* [数据库源](database-source) - 直接检索对象组成数据库
+* [XPath 源](xpath-source) - 直接从数据库中检索对象
+* [微流程源](microflow-source) - 通过执行微流程计算对象列表
+* [关联源](association-source) - 关注一个协会来到对象
 
-The database and XPath sources retrieve objects from the database and supports searching and sorting.
+数据库和 XPath 源从数据库中检索对象并支持搜索和排序。
 
-### 3.3 Design Properties Section {#design-properties}
+### 3.3 设计属性部分 {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 3.4 General Section {#general}
+### 3.4 一般部分 {#general}
 
-#### 3.4.1 Show Control Bar {#show-control-bar}
+#### 3.4.1 显示控制栏 {#show-control-bar}
 
-This property indicates whether the control bar will be visible in the end-user interface. The control bar also includes the paging buttons.
-
-{{% alert type="warning" %}}
-Even if the control bar is invisible there can still be a default button that is triggered by (double) clicking a row. See the property 'Default button trigger' and [grid buttons](control-bar) for more information.
-{{% /alert %}}
-
-Default: *True*
-
-#### 3.4.2 Show Paging Buttons {#show-paging-buttons}
+此属性表示控制栏是否在最终用户界面中可见。 控制栏还包括分页按钮。
 
 {{% alert type="warning" %}}
-This property is not available in Mendix 8.13 and above. Use the [Show Paging Bar](#show-paging-bar) property instead.
-{{% /alert %}}
+即使控制栏不可见，但仍然可能有一个默认按钮，由单击一行触发 (doubled) 。 查看属性'默认按钮触发器'和 [网格按钮](control-bar) 了解更多信息。
+{{% /报警 %}}
 
-This property indicates with the buttons to page through the information in the grid are visible. Only hide these buttons if you are sure that there will never be more objects than the number of rows of the grid. Note that hiding the control bar also hides the paging buttons.
+默认： *True*
 
-Default: *True*
+#### 3.4.2 显示分页栏 {#show-paging-bar}
 
-#### 3.4.3 Show Paging Bar {#show-paging-bar}
+使用此属性，您可以更改分页栏的显示方式。
 
-{{% alert type="info" %}}
-This property was introduced in Mendix 8.13. It replaces the [Show Paging Buttons](#show-paging-buttons) property.
-{{% /alert %}}
+| 值        | 描述                                                 |
+| -------- | -------------------------------------------------- |
+| 是 (总量)   | 显示分页栏，包括 **转到最后一页** 按钮和对象的总数。                      |
+| 是 (不总计数) | 分页栏已显示(除了 **转到最后一页** 按钮外)。 此外，不显示对象的总数量，因为页面编号被显示。 |
+| 否        | 未显示分页按钮。                                           |
 
-With this property, you can change the way the paging bar is shown.
-
-| Value                     | Description                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Yes (with total count)    | The paging bar is shown, including the **Go to last page** button and the total count of objects.                                                      |
-| Yes (without total count) | The paging bar is shown (except for the **Go to last page** button). Also, the total count of objects is not shown, as page numbers are shown instead. |
-| No                        | The paging buttons are not shown.                                                                                                                      |
-
-Default: *Yes (with total count)*
+默认: *是 (总数量)*
 
 {{% alert type="warning" %}}
-Hiding the control bar also hides the paging buttons. For details, see [Show Control Bar](#show-control-bar).
-{{% /alert %}}
+隐藏控制栏也隐藏分页按钮。 欲了解详情，请参阅 [显示控制栏](#show-control-bar)。
+{{% /报警 %}}
 
-#### 3.4.4 Number of Rows {#number-of-rows}
+#### 3.4.3 行数 {#number-of-rows}
 
-With this property you can change the number of rows of templates that will be shown on one page.
+使用此属性您可以更改将显示在一个页面上的模板行数。
 
-Default: *3*
+默认： *3*
 
-#### 3.4.5 Number of Columns {#number-of-columns}
+#### 3.4.4 栏数 {#number-of-columns}
 
-With this property you can change the number of templates that will be shown next to each other in one row.
+使用这个属性你可以更改将显示在一个行之间的模板数量。
 
-Default: *2*
+默认： *2*
 
-#### 3.4.6 Style Template {#style-template}
+#### 3.4.5 Style Template {#style-template}
 
-The style template property allows you to choose from three different styling of the template grid. These stylings depend on your theme package.
+样式模板属性允许您从三种不同样式的模板网格中选择。 这些样式取决于您的主题包。
 
-#### 3.4.7 Selection Mode {#selection-mode}
+#### 3.4.6 选择模式 {#selection-mode}
 
-The selection mode determines whether and how the user can select items in the grid.
+选择模式决定用户是否以及如何在网格中选择项目。
 
-| Value                         | Description                                                                                                                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No selection                  | The user cannot select items.                                                                                                                                                                                   |
-| Single selection  *(default)* | The user can select a single item by clicking on it. Clicking another item will make that item the selection.                                                                                                   |
-| Single selection and maintain | The user can select one item at a time by clicking on it. Users cannot deselect an item. By default the first item will be selected and removing a selected item will autoselect a subsequent item.             |
-| Multi-selection               | The user can select multiple items by clicking the first one and holding the 'Ctrl' key while clicking on other items. Simply clicking an item will deselect all items and make the clicked item the selection. |
-| Simple multi-selection        | The user can select multiple items by simply clicking on them.                                                                                                                                                  |
+| 值          | 描述                                                                     |
+| ---------- | ---------------------------------------------------------------------- |
+| 没有选择       | 用户不能选择项目。                                                              |
+| 单选  *(默认)* | 用户可以通过点击它选择单个项目。 点击另一个项目将使该项目成为选择。                                     |
+| 单选并保留      | 用户可以一次通过点击它选择一个项目。 用户不能取消选择项目。 默认情况下，第一个项目将被选中，移除选定的项目将自动选择下一个项目。      |
+| 多选         | 用户可以通过点击第一个项目选择多个项目并按住“Ctrl”键，同时点击其他项目。 只需单击项目就可以取消选择所有项目并使单击项目成为选中项目。 |
+| 简单的多选      | 用户可以只需单击即可选择多个项目。                                                      |
 
-#### 3.4.8 Select First {#select-first}
+#### 3.4.7 选择前 {#select-first}
 
-This property indicates whether the first item will be selected initially. This is especially useful if there is a data view listening to this grid.
+此属性表示第一项是否将被初选中。 如果有数据视图监听这个网格，这一点特别有用。
 
-Default: *False*
+默认： *False*
 
-#### 3.4.9 Default Button Trigger {#default-button-trigger}
+#### 3.4.8 默认按钮触发 {#default-button-trigger}
 
-The default button can be triggered by a single or a double click a row.
+默认按钮可以由单击或双击单行触发。
 
-| Value                    | Description                                                                                                           |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| Single click             | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click *(default)* | A double click triggers the default button.                                                                           |
+| 值         | 描述                           |
+| --------- | ---------------------------- |
+| 单次点击      | 单击触发默认按钮。 此选项不能与允许用户选择行一起使用。 |
+| 双击 *(默认)* | 双击触发默认按钮。                    |
 
-#### 3.4.10 Refresh Time (in Seconds) {#refresh-time}
+#### 3.4.9 刷新时间(秒) {#refresh-time}
 
-If the refresh time is non-zero, the template grid will refresh its contents every given number of seconds. For example, a task list could be refreshed every minute so that you know when new tasks arrive. By default the refresh time is zero and this means that the grid will not automatically refresh itself.
+如果刷新时间为非零，模板网格将每个给定的秒数刷新内容。 例如，每分钟都可以刷新任务列表，以便您知道新任务何时到来。 默认情况下，刷新时间为零，这意味着网格不会自动刷新。
 
-Default: *0*
+默认： *0*
 
-### 3.5 Visibility Section {#visibility}
+### 3.5 可见性部分 {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 4 Performing Specific Actions
+## 4 执行特定操作
 
-To perform actions on a template grid, select it on a page and right-click it. The list of possible actions opens. While some actions from this list, such as **Select data source**, **Edit condition for visible**, are a quick way to set the properties, the following actions are specific actions that you can perform:
+要在模板网格上执行操作，请在页面上选择并右键单击它。 可能的动作列表已打开。 此列表中的一些动作，例如 **选择数据源**, **编辑可见条件**这是设置属性的快速方式，下面是您可以执行的特定动作：
 
-* **Go to entity** – opens a domain model and highlights an an entity that is used as the data source
-* **Go to data source** **microflow **– this action is only displayed when a microflow is set as the data source and opens this microflow
+* **转到实体** — 打开一个域模型并突出显示一个实体被用作数据源
+* **转到数据源** **microflow **-这个动作仅在微流程设置为数据源并打开这个微流程时显示
 
-## 5 Read More
+## 5 阅读更多
 
-* [Page](page)
-* [Data Widgets](data-widgets)
-* [Data Sources](data-sources)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [数据部件](data-widgets)
+* [数据源](数据来源)
+* [页面编辑器中常见的属性](common-widget-properties)
