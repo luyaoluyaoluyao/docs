@@ -1,9 +1,6 @@
 ---
 title: "XML Schemas"
 parent: "集成"
-menu_order: 55
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
