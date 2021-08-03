@@ -13,7 +13,7 @@ tags:
 
 ## 1 导言
 
-要将您的 Mendix 模型转换为在云端运行的应用，它需要部署。 本文档描述了应用部署背后的概念以及在云端开始运行的过程。 关于如何部署您的应用的技术详情，请查看开发者门户文档的 [部署](/developerportal/deploy/) 部分。
+要将您的 Mendix 模型转换为在云端运行的应用，它需要部署。 本文档描述了你的项目部署背后的概念以及它在云端开始运行的过程。 关于如何部署您的应用的技术详情，请查看开发者门户文档的 [部署](/developerportal/deploy/) 部分。
 
 此部署描述基于云端中运行的应用程序。 您也可以在本地运行 Mendix 进行测试，但这在概念上是一样的。
 
@@ -35,7 +35,7 @@ tags:
 
 ### 2.3 MPK 项目
 
-这是Studio Pro 或 Studio 创建的应用模型。 Mendix Runtime不能直接解释它。
+这是Studio Pro 或 Studio 创建的项目模式。 Mendix Runtime不能直接解释它。
 
 ### 2.4 MX 生成
 
@@ -50,9 +50,9 @@ tags:
 Buildpack 是 Mendix 脚本，它控制着Mendix 模型在云端环境中的部署。 它执行以下任务：
 
 * 识别目标环境和绑定的服务，例如数据库和文件存储
-* 如果它收到以mpk格式的应用，它会启动 Mxbuild，将其转换为 mda 格式
+* 如果它收到一个以mpk格式的项目，它将启动 Mxbuild，将其转换为 mda 格式
 * 它确定了正确版本的 Java Runtime 环境并推送到环境
-* 它识别了Mendix Runtime的正确版本，并使用 m2ee 将Runtime 服务器推送到环境中。 带有应用程序链接 *。 定义应用程序的*
+* 它识别了Mendix Runtime的正确版本，并使用 m2ee 将Runtime 服务器推送到环境中。 与定义项目的 mda 链接的项目
 
 ### 2.7 MDA项目
 
