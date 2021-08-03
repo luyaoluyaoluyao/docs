@@ -4,13 +4,9 @@ parent: "document-templates"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/Static+Image+(document+template).html
-  - /refguide8/static-image-(document-template).html
+  - /refguide/Static+Image+(document+template).html
+  - /refguide/static-image-(document-template).html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/static-image-document-template.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -40,4 +36,4 @@ The height defines the height of the image in the document. This is set in pixel
 
 ## 3 Common Properties
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
