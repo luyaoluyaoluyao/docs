@@ -1,49 +1,70 @@
 ---
-title: "Demo Users"
-parent: "project-security"
+title: "演示用户"
+parent: "项目安全"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "演示用户"
+  - "演示用户"
+  - "应用安全"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In this section of the [project security](project-security) settings, you can define demo users that may be used during the development phase of your application for testing purposes, or to show the application to other people.
+演示用户是在您的应用程序中存在的每一个 [用户角色](user-roles) 的演示。 您可以使用演示用户来测试您的应用程序对每个用户角色的看起来是什么，或向其他人展示您的应用程序(更多信息)。 查看 [通过演示用户](#test-your-app) 部分测试您的应用。
 
-Each demo user can be assigned an entity and one or more user roles that apply when you sign in to your application with that user. When the application is started for the first time, the specified demo users are created automatically.
+当应用程序首次启动时，指定的演示用户将自动创建。
 
-After signing in to your application with the [administrator user](administrator), a small tab called the 'user switcher' is presented at the right side of your application. Expanding this tab shows a list with all the demo users that are defined in the project security settings. Selecting a user from this list will sign in to your application using the credentials of this user, thus allowing you to test or demo your application with the user's role(s). This allows for rapid testing of your application with different user roles.
+演示用户只是在本地在您的开发机器上运行应用程序时或在免费应用环境中运行时才被创建和显示。
 
-![](attachments/16713956/16844040.png)
+要访问演示用户及其属性，请打开 **应用安全** > **演示用户**：
 
-The user switcher is only shown and the demo users are only created when running your application locally on your development machine, or when running in a sandbox.
+![](attachments/demo-users/demo-users-tab.png)
+
+## 2 启用演示用户
+
+启用安全性时，演示用户将默认启用. 您可以在 **的情况下禁用或启用它们。启用演示用户** 设置具有以下选项：
+
+* **是** - 演示用户已启用，您可以创建新的演示用户，编辑或删除他们。
+* **无** - 演示用户已被禁用，您不能添加、编辑或删除演示用户
 
 {{% alert type="warning" %}}
 
-After they are created automatically, demo users do not differ in any way from other local users that are defined in your application. This means that you can still use them to manually sign in using their user name and password, even after disabling the demo users feature again. Also, the demo users are never automatically removed from the database.
+在自动创建后，演示用户与应用程序中定义的其他本地用户没有任何不同。 这意味着您仍然可以手动登录使用他们的用户名和密码，即使禁用演示用户功能。 此外，演示用户从不会自动从数据库中移除。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Enabling Demo Users
+## 3 个演示用户属性
 
-Here you can configure whether the specified demo users are created and accessible in the user switcher.
+双击演示用户打开其属性：
 
-| Value | Description                                                                               |
-| ----- | ----------------------------------------------------------------------------------------- |
-| Yes   | Demo users are enabled. A user switcher is shown in the right margin of your application. |
-| No    | Demo users are disabled. The user switcher is not shown in the application.               |
+![](attachments/demo-users/demo-user-properties.png)
 
-## 3 Demo User Properties
+演示用户属性见下表：
 
-### 3.1 Username
+| 财产   | 描述                                                               |
+| ---- | ---------------------------------------------------------------- |
+| 用户名  | 演示用户的名称。 此名称必须是唯一的，不能与 [管理员用户](administrator) 的名称相同。             |
+| 密码   | 演示用户的密码在演示用户创建时自动创建。 无法更改，但您可以点击 **复制密码到剪贴板**， 例如，与其他人分享演示用户的凭据。 |
+| 实体   | 演示用户的实体。 该实体必须是System.User 实体或其专业化实体。                            |
+| 用户角色 | 演示用户的用户角色。 每个演示用户必须有一个或多个角色。                                     |
 
-The name of the demo user. This name must be unique, and cannot be the same as the name of the [administrator user](administrator).
+## 通过演示用户测试您的应用 {#test-your-app}
 
-### 3.2 Password
+您可以使用演示用户来测试您的应用程序对不同用户角色的看起来是什么。 执行以下操作：
 
-The password of the demo user is created automatically when the demo user is created. It cannot be changed, but it's possible to put a copy of this password on the system clipboard. This makes it possible, for example, to share the credentials of a demo user with someone else.
+1. 查看您的应用。
+2. 登录为 [管理员](administrator)。
+3.  点击屏幕右侧的用户图标。 菜单栏 **选择用户** 将被显示：
 
-### 3.3 Entity
+    ![](attachments/demo-users/demo-users-example.png)
 
-The entity of the demo user. This must be the System.User entity, or a specialization thereof.
+4. 从列表中选择一个用户用此用户的凭据登录到您的应用程序， 这样您就可以测试或演示您的应用程序与选定的用户角色。
 
-### 3.4 User Roles
+## 5 阅读更多
 
-Here you can select the user roles of the demo user. Each demo user must have one or more roles.
+* [应用安全](项目安全)
+* [用户角色](user-roles)
+* [管理员](管理员)
+* [匿名用户](anonymous-users)
+* [密码策略](password-policy)
