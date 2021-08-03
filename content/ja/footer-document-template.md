@@ -1,29 +1,29 @@
 ---
-title: "Footer (Document Template)"
-parent: "document-templates"
+title: "フッター (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/footer-(document-template).html
-  - /refguide/Footer+(document+template).html
+  - /ja/refguide/footer-(document-template).html
+  - /ja/refguide/Footer+(document+template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When enabled, the footer will be inserted at the bottom of every page. Other widgets can be put in the footer.
+有効にすると、各ページの下部にフッターが挿入されます。 他のウィジェットはフッターに置くことができます。
 
-For inserting page numbers, see [Static Label](static-label-document-template).
+ページ番号を挿入するには、 [Static Label](static-label-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918235.png)
 
-A footer.
+フッター。
 
 {{% /alert %}}
 
-## 2 Appearance
+## 2つの外観
 
 ### 2.1 BottomMargin
 
-The amount of space between the bottom of the page and the footer in inches.
+ページ下部とフッターの間のスペースをインチ単位で指定します。
