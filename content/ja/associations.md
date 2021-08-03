@@ -1,83 +1,86 @@
 ---
 title: "Associations"
-parent: "entities"
-menu_order: 30
+parent: "domain-model"
+menu_order: 20
 tags:
   - "domain model"
   - "association"
+  - "studio pro"
 ---
 
-## 1 Introduction
-
-The **Associations** tab is a tab in the entity properties and has the following settings:
-
-* [Name](#name)
-* [Type](#type)
-* [Owner](#owner)
-* [Parent/Child](#parent-child)
-
-![](attachments/associations/dm-entity-properties-associations-tab.png)
-
-For more information on associations, see [Association and Their Properties](association-properties).
-
-## 2 Name {#name}
-
-The name of the association is used to refer to it from forms, microflows, XPath constraints, etcetera.
-
-## 3 Type {#type}
-
-This property defines whether an association is a reference (single) or a reference set (plural).
-
-| Value         | Description                                                                                |
-| ------------- | ------------------------------------------------------------------------------------------ |
-| Reference     | Single: an object of the owning entity refers to zero or one objects of the other entity.  |
-| Reference set | Plural: an object of the owning entity refers to zero or more objects of the other entity. |
-
-* *Default value*: Reference
-
 {{% alert type="info" %}}
-
-The examples for this property are combined with the example of the owner property below.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/associations.pdf).
 {{% /alert %}}
 
-## 4 Owner {#owner}
+## 1 Introduction {#intro}
 
-This property defines whether an association has one or two owners. If there is one owner, the owner is located at the start of the arrow.
+An association describes a relation between entities. In the domain model, an association is represented by a line or arrow between two entities.
 
-| Value   | Description                                |
-| ------- | ------------------------------------------ |
-| Default | Only one entity is the owner (the parent). |
-| Both    | Both entities are owners.                  |
+{{% alert type="info" %}}
+Associations between two external entities from the same data source are defined in the originating app and therefore automatically established when the entities are used in a model. For further details, see the [Associations](external-entities#properties) section of *External Entities*.
+{{% /alert %}}
 
-* *Default value*: Default
+### 1.1 Ownership {#ownership}
 
-## 5 Type and Owner Relation to Multiplicity and Navigability
+The value of an association should be viewed and edited from the object of the entity that is the [owner](association-member-properties#owner) of the association. Ownership in an association is signified by an arrow (note that the arrow does not signify direction). Either one entity or both entities can be the owner of the association. If one entity is the owner, there is an arrow that points from the owner to the other entity. If both entities are owners, there is a line between the two entities but no arrow. This is the only way the arrow can be controlled.
 
-**Type** and **Owner** properties of an entity are related to **[Multiplicity](association-properties#multiplicity)** and **[Navigability](association-properties#navigability)** properties of an association. When you change **Type** or **Owner**, you change **Multiplicity** and **Navigability** as well.
+It is important to understand why ownership exists. Ownership is implemented in Mendix so that you can change relationships dynamically rather than being stuck with your first design. For example, if you design something as a [one-to-many association](#one-to-many) and then need it to be a [many-to-many association with default ownership](#many-to-many), you do not need to rebuild your database, because Mendix handles it for you.
 
-You can find correspondence between **Type**/**Owner** and **Multiplicity**/**Navigability** in the table below.
+### 1.2 Multiplicity
 
-|                                                                                                  | Type          | Owner   |
-| ------------------------------------------------------------------------------------------------ | ------------- | ------- |
-| **Multiplicity**: one-to-one <br />**Navigability**: not available                         | Reference     | Both    |
-| **Multiplicity**: one-to-many <br />**Navigability**: not available                        | Reference     | Default |
-| **Multiplicity**: many-to-many <br />**Navigability**: X objects refer to Y objects        | Reference set | Default |
-| **Multiplicity**: many-to-many <br />**Navigability**: X and Y objects refer to each other | Reference set | Both    |
+The [multiplicity](association-properties#multiplicity) (or number of referred objects) of an association is indicated by the number one (`1`) or a star (`*`) at either side of the association.
 
-For more information on multiplicity and navigability, see section [2.3 Multiplicity](association-properties#multiplicity) and section [2.4 Navigability](association-properties#navigability) in *Associations and Their Properties*.
+In the example below, the arrow indicates that **Order** is the owner of the association, and the `1` and `*` indicate that one customer is associated with many orders:
 
-## 6 Parent/Child {#parent-child}
+![](attachments/associations/association-order-customer.png)
 
-Parent and child settings show you the direction of the association. Parent defines an entity the association starts from, and child defines an entity the association ends with.
+{{% alert type="info" %}}
+An association between a persistable entity and a non-persistable entity must start in the non-persistable entity and have the owner **Default**. For more information on persistable and non-persistable entities, see [Persistability](persistability).
+{{% /alert %}}
 
-## 7 Association Examples
+## 2 Creating Associations {#creating}
 
-Drawing an association from the **Order** entity to the **Customer** entity results in the following:
+The quickest way to create an association is to draw the association between two entities in a [domain model](domain-model). By default this will create a one-to-many association starting at the owner/many side of the association and ending at the one side of the association. The association will be named by joining the names of the two entities with an underscore. You can then edit the association as discussed in the next section.
 
-![](attachments/domain-model-editor/918217.png)
+You can also create associations between entities in different modules of your app. In this case it is not possible to draw the association. You can create an association to an entity in another module's domain model by creating a new association in the **Association** tab of the entity which owns the association. You can then choose any entity within your app as the target of the association. For more information see [Association Tab Properties](association-member-properties).
 
-The type property has its default value `Reference`. In this example, a customer can have multiple orders, and an order can only have one customer.
+{{% alert type="info" %}}
+You can create and edit associations only between an external entity and a local entity. However, an external entity cannot be the [owner](association-member-properties#owner) for an association with a local entity.
+{{% /alert %}}
+
+{{% alert type="info" %}}
+If you need to connect two external entities, consider adding a local entity and connect this local entity with both external entities. The local entity must be the owner of both associations, in this case.
+{{% /alert %}}
+
+## 3 Editing Associations
+
+There are two ways of editing an association.
+
+### 3.1 Edit the Association Directly
+
+You can edit the association itself. In this case you will define the association using multiplicity and navigability.
+
+![](attachments/associations/edit-association.png)
+
+For more information see [Association Properties](association-properties).
+
+### 3.2 Edit from Associations in the Entity
+
+You can edit the associations as members of the entity. In this case you will define the association using type and owner.
+
+![](attachments/associations/edit-entity-association.png)
+
+For more information see [Association Tab Properties](association-member-properties).
+
+## 4 Association Examples {#examples}
+
+### 4.1 One-to-Many Association {#one-to-many}
+
+In this example, drawing an association from the **Order** entity to the **Customer** entity results in the following:
+
+![](attachments/associations/association-order-customer.png)
+
+The type property has its default value `Reference`, and the owner (the Order entity) is `Default`. This is the same as having multiplicity set to `One 'Customer' object is associated with multiple 'Order' objects` so a customer can have multiple orders, but an order can only have one customer.
 
 In XML, instances of these entities and their association look as follows (note that the association is only stored in the **Order** element):
 
@@ -96,11 +99,13 @@ In XML, instances of these entities and their association look as follows (note 
 
 ```
 
-A many-to-many association with default ownership is created by drawing an association and then setting the `Type` property to `Reference set`.
+### 4.2 Many-to-Many Association with Default Ownership {#many-to-many}
 
-In this example, a **Customer** can have multiple **Groups**, and a **Group** can have multiple **Customers**:
+A many-to-many association with default ownership is created by drawing an association and then setting the type property to `Reference set` and leaving the owner as `Default`.
 
-![](attachments/domain-model-editor/918127.png)
+In this example, a **Customer** can have multiple **Groups**, and a **Group** can have multiple **Customers**. This is the same as having multiplicity set to `Multiple 'Group' objects are associated with multiple 'Customer' objects` with Navigability set to `'Customer' objects refer to 'Group' objects`:
+
+![](attachments/associations/association-customer-group.png)
 
 In XML, instances of these entities and their associations look as follows (note that the association is only stored in the **Customer** element):
 
@@ -122,11 +127,13 @@ In XML, instances of these entities and their associations look as follows (note
 
 ```
 
+### 4.3 One-to-One Association
+
 A one-to-one association is created by setting the owner property to `Both` (while leaving the type property at its default value `Reference`).
 
-In this example, a **Customer** can have one **Profile**, and a **Profile** can have one **Customer**:
+In this example, a **Customer** can have one **Profile**, and a **Profile** can have one **Customer**. This is the same as having multiplicity set to `One 'Customer' object is associated with one 'Profile' object`:
 
-![](attachments/domain-model-editor/918128.png)
+![](attachments/associations/association-customer-profile.png)
 
 In XML, instances of these entities and their associations look as follows (note that the association is stored both in the **Profile** element and the **Customer** element):
 
@@ -147,11 +154,13 @@ In XML, instances of these entities and their associations look as follows (note
 
 ```
 
+### 4.4 Many-to-Many Association with Dual Ownership
+
 A many-to-many association where both entities are owners is created by setting the owner property to `Both` and the type property to `Reference set`.
 
-In this example, an **Accountant** can have multiple **Groups** and a **Group** can have multiple **Accountants**:
+In this example, an **Accountant** can have multiple **Groups** and a **Group** can have multiple **Accountants**. This is the same as having multiplicity set to `Multiple 'Group' objects are associated with multiple 'Accountant' objects` with Navigability set to `'Accountant' and 'Group' objects refer to each other`:
 
-{{% image_container width="500" %}}![](attachments/domain-model-editor/918125.png)
+{{% image_container width="500" %}}![](attachments/associations/association-accountant-group.png)
 {{% /image_container %}}
 
 In XML, instances of these entities and their association look as follows (note that the association is stored both in the **Accountant** element and the **Group** element):
@@ -182,8 +191,3 @@ In XML, instances of these entities and their association look as follows (note 
 </Group>
 
 ```
-
-## 8 Read More
-
-* [Associations and Their Properties](association-properties)
-* [Entities](entities)
