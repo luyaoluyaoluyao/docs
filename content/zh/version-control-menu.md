@@ -1,19 +1,24 @@
 ---
 title: "版本控制菜单"
 parent: "menus"
-description: "在Studio Pro中描述版本控制菜单。"
+description: "在Studio Pro中描述项目菜单。"
 menu_order: 40
 tags:
   - "Studio Pro"
-  - "版本控制"
+  - "项目菜单"
   - "顶栏"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/version-control-menu.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
-在 **版本控制** 菜单中，您可以查看和/或操纵连接到版本控制的设置。 例如，您可以查看当前开发线的历史。
+在 **版本控制** 菜单中，您可以查看和/或操纵已连接到版本控制的设置。 例如，您可以查看当前开发线的历史。
 
-![版本控制菜单](attachments/version-control-menu/version-control-menu.png)
+{{% image_container width="300" %}}![版本控制菜单](attachments/version-control-menu/version-control-menu.png)
+{{% /image_container %}}
 
 ## 2 次更新
 
@@ -33,11 +38,11 @@ tags:
 
 ## 从版本控制服务器下载
 
-**从 Version Control Server** 选项下载一个应用程序从团队服务器或另一个私人服务器。 这就创建了开发应用的本地工作副本。 更多信息显示在 **从版本控制服务器下载** 对话框中的设置。 查看 [从版本控制服务器下载](download-from-version-control-dialog)。
+**从版本控制服务器下载** 选项从团队服务器或另一个SVN服务器下载一个应用程序。 这就创建了开发应用的本地工作副本。 更多信息显示在 **从版本控制服务器下载** 对话框中的设置。 查看 [从版本控制服务器下载](download-from-version-control-dialog)。
 
 ## 7上传到版本控制服务器
 
-**上传到版本控制服务器** 选项将本地应用程序上传到一个新的或现有的团队服务器仓库， 或到另一个私人服务器。 只有当应用程序尚未控制版本时才有可能。 关于在 **上传到版本控制服务器** 对话框中显示哪些设置的更多信息 查看 [上传到版本控制服务器](upload-to-version-control-dialog)。
+**上传到版本控制服务器** 选项将本地应用程序上传到一个新的或现有的团队服务器仓库， 或到另一个 SVN 服务器。 只有当应用程序尚未控制版本时才有可能。 关于在 **上传到版本控制服务器** 对话框中显示哪些设置的更多信息 查看 [上传到版本控制服务器](upload-to-version-control-dialog)。
 
 ## 8 管理分支行
 
@@ -51,9 +56,9 @@ tags:
 
 **反向合并** 选项允许本地对版本控制仓库进行回滚更改。 然后可以将这些地方变化作为新的修订来进行。
 
-## 11 还原所有更改
+## 11 还原所有更改 {#revert-all}
 
-**还原所有更改** 选项允许回滚所有本地更改。 在应用程序和磁盘上的文件中，自上次提交以来已经引入了这个程序。
+**还原所有更改** 选项允许回滚所有本地更改。 自上次提交以来，在项目和磁盘上的文件中都采用了这种做法。
 
 ## 12 添加数据快照
 
