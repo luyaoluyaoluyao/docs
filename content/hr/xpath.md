@@ -7,15 +7,11 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Mendix XPath is one of the Mendix query languages designed to retrieve data. XPath uses path expressions to select data of Mendix objects and their attributes or associations.
 
-XPath queries can be written both in Studio Pro, for example when you want to specify a constraint on the data retrieved in a Retrieve microflow activity, and directly in code in the .java files of you Java actions. Note that not all operators are supported by Studio Pro, and that the syntax of your query may differ between Studio Pro and Java environments.
+XPath queries can be written both in Studio Pro, for example when you want to specify a constraint on the data retrieved in a Retrieve microflow activity, and directly in code in the *.java* files of your Java actions. Note that not all operators are supported by Studio Pro, and that the syntax of your query may differ between Studio Pro and Java environments.
 
 Examples of XPath queries are:
 
@@ -75,9 +71,13 @@ The following XPath functions are available:
     * [not](xpath-not)
     * [true](xpath-true)
     * [false](xpath-false)
+
 ## 6 Example
 
 **How to find the right path to XPath**
 
-{{% youtube sdabUY-w4ZU %}}
+{{% alert type="info" %}}
+This video was done with [Studio Pro 8](/refguide8/), but the concepts remain applicable.
+{{% /alert %}}
 
+{{% youtube sdabUY-w4ZU %}}
