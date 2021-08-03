@@ -1,18 +1,18 @@
 ---
-title: "Deselect All Button"
-parent: "control-bar"
+title: "取消选择所有按钮"
+parent: "控制栏"
 ---
 
 
-This button lets the user deselect all rows in the grid or reference set selector.
+此按钮允许用户取消选择网格中的所有行或参考设置选择器。
 
-## Common properties
+## 共同属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -22,10 +22,10 @@ This button lets the user deselect all rows in the grid or reference set selecto
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-## Visibility properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
