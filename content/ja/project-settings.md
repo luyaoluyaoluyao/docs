@@ -1,306 +1,306 @@
 ---
-title: "App Settings"
-parent: "project"
+title: "アプリの設定"
+parent: "プロジェクト"
 menu_order: 10
-description: "Settings which apply to the app as a whole."
+description: "アプリ全体に適用される設定。"
 tags:
-  - "app"
-  - "configuration"
-  - "runtime"
+  - "アプリ"
+  - "構成"
+  - "ランタイム:"
   - "Studio Pro"
-  - "languages"
-  - "certificate"
-  - "theme"
-  - "hashing"
-  - "hashing algorithm"
+  - "言語"
+  - "証明書"
+  - "テーマ"
+  - "ハッシュ"
+  - "ハッシュアルゴリズム"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In the **App Settings** dialog box, you can alter the settings that are applicable to the whole app:
+**アプリ設定** ダイアログボックスで、アプリ全体に適用可能な設定を変更できます。
 
 ![](attachments/project-settings/project-settings-configuration.png)
 
-The categories described below are available.
+以下のカテゴリが利用可能です。
 
-## 2 Configurations Tab
+## 2つの設定タブ
 
-A configuration is a group of settings. You can define any number of configurations. The active configuration (meaning, the one that will be used when running your application) is determined by the drop-down menu in the toolbar of Studio Pro.
+構成は設定のグループです。 任意の数の構成を定義できます。 有効な構成 (意味) アプリケーションの実行時に使用されるものは、Studio Pro のツールバーのドロップダウンメニューによって決定されます。
 
-For more information on settings in a configuration, see [Configuration](configuration).
+設定の詳細については、 [Configuration](configuration) を参照してください。
 
 ## 3 Runtime Tab
 
-These settings influence the behavior of the Runtime when running your application.
+これらの設定は、アプリケーションの実行時のランタイムの動作に影響します。
 
-### 3.1 Static Resources from Disk
+### 3.1 ディスクからの静的リソース
 
-If this option is enabled, the static resources for your mobile application are downloaded as soon as you open your application rather than bit by bit as you navigate through the app. This can drastically cut down the number of network requests, as the files can be retrieved from the disk rather than from the server.
+このオプションが有効な場合、 モバイルアプリケーションの静的リソースは、アプリをナビゲートするのではなく、アプリを開くとすぐにダウンロードされます。 これは、ファイルをサーバからではなくディスクから取得できるため、ネットワーク リクエストの数を大幅に削減することができます。
 
-The resources are downloaded to the device once for each deployment and are reused for subsequent runs of your app. This affects a number of files, including: your theme; the JavaScript client; CSS files; and pages.
+リソースは各デプロイメントごとに一度デバイスにダウンロードされ、その後のアプリケーションの実行に再利用されます。 これは、テーマ、JavaScript クライアント、CSS ファイル、ページなど、さまざまなファイルに影響します。
 
-### 3.2 Optimize Network Calls {#optimize-network-calls}
+### 3.2 ネットワーク通話の最適化 {#optimize-network-calls}
 
-If this option is enabled (**true** by default), Mendix analyzes every microflow that can be triggered from the client to minimize the number of objects required to be sent. This speeds up your app significantly.
+このオプションが有効になっている場合（デフォルトでは**true** ） Mendixは、クライアントからトリガーされるすべてのマイクロフローを分析し、送信に必要なオブジェクトの数を最小限に抑えます。 これはあなたのアプリを大幅にスピードアップします。
 
-If you experience an issue while running your app in which objects seem to be lost, this option can be disabled to resolve that issue. If this does resolve the issue, please file a bug report so that we can fix the issue in the platform.
+オブジェクトが失われているように見えるアプリの実行中に問題が発生した場合は、このオプションを無効にして問題を解決することができます。 これが問題を解決する場合は、プラットフォームで問題を解決できるようにバグレポートを提出してください。
 
-### 3.3 After Startup{#after-startup}
+### 3.3 起動後{#after-startup}
 
-Here you can select a microflow that is automatically executed immediately after the application has been started up.
+ここでは、アプリケーションの起動直後に自動的に実行されるマイクロフローを選択できます。
 
 {{% alert type="warning" %}}
-There is a timeout of *11 minutes* on the after startup microflow. If your after startup microflow takes longer than 11 minutes your whole app will fail to start.
+起動後のマイクロフローには、 *11分* のタイムアウトがあります。 起動後のマイクロフローが11分を超えると、アプリ全体が起動できなくなります。
 
-After startup is designed to initialize the app and therefore runs *before* the app is able to respond to incoming service requests (for example, published REST services).
+起動後、アプリを初期化するように設計され、したがって *の前に* 実行されると、アプリは受信サービスの要求に応答することができます (例えば、 公開されたRESTサービス)。
 {{% /alert %}}
 
-### 3.4 Before Shutdown
+### 3.4 シャットダウン前
 
-Here you can select a microflow that is automatically executed when a shutdown command has been given, just before the application shuts down.
+ここでは、アプリケーションがシャットダウンする直前に、shutdown コマンドが与えられたときに自動的に実行されるマイクロフローを選択できます。
 
-### 3.5 Health Check
+### 3.5 健康チェック
 
-Here you can select a microflow which performs the checks on a running app that you think are required to assess the app's health.
+ここでは、アプリの健全性を評価するために必要と思われる実行中のアプリのチェックを実行するマイクロフローを選択できます。
 
-The result of each check is returned as a string, which is displayed in the [Developer Portal](/developerportal/deploy/environments). When the microflow returns an empty string, the application is healthy; otherwise, the string presents an explanation of why the application is not healthy.
+各チェックの結果は文字列として返され、 [Developer Portal](/developerportal/deploy/environments) に表示されます。 microflow が空の文字列を返すと、アプリケーションは正常に動作します。さもなければ、文字列はアプリケーションが健全でない理由を説明します。
 
-This microflow gets called every 10 seconds to check if the app is still healthy. This is done by executing it using m2ee on the admin port of your app. For more information, see the section [Health Check](monitoring-mendix-runtime#check-health) in *Monitoring Mendix Runtime*.
+このマイクロフローは、アプリがまだ健康であるかどうかを確認するために10秒ごとに呼び出されます。 これは、アプリの管理ポートでm2eeを使用して実行することによって行われます。 詳しい情報については、 [Mendix Runtime](monitoring-mendix-runtime#check-health) の *ヘルスチェック* のセクションを参照してください。
 
 {{% alert type="info" %}}
 
-The health check microflow is specific to the [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy). For other clouds, the admin port can be called, or the health check microflow can be exposed through a REST API.
+ヘルスチェックマイクロフローは、 [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy) に固有のものです。 他のクラウドでは、管理者ポートを呼び出すことも、REST APIを通じてヘルスチェックマイクロフローを公開することもできます。
 
 {{% /alert %}}
 
-### 3.6 First Day of the Week {#first-day-of-the-week}
+### 3.6 週の最初の日 {#first-day-of-the-week}
 
-The first day of the week setting determines the first day of the week in the date picker widget.
+日付ピッカーウィジェットの週の最初の日を設定します。
 
-| Option                                 | Description                                                                          |
-| -------------------------------------- | ------------------------------------------------------------------------------------ |
-| Default (based on locale)  *(default)* | The first day of the week in date picker widgets is based on the locale of the user. |
-| Sunday                                 | Use Sunday as first day of the week in date picker widgets.                          |
-| Monday                                 | Use Monday as first day of the week in date picker widgets.                          |
-| Tuesday                                | Use Tuesday as first day of the week in date picker widgets.                         |
-| Wednesday                              | Use Wednesday as first day of the week in date picker widgets.                       |
-| Thursday                               | Use Thursday as first day of the week in date picker widgets.                        |
-| Friday                                 | Use Friday as first day of the week in date picker widgets.                          |
-| Saturday                               | Use Saturday as first day of the week in date picker widgets.                        |
+| Option                      | 説明                                      |
+| --------------------------- | --------------------------------------- |
+| デフォルト (ロケールに基づく)  *(デフォルト)* | 日付ピッカーウィジェットの週の最初の日は、ユーザーのロケールに基づいています。 |
+| 日曜日                         | 日付ピッカーウィジェットで週の最初の日として日曜日を使用します。        |
+| 月曜日                         | 日付ピッカーウィジェットでは、月曜日を週の最初の日として使用します。      |
+| 火曜日                         | 日付ピッカーウィジェットでは、週の最初の日として火曜日を使用します。      |
+| 水曜日                         | 日付ピッカーウィジェットで週の最初の日として水曜日を使用します。        |
+| 木曜日                         | 日付ピッカーウィジェットで週の最初の日として木曜日を使用します。        |
+| 金曜日                         | 日付ピッカーウィジェットで週の最初の日として金曜日を使用します。        |
+| 土曜日                         | 日付ピッカーウィジェットで週の最初の日として土曜日を使用します。        |
 
-### 3.7 Default Time Zone
+### 3.7 デフォルトのタイムゾーン
 
-The default time zone determines the time zone for newly created users. If your application is only used in one time zone, setting this default will make sure that users of your application never have to worry about setting their time zone.
+デフォルトのタイムゾーンは、新しく作成したユーザーのタイムゾーンを決定します。 アプリケーションが1つのタイムゾーンでのみ使用されている場合 このデフォルトを設定すると、アプリケーションのユーザーが自分のタイムゾーンを設定する必要がないことを確認できます。
 
-### 3.8 Scheduled Event Time Zone {#scheduled}
+### 3.8 予定イベントタイムゾーン {#scheduled}
 
-The scheduled event time zone defines under which timezone scheduled events run. The default is UTC and this has been the case since 3.0. If you would like to run scheduled events under another time zone (such as the time zone of the company office or the app default timezone), you can select it here.
+スケジュールされたイベントタイムゾーンは、スケジュールされたイベントが実行される時点で定義されます。 デフォルトは UTC であり、これは 3.0 以降のケースです。 スケジュールされたイベントを別のタイムゾーンで実行したい場合(会社オフィスのタイムゾーンやアプリのデフォルトタイムゾーンなど) ここで選んでいいのよ
 
-This affects time zone-related operations, such as parsing and formatting dates from/to strings and obtaining the beginning of the current day.
+これは、解析や文字列への日付の書式設定、現在の日の始まりの取得など、時間帯に関連する操作に影響します。
 
-If you run on-premises, then you can select the time zone to which the server is set. However, please note that no guarantees are given for the whereabouts of application servers in the cloud.
+オンプレミスで実行する場合は、サーバが設定されているタイムゾーンを選択できます。 ただし、クラウド上のアプリケーションサーバーの所在については保証されていませんのでご注意ください。
 
-### 3.9 Hash Algorithm{#hash-algorithm}
+### 3.9 ハッシュアルゴリズム{#hash-algorithm}
 
-The hash algorithm is used to generate hash values for attributes of the **Hashed string** type, such as the password of a user. Mendix offers two recommended hashing algorithms:
+ハッシュアルゴリズムは、 **ハッシュ文字列** 型の属性(例えば、ユーザのパスワード)のハッシュ値を生成するために使用されます。 Mendixは2つの推奨ハッシュアルゴリズムを提供しています:
 
-| Option                        | Description                                             |
-| ----------------------------- | ------------------------------------------------------- |
-| BCrypt (default, recommended) | Resistant to brute-force search attacks.                |
-| SSHA256                       | Seeded Secure Hash Algorithm 2, digest length 256 bits. |
+| Option           | 説明                                   |
+| ---------------- | ------------------------------------ |
+| BCrypt（デフォルト、推奨） | ブルートフォース検索攻撃に耐性があります。                |
+| SSHA256          | シードされたセキュアハッシュアルゴリズム2、ダイジェスト長256ビット。 |
 
-Mendix believes both algorithms are secure enough to store passwords within Mendix. The main difference between BCrypt and SSHA256 is that the BCrypt algorithm has been configured so that it is relatively slow on purpose, since it was designed specifically to stop brute force attacks. That's why this results in a slight performance difference with the SSHA256 algorithm.
+Mendixは、両方のアルゴリズムはMendix内にパスワードを保存するのに十分な安全性があると考えています。 BCryptとSSHA256の主な違いは、BCryptアルゴリズムが意図的に比較的遅いように設定されていることです。 ブルートフォース攻撃を止めるために特別に設計されたからです このため、SSHA256 アルゴリズムと若干のパフォーマンス差が生じます。
 
-#### 3.9.1 Performance
+#### 3.9.1 パフォーマンス
 
-This performance difference is hardly noticeable to a single user when signing in (the password you enter when signing in is hashed using the selected algorithm), so in general the performance alone is not a reason to choose SSHA256 over BCrypt. This situation can change when dealing with high concurrency of hashing operations. A common example of an area where this occurs is published web services exposing operations that compute quickly, like short-running microflows.
+このパフォーマンスの違いは、サインイン時に単一のユーザーにはほとんど顕著ではありません(ログイン時に入力したパスワードは、選択したアルゴリズムを使用してハッシュ化されます)。 つまり、パフォーマンスだけがBCryptよりSSHA256を選ぶ理由ではありません。 この状況は、ハッシュ操作の並行性が高い場合に変化する可能性があります。 これが起きる領域の一般的な例は、短時間のマイクロフローのように、迅速に計算される操作を公開する Web サービスです。
 
-#### 3.9.2 Performance Tests
+#### 3.9.2 パフォーマンステスト
 
-A (web service) user will sign in to execute a web service operation, wait for the operation to finish, and finally get the result back (if any).
+(Webサービス)ユーザーは、Webサービス操作を実行するためにサインインします。 手術が終わるのを待って最終的に結果を返します (もしあれば)。
 
-Imagine an empty microflow that returns nothing at all exposed as a published web service. We ask one user to execute this operation as many times as he can in one minute (simulated with SoapUI). First we set the hashing algorithm to BCrypt, then we set it to SSHA256. Any extra overhead here (on top of establishing the connection, building the XML message and so forth) is basically the hashing algorithm, as the operation should take near zero milliseconds and there is no result. So that leaves only the login, or, more precisely, the hashing of the password.
+公開された Web サービスとして公開されていない何も返さない空のマイクロフローを想像してみてください。 1分間(SoapUIでシミュレート)でできるだけ多くの操作を実行するよう、1人のユーザーに依頼します。 まず、ハッシュアルゴリズムをBCryptに設定し、次にそれをSSHA256に設定します。 ここでの余分なオーバーヘッド(コネクションの確立、XMLメッセージの構築など)は基本的にハッシュアルゴリズムです。 操作には0ミリ秒近くかかり、結果はありません。 だから、ログイン、またはより正確には、パスワードのハッシュだけを残します。
 
-| Hashing Algorithm | Total Operations Executed | Operation per Second | Overhead in Milliseconds |
-| ----------------- | ------------------------- | -------------------- | ------------------------ |
-| BCrypt            | 654                       | 10.88                | 91.9                     |
-| SSHA256           | 7163                      | 119.36               | 8.4                      |
+| ハッシュアルゴリズム | 合計操作が実行されました | 1秒あたりの操作 | オーバーヘッド（ミリ秒単位） |
+| ---------- | ------------ | -------- | -------------- |
+| BCrypt     | 654          | 10.88    | 91.9           |
+| SSHA256    | 7163         | 119.36   | 8.4            |
 
-So 80 milliseconds per operation is not that much, right? Well, that depends on how long the operation itself takes.
+1回の操作で80ミリ秒というのはそんなに大きくありません まあ、それは操作自体にどのくらいかかるかによって異なります。
 
-| Operation Duration in Seconds | Operations per Hour (BCrypt) | Operations per Hour (SSHA256) | Difference % |
-| ----------------------------- | ---------------------------- | ----------------------------- | ------------ |
-| 0.1                           | 18760                        | 33210                         | +77%         |
-| 0.25                          | 10529                        | 13932                         | +32%         |
-| 1                             | 3297                         | 3570                          | +8%          |
-| 5                             | 707                          | 719                           | +1.67%       |
-| 15                            | 239                          | 240                           | +0.5%        |
+| 運転時間 (秒) | 1時間あたりの操作 (BCrypt) | 1時間あたりの操作 (SSHA256) | 差 %    |
+| -------- | ------------------ | ------------------- | ------ |
+| 0.1      | 18760              | 33210               | +77%   |
+| 0.25     | 10529              | 13932               | +32%   |
+| 1        | 3297               | 3570                | +8%    |
+| 5        | 707                | 719                 | +1.67% |
+| 15       | 239                | 240                 | +0.5%  |
 
-The difference is noticeable when the operation takes less time. So if you expect a very high amount of concurrency in operations where hashing takes place (most commonly any place where login operations are involved), you might want to consider changing your hashing algorithm.
+操作に時間がかかる場合、差が顕著になります。 したがって、ハッシュが行われる操作で非常に多くの同時実行が期待される場合 (ログイン操作が関与している最も一般的な場所) ハッシュアルゴリズムを変更したいと思うかもしれません
 
 {{% alert type="info" %}}
-It is important to remember when changing hashing algorithms is that any hashed attribute (like the System$User password attribute) has its algorithm set on hashing. In other words, for the hashing type to take effect, any existing hashed attribute will have to be reset using the new hashing type.
+ハッシュアルゴリズムを変更するときに覚えておくべき重要なのは、(System$User password 属性のような) ハッシュ化された属性がハッシュに設定されていることです。 つまり、ハッシュタイプを有効にするためには、既存のハッシュ属性を新しいハッシュタイプを使用してリセットする必要があります。
 {{% /alert %}}
 
-### 3.10 Rounding Numbers{#rounding}
+### 3.10 ラウンド番号{#rounding}
 
-The **Round Numbers** setting is used to select how to round numbers when performing calculations.
+**Round Numbers** の設定は、計算を行うときに数値を丸める方法を選択するために使用されます。
 
-The rounding methods **Half away from zero** and **Half to the nearest even number** indicate how rounding is performed in the case of a tie (for example, 2.5).
+四捨五入方法 **0 ゼロ** と **最も近い偶数の半分から** は、ネクタイの場合にどのように丸められるかを示します (例えば、 2.5.
 
-This table presents the results of rounding the input to one digit with the given method of rounding numbers:
+この表は、与えられた数字の丸め方で、入力を1桁に丸めた結果を示しています。
 
-| Input Number | Half Away from Zero  *(default)* | Half to the Nearest Even Number |
-| ------------ | -------------------------------- | ------------------------------- |
-| 5.5          | 6                                | 6                               |
-| 2.5          | 3                                | 2                               |
-| 1.6          | 2                                | 2                               |
-| 1.1          | 1                                | 1                               |
-| 1.0          | 1                                | 1                               |
-| -1.0         | -1                               | -1                              |
-| -1.1         | -1                               | -1                              |
-| -1.6         | -2                               | -2                              |
-| -2.5         | -3                               | -2                              |
-| -5.5         | -6                               | -6                              |
+| Input Number | Zero  *(デフォルト)* から半分離れています | 最寄りの偶数の半分です |
+| ------------ | -------------------------- | ----------- |
+| 5.5          | 6                          | 6           |
+| 2.5          | 3                          | 2           |
+| 1.6          | 2                          | 2           |
+| 1.1          | 1                          | 1           |
+| 1.0          | 1                          | 1           |
+| -1.0         | -1                         | -1          |
+| -1.1         | -1                         | -1          |
+| -1.6         | -2                         | -2          |
+| -2.5         | -3                         | -2          |
+| -5.5         | -6                         | -6          |
 
-### 3.11 Multiple Sessions per User {#multiple-sessions}
+### 3.11 ユーザあたりの複数のセッション {#multiple-sessions}
 
-If this option is enabled, users can sign in multiple times through different clients (for example, desktop browser and tablet). Otherwise, an existing session for a user is signed out when the user signs in somewhere else.
+このオプションが有効になっている場合、ユーザーは異なるクライアント(デスクトップブラウザやタブレットなど)を介して複数回サインインできます。 そうでなければ、ユーザーが他の場所にサインインしたときに、ユーザーのための既存のセッションがサインアウトされます。
 
 {{% alert type="warning" %}}
 
-In production, this only works with licenses based on concurrent users.
+本番環境では、同時利用者に基づくライセンスのみで動作します。
 
 {{% /alert %}}
 
-Default: *Yes*
+デフォルト: *はい*
 
-## 4 Languages Tab {#languages-tab}
+## 4言語タブ {#languages-tab}
 
-For more information about using different languages in your app, see [Language Menu](translatable-texts).
+アプリケーションで異なる言語を使用する方法の詳細については、 [言語メニュー](translatable-texts) を参照してください。
 
-### 4.1 Default Language
+### 4.1 標準言語
 
-The default language indicates the language that is used when a user has not chosen a language. The default language is also used as a fall-back language when a certain text is not translated to another language.
+デフォルトの言語は、ユーザーが言語を選択していないときに使用される言語を示します。 特定のテキストが他の言語に翻訳されていない場合、デフォルトの言語は代替言語としても使用されます。
 
-### 4.2 Languages {#languages}
+### 4.2 言語 {#languages}
 
-This is the list of languages in which your application will be available for users.
+これは、アプリケーションがユーザーが利用できる言語のリストです。
 
-For each language, you can configure whether to check that all mandatory texts have a value. The default language is always checked. If a language is not checked and certain texts are not translated in Studio Pro, the default language is used as fall-back language. This means that you can run your application even though you have only partially translated your interface into a new language.
+各言語で、すべての必須テキストに値があるかどうかを確認できます。 デフォルトの言語は常にチェックされます。 ある言語がチェックされておらず、Studio Proで特定のテキストが翻訳されていない場合は、デフォルトの言語がフォールバック言語として使用されます。 つまり、インターフェイスを部分的に新しい言語に翻訳しても、アプリケーションを実行することができます。
 
-## 5 Certificates Tab
+## 5証明書タブ
 
-Certificates are used to connect to web services over HTTPS when the following requirements are met:
+証明書は、以下の要件が満たされた場合、HTTPS 経由で Web サービスに接続するために使用されます。
 
-* The server uses a self-signed certificate authority, and/or
-* A client certificate (certificate with a private key) is required
+* サーバーは自己署名された証明書権限を使用しています。
+* クライアント証明書（秘密鍵を持つ証明書）が必要です
 
-These certificates can be imported into Studio Pro using the **Import** button. Certificate authority files usually have a *.crt* extension, and client certificates usually have a *.p12* or *.pfx* extension. After importing, use **View details** to acquire more information concerning the certificate.
+これらの証明書は **インポート** ボタンを使用して Studio Pro にインポートできます。 Certificate authority ファイルは通常、 *.crt* 拡張子を持ち、クライアント証明書は通常、 *.p12* または *.pfx* 拡張子を持ちます。 インポート後、証明書に関する詳細情報を取得するには、 **View detail** を使用します。
 
-Client certificates added here will be used whenever a server accepts a client certificate. If you upload more than one client certificate, one of them will be chosen based on the requirements of the server. If you need more control over client certificates, you should not upload the certificates here, but use the [Runtime customization](custom-settings) *ClientCertificates*, *ClientCertificatePasswords*, and *ClientCertificateUsages* settings.
+ここで追加されたクライアント証明書は、サーバーがクライアント証明書を受け入れるたびに使用されます。 複数のクライアント証明書をアップロードすると、サーバーの要件に基づいてそのいずれかが選択されます。 If you need more control over client certificates, you should not upload the certificates here, but use the [Runtime customization](custom-settings) *ClientCertificates*, *ClientCertificatePasswords*, and *ClientCertificateUsages* settings.
 
 {{% alert type="warning" %}}
 
-When running from Studio Pro or from Eclipse, the certificates will be used automatically to connect over *HTTPS*. When running on a server, the location of the certificate files has to be specified in the configuration file.
+Studio Pro または Eclipse から実行する場合、証明書は *HTTPS* を介して接続するために自動的に使用されます。 サーバー上で実行する場合、証明書ファイルの場所は、構成ファイル内で指定する必要があります。
 
 {{% /alert %}}
 {{% alert type="warning" %}}
 
-Be aware that during local deployment, the certificate files will be located in the **deployment** folder, under **model/certificates**. Therefore, do not use production certificates during development.
+ローカルデプロイ中、証明書ファイルは **デプロイメント** フォルダ、 **モデル/証明書**の下に配置されることに注意してください。 そのため、開発中は本番証明書を使用しないでください。
 
 {{% /alert %}}
 {{% alert type="info" %}}
 
-Certificates can be installed in the Windows Certificate Store using the **Install Certificate** wizard in the **View details** form. This can be useful when trying to access a WSDL-file using an *HTTPS* connection which requires a client certificate.
+証明書は **証明書のインストール** ウィザードを使用して Windows 証明書ストアにインストールすることができます **詳細を表示** フォーム。 これは、クライアント証明書を必要とする *HTTPS* 接続を使用して WSDLファイルにアクセスしようとするときに便利です。
 
 {{% /alert %}}
 {{% alert type="info" %}}
 
 When an SSLException occurs at runtime with the message `HelloRequest followed by an unexpected handshake message` or when a web service does not respond (Java 6 update 21 and above) when using the imported certificates, this is caused by either the client or server not being [RFC-5746](http://www.ietf.org/rfc/rfc5746.txt)-compatible.
 
-If updating the client and server to be compatible with RFC-5746 is not feasible, the following should be added to **Extra JVM parameters** in the **Server** tab to avoid this exception:
+クライアントとサーバーを RFC-5746 と互換性があるように更新することはできません。 この例外を避けるために、 **Server** タブの **Extra JVM パラメータ** に以下を追加する必要があります。
 
 `-Dsun.security.ssl.allowUnsafeRenegotiation=true`
 
-Be warned that this does make the client-server communication vulnerable to an exploit which has been fixed in RFC-5746.
+これは、RFC-5746 で修正されたエクスプロイトに対して、クライアント-サーバ間の通信が脆弱になることに注意してください。
 
-When client and server are RFC-5746 compatible at a future point in time, this JVM parameter can be removed.
+クライアントとサーバーが RFC-5746 互換性がある場合、このJVMパラメータは削除することができます。
 
-For background information, see [Transport Layer Security (TLS) Renegotiation Issue Readme](http://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html).
+背景情報については、 [Transport Layer Security (TLS) Renegotiation Issue Readme](http://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html) を参照してください。
 
 {{% /alert %}}
 
 ## 6 Theme Tab
 
-### 6.1 UI Resources Package
+### 6.1 UI リソースパッケージ
 
-The look and feel of a Mendix application is governed by the [UI resources package](ui-resources-package). This package supplies the app with all the required theme information accompanied by matching page templates and building blocks. The module which is designated as the UI resources package is governed by the **UI resources package** setting. Generally, this is automatically updated when a new UI resources package is imported. However, with this setting, the desired module can also be set manually.
+Mendix アプリケーションのルックアンドフィールは、 [UI リソース パッケージ](ui-resources-package) によって管理されます。 このパッケージは、ページテンプレートとビルディングブロックに一致するすべての必要なテーマ情報をアプリに提供します。 UI リソースパッケージとして指定されているモジュールは、 **UI リソースパッケージ** 設定によって管理されます。 通常、これは新しい UI リソースパッケージがインポートされると自動的に更新されます。 ただし、この設定では、希望のモジュールも手動で設定できます。
 
-### 6.2 Theme ZIP File
+### 6.2 テーマの ZIP ファイル
 
 {{% alert type="warning" %}}
 
-[Deprecated] The use of a ZIP file to configure an app's theme is deprecated. A [UI resources package](ui-resources-package) is the preferred method of sharing themes.
+[Deprecated] アプリのテーマを設定するためにZIPファイルを使用することは推奨されません。 [UI リソース パッケージ](ui-resources-package) は、テーマを共有するための好ましい方法です。
 
 {{% /alert %}}
 
-Older apps may still use a theme ZIP file as the basis for their theme. In this situation, the **Theme ZIP file** setting can be used to switch between any ZIP files found in the **theme** folder. Note that this practice is deprecated and will be removed in a future version.
+古いアプリは、テーマの基盤としてテーマ ZIP ファイルを使用することができます。 この状況 **テーマ ZIP ファイル** の設定を使用して、 **テーマ** フォルダにあるすべての ZIP ファイルを切り替えることができます。 この練習は非推奨であり、将来のバージョンで削除されることに注意してください。
 
-Switching from a ZIP file to a UI resources package is straightforward:
+ZIP ファイルから UI リソースパッケージへの切り替えは簡単です。
 
-1. Firstly, replace the contents of the theme folder with the contents of the desired ZIP file.
+1. まず、テーマフォルダの内容を希望するZIPファイルの内容に置き換えます。
 
-2. Then, use the **UI resources package** setting described above to select a module. Ideally, this module should only contain UI documents, such as page templates and building blocks. This will allow you to export and import the module to other apps without worrying about reference errors.
+2. 次に、上記の **UIリソースパッケージ** 設定を使用してモジュールを選択します。 理想的には、このモジュールには、ページテンプレートやビルディングブロックなどの UI ドキュメントのみが含まれている必要があります。 これにより、参照エラーを心配することなく、モジュールを他のアプリにエクスポートしてインポートすることができます。
 
-3. Lastly, set the **Theme ZIP file** setting to **None**.
+3. 最後に、 **Theme ZIP file** の設定を **None** に設定します。
 
-### 6.3 Marking as a UI Resources Module
+### 6.3 UI リソースモジュールとしてマーク
 
-Modules that contain theme styling should be marked as UI resources modules. To do so, right-click the **Module {name}** in the App Explorer, then click **Mark as UI resources module**. This will give the modules a green icon, which makes it easy to distinguish theme modules from other modules, and also influences the order in which styling will be applied from those modules:
+テーマのスタイルを含むモジュールは、UI リソースモジュールとしてマークする必要があります。 これを行うには、App Explorer で **モジュール {name}** を右クリックし、 **UI リソース モジュール** としてマーク をクリックします。 これにより、モジュールに緑色のアイコンが表示され、テーマモジュールと他のモジュールの区別が容易になります。 また、スタイルがモジュールから適用される順序にも影響します。
 
-![green module](attachments/project-settings/green-module.png)
+![グリーンモジュール](attachments/project-settings/green-module.png)
 
-### 6.4 Ordering UI Resource Modules
+### 6.4 UI リソースモジュールの注文
 
-When a module contains styling (SCSS/CSS), be sure it is added to the compiled CSS file in the correct order relative to other files. For example, if a theme module should overwrite styling that is defined in **Atlas_Core**, it is important that the theme module is added *after* **Atlas_Core**.
+モジュールにスタイリング(SCSS/CSS)が含まれている場合は、コンパイルされたCSSファイルに他のファイルに対する相対的な正しい順序で追加されていることを確認してください。 たとえば、テーマモジュールが **Atlas_Core**で定義されているスタイルを上書きする場合。 テーマモジュールが ** の** *の後に* **Atlas_Core** に追加されることが重要です。
 
-You can set an explicit order in the theme settings (**App Settings** > **Theme**). This contains a list of all modules that are marked as UI resource modules, and allows you to set the explicit order in which they are added to the CSS file. Note that the lower a module is ordered in the list, the higher its precedence. For example, an app that uses a company theme module could be ordered as follows:
+テーマ設定 (**アプリ設定** > **テーマ** ) で明示的な順序を設定できます。 UI リソースモジュールとしてマークされているすべてのモジュールのリストが含まれています。 そして、CSSファイルに追加される順序を明示的に設定できます。 リスト内の下位のモジュールが順序付けられているため、優先順位が高いことに注意してください。 たとえば、会社のテーマモジュールを使用するアプリは、以下のように順序付けできます。
 
-![app theme settings](attachments/project-settings/app-theme-settings.png)
+![アプリのテーマ設定](attachments/project-settings/app-theme-settings.png)
 
-## 7 Workflows Tab {#workflows}
+## 7 ワークフロー タブ {#workflows}
 
-### 7.1 User Entity
+### 7.1 ユーザーエンティティ
 
-**User entity** defines the entity which is used in [assigning a user task](user-task#user-assignment). If you assign a user task using an XPath, you can use attributes of this entity. If you are using a microflow, the entity defines the return type the microflows expects. For more information, see the [User Task Assignment](user-task#user-assignment) section in *User Task*.
+**ユーザー エンティティ** は、 [ユーザー タスク](user-task#user-assignment) の割り当てに使用されるエンティティを定義します。 XPathを使用してユーザータスクを割り当てる場合は、このエンティティの属性を使用できます。 マイクロフローを使用している場合、エンティティはマイクロフローが期待する戻り値の型を定義します。 詳細については、 [ユーザー タスク](user-task#user-assignment) の *ユーザー タスク* の</em> セクションを参照してください。
 
-## 7.2 Execution
+## 7.2 実行
 
-Allows you to set a maximum number of workflow and user task transactions that can be executed simultaneously by the runtime. This is an advanced setting that gives developers control over app performance.
+実行時に同時に実行できるワークフローとユーザー タスク トランザクションの最大数を設定できます。 これは開発者にアプリのパフォーマンスを制御させる高度な設定です。
 
-### 7.2.1 Parallel Workflow Executions
+### 7.2.1 並列ワークフローの実行
 
-Defines the maximum number of workflow transactions that the runtime will execute simultaneously. The limit is 10.
+実行時に同時に実行するワークフロートランザクションの最大数を定義します。 上限は10です。
 
-### 7.2.2 Parallel Task Executions
+### 7.2.2 並列タスクの実行
 
-Defines the maximum number of user task transactions that the runtime will execute simultaneously. The limit is 10.
+実行時に同時に実行するユーザータスクの最大数を指定します。 上限は10です。
 
-## 8 Miscellaneous Tab {#miscellaneous}
+## 8つのその他のタブ {#miscellaneous}
 
-These settings determine the behavior of Studio Pro for this app. The settings apply to everyone that is working on this app.
+これらの設定は、このアプリの Studio Pro の動作を決定します。 このアプリを使用しているすべてのユーザーに設定が適用されます。
 
-### 8.1 Bundle Widgets When Running Locally
+### 8.1 ローカルで実行するときのウィジェットのバンドル
 
-When deploying to the cloud, custom widgets are bundled to optimize client-server communication. When deploying locally, this step is skipped to accelerate startup duration. In some cases, this may obfuscate errors triggered by faulty custom widgets.
+クラウドにデプロイする場合、カスタムウィジェットがバンドルされ、クライアントとサーバーの通信が最適化されます。 ローカルにデプロイする場合、このステップはスキップされて起動時間を加速します。 場合によっては、カスタムウィジェットの故障によってエラーが難読化されることがあります。
 
-If this option is set, custom widgets will also be bundled locally. This mimics the production deployment, eliminating risk at the cost of start-up time.
+このオプションが設定されている場合、カスタム ウィジェットもローカルにバンドルされます。 これにより、本番環境を模倣し、起動時間を要するリスクを排除します。
 
-### 8.2 Suggest Lower-Case Variable Names in Microflows
+### 8.2 マイクロフロー内の小文字変数名を提案する
 
-When enabled, the names that Studio Pro suggests in microflows will start with a lower-case letter instead of an upper-case letter.
+有効にすると、Studio Pro がマイクロフローで提案する名前は、大文字ではなく小文字で始まります。
 
-### 8.3 Activity Default Colors
+### 8.3 アクティビティのデフォルトの色
 
-This table allows you to select a default color for each microflow activity type that is available in your app. The selected color will be used as the background color for all microflow activities of that type in your app. It is possible to override this default value for individual activities in the microflow editor. If you change the default color for an activity type, and there are activities of that type present in the app that have an individual background color specified, a dialog will be shown that allows you to apply the new default color to these activities as well.
+この表では、アプリケーションで利用可能な各マイクロフローアクティビティタイプのデフォルトの色を選択できます。 選択した色は、アプリ内のそのタイプのすべてのマイクロフローアクティビティの背景色として使用されます。 マイクロフローエディタで個々のアクティビティのこのデフォルト値を上書きすることができます。 アクティビティタイプのデフォルトの色を変更する場合 アプリには個別の背景色が指定されたタイプのアクティビティがあります これらのアクティビティにも新しい既定の色を適用できるダイアログが表示されます。
