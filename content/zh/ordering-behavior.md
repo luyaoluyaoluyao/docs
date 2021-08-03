@@ -1,6 +1,8 @@
 ---
 title: "按行为排序"
 parent: "数据存储"
+tags:
+  - "studio pro"
 menu_order: 20
 ---
 
@@ -14,9 +16,9 @@ menu_order: 20
 
 当一列用于显示一个多对多个关联关联的实体的属性时， 排序将依靠SQL `MIN()` 函数来确定 `MIN(属性)` 值并使用这些值而不是显示的文本。
 
-下面是一个使用 `订单` and `Product` 的例子，这些实体拥有一对多的关联性。 数据网格中的 **产品名称** 列显示每个订单的产品名称:
+下面是一个使用 `订单` 和 `产品` 的示例，这些实体有多对多的关联。 数据网格中的 **产品名称** 列显示每个订单的产品名称:
 
-![](attachments/datastorage/sorting-reference-sets.png)
+![](attachments/runtime/sorting-reference-sets.png)
 
 排序 **产品名称** 列将使用下划线，而不是显示的文本。 这些值是每个订单 `MIN(产品名称)` 的结果。
 
@@ -32,7 +34,7 @@ menu_order: 20
 
 #### 3.1.2 MARIADB, MYSQL, SAP HANA & SQLSERVER
 
-如果您指定了 `ORDER BY` 条款， `NULL` 默认值的排序小于非 `NULL` 使用 `ASC` 订单， `NULL` 值优先于任何不存在的值`NULL` 值。 使用 `DESC` 订单， `NULL` 是最后的。
+如果您指定了 `ORDER BY` 条款， `NULL` 默认值的排序小于非 `NULL` 使用 `ASC` 订单， `NULL` 值在任何不存在之前——`NULL` 值。 使用 `DESC` 订单， `NULL` 是最后的。
 
 #### 3.1.3 DB2, ORACLE & POSTGRESQL
 
@@ -42,9 +44,9 @@ menu_order: 20
 
 此表显示 `NULL` 默认排序顺序由不同的数据库类型提供：
 
-| 空排序行为/数据库类型         | MARIADB/MYSQL | SQLSERVER | HSQDB | DB2 | 排行 | POSTGRESQL |
-| ------------------- | ------------- | --------- | ----- | --- | -- | ---------- |
-| **ASC NULLS FI**    | ✔             | ✔         | ✔     |     |    |            |
-| **ASC NULLS LAST**  |               |           |       | ✔   | ✔  | ✔          |
-| **显示第一页**           |               |           | ✔     | ✔   | ✔  | ✔          |
-| **DESC NULLS LAST** | ✔             | ✔         |       |     |    |            |
+|         空排序行为/数据库类型 | DB2 | HSQDB | MARIADB/ MYSQL | 排行 | POSTGRESQL | SAP HANA | SQL 服务 |
+| -------------------:|:---:|:-----:|:--------------:|:--:|:----------:|:--------:|:------:|
+|    **ASC NULLS FI** |     |   ✔   |       ✔        |    |            |    ✔     |   ✔    |
+|  **ASC NULLS LAST** |  ✔  |       |                | ✔  |     ✔      |          |        |
+|           **显示第一页** |  ✔  |   ✔   |                | ✔  |     ✔      |          |        |
+| **DESC NULLS LAST** |     |       |       ✔        |    |            |    ✔     |   ✔    |
