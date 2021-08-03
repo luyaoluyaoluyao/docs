@@ -1,18 +1,27 @@
 ---
-title: "Enumerations in Expressions"
-parent: "expressions"
+title: "式内の列挙数"
+parent: "表現"
+menu_order: 170
+tags:
+  - "studio pro"
+  - "表現"
+  - "列挙型"
+  - "表現"
 ---
 
+## 1つの紹介
 
-Enumerations are referenced by <modulename>.<enumerationname>.<enumerationvalue>
+列挙は `<modulename>.<enumerationname>.<enumerationvalue>` によって参照されます。
 
-Assume a module "OrderProcessing", in which an enumeration "Status" is defined with two possible values: "started" and "completed". To set the value of an attribute in a change action to "completed", use the following code:
+For example, you have a module called *OrderProcessing*, in which an enumeration *Status* is defined with two possible values: *started* and *completed*.
+
+変更リスト、オブジェクト、または可変アクティビティの属性の値を *完了*に設定するには、次の入力を使用します。
 
 ```java
 OrderProcessing.Status.completed
 ```
 
-Conditional statements are also possible:
+条件文も可能です:
 
 ```java
 if 4>3 then
@@ -21,34 +30,66 @@ else
   OrderProcessing.Status.completed
 ```
 
-## getCaption
+## 2 getCaption
 
-Takes an enumeration value and returns the caption of this value. The caption is a translatable string and the result of this function depends on the current language.
+`getCaption` 関数は列挙値を取り、この値のキャプションを返します。 *キャプション* は翻訳可能な文字列で、この関数の結果は現在の言語に依存します。
 
-### Input parameters
+### 2.1 入力パラメータ
 
-*   an enumeration value Type: any enumeration
+入力パラメータとして、任意の列挙の列挙値を使用できます。
 
-### Output
+### 2.2 出力
 
-The caption of the enumeration value in the current language. Type: String
+出力は以下の表に記載されています:
 
-```java
-getCaption($NewEntity/TestEnum)
-```
+| 値                  | タイプ |
+| ------------------ | --- |
+| 現在の言語での列挙値のキャプション。 | 文字列 |
 
-## getKey
+### 2.3 例
 
-Takes an enumeration value and returns the key (called Name in the Modeler) of this value. The key is the technical name for the enumeration value and is language independent. See also [Enumeration Values](enumeration-values).
-
-### Input parameters
-
-*   an enumeration value Type: any enumeration
-
-### Output
-
-The key/name of the enumeration value Type: String
+次の入力を使用する場合:
 
 ```java
-getKey($NewEntity/TestEnum)
+getCaption($Customer/dule)
 ```
+
+出力は以下のようになります:
+
+```java
+Gouden
+```
+
+## 3 getKey
+
+`getKey` 関数は、列挙値を取得し、この値のキー (Studio Pro で *Name* と呼ばれる) を返します。 キーは、列挙値の技術的な名前であり、言語に依存しません。 詳細については、 [列挙数](enumerations) を参照してください。
+
+### 3.1 入力パラメータ
+
+入力パラメータとして、任意の列挙の列挙値を使用できます。
+
+### 3.2 出力
+
+出力は以下の表に記載されています:
+
+| 値                 | タイプ |
+| ----------------- | --- |
+| 現在の言語の列挙値のキー(名前)。 | 文字列 |
+
+### 3.3 例
+
+次の入力を使用する場合:
+
+```java
+getKey($Customer/dule)
+```
+
+出力は以下のようになります:
+
+```java
+Golden
+```
+
+## 4 続きを読む
+
+* [列挙型](enumerations)
