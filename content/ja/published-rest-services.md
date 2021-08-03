@@ -11,9 +11,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-**公開されたRESTサービス** 機能は、バージョン7.10.0で導入されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-services.pdf) をクリックしてください。
 {{% /alert %}}
 
 ## 1つの紹介
@@ -56,6 +54,6 @@ REST 操作としてマイクロフローを発行するには、エディタ内
 
 ## 6例
 
-**MendixでネイティブにRESTを公開する方法**
+**Studio Pro 8 で REST を公開する方法**
 
-{{% youtube HzrFkv0U4n8 %}}
+{{% youtube Ff_P84NOcZk %}}
