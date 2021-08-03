@@ -1,45 +1,10 @@
 ---
 title: "报告小部件"
 parent: "页面"
-menu_order: 50
-tags:
-  - "studio pro"
-  - "报告小部件"
-  - "报告"
-  - "小部件"
-  - "数据集"
 ---
 
-●{% alert type="warning" %}}举报小部件不支持本机移动页面。{{% /提醒 %}}
+通过报告，您可以通过数据库数据创建报告。 报告被用来创建总合信息（例如，每个客户的总销售额）。
 
-## 1 导言
+数据网格与报告网格之间的差别是，报告网格中显示的数据不存储在数据库中。 每次创建报告时，从数据库中检索数据。 报告小部件的数据由 [数据集](data-sets) 提供。
 
-使用报表小部件您可以从数据库数据创建报告。 报告主要用于提供综合信息（例如，每个客户的总销售额）。
-
-**报告小部件** 类别包含以下小部件：
-
-* [报告网格](report-grid) - 以表格形式显示数据； 报告小部件的数据由 [数据集](data-sets) 提供
-
-    ![示例报告网格](attachments/report-widgets/report-grid-example.png)
-
-* [报告参数](report-parameter) - 允许最终用户指定一个 [数据集的参数](data-sets) 然后用于过滤在报告中显示的数据
-
-    ![示例报告参数](attachments/report-widgets/report-parameter-example.png)
-
-* [报告日期参数](report-date-parameter) - 允许最终用户指定一个 [数据集的日期时间参数](data-sets)然后用来过滤报表中显示的数据
-
-    ![示例报告日期参数](attachments/report-widgets/report-date-parameter-example.png)
-
-* [生成报告按钮](report-button) - 当最终用户点击按钮时生成报告
-
-    ![生成报告按钮示例](attachments/report-widgets/generate-report-button-example.png)
-
-
-## 2 执行基本函数
-
-{{% snippet file="refguide/performancing-basic-functions-widgets.md" %}}
-
-## 3 阅读更多
-
-* [页](page)
-* [页 次](页面)
+A report can be presented on a [Page](page) in a tabular form using a [Report Grid](report-grid) widget or in a graphical form using a [Report Chart](report-chart) widget. 如果对应于报告的 [数据集](data-sets) 包含参数， 这些可以由用户通过 [报告参数](report-parameter) 和 [报告日期 参数](report-date-parameter) 小部件指定. 请注意，所有报告参数都是可选的，所以不必指定所有参数。
