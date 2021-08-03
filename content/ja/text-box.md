@@ -1,202 +1,198 @@
 ---
-title: "Text Box"
+title: "テキストボックス"
 parent: "input-widgets"
 menu_order: 10
 tags:
   - "studio pro"
-  - "data"
+  - "データ"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text-box.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
-
-A text box is used to display and, optionally, allow the end-user to edit the value of an attribute from an object in a textual form. It can be used to display attributes of the following [data types](data-types):
+テキストボックスを使用して表示し、必要に応じて表示します。 エンドユーザーがテキスト形式のオブジェクトから属性の値を編集できるようにします。 以下の [データ型の属性を表示するために使用できます](data-types):
 
 * Autonumber
-* Decimal
-* Hashed string
-* Integer
-* Long
-* String
+* 小数点以下桁数
+* ハッシュ文字列
+* 整数
+* 長い順
+* 文字列
 
-A text box must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the text box, between square brackets, and colored blue.
+テキスト ボックスは、 [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、テキストボックス内に角括弧と青色の間で表示されます。
 
-For example, the following text box allows the end-user to see, and set, the **Name** of a customer.
+例えば、次のテキストボックスでは、エンドユーザーが顧客の **名前** を表示して設定することができます。
 
 ![](attachments/text-box/text-box.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of text box properties is represented in the image below:
+テキストボックスのプロパティの例を以下の画像に示します。
 
 {{% image_container width="250" %}}![](attachments/text-box/text-box-properties.png)
 {{% /image_container %}}
 
-Text box properties consist of the following sections:
+テキスト ボックスのプロパティは、次のセクションで構成されています。
 
-* [Accessibility](#accessibility)
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [Formatting](#formatting)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [アクセシビリティ](#accessibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [書式設定](#formatting)
+* [全般](#general)
+* [ラベル](#label)
+* [検証](#validation)
+* [公開範囲](#visibility)
 
-### 2.1 Accessibility Section{#accessibility}
+### 2.1 アクセシビリティセクション{#accessibility}
 
-#### 2.1.1 Autocomplete
+#### 2.1.1 自動完了
 
-The autocomplete property specifies if a text box should have autocomplete enabled. The autocomplete attribute also improves the browser's ability to pre-populate fields with user-preferred values. For more information on how this helps you comply with accessibility guidelines, see the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#input-purposes)
+autocomplete プロパティは、テキストボックスにオートコンプリートを有効にするかどうかを指定します。 autocomplete 属性は、ユーザーが好む値を持つフィールドに事前に入力するブラウザの機能も向上します。 これがどのようにアクセシビリティガイドラインを遵守するのに役立つかについては、 [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/#input-purposes) を参照してください。
 
-### 2.2 Common Section{#common}
+### 2.2 共通セクション{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.3 Data Source Section{#data-source}
+### 2.3 データソースセクション{#data-source}
 
-{{% snippet file="refguide8/data-source-section-link.md" %}}
+{{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.4 Design Properties Section{#design-properties}
+### 2.4 プロパティセクション{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.5 Editability Section{#editability}
+### 2.5 編集可能セクション{#editability}
 
-{{% snippet file="refguide8/editability-section-link.md" %}}
+{{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.6 Events Section{#events}
+### 2.6 イベントセクション{#events}
 
-#### 2.6.1 On Change Event{#on-change}
+#### 2.6.1 変更時のイベント{#on-change}
 
-The on change event property specifies an action that will be executed when the value has been changed and gets submitted. A value will be submitted when pressing the <kbd>Enter</kbd> key or leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+on change イベントプロパティは、値が変更されて送信されたときに実行されるアクションを指定します。 A value will be submitted when pressing the <kbd>Enter</kbd> key or leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.6.2 On Change Behaviour
+#### 2.6.2 動作の変更時
 
 The On Change Behaviour property lets users select how **on change** is handled via the following options Studio Pro:
 
-* When user leaves input field (Default)
-* While user is entering data
+* ユーザーが入力フィールドを離れたとき (デフォルト)
+* ユーザーがデータを入力している間
 
-##### 2.6.2.1 When user leaves input field (Default)
+##### 2.6.2.1 ユーザが入力フィールドを離れた場合 (Default)
 
-This option will work as in previous versions of Studio Pro. Textbox will apply changes when a value is not the same as previously saved value in the database and one of the following conditions is met:
+このオプションは、Studio Pro の以前のバージョンと同様に動作します。 テキストボックスは、データベースに保存されている値と同じではなく、次のいずれかの条件が満たされた場合に変更を適用します。
 
-* On enter key pressed: This will trigger on change and on enter key press events
-* Blurred: This will trigger on change and on leave events
+* 入力キーが押された時: これは変更時と入力キーが押された時にトリガーされます
+* ぼかし：これは変更時と休暇時にトリガーされます
 
-This means that there is no way for users to trigger an on change event while typing. That use case requires the second option: **While user is entering data**.
+これは、入力中にユーザが変更イベントをトリガーする方法がないことを意味します。 このユースケースでは、2つ目のオプションが必要です: **ユーザーがデータを入力している間**。
 
-##### 2.6.2.2 While user is entering data
+##### 2.6.2.2 ユーザーがデータを入力している間
 
-This option allows makes it so users trigger an on change event while they are typing. Text Box will save changes when the value is not the same as the previously saved value in the database and if the last change made took place after the configured **Apply after (ms)** length of time.
+このオプションを使用すると、入力中にユーザーが変更イベントを起動するようになります。 テキストボックスは、データベースに保存されている以前の値と同じではなく、設定された **(ms)** の時間の後に適用された最後の変更が行われた場合に変更を保存します。
 
-With **While user is entering data**, users now can adjust one more property called **Apply after (ms)** (described above). This will reduce the amount of the calls made for an on change event, thus improving app performance.
+**では、ユーザーがデータ**を入力している間、ユーザーは **(ms) 後に適用** と呼ばれるもう1つのプロパティを調整できるようになりました(上記)。 これにより、変更イベントの呼び出し量が減り、アプリのパフォーマンスが向上します。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.6.3 On Enter Event
+#### 2.6.3 イベントに参加する
 
-The on enter event property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+on enter イベントプロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.6.4 On Leave Event
+#### 休暇中の2.6.4
 
-The on leave event property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+on leave イベントプロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
 
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
+これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.6.5 On Enter Key Press Event
+#### 2.6.5 キー入力時 イベント
 
-The on enter key press event property specifies an action that will be executed when the focus is inside the widget  and the <kbd>Enter</kbd> key is pressed. In a web application the widget will keep focus after the action gets executed.
+on enter key press event プロパティは、フォーカスがウィジェット内にあり、 <kbd>Enter</kbd> キーが押されたときに実行されるアクションを指定します。 Webアプリケーションでは、アクションが実行された後、ウィジェットはフォーカスを保持します。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.7 Formatting Section{#formatting}
+### 2.7 書式設定セクション{#formatting}
 
-The formatting section applies only to the way that numeric attributes are displayed. These are attributes of the following data types:
+書式設定セクションは、数値属性の表示方法にのみ適用されます。 以下は以下のデータ型の属性です:
 
-* Decimal
-* Integer
-* Long
+* 小数点以下桁数
+* 整数
+* 長い順
 
-{{% snippet file="refguide8/numeric-formatting-link.md" %}}
+{{% snippet file="refguide/numeric-formatting-link.md" %}}
 
-### 2.8 General Section{#general}
+### 2.8 一般セクション{#general}
 
-#### 2.8.1 Show as Password
+#### 2.8.1 パスワードとして表示
 
-Attributes of the data type `String` or `Hashed string` can have their value hidden. This can be used for passwords, for example, to prevent bystanders from seeing them.
+データ型の属性 `String` または `ハッシュ文字列` は、その値を非表示にすることができます。 これは、たとえば、傍観者がそれらを見ないようにするために、パスワードに使用することができます。
 
-| Value             | Description                                                                                             |
-| ----------------- | ------------------------------------------------------------------------------------------------------- |
-| False *(default)* | Normal text box                                                                                         |
-| True              | Typed characters are not shown to the end-user , instead an asterisk is shown for every typed character |
+| 値                 | 説明                                                |
+| ----------------- | ------------------------------------------------- |
+| False *(default)* | 標準テキスト ボックス                                       |
+| True              | 型付けされた文字はエンド・ユーザーには表示されず、型付けされた文字ごとにアスタリスクが表示されます |
 
 #### 2.8.2 Input Mask
 
-{{% alert type="info" %}}Input masks are not supported on native mobile pages.
+{{% alert type="info" %}}入力マスクはネイティブのモバイルページではサポートされていません。
 
-Input masks are designed for string data types. Be cautious when using them with numeric or hashed string data types.
+入力マスクは、文字列データ型用に設計されています。 数値またはハッシュ化された文字列データ型で使用する場合は注意が必要です。
 {{% /alert %}}
 
-The input mask limits what the end-user can enter in the text box, following the rules below:
+入力マスクは、以下のルールに従って、エンドユーザーがテキストボックスに入力できるものを制限します:
 
-| Character | Allows Input of       |
-| --------- | --------------------- |
-| `9`       | any digit             |
-| `Z`       | any letter            |
-| `U`       | an upper-case letter  |
-| `L`       | a lower-case letter   |
-| `*`       | a letter *or* a digit |
+| 文字  | Allows Input of |
+| --- | --------------- |
+| `9` | 任意の数字           |
+| `Z` | どんな文字           |
+| `U` | 大文字の文字          |
+| `L` | 小文字です           |
+| `*` | 文字 *または* 桁の数字   |
 
-Other characters will be taken literally.
+他の文字は文字通り取られます。
 
-For example, the input mask `99-LLL-9999` matches `24-apr-2008`.
+例えば、入力マスク `99-LLL-9999` は `24-apr-2008` にマッチします。
 
-#### 2.8.3 Maximum Length
+#### 2.8.3 最大長さ
 
-This property specifies the maximum number of characters that can be typed in this text box.
+このプロパティは、このテキストボックスに入力できる最大文字数を指定します。
 
-| Value                        | Description                                                                                   |
-| ---------------------------- | --------------------------------------------------------------------------------------------- |
-| Attribute length *(default)* | The maximum number of characters is the same as the maximum length of the connected attribute |
-| Unlimited                    | The maximum number of characters is unlimited                                                 |
-| Custom                       | The maximum number of characters is specified in the widget properties                        |
+| 値               | 説明                         |
+| --------------- | -------------------------- |
+| 属性の長さ *(デフォルト)* | 最大文字数は、接続された属性の最大長さと同じです   |
+| 無制限です           | 最大文字数に制限はありません             |
+| カスタム            | ウィジェットのプロパティで文字数の最大値を指定します |
 
-#### 2.8.4 Placeholder Text
+#### 2.8.4 プレースホルダーテキスト
 
-The placeholder text is shown when no text has been entered yet, or when a displayed attribute is empty.
+プレースホルダー テキストは、まだ入力されていない場合、または、表示された属性が空の場合に表示されます。
 
-It can be used, for example, to give a hint to the end-user what kind of text should be entered.
+たとえば、エンドユーザーにどのようなテキストを入力すべきかのヒントを与えるために使用できます。
 
 <a name="label-properties"></a>
 
-### 2.9 Label Section{#label}
+### 2.9 ラベルセクション{#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.10 Validation Section{#validation}
+### 2.10 検証セクション{#validation}
 
-{{% snippet file="refguide8/widget-validation-link.md" %}}
+{{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.11 Visibility Section{#visibility}
+### 2.11 可視性セクション{#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Data Types](data-types)
-* [Data View](data-view)
-* [Attributes](attributes)
+* [データ型：](data-types)
+* [データビュー](data-view)
+* [属性](attributes)
