@@ -5,10 +5,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-rest-service.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 In some cases, you will be stuck behind a firewall and thus unable to call a REST service directly. This page shows you how to configure your app to use a proxy to call such services.
@@ -25,11 +21,11 @@ If you specify a setting both as a custom setting and as a JVM parameter, the cu
 
 ### 2.1 Custom Settings
 
-REST proxy settings can be configured as custom settings on the **Project** > **Settings** > **Configurations** > **Custom** tab. For more information, see the [Custom](configuration#custom) section of *Configurations*.
+REST proxy settings can be configured as custom settings on the **App** > **Settings** > **Configurations** > **Custom** tab. For more information, see the [Custom](configuration#custom) section of *Configurations*.
 
 ### 2.2 JVM Parameters
 
-REST proxy settings can be configured in the **Project** > **Settings** > **Configurations** > **Server** tab > **Extra JVM parameters** field. For more information, see the [Server](configuration#server) section of *Configurations*.
+REST proxy settings can be configured in the **App** > **Settings** > **Configurations** > **Server** tab > **Extra JVM parameters** field. For more information, see the [Server](configuration#server) section of *Configurations*.
 
 They can also be specified as JVM parameters in your *.m2eerc*. This is useful if you want to use these settings to also [consume web services](using-a-proxy-to-call-a-webservice).
 
