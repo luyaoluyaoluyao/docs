@@ -8,10 +8,6 @@ tags:
   - "arithmetic expressions"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/arithmetic-expressions.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 This document describes the arithmetic operators which are supported in expressions. These all work on numeric data types (Integer/Long and Decimal).
