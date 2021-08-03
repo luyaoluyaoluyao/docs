@@ -1,22 +1,25 @@
 ---
 title: "Sequence Flow"
-parent: "common-elements"
+parent: "application-logic"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "sequence flow"
+  - "microflow"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/sequence-flow.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
-A sequence flow is an arrow that links events, activities, splits and merges with each other. Hereby it defines the order of execution. Flows always flow in one direction where elements follow each other up one by one. Splits always lead to one direction so it is not possible that multiple flows take place simultaneously.
-
-{{% alert type="info" %}}
+A sequence flow is a flow that is shown an arrow that links elements (events, activities, decisions, etc.) with each other. Hereby it defines the order of execution. Flows always flow in one direction where elements follow each other up one by one. Decisions always lead to one direction, so it is not possible that multiple flows take place simultaneously.
 
 When you have two activities that you want to link together a sequence flow is used.
 
-![](attachments/819203/917971.png)
+![](attachments/sequence-flow/sequence-flow.png)
 
-{{% /alert %}}
+## 2 Condition Value
 
-## 2 Behavior Properties
-
-### 2.1 Condition Value
-
-Condition value describes which direction should be followed based on the outcome of an [exclusive split](exclusive-split) or an [inheritance split](inheritance-split).
+The **Condition value** describes which direction should be followed based on the outcome of a [decision](decision) or an [object type decision](object-type-decision).
