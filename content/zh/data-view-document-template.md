@@ -1,32 +1,41 @@
 ---
-title: "Data View (Document Template)"
-parent: "document-templates"
+title: "数据视图 (文档模板)"
+parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Data+View+(document+template).html
-  - /refguide7/data-view-(document-template).html
+  - /refguide/Data+View+(document+template).html
+  - /refguide/data-view-(document-template).html
 ---
 
+## 1 导言
 
-The data view is used for showing the contents of exactly one object. If, for example, you want to show details of a single orderline this is most easily achieved with a data view. The data view typically contains a table with static labels and dynamic data widgets like a dynamic label. In more complex templates, a data view can contain data grids and other data views for related objects.
+数据视图用于显示一个对象的内容。 例如，如果您想要显示单一顺序的详细信息，最容易通过数据视图实现。 数据视图通常包含一个包含静态标签和动态数据部件的表格，像动态标签。 在更复杂的模板中，数据视图可以包含相关对象的数据网格和其他数据视图。
 
-![](attachments/819203/918139.png) A data view showing orderline information
+{{% alert type="info" %}}
 
-## Common Properties
+![](attachments/document-templates/918139.png)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+显示顺序信息的数据视图。
 
-## Data Source Properties
+{{% /报警 %}}
 
-The data source properties determine which objects will be shown in the data grid. The list of objects in the data grid is constrained by the following mechanisms:
+## 2 公共属性
 
-1.  For top-level data grids, the objects passed in the microflow calling the document export action are shown.
-2.  For nested data grids, if an entity path is used, only the objects reachable by following the path from the containing object are shown.
-3.  For nested data grids, if a microflow is used, the objects returned by the microflow are shown.
+{{% snippet file="refguide/name-property.md" %}}
 
-### Entity (Path)
+## 3 数据源属性
 
-The entity (path) property specifies of which entity an instance will be shown in the data view. A top-level data view is always connected to an entity. A nested data view can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path can follow associations irrespective of type and ownership.
+数据源属性决定哪些对象将显示在数据网格中。 数据网上的对象清单受到下列机制的限制：
 
-### Microflow
+1.  对于顶层数据网格，显示调用文档导出操作的微流程中传递的对象。
+2.  对于嵌套的数据网格，如果使用实体路径，只显示从包含对象的路径可以访问的对象。
+3.  对于嵌套的数据网格，如果使用微流，则显示微流返回的对象。
 
-When a nested data view is connected to an entity, a microflow is needed to retrieve the data. The input parameter of these microflows is always the object of the containing data view and the output is an object with the entity type of the nested data view.
+### 3.1 实体(供应)
+
+实体(路径)属性指定在数据视图中显示一个实例的实体。 顶级数据视图总是连接到实体的。 嵌套数据视图可以连接到一个实体，也可以连接到从含有数据视图的实体开始的实体路径。 实体路径可以跟随社团，而不论其类型和所有权。
+
+### 3.2 微流
+
+当嵌套数据视图连接到实体时，需要微流才能检索数据。 这些微流的输入参数总是包含数据视图的对象，输出是嵌套数据视图的实体类型。
