@@ -1,32 +1,20 @@
 ---
 title: "集成活动"
 parent: "活动"
-menu_order: 60
-tags:
-  - "studio pro"
 ---
 
-{{% alert type="warning" %}}
-这些活动只能在 **微流** 中使用。
-{{% /报警 %}}
+## 通话REST 服务
 
-## 1 导言
+查看 [通话休息行动](call-rest-action)。
 
-当与外部服务合作时，有几个微流活动可以让您调用服务并执行映射操作。
+## 呼叫网络服务
 
-本文档描述的活动在 **Toolbox **集成活动** 部分** 中：
+请参阅 [通话网络服务行动](call-web-service-action)。
 
-{{% image_container width="40%" %}}
-![集成活动工具箱](attachments/integration-activities/integration-activities-toolbox.png)
-{{% /image_container %}}
+## 使用映射导入
 
-下面是您可以在微流程中使用的集成活动：
+查看 [导入映射动作](import-mapping-action)。
 
-* [通话REST 服务](call-rest-action) -- 通话REST 端点
-* [调用 Web Service](call-web-service-action) - 打电话给导入的 web 服务操作
-* [导入映射](import-mapping-action) - 从一个 XML 或 JSON 文档导入数据到对象
-* [导出映射](export-mapping-action) - 导出数据到XML 或 JSON 文档或字符串变量
+## 用映射导出
 
-## 2 次阅读更多
-
-* [活动](活动)
+查看 [导出映射操作](export-mapping-action)。
