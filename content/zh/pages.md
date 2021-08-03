@@ -1,65 +1,65 @@
 ---
-title: "Pages"
-category: "App Modeling"
+title: "页 次"
+category: "应用程序模型"
 menu_order: 30
 tags:
-  - "Pages"
-  - "Widgets"
+  - "页 次"
+  - "小部件"
   - "Studio Pro"
-  - "page structure"
+  - "页面结构"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A page is the basic end-user interface of a Mendix application. It is used to display information to the end-user, allow end-users to create and edit information, and enable end-users to trigger additional automated processing.
+一个页面是Mendix 应用程序的基本最终用户界面。 它用于向最终用户显示信息，允许最终用户创建和编辑信息，并使最终用户能够触发更多的自动处理。
 
-Mendix is a [Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) which means that all interaction takes place in a single browser tab/window. A consequence of this is that new pages cannot be opened in a different tab or window.
+Mendix 是 [单页应用程序 (SPA)](https://en.wikipedia.org/wiki/Single-page_application) ，这意味着所有交互都是在单个浏览器标签/窗口中进行的。 其结果是，新页面不能在不同的标签或窗口中打开。
 
-Pages are created, edited, and manipulated in the page editor.
+页面被创建、编辑和操作在页面编辑器中。
 
-Every page is based on a page [layout](layout) and a page template. A layout is a frame you put your page in. A page template is a basis with predefined elements (widgets).
+每个页面都基于页面 [布局](layout) 和页面模板。 布局是您放置页面的一个框架。 页面模板是预定义元素(部件)的基础。
 
 ![](attachments/pages/page-structure.png)
 
-Pages can be linked, so that one page can open another page. If this second page contains a [data widget](data-widgets) with a page parameter data source, then an object or objects can be passed from the current page to the new page. For information on opening pages, and triggering other sorts of event, see [On Click Event & Events Section](on-click-event).
+页面可以链接，从而一个页面可以打开另一个页面。 如果这个第二页包含一个带有页面参数数据源的 [数据小部件](data-widgets) ， 然后一个对象或对象可以从当前页面传递到新页面。 关于开启页面和触发其他类型事件的信息，见 [点击事件 & 事件部分](on-click-event)
 
-Pages are opened either in the current pane of the browser or in a pop-up, child, window. Where the page is opened depends on its [layout type](layout#layout-type). Mendix performs navigation as efficiently as possible. If a new page uses the same layout as the old one, only the data on the page will refresh rather than the whole page being built from scratch.
+页面要么在当前浏览器的窗格中打开，要么在弹出窗口中打开. 页面打开的地方取决于它的 [布局类型](layout#layout-type)。 Mendix 尽可能高效地执行导航。 如果一个新页面使用与旧页面相同的布局 只有页面上的数据才会刷新，而不是从零开始构建整个页面。
 
-For more information on page properties, see [Page](page).
+欲了解更多关于页面属性的信息，请参阅 [页面](page)。
 
-## 2 Page and Page Resources
+## 2 页和页面资源
 
-In addition to a page, you can add page resources in the page editor. They help structure your page, style it, and fill it with data. For more on how to add page resources, see [Page Resources](page-resources).
+除了页面外，您还可以在页面编辑器中添加页面资源。 他们有助于构建你的页面、样式并用数据填充。 关于如何添加页面资源的更多信息，请参阅 [页面资源](page-resources)。
 
-| Type                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [![](attachments/pages/layout-icon.png)Layout](layout)                               | A [layout](layout) is a frame that your page is placed in. If you change the layout, all pages based on it will inherit this change. <br />Layout contain predefined elements that ensure unified and consistent look and feel of your application across one platform: the position of the header, size of the logo, position of the menu, etc. For example, in responsive layouts the header can be wide and with a big logo, while in mobile layouts the header will be narrower and the logo will be smaller due to the limited space. |
-| [![](attachments/pages/page-template-icon.png)Page template](page-templates)         | A [page template](page-templates) is a basis for your page that predefines its structure. For example, you can create a page template for a customer list that will contain list views with images in it. Thus, every time you need to create a page with similar list on it, you will base it on this template.    By mapping out common design patterns, a lot of the initial work involved in creating a new page can be simplified by setting up a proper set of page templates.                                                             |
-| [![](attachments/pages/snippet-icon.png)Snippet](snippet)                            | A [snippet](snippet) defines reusable interface parts. They can be used on pages and layouts. By using snippets, you will make changes in fewer places if you want to modify the interface. For example, you can have a snippet that is used both in the contents area of a template grid and in a data view. If you add a row to a table in the snippet, that change will show up in both places.                                                                                                                                               |
-| [![](attachments/pages/building-block-icon.png)Building block](building-block)       | A [building block](building-block) is pre-styled set of widgets. Building blocks will automatically appear in the page editor toolbox, allowing for easy reuse. By designing a comprehensive library of building blocks, a great deal of the fussy work involved in page design can be averted.                                                                                                                                                                                                                                                  |
-| [![](attachments/pages/page-icon.png)Page](page)                                     | A [page](page) is the end-user interface of a Mendix application. Pages are the things that are actually shown to the end-user.                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [![](attachments/pages/menu-icon.png)Menu](menu)                                     | A [menu](menu) defines a menu structure that can be used by a menu widget.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [![](attachments/pages/image-collection-icon.png)Image collection](image-collection) | An [image collection](image-collection) is a page resource where you place custom images to use them in your application. For more information, see [Images](images).                                                                                                                                                                                                                                                                                                                                                                            |
+| 类型                                                                       | 描述                                                                                                                                                                           |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](attachments/pages/layout-icon.png)布局](布局)                           | [布局](layout) 是您的页面放置的一个框架。 如果您更改布局，基于它的所有页面都将继承此更改。 <br />布局包含预定义元素，确保您在一个平台上的应用程序的统一和一致的外观和感觉：头的位置， 标志大小、菜单位置等 例如，在响应式布局中，头部可以宽泛且有一个大标志， 在移动布局中，头部会变得更窄，由于空间有限，徽标会变小。 |
+| [![](attachments/pages/page-template-icon.png)页面模板](page-templates)      | [页面模板](page-templates) 是您预定义其结构的页面基础。 例如，您可以为客户列表创建一个页面模板，其中包含有图像的列表视图。 因此，每次您需要创建一个具有类似列表的页面时，您都会以此模板为基础。    绘制共同设计图案， 创建一个新页面所涉及的大量初始工作可以通过设置一套适当的页面模板来简化。                 |
+| [![](attachments/pages/snippet-icon.png)代码片段](snippet)                   | [代码片段](snippet) 定义了可重复使用的接口部件。 它们可以用于页面和布局。 通过使用代码片段，如果您想要修改接口，您将在较少的地方做出更改。 例如，您可以有一个代码片段用于模板网格的内容区域和数据视图。 如果你在代码片段中添加一行到表中，这种更改将会在这两个地方出现。                                 |
+| [![](attachments/pages/building-block-icon.png)构建块](building-block)      | [块](building-block) 是预定样式的小部件。 构建模块将自动出现在页面编辑器工具框中，可以轻松重新使用。 通过设计一个综合的构件库，可以避免大量设计页数所涉及的迷信工作。                                                                                |
+| [![](attachments/pages/page-icon.png)页](page)                            | [页面](page) 是Mendix 应用程序的最终用户界面。 页面是指实际显示给最终用户的东西。                                                                                                                            |
+| [![](attachments/pages/menu-icon.png)菜单](菜单)                             | [菜单](menu) 定义了一个菜单部件可以使用的菜单结构。                                                                                                                                               |
+| [![](attachments/pages/image-collection-icon.png)图片收藏](image-collection) | [图像收藏](image-collection) 是一个页面资源，您可以在您的应用程序中放置自定义图像。 欲了解更多信息，请参阅 [图像](images)。                                                                                               |
 
-## 3 Widgets and Their Categories {#widgets-categories}
+## 3 个部件及其类别 {#widgets-categories}
 
-All the documents described above are built using widgets. There are many kinds of widgets, and not every widget can be used on all of the document types. Layouts support widgets for giving structure to pages, but not widgets for showing data. This is to make the intention of layouts clear: they should define what comes where and not much more. However, snippets can be placed in layouts, and that is an indirect way to include more kinds of widgets in a layout.
+上述所有文档都是用小部件构建的。 有许多类型的小部件，并非每个小部件都可以用于所有的文档类型。 布局支持为页面提供结构的小部件，但不是显示数据的小部件。 这样做是为了明确安排的意图：它们应该界定什么是什么，而不是更多的东西。 然而，代码片段可以放置在布局中，这是将更多类型的部件放入布局的间接方式。
 
-Widgets are grouped into the following categories:
+部件分为以下类别：
 
-* [Data widgets](data-widgets) are central to building forms in Mendix; with these widgets, you can view and edit the data in the application
-* [Common widgets](common-widgets) are commonly found on any page, layout, or snippet
-* [Container widgets](container-widgets) can contain other widgets
-* [Input widgets](input-widgets) make it possible to show and edit the values of attributes and associations
-* [File widgets](file-widgets) allow you to work with files, including images stored in files
-* [Button widgets](button-widgets) are buttons that trigger actions
-* [Menu widgets](menu-widgets) allow the user to navigate through the application
-* [Report widgets](report-widgets) aggregate data and show it in the form of a table or a chart
-* [Authentication widgets](authentication-widgets) allow to add the user verification process such as password and login id text boxes.
-* Add-on widgets can be downloaded from the [Mendix Marketplace](https://marketplace.mendix.com/) or created by yourself using JavaScript
-  * [Chart widgets](chart-widgets) are add-on widgets that graphically represent data using various chart types
+* [数据小部件](data-widgets) 对于构建Mendix表单至关重要；通过这些小部件您可以查看和编辑应用程序中的数据
+* [常见小部件](common-widgets) 在任何页面、 布局或代码片段
+* [容器部件](container-widgets) 可以包含其他部件
+* [输入小部件](input-widgets) 可以显示和编辑属性和关联的值
+* [文件小部件](file-widgets) 允许您处理文件, 包括存储在文件中的图像
+* [按钮部件](button-widgets) 是触发动作的按钮
+* [菜单小部件](menu-widgets) 允许用户浏览应用程序
+* [报告小部件](report-widgets) 累计数据并以表格或图表的形式显示
+* [身份验证小部件](authentication-widgets) 允许添加用户验证过程，例如密码和登录ID文本框。
+* 附加组件可以从 [Mendix Marketplace](https://marketplace.mendix.com/) 下载，或者由您自己使用 JavaScript 创建。
+  * [图表小部件](chart-widgets) 是用各种图表类型图形表示数据的附加组件
 
-## 4 Read More
+## 4 阅读更多
 
-* [Page Resources](page-resources)
-* [Page](page)
+* [页面资源](页面资源)
+* [页](page)
