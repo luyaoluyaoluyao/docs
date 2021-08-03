@@ -1,27 +1,27 @@
 ---
-title: "Menu Item"
-parent: "menu"
+title: "メニュー項目"
+parent: "メニュー"
 ---
 
 
-[Menus](menu) are composed of menu items. Menu items can contain other menu items within certain limits. Menu bars can have two levels, the navigation tree three levels and the simple menu bar only one.
+[メニュー](menu) はメニュー項目で構成されています。 メニューアイテムには、特定の制限内の他のメニューアイテムを含めることができます。 メニューバーは2つのレベル、ナビゲーションツリー3つのレベルとシンプルなメニューバーを持つことができます。
 
-## General Properties
+## 一般プロパティ
 
-### Caption
+### 図表番号
 
-The caption is the text that will appear in the [menu widget](menu-widgets). This is a translatable text. See [Translatable Texts](translatable-texts).
+キャプションは、 [メニュー ウィジェット](menu-widgets) に表示されるテキストです。 これは翻訳可能なテキストです。 [翻訳可能なテキスト](translatable-texts) を参照してください。
 
-### Icon
+### アイコン
 
-The glyph icon or image will appear next to or above the caption in the [menu widget](menu-widgets).
+グリフアイコンまたは画像は、 [メニュー ウィジェット](menu-widgets) 内のキャプションの隣または上に表示されます。
 
 ### Target
 
-The target of the menu item is the page or microflow that will be opened when the item is clicked. A menu item that has subitems cannot have a target itself.
+メニュー項目のターゲットは、アイテムがクリックされたときに開かれるページまたはマイクロフローです。 サブアイテムを持つメニューアイテムはターゲット自体を持つことはできません。
 
 {{% alert type="success" %}}
 
-You can open a page that contains a data view from a menu item by setting as target a microflow that first retrieves an object for the data view and then opens the page.
+ターゲットとして設定することで、メニュー項目からデータビューを含むページを開き、最初にデータビューのオブジェクトを取得し、そのページを開くことができます。
 
 {{% /alert %}}
