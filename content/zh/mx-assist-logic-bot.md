@@ -1,64 +1,64 @@
 ---
-title: "MxAssist Logic Bot"
-parent: "microflows"
-description: "Describes MxAssist Logic Bot in Mendix Studio Pro."
+title: "MxAssist逻辑箱"
+parent: "微流"
+description: "在Mendix Studio Pro中描述MxAssist逻辑箱。"
 tags:
   - "studio pro"
   - "logic bot"
-  - mendix assist", "AI", "assist", "mx assist"
+  - mendix assistance”、“AI”、“assist”、“mx assist”
 ---
 
-## 1 Introduction
+## 1 导言
 
-MxAssist Logic Bot is an AI-powered virtual co-developer bot that helps you to model and configure your application logic (microflows) in Mendix Studio Pro. It gives you contextualized recommendations on the next best activity in your microflow based on the already designed activities, parameters, and other context-related information.
+MxAssist逻辑机器人是一个AI驱动的虚拟开发商机器人，帮助您在 Mendix Studio Pro中模拟和配置应用程序逻辑(microflows)。 它根据已经设计的活动、参数和其他与环境有关的信息，就微流中的下一个最佳活动提供了具体的建议。
 
-MxAssist Logic Bot is built using machine learning analysis of over twelve million anonymized application logics (microflows)*—*built with Mendix*—*to detect and learn the best practice patterns in microflows.
+MxAssist逻辑箱是使用机器学习分析来构建超过1 200万个匿名应用程序逻辑(微流)*—*是与Mendix*一起构建的，*以检测和学习微流中的最佳做法模式。
 
-The key features of MxAssist Logic Bot are the following:
+MxAssist逻辑箱的主要功能如下：
 
-* **Next best action suggestion** – it recommends the top five next best activities out of more than 40 different options with accuracy of 95%.
-* **Auto-configuration** – it does not only provide next best action, but automates the development further by pre-populating the parameters for such action.
-* **Contextual  suggestions** – it derives context in different ways, including by 'looking' left and right in a microflow when the developer inserts a new activity or decision mid-flow; and by inferring the context using the page where it is called from.
-* **High accuracy** – continuous improvement and training of the model has elevated the accuracy level from 95%.
+* **下一个最好的行动建议** - 它建议在40多个不同的选项中进行前五个最好的活动，精确度为95%。
+* **自动配置** — — 它不仅提供下一个最佳操作，而且通过预先填充此操作的参数使开发进一步自动化。
+* **上下文建议** - 它以不同方式产生上下文. 包括在微流程中左和右边的“查找”，当开发者插入新的活动或决定中流时； 并通过使用它所来自的页面推断上下文.
+* **精确度高** - 模型的不断改进和训练使精度水平从95%提高到较高水平。
 
-## 2 MxAssist Logic Bot Settings
+## 2 MxAssist逻辑箱设置
 
-You can switch MxAssist Logic Bot on and off in the top right corner of the microflow editor.
+您可以在微流编辑器右上角切换MxAssist逻辑箱。
 
-To access settings of MxAssist Logic Bot, open **Edit** > **Preferences >**the **General** tab >the **MxAssist Logic Bot** tab. For more information, see [Preferences](preferences-dialog).
+To access settings of MxAssist Logic Bot, open **Edit** > **Preferences >**the **General** tab >the **MxAssist Logic Bot** tab. 欲了解更多信息，请参阅 [首选项](preferences-dialog)。
 
-In the **MxAssist Logic Bot** tab, you can set the following:
+在 **MxAssistic Bot** 标签中，您可以设置以下内容：
 
-* **Enable MxAssist Logic Bot** – switches MxAssist Logic Bot on and off
+* **启用 MxAssist逻辑箱** - 开启或关闭MxAssist逻辑箱。
 
-* **Show suggestions for system variables** – when enabled, MxAssist Logic Bot will make suggestions for system objects (for example, it can suggest that you change such objects as **currentUser** or **currentSession**):
+* **为系统变量显示建议** - 启用后，MxAssist逻辑机器人将为系统对象提出建议(例如： 它可以建议您更改这些对象，如 **当前用户** 或 **当前会话**：
 
-    ![Mx Assist Logic Bot Suggestions for System Variables](attachments/mx-assist-logic-bot/mx-assist-system-variables.png)
+    ![Mx 系统变量的逻辑机器人建议](attachments/mx-assist-logic-bot/mx-assist-system-variables.png)
 
-For more information on preferences, see [Preferences](preferences-dialog).
+欲了解更多关于首选项的信息，请参阅 [首选项](preferences-dialog)。
 
-## 3 Using MxAssist Logic Bot to Build Microflows
+## 使用MxAssist逻辑箱构建微流
 
-MxAssist Logic Bot is enabled by default and is displayed as a blue dot in the flow of a [microflow](microflows):
+MxAssist逻辑箱默认启用，并在 [微流程](microflows) 流中显示为蓝色点：
 
-![Logic Bot Icon](attachments/mx-assist-logic-bot/mendix-assist-icon.png)
+![逻辑机器人图标](attachments/mx-assist-logic-bot/mendix-assist-icon.png)
 
-It is possible to add elements to the microflow in a regular way without using MxAssist Logic Bot, however, MxAssist Logic Bot helps you add elements to the microflow faster as it suggests a short list of the most relevant activities.
+但是可以在不使用 MxAssist逻辑箱的情况下定期将元素添加到微流中。 MxAssist逻辑箱帮助您更快地添加元素到微流中，因为它提供了一个最相关活动的简短列表。
 
-To use MxAssist Logic Bot, do the following:
+若要使用 MxAssist逻辑机器人，请执行以下操作：
 
-1. Click the icon to see the next best action recommendations:
+1. 点击图标查看下一个最佳行动建议：
 
-    ![Logic Bot Recommendations](attachments/mx-assist-logic-bot/mx-assist-recommendations.png)
+    ![逻辑机器人建议](attachments/mx-assist-logic-bot/mx-assist-recommendations.png)
 
-2. Click one of the recommended activities to insert it into a microflow.
+2. 点击推荐活动之一将其插入微流。
 
-3. In the **Properties** dialog box, configure the selected activity/event.
+3. 在 **属性** 对话框中，配置选定的活动/事件。
 
-The activity/event is added to your microflow.
+活动/事件已添加到您的微流程中。
 
-If you do not see the desired activity or element in the top-five recommendation list, you can click **Add other element** and choose an activity, loop, decision, merge, or object type decision.
+如果您没有在五个建议列表中看到所需的活动或元素。 您可以点击 **添加其他元素** 并选择一个活动、循环、决定、合并或对象类型决定。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Microflows](microflows)
+* [微型流动](微流)
