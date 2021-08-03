@@ -1,29 +1,29 @@
 ---
-title: "Parameter"
-parent: "microflows-and-nanoflows"
+title: "参数"
+parent: "微流和微流法"
 menu_order: 70
 tags:
   - "studio pro"
-  - "parameter"
-  - "microflow"
+  - "参数"
+  - "微流"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A parameter is a special kind of variable that is used an input for the microflow. When a microflow is triggered, the parameters are filled with the current values.
+参数是一种特殊类型的变量，用于微流程。 当微流触发时，参数将以当前值填充。
 
-If you want to use an object of the *Customer* entity in a microflow, use the parameter. In the picture below, the object name is *EnclosingCustomer* and is shown in black. The data type is object, therefore the entity name is shown underneath the object name in blue.
+如果您想要在微流程中使用 *客户* 实体的对象，请使用参数。 在下面的图片中，对象名称是 *封装客户* 并以黑体显示。 数据类型是对象，因此实体名称以蓝色显示在对象名称之下。
 
 ![](attachments/parameter/parameter.png)
 
-## 2 Output Properties
+## 2 个输出属性
 
-### 2.1 Name
+### 2.1 名称
 
-**Name** refers to the value of the parameter.
+**名称** 是指参数的值。
 
-### 2.2 Data Type
+### 2.2 数据类型
 
-The data type of a parameter defines the type of the value that it expects. See [Data Types](data-types) for the possible data types.
+参数的数据类型定义了它期望值的类型。 查看 [数据类型](data-types) 以了解可能的数据类型。
 
-Default: *Object*
+默认： *对象*
