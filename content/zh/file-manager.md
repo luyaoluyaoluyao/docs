@@ -1,105 +1,77 @@
 ---
-title: "File Manager"
+title: "File manager"
 parent: "file-widgets"
-tags:
-  - "studio pro"
-  - "file manager"
-  - "file widget"
-  - "widget"
 ---
 
-{{% alert type="warning" %}}The file manager widget is not supported on native mobile pages.{{% /alert %}}
-
-## 1 Introduction
 
 A file manager is used to upload and/or download files.
 
-![File Manager](attachments/file-widgets/file-manager.png)
-
-A file manager must be placed inside a data view connected to the entity that is either a **System.FileDocument** (or a specialization) or an [external entity](external-entities) with a `Contents` binary attribute.
-
 {{% alert type="info" %}}
-For an external entity to be used as a file source, it must be defined as a media element in the corresponding OData service. Such an element can be recognized by setting the `HasStream` attribute to `true` in its metadata.
+
+![](attachments/pages/file-manager.png)
+
 {{% /alert %}}
 
-{{% alert type="info" %}}
-When uploading a file through the file manager, the FileDocument object will be committed immediately.
-{{% /alert %}}
+It must be placed inside a data view connected to the entity System.FileDocument or a specialization thereof.
 
-## 2 Properties
+## General properties
 
-An example of file manager properties is represented in the image below:
+### Type
 
-{{% image_container width="250" %}}![File Manager Properties](attachments/file-widgets/file-manager-properties.png)
-{{% /image_container %}}
+This property indicates how the end user can interact with the file manager.
 
-File manager properties consist of the following sections:
+| Value    | Description                                                     |
+| -------- | --------------------------------------------------------------- |
+| Upload   | The file manager can only be used to upload a file.             |
+| Download | The file manager can only be used to download a file.           |
+| Both     | The file manager can be used to upload, and to download a file. |
 
-* [Common](#common)
+_Default value:_ Both
 
-* [Design Properties](#design-properties)
+### Max file size (MB)
 
-* [Editability](#editability)
+This property determines the maximum size of files (in megabytes) that can be uploaded.
 
-* [General](#general)
+_Default value:_ 5
 
-* [Label](#label)
+### Allowed extensions
 
-* [Visibility](#visibility)
+You can specify the file extensions that are allowed to be uploaded. If no extensions are specified all file extensions are allowed. Separate multiple extensions by a semi-colon, for example, `txt;doc`
 
-### 2.1 Common Section {#common}
+If a file with an extension that is not allowed is selected, a system text (File manager > Incorrect file extension) will be shown underneath the file manager.
 
-{{% snippet file="refguide/common-section-link.md" %}}
+### Show file in browser
 
-### 2.2 Design Properties Section {#design-properties}
+This property indicates whether the file will be shown in the browser, instead of being downloaded.
 
-{{% snippet file="refguide/design-section-link.md" %}}
+_Default value:_ False
 
-### 2.3 Editability Section {#editability}
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+## Editability properties
 
-### 2.4 General Section {#general}
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-#### 2.4.1 Type
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-The **Type** property indicates how the end-user will be able to use the file manager.
+## Visibility properties
 
-| Value            | Description                                                      |
-| ---------------- | ---------------------------------------------------------------- |
-| Upload           | The file manager can only be used to upload a file.              |
-| Download         | The file manager can only be used to download a file.            |
-| Both *(default)* | The file manager can be used to both upload and download a file. |
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-#### 2.4.2 Max File Size (MB)
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-**Max file size (MB)** determines the maximum size of files (in megabytes) that can be uploaded.
+## Common properties
 
-Default: *5*
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-#### 2.4.3 Allowed Extensions
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-You can specify file extensions that users are allowed to upload. If no extension is specified, all file extensions are allowed. Separate multiple extensions by a semi-colon, for example, `txt;doc`
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-If a file with an extension that is not allowed is selected, a [system text](system-texts) for **File manager/image viewer** > **Error: incorrect file extension** will be shown below the file manager.
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-#### 2.4.4 Show File in Browser
+## Related articles
 
-**Show file in browser** indicates whether a file will be shown in the browser instead of being downloaded.
-
-Default: *False*
-
-### 2.5 Label Section {#label}
-
-{{% snippet file="refguide/label-section-link.md" %}}
-
-### 2.6 Visibility Section {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 Read More
-
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
-* [System Texts](system-texts)
+*   [Data view](data-view)
+*   [Entities](entities)
+*   [Associations](associations)
