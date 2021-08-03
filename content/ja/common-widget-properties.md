@@ -1,255 +1,255 @@
 ---
-title: "Properties Common in the Page Editor"
-parent: "pages"
+title: "ページエディターで共通のプロパティ"
+parent: "ページ"
 menu_order: 120
 tags:
   - "studio pro"
-  - "widget properties"
-  - "properties"
-  - "common"
-  - "widget"
-  - "classes"
+  - "ウィジェットのプロパティ"
+  - "プロパティ"
+  - "共通の"
+  - "ウィジェット"
+  - "クラス"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-These are properties that are shared by many elements in the page editor, such as a page or widgets. For a complete list of properties, take a look at the relevant element.
+これらはページやウィジェットなど、ページエディター内の多くの要素によって共有されるプロパティです。 プロパティの完全なリストについては、関連する要素を参照してください。
 
-## 2 Accessibility Properties and Widgets{#accessibility-properties}
+## 2つのアクセシビリティプロパティとウィジェット{#accessibility-properties}
 
-### 2.1 Screen Reader Caption
+### 2.1 スクリーンリーダーの図表番号
 
-The Screen reader caption property allows information to be read by screen readers when **Show label** is set to **No** in an input widget.
+**ラベル** を入力ウィジェットで **いいえ** に設定されている場合、スクリーンリーダーのキャプションプロパティによって情報を読み取ることができます。
 
-{{% alert type="info" %}}The Screen reader caption property is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}スクリーンリーダーのキャプションプロパティはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-#### 2.1.1 Screen Reader Caption Input Widgets
+#### 2.1.1 スクリーンリーダーキャプション入力ウィジェット
 
-The **Screen reader caption** property can be set on the following widgets:
+**スクリーン リーダー キャプション** プロパティは、次のウィジェットで設定できます。
 
-*   [Text Box](text-box)
-*   [Text Area](text-area)
-*   [Drop-down](drop-down)
-*   [Check Box](check-box)
+*   [テキストボックス](text-box)
+*   [テキストエリア](text-area)
+*   [ドロップダウン](drop-down)
+*   [チェックボックス](check-box)
 *   [Radio Buttons](radio-buttons)
-*   [Date Picker](date-picker)
-*   [File Manager](file-manager)
-*   [Reference Selector](reference-selector)
-*   [Input Reference Set Selector](input-reference-set-selector)
+*   [日付の選択](date-picker)
+*   [ファイルマネージャー](file-manager)
+*   [参照セレクター](reference-selector)
+*   [入力リファレンスセットセレクター](input-reference-set-selector)
 
-## 3 Common Section{#common-properties}
+## 3つの共通セクション{#common-properties}
 
-![Common Section](attachments/common-widget-properties/common-section.png)
+![共通セクション](attachments/common-widget-properties/common-section.png)
 
-### 3.1 Name{#name}
+### 3.1 名前{#name}
 
-The internal name of the widget. You can use this to give sensible names to widgets. The name property also appears in the generated HTML: the widget DOM element automatically includes the class `mx-name-{NAME}`, which can be useful for [Selenium testing](/howto7/integration/selenium-support).
+ウィジェットの内部名 ウィジェットに賢明な名前を付けるのに使用できます。 The name property also appears in the generated HTML: the widget DOM element automatically includes the class `mx-name-{NAME}`, which can be useful for [Selenium testing](/howto7/integration/selenium-support).
 
 ### 3.2 Tab Index{#tab-index}
 
-The tab index influences the order in which the end-user navigates through the page using the tab key. By default tab indices are zero and the tab order is determined automatically by the client system. A value of minus one (-1) means that the widget will be skipped when tabbing through the page.
+タブインデックスは、タブキーを使用してページを移動する順序に影響を与えます。 デフォルトでは、タブインデックスはゼロで、タブの順序はクライアントシステムによって自動的に決定されます。 マイナス1 (-1)の値は、ページをタブするときにウィジェットがスキップされることを意味します。
 
-Default: *0*
+デフォルト: *0 0*
 
-{{% alert type="info" %}}Tab index is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="info" %}}Tab indexはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-### 3.3 Class{#class}
+### 3.3 クラス{#class}
 
-The class property allows you to specify one or more cascading style sheet (CSS) classes for the widget. The classes should be separated by a space. The classes will be applied to the widget in the browser and the widget will get the corresponding styling. The classes should be classes in the theme that is used in the app. It overrules the default styling of the widget.
+class プロパティを使用すると、ウィジェットに 1 つ以上のカスケードスタイルシート(CSS)クラスを指定できます。 クラスはスペースで区切る必要があります。 クラスはブラウザのウィジェットに適用され、ウィジェットは対応するスタイリングを取得します。 クラスは、アプリケーションで使用されるテーマのクラスである必要があります。 ウィジェットのデフォルトのスタイルを上書きします。
 
-Styling is applied in the following order:
+スタイルは次の順序で適用されます:
 
-1. The default styling defined by the theme the app uses.
-2. The `Class` combined with `Dynamic classes` properties of the widget.
-3. The `Style` property of the widget.
+1. アプリが使用するテーマによって定義されたデフォルトのスタイル。
+2. `クラス` とウィジェットの `動的クラス` プロパティを組み合わせました。
+3. ウィジェットの `スタイル` プロパティ。
 
-You can see which widgets in a page have styling applied via the class or style property by clicking the <strong>Show styles</strong> button.
+<strong>スタイルを表示</strong> ボタンをクリックすると、クラスまたはスタイルプロパティを介してどのウィジェットがスタイルを適用されているかを確認できます。
 
 ![](attachments/common-widget-properties/show-styles.png)
 
-### 3.4 Style{#style}
+### 3.4 スタイル{#style}
 
-The style property allows you to specify additional CSS styling. If a class is also specified, this styling is applied *after* the class. For example, `>background-color:lightblue; color:red;` will result in red text on a blue background:
+style プロパティを使用すると、追加の CSS スタイルを指定できます。 If a class is also specified, this styling is applied *after* the class. 例えば、 `>background-color:lightblue; color:red;` は青色の背景に赤色のテキストが表示されます:
 
 ![](attachments/common-widget-properties/style-example.png)
 
-### 3.5 Dynamic Classes{#dynamicclasses}
+### 3.5 動的クラス{#dynamicclasses}
 
-The dynamic classes property allows you to specify one or more cascading stylesheet (CSS) class like the class property, but based on an [expression](expressions). This allows you to dynamically construct classes based on data from an enclosing data container. The dynamic classes constructed in the expression are appended to the classes defined in the [`Class`](#class) property.
+dynamic classes プロパティを使用すると、class プロパティのように、1 つ以上のカスケードスタイルシート(CSS)クラスを指定できます。 [式](expressions) に基づいています。 これにより、囲まれたデータコンテナからのデータに基づいてクラスを動的に構築できます。 式で構築された動的クラスは、 [`クラス`](#class) プロパティで定義されたクラスに追加されます。
 
 ![](attachments/common-widget-properties/dynamic-classes.png)
 
 {{% alert type="info" %}}
-The dynamic classes property was introduced in Mendix Studio Pro v8.14.
+動的クラスプロパティは Mendix Studio Pro v8.14 で導入されました。
 {{% /alert %}}
 
-You can see which widgets in a page have styling applied via the style or class property by clicking the **Show styles** button.
+**スタイルを表示** ボタンをクリックすると、style または class プロパティを使用してどのウィジェットがスタイルを適用されているかを確認できます。
 
-### 3.6 Documentation{#documentation}
+### 3.6 ドキュメント{#documentation}
 
-Some widgets, for example snippets and building blocks, have a **Documentation** property which can be used to store developer documentation. This can be used to explain to other developers how to use these widgets. End-users will never see this documentation.
+ウィジェットの中には、例えばスニペットやブロックの構築など、 **ドキュメント** プロパティがあり、開発者向けドキュメントの保存に使用できます。 これは他の開発者にこれらのウィジェットの使い方を説明するために使用できます。 エンドユーザーはこのドキュメントを見ることはありません。
 
-## 4 Data Source Section{#data-source}
+## 4 データソースセクション{#data-source}
 
-![Data Source Section](attachments/common-widget-properties/data-source-section.png)
+![データソースセクション](attachments/common-widget-properties/data-source-section.png)
 
-### 4.1 Attribute(Path)
+### 4.1 属性(パス)
 
-This property identifies an attribute which is used in an input widget.
+このプロパティは、入力ウィジェットで使用される属性を識別します。
 
-#### 4.1.1 Attribute Input Widgets
+#### 4.1.1 属性入力ウィジェット
 
-With the following widgets, the Attribute (Path) specifies the attribute which is being changed (or displayed) by the widget:
+次のウィジェットでは、属性 (Path) はウィジェットによって変更される(または表示される)属性を指定します。
 
-*   [Text Box](text-box)
-*   [Text Area](text-area)
-*   [Drop-down](drop-down)
-*   [Check Box](check-box)
+*   [テキストボックス](text-box)
+*   [テキストエリア](text-area)
+*   [ドロップダウン](drop-down)
+*   [チェックボックス](check-box)
 *   [Radio Buttons](radio-buttons)
-*   [Date Picker](date-picker)
+*   [日付の選択](date-picker)
 
-The attribute can be one of the following:
+属性は次のいずれかになります:
 
-1. An attribute of the entity of the data container that contains the widget.
-2. An attribute of the entity of any enclosing data container that contains the widget.
-3. An attribute of an entity associated with the data container entity by following one or more associations of type reference through the domain model.
+1. ウィジェットを含むデータコンテナのエンティティの属性。
+2. ウィジェットを含むすべてのデータコンテナのエンティティの属性。
+3. ドメインモデルを介して型参照の関連付けを1つ以上フォローすることにより、データコンテナエンティティに関連付けられたエンティティの属性。
 
-In the first two cases we say the widget is connected to an **attribute** and in the third case to an **attribute path**.
+最初の2つのケースでは、ウィジェットは **属性** に接続され、3番目のケースでは **属性パス** に接続されていると言います。
 
-You can edit attributes of any enclosing data container including grandparent data containers.
+祖父母データコンテナを含むすべてのデータコンテナの属性を編集できます。
 
-#### 4.1.2 Association Input Widgets
+#### 4.1.2 関連入力ウィジェット
 
-For widgets which manipulate associations, the Attribute (Path) specifies an attribute which is from an entity which is reachable from the current data container using an association. This applies to the following input widgets:
+関連付けを操作するウィジェット 属性 (Path) は、関連付けを使用して現在のデータコンテナから到達可能なエンティティからの属性を指定します。 これは以下の入力ウィジェットに適用されます:
 
-*   [Reference Selector](reference-selector)
-*   [Reference Set Selector](reference-set-selector)
-*   [Input Reference Set Selector](input-reference-set-selector)
+*   [参照セレクター](reference-selector)
+*   [参照セットセレクター](reference-set-selector)
+*   [入力リファレンスセットセレクター](input-reference-set-selector)
 
-For these widgets, only an **Attribute path** can be selected. In other words, the selected attribute must be from an entity associated with the data container entity by following an association, of the type which matches the widget, through the domain model.
+これらのウィジェットでは、 **属性パス** のみを選択できます。 言い換えれば、selected 属性は、関連付けに従うことにより、データコンテナエンティティに関連付けられたエンティティからでなければなりません。 は、ウィジェットと一致するタイプのドメインモデルを使用します。
 
 {{% alert type="info" %}}
-For these widgets you are selecting an association to another object. The attribute should therefore indicate uniquely to the end-user which object is being selected.
+これらのウィジェットでは、別のオブジェクトへの関連付けを選択しています。 したがって、属性はオブジェクトが選択されているエンドユーザーに一意に示されるべきです。
 {{% /alert %}}
 
-The attribute can be of one of the following [data types](data-types):
+この属性は以下の [データ型](data-types)のいずれかになります。
 
 * Autonumber
-* Date and Time
-* Decimal
-* Enumeration
-* Integer
-* Long
-* String
+* 日付と時刻
+* 小数点以下桁数
+* 列挙型
+* 整数
+* 長い順
+* 文字列
 
-## 5 Editability Section{#editability}
+## 5 編集可能セクション{#editability}
 
-![Common Section](attachments/common-widget-properties/editability-section.png)
+![共通セクション](attachments/common-widget-properties/editability-section.png)
 
-### 5.1 Editable
+### 5.1 編集可能
 
-The editable property indicates whether the end-user will be able to change the value displayed by the widget. The possible values are:
+editable プロパティは、ウィジェットによって表示される値を変更できるかどうかを示します。 使用可能な値は次のとおりです。
 
-| Value                       | Description                                                                                                                                                                 |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default                     | The value is editable if security allows it such as if the user that is signed in has write access to the selected attribute (default value for widgets outside a snippet). |
-| Inherited from snippet call | Set to **Default** or **Never** by the containing data container of the snippet call (default value for widgets inside a snippet).                                          |
-| Never                       | The value is never editable.                                                                                                                                                |
-| Conditionally               | The value is editable if the specified condition holds (see below).                                                                                                         |
+| 値                | 説明                                                                                 |
+| ---------------- | ---------------------------------------------------------------------------------- |
+| デフォルト            | この値は、署名されたユーザが選択された属性への書き込みアクセス権を持っているかのようなセキュリティが許可されている場合(スニペット外のウィジェットのデフォルト値)。 |
+| スニペット通話から継承されました | スニペットコールのデータコンテナ(スニペット内のウィジェットのデフォルト値)で **デフォルト** または **** に設定しないでください。            |
+| 一切なし             | 値は編集できません。                                                                         |
+| 条件付き             | 指定された条件が保持されている場合、値は編集可能です (下記参照)。                                                 |
 
-### 5.2 Condition
+### 5.2 条件
 
-If the editable property is set to **Conditionally**, the widget is made editable only if the object of the data container that contains the widget satisfies the specified criteria.
+編集可能なプロパティが **条件付き**に設定されている場合 ウィジェットは、ウィジェットを含むデータコンテナのオブジェクトが指定された条件を満たす場合にのみ編集可能になります。
 
-For example, imagine you are creating a personal details form in which the end-user must enter their marital status. In this case, you might wish to disable the input of a marriage date until the end-user indicates that they are married.
+たとえば、エンドユーザーが婚姻状況を入力しなければならない個人的な詳細フォームを作成しているとします。 この場合、エンドユーザーが結婚していることを示すまで、結婚の日付の入力を無効にしたい場合があります。
 
-#### 5.2.1 Based on Attribute Value
+#### 5.2.1 属性値に基づく。
 
-When selected, this enables the widget when a particular attribute has a certain value. Only Boolean and enumeration attributes can be used for this purpose.
+選択すると、特定の属性に特定の値がある場合にウィジェットを有効にします。 ブール値と列挙値の属性のみがこの目的に使用できます。
 
-#### 5.2.2 Based on Expression
+#### 5.2.2 式に基づいて
 
-When selected, this enables the widget when a provided [expression](expressions) evaluates to true. The object of the containing data container is available inside an expression as the `$currentObject` variable.
+これを選択すると、与えられた [式](expressions) がtrue と評価されたときにウィジェットが有効になります。 含まれるデータコンテナのオブジェクトは、式内で `$currentObject` 変数として使用できます。
 
-The expression provided is evaluated in the browser and, currently, does not support all the functions that are available in microflows. The autocomplete function will only list those functions which are supported.
-
-{{% alert type="info" %}}
-As the expression is evaluated in the browser, we advise against using "secret" values (like access keys) in it. In particular, we disallow usages of [constants](constants).
-{{% /alert %}}
-
-### 5.3 Read-Only Style
-
-This property determines how the widget is rendered if it is read-only.
-
-| Value                            | Description                                                                                                                                                                                                                   |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Based on data view               | Set to `Control` or `Text` by the containing data container. *(Default value for widgets inside a data container)*                                                                                                            |
-| Not enclosed by a data container | Defaults to `Text`. *(Default value for widgets outside a data container)*                                                                                                                                                    |
-| Inherited from snippet call      | Set to `Control` or `Text` by the containing data container of the snippet call, or `Text` when the snippet call is not enclosed by a data container. *(Default value for widgets outside a data container inside a snippet)* |
-| Control                          | Widget is displayed but disabled so the value cannot be modified.                                                                                                                                                             |
-| Text                             | Widget is replaced by a textual representation of the value.                                                                                                                                                                  |
-
-{{% alert type="info" %}}Read-only style is not supported on native mobile pages.{{% /alert %}}
-
-## 6 Label Section {#label}
-
-![Label Section](attachments/common-widget-properties/label-section.png)
-
-A label can be used to described the purpose of the widget to the user. The label is shown next to the widget in the user interface. If a label is configured, the widget will be rendered in the browser wrapped in a form group. See [Bootstrap documentation](http://getbootstrap.com/css/#forms).
+提供された式はブラウザで評価され、現在はマイクロフローで利用可能なすべての機能をサポートしていません。 autocomplete 関数はサポートされている関数のみを一覧表示します。
 
 {{% alert type="info" %}}
-The position of the label in relation to the widget is configured in the **Form orientation** and **Label width (weight)** properties of the data container.
+式はブラウザで評価されるので、その中で "secret" 値 (アクセスキーなど) を使用しないことをお勧めします。 特に、 [定数](constants) の使用は禁止されています。
 {{% /alert %}}
 
-### 6.1 Show Label
+### 5.3 読み取り専用スタイル
 
-This property determines whether the label is rendered and the widget is wrapped in a form group.
+このプロパティは、読み取り専用の場合のウィジェットのレンダリング方法を決定します。
+
+| 値                | 説明                                                                                                                                                                                      |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| データビューに基づいています   | データコンテナを含む `コントロール` または `テキスト` に設定します。 *(データコンテナ内のウィジェットのデフォルト値)*                                                                                                                       |
+| データコンテナに囲まれていません | デフォルトは `テキスト`。 *(データコンテナ外のウィジェットのデフォルト値)*                                                                                                                                               |
+| スニペット通話から継承されました | Set to `Control` or `Text` by the containing data container of the snippet call, or `Text` when the snippet call is not enclosed by a data container. *(スニペット内のデータコンテナ外のウィジェットのデフォルト値)* |
+| コントロール           | ウィジェットは表示されますが、無効になっているため、値を変更できません。                                                                                                                                                    |
+| テキスト             | ウィジェットは、値のテキスト表現に置き換えられます。                                                                                                                                                              |
+
+{{% alert type="info" %}}読み取り専用スタイルはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+## 6ラベルセクション {#label}
+
+![ラベルセクション](attachments/common-widget-properties/label-section.png)
+
+ラベルは、ユーザーへのウィジェットの目的を説明するために使用できます。 ユーザーインターフェースのウィジェットの横にラベルが表示されます。 ラベルが設定されている場合、ウィジェットはフォーム グループでラップされたブラウザでレンダリングされます。 [Bootstrap documentation](http://getbootstrap.com/css/#forms) を参照してください。
+
+{{% alert type="info" %}}
+ウィジェットに関連するラベルの位置は、データ コンテナの **フォーム 方向** および **ラベル 幅 (重み)** プロパティで設定されます。
+{{% /alert %}}
+
+### 6.1 ラベルを表示
+
+このプロパティは、ラベルがレンダリングされ、ウィジェットがフォーム グループでラップされるかどうかを決定します。
 
 ### 6.2 Label Caption
 
-This property is shown only when Show label is Yes. It specifies what text is rendered within a label.
+このプロパティは、format@@0がformat@@1の場合にのみ表示されます。 ラベル内でレンダリングされるテキストを指定します。
 
-#### 6.2.1 Text Template
+#### 6.2.1 テキストテンプレート
 
-The template for the label can contain parameters that are written as a number between braces (for example, `{1}`). The first parameter has the number `1`, the second `2`, etc. Note that to use template parameters, the widget must be placed in the context of an entity (for example, inside a data container).
+ラベルのテンプレートには、括弧の間の数値として記述されたパラメータを含めることができます (例: `{1}`)。 最初のパラメータは `1`、2 番目の `2`などの数字を持ちます。 テンプレートパラメータを使用するには、ウィジェットをエンティティのコンテキスト内(たとえば、データコンテナ内)に配置する必要があります。
 
-#### 6.2.2 Parameters
+#### 6.2.2 パラメータ
 
-For each parameter in the template, you define an attribute of the context entity or an associated entity. The value of this attribute will be inserted at the position of the parameter.
+テンプレート内の各パラメータに対して、コンテキストエンティティまたは関連エンティティの属性を定義します。 この属性の値はパラメータの位置に挿入されます。
 
-## 7 Formatting Section{#numeric-formatting}
+## 7 書式設定セクション{#numeric-formatting}
 
-![Numeric Formatting Section](attachments/common-widget-properties/numeric-formatting-section.png)
+![数値の書式設定セクション](attachments/common-widget-properties/numeric-formatting-section.png)
 
-Formatting describes the way that numeric attributes are displayed. These are attributes of the following data types:
+書式設定では、数値属性の表示方法を説明します。 以下は以下のデータ型の属性です:
 
-* Decimal
-* Integer
-* Long
+* 小数点以下桁数
+* 整数
+* 長い順
 
-When a widget contains a numeric attribute, the **Formatting** section allows you to change the way it is displayed.
+ウィジェットに数値属性が含まれている場合、 **** セクションでは表示方法を変更できます。
 
-There are three options, described below:
+以下の3つの選択肢があります。
 
-* Decimal Mode
-* Decimal Precision
-* Group Digits
+* 10 進数モード
+* 10進数の精度
+* グループ桁数
 
-### 7.1 Decimal Mode{#decimal-mode}
+### 7.1 10 進数モード{#decimal-mode}
 
 {{% alert type="info" %}}
-This mode only applies to attributes of type Decimal.
+このモードは Decimal 型の属性にのみ適用されます。
 {{% /alert %}}
 
-If set to _Fixed_, the decimal part always will be displayed with the number of places specified in the [Decimal precision](#decimal-precision) property. The value will be rounded using the method defined in the [Rounding](project-settings#rounding) section of **App Settings**.
+If set to _Fixed_, the decimal part always will be displayed with the number of places specified in the [Decimal precision](#decimal-precision) property. 値は、 [アプリ設定](project-settings#rounding) の **Rounding** セクションで定義された方法で四捨五入されます。
 
-If set to _Auto_, the whole decimal part of the attribute value will be displayed. No decimal part will be be displayed if the attribute value is an integer.
+_Auto_に設定すると、属性値の小数部全体が表示されます。 属性値が整数の場合、小数部は表示されません。
 
-Default: *Fixed*
+デフォルト: *固定*
 
-**Examples**
+**例**
 
-| Value    | Fixed (2)                        | Fixed (4)                          | Auto     |
+| 値        | 修正 (2)                           | 修正 (4)                             | 自動       |
 | -------- | -------------------------------- | ---------------------------------- | -------- |
 | 19.0     | 19.00                            | 19.0000                            | 19       |
 | 19.99    | 19.99                            | 19.9900                            | 19.99    |
@@ -257,122 +257,122 @@ Default: *Fixed*
 | 19.9999  | 20.00<sup><small>*</small></sup> | 19.9999                            | 19.9999  |
 | 19.99999 | 20.00<sup><small>*</small></sup> | 20.0000<sup><small>*</small></sup> | 19.99999 |
 
-<sup><small>*</small></sup>The value is rounded to the nearest decimal with the defined number of decimal places.
+<sup><small>*</small></sup>この値は小数点以下の桁数で四捨五入されます。
 
-### 7.2 Decimal Precision{#decimal-precision}
+### 7.2 小数点以下{#decimal-precision}
 
 {{% alert type="info" %}}
-This only applies to attributes of type Decimal and is available only when the [Decimal mode](#decimal-mode) is set to **Fixed**.
+これは、10 進数型の属性にのみ適用され、 [小数モード](#decimal-mode) が **固定** に設定されている場合にのみ使用できます。
 {{% /alert %}}
 
-The precision of a value describes the number of decimal places that are used to express that value. This property indicates the number of decimal places (the number of digits following the point).
+値の精度は、その値を表現するために使用される小数点以下の桁数を表します。 このプロパティは小数点以下の桁数を示します。
 
-The way that the number is rounded when displayed is defined in the [Rounding](project-settings#rounding) section of **App Settings**.
+表示時に番号が丸められる方法は、 [アプリ設定](project-settings#rounding) の **Rounding** セクションに定義されています。
 
-Default: *2*
+デフォルト: *2*
 
-### 7.3 Group Digits
+### 7.3 グループ桁数
 
-For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter when they are displayed. If the widget is editable and is the current focus of the page, then the delimiters will *not* be displayed.
+読みやすいように、小数点以下の桁が多い数字は、表示時に区切り文字を使用してグループに分けることができます。 ウィジェットが編集可能で、ページの現在のフォーカスである場合、区切り文字は *ではなく* 表示されます。
 
-This setting applies to all three numeric data types.
+この設定は、3 つの数値データ型すべてに適用されます。
 
-Set **Group digits** to **Yes** to display these groups.
+これらのグループを表示するには、 **グループ数字** を **はい** に設定してください。
 
-Default: *No*
+デフォルト: *いいえ*
 
-**Example**
+**例**
 
 For example, with **Group digits** set to `true`, the number `1100100.01` will be displayed as `1,100,100.01`.
 
-## 8 Validation Section{#validation}
+## 8 検証セクション{#validation}
 
-![Validation Section](attachments/common-widget-properties/validation-section.png)
+![検証セクション](attachments/common-widget-properties/validation-section.png)
 
-Input widgets can include validation to ensure that data is correct before it is used by the app.
+入力ウィジェットは、データがアプリで使用される前に正しいことを確認するために検証を含めることができます。
 
-There are two settings in the validation section which are described below:
+検証セクションには、以下の2つの設定があります。
 
-* Type
-* Message
+* タイプ
+* メッセージ
 
-### 8.1 Type
+### 8.1 タイプ
 
-This property indicates whether this widget value should be validated and, if so, how. These are the possible options:
+このプロパティは、このウィジェットの値が検証されるべきかどうか、およびその場合はどのようにするかを示します。 以下の選択肢があります:
 
-* No validation – the data has to be the correct [data type](data-types) for the widget, but otherwise there is no further validation
-* A [predefined validation](#predefined-validation) – see description below
-* A [custom validation](#custom-validation) – see description below
+* バリデーションなし - ウィジェットの正しい [データ型](data-types) でなければなりませんが、それ以降のバリデーションはありません。
+* [事前に定義された検証](#predefined-validation) – 以下の説明を参照してください
+* [カスタム検証](#custom-validation) – 以下の説明を参照してください
 
-#### 8.1.1 Predefined Validation{#predefined-validation}
+#### 8.1.1 定義済み検証{#predefined-validation}
 
-The possible values of a predefined validation are the following:
+事前定義された検証の可能な値は以下のとおりです:
 
-* **Required** – can be used for attributes of *all* data types
-* **E-mail** – applies to *String* attributes
-* **Positive number** – applies to *Decimal*, *Integer*, and *Long* attributes
-* **Date in the future** – applies to *Date and time* attributes — compares the date *and time* to `[%CurrentDateTime%]`
-* **Date in the past** – applies to *Date and time* attributes — compares the date *and time* to `[%CurrentDateTime%]`
+* **必須** - *すべての* データ型の属性に使用できます
+* **E-mail** - *String* 属性に適用される
+* **正の数値** – *小数点以下*, *整数*, および *長い* 属性に適用されます
+* **将来の日付** - *日付と時刻の属性* に適用されます — 日付 *と 時刻* と `[%CurrentDateTime%]` と比較します。
+* **過去の日付** - *日付と時刻の属性* に適用されます — 日付 *と 時刻* と `[%CurrentDateTime%]` と比較します。
 
-#### 8.1.2 Custom Validation{#custom-validation}
+#### 8.1.2 カスタム検証{#custom-validation}
 
-Custom validation is an expression that follows the [Microflow expression](expressions) syntax.
+カスタムバリデーションは、 [Microflow 式](expressions) 構文に従う式です。
 
-There are a number of variables you can use in your expression:
-* `$currentObject` – the current object
-* `$value` – the current member (attribute or association) value
+式で使用できる変数はいくつかあります。
+* `$currentObject` – 現在のオブジェクト
+* `$value` - 現在のメンバー（属性または関連付け）の値
 
 {{% alert type="info" %}}
-The expression can access objects of **all** the data containers enclosing the input widget. The objects are given the name of the widget they originate from (for example, `$dataView1`).
+式は、入力ウィジェットを囲むすべてのデータコンテナ **** のオブジェクトにアクセスできます。 オブジェクトには、元のウィジェットの名前が与えられます (例: `$dataView1`)。
 {{% /alert %}}
 
-When a validation is set and it fails for this widget, the message you specify will be shown before the user can use the value in the app.
+バリデーションが設定されていて、このウィジェットで失敗すると、 指定したメッセージは、ユーザーがアプリで値を使用できる前に表示されます。
 
-Default: *(none)*
+デフォルト: *(なし)*
 
-### 8.2 Message
+### 8.2 メッセージ
 
-This property determines the message that is shown to the user if widget validation is enabled and has failed. This is a translatable text (for more information, see [Language Menu](translatable-texts)).
+このプロパティは、ウィジェットの検証が有効で失敗した場合にユーザーに表示されるメッセージを決定します。 これは翻訳可能なテキストです(詳細については、 [言語メニュー](translatable-texts) を参照してください)。
 
 For example, if an address field is required, the validation message for the text box of the address could be something like, `The address is required.`
 
-## 9 Visibility Section {#visibility-properties}
+## 9つの表示セクション {#visibility-properties}
 
-![Visibility Section](attachments/common-widget-properties/visibility-section.png)
+![表示セクション](attachments/common-widget-properties/visibility-section.png)
 
-### 9.1 Visible
+### 9.1 表示
 
-By default, whether or not an element is displayed in the browser is determined by how the page is designed and the user's roles within the application. However, the page can be configured to hide the element unless a certain condition is met.
+デフォルトでは、 ブラウザーに要素が表示されるかどうかは、ページの設計方法とアプリケーション内のユーザーのロールによって決まります。 ただし、特定の条件が満たされない限り、ページは要素を非表示にするように設定できます。
 
 {{% alert type="info" %}}
-You can choose both **Context** conditions and **Module roles** conditions to apply to the widget.
+ウィジェットに適用するために、 **コンテキスト** 条件と **モジュール ロール** 条件の両方を選択できます。
 {{% /alert %}}
 
-Note that with the **Visible** property, you only hide data and do not protect it. You can hide a tab or a table row from an end-user, but if they still have access to the data then they could see it some other way. To restrict access to sensitive data, use a constraint on the domain model, not on individual pages.
+**Visible** プロパティでは、データを非表示にして保護しないことに注意してください。 エンドユーザーからタブまたはテーブル行を非表示にできます。 それでもデータにアクセスできるなら別の方法で見ることができます 機密データへのアクセスを制限するには、個々のページではなく、ドメインモデルの制約を使用します。
 
-#### 9.1.1 Context
+#### 9.1.1 コンテキスト
 
-The widget can be made visible only if the object of the data container that contains the widget satisfies the specified criteria.
+ウィジェットは、ウィジェットを含むデータコンテナのオブジェクトが指定された条件を満たす場合にのみ表示できます。
 
-A practical example would be a web shop in which the user must submit both billing and delivery information. In this case, you might not wish to bother the user with a second set of address input fields unless they indicate that the billing address and delivery address are not the same. You can accomplish this by making the delivery address fields conditionally visible based on the Boolean attribute `SameBillingAndDeliveryAddress`.
+実用的な例は、ユーザーが請求と配送情報の両方を提出する必要があるウェブショップです。 この場合は 請求先住所と配送先住所が同じでないことを示す場合を除き、第二セットの住所入力フィールドをユーザに迷惑をかけたくない場合があります。 これを達成するには、ブール値 属性 `SameBillingAndDeliveryAddress` に基づいて、配信アドレスフィールドを条件付きで表示することができます。
 
-##### 9.1.1.1 Based on Attribute Value{#visibility-based-on-attribute-value}
+##### 属性値{#visibility-based-on-attribute-value} に基づいて
 
-When selected, this shows the widget while a particular attribute has a certain value. Only Boolean and enumeration attributes can be used for this purpose.
+選択すると、特定の属性が特定の値を持つウィジェットが表示されます。 ブール値と列挙値の属性のみがこの目的に使用できます。
 
-##### 9.1.1.2 Based on Expression{#visibility-based-on-expression}
+##### 式{#visibility-based-on-expression}に基づく<unk>
 
-When selected, this shows the widget while a provided [expression](expressions) evaluates to true. The object of the containing data container is available inside an expression as a `$currentObject` variable. The expression can access objects of all the data containers enclosing that data container widget. These objects are available under the name of the widget they originate from (for example, `$dataView1`).
+これを選択すると、与えられた [式](expressions) がtrue と評価する間にウィジェットが表示されます。 含まれるデータコンテナのオブジェクトは、式内で `$currentObject` 変数として使用できます。 式は、そのデータコンテナウィジェットを含むすべてのデータコンテナのオブジェクトにアクセスできます。 これらのオブジェクトは、元になったウィジェットの名前で使用できます (例: `$dataView1`)。
 
-Note that the expression is evaluated in the browser, and hence, we advise against using "secret" values (like access keys) in it. In particular, we disallow usages of [constants](constants). Also, client-side expressions currently do not support all the functions that are available in the microflows. Please refer to an autocomplete list to know what functions are supported in your version.
+式はブラウザで評価されるので、その中で「秘密の」値 (アクセスキーなど) を使用しないことをお勧めします。 特に、 [定数](constants) の使用は禁止されています。 また、クライアント側の式は現在、マイクロフローで使用可能なすべての機能をサポートしていません。 お使いのバージョンでサポートされている機能については、オートコンプリートリストを参照してください。
 
-#### 9.1.2 Module Roles
+#### 9.1.2 モジュールロール
 
-The widget can be made visible to a specific of the user roles available in your application. When activated, this setting will render the widget invisible to all users that are not linked to one of the selected user roles.
+ウィジェットは、アプリケーションで使用可能なユーザーロールの特定に表示させることができます。 この設定を有効にすると、選択したユーザーロールのいずれかにリンクされていないすべてのユーザーにウィジェットが見えなくなります。
 
-| Value            | Description                                                                                                                                                 |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Applicable roles | The widget is visible if access rules allow it (for example if the user that is signed in has a role for which the target is set to be visible/accessible). |
-| All roles        | The widget is always visible.                                                                                                                               |
-| Selected roles   | This setting will render the widget as invisible to all users that are not linked to one of the selected user roles.                                        |
+| 値       | 説明                                                                                 |
+| ------- | ---------------------------------------------------------------------------------- |
+| 適用される役割 | アクセスルールが許可されている場合、ウィジェットが表示されます (例えば、署名されているユーザーにターゲットが表示/アクセス可能に設定されているロールがある場合)。 |
+| すべてのロール | ウィジェットは常に表示されます。                                                                   |
+| 選択された役割 | この設定は、ウィジェットを選択したユーザーロールのいずれかにリンクされていないすべてのユーザーに非表示として表示します。                       |
 
