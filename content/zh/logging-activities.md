@@ -1,9 +1,9 @@
 ---
-title: "Logging Activities"
-parent: "activities"
+title: "日志活动"
+parent: "活动"
 ---
 
 
-## Log Message
+## 日志消息
 
-See [Log Message](log-message).
+查看 [日志消息](log-message)。
