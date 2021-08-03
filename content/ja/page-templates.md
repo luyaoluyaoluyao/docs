@@ -1,69 +1,69 @@
 ---
-title: "Page Template"
+title: "ページテンプレート"
 parent: "page-resources"
 menu_order: 20
 tags:
   - "studio pro"
-  - "page template"
-  - "page resource"
+  - "ページテンプレート"
+  - "ページリソース"
 aliases:
-  - /refguide/page-template.html
+  - /ja/refguide/page-template.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Page templates are the starting point for creating new pages. Every time a new page is created, a page template is selected as a baseline that can then be edited to match the pages specific needs.
+ページテンプレートは、新しいページを作成するための出発点です。 新しいページが作成されるたびに ページテンプレートがベースラインとして選択されており、そのベースラインはページ固有のニーズに合わせて編集することができます。
 
-When creating a new page, the user is presented with an overview of all the compatible page templates in the app. Page templates as document types allow users to edit existing page templates and even create entirely new ones.
+新しいページを作成すると、ユーザーにアプリ内のすべての互換性のあるページテンプレートの概要が表示されます。 ドキュメントタイプとしてのページテンプレートは、ユーザーが既存のページテンプレートを編集したり、まったく新しいテンプレートを作成したりすることができます。
 
-## 2 Custom Page Templates
+## 2つのカスタムページテンプレート
 
-By mapping out the common design patterns of a project, a great deal of the initial work involved in creating new pages can be mitigated.
+プロジェクトの共通のデザインパターンをマッピングすることにより、新規ページの作成にかかわる初期作業の多くを軽減することができます。
 
-Generally, page templates are stored in the app's [UI resources package](ui-resources-package). This keeps them in sync with the app theme, as well as providing a handy place to consolidate all design-related data.
+一般的に、ページテンプレートはアプリの [UI リソース パッケージ](ui-resources-package) に格納されます。 これにより、アプリのテーマと同期したり、デザインに関連するすべてのデータを統合するのに便利な場所を提供することができます。
 
-To create a page template, right-click a page in either the **App Explorer** or an empty section of the canvas and select **Create page template**. The page will be added as a new page template, which will automatically make it available in the **Create Page** wizard.
+ページテンプレートを作成する **App Explorer** またはキャンバスの空のセクションでページを右クリックし、 **ページテンプレートの作成** を選択します。 ページは新しいページテンプレートとして追加され、 **ページの作成** ウィザードで自動的に利用できるようになります。
 
-As the purpose of page templates is to facilitate design rather than functionality, page templates should be devoid of references to other documents. This is to prevent users from facing confusing errors when creating a new page. It also mitigates the chance of errors when importing page templates from a different project.
+ページテンプレートの目的は機能ではなくデザインを容易にすることであるため、ページテンプレートは他のドキュメントへの参照を欠いている必要があります。 これは、ユーザーが新しいページを作成するときに混乱エラーに直面することを防ぐためです。 また、別のプロジェクトからページ テンプレートをインポートする際のエラーの可能性も軽減します。
 
-Page template properties are described in the sections below.
+ページ テンプレート プロパティは以下のセクションで説明されています。
 
-## 3 Common Properties
+## 3つの一般的なプロパティ
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-## 4 Designer Properties
+## 4 デザイナープロパティ
 
 {{% snippet file="refguide/designer-properties.md" %}}
 
-## 5 General Properties
+## 5つの一般プロパティ
 
-### 5.1 Display Name
+### 5.1 表示名
 
-The display name determines by what name the page template will appear in the **Create Page** wizard.
+表示名は、 **ページの作成** ウィザードに表示されるページテンプレートの名前によって決定されます。
 
-### 5.2 Image
+### 5.2 画像
 
-The image selected will appear in the **Create Page** wizard. Selecting a representative image will allow users to easily distinguish between page templates. If left blank, the template will display an empty white field. Any image selected will be scaled down to 200x200 pixels.
+選択した画像は **ページの作成** ウィザードに表示されます。 代表画像を選択すると、ユーザーは簡単にページテンプレートを区別することができます。 空白の場合、テンプレートは空白のフィールドを表示します。 選択された画像は200x200ピクセルに縮小されます。
 
-### 5.3 Shown When
+### 5.3 表示されたとき
 
-Depending on the context in which a page is created, the user is presented with a different set of page templates to choose from. This setting determines which set the page template belongs to.
+ページが作成されるコンテキストに応じて、ユーザーに別のページテンプレートが表示されます。 この設定は、ページテンプレートが属する設定を決定します。
 
-| Value                          | Description                                                                                               |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| Creating new pages *(default)* | The page template is available when creating new pages from most contexts, such as from the App Explorer. |
-| Generating edit pages          | The page template is available when a user generates a new page from a new or edit button.                |
-| Generating select pages        | The page templates is available when the user generates a new page from a select button.                  |
+| 値                         | 説明                                                            |
+| ------------------------- | ------------------------------------------------------------- |
+| 新しいページ *(デフォルト)* を作成しています | ページテンプレートは、App Explorer など、ほとんどのコンテキストから新しいページを作成するときに使用できます。 |
+| 編集ページを生成中                 | ページテンプレートは、ユーザーが新規または編集ボタンから新しいページを生成するときに使用できます。             |
+| 選択したページを生成する              | ページテンプレートは、ユーザーが選択ボタンから新しいページを生成するときに使用できます。                  |
 
-This setting may also place extra restrictions on the template. Page templates intended as new or edit pages require exactly one top-level data view be present. Page templates intended as Select pages require exactly one list view, data grid, or template grid.
+この設定はテンプレートに追加の制限を加えることもできます。 新規または編集ページとして使用されるページテンプレートには、トップレベルのデータビューが1つだけ必要です。 Select ページとして使用されるページテンプレートには、1 つのリストビュー、データ グリッド、またはテンプレート グリッドが必要です。
 
-### 5.4 Layout Type
+### 5.4 レイアウトタイプ
 
-[Layouts](layout) are all assigned a type in their properties. This type determines in which profiles the layout can be used. To ensure that a user can always map a page template to a compatible layout during page creation, a page template must be assigned one of these same layout types. In practice, this setting will affect in which profile tab of the **Create Page** wizard the page template is displayed. Additionally, it will automatically restrict the default layout setting to layouts of the same type.
+[レイアウト](layout) はすべて、それらのプロパティにタイプが割り当てられます。 このタイプは、レイアウトを使用できるプロファイルを決定します。 ユーザーがページ作成時に常に互換性のあるレイアウトにページテンプレートをマッピングできるようにします ページテンプレートには、これらの同じレイアウトタイプのいずれかを割り当てる必要があります。 実際には、この設定はページテンプレートが表示される **ページ作成** ウィザードのプロファイルタブに影響します。 また、既定のレイアウト設定を同じタイプのレイアウトに自動的に制限します。
 
-### 5.5 Preview Layout
+### 5.5 プレビューレイアウト
 
-Although page templates and layouts can be mixed and matched, this setting will determine which layout will be used to display the template in the editor. It also has a minor effect on the page creation process: if the template describes contents for layout [placeholders](placeholder) that are not present in the previously selected layout, the first compatible layout will be pre-selected in the **Create Page** wizard. For a full description of the interaction between a page template and its preview layout, see [Layout](layout).
+ページテンプレートとレイアウトは混在して一致させることができますが。 この設定は、エディタでテンプレートを表示するために使用するレイアウトを決定します。 It also has a minor effect on the page creation process: if the template describes contents for layout [placeholders](placeholder) that are not present in the previously selected layout, the first compatible layout will be pre-selected in the **Create Page** wizard. ページテンプレートとプレビューレイアウトの相互作用の詳細については、 [レイアウト](layout) を参照してください。
 
-The options available for this setting are regulated by the layout type setting. If you are having trouble finding the layout you are looking for, check if the layout type of the template and the desired layout match.
+この設定で利用可能なオプションは、レイアウトの種類設定によって調整されます。 探しているレイアウトが見つからない場合は、テンプレートのレイアウトタイプと目的のレイアウトタイプが一致するかどうかを確認します。
