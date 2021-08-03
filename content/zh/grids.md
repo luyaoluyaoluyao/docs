@@ -9,6 +9,10 @@ tags:
   - "模板网格"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/grids.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 网格显示一个对象列表，并包含一个 [数据网格](data-grid) 和 [模板网格](template-grid)。 这些网格之间的主要区别是对象列表的显示方式：数据网格在列中显示它， 当模板网格以瓦片显示时。
