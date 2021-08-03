@@ -1,41 +1,41 @@
 ---
-title: "App"
-parent: "project-explorer"
+title: "应用"
+parent: "项目浏览器"
 menu_order: 10
 tags:
   - "studio pro"
-  - "app"
+  - "应用"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A Mendix app consists of app-level documents and a number of modules. Each module can contain many documents. At the app level, there are some settings and documents that apply to your app as a whole. For example, navigation is an app-level document; the menu bar is app-wide and can refer to functionality in all modules. Most documents, however, live at the level of a [module](modules).
+Mendix 应用程序由应用级文档和若干模块组成。 每个模块可以包含许多文档。 在应用层级，有一些设置和文档应用于您的应用全部。 例如，导航是一个应用级文档；菜单栏是全应用范围的，可以引用所有模块中的功能。 然而，大多数文档都生活在 [模块](modules) 的水平上。
 
-## 2 Settings
+## 2 个设置
 
-App settings include the languages for the end-user, app directory and database and server settings.
+应用设置包括最终用户的语言、应用目录和数据库以及服务器设置。
 
-See [App Settings](project-settings).
+查看 [App 设置](project-settings)。
 
-## 3 Security
+## 3 安全事务
 
-At the app level you can change the security level, manage user roles and manage administrator and anonymous user access.
+在应用程序一级，您可以更改安全等级，管理用户角色并管理管理管理员和匿名用户访问。
 
-See [App Security](project-security).
+查看 [App Security](project-security)。
 
 ## 4 Navigation
 
-In navigation you can configure the menu bar and navigation tree for your application. Also you can specify what the home page is, as in, the page you see right after signing in.
+在导航中，您可以为应用程序配置菜单栏和导航树。 您也可以指定您登录后看到的主页是什么，就像在那里。
 
-See [Navigation](navigation).
+查看 [导航](navigation)。
 
-## 5 System Texts
+## 5 系统文本
 
-System texts are texts like information and error messages that are produced by the server or the client. You can translate these texts so that they appear in the preferred language of the user.
+系统文本是由服务器或客户端生成的信息和错误消息等文本。 您可以翻译这些文本，以便它们以用户的首选语言显示。
 
-See [System Texts](system-texts).
+查看 [System Texts](system-texts)。
 
-## 6 Read More
+## 6 阅读更多
 
-* [Modules](modules)
-* [Security](security)
+* [模块](模块)
+* [安全](安全)
