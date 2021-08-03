@@ -1,32 +1,32 @@
 ---
-title: "Order By Behavior"
-parent: "data-storage"
+title: "行動順にソート"
+parent: "データストレージ"
 tags:
   - "studio pro"
 menu_order: 20
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-An `ORDER BY` clause allows you to specify the order in which rows appear in the result set. For instance, sorting on a column in a data grid sorts the data of the column in either ascending (smallest value first) or descending (largest value first) order. The default order is ascending.
+`ORDER BY` 節では、結果セットに表示される行の順序を指定することができます。 例えば、 データグリッド内の列をソートすると、列のデータが昇順(最も小さい値)または降順 (最も大きい値が最初) 順序でソートされます。 デフォルトの順序は昇順です。
 
-However, in certain cases, the behavior is slightly different, either due to the use case or the database engine itself.
+ただし、場合によっては、ユースケースまたはデータベースエンジン自体によって動作が若干異なります。
 
-## 2 Reference Sets Order Behavior
+## 2参照セットオーダーの動作
 
-When a column is used to display an attribute from an entity associated by a many-to-many association, the sorting will rely on the SQL `MIN()` function to determine the `MIN(attribute)` values and use those instead of the displayed text.
+列を使用して、多対多の関連付けによって関連付けられたエンティティの属性を表示する場合。 並べ替えは SQL `MIN()` 関数に依存し、 `MIN(属性)` の値を決定し、表示されるテキストの代わりに使用します。
 
-Below is an example that uses the `Order` and `Product` entities, which have a many-to-many association. The **Product Names** column in the data grid displays for each order the names of the products that are associated to it:
+以下は、 `Order` と `Product` エンティティを使用する例です。 データ グリッドの **** 列には、関連する商品の名前が順序ごとに表示されます。
 
 ![](attachments/runtime/sorting-reference-sets.png)
 
-Sorting the **Product Names** column will use the underlined values and not the displayed text. These values are the result of `MIN(productName)` for each order.
+**** 列を並べ替えると、下線付きの値が使用され、表示されるテキストは使用されません。 これらの値は、各注文の `MIN(productName)` の結果です。
 
-## 3 NULL Values Order Behavior {#null-ordering-behavior}
+## 3 NULL値 注文の動作 {#null-ordering-behavior}
 
-In SQL, `NULL` is a special marker used to indicate that a data value does not exist in the database. If a sort is applied on a column that contains `NULL` values, the decision whether the `NULLs` should come first or last varies per database type.
+SQL では、 `NULL` はデータベースにデータ値が存在しないことを示す特別なマーカーです。 If a sort is applied on a column that contains `NULL` values, the decision whether the `NULLs` should come first or last varies per database type.
 
-### 3.1 NULL Order Behavior by Database Engine
+### 3.1 NULLデータベースエンジンによるNULLオーダー動作
 
 #### 3.1.1 HSQLDB
 
@@ -34,19 +34,19 @@ If you specify the `ORDER BY` clause, a `NULL` value always comes first before a
 
 #### 3.1.2 MARIADB, MYSQL, SAP HANA & SQLSERVER
 
-If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. Using the `ASC` order, a `NULL` value comes before any non-`NULL` value. Using the `DESC` order, the `NULL` comes last.
+If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. `ASC` オーダーを使用すると、 `NULL` の値は、任意のnon-`NULL` の値の前になります。 `DESC` 注文を使用すると、 `NULL` が最後になります。
 
 #### 3.1.3 DB2, ORACLE, & POSTGRESQL
 
-If you specify the `ORDER BY` clause, `NULL` values by default are ordered as more than values that are not `NULL`. Using the `ASC` order, a `NULL` value comes after any non-`NULL` value. Using the `DESC` order, the `NULL` comes first.
+If you specify the `ORDER BY` clause, `NULL` values by default are ordered as more than values that are not `NULL`. `ASC` オーダーを使用すると、 `NULL` の値はNULL`NULL` 以外の値の後になります。 `DESC` 注文を使用すると、 `NULL` が最初に表示されます。
 
-### 3.2 Overview of Default NULLs Sort Order
+### 3.2 デフォルトNULLソート順の概要
 
-This table presents the `NULLs` default sort ordering provided by different database types:
+この表は、異なるデータベースタイプによって提供される `NULLs` のデフォルトソート順序を示しています。
 
-| NULL Ordering Behavior/Database Types | DB2 | HSQLDB | MARIADB/ MYSQL | ORACLE | POSTGRESQL | SAP HANA | SQL SERVER |
-| -------------------------------------:|:---:|:------:|:--------------:|:------:|:----------:|:--------:|:----------:|
-|                   **ASC NULLS FIRST** |     |   ✔    |       ✔        |        |            |    ✔     |     ✔      |
-|                    **ASC NULLS LAST** |  ✔  |        |                |   ✔    |     ✔      |          |            |
-|                  **DESC NULLS FIRST** |  ✔  |   ✔    |                |   ✔    |     ✔      |          |            |
-|                   **DESC NULLS LAST** |     |        |       ✔        |        |            |    ✔     |     ✔      |
+| NULL順序の動作/データベースタイプ | DB2 | HSQLDB | MARIADB/ MYSQL | 配置 | POSTGRESQL | SAP HANA | SQL サーバー |
+| -------------------:|:---:|:------:|:--------------:|:--:|:----------:|:--------:|:--------:|
+|     **ASCNULLS最初の** |     |   ✔    |       ✔        |    |            |    ✔     |    ✔     |
+|  **ASC NULLS LAST** |  ✔  |        |                | ✔  |     ✔      |          |          |
+|    **最初のDESC NULS** |  ✔  |   ✔    |                | ✔  |     ✔      |          |          |
+| **DESC NULLS LAST** |     |        |       ✔        |    |            |    ✔     |    ✔     |
