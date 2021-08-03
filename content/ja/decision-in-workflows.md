@@ -1,50 +1,50 @@
 ---
-title: "Decision in Workflows"
-parent: "workflows"
+title: "ワークフローでの決定"
+parent: "ワークフロー"
 menu_order: 20
 tags:
-  - "workflow"
-  - "workflows"
-  - "decision"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "決定"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A decision is an element that makes a choice based on a condition and follows one and only one of the outgoing paths. For example, you need to use a decision to follow different paths when a new hire works remotely or when they work from the office:
+意思決定は、条件に基づいて選択を行い、発信パスの1つだけに従う要素です。 たとえば、新しい採用者がリモートで作業する場合、またはオフィスで作業する場合は、異なるパスに従うことを決定する必要があります。
 
-![Decision Example](attachments/decision-in-workflows/decision-example.jpg)
+![決定例](attachments/decision-in-workflows/decision-example.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-Decision properties consist of the following sections:
+決定プロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [General](#general)
-* [Outcome](#outcome)
+* [一般的な](#common)
+* [全般](#general)
+* [成果](#outcome)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名前** は要素の内部名です。 アプリ内の要素を参照する場合は、この名前を使用します。 ワークフロー内で一意である必要がありますが、異なるワークフロー内で同じ名前を持つ2つの要素を持つことができます。
 
-### 2.2 General Section {#general}
+### 2.2 一般セクション {#general}
 
-#### 2.2.2 Caption
+#### 2.2.2 図表番号
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**図表番号** では、この要素で何が起こるかを説明します。 ワークフロー要素に表示され、アノテーションを追加することなく、ワークフローを読みやすくし、理解しやすくします。
 
-#### 2.2.3 Condition
+#### 2.2.3 条件
 
-**Condition** is configured based on an [expression](expressions). The expression should result in a Boolean or an enumeration.
+**条件** は [式](expressions) に基づいて設定される。 式はブール値または列挙値を返します。
 
-For the expression resulting in a Boolean, two paths are possible: **true** and **false**. For example, you can use the expression resulting in a Boolean to follow different paths whether a new employee is working from home or from the office (and either send their devices to the home address or set up a workstation in the office).
+Booleanの結果を出す式では、2つのパスを使用できます: **true** と **false**。 例えば、 新しい従業員が自宅で働いているか、オフィスで働いているかどうか(自宅の住所にデバイスを送信するか、オフィスでワークステーションをセットアップするか)異なる道をたどるために、式を使用できます。
 
-The number of conditions available for the enumeration type depends on the corresponding enumeration values. There is also the *empty* condition available: if the enumeration parameter or an attribute of an object is unassigned, the path with the caption **Empty** is followed. For example, you have several requests with a low or high priority. The ones with the high priority follow one path and should be approved by the Management team. Low priority requests follow a different path and can be approved by the Administration department. The requests that have no specified priority follow an Empty path where the user needs to assign the priority first.
+列挙型で利用可能な条件の数は、対応する列挙値によって異なります。 There is also the *empty* condition available: if the enumeration parameter or an attribute of an object is unassigned, the path with the caption **Empty** is followed. たとえば、優先度が低いリクエストや優先度の高いリクエストがいくつかあります。 優先順位が高い人は、1つのパスに従い、管理チームによって承認される必要があります。 優先度の低いリクエストは別のパスに沿って行われ、管理部門によって承認されます。 優先度が指定されていないリクエストは、ユーザが最初に優先度を割り当てる必要がある空のパスに従います。
 
-### 2.3 Outcomes Section {#outcome}
+### 2.3 アウトカムセクション {#outcome}
 
-**Outcomes** depends on the condition of the decision. For example, for the Boolean, you have **true** and **false** outcomes, and for the enumeration: an outcome per each enumeration value and an empty one when the value is unassigned.
+**結果** は決定の条件に依存する。 例えば、Booleanの場合、 **true** と **false** の結果があります。 とします。各列挙値ごとの結果と、その値が未割り当ての場合の空の値です。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Parallel Split](parallel-split)
+* [並列分割](parallel-split)
