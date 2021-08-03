@@ -1,173 +1,173 @@
 ---
-title: "Configure a Delete Object Action"
-category: "Microflows"
+title: "配置删除对象动作"
+category: "微型流动"
 menu_order: 80
-description: "This how to describes the process of configuring a delete object action in a data view and a list view in Mendix Studio."
+description: "如何在数据视图和Mendix Studio列表视图中描述配置删除对象动作的过程。"
 tags:
-  - "studio"
-  - "page editor"
-  - "delete object"
-  - "list view"
-  - "data view"
-  - "how to"
+  - "工作室"
+  - "页面编辑器"
+  - "删除对象"
+  - "列表视图"
+  - "数据视图"
+  - "如何处理"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This how-to explains how you can configure a delete object action in Mendix Studio.
+如何在Mendix Studio中配置删除对象动作。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* configure the **Delete Object** action in a [list view](/studio8/page-editor-data-view-list-view#list-view-properties)
-* configure the **Delete Object** action in a [data view](/studio8/page-editor-data-view-list-view#data-view-properties)
+* 在 [列表视图中配置 **删除对象** 动作](page-editor-data-view-list-view#list-view-properties)
+* 配置 **在 [数据视图](page-editor-data-view-list-view#data-view-properties) 中删除对象** 动作
 
-This how-to describes the following use case:  you would like to delete the customer's name from a list of customers.
+这个如何描述以下使用情况：你想要从客户列表中删除客户的名称。
 
 {{% alert type="info" %}}
 
-You can configure the **Delete Object** on click action for such widgets as buttons or a static image. In this how-to, a **Delete** button is used as an example of a widget with **Delete Object** on click action. For more information, see the [Delete Object Action](/studio8/page-editor-widgets-events-section#delete-object-action) section in *Events Section*.
+您可以在点击按钮或静态图像等小部件的动作时配置 **删除对象**。 在这个方法中， **删除** 按钮被用作一个小部件的示例， **删除对象** 点击动作。 For more information, see the [Delete Object Action](page-editor-widgets-events-section#delete-object-action) section in *Events Section in Widgets*.
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Configuring the Domain Model and Creating a Page
+## 2 配置域名模型并创建页面
 
-To list customers' names and to show a more detailed information under the list, you need to create an entity *Customer*, add attributes *Name* and *Address* to it, and then create a page where you will list names of customers.
+要列出客户名称并在列表中显示更详细的信息，您需要创建一个实体 *客户*， 添加属性 *名称* 和 *地址* 到它， 然后创建一个您将列出客户名称的页面。
 
-To configure the domain model and create a page, do the following:
+要配置域模型并创建页面，请执行以下操作：
 
-1. Open your [domain model](/studio8/domain-models).
+1. 打开您的 [域模型](domain-models)。
 
-2. Create an entity *Customer*. For more information on how to create an entity, see the [Adding New Entities](/studio8/domain-models) section in *Domain Models Overview*.
+2. 创建实体 *客户*。 关于如何创建实体的更多信息，见第 [3节，在 *域模型概述* 中添加新实体](domain-models)。
 
-3.  For the **Customer** entity, create an attribute (for more information on how to create an attribute, see the [Adding New Attributes](/studio8/domain-models) section in *Domain Models Overview*) and do the following:<br/>
+3.  为 **客户** 实体创建属性 (关于如何创建属性的更多信息, 参见 [4 部分，添加新属性](domain-models) 在 *域模型概述*并做以下操作：<br/>
 
-    a. Set the **Name** of the attribute to *Name*.<br/>
+    a. 将属性的 **名称** 设置为 *名称*.<br/>
 
-    b. Set the [Type](/studio8/domain-models-attributes) to **String**.<br/>
+    b. 会议文件。 设置 [**类型**](domain-models-attributes) 为 **字符串**。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/name-attribute.png)<br/>    
-   c. Click **Create** to add the new attribute.<br/>
+   b. 会议文件。 点击 **创建** 以添加新属性。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/customer-entity.png)
 
 4. Repeat step 3 to create an attribute *Address* of string type.
 
-5.  Now you need a page where customers' names will be listed. Create a blank page and name it *Customers*. For more information on creating pages, see the [Creating a New Page](/studio8/page-editor) section in *Pages*.<br/>
+5.  现在您需要一个页面列出客户的名称。 创建空白页面并命名 *客户*。 关于创建页面的更多信息，见第 [3.2节在 *页面* 中创建一个新页面](page-editor)。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/create-page.png)
 
-A new blank page is created.
+新建空白页面。
 
 ![](attachments/microflows-how-to-configure-delete-object/blank-page-created.png)
 
-## 3 Configuring a Delete Object Action in a List View
+## 在列表视图中配置删除对象操作
 
-Now you will configure a list view and will add a button with [**Delete Object** action](/studio8/page-editor-widgets-events-section#delete-object-action) that deletes the corresponding customer when a user clicks the button. Do the following:
+现在您将配置列表视图，并将添加一个按钮，包含 [**删除对象** 动作](page-editor-widgets-events-section#delete-object-action) 当用户点击按钮时删除对应的客户。 执行以下操作：
 
-1. Open the page *Customers* that you have created.
+1. 打开您创建的页面 *客户*。
 
-2.  In **Building Blocks** > **Lists** find **List 1**, drag and drop it to the page. This building block contains a list view in it by default.
+2.  在 **构建块** > **列表** 找到 **列表 1**, 拖放到页面. 此建筑块默认包含列表视图。
 
     ![](attachments/microflows-how-to-configure-delete-object/list-1.png)
 
-3.  Now you need to configure the list view. Open the list view properties and do the following: <br/>
+3.  现在您需要配置列表视图。 打开列表视图属性，执行以下操作： <br/>
 
-    a.  Select **Database** as **Data Source**.<br/>
+    a.  选择 **数据库** 作为 **数据源**。<br/>
 
-    b.  Set **Entity** to **Customer**.<br/>
+    b. 会议文件。  将 **实体** 设置为 **客户**。<br/>
 
-    ![](attachments/microflows-how-to-configure-delete-object/list-view-properties.png) <br/> Now the list view is connected to the **Customer** entity. <br/>
+    ![](attachments/microflows-how-to-configure-delete-object/list-view-properties.png) <br/> 现在列表视图已连接到 **客户** 实体。 <br/>
 
-4.  Select the text *Name* and do the following in **Properties**:<br/>
+4.  选择文本 *名称* 并在 **属性** 中执行以下任务：<br/>
 
-    a. In **Content**, delete the text *Name*.<br/>
+    a. 在 **内容**, 删除文本 *名称*.<br/>
 
-    b. Click **Add attribute** (or press <kbd>Ctrl</kbd> + <kbd>Space</kbd>) and select the **Name** attribute. <br/>
+    b. 会议文件。 点击 **添加属性** (或按 <kbd>Ctrl</kbd> + <kbd>空格</kbd>) 并选择 **名称** 属性。 <br/>
 
-    ![](attachments/microflows-how-to-configure-delete-object/text-content.png)<br/> Now the text widget is connected to the **Name** attribute, and will show you customers' names in a list.<br/>
+    ![](attachments/microflows-how-to-configure-delete-object/text-content.png)<br/> 现在文本小部件已连接到 **name** 属性，并将在列表中向您显示客户名称。<br/>
 
-5.  Click the button displayed as an arrow and delete it.
+5.  单击显示为箭头的按钮并删除它。
 
     ![](attachments/microflows-how-to-configure-delete-object/arrow-button.png)
 
-6.  In **Toolbox** > **Widgets** > **Buttons** find **Delete Object**, drag and drop it inside the container that is left from the arrow button.
+6.  在 **工具箱** > **小部件** > **按钮** 找到 **删除对象**, 拖放到箭头按钮留下的容器内。
 
     ![](attachments/microflows-how-to-configure-delete-object/container-for-the-delete-button.png)
 
-7.  In **Properties** for the **Delete** button, you can see that the **On Click** action is set to **Delete Object** automatically, and caption is set to **Delete**, because the widget is preconfigured in Studio.
+7.  在 **中， **删除** 按钮的属性** 您可以看到 **点击** 动作被自动设置为 **删除对象** 和标题设置为 **删除**，因为小部件是在Studio中预配置的。
 
     ![](attachments/microflows-how-to-configure-delete-object/delete-button-properties.png)
 
-You have created the page that lists customers' names. When an end-user clicks **Delete** in one of the lines, the customer who is selected in this line will be deleted from the app along with the customer's details. For more information, see the [Delete Object Action](/studio8/page-editor-widgets-events-section#delete-object-action) section in *Events Section*.
+您已创建了列出客户名称的页面。 如果用户点击其中一行中的 **删除** 此行指明的客户将与客户的详细信息一起从应用程序中删除。 欲了解更多信息，请参见 [2.3 删除对象行动](page-editor-widgets-events-section#delete-object-action) *小部件事件部分*。
 
-## 4 Configuring a Delete Object Action in a Data View
+## 在数据视图中配置删除对象操作
 
-You can also configure the [**Delete Object** action](/studio8/page-editor-widgets-events-section#delete-object-action) in a data view. In this case **Delete Object** will delete the connected object. To configure the data view and the **Delete** button on your page, do the following:
+您也可以在数据视图中配置 [**删除对象** 操作](page-editor-widgets-events-section#delete-object-action)。 在这种情况下 **删除对象** 将会删除所连接的对象。 要配置数据视图和您页面上的 **删除** 按钮，请做以下操作：
 
-1.  On the page named *Customers*, open the **Layout Grid** properties (use a breadcrumb at the bottom of the screen to select the layout grid).
+1.  在命名为 *客户*的页面， 打开 **布局网格** 属性 (使用屏幕底部的面包屑查找布局网格)。
 
     ![](attachments/microflows-how-to-configure-delete-object/breadcrumb.png)
 
-2.  In **Properties** > **Add Row**, click the button that adds a row below. You will use this row to place a data view there.
+2.  在 **属性** > **添加行**, 点击按钮，在下方添加一行，您需要将数据视图放置在那里。
 
     ![](attachments/microflows-how-to-configure-delete-object/add-row.png)
 
-3. In **Toolbox** > **Widgets** > **Data Containers**, find the data view widget, drag and drop it inside the column (that was added together with a new row).
+3. 在 **工具箱** > **小部件** > **数据容器**, 查找数据视图，将其拖放到列内(与新行一起添加)。
 
-4.  Now you need to configure the data view. In **Properties** of the data view, do the following: <br/>
+4.  现在您需要配置数据视图。 在 **数据视图中的属性** 中，执行以下操作： <br/>
 
-    a. Set **Data Source** to **List widget**.<br/>
+    a. 将 **数据源** 设置为 **列表小部件**。<br/>
 
-    b. Set **Widget** to **List View with entity Customer**. Now the data source for the data view is the list view that is placed on the same page.<br/>
+    b. 会议文件。 将 **小部件** 设置为 **实体客户列表**。 现在数据视图的数据源是放在同一页面上的列表视图。<br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/data-view-list-widget.png)
 
-5. You need to fill the data view with data. In **Toolbox** >**Widgets** > **Typography**, select **Text**, drag and drop it inside the data view.
+5. 您需要用数据填写数据视图。 在 **工具箱** >**小部件** > **类型**, 选择 **文本**, 拖放到数据视图内容内。
 
-6.  You will make a heading out of the **Text** widget you have just added. Open the **Properties** of the **Text** and do the following:<br/>
+6.  您将从刚刚添加的 **文本** 小部件中绘制一个标题。 Open the **Properties** of the **Text** and do the following:<br/>
 
-    a. In **Content**, delete the word *Text* and type *Customer Details*.<br/>
+    a. 在 **Content**, 删除单词 *Text* 并输入 *客户详细信息*。<br/>
 
-    b. Set **Render Mode** to **H4**. <br/>
+    b. 会议文件。 将 **渲染模式** 设置为 **H4**. <br/>
 
     ![](attachments/microflows-how-to-configure-delete-object/text-heading4.png)<br/>
 
-7. Now you will add a text box to display details of the selected customer. In **Widgets** > **Input Elements**, select **Text Box**, drag and drop it inside the data view content.
+7. 现在您将添加一个文本框来显示所选客户的详细信息。 在 **小部件** > **输入元素**, 选择 **文本框**, 拖放在数据视图内容内。
 
 8.  Open the **Properties** of the **Text Box**, and in **Data Source**, set **Attribute** to **Name** (the label for the text box will be changed to **Name** automatically).
 
     ![](attachments/microflows-how-to-configure-delete-object/text-box-name.png)
 
-9. Repeat step 7 to add one more **Text Box** to the page.
+9. 重复第 7 步，再添加一个 **文本框** 到页面。
 
 10. Open the **Properties** of the **Text Box**, and in **Data Source**, set **Attribute** to **Address** (the label for the text box will be changed to **Address** automatically).
 
     ![](attachments/microflows-how-to-configure-delete-object/text-box-address.png)
 
-11. In **Toolbox** > **Widgets** > **Buttons** find **Delete Object**, drag and drop it inside the data view.
+11. 在 **工具箱** > **小部件** > **按钮** 找到 **删除对象**, 在数据视图中拖放它。
 
-12. The button is already preconfigured: its **On Click Action** is set to **Delete Object**, and **Caption** is set to **Delete**. But you will add some styling to it. Do the following:<br/>
+12. 该按钮已经被预配置：它的 **单击操作** 已设置为 **删除对象**， 和 **标题** 已设置为 **删除**。 但你会给它添加一些样式。 执行以下操作：<br/>
 
-    a. In the **General** section, set **Style** to **Danger**.<br/>
+    a. 在 **常规** 部分中，将 **样式** 设置为 **危险**.<br/>
 
-    b. In the **Design** section, set **Align Self** to **Right**.<br/>
+    b. 会议文件。 在 **设计** 部分中，设置 **自对** 至 **右对齐**。<br/>
 
-You have configured the data view that will show you the customer's name and address once you select this customer in the list:
+现在您已经配置了数据视图，一旦您在列表中选择此客户，将会向您显示客户的名称和地址。
 
 ![](attachments/microflows-how-to-configure-delete-object/configured-page.png)
 
-The workflow for the **Delete** button in the data view (the red **Delete** button) is the following:
+数据视图中 **删除** 按钮的工作流(红色 **删除** 按钮)如下：
 
-1. An end-user selects a customer's name in the list.
+1. 用户在列表中选择客户的名称。
 
-2. The customer's details (name and address) are shown in the data view below.
+2. 客户的详细信息（名称和地址）见下面的数据视图。
 
-3. The user clicks **Delete**.
+3. 用户点击 **删除**。
 
-4. Whole customer's record is deleted.
+4. 整个客户的记录已删除。
 
    ![](attachments/microflows-how-to-configure-delete-object/published-page-example.png)
 
-For more information on the delete object action, see the [Delete Object Action](/studio8/page-editor-widgets-events-section#delete-object-action) section in *Events Section*.
+欲了解更多信息，请参见 [2.3 删除对象行动](page-editor-widgets-events-section#delete-object-action) *小部件事件部分*。
 
-Congratulations! You have configured **Delete** buttons in the list view and in the data view. 
+恭喜！ 您在列表视图和数据视图中配置了 **删除** 个按钮。 
