@@ -1,19 +1,16 @@
 ---
-title: "Strategic Partners Guide"
-description: "Documentation for IBM, SAP, and Siemens widgets written and maintained by Mendix"
+title: "Studio Pro 9 How-to's"
+description: "Step-by-step guides on various Mendix topics that will teach you how to build and customize apps."
 tags:
-  - "strategic partners"
-  - "ibm"
-  - "sap"
-  - "siemens"
+  - "studio pro"
 ---
 
 ## 1 Introduction
 
-The *Mendix Strategic Partners Guide* provides documentation on widgets written and maintained by Mendix which support integration with IBM, SAP, and Siemens cloud platforms and services.
+Browse the *Studio Pro 9 How-to's* to find step-by-step guides that will teach you how to build and customize apps with Mendix.
 
-## 2 Guide Categories
+## 2 How-to Categories
 
-The *Strategic Partners Guide* is divided into the following categories:
+The *Studio Pro 9 How-to's* are divided into the following categories:
 
 {{% category_block %}}
