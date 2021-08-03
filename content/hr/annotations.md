@@ -1,23 +1,27 @@
 ---
 title: "Annotations"
 parent: "domain-model"
+menu_order: 30
 tags:
   - "domain model"
   - "annotation"
+  - "studio pro"
 ---
 
-An annotation is an element that can be used to put comments in a domain model.
-
 {{% alert type="info" %}}
-
-An order entity contains both a total amount and a discount attribute. You add an annotation to mention the fact that, unlike the total price, the discount is represented by a percentage and not an amount of money.
-
-![](attachments/domain-model-editor/16844036.png)
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/annotations.pdf).
 {{% /alert %}}
 
-## Common Properties
+## 1 Introduction
 
-### Caption
+An **annotation** can be used to add comments to a domain model.
+
+For example, an order entity contains two decimal attributes, **TotalPrice** and **Discount**. You can add an annotation to note that, unlike the total price, the discount represents a percentage and not an amount of money.
+
+![](attachments/domain-model/16844036.png)
+
+## 2 Common Properties
+
+### 2.1 Caption
 
 The caption property contains the text of the annotation.
