@@ -1,313 +1,351 @@
 ---
-title: "Mathematical function calls"
-parent: "expressions"
+title: "数学関数コール"
+parent: "表現"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "数学的関数コール"
+  - "数学関数"
+  - "表現"
 ---
 
+## 1つの紹介
 
-## max
+数学関数呼び出しには、最大値を返したり、数値を丸めたりするなど、数値に対する数学演算の数が限られています。
 
-Returns the largest value from the specified arguments.
+より精巧な関数が必要な場合 (平方根、罪、cos、tan、numberOfPermutations、factorial、fibonacciNumberなど) 次に、Mendix Marketplace で利用可能なコミュニティサポートの [Math](https://marketplace.mendix.com/link/component/112522/) モジュールの使用を検討してください。
 
-### Input parameters
+## 最大 2 個
 
-*   Two or more values that are all either of type Date and time or of a numeric type (Integer/Long, Float or Decimal).
+指定した引数から最大値を返します。
 
-### Output
+### 2.1 入力パラメータ
 
-Returns the largest value from the specified arguments. If the arguments are of type Date and time, the result will also be of type Date and time. If the arguments are numeric, the result will be of the most precise type. For example, if both an Integer/Long and a Decimal argument are specified, the result will be of type Decimal.
+入力パラメータは以下の表に記載されています:
 
-Type: Integer/Long or Decimal
+| 値      | タイプ                                  |
+| ------ | ------------------------------------ |
+| 2つ以上の値 | すべての数値タイプ (整数/ロングまたは小数) またはすべての日付と時刻 |
+
+### 2.2 出力
+
+出力は以下の表に記載されています:
+
+| 値            | タイプ                                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 指定された引数の最大値。 | 引数が日付と時刻の型の場合、結果は日付と時刻の型でもあります。 <br />引数が数値の場合、結果は最も正確な型になります。 <br />例えば、Integer/Long と Decimal の両方の引数が指定されている場合、結果は Decimal 型になります。 |
+
+### 2.3 例
+
+次の入力を使用する場合:
 
 ```java
 max(5, 1, 5, 6.7)
 ```
 
-returns:
+出力は10進数です。
 
 ```java
 6.7
 ```
 
-of type "Decimal".
+## 3分
 
-## min
+指定した引数から最小値を返します。
 
-Returns the smallest value from the specified arguments.
+### 3.1 入力パラメータ
 
-### Input
+入力パラメータは以下の表に記載されています:
 
-Two or more values that are all either of type Date and time or of a numeric type (Integer/Long, Float or Decimal).
+| 値      | タイプ                                  |
+| ------ | ------------------------------------ |
+| 2つ以上の値 | すべての数値タイプ (整数/ロングまたは小数) またはすべての日付と時刻 |
 
-### Output
+### 3.2 出力
 
-Returns the smallest value from the specified arguments. If the arguments are of type Date and time, the result will also be of type Date and time. If the arguments are numeric, the result will be of the most precise type. For example, if both an Integer/Long and a Decimal argument are specified, the result will be of type Decimal.
+出力は以下の表に記載されています:
 
-Type: Integer/Long or Decimal
+| 値            | タイプ                                                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 指定された引数の最小値。 | 引数が日付と時刻の型の場合、結果は日付と時刻の型でもあります。 <br />引数が数値の場合、結果は最も正確な型になります。 <br />例えば、Integer/Long と Decimal の両方の引数が指定されている場合、結果は Decimal 型になります。 |
+
+### 3.3 例
+
+次の入力を使用する場合:
 
 ```java
 min(5, 1, 5, 6.7)
 ```
 
-returns:
+出力は10進数です。
 
 ```java
 1
 ```
 
-of type "Decimal"
+## 4ラウンド
 
-## round
+数値を特定の精度に丸めます。
 
-Rounds a number to a certain precision.
+### 4.1 入力パラメータ
 
-### Input
+入力パラメータは以下の表に記載されています:
 
-*   a number Type: Integer/Long, Float or Decimal
+| 値          | タイプ                   |
+| ---------- | --------------------- |
+| A number   | Integer/Long, Decimal |
+| 精度 (オプション) | 整数                    |
 
-*   a precision (optional) Type: Integer/Long
+### 4.2 出力
 
-### Output
+[アプリ設定](project-settings)では、 **ラウンド番号** のオプションを設定して、半分数 (0.5) の扱い方を決定できます。
+*   **ゼロ** オプション(「商用丸め」とも呼ばれます)から半分離れた場合、+2.5は+3、-1.5は-2になります。
+*   **最も近い偶数** オプションの半分（「バンカーの丸め」とも呼ばれます）は、 [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point "IEEE floating point") コンピューティング関数と演算子で使用されるデフォルトの丸めモードです。 例えば+23です は+24、+24.5、-22.5は-22、-21.5と同様に+24になります。
 
-In the **Settings**, your option for **Round numbers** can be set:
-*   For the **Half away from zero** option (also called "commercial rounding"), +2.5 becomes +3 and -1.5 becomes -2
-*   The **Half to the nearest even number** option (also called "bankers' rounding") is the default rounding mode used in  [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point "IEEE floating point") computing functions and operators; for example, +23.5 becomes +24, as does +24.5; and -22.5 becomes -22, as does -21.5
+2 番目のオプションパラメータは、丸めの精度を決定します。 デフォルト値は 0 です。 結果は、可能な限り最も正確なタイプになります。 精度が 0 の場合、結果は integer/long 型になります。 そして、その他のすべての精度値では、結果は 10 進型になります。
 
-The second optional parameter determines the precision of the rounding. The default value is 0. The result will be of the most precise type possible. For a precision of 0, the result will be of integer/long type, and for all other precision values, the result will be of the decimal type.
+### 4.3 例
 
-Type: Integer/Long or Decimal
+次の入力を使用する場合:
 
 ```java
 round(3.5)
 ```
 
-returns:
+出力は Integer/Long 型です:
 
 ```java
 4
 ```
 
-of type "Integer/Long"
-
-and
+入力の別の例:
 
 ```java
 round(88.725,2)
 ```
 
-returns:
+出力は10進数です。
 
 ```java
 88.72
 ```
 
-of type Decimal
+## ランダムで 5
 
-## random
+乱数を生成する >= 0.0 と < 1.0
 
-Generates a random number >= 0.0 and < 1.0
+### 5.1 出力
 
-### Output
+出力は以下の表に記載されています:
 
-A random number between 0.0 and 1.0 Type: Decimal
+| 値                     | タイプ     |
+| --------------------- | ------- |
+| 0.0 から 1.0 の小数点以下の乱数。 | 小数点以下桁数 |
+
+### 5.2 例
+
+次の入力を使用する場合:
 
 ```java
 random()
 ```
 
-## floor
+出力は:
 
-Rounds down to an integer (returns the largest integer which is less than or equal to the input).
+```java
+0.3
+```
 
-### Input
+## 6階
 
-*   a number Type: Integer/Long, Float or Decimal
+整数に丸められます (入力以下の最大の整数を返します)。
 
-### Output
+### 6.1 入力パラメータ
 
-The input value rounded down to the nearest integer.
+入力パラメータは以下の表に記載されています:
 
-Type: Integer/Long
+| 値        | タイプ                   |
+| -------- | --------------------- |
+| A number | Integer/Long, Decimal |
+
+### 6.2 出力
+
+出力は以下の表に記載されています:
+
+| 値                     | タイプ |
+| --------------------- | --- |
+| 入力値は、最も近い整数に切り下げられます。 | 整数  |
+
+### 6.3 例
+
+次の入力を使用する場合:
 
 ```java
 floor(3.9)
 ```
 
-returns:
+出力は:
 
 ```java
 3
 ```
 
-and
+入力の別の例:
 
 ```java
-floor(-1.2)
+床(-1.2)
 ```
 
-returns:
+出力は:
 
 ```java
 -2
 ```
 
-## ceil
+## 7 ceil
 
-Rounds up to an integer (returns the smallest integer which is greater than or equal to the input).
+最大の整数まで丸めます (入力以上の最小の整数を返します)。
 
-### Input
+### 7.1 入力パラメータ
 
-*   a number Type: Integer/Long, Float or Decimal
+入力パラメータは以下の表に記載されています:
 
-### Output
+| 値        | タイプ                   |
+| -------- | --------------------- |
+| A number | Integer/Long, Decimal |
 
-The input value rounded up to the nearest integer.
+### 7.2 出力
 
-Type: Integer/Long
+出力は以下の表に記載されています:
+
+| 値                    | タイプ |
+| -------------------- | --- |
+| 入力値は最も近い整数に切り上げられます。 | 整数  |
+
+### 7.3 例
+
+次の入力を使用する場合:
 
 ```java
-ceil(3.2)
+天井(3.2)
 ```
 
-returns:
+出力は:
 
 ```java
 4
 ```
 
-and
+入力の別の例:
 
 ```java
 ceil(-1.9)
 ```
 
-returns:
+出力は:
 
 ```java
 -1
 ```
 
-## pow
+## 8 pow
 
-Calculates the exponent of a number to a certain power.
+数値を一定のパワーに上げます。
 
-### Input
+### 8.1 入力パラメータ
 
-*   a number Type: Integer/Long, Float or Decimal
-*   a power Type: Integer/Long, Float or Decimal
+入力パラメータは以下の表に記載されています:
 
-### Output
+| 値        | タイプ                   |
+| -------- | --------------------- |
+| A number | Integer/Long, Decimal |
+| パワー      | Integer/Long, Decimal |
 
-The number to the power, as in, n^p. The result will be of the most precise type necessary.
+### 8.2 出力
 
-Type: Integer/Long or Decimal
+出力は以下の表に記載されています:
+
+| 値                                      | タイプ                      |
+| -------------------------------------- | ------------------------ |
+| n^pのように、パワーへの数。 その結果、最も正確なタイプが必要になります。 | Integer/Long または Decimal |
+
+### 8.3 例
+
+次の入力を使用する場合:
 
 ```java
 pow(2, 3)
 ```
 
-returns:
+出力は Integer/Long 型です:
 
 ```java
 8
 ```
 
-of type "Integer/Long"
-
-and
+入力の別の例:
 
 ```java
 pow(2.5, 3)
 ```
 
-returns:
+出力は 10 進数型です:
 
 ```java
 15.625
 ```
 
-of type "Decimal"
+標準Javaライブラリはこれらの計算を高精度でサポートしていないため、10進数で「pow」を計算すると精度が低くなる可能性があります。 この場合、高精度が必要な場合は、カスタム Java アクションに専用ライブラリを使用します。
 
-Calculation of 'pow' with a decimal exponent might be less accurate, as the standard Java libraries do not support these calculations with high precision. Use a specialized library in a custom Java action if high precision is required for this case.
+### 8.4 (正方形) ルート
 
-## abs
+小数の平方根を取得するには、2 番目のパラメータとして 0.5 を使用します。
 
-Calculates the absolute value of a number (ie not negative).
+* `pow(16, 0.5)` の結果は `4` になります
 
-### Input
 
-*   a number Type: Integer/Long, Float or Decimal
+または、特定のルートに分割を使用します。
 
-### Output
+* `pow(27, 1:3)` の結果は `3` になります。
 
-The absolute value of the input, which is never negative. Corresponds to taking the square and then the square root.
+* `pow(16, 1:4)` の結果は `2` になります
 
-Type: Integer/Long or Decimal
+## 9 abs
+
+数値の絶対値 (負ではなく意味) を返します。
+
+### 9.1 入力パラメータ
+
+入力パラメータは以下の表に記載されています:
+
+| 値        | タイプ                   |
+| -------- | --------------------- |
+| A number | Integer/Long, Decimal |
+
+### 9.2 出力
+
+出力は以下の表に記載されています:
+
+| 値                                      | タイプ                      |
+| -------------------------------------- | ------------------------ |
+| 入力の絶対値。負になることはありません。 正方形の根を取ることに相当します。 | Integer/Long または Decimal |
+
+### 9.3 例
+
+負の値を入力として入力した場合:
 
 ```java
 abs(-5)
 ```
 
-and
+または、正の値を入力した場合:
 
 ```java
 abs(5)
 ```
 
-both return:
+両方の場合の出力は:
 
 ```java
 5
 ```
-## floatsEqual
-
-Compares the two numbers to decimal point p, which is equal to Precision.
-
-{{% alert type="warning" %}}
-
-This function is deprecated together with the Float type. Use the high-precision Decimal type instead.
-
-{{% /alert %}}
-
-### Input
-
-*   a number Type: Integer/Long or Float
-*   another number Type: Integer/Long or Float
-*   a precision Type: Integer/Long
-
-### Output
-
-A value indicating whether the two numbers are equal given the specified precision.
-
-Type: Boolean
-
-```java
-floatsEqual(0.51, 0.50, 1)
-```
-
-returns:
-
-```java
-true
-```
-
-and
-
-```java
-floatsEqual(0.51, 0.50, 2)
-```
-
-returns:
-
-```java
-false
-```
-
-## currenciesEqual
-
-See floatsEqual.
-
-{{% alert type="warning" %}}
-
-This function is deprecated together with the Float type. Use the high-precision Decimal type instead.
-
-{{% /alert %}}
