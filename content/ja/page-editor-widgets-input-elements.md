@@ -1,182 +1,107 @@
 ---
-title: "Input Elements"
+title: "入力エレメントのウィジェット"
 parent: "page-editor-widgets"
-description: "Describes input widgets in Mendix Studio."
+description: "Mendix Studio で入力ウィジェットを説明します。"
 menu_order: 20
 tags:
-  - "studio"
-  - "page editor"
-  - "input elements"
-  - "input widgets"
-  - "widgets"
+  - "スタジオ"
+  - "ページエディタ"
+  - "ウィジェットを入力"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Input Elements** are [widgets](page-editor-widgets) in Mendix Studio that are typically used to allow end-users enter or edit data. For example, a text box below allows users to fill in their full names:
+**入力要素** は [ウィジェット](page-editor-widgets) であり、一般的にエンドユーザーがデータを入力または編集できるようにするために使用される Mendix Studio です。
 
-{{% image_container width="350" %}}![](attachments/page-editor-widgets-input-elements/text-box-example.png)
+**入力要素** は、データコンテナ(リストビューまたはデータビュー)内でのみ機能します。 既存のデータコンテナにウィジェットを配置することができます。 または **プロパティ** の **新しいデータ ビュー** をクリックして自動的にデータ ビューを作成し、その中に入力要素を配置します。
+
+{{% image_container width="350" %}}![](attachments/page-editor-widgets-input-elements/wrap-in-data-view.png)
 {{% /image_container %}}
 
-**Input Elements** can only function inside a data container (a data view, a list view, or a data grid). You can either place widget in an existing data container; or click **Wrap with a new data view** in **Properties** to create a data view and place an input element inside it automatically.
+## 2 入力要素の概要
 
-![](attachments/page-editor-widgets-input-elements/wrap-in-data-view.png)
+Studio で使用できる入力要素の説明は以下の表を参照してください。
 
-## 2 Input Elements Overview
-
-You can find the description of input elements available in Studio in the table below:
-
-| Input Element | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text Box      | A text box is used to allow end-users to enter, edit, and display a text. For example, end-users will be able to enter their names.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Text Area     | A text area is used to enter, edit, and display a long text that can take several lines, for example, the description of a product.                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Date Picker   | A date picker is used to allow end-users select a date in a calendar, for example, when selecting a day for a delivery.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Drop-Down     | A drop-down widget is used to allow end-users pick an option from the preset list of options. For example, users can select a color of a product.<br />You can also use this widget to display and select associations. You need a many-to-one association in the domain model (for more information, see [Associations](domain-models-association-properties)). For example, if a customer has several addresses, the user can select a delivery address from them. In this example, several addresses can be associated with one customer (many-to-one association). |
-| Check Box     | A check box widget is used to allow users to mark a value as true or false. For example, users can tick a box to sign up for the newsletter.                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Radio Buttons | Radio buttons are used to allow users select the option from a number of preset ones. For example, users can select from several possible locations for picking an order up.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 入力要素          | 説明                                                                                                                                                                                                                                                                                                                     |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| テキストボックス      | テキストボックスは、エンドユーザーがテキストを入力、編集、表示できるようにするために使用されます。 たとえば、エンドユーザーは自分の名前を入力することができます。                                                                                                                                                                                                                                      |
+| テキストエリア       | テキストエリアは、製品の説明など、複数の行を取ることができる長いテキストを入力、編集、表示するために使用されます。                                                                                                                                                                                                                                                              |
+| 日付の選択         | 日付ピッカーは、たとえば配信の日を選択するときなど、カレンダーで日付を選択できるようにするために使用されます。                                                                                                                                                                                                                                                                |
+| ドロップ ダウン      | ドロップダウン ウィジェットを使用して、エンドユーザーがプリセットのオプションリストからオプションを選択できるようにします。 たとえば、ユーザーは製品の色を選択できます。<br />このウィジェットを使用して関連付けを表示および選択することもできます。 ドメインモデルで多対一の関連付けが必要です (詳細については、 [関連プロパティ](domain-models-association-properties) を参照してください)。 例えば、顧客が複数の住所を持っている場合、ユーザーはそれらから配送先住所を選択することができます。 この例では、1つの顧客(1対1の関連付け)に関連付けることができます。 |
+| チェックボックス      | このチェック ボックス ウィジェットは、ユーザーが true または false として値をマークできるようにします。 たとえば、ユーザーはニュースレターにサインアップするためにボックスにチェックを入れることができます。                                                                                                                                                                                                         |
+| Radio Buttons | ラジオボタンは、ユーザーがプリセットのものの中からオプションを選択できるようにするために使用されます。 たとえば、ユーザーは注文を受け取るために複数の可能な場所から選択することができます。                                                                                                                                                                                                                         |
 
 {{% alert type="info" %}}
 
-Apart from the standard input widgets, you can also [download widgets from the Mendix Marketplace](https://marketplace.mendix.com/) to your app. For more information, see the [Widgets by Origin](page-editor-widgets#widgets-by-origin) section in *Widgets*.
+標準入力ウィジェットとは別に、 [Mendix Marketplace](https://marketplace.mendix.com/) からアプリにウィジェットをダウンロードすることもできます。 詳しい情報については、 [ウィジェット](page-editor-widgets#widgets-by-origin) の *原点別ウィジェット* のセクション format@@4 を参照してください。
 
 {{% /alert %}}
 
-## 3 Properties
+## 3つのプロパティ
 
-All input elements properties consist of the following sections:
+入力要素のプロパティは以下のセクションで構成されています:
 
-* [Type](#type)
-* [Data source](#input-elements-data-source)
-* [General](#input-elements-general)
-* [Input Validation](#validation)
-* [Conditional Visibility](#visibility)
-* [Design](#input-elements-design)
+* [データソース](#input-elements-design)
+* [全般](#input-elements-general)
+* [デザイン](#input-elements-design)
 
-A date picker has a specific [Format](#format) section.
+### 3.1 データソース {#input-elements-design}
 
-### 3.1 Type Option {#type}
+**入力要素** は、データを表示し、エンドユーザーがそれを編集できるようにするために、属性にリンクする必要があります。 異なる入力要素は、異なる [属性の種類](domain-models-attributes) を必要とします。 以下の表に、入力要素と属性タイプの対応を示します。
 
-{{% alert type="info" %}}
-This option is only available for **Text Box**, **Text Area**, **Radio Buttons**, **Check Box**, and **Drop-Down** widgets.
-{{% /alert %}}
+| 入力要素          | 許可された属性タイプ                                                             |
+| ------------- | ---------------------------------------------------------------------- |
+| テキストボックス      | 文字列, 秋, 小数, ハッシュ文字列, 整数, Long                                          |
+| テキストエリア       | 文字列                                                                    |
+| 日付の選択         | 日付と時刻                                                                  |
+| ドロップ ダウン      | 列挙、関連                                                                  |
+| 参照セレクター       | Autonumber, Date and Time, Decimal, Enumeration, Integer, Long, String |
+| チェックボックス      | Boolean                                                                |
+| Radio Buttons | Boolean, Enumeration                                                   |
 
-The **Type** option allows you to quickly change the type of one input element to a similar one: you can change a **Text Box** to a **Text Area** and vice versa, and change **Radio Buttons** to a **Check Box** or a **Drop-Down** and vice versa:
+### 3.2 一般セクション {#input-elements-general}
 
-![Type Option](attachments/page-editor-widgets-input-elements/input-widget-type.jpg)
+**General** セクションには、すべての入力要素に共通のプロパティがありますが、特定のプロパティも含めることができます。
 
-### 3.2 Data Source Section {#input-elements-data-source}
+#### 3.2.1 一般的なプロパティ
 
-**Input Elements** need to be linked to an attribute to show data and to allow end-users to edit it. Different input elements require different [types of attributes](domain-models-attributes). You can find the correspondence between the input elements and attribute types in the table below:
+以下の表に、入力要素の一般的なプロパティを示します。
 
-| Input Element      | Allowed Attribute Type                                                 |
-| ------------------ | ---------------------------------------------------------------------- |
-| Text Box           | String, Autonumber, Decimal, Hashed String, Integer, Long              |
-| Text Area          | String                                                                 |
-| Date Picker        | Date and Time                                                          |
-| Drop-Down          | Enumeration, Associations                                              |
-| Reference Selector | Autonumber, Date and Time, Decimal, Enumeration, Integer, Long, String |
-| Check Box          | Boolean                                                                |
-| Radio Buttons      | Boolean, Enumeration                                                   |
+| 属性     | 説明                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ラベルを表示 | エンドユーザーにウィジェットのラベル (名前) を表示する場合は、このプロパティを有効にします。 <br />*このプロパティはデフォルトで有効になっています。*                                                                                                                                                                                                                                                                                              |
+| ラベル    | このプロパティは、 **Show Label** が有効な場合にのみ表示されます。 エンドユーザーに表示される名前を指定します。 属性を選択すると、属性の名前がラベルとして記入されます。                                                                                                                                                                                                                                                                                        |
+| 編集可能   | 編集可能性は、エンドユーザーがウィジェットによって表示される値を変更できるかどうかを示します。 可能な値は次のとおりです。 <ul><li>編集可能 - ウィジェットに表示される値は編集可能</li><li>読み取り専用 – 値は読み取り専用モードです</li><li>条件付き - 指定された条件が満たされている場合にのみウィジェットを編集できます (このオプションは Studio Pro でのみ設定できます)</li></ul>{{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.<br />{{%/alert %}} |
 
-### 3.3 General Section {#input-elements-general}
+#### 3.2.2 特定のプロパティ
 
-The **General** section has common properties for every input element, but may also contain specific ones.
+以下の表に、入力要素の特定のプロパティを記述します。
 
-#### 3.3.1 Show Label {#show-label}
+| 入力要素          | 属性     | 説明                                                                                                                                                                             |
+| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| テキストエリア       | 自動的に拡大 | 有効にすると、テキストが記入されている場合、テキスト領域は量に応じて自動的に拡大します。 <br />*このプロパティはデフォルトで無効になっています。*                                                                                            |
+| テキストエリア       | 行数     | このプロパティは、 **Grow Automatic** オプションが無効な場合にのみ表示されます。  行数は、テキスト領域に同時に表示される行数を決定します。 テキストエリア内のテキストに複数の行が含まれている場合は、スクロールバーを使用してすべてを表示する必要があります。 <br /> **行数** オプションのデフォルト値: 5 |
+| Radio Buttons | 方向     | このプロパティは、ラジオボタンをアプリケーションに縦または横に表示するかどうかを定義します。 <br /> **方向**の既定値 : 水平。                                                                                                   |
 
-Enable this property if you want to show a label (name) of a widget to the end-user. *This property is enabled by default.*
+## 4 入力検証セクション
 
-#### 3.3.2 Label
+**Input Validation**では、ウィジェットの値を検証するかどうかを指定できます。 入力ウィジェットにバリデーションタイプを設定し、検証に失敗した場合にエンドユーザーメッセージを指定できます。 例えば、 **フルネーム** フィールドを新規顧客に必須としてマークし、「続行するには名前を指定してください」というメッセージを追加することができます。
 
-This property only appears if **Show Label** is enabled. Specify the name that will be displayed to end-users. When you select an attribute, the name of the attribute is shown in the label in braces. This means that instead of a static text, the value of the attribute is displayed to end-users.
-
-#### 3.3.3 Editability {#editability}
-
-Editability indicates whether the end-user will be able to change the value displayed by the widget. Possible values are the following:
-
-* **Editable** – the value displayed by the widget is editable.
-
-* **Read-only** – the value is in read-only mode.
-
-* **Conditional** – the widget is editable only if specified conditions are met based on an attribute value (for more information, see  [Attribute-Based](#attribute-based) and [Attribute Values](#attribute-values) sections below) or based on an expression. You can create a condition based on an expression in Studio Pro only (for details, see the [Editability Section](/refguide8/common-widget-properties#editability) in *Properties Common in the Page Editor*)
-
-    {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
-
-    {{%/alert %}}
-
-
-#### 3.3.4 Attribute-Based {#attribute-based}
-
-The **Attribute-Based** property is only shown when [Conditional Editability](#editability) is selected.
-
-**Attribute-Based** conditional editability allows you to show widgets only when they match a certain value of the selected attribute.
-
-{{%alert type="info" %}}
-
-The attribute must be of the Boolean or enumeration type.
-
-{{%/alert %}}
-
-{{%alert type="info" %}}
-
-You can only configure attribute-based conditional editability when a widget is placed in a data container: a data view or a list view. For more information on how to place widgets on a page, see [Adding Elements on a Page](page-editor#adding-elements) section in *Pages*.
-
-{{%/alert %}}
-
-#### 3.3.5 Attribute Values {#attribute-values}
-
-This property is shown only when an attribute in the [Attribute-Based](#attribute-based) property is selected. The **Attribute Values** property allows you to select certain attribute values.
-
-For example, you would like to make the **City** field editable only when users fill the **Country** field in, because you can deliver your products to a limited number of countries. So, you need to select *Country* in the **Attribute-Based** property and *Netherlands*, *Belgium*, *Germany*, *France* in the **Attribute Value** property:
-
-![](attachments/page-editor-widgets-input-elements/attribute-based-editability.png)
-
-#### 3.3.6 Specific Properties
-
-Specific properties of the input elements are described in the table below:
-
-| Input Element | Property           | Description                                                                                                                                                                                                                                                                                                                              |
-| ------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Text Area     | Grow Automatically | When enabled, the text area grows automatically depending on the amount if text filled out in it. <br />*This property is disabled by default.*                                                                                                                                                                                    |
-| Text Area     | Number of Lines    | This property is only displayed when the **Grow Automatically** option is disabled.  The number of lines determine how many lines the text area shows at the same time. If the text in the text area contains more lines you will have to use a scrollbar to see it all. <br />Default value for the **Number of Lines** option: 5 |
-| Radio Buttons | Orientation        | This property defines whether the radio buttons are displayed in your app horizontally or vertically. <br />Default value for **Orientation**: Horizontal.                                                                                                                                                                         |
-
-### 3.4 Format Section {#format}
-
-The **Format** section is specific for the **Date Picker** widget only.
-
- The **Format** section properties are described in the table below:
-
-| Property       | Description                                                                                                                                                                              |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Type           | Determines the way date and/or time is displayed to users. Possible values of this property are the following ones: <ul><li>**Date** – users can view or edit a date only</li>**Time** – users can view or edit time only<li></li><li>**Date & Time** – users can view or edit date and time</li><li>**Custom** – custom date and time format, can be configured in Studio Pro only</li></ul><br />Default value for **Type**: Date |
-| Format Example | Displays an example of the selected format type.                                                                                                                                         |
-
-### 3.5 Input Validation Section {#validation}
-
-In **Input Validation**, you can specify whether the widget's value should be validated. You can set a validation type for an input widget and specify an end-user message in case validation fails. For example, you can mark the **Full name** field as required for new customers and you can add a message saying: "Please specify your name to proceed".
-
-{{% image_container width="350" %}}
 ![](attachments/page-editor-widgets-input-elements/Validation-type-required.png)
-{{% /image_container %}}
 
+**入力検証** セクションのプロパティは以下の表に記載されています:
 
-The **Input Validation** section properties are described in the table below:
+| 属性                             | 説明                                                                                             |
+| ------------------------------ | ---------------------------------------------------------------------------------------------- |
+| バリデーションタイプ                     | このプロパティは、ウィジェットに入力された値を検証するかどうかを示します。 利用可能なオプションは次のとおりです:<br /><ul><li>**なし** - 値は必要ありません、ウィジェットは空のままにすることができます</li><li>**必須** – ウィジェットは空にすることはできません。エンドユーザーは値を入力する必要があります。</li><li>**カスタム** – Studio Proでのみ設定できます。 ただし、Studio Pro でカスタムバリデーションが設定されている場合は、カスタムバリデーションの [message](#validation-message) を指定または変更できます。</li></ul> |
+| <a name="validation-message"></a>メッセージ | **Validation Type** が **Required** または **Custom** で、検証に失敗したときにエンドユーザーに表示されるメッセージ。              |
 
-| Property                         | Description                                                                                                                                              |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Validation Type                  | This property indicates whether a value filled in a widget should be validated. Possible options are the following:<br /><ul><li>**None** – a value is not required, the widget can be left empty</li><li>**Required** – the widget cannot be empty, end-users need to fill a value in it</li><li>**Custom** – can be set only in Studio Pro. However, if a custom validation has been set in Studio Pro, you can specify or change a [message](#validation-message) for the custom validation</li></ul> |
-| <a name="validation-message"></a>Message | A message that is shown to end-users when **Validation Type** is **Required** or **Custom** and when the validation has failed.                          |
+## 5デザインセクション {#input-elements-design}
 
-### 3.6 Conditional Visibility Section {#visibility}
+**デザイン** セクションとそのプロパティについては、ウィジェットの [デザインセクション](page-editor-widgets-design-section) を参照してください。
 
-{{% snippet file="studio/visibility-section-link.md" %}}
+## 6もっと読む
 
-### 3.7 Design Section {#input-elements-design}
-
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
-
-## 4 Read More
-
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)
