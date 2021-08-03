@@ -1,22 +1,22 @@
 ---
-title: "Customizing Local Build Packages"
-category: "Mobile Development"
+title: "自定义本地构建包"
+category: "移动开发"
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="warning" %}}
-Building hybrid apps in the cloud uses the PhoneGap Build service from Adobe. Because Adobe no longer maintains this service, building hybrid apps in the cloud and publishing them to app stores is no longer possible.
+在云端构建混合应用使用来自Adobe的 PhoneGap 构建服务。 因为Adobe不再维持这种服务，所以在云端构建混合应用并将其发布到应用商店已经不可能。
 
-To build a hybrid app and publish it, see [How to Build a Mendix Hybrid App Locally](/howto8/mobile/build-hybrid-locally) for information on local building.
+要构建一个混合应用并发布它，请参阅 [如何本地构建一个 Mendix 混合应用](/howto8/mobile/build-hybrid-locally) 以获取本地建筑的信息。
 
-To publish your app in an app store, we recommend you build native iOS apps instead. For more information, see [How to Build Native Apps](/howto/mobile/build-native-apps).
-{{% /alert %}}
+若要在应用商店发布您的应用，我们建议您建立原生的 iOS 应用程序。 欲了解更多信息，请参阅 [如何构建本地应用程序](/howto/mobile/build-native-apps)。
+{{% /报警 %}}
 
-## 2 Downloading the PhoneGap Package
+## 2 正在下载 PhoneGap 包
 
-To download the local build  package, publish your app for mobile app stores through the Developer Portal. At the **Build Mobile App Store Packages** page, under **How should the device packages be built?**, choose the non-default option **I will manage the build process manually myself**. Click the green button to download the local build package.
+要下载本地构建包，请通过开发者门户发布您的移动应用商店应用程序。 在 **构建移动应用商店软件包** 页面上，在 **下应该如何构建设备软件包？**选择非默认选项 **我将自己手动管理构建过程** 点击绿色按钮下载本地构建包。
 
-## 3 Customizing the Local Build Package
+## 3 自定义本地构建包
 
-You can customize the local build package to suit your use case. Once you have customized your app according to your needs, you can build your app locally using the Cordova CLI or XCode by following [How to Build a Mendix Hybrid App Locally](/howto8/mobile/build-hybrid-locally).
+您可以自定义本地构建包以适合您的使用情况。 一旦您根据您的需要自定义了您的应用， 您可以通过关注 [如何在本地构建一个 Mendix 混合应用程序](/howto8/mobile/build-hybrid-locally) 来在本地使用 Cordova CLI 或 XCode 构建您的应用程序。
