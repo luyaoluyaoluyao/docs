@@ -28,7 +28,7 @@ You are configuring the domain model for an online shopping app.
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 ## 3 Defining What Data to Include
 
@@ -65,7 +65,7 @@ To add the product to your domain model, follow the steps below:
 
 1. Create the **Product** entity. Do the following:
 
-    1. Open your [domain model](/studio/domain-models).
+    1. Open your [domain model](/studio8/domain-models).
 
     2. Open **Toolbox**, drag and drop **Entity** in your domain model:
 
@@ -139,11 +139,11 @@ Do the following:
 
     4. Set the attribute **Name** to *Status* and **Type** to *Enumeration*. The enumeration will include different status values, for example, *Placed* or *Shipped*.
 
-    5. Click **Select enumeration** to create a new [enumeration](/studio/domain-models-enumeration).
+    5. Click **Select enumeration** to create a new [enumeration](/studio8/domain-models-enumeration).
 
         {{% image_container width="450" %}}![Select Enumeration](attachments/domain-model-how-to-configure/select-enumeration.png){{% /image_container %}}
 
-    6. In the **Select enumeration** dialog box, click the plus icon in the top right corner to add a new enumeration.
+    6. In the **Select enumeration** dialog box, click **New Enumeration**.
 
     7. In the **Create new enumeration** dialog box, click **Add Item** (*Status* is filled out automatically for the **Name**).
 
@@ -155,7 +155,7 @@ Do the following:
 
         {{% image_container width="450" %}}![Create Enumeration Items](attachments/domain-model-how-to-configure/create-enumeration-items.png){{% /image_container %}}
 
-    10. Click **Create** to close the dialog box and create the attribute.
+    10. Click **Create** to close the dialog boxs and create the attribute.
 
 3. Create the **Order_Line** entity to hold the order products and quantities. Use the same method as for creating the **Product** entity. For more information, see the [Defining the Product](#product) section.
 
@@ -192,7 +192,7 @@ A customer is another crucial part of the online shopping app that needs a separ
 Follow the steps below:
 
 1. Create the **Customer** entity. Use the same method as for creating the **Product** entity. For more information, see the [Defining the Product](#product) section.
-2. Create attributes for the **Customer** entity (for more information on how to create an attribute, see the [Adding New Attributes](/studio/domain-models#adding-new-attributes) section in *Domain Model*). Do the following:<br />
+2. Create attributes for the **Customer** entity (for more information on how to create an attribute, see the [Adding New Attributes](/studio8/domain-models#adding-new-attributes) section in *Domain Model*). Do the following:<br />
 1. Select the entity and click **New attribute**.
     2. In the **Create New Attribute** dialog box, set **Name** to *Customer_ID*, set **Type** to *Autonumber*, and click **Create**.
 3. Repeat step 2a to create the *Name* attribute.
@@ -217,7 +217,7 @@ You have created all the entities and their attributes:
 
 <img src="attachments/domain-model-how-to-configure/entities.png" alt="Entities" />
 
-Now you need to define how these entities are connected to each other and create associations. For more information on associations, see [Associations](/studio/domain-models-association-properties).
+Now you need to define how these entities are connected to each other and create associations. For more information on associations, see [Associations](/studio8/domain-models-association-properties).
 
 First, define how entities are connected between each other:
 
@@ -255,7 +255,7 @@ All associations are created.
 
 {{% alert type="info" %}}
 
-Alternatively, you can create an image or file entity clicking **New attribute** > **Add file or image**, in this case an association is created by default. For more information, see the [Adding New Image or File Entities](/studio/domain-models#adding-image-or-file-entities) section in *Domain Model*.
+Alternatively, you can create an image or file entity clicking **New attribute** > **Add file or image**, in this case an association is created by default. For more information, see the [Adding New Image or File Entities](/studio8/domain-models#adding-image-or-file-entities) section in *Domain Model*.
 
 {{% /alert %}}
 
@@ -263,11 +263,11 @@ Congratulations! You have now configured the domain model for the online shoppin
 
 ![Domain Model online shopping app](attachments/domain-model-how-to-configure/domain-model-online-shop.png)
 
-Now you can build [pages](/studio/page-editor) for it or use [Buzz](/studio/collaboration-buzz) to collaborate with developers and designers from your team and build the app experience.
+Now you can build [pages](/studio8/page-editor) for it or use [Buzz](/studio8/collaboration-buzz) to collaborate with developers and designers from your team and build the app experience.
 
 ## 8 Read More
 
-* [Domain Model](/studio/domain-models)
-* [Pages](/studio/page-editor)
-* [Microflows](/studio/microflows)
-* [Buzz](/studio/collaboration-buzz)
+* [Domain Model](/studio8/domain-models)
+* [Pages](/studio8/page-editor)
+* [Microflows](/studio8/microflows)
+* [Buzz](/studio8/collaboration-buzz)
