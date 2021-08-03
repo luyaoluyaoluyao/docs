@@ -1,24 +1,20 @@
 ---
-title: "XPath Contains"
+title: "XPath を含む"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-contains.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`contains()` 関数は、string 属性に特定の文字列 (大文字と小文字を区別しない) が含まれているかどうかをテストします。
 
-The `contains()` function tests whether a string attribute contains a specific string (case-insensitive) as a sub-string.
+## 2つの例
 
-## 2 Example
-
-This query returns all the customers from which the name contains the string `an`:
+このクエリは、名前が文字列 `an` を含むすべての顧客を返します:
 
 ```java
 //Sales.Customer[contains(Name, 'an')]
 ```
 
-Customers with the name "Andy" or "Jan" will be returned, for example, because "an" is part of those names.
+"andy" や "Jan" という名前のお客様は、"an" がその名前の一部であるため、例えば返却されます。
