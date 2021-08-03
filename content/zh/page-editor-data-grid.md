@@ -1,255 +1,280 @@
 ---
-title: "Data Grid"
-parent: "page-editor-widgets"
-description: "Describes a data grid in the page editor of Mendix Studio."
+title: "数据网格"
+parent: "页面编辑器部件"
+description: "在 Mendix Studio 页面编辑器中描述一个数据格。"
 menu_order: 15
 tags:
-  - "studio"
-  - "page editor"
-  - "pages"
-  - "data view"
-  - "list view"
+  - "工作室"
+  - "页面编辑器"
+  - "页面"
+  - "数据视图"
+  - "列表视图"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A *data grid* shows a list of objects in a table format. For example, a data grid can show all the program items for an event. Using controls, end-users can browse, search, and edit objects in the data grid.
+*数据网格* 显示一个表格式的对象列表。 例如，数据网格可以显示事件的所有程序项目。 使用控制，最终用户可以浏览、搜索和编辑数据网格中的对象。
 
 ![](attachments/page-editor-data-grid/data-grid-example.png)
 
-A data grid belongs to the **Data Container** category of widgets. For more information on different widget categories, see [Widgets](page-editor-widgets).
+数据网格属于 **数据容器** 小部件类别。 欲了解更多关于不同小部件类别的信息，见 [小部件](page-editor-widgets)。
 
-## 2 Data Grid Properties
+## 2 数据网格属性
 
-Data grid contains the following properties:
+数据网格包含以下属性：
 
-* [Data Source](#grid-data-source)
-* [Columns](#grid-columns)
-* [Rows](#grid-rows)
-* [Search](#grid-search)
-* [Events](#grid-events)
-* [Control Bar](#grid-control-bar)
-* [Conditional Visibility](#visibility)
-* [Design](#grid-design-section)
+* [数据源](#grid-data-source)
+* [列](#grid-columns)
+* [行](#grid-rows)
+* [搜索](#grid-search)
+* [事件](#grid-events)
+* [控制栏](#grid-control-bar)
+* [条件可见性](#visibility)
+* [设计](#grid-design-section)
 
-### 2.1 Data Source {#grid-data-source}
+### 2.1 数据来源 {#grid-data-source}
 
-The data source determines which objects will be shown in the data grid.
+数据源决定哪些对象将显示在数据网格中。
 
 ![](attachments/page-editor-data-grid/data-grid-data-source.png)
 
-The **Data Source** section properties are described in the table below:
+**数据源** 部分属性在下表中描述：
 
-| Data Source Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Database             | A data source that determines that the object or objects shown are retrieved directly from the database. You need to select an **Entity** (that you have in the domain model), or create a new entity, if you set database as the data source. <br />When you select an existing entity, the [grid columns](#grid-columns) are automatically created for each attribute of this entity. However, if the entity has more than eight attributes, you can choose whether you want to generate columns for all of them or select only several attributes. <br/>**Filter** – limits data in the data grid. You can create a filter only after you specify an entity for the data grid. For more information on data filtering, see [Data Filters](data-filters).<br />**Sort Order** – the order in which rows in the data grid are shown. You can specify a sort order only after you select an entity for the data grid. You can add multiple sorting rules. For example, you can add two sorting rules: one is to sort item by name in ascending order, and the other one is to sort items by email in descending order. Unique items will be sorted by name in ascending order, but if two or more items have the same name, then these items will be sorted by email. |
-| Microflow            | A data source that runs a selected microflow and displays a return value (as in, a list of objects).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| XPath                | Currently, this data source can only be configured in Studio Pro. For more information, see [XPath Source](/refguide8/xpath-source).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Association          | Available to data grids placed inside a data view or a list view. The data grid is filled with the objects linked to a data view/list view object by an association. Sorting columns and searching is not possible in data widgets with an association data source.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 数据源属性 | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 数据库   | 确定显示的对象或对象直接从数据库检索的数据源。 您需要选择一个 **实体** (即您在域模型中已有)， 或创建一个新实体，如果您设置数据库为数据源。 <br />当您选择一个现有实体时，此实体的每个属性将自动创建 [网格列](#grid-columns)。 然而，如果该实体有八个以上的属性， 您可以选择是想要为所有它们生成列，还是只选择几个属性。 <br/>**过滤** - 限制数据网格中的数据。 您只能在为数据网格指定实体后才能创建过滤器。 欲了解更多关于数据过滤的信息，请参阅 [数据过滤器](data-filters)。<br />**排序顺序** - 显示数据网格中行的顺序。 您只能在为数据网格选择实体后才能指定排序顺序。 您可以添加多个排序规则。 例如，您可以添加两个分类规则：一个是按名称按升序排序。 另一个是通过电子邮件按降序排序。 唯一的项目将按名称升序排序 但如果两个或多个项目具有相同的名字，那么这些项目将通过电子邮件排序。 |
+| 微流    | 一个运行选定微流并显示返回值的数据源(例如在对象列表中)。                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| XPath | 目前，此数据源只能在 Studio Pro中配置。 欲了解更多信息，请参阅 [XPath Source](/refguide/xpath-source)。                                                                                                                                                                                                                                                                                                                                                                               |
+| 协会    | 可放置在数据视图或列表视图中的数据网格。 数据网格被关联到数据视图/列表视图对象的对象填充。 在带有关联数据源的数据部件中无法排列列列和搜索。                                                                                                                                                                                                                                                                                                                                                                                     |
 
-For general information on data sources, see [Data Sources](/refguide8/data-sources) in the *Studio Pro Guide*.
+关于数据源的一般信息，见 [数据源](/refguide/data-sources) 在 *Studio Pro 指南* 中。
 
-### 2.2 Columns {#grid-columns}
+### 2.2 列 {#grid-columns}
 
-In **Columns** section, you can set the width for the data grid columns, add columns, edit, and delete them.
+在 **列** 部分中，您可以设置数据网格列的宽度，添加列，编辑和删除。
 
 ![](attachments/page-editor-data-grid/data-grid-columns-section.png)
 
-The **Columns** section properties are described in the table below:
+**列** 部分属性在下表中描述：
 
-| Property        | Description                                                                                                                                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Column Width in | Determines whether column widths can be set to fixed pixel values or if they should automatically scale to the width of the grid. Possible values of this property are the following: <ul><li>**Percentages** – column widths will be scaled to the widths of the grid, you can override width for each column, clicking the **Edit** icon and going to the [**Grid Column** properties](#grid-column-properties)</li><li>**Pixels** – column width will be set to fixed pixel values. *Auto* next to the **Edit** icon means that these columns have auto width and are evenly scaled in the data grid. You can override width for each column, clicking the **Edit** icon and going to the [**Grid Column** properties](#grid-column-properties). If you, for example, select a custom width for one column and make it bigger, the other columns with auto width will still be evenly scaled in the remained space.</li></ul> |
-| Columns         | Lists all the columns in the data grid. If you want to change the order of columns, click and drag the column name. Possible actions of this property are the following: <ul><li>**Reset Widths** – resets all custom widths to default values</li><li>**Edit** icon– navigates you to the [**Grid Column** properties](#grid-column-properties), where you can change its data source, name and width of the column</li><li>**Add Column** – adds a new column to the data grid and navigates you to the [**Grid Column** properties](#grid-column-properties)</li></ul>              |
+| 财产   | 描述                                                                          |
+| ---- | --------------------------------------------------------------------------- |
+| 列宽度为 | 确定列宽是否可以设置为固定像素值，或者是否应自动缩放到网格宽度。 此属性的可能值如下： <ul><li>**百分比** - 列宽将缩放到网格的宽度，您可以覆盖每一列的宽度， 点击 **编辑** 图标并前往[**格志列** 属性](#格列属性)</li><li>**像素** - 列宽将设置为固定像素值。 *自动*在**编辑**图标旁边，意味着这些列具有自动宽度并在数据网格中均匀缩放。 您可以覆盖每一列的宽度，单击**编辑** 图标并前往[**格志列** 属性](#格列属性)。 例如，如果您选择一个列的自定义宽度并使它更大， 具有自动宽度的其他列仍将在剩余空间内平均缩放。</li></ul>        |
+| 列    | 列出数据网格中的所有的列表。 如果您想更改列的顺序，请单击并拖动列名称。 该财产可能采取的行动如下： <ul><li>**重置宽度** - 重置所有自定义宽度为默认值</li><li>**编辑** 图标——导航你到 [**格志列** 属性](#格志列属性)，在那里你可以更改它的数据源、名称和宽度</li><li>**添加列** - 添加新列到数据网格并导航到[**格志列** 属性](#格列属性)</li></ul> |
 
-#### 2.2.1 Grid Column Properties {#grid-column-properties}
+#### 2.2.1 网格列属性 {#grid-column-properties}
 
-In the **Grid Column** properties, you can select the attribute, change the name, width, and editability of the data grid column.
+在 **网格列** 属性中，您可以选择属性，更改数据网格列的名称、宽度和可编辑性。
 
-![](attachments/page-editor-data-grid/grid-column-properties.png)
+{{% image_container width="300" %}}![](attachments/page-editor-data-grid/grid-column-properties.png)
+{{% /image_container %}}
 
-The properties are described in the table below:
+这些属性如下表所示：
 
-| Property           | Description                                                                                                                                                                                                                                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Attribute          | Determines which attribute of the object will be displayed in this column. Note that you need to configure the grid's data source first to select an attribute. For more information, see section [2 Data Source](#grid-data-source).                                                                                            |
-| Caption            | Defines which caption will be shown in the column header.                                                                                                                                                                                                                                                                        |
-| Width              | Displayed for **Column Width In** set to *Percentages*. Determines how much space in percentage the column should take.                                                                                                                                                                                                          |
-| Fixed Width        | Displayed for **Column Width In** set to *Pixels*. Determines if this column should have a fixed width or use the available space. When enabled, you can type in the fixed width in **Width In Pixels** (see below).                                                                                                             |
-| Width In Pixels    | Displayed only when **Fixed Width** is enabled. You can type in the value in this setting for the fixed column width.                                                                                                                                                                                                            |
-| Editable           | When enabled, clicking fields in this column will allow end-users to edit values directly, without the need for an edit form. <br />Only available if **Database** is selected as the data source of the grid. For more information on data source, see section [2 Data Source](#grid-data-source).                        |
-| Aggregate Function | With this property, you can calculate a sum, count, average, minimum, or maximum value that will be calculated and shown at the bottom of the data grid column. For example, you can display the total number of orders of a customer.<br />Only available for columns with attributes of type Decimal, Integer, and Long. |
-| Aggregate Caption  | Displayed only when **Aggregate Function** is selected. Defines which caption will be shown at the bottom of the grid column.                                                                                                                                                                                                    |
+在</strong> 设置为 *百分比* 中显示 **列宽度 </em> 。 确定该列所占百分比的空间。</td> </tr> 
 
-### 2.3 Rows {#grid-rows}
+在</strong> 设置为 *像素* 中显示 **列宽度 </em> 。 确定此列是否具有固定宽度或使用可用的空间。 When enabled, you can type in the fixed width in **Width In Pixels** (see below).</td> </tr> 
 
-In the **Rows** section, you can set up the number of rows to be displayed on the data grid page, and the way to display them.
+</tbody> </table> 
+
+
+
+### 2.3 行 {#grid-rows}
+
+在 **行** 部分中 您可以设置要显示在数据网格页面的行数以及显示它们的方式。 
 
 ![](attachments/page-editor-data-grid/data-grid-rows-section.png)
 
-The properties are described in the table below:
+这些属性如下表所示：
 
-| Property        | Description                                                                                                                               |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Number of Rows  | The maximum number of rows shown on one page of the data grid.                                                                            |
-| Show Empty Rows | When enabled, the data grid will always show the specified number of rows, even when the grid does not contain enough items to fill them. |
+| 财产   | 描述                                  |
+| ---- | ----------------------------------- |
+| 行数   | 显示在数据网格的一个页面上的最大行数。                 |
+| 显示空行 | 如果启用，数据网格将始终显示指定行数，即使网格中没有足够的项目来填写。 |
 
-### 2.4 Search {#grid-search}
 
-End-users can search for objects in the data grid if you enable search. You can determine the behavior of  search bar controls, as well as add, edit, and delete search fields.
+
+
+### 2.4 搜索 {#grid-search}
+
+如果您启用搜索，最终用户可以在数据网格中搜索对象。 您可以确定搜索栏控制以及添加、编辑和删除搜索字段的行为。 
 
 ![](attachments/page-editor-data-grid/data-grid-search-section.png)
 
-The **Search** section properties are described in the table below:
+**搜索** 部分属性在下表中描述：
 
-| Property             | Description                                                                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Enable Search        | When enabled, the end-user can search for objects in the data grid; when disabled no search bar or search button are displayed.                                                                                                                        |
-| Show Search Controls | Determines the way the search bar toggle button functions, and, as a result, how the search bar is displayed. This property is only displayed if **Enable Search** is on. Possible values of this property are the following: <ul><li>**With toggle button (initially open)** – the end-user can open and close the search bar using the **Search Bar Toggle Button**; the search bar is initially open (for more information on the **Search Bar Toggle Button**, see section [2.5.1. Grid Action Buttons](#grid-action-button))</li><li>**With toggle button (initially closed)** – the end-user can open and close the search bar using the **Search Bar Toggle Button**; the search bar is initially closed</li><li>**Always** – the search bar is always visible, there is no search bar toggle button</li></ul> |
-| Search Fields        | Lists search fields in the search bar. To change the order of fields, click and drag the field name. Possible actions of this property are the following: <ul><li>**Reset Search Field** – deletes all custom search fields and re-populates the bar with the default set of search fields – one for each applicable attribute with default values.</li><li>**Edit** icon – navigates you to the [**Search Field** properties](#grid-search-fields), where you can edit the search field</li><li>**Add Search Field** –  creates a new search field and navigates you to the [**Search Field** properties](#grid-search-fields), where you can configure the new search field</li></ul>                                                                     |
+| 财产     | 描述                                                                                   |
+| ------ | ------------------------------------------------------------------------------------ |
+| 启用搜索   | 启用时，最终用户可以在数据网格中搜索对象；当禁用时，没有显示搜索栏或搜索按钮。                                              |
+| 显示搜索控件 | 确定搜索栏切换按钮功能的方式，以及搜索栏的显示方式。 只有在 **启用搜索** 时才显示此属性。 此属性的可能值如下： <ul><li>**通过开关按钮(最初打开)** - 最终用户可以使用 **搜索栏切换按钮**来打开和关闭搜索栏； 搜索栏最初是打开的(关于**搜索栏切换按钮**的更多信息见部分“2”。 1. 选举主席团成员 网格动作按钮](#网格动作按钮))</li><li>**通过切换按钮(最初关闭)** - 最终用户可以使用 **搜索栏切换按钮**来打开和关闭搜索栏； 搜索栏最初已关闭</li><li>**总是** - 搜索栏总是可见的，没有搜索栏切换按钮</li></ul> |
+| 搜索字段   | 列出搜索栏中的搜索字段。 要更改字段的顺序，请单击并拖动字段名称。 该财产可能采取的行动如下： <ul><li>**重置搜索字段** - 删除所有自定义搜索字段，并使用默认搜索字段集重新填充栏——每个适用的属性使用默认值。</li><li>**编辑** 图标——导航你到[**搜索字段** 属性](#grid-search-fields)，你可以在那里编辑搜索字段</li><li>**添加搜索字段** - 创建一个新的搜索字段，并导航你到[**搜索字段** 属性](#grid-search-fields)，你可以在那里配置新的搜索字段。</li></ul>             |
 
-#### 2.4.1 Search Field Properties {#grid-search-fields}
 
-You can select the type of the search field in the **Search Field Properties**. Each type has its specific properties.
 
-##### 2.4.2.1 Search Field Types
 
-Search field can be of three types:
+#### 2.4.1 搜索字段属性 {#grid-search-fields}
+
+您可以在 **搜索字段属性** 中选择搜索字段的类型。 每种类型都有其特定属性。 
+
+
+
+##### 2.4.2.1 搜索字段类型
+
+搜索字段可以是三种类型：
 
 ![](attachments/page-editor-data-grid/search-field-types.png)
 
-* **Input** – search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: AutoNumber, Date and Time, Integer, Long, String, Decimal
-* **Range** –  will apply a filter based on whether the search term falls between the values of two selected attributes. Possible attribute types: AutoNumber, Date and Time, Integer, Long, Decimal
-* **Drop-down** – search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: Boolean, Enumerations, Associations
+* **输入** - 搜索结果是通过将其与给定的搜索词进行比较来筛选的。 如果搜索值匹配属性值，此对象将是搜索结果的一部分。 可能的属性类型：自动编号、 日期和时间、 Integer, Long, String, Decimal
+* **范围** - 将根据搜索词是否在两个选定属性的值之间应用一个过滤器。 可能的属性类型：自动编号、 日期和时间、 Integer、 Long、 Decimal
+* **下拉** -- 搜索结果是通过将其与给定的搜索词进行比较来筛选的。 如果搜索值匹配属性值，此对象将是搜索结果的一部分。 可能的属性类型：布尔值、 枚举、 关联
 
-##### 2.4.2.2 Search Field Common Properties
 
-The following properties are common for all types of search fields:
 
-* **Label** – the name of the search field
+##### 2.4.2.2 搜索字段公共属性
 
-*  **Default Value** – defines a  prefilled value for the search field
+以下属性是所有类型搜索字段常见的：
 
-    ![](attachments/page-editor-data-grid/search-fields-common-properties.png)
+* **标签** -- 搜索字段名称
 
-##### 2.4.2.3 Input and Drop-down Search Field Specific Properties
+*  **默认值** -- 定义搜索字段的预填值
+  
+  ![](attachments/page-editor-data-grid/search-fields-common-properties.png)
 
-Input and drop-down search fields have the following specific properties:
 
-* **Attribute** – the value of the selected attribute will be compared to the search term.
 
-*  **Comparison** – the method used to compare the attribute with the search term.
+##### 2.4.2.3 输入和下拉搜索字段特定属性
 
-    ![](attachments/page-editor-data-grid/input-and-drop-down-search-field-properties.png)
+输入和下拉搜索字段具有以下特定属性：
 
-##### 2.4.2.4 Range Search Field Specific Properties
+* **属性** - 所选属性的值将与搜索词相比较。
 
-A range search field has the following specific properties:
+*  **比较** - 用来比较属性和搜索词的方法。
+  
+  ![](attachments/page-editor-data-grid/input-and-drop-down-search-field-properties.png)
 
-* **Minimum Value** – determines which attribute of the entity the search term must exceed
 
-  * **Include Minimum Value** – when enabled, the minimum value is included into the range
 
-* **Maximum Value** – determines which attribute of the entity the search term must fall below
+##### 2.4.2.4 范围搜索域特定属性
 
-  *  **Include Maximum Value** –  when enabled, the maximum value is included into the range
+范围搜索字段具有以下特定属性：
 
+* **最小值** - 决定搜索条件必须超过实体的哪个属性
+  
+    * **包括最小值** - 启用后，最小值将包含在范围内
+* **最大值** - 决定搜索词必须低于哪个实体的属性
+  
+      *  **包括最大值** - 启用后，最大值将包含在范围内
+      
       ![](attachments/page-editor-data-grid/range-search-field-properties.png)
 
-### 2.5 Control Bar {#grid-control-bar}
 
-The control bar allows you to control the objects displayed in the data grid by means of buttons.
 
-The **Control Bar** section properties are described below:
+### 2.5 控制栏 {#grid-control-bar}
 
-*  **Show Paging Controls** – indicates if the buttons for paging through the data grid are visible to the end-user and has the following options:
+控制栏允许您通过按钮控制数据网格中显示的物体。 
 
-    * **Yes (with total count)** – paging buttons are shown, including the **Go to last page** button and the total count of objects
-    * **Yes (without total count)** – paging buttons are shown except for the **Go to last page** button. Also, the total count of objects is not shown, as page numbers are shown instead
-    * **No** – The paging buttons are not shown. Hide the buttons if you are sure that the data grid will contain only one page
+**Control Bar** 部分属性描述如下： 
 
-        ![Show Paging Controls](attachments/page-editor-data-grid/control-bar-show-paging-controls.png)
+*  **显示分页控件** - 表示通过数据网格进行分页的按钮是否对最终用户可见，并且有以下选项：
+  
+      * **是 (总计数)** -- 分页按钮已显示， 包括 **转到最后一页** 按钮和对象总计数
+    * **是 (不包含总计数)** -- 页面按钮显示，但 **转到最后一页** 按钮除外。 此外，不显示对象的总计数，因为页数会反而显示。
+    * **无** -- 未显示分页按钮。 如果您确定数据网格只包含一个页面则隐藏按钮
+      
+      ![显示分页控制](attachments/page-editor-data-grid/control-bar-show-paging-controls.png)
 
-* **Show Buttons** – determines whether the buttons defined in the **Buttons** section are shown. If disabled, none of the buttons will be accessible in any way, other than the one designated as the **On Click Action**. For more information, see sections [2.5.1 Grid Action Button](#grid-action-button) and [2.6 Events](#grid-events)
+* **显示按钮** — — 决定是否显示在 **按钮** 部分中定义的按钮。 如果禁用，除被指定为 **的按钮** 之外，任何其他按钮都无法以任何方式访问。 欲了解更多信息，请参阅第 [2.5.1 网格动作按钮](#grid-action-button) 和 [2.6 Events](#grid-events)
 
-*  **Buttons** – lists buttons in the control bar. A button set as **On Click Action** in the **Events** section will be indicated as *On Click Action.* This means that even if buttons are hidden, when the end-user clicks or double clicks (depending on settings in the [Events](#grid-events) section) the grid item, the default button (action) will be triggered
+*  **按钮** — — 列出控制栏中的按钮。 在 **事件** 部分中设置为 **单击动作** 按钮将被标记为 *点击动作。* 这意味着，即使按钮被隐藏， 当最终用户点击或双击(取决于 [事件](#grid-events) 部分中的设置)网格项 默认按钮 (动作) 将被触发
+  
+  ![](attachments/page-editor-data-grid/control-bar-default-button.png)
+  
+    * **编辑** 图标 - 取决于按键导航您到 [**网格动作按钮** 属性](#grid-action-button)或至 [**搜索栏切换** 属性](#search-bar-toggle)
+  * **添加按钮** - 导航您到 [**网格动作按钮** 属性](#grid-action-button)您可以在哪里为数据网格配置新的按钮。 当您创建一个新按钮时， 此按钮的动作被添加到 **事件** 部分中可能的单击动作列表中(以便获得更多信息) 见第 [节。 事件](#grid-events))
 
-    ![](attachments/page-editor-data-grid/control-bar-default-button.png)
 
-  * **Edit** icon – depending on the button navigates you either to [**Grid Action Button** properties](#grid-action-button), or to [**Search Bar Toggle** properties](#search-bar-toggle)
-  * **Add Button** – navigates you to [**Grid Action Button** properties](#grid-action-button), where you can configure a new button for the data grid. When you create a new button, the action of this button is added to the list of possible on-click actions in the **Events** section (for more information, see section [2.6 Events](#grid-events))
 
-#### 2.5.1 Grid Action Buttons {#grid-action-button}
+#### 2.5.1 网格动作按钮 {#grid-action-button}
 
-A **Grid Action** button performs an action in the data grid. It can also be set as a default action for an **On Click Action** (except the **Search Bar Toggle**), this means that when an end-user clicks or double clicks (depending on the settings) the grid item, the default button will be triggered.
+**网格动作** 按钮在数据网格中执行一个动作。 它也可以设置为 **的默认动作。点击操作** (除了 **搜索栏切换**外) 这意味着当最终用户点击或双击(取决于设置)网格项时，将触发默认按钮。 
 
-By default, the data grid will be created with a **Search Bar Toggle Button**, **New**, **Edit**, and **Delete** button in the control bar.
+默认情况下，将使用 **搜索栏切换按钮**创建数据网格， **新的**, **编辑**, 和 **删除控制栏中的** 按钮。 
 
-You can add more buttons to the data grid and configure them for a specific on-click action.
+您可以添加更多按钮到数据网格并为具体的点击动作配置它们。 
 
-In the **On Click Action** section, you can select a data grid specific action for a button (for example, deselect all or export to Excel), or a standard one (for example, execute a microflow or save changes). For more information on buttons and standard on click actions, see [Buttons](page-editor-widgets-buttons) and [Events Section](page-editor-widgets-events-section).
+在 **单击动作** 部分中，您可以选择一个数据网格的特定动作来按钮 (例如) 取消选中所有或导出到 Excel，或标准一个 (例如，执行微流程或保存更改)。 关于点击动作的按钮和标准的更多信息，请参阅 [按钮](page-editor-widgets-buttons) 和 [事件部分](page-editor-widgets-events-section)。
 
-Data grid specific actions are the following ones:
+数据网格的具体行动如下：
 
-*  <a name="search-bar-toggle"></a> **Search Bar Toggle Button** – opens or hides the search bar when you click it and is specific for the data grid. This button cannot be used if the data source is set to *Microflow*. Note that if the **Show Search Control** property is set to **Always**, there is no search bar toggle button, as the search bar is always open
+*  <a name="search-bar-toggle"></a> **搜索栏切换按钮** - 当您点击搜索栏并为数据网格指定时打开或隐藏搜索栏。 如果数据源设置为 *Microflow* ，此按钮不能使用。 注意，如果 **显示搜索控制** 属性设置为 ****没有搜索栏切换按钮，因为搜索栏总是打开
+  
+  ![](attachments/page-editor-data-grid/search-bar-toggle-button.png)
 
-    ![](attachments/page-editor-data-grid/search-bar-toggle-button.png)
+* **创建** - 允许终端用户在网格中创建新对象(详细信息，见 [2.5.1.1 网格创建按钮](#grid-create-button))
 
-* **Create** – allows end-users to create new objects in a grid (for more information, see section [2.5.1.1 Grid Create Button](#grid-create-button))
+* **选择** - 确认当网格用于选择一个关联作为数据源或参考集选择器的下拉对象时对网格行的选择。 出于这一原因， 选择按钮只能放置在连接到下拉列表的网格上，关联的关联作为数据源或参考集选择器
 
-* **Select** – confirms the choice of a row of the grid when it is used for selecting an object for a drop-down with an association selected as a data source or reference set selector. For this reason, the select button can only be placed on a grid that is connected to a drop-down with an association as a data source or a reference set selector
+* **选择所有** - 允许最终用户在网格中选择所有对象； 只能在您设置 [选择模式](#selection-mode) 为 **多选项，** 或 **单击多选项，** (更多信息) See section [2. 事件](#grid-events))
 
-* **Select All** – allows the end-user to select all objects in the grid; can only be used if you set [Selection Mode](#selection-mode) to **Multi-selection** or **One-click multi-selection** (for more information, see section [2.6 Events](#grid-events))
+* **取消选择所有** - 取消在网格中选择所有选中对象
 
-* **Deselect All** – deselects all selected objects in the grid
+* **导出到 CSV** - 导出网格的内容到一个 CSV 文件。 csv 导出函数依赖于特定的数据检索方法，不能在具有 **数据库** 数据源的数据网格中使用。
+  
+      * **最大行数** — 定义了要导出的最大行数。
+* **导出到 Excel** - 导出网格的内容到 Excel 文件。 Excel导出函数依赖于特定的数据检索方法，不能在具有 **数据库** 数据源的数据网格中使用。
+  
+      *  **最大行数** — 定义了要导出的最大行数。
 
-* **Export to CSV** – export the contents of the grid to a CSV file. The csv export function relies on a specific data retrieval method, and cannot be used in a data grid with **Database** data source.
-
-    * **Maximum Number Of Rows** – defines the maximum number of rows to be exported.
-
-* **Export to Excel** – export the contents of the grid to an Excel file. The Excel export function relies on a specific data retrieval method, and cannot be used in a data grid with **Database** data source.
-
-    *  **Maximum Number Of Rows** – defines the maximum number of rows to be exported.
-
-    *  **Date Export Format** – defines how dates will be exported. When *Date value* is selected, date values will be exported as real dates, allowing Excel functions on them. When *Text* is selected, date values will be exported exactly as shown in the data grid without allowing Excel to format them.
-
+    *  **日期导出格式** - 定义了将如何导出日期。 当选择 *日期值* 时，日期值将被导出为实际日期，允许Excel函数。 当选择 *文本* 时，日期值将按数据网格中显示的方式导出，而不允许Excel格式化。
+      
       ![](attachments/page-editor-data-grid/grid-export-to-excel-button.png)
 
-#### 2.5.1.1 Grid Create Button {#grid-create-button}
 
-The **Create** button allows end-users to create new objects in the data grid.
 
-![](attachments/page-editor-data-grid/grid-create-button.png)
+#### 2.5.1.1 网格创建按钮 {#grid-create-button}
 
-Users can edit new objects in the location specified in the **Edit Location** option. You can choose the following locations:
+**创建** 按钮允许最终用户在数据网格中创建新的对象。
 
-* **In a page** – the new object is added and can be edited in a page. The page in which this instance is being edited can be set with the page property.
-    * **Page** – this property is only displayed when the **Edit Location** is set to **In a page** and it indicates the page that is shown to end-users when they click this button. The end-user can use this page to edit the newly created object before it is saved. This page should contain a data view connected to the same entity as the data grid.
-* **Inline at a top** – the new object is added at the top of the grid and can be edited inline.
-* **Inline at bottom** – the new object is added at the bottom of the grid and can be edited inline.
+![](attachments/page-editor-data-grid/grid-create-button.png) 
 
-### 2.6 Events {#grid-events}
+用户可以在 **编辑位置** 选项中编辑新的对象。 您可以选择以下位置： 
 
-In the **Events** section, you can select the actions performed automatically when an end-user clicks an item in the grid. You can also determine whether the user can select items, and the way the user can select them.
+* **在一个页面** — 新对象已被添加并可以在一个页面中编辑。 正在编辑此实例的页面可以与页面属性一起设置。 
+      * **页面** - 此属性仅在 **编辑位置** 被设置为 **页面** 时才显示，并指明当最终用户点击此按钮时显示给他们的页面。 最终用户可以在保存之前使用此页面编辑新创建的对象。 此页面应包含一个与数据网格连接到同一个实体的数据视图。
+* **内嵌在顶部** -- 新对象被添加到网格顶部并可以在网上编辑。
+* **内嵌在底部** — 新对象添加在网格底部并可以在网上编辑。
+
+
+
+### 2.6 事件 {#grid-events}
+
+在 **事件** 部分中，当最终用户点击网格中的一个物品时，您可以选择自动执行的动作。 您也可以确定用户是否可以选择项目，以及用户可以选择它们的方式。 
 
 ![](attachments/page-editor-data-grid/data-grid-events.png)
 
-The **Events** section properties are described in the table below:
+**事件** 部分属性在下表中描述： 
 
-| Property                                     | Description                                                                                                                                                                                                                                                               |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **On Click Action**                          | Describes which control bar button should be triggered when clicking a grid item. You can create a new action in the **Control Bar** section and it will appear in the drop-down list of this property. Possible actions are the following ones: <ul><li>**None** – no action is taken</li><li>**New** – a new object is created</li><li>**Edit** – a user can edit the item</li><li>**Delete** – the item is deleted from the data grid</li></ul> |
-| **On Click Action Trigger**                  | Determines how the action selected in the **On Click Action** property is triggered. Possible values of this property are the following: <ul><li>**Double-click** – a double click triggers the selected on-click action</li><li>**Single-click** – a single click triggers the selected on-click action. Single-click cannot be used in combination with **Single selection** mode (see below)</ul>                                                                                                         |
-| **Selection Mode** <a name="selection-mode"></a> | Determines the way an end-user selects item in the data grid. Possible values of this property are the following: <ul><li>**No selection** – the user cannot select items</li><li>**Single selection** –  the user can select one item at a time by clicking it</li><li>**Always one selection** – the user can select one item at a time by clicking it, however, the user cannot deselect an item (by default the first item will be selected)</li><li>**Multi-selection** – the user can select multiple items by clicking the first one and holding the <kbd>Ctrl</kbd> key while clicking other items. Simply clicking an item will deselect all items and make the clicked item the selection.</li><li>**One-click multi-selection** – the user can select multiple items by simply clicking them.</li></ul>                                                                                                                                |
+| 财产                                 | 描述                                                                                                       |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| **点击动作**                           | 描述点击网格项目时触发哪个控制栏按钮。 您可以在 **Control Bar** 部分创建一个新的动作，它将出现在这个属性的下拉列表中。 可能采取的行动如下： <ul><li>**无** - 不采取任何行动</li><li>**新** - 创建一个新对象</li><li>**编辑** - 用户可以编辑项目</li><li>**删除** - 从数据网格中删除项目</li></ul> |
+| **点击动作触发器**                        | 确定如何触发在 **单击动作** 属性中选择的动作。 此属性的可能值如下： <ul><li>**双击** - 双击触发选定的点击动作</li><li>**单击** - 单击触发选定的单击动作。 单击不能与 **单选中** 模式合并使用(见下文)</ul>                                           |
+| **选择模式** <a name="selection-mode"></a> | 确定最终用户在数据网格中选择项目的方式。 此属性的可能值如下： <ul><li>**没有选择** - 用户不能选择项目</li><li>**单个选择** - 用户可以一次通过单击选择一个项目</li><li>**总是一个选择** - 用户可以一次点击它选择一个项目。 然而，用户不能取消选择一个项目 (默认第一个项目将被选择)</li><li>**多选** - 用户可以通过点击第一个选项，按住 <kbd>Ctrl</kbd> 键并点击其他项目来选择多个项目。 只需单击项目就可以取消选择所有项目并使单击项目成为选中项目。</li><li>**单击多个选择** - 用户可以单击它们来选择多个项目。</li></ul>                                                 |
 
-### 2.7 Conditional Visibility {#visibility}
 
-{{% snippet file="studio/visibility-section-link.md" %}}
 
-### 2.8 Design {#grid-design-section}
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+### 2.7 条件可见性 {#visibility}
 
-## 3 Read More
+{{% snippet file="studo/visibility-section-link.md" %}}
 
-* [Pages](page-editor)
+
+
+### 2.8 设计 {#grid-design-section}
+
+关于 **设计** 部分及其属性的信息，请参阅 [设计部分](page-editor-widgets-design-section)。
+
+
+
+## 3 阅读更多
+
+* [页 次](page-editor)
