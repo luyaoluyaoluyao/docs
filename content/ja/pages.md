@@ -1,65 +1,65 @@
 ---
-title: "Pages"
-category: "App Modeling"
+title: "ページ"
+category: "アプリモデリング"
 menu_order: 30
 tags:
-  - "Pages"
-  - "Widgets"
+  - "ページ"
+  - "ウィジェット"
   - "Studio Pro"
-  - "page structure"
+  - "ページ構造"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A page is the basic end-user interface of a Mendix application. It is used to display information to the end-user, allow end-users to create and edit information, and enable end-users to trigger additional automated processing.
+ページはMendixアプリケーションの基本的なエンドユーザーインターフェイスです。 エンドユーザーに情報を表示し、エンドユーザーが情報を作成および編集できるようにし、エンドユーザーが追加の自動処理をトリガーできるようにするために使用されます。
 
-Mendix is a [Single Page Application (SPA)](https://en.wikipedia.org/wiki/Single-page_application) which means that all interaction takes place in a single browser tab/window. A consequence of this is that new pages cannot be opened in a different tab or window.
+Mendixは [シングルページアプリケーション (SPA)](https://en.wikipedia.org/wiki/Single-page_application) であり、すべてのインタラクションが単一のブラウザタブ/ウィンドウで行われることを意味します。 その結果、新しいページを別のタブまたはウィンドウで開くことはできません。
 
-Pages are created, edited, and manipulated in the page editor.
+ページはページエディタで作成、編集、操作されます。
 
-Every page is based on a page [layout](layout) and a page template. A layout is a frame you put your page in. A page template is a basis with predefined elements (widgets).
+各ページはページ [レイアウト](layout) とページ テンプレートに基づいています。 レイアウトとは、ページを挿入するフレームのことです。 ページテンプレートは、定義済みの要素 (ウィジェット) を持つベースです。
 
 ![](attachments/pages/page-structure.png)
 
-Pages can be linked, so that one page can open another page. If this second page contains a [data widget](data-widgets) with a page parameter data source, then an object or objects can be passed from the current page to the new page. For information on opening pages, and triggering other sorts of event, see [On Click Event & Events Section](on-click-event).
+あるページが別のページを開くことができるように、ページをリンクすることができます。 この第 2 ページに [データ ウィジェット](data-widgets) が含まれている場合、ページパラメータのデータ ソースを使用します。 すると、現在のページから新しいページにオブジェクトまたはオブジェクトを渡すことができます。 ページを開き、その他の種類のイベントをトリガーする方法については、 [[イベント & イベント セクション](on-click-event)] を参照してください。
 
-Pages are opened either in the current pane of the browser or in a pop-up, child, window. Where the page is opened depends on its [layout type](layout#layout-type). Mendix performs navigation as efficiently as possible. If a new page uses the same layout as the old one, only the data on the page will refresh rather than the whole page being built from scratch.
+ページは、ブラウザーの現在のペイン、またはポップアップ、子ウィンドウのいずれかで開かれます。 ページが開かれる場所は、 [レイアウト タイプ](layout#layout-type) によって異なります。 Mendixは、可能な限り効率的にナビゲーションを実行します。 新しいページが古いページと同じレイアウトを使用している場合 ページのデータだけがリフレッシュされるのはページ全体がゼロから作られるのではなく
 
-For more information on page properties, see [Page](page).
+ページ プロパティの詳細については、 [ページ](page) を参照してください。
 
-## 2 Page and Page Resources
+## 2ページとページのリソース
 
-In addition to a page, you can add page resources in the page editor. They help structure your page, style it, and fill it with data. For more on how to add page resources, see [Page Resources](page-resources).
+ページに加えて、ページ エディターにページ リソースを追加できます。 ページの構造、スタイル、データで埋めるのに役立ちます。 ページリソースを追加する方法については、 [ページリソース](page-resources) を参照してください。
 
-| Type                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [![](attachments/pages/layout-icon.png)Layout](layout)                               | A [layout](layout) is a frame that your page is placed in. If you change the layout, all pages based on it will inherit this change. <br />Layout contain predefined elements that ensure unified and consistent look and feel of your application across one platform: the position of the header, size of the logo, position of the menu, etc. For example, in responsive layouts the header can be wide and with a big logo, while in mobile layouts the header will be narrower and the logo will be smaller due to the limited space. |
-| [![](attachments/pages/page-template-icon.png)Page template](page-templates)         | A [page template](page-templates) is a basis for your page that predefines its structure. For example, you can create a page template for a customer list that will contain list views with images in it. Thus, every time you need to create a page with similar list on it, you will base it on this template.    By mapping out common design patterns, a lot of the initial work involved in creating a new page can be simplified by setting up a proper set of page templates.                                                             |
-| [![](attachments/pages/snippet-icon.png)Snippet](snippet)                            | A [snippet](snippet) defines reusable interface parts. They can be used on pages and layouts. By using snippets, you will make changes in fewer places if you want to modify the interface. For example, you can have a snippet that is used both in the contents area of a template grid and in a data view. If you add a row to a table in the snippet, that change will show up in both places.                                                                                                                                               |
-| [![](attachments/pages/building-block-icon.png)Building block](building-block)       | A [building block](building-block) is pre-styled set of widgets. Building blocks will automatically appear in the page editor toolbox, allowing for easy reuse. By designing a comprehensive library of building blocks, a great deal of the fussy work involved in page design can be averted.                                                                                                                                                                                                                                                  |
-| [![](attachments/pages/page-icon.png)Page](page)                                     | A [page](page) is the end-user interface of a Mendix application. Pages are the things that are actually shown to the end-user.                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| [![](attachments/pages/menu-icon.png)Menu](menu)                                     | A [menu](menu) defines a menu structure that can be used by a menu widget.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| [![](attachments/pages/image-collection-icon.png)Image collection](image-collection) | An [image collection](image-collection) is a page resource where you place custom images to use them in your application. For more information, see [Images](images).                                                                                                                                                                                                                                                                                                                                                                            |
+| タイプ                                                                          | 説明                                                                                                                                                                                                                                                                                      |
+| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![](attachments/pages/layout-icon.png)レイアウト](レイアウト)                         | [レイアウト](layout) はページが配置されるフレームです。 レイアウトを変更すると、それに基づくすべてのページがこの変更を継承します。 <br />レイアウトには定義済みの要素が含まれており、1つのプラットフォームでアプリケーションの統一された一貫したルックアンドフィール(ヘッダーの位置)が保証されています。 ロゴのサイズやメニューの位置などです 例えば、レスポンシブレイアウトでは、ヘッダーが幅広く、大きなロゴを使用することができます。 一方、モバイルレイアウトではヘッダーは狭くなり、スペースが限られているためロゴは小さくなります。 |
+| [![](attachments/pages/page-template-icon.png)ページテンプレート](page-templates)     | [ページ テンプレート](page-templates) は、その構造を事前に定義するページの基礎です。 たとえば、画像を含むリストビューを含む顧客リストのページテンプレートを作成できます。 したがって、同じようなリストを持つページを作成する必要があるたびに、このテンプレートをベースにします。    共通のデザインパターンをマッピングすることで 新しいページの作成にかかわる最初の作業の多くは、適切なページテンプレートのセットを設定することによって簡単になります。                                               |
+| [![](attachments/pages/snippet-icon.png)Snippet](snippet)                    | [スニペット](snippet) は、再利用可能なインターフェイス部品を定義します。 ページとレイアウトで使用できます。 スニペットを使用すると、インターフェイスを変更したい場合は、より少ない場所で変更を加えることができます。 たとえば、テンプレートグリッドのコンテンツエリアとデータビューの両方で使用されるスニペットを持つことができます。 スニペット内のテーブルに行を追加すると、両方の場所に変更が表示されます。                                                                         |
+| [![](attachments/pages/building-block-icon.png)建築ブロック](building-block)       | [ビルディングブロック](building-block) は、ウィジェットの事前スタイル設定されています。 Building Blocksはページエディタのツールボックスに自動的に表示され、簡単に再利用できます。 ブロック構築の包括的なライブラリを設計することにより、ページ設計に関わる多くの煩わしい作業を回避することができます。                                                                                                                   |
+| [![](attachments/pages/page-icon.png)ページ](page)                              | [ページ](page) は Mendix アプリケーションのエンドユーザーインターフェイスです。 ページは、実際にエンドユーザーに表示されるものです。                                                                                                                                                                                                             |
+| [![](attachments/pages/menu-icon.png)メニュー](メニュー)                             | [メニュー](menu) は、メニュー ウィジェットで使用できるメニュー 構造を定義します。                                                                                                                                                                                                                                          |
+| [![](attachments/pages/image-collection-icon.png)画像コレクション](image-collection) | [イメージ コレクション](image-collection) は、アプリケーションで使用するカスタム イメージを配置するページ リソースです。 詳細については、 [イメージ](images) を参照してください。                                                                                                                                                                             |
 
-## 3 Widgets and Their Categories {#widgets-categories}
+## ウィジェットとそのカテゴリ {#widgets-categories}
 
-All the documents described above are built using widgets. There are many kinds of widgets, and not every widget can be used on all of the document types. Layouts support widgets for giving structure to pages, but not widgets for showing data. This is to make the intention of layouts clear: they should define what comes where and not much more. However, snippets can be placed in layouts, and that is an indirect way to include more kinds of widgets in a layout.
+上記のすべてのドキュメントはウィジェットを使用して構築されています。 ウィジェットには多くの種類があり、すべてのウィジェットがすべてのドキュメントタイプで使用できるわけではありません。 レイアウトは、ページに構造を与えるウィジェットをサポートしますが、データを表示するウィジェットはサポートされません。 これはレイアウトの意図をはっきりさせることです:彼らはどこに来るのか、それ以上を定義する必要があります。 ただし、スニペットはレイアウトに配置することができます。これは、より多くの種類のウィジェットをレイアウトに含める間接的な方法です。
 
-Widgets are grouped into the following categories:
+ウィジェットは次のカテゴリにグループ化されます:
 
-* [Data widgets](data-widgets) are central to building forms in Mendix; with these widgets, you can view and edit the data in the application
-* [Common widgets](common-widgets) are commonly found on any page, layout, or snippet
-* [Container widgets](container-widgets) can contain other widgets
-* [Input widgets](input-widgets) make it possible to show and edit the values of attributes and associations
-* [File widgets](file-widgets) allow you to work with files, including images stored in files
-* [Button widgets](button-widgets) are buttons that trigger actions
-* [Menu widgets](menu-widgets) allow the user to navigate through the application
-* [Report widgets](report-widgets) aggregate data and show it in the form of a table or a chart
-* [Authentication widgets](authentication-widgets) allow to add the user verification process such as password and login id text boxes.
-* Add-on widgets can be downloaded from the [Mendix Marketplace](https://marketplace.mendix.com/) or created by yourself using JavaScript
-  * [Chart widgets](chart-widgets) are add-on widgets that graphically represent data using various chart types
+* [データウィジェット](data-widgets) は Mendix でフォームを構築する上で重要です。これらのウィジェットを使用すると、アプリケーションでデータを表示および編集することができます。
+* [一般的なウィジェット](common-widgets) は、任意のページ、レイアウト、またはスニペットで一般的に見つかります。
+* [コンテナウィジェット](container-widgets) は他のウィジェットを含めることができます
+* [入力ウィジェット](input-widgets) により、属性と関連付けの値を表示および編集することができます
+* [ファイルウィジェット](file-widgets) では、ファイルに保存されている画像を含むファイルを操作することができます
+* [ボタンウィジェット](button-widgets) は、アクションをトリガーするボタンです。
+* [メニューウィジェット](menu-widgets) は、ユーザーがアプリケーションを移動できるようにします。
+* [レポート ウィジェット](report-widgets) は、データを集約し、表またはグラフの形で表示します。
+* [認証ウィジェット](authentication-widgets) では、パスワードやログイン ID テキストボックスなどのユーザー検証プロセスを追加できます。
+* アドオンウィジェットは [Mendix Marketplace](https://marketplace.mendix.com/) からダウンロードすることも、JavaScript を使用して自分で作成することもできます。
+  * [グラフウィジェット](chart-widgets) は、さまざまなグラフタイプを使用してデータをグラフィカルに表現するアドオンウィジェット
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page Resources](page-resources)
-* [Page](page)
+* [ページのリソース](page-resources)
+* [ページ](page)
