@@ -1,148 +1,148 @@
 ---
-title: "Augmented Reality Widgets"
-category: "Mobile"
+title: "增强的Reality部件"
+category: "移动设备"
 menu_order: 55
 tags:
-  - "mobile"
-  - "augmented reality"
+  - "移动网络"
+  - "扩大的实际情况"
   - "studio pro"
   - "AR"
-  - "VR"
+  - "虚拟机"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This reference guide will place the Augmented Reality (AR) widgets into context, as well as explain how they can be used to create AR experiences. The following terms will be used frequently:
+本参考指南将把增强的 Reality (AR) 部件放在上下文中。 并解释如何能够使用 创造AR经验。 以下条款将被频繁使用：
 
-* Augmented reality (AR): adding virtual objects to the real world, through the mobile phone camera view
-* AR scene: the place where all objects are placed in
-* Billboard: describes the rotation behaviour of an object, where it will always face the camera
-* Origin: the starting position, specifically (0,0,0)
+* 扩充的现实(AR)：通过移动电话摄像头视图将虚拟对象添加到真实世界
+* AR场景：所有对象放置的地方
+* 账单板：描述对象的旋转行为，它将永远面对相机
+* 起源：起始位置，特别(0,0,0)
 
-## 2 Overview of AR Widgets
+## 2 AR 小部件概览
 
-There are 9 total AR Widgets. Some are container widgets, while others are visual widgets:
+共有9个AR小部件。 有些是容器小部件，有些则是视觉小部件：
 
-Container widgets:
+容器部件：
 
-1.  **Containter (AR)**
-2.  **Image Tracker (AR)**
-3.  **Plane Selector (AR)**
+1.  **容器(AR)**
+2.  **图像追踪器 (AR)**
+3.  **平面选择器 (自动步枪)**
 4.  **Node (AR)**
 
-Visual widgets:
+视觉部件：
 
-5.  **3D Object (AR)**
-6.  **Text (AR)**
-7.  **Cube (AR)**
+5.  **3D 对象 (自动)**
+6.  **文本 (AR)**
+7.  **立方体(AR)**
 8.  **Sphere (AR)**
 9.  **Square (AR)**
 
-## 3 Container Widgets
+## 3 容器部件
 
-This are the AR widgets that can contain other widgets:
+这是AR 小部件可以包含其他小部件：
 
-* **Container (AR)**
-* **Image Tracker (AR)**
-* **Plane Selector (AR)**
+* **容器 (AR)**
+* **图像追踪器 (AR)**
+* **平面选择器 (自动步枪)**
 * **Node (AR)**
 
-These widgets do not necessarily add something visual to the AR scene. Instead, they provide functionality or allow you to group other widgets. Container widgets function as new starting points for the widgets embedded in them. When you start an AR app, the location of your phone serves as the origin.
+这些小部件不一定会为AR场景添加一些视觉内容。 相反，它们提供了功能或允许您分组其他部件。 容器小部件作为它们内嵌的小部件的新的起始点。 当您启动AR 应用程序时，您手机的位置是原始的。
 
-### 3.1 Container (AR)
+### 3.1 容器 (AR)
 
-Starts the AR camera view, and contains all other AR widgets. This widget is the start of every AR app.
+开始AR摄像头视图，并包含所有其他AR部件。 这个小部件是每个AR应用程序的开始。
 
-### 3.2 Image Tracker (AR)
+### 3.2 图像跟踪器 (AR)
 
-**ImageTracker (AR)** takes an image to track, when this image is found in the camera view it becomes the new origin of every AR widget that is embedded in it. For example, if you use a **ImageTracker (AR)** to recognize an image, and put a **Cube (AR)** in it, the cube will start in the exact middle of your image:
+**ImageTracker (AR)** takes an image to track, when this image is found in the camera view it becomes the new origin of every AR widget that is embedded in it. 例如，如果您使用 **图像追踪器 (AR)** 来识别图像， 然后放置 **立方体** 中，立方体将从您图像的中间开始：
 
 {{% image_container width="300" %}}![Cube](../howto/mobile/attachments/how-to-ar-simple-cube/scale-one.jpg){{% /image_container %}}
 
-### 3.3 Plane Selector (AR)
+### 3.3 平面选择器 (自动步枪)
 
-**PlaneSelector (AR)** finds surfaces that could fit your specified size. A user first scans their room by walking around the room with their phone while scanning. During this, all the surfaces are found and checked for size. On the large enough surfaces, an object similar to **Square (AR)** is shown and can be clicked to be selected. This will then be the starting point of embedded widgets.
+**PlaneSelector (AR)** 找到符合您指定大小的表面。 一个用户首先用手机扫描他们的房间，然后扫描他们的房间。 在此过程中，所有表面都被发现并检查其尺寸。 在足够大的表面显示类似于 **正方形(AR)** 的对象，可以单击选中。 然后，这将成为嵌入式部件的起点。
 
 ### 3.4 Node (AR)
 
-A **Node (AR)** can help group other widgets. Everything embedded in a **Node (AR)** can be oriented with fixed distances and rotations from eachother. **Node (AR)** also has a feature that can make the objects in it 'billboard' to the camera, which is useful for UI like elements. To see an example of this, check **AR-Examples** > **Car Color Picker** and note the the spheres above the car.
+**节点 (AR)** 可以帮助分组其他部件。 嵌入在 **节点 (AR)** 中的一切都可以通过每个节点的固定距离和旋转来导向。 **节点 (AR)** 也有一个功能，可以将它中的对象变成相机的“公告板”， 它对用户界面像元素一样有用。 若要看到这个示例，请检查 **AR-examps** > **汽车颜色选择器** 并注明车上方的球面。
 
-## 4 Visual widgets
+## 4 可视小部件
 
-Visual widgets are widgets that add a virtual object to the scene.
+视觉小部件是将虚拟对象添加到场景的小部件。
 
 ### 4.1 Cube (AR)
 
-![Cube](attachments/ar-widgets/Cube.gif)
+![立方体](attachments/ar-widgets/Cube.gif)
 
-### 4.2 Sphere (AR)
+### 4.2 球形(AR)
 
-![Sphere](attachments/ar-widgets/Sphere.gif)
+![球形](attachments/ar-widgets/Sphere.gif)
 
 ### 4.3 Square (AR)
 
-![Square](attachments/ar-widgets/Square.gif)
+![方形](attachments/ar-widgets/Square.gif)
 
-### 4.4 3D Object (AR)
+### 4.4 3D 对象 (AR)
 
-![3DObject](attachments/ar-widgets/3DObject.gif)
+![3Dobject](attachments/ar-widgets/3DObject.gif)
 
-Beyond using simple 3D objects, there are also ways to add more complex and custom objects to your scene. The 3D object widget takes either a URL or a FileDocument (you have to upload its model later). There are currently 3 types supported: *.obj*, *.gltf*, and *.glb*. Each with their own benefits. Using a custom material like with the simple visual widgets is only supported in the *.obj* format.
+除了使用简单的3D对象外，还有方法可以将更复杂的自定义对象添加到您的场景。 3D 对象小部件要么使用 URL 要么使用 FileDocument (您必须稍后上传其模型)。 目前支持三种类型： *.obj*, *.gltf*, 和 *.glb*。 每个人都有自己的利益。 只在 *.obj* 格式中支持使用类似于简单视觉部件的自定义材料。
 
-### 4.5 Text (AR)
+### 4.5 文本 (AR)
 
-![Text](attachments/ar-widgets/Text.gif)
+![文本](attachments/ar-widgets/Text.gif)
 
-**Text (AR)** can be used to have 3D or 2D text floating in space. It is best practice to add only a few lines of text to the scene in this way. Bigger paragraphs are better communicated through a 2D textfield on another place in your app.
+**文本 (AR)** 可以用来在太空中浮动3D 或 2D 文本。 最佳做法是以这种方式在现场只增加几行文字。 更大的段落更好地通过你的应用程序的另一处2D文本字段进行交流。
 
-## 5 Common Properties
+## 5个公共属性
 
-All AR widgets share these properties:
+所有AR小部件共享这些属性：
 
-* Position
-* Rotation
-* Scale
-* Material
-* Interaction
+* 位置
+* 旋转
+* 缩放比例
+* 材料
+* 互动
 
-### 5.1 Position
+### 5.1 职位
 
-**Position** describes where an object should be. In AR, position can be a bit confusing. This is why most positioning is relative to a parent node.
+**位置** 描述对象应该在哪里。 在AR中，位置可能有点混淆。 这就是为什么大多数定位相对于父节点。
 
 This means that the origin of (0,0,0) is in the middle of either the **ImageTracker (AR)**, or (0,0,0) is exactly where the user tapped on the **PlaneSelector (AR)**.
 
-It is possible to set a position on visual widgets that is not relative by adding the widget directly into the **Container (AR)**. The 0,0,0 position is then exactly where the camera starts at the beginning of the scene. After the scene has started, the position will not move along with the camera anymore.
+可以通过将部件直接添加到 **容器(AR)** 来设置一个非相对的视觉部件位置。 然后，0,0,0个位置正是摄像头在现场开始时的位置。 场景开始后，该位置将不再与相机一起移动。
 
-### 5.2 Rotation
+### 5.2 旋转
 
-**Rotation** can be used to turn an object on three different axes. When using rotation for custom 3D objects it will turn around the pivot point of the 3D file — the center of the object is not automatically selected.
+**旋转** 可以用来在三个不同的轴上打开一个物体。 当对自定义3D对象使用旋转时，它将会环绕3D文件的键点——不会自动选择对象的中心。
 
-### 5.3 Scale
+### 5.3 比例
 
-**Scale** is used for setting the size of objects. Widgets that have a set object (**Cube (AR)**, **Sphere (AR)**, or **Square (AR)**) will have a size of 1 or 2 meters. Objects that are added through the 3D Object widget might not conform to that standard unless they are correctly exported with the 1 unit = 1 meter scale. Without that standard scale, objects added with the 3D Object widget can be much larger or smaller than what the scale is set to.
+**缩放** 用于设置对象的大小。 设置对象的小部件**立方体**, **Sphere (AR)**, , , , , , , 或 **平方(AR)**() 尺寸为1或2米。 通过3D对象部件添加的对象可能不符合该标准，除非它们用1单位=1米尺度正确导出。 没有这个标准比例尺，3D对象部件中添加的对象可以比比例尺更大或更小。
 
-### 5.4 Material
+### 5.4 材料
 
-The **Material** tab sets things like color and also the realism of the object that has to be rendered. For example, setting the rendering mode to PBR will enable physically-based rendering (do not forget to set an HDR image as the reflection map and lightsource in the **Container (AR)**).
+**Material** 标签设置了像颜色以及必须呈现的对象的现实状态。 例如， 将渲染模式设置为PBR将启用基于物理的渲染(不要忘记将HDR 图像设置为 **Container (AR)** 中的反射图和光源)。
 
-**Material** configurations actually render a 3D element in the camera view. **Cube (AR)**, **Sphere (AR)**, and **Square (AR)** each render a simple 3D object. Only the **Square (AR)** widget can sometimes be invisible from one side. The simple visual widgets come with a way to customize them through scale and material. A material for a 3D object describes what it should look like — think of it like styling. You can add a texture(image), color, different lighting, or even a video to play on the 3D object. The only difference between these objects is in appearance — the configuration is the same on each widget.
+**Material** 配置实际在相机视图中渲染一个 3D 元素。 **立方体**, **Sphere (AR)**, 和 **Square (AR)** 各渲染一个简单的 3D 对象。 只有 **正方形(AR)** 小部件有时可能在一侧隐藏。 简单的视觉小部件可以通过尺寸和材料自定义它们。 3D对象的材料描述了它应该看起来像样的东西——认为它就像样搭配。 您可以在 3D 对象上添加纹理(图像)、颜色、不同的照明甚至视频。 这些对象之间的唯一区别是外观——每个部件的配置相同。
 
-### 5.5 Interaction
+### 5.5 互动
 
-Interaction is used for all actions your 3D objects can do that interact with the environment or the user.
+交互用于您的3D对象能够做的与环境或用户交互的所有动作。
 
-#### 5.5.1 Physics
+#### 5.5.1 物理学
 
-Physics allows your 3D object to react to the world, using gravity, or other object using the collision event. Note that the real world environment will not automatically stop your 3D object from falling when gravity is enabled. You have to add these objects yourself. These are the different physics types:
+物理允许你的3D对象对世界作出反应，使用重力或其他物体使用碰撞事件。 请注意，当启用重力时，真实世界环境将不会自动阻止你的3D对象降落。 您必须自己添加这些对象。 这些是不同的物理类型：
 
-* **Kinematic** — Objects with this physics type can only be moved by user input, not by other objects in the scene.
-* **Dynamic** — Dynamic objects can be moved both by user input and by other objects in the scene. For example, if another object with gravity falls onto this object, the object will move.
-* **Static** — Static objects will never move and cannot move through any physics interactions. Static objects can still be moved when specifically changing the position on them.
+* **Kinematic** — 具有此物理类型的对象只能通过用户输入移动，而不能通过场景中的其他对象移动。
+* **动态** — 动态对象可以通过用户输入和其他对象在场景中移动。 例如，如果重力 的另一个对象落在此对象上，对象将会移动。
+* **静态** - 静态对象永远不会移动，无法通过任何物理交互来移动。 静态对象仍然可以在改变上面位置时移动。
 
-#### 5.5.2 Dragging
+#### 5.5.2 拖动
 
-By enabling dragging users can move this object around in their space. The dragging type allows users to either have the object at the same distance when they are dragging it. Effectively this means the object is 'stuck' to the phone while they move it around. By changing the type to fixed to world, the object will now be stuck to floors and walls while the user drags it around.
+通过启用拖动，用户可以在其空间内移动此对象。 拖动类型允许用户在拖动时将 对象放在同一距离。 这实际上意味着对象在手机上被卡住，然后 移动它。 通过将类型改变为已修复的世界，对象现在将被卡住在地板和墙上，同时 用户会拖动它。
 
-#### 5.5.3 Pinching
+#### 5.5.3 粉色
 
-By enabling pinching, and selecting pinch to scale, you allow the user to scale the object through the pinching gesture.
+通过启用固定并选择缩放来缩放，您允许用户通过固定缩放手势缩放对象。
