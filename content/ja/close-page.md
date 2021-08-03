@@ -1,65 +1,65 @@
 ---
-title: "Close Page"
+title: "ページを閉じる"
 parent: "client-activities"
 menu_order: 10
 tags:
   - "studio pro"
-  - "close page"
-  - "client activity"
+  - "ページを閉じる"
+  - "クライアントのアクティビティ"
 aliases:
-  - /refguide/Close+Form.html
-  - /refguide/close-form.html
+  - /ja/refguide/Close+Form.html
+  - /ja/refguide/close-form.html
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline, native, or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+このアクションは無視され、オフライン、ネイティブ、またはハイブリッド・アプリケーションからマイクロフローが呼び出されたときには機能しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Close page** activity closes the currently open page. For example, it can be used to close a pop-up page:
+**ページを閉じる** アクティビティは、現在開いているページを閉じます。 たとえば、ポップアップページを閉じるために使用できます。
 
 {{% image_container width="200" %}}
 ![](attachments/client-activities/close-page.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-The **Close page** activity properties consists of the following sections:
+**ページ** のアクティビティ プロパティは以下のセクションで構成されています:
 
-* [Action](#action)
+* [アクション](#action)
 
-* [Common](#common)
+* [一般的な](#common)
 
-![Close Page Properties](attachments/client-activities/close-page-properties.png)
+![ページプロパティを閉じる](attachments/client-activities/close-page-properties.png)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-### 3.1 Number of Pages
+### 3.1 ページ数
 
 {{% alert type="info" %}}
-This option is only available for native mobile and was introduced with Mendix Studio Pro v8.14.
+このオプションはネイティブモバイルでのみ利用可能で、Mendix Studio Pro v8.14 で導入されました。
 {{% /alert %}}
 
-This property allows you to control how many pages should be closed.
+このプロパティでは、閉じるページ数を制御できます。
 
-| Value    | Description                                                                                                                            |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Single   | Close one page (default behavior).                                                                                                     |
-| Multiple | Close multiple pages in the current stack at once, showing only a single animation. This number can be configured using an expression. |
-| All      | Close all pages in the current stack at once, except for the first page in the stack, showing only a single animation.                 |
+| 値        | 説明                                                               |
+| -------- | ---------------------------------------------------------------- |
+| Single   | 1 ページを閉じる (デフォルトの動作)                                             |
+| Multiple | 現在のスタック内の複数のページを一度に閉じると、1つのアニメーションのみが表示されます。 この番号は、式を使用して設定できます。 |
+| すべて      | スタック内の最初のページを除いて、現在のスタック内のすべてのページを一度に閉じます。1つのアニメーションのみを表示します。    |
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [Show Page](show-page)
-* [Native Navigation](native-navigation)
+* [ページを表示](show-page)
+* [ネイティブナビゲーション](native-navigation)
