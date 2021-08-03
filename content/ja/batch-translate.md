@@ -1,97 +1,97 @@
 ---
-title: "Batch Translate"
-parent: "translatable-texts"
+title: "一括翻訳"
+parent: "translatable-text"
 menu_order: 30
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
+  - "翻訳"
+  - "言語"
+  - "翻訳可能なテキスト"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Batch translate** allows you to enter texts in one language which correspond to texts in another language.
+**バッチ翻訳** を使用すると、別の言語のテキストに対応する1つの言語でテキストを入力できます。
 
-Usually you will want to translate from the default language to a second language, but you can use any other dictionary of texts. For example, if your default language is *English, United States* you may already have translated the text into *Dutch, Netherlands* and you can use this as a reference for translating into *Dutch, Belgium* as there are likely to be more similarities.
+通常は、デフォルトの言語から第二の言語に翻訳したいと思うでしょうが、テキストの他の辞書を使用することができます。 For example, if your default language is *English, United States* you may already have translated the text into *Dutch, Netherlands* and you can use this as a reference for translating into *Dutch, Belgium* as there are likely to be more similarities.
 
 ![](attachments/language/batch-translate.png)
 
-## 2 Using Batch Translate
+## 2 一括翻訳を使用する
 
-Batch translate translates between two languages. When you select batch translate you will be asked to select the two languages you wish to use, a **Source language** to use as a reference, and a **Destination language** which is the one you want to update.
+一括翻訳は2つの言語間で行われます。 When you select batch translate you will be asked to select the two languages you wish to use, a **Source language** to use as a reference, and a **Destination language** which is the one you want to update.
 
-![Select source and destination languages](attachments/language/batch-translate-languages.png)
+![翻訳元言語と翻訳先言語を選択](attachments/language/batch-translate-languages.png)
 
-### 2.1 Documents/Modules
+### 2.1 ドキュメント/モジュール
 
-You can select one or more modules you want to use for batch translate. For example, you may have already got translations for imported and system modules and want to concentrate on translating your own modules.
+一括翻訳に使用するモジュールを1つ以上選択できます。 たとえば、既にインポートされたモジュールとシステムモジュールの翻訳があり、独自のモジュールの翻訳に集中したい場合などです。
 
-Click **Select…** and check the modules you want to work on.
+**Select…** そして作業したいモジュールを確認してください。
 
-![Module selection screen](attachments/language/batch-replace-modules.png)
+![モジュール選択画面](attachments/language/batch-replace-modules.png)
 
-The default is to work on all modules in the app.
+デフォルトでは、アプリ内のすべてのモジュールで動作します。
 
-### 2.2 Source Text Contains
+### 2.2 ソーステキストに含まれるソース テキスト
 
-To search for a particular phrase in the source language text, type what you want to search for. It is not possible to search for text in the destination language.
+元の言語テキスト内の特定のフレーズを検索するには、検索対象のフレーズを入力します。 宛先言語でテキストを検索することはできません。
 
-![Batch translate search](attachments/language/batch-translate-search.png)
+![一括翻訳検索](attachments/language/batch-translate-search.png)
 
-By default, all the translatable text from the selected module(s) will be shown.
+デフォルトでは、選択したモジュールのすべての翻訳可能なテキストが表示されます。
 
-Each found text will be displayed in the **Source** column. The **#** column shows the number of times it occurs in the selected module(s).
+見つかった各テキストは **ソース** 列に表示されます。 **#** 列には、選択したモジュールで発生する回数が表示されます。
 
-If you select a line, you can look in the **Show occurrence** section to see the **Object** containing the text and the **Document** it appears in. Double-clicking or clicking **Show occurrence** will open the document and select the object so you can easily see the context.
+行を選択した場合。 **発生を表示** セクションを見て、テキストを含む **オブジェクト** と、それが表示される **ドキュメント** を見ることができます。 ドキュメントをダブルクリックするか、 **発生を表示** をクリックすると、ドキュメントが開き、オブジェクトを選択してコンテキストを簡単に見ることができます。
 
 {{% alert type="success" %}}
-Tip: move the dialog box to one side to get a better look at the document.
+ヒント: ダイアログボックスを片側に移動して、ドキュメントをよりよく見ることができます。
 {{% /alert %}}
 
-### 2.3 Translation
+### 2.3 翻訳
 
-In **Translation**, type new text that you want to use instead of the existing text. Click **Translate** to confirm the replacement.
+**翻訳**では、既存のテキストの代わりに使用する新しいテキストを入力します。 **Translate** をクリックして置き換えを確認します。
 
 ![](attachments/language/batch-translate-translate.png)
 
-If you have two texts which are identical in the source language but different in the translation language, you will have to review and change these individually. This is not very common but imagine, for example, you have used `Order Lines` to both *describe the lines on an order* and to *label a button which sorts some lines*. See [Working in the Currently Selected Language](translatable-texts#selected-language) in *Language Menu* to find how to change individual texts.
+翻訳言語で同じですが、翻訳言語で異なる2つのテキストがある場合。 個別に見直し変える必要があります これはあまり一般的ではありませんが、例えば想像してみてください あなたは `注文行` を *の両方に* 行の行を記述し、 *いくつかの行をソートするボタン*を使用しました。 個々のテキストを変更する方法については、 [言語メニュー](translatable-texts#selected-language) の *現在選択されている言語での作業* を参照してください。
 
-## 3 Exporting & Importing Text{#export-import}
+## 3 エクスポート & テキスト{#export-import} をインポート
 
-If you want to translate a language outside Studio Pro, you can export the translatable texts to the Microsoft Excel (*.xlsx*) format, make changes, and then import the changes from the updated Excel file.
+Studio Pro 以外の言語を翻訳したい場合は、Microsoft Excel (*) に翻訳可能なテキストをエクスポートできます。 lsx * )*) 変更を行い、更新された Excel ファイルから変更をインポートします。</p>
 
-This is particularly useful if you are working on multiple apps and you want to apply your translations to a different app.
+これは、複数のアプリで作業していて、翻訳を別のアプリに適用したい場合に特に便利です。
 
-### 3.1 Export to Excel
+### 3.1 Excel にエクスポート
 
-Click **Export to Excel…** to export the currently displayed text items to a Microsoft Excel (*.xlsx*) format file.
+**Excel にエクスポート…** をクリックして、現在表示されているテキストアイテムを Microsoft Excel (*.xlsx*) 形式ファイルにエクスポートします。
 
-The file will be in the format shown below:
+ファイルの形式は以下のとおりです。
 
-![Sample Excel file](attachments/language/batch-translate-excel.png)
+![Excelファイルのサンプル](attachments/language/batch-translate-excel.png)
 
-**Row 1** – *Filter:* indicates the modules which are included in the exported file.
+**Row 1** – *Filter:* はエクスポートされたファイルに含まれるモジュールを示します。
 
-**Row 2**  – indicates the source and translation language. The first column represents the current text, the second column the *translation* text.
+**Row 2**  – ソース言語と翻訳言語を示します。 最初の列は現在のテキスト、2番目の列は *翻訳* テキストを表します。
 
-**Rows 3+**  – show the current texts
+**Rows 3+**  – 現在のテキストを表示
 
-You can make changes in column B which will be processed if the file is imported.
+ファイルがインポートされると処理される列 B に変更を加えることができます。
 
-### 3.2 Import from Excel
+### 3.2 Excel からインポート
 
-Click **Import from Excel…** to import a correctly-constructed Microsoft Excel (*.xlsx*) format file.
+**Excel からインポート…** をクリックして、正しく構築された Microsoft Excel (*.xlsx*) 形式ファイルをインポートします。
 
-This does the following:
+これにより、以下が行われます。
 
-* The selected module(s) are set to the ones in the *Filter:* line of the file
-* Any texts which are empty in column B will be ignored
-* Any texts in column A which do not match translatable texts in the selected module(s) will be ignored
-* Any text in column B which is not ignored is entered into the **Translation** column
+* 選択したモジュールはファイルの *フィルター:* 行にあるモジュールに設定されます。
+* 列Bに空のテキストはすべて無視されます
+* 選択したモジュール内の翻訳可能なテキストと一致しない列Aのテキストはすべて無視されます
+* 無視されていない列Bのすべてのテキストが **翻訳** 列に入力されます
 
-Changes will only be made if you click **Translate**.
+**Translate** をクリックすると変更が行われます。
 
 {{% alert type="warning" %}}
-The formats of the Excel files for batch translate and batch replace are similar. You will be warned if you try to import a batch replace file or a batch translate file with the incorrect languages but you can still import it if you ignore the warning.
+バッチ翻訳とバッチ置き換え用のExcelファイルの形式は似ています。 バッチ置き換えファイルやバッチ翻訳ファイルを間違った言語でインポートしようとすると警告されますが、警告を無視するとインポートできます。
 {{% /alert %}}
