@@ -30,7 +30,8 @@ Studio のドメイン モデルは、以下のとおりです。
 
 To view the **Domain Models** of your app in Studio, click the **Domain Models** icon in the left menu bar of Studio.
 
-![](attachments/domain-models/domain-model.png)
+{{% image_container width="350" %}}![](attachments/domain-models/domain-model.png)
+{{% /image_container %}}
 
 ドメインモデルを開くと、すべてのエンティティ、属性、および関連付けの概要が表示されます。 ドメインモデルの複雑さは、アプリケーションの複雑さによって異なります。
 
@@ -55,18 +56,17 @@ To view the **Domain Models** of your app in Studio, click the **Domain Models**
 * **エンティティ** - 属性、関連性、および実世界のオブジェクトのクラスを表すことができるエンティティ。
 * **Image Entity** – 画像を格納できる特別なタイプのエンティティ。 例えば、ページ上では、ユーザーは画像エンティティの助けを借りて画像を表示およびアップロードすることができます。
 * **ファイルエンティティ** – ファイルを保存できる特殊なエンティティ。 たとえば、ページ上では、ユーザーはファイルをアップロードおよびダウンロードすることができます(例: ファイルエンティティの助けを借りて文書ドキュメント、pdf、表計算ドキュメントなど。
-* **ワークフロー エンティティ** - [ワークフロー](workflows) のコンテキストとして使用される特殊なタイプのエンティティ。
 * **外部エンティティ** - 組織でデータハブ機能が有効になっている場合にのみ利用できます。 外部エンティティの詳細については、 [Studio 内のデータハブ](data-hub-in-studio) を参照してください。
 
 ### 2.2 エンティティのプロパティ
 
 エンティティには次のプロパティがあります:
 
-* **一般的な** プロパティはエンティティの名前とその [永続性](/refguide/persistability) を定義します:
+* **一般的な** プロパティはエンティティの名前とその [永続性](/refguide8/persistability) を定義します:
 
     * **名前** - エンティティの名前を定義します
 
-    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide/persistability) in the *Studio Pro Guide*)
+    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*)
 
     ![エンティティの一般プロパティ](attachments/domain-models/entity-general-properties.png)
 
@@ -84,7 +84,7 @@ To view the **Domain Models** of your app in Studio, click the **Domain Models**
 
         ![エンティティの格納された情報プロパティ](attachments/domain-models/entity-stored-info.png)
 
-        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image, File, and Workflow entities.{{% /alert %}}
+        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image and File entities.{{% /alert %}}
 
 ### 2.3 属性 {#attributes}
 
@@ -204,7 +204,7 @@ To view the **Domain Models** of your app in Studio, click the **Domain Models**
 
 * エンティティの **名前**
 
-* [エンティティの永続性](/refguide/persistability)
+* [エンティティの永続性](/refguide8/persistability)
 
     ![](attachments/domain-models/entity-properties.png)
 
