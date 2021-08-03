@@ -1,281 +1,162 @@
 ---
-title: "Data grid"
-parent: "data-widgets"
+title: "数据网格"
+parent: "格子"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "数据网格"
+  - "网格"
+  - "数据部件"
 ---
 
-The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed. Using controls provided by the data grid you can browse, search and edit those objects.
+●{% alert type="warning" %}}本机移动页面不支持数据网格小部件。{{% /提醒 %}}
 
-{{% alert type="info" %}}
+## 1 导言
 
-![](attachments/pages/data-grid.png) A data grid showing accounts.
+数据网格显示一个表格式的对象列表。 例如，数据网格可以显示客户的名称、等级和客户发出的所有订单：
 
-{{% /alert %}}
+![](attachments/data-widgets/data-grid.png) 使用数据网格提供的控件，您可以浏览、搜索和编辑这些对象。
 
-## Common Properties
+## 2 个组件
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+数据网格包含以下组件：
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+1. [搜索栏](search-bar) - 允许最终用户在数据网格中搜索对象
+2. [控制栏](control-bar) - 允许您通过按钮控制显示在数据网格中的对象
+3. [排序栏](sort-bar) - 允许最终用户对数据网格中的项目进行排序
+4.  [网格列](columns) - 允许终端用户设置数据网格列的属性 ![](attachments/data-widgets/data-grid-components.png)
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+## 3 属性
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+下面的图像是数据网格属性的示例：
 
-### General Properties
+{{% image_container width="250" %}}![](attachments/data-widgets/data-grid-properties.png)
+{{% /image_container %}}
 
-#### Show Control Bar Buttons
+数据网格属性由以下部分组成：
 
-This property indicates whether the control bar buttons will be visible in the end user interface.
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-{{% alert type="warning" %}}
+### 3.1 共同部分 {#common}
 
-Even if the control bar buttons are invisible, there can still be a default button that is triggered by (double) clicking a row. For more information, see the property [Default Button Trigger](#dbt) and [Data Grid Buttons](control-bar).
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% /alert %}}
+### 3.2 数据源部分 {#data-source}
 
-_Default value:_ True
+数据源决定在列表视图中显示哪些对象。 关于数据源的一般信息，请参阅 [数据源](data-sources)。
 
-#### Show Paging Buttons
+#### 3.2.1 Type
 
-This property indicates with the buttons to page through the information in the grid are visible. Only hide these buttons if you are sure that there will never be more objects than the number of rows of the grid.
+列表视图支持以下类型的数据源：
 
-_Default value:_ True
+* [数据库源](database-source) - 直接检索对象组成数据库。 数据库源可以在 [离线](offline-first) 应用程序中使用。
+* [XPath 源](xpath-source) - 直接从数据库中检索对象
+* [微流程源](microflow-source) - 通过执行微流程计算对象列表
+* [关联源](association-source) - 关注一个协会来到对象
 
-{{% snippet file="refguide7/Column+Width+Properties.md" %}}
+数据库和 XPath 源从数据库中检索对象并支持搜索和排序。
 
-#### Number of Rows
+### 3.3 设计属性部分 {#design-properties}
 
-With this property you can change the number of rows that will be shown in one page. See also the property 'Show empty rows'.
+{{% snippet file="refguide/design-section-link.md" %}}
 
-_Default value:_ 20
+### 3.4 一般部分 {#general}
 
-#### Show Empty Rows
+#### 3.4.1 显示控制栏按钮 {#show-control-bar}
 
-If you choose to show empty rows there will always be the grid will always show the same number of rows (see 'Number of rows') even if there are less objects to show on the page.
-
-_Default value:_ False
-
-#### Selection Mode
-
-The selection mode determines whether and how the user can select items in the grid.
-
-| Value                         | Description                                                                                                                                                                                                     |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No selection                  | The user cannot select items.                                                                                                                                                                                   |
-| Single selection              | The user can select a single item by clicking on it. Clicking another item will make that item the selection.                                                                                                   |
-| Single selection and maintain | The user can select one item at a time by clicking on it. Users cannot deselect an item. By default the first item will be selected and removing a selected item will autoselect a subsequent item.             |
-| Multi-selection               | The user can select multiple items by clicking the first one and holding the 'Ctrl' key while clicking on other items. Simply clicking an item will deselect all items and make the clicked item the selection. |
-| Simple multi-selection        | The user can select multiple items by simply clicking on them. This was the default multi-selection behavior prior to version 3.1.0.                                                                            |
-
-_Default value:_ Single selection
-
-#### Select First
-
-This property indicates whether the first item will be selected initially. This is especially useful if there is a data view listening to this grid.
-
-_Default value:_ False
-
-#### <a name="dbt"></a>Default Button Trigger
-
-The default button can be triggered by a single or a double click a row.
-
-| Value        | Description                                                                                                           |
-| ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| Single click | A single click triggers the default button. This cannot be used in combination with allowing the user to select rows. |
-| Double click | A double click triggers the default button.                                                                           |
-
-_Default value:_ Double click
-
-#### Refresh Time (in Seconds)
-
-If the refresh time is non-zero, the data grid will refresh its contents every given number of seconds. For example, a task list could be refreshed every minute so that you know when new tasks arrive. By default the refresh time is zero and this means that the grid will not automatically refresh itself.
-
-_Default value:_ 0
-
-#### Tooltip Page
-
-A tooltip page is a page that appears when you hover your mouse over a row. The tooltip page should consist of a data view on the same entity as the data grid. Besides creating and connecting a tooltip page you also have to specify on which columns the tooltip will appear. See the property 'Show tooltip' of [data grid columns](columns).
-
-### Data Source Properties
-
-The data source determines which objects will be shown in the data grid. For general information about data sources, see [Data Sources](data-sources).
-
-#### Type
-
-The data grid supports the following types of data sources: [Database Source](database-source), [XPath Source](xpath-source), [Association Source](association-source), [Microflow Source](microflow-source). The database and XPath sources retrieve objects from the database and supports searching and sorting. The database source can also be used in [offline](offline) applications. The association source follows an association from the enclosing data view to get to the objects. Finally, the microflow source calculates the list of objects by executing a microflow.
-
-#### Other Properties
-
-See the corresponding data source for its properties:
-
-*   [Database source](database-source)
-*   [XPath source](xpath-source)
-*   [Microflow source](microflow-source)
-*   [Association source](association-source)
-
-### Visibility Properties
-
-{{% snippet file="refguide7/Visibility+Property.md" %}}
-
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
-
-## Components
-
-### Columns
-
-#### Common Properties
-
-#### Class Property
-
-The class property allows you to specify a cascading style sheet (CSS) class for the widget. This class will be applied to the widget in the browser and the widget will get the corresponding styling. The class should be a class from the theme that is used in the project. It overrules the default styling of the widget.
+此属性表示控制栏按钮是否在最终用户界面中可见。
 
 {{% alert type="warning" %}}
+即使控制栏按钮是不可见的，仍然可以有一个由单击行触发的默认按钮(double) 。 欲了解更多信息，请查看属性 [默认按钮触发](#default-button-trigger) 和 [Control Bar](control-bar)。
+{{% /报警 %}}
 
-Note that the styling is applied in the following order:
+默认： *True*
 
-1.  Default styling defined by the theme the project uses.
-2.  The 'Class' property of the widget.
-3.  The 'Style' property of the widget.
+#### 3.4.2 显示分页栏 {#show-paging-bar}
 
-{{% /alert %}}
+使用此属性，您可以更改分页栏的显示方式。
 
-#### Style Property
+| 值        | 描述                                                 |
+| -------- | -------------------------------------------------- |
+| 是 (总量)   | 显示分页栏，包括 **转到最后一页** 按钮和对象的总数。                      |
+| 是 (不总计数) | 分页栏已显示(除了 **转到最后一页** 按钮外)。 此外，不显示对象的总数量，因为页面编号被显示。 |
+| 否        | 未显示分页按钮。                                           |
 
-The style property allows you to specify additional CSS styling. If a class is also specified, this styling is applied _after_ the class.
-
-{{% alert type="info" %}}
-
-background-color:blue; This will result in a blue background
-
-{{% /alert %}}
-
-#### Data Source Properties
-
-##### Attribute (path)
-
-The attribute (path) property specifies the attribute's value that will be displayed in this column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity, in which case we speak of an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
-
-#### Formatting Properties
-
-##### Enumeration Format (Only for Attributes of Type Enumeration)
-
-A column connected to an attribute of type enumeration can show its contexts as text (default) or as image.
-
-| Value | Description                               |
-| ----- | ----------------------------------------- |
-| Text  | Show the caption text of the enumeration. |
-| Image | Show the image of the enumeration value.  |
-
-##### Decimal Precision (Only for Decimal Attributes)
-
-The precision of a value is defined the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
-
-_Default value:_ 2
-
-##### Group Digits (Only for Numeric Attributes)
-
-For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end user will see these groups, or not.
-
-_Default value:_ False
-
-##### Date Format (Only for Attributes of Type DateTime)
-
-The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
-
-Possible values: 'Date', 'Time', 'Date and time' and 'Custom'.
-
-_Default value:_ Date
-
-If you choose 'Custom' as the date format (see above) the custom date format determines the way date and/or time are formatted. The custom date format is a string that follows the rules in this table,
-
-| Symbol | No.  | Example   | Description                             |
-| ------ | ---- | --------- | --------------------------------------- |
-| G      | 1    | AD        | Era                                     |
-| y      | 1..n | 2010      | Year                                    |
-| M      | 1..2 | 09        | Month                                   |
-| M      | 3    | Sept      |                                         |
-| M      | 4    | September |                                         |
-| w      | 1..2 | 27        | Week of Year                            |
-| D      | 1..3 | 93        | Day of Year                             |
-| a      | 1    | AM        | AM or PM                                |
-| h      | 1..2 | 11        | Hour (1-12)                             |
-| H      | 1..2 | 13        | Hour (0-23)                             |
-| k      | 1..2 | 10        | Hour (1-24)                             |
-| K      | 1..2 | 0         | Hour (0-11)                             |
-| m      | 1..2 | 59        | Minute, use one or two for zero padding |
-| s      | 1..2 | 12        | Second, use one or two for zero padding |
-
-{{% alert type="info" %}}
-
-| Format                           | Example output                        |
-| -------------------------------- | ------------------------------------- |
-| `EEEE d MMMM yyy G, h:mm a ss's` | Tuesday 29 March 2011 AD, 1:37 PM 48s |
-| `h:mm a`                         | 1:37 PM                               |
-| `yyy D KK:mm`                    | 2011 88 01:26                         |
-| `EEEE MMMM d yyy`                | Tuesday March 29 2011                 |
-| `EEE, MMM d, ''yy`               | Wed, Jul 4, '01                       |
-
-{{% /alert %}}
-
-#### General Properties
-
-##### Caption
-
-The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Translatable Texts](translatable-texts).
-
-##### Editable
-
-The editable property indicates whether the values of the column will be editable inline, as in, without opening a page with a data view. In-line editing allows the data grid to behave like you would expect from a spreadsheet application.
-
-##### Aggregate Function
-
-The values in a column can be aggregated in several ways. The aggregate function determines the way in which the values are aggregated. The aggregate will be shown at the bottom of the column that precedes by the aggregate caption (see below).
-
-| Value   | Description                                |
-| ------- | ------------------------------------------ |
-| None    | Do not aggregate the values in the column. |
-| Average | Show the average of the values.            |
-| Minimum | Show the smallest value.                   |
-| Maximum | Show the largest value.                    |
-| Sum     | Show the sum of the values.                |
-| Count   | Show the count of the values.              |
+默认: *是 (总数量)*
 
 {{% alert type="warning" %}}
+隐藏控制栏也隐藏分页按钮。 欲了解详情，请见 [显示控制栏按钮](#show-control-bar)。
+{{% /报警 %}}
 
-Note that all objects will be taken into account, and not just the ones on the current page.
+#### 3.4.3 行数 {#number-of-rows}
 
-{{% /alert %}}
+使用此属性您可以更改将显示在一个页面中的行数。 另见属性“显示空行”。
 
-##### Aggregate Caption
+默认： *20*
 
-The aggregate caption is the text that appears in front of the computed value. This is a translatable text. See [Translatable Texts](translatable-texts).
+#### 3.4.4 显示空行 {#show-empty-rows}
 
-{{% alert type="info" %}}
+如果您选择显示空行，即使在页面上显示的对象较少，但网格总是显示相同的行数(见“行数”)。
 
-'Total' could be an aggregate caption for a column that shows the sum of the values.
+默认： *False*
 
-{{% /alert %}}
+#### 3.4.5 选择模式 {#selection-mode}
 
-##### Show Tooltip
+选择模式决定用户是否以及如何在网格中选择项目。
 
-This property determines whether the tooltip page is shown as the mouse is hovered over this column. The tooltip page can be configured on the data grid.
+| 值          | 描述                                                                     |
+| ---------- | ---------------------------------------------------------------------- |
+| 没有选择       | 用户不能选择项目。                                                              |
+| 单选  *(默认)* | 用户可以通过点击它选择单个项目。 点击另一个项目将使该项目成为选择。                                     |
+| 单选并保留      | 用户可以一次通过点击它选择一个项目。 用户不能取消选择项目。 默认情况下，第一个项目将被选中，移除选定的项目将自动选择下一个项目。      |
+| 多选         | 用户可以通过点击第一个项目选择多个项目并按住“Ctrl”键，同时点击其他项目。 只需单击项目就可以取消选择所有项目并使单击项目成为选中项目。 |
+| 简单的多选      | 用户可以只需单击即可选择多个项目。                                                      |
 
-_Default value:_ False
+#### 3.4.6 选择前 {#select-first}
 
-### Control Bar
+此属性表示第一项是否将被初选中。 如果有数据视图监听这个网格，这一点特别有用。
 
-The control bar of the template grid, data grid, and reference set selector allows you to manipulate the objects displayed by means of buttons. By default, both grids will be created with a new, edit, and delete button in the control bar. The control bar can also include a number of selection options and spreadsheet export buttons, as well as microflow buttons for custom actions.
+默认： *False*
 
-See [Control Bar](control-bar).
+#### 3.4.7 默认按钮触发 {#default-button-trigger}
 
-### Search Bar (for the Database and XPath Data Source Types)
+默认按钮可以由单击或双击单行触发。
 
-The search bar contains search fields that allow the end-user to quickly find the information he or she needs.
+| 值          | 描述                           |
+| ---------- | ---------------------------- |
+| 单次点击       | 单击触发默认按钮。 此选项不能与允许用户选择行一起使用。 |
+| 双击  *(默认)* | 双击触发默认按钮。                    |
 
-See [Search Bar](search-bar).
+#### 3.4.8 刷新时间(秒) {#refresh-time}
 
-### Sort Bar (for the Database and XPath Data Source Types)
+如果刷新时间为非零，数据网格将每个给定的秒数刷新其内容。 例如，每分钟都可以刷新任务列表，以便您知道新任务何时到来。 默认情况下，刷新时间为零，这意味着网格不会自动刷新。
 
-The sort bar contains a number of sort items. Each sort item specifies what attribute to sort on and in what direction (ascending or descending). First the contents of the grid will be sorted on the first item; if two rows are the same with respect to this sort item the second item will be used et cetera. For example, if you have sort items for name and age and two people have the same name they will be sorted on their age.
+默认： *0*
 
-See [Sort Bar](sort-bar).
+#### 3.4.9 工具提示页 {#tooltip-page}
+
+工具提示页面是在鼠标悬停在一行时出现的页面。 工具提示页面应包含与数据网格相同的实体上的数据视图。 除了创建和连接工具提示页面外，您还必须指定工具提示会出现在哪个列上。 查看 [数据网格列的 '显示工具提示' 属性](columns)。
+
+### 3.5 可见性部分 {#visibility}
+
+{{% snippet file="refguide/visibility-section-link.md" %}}
+
+## 4 执行特定操作
+
+要在数据网格上执行操作，请在页面上选择并右键单击它。 可能的动作列表已打开。 此列表中的一些动作，例如 **选择数据源**, **编辑可见条件**这是设置属性的快速方式，下面是您可以执行的特定动作：
+
+* **转到实体** — 打开一个域模型并突出显示一个实体被用作数据源
+* **转到数据源微流程** - 此操作仅在微流程设置为数据源并打开此微流程时显示
+* **转到工具提示页面** - 打开一个页面作为 [工具提示页面](#tooltip-page) 在属性中
+
+## 5 阅读更多
+
+* [页](page)
+* [数据部件](data-widgets)
+* [数据源](数据来源)
+* [页面编辑器中常见的属性](common-widget-properties)
+* [网格列](columns) 
