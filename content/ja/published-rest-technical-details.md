@@ -14,6 +14,10 @@ tags:
   - "カスタム認証"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-technical-details.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 公開された REST ドキュメントのこのセクションでは、Mendix の公開された REST 機能のより多くの技術的側面について説明します。
@@ -34,7 +38,7 @@ OpenApi (Swagger) ドキュメンテーションページのマッピングの�
 
 ### 2.3 [OpenAPI 2.0 ドキュメント](open-api)
 
-公開された REST サービスを記述するために作成された swagger.json ファイルの技術的な詳細は、OpenApi (Swagger) のドキュメントページで表示されます。
+*swagger.jso* ファイルの技術的な詳細は、公開された REST サービスを OpenApi (Swagger) のドキュメンテーションページで記述するために作成されました。
 
 ### 2.4 [カスタム認証マイクロフローのパラメータ](published-rest-authentication-parameter)
 
