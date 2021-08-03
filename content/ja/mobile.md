@@ -1,42 +1,42 @@
 ---
-title: "Mobile"
+title: "モバイル"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Mendix allows you to quickly build true [native mobile apps](#nativemobile) and [progressive web apps](progressive-web-app). This document gives an overview of mobile app development with Mendix.
+Mendixでは、真 [ネイティブモバイルアプリ](#nativemobile) と [プログレッシブウェブアプリ](progressive-web-app)を素早く構築できます。 このドキュメントでは、Mendixによるモバイルアプリ開発の概要を説明します。
 
-With Mendix, you can create different channels (for example, responsive, native phone) from a single model using navigation profiles. These mobile profiles can be added and removed separately. If you add a profile, you must also provide a home page for it. For more information on navigation profiles, see [Navigation](navigation).
+Mendixを使用すると、ナビゲーションプロファイルを使用して、単一のモデルから異なるチャンネル(たとえば、応答性のあるネイティブ電話)を作成できます。 これらのモバイルプロファイルは、別々に追加および削除できます。 プロファイルを追加する場合は、そのためのホームページも提供する必要があります。 ナビゲーション プロファイルの詳細については、 [ナビゲーション](navigation) を参照してください。
 
-## 2 Native Mobile Apps {#nativemobile}
+## 2つのネイティブモバイルアプリ {#nativemobile}
 
-With Mendix 9, it is possible to build fully native mobile apps. Native mobile apps they do not render inside a web view, but use native UI elements instead. This results in fast performance, smooth animations, natural interaction patterns (like swipe gestures), and improved access to all native device capabilities.  To make such responsive native mobile apps, Mendix leverages the popular open-source framework [React Native](https://facebook.github.io/react-native/).
+Mendix 9では、完全にネイティブなモバイルアプリを構築することができます。 ネイティブモバイルアプリはWebビュー内ではレンダリングしませんが、代わりにネイティブUI要素を使用してください。 これにより、高速なパフォーマンス、滑らかなアニメーション、自然なインタラクションパターン (スワイプジェスチャーなど) が実現し、すべてのネイティブデバイス機能へのアクセスが改善されました。  このようなレスポンシブなネイティブモバイルアプリを作るために、Mendixは一般的なオープンソースフレームワーク [React Native](https://facebook.github.io/react-native/) を利用しています。
 
-You can use pages, widgets, nanoflows, JavaScript actions, microflows, and many other familiar elements to build your app. For more information on how to to build a native mobile app, see [Get Started with Native Mobile](/howto/mobile/getting-started-with-native-mobile).
+ページ、ウィジェット、nanoflows、JavaScript アクション、マイクロフロー、その他多くの使い慣れた要素を使用してアプリケーションを構築できます。 ネイティブ モバイル アプリのビルド方法の詳細については、 [ネイティブ モバイルを開始](/howto/mobile/getting-started-with-native-mobile) を参照してください。
 
-Native mobile apps' theming and styling is based on JavaScript. For more information on styling, see [Native Styling](native-styling-refguide).
+ネイティブモバイルアプリのテーマとスタイルはJavaScriptに基づいています。 スタイリングの詳細については、 [Native Styling](native-styling-refguide) を参照してください。
 
-## 3 Progressive Web Apps {#pwa}
+## 3つのプログレッシブウェブアプリ {#pwa}
 
-Progressive web apps (PWAs) are an evolution of traditional web apps. Overall, PWAs tend to behave more like native mobile apps. One key difference, however, is that PWAs do not need to be distributed via an app store but can be accessed directly via the browser.
+プログレッシブウェブアプリ(PWA)は、従来のウェブアプリの進化です。 全体として、PWA はネイティブモバイルアプリのように動作する傾向があります。 しかし、重要な違いは、PWAはApp Store経由で配布する必要はなく、ブラウザ経由で直接アクセスできることです。
 
-Progressive web apps have three main characteristics:
+プログレッシブウェブアプリには主に3つの特徴があります:
 
-* **Installable —** PWAs let you add your app to your user’s home screen and start a full screen app. This makes PWAs feel more fully-capable native apps.
-* **Reliable —** Using service workers, PWAs can work offline or partially offline. Mendix PWAs can work partially offline (resources like styling, pages, and images are cached) or fully offline (like native mobile apps).
-* **Capable —** PWAs can leverage several device capabilities like the camera and location, and can offer support for web push notifications. Note that support for features depend on which browser is used.
+* **インストール可能 —** PWAでは、ユーザーのホーム画面にアプリを追加し、フルスクリーンアプリを起動できます。 これにより、PWA はより完全なネイティブアプリを感じさせることができます。
+* **信頼性の高い —** サービスワーカーを使用すると、PWA はオフラインまたは部分的にオフラインで作業できます。 Mendix PWA は部分的にオフラインで動作します (スタイリング、ページ、画像などのリソースはキャッシュされます)、または完全にオフラインで動作します (ネイティブモバイルアプリなど)。
+* **機能 —** PWA はカメラやロケーションなどの複数のデバイス機能を活用でき、Web プッシュ通知のサポートを提供できます。 機能のサポートは、使用されるブラウザによって異なります。
 
-## 4 Offline-First Apps
+## 4つのオフラインファーストアプリ
 
-With Mendix, you can build apps which work regardless of internet connection. Offline-first applications provide end-users with a continuous experience and the confidence that their data is secure in all situations. Pages and logic interact with an offline database on the device itself, and data is synchronized with the server when possible. This results in a nicer UI, increased reliability, and improved device battery life. For more information on offline-first app capabilities, see [Offline First](offline-first).
+Mendixを使用すると、インターネット接続に関係なく動作するアプリを構築できます。 オフラインファーストのアプリケーションは、エンドユーザーに継続的なエクスペリエンスとあらゆる状況でデータが安全であるという確信を提供します。 ページとロジックは、デバイス自体のオフラインデータベースと相互作用し、可能であればデータはサーバーと同期されます。 これにより、より優れたUI、信頼性、およびデバイスのバッテリ寿命が向上します。 オフラインファーストのアプリ機能の詳細については、 [Offline First](offline-first) を参照してください。
 
-Mendix's native mobile apps are always configured with offline-first capabilities. When building an app app, you can choose to build an online app which continously connects with a server, or an offline-first app that works even without an internet connection. This can be configured by choosing the corresponding navigation profile in Mendix Studio Pro. For more instructions on setting up such a profile, see [Navigation](navigation).
+Mendixのネイティブモバイルアプリは、常にオフラインファーストの機能で構成されています。 アプリを構築する際には、サーバーと連続して接続するオンラインアプリを選択できます。 インターネットに接続されていなくても機能するオフラインファーストのアプリです。 これは、Mendix Studio Proで対応するナビゲーションプロファイルを選択することで構成できます。 このようなプロファイルの設定方法については、 [ナビゲーション](navigation) を参照してください。
 
-## 5 Main Documents in This Category
+## このカテゴリ内の5つのメインドキュメント
 
-* [Native Mobile](native-mobile) – presents information on building fully native mobile apps with the Mendix Platform that utilize native UI elements
-* [Progressive Web Apps](progressive-web-app) – explains the capabilities and configurations of progressive web apps
-* [Hybrid Mobile](hybrid-mobile) – describes the depreciated state of hybrid mobile in Mendix 9
-* [Offline First](offline-first) – provides details on the architectural concepts of offline-first applications in Mendix
+* [Native Mobile](native-mobile) - ネイティブUI要素を利用したMendixプラットフォームを使用してモバイルアプリを完全にネイティブに構築することに関する情報を表示する
+* [プログレッシブウェブアプリ](progressive-web-app) - プログレッシブウェブアプリの機能と構成を説明する
+* [Hybrid Mobile](hybrid-mobile) - Mendix 9におけるハイブリッド・モバイルの減価償却状態を説明する
+* [オフラインファースト](offline-first) - Mendixのオフラインファーストアプリケーションのアーキテクチャ概念の詳細
