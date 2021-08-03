@@ -1,69 +1,69 @@
 ---
-title: "Domain Model Consistency Errors"
-parent: "consistency-errors"
+title: "域名模型一致性错误"
+parent: "一致性错误"
 menu_order: 40
-description: "Describes domain model consistency errors in Mendix Studio and the way to fix them."
+description: "描述Mendix Studio中的域模型一致性错误以及修复这些错误的方法。"
 tags:
-  - "studio"
-  - "consistency errors"
-  - "errors"
-  - "domain model"
+  - "工作室"
+  - "一致性错误"
+  - "错误"
+  - "域模型"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In this document, we explain how to solve the most common consistency errors that can occur when configuring the domain model in Mendix Studio. For more information on domain models, see [Domain Model](domain-models).
+在本文件中，我们解释如何解决在Mendix Studio配置域模型时可能发生的最常见的一致性错误。 欲了解更多域模型信息，请参阅 [域模型](domain-models)。
 
-An example of a consistency error is having the same name for two entities.
+一致性错误的一个例子是两个实体的名称相同。
 
 {{% alert type="info" %}}
 
-This document does not describe *all* the errors, as there are a lot of errors that can occur, some of which are simple and do not need extra explanation, others are rare and/or heavily dependent on a use-case.
+此文档没有描述 *所有* 个错误，因为有许多错误可能发生。 其中有些简单，无需额外解释，另一些则极少和（或）严重依赖使用案件。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Some errors have error codes and if these errors are described in documentation, Studio has a clickable link to the corresponding document. Others do not have an error code, in this case, you can manually search whether a particular error is described in documentation (you can search by a message you see in the **Checks** panel).
+一些错误有错误代码，如果这些错误在文档中描述，Studio就有一个可点击的链接到相应的文档。 在这种情况下，其他人没有错误代码。 您可以手动搜索文件中是否描述了某个错误 (您可以通过在 **检查** 面板中看到的消息搜索)。
 
-## 2 Domain Model Consistency Errors
+## 2 域名一致性模型错误
 
-The most common errors you can come across when configuring a domain model are described in the table below:
+下面的表描述了配置域模型时您可能遇到的最常见错误：
 
-| Error Code | Message in the Checks Panel                                                                                                                    | Cause of the Error                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Way to Fix                                                                                                                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE0001     | An association between a persistable entity and a non-persistable entity must start in the non-persistable entity and have owner 'Default'.    | You created an association between a persistable and non-persistable entity, and the association is drawn from the persistable entity to non-persistable one (thus, the owner of association is the persistable entity). Persistable entities are stored in the database, and non-persistable entities are stored in memory. You can point from the memory to the database but not other way around. For more technical information, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*. | Open association properties and swap the direction of the association thus changing the owner of association; or change the persistability of one of the entities in entity properties. |
-| CE0017     | Invalid [delete behavior](domain-models-association-properties#delete-behavior).                                                               | This error occurs when delete behavior of entities in the association contradict each other. For more information on the cases when this error occurs, see the [Delete Behavior Consistency Errors and Ways to Fix](#delete-behavior) section.                                                                                                                                                                                                                                                                  | For information on how to fix this error, see the [Delete Behavior Consistency Errors and Ways to Fix](#delete-behavior) section.                                                       |
-| CE0021     | Attributes of type {attribute type} are only supported in persistable entities.                                                                | A non-persistable entity has an attribute of type Autonumber or Binary. These types of attributes need to be stored in the database.                                                                                                                                                                                                                                                                                                                                                                            | Make the entity persistable by enabling the corresponding option in properties; or change the attribute type.                                                                           |
-| CE0065     | Duplicate name {name of the entity} in module {name of the module}. Entities, associations and enumerations cannot share names.                | You have several entities with one and the same name in your domain model.                                                                                                                                                                                                                                                                                                                                                                                                                                      | Rename one of the entities; all entity names should be unique.                                                                                                                          |
-|            | The selected attribute {name of attribute} is ambiguous. It is not allowed to have more than one entity {name of attribute}.                   | You have several entities with one and the same name in your domain model, so the attributes of these duplicated entities are giving you an error.                                                                                                                                                                                                                                                                                                                                                              | Rename one of the entities; all entity names should be unique.                                                                                                                          |
-|            | The selected association {name of the association} is ambiguous. It is not allowed to have more than one association {name of the association} | You several have associations with one and the same name in your domain model.                                                                                                                                                                                                                                                                                                                                                                                                                                  | Rename one of the associations; all association names should be unique.                                                                                                                 |
+| 错误代码   | 检查面板中的消息                                                                  | 错误的原因                                                                                                                                                                                                                     | 修复路径                                                    |
+| ------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| CE0001 | 可持久实体与不可持久实体之间的关联必须从不可持久实体开始并拥有者“默认”。                                     | 您创建了一个可持久实体和不可持久实体之间的关联。 协会从可持久的实体转为不可持续的实体（因此社团的所有者是可持久的实体）。 可持久的实体储存在数据库中，不可持续的实体储存在内存中。 您可以从内存指向数据库，但不是其他方式。 For more technical information, see [Persistability](/refguide/persistability) in the *Studio Pro Guide*. | 打开社团属性并交换社团的方向，从而改变社团所有人； 或改变实体财产中某一实体的可持久性。            |
+| CE0017 | 无效的 [删除行为](domain-models-association-properties#delete-behavior)。         | 删除社团中的实体行为互相矛盾时发生错误。 关于发生错误时案例的更多信息，请参阅 [删除行为一致性错误和修复](#delete-behavior) 部分的方法。                                                                                                                                           | 关于如何修复此错误的信息，请参阅 [删除行为一致性错误和如何修复](#delete-behavior) 部分。 |
+| CE0021 | 类型 {attribute type} 的属性仅在可持久实体中被支持。                                       | 不可持续的实体具有类型为自动卸载器或二进制的属性。 这些类型的属性需要存储到数据库中。                                                                                                                                                                               | 通过启用属性中的相应选项使实体可持久；或更改属性类型。                             |
+| CE0065 | 模块 {name of the entity} 中重复的名称 {name of the module}。 实体、协会和点数不能分享名字。      | 您的域模型中有几个具有相同名称的实体。                                                                                                                                                                                                       | 重命名一个实体；所有实体名称都应是唯一的。                                   |
+|        | 选中的属性 {name of attribute} 模棱两可。 它不允许有多个实体 {name of attribute}             | 您的域模型中有几个具有相同名称的实体。 所以这些重复的实体的属性给您带来了错误。                                                                                                                                                                                  | 重命名一个实体；所有实体名称都应是唯一的。                                   |
+|        | 选定的关联 {name of the association} 模糊不清。 它不允许有多个关联 {name of the association} | 您的域模型中有一个与相同名称的关联。                                                                                                                                                                                                        | 重命名一个社团；所有社团名称都应该是唯一的。                                  |
 
-### 2.1 Delete Behavior Consistency Errors and Ways to Fix Them{#delete-behavior}
+### 2.1 删去行为一致性错误和修复其{#delete-behavior}
 
- Consistency errors connected with delete behavior can occur in the following cases:
+ 与删除行为相关的一致性错误可在下列情况下发生：
 
-*  Delete behavior of an entity the association starts from is set to *Delete {name of entity} object(s) as well* and the delete behavior of an entity the association points to is set to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)*
+*  删除从关联开始的实体的行为设置为 *删除 {name of entity} 个对象* 并且删除关联所指向的实体的行为设置为 *只有当它与 {name of other entity} 对象无关时才删除 {name of entity} 个对象*
 
-    ![Delete Behavior Error Example One](attachments/consistency-errors-domain-model/delete-behavior-error-example1.png)
+    ![删除行为错误示例一](attachments/consistency-errors-domain-model/delete-behavior-error-example1.png)
 
-*  Delete behavior of the entity the association starts from is set to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)* and the delete behavior of the entity the association points to is set to *Delete {name of entity} object(s) as well*
+*  删除关联从设置为 *的实体的行为。只有当它与 {name of other entity} 对象无关时，才删除 {name of entity} 对象* 并且删除关联点被设置为 *删除 {name of entity} 对象*
 
-    ![Delete Behavior Error Example Two](attachments/consistency-errors-domain-model/delete-behavior-error-example2.png)
+    ![删除行为错误示例二](attachments/consistency-errors-domain-model/delete-behavior-error-example2.png)
 
-*  Delete behavior of both entities in association is set to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)*
+*  删除两个实体在关联中的行为设置为 *只有当它没有与 {name of other entity} 对象相关时才删除 {name of entity} 对象*
 
-    ![Delete Behavior Error Example Three](attachments/consistency-errors-domain-model/delete-behavior-error-example3.png)
+    ![删除例子3中的行为错误](attachments/consistency-errors-domain-model/delete-behavior-error-example3.png)
 
-You can fix the delete behavior errors in one of following ways:
+您可以通过以下方式修复删除行为错误：
 
-* If  you set delete behavior of one entity to *Delete {name of entity} object only if it is not associated with {name of other entity} object(s)*, set delete behavior of another entity to *Keep {name of entity} object(s)*.
-* Set delete behavior of both entities to *Keep {name of entity} object(s)*
-* Set delete behavior of both entities to *Delete {name of entity} object(s) as well*.
+* 如果您设置删除一个实体的行为为 *只有当它没有与 {name of other entity} 对象相关时才删除 {name of entity} 对象*, 设置删除其他实体的行为为 *保留 {name of entity} 对象*
+* 设置两个实体的删除行为为 *保留 {name of entity} 对象*
+* 设置删除两个实体的行为为 *删除 {name of entity} 个对象(s)以及*
 
-For more information on delete behavior, see section the [Delete Behavior](domain-models-association-properties#delete-behavior) section in *Associations*.
+欲了解更多关于删除行为的信息，请参见 [删除行为](domain-models-association-properties#delete-behavior) 部分 *关联* 中。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Page Consistency Errors](consistency-errors-pages)
-* [Navigation Consistency Errors](consistency-errors-navigation)
-* [Microflow Consistency Errors](consistency-errors-microflows)
-* [Checks](checks)
+* [页面一致性错误](consistency-errors-pages)
+* [导航一致性错误](consistency-errors-navigation)
+* [微流一致性错误](consistency-errors-microflows)
+* [检查](检查)
