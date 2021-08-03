@@ -1,86 +1,86 @@
 ---
-title: "Scheduled Events"
-parent: "resources"
+title: "予定されたイベント"
+parent: "リソース"
 menu_order: 80
-description: "Options for configuring scheduled events"
+description: "スケジュールされたイベントを構成するためのオプション"
 tags:
-  - "Scheduled Event"
-  - "Execution properties"
-  - "Timing"
-  - "intervals"
-  - "scheduling issues"
-  - "time zones"
-  - "daylight saving"
+  - "予定されたイベント"
+  - "実行プロパティ"
+  - "タイミング"
+  - "間隔"
+  - "スケジュールの問題"
+  - "タイムゾーン"
+  - "夏時間の節約"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-With scheduled events you can let the runtime execute a microflow at a specific moment in time. The event can also be repeated with a given interval, for example every day.
+スケジュールされたイベントを使用すると、ランタイムが特定のタイミングでマイクロフローを実行できるようになります。 イベントは、例えば毎日、特定の間隔で繰り返すこともできます。
 
-A scheduled event is added to your module as a document (right-click your module and you will find it listed under *Add other*).
-
-{{% alert type="warning" %}}
-Scheduled events can be tested locally, but they will not be run if your app is deployed as a Free App. See the Free App section of [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy#free-app) for more information on Free App limitations.
-{{% /alert %}}
-
-A `ScheduledEventInformation` object is created every time the scheduled event defined in your app model is run. This records the following:
-
-* **Name** – the **Name** of the scheduled event as entered in [Common Properties](#common-properties)
-* **Description** – the **Documentation** of the scheduled event as entered in [Common Properties](#common-properties)
-* **StartTime** – the time this run of the scheduled event started
-* **EndTime** – the time this run of the scheduled event ended
-* **Status** – the current status of this run of the scheduled event:
-    * **Running** – the event is currently running and has not yet ended
-    * **Completed** – the event has completed successfully
-    * **Error** – the event completed with an error — you can find the error on the error log using the *StartTime* and *EndTime* to locate it if necessary
-    * **Stopped** – the scheduled event was stopped before completion, for example by the app being stopped or a cluster node becoming unhealthy
+スケジュールされたイベントがドキュメントとしてモジュールに追加されます (モジュールを右クリックすると、 ** の下に表示されます)。
 
 {{% alert type="warning" %}}
-The `ScheduledEventInformation` objects are not cleared automatically. If you have a large number of scheduled events you will need to decide how long you need to keep this information and remove stale objects when they are no longer required.
+スケジュールされたイベントはローカルでテストできますが、アプリが無料アプリとしてデプロイされている場合は実行されません。 無料アプリの制限に関する詳細については、 [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy#free-app) の無料アプリセクションを参照してください。
 {{% /alert %}}
 
-## 2 Common Properties{#common-properties}
+アプリモデルで定義されているスケジュールされたイベントが実行されるたびに、 `ScheduledEventInformation` オブジェクトが作成されます。 これは以下を記録します。
 
-| Property      | Description                                                                                                                                                                                              |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name          | The name of the scheduled event. This name is stored in the `ScheduledEventInformation` objects at runtime, so that runs of the scheduled event are recognizable.                                        |
-| Documentation | This field is for documentation purposes in the app model only. Its value is not visible to end-users, is not displayed in the Developer Portal, and doesn't influence the behavior of your application. |
+* **名前** - スケジュールされたイベントの **名前** [共通プロパティ](#common-properties)
+* **説明** – **共通プロパティ** に入力されたスケジュールされたイベントの [ドキュメント](#common-properties)
+* **StartTime** - スケジュールされたイベントのこの実行が開始された時間
+* **EndTime** - スケジュールされたイベントのこの実行が終了した時間
+* **状態** – スケジュールされたイベントのこの実行の現在の状態:
+    * **** を実行中 - イベントは現在実行中で、まだ終了していません
+    * **** 完了しました - イベントは正常に完了しました
+    * **Error** - エラーで完了したイベント — 必要に応じて、 *StartTime* と *EndTime* を使用してエラーログのエラーを見つけることができます。
+    * **Stopped** – スケジュールされたイベントが完了する前に停止しました。例えば、アプリが停止したり、クラスターノードが不健全になったりするなど。
+
+{{% alert type="warning" %}}
+`ScheduledEventInformation` オブジェクトは自動的にはクリアされません。 スケジュールされたイベントが多数ある場合は、この情報を保持する時間を決定し、不要になったときに古いオブジェクトを削除する必要があります。
+{{% /alert %}}
+
+## 2つの共通プロパティ{#common-properties}
+
+| 属性     | 説明                                                                                              |
+| ------ | ----------------------------------------------------------------------------------------------- |
+| 名前     | スケジュールされたイベントの名前。 この名前は実行時に `ScheduledEventInformation` オブジェクトに格納されるため、スケジュールされたイベントの実行が認識可能です。 |
+| ドキュメント | このフィールドは、アプリモデルのドキュメントのみを目的としています。 その値はエンドユーザーには表示されず、開発者ポータルに表示されず、アプリケーションの動作に影響を与えません。       |
 
 
-## 3 Execution Properties
+## 3 実行プロパティ
 
-| Property  | Description                                                                                                                                                                                                                                                                                   |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Microflow | The microflow that is executed when the scheduled event is executed. It should have no parameters and run with all rights (see [Microflow](microflow)).                                                                                                                                       |
-| Enabled   | The microflow is only executed if the scheduled event is enabled. This setting only applies when running from Studio Pro or from Eclipse. On production environments, scheduled events are enabled/disabled via the platform tools (for example Developer Portal or Windows Service Console). |
+| 属性      | 説明                                                                                                                                                                   |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| マイクロフロー | スケジュールされたイベントが実行されたときに実行されるマイクロフロー。 パラメータを持たず、すべての権限で実行する必要があります ( [Microflow](microflow) を参照)。                                                                      |
+| 有効      | マイクロフローは、スケジュールされたイベントが有効な場合にのみ実行されます。 この設定は、Studio Pro または Eclipse から実行する場合にのみ適用されます。 本番環境では、プラットフォームツール(開発者ポータルや Windows サービスコンソールなど)を介してスケジュールされたイベントが有効/無効になります。 |
 
-## 4 Timing Properties
+## タイミングのプロパティ
 
-| Property        | Description                                                                                                                                                                                                                                                                                                                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Start date/time | The date and time when the scheduled event is executed the first time. If the start date/time is **UTC** time the scheduled event is executed when it is the indicated time in UTC (Universal Coordinated Time). If the start date/time is **Server** time, the scheduled event is executed when it is the indicated time on the server on which your application runs. |
-| Repeat          | The scheduled event is repeated with the indicated interval (for example, every 5 minutes) if repeat is set to **Yes**.                                                                                                                                                                                                                                                 |
-| Interval        | This number together with the interval type indicates how large the interval is between two events. This number should be greater than zero.                                                                                                                                                                                                                            |
-| Interval type   | The interval type determines the unit of the interval. Together with the interval number it indicates how large the interval between two events is. For example, 1 day or 10 minutes.                                                                                                                                                                                   |
+| 属性        | 説明                                                                                                                                                                                       |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 開始日時      | スケジュールされたイベントが最初に実行された日時。 開始日時が **UTC** の場合、スケジュールされたイベントは UTC (Universal Coordinated Time) で指定された時刻のときに実行されます。 開始日時が **サーバー** 時間の場合。 スケジュールされたイベントは、アプリケーションが実行されるサーバー上の指定された時間で実行されます。 |
+| 繰り返し      | 繰り返しが **はい**に設定されている場合、スケジュールされたイベントは指定された間隔で繰り返されます。                                                                                                                                    |
+| 間隔        | インターバルタイプとともに、この数字は、2つのイベントの間隔がどれくらい大きいかを示します。 この数値はゼロより大きくなければなりません。                                                                                                                    |
+| インターバルタイプ | interval 型により、間隔の単位が決まります。 インターバル番号と一緒に、2つのイベントの間隔がどれくらい大きいかを示します。 例えば、1日または10分。                                                                                                         |
 
-## 5 Additional information
+## 5つの追加情報
 
-### 5.1 Calculating Intervals
+### 5.1 間隔の計算
 
-The platform schedules the scheduled event by fixed intervals. That means that at startup, the platform schedules the next iterations/intervals the scheduled event should run. This is done by retrieving the intervals, and in addition the platform does some calculations.
+プラットフォームは、スケジュールされたイベントを一定の間隔でスケジュールします。 つまり、起動時に、プラットフォームはスケジュールされたイベントが実行される次の繰り返し/間隔をスケジュールします。 これは間隔を取得することによって行われ、さらにプラットフォームはいくつかの計算を行います。
 
-Seconds, Minutes, Hours, Days, and Weeks are scheduled exactly as configured.
+秒、分、時間、日、および週は構成されているようにスケジュールされています。
 
-Months and Years might not be executed as you would expect:
+月と年は期待通りに実行されない場合があります。
 
-* A **Month** is interpreted as a *31 day interval*
-* A **Year** as a *365 day interval*
+* **月** は *31 日の間隔* と解釈されます
+* **年** を *365 日の間隔* として
 
-So be aware when scheduling your events using Month or Year, because they may not run on the day you are expecting.
+月または年を使用してイベントをスケジュールするときは注意してください。期待している日には実行されないかもしれません。
 
-For example, if you schedule an event to start on March 1 with one month intervals, it will subsequently run on April 1, May 2, Jun 2, Jul 3, Aug 3, Sep 3, and so forth.
+たとえば、3月1日に1ヶ月間隔でイベントを開始する予定がある場合。 その後、5月2日、6月2日、7月2日、8月3日、9月3日などに実行される。
 
-This is a simplified example of the implementation of how the Mendix 5.3.2 release calculated the interval. Later releases might behave slightly different.
+これは、Mendix 5.3.2 リリースがどのように間隔を計算したかの実装の簡単な例です。 以降のリリースでは少し異なる動作をする可能性があります。
 
 ```java
 switch(scheduledEvent.getIntervalType())
@@ -118,32 +118,32 @@ switch(scheduledEvent.getIntervalType())
 
 {{% alert type="warning" %}}
 
-If it is absolutely critical to run a scheduled event on a specific day of the month, you should schedule the event to run daily and then check whether this is the right day of the month to run it.
+その月の特定の日にスケジュールされたイベントを実行することが絶対に重要である場合。 イベントのスケジュールを毎日実行してから、これが月の正しい日か確認してください。
 
-In your microflow you should start with a decision using an expression such as:
+マイクロフローでは、次のような式を使用して意思決定を開始する必要があります。
 
 ```java
 parseInteger( formatDateTime( [%CurrentDateTime%], 'dd') ) = 15
-// This will run the scheduled event on the 15th of the month
+// これは月の15日にスケジュールされたイベントを実行します。
 ```
 
-To run it on the last day of the month, you can use this suggestion from [Herbert Vujik](https://mxforum.mendix.com/questions/6934/How-are-monthly-Scheduled-Events-planned#10518):
+月の最終日に実行するには、 [Herbert Vujik](https://mxforum.mendix.com/questions/6934/How-are-monthly-Scheduled-Events-planned#10518) からこの提案を使用できます :
 
 ```java
 formatDateTime([%CurrentDateTime%], 'dd') = formatDateTime([%EndOfCurrentMonth%], 'dd') 
 ```
 {{% /alert %}}
 
-### 5.2 Specifying the Time
+### 5.2 時刻を指定する
 
-In addition to Monthly and Yearly scheduled events, you also want to be careful when scheduling daily events if they need to run every day at a specific time. This is because of daylight saving time.
+月間および年間スケジュールされたイベントに加えて、 日々の予定を決める時にも気をつけてください これは昼間の時間を節約するためです。
 
-Whenever you set up an event to run every day at a certain time, it will start at the specified time. However, after this it will run at a fixed interval (internally this is calculated back to run every X nanoseconds). This means that a daily event runs every 24 hours. Therefore, if the time changes because of daylight saving, your event *could* be an hour off.
+特定の時間に毎日実行するイベントを設定すると、指定された時間に開始されます。 しかし、この後は一定の間隔で実行されます(内部的にはXナノ秒ごとに実行するために計算されます)。 これは、毎日のイベントが24時間ごとに実行されることを意味します。 したがって、昼間の節約によって時間が変化した場合、あなたのイベント *は* 1時間休みになる可能性があります。
 
-This depends on the locale (timezone) your server is hosted in. Even if you choose **UTC** time, you will still experience this time shift if you are in a country that adopts daylight savings, as the daylight savings changes the offset from UTC.
+これはサーバがホストしているロケール(タイムゾーン)によって異なります。 たとえ **UTC** timeを選択した場合でも もし昼間の節約を受け入れる国にいるとしたら 夏時間によってUTCからのオフセットが変わります
 
-Unfortunately there isn't a great workaround for this issue. If the scheduled event has to be run at a specific time you could create a similar solution to that described above, scheduling the event hourly and using 'HH' (0-23 hours), or 'kk' (1-24 hours) rather than 'dd' in the date format expression. Remember that this will increase the number of `ScheduledEventInformation` objects created.
+残念ながら、この問題に対する大きな回避策はありません。 スケジュールされたイベントを特定の時間に実行する必要がある場合は、上記のようなソリューションを作成できます。 イベントを毎時スケジュールし、日付フォーマットの式で「dd」ではなく「HH」(0-23時間)または「kk」(1-24時間)を使用します。 これにより、作成された `ScheduledEventInformation` オブジェクトの数が増えます。
 
-### 5.3 Long Running Events
+### 5.3 長い実行中のイベント
 
-If a repeated scheduled event takes longer than the interval then the next scheduled event will be delayed, the events will not run concurrently. For example, if a scheduled event is repeated every 5 minutes but the event takes 10 minutes then the next event is delayed by 5 minutes.
+繰り返されるスケジュールされたイベントが間隔よりも時間がかかる場合、次のスケジュールされたイベントが遅延します。イベントは同時に実行されません。 例えば、 スケジュールされたイベントが5分ごとに繰り返され、イベントが10分かかる場合、次のイベントが5分遅れます。
