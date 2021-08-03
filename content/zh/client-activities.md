@@ -1,32 +1,32 @@
 ---
-title: "Client Activities"
-parent: "activities"
+title: "客户活动"
+parent: "活动"
 menu_order: 50
 tags:
   - "studio pro"
-  - "client activities"
-  - "activities"
+  - "客户活动"
+  - "活动"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Client Activities** perform activities in the client, for example, opening a page or showing a message. The activities described in this document are in the **Client Activities** section of the **Toolbox** and can differ for microflows and nanoflows:
+**客户端活动** 在客户端中执行活动，例如打开一个页面或显示一条消息。 The activities described in this document are in the **Client Activities** section of the **Toolbox** and can differ for microflows and nanoflows:
 
-![Client Activities](attachments/client-activities/client-activities.png)
+![客户活动](attachments/client-activities/client-activities.png)
 
-The following are the client activities you can use in your microflow or nanoflow:
+以下是您可以在微流程或 nanoflow 中使用的客户端活动：
 
-* [Nanoflow call](nanoflow-call) *(only in nanoflows)* – calls another nanoflow
-* [Close page](close-page) – closes the currently open page
-* [Download file](download-file) *(only in microflows)* – downloads a file using the browser
-* [Show home page](show-home-page) *(only in microflows)* – opens the home page for the end-user
-* [Show message](show-message) – shows a message to the end-user
-* [Show page](show-page) – shows a selected page to the end-user
-* [Synchronize to device](synchronize-to-device) *(only in microflows)* – enables selectively synchronizing a set of objects to the device when calling a microflow from a nanoflow
-* [Synchronize](synchronize) *(only in nanoflows)* – synchronizes data between your device and the server
-* [Validation feedback](validation-feedback) – does a validation check, and if this check fails, it shows a message to the end-user
+* [Nanoflow 呼叫](nanoflow-call) *(仅在 nanoflows)* - 呼叫另一个 nanoflow
+* [关闭页面](close-page) - 关闭当前打开的页面
+* [下载文件](download-file) *(仅在微流程中)* - 使用浏览器下载文件
+* [显示主页](show-home-page) *(仅在微流程中)* - 为最终用户打开主页
+* [显示消息](show-message) - 向最终用户显示一条消息
+* [显示页面](show-page) - 向最终用户显示一个选定的页面
+* [同步到设备](synchronize-to-device) *(仅在微流程中)* - 在调用微流程微流时允许有选择地同步一组对象到设备
+* [同步](synchronize) *(仅在 nanoflows)* - 在您的设备和服务器之间同步数据
+* [验证反馈](validation-feedback) - 进行验证检查，如果这次检查失败，它会向最终用户显示一条消息
 
 
-## 2 Read More
+## 2 次阅读更多
 
-* [Activities](activities)
+* [活动](活动)
