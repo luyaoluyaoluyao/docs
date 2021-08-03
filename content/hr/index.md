@@ -1,52 +1,28 @@
 ---
-title: "Mendix Product Naming Guide"
-draft: true
+title: "Marketplace Guide"
+description: "Presents documentation on configuring and using the latest versions of platform-supported components."
+tags:
+  - "marketplace"
+  - "component"
+  - "platform support"
 ---
 
-## Purpose of This Guide
+## 1 Introduction
 
-This guide presents the main Mendix product names, other Mendix terms, and partner terms currently being used in the Mendix Platform UI, the [Mendix Documentation](https://docs.mendix.com/), and the [Mendix Platform Evaluation Guide](https://www.mendix.com/evaluation-guide/welcome).
+Mendix Studio Pro and Studio contain a lot of core out-of-the-box widgets such as data grids and snippets. If you want to extend your application with more widgets and modules (for example, the [Forgot Password module](https://marketplace.mendix.com/link/component/1296/)), simple charts, an [Excel importer](https://marketplace.mendix.com/link/component/1296/), and other features, you need to add content from the [Mendix Marketplace](https://marketplace.mendix.com/). The Marketplace contains many useful and reusable widgets and modules created by Mendix as well as by our partners and community.
 
-The purpose of this guide is to provide guidelines on usage, capitalization, and spelling as well as notes on important details and [terminology history](terminology-history) where necessary. The goal of providing and applying these guidelines is to reach company-wide consensus on usage.
+This guide presents documentation on configuring and using the latest versions of [platform-supported](/appstore/general/app-store-content-support#category) Marketplace components.
 
-The purpose of this guide is not to provide a definition for each term. Terminology details are only given here for clarification where necessary. Product definitions are found throughout the Mendix Documentation and Mendix Platform Evaluation Guide, and for the sake of maintenance, they are not duplicated or summarized here.
+For details on the Studio Pro version required for use and when the component was published, please see the specific component page in the Mendix Marketplace. For more information, see the [Marketplace release notes](/releasenotes/app-store/).
 
-For a term to be included in this guide, it should already appear in the Mendix Platform UI, Mendix Documentation, and/or Mendix Platform Evaluation Guide.
+## 2 Guide Categories
 
-A term may not already be included in this guide for the following reasons:
+The *Marketplace Guide* is divided into the following categories:
 
-* There are no specific usage guidelines or decisions on the term (at least not yet)
-* It is a generic term, not branded by Mendix (for example, "domain model," "page," "template," or "layout")
-* It is an internal-only term (for example, names of apps or technical terms only used on R&D teams)
-* The term does not feature uniquely enough in the UI to require usage guidelines (for example, on capitalization in documentation)
-* The term is outdated (meaning, usage of it has been decided against; for examples, see [Terminology History](terminology-history))
-* The term should not be used in customer-facing resources
+* [General Info](general/)
+* [Connectors](connectors/)
+* [Modules](modules/)
+* [Themes](themes/)
+* [Widgets](widgets/)
 
-{{% alert type="warning" %}}
-This guide should not give insights into the product roadmap or internal company operations.
-{{% /alert %}}
 
-## Sections of This Guide
-
-The *Product Naming Guide* is divided into the following documents:
-
-* [Main Product Names](main-product-names)
-* [Other Mendix Terms](other-terms)
-* [Strategic Partner Terms](strategic-partner-terms)
-* [Terminology History](terminology-history)
-
-## Under Each Term
-
-Details and cross-references where necessary.
-
-{{% alert type="info" %}}
-Guidelines for usage.
-{{% /alert %}}
-
-{{% alert type="success" %}}
-Example usage.
-{{% /alert %}}
-
-## Maintaining & Updating This Guide
-
-This guide can be collaboratively maintained and updated across departments. In that sense, a standard documentation workflow is applied: to update the guide, send a [pull request](https://github.com/mendix/docs/tree/development/content/product-naming) (for more information, see [How to Contribute to the Documentation](/developerportal/community-tools/contribute-to-the-mendix-documentation)). Pull requests will be reviewed with relevant stakeholders and necessary documentation updates will be made.
