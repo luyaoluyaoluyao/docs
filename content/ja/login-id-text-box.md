@@ -1,57 +1,57 @@
 ---
-title: "Login ID Text Box"
-parent: "authentication-widgets"
+title: "ログインIDテキストボックス"
+parent: "認証ウィジェット"
 tags:
   - "studio pro"
-  - "login id"
-  - "authentication widget"
-  - "authentication"
+  - "ログイン ID"
+  - "認証ウィジェット"
+  - "認証"
 ---
 
-{{% alert type="warning" %}}The **Login ID text box** widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}The **Login ID text box** ウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Login ID text box** is a widget that can be used to provide a login id for authentication. A login id is a unique identifier of a user, for example, a username or an email address:
+**ログイン ID テキスト ボックス** は、認証用のログイン ID を提供するために使用できるウィジェットです。 ログイン ID は、ユーザーの一意の識別子です。例えば、ユーザー名または電子メール アドレスです。
 
-![Login ID Text Box](attachments/authentication-widgets/login-id.png)
+![ログインIDテキストボックス](attachments/authentication-widgets/login-id.png)
 
-The **Login ID text box** should be placed on a page together with a [Password text box](password-text-box) and a [Sign-in button](sign-in-button).
+**ログイン ID テキスト ボックス** は、 [パスワード テキスト ボックス](password-text-box) と [サインイン ボタン](sign-in-button) と一緒にページに配置する必要があります。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of login ID text box properties is represented in the image below:
+以下の画像では、ログイン ID テキスト ボックスのプロパティの例を示します。
 
-{{% image_container width="250" %}}![Login ID Text Box Properties](attachments/authentication-widgets/logid-id-properties.png)
+{{% image_container width="250" %}}![ログインIDテキストボックスのプロパティ](attachments/authentication-widgets/logid-id-properties.png)
 {{% /image_container %}}
 
-Login ID text box properties consist of the following sections:
+[ログイン ID] テキスト ボックスのプロパティは、次のセクションで構成されています。
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Label](#label)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [ラベル](#label)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Placeholder
+#### 2.3.1 プレースホルダー
 
-A **Placeholder** shows a text when an end-user has not entered any text yet. It can be used to give a hint to the end-user on what information should be entered in the field.
+**プレースホルダー** は、エンドユーザーがまだテキストを入力していない場合にテキストを表示します。 フィールドに入力すべき情報について、エンドユーザーにヒントを与えるために使用できます。
 
-### 2.4 Label Section {#label}
+### 2.4 ラベルセクション {#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Password Text Box](password-text-box)
-* [Sign-In Button](sign-in-button)
+* [ページ](page)
+* [パスワードのテキストボックス](password-text-box)
+* [サインインボタン](sign-in-button)
