@@ -1,22 +1,22 @@
 ---
-title: "String Function Calls"
-parent: "expressions"
+title: "文字列関数コール"
+parent: "表現"
 menu_order: 80
-description: "Describes the functions for converting and inspecting strings in Mendix."
+description: "Mendix で文字列の変換と検査のための関数を説明します。"
 tags:
   - "studio pro"
-  - "string function calls"
-  - "expression"
-  - "expressions"
+  - "文字列関数の呼び出し"
+  - "表現"
+  - "表現"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes functions that are used to convert and inspect [strings](data-types). Note that these functions never change the string itself, they only return a new value.
+このドキュメントでは、 [文字列](data-types) の変換と検査に使用される関数について説明します。 これらの関数は文字列自体を変更することはなく、新しい値を返すだけであることに注意してください。
 
-Strings are surrounded by quotes. If the string contains a quote, it should be escaped by another quote. For example: `'this isn''t funny'`.
+文字列は引用符で囲まれています。 文字列に引用符が含まれている場合は、別の引用符でエスケープする必要があります。 例: `'これは面白くない'`.
 
-For a great deep-dive look into string functions call, check out this video:
+文字列関数の呼び出しを詳しく調べるには、以下のビデオをご覧ください:
 
 <img
   style="width: 100%; margin: auto; display: block;"
@@ -29,33 +29,33 @@ For a great deep-dive look into string functions call, check out this video:
 
 ## 2 toLowerCase
 
-Converts all characters in the string to lowercase.
+文字列内のすべての文字を小文字に変換します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 値       | タイプ |
+| ------- | --- |
+| 変換する文字列 | 文字列 |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                               | Type   |
-| ----------------------------------- | ------ |
-| The same string, but all lowercase. | String |
+| 値                   | タイプ |
+| ------------------- | --- |
+| 同じ文字列ですが、すべての小文字です。 | 文字列 |
 
-### 2.3 Example
+### 2.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 toLowerCase('thisISmyString')
 ```
 
-The output is the following:
+出力は次のとおりです。
 
 ```java
 'thisismystring'
@@ -63,175 +63,175 @@ The output is the following:
 
 ## 3 toUpperCase
 
-Converts all characters in the string to uppercase.
+文字列内のすべての文字を大文字に変換します。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 値       | タイプ |
+| ------- | --- |
+| 変換する文字列 | 文字列 |
 
-### 3.2 Output
+### 3.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                               | Type   |
-| ----------------------------------- | ------ |
-| The same string, but all uppercase. | String |
+| 値                   | タイプ |
+| ------------------- | --- |
+| 同じ文字列ですが、すべての大文字です。 | 文字列 |
 
-### 3.3 Example
+### 3.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 toUpperCase('thisISmyString')
 ```
 
-The output is the following:
+出力は次のとおりです。
 
 ```java
 'THISISMYSTRING'
 ```
 
-## 4 length
+## 4つの長さ
 
-Determines the length of a string.
+文字列の長さを決定します。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 値       | タイプ |
+| ------- | --- |
+| 変換する文字列 | 文字列 |
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                | Type    |
-| -------------------- | ------- |
-| Length of the string | Integer |
+| 値      | タイプ |
+| ------ | --- |
+| 文字列の長さ | 整数  |
 
-### 4.3 Example
+### 4.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 length('thisismystring')
 ```
 
-The output is the following:
+出力は次のとおりです。
 
 ```java
 14
 ```
 
-## 5 substring
+## 5つの部分文字列
 
-Retrieves a substring of a string. Note that the first character of a string is located at position `'0'`, and the last character is located at position `length(string)-1`.
+文字列の部分文字列を取得します。 Note that the first character of a string is located at position `'0'`, and the last character is located at position `length(string)-1`.
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                       | Type    |
-| ------------------------------------------- | ------- |
-| Subject                                     | String  |
-| Start position of the substring             | Integer |
-| Desired length of the result **(optional)** | Integer |
+| 値                  | タイプ |
+| ------------------ | --- |
+| 件名                 | 文字列 |
+| 部分文字列の開始位置         | 整数  |
+| 結果の望ましい長さ **(任意)** | 整数  |
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                   | Type   |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| A part of the original string, starting at the start position with a length equal to the desired length. If no desired length is specified, will return a substring starting at the start position and ending at the end of the string. | String |
+| 値                                                                                     | タイプ |
+| ------------------------------------------------------------------------------------- | --- |
+| 元の文字列の一部で、希望する長さに等しい長さで開始位置から始まります。 希望する長さが指定されていない場合、開始位置から始まり、文字列の終わりまでの部分文字列を返します。 | 文字列 |
 
-### 5.3 Example
+### 5.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 substring('thisismystring', 6)
 ```
 
-The output is the following:
+出力は次のとおりです。
 
 ```java
 'mystring'
 ```
 
-Another example of an input is:
+入力の別の例:
 
 ```java
 substring('mendixapp', 6,3)
 ```
 
-The output is the following:
+出力は次のとおりです。
 
 ```java
 'app'
 ```
 
-## 6 find
+## 6件検索
 
-Finds the position of the first occurrence of the substring in the string.
+文字列内の部分文字列の最初の発生位置を検索します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Original string, the string that you want to search in | String  |
-| Substring that you want to search for                  | String  |
-| Start location to begin the search from **(optional)** | Integer |
+| 値                  | タイプ |
+| ------------------ | --- |
+| 元の文字列、検索したい文字列     | 文字列 |
+| 検索したい部分文字列         | 文字列 |
+| **(任意)** から検索を開始する | 整数  |
 
-### 6.2 Output
+### 6.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                         | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string. | Integer |
+| 値                                                         | タイプ |
+| --------------------------------------------------------- | --- |
+| 元の文字列の部分文字列の最初の位置。 部分文字列が元の文字列の中で全く発生しない場合、 `'-1'` を返します。 | 整数  |
 
-### 6.3 Example
+### 6.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 find('thisismystring', 'my')
 ```
 
-The output is:
+出力は:
 
 ```java
 6
 ```
 
-Substring that doesn't occur in the original string:
+元の文字列にはない部分文字列:
 
 ```java
 find('thisismystring', 'yourstring')
 ```
 
-returns:
+戻り値:
 
 ```java
 -1
 ```
 
-Another example of an input is:
+入力の別の例:
 
 ```java
 find('thisismystring', 'i', 5)
 ```
 
-The output is:
+出力は:
 
 ```java
 11
@@ -239,118 +239,118 @@ The output is:
 
 ## 7 findLast
 
-Finds the position of the last occurrence of a substring in the original string.
+元の文字列中の部分文字列の最後に現れた位置を検索します。
 
-### 7.1 Input Parameters
+### 7.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Original string, the string that you want to search in | String  |
-| Substring that you want to search for                  | String  |
-| Start location to begin the search from **(optional)** | Integer |
+| 値                  | タイプ |
+| ------------------ | --- |
+| 元の文字列、検索したい文字列     | 文字列 |
+| 検索したい部分文字列         | 文字列 |
+| **(任意)** から検索を開始する | 整数  |
 
-### 7.2 Output
+### 7.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                         | Type    |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| The first location of the substring in the original string. Will return `'-1'` if the substring does not occur at all in the original string. | Integer |
+| 値                                                         | タイプ |
+| --------------------------------------------------------- | --- |
+| 元の文字列の部分文字列の最初の位置。 部分文字列が元の文字列の中で全く発生しない場合、 `'-1'` を返します。 | 整数  |
 
-### 7.3 Example
+### 7.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 findLast('thisismystring', 't')
 ```
 
-The output is:
+出力は:
 
 ```java
 9
 ```
 
-Another example of an input where a substring does not occur in the original string:
+元の文字列に部分文字列が発生しない入力の別の例:
 
 ```java
 findLast('thisismystring', 'yourstring')
 ```
 
-The output is:
+出力は:
 
 ```java
 -1
 ```
 
-An example of an input with the third parameter:
+3番目のパラメータを持つ入力の例:
 
 ```java
 findLast('thisismystring', 'i', 5)
 ```
 
-The output is:
+出力は:
 
 ```java
 4
 ```
 
-## 8 contains
+## 8つに含まれています
 
-Determines whether the original string (first parameter) contains a substring (second parameter).
+元の文字列 (最初のパラメータ) に部分文字列 (2番目のパラメータ) が含まれるかどうかを指定します。
 
-For example, this expression:
+例えば、次の式は：
 
 ```java
 contains('stringtosearchin', 'stringtosearchfor')
 ```
 
-is equivalent to the following expression:
+は、次の式と同じです。
 
 ```java
 find('stringtosearchin', 'stringtosearchfor') != -1
 ```
 
-The example below shows searching for an empty variable or empty string, where `$param = ''`:
+以下の例は、空の変数または空の文字列を検索する例です。ここで `$param = ''`:
 
 ```java
 contains('stringtosearchin', $param)
 ```
 
-The input above will return `true`.
+上記の入力は `true` を返します。
 
 {{% alert type="warning" %}}
-This function is case-sensitive.
+この関数は大文字と小文字を区別します。
 {{% /alert %}}
 
-### 8.1 Input Parameters
+### 8.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+| 値              | タイプ |
+| -------------- | --- |
+| 元の文字列、検索したい文字列 | 文字列 |
+| 検索したい部分文字列     | 文字列 |
 
-### 8.2 Output
+### 8.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                               | Type    |
-| --------------------------------------------------- | ------- |
-| Whether the original string contains the substring. | Boolean |
+| 値                       | タイプ     |
+| ----------------------- | ------- |
+| 元の文字列に部分文字列が含まれているかどうか。 | Boolean |
 
-### 8.3 Example
+### 8.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 contains('thisismystring', 'my')
 ```
 
-The output is:
+出力は:
 
 ```java
 true
@@ -358,34 +358,34 @@ true
 
 ## 9 startsWith
 
-Determines whether a string starts with the specified substring.
+文字列が指定された部分文字列で始まるかどうかを決定します。
 
-### 9.1 Input Parameters
+### 9.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+| 値              | タイプ |
+| -------------- | --- |
+| 元の文字列、検索したい文字列 | 文字列 |
+| 検索したい部分文字列     | 文字列 |
 
-### 9.2 Output
+### 9.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                  | Type    |
-| ------------------------------------------------------ | ------- |
-| Whether the original string starts with the substring. | Boolean |
+| 値                    | タイプ     |
+| -------------------- | ------- |
+| 元の文字列が部分文字列で始まるかどうか。 | Boolean |
 
-### 9.3 Example
+### 9.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 startsWith('thisismystring', 'this')
 ```
 
-The output is:
+出力は:
 
 ```java
 true
@@ -393,34 +393,34 @@ true
 
 ## 10 endsWith
 
-Determines whether a string ends with the specified substring.
+文字列が指定された部分文字列で終わるかどうかを指定します。
 
-### 10.1 Input Parameters
+### 10.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| Original string, the string that you want to search in | String |
-| Substring that you want to search for                  | String |
+| 値              | タイプ |
+| -------------- | --- |
+| 元の文字列、検索したい文字列 | 文字列 |
+| 検索したい部分文字列     | 文字列 |
 
-### 10.2 Output
+### 10.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                | Type    |
-| ---------------------------------------------------- | ------- |
-| Whether the original string ends with the substring. | Boolean |
+| 値                    | タイプ     |
+| -------------------- | ------- |
+| 元の文字列が部分文字列で終わるかどうか。 | Boolean |
 
-### 10.3 Example
+### 10.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 endsWith('thisismystring', 'ring')
 ```
 
-The output is:
+出力は:
 
 ```java
 true
@@ -428,295 +428,295 @@ true
 
 ## 11 trim
 
-Removes all the whitespace at the beginning and end of a string.
+文字列の先頭と末尾の空白をすべて削除します。
 
-### 11.1 Input Parameters
+### 11.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value    | Type   |
-| -------- | ------ |
-| A string | String |
+| 値   | タイプ |
+| --- | --- |
+| 文字列 | 文字列 |
 
-### 11.2 Output
+### 11.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                    | Type   |
-| -------------------------------------------------------- | ------ |
-| Same string but without spaces at the beginning and end. | String |
+| 値                          | タイプ |
+| -------------------------- | --- |
+| 同じ文字列ですが、先頭と末尾にスペースがありません。 | 文字列 |
 
-### 11.3 Example
+### 11.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-trim(' this is my string     ')
+trim(' this is my string ')
 ```
 
-The output is:
+出力は:
 
 ```java
-'this is my string'
+「これは私の糸です」
 ```
 
 ## 12 isMatch
 
-Checks to see if a string matches a given regular expression.
+文字列が与えられた正規表現に一致するかどうかを確認します。
 
-### 12.1 Input Parameters
+### 12.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                       | Type   |
-| --------------------------- | ------ |
-| String to try and match     | String |
-| Regular expression to match | String |
+| 値            | タイプ |
+| ------------ | --- |
+| 試してみて一致する文字列 | 文字列 |
+| 一致する正規表現     | 文字列 |
 
 {{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
+正規表現は文字列として指定する必要があります。 正規表現には同じ形式を使用しますが、この関数では [正規表現](regular-expressions) リソースドキュメントを使用することはできません。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+この関数呼び出しは、現在のプラットフォームが提供する正規表現言語を使用することに注意してください:
 
-* When used inside a [microflow](microflow) – Java's regular expressions (for details, see [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* [microflow](microflow) 内で使用する場合 – Java の正規表現 (詳細については、 [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) を参照してください)
+* クライアントで使用される場合 – JavaScript の正規表現 (詳細については、 [正規表現ドキュメント](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) を参照してください)
 
 {{% /alert %}}
 
-### 12.2 Output
+### 12.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                              | Type    |
-| ---------------------------------- | ------- |
-| Whether the string matches or not. | Boolean |
+| 値             | タイプ     |
+| ------------- | ------- |
+| 文字列が一致するかどうか。 | Boolean |
 
-### 12.3 Example
+### 12.3 例
 
-This input below tests to see whether the string contains only numbers:
+以下の入力は、文字列に数字のみが含まれているかどうかをテストします:
 
 ```java
 isMatch('234hello6432', '^([0-9]+)$')
 ```
 
-The output is:
+出力は:
 
 ```java
 False
 ```
 
-In `isMatch()`, the regex is implicitly anchored at `^` and `$`.
+`isMatch()`では、regex は `^` と `$` に暗黙的にアンカーされます。
 
-**Other Examples**
+**その他の例**
 
-* `isMatch('NLG 123.45', '[0-9]')` returns `false`
-* `isMatch('NLG 123.45', '.*[0-9].*')` returns `true`
+* `isMatch('NLG 123.45', '[0-9]')` は `false` を返します
+* `isMatch('NLG 123.45', '.* .*')[0-9]` returns `true`
 
-NB searching an empty string:
+NBは空の文字列を検索しています:
 
-* `isMatch('', '.*[0-9].*')` returns `false`
+* `isMatch('', '.*[0-9].*')` は `false` を返します
 
 ## 13 replaceAll
 
-Replaces all occurrences of a regular expression with another string.
+正規表現のすべての出現を別の文字列に置き換えます。
 
-### 13.1 Input Parameters
+### 13.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                           | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The string to search in                                                                                                                                                                                                                         | String |
-| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | String |
-| The string to be substituted for each match (this does not support backreferences, substitutions, or captures)                                                                                                                                  | String |
+| 値                                                                                                                                                                                                                                               | タイプ |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| 検索する文字列                                                                                                                                                                                                                                         | 文字列 |
+| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | 文字列 |
+| 各マッチで置換される文字列 (バックリファレンス、置換、キャプチャをサポートしていません)                                                                                                                                                                                                   | 文字列 |
 
 {{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
+正規表現は文字列として指定する必要があります。 正規表現には同じ形式を使用しますが、この関数では [正規表現](regular-expressions) リソースドキュメントを使用することはできません。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+この関数呼び出しは、現在のプラットフォームが提供する正規表現言語を使用することに注意してください:
 
-* When used inside [microflows](microflows) – Java's regular expressions (for details, see [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* [microflow](microflows) 内で使用する場合 – Java の正規表現 (詳細については、 [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) を参照してください)
+* クライアントで使用される場合 – JavaScript の正規表現 (詳細については、 [正規表現](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) を参照)
 
 {{% /alert %}}
 
-### 13.2 Output
+### 13.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                     | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The original string, with all occurrences of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned. | String |
+| 値                                                               | タイプ |
+| --------------------------------------------------------------- | --- |
+| 元の文字列で、正規表現のすべての出現が置換文字列に置き換えられます。 文字列内で正規表現が発生しない場合、元の式が返されます。 | 文字列 |
 
-### 13.3 Example
+### 13.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-replaceAll('this is a string with 75 some numbers 234 thrown in', '([0-9])', 'NUMBER')
+replaceAll('this is a string with 75 some number 234 throwed in', '([0-9])', 'NUMBER')
 ```
 
-The output is:
+出力は:
 
 ```java
-'this is a string with NUMBERNUMBER some numbers NUMBERNUMBERNUMBER thrown in'
+'この文字列は NUMBERNUMBERNUMBER いくつかの数値NUMBERNUMBERNUMBERNUMBERNUMBERNUMBER がスローされます'
 ```
 
-Another example of an input of the following:
+以下の入力の別の例:
 
 ```java
-replaceAll('this is a string with no numbers thrown in', '([0-9])', 'NUMBER')
+replaceAll('this is a string with no numbers throw in', '([0-9])', 'NUMBER')
 ```
 
-And the output is that there are no matches for the input:
+出力は、入力に一致するものがないことです:
 
 ```java
-'this is a string with no numbers thrown in'
+'これは数字が投げられていない文字列
 ```
 
 ## 14 replaceFirst
 
-Replaces the first occurrence of the regular expression with a replacement string.
+正規表現の最初の発生を置換文字列に置き換えます。
 
-### 14.1 Input Parameters
+### 14.1 パラメータの入力
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                                                                                                                                                                                                                                           | Type   |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The string to search in                                                                                                                                                                                                                         | String |
-| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | String |
-| The string to be substituted for each match (this does not support backreferences, substitutions, or captures)                                                                                                                                  | String |
+| 値                                                                                                                                                                                                                                               | タイプ |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| 検索する文字列                                                                                                                                                                                                                                         | 文字列 |
+| The regular expression to match; if you want to search for a literal string, enclose it between `\Q` and `\E` (for example, `\QPaul S. Mueller\E` will search for the string `Paul S. Mueller`, without interpreting the dot as a wildcard) | 文字列 |
+| 各マッチで置換される文字列 (バックリファレンス、置換、キャプチャをサポートしていません)                                                                                                                                                                                                   | 文字列 |
 
 {{% alert type="info" %}}
-The regular expression must be provided as a string. Although it uses the same format for regular expressions, you cannot use a [regular expression](regular-expressions) resource document in this function.
+正規表現は文字列として指定する必要があります。 正規表現には同じ形式を使用しますが、この関数では [正規表現](regular-expressions) リソースドキュメントを使用することはできません。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
 
-Please note that this function call uses the regular expression language provided by the current platform:
+この関数呼び出しは、現在のプラットフォームが提供する正規表現言語を使用することに注意してください:
 
-* When used inside a [microflow](microflow) – Java's regular expressions (for details, see [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html))
-* When used in the client – JavaScript's regular expressions (for details, see [Regular Expressions documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions))
+* [microflow](microflow) 内で使用する場合 – Java の正規表現 (詳細については、 [Class Pattern documentation](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) を参照してください)
+* クライアントで使用される場合 – JavaScript の正規表現 (詳細については、 [正規表現ドキュメント](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) を参照してください)
 
 {{% /alert %}}
 
-### 14.2 Output
+### 14.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                          | Type   |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
-| The original string, with the first occurrence of the regular expression replaced by the replacement string. If the regular expression does not occur in the string, the original is returned. | String |
+| 値                                                            | タイプ |
+| ------------------------------------------------------------ | --- |
+| 元の文字列は、正規表現の最初の発生を置換文字列に置き換えます。 文字列内で正規表現が発生しない場合、元の式が返されます。 | 文字列 |
 
-### 14.3 Example
+### 14.3 例
 
-If you use the following input:
-
-```java
-replaceFirst('this is a string with 75 some numbers 234 thrown in', '([0-9])', 'NUMBER')
-```
-
-The output is:
+次の入力を使用する場合:
 
 ```java
-'this is a string with NUMBER5 some numbers 234 thrown in'
+replaceFirst('this is a string with 75 some number 234 throwed in', '([0-9])', 'NUMBER')
 ```
 
-## 15 String Concatenation ( + )
+出力は:
 
-The `+` operator can be used to concatenate two strings or a string and a number.
+```java
+'this is a string with NUMBER5 some number 234 throwed in'
+```
 
-### 15.1 Input Parameters
+## 15 文字列結合 ( + )
 
-The input parameters are described in the table below:
+`+` 演算子は、2つの文字列または1つの文字列と数を連結するために使用できます。
 
-| Value            | Type                          |
-| ---------------- | ----------------------------- |
-| First parameter  | String, integer/long, decimal |
-| Second parameter | String, integer/long, decimal |
+### 15.1 入力パラメータ
+
+入力パラメータは以下の表に記載されています:
+
+| 値         | タイプ              |
+| --------- | ---------------- |
+| 最初のパラメータ  | 文字列、整数/長さ、10 進数。 |
+| 2番目のパラメータ | 文字列、整数/長さ、10 進数。 |
 
 {{% alert type="info" %}}
 
-At least one of the parameters must be of type string.
+少なくとも一つのパラメータは文字列型でなければなりません。
 
 {{% /alert %}}
 
-### 15.2 Output
+### 15.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                       | Type   |
-| --------------------------------------------------------------------------- | ------ |
-| A new string that is the literal concatenation of the two input parameters. | String |
+| 値                           | タイプ |
+| --------------------------- | --- |
+| 2つの入力パラメータのリテラル連結である新しい文字列。 | 文字列 |
 
-### 15.3 Example
+### 15.3 例
 
-An example of an input to combine two strings can be the following:
+2つの文字列を組み合わせるための入力の例は以下のとおりです:
 
 ```java
 'foo' + 'bar'
 ```
 
-The output is:
+出力は:
 
 ```java
 'foobar'
 ```
 
-An example of an input to combine a string and a number can be the following:
+文字列と数値を結合する入力の例は以下のとおりです:
 
 ```java
-4.73 + ' kilometers'
+4.73 + ' km
 ```
 
-The output is:
+出力は:
 
 ```java
-'4.73 kilometers'
+'4.73km
 ```
 
 ## 16 urlEncode {#urlEncode}
 
-Converts a string to be used in a URL. This function is useful when you want to use the string as part of the URL.
+URL で使用する文字列を変換します。 この関数は、URL の一部として文字列を使用する場合に便利です。
 
-For example:
+例:
 
 ```java
 'http://google.com/search?q=' + urlEncode($myQuery)
 ```
 
-### 16.1 Input Parameters
+### 16.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value             | Type   |
-| ----------------- | ------ |
-| String to convert | String |
+| 値       | タイプ |
+| ------- | --- |
+| 変換する文字列 | 文字列 |
 
-### 16.2 Output
+### 16.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                    | Type   |
-| ------------------------ | ------ |
-| The string, URL-encoded. | String |
+| 値             | タイプ |
+| ------------- | --- |
+| 文字列、URLエンコード。 | 文字列 |
 
-### 16.3 Example
+### 16.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 urlEncode('Hello, world!')
 ```
 
-The output is:
+出力は:
 
 ```java
 'Hello%2C+world%21'
@@ -724,33 +724,33 @@ The output is:
 
 ## 17 urlDecode
 
-Converts a string back from a URL. The opposite of [urlEncode](#urlEncode).
+URL から文字列を変換します。 [urlEncode](#urlEncode) の反対。
 
-### 17.1 Input Parameters
+### 17.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                           | Type   |
-| ------------------------------- | ------ |
-| A URL-encoded string to convert | String |
+| 値                    | タイプ |
+| -------------------- | --- |
+| 変換する URL エンコードされた文字列 | 文字列 |
 
-### 17.2 Output
+### 17.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                    | Type   |
-| ------------------------ | ------ |
-| The string, URL-decoded. | String |
+| 値            | タイプ |
+| ------------ | --- |
+| 文字列、URLデコード。 | 文字列 |
 
-### 17.3 Example
+### 17.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 urlDecode('Hello%2C+world%21')
 ```
 
-The output is:
+出力は:
 
 ```java
 'Hello, world!'
