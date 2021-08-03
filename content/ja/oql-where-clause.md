@@ -1,8 +1,15 @@
 ---
 title: "OQL ここで条項を使用する"
 parent: "oql"
+tags:
+  - "studio pro"
+  - "クエリ"
+  - "どこで"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-where-clause.pdf) をクリックしてください。
+{{% /alert %}}
 
 WHERE句は、取得されるデータがどのように制約される必要があるかを指定します。
 
@@ -12,7 +19,7 @@ WHERE句は、取得されるデータがどのように制約される必要が
 場所 <constraint>
 ```
 
-`<constraint>` 値が常に真に等しい式。 式は、演算子、関数、キーワード、システム変数と単純な比較可能で構成されています。
+`<constraint>` 値が常に真に等しい式。 式は演算子、関数、キーワード、システム変数を使用する単純な比較で構成されています。
 
 {{% alert type="info" %}}
 
