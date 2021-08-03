@@ -3,39 +3,39 @@ title: "XPath id"
 parent: "xpath-query-functions"
 ---
 
-## 1 Overview
+## 1つの概要
 
-This function replaces the default XPath query syntax. It retrieves data based upon the unique identification number supplied. Each individual Mendix object generated in a project is automatically provided with an ID.
+この関数はデフォルトの XPath クエリ構文を置き換えます。 一意の識別番号に基づいてデータを取得します。 プロジェクトで生成された個々の Mendix オブジェクトには、ID が自動的に与えられます。
 
-The argument of this function can be the following:
+この関数の引数は次のようになります:
 
-* A string containing one ID
-* A string containing a space-separated sequence of IDs
+* 1 つの ID を含む文字列
+* 空白で区切られたシーケンスIDを含む文字列
 
-## 2 Examples
+## 2つの例
 
-This query returns a list with one object (which has the ID "123423462342"):
+このクエリは1つのオブジェクト(ID "123423462342")を持つリストを返します。
 
 ```java
 id('ID_123423462342')
 ```
 
-This query returns a list with three objects (these objects have the IDs "123423462342," "123423462343," and "123423462344"):
+このクエリは3つのオブジェクトを含むリストを返します(これらのオブジェクトにはIDが「123423462342」、「123423462343」、および「123423462344」があります):
 
 ```java
 id('ID_123423462342 ID_123423462343 ID_123423462344')
 ```
 
 {{% alert type="warning" %}}
-ID queries cannot be started by the characters `'//'`. ID queries always start directly with `id(....`.
+IDクエリは文字 `'//'`では開始できません。 ID クエリは常に `id(....` で直接開始されます。
 {{% /alert %}}
 
-This function is often used to constrain retrieving objects to the objects of the current user only:
+この関数は、通常、現在のユーザーのオブジェクトにのみオブジェクトを取得するように制限するために使用されます。
 
 `[id = $currentUser]`
 
-It will only return results when you are querying `System.Account` or specializations of that entity. Entities with a one-to-one relation to the account will give no results.
+`System.Account` またはエンティティの専門分野を問い合わせている場合にのみ結果を返します。 アカウントと一対一の関係を持つエンティティは結果を与えません。
 
-If you want to get all the objects (querying any entity) that were created by the current user, you should use the following function:
+現在のユーザーによって作成されたすべてのオブジェクト (任意のエンティティをクエリ) を取得したい場合は、次の関数を使用する必要があります。
 
-`[System.owner='[%CurrentUser%]']`
+`[System.owner==[%CurrentUser%]']`
