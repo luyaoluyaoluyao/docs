@@ -1,265 +1,265 @@
 ---
-title: "Offline-First"
-category: "Mobile"
+title: "离线在前"
+category: "移动设备"
 menu_order: 30
 tags:
-  - "offline"
-  - "native"
-  - "mobile"
+  - "离线的"
+  - "原生的"
+  - "移动网络"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Offline-first applications work regardless of the connection in order to provide a continuous experience. Pages and logic interact with an offline database on the device itself, and data is synchronized with the server. This results in a snappier UI, increased reliability, and improved device battery life.
+为了提供连续体验，离线第一个应用程序不论是否有连接。 页面和逻辑与设备上的离线数据库交互，数据与服务器同步。 这将产生一个快照界面、提高可靠性和改善设备电池使用寿命。
 
 {{% alert type="info" %}}
-It is important to understand that offline-first is an architectural concept and not an approach based on the network state of the device. Offline-first apps do not rely on a connection, but they can use connections (for example, you can call microflows, use a Google Maps widget, or use push notifications).
-{{% /alert %}}
+必须认识到，离线首先是一种建筑概念，而不是一种基于设备网络状态的方法。 离线第一个应用不依赖于连接，但可以使用连接 (例如) 您可以调用 microflow，使用谷歌地图小部件或使用推送通知)。
+{{% /报警 %}}
 
-Mendix supports building offline-first applications for [native mobile](native-mobile) and [hybrid mobile](hybrid-mobile) apps. Both native and hybrid apps share the same core, and this gives them the same offline-first capabilities. Native mobile apps are always offline-first, but for hybrid mobile apps, it depends on the navigation profile that is configured. The data is stored on the device in a local database, and the files are stored on the file storage of the device.
+Mendix 支持为 [本机移动](native-mobile) 和 [混合移动应用程序](hybrid-mobile) 应用程序构建离线第一个应用程序。 本机应用和混合应用拥有相同的核心，这使它们具有相同的离线第一功能。 本机移动应用总是离线的，但是对于混合移动应用，它取决于已配置的导航配置文件。 数据存储在设备上的本地数据库中，文件存储在设备的文件存储中。
 
-Mendix Studio Pro performs validations to make sure your app follows an offline-first approach and works even when there is no connection.
+Mendix Studio Pro 进行验证以确保您的应用遵循离线第一种方法，即使没有连接，也能正常工作。
 
-During development, the [Make It Native mobile app](https://play.google.com/store/apps/details?id=com.mendix.developerapp) (for native mobile apps) or [Mendix mobile app](https://play.google.com/store/apps/details?id=com.mendix.SprintrMobile) (for hybrid mobile apps) can be used to preview and test your Mendix app on a device. The first time your Mendix app is loaded, an internet connection will be required to create a session on the server and download the necessary data and resources. After this initial synchronization, data will remain available in the app even without an internet connection. Subsequent synchronizations will be performed when requested by the user, through application logic or after a model change.
+在发展过程中， [使它成为本机移动手机应用程序](https://play.google.com/store/apps/details?id=com.mendix.developerapp) (针对本机移动应用程序) 或 [Mendix 移动应用程序](https://play.google.com/store/apps/details?id=com.mendix.SprintrMobile) (针对混合移动应用程序) 可以用于预览和测试您的 Mendix 应用在设备上。 第一次加载您的 Mendix 应用程序， 需要互联网连接才能在服务器上创建会话并下载必要的数据和资源。 初始同步后，即使没有互联网连接，数据仍然可以在应用中使用。 随后的同步将在用户请求时通过应用逻辑或在模型更改后进行。
 
-## 2 Synchronization{#synchronization}
+## 2 次同步{#synchronization}
 
-Mendix automatically analyzes your app's data model to determine which entities should be synchronized based on the pages and nanoflows used within your offline navigation profile. In addition, the platform takes entity access into account so that only the data the user is allowed to access is synchronized.
+Mendix 自动分析您的应用数据模型，以确定哪些实体应该根据您离线导航配置中使用的页面和nanoflows同步. 此外，平台还考虑到实体访问，以便只有用户被允许访问的数据能够同步。
 
-Synchronization is automatically triggered during the following scenarios:
+在以下场景中自动触发同步：
 
-* The initial startup of your mobile app
-* The first startup of your mobile app after your Mendix app is redeployed when the following conditions are matched:
- * There is a network connection
- * You are using a new Mendix version or the domain model used in the offline-first app has changed
-* After the app user logs in or out
+* 您的手机应用的初始启动
+* 在您的 Mendix 应用程序被重新部署后，您的手机应用首次启动，当以下条件匹配时：
+ * 有网络连接
+ * 您正在使用新的 Mendix 版本或离线第一个应用程序中使用的域模型已更改
+* 在应用程序登录或退出后的用户
 
-Synchronization can also be configured via different places in your Mendix app, for example:
+同步也可以通过您的 Mendix 应用程序的不同位置进行配置，例如：
 
-* As an action on a button
-* As an action in a nanoflow
-* As a pull-down action on a list view (for native mobile only)
+* 作为按钮上的操作
+* 作为纳米处理的操作
+* 作为列表视图上的下拉动作 (仅供本地移动)
 
-Synchronization is performed on the database level. This means if you synchronize while having some uncommitted changes for an object, the attribute values in local database will be synchronized, ignoring the uncommitted changes. Uncommitted changes are still available after a synchronization.
+在数据库一级进行同步操作。 这意味着如果您在对对象有一些未承诺的更改时同步， 本地数据库中的属性值将被同步，忽略未承诺的更改。 同步后未提交的更改仍可用。
 
-### 2.1 Synchronization Types
+### 2.1 同步类型
 
-You can perform synchronization on two levels:
+您可以在两个级别执行同步：
 
-* [Full synchronization](#full-sync)
-* [Selective synchronization](#selective-sync)
+* [完全同步](#full-sync)
+* [选择同步](#selective-sync)
 
-#### 2.1.1 Full Synchronization {#full-sync}
+#### 2.1.1 完全同步 {#full-sync}
 
-This mode performs both the upload and the download phases for all entities used in the offline-first app. You can customize the behavior of each entity with [customizable synchronization](#customizable-synchronization).
+此模式对离线第一个应用中使用的所有实体同时执行上传和下载阶段。 您可以定制每个实体的 [自定义同步](#customizable-synchronization)。
 
-#### 2.1.2 Selective Synchronization {#selective-sync}
+#### 2.1.2 选择性同步 {#selective-sync}
 
-Selective synchronization can only be done through a **Synchronize** action inside a nanoflow. In this mode, a specific set of objects will be synchronized. These objects can be either all unsynchronized objects when the [synchronize unsynchronized objects](synchronize#synchronize-unsynchronized-objects) mode is selected, or a manually selected set of objects when the [synchronize selected object(s)](synchronize#synchronize-selected-object-s) mode is selected.
+选择性同步只能通过 **在 nanoflow 中同步** 动作。 在此模式下，将同步特定对象集。 当选择 [同步未同步对象](synchronize#synchronize-unsynchronized-objects) 模式时，这些对象可以是所有未同步对象， 或手动选择的对象组。 [同步选定对象](synchronize#synchronize-selected-object-s) 模式。
 
-Synchronization performed using a UI element (for example, a button or an on-change action) performs the full synchronization.
+使用 UI 元素进行同步(例如按钮或更改动作) 执行完全同步。
 
-### 2.2 Synchronization Phases
+### 2.2 同步阶段
 
-The synchronization process consists of two phases. In the [upload phase](#upload), your app updates the server database with the new or changed objects that are committed. In the [download phase](#download), your app updates its local database using data from the server database.
+这个同步过程包括两个阶段。 在 [上传阶段](#upload)，您的应用更新了服务器数据库中的新的或更改了提交的对象。 在 [下载阶段](#download)，您的应用使用服务器数据库中的数据更新了本地数据库。
 
-#### 2.2.1 Upload Phase {#upload}
+#### 2.2.1 上传阶段 {#upload}
 
-The upload phase begins with a referential integrity validation of the new or changed objects that should be committed to the server. This validation checks each to-be-committed object's references to other objects. If this validation fails, the synchronization is aborted and an error message is shown (if the error is not caught).
+上传阶段开始时对应提交给服务器的新对象或更改对象进行引用完整性验证。 这个验证检查每个待提交对象对其他对象的引用。 如果此验证失败，同步将中止并显示错误消息(如果错误未被抓取)。
 
-During [full synchronization](#full-sync) this validation ensures that all referenced objects are committed to the local database. If a referenced object is created on the device and not yet committed to the local database, synchronization is aborted to prevent an invalid reference value on the server database. Note that synchronization only works on the database level.
+在 [完全同步](#full-sync) 期间，此验证确保所有被引用的对象都被承诺到本地数据库。 如果一个引用的对象是在设备上创建的并且尚未承诺到本地数据库， 同步被中止，以防止服务器数据库中的引用值无效。 请注意同步只能在数据库一级正常工作。
 
-For example, when a committed `City` object refers to an uncommitted `Country` object, synchronizing the `City` object will yield an invalid `Country` object reference, which will break the app's data integrity. If a synchronization is triggered while data integrity is broken, the following error message will appear (indicating an error in the model to fix): **Sync has failed due to a modeling error. Your database contains objects that reference uncommitted objects: object of type `City` (reference `City_Country`)**. To fix this, such objects must also be committed before synchronizing (in this example, `Country` should be committed before synchronizing).
+例如，当一个承诺的 `City` 对象提到一个未承诺的 `国家` 对象， 同步 `城市` 对象会产生无效的 `国家` 对象参考 这将破坏应用的数据完整性。 如果当数据完整性损坏时触发同步， 下面的错误信息将会出现(在模型中显示一个错误到修复)： **同步由于一个建模错误而失败。 您的数据库包含未提交的对象：类型为 `City` 的对象(参考 `City_Country`)** 为了解决这个问题，在同步之前必须先提交这些对象(在这个示例中， `乡村` 应该在同步之前提交)。
 
-During [selective synchronization](#selective-sync), an additional referential integrity validation is performed to ensure that all referenced objects are at least synchronized once to the server database or included in the selection.
+在 [期间选择同步](#selective-sync)， 一个额外的引用完整性验证是为了确保所有被引用的对象至少同步到服务器数据库或包含在选择中。
 
-For example, synchronizing only a committed `City` object referencing an offline `Country` object (created on the device and committed to the local database but not yet synchronized) would break the integrity of the `City` object on the server database since the `Country` object is not stored in the server database. In this case a similar error message will appear, indicating that it is a modeling error. To fix this, such objects must be selected for synchronization. In this example, `Country` should either be selected with synchronization or synchronized before attempting to synchronize `City` object.
+例如， 只同步一个已承诺的 `城市` 对象引用离线 `国家` 对象(在设备上创建并致力于本地数据库，但尚未同步) 会破坏服务器数据库中的 `城市` 对象的完整性，因为 `国家` 对象没有存储在服务器数据库中。 在这种情况下，将会出现类似的错误消息，表明它是一个建模错误。 要解决这个问题，必须选择此对象进行同步。 在这个示例中， `国家/地区` 应该在尝试同步 `City` 对象之前选择同步或同步。
 
-The upload phase executes the following operations after validation:
+上传阶段在验证后执行以下操作：
 
-1. The local database can be modified only by committing an object. Such an object can be a new object created (while offline), or it can be an existing object previously synced from the server. The upload phase detects which objects have been committed to the local database since the last synchronization. This detection differs per synchronization type. For **Synchronize all**, all committed objects in the local database are selected. For **Synchronize objects**, all committed objects from the list of selected objects are selected.
-2. <a name="steptwo"></a>If there are changed or new file objects, their contents are uploaded to the server and stored temporarily. Each file is uploaded in a separate network request.
-3. <a name="stepthree"></a>All the changed and new objects are committed to the server, and the content of the files are linked to the objects. This step is performed in a single network request. Any configured before- or after-commit event handlers on these objects will run on the server as usual, after the data has been uploaded and before it is downloaded.
+1. 只能通过提交对象来修改本地数据库。 这个对象可以是一个新的对象(在离线时)，或者它可以是一个以前从服务器同步过的已有对象。 上传阶段检测到自上次同步以来有哪些对象被承诺到本地数据库。 每个同步类型的检测不同。 为了 **同步所有**，所有在本地数据库中承诺的对象都被选中。 对于 **同步对象**，所有从选定对象列表中提交的对象都被选中。
+2. <a name="steptwo"></a>如果更改或新的文件对象，它们的内容会上传到服务器并临时存储。 每个文件上传到一个单独的网络请求。
+3. <a name="stepthree"></a>所有更改的对象和新对象都被承诺到服务器上，文件的内容被链接到对象。 此步骤是在单个网络请求中执行的。 在这些对象上配置的任何事前或事后事件处理程序都会像往常一样在服务器上运行， 数据已上传并下载之前。
 
-#### 2.2.2 Download Phase {#download}
+#### 2.2.2 下载阶段 {#download}
 
-If the upload phase was successful, the download phase starts in which the local database is updated with the newest data from the server database. The behavior of download phase differs per synchronization type.
+如果上传阶段成功，下载阶段将开始，在这个阶段中使用服务器数据库的最新数据更新本地数据库。 下载阶段的行为因同步类型而异。
 
-**Full synchronization** — A network request is made to the server per entity to retrieve the newest data from the server database. You can manage which entities are synchronized to the local database by customizing your app's synchronization behavior. For more details on this procedure, see the [Customizable Synchronization](#customizable-synchronization) section below. The download process also downloads the file entities' contents and saves that to your device storage. This process is incremental. The app only downloads the contents of a file object if the file has not been downloaded before, or if the file has been changed since it was last downloaded. The changed date attribute of the file entity is used to determine if the contents of a file object have changed.
+**完全同步** - 向每个实体的服务器发出网络请求，以便从服务器数据库中检索最新数据。 您可以通过自定义应用的同步行为来管理哪些实体与本地数据库同步。 关于此程序的更多详细信息，请参阅下面 [个性化同步](#customizable-synchronization) 部分。 下载过程也会下载文件实体的内容并保存到您的设备存储。 这一进程是渐进性的。 如果文件之前没有下载，应用只能下载文件对象的内容。 或者该文件自上次下载以来已被更改。 文件实体更改的日期属性用于确定文件对象的内容是否已更改。
 
-**Selective synchronization** — Only the objects selected for synchronization are synchronized to the local database. There are no extra network requests made to retrieve these objects. The objects are returned in the response of a network request made during the upload phase. If a file entity is selected for synchronization, its content is also updated on the device storage incrementally. The logic is the same in the full synchronization.
+**选择性同步** — 只有选择同步的对象才会同步到本地数据库。 没有额外的网络请求来检索这些对象。 在上传阶段的网络请求中返回对象。 如果选择要同步的文件实体，其内容也会在设备存储上逐步更新。 在完全同步中，逻辑是相同的。
 
-### 2.3 After Synchronization
+### 2.3 同步后
 
-After synchronization is completed, the widgets on your app's current page will be refreshed to reflect the latest data. If the synchronization is triggered from a nanoflow, all nanoflow object/list variables are updated (uncommitted changes are still preserved).
+同步完成后，您应用当前页面上的小部件将被刷新，以反映最新数据。 如果从 nanoflow 触发同步，则更新所有 nanoflow 对象/列表变量(未承诺的更改仍然保留)。
 
-Please note that a nanoflow object variable's value might become `empty` after synchronization, if the object is removed from the device during synchronization. This might happen under the following cases:
+请注意，如果对象在同步期间从设备中删除，则nanoflow 对象变量值可能在同步后为 `空`。 在下列情况下可能会发生这种情况：
 
-* The object is deleted on the server
-* The current user does not have enough access to the object (defined by the security access rules)
-* The entity is configured with an XPath constraint on the [customizable synchronization](#customizable-synchronization) screen, and the object no longer matches the specified XPath constraint
-* The entity is configured with **Nothing (clear data)** option on the customizable synchronization screen
-* The upload phase fails for the object — for example when a before commit event handler returns false, or committing fails due to violation of a unique validation
+* 此对象在服务器上被删除
+* 当前用户对对象没有足够的访问权(由安全访问规则定义)
+* 在 [自定义同步](#customizable-synchronization) 屏幕上配置了XPath 约束，对象不再符合指定的 XPath 约束
+* 该实体在可自定义的同步屏幕上配置 **没有 (清除数据)** 选项
+* 对象的上传阶段失败 — 例如在提交事件处理程序返回错误时， 或者由于违反独特的验证而提交失败
 
-### 2.4 Customizable Synchronization {#customizable-synchronization}
+### 2.4 可自定义同步 {#customizable-synchronization}
 
 {{% alert type="warning" %}}
-These settings are not applied for [selective synchronization](#selective-sync).
-{{% /alert %}}
+这些设置不适用于 [有选择的同步](#selective-sync)。
+{{% /报警 %}}
 
-By default, Mendix automatically determines which objects need to be synchronized as mentioned in [Synchronization](#synchronization).
+默认情况下，Mendix 会自动决定哪些对象需要同步在 [同步](#synchronization) 中提到。
 
-Depending on the use-case, more fine-grained synchronization controls might be required. Therefore, it is possible to change the download behavior for an entity. You can choose between the following options:
+视使用情况而定，可能需要更严格的同步控制。 因此，可以改变一个实体的下载行为。 您可以在以下选项中选择：
 
-* **All Objects** — Download all objects applying the regular security constraints.
-* **By XPath** — Only download the objects which match the [XPath Constraints](xpath-constraints) in addition to the regular security constraints. This means all previously synchronized objects that do not match the XPath constraint will be removed.
-* **Nothing (clear data)** — Do not download any objects automatically, but do clear the data stored in the database for this entity when performing a synchronization (this can be useful in cases where the objects should only be uploaded, for example a `Feedback` entity).
+* **所有对象** — 下载所有适用正常安全约束的物体。
+* **通过 XPath** — 仅下载匹配 [XPath 约束的对象](xpath-constraints) 以及常规安全限制。 这意味着所有以前同步的对象不匹配 XPath 约束将被删除。
+* **没有 (清除数据)** - 不要自动下载任何对象， 但在执行同步时清除数据库中存储给该实体的数据(这可能对对象只能上传的情况下有用) 例如a `反馈` 实体)。
 * **Nothing (preserve data)** — Do not download any objects automatically, and do not clear the data stored in the database for this entity when performing a synchronization  (this can be useful in cases where you want have full control over the synchronization and should be used in combination with the [Synchronize to device](synchronize-to-device) or [Synchronize](synchronize) activity with specific objects selected).
 
-If you have custom widgets or JavaScript actions which use an entity that cannot be detected by Studio Pro in your offline-first profile (because its only used in the code), you can use customizable synchronization to include such entities.
+如果您有自定义小部件或 JavaScript 动作使用Studio Pro 在您的离线第一个配置文件中无法检测到的实体(因为它仅用于代码中)， 您可以使用可自定义的同步来包含这些实体。
 
 {{% image_container width="450" %}}![custom synchronization](attachments/offline-first/custom-sync.png){{% /image_container %}}
 
-### 2.5 Limitations
+### 2.5 限制
 
-Running multiple synchronization processes at the same time is not supported, regardless the of the type (**full** or **selective**). For more information, see the [Limitations](synchronize#limitations) section of the *Synchronize Reference Guide*.
+不支持同时运行多个同步进程，不管类型是(**完整** 或 **选择**)。 欲了解更多信息，请参阅 *同步参考指南* 的 [限制](synchronize#limitations) 部分。
 
-### 2.6 Error Handling {#error-handling}
+### 2.6 错误处理 {#error-handling}
 
-During synchronization, errors might occur. This section describes how Mendix handles these errors and how you can prevent them.
+在同步期间，可能出现错误。 本节描述Mendix 如何处理这些错误以及如何防止它们。
 
-#### 2.6.1 Network-Related Errors {#network-errors}
+#### 2.6.1 与网络有关的错误 {#network-errors}
 
-Synchronization requires a connection to the server, so during synchronization, errors may occur due to failing or poor network connections. Network errors may involve a dropped connection or a timeout. By default, the timeout for synchronization is 30 seconds per network request for hybrid mobile apps. For native apps, there is no default timeout, and the timeout is determined by the platform and OS version.
+同步需要连接到服务器，所以在同步过程中，可能会由于网络连接失败或差而发生错误。 网络错误可能涉及丢弃连接或超时。 默认情况下，混合移动应用每个网络请求30秒的同步超时。 对于本机应用，没有默认超时，超时由平台和操作系统版本决定。
 
-The synchronization is atomic, which means that either everything or nothing is synchronized. Exceptions are described in the [Model- or Data-Related Errors](#othererrors) section below.
+同步为原子，这意味着要么是同步，要么是同步，要么是没有同步的。 下面 [模型或数据相关错误](#othererrors) 部分描述了例外情况。
 
-If a network error happens during the file upload (via [step 2 in the upload phase](#steptwo)), Mendix retries to upload the failed files. If there is an error for the second time, the synchronization is aborted. The changes at that moment are kept on the local device, so it can be retried later.
+如果在文件上传过程中发生网络错误(通过上传阶段的 [第](#steptwo)步) Mendix 重试上传失败的文件。 如果第二次出现错误，同步将被中止。 当时的更改保留在本地设备上，以便以后再试。
 
-If a network error occurs while uploading the data (via [step 3 in the upload phase](#stepthree)), the data is kept on the local device and no changes are made on the server. Any files uploaded in [step 2](#steptwo) will be uploaded again during the next synchronization.
+如果上传数据时发生网络错误(通过上传阶段的 [第](#stepthree)步) 数据保存在本地设备上，服务器上没有更改。 上传于 [步骤 2](#steptwo) 中的任何文件将在下次同步时再次上传。
 
-If a network error (such as a timeout) occurs after uploading the data (at [step 3 in the upload phase](#stepthree)), the data is kept on the local device. However, since the server has already started working on the request it will complete the request and commit the changes to server database. The device cannot distinguish whether the server processed the request or not, so the next synchronization attempt will contain the already-applied changes. In this case, the server will behave differently based on Mendix version. In Mendix Studio Pro v8.18 or below, the server will commit the same changes again, which might overwrite potential changes made by other users between the two synchronizations. From Studio Pro v8.18 and above this process is optimized and the server will not commit the same changes because they have been applied before.
+如果上传数据后出现网络错误(例如超时) (在上传阶段的 [第](#stepthree)步) 数据保存在本地设备上。 然而，由于服务器已经开始处理请求，因此它将完成请求并提交对服务器数据库的更改。 设备无法区分服务器是否处理了请求，因此下一次同步尝试将包含已应用的更改。 在这种情况下，服务器基于Mendix 版本的行为将有所不同。 在 Mendix Studio Pro v8 中。 8 或更低版本的服务器将再次进行相同的更改，这可能会覆盖其他用户在两次同步之间所作的潜在更改。 从 Studio Pro v8.18 及以上的流程是优化的，服务器将不会提交相同的更改，因为它们以前已经应用。
 
-If a network error occurs during the download phase, no data is updated on the device. Therefore the user can keep working or retry. The effects of the upload phase are not rolled back on the server.
+如果在下载阶段发生网络错误，设备上没有更新数据。 因此，用户可以继续工作或重试。 上传阶段的效果不会回滚到服务器上。
 
-If the synchronization is called from a nanoflow, the error can be handled using nanoflow error handling. In other cases (for example, if synchronization is called from a button or at startup), a message will be displayed to the user that the data could not be synchronized.
+如果从 nanoflow 调用同步，则可以使用 nanoflow 错误处理错误。 在其他情况下(例如，如果同步是从按钮或启动时调用)， 一个消息将显示给用户，数据无法同步。
 
-#### 2.6.2 Model- or Data-Related Errors {#othererrors}
+#### 2.6.2 模型或数据相关错误 {#othererrors}
 
-During the synchronization, changed and new objects are committed. An object's synchronization might encounter problems due to the following reasons:
+在同步期间，更改了并提交了新的对象。 由于以下原因，对象的同步可能遇到问题：
 
-* The object is no longer available on the server (either from deletion or inaccessibility due to access rules)
-* A member of the object has become inaccessible due to access rules
-* An error occurs during the execution of a before- or after-commit event microflow
-* The object is not valid according to domain-level validation rules
+* 此对象在服务器上不再可用 (要么删除要么由于访问规则无法访问)
+* 由于访问规则，对象的成员已经无法访问
+* 执行之前或之后提交的事件微流时发生错误
+* 该对象根据域级别验证规则无效
 
-{{% alert type="warning" %}}When a synchronization error occurs because of one the reasons above, an object's commit is skipped, its changes are ignored, and references from other objects to it become invalid. Objects referencing such a skipped object (which are not triggering errors) will be synchronized normally. Such a situation is likely to be a modeling error and is logged on the server. To prevent data loss, the attribute values for such objects are stored in the `System.SynchronizationError` entity (since Mendix 8.12).  {{% /alert %}}
+{{% alert type="warning" %}}When a synchronization error occurs because of one the reasons above, an object's commit is skipped, its changes are ignored, and references from other objects to it become invalid. 引用这种跳过对象的对象（不会触发错误）将正常同步。 这种情况可能是一个建模错误，已登录到服务器。 为了防止数据丢失，这些对象的属性值存储在 `System.Synchronization错误` 实体 (从 Mendix 8.12) 中。  {{% /报警 %}}
 
-### 2.6.3 Preventing Synchronization Issues {#prevent-sync-issues}
+### 2.6.3 预防同步问题 {#prevent-sync-issues}
 
-To avoid the problems mentioned above, we suggest following these best practices:
+为了避免上述问题，我们建议遵循这些最佳做法：
 
-* Do not remove, rename, or change the type of entities or their attributes in offline apps after your initial release — this may cause objects or values to be no longer accessible to offline users (if needed, you can do an "in-between" release that is still backwards-compatible, and then make the changes in the next release after all the apps are synchronized)
-* Do not delete objects which can be synced to offline users (this will result in lost changes on those objects when attempted to synchronize them)
-* Avoid using domain-level validation for offline entities – use nanoflows or input validation instead (it is also a good practice to validate again on the server using microflows)
-* When committing objects that are being referenced by other objects, make sure the other objects are also committed
+* 不要删除，重命名， 或在您最初发布后更改离线应用中的实体类型或其属性 — 这可能导致离线用户无法再访问对象或值 (如果需要的话) 您可以做一个“中间”版本，它仍然是后向兼容的，然后在所有应用同步后在下一次版本中进行更改)
+* 不要删除可以同步到离线用户的对象 (试图同步这些对象时会导致这些对象上的更改丢失)
+* 避免对离线实体使用域级验证 — — 使用 nanoflow或输入验证 (它也是使用microflow在服务器上再次验证的良好做法)
+* 当提交被其他对象引用的对象时，请确保其他对象也被执行
 
-If synchronization is triggered using a synchronize action in a nanoflow and an error occurs, it is possible to handle the error gracefully using the nanoflow error handling.
+如果在nanoflow 中触发同步动作并发生错误， 它是可以使用nanoflow错误处理错误的。
 
-### 2.6.4 Conflict Resolution {#conflict-res}
+### 2.6.4 解决冲突 {#conflict-res}
 
-It can happen that multiple users synchronize the same state of an object on their device, change it, and then synchronize this object back to the server. In this case, the last synchronization overwrites the entire content of the object on the server. This is also called a "last wins" approach.
+可能会发生多个用户在其设备上同步对象的相同状态， 更改，然后将此对象同步回到服务器。 在这种情况下，最后一次同步会覆盖服务器上对象的全部内容。 这也被称为“最后获胜”办法。
 
-If another approach is needed, conflicts can be detected in a before-commit microflow (for example, by using a revision ID attribute on the entity). Based on that, custom conflict resolution can be performed.
+如果需要采取另一种办法，就可以在事先提交的微流中发现冲突（例如在实体上使用修订版ID属性）。 在此基础上，可以进行自定义冲突解决。
 
-## 3 Best Practices {#best-practices}
+## 3 最佳做法 {#best-practices}
 
-To ensure the best user experience for your Mendix application, follow these best practices:
+为了确保您的 Mendix 应用程序的最佳用户体验，遵循这些最佳做法：
 
-* Limit the amount of data that will be synchronized by customizing the synchronization configuration or security access rules
-* Because network connections can be slow and unreliable and mobile devices often have limited storage, avoid synchronizing large files or images (for example, by limiting the size of photos)
-* Try to synchronize through a nanoflow instead of a UI element so you can add error handling to the synchronization activity which can handle cases when synchronization fails (connection errors, model and data related errors, and more)
-* Synchronize large files or images using selective synchronization
-* Use an `isDeleted` Boolean attribute for delete functionality so that conflicts can be handled correctly on the server
-* Use before- and after-commit microflows to pre- or post-process data
-* Use a [microflow call](microflow-call) in your nanoflows to perform additional server-side logic such as retrieving data from a REST service, or accessing and using complex logic such as Java actions
-* Help your user remember to synchronize their data so it is processed as soon as possible: you can check for connectivity and automatically synchronize in the nanoflow that commits your object, or remind a user to synchronize while using a notification or before signing out to ensure no data is lost
+* 限制将通过自定义同步配置或安全访问规则同步的数据数量
+* 由于网络连接可能缓慢且不可靠，移动设备的存储空间也往往很有限。 避免同步大文件或图像(例如，限制照片大小)
+* 尝试通过nanoflow 而不是UI 元素同步，以便您可以将错误处理添加到同步活动中，当同步失败时可以处理大小写(连接错误)， 模型和数据错误及更多相关错误)
+* 使用选择性同步大文件或图像
+* 使用 `未删除` 布尔属性来删除功能，以便能够在服务器上正确地处理冲突
+* 使用事前和事后提交的微流到进程前或事后数据
+* 在 nanoflow 中使用 [微流程调用](microflow-call) 来执行额外的服务器端逻辑，例如从REST 服务中检索数据。 或者访问和使用复杂逻辑，例如Java 操作
+* 帮助您的用户记住同步他们的数据，以便它尽快处理：您可以检查连接并自动同步到提交您的对象的 nanoflow 中， 或提醒用户在使用通知时或在签出前同步以确保数据不丢失。
 
-## 4 Ensuring Your App Is Offline-First {#limitations}
+## 4 确保您的应用处于离线前 {#limitations}
 
-Mendix helps developers build rich offline-first apps. However, there are some limitations. See the subsections below for details.
+Mendix 帮助开发者构建丰富的离线应用程序。 然而，还有一些限制。 详情见下面小节。
 
-### 4.1 Microflows {#microflows}
+### 4.1 微型流动 {#microflows}
 
-Microflows can be called from offline apps by using [microflow call](microflow-call) action in your nanoflows to perform logic on the server. However, it works a bit different from when used in online profiles, these differences are explained below:
+微流可以通过使用 [微流调用](microflow-call) 动作来在服务器上执行逻辑，从离线应用调用。 然而，它的运作与在线简介中使用时略有不同，这些差异解释如下：
 
-#### 4.1.1 Microflow Arguments Type
+#### 4.1.1 微流参数类型
 
-* Passing an object or a list of a persistable entity is not supported
-* Passing an object or a list of a non-persistable entity that has an association with a persistable entity is not supported (such an association can be an indirect association)
-* Passing a non-persistable entity that was created in another microflow is not supported
+* 不支持通过对象或可持久实体列表
+* 不支持传递与可持久实体有联系的对象或不可持久实体清单（这种联系可以是间接协会）
+* 不支持传递在另一个微流中创建的不可持续实体
 
-#### 4.1.2 UI Actions
+#### 4.1.2 UI 操作
 
-UI-related actions will be ignored and will not have any effect. We encourage you to model such UI-side effects in the caller nanoflow.
+UI相关操作将被忽略，将不会产生任何效果。 我们鼓励您模拟这种UI侧的效果，用调用纳诺夫来模拟。
 
-These actions are as the following:
+这些行动如下：
 
-* [Show message](show-message)
-* [Show validation message](validation-feedback)
-* [Show home page](show-home-page)
-* [Show page](show-page)
-* [Close page](close-page)
-* [Download file](download-file)
+* [显示消息](show-message)
+* [显示验证消息](validation-feedback)
+* [显示主页](show-home-page)
+* [显示页面](show-page)
+* [关闭页面](close-page)
+* [下载文件](download-file)
 
-#### 4.1.3 Object Side-Effects
+#### 4.1.3 物体侧面效果
 
-Changes to persistable objects made in a microflow will not be reflected on the client unless you synchronize. Non-persistable objects must be returned in order for changes to be reflected.
+在微流中对可持久对象所作的更改将不会反映在客户端上，除非您同步。 必须返回不可持续对象才能反映变化。
 
-#### 4.1.4 Microflow Return Value
+#### 4.1.4 微流返回价值
 
-* Returning an object or a list of persistable entity is not supported
-* Returning an object or a list of a non-persistable entity that has an association with a persistable entity is not supported (such association can be an indirect association)
+* 不支持返回对象或可持久实体列表
+* 返回一个目标或一个与一个可持久实体有联系的不可持久实体的清单不受支持(这种联系可以是一个间接协会)
 
-#### 4.1.5 Language Switching
+#### 4.1.5 语文切换
 
-To be able to switch the language of a Mendix app, a device must be online and have access to the Mendix runtime. For more information on the runtime, see the [Runtime Reference Guide](runtime).
+要切换Mendix 应用程序的语言，设备必须在线并可以访问 Mendix 运行时间。 关于运行时间的更多信息，请参阅 [运行时间参考指南](runtime)。
 
-### 4.2 Offline Microflow Best Practices {#offline-mf-best-practices}
+### 4.2 离线微流最佳做法 {#offline-mf-best-practices}
 
-To make microflow calls work from offline-first apps, Mendix stores some microflow information in the offline app. That information is called from the app. This means that changes to microflows used from offline apps must be backwards-compatible, because there can be older apps which have not received an over the air update yet. All microflow calls from such a device will still contain the old microflow call configuration in nanoflows, which means that the request might fail. For more information on over the air updates, see [How to Release Over the Air Updates with App Center's CodePush](/howto/mobile/how-to-ota).
+要使微流程调用在离线第一应用中，Mendix 会在离线应用中存储一些微流程信息。 该信息来自应用程序。 这意味着离线应用所用微流的更改必须是向后兼容的， 因为尚未通过空气更新收到较旧的应用。 来自此设备的所有微流调用仍将包含旧的 nanoflows 调用配置，这意味着请求可能失败。 欲了解更多关于空气更新的信息，请参阅 [如何通过应用中心的 CodePush](/howto/mobile/how-to-ota) 发布空气更新。
 
-To avoid backwards-compatibility errors in offline microflow calls after the initial release, we suggest these best practices:
+为了避免首次发布后离线微流呼叫中出现倒退兼容错误，我们建议这些最佳做法：
 
-* Do not rename microflows or move them to different modules
-* Do not rename modules that contain microflows called from offline apps
-* Do not add, remove, rename, or change types of microflow parameters
-* Do not change return types
-* Do not delete a microflow before making sure that all devices have received an update
+* 不要重命名微流或将其移动到不同的模块
+* 不要重命名包含从离线应用调用的微流的模块
+* 不添加、移除、重命名或更改微流参数类型
+* 不更改退货类型
+* 在确保所有设备都已收到更新之前，不要删除微流
 
-If you want to deviate from the practices outlined above, introduce a new microflow. You can change the contents of the microflow, but keep in mind that older apps might call the new version of the microflow until they are updated.
+如果你想要偏离上述做法，引入新的微流。 您可以更改微流程的内容， 但牢记旧应用程序可能会调用新版本的微流直到他们被更新。
 
-### 4.3 Autonumbers & Calculated Attributes {#autonumbers}
+### 4.3 自动生成器 & 计算的属性 {#autonumbers}
 
-Both autonumbers and calculated attributes require input from the server; therefore, they are not allowed. Objects with these attribute types can still be viewed and created offline, but the attributes themselves cannot be displayed.
+自动卸载器和计算属性都需要从服务器输入；因此，它们是不允许的。 具有这些属性类型的对象仍然可以在离线查看和创建，但属性本身不能显示。
 
-### 4.4 Default Attribute Values {#default-attributive}
+### 4.4 默认属性值 {#default-attributive}
 
-Default attribute values for entities in the domain model do not have any effect on objects created offline. Boolean attributes will always default to `false`, numeric attributes to `0`, and other attributes to `empty`.
+域模型中实体的默认属性值对离线创建的对象没有任何影响。 布尔属性总是默认为 `false`, 数字属性为 `0`, 以及其他属性为 `空`。
 
-### 4.5 Many-to-Many Associations {#many-to-many}
+### 4.5 多个协会 {#many-to-many}
 
-Many-to-many associations are not supported. A common alternative is to introduce a third entity that has one-to-many associations with the other entities.
+不支持多对多个关联。 一个共同的备选办法是设立一个与其他实体有一对多个联系的第三个实体。
 
-### 4.6 Inheritance {#inheritance}
+### 4.6 继承权 {#inheritance}
 
-It is not possible to use more than one entity from a generalization or specialization relation. For example if you have an `Animal` entity and a `Dog` specialization, you can use either use `Animal` or `Dog`, but not both from your offline profile. An alternative pattern is to use composition (for example, object associations).
+一般或专门关系中不可能使用一个以上的实体。 例如，如果你有一个 `动物` 实体和 `狗` 专业化， 您可以使用 `动物` 或 `狗`，但不能使用离线配置文件。 另一种模式是使用合成（例如客体协会）。
 
-### 4.7 System Members {#system-members}
+### 4.7 系统成员 {#system-members}
 
-System members (`createdDate`, `changedDate`, `owner`, `changedBy`) are not supported.
+系统成员`创建日期`, `更改日期`, `所有者`, `更改by`不支持
 
 ### 4.8 Excel and CSV Export {#excel-cv}
 
-Excel and CSV export are not available in offline applications.
+Excel 和 CSV 导出在离线应用程序中不可用。
