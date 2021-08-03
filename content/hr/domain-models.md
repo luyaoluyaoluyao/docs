@@ -30,7 +30,8 @@ The rows in the table are CDs. So, a *CD* is an *entity*. A specific CD like "Ho
 
 To view the **Domain Models** of your app in Studio, click the **Domain Models** icon in the left menu bar of Studio.
 
-![](attachments/domain-models/domain-model.png)
+{{% image_container width="350" %}}![](attachments/domain-models/domain-model.png)
+{{% /image_container %}}
 
 After opening a domain model, you will see an overview of all entities, attributes, and associations. The complexity of your domain model depends on the complexity of your app.
 
@@ -55,18 +56,17 @@ You can add different type of entities to your domain model:
 * **Entity** – an entity that can have attributes, associations, and represents a class of real-world objects.
 * **Image Entity** – a special type of entity that allows you to store an image. For example, on pages, users will be able  to view and upload images with the help of an image entity.
 * **File Entity** – a special type of entity that allows you to store a file. For example, on pages, users will be able to upload and download files (such as, a text document, a pdf, a spreadsheet) with the help of a file entity.
-* **Workflow Entity** – a special type of entity that is used as a context for a [workflow](workflows).
 * **External Entity** – only available if you have the Data Hub functionality enabled for your organization. For more information on external entities, see [Data Hub in Studio](data-hub-in-studio).
 
 ### 2.2 Entity Properties
 
 Entities have the following properties:
 
-* **General** properties define the name of the entity and its [persistability](/refguide/persistability):
+* **General** properties define the name of the entity and its [persistability](/refguide8/persistability):
 
     * **Name** – defines the name of the entity
 
-    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide/persistability) in the *Studio Pro Guide*)
+    * **Persistable** – defines whether objects of the entity are stored in the database (for more information on persistability, see [Persistability](/refguide8/persistability) in the *Studio Pro Guide*)
 
     ![General Properties of an Entity](attachments/domain-models/entity-general-properties.png)
 
@@ -84,7 +84,7 @@ Entities have the following properties:
 
         ![Stored Information Properties of an Entity](attachments/domain-models/entity-stored-info.png)
 
-        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image, File, and Workflow entities.{{% /alert %}}
+        {{% alert type="info" %}}You cannot toggle **Stored Information** properties for Image and File entities.{{% /alert %}}
 
 ### 2.3 Attributes {#attributes}
 
@@ -204,7 +204,7 @@ You can manage the following properties of an entity:
 
 * The **Name** of the entity
 
-* [Persistability](/refguide/persistability) of the entity
+* [Persistability](/refguide8/persistability) of the entity
 
     ![](attachments/domain-models/entity-properties.png)
 
