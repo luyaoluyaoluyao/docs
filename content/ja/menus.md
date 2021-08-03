@@ -1,67 +1,67 @@
 ---
 title: "Menus"
-category: "App Modeling"
-description: "Describes Studio Pro menus."
+category: "アプリモデリング"
+description: "スタジオProメニューについて説明します。"
 menu_order: 12
 tags:
   - "Studio Pro"
-  - "menu"
-  - "top bar"
+  - "メニュー"
+  - "トップ バー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The top-bar of Studio Pro contains the following menus:
+Studio Pro のトップバーには、次のメニューがあります。
 
-![Menu-bar](attachments/menus/menu-bar.png)
+![メニューバー](attachments/menus/menu-bar.png)
 
-* [File](#file) – allows you to manage documents and apps
-* [Edit](#edit) – allows you to perform editing functions such as search or copy within Studio Pro
-* [View](#view) – allows you to choose how Studio Pro and dockable panes within Studio Pro are displayed
-* [App](#project) – contains app-wide settings
-* [Run](#run) – contains actions for deploying and monitoring your app
-* [Version Control](#version-control) – contains setting for version control
-* [Language](#language) – contains language and translation settings
-* [Help](#help)  – allows you to view documentation, the [Mendix Forum](https://forum.mendixcloud.com/index4.html), open log file directory, or view information on  the current information of Studio Pro
+* [ファイル](#file) - ドキュメントやアプリを管理することができます
+* [編集](#edit) - Studio Pro 内で検索やコピーなどの編集機能を実行できます。
+* [表示](#view) - Studio Pro 内の Studio Pro とドッキング可能なペインの表示方法を選択できます。
+* [App](#project) – アプリ全体の設定が含まれています
+* [](#run) を実行する - アプリをデプロイおよび監視するためのアクションが含まれています
+* [バージョンコントロール](#version-control) - バージョン管理用の設定を含んでいます
+* [言語](#language) - 言語と翻訳の設定
+* [ヘルプ](#help)  – [Mendix Forum](https://forum.mendixcloud.com/index4.html)を表示することができます。 ログ ファイル ディレクトリを開くか、Studio Pro の現在の情報を表示します
 
-## 2 File Menu {#file}
+## 2ファイルメニュー {#file}
 
-Via the **File** menu you can manage documents and apps. For more information on the **File** menu, see [File Menu](file-menu).
+**ファイル** メニューから、ドキュメントやアプリを管理できます。 **File** メニューの詳細については、 [File Menu](file-menu) を参照してください。
 
-## 3 Edit Menu {#edit}
+## 3つの編集メニュー {#edit}
 
-The **Edit** menu allows you to perform editing functions, such as cut/copy/paste. You can also set [preferences](preferences-dialog) via this menu. For more information on the **Edit** menu, see [Edit Menu](edit-menu).
+**編集** メニューでは、カット/コピー/ペーストなどの編集機能を実行できます。 このメニューから [設定](preferences-dialog) を設定することもできます。 **Edit** メニューの詳細については、 [Edit Menu](edit-menu) を参照してください。
 
-## 4 View Menu {#view}
+## 4表示メニュー {#view}
 
-The **View** menu allows you to view dockable panes, to enable the full screen mode, and reset the projappect layout. For more information on the **View** menu and its items, see [View Menu](view-menu).
+**View** メニューでは、ドッキング可能なペインを表示したり、フルスクリーンモードを有効にしたり、Projappect レイアウトをリセットしたりできます。 **View** メニューとそのアイテムの詳細については、 [View Menu](view-menu) を参照してください。
 
-## 5 App Menu {#project}
+## 5つのアプリメニュー {#project}
 
-In the **App** menu, you can view and/or manipulate settings that are connected to your app and deployment. For more information on the **App** menu, see [App Menu](app-menu).
+**App** メニューで、アプリとデプロイメントに接続されている設定を表示または操作できます。 **App** メニューの詳細については、 [App Menu](app-menu) を参照してください。
 
-## 6 Run Menu {#run}
+## 6 実行メニュー {#run}
 
-The **Run** menu contains actions for deploying and monitoring your app, such as **Publish**, **Run locally**, or **Debugger**. For more information on the **Run** menu, see [Run Menu](run-menu).
+The **Run** menu contains actions for deploying and monitoring your app, such as **Publish**, **Run locally**, or **Debugger**. **Run** メニューの詳細については、 [Run Menu](run-menu) を参照してください。
 
-## 7 Version Control Menu {#version-control}
+## 7バージョンコントロールメニュー {#version-control}
 
-In the **Version Control** menu, you can view and/or manipulate settings on the version control. For more information on the **Version Control** menu, see [Version Control Menu](version-control-menu).
+**バージョンコントロール** メニューでは、バージョンコントロールの設定を表示または操作できます。 **バージョン管理** メニューの詳細については、 [バージョン管理メニュー](version-control-menu) を参照してください。
 
-## 8 Language Menu {#language}
+## 8言語メニュー {#language}
 
-In the **Language** menu, you can add alternative languages to your app so that end-users can see the app in their preferred language. You can also make batch changes to identical texts, even if you are only working in one language. For more information on the **Language** menu, see [Language Menu](translatable-texts).
+**言語** メニューで、エンドユーザーが好みの言語でアプリを見ることができるように、代替言語をアプリに追加できます。 同一のテキストに一括変更を加えることもできます。 **言語** メニューの詳細については、 [言語メニュー](translatable-texts) を参照してください。
 
-## 9 Help Menu {#help}
+## 9 ヘルプメニュー {#help}
 
-| Menu Item                   | Description                                                                                                                                             | Shortcut Key  |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| **Help**                    | Opens the documentation page about the currently selected element. If an entity is selected, for example, the documentation for entities will be shown. | <kbd>F1</kbd> |
-| **Help Contents**           | Opens the start page of the documentation in the default web browser.                                                                                   |               |
-| **Ask a Question**          | Opens the [Mendix Forum](https://forum.mendixcloud.com/index4.html) in the default web browser.                                                         |               |
-| **Open Log File Directory** | Opens the log files for your app locally.                                                                                                               |               |
-| **About Mendix Studio Pro** | Shows information about the current version of Mendix Studio Pro.                                                                                       |               |
+| メニュー項目                    | 説明                                                                             | ショートカットキー     |
+| ------------------------- | ------------------------------------------------------------------------------ | ------------- |
+| **ヘルプ**                   | 現在選択されている要素に関するドキュメントページを開きます。 図形が選択されている場合、例えば図形のドキュメントが表示されます。               | <kbd>F1</kbd> |
+| **ヘルプの内容**                | ドキュメントの開始ページをデフォルトの Web ブラウザで開きます。                                             |               |
+| **質問する**                  | [Mendix Forum](https://forum.mendixcloud.com/index4.html) をデフォルトのウェブブラウザで開きます。 |               |
+| **ログファイルディレクトリを開く**       | アプリのログファイルをローカルで開きます。                                                          |               |
+| **Mendix Studio Proについて** | Mendix Studio Proの現在のバージョンに関する情報を表示します。                                        |               |
 
-## 10 Read More
+## 10 続きを読む
 
 * [Studio Pro Overview](studio-pro-overview)
