@@ -5,37 +5,37 @@ tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `DATEPART` function retrieves a specified element from a date/time values. This element is of type integer.
+`DATEPART` 関数は、日付/時刻の値から指定された要素を取得します。 この要素は整数型です。
 
-## 2 Syntax
+## 2つの構文
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
-DATEPART ( datepart , date_expression )
+DATEPART(datepart , date_expression )
 ```
 
 ### 2.1 datepart
 
-`datepart` specifies the part of the date/time value to retrieve. For possible values, see the [Example](#oql-datepart-example) below.
+`datepart` は、取得する日付/時刻の値の一部を指定します。 値については、以下の [例](#oql-datepart-example) を参照してください。
 
-### 2.2 date_expression
+### 2.2 日付表現
 
-`date_expression` specifies the date to retrieve an element from. This should be formatted in an expression which resolves to a date/time value.
+`date_expression` は要素を取得する日付を指定します。 これは、日付/時刻の値を解決する式でフォーマットされる必要があります。
 
-## 3 Example{#oql-datepart-example}
+## 3 例{#oql-datepart-example}
 
-| datepart    | Definition                                       | Example (Friday July 1, 2005, 16:34:20) |
-| ----------- | ------------------------------------------------ | --------------------------------------- |
-| `YEAR`      |                                                  | 2005                                    |
-| `QUARTER`   | 1, 2, 3 or 4                                     | 3                                       |
-| `MONTH`     | 1 to 12                                          | 7                                       |
-| `DAYOFYEAR` | 1 to 366                                         |                                         |
-| `DAY`       | 1 to 31                                          | 5                                       |
-| `WEEK`      | 1 to 53 (depends on the database implementation) |                                         |
-| `WEEKDAY`   | 1 to 7 (1 = Sunday, 7 = Saturday)                | 6                                       |
-| `HOUR`      | 0 to 23                                          | 16                                      |
-| `MINUTE`    | 0 to 59                                          | 34                                      |
-| `SECOND`    | 0 to 59                                          | 20                                      |
+| datepart    | 定義                | 例（2005年7月1日(金)16:34:20） |
+| ----------- | ----------------- | ----------------------- |
+| `YEAR`      |                   | 2005                    |
+| `QUARTER`   | 1、2、3、4           | 3                       |
+| `月`         | 1 ~ 12            | 7                       |
+| `DAYOFYEAR` | 1～366             |                         |
+| `日`         | 1～31              | 5                       |
+| `WEEK`      | 1～53（データベースの実装次第） |                         |
+| `WEEKDay`   | 1～7（1=日曜、7=土曜）    | 6                       |
+| `HOUR`      | 0から23             | 16                      |
+| `分`         | 0 から 59           | 34                      |
+| `秒`         | 0 から 59           | 20                      |
