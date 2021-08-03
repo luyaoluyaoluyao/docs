@@ -1,52 +1,52 @@
 ---
-title: "Cast Object"
-parent: "object-activities"
+title: "キャストオブジェクト"
+parent: "object-activity"
 menu_order: 10
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The cast object activity is used in a microflow after an [object type decision](object-type-decision) to change the type of object from the generalized object type to the specialized object type of the path out of the object type decision.
+キャストオブジェクトのアクティビティは、 [オブジェクト型の決定](object-type-decision) の後にマイクロフローで使用され、一般化されたオブジェクト型からオブジェクト型の決定からパスの特殊なオブジェクト型に変更されます。
 
-To read more about specialization and generalization, see [Entities](entities).
+専門化と一般化の詳細については、 [エンティティ](entities) を参照してください。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of cast object properties is represented in the image below:
+以下の画像では、キャストオブジェクトのプロパティの例を示します。
 
-![cast object properties](attachments/object-activities/cast-properties.png)
+![オブジェクトのプロパティをキャスト](attachments/object-activities/cast-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The cast object properties pane consists of the following sections:
+キャストオブジェクトのプロパティペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section{#action}
+## 3つのアクションセクション{#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Object Name
+### 3.1 オブジェクト名
 
-This is the name for the result of the cast. It can be used by all activities that follow this activity.
+これはキャストの結果の名前です。 このアクティビティに続くすべてのアクティビティで使用できます。
 
-## 4 Common Section{#common}
+## 4つの共通セクション{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Example
+## 5つの例
 
-For example, there are three specializations of the **Question** object. Only an object of the specialized type **MultipleChoiceQuestion** needs to have some special actions performed on it. These will be done in a sub-microflow which has as the input type **MultipleChoiceQuestion**. Since an object of the type **Question** cannot get passed to the sub-microflow, the object first needs to be cast to the object type **MultipleChoiceQuestion**.
+例えば、 **Question** オブジェクトには3つの専門分野があります。 特殊なタイプ **MultipleChoiceQuestion** のオブジェクトのみが特別なアクションを実行する必要があります。 これらは、入力タイプ **MultipleChoiceQuestion** を持つサブマイクロフローで行われます。 Since an object of the type **Question** cannot get passed to the sub-microflow, the object first needs to be cast to the object type **MultipleChoiceQuestion**.
 
-![Example of cast in a microflow](attachments/object-activities/cast-example.png)
+![マイクロフローでのキャストの例](attachments/object-activities/cast-example.png)
