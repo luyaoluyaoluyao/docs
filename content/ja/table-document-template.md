@@ -2,9 +2,13 @@
 title: "表 (ドキュメントテンプレート)"
 parent: "ドキュメントテンプレート"
 aliases:
-  - /refguide7/Table+(document+template.html
-  - /refguide7/table-(document-template).html
+  - /refguide8/table-(document-template).html
+  - /refguide8/Table+(document+template.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table-document-template.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
@@ -14,7 +18,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918134.png)
 
 この表には４行３列がある。 最後の行には、別のテーブルを持つデータビューが含まれます。
 
@@ -56,4 +60,4 @@ aliases:
 
 ## 4つの一般的なプロパティ
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide8/name-property.md" %}}
