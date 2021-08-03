@@ -1,49 +1,49 @@
 ---
-title: "Configure Merge & Change Object Activities"
-category: "Microflows"
+title: "Merge の設定 & Object Activities の変更"
+category: "マイクロフロー"
 menu_order: 70
-description: "This how to describes the process of configuring a merge and a change object activity in Mendix Studio."
+description: "ここでは、Mendix Studio でマージと変更オブジェクトのアクティビティを設定するプロセスを説明します。"
 tags:
-  - "studio"
-  - "microflows"
-  - "merge"
-  - "expression"
-  - "change object"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "マージ"
+  - "表現"
+  - "オブジェクトの変更"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can add advanced logic to a microflow by configuring a merge and a change object activity in Mendix Studio.
+この方法では、Mendix Studio でマージと変更オブジェクトのアクティビティを設定することで、高度なロジックをマイクロフローに追加する方法を説明します。
 
-A merge is used to combine flows into one. If you split the microflow flow (with a decision) and now one and the same action needs to be executed for these separated flows, you can combine these two (or more) flows using a merge. For more information on decision, see [Decision](/studio8/microflows-decision).
+マージはフローを結合するために使用されます。 マイクロフローフローを分割して(決定を行うと)、これらの分離されたフローに対して同じ動作を実行する必要があります。 は、マージを使用してこれらの2つ(またはそれ以上)フローを結合できます。 決定の詳細については、 [Decision](/studio8/microflows-decision) を参照してください。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Configure a merge in a microflow that contains a decision
-* Configure a change object activity after the merge
+* 意思決定を含むマイクロフロー内のマージを設定します
+* マージ後の変更オブジェクトのアクティビティを設定します
 
-This how-to describes the following use case:
+この方法では、次のようなユースケースを説明します。
 
-In [Configure a Decision Step 1: Build the Domain Model & Configure a Microflow ](microflows-how-to-configure-decision-p1) you have configured the decision to open a specific page depending on the customer's grade. In case the customer's grade is not set, the error message is shown. So you have four flows after the decision:
+In [Configure a Decision ステップ1: Build the Domain Model & Configure a Microflow ](microflows-how-to-configure-decision-p1) you have configured the decision to open a specific page based on the customer grade. 顧客の成績が設定されていない場合は、エラーメッセージが表示されます。 決定後に4つのフローがあります
 
-* Showing a page for bronze  grade customers
-* Showing a page for silver grade customers
-* Showing a page for gold grade customers
-* Showing an error message if the customer's grade is not indicated
+* ブロンズグレードの顧客のためのページを表示
+* シルバーグレードの顧客向けページを表示
+* ゴールドグレードの顧客のためのページを表示
+* 顧客の成績が示されていない場合にエラーメッセージを表示する
 
-In this how-to, you will merge flows for bronze, silver, and gold customer grades to set object (Customer) to active status when customers open their personal order form.
+この方法では、あなたは青銅、銀の流れをマージします。 顧客が個人的な注文フォームを開いたときに、アクティブなステータスにオブジェクト(顧客)を設定するための金の顧客グレード。
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-To start this tutorial, make sure you have completed the following prerequisites:
+このチュートリアルを開始するには、以下の前提条件を満たしていることを確認してください。
 
-* Create a microflow with a decision: [Configure a Decision Step 1: Build the Domain Model & Configure a Microflow](microflows-how-to-configure-decision-p1)
+* 意思決定でマイクロフローを作成する: [決定を構成する ステップ 1: ドメインモデルを構築 & マイクロフローを構成する](microflows-how-to-configure-decision-p1)
 
-## 3 Creating a Merge
+## 3 マージの作成
 
-To create a merge for gold, silver, and bronze customer grades in a microflow, follow these steps:
+ゴールド、シルバー、ブロンズの顧客グレードをマイクロフローでマージするには、次の手順に従います。
 
-1. Open the microflow named *Show_grade_specific_page*:
+1. *Show_grade_specific_page* : という名前のマイクロフローを開く
 
     ![](attachments/microflows-how-to-merge-and-change-object/microflow-without-merge.png)
 
@@ -51,68 +51,68 @@ To create a merge for gold, silver, and bronze customer grades in a microflow, f
 
     ![](attachments/microflows-how-to-merge-and-change-object/adding-merge.png)
 
-3. To merge the flow labelled **Gold** with the **Bronze** one, do the following:<br/>
+3. **Gold** と **Bronze** のフローをマージするには、次の操作を行います:<br/>
 
-    a. Delete the **End event** of the flow labelled **Gold**.<br/>
+    a **Gold** というラベルの付いたフローの **終了イベント** を削除します。<br/>
 
-    b. Hover over the **Show Page** activity.<br/>
+    B **ページを表示** アクティビティにカーソルを合わせます。<br/>
 
     ![](attachments/microflows-how-to-merge-and-change-object/hover-over.png)<br/>
 
-    c. Click one of the dots that will turn into an arrow.<br/>
+    C 矢印に変わる点をクリックします。<br/>
 
-    d. Drag the arrow to the merge. Now the **Show Page activity** is connected to the merge:
+    D 矢印をマージにドラッグします。 **ページの表示 アクティビティ** がマージに接続されました:
 
     ![](attachments/microflows-how-to-merge-and-change-object/connecting-activity-and-merge.png)<br/>
 
-4. Repeat step 3 for the flow labelled **Silver**.
+4. **Silver** と書かれたフローについてステップ3を繰り返します。
 
-As a result, you have three flows merged into one.
+その結果、3つのフローが1つに統合されます。
 
 ![](attachments/microflows-how-to-merge-and-change-object/flows-into-one.png)
 
-## 4 Configuring Change Object
+## 4 変更オブジェクトの設定
 
-Now you will add logic to the microflow. You have merged three flows into one to set customer's status to active irrespectively of their grades. Setting the status of the customers to active can be used, for example, to identify who of the customers are using their account, and who are not.
+これで、マイクロフローにロジックを追加します。 顧客のステータスをそれぞれの成績にそれぞれアクティブに設定するには、3つのフローを1つにマージしています。 例えば、顧客のステータスをアクティブに設定することができます。 顧客の誰が自分のアカウントを使用しているかを特定し、そうでない人を特定します。
 
- Do the following:
+ 次の操作を行います:
 
-1.  First of all, you need to add a new attribute to **Customer** entity in the domain model to indicate if the customer is active or not. Click the domain model icon in the left menu bar to open the domain model and do the following:<br/>
+1.  まず第一に ドメインモデルの **顧客** エンティティに新しい属性を追加し、顧客がアクティブかどうかを示す必要があります。 左メニューバーのドメインモデルアイコンをクリックして、ドメインモデルを開き、次の操作を行います:<br/>
 
-    a. Click the **Customer** entity > **New attribute**.<br/>
+    a **Customer** entity > **New attribute** をクリックしてください。<br/>
 
-    b. In the **Create New Attribute** dialog box, set **Name** to *Active* and **Type** to *Boolean*.<br/>
+    B In the **Create New Attribute** dialog box, set **Name** to *Active* and **Type** to *Boolean*.<br/>
 
     ![](attachments/microflows-how-to-merge-and-change-object/new-attribute-active.png)<br/>
 
-    c. Click **Create**.
+    C **Create** をクリックします。
 
-2. Now you will configure a new activity in the microflow. Open the microflow named *Show_grade_specific_page*.
-3.  In the **Toolbox** > **Object Activities** select the **Change Object** activity, drag and drop it after the merge in the microflow.
+2. これで、マイクロフローで新しいアクティビティを設定します。 *Show_grade_specific_page* という名前のマイクロフローを開きます。
+3.  **Toolbox** > **Object Activities** で **Change Object** activityを選択します。 マイクロフロー内のマージの後にドラッグ&ドロップします。
 
      ![](attachments/microflows-how-to-merge-and-change-object/change-object-added.png)
 
-4.  In the **Properties** tab for the **Change Object** activity, do the following:<br/>
+4.  **オブジェクトの変更** アクティビティの **プロパティ** タブで、次の操作を行います:<br/>
 
-    a. Set **Variable** to **Customer** (because you are going to edit **Customer**).<br/>
+    a **変数** を **顧客** に設定します ( **顧客** を編集しようとしているため)。<br/>
 
-    b. Click **Add New Value**.<br/>
+    B **Add New Value** をクリックします。<br/>
 
     ![](attachments/microflows-how-to-merge-and-change-object/change-object-add-new-value.png)<br/>
 
-    c. In the **Change value** dialog box, select the attribute named **Active**, then click the **Expression** tab, and type *true*. This means that after the order form is opened for a specific customer, the customer's status is set to active (active=true), no matter what grade this customer has.<br/>
+    C In the **Change value** dialog box, select the attribute named **Active**, then click the **Expression** tab, and type *true*. これは、特定の顧客に対して注文フォームが開かれた後であることを意味します 顧客のステータスは、この顧客が持っているグレードに関係なく、アクティブ(アクティブ=true)に設定されます。<br/>
 
     ![](attachments/microflows-how-to-merge-and-change-object/change-value-expression-editor.png)<br/>
 
-    d. Click **Add** to finish setting the value for the **Active** attribute.<br/>
+    D **Add** をクリックして、 **Active** 属性の値の設定を終了します。<br/>
 
-    e. In the **Properties** tab > the **Behavior** section do the following: leave the **Commit** option set to **Yes**, (this means the object will not be changed further and your changes will be saved (committed) to the database).  <br/>
+    E. **プロパティ** タブ > **動作** セクションでは、以下を行います: **コミット** オプションを **はい**に設定しておいてください。 (つまり、オブジェクトはさらに変更されず、変更はデータベースに保存されます) 。  <br/>
 
     ![](attachments/microflows-how-to-merge-and-change-object/change-object-properties.png)
 
-Congratulations! Now you have the microflow that works the following way:
+おめでとうございます これで、次のように動作するマイクロフローがあります。
 
-1. Checks if the customer has a grade, and does one of the following:<br/> a. If the customer has a grade, it opens the order form for the corresponding customer grade.<br/> b. If the customer does not have a grade, the error message pops up.<br/>
-2. If the customer has the grade, the customer's status is set to active irrespective of the grade once the order form is opened.
+1. 顧客に成績があるかどうかを確認し、以下のいずれかを実行します:<br/> a. 顧客に成績がある場合、対応する顧客グレードの注文フォームが開きます。<br/> b. 顧客に成績がない場合、エラーメッセージが表示されます。<br/>
+2. 顧客に成績がある場合、注文フォームが開かれると、顧客のステータスは成績に関係なく有効に設定されます。
 
-Now you can preview or publish your app. For more information on how to preview and publish an app, see [Previewing & Publishing Your App](/studio8/publishing-app).
+アプリをプレビューまたは公開できるようになりました。 アプリをプレビューして公開する方法については、 [プレビューする & アプリを公開する](/studio8/publishing-app) を参照してください。
