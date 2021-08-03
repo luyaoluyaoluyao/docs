@@ -1,274 +1,274 @@
 ---
-title: "Reference Selector"
+title: "参照セレクター"
 parent: "input-widgets"
 menu_order: 70
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 A **reference selector** is used to display and, optionally, allow the end-user to select the value of a one-to-one or one-to-many [association](associations) by selecting the associated object.
 
-A reference selector must be placed in a [data widget](data-widgets). The object(s) retrieved by this data widget must be at the *many* end of a one-to-many association, or at either end of a one-to-one association.
+参照セレクタは [データ ウィジェット](data-widgets) に配置する必要があります。 このデータ ウィジェットによって取得されたオブジェクトは、1対多のアソシエーションの *多数の* 末尾になければなりません。 あるいは一対一の協会のどちらかの端にいます
 
-For example, if you have an employee they will work for one company. A company can have many employees. The entities **Employee** and **Company** have a one-to-many association, **Employee_Company**, which you can select by choosing a Company from the Employee through the reference selector.
+たとえば、従業員がいる場合、彼らは1つの会社で働くでしょう。 会社は多くの従業員を持つことができます。 The entities **Employee** and **Company** have a one-to-many association, **Employee_Company**, which you can select by choosing a Company from the Employee through the reference selector.
 
 ![](attachments/reference-selector/reference-selector-domain-model.png)
 
-In the reference selector, the name of the attribute of the associated objects which will be  displayed is shown inside the reference selector, between square brackets, and colored blue.
+参照セレクターでは、表示される関連するオブジェクトの属性名が参照セレクター内に表示されます。 角括弧と青の色を変えています
 
-For example, the following reference allows the end-user to see, and set, the association **Employee_Company** by selecting the **CompanyName** for the current **Employee**.
+例えば、以下の参照はエンドユーザーが見ること、そして設定することを可能にします。 関連 **Employee_Company** は、現在の **Employee** の **CompanyName** を選択します。
 
 ![](attachments/reference-selector/reference-selector.png)
 
 {{% alert type="info" %}}
-If you only want to _display_ information, you can also use a [text box](text-box). This has the added advantage that you can choose an attribute from an object which is linked via several association steps.
+_情報だけを_ 表示したい場合は、 [テキスト ボックス](text-box) を使用することもできます。 これには、いくつかの関連付けステップでリンクされているオブジェクトから属性を選択できるという追加の利点があります。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of reference selector properties is represented in the image below:
+参照セレクタのプロパティの例は以下の画像で示されています。
 
 {{% image_container width="400" %}}![](attachments/reference-selector/reference-selector-properties.png)
 {{% /image_container %}}
 
-Reference selector properties consist of the following sections:
+参照セレクターのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [Formatting](#formatting)
-* [General](#general)
-* [Label](#label)
-* [Selectable Objects](#selectable-objects)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [書式設定](#formatting)
+* [全般](#general)
+* [ラベル](#label)
+* [選択可能なオブジェクト](#selectable-objects)
+* [検証](#validation)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 データソースセクション{#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-The attribute path specifies which attribute of an associated entity is shown in the reference selector. The path must follow one association of type reference starting in the entity of the data view.
+属性パスは、関連するエンティティのどの属性を参照セレクタに表示するかを指定します。 パスは、データビューのエンティティから始まるタイプ参照の関連付けに従う必要があります。
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 編集可能セクション{#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 イベントセクション{#events}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 Formatting Section{#formatting}
+### 2.6 書式設定セクション{#formatting}
 
-The formatting section applies only to the way that numeric attributes are displayed. These are attributes of the following data types:
+書式設定セクションは、数値属性の表示方法にのみ適用されます。 以下は以下のデータ型の属性です:
 
-* Decimal
-* Integer
-* Long
+* 小数点以下桁数
+* 整数
+* 長い順
 
 {{% snippet file="refguide/numeric-formatting-link.md" %}}
 
-### 2.7 General Section{#general}
+### 2.7 一般セクション{#general}
 
-#### 2.7.1 Select Using{#select-using}
+#### 2.7.1{#select-using} を使用して選択
 
-{{% alert type="warning" %}}The **Select using** property is not shown for native mobile pages. Native mobile pages only support the **Drop-down** method of selection{{% /alert %}}
+{{% alert type="warning" %}}The **Select using** property is not showed for native mobile pages. ネイティブのモバイルページでは、 **Drop-down** メソッドの選択{{% /alert %}} しかサポートされていません。
 
-The reference selector allows the end-user to select objects by using either a drop-down menu or a pop-up page. If you choose to to use a page, the drop-down functionality will be replaced with a button to the right of the widget that will open a page selection pop-up window.
+参照セレクタにより、エンドユーザーはドロップダウンメニューまたはポップアップページを使用してオブジェクトを選択できます。 ページの使用を選択した場合。 ドロップダウン機能は、ページ選択ポップアップウィンドウを開くウィジェットの右側のボタンに置き換えられます。
 
-| Value                     | Description                                  |
-| ------------------------- | -------------------------------------------- |
-| **Drop-down** *(default)* | Select the reference using a drop-down menu. |
-| **Page**                  | Select the reference using a pop-up page.    |
+| 値                     | 説明                        |
+| --------------------- | ------------------------- |
+| **ドロップダウン** *(デフォルト)* | ドロップダウンメニューを使用して参照を選択します。 |
+| **ページ**               | ポップアップページを使用して参照を選択します。   |
 
-* The advantage of selecting using a [Drop-down](#drop-down) is that it is very efficient – the end-user can make a selection with fewer keystrokes, as all the information is on the same page
-* The advantage of selecting using a [Page](#page) is that the end-user can search the objects, and more information about each object can be displayed – if there are a lot of objects to select from (for example, more than 20), it is recommended that selecting is done using a page
+* [ドロップダウン](#drop-down) を使用して選択する利点は、非常に効率的であることです - エンドユーザーは、より少ないキーストロークで選択を行うことができます。 全ての情報が同じページにあるので
+* [ページ](#page) を使用して選択する利点は、エンドユーザーがオブジェクトを検索できることです。 そして、各オブジェクトに関する詳細情報を表示することができます – 選択するオブジェクトがたくさんある場合(例えば、 20以上)、ページを使用して選択することをお勧めします。
 
 {{% alert type="warning" %}}
-There is a small difference in functionality between a **Drop-down** reference selector and a **Page** reference selector. When changing a reference selector item that also has a linked list included in a second drop-down menu or page, the **Page** reference selector is NOT cleared as it is with a **Drop-down** reference selector.
+**ドロップダウン** リファレンスセレクタと **ページ** リファレンスセレクタの機能には、小さな違いがあります。 2 番目のドロップダウン メニューまたはページにもリンクされたリストがある参照セレクター項目を変更する場合。 **ページ** のリファレンスセレクタは **ドロップダウン** のリファレンスセレクタであるためクリアされません。
 {{% /alert %}}
 
-#### 2.7.1.1 Drop-Down {#drop-down}
+#### 2.7.1.1 ドロップダウン {#drop-down}
 
-The drop-down reference selector is similar to a [drop-down](drop-down) for an enumeration, except that it allows users to choose from a list of objects which can be associated with the current object, rather than a list of values from an enumeration.
+ドロップダウンの参照セレクタは、列挙のための [ドロップダウン](drop-down) と似ています。 ただし、現在のオブジェクトに関連付けられるオブジェクトのリストから選択することができます。 列挙型の値のリストではなく
 
-The reference selector displays an attribute from the objects which can be linked to the current entity via an association. The chosen attribute should be unique for each object which can be associated, otherwise the end-user will have difficulty choosing the correct one. For example, you should display a company _name_ (which will hopefully be unique) rather than the company _region_ (which will probably not be unique to a company).
+参照セレクターには、関連付けを介して現在のエンティティにリンクできるオブジェクトの属性が表示されます。 選択された属性は、関連付けられる各オブジェクトに対して一意である必要があります。そうでなければ、エンドユーザーは正しい属性を選択することが困難になります。 例えば、 会社 _の名前_ (うまくいけばユニークな名前) を表示する必要があります。会社の _地域_ (おそらく会社に固有のものではないでしょう) ではありません。
 
-#### 2.7.1.2 Page {#page}
+#### 2.7.1.2 ページ {#page}
 
-Select using a page, links a button to the right of the widget with a pop-up page which is used to make the selection. You must choose the page to be displayed using the [Select Page](#select-page) property.
+ページを使用して選択し、ウィジェットの右側にあるボタンをポップアップページでリンクし、選択を行うために使用します。 [ページの選択](#select-page) プロパティを使用して表示するページを選択する必要があります。
 
-#### 2.7.2 Empty Option Caption
+#### 2.7.2 空のオプションの図表番号
 
 {{% alert type="info" %}}
-This is only displayed if [Select using](#select-using) is set to **Drop-down**.
+[](#select-using) を **ドロップダウン**に設定した場合にのみ表示されます。
 {{% /alert %}}
 
-This property specifies the caption for the empty option in the drop-down reference selector shown to the end-user. This is a [translatable text](translatable-texts).
+このプロパティは、エンド・ユーザーに表示されるドロップダウン・リファレンス・セレクタの空のオプションのキャプションを指定します。 これは [翻訳可能なテキスト](translatable-texts) です。
 
-Filling out the caption for an empty option improves the user experience of your application. It also helps end-users using screen-reader to operate the application easily.
+空のオプションにキャプションを記入すると、アプリケーションのユーザーエクスペリエンスが向上します。 また、スクリーンリーダーを使用するエンドユーザーがアプリケーションを簡単に操作できるようにします。
 
-#### 2.7.3 Select Page{#select-page}
+#### 2.7.3 ページ{#select-page} を選択
 
 {{% alert type="info" %}}
-This is only displayed if [Select using](#select-using) is set to **Page**. Consequently, select page is not supported on native mobile pages.
+[Select using](#select-using) is set to **Page**. そのため、Select ページはネイティブモバイルページではサポートされていません。
 {{% /alert %}}
 
-The select page property determines which page is opened when the select page button is used.
+format@@0 プロパティにより、ページの選択ボタンが使用されたときに開かれるページが決定されます。
 
-This page can be used to select an associated object from the list of all possible objects. This page should contain a data grid, template grid or list view connected to the same entity as the input reference set selector.
+このページは、可能なすべてのオブジェクトのリストから関連するオブジェクトを選択するために使用できます。 このページには、入力参照セットセレクタと同じエンティティに接続されたデータグリッド、テンプレートグリッド、またはリストビューが含まれている必要があります。
 
-It is recommended that you generate a new page to show by right-clicking the widget and selecting **Generate select page…**. You can then edit the resulting page, if required.
+ウィジェットを右クリックし、 **選択ページを生成…** を選択して表示する新しいページを生成することをお勧めします。 必要に応じて、結果のページを編集できます。
 
-![Generate a select page by right-clicking the widget](attachments/reference-selector/generate-select-page.png)
+![ウィジェットを右クリックして選択ページを生成します](attachments/reference-selector/generate-select-page.png)
 
-See the [Show a Page](on-click-event#show-page) section of *On Click Event & Events Section*. Note that select pages must have a [pop-up layout](layout#layout-type).
+[Show a Page](on-click-event#show-page) section of *On Click Event & Events Section* を参照してください。 選択ページには [ポップアップ レイアウト](layout#layout-type) が必要です。
 
-**Page title**
+**ページタイトル**
 
 {{% alert type="info" %}}
-**Page title** is only available in the **Properties** dialog box, not in the **Properties** pane.
+**ページ タイトル** は **プロパティ** ダイアログボックスでのみ使用でき、 **プロパティ** ペインでは使用できません。
 {{% /alert %}}
 
-You can override the title of the page you open to, for example, indicate where you are opening it from.
+開いたページのタイトルを上書きすることができます。たとえば、開いたページのタイトルを上書きすることができます。
 
-This is activated by checking the **Override page title** check box.
+これは、 **ページタイトル** のチェックボックスをオンにすることで有効になります。
 
-#### 2.7.4 Go-To Page
+#### 2.7.4 ページへ移動
 
 {{% alert type="warning" %}}Go-to page is not supported on native mobile pages.{{% /alert %}}
 
-The go-to page gives end users quick access to a more detailed overview of the currently selected object.
+go-toページでは、エンドユーザーは現在選択されているオブジェクトの詳細な概要にすばやくアクセスできます。
 
-This property determines which page is shown to the user. The page should contain a data view with the data source **Type** set to **Context** and the same **Entity (path)** as the one that is selected by the reference selector.
+このプロパティは、ユーザーに表示するページを決定します。 このページには、データ ソース **タイプ** コンテキスト **と同じ** **エンティティ (パス)** を参照セレクタで選択されたデータビューが含まれている必要があります。
 
-It is recommended that you generate a new go-to page by right-clicking the widget and selecting **Generate go-to page…**. You can then edit the resulting page, if required.
+ウィジェットを右クリックして **Go to page…** を選択することで、新しいgo-toページを生成することをお勧めします。 必要に応じて、結果のページを編集できます。
 
-**Page title**
+**ページタイトル**
 
 {{% alert type="info" %}}
-**Page title** is only available in the **Properties** dialog box, not in the **Properties** pane.
+**ページ タイトル** は **プロパティ** ダイアログボックスでのみ使用でき、 **プロパティ** ペインでは使用できません。
 {{% /alert %}}
 
-You can override the title of the page you open to, for example, indicate where you are opening it from.
+開いたページのタイトルを上書きすることができます。たとえば、開いたページのタイトルを上書きすることができます。
 
-This is activated by checking the **Override page title** check box.
+これは、 **ページタイトル** のチェックボックスをオンにすることで有効になります。
 
-### 2.8 Label Section{#label}
+### 2.8 ラベルセクション{#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.9 Selectable Objects Section{#selectable-objects}
+### 2.9 選択可能なオブジェクトセクション{#selectable-objects}
 
-The properties in the Selectable objects section determine the objects from which the end user can make a selection.
+format@@0 セクションのプロパティによって、エンドユーザーが選択できるオブジェクトが決定されます。
 
-The **Source** property sets which of the three ways to define the selectable objects is used:
+**ソース** プロパティは、選択可能なオブジェクトを定義する3つの方法のうちどちらを使用するかを設定します:
 
-* Database *(default)*
+* データベース *(デフォルト)*
 * XPath
-* Microflow
+* マイクロフロー
 
-#### 2.9.1 Database
+#### 2.9.1 データベース
 
-Database is the default source for the selectable objects. By default, all database objects of the correct entity type will be selectable.
+データベースは、選択可能なオブジェクトのデフォルトのソースです。 デフォルトでは、正しいエンティティタイプのすべてのデータベースオブジェクトが選択可能になります。
 
-**Constraints**
+**制約**
 
-You can limit the objects presented to the end-user by adding constraints. You will be guided through making constraints in the **Edit Constraints** dialog box:
+制約を追加することで、エンドユーザーに表示されるオブジェクトを制限できます。 **制約の編集** ダイアログボックスで制約の作成方法を説明します:
 
-![Edit constraints dialog box](attachments/reference-selector/database-constraints.png)
+![拘束ダイアログボックスを編集](attachments/reference-selector/database-constraints.png)
 
-See the [constraints](database-source#constraints) section of *Database Source* for more information.
+詳細については、 [データベース ソース](database-source#constraints) の *制約* セクションを参照してください。
 
-**Sort Order**
+**並び順**
 
-The sort order specifies the order in which the items in the reference selector are shown. You can sort on multiple attributes in both directions (ascending and descending). If **(default)** sort order is specified, the reference selector sorts on the displayed attribute.
+ソート順は、参照セレクター内のアイテムが表示される順序を指定します。 複数の属性を並べ替えることができます (昇順と降順)。 **(デフォルト)** ソート順が指定されている場合、参照セレクタは表示属性をソートします。
 
 #### 2.9.2 XPath{#xpath-constraints}
 
-If the source is XPath, the list of objects is also taken from the database, but the objects which are displayed are chosen by an XPath Constraint.
+ソースが XPath の場合、オブジェクトのリストもデータベースから取得されます。 しかし、表示されるオブジェクトは XPath 制約により選択されます。
 
-**XPath Constraint**
+**XPath 制約**
 
-The XPath constraint limits the list of objects that can be selected.
+XPath 制約により、選択することのできるオブジェクトのリストが制限されます。
 
-For example, the XPath constraint `[InStock = true()]` on a reference selector for products will ensure that only products that are in stock are selectable.
+例えば、 商品の参照セレクタ上の XPath 制約 `[InStock = true()]` は、在庫にある商品のみが選択可能であることを保証します。
 
-See [XPath Constraints](xpath-constraints) for more information on XPath constraints.
+XPath 制約の詳細については、 [XPath 制約](xpath-constraints) を参照してください。
 
-**Constrained By**
+**制約を受けた人**
 
-A reference selector can be constrained by one or more paths. This is typically used to make one reference selector dependent on another. The best way to explain this is through an example.
+参照セレクタは、1 つまたは複数のパスで制約することができます。 これは通常、ある参照セレクタを別のセレクタに依存させるために使用されます。 これを説明する最善の方法は、例を通してです。
 
-Imagine you have an ordering system where the products are sorted into categories – for example, food products and drink products. On a page where you can edit an order line, a product selector can be constrained by a category selector. After selecting a category (*food*, for example), the product selector is constrained by this category and shows only products in the category.
+例えば、食品や飲料製品など、商品がカテゴリに分類される注文システムがあるとします。 注文行を編集できるページでは、商品セレクターはカテゴリセレクターで制約されます。 カテゴリ (*フード*など) を選択した後、 製品セレクタはこのカテゴリに制約され、カテゴリ内の製品のみを表示します。
 
-_Example Domain model_ ![](attachments/reference-selector/orderline-domain-model.png)
+_ドメインモデルの例_ ![](attachments/reference-selector/orderline-domain-model.png)
 
-In the domain model the order line has many-to-one associations to both category and product. These associations can be be edited using reference selectors. A third association, from product to category, describes the relation between those two entities – that is, that every product has an associated category.
+ドメインモデルでは、注文ラインはカテゴリと製品の両方に関連付けられています。 これらの関連付けは、参照セレクタを使用して編集できます。 製品からカテゴリーまでの第三の関連付けは、それらの2つのエンティティ間の関係を説明します。つまり、すべての製品には関連するカテゴリーがあります。
 
 {{% alert type="info" %}}
-Such a triangle-shaped part of the domain model is what makes using **constrained by** possible.
+このような三角形の領域モデルの一部は、 **を** に制約させるものです。
 {{% /alert %}}
 
-On the form, you have two reference selectors: one for **Category** and one for **Product**.
+フォームには、 **カテゴリ** 用と **製品** 用の2つの参照セレクタがあります。
 
 ![](attachments/reference-selector/orderline-reference-selectors.png)
 
-Without a constraint, the reference set selector will offer all the products:
+制約がなければ、参照セットセレクターはすべての製品を提供します:
 
-![List of all products, food and drink](attachments/reference-selector/orderline-no-constraint.png)
+![すべての商品、食べ物、飲み物の一覧](attachments/reference-selector/orderline-no-constraint.png)
 
-However, because of the structure of the domain model, you can add a constraint which means that only the products of the previously selected category will be chosen. This is set by the **Constrained by** property.
+しかし、ドメインモデルの構造のために。 制約を追加することができます。つまり、以前選択したカテゴリの製品のみが選択されます。 これは、 **プロパティによって制約された** によって設定されます。
 
 ![](attachments/reference-selector/orderline-constrained-by.png)
 
-Now the end-user will only see products in the selected category:
+これで、エンドユーザーは選択したカテゴリ内の商品のみが表示されます：
 
-![List of just products in the drink category](attachments/reference-selector/orderline-with-constraint.png)
+![ドリンクカテゴリ内の商品一覧](attachments/reference-selector/orderline-with-constraint.png)
 
-**Sort Order**
+**並び順**
 
-The sort order specifies the order in which the items in the reference selector are shown. You can sort on multiple attributes in both directions (ascending and descending). If **(default)** sort order is specified, the reference selector sorts on the displayed attribute.
+ソート順は、参照セレクター内のアイテムが表示される順序を指定します。 複数の属性を並べ替えることができます (昇順と降順)。 **(デフォルト)** ソート順が指定されている場合、参照セレクタは表示属性をソートします。
 
 #### 2.9.3 Microflow
 
 {{% alert type="warning" %}}
-A microflow can only be used if the selection is made using a drop-down.
+マイクロフローは、ドロップダウンを使用して選択を行う場合にのみ使用できます。
 {{% /alert %}}
 
-If the source microflow is selected, a microflow is called, and returns the list of objects that the reference selector will show.
+ソース microflow が選択されている場合、マイクロフローが呼び出され、参照セレクタが表示するオブジェクトのリストを返します。
 
-**Microflow**
+**マイクロフロー**
 
-Microflow specifies the microflow which is run to return the list of objects.
+Microflow は、オブジェクトのリストを返すために実行されるマイクロフローを指定します。
 
-**Microflow Settings**
+**マイクロフローの設定**
 
-In microflow settings you can specify what parameters are passed to the microflow, depending on the parameters specified in the microflow itself.
+マイクロフローの設定では、マイクロフロー自体で指定されたパラメーターに応じて、マイクロフローに渡すパラメーターを指定できます。
 
-### 2.10 Validation Section{#validation}
+### 2.10 検証セクション{#validation}
 
 {{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.11 Visibility Section{#visibility}
+### 2.11 可視性セクション{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-*   [Data view](data-view)
-*   [Entities](entities)
-*   [Associations](associations)
+*   [データビュー](data-view)
+*   [エンティティ](エンティティ)
+*   [関連](関連)
