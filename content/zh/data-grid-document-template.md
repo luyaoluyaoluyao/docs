@@ -1,76 +1,79 @@
 ---
-title: "Data Grid (Document Template)"
-parent: "document-templates"
+title: "数据网格 (文档模板)"
+parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Data+Grid+(document+template).html
-  - /refguide7/data-grid-(document-template).html
+  - /refguide/Data+Grid+(document+template).html
+  - /refguide/data-grid-(document-template).html
 ---
 
+## 1 导言
 
-The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed.
-
-{{% alert type="info" %}}
-
-[![](attachments/819203/918138.png)](data-grid-document-template) A data grid showing a list of orders with a description and the referenced customer name.
-
-{{% /alert %}}
-
-## Components
-
-### Columns
-
-See [Columns (document template)](columns-document-template).
-
-### Sort bar
-
-See [Sort Bar](sort-bar).
-
-## Appearance Properties
-
-### Column weights
-
-The column weights are percentages separated by semi-colons that determine the widths of the columns. The weights have to add up to 100\. An alternative way of changing the widths of columns is by dragging the separating line between columns.
+数据网格显示一个网格中的对象列表。 例如，数据网格可以显示客户发出的所有订单。
 
 {{% alert type="info" %}}
 
-In the screenshot above the column weights are 50;25;25.
+![](attachments/document-templates/918138.png)
 
-{{% /alert %}}
+显示带有描述和被引用的客户名称的订单列表的数据表。
 
-### Cell spacing
+{{% /报警 %}}
 
-Cell spacing specifies the space in between cells
+## 2 个组件
 
-### Cell padding
+### 2.1 列
 
-Cell padding specifies the space between the content of the cell and the cell wall
+查看 [列 (文档模板)](columns-document-template)。
 
-### Enable striping
+### 2.2 排序条
 
-With striping enabled you can set the properties of even and uneven datagrid rows individually. This way you can create a striping effect by varying color for the 2 different row styles.
+查看 [排序条](sort-bar)。
 
-### Style
+## 3 外观属性
 
-See [Style](style)
+### 3.1 列权重
 
-## Common Properties
+列重量是以确定列宽度的半冒号隔开的百分比。 重量必须增加到 100\。 改变列宽度的另一种方法是拖动列之间的分隔线。
 
-### Name
+{{% alert type="info" %}}
+列加权数在屏幕上方的截图中为50;25;25。
+{{% /报警 %}}
 
-The internal name of the widget. You can use this to give sensible names to widgets. The name property also appears in the generated HTML: the widget DOM element automatically includes the class '`mx-name-{NAME}`', which can be useful for [Selenium testing](/howto7/integration/selenium-support).
+### 3.2 单元格间距
 
-## Data Source Properties
+单元格间距指定单元格间距
 
-The data source properties determine which objects will be shown in the data grid. The list of objects in the data grid is constrained by the following mechanisms:
+### 3.3 Cell Padding
 
-1.  For top-level data grids, the objects passed in the microflow calling the document export action are shown.
-2.  For nested data grids, if an entity path is used, only the objects reachable by following the path from the containing object are shown.
-3.  For nested data grids, if a microflow is used, the objects returned by the microflow are shown.
+单元格填充指定单元格内容和单元格墙之间的空间
 
-### Entity (Path)
+### 3.4 启用 Striping
 
-The entity (path) property specifies which entity instances will be shown in the data grid. A top-level data grid is always connected to an entity. A nested data grid can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path can follow associations irrespective of type and ownership.
+使用条纹启用后，您可以单独设置甚至不均衡的数据网格行的属性。 这种方式你可以为两个不同行风格以不同的颜色创建一个切片效果。
 
-### Microflow
+### 3.5 样式
 
-When a nested data grid is connected to a template, a microflow is needed to retrieve the data. The input parameter of these microflows is always the object of the containing data view and the output is a list of objects of the type of the nested datagrid.
+查看 [样式](style)
+
+## 4 个公共属性
+
+### 4.1 名称
+
+部件的内部名称。 你可以使用这个给小部件提供合理的名称。 名称属性也出现在生成的 HTML：小部件DOM 元素自动包含类 '`mx-name-{NAME}`', 可以用于 [Selenium 测试](/howto/integration/selenium-support)
+
+## 5 数据源属性
+
+数据源属性决定哪些对象将显示在数据网格中。 数据网上的对象清单受到下列机制的限制：
+
+1.  对于顶层数据网格，显示调用文档导出操作的微流程中传递的对象。
+2.  对于嵌套的数据网格，如果使用实体路径，只显示从包含对象的路径可以访问的对象。
+3.  对于嵌套的数据网格，如果使用微流，则显示微流返回的对象。
+
+### 5.1 实体(路径)
+
+实体(路径)属性指定将在数据网格中显示哪些实体实例。 顶级数据网格总是连接到实体的。 嵌套的数据网格可以连接到一个实体，也可以连接到从包含数据视图的实体开始的实体路径。 实体路径可以跟随社团，而不论其类型和所有权。
+
+### 5.2 微流
+
+当嵌套的数据网格连接到模板时，需要微流才能检索数据。 这些微流的输入参数总是包含数据视图的对象，输出是嵌套数据网格类型的对象列表。
