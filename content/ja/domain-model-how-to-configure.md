@@ -28,7 +28,7 @@ tags:
 
 この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio8/domain-models) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
 ## 3 どのデータを含めるか定義する
 
@@ -65,7 +65,7 @@ tags:
 
 1. **製品** エンティティを作成します。 次の操作を行います:
 
-    1. [ドメイン モデル](/studio8/domain-models) を開きます。
+    1. [ドメイン モデル](/studio/domain-models) を開きます。
 
     2. **ツールボックス**を開き、ドメインモデルで **エンティティ** をドラッグ&ドロップします。
 
@@ -139,11 +139,11 @@ tags:
 
     4. 属性 **名前** を *ステータス* に、 **タイプ** を *列挙* に設定します。 列挙には、 *Placed* や *Shipped* など、さまざまなステータス値が含まれます。
 
-    5. **Select enumeration** をクリックして、新しい [enumeration](/studio8/domain-models-enumeration) を作成します。
+    5. **Select enumeration** をクリックして、新しい [enumeration](/studio/domain-models-enumeration) を作成します。
 
         {{% image_container width="450" %}}![Select Enumeration](attachments/domain-model-how-to-configure/select-enumeration.png){{% /image_container %}}
 
-    6. **Select enumeration** ダイアログボックスで、 **New Enumeration** をクリックします。
+    6. **列挙の選択** ダイアログボックスで、右上隅にあるプラスアイコンをクリックして新しい列挙を追加します。
 
     7. In the **Create new enumeration** dialog box, click **Add Item** (*Status* is filled out automatically for the **Name**).
 
@@ -192,7 +192,7 @@ tags:
 以下の手順に従ってください。
 
 1. **顧客** エンティティを作成します。 **Product** エンティティを作成するのと同じ方法を使用します。 詳細については、 [製品の定義](#product) セクションを参照してください。
-2. Create attributes for the **Customer** entity (for more information on how to create an attribute, see the [Adding New Attributes](/studio8/domain-models#adding-new-attributes) section in *Domain Model*). 次の操作を行います:<br />
+2. Create attributes for the **Customer** entity (for more information on how to create an attribute, see the [Adding New Attributes](/studio/domain-models#adding-new-attributes) section in *Domain Model*). 次の操作を行います:<br />
 1. 図形を選択し、 **新規属性** をクリックします。
     2. In the **Create New Attribute** dialog box, set **Name** to *Customer_ID*, set **Type** to *Autonumber*, and click **Create**.
 3. *Name* 属性を作成するには、ステップ 2a を繰り返します。
@@ -217,7 +217,7 @@ tags:
 
 <img src="attachments/domain-model-how-to-configure/entities.png" alt="エンティティ" />
 
-これらのエンティティが相互に関連付けられている方法を定義し、関連付けを作成する必要があります。 関連付けの詳細については、 [Associations](/studio8/domain-models-association-properties) を参照してください。
+これらのエンティティが相互に関連付けられている方法を定義し、関連付けを作成する必要があります。 関連付けの詳細については、 [Associations](/studio/domain-models-association-properties) を参照してください。
 
 まず、図形間の接続方法を定義します。
 
@@ -255,7 +255,7 @@ tags:
 
 {{% alert type="info" %}}
 
-あるいは、 **新しい属性** > **ファイルまたは画像を追加**をクリックしてイメージまたはファイルエンティティを作成できます。 この場合、関連付けはデフォルトで作成されます。 詳細については、 [ドメインモデル](/studio8/domain-models#adding-image-or-file-entities) の *新規イメージまたはファイルエンティティの追加* セクションを参照してください。
+あるいは、 **新しい属性** > **ファイルまたは画像を追加**をクリックしてイメージまたはファイルエンティティを作成できます。 この場合、関連付けはデフォルトで作成されます。 詳細については、 [ドメインモデル](/studio/domain-models#adding-image-or-file-entities) の *新規イメージまたはファイルエンティティの追加* セクションを参照してください。
 
 {{% /alert %}}
 
@@ -263,11 +263,11 @@ tags:
 
 ![ドメインモデルオンラインショッピングアプリ](attachments/domain-model-how-to-configure/domain-model-online-shop.png)
 
-[ページ](/studio8/page-editor) を作成するか、 [Buzz](/studio8/collaboration-buzz) を使用して、チームの開発者やデザイナーとコラボレーションし、アプリエクスペリエンスを構築することができます。
+[ページ](/studio/page-editor) を作成するか、 [Buzz](/studio/collaboration-buzz) を使用して、チームの開発者やデザイナーとコラボレーションし、アプリエクスペリエンスを構築することができます。
 
 ## 8 続きを読む
 
-* [ドメインモデル](/studio8/domain-models)
-* [ページ](/studio8/page-editor)
-* [マイクロフロー](/studio8/microflows)
-* [Buzz](/studio8/collaboration-buzz)
+* [ドメインモデル](/studio/domain-models)
+* [ページ](/studio/page-editor)
+* [マイクロフロー](/studio/microflows)
+* [Buzz](/studio/collaboration-buzz)
