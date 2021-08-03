@@ -1,56 +1,51 @@
 ---
-title: "Consumed Web Service"
-parent: "consumed-web-services"
+title: "利用済みのWebサービス"
+parent: "consed-web-services"
+tags:
+  - "studio pro"
 ---
 
+## 1つの紹介
+
+このドキュメントでは、インポートされた Web サービスのプロパティについて説明します。 インポートされた Web サービスの概要については、 [Web サービス](consumed-web-services) の概要ドキュメントを参照してください。
+
+## 2つのWSDL ソース
+
+WSDL は URL またはディスクに保存された WSDL ファイルからロードすることができます。
 
 {{% alert type="warning" %}}
 
-This document describes the properties of an imported web service. If you want a general overview of imported web services, you can check the [Consumed Web Services](consumed-web-services) overview documentation.
-
-{{% /alert %}}
-
-![](attachments/16713734/16843949.png)
-
-## General
-
-### WSDL Source
-
-You can load the WSDL from an URL or from a WSDL file saved on your disk. After selecting an option and adding the required url or file location, press import to fetch the services/operations in this WSDL.
-
-{{% alert type="warning" %}}
-
-A dialog will ask for a username and password if you try to load a WSDL file from a URL that requires authentication.
+認証が必要なURLからWSDLファイルをロードしようとすると、ユーザー名とパスワードが要求されます。
 
 {{% /alert %}}{{% alert type="warning" %}}
 
-A WSDL file can contain multiple services. A service can contain multiple ports. Upon loading a WSDL, a dialog will ask you to select a port for each service if a service contains multiple ports.
+WSDL ファイルには複数のサービスが含まれていて、サービスには複数のポートが含まれている場合があります。 WSDLをロードすると、ダイアログボックスで複数のポートを含む各サービスのポートを選択するように求められます。
 
 {{% /alert %}}
 
-### Services
+## 3つのサービス
 
-This part contains the services to be found in the WSDL.
+この部分は、WSDL で見つけるサービスを指定します。
 
-*   Name is the name of the service.
-*   Port is selected port in multiple-port service.
-*   Location is where the service is located.
-*   Location constant can be used to add additional locations for a service, for example: the URL of the soap service may change when moving from a development to a production environment. See also [Constants](constants).
+* **Name** – サービスの名前。
+* **ポート** – 選択したポート。
+* **場所** - サービスがある場所。
+* **ロケーション定数** - の場合、サービスの追加のロケーションを追加するために使用できます。 たとえば、開発環境から本番環境へ移動すると、SOAP サービスの URL が変更される場合などです。 [定数](constants) も参照してください。
 
-If there is a multiple-port service defined in the WSDL, a dialog will pop up that allows the user to select which one of the ports to use_._
+WSDLに複数のポートサービスが定義されている場合、ポップアップダイアログボックスで使用するポートを選択できます。
 
-### Operations
+## 4つの操作
 
-This part contains all the operations found in the WSDL. You can expand the list and see additional information about individual operations in the right pane.
+この部分は、WSDLで見つかったすべての操作を示しています。 リストを展開し、右側のペインで個々の操作に関する追加情報を表示できます。
 
-### Advanced Settings
+## 5つの詳細設定
 
-*   Send binary data as attachment (MTOM) - enable or disable MTOM: the _Message Transmission Optimization Mechanism_, a method of efficiently sending binary data to and from Web services. Read more about it at [w3.org](https://www.w3.org/TR/soap12-mtom/). Please note that message optimization will only be applied when you use one or more export mappings to create the request body in the Call web service action.
+**添付ファイル(MTOM)** でバイナリデータを送信する (_メッセージ送信最適化メカニズム_):Webサービスとの間でバイナリデータを効率的に送信する方法。 詳細は [w3.org](https://www.w3.org/TR/soap12-mtom/) をご覧ください。
 
-## Documentation
+{{% alert type="warning" %}}
+メッセージの最適化は、呼び出しの Web サービスアクション内でリクエストボディを作成するために 1 つまたは複数のエクスポートマッピングを使用する場合にのみ適用されます。
+{{% /alert %}}
 
-The documentation of the imported web service. Here you can describe the purpose of the web service.
+## 6 消費されたウェブサービスへの通話
 
-## Calling consumed web services
-
-Please refer to the section [Call Web Service Action](call-web-service-action).
+使用している Web サービスを呼び出す方法については、 [Web サービスを呼び出す](call-web-service-action) を参照してください。
