@@ -1,101 +1,94 @@
 ---
-title: "ブール式"
+title: "ブーリアン式"
 parent: "表現"
-menu_order: 50
-tags:
-  - "studio pro"
-  - "表現"
-  - "表現"
-  - "Boolean"
 ---
 
-## 1つの紹介
+### ブーリアン式
 
-ブール式は、true または false を返す論理演算を実行するために使用できます。
 
-## 2 と
 
-`と` 演算子は2つのブール式式をチェックし、両方の式が true の場合にのみ `true` を返します。
+ブール式は、2つの条件が保持されているかどうかをチェックするなどの論理演算を実行するために使用できます。
 
-### 2.1 例
+## と
 
-以下の例は、式が返す値を示しています。
+2つのブール式式を組み合わせて、両方の式が True に評価された場合にのみ、True を返します。
 
-* 次の入力を使用する場合:
+{{% alert type="info" %}}
 
-    ```java
-    (6 > 4) and (3 < 5)
-    ```
+```java
+(6 > 4) and (3 < 5)
+```
 
-    両方の式が `true` であるため、出力は `true` です。
+両方の式が True であるため、 True に評価されます。
 
-* 次の入力を使用する場合:
+```java
+('hello' = 'hallo') and (3 < 5)
+```
 
-    ```java
-    ('hello' = 'hallo') and (3 < 5)
-    ```
+2番目の式のみが True であるため、 False に評価します。
 
-    出力は `false`です。なぜなら、2 番目の式だけが `true` だからです。
+{{% /alert %}}
 
-## 3 または
+## または
 
-`または` 演算子は2つのブール式を組み合わせ、式の少なくとも1つが真の場合は `true` を返します。
+2 つの Boolean 式を組み合わせて、少なくとも 1 つの True が評価されている場合に True を返します。
 
-### 3.1 例
+{{% alert type="info" %}}
 
-以下の例は、式が返す値を示しています。
+Given a domain entity instance with name "$product" that has an integer attribute "price" with value "3" and another integer attribute "recommendedPrice" with value "2", the following expression:
 
-* 整数型の *price* 属性を持つ *product* というエンティティがあります。 *price* 属性は 3 に等しく、 *recommendedPrice* と呼ばれる別の属性があります。
+```java
+($product/price < $product/recommendedPrice : 2) or ($product/price > 0)
+```
 
-    次の入力を使用する場合:
+少なくとも1つの式がTrue(正確には2つ目)に評価されるため、Trueが返されます。 両方の文が True であれば、式は True を返すことに注意してください。
 
-    ```java
-    ($product/price < $product/recommendedPrice : 2) or ($product/price     > 0)
-    ```
+以下の例では False を返します。両方の式は False に評価されるため:
 
-    式は `true` を返します。式の少なくとも 1 つが true (2 番目のもの) であるためです。 両方の文が true の場合、式は `true` を返すことに注意してください。
+```java
+('hello' = 'nothello') または ('bye' = 'stillnotbye')
+```
 
-* 次の入力を使用する場合:
+{{% /alert %}}
 
-    ```java
-    ('hello' = 'nothello') または ('bye' = 'stillnotbye')
-    ```
+## いいえ
 
-    式は `false`を返します。
+関数 'not' は指定された Boolean 式を否定します。
 
-## 4 not
-
-`ではない` 演算子は指定された Boolean 式を否定します。
-
-### 4.1 Input
+### Input
 
 Boolean型の式。
 
-### 4.2 出力
+### 出力
 
-指定した式の否定を返します。 式が `true`と評価された場合、 `false`を返します。
+指定した式の否定を返します。 式が True と評価されると、False が返されます。そうでなければ、True が返されます。
 
-### 4.3 例
+{{% alert type="info" %}}
 
-以下の例は、式が返す値を示しています。
+```java
+not('hello' = 'hallo')
 
-* 次の入力を使用する場合:
+```
 
-    ```java
-    not('hello' = 'hallo')
+戻り値:
 
-    ```
+```java
+true
 
-    式は `true` を返します。
+```
 
+と
 
-* 次の入力を使用する場合:
+```java
+not(true)
 
-    ```java
-    not(true)
-    ```
+```
 
-    式は `false` を返します。
+戻り値:
 
+```java
+false
 
+```
 
+{{% /alert %}}
