@@ -1,31 +1,31 @@
 ---
-title: "App Settings Dialog"
-parent: "dialogs"
+title: "应用设置对话框"
+parent: "对话框"
 ---
 
-## 1 Introduction
+## 1 导言
 
-When creating a new app, you can do the following with this dialog box:
+创建新应用时，您可以使用此对话框执行以下操作：
 
-* Enter an **App name**.
+* 输入 **应用程序名称**。
 * Select whether to **Enable online services** provided by the Mendix Platform.
-* Select the **Default language**.
-* Enter the location of the **Project directory** where the project files for your app are stored.
+* 选择 **默认语言**。
+* 输入 **项目目录** 存储您应用的项目文件的位置。
 
-These settings are optional. You can click **Create app** to create your app with the default settings. ![](attachments/app-settings-dialog/app-settings-dialg-box.png)
+这些设置是可选的。 您可以点击 **创建应用程序** 来使用默认设置创建您的应用程序。 ![](attachments/app-settings-dialog/app-settings-dialg-box.png)
 
-## 2 App Name
+## 2 个应用程序名称
 
-In the **App name** field, enter the name of your new app. This name is used as the name of the project directory and file on disk. If you enable the online services for this app, the name is also used for the Team Server repository and a corresponding app in **My Apps**.
+在 **应用程序名称** 字段中，请输入您的新应用程序的名称。 此名称用作磁盘上项目目录和文件的名称。 如果您启用此应用的在线服务， 该名称也用于团队服务器仓库和 **我的应用程序** 中的相应应用程序。
 
-## 3 Enable Online Services
+## 3 启用在线服务
 
-The Mendix Platform offers online services such as [version control](version-control), cloud deployment, and collaboration. If you select **Yes** for **Enable online services**, this will create a project in the Developer Portal and a corresponding version control repository. If you choose **No**, you will create an app that is only stored on your local disk. At a later point you can still decide to upload this local app to a version control server and enjoy the benefits of version control.
+Mendix Platform 提供联机服务，如 [版本控制](version-control)，云端部署和协作。 如果您选择 **是** for **启用在线服务**, 这将在开发者门户网站和相应版本控制仓库中创建一个项目。 如果您选择 **否**，您将创建一个只存储在您本地磁盘上的应用程序。 稍后您仍然可以决定将此本地应用上传到版本控制服务器，并享受版本控制带来的好处。
 
-## 4 Default Language
+## 4 种默认语言
 
-In the **Default language** drop-down list, select the language of the user interface of your app. Choose the language that you will initially use in your forms and other user interface elements. You can always add additional languages to your app later.
+在 **默认语言** 下拉列表中，选择您应用程序的用户界面的语言。 选择您最初在表单和其他用户界面元素中使用的语言。 您随时可以添加额外语言到您的应用中。
 
-## 5 Project Directory
+## 5 项目目录
 
-In the **Project directory** field, specify the project directory where the files of your app are stored. If you enable the online services for the new app, you will see that the suffix **-main** will be appended to the directory name automatically. This is to indicate that the directory contains the main branch line of your project. While working on your app, you can create new branches and download these to other directories.
+在 **项目目录** 字段中，指定您应用程序文件存储的项目目录。 如果您为新应用启用在线服务， 你会看到后缀 **-main** 将自动附加到目录名称。 这是为了表明目录包含您项目的主要分支行。 在你的应用上工作时，你可以创建新分支并将它们下载到其他目录。
