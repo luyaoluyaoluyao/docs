@@ -1,13 +1,13 @@
 ---
-title: "Offline Device Profile"
+title: "オフラインデバイス・プロファイル"
 parent: "navigation-before-72"
-description: "Describes usage of the offline device profile in a Mendix app for Mendix versions 7.0 and 7.1."
+description: "Mendix バージョン 7.0 および 7.1 の Mendix アプリでのオフラインデバイスプロファイルの使用法について説明します。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+Mendix バージョン 7.2 および 7.3 での動作の詳細については、 [7.2 と 7.3 のナビゲーション](navigation-in-72-and-73) を参照してください。 Mendix バージョン 7.4 以上については、 [Navigation](navigation) を参照してください。
 
 {{% /alert %}}
 
-As of Mendix 7.0.2, the offline device profile is replaced by the [hybrid phone profile](hybrid-phone-profile). All the settings from the offline device profile are automatically copied to the hybrid phone profile.
+Mendix 7.0.2では、オフラインデバイスプロファイルは [ハイブリッド電話プロファイル](hybrid-phone-profile)に置き換えられます。 オフラインのデバイスプロファイルからのすべての設定は、自動的にハイブリッド電話プロファイルにコピーされます。
