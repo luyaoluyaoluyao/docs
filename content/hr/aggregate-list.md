@@ -1,48 +1,84 @@
 ---
 title: "Aggregate List"
 parent: "list-activities"
+menu_order: 1
+tags:
+  - "studio pro"
+  - "Aggregate"
+  - "Sum"
+  - "Average"
+  - "Count"
+  - "Minimum"
+  - "Maximum"
 ---
 
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/aggregate-list.pdf).
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+This activity can be used in both **Microflows** and **Nanoflows**.
 {{% /alert %}}
 
 ## 1 Introduction
 
-Aggregate List can be used to calculate aggregated values such as the maximum, minimum, sum, average and total amount of objects over a list of objects.
+The **Aggregate list** activity can be used to calculate aggregated values over a list of objects. The aggregated values supported by this activity are:
 
-{{% alert type="info" %}}
+* average
+* count
+* maximum
+* minimum
+* sum
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+## 2 Properties
 
-{{% /alert %}}
+An example of aggregate list properties is represented in the image below:
 
-## 2 Input Properties
+![aggregate list properties](attachments/list-activities/aggregate-list-properties.png)
 
-### 2.1 Variable
+There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
 
-The list variable to compute an aggregate over.
+The aggregate list properties pane consists of the following sections:
 
-## 3 Action Properties
+* [Action](#action)
+* [Common](#common)
 
-### 3.1 Function
+## 3 Action Section{#action}
+
+The **Action** section of the properties pane shows the action associated with this activity.
+
+You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+
+You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+
+### 3.1 List
+
+The name of the list to aggregate.
+
+### 3.2 Function
 
 Defines which type of aggregation is applied.
 
 | Value   | Description                                                         |
 | ------- | ------------------------------------------------------------------- |
-| Sum     | The sum of all values of an attribute from the list of objects.     |
 | Average | The average of all values of an attribute from the list of objects. |
 | Count   | The total number of objects in the list.                            |
 | Minimum | The minimum of all values of an attribute from the list of objects. |
 | Maximum | The maximum of all values of an attribute from the list of objects. |
+| Sum     | The sum of all values of an attribute from the list of objects.     |
 
-### 3.2 Attribute
+### 3.3 Attribute
 
-Defines which attribute of the objects in the list is used to aggregate over. This must be a numeric attribute (Long, Integer, Float (deprecated), Currency (deprecated) or Decimal). When using the 'Count' function it is not necessary to select an attribute, as it simply counts the number of objects in the list.
+Defines which attribute of the objects in the list is used to aggregate over. This must be a numeric attribute (Long, Integer, or Decimal).
 
-## 4 Output
+{{% alert type="info" %}}
+When using the 'Count' function it is not necessary to select an attribute, as it simply counts the number of objects in the list.
+{{% /alert %}}
 
-### 4.1 Variable
+### 3.4 Variable Name
 
-The name of the variable in which the result of the aggregation is stored. This variable will have a numeric data type that is based on the selected function.
+The name of the variable in which the result of the aggregation is stored. This variable will have a numeric data type that depends on the selected function.
+
+## 4 Common Section{#common}
+
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
