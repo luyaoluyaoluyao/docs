@@ -1,51 +1,51 @@
 ---
-title: "Monitoring Mendix Runtime"
+title: "Mendix ランタイムの監視"
 category: "Mendix Runtime"
-description: "Describes the supported Mendix Runtime monitoring actions."
+description: "サポートされているMendixランタイム監視アクションの説明。"
 tags:
-  - "runtime"
+  - "ランタイム:"
   - "json"
   - "studio pro"
-  - "on-premises"
-  - "local"
+  - "オンプレミス版"
+  - "ローカル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-For on-premises and local deployments of Mendix, the Mendix Runtime monitoring actions can be called by sending a JSON request to the admin handler. This is accomplished by sending a request to the admin port which is specified in the application configuration (the default port is 8090).
+オンプレミスとMendixのローカルデプロイの場合、Mendix Runtime監視アクションは、JSONリクエストを管理者ハンドラに送信することで呼び出すことができます。 これは、アプリケーション構成で指定されたアドミンポートにリクエストを送信することによって行われます (デフォルトのポートは 8090 です)。
 
 {{% alert type="info" %}}
-This is only available for local and on-premises deployments of your app.
+これは、アプリケーションのローカルおよびオンプレミス展開でのみ使用できます。
 
-For deployments to other platforms (for example Mendix for Private Cloud) you do not have access to the m2ee admin handler to make these requests.
+他のプラットフォーム(例えば、Mendix for Private Cloud)にデプロイする場合、これらのリクエストを行うために、m2ee管理者ハンドラにアクセスできません。
 
-For deployments to the Mendix Cloud, you can get the same information from various pages in the Developer Portal. For more information see:
+Mendix Cloud への展開では、開発者ポータルのさまざまなページから同じ情報を取得できます。 詳細については以下をご覧ください。
 
-* [Metrics](/developerportal/operate/metrics)
-* [Trends in Mendix Cloud v4](/developerportal/operate/trends-v4)
-* [Running Now Metrics](/developerportal/operate/troubleshooting-mxcloud-runningnow)
+* [メトリック](/developerportal/operate/metrics)
+* [Mendix Cloud v4のトレンド](/developerportal/operate/trends-v4)
+* [現在のメトリクスを実行しています](/developerportal/operate/troubleshooting-mxcloud-runningnow)
 {{% /alert %}}
 
 You can change the admin port from Studio Pro by navigating to **App** > **Settings** > **Configurations** > *your configuration* > **Server** > **Admin port**.
 
-The request needs to be of the **POST** type with **No Authorization** and the following headers:
+リクエストは **POST** 型の **No Authorization** および以下のヘッダである必要があります:
 
 * Content-Type: **application/json**
-* X-M2EE-Authentication: **yourM2EEPassword_Base64Encoded**
+* X-M2EE認証: **yourM2EEPassword_Base64Encoded**
 
-The M2EE password is NOT the super administrator password, but a separate password. If you have the application deployed *on premises*, you can set this password in the **settings.yaml** file, which is located in the **Apps/YourProject** folder. If you are *running the application from Studio Pro*, the M2EE password is set automatically by Mendix, and you can retrieve it from the environment variables of your application process.
+M2EE パスワードは、スーパー管理者パスワードではなく、別のパスワードです。 If you have the application deployed *on premises*, you can set this password in the **settings.yaml** file, which is located in the **Apps/YourProject** folder. If you are *running the application from Studio Pro*, the M2EE password is set automatically by Mendix, and you can retrieve it from the environment variables of your application process.
 
-The next sections explain which monitoring actions are supported.
+次のセクションでは、どの監視アクションがサポートされているかについて説明します。
 
-## 2 Current Executions
+## 2 現在の実行
 
-### 2.1 Request
+### 2.1 リクエスト
 
 ```json
-"{"action" : "get_current_runtime_requests", "params":{} }"
+"{"action" : "get_current_runtime_requests", "params":{} })
 ```
 
-### 2.2 Example Response
+### 2.2 応答例
 
 ```json
 {
@@ -107,31 +107,31 @@ The next sections explain which monitoring actions are supported.
 }
 ```
 
-### 2.3 Return Values
+### 2.3 戻り値
 
-This request returns the current executions of actions known by the Mendix Runtime. Actions can include microflows, Java actions, web service calls, and scheduled events. For each execution the following is reported:
+このリクエストは、Mendix Runtime によって知られているアクションの現在の実行を返します。 アクションには、マイクロフロー、Javaアクション、Webサービス・コール、スケジュールされたイベントを含めることができます。 実行ごとに以下が報告されます:
 
-*   The "duration" of the execution in milliseconds
-*   The "type" of execution. Possible types are:
+*   ミリ秒単位の実行の「継続時間」
+*   実行の"タイプ"。 使用可能なタイプは次のとおりです。
   * "CLIENT"
-  * "CLIENT_ASYNC" – the asynchronous microflow call triggered from the web client
-  * "CLIENT_ASYNC_MONITORED" – the actual execution of the asynchronous microflow in the Mendix Runtime, which happens in a different thread from CLIENT_ASYNC
+  * "CLIENT_ASYNC" – ウェブクライアントからトリガーされた非同期マイクロフロー呼び出し。
+  * "CLIENT_ASYNC_MONITORED" – CLIENT_ASYNC とは異なるスレッドで発生する Mendix ランタイムにおける非同期マイクロフローの実際の実行
   * "CUSTOM"
   * "WEB_SERVICE"
   * "SCHEDULED_EVENT"
-  * "UNKNOWN"
-*   The "user" associated with the session executing the action – for a non-user session the name "System" is returned
-*   The "action_stack" for this execution – for each action in this stack detailed information is displayed, for example the current activity and name of a microflow
+  * "不明"
+*   アクションを実行しているセッションに関連付けられた「ユーザー」。非ユーザーセッションでは「システム」という名前が返されます。
+*   この実行のための"action_stack"は、このスタック内の各アクションの詳細情報が表示されます。 例えば現在の活動とマイクロフローの名前は
 
-## 3 Runtime Statistics
+## 3ランタイム統計
 
-### 3.1 Request
+### 3.1 リクエスト
 
 ```json
 "{"action" : "runtime_statistics", "params":{} }"
 ```
 
-### 3.2 Example Response
+### 3.2 応答例
 
 ```json
 {
@@ -220,74 +220,74 @@ This request returns the current executions of actions known by the Mendix Runti
 }
 ```
 
-### 3.3 Return Values
+### 3.3 戻り値
 
-#### 3.3.1 Requests{#request-handlers}
+#### 3.3.1 リクエスト{#request-handlers}
 
-Displays information about the request per handler:
+ハンドラごとのリクエストに関する情報を表示します:
 
-* The empty handler represents the resource request handler, which handles images, forms etc. (only in use when no reverse proxy is used for static content handling).
-* "file" handles file uploads and downloads
-* "xas/" processes CRUD actions and microflow execution calls issued by the web client
-* "ws/" and "ws-doc/" handle web service requests and provide web service documentation
+* 空のハンドラはリソースリクエストハンドラを表し、画像やフォームなどを処理します。 (静的コンテンツハンドリングにリバースプロキシが使用されない場合にのみ使用されます)。
+* "file" はファイルのアップロードとダウンロードを処理します
+* "xas/"は、Webクライアントによって発行されたCRUDアクションとマイクロフロー実行呼び出しを処理します
+* "ws/" と "ws-doc/" は Web サービスのリクエストを処理し、Web サービスのドキュメントを提供します
 
-For each handler you will get two pieces of information:
+各ハンドラーには、2つの情報が表示されます。
 
-* The value field shows the number of requests per handler.
-* The last_request_timestamp field shows the timestamp in milliseconds of the last handled request. If there are no requests handled, this field shows the moment the handler is registered.
+* value フィールドには、ハンドラあたりのリクエスト数が表示されます。
+* last_request_timestamp 項目には、最後に処理されたリクエストのミリ秒単位のタイムスタンプが表示されます。 処理されたリクエストがない場合、この項目はハンドラが登録された瞬間を示します。
 
-#### 3.3.2 Cache
+#### 3.3.2 キャッシュ
 
-Shows the total number of objects which are currently part of the runtime state (all session together). The runtime state either resides in memory (non-clustered runtime) or in Redis or the database (clustered runtime). Too many objects in the state could slow down the performance of the Mendix Runtime.
+ランタイム状態 (すべてのセッションをまとめて) に現在参加しているオブジェクトの合計数を表示します。 ランタイム状態は、メモリ(非クラスターランタイム)またはRedisまたはデータベース(クラスターランタイム)のいずれかに存在します。 状態にあるオブジェクトが多すぎると、Mendix Runtime のパフォーマンスが低下する可能性があります。
 
-#### 3.3.3 Sessions
+#### 3.3.3 セッション
 
-The "user_sessions" sections shows the current user sessions with their user agents.
+「user_sessions」セクションには、ユーザーエージェントとの現在のユーザーセッションが表示されます。
 
-The other sections show the number of sessions per category. Categories are:
+他のセクションには、カテゴリごとのセッション数が表示されます。 カテゴリ:
 
-* "named users" (the number of user instances)
-* "named_user_sessions" (the number of non-anonymous concurrent sessions)
-* "anonymous_sessions" (the number of anonymous concurrent sessions)
+* "名前付きユーザー" (ユーザーインスタンスの数)
+* "named_user_sessions" (匿名でない同時セッションの数)
+* "anonymous_sessions" (匿名同時セッション数)
 
-#### 3.3.4 Connectionbus
+#### 3.3.4 接続バス
 
-Number of database requests. Distinguishes between "select", "update", "insert", and "delete" commands and started database transactions.
+データベースリクエストの数 「select」、「update」、「insert」、「delete」コマンドとデータベーストランザクションを開始したコマンドを区別します。
 
-#### 3.3.5 Memory
+#### 3.3.5 メモリ
 
 {{% alert type="warning" %}}
 
-Memory statistics should only be interpreted by experts, lack of detailed knowledge of the Java memory model can lead to false conclusions.
+メモリ統計量は専門家によってのみ解釈されるべきであり、Javaメモリモデルの詳細な知識の欠如は誤った結論につながる可能性があります。
 
 {{% /alert %}}
 
-Represents the number of bytes allocated to the specified memory sections. For a general explanation, see the [Oracle documentation on tuning garbage collection](http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/). For the heap and non-heap fields see the [memory usage](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryUsage.html) page.
+指定されたメモリセクションに割り当てられたバイト数を表します。 一般的な説明については、ガベージコレクションのチューニングに関する [Oracleドキュメント](http://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/) を参照してください。 ヒープフィールドと非ヒープフィールドについては、 [メモリ使用量](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryUsage.html) ページを参照してください。
 
-The "memorypools" section contains an ordered list of all the memory pools exactly as we receive them from the JVM with some fields of the [MemoryPoolMxBean](http://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryPoolMXBean.html):
+"memorypools" セクションには、 [MemoryPoolMxBean](http://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryPoolMXBean.html) のいくつかのフィールドを持つ JVM から受け取るのと同じように、すべてのメモリプールの順序付きリストが含まれています。
 
-*   "usage" – returns an estimate of the memory usage of this memory pool (in bytes)
-*   "is_heap" – is this memory pool part of the heap or not?
-*   "name" – the description of the memory pool as received by the JVM. These names can be different depending on for example JDK,memory manager or  garbage collection options
-*   "index" – the index in the JSON Array. This field is not strictly needed as the pools are returned in a list so you can, and should, rely on the order of the list in case you are processing them in a program
+*   "usage" – このメモリプールのメモリ使用量の推定値を返します (バイト単位)
+*   "is_heap" – このメモリプールはヒープの一部ですか?
+*   "name" – JVM によって受信されるメモリープールの説明。 これらの名前は、JDK、メモリマネージャ、ガベージコレクションオプションなどによって異なる場合があります。
+*   "index" – JSON Array内のインデックス。 プールがリストに返されるため、このフィールドは必須ではありません。 プログラムで処理している場合に備えてリストの順番に頼るべきです
 
 {{% alert type="info" %}}
 
-If you are automatically processing the "memorypools" section to, for example, display in a graph, you should ideally not make any assumptions about the kind of memory pool based on its order in the list or its name as these may change depending on for example garbage collector settings or Java version.
+"memorypools" セクションを自動的に処理している場合、例えばグラフに表示します。 理想的には、ガベージコレクタの設定や Java バージョンなどによって、リスト内の順序や名前に基づいてメモリープールの種類を想定しないでください。
 
-If do want to develop a strategy on interpreting these pools anyway based on Java version: you can get the Java version from the 'about' admin action.
+Javaバージョンに基づいて、いずれにせよこれらのプールを解釈する戦略を開発したい場合: 「about」管理アクションからJavaバージョンを取得できます。
 
 {{% /alert %}}
 
-## 4 State Statistics {#state}
+## 4要塞統計 {#state}
 
-### 4.1 Request
+### 4.1 リクエスト
 
 ```json
 "{"action" : "cache_statistics", "params":{} }"
 ```
 
-### 4.2 Example Response
+### 4.2 応答例
 
 ```json
 {
@@ -311,24 +311,24 @@ If do want to develop a strategy on interpreting these pools anyway based on Jav
 }
 ```
 
-### 4.3 Return Values
+### 4.3 戻り値
 
-This monitoring action gives more detailed information about objects which are currently in the state of the Mendix Runtime:
+この監視アクションは、Mendix Runtime の状態にあるオブジェクトに関する詳細な情報を提供します。
 
-* "totals" shows the total number of objects per sessions is shown
-* "user_totals" shows the number of objects per entity for a particular sessions
+* 「合計」は、セッションごとのオブジェクトの合計数を表示します
+* "user_totals" は、特定のセッションのエンティティごとのオブジェクト数を表示します
 
-This information can be an aid in figuring out which objects cause a lot of memory usage.
+この情報は、どのオブジェクトが多くのメモリ使用量を引き起こすかを把握するのに役立ちます。
 
-## 5 Server Statistics
+## 5つのサーバー統計
 
-### 5.1 Request
+### 5.1 リクエスト
 
 ```json
 "{"action" : "server_statistics", "params":{} }"
 ```
 
-### 5.2 Example Response
+### 5.2 応答例
 
 ```json
 {
@@ -353,21 +353,21 @@ This information can be an aid in figuring out which objects cause a lot of memo
 }
 ```
 
-### 5.3 Return Values
+### 5.3 戻り値
 
-The server statistics monitor action gives information about the embedded Jetty web server. The "jetty" section lists the number of current open connections and the maximum number of open connections. In addition, it lists the maximum idle time of the connection before it is closed, if Jetty is running under normal circumstances.
+サーバー統計モニタのアクションは、埋め込まれた Jetty Web サーバーに関する情報を提供します。 「jetty」セクションには、現在開いている接続の数と開いている接続の最大数が表示されます。 さらに、Jetty が通常の状況下で動作している場合は、閉鎖前の接続のアイドル時間の最大値がリストされます。
 
-The "threadpool" section gives information about the threadpool of the handler which processes all requests which go through the runtime port. See the [Jetty QueuedThreadPool documentation](https://www.eclipse.org/jetty/javadoc/9.4.11.v20180605/org/eclipse/jetty/util/thread/QueuedThreadPool.html) for more information.
+"threadpool" セクションは、ランタイムポートを通過するすべてのリクエストを処理するハンドラの threadpool に関する情報を提供します。 詳細は [Jetty QueuedThreadPool ドキュメント](https://www.eclipse.org/jetty/javadoc/9.4.11.v20180605/org/eclipse/jetty/util/thread/QueuedThreadPool.html) を参照してください。
 
-## 6 Logged-In Users
+## 6人のログインユーザー
 
-### 6.1 Request
+### 6.1 リクエスト
 
 ```json
 "{"action" : "get_logged_in_user_names", "params":{} }"
 ```
 
-### 6.2 Example Response
+### 6.2 応答例
 
 ```json
 {
@@ -379,19 +379,19 @@ The "threadpool" section gives information about the threadpool of the handler w
 }
 ```
 
-### 6.3 Return Values
+### 6.3 戻り値
 
-Shows which users are currently logged in. If a user has multiple sessions, this user will be listed once for every session.
+現在ログインしているユーザーを表示します。 ユーザに複数のセッションがある場合、このユーザは各セッションに一度表示されます。
 
-## 7 Thread Stack Traces {#thread}
+## スレッドスタックトレース {#thread}
 
-### 7.1 Request
+### 7.1 リクエスト
 
 ```json
 "{"action" : "get_all_thread_stack_traces", "params":{} }"
 ```
 
-### 7.2 Example Response
+### 7.2 応答例
 
 ```json
 {
@@ -441,19 +441,19 @@ Shows which users are currently logged in. If a user has multiple sessions, this
 }
 ```
 
-### 7.3 Return Values
+### 7.3 戻り値
 
-Returns all the current thread stack traces by name. This is useful for low level analysis of what is happening in the application. Use the "get_current_runtime_executions" request to retrieve information at a higher level (microflows and other actions).
+現在のスレッドスタックトレースをすべて名前で返します。 これは、アプリケーションで起こっていることを低レベルで分析する場合に便利です。 "get_current_runtime_executions" リクエストを使用して、より高いレベルの情報(マイクロフローやその他のアクション)を取得します。
 
-## 8 Runtime Status {#runtime-status}
+## 8回のランタイムステータス {#runtime-status}
 
-### 8.1 Request
+### 8.1 リクエスト
 
 ```json
 "{"action" : "runtime_status", "params":{} }"
 ```
 
-### 8.2 Example Response
+### 8.2 応答例
 
 ```json
 {
@@ -464,68 +464,68 @@ Returns all the current thread stack traces by name. This is useful for low leve
 }
 ```
 
-### 8.3 Return Values
+### 8.3 戻り値
 
-Returns the current Mendix Runtime status. Possible status values are:
+現在の Mendix ランタイムステータスを返します。 利用可能なステータス値は次のとおりです。
 
 * "created"
 * "starting"
-* "broken"
-* "running"
-* "stopping"
-* "stopped"
+* "壊れた"
+* "実行中"
+* "停止"
+* "停止"
 
-This information can be used to track what state the Mendix Runtime is in when the command to start or stop was given, or to check whether the runtime is still running.
+この情報は、コマンドを開始または停止するときにMendix Runtimeがどの状態にあるかを追跡するために使用することができます。 またはランタイムがまだ実行されているかどうかを確認します。
 
-## 9 Check Health {#check-health}
+## 体力を9点確認 {#check-health}
 
-### 9.1 Request
+### 9.1 リクエスト
 
 ```json
 "{"action" : "check_health", "params":{} }"
 ```
 
-### 9.2 Example Response
+### 9.2 応答例
 
 ```json
 {
   "feedback":{
-    "health":"sick",
-    "diagnosis": "Remote product web service is offline"
+    "health":"病気",
+    "診断": "リモート製品のウェブサービスはオフラインです"
   },
   "result":0
 }
 ```
 
-### 9.3 Return Values
+### 9.3 戻り値
 
-In Mendix Studio Pro, a [health check microflow](project-settings) can be configured. This microflow can report on the functional status of the application; does the general functionality of the application work, and are the necessary remote services available?
+Mendix Studio Proでは、 [ヘルスチェックマイクロフロー](project-settings) を設定できます。 このマイクロフローは、アプリケーションの機能状況を報告することができます。 アプリケーションの一般的な機能は機能し、必要なリモートサービスは利用可能ですか?
 
-If a health check microflow has been configured, this request will report on the current health status. The "health" value can be one of "healthy", "sick", or "unknown" (when no health microflow was configured). For the value "sick," the "diagnosis" value will give the reason the application is not healthy. This reason is the return value of the health check microflow.
+ヘルスチェックマイクロフローが設定されている場合、このリクエストは現在のヘルスステータスを報告します。 "health" の値は "healthy"、"病気"、"unknown" のいずれかになります(ヘルスマイクロフローが設定されていない場合)。 値「病気」の場合、「診断」の値は、アプリケーションが健康でない理由を与えます。 この理由は、ヘルスチェックマイクロフローの戻り値です。
 
-The health check microflow gets invoked multiple times per minute. Therefore, it is recommended to make it light-weight and run quickly. Heavy operations may have a significant impact on your application's performance.
+ヘルスチェック・マイクロフローは1分間に複数回呼び出されます。 そのため、軽量化と迅速な走行が推奨されます。 重い操作はアプリケーションのパフォーマンスに大きな影響を与える可能性があります。
 
 {{% alert type="warning" %}}
 
-This request can only be executed when the Mendix Runtime status is "running" (see [Runtime Status](#runtime-status) above).
+このリクエストは、Mendix Runtime ステータスが "実行中" の場合にのみ実行できます (上記の [Runtime Status](#runtime-status) を参照)。
 
 {{% /alert %}}
 
-## 10 About Runtime
+## 10 ランタイムについて
 
-### 10.1 Request
+### 10.1 リクエスト
 
 ```json
 "{"action" : "about", "params":{} }"
 ```
 
-### 10.2 Example Response
+### 10.2 応答例
 
 ```json
 {
    "feedback":{
       "model_version":"unversioned",
-      "copyright":"Copyright © 2003-2016 Mendix bv. All rights reserved.",
+      "copyright:"Copyright © 2003-2016 Mendix bv. All rights reserved.",
       "build":"unreleased",
       "vendor":"Mendix",
       "name":"Mendix Runtime",
@@ -537,6 +537,6 @@ This request can only be executed when the Mendix Runtime status is "running" (s
 }
 ```
 
-### 10.3 Return Values
+### 10.3 戻り値
 
-Returns feedback about the Mendix Runtime.
+Mendix Runtime についてのフィードバックを返します。
