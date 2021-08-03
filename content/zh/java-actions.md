@@ -1,20 +1,34 @@
 ---
 title: "Java 操作"
-category: "桌面模型"
+parent: "资源"
+menu_order: 10
 description: "使用 Java 操作来扩展您的 Mendix 应用程序的功能。"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/java-actions.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
-使用 Java 操作，您可以在微流中很难实现此功能的情况下扩展您应用程序的功能。 您可以使用 [Java 行动电话](java-action-call) 来调用微流的 Java 操作。
+使用 Java 操作，您可以在微流中很难实现此功能的情况下扩展您应用程序的功能。 您可以使用 [Java 动作调用](java-action-call) 从微流调用一个 Java 操作。
 
 {{% alert type="info" %}}
-
-在Modeler中定义的每一个 Java 动作对应文件 *{name of Java action}。 va* 在项目目录的子目录 *javasource{module name}/ actions*
-
-这些 *.java* 文件的骨架是在你部署的 Eclipse 时自动生成的( **项目** 菜单)。 关于在这些文件中创建 Java 代码的更多信息，请参阅 [Java Programming](java-programming)。
-
+Studio Pro 中定义的每一个 Java 动作对应文件 *{name of Java action}。 va* 在项目目录的子目录 *javasour/{module name}/actions* 中。 这些 *.java* 文件的骨架是在你部署的 Eclipse 时自动生成的( **项目** 菜单)。 关于在这些文件中创建 Java 代码的更多信息，请参阅 [Java Programming](java-programming)。
 {{% /报警 %}}
+
+要深入了解此 Java 动作，请查看此视频：
+
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://videoshare.mendix.com/watch/rof7aUB6Hom4et6qQU7FuT?.jpg"
+  data-uuid="rof7aUB6Hom4et6qQU7FuT?"
+  data-v="4"
+  data-type="inline"
+ />
 
 ## 2 概况
 
@@ -28,7 +42,7 @@ Java 动作具有零或更多参数。 参数是将数据传递到 Java 动作�
 
 每个参数都有名称、类型、类别和描述。
 
-使用类别来保持 [Java 行动调用](java-action-call) 中的参数分离。 如果您没有指定类别，参数将出现在 **输入** 组中。
+在 [Java 动作](java-action-call) 中使用类别来保持参数的分离。 如果您没有指定类别，参数将出现在 **输入** 组中。
 
 查看 [数据类型](data-types) 以获取可能的标准参数类型。 当类型为对象或列表时，您还必须选择它的实体类型 它可以是一个特定的实体或类型参数。 类型参数将实体类型的选择推迟到microflow中使用 Java 动作。 这允许您的 Java 动作接受任意实体类型的 Mendix 对象(列表)。
 
@@ -49,25 +63,23 @@ Java 动作具有零或更多参数。 参数是将数据传递到 Java 动作�
 
 #### 2.2.3 导入映射类型
 
-**导入** 参数类型允许Java 操作的用户将导入映射传入一个 Java 操作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(例如导入映射的名称)。
-
-{{% alert type="info" %}}
-
-导入参数类型已在 Mendix 7.2.0中引入。
-
-{{% /报警 %}}
+**导入** 参数类型允许您将导入映射传入一个 Java 动作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(例如导入映射的名称)。
 
 #### 2.2.4 出口映射类型
 
-**导出参数** 类型允许Java 操作的用户将导出映射传递到 Java 操作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(导出映射名称)。
+**导出映射** 参数类型允许您将导出映射传入一个 Java 动作。 在生成的 Java 动作模板代码中，这种类型作为字符串表示(导出映射名称)。
 
-{{% alert type="info" %}}
+#### 2.2.5 字符串模板类型 {#string-template-type}
 
-导出映射参数类型是在 7.2.0 版本中介绍的。
+**字符串模板** 参数类型允许您将一个字符串模板传入一个 Java 动作。 在生成的 Java 动作模板代码中，这种类型表示为 `IString模板`。
 
-{{% /报警 %}}
+模板可以包含数字括号之间的参数 (例如， `{1}`)。 第一个参数的数字是 `1`, 第二个 `2`, 等等。
 
-#### 2.2.5 返回类型
+对于模板中的每个参数，定义一个微流程表达式，其值将插入参数的位置。
+
+在生成的代码中， `IString模板` 类型提供了使用默认或自定义逻辑来评估传递的字符串模板的方法。
+
+#### 2.2.6 返回类型
 
 返回类型决定了 Java 动作返回的数据类型。 它与 `executeAction()` 方法的返回类型相对应，在 *.java* 的 Java 文件中。 您可以使用 Java 动作的结果在您调用它的微流程中。 查看 [数据类型](data-types) 以获取可能的返回类型。
 
@@ -85,7 +97,7 @@ Java 动作具有零或更多类型参数。 每个类型参数应该有一个�
 
 微流动作需要说明和类别，但图标是可选的。 当没有选择图标时，使用默认的 Java 动作图标。
 
-建议的图标大小为 16x16。
+建议的图标大小为16x16像素。
 
 ## 5 文件
 
