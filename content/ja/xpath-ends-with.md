@@ -1,8 +1,6 @@
 ---
-title: "XPath で終了"
+title: "XPath の終了"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
