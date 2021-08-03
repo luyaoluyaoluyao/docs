@@ -1,182 +1,163 @@
 ---
-title: "Starting With Your Own Data"
-category: "Working with Data"
-menu_order: 20
-description: "Describes how to import an Excel spreadsheet to your domain model in Mendix Studio."
+title: "从您自己的数据开始"
+description: "描述如何在Mendix Studio中导入Excel电子表格到您的域模型。"
 tags:
-  - "studio"
-  - "domain model"
-  - "excel import"
-  - "start with data"
-  - "data model"
+  - "工作室"
+  - "域模型"
+  - "Excel 导入"
+  - "以数据开始"
+  - "数据模型"
 ---
 
-## 1 Introduction
+## 1 导言
 
-With the **App from a spreadsheet** you can import a Microsoft Excel spreadsheet and build an app using your data. The data of the spreadsheet will be analyzed and converted into entities, attributes, and associations. Also, pages and navigation items based on your data can be created.
+使用 **应用程序从电子表格** 导入微软Excel电子表格并使用您的数据构建一个应用程序。 将对电子表格的数据进行分析，并将其转换成实体、属性和协会。 此外，基于您的数据的页面和导航项目可以创建。
 
-## 2 Prerequisites
+## 2 个前提条件
 
-To create an app based on a spreadsheet, you need to use the **App from a spreadsheet** in the Developer Portal. Do the following:
+要创建一个基于电子表格的应用，您需要在开发者门户中使用电子表格</strong> 中的 **应用。 执行以下操作：</p>
 
-1. Make sure your spreadsheet is in the *.xlsx* format
+1. 请确保您的电子表格格式为 *.xlsx*
 
-2. Open the Developer Portal and click the **Create App** button in the top-right corner.
+2. 打开开发者门户网站并点击右上角的 **创建App** 按钮。
 
-3. Choose **App from a spreadsheet** to create an app with the spreadsheet import functionality.
+3. 从电子表格</strong> 中选择 **应用来创建带有电子表格导入功能的应用。</p></li>
 
-4.  Make sure that the spreadsheet meets the following requirements:<br/>
+4
 
-    a. The size of your file does not exceed 1MB. <br/>
+确保电子表格符合下列要求：<br/>
 
-    b. The number of worksheets does not exceed 50.<br/>
+    a. 您的文件大小不超过 1MB。 <br/>
 
-    c. The number of columns per worksheet does not exceed 100.<br/>
+    b. 会议文件。 工作表数量不超过50个。<br/>
 
-    d. A column name does not exceed 100 characters.<br/>
+    b. 会议文件。 每个工作表的列数不超过 100。<br/>
 
-5.  Make sure that you have normalized your data in the spreadsheet. Check if the following requirements are met:
+    b. 平均输出功率超过1瓦； 列名称不超过 100 个字符。<br/>
 
-    a. Each column should name a unique name within a workbook.
+5
 
-      {{% alert type="info" %}}If a column name consists of several lines, Mendix Studio will process the only first one. If your column does not have a name, but has values in it, it will be named "_EMPTY".
+请确保您已经在电子表格中正常化了您的数据。 检查是否符合下列要求：
 
-      {{% /alert %}}
+    a. 每个列应该在工作簿中命名唯一的名称。
 
-    b. Each cell of the worksheet (a row or a column) should contain a single value or be empty.
+      {{% alert type="info" %}}If a column name consists of several lines, Mendix Studio will process the only first one. 如果您的列没有名称但有其值，它将被命名为“_EMPTY”。
 
-    c. If you want to create links (associations) between two columns, make sure the conditions mentioned above for creating these links are met. <br/>
+      {{% /报警 %}}
 
-## 3 Converting Your Data
+    b. 会议文件。 工作表中的每个单元格(行或一列)应包含一个单一的值或为空。
 
-During the import process, spreadsheet data is analyzed and converted the following way:
+    b. 会议文件。 如果您想要在两列之间创建链接 (关联)，请确保满足上述创建这些链接的条件。 <br/></ol>
 
-1. Your worksheets are converted into entities.
+## 3 转换您的数据
 
-2. Your columns are converted into attributes.
+在进口过程中，对电子表格数据进行分析并转换如下：
 
-3. The links between the worksheets are identified and can be converted into associations if all of the following conditions are met:
+1. 您的工作表已转换为实体。
 
-    1. All values of one column in your spreadsheet are used in another column.
-    2. The values of the other column are unique.
-    3. The type of data in these columns is converted to string or enumeration attribute types. For more information on correspondence between Excel data types and attribute types, see the [Correspondence Between Excel Data Types and Attribute Types](#excel-type-attribute-type) section.
+2. 您的列被转换为属性。
+
+3. 工作表之间的链接已被识别，如果符合以下所有条件，可以转换为关联： <br/> a。 您的电子表格中一个列的所有值都在另一列中使用。<br/>b. 另一列的值是唯一的。 <br/>c. 这些列中的数据类型被转换为字符串或枚举属性类型。 关于Excel数据类型和属性类型之间通信的更多信息，请参阅 [Excel数据类型和属性类型之间的通信](#excel-type-attribute-type) 部分。<br/>
+
+下载此Excel电子表格示例以检查数据如何正常化： [电子表格示例](attachments/start-with-data/Example.xlsx)。 您也可以将它导入到一个应用并测试此电子表格如何转换。 欲了解更多信息，请参阅 [导入数据表](#importing-spreadsheet) 部分。
 
 
-Download this Excel spreadsheet example to check how data is normalized there: [Spreadsheet Example](attachments/start-with-data/Example.xlsx). You can also import it into an app and test how this spreadsheet is converted. For more information, see the [Importing a Spreadsheet](#importing-spreadsheet) section.
+## 从工作表中启动应用程序 {#importing-spreadsheet}
 
+当您创建您的应用时，您可以上传您的电子表格的页面将被打开。 在页面上拖放您的电子表格，或浏览您的文件并选择您想要导入的文件。
 
-## 4 Starting an App From a Spreadsheet {#importing-spreadsheet}
-
-When you create your app, a page where you can upload your spreadsheet is opened. Drag and drop your spreadsheet on the page or browse your files and choose the one you would like to import.
-
-{{% image_container width="300" %}}
-![](attachments/start-with-data/drag-and-drop.png)
+{{% image_container width="500" %}}![](attachments/start-with-data/drag-and-drop.png)
 {{% /image_container %}}
 
 {{% alert type="info" %}}
 
-If you choose to start without data, you will have just a blank app, and will not be able to import a spreadsheet later.
+如果您选择在没有数据的情况下启动，您将只有一个空白的应用程序，以后将无法导入电子表格。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 4.1 Previewing Spreadsheet Data
+### 4.1 预览电子表格数据
 
-Once you select the spreadsheet for import, your data is analyzed and is converted to associations, entities, and attributes.
+一旦您选择要导入的电子表格，您的数据将被分析，并且识别了与之有关系的工作表 (关联)：
 
-#### 4.1.1 Correspondence Between Excel Data Types and Attribute Types {#excel-type-attribute-type}
+{{% image_container width="400" %}}![](attachments/start-with-data/relations-identified.png)
+{{% /image_container %}}
 
-In the table below, you can see how the Excel data corresponds to the attribute types:
-
-| Excel Data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Attribute Type It Is Converted to                                                             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- |
-| One of the following conditions should be met: <ul><li>No data: no values, an empty column</li><li>If the value does not fall under any of the cases described below</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                    | String                                                                                        |
-| Values in the columns should be exclusively one of the following: <ul><li>1 and 0</li><li>Y/y and N/n</li><li>yes and no</li><li>true and false</li><li>V/v and empty cells</li><li>X/x and empty cells</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                 | Boolean                                                                                       |
-| Data of type General or Number that falls into a range from –2,147,483,648 to 2,147,483,647 and does not contain empty cells.                                                                                                                                                                                                                                                                                                                                                              | Integer                                                                                       |
-| Data of type General or Number that falls into a range from –9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 and does not contain empty cells.                                                                                                                                                                                                                                                                                                                                      | Long                                                                                          |
-| Other numbers that do not fall under Integer and Long attribute type conditions and the column does not contain empty cells.                                                                                                                                                                                                                                                                                                                                                               | Decimal                                                                                       |
-| Data of type Date or Time that does not contain empty cells.                                                                                                                                                                                                                                                                                                                                                                                                                               | Date and Time **Note** If only the date is indicated, the time is set to 00:00 in the preview |
-| All of the following conditions should be met:  <ul><li>The value is identified as a string</li><li>Values in the column are used more than once</li><li>The number of such values is less than or equals ten</li></ul>When all conditions listed above are met, the column is treated as enumeration, and the values are turned into enumeration items. Values which are identical apart from being spelled with a lowercase or an uppercase will be combined under the version which is most common, or under the first one if all values are used the same number of times. For example, the values "Test" and "test" will be combined. | Enumeration                                                                                   |
-
-#### 4.1.1 Previewing Associations
-
-After you upload the spreadsheet, worksheets that have relations (associations) are identified.
-
-{{% alert type="info" %}}Associations are not identified if the data is converted to *Integer*. In this case you can either change the column type to *Text* in Excel, or change the type of both columns to *String* when previewing your data. For more information on how to change attribute types, see the [Managing Attribute Types](#managing-attribute-types) section.
-{{% /alert %}}
-
-In the **Data Preview**, you can check the spreadsheet data before the actual import is completed. You can review tables and columns and untick the ones that you do not want to import. Tables that have relations (associations) detected are indicated with a link icon:
+在 **数据预览**中，您可以在实际导入完成之前检查电子表格数据。 您可以查看表格和列并取消您不想导入的屏幕。 检测到关联(关联) 的表格用链接图标表示：
 
 ![](attachments/start-with-data/data-preview.png)
 
-The columns which have associations cannot be deselected for the import, you need to delete the association first.
+具有关联性的列不能被取消选择导入，您需要先删除关联。
 
-To review a list of associations and unselect the ones that you do not want to be created, click **Manage Relations**. In the **Manage Relations** pop-up window, you can see which table and column will be used to create an association **from** and which will be used to create an association **to**. A column with unique data is the one the association goes **to**.
+要查看一个关联列表并取消选择您不想创建的关联，请点击 **管理关系**。 在 **管理关系** 弹出窗口， 您可以看到哪些表格和列将用于从</strong> 创建关联 **以及哪些将用于创建关联 **到**。 具有唯一数据的一列是关联从 **到** 的一列。 </p>
 
-{{% image_container width="400" %}}
 ![](attachments/start-with-data/manage-relations.png)
-{{% /image_container %}}
 
-For example, in the image above you can see that an association will be created from the **MarketingDocs** entity to the **Contributors** entity. This association was discovered through the column **Responsible** in **MarketingDocs** and the column **Name** in **Contributors**.  As a result, when data is imported the **MarketingDocs** entity will not have **Responsible** as an attribute, instead it will have an association to the **Contributors** entity and will get data from this entity through the association.
+例如， 在上面的图像中，您可以看到一个关联将从 **MarketingDocs** 实体创建到 **贡献者** 实体。 This association was discovered through the column **Responsible** in **MarketingDocs** and the column **Name** in **Contributors**.  因此，当数据被导入时， **MarketingDocs** 实体将不会有 **负责任** 作为属性， 相反，它将有一个联盟到 **贡献者** 实体，并将通过该协会从该实体获取数据。
 
 {{% alert type="info" %}}
 
-A column can be used to create an association **from** it once only. If an association is created to lead **from** a column, no link can be created as a link **to** it.
+一列可以用来创建关联 **只能从** 处创建一次。 如果创建一个关联可从</strong> 列中引导 **，则无法将链接创建为 **到** 的链接。 </p>
 
-{{% /alert %}}
+{{% /报警 %}}
 
-#### 4.1.2 Managing Attribute Types {#managing-attribute-types}
-
-At the bottom of each column (that will be turned into an attribute) an attribute type is automatically identified and indicated. Click the drop-down menu to change the attribute type. For more information on how Excel data types correspond to attribute types, see [Correspondence between Excel Data Types and Attribute Types](#excel-type-attribute-type).
+在每个列的底部(将会变成一个属性)，属性类型会被自动识别和标明。 点击下拉菜单更改属性类型。 关于Excel数据类型如何与属性类型相对应的更多信息，请参阅 [Excel数据类型与属性类型之间的通信](#excel-type-attribute-type)。
 
 ![](attachments/start-with-data/attribute-type-drop-down.png)
 
-If columns have empty values,the attribute type will be identified as *String*. However, if you change it to another attribute type, Studio will automatically choose and fill in a default value for the following attribute types:
-
-* Booleans – empty values are converted to *False*
-* Long and integer – empty values are converted to *0*
-
-#### 4.1.3 Generate Pages for My Data
-
-**Generate pages for my data** will generate an overview page with a data grid for you, and *{EntityName}__NewEdit* pages for each entity. For more information, see [Generating Pages](#generating-pages).
+**为我的数据生成页面** 将生成一个带有数据网格的概览页面。 和 *{EntityName}__NewEdit* 各实体的页面。 欲了解更多信息，请参阅 [生成页面](#generating-pages)。
 
 ![](attachments/start-with-data/generate-pages-option.png)
 
-### 4.2 Importing Data
 
-After you have reviewed all data, click **Import Data** at the bottom of the **Data Preview** screen.
+#### 4.1.1 Excel 数据类型和属性类型之间的对应关系 {#excel-type-attribute-type}
 
-You can take a brief tour showing you how your file has been converted.
+在下面的表格中，您可以看到Excel数据如何与属性类型相对应：
 
-Open the domain model to see all created entities and attributes:
+| Excel 数据                                                                                                                                                                     | 属性类型                                             |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| 以下Excel数据将被转换为字符串属性类型：<br />1。 没有数据：没有值、空列。<br />2。 如果该数值不属于下述任何一种情况。                                                                                            | 字符串                                              |
+| Excel数据将被转换为布尔值属性类型，如果列中的值是： <ul><li>1 和 0</li><li>Y/y 和 N/n</li><li>是和否</li><li>true and false</li></ul>                                                                                                                        | Boolean                                          |
+| 一般或数字类型的数据介于 - 2,147,483,648 到 2,147,483,647 之间，且不含空细胞。                                                                                                                      | 整数                                               |
+| 一般类型或数量的数据介于-9,223,372,036,854,775,808到9,223,372,036,854,775,807之间，且不含空电池。                                                                                                   | 长                                                |
+| 不属于整数和长属性类型条件下的其他数字和列不包含空单元格。                                                                                                                                                | 小数                                               |
+| 日期和时间。                                                                                                                                                                       | 日期和时间<br />**注** 如果只标明日期，则预览时间设置为 00:00:00 |
+| 当满足以下条件时，此列会被转换成具有枚举属性类型的实体： <br /><ul><li>该值被指定为字符串</li><li>列中的值不止一次使用</li><li>这种值的数量小于或等于 10</li></ul>当满足上述所有条件时，该列被视为枚举，数值则变成枚举项。 在最常见的版本下，除了与小写或大写拼写相同的值将被合并在一起， 如果所有数值都使用相同的次数，或在第一个数值之下。 例如，"测试"和"测试"的值将被合并。 | 枚举数                                              |
+### 4.2 导入数据
+
+在您审核了所有数据后，点击 **导入数据** 在 **数据预览** 屏幕底部。
+
+您可以进行简短的参观，展示您的文件是如何转换的。
+
+打开域模型以查看所有创建的实体和属性：
 
 {{% image_container width="350" %}}![](attachments/start-with-data/domain-model-example.png)
 {{% /image_container %}}
 
 {{% alert type="success" %}}
 
-After import is completed, you can [preview or publish your app](publishing-app) and see all your data or continue configuring your app.
+导入完成后，您可以 [预览或发布您的应用程序](publishing-app) 并查看您的所有数据或继续配置您的应用程序。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 4.3 Generating Pages {#generating-pages}
+### 4.3 生成页面 {#generating-pages}
 
-If **Generate pages for my data** has been selected in the preview page, pages are created based on your spreadsheet. The following changes are made in the page editor and the navigation document :
+如果 **为我的数据生成页面** 在预览页面中被选中，页面将根据您的电子表格创建。 对页面编辑器和导航文档作了以下更改：
 
-* A *Manage_Data* page is created – an overview page with tabs for each Excel table and with data grids per each entity
+* *Management_Data* 页面已创建 — 一个包含每个Excel表标签和每个实体的数据网格的概览页面
 
     ![](attachments/start-with-data/manage-data-page.png)
 
-* An *{EntityName}__NewEdit* page is created – a page for each of your entities for creating and saving a new object of this entity
+* 创建了一个{EntityName}__NewEdit* 页面——为您每个实体创建和保存此实体的一个新对象
 
-* A link from the *HomePage* is created – a card with buttons linking to the *Manage_Data* page
+* 从 *首页* 创建了一个链接——一个卡片，按钮链接到 *管理 _Data* 页面
 
     ![](attachments/start-with-data/home-page.png)
 
-* The *Manage Data* menu item is created in the navigation with a link to the *Manage_Data* page
+* *管理数据* 菜单项创建于导航中，链接到 *Manager_Data* 页面
 
-* Your data is transferred to the preview and publish environment, that means when you preview or publish your app, you can view your data there
+* 您的数据被传输到预览和发布环境，这意味着当您预览或发布您的应用时，您可以在那里查看您的数据
 
-## 5 Read More
+## 5 阅读更多
 
-* [Domain Model](domain-models)
-* [Attributes](domain-models-attributes) 
+* [域模型](域名模型)
+* [属性类型](domain-models-attributes) 
