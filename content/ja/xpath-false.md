@@ -1,13 +1,11 @@
 ---
-title: "XPath False"
+title: "XPath false"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
 
-関数 `false()` は、ブール値 `false` を返します。
+関数 `false()` はブール値 `false` を返します。
 
 To use the values `true` or `false` in XPath queries, it is necessary to either use the `true()` and `false()` functions or to enclose the values in quotation marks.
 
