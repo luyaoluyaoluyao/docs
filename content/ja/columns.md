@@ -1,90 +1,97 @@
 ---
-title: "Grid Columns"
+title: "Columns"
 parent: "data-grid"
-tags:
-  - "studio pro"
-  - "column"
-  - "grid column"
-  - "data grid"
 ---
 
-## 1 Introduction
+## Common Properties
 
-Grid columns allow you to set properties for a [data grid](data-grid) or [reference set selector](reference-set-selector) column.
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-## 2 Properties
+{{% snippet file="refguide7/Style+Property.md" %}}
 
- An example of grid column properties is represented in the image below:
+## Data Source Properties
 
-{{% image_container width="250" %}}![](attachments/data-widgets/column-properties.png)
-{{% /image_container %}}
+### Attribute (Path)
 
-Grid column properties consist of the following sections:
+The attribute (path) property specifies the attribute's value that will be displayed in this column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity, in which case we speak of an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Formatting](#formatting)
-* [General](#general)
+## Formatting Properties
 
-### 2.1 Common Section {#common}
+### Enumeration Format (Only for Attributes of the Enumeration Type)
 
-{{% snippet file="refguide/common-section-link.md" %}}
-
-### 2.2 Data Source Section {#data-source}
-
-#### 2.2.1 Attribute (Path)
-
-The attribute (path) property specifies the attribute's value that is displayed in this column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity, in which case we speak of an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
-
-### 2.3 Formatting Section {#formatting}
-
-#### 2.3.1 Enumeration Format
-
-Only for Attributes of the Enumeration Type. A column connected to an attribute of type enumeration can show its contexts as text (default) or as image.
+A column connected to an attribute of type enumeration can show its contexts as text (default) or as image.
 
 | Value | Description                               |
 | ----- | ----------------------------------------- |
 | Text  | Show the caption text of the enumeration. |
 | Image | Show the image of the enumeration value.  |
 
-#### 2.3.2 Decimal Precision
+### Decimal Precision (Only for Decimal Attributes)
 
-Only for Decimal Attributes.  The precision of a value is defined the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
+The precision of a value is defined the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
 
-Default: *2*
+_Default value:_ 2
 
-#### 2.3.3 Group Digits
+### Group Digits (Only for Numeric Attributes)
 
-Only for Numeric Attributes. For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end-user will see these groups, or not.
+For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end user will see these groups, or not.
 
-Default: *False*
+_Default value:_ False
 
-#### 2.3.4 Date Format
+### Date Format (Only for Attributes of the Type DateTime)
 
-Only for Attributes of the Type Date and Time. The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
+The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
 
 These are the possible values:
-
-* **Date** *(default)*
+* **Date** (this is the default)
 * **Time**
 * **Date and time**
-* **Custom** (see below for more details)
+* **Custom** (see below for more deteails)
 
-If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
+_Default value:_ Date
 
-{{% snippet file="refguide/custom-date-format-tokens.md" %}}
+If you choose **Custom** as the date format, the custom date format determines the way date and/or time are formatted. The custom date format is a string that follows the rules in this table:
 
-### 2.4 General Section {#general}
+| Symbol | Number of Symbols | Example | Example Result | Description          |
+| ------ | ----------------- | ------- | -------------- | -------------------- |
+| G      | 1                 | G       | AD             | Era                  |
+| y      | 1–n               | y       | 2010           | Year                 |
+| M      | 1–2               | MM      | 09             | Month (number)       |
+| M      | 3                 | MMM     | Sept           | Month (abbreviation) |
+| M      | 4                 | MMMM    | September      | Month (full)         |
+| w      | 1–2               | w       | 27             | Week of year         |
+| D      | 1–3               | DD      | 083            | Day of year          |
+| a      | 1                 | a       | AM             | AM or PM             |
+| h      | 1–2               | h       | 11             | Hour (1-12)          |
+| H      | 1–2               | HH      | 09             | Hour (0-23)          |
+| k      | 1–2               | k       | 10             | Hour (1-24)          |
+| K      | 1–2               | KK      | 05             | Hour (0-11)          |
+| m      | 1–2               | m       | 59             | Minute               |
+| s      | 1–2               | ss      | 06             | Second               |
 
-#### 2.4.1 Caption
+{{% alert type="info" %}}
 
-The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Language Menu](translatable-texts).
+These are some examples:
 
-#### 2.4.2 Editable
+| Format                           | Example output                        |
+| -------------------------------- | ------------------------------------- |
+| `EEEE d MMMM yyy G, h:mm a ss's` | Tuesday 29 March 2011 AD, 1:37 PM 48s |
+| `h:mm a`                         | 1:37 PM                               |
+| `yyy D KK:mm`                    | 2011 88 01:26                         |
+
+{{% /alert %}}
+
+## General Properties
+
+### Caption
+
+The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Translatable Texts](translatable-texts).
+
+### Editable
 
 The editable property indicates whether the values of the column will be editable inline, as in, without opening a page with a data view. In-line editing allows the data grid to behave like you would expect from a spreadsheet application.
 
-#### 2.4.3 Aggregate Function
+### Aggregate Function
 
 The values in a column can be aggregated in several ways. The aggregate function determines the way in which the values are aggregated. The aggregate will be shown at the bottom of the column that precedes by the aggregate caption (see below).
 
@@ -103,9 +110,9 @@ Note that all objects will be taken into account, and not just the ones on the c
 
 {{% /alert %}}
 
-#### 2.4.4 Aggregate Caption
+### Aggregate Caption
 
-The aggregate caption is the text that appears in front of the computed value. This is a translatable text. See [Language Menu](translatable-texts).
+The aggregate caption is the text that appears in front of the computed value. This is a translatable text. See [Translatable Texts](translatable-texts).
 
 {{% alert type="info" %}}
 
@@ -113,13 +120,8 @@ The aggregate caption is the text that appears in front of the computed value. T
 
 {{% /alert %}}
 
-#### 2.4.5 Show Tooltip
+### Show Tooltip
 
 This property determines whether the tooltip page is shown as the mouse is hovered over this column. The tooltip page can be configured on the [Data grid](data-grid).
 
-Default: *False*
-
-## 3 Read More
-
-* [Data Grid](data-grid)
-* [Template Grid](template-grid)
+_Default value:_ False
