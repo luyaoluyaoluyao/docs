@@ -1,105 +1,77 @@
 ---
 title: "ファイルマネージャー"
 parent: "file-widgets"
-tags:
-  - "studio pro"
-  - "ファイルマネージャー"
-  - "ファイルウィジェット"
-  - "ウィジェット"
 ---
 
-{{% alert type="warning" %}}ファイルマネージャウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
-
-## 1つの紹介
 
 ファイルマネージャーはファイルのアップロードやダウンロードに使用されます。
 
-![ファイルマネージャー](attachments/file-widgets/file-manager.png)
-
-A file manager must be placed inside a data view connected to the entity that is either a **System.FileDocument** (or a specialization) or an [external entity](external-entities) with a `Contents` binary attribute.
-
 {{% alert type="info" %}}
-外部エンティティをファイルソースとして使用するには、対応する OData サービス内でメディア要素として定義する必要があります。 このような要素は、メタデータで `HasStream` 属性を `true` に設定することで認識できます。
+
+![](attachments/pages/file-manager.png)
+
 {{% /alert %}}
 
-{{% alert type="info" %}}
-ファイルマネージャからファイルをアップロードすると、FileDocument オブジェクトは直ちに反映されます。
-{{% /alert %}}
+エンティティSystem.FileDocument に接続されたデータビューまたはそれらの特殊化内に配置する必要があります。
 
-## 2つのプロパティ
+## 一般プロパティ
 
-以下の画像にファイルマネージャのプロパティの例を示します。
+### タイプ
 
-{{% image_container width="250" %}}![ファイルマネージャーのプロパティ](attachments/file-widgets/file-manager-properties.png)
-{{% /image_container %}}
+このプロパティは、エンドユーザーがファイルマネージャと対話できる方法を示します。
 
-ファイルマネージャのプロパティは以下のセクションで構成されています:
+| 値      | 説明                                     |
+| ------ | -------------------------------------- |
+| アップロード | ファイルマネージャは、ファイルのアップロードにのみ使用できます。       |
+| ダウンロード | ファイルマネージャは、ファイルのダウンロードにのみ使用できます。       |
+| 両方とも   | ファイルマネージャーは、アップロードやファイルのダウンロードに使用できます。 |
 
-* [一般的な](#common)
+_デフォルト値:_ 両方
 
-* [デザインプロパティ](#design-properties)
+### 最大ファイルサイズ (MB)
 
-* [編集可能](#editability)
+このプロパティは、アップロード可能なファイルの最大サイズ(メガバイト単位)を決定します。
 
-* [全般](#general)
+_デフォルト値:_ 5
 
-* [ラベル](#label)
+### 許可されるエクステンション
 
-* [公開範囲](#visibility)
+アップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合は、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください。例えば、 `txt;doc`
 
-### 2.1 共通セクション {#common}
+許可されていない拡張子のファイルが選択されている場合。 システムテキスト (ファイルマネージャー > ファイル拡張子が正しくありません) がファイルマネージャの下に表示されます。
 
-{{% snippet file="refguide/common-section-link.md" %}}
+### ブラウザにファイルを表示
 
-### 2.2 デザインプロパティセクション {#design-properties}
+このプロパティは、ファイルをダウンロードするのではなく、ブラウザに表示するかどうかを示します。
 
-{{% snippet file="refguide/design-section-link.md" %}}
+_デフォルト値:_ False
 
-### 2.3 編集可能セクション {#editability}
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-{{% snippet file="refguide/editability-section-link.md" %}}
+## 編集可能なプロパティ
 
-### 2.4 一般セクション {#general}
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-#### 2.4.1 Type
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-**Type** プロパティは、エンドユーザーがどのようにファイルマネージャを使用できるかを示します。
+## 表示プロパティ
 
-| 値              | 説明                                       |
-| -------------- | ---------------------------------------- |
-| アップロード         | ファイルマネージャは、ファイルのアップロードにのみ使用できます。         |
-| ダウンロード         | ファイルマネージャは、ファイルのダウンロードにのみ使用できます。         |
-| 両方とも *(デフォルト)* | ファイルマネージャは、ファイルのアップロードとダウンロードの両方に使用できます。 |
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-#### 2.4.2 最大ファイル サイズ (MB)
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-**最大ファイルサイズ (MB)** アップロード可能なファイルの最大サイズを指定します。
+## 共通のプロパティ
 
-デフォルト: *5*
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-#### 2.4.3 使用可能なエクステンション
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-ユーザがアップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください。例えば、 `txt;doc`
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-許可されていない拡張子のファイルが選択されている場合。 [システムテキスト](system-texts) **ファイルマネージャ/画像ビューアー** > **エラー: ファイル拡張子** がファイルマネージャの下に表示されます。
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-#### 2.4.4 ブラウザにファイルを表示
+## 関連記事
 
-**ブラウザにファイルを表示する** は、ファイルをダウンロードする代わりにブラウザに表示するかどうかを示します。
-
-デフォルト: *False*
-
-### 2.5 ラベルセクション {#label}
-
-{{% snippet file="refguide/label-section-link.md" %}}
-
-### 2.6 表示セクション {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 続きを読む
-
-* [ページ](page)
-* [ファイルウィジェット](file-widgets)
-* [ページエディターで共通のプロパティ](common-widget-properties)
-* [システムテキスト](system-texts)
+*   [データビュー](data-view)
+*   [エンティティ](エンティティ)
+*   [関連](関連)
