@@ -1,43 +1,43 @@
 ---
 title: "SAP HANA"
-parent: "data-storage"
+parent: "数据存储"
 menu_order: 70
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The behavior of Mendix using a SAP HANA  database has some minor differences when compared with using a PostgreSQL database. These differences are documented below.
+Mendix 使用 SAP HANA 数据库的行为与使用 PostgreSQL 数据库相比有一些小的差异。 下文记录了这些差异。
 
-## 2 Ordering on Associated Attributes
+## 2 按关联属性排序
 
-Retrieving an entity that is sorted on an attribute of one of its associated entities is not supported in SAP HANA.
+获取一个按一个相关实体的属性分类的实体，在SAPHANA中不支持。
 
-For example, you have two associated entities — **Person** and **Address** — and they have the **name** and **street** attributes, respectively. You cannot retrieve `Person` objects sorted on `Person_Address/Address/street`.
+例如， 您有两个相关实体 — **人员** 和 **地址** — 他们有 **名称** 和 **街道** 属性, 分别为之。 您无法获取 `个人` 个物件排序到 `Person_Address/stread`。
 
-## 3 Behavior of Unlimited & Very Long Strings
+## 无限 & 非常长的字符串行为
 
-### 3.1 Comparison Functions
+### 3.1 比较职能
 
-SAP HANA does not support unlimited strings or strings with a specified length greater than 5000 characters when using the equal (`=`) or not equal (`!=`) operators in XPath constraints. However, it does support functions including `contains()`, `starts-with()`, and `ends-with()`.
+SAPHANA不支持不限字符串或字符串，指定长度超过5000个字符，当使用等效的 (`=`)或不等于 (`！`XPath 约束的运营商。 然而，它确实支持函数包括 `contains()`, `starts-with()`, 和 `ends-with()`。
 
-See also [Case-Sensitive Database Behavior](case-sensitive-database-behavior).
+还见 [区分大小写的数据库行为](case-sensitive-database-behavior)。
 
 {{% alert type="warning" %}}
-In versions of Mendix below 8.11.0, string comparisons in SAP HANA were case sensitive.
-{{% /alert %}}
+在低于8.11.0的Mendix 版本中，SAP HANA中的字符串比较是区分大小写的。
+{{% /报警 %}}
 
-### 3.2 Sorting, Grouping & Aggregating
+### 3.2 排序，分组 & 聚合
 
-It is not possible to sort, group, or use aggregate functions such as `count()` on unlimited strings or strings with a specified length greater than 5000 characters. This is because such long or unlimited strings are implemented with the data type CLOB. Consider decreasing the length of the string attribute or removing it from data grids.
+无法排序、群组。 或在不限字符串或字符串上使用总合函数，如 `count()`。 这是因为这么长或无限的字符串是用数据类型 CLOB 实现的。 考虑缩短字符串属性的长度或从数据网格中移除。
 
-### 3.3 Selecting DISTINCT Attribute
+### 3.3 选择DISTINCT 属性
 
-Selecting DISTINCT attributes of the string type with a size greater than 5000 characters is not supported by Mendix due to a known SAP HANA limitation of selecting DISTINCT columns with a CLOB data type.
+选择大小大于5000个字符的字符串类型的DISTINCT 属性不被Mendix 支持，因为已知的 SAPHANA 限制选择带有CLOB 数据类型的DISTINCT 列。
 
-## 4 Known Issues
+## 4 已知问题
 
-### 4.1 Unicode Support
+### 4.1 Unicode 支持
 
-Currently, only [Basic Multilingual Plane](https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane) Unicode characters are supported.
+目前只支持 [个多语言基本板块](https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane) Unicode 字符。
