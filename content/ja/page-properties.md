@@ -8,6 +8,10 @@ tags:
   - "properties"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page-properties.pdf).
+{{% /alert %}}
+
 ## 1 Introduction
 
 This document describes page properties. For details on what pages are for and what kind of widgets can be placed on them, see [Pages](pages).
@@ -30,11 +34,11 @@ Page properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
 ### 2.2 Designer Section {#designer}
 
-{{% snippet file="refguide/designer-properties.md" %}}
+{{% snippet file="refguide8/designer-properties.md" %}}
 
 ### 2.3 General Section {#general}
 
