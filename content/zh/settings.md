@@ -1,44 +1,27 @@
 ---
 title: "设置"
-parent: "已消耗的应用服务"
+description: "在 Mendix Studio 中描述设置菜单。"
+menu_order: 90
 tags:
-  - "studio pro"
+  - "工作室"
+  - "设置"
+  - "小部件"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/settings.pdf)。
-{{% /报警 %}}
+## 1 导言
 
-{{% alert type="info" %}}
-应用程序服务已被弃用，并已在Studio Pro 9中删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
-{{% /报警 %}}
+**设置** 是角色和权限以及应用程序小部件的设置。
 
-在设置屏幕中，您可以看到应用程序服务版本、它的图标和简短描述。 三个选项卡是可选择的选项卡：“动作”、“设置”和“文档”。
+**设置** 包含以下内容：
 
-## 行动
+* [角色和权限](settings-security) - 您可以通过 **角色和权限管理对您的应用程序及其文档的访问**
+* [部件概述](settings-widget-overview) - 包含您的应用程序中Mendix Marketplace小部件和本地小部件的信息
 
-![](attachments/16713705/16843901.png)
+要打开 **设置**，请单击左侧菜单栏中的装备图标。
 
-该标签提供了所提供的微流动作概览。 每次动作都显示图标、字幕和描述。 在微流程工具箱中，每个动作都会显示图标和标题作为动作的名称。 在微流中使用此名称时也会被看到。
+![](attachments/settings/settings-icon.png)
 
-## 设置
+## 2 个此类别的主要文档
 
-标签“设置”包含应用服务的位置和身份验证方法。
-
-![](attachments/16713705/16843897.png)
-
-### 配置
-
-您可以通过引入带有URL的常量来更改应用服务的默认位置。
-
-### 认证
-
-显示身份验证方法。 作为消费者，你不负责此事，因此你不能改变这一点。
-
-### 超时
-
-此超时适用于应用服务提供的所有操作。 如果应用服务操作未在指定时间(秒)内回复，则创建一个错误。 微流中的标准错误处理可以用来定义超时应做些什么。
-
-## 发布者文档
-
-此选项卡显示由应用程序服务供应商提供的文档。
+* [安全性，角色 & 权限](settings-security) -- 描述Mendix Studio中的安全性，用户角色和他们的权限
+* [部件概述](settings-widget-overview) - 描述您的应用程序中Mendix 市场和本地窗口小部件的设置
