@@ -61,7 +61,7 @@ SVG可以包含几种元素。 然而，并不是所有这些都在本地移动�
 
 ### 4.1 着色 SVG 图标
 
-图标只能设置为按钮和底部条目。 当您将 SVG 图标集成到按钮或底部条目时，您必须自己设置 SVG 的颜色。 使用Atlas界面的应用程序时，默认情况下的颜色都是白色。 欲了解更多样式信息，请参阅 [原生移动式样式参考指南](/refguide/native-styling-refguide)。
+图标只能设置为按钮和底部条目。 当您将 SVG 图标集成到按钮或底部条目时，您必须自己设置 SVG 的颜色。 使用Atlas界面的应用程序时，默认情况下的颜色都是白色。 欲了解更多样式信息，请参阅 [原生移动式样式参考指南](/refguide8/native-styling-refguide)。
 
 例如，下列代码：
 
@@ -120,6 +120,6 @@ SVG可以包含几种元素。 然而，并不是所有这些都在本地移动�
 
 ## 5 阅读更多
 
-* [构建插件小部件](/howto/extensibility/build-native-widget)
-* [Atlas界面](/howto/front-end/atlas-ui)
+* [构建插件小部件](/howto8/extensibility/build-native-widget)
+* [Atlas界面](/howto8/front-end/atlas-ui)
 * [插件部件 API](/apidocs-mxsdk/apidocs/pluggable-widgets)
