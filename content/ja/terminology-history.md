@@ -1,165 +1,165 @@
 ---
-title: "Terminology History"
+title: "用語集履歴"
 menu_order: 4
 draft: true
 ---
 
-## Introduction
+## はじめに
 
-This section contains terms that are not used or have had their name changed.
+このセクションには、使用されていない、または名前が変更された用語が含まれています。
 
-### Under Each Term
+### 各学期以下
 
-Details and cross-references where necessary.
+必要に応じて詳細とクロスリファレンス。
 
 {{% alert type="info" %}}
-Guidelines for usage.
+使用のためのガイドライン
 {{% /alert %}}
 
 ## AppCloud & AppCloudServices
 
-This was used to described a large part of the functionality of the Developer Portal. The original idea of AppCloud can be found in this [press release](https://www.mendix.com/press/new-mendix-appcloud/). It is no longer used in describing the product.
+これは、開発者ポータルの機能の大部分を説明するために使用されました。 AppCloudのオリジナルのアイデアは、この [プレスリリース](https://www.mendix.com/press/new-mendix-appcloud/)にあります。 製品の記述に使用されなくなりました。
 
-This is now replaced by the [Mendix SSO](/appstore/modules/mendix-sso) module.
+これは [Mendix SSO](/appstore/modules/mendix-sso) モジュールに置き換えられます。
 
-## app project
+## アプリ プロジェクト
 
-Was used generically instead of "app" to refer to development and project-management work in the project. Was also used to bridge the consistency gap where **Project** is still used in platform UI.
+プロジェクトの開発とプロジェクト管理作業を参照するために、「app」の代わりに一般的に使用されました。 また、 **プロジェクト** がまだプラットフォーム UI で使用されている整合性のギャップを埋めるために使用されました。
 
 {{% alert type="info" %}}
-Replaced by [app](other-terms#app) generically throughout documentation.
+ドキュメント全体を通じて、 [アプリ](other-terms#app) に置き換えられました。
 {{% /alert %}}
 
 ## App Store
 
 {{% alert type="info" %}}
-Replaced by [Mendix Marketplace](main-product-names#marketplace).
+[Mendix Marketplace](main-product-names#marketplace) に置き換えられました。
 {{% /alert %}}
 
-## Cloud Portal {#cloud-portal}
+## クラウド ポータル {#cloud-portal}
 
-This is an internal term and should not be used in the documentation or publicly, as it has not been agreed on or branded. It no longer appears in the Mendix Documentation or *Mendix Platform Evaluation Guide*.
+これは内部用語であり、合意されていない、またはブランド化されていないので、文書や公的に使用されるべきではありません。 Mendix ドキュメントまたは *Mendix Platform 評価ガイド* には表示されなくなりました。
 
-Deployment facilities should be described within the name/context of the [Mendix Developer Portal](main-product-names#devportal) (for example, "deployment via the Developer Portal"). Describing the functionality should avoid using any "portal" language and emphasize the action of "deploying an app to the Mendix Cloud."
+展開機能は、 [Mendix Developer Portal](main-product-names#devportal) の名前/コンテキスト内に記述する必要があります (例えば、「開発者ポータル経由の展開」)。 機能を説明するには、任意の「ポータル」言語を使用しないで、「Mendix Cloudにアプリをデプロイする」という動作を強調する必要があります。
 
-## Community Edition {#community-edition}
+## コミュニティ版 {#community-edition}
 
-The Mendix Community Edition was introduced with Mendix 5.18, which included the ability to deploy a Free App. This was replaced by the [Mendix Free Edition (DX Release)](https://www.mendix.com/blog/powering-continuous-innovation-with-the-mendix-free-edition/) in 2015, a move which was reinforced by [announcements at Mendix World 2019](https://www.mendix.com/blog/a-3-step-leap-into-your-digital-future-highlights-from-mendix-world/).
+Mendix Community EditionはMendix 5.18で導入されました。Mendix 5.18には無料アプリを導入する機能が含まれています。 This was replaced by the [Mendix Free Edition (DX Release)](https://www.mendix.com/blog/powering-continuous-innovation-with-the-mendix-free-edition/) in 2015, a move which was reinforced by [announcements at Mendix World 2019](https://www.mendix.com/blog/a-3-step-leap-into-your-digital-future-highlights-from-mendix-world/).
 
 {{% alert type="info" %}}
-Replaced by [Free Edition](other-terms#free-edition).
+[Free Edition](other-terms#free-edition) に置き換えられました。
 {{% /alert %}}
 
-## Company Admin
+## 会社管理者
 
 {{% alert type="info" %}}
-Replaced by [Mendix Admin](other-terms#mendix-admin).
+[Mendix Admin](other-terms#mendix-admin) に置き換えられました。
 {{% /alert %}}
 
-## delighter
+## デリーター
 
 {{% alert type="info" %}}
-This term should not be used in release notes, as there is no formal definition and no tracking mechanism for it. However, it can be used in release blog posts.
+正式な定義がなく、追跡機構もないため、この用語はリリースノートでは使用しないでください。 ただし、リリースブログの投稿に使用することができます。
 {{% /alert %}}
 
-## Desktop Modeler {#dm}
+## デスクトップ モデラー {#dm}
 
-This term should still be used when referring to Mendix versions below 8.
+この用語は、Mendixのバージョンが8以下の場合でも使用する必要があります。
 
 {{% alert type="info" %}}
-Replaced by [Mendix Studio Pro](main-product-names#pro) for Mendix 8.
+Mendix 8 の [Mendix Studio Pro](main-product-names#pro) に置き換えられました。
 {{% /alert %}}
 
-## Developer Profile
+## 開発者プロフィール
 
 {{% alert type="info" %}}
-Replaced by [Mendix Profile](other-terms#profile).
+[Mendix Profile](other-terms#profile) に置き換えられました。
 {{% /alert %}}
 
-## launchpad
+## ランチパッド
 
-The launchpad was part of the AppCloud release described in this [press release](https://www.mendix.com/press/new-mendix-appcloud/). This was also the only place where Mendix single sign-on users could be managed.
+ランチパッドは、この [プレスリリース](https://www.mendix.com/press/new-mendix-appcloud/)に記載されているAppCloudリリースの一部でした。 Mendixのシングルサインオンユーザーが管理できる唯一の場所でもありました。
 
-Access to the launchpad has been removed from the Developer Portal. Some of the functionality was replaced by the [App User Management](/developerportal/collaborate/general-settings#managing-app-users) page.
+開発者ポータルから、ランチパッドへのアクセスが削除されました。 一部の機能は [App User Management](/developerportal/collaborate/general-settings#managing-app-users) ページに置き換えられました。
 
 {{% alert type="info" %}}
-Do not use.
+使用しないでください。
 {{% /alert %}}
 
-## Mx Assistant, Mx Assist
+## Mx Assistant, Mx Assistant
 
 {{% alert type="info" %}}
-Use [Mendix Assist](other-terms#mendix-assist).
+[Mendixアシスト](other-terms#mendix-assist)を使用してください。
 {{% /alert %}}
 
-## Mendix App Platform, App Platform
+## Mendixアプリプラットフォーム、アプリプラットフォーム
 
 {{% alert type="info" %}}
-Replaced by [Mendix Platform](main-product-names#platform) and [Developer Portal](main-product-names#devportal).
+[Mendix Platform](main-product-names#platform) と [Developer Portal](main-product-names#devportal) に置き換えられました。
 {{% /alert %}}
 
-## Mendix Business Modeler
+## Mendix ビジネス モデラー
 
-Not in use as of Mendix 7.
+Mendix 7として使用されていません。
 
 {{% alert type="info" %}}
-Replaced by [Desktop Modeler](#dm) (and eventually [Mendix Studio Pro](main-product-names#pro)).
+[デスクトップ モデラー](#dm) (そして最終的には [Mendix Studio Pro](main-product-names#pro) ) に置き換えられました。
 {{% /alert %}}
 
-## Mendix Business Server/Engine {#business-server}
+## Mendix ビジネスサーバー/エンジン {#business-server}
 
 {{% alert type="info" %}}
-Replaced by [Mendix Runtime](other-terms#runtime).
+[Mendix Runtime](other-terms#runtime) に置き換えられました。
 {{% /alert %}}
 
-## Mendix Developer app, Mendix Mobile app
+## Mendix 開発者アプリ、Mendix Mobile アプリ
 
 {{% alert type="info" %}}
-Replaced by [Mendix mobile app](other-terms#mendix-mobile-app).
+[Mendix モバイル アプリ](other-terms#mendix-mobile-app) に置き換えられました。
 {{% /alert %}}
 
-## Mendix Model Share
+## Mendix モデル共有
 
 {{% alert type="info" %}}
-Deprecated March 31, 2020. No longer appears in documentation.
+廃止予定 2020年3月31日。 ドキュメントに表示されなくなりました。
 {{% /alert %}}
 
-## Mendix Online Platform, Mendix Platform Portal
+## Mendixオンラインプラットフォーム、Mendixプラットフォームポータル
 
 {{% alert type="info" %}}
-Replaced by [Developer Portal](main-product-names#devportal).
+[Developer Portal](main-product-names#devportal) によって置き換えられました。
 {{% /alert %}}
 
-## Run in Sandbox
+## サンドボックスで実行
 
-This button no longer exists in the Desktop Modeler or Studio Pro. Now it is just **Run Locally**.
+このボタンは、Desktop ModelerまたはStudio Proには存在しません。 今は **ローカルでの実行** だけです。
 
-For more information, see [Sandbox](#sandbox).
+詳細については、 [Sandbox](#sandbox) を参照してください。
 
 ## Sandbox {#sandbox}
 
-This referred to the free environments used to run a Free App in the Mendix Cloud.
+これはMendix CloudでFree Appを実行するために使用されるフリーな環境について言及しました。
 
 {{% alert type="info" %}}
-Use [Free App](other-terms#free-app) or "Free App environment" as of Mendix 8.
+Mendix 8の [無料アプリ](other-terms#free-app) または「無料アプリ環境」をご利用ください。
 {{% /alert %}}
 
 ## Sprintr
 
 {{% alert type="info" %}}
-Replaced by [Developer Portal](main-product-names#devportal).
+[Developer Portal](main-product-names#devportal) によって置き換えられました。
 {{% /alert %}}
 
-## starter app
+## スターターアプリ
 
 {{% alert type="info" %}}
-Replaced by [app template](other-terms#app-template) to reflect the create-new-app flow UI in the Developer Portal.
+[アプリテンプレート](other-terms#app-template) に置き換えられ、開発者ポータルの create-new-app フロー UI が反映されます。
 {{% /alert %}}
 
 ## Web Modeler {#wm}
 
-This term should still be used when referring to Mendix versions below 8.
+この用語は、Mendixのバージョンが8以下の場合でも使用する必要があります。
 
 {{% alert type="info" %}}
-Replaced by [Mendix Studio](main-product-names#studio) for Mendix 8.
+Mendix 8 に [Mendix Studio](main-product-names#studio) に置き換えられました。
 {{% /alert %}}
