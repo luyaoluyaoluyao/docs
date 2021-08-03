@@ -1,44 +1,44 @@
 ---
-title: "Workflow Consistency Errors"
-parent: "consistency-errors"
+title: "工作流一致性错误"
+parent: "一致性错误"
 menu_order: 5
-description: "Describes workflow consistency errors in Mendix Studio and the way to fix them."
+description: "描述Mendix Studio中的 Workflow 一致性错误以及解决这些错误的方法。"
 tags:
-  - "studio"
-  - "consistency errors"
-  - "checks"
-  - "errors"
-  - "workflows"
+  - "工作室"
+  - "一致性错误"
+  - "检查"
+  - "错误"
+  - "工作流"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In this document, we explain how to solve complex consistency errors that can occur when configuring [workflows](workflows) in Mendix Studio. For more information on workflows, see [Workflows](workflows).
+在此文档中，我们解释了如何解决在Mendix Studio中配置 [workflow](workflows) 时可能发生的复杂一致性错误。 关于工作流的更多信息，见 [Workflow](workflows)。
 
-An example of a consistency error is when you did not select a page for a new user task.
+一致性错误的一个例子是当您没有为新用户任务选择一个页面。
 
 {{% alert type="info" %}}
 
-This document does not describe *all* the errors, as there are a lot of errors that can occur, some of which are simple and do not need extra explanation, others are rare and/or heavily dependent on a use-case.
+此文档没有描述 *所有* 个错误，因为有许多错误可能发生。 其中有些简单，无需额外解释，另一些则极少和（或）严重依赖使用案件。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Some errors have error codes and if these errors are described in documentation, Studio has a clickable link to the corresponding document. Others do not have an error code, in this case, you can manually search whether a particular error is described in documentation (you can search by using the message text that is displayed in the **Checks** panel).
+一些错误有错误代码，如果这些错误在文档中描述，Studio就有一个可点击的链接到相应的文档。 在这种情况下，其他人没有错误代码。 您可以手动搜索文件中是否描述了某个错误 (您可以通过使用 **检查** 面板中显示的消息文本进行搜索)。
 
-## 2 Workflow Consistency Errors
+## 2 工作流一致性错误
 
-The most common yet complex errors you can come across when configuring a workflow are described in the table below:
+下面的工作流程配置中最常见但复杂的错误描述于下表：
 
-| Error Code | Message in the Checks Panel                                                                                                                                                  | Element Where the Error Occurs                    | Cause of the Error                                                                                                                                                                                                                                                                                                                                                                                              | Way to Fix                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE6685     | The parameters of the selected microflow have changed, please update them in the properties.                                                                                 | [Call Microflow](workflow-system-actions) action  | When parameters of the selected microflow have been changed, for example, one more parameter was added, a parameter was deleted, or a parameter type was changed.                                                                                                                                                                                                                                               | Open the **Call Microflow** properties > **Outcomes** and click **Refresh**.                                                                                                                                                                                                                                                                                                                                                     |
-| CE6686     | The current outcomes of the call microflow activity do not match the configured microflow. Regenerate the outcomes.                                                          | [Call Microflow](workflow-system-actions) action  | Current outcomes set in **Call Microflow** properties are no longer up-to-date. This happens when changing a return value of a microflow, for example, when a return value has been changed from enumeration type to Boolean.                                                                                                                                                                                   | Open the **Call Microflow** properties > **Outcomes** and click **Refresh**.                                                                                                                                                                                                                                                                                                                                                     |
-| CE0078     | Condition should be of type Boolean or enumeration but is of type {type of condition}.                                                                                       | [Decision](workflows-general-activities#decision) | For more information on this error, see the [Properties Not Set Consistency Errors](consistency-errors-microflows#properties-not-set) section in *Microflow Consistency Errors*.                                                                                                                                                                                                                                | For more information on this error, see the [Properties Not Set Consistency Errors](consistency-errors-microflows#properties-not-set) section in *Microflow Consistency Errors*.                                                                                                                                                                                                                                                 |
-| CE0079     | The 'true' case should be configured in properties for an outgoing flow. <br />or<br />The 'false' case should be configured in properties for an outgoing flow. | [Decision](workflows-general-activities#decision) | For more information on this error, see the [Properties Set Incorrectly Consistency Errors](consistency-errors-microflows#properties-set-incorrectly) section in *Microflow Consistency Errors*.                                                                                                                                                                                                                | For more information on this error, see the [Properties Set Incorrectly Consistency Errors](consistency-errors-microflows#properties-set-incorrectly) section in *Microflow Consistency Errors*.                                                                                                                                                                                                                                 |
-| CE5012     | Return type of selected {Name of the microflow} should be {return type}.                                                                                                     | [User Task](workflows-user-task)                  | There can be different causes for this error. In the workflow editor the cause of the error is that you have a user task and its **Assign Task Using** property is set to **Microflow**, but this microflow does not return a list of users.<br />For causes when it occurs on a page, see the [Data Consistency Errors](consistency-errors-pages#data-consistency) section in *Page Consistency Errors*. | Set the return value of the microflow to the list of System.Users.<br />The return value is set to System.Users automatically if you create a microflow though the **Assign Task Using** property. Do the following: <ol><li>Open user task properties.</li><li>Make sure the **Assign Task Using** is set to **Microflow**. </li><li>Click the **Microflow** property to select a new microflow.</li><li>In the **Select Microflow** dialog box, click the plus icon to create a new microflow.</li><li>Name the microflow and click **Create**.</li></ol>The created microflow has parameters and the return value configured automatically. Note that setting System.Users for the existing microflow can only be done in Studio Pro. |
+| 错误代码   | 检查面板中的消息                                                            | 发生错误时的元素                                     | 错误的原因                                                                                                                                                                                       | 修复路径                                                                                                                                                                               |
+| ------ | ------------------------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CE6685 | 所选微流参数已经改变，请在属性中更新这些参数。                                             | [调用微流](workflow-system-actions) 动作           | 当选定的微流参数被更改时，例如： 添加了一个额外的参数，删除了参数，或者更改了参数类型。                                                                                                                                                | 打开 **通话微流程** 属性 > **结果** 并点击 **刷新**。                                                                                                                                               |
+| CE6686 | 调用微流活动的当前结果与配置的微流不匹配。 重新产生结果。                                       | [调用微流](workflow-system-actions) 动作           | 当前在 **调用 Microflow** 属性中设置的结果不再是最新的。 这种情况发生在微流的返回值改变时，例如，当返回值从枚举类型改为布尔值。                                                                                                                    | 打开 **通话微流程** 属性 > **结果** 并点击 **刷新**。                                                                                                                                               |
+| CE0078 | 条件应该是布尔值或枚举，但是类型为 {type of condition}。                              | [决 定](workflows-general-activities#decision) | 关于此错误的更多信息，请参阅 *微流一致性错误* 中的 [属性未设置一致性错误](consistency-errors-microflows#properties-not-set) 部分。                                                                                              | 关于此错误的更多信息，请参阅 *微流一致性错误* 中的 [属性未设置一致性错误](consistency-errors-microflows#properties-not-set) 部分。                                                                                     |
+| CE0079 | “true”案例应该在输出流的属性中配置。 <br />或<br />应该在输出流的属性中配置"false"。 | [决 定](workflows-general-activities#decision) | 关于此错误的更多信息，请参阅 *Microflow一致性错误* 中的 [属性设置不正确的一致性错误](consistency-errors-microflows#properties-set-incorrectly) 部分。                                                                            | 关于此错误的更多信息，请参阅 *Microflow一致性错误* 中的 [属性设置不正确的一致性错误](consistency-errors-microflows#properties-set-incorrectly) 部分。                                                                   |
+| CE5012 | 返回选择的 {Name of the microflow} 类型应该是 {return type}。                  | [用户任务](workflows-user-task)                  | 这个错误可能有不同的原因。 在 Workflow 编辑器中，错误的原因是您有一个用户任务，其 **分配任务使用** 属性设置为 **Microflow**， 但这个微流程不会返回用户列表。<br />在页面上发生原因时， 查看 [数据一致性错误](consistency-errors-pages#data-consistency) 部分在 *页面一致性错误*. | 设置微流返回系统用户列表的返回值。<br />返回值设置为系统。 如果您通过 **分配任务使用** 属性创建一个微流程自动发送。 执行以下操作： <ol><li>打开用户任务属性。</li><li>请确认 **分配任务Using** 已设置为 **Microflow** 。 </li><li>点击 **微流程** 属性来选择一个新的微流程。</li><li>在 **选择微流程** 对话框中，点击加号图标创建新的微流程。</li><li>命名微流程并点击 **创建**。</li></ol>创建的微流有参数和返回值自动配置。 注意设置System.Users for existing microflow只能在 Studio Pro中完成。 |
 
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflows](workflows)
-* [Checks](checks)
+* [工作流](workflows)
+* [检查](检查)
