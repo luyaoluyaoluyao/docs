@@ -1,39 +1,59 @@
 ---
-title: "Label"
-parent: "common-widgets"
+title: "标签"
+parent: "普通小部件"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "标签"
+  - "常见小部件"
 ---
 
+## 1 导言
+
+●{% alert type="warning" %}}本机移动页面不支持标签小部件。{{% /提醒 %}}
 
 {{% alert type="warning" %}}
 
-For input widgets it is recommended to use the more powerful [label property](text-box) to describe their purpose.
+对于输入小部件，建议使用 [标签属性](text-box) 来描述小部件给最终用户的目的。
 
-For all other text use the [text widget](text) as it provides more features, for example, text templates, and generates semantically correct HTML.
+您也可以使用 [文本小部件](text) ，因为它提供了更多的功能。 例如，您可以添加参数，它生成语义正确的HTML。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-A label shows static text, which intent is to describe the purpose of a specific widget to the user.
+标签显示静态文本，向用户描述特定部件的目的。
 
-{{% alert type="info" %}}
+## 2 属性
 
-![](attachments/pages/label.png) A label placed in a cell with render mode header.
+标签属性的示例在下面的图像中显示：
 
-{{% /alert %}}
+{{% image_container width="300" %}}![标签属性](attachments/common-widgets/label-properties.png)
+{{% /image_container %}}
 
-## General properties
+标签属性由以下部分组成：
 
-{{% snippet file="refguide7/Caption+Property.md" %}}
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
+* [可见性](#visibility)
 
-## Visibility properties
+### 2.1 共同部分 {#common}
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+### 2.2 设计属性科 {#design-properties}
 
-## Common properties
+{{% snippet file="refguide/design-section-link.md" %}}
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 2.3 一般部分 {#general}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+**常规** 部分包含 **标题** 属性。 **标题** 定义了将显示给用户的文本。
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 2.4 可见性科 {#visibility}
+
+{{% snippet file="refguide/visibility-section-link.md" %}}
+
+## 3 阅读更多
+
+* [页](page)
+* [常见小部件](普通小部件)
+* [页面编辑器中常见的属性](common-widget-properties)
