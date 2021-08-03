@@ -1,100 +1,100 @@
 ---
-title: "Report Chart"
-parent: "report-widgets"
+title: "报表图表"
+parent: "报告小部件"
 ---
 
 {{% alert type="info" %}}
 
-This widget was deprecated and is marked for removal in version 8.0.0.
+这个小部件已被弃用，并在 8.0.0 版本中标记为移除。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-A report chart is used to display a dataset graphically as a set of vertical bars.
+报表图表用图形显示数据集作为一组垂直栏。
 
-For each object in the dataset one or more bars are displayed, depending on the defined Series of the report chart.
+对于数据集中的每个对象，显示一个或多个条形图，取决于报告图表的定义系列.
 
-## Data Source Properties
+## 数据源属性
 
-### Data Set
+### 数据集
 
-The dataset determines which data will be shown in the report chart.
+数据集决定哪些数据将显示在报告表中。
 
-## General Properties
+## 常规属性
 
-### Aspect Ratio
+### 宽高比
 
-This property determines the aspect ratio (width : height) of the report chart as the end user will see it.
+此属性决定报告图的宽度(宽度：高)，因为最终用户会看到它。
 
-### Generate Report on Page Load
+### 在页面载入时生成报告
 
-If this property is false, the report chart will not show its data until the user clicks [Report](report-button). This is especially useful if the report uses parameters that should be specified by the user.
+如果此属性是假的，在用户点击 [报告](report-button) 之前，报告图表将不会显示其数据。 如果报表使用用户应该指定的参数，这样做特别有用。
 
-## Chart Properties
+## 图表属性
 
-### Type
+### 类型
 
-With this property you can choose the type of the report chart. The following types are avalailable.
+使用此属性您可以选择报表的类型。 以下类型是可宣誓的。
 
-| Name           | Layout                             |
+| 名称             | 布局                                 |
 | -------------- | ---------------------------------- |
 | VerticalBars   | ![](attachments/524337/688226.png) |
-| VerticalBars3D | ![](attachments/524337/688227.png) |
+| 垂直Bars3D       | ![](attachments/524337/688227.png) |
 | HorizontalBars | ![](attachments/524337/688228.png) |
-| Lines          | ![](attachments/524337/688229.png) |
-| Area           | ![](attachments/524337/688223.png) |
+| 直线             | ![](attachments/524337/688229.png) |
+| 区域             | ![](attachments/524337/688223.png) |
 
-### Horizontal Axis Properties
-
-{{% alert type="warning" %}}
-
-If the chart type is HorizontalBars, the axisses are swapped, and these properties apply to the vertical axis instead of the horizontal axis.
-
-{{% /alert %}}
-
-### Caption
-
-This is the caption that end users see near the horizontal axis of the chart.
-
-### Data Set Column
-
-This property refers to the column of the dataset of which the value is displayed on the horizontal axis.
-
-### Format
-
-If the dataset column of the horizontal axis has type DateTime, through this property you can choose how the date is displayed.
-
-## Vertical Axis Properties
+### 水平轴属性
 
 {{% alert type="warning" %}}
 
-If the chart type is HorizontalBars, the axisses are swapped, and these properties apply to the horizontal axis instead of the vertical axis.
+如果图表类型是水平边栏，轴将被交换，这些属性适用于垂直轴而不是水平轴。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### Caption
+### 标题
 
-This is the caption that end users see near the vertical axis of the chart.
+这是最终用户在图表的水平轴附近看到的字幕。
 
-### Precision
+### 数据集列
 
-If numbers are displayed on the vertical axis, this property indicates the number of positions that's displayed after the dot in these numbers.
+此属性是指值显示在水平轴上的数据集的列.
 
-### Use Min/Max
+### 格式
 
-If this property is false, the minimum and maximum value of the vertical axis is automatically adapted to the values that are displayed in the vertical direction.
+如果水平轴的数据集列类型为“日期时间”，通过此属性，您可以选择如何显示日期。
 
-If this property is true, the minimum and maximum value of the vertical axis are determined by the following properties.
+## 垂直轴属性
 
-### Minimum
+{{% alert type="warning" %}}
 
-Minimum value of the vertical axis. This is only used if property 'Use min/max' (described above) is true.
+如果图表类型是水平边栏，轴将被交换，这些属性适用于水平轴而不是垂直轴。
 
-### Maximum
+{{% /报警 %}}
 
-Maximum value of the vertical axis. This is only used if property 'Use min/max' (described above) is true.
+### 标题
 
-## Common Properties
+这是最终用户在图表垂直轴附近看到的字幕。
 
-### Name, Class, Style
+### 精度
 
-For details, see [Common Widget Properties](common-widget-properties).
+如果数字显示在垂直轴上，此属性表示点后显示的位置数。
+
+### 使用最小/最大
+
+如果此属性是假的， 垂直轴的最小和最大值自动适应垂直方向显示的值。
+
+如果此属性为 true，垂直轴的最小和最大值由以下属性决定。
+
+### 最小值
+
+垂直轴最小值。 这只在属性“使用最小/最大”(上文所述)为真时才使用。
+
+### 最大值
+
+垂直轴的最大值。 这只在属性“使用最小/最大”(上文所述)为真时才使用。
+
+## 公共属性
+
+### 名称、类别、样式
+
+欲了解详情，请参阅 [通用小部件属性](common-widget-properties)。
