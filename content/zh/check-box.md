@@ -1,87 +1,87 @@
 ---
-title: "Check Box"
-parent: "input-widgets"
+title: "复选框"
+parent: "输入小部件"
 menu_order: 40
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A **check box** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean*. It displays a tick if the value is true and remain empty if it is false.
+**复选框** 用于显示或可选显示。 允许最终用户编辑 [数据类型](data-types) *布尔值* 的属性。 如果值是真的，它会显示一个勾画，如果它是假的，则保持空。
 
-{{% alert type="info" %}}In native mobile applications, the check box widget is rendered as a toggle.{{% /alert %}}
+●{% alert type="info" %}}在本机移动应用程序中，复选框部件作为toggle。{%/提醒 %}}
 
-A check box must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the check box widget, between square brackets, and colored blue.
+必须将复选框放入 [数据部件](data-widgets) 并显示从该部件检索到的对象的属性。 要显示的属性名称显示在复选框部件中，方括号和彩色蓝色。
 
-For example, this check box allows you to see, and set, whether someone is subscribed to your newsletter.
+例如，此复选框允许您查看并设置是否有人订阅了您的新闻。
 
 ![](attachments/check-box/check-box.png)
 
-## 2 Properties
+## 2 属性
 
-An example of check box properties is represented in the image below:
+下面的图像显示了复选框属性的示例：
 
 {{% image_container width="250" %}}![](attachments/check-box/check-box-properties.png)
 {{% /image_container %}}
 
-Check box properties consist of the following sections:
+复选框属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [Label](#label)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [编辑性](#editability)
+* [事件](#events)
+* [标签](#label)
+* [可见性](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 数据源部分{#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 可编辑性部分{#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 事件部分{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 更改时{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 2.5.2 输入时
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+输入小部件时指定了一个执行的动作。 要么使用 <kbd>Tab</kbd> 键，要么用鼠标点击它。
+
+{{% snippet file="refguide/events-section-link.md" %}}
+
+#### 2.5.3 请假
+
+请假属性指定了离开部件时要执行的动作， 要么使用 <kbd>Tab</kbd> 键，要么点击另一个部件。
 
 This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 Label Section{#label}
+### 2.6 标签部分{#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.7 Visibility Section{#visibility}
+### 2.7 可见性部分{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-*   [Data view](data-view)
-*   [Attributes](attributes)
+*   [数据视图](data-view)
+*   [属性](attributes)
