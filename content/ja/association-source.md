@@ -1,40 +1,40 @@
 ---
-title: "Association Source"
-parent: "data-sources"
+title: "関連ソース"
+parent: "データソース"
 tags:
   - "studio pro"
-  - "association"
-  - "data source"
+  - "関連"
+  - "データソース"
 menu_order: 60
 ---
 
-## 1 Introduction
+## 1つの紹介
 
 The **Association** source is a data source available to nested [data grids](data-grid), [template grids](template-grid), and [list views](list-view).
 
 {{% alert type="warning" %}}
 
-The **Association** source retrieves objects from memory, not from the database.
+**アソシエーション** ソースは、データベースからではなくメモリからオブジェクトを取得します。
 
 {{% /alert %}}
 
-An **Association** data source fills the widget with objects linked to another object by an association. To provide the context, the data widget needs to be nested within another data widget.
+**関連付け** データ ソースは、関連付けによって別のオブジェクトにリンクされたオブジェクトでウィジェットを埋めます。 コンテキストを提供するには、データ ウィジェットを別のデータ ウィジェット内にネストする必要があります。
 
 Data widgets that can function as a container for other data widgets are the [template grid](template-grid), [list view](list-view), and [data view](data-view).
 
 {{% alert type="warning" %}}
 
-Sorting columns and searching is not possible in data widgets with an association data source. This is because these features require a database call to function, which an association data source does not necessarily initiate.
+関連データソースを持つデータ ウィジェットでは列の並べ替えや検索はできません。 これらの機能は、関連データソースが必ずしも起動しない、関数へのデータベース呼び出しを必要とするためです。
 
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-### 2.1 Entity (Path)
+### 2.1 エンティティ (パス)
 
-The **Entity (path)** property specifies the association by which the widget is populated. Only objects that are connected to the object of the surrounding data container by association will appear in the widget.
+**エンティティ (パス)** プロパティは、ウィジェットが生成される関連を指定します。 ウィジェットには、関連付けによって周囲のデータコンテナのオブジェクトに接続されているオブジェクトのみが表示されます。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Associations](associations)
-* [Data Widgets](data-widgets)
+* [関連](関連)
+* [データウィジェット](data-widgets)
