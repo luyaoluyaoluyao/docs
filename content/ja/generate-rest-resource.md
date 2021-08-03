@@ -1,5 +1,5 @@
 ---
-title: "Generating a Published REST Resource"
+title: "Generate a Published REST Resource"
 parent: "published-rest-services"
 menu_order: 20
 description: "Generate a published REST resource from an entity"
@@ -9,8 +9,15 @@ tags:
   - "entity"
   - "operations"
   - "expose"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+This feature was introduced in version 7.16.0.
+
+The option to generate **Patch** was introduced in version 7.17.0.
+
+{{% /alert %}}
 
 ## 1 Introduction
 
