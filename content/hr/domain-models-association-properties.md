@@ -1,6 +1,6 @@
 ---
-title: "Associations"
-parent: "domain-models"
+title: "Association Properties"
+category: "Domain Model"
 description: "Describes the association properties in Mendix Studio."
 tags:
   - "studio"
@@ -9,12 +9,14 @@ tags:
 
 ## 1 Introduction
 
-An association describes a relation between entities. In the domain model, an association is represented by a line or an arrow between two entities.
+An association describes a relation between entities. In the domain model, an association is represented by a line or arrow between two entities.
 
 In Mendix Studio, associations have the following properties:
 
 * [Name](#name)
+
 * [Multiplicity](#multiplicity)
+
 *  [Delete behavior](#delete-behavior)
 
    {{% image_container width="300" %}}![](attachments/domain-models-association-properties/association-properties.png)
@@ -46,10 +48,6 @@ Multiplicity shows the owner and the direction of association if the association
 
 You can swap the direction of the multiplicity if its type is one-to-many or many-to-many. In this case you will change the owner of association.
 
-{{% alert type="info" %}}
-For more details on the reasoning underlying associations, ownership, and multiplicity, see the [Introduction](/refguide8/associations#intro) section of *Associations* in the *Studio Pro Guide*.
-{{% /alert %}}
-
 ## 4 Delete Behavior {#delete-behavior}
 
 Delete behavior defines what should happen to the associated object when an object is deleted. The following options can be configured for each end of the association.
@@ -60,7 +58,7 @@ Delete behavior defines what should happen to the associated object when an obje
 | Delete {name of entity} object(s) as well                                                         | When an object is deleted, the associated object(s) are also deleted.                                                                                                                                                                                                                                                          |
 | Delete {name of entity} object only if it is not associated with {name of other entity} object(s) | An object can only be deleted if it is not associated with any other object(s). <br />You can also specify an error message for your end-users when they try to delete an object that is associated with other entity's objects. For example: "You cannot delete this location, because a course is associated with it." |
 
-For examples of delete behavior configuring, see section [7 Delete Behavior](/howto8/data-models/create-a-basic-data-layer#delete-behavior) in *How to Create a Basic Data Layer* in the *Mendix Studio Pro How-to’s*.
+For examples of delete behavior configuring, see section [7 Delete Behavior](/howto/data-models/create-a-basic-data-layer#delete-behavior) in *How to Create a Basic Data Layer* in the *Mendix Studio Pro How-to’s*.
 
 
 ## 5 Cross-Module Associations {#cross-module-associations}
