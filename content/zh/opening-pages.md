@@ -1,44 +1,44 @@
 ---
-title: "Opening Pages"
-parent: "page-concepts"
+title: "打开页面"
+parent: "页面概念"
 ---
 
-You can open other pages from many many places within pages. Pages can be opened either in the content pane of the browser or in a new pop-up window. Where the page is opened depends on the [layout type](layout) of its [layout](layout). Pages with the layout type **Modal pop-up** or **Pop-up** will open as a pop-up window, and other pages will be opened in the content. If the target page layout is of the type **Legacy**, then the page location must be configured manually (for details, see the [Location](#location) section below).
+您可以从页面中的许多地方打开其他页面。 页面可以在浏览器的内容窗格或者在新的弹出窗口中打开。 Where the page is opened depends on the [layout type](layout) of its [layout](layout). 布局类型为 **模式弹出** 或 **弹出窗口** 将打开一个弹出窗口， 和其他页面将在内容中打开。 如果目标页面布局是类型 **传统的**， 然后必须手动配置页面位置(详情请参阅 [位置](#location) 下文部分)。
 
-If the target page contains a [data view](data-view) with a page parameter data source, then an object for this data view must be passed to the page while opening. What object to pass is configured automatically based on the arguments available for the widget opening the page (see [available arguments for microflows](starting-microflows) for details).
+如果目标页面包含一个带有页面参数数据源的 [数据视图](data-view) ， 此数据视图的对象必须在打开时传递到页面。 要传递的对象是根据小部件打开页面的可用参数自动配置的(详情请参阅 [微流](starting-microflows) 可用的参数)。
 
-Generally speaking, opening a page in content will trigger a full reload of the entire browser contents. However, if the new page uses the same [layout](layout) as the old one, only the page contents will refresh. The layout will retain its state. This allows for navigation without any unnecessary overhead or loss of data.
+一般而言，打开一个页面内容会触发整个浏览器内容的全部重新加载。 但是，如果新页面使用了与旧页面相同的 [布局](layout) ，只有页面内容会刷新。 布局将保持状态。 这使得能够在没有任何不必要的间接费用或数据流失的情况下进行导航。
 
-## Properties
+## 属性
 
-Mendix allows for a number of methods for opening a page. Each of these methods share a set of properties that determine the conditions in which the page is opened.
+Mendix 允许多种方法打开页面。 每个方法共享一组属性来决定打开页面的条件。
 
-### Page
+### 页
 
-This is the [page](page) that is shown to the end-user. There can be a number restrictions on the page, depending on the place from which the page is opened. For example, a page that is opened by the **Create** button must contain a data view that is connected to the same entity as the grid.
+这是显示给最终用户的 [页面](page)。 页面可能有一些限制，这取决于页面的开启地点。 例如， 由 **创建** 按钮打开的页面必须包含连接到与网格相同的实体的数据视图。
 
-### Page title
+### 页面标题
 
-By default the title of the page is taken from the title property of the selected page. You can replace this title with a custom title if necessary.
+默认情况下，页面的标题从所选页面的标题属性。 如有必要，您可以用自定义标题替换此标题。
 
 {{% alert type="success" %}}
-This feature allows you to re-use the same page for the New and Edit buttons of a data grid. By simply setting the titles to, for example, 'New customer' and 'Edit customer', you can save yourself the trouble of duplicating the rest of the page.
-{{% /alert %}}
+此功能允许您对数据网格的新编辑按钮重新使用同一页面。 简单地将标题设置为“新客户”和“编辑客户”， 您可以保存您自己在复制页面其余部分时遇到的问题。
+{{% /报警 %}}
 
-### Location {#location}
+### 地点 {#location}
 
 {{% alert type="info" %}}
 
-If the [layout](layout) of the target page has a [layout type](layout) configured, the Location property will be unavailable. Instead, the layout type will determine how the page is opened. This eliminates the risk of accidentally modeling a pop-up form with a huge menu bar.
+如果目标页面的 [布局](layout) 有 [布局类型](layout) 已配置，位置属性将不可用。 相反，布局类型将决定如何打开页面。 这就消除了用一个巨大的菜单栏意外地模拟弹出窗体的风险。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-This property indicates where the page is shown.
+此属性表示页面显示的位置。
 
-| Value           | Description                                                                                                                                         |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In content      | The page replaces the page that is currently in the content pane of the browser.                                                                    |
-| Pop-up          | The page is shown as a non-blocking pop-up overlaying the page you were looking at. Non-blocking means that you can still use the underlying page . |
-| Blocking pop-up | The page is shown as a blocking pop-up. Blocking means that you cannot use the underlying page until you close the pop-up.                          |
+| 值      | 描述                                            |
+| ------ | --------------------------------------------- |
+| 在内容中   | 页面替换当前在浏览器的内容窗格中的页面。                          |
+| 弹出窗口   | 页面被显示为一个非屏蔽的弹出窗口，覆盖您正在查看的页面。 非屏蔽意味着您仍然可以使用底页。 |
+| 阻止弹出窗口 | 页面显示为屏蔽弹出窗口。 屏蔽意味着您在关闭弹出窗口之前不能使用底页。           |
 
-_Default value:_ Pop-up
+_默认值：_ 弹出
