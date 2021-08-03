@@ -1,28 +1,24 @@
 ---
 title: "Title (Document Template)"
 parent: "document-templates"
-tags:
-  - "studio pro"
 aliases:
-  - /refguide/title-(document-template).html
-  - /refguide/Title+(document+template).html
+  - /refguide7/Title+(document+template).html
+  - /refguide7/title-(document-template).html
 ---
 
-## 1 Introduction
 
 A title works much like a static label but can be placed outside a data view, templategrid or table.
 
-## 2 Appearance Properties
+## Appearance Properties
 
-### 2.1 Caption
+### Caption
 
 This is the value you wish to display in the document.
 
-### 2.2 Style
+### Style
 
-For details, see [Style](style).
+See [Style](style)
 
-## 3 Common Properties
+## Common Properties
 
-{{% snippet file="refguide/name-property.md" %}}
-
+{{% snippet file="refguide7/Name+Property.md" %}}
