@@ -1,58 +1,58 @@
 ---
 title: "Complete Task"
-parent: "workflow-activities"
+parent: "workflow activities"
 menu_order: 10
 tags:
   - "studio pro"
-  - "user task"
-  - "workflow"
-  - "task outcome"
+  - "ユーザータスク"
+  - "ワークフロー"
+  - "タスクの結果"
   - "complete task"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Complete task** activity can be used to define which outcome the [user task](user-task) should follow.
+**完全なタスク** のアクティビティは、 [ユーザー タスク](user-task) に従うべき結果を定義するために使用できます。
 
 ![Complete Task](attachments/set-task-outcome/complete-task.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of complete task properties is represented in the image below:
+タスクの完全なプロパティの例を以下の画像に示します。
 
-![Complete Task Properties](attachments/set-task-outcome/complete-task-properties.jpg)
+![タスクのプロパティを完了](attachments/set-task-outcome/complete-task-properties.jpg)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-The **Complete task** properties pane consists of the following sections:
+**タスクの完了** プロパティ ペインは以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
 ### 3.1 User Task
 
-The user task entity available from the microflow parameters.
+マイクロフローパラメータから利用可能なユーザー タスク エンティティ。
 
-### 3.2 Workflow Task
+### 3.2 ワークフロー タスク
 
-The user task for which you want to set an outcome.
+結果を設定するユーザー タスク。
 
-### 3.3 Outcome
+### 3.3 成果
 
-Gives you a list of available outcomes for the selected user task. The user task will follow the selected outcome. If there is only one outcome available, the value is set to *Default* and is not editable.
+選択したユーザータスクの利用可能な結果のリストを表示します。 ユーザー タスクは、選択した結果に従います。 利用可能な結果が 1 つだけの場合、値は *デフォルト* に設定され、編集できません。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
