@@ -1,235 +1,240 @@
 ---
-title: "Consumed OData Service"
-parent: "consumed-odata-services"
+title: "消耗的 OData 服务"
+parent: "消费-odata-服务"
 menu_order: 10
 tags:
   - "studio pro"
-  - "data hub"
-  - "odata service"
-  - "consumed odata service"
+  - "数据中心"
+  - "odata服务"
+  - "消耗的 odata 服务"
 ---
 
-## 1 Introduction
+## 1 导言
 
-When an external entity is used in an app module through the [Data Hub pane](data-hub-pane), a consumed OData service document is added specifying the details of the consumed service. This is the API to the publishing app and the data associated with the entity.
+当一个外部实体通过 [数据枢纽窗格](data-hub-pane)在一个应用模块中使用时 a 消耗的OData服务文件增加具体说明所消耗服务的细节。 这是发布应用的 API 以及与实体相关联的数据。
 
-## 2 Consumed OData Service screen
+## 2 消耗的 OData 服务屏幕
 
-The **Consumed OData Service** document contains the following information:
+**消耗的 OData 服务** 文档包含以下信息：
 
-![Connection Tab](attachments/consumed-odata-service/consumed-odata-doc-connection-tab.png)
+![连接标签](attachments/consumed-odata-service/consumed-odata-doc-connection-tab.png)
 
-* Service name and the icon for the source application of the originating app
+* 原始应用的源应用程序的服务名称和图标
 
-* Version number of the consumed service
+* 消耗的服务的版本号
 
-* **View in Data Hub Catalog** link to the **Service Details** where you can see the full service details that are registered
+* **在数据集目录** 链接到 **服务详细信息** 您可以在那里看到注册的完整服务详细信息
 
-* **Update/Switch** – you can update the consumed service contract to another version that has been detected in [Mendix Data Hub](/data-hub/) for the same app and service; the button will show the following, depending on what has been returned for the consumed contract in Data Hub:
-    * **Update** – this button is displayed so that you can **Update** the contract that is currently consumed (and shown in the **Consumed OData Service** document). You will be presented with the contract that is currently at the service end-point. It is good practice that only minor, non-breaking changes are deployed to the same end-point.
-    *  **Switch** – this button is shown if other registered instances of the same service (with the same name, from the same app) are available in Data Hub and are deployed to different endpoints (for example, to another environment or because of changes that would break existing apps consuming the previous version)
+* **更新/更新** - 您可以将消费的服务合同更新到其他版本，在 [Mendix Data Hub](/data-hub/) 中检测到相同的应用和服务； 按键将显示下面的内容，这取决于在数据枢纽中消费的合同返回的内容：
+    * **更新** - 此按钮显示为您可以 **更新** 当前消耗的合同(在 **消耗的OData服务** 文档中显示)。 您将收到目前处于服务端的合同。 良好的做法是，只对同一个最终点进行小规模的、没有突破性的改动。
+    *  **切换** - 如果同一服务的其他注册实例(同名) 则显示此按钮 来自同一应用的数据集可以在不同的端点进行部署（例如）。 到另一个环境或因为更改会破坏现有的消耗上一个版本的应用)
 
-    {{% alert type="info" %}} Studio Pro will always show the **Update** option for the **Consumed OData Service** where you can check if an update is available. In the Data Hub search and **App**  pane, when a different contract is detected at the service end-point, this will be indicated with an update arrow for the service. For further information on updating and switching services see the [Updating or Switching a Consumed OData service](#updating) section of this document. {{% /alert %}}
+    {{% alert type="info" %}} Studio Pro will always show the **Update** option for the **Consumed OData Service** where you can check if an update is available. 在 Data Hub 搜索和 **App**  面板中，当在服务端点检测到不同的合同 这将以更新的箭头显示。 欲了解关于更新和切换服务的更多信息，请参阅此文档的 [更新或切换消费的 OData 服务](#updating) 部分。 {{% /报警 %}}
 
     {{% alert type="info" %}}In the **Data Hub** pane consumed services that have an available **Update** will have an update arrow to indicate this:
     {{% image_container width="300" %}}![update data hub pane](./attachments/data-hub-pane/data-hub-pane-update.png){{% /image_container %}}
 
-    {{% /alert %}}
+    {{% /报警 %}}
 
-### 2.1 Connection Tab
+### 2.1 连接选项卡
 
-The **Connection** tab displays the connection values for the consumed OData service:
+**连接** 标签显示消耗的 OData 服务的连接值：
 
-### 2.2 Service URL {#service-url}
+### 2.2 服务网址 {#service-url}
 
-The **Service URL** displays the URL of the service endpoint:
+**服务 URL** 显示服务端点的URL：
 
-* Click **Select** to select another [constant](/refguide/constants) for the service
-* Click **Show** to display the **Constant** dialog box displaying the service URL or endpoint:
+* 点击 **选择** 来选择另一个 [常量来提供服务](/refguide/constants)
+* 点击 **显示** 以显示 **常量** 显示服务 URL 或端点的对话框：
 
-    ![Connection Tab](attachments/consumed-odata-service/consumed-service-constant.png)
+    ![连接标签](attachments/consumed-odata-service/consumed-service-constant.png)
 
-### 2.3 Timeout
+### 2.3 超时
 
-**Timeout** is the response time for fetching the data from the service endpoint. If the endpoint has not responded after the number of seconds in **Timeout (s)**, an exception will occur. If this happens during a microflow activity, the microflow will roll back or go into your custom [error handling](/howto/logic-business-rules/set-up-error-handling).
+**超时** 是从服务端点获取数据的响应时间。 如果端点在 **超时秒**之后没有响应，将发生异常。 如果在微流活动中发生这种情况，微流将回滚或进入您的自定义 [错误处理](/howto/logic-business-rules/set-up-error-handling)。
 
-Default value: *300 seconds*
+默认值： *300秒*
 
-### 2.4 Proxy Configuration
+### 2.4 代理配置
 
-**Proxy configuration** allows you to configure whether to use a proxy for the request:
+**代理配置** 允许您配置是否为请求使用代理：
 
-* **Use app settings** – use settings which are defined at the app level (default)
-* **Override** – override the app-level settings for this action by specifying the host, port, user name, and password settings for the proxy
-* **No proxy** – do not use a proxy for this service, even if there is a proxy configured at the app level
-
-{{% alert type="info" %}}
-In most cases, this setting can be ignored, and the default **Use app settings** can be used.
-{{% /alert %}}
-
-### 2.5 Authentication
-
-The **Use HTTP authentication** check box specifies if basic authentication should be used. If checked, you have to specify the following details:
-
-* **User name** – defines the user name that will be used for authentication
-* **Password** – defines the password that will be used for authentication
-
-Besides basic authentication, you can use custom authentication. For more information, see the [HTTP Headers](#http-headers) section below.
-
-### 2.6 HTTP Headers {#http-headers}
-
-You can specify additional HTTP request headers to be passed to the endpoint in this list by clicking **Add**, **Edit**, or **Delete** for custom HTTP headers for authentication. Each custom header is a pair with a key and a value.
-
-Using **Headers from a Microflow**, you can specify a microflow for creating a key and value pair(s) for dynamic values. The microflow must return a list of **System.HttpHeader** objects.
+* **使用应用设置** - 使用在应用级别定义的设置 (默认)
+* **覆盖** - 通过指定代理主机、 端口、 用户名和密码设置来覆盖此操作的应用级别设置
+* **没有代理** - 不为此服务使用代理，即使在应用一级配置了代理服务器
 
 {{% alert type="info" %}}
-For more flexible HTTP request headers, you can select a microflow that returns a list of **System.HttpHeader**. This microflow may take a parameter of type **System.HttpResponse**. The microflow is called every time a request is made. Initially, the HTTP response parameter will be empty. If the response is **401 Unauthorized**, the microflow is called with that HTTP response and another call is made with the new HTTP headers.
-{{% /alert %}}
+在大多数情况下，此设置可能被忽略，默认使用 **使用应用程序设置**。
+{{% /报警 %}}
+
+### 2.5 身份验证
+
+**使用HTTP身份验证** 复选框指定是否使用基本身份验证。 如果选中，您必须指定以下详细信息：
+
+* **用户名** - 定义将用于身份验证的用户名
+* **密码** - 定义将用于身份验证的密码
+
+除了基本的身份验证，您可以使用自定义身份验证。 欲了解更多信息，请参阅下面 [HTTP 头](#http-headers) 部分。
+
+### 2.6 HTTP 头 {#http-headers}
+
+您可以通过点击 **添加**来指定要传递到此列表中端点的额外的 HTTP 请求头， **编辑**或 **删除** 用于自定义认证的 HTTP 头文件。 每个自定义标题都是一个键值和一个值。
+
+使用 **个来自微流程的**头, 您可以指定一个微流程来创建一个按键和动态值对的值。 microflow 必须返回一个 **System.Httpheader** 对象列表。
 
 {{% alert type="info" %}}
-Custom authentication can be done with the microflow where the authentication value is retrieved (such as SSO). For further information on access and authentication, see [Using Custom HTTP Header Validation for Published Entities](/data-hub/data-hub-catalog/security#http-header-validation) in the *Data Hub Guide*.
-{{% /alert %}}
+为了更灵活的 HTTP 请求标题，您可以选择返回 **System.Httpheader** 列表的微流程。 这种微流可能会使用类型 **System.HttpResponse** 的参数。 每次提出请求时，微流都被调用。 最初，HTTP响应参数将为空。 如果响应为 **401 未授权**， 微流与HTTP响应调用，并且使用新的 HTTP 头进行另一次调用。
+{{% /报警 %}}
+
+{{% alert type="info" %}}
+自定义身份验证可以在获取身份验证值的微流中进行(例如SSO)。 关于访问和认证的进一步信息， 查看 [在 *数据中心指南* 中为发布的实体使用自定义 HTTP 头验证](/data-hub/data-hub-catalog/security#http-header-validation)。
+{{% /报警 %}}
 
 ## 3 Metadata Tab {#metadata}
 
-In the **Metadata** tab, you can select a metadata file or use metadata obtained through a URL:
+在 **元数据** 标签中，您可以选择一个元数据文件或使用通过 URL 获取的元数据：
 
 ![Metadata Tab](attachments/consumed-odata-service/metadata-tab.jpg)
 
-### 3.1 Metadata Editor
+### 3.1 元数据编辑器
 
-The metadata editor allows to open OData contracts from a file or URL. When you already consumed a contract, you can use this editor to update your existing contract with a new version from file or URL.
+元数据编辑器允许从文件或 URL 中打开 OData合同。 当您已经消费了一个合约，您可以使用此编辑器更新您现有的合约，从文件或 URL 中更新一个新版本。
 
-To open the **Metadata Editor**, click **Edit**. In the editor, you can specify a URL or file for the metadata:
+要打开 **元数据编辑器**，请点击 **编辑**。 在编辑器中，您可以指定元数据的 URL 或文件：
 
-![Metadata Editor](attachments/consumed-odata-service/metadata-editor.jpg)
+![元数据编辑器](attachments/consumed-odata-service/metadata-editor.jpg)
 
-The following settings are available:
+以下设置是可用的：
 
-* **Import from** – select **URL** or **File** for the location of the metadata:
-    * **URL** – click **Edit** to specify the URL for the metadata
-    * **File** – click **Browse** to select an XML metadata file
+* **从** - 选择 **URL** 或 **文件** 获取元数据的位置：
+    * **URL** - 点击 **编辑** 以指定元数据的 URL
+    * **文件** - 点击 **浏览** 以选择一个 XML 元数据文件
 
-When downloading the metadata from a URL, the server may request a username and password (basic authentication). In that case, a dialog box will prompt you to enter your username and password. If the metadata file refers to other metadata files on the same server within the same realm, the username and password are re-used.
+当从 URL 下载元数据时，服务器可以请求用户名和密码(基本身份验证)。 在这种情况下，对话框会提示您输入您的用户名和密码。 如果元数据文件指的是同一服务器在同一范围内的其他元数据文件，用户名和密码将被重新使用。
 
 {{% alert type="info" %}}
-This information is not stored, so if you download the metadata from the same server again, you will have to enter your username and password again.
-{{% /alert %}}
+此信息未存储，所以如果您再次从同一服务器下载元数据。 您必须再次输入您的用户名和密码。
+{{% /报警 %}}
 
-When you import the metadata, you can add external entities from the consumed OData service in the [Data Hub Pane](data-hub-pane).
+当您导入元数据时，您可以从 [Data Hub Pane](data-hub-pane) 中添加外部实体。
 
-### 3.2 Consumed OData Service Properties
+### 3.2 消耗的OData服务属性
 
-Click the **Properties** tab for the consumed OData service which displays the properties that were defined for the OData service document and the following additional properties:
+单击消耗的 OData 服务的 **属性** 标签，它显示为 OData 服务文档定义的属性和以下附加属性：
 
 {{% image_container width="300" %}}![](attachments/consumed-odata-service/consumed-odata-service-doc-properties.png){{% /image_container %}}
 
-* **Entities** – the URL of the metadata defining the entities and associated datasets
-* **Documentation** – an additional description about this service for the current app
-* **Service name** – the name of the published OData service that is consumed
-* **Service version** – the version of the service that is consumed
-* **Service ID** – the unique identifier of the service in the Data Hub Catalog
-* **Application ID** – the unique identifier of the application that the service was published from in the Data Hub Catalog
-* **Metadata** – the contents of the metadata file defining the service
-*  **OData version** – the OData version: can be OData 3 or OData 4
+* **实体** - 定义实体和相关数据集的元数据的 URL
+* **文档** — — 关于当前应用此服务的附加描述
+* **服务名称** — — 已发布的 OData 服务的名称已消耗。
+* **服务版本** — — 所消耗的服务版本
+* **服务 ID** - 数据集目录中服务的唯一标识符
+* **应用程序 ID** - 服务在数据集目录中发布的应用程序唯一标识符
+* **元数据** — — 定义服务的元数据文件内容
+*  **OData版本** - OData版本：可以是 OData 3 或 OData 4
 
-## 4 Updating or Switching a Consumed OData Service {#updating}
+## 4 更新或切换消耗的OData服务 {#updating}
 
-### 4.1 Consuming from Service Endpoints{#consume-service-endpoints}
+### 4.1 从服务端点消耗{#consume-service-endpoints}
 
-When you add an external entity to your app, you are consuming the entity from a specific version of a service (the *service endpoint*), deployed to a given environment. The metadata file or contract for the service is located at this endpoint.
+当您向您的应用添加外部实体时， 您正在消耗一个特定版本的服务 ( *服务端*)中的实体，并部署到给定的环境。 服务的元数据文件或合约位于此端点。
 
-The same service, deployed to a different environment will be to a different service endpoint and this will be registered as a different asset in the Data Hub Catalog. In the following example, there are three endpoints for the **Sales 1.0.0** which is deployed to the production environment and the **Acceptance** and **Test** environments:
+相同的服务， 部署到不同环境的服务端点将是不同的服务端，这将作为不同的资产在数据枢纽目录中注册。 在下面的例子中， **销售1.0有三个终点。** 部署在生产环境和 **接受** 和 **测试** 环境：
 
 {{% image_container width="250" %}}![2 endpoints](attachments/consumed-odata-service/same-service-different-endpoints.png){{% /image_container %}}
 
-When you drag the **Customer** entity from **CustomerApi version 1.0.0** deployed to the **Acceptance** environment into your app, Studio Pro will retrieve the information it requires from the contract that is at that endpoint.
+当您拖动 **客户** 实体从 **CustomerApi 版本 1.0。** 部署到 **接受** 环境进入您的应用， Studio Pro 将从该端的合同中检索它所要求的信息。
 
-### 4.2 Semantic Numbering for Service Versions {#semantic}
+### 4.2 服务版本语义编号 {#semantic}
 
-It is important that the publishers of the services adopt a strict revision process for any changes they make to their published OData services that are consumed by other users.
+重要的是，这些服务的出版商对其出版的OData服务所做的任何修改都采用严格的修订程序，而这些服务是由其他用户消费的。
 
-We recommend that a strict versioning system, for example semantic numbering, is used when issuing updates to services. The service version should clearly indicate the level and severity of the changes that have been made when a service is updated and deployed according to the following guidelines.
+我们建议在发布服务更新时使用严格的版本系统，例如语义编号。 服务版本应明确说明根据下列准则更新和部署某项服务时所作修改的程度和严重程度。
 
-#### 4.2.1 Minor Service Updates
+#### 4.2.1 次要服务更新
 
-*Minor* service updates are, for example,  additional fields added to the service or new operations included which would not break any apps that consume the previous versions.
+*次要的* 服务更新 添加到服务或新操作中的字段不会破坏任何消耗先前版本的应用程序。
 
-If semantic numbering is used then a minor/non-breaking change to a service can be indicated by an increase in the decimal part of the version number. For example, 1.0.11, 1.0.12, 1.1, 1.2.
+如果使用语义编号, 则可以通过版本号的十进制部分的增加来表示对某项服务的小规模/非破碎更改。 例如，1.0.11、1.0.12、1.1、1.2。
 
-Minor service updates can be deployed to the same service endpoints, thereby ensuring that all consuming apps consume the latest version of the service.
+小服务更新可以部署到相同的服务端，从而确保所有消耗的应用都消耗最新版本的服务。
 
-#### 4.2.2 Major Service Updates
+#### 4.2.2 主要服务更新
 
-*Major* service updates are for example, when entities or attributes are removed, or input parameters are required, which would be incompatible for the consuming apps and result in the consuming app "breaking".
+*主要* 服务更新是实体或属性被删除时， 或者输入参数是必需的，这对消费应用是不兼容的，并导致消费应用“断开”。
 
-When a major change has been made to a published service we recommend that the service is deployed to a *different endpoint* with the new service version number clearly indicating that there has been a major change—with semantic numbering this would be an incremental increase  of a whole number.
+当对已发布的服务做出重大改动时，我们建议将该服务部署到 *不同的端点* ，新的服务版本号清楚地表明已经发生了重大变化——语义编号的这将是一个整体的递增数。
 
-In this case the new service should be registered in the Data Hub Catalog as a different service, and show up in the catalog as a separate asset. In the following example, there are 4 registered occurrences of the **OrderManagementService**:
+在这种情况下，新服务应作为不同的服务在数据中心目录中注册。 并作为单独资产在目录中显示。 在下面的示例中， **订单管理服务** 有4次注册发生：
 
 {{% image_container width="250" %}}![4 endpoints](attachments/consumed-odata-service/consume-major-service-update-version.png){{% /image_container %}}
 
-There is a major service update indicated by the change in the version number from **1.0.0** to **2.0.0**. Further, both major versions have also been deployed to **Acceptance** which also results in separately registered assets in the Data Hub Catalog at different endpoints.
+版本号从 **1.0.0** 更改为 **2.0.0** 显示了一个主要的服务更新。 此外， 这两个主要版本也已部署到 **接受** ，这也导致在不同的端点数据集目录中单独注册的资产。
 
 {{% alert type="info" %}}
-Entities of non-Mendix OData services are identified with a key of one or more fields. If the key fields are changed in an update of the service, this will also be seen as a breaking change.
-{{% /alert %}}
+非Mendix OData服务的实体被确定为一个或多个领域的钥匙。 如果在更新服务时更改关键字段，这也将被视为一种突破性的变化。
+{{% /报警 %}}
 
-### 4.3 Update or Switch
+### 4.3 更新或交换机
 
-When a change in the contract at a consumed endpoint is detected (possibly due to a minor change), or if the same named service is deployed with a major version number but to a different endpoint, the following options are available in the **Consumed OData Service** screen.
+当检测到某一消费端点的合同变更时（可能是因为稍有变动所致）； 或者如果相同的服务已经部署了一个主要版本号，但是到了另一个端点， 以下选项可在 **消耗的 OData 服务** 屏幕上获得。
 
-#### 4.3.1. Update
+#### 4.3.1. 更新
 
-The **Update** option is available when Studio Pro detects that that the contract at the Catalog endpoint is different to the one currently consumed in the app. If the **Update** option is selected, the new contract will be loaded in the App.
+当Studio Pro 检测到目录端的合同与应用当前消费的不同时， **更新** 选项是可用的。 如果选择 **更新** 个选项，新的合同将被加载到应用中。
 
-##### 4.3.1.1 App Pane and Data Hub Search Pane
+##### 4.3.1.1 应用程序面板和数据中心搜索面板
 
-In the **App** and the **Data Hub Search Pane** an update arrow will indicate if there is a different contract at the Catalog endpoint:
+在 **App** and **Data Hub Search Pane** 中，更新箭头将表明目录端是否有不同的合同：
 
-![update service app-pane](attachments/consumed-odata-service/project-pane-update-available.png)
+![更新服务应用面板](attachments/consumed-odata-service/project-pane-update-available.png)
 
-* The service version that is *currently consumed* is shown (in this example **1.0.0**)
-* Blue **Update** - click to open the **Update Service** box and update the contract to the new one. Studio Pro will retrieve the new contract at the Data Hub Catalog endpoint and this will be loaded in the app.
-* The list of entities in this new version in the Data Hub are shown, including the locally consumed entities which are marked with a green check-mark. These entities are, however, greyed out to indicate that they cannot be dragged into the domain model as the contract for the previous version is currently being consumed. The only option is to click **Update** to retrieve the updated OData Service.
+* *当前消耗的服务版本* 已经显示在这个示例 **1.0.0**
+* 蓝色 **更新** - 点击打开 **更新服务** 框并将合同更新到新合同。 Studio Pro 将在数据集目录端口检索新的合约，这将被加载到应用中。
+* 显示新版本数据集的实体列表， 包括标有绿色标记的当地消费的实体。 然而，这些实体是： 很灰心地表示它们不能拖入域模型，因为前一版本的合同目前正在消耗。 唯一的选项是点击 **更新** 以检索更新OData服务。
 
-##### 4.3.1.2 Update Service Dialog Box
+##### 4.3.1.2 更新服务对话框
 
-When you click **Update** on the **Consumed OData Service** document or the update icon in the **Data Hub** and **App** sections, the **Update** dialog box is displayed.
+当您点击 **更新** 在 **消耗的 OData 服务** 文档或更新图标 **数据中心** 和 **应用程序** 部分 显示 **更新** 对话框。
 
-![update service dhpane](attachments/consumed-odata-service/update-service-dialog-box.png)
+![更新 dhpane 服务](attachments/consumed-odata-service/update-service-dialog-box.png)
 
-The consumed OData service that is currently consumed in the app (**1.0.0**) is shown on the left, and you can click **Update** to retrieve the new contract from the Data Hub (**2.0.0**).
+当前在应用程序中消耗的 OData 服务(**1.0 )。**显示在左边， 您可以点击 **更新** 从数据中心检索新的合同 (**2)。 0**
 
-#### 4.3.2. Switch
+#### 4.3.2. 交换机
 
-When an OData service is published to a different endpoint or to a different environment this will mean that it will be registered as a different asset in the Data Hub Catalog.
+当OData服务发布到不同的端点或不同的环境时，这将意味着它将作为不同的资产在数据中心目录中登记。
 
-In the example given in the [Consuming from Service Endpoints](#consume-service-endpoints) section above, if you are consuming the service from the **Acceptance** environment, the Consumed OData service screen will display the **Switch** button to enable you to consume the same service from the **Production**.
+在上面服务端点</a> 部分给出的
+消耗示例中， 如果您正在从 **接受环境消耗服务** 环境， 消耗的OData服务屏幕将显示 **切换** 按钮以使您能够从 **生产**消耗相同的服务。</p> 
 
-#### 4.3.3 Switching Consumed Services
 
-A published OData services that is deployed to multiple environments or is published with major service updates (and therefore deployed to a different endpoint) will be shown as separate items in the search results of the **Data Hub** pane.
 
-In the following example, the consumed **Orders** version **1.0.0** deployed to **Test** environment is consumed in the app. However,  the same service is deployed to the **Acceptance** environment:
+#### 4.3.3 切换消费服务
 
-![major change environment](attachments/consumed-odata-service/consume-major-service-update.png)
+已发布的 OData 服务部署到多个环境或者发布时有主要的服务更新(因此部署到不同的端点)将作为单独的项目显示在 **数据枢纽** 面板的搜索结果中。
 
-To consume the service deployed to the **Acceptance environment**, follow these steps:
+在下面的例子中，消费的 **订单** 版本 **1.0.0** 部署到 **测试** 环境在应用中消费。 然而，在 **接受** 环境中也部署了同样的服务：
+
+![主要变化环境](attachments/consumed-odata-service/consume-major-service-update.png)
+
+要消耗部署到 **接受环境**的服务，请按照以下步骤：
 
 1. Click  **Update** > **Switch** on the **Consumed OData Service** document:
+   
+   ![主要变化环境](attachments/consumed-odata-service/update-switch.png)
 
-    ![major change environment](attachments/consumed-odata-service/update-switch.png)
+2. 在 **上切换** 对话框，下拉列表中的对话框。 选择您想要消耗的服务 (注意也检测到一个端点被部署到 **Product**)，然后点击 **切换**
+   
+   ![主要变化环境](attachments/consumed-odata-service/switch-environment.png)
 
-2. On the **Switch** dialog box, from the drop-down list, select the service that you want to consume from (note that an endpoint is also detected that is deployed to **Production**) and click **Switch**:
+3. 消费的服务是从新选定的环境中消费的。 在 **消耗的 OData 服务** 文档上的信息将显示更改的服务详细信息和 **数据中心** 窗格现在显示您正在从选定的环境中消耗：
+   
+   {{% image_container width="300" %}}![major change environment dh pane](attachments/consumed-odata-service/switch-new-environment.png){{% /image_container %}}
 
-    ![major change environment](attachments/consumed-odata-service/switch-environment.png)
 
-3. The consumed service is be consumed from the new selected environment. The information on the **Consumed OData Service** document will display the changed service details and the **Data Hub** pane now displays that you are consuming from the selected environment:
 
-    {{% image_container width="300" %}}![major change environment dh pane](attachments/consumed-odata-service/switch-new-environment.png){{% /image_container %}}
+## 5 阅读更多
 
-## 5 Read More
-
-* [Data Hub Pane](data-hub-pane)
-* [Consumed OData Service](consumed-odata-service)
+* [数据枢纽面板](data-hub-pane)
+* [消耗的 OData 服务](consumed-odata-service)
