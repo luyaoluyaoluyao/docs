@@ -1,11 +1,17 @@
 ---
 title: "XPath 操作符"
 parent: "xpat-conditions"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-operators.pdf)。
+{{% /报警 %}}
 
 ## 1 用于 XPath 查询约束
 
-以下操作者可以在 XPath 查询约束中使用，同时在 Moderr 和 Java 代码中使用：
+以下操作者可以在 Studio Pro 和 Java 代码中使用 XPath 查询约束：
 
 | 运算符     | 描述    | 示例                | 退货值                                                                   |
 | ------- | ----- | ----------------- | --------------------------------------------------------------------- |
