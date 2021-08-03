@@ -1,33 +1,29 @@
 ---
-title: "XPath Max"
+title: "XPath 最大"
 parent: "xpath-query-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-max.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`max()` 関数は、引数の最大値を返します。
 
-The `max()` function returns the maximum value of its argument.
+関数は引数として XPath クエリを必要とします。
 
-The function requires an XPath query as argument.
+関数は、集計するクエリ内の列を指定する必要があります。
 
-The function must specify a column in the query to aggregate.
+クエリは数値型の属性を指定する必要があります。
 
-The query must specify an attribute that has a numeric type.
+## 2つの例
 
-## 2 Examples
-
-This query returns the highest total price found in any object:
+このクエリは、任意のオブジェクトで見つかった合計金額の最高値を返します:
 
 ```java
 max(//Sales.Order/TotalPrice)
 ```
 
-This query returns the highest total price of an order placed by a customer named "Jansen":
+このクエリは、「Jansen」という名前の顧客によって発注された注文の最高合計価格を返します。
 
 ```java
 max(//Sales.Order[Sales.Customer_Order/Sales.Customer/Name = 'Jansen']/TotalPrice)
