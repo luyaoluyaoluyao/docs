@@ -1,53 +1,59 @@
 ---
 title: "使用 Eclipse"
 category: "Java 程序"
-tags:
-  - "studio pro"
 ---
 
-## 1 导言
 
-您可以使用 Eclipse 在Mendix 应用程序中写入和调试 Java 操作。 当部署Mendix 模型时，生成一个 Eclipse 项目文件、类路径文件和启动配置。
+使用 Eclipse 来写入和调试Mendix 项目中的 Java 操作非常容易。 当部署Mendix 模型时，生成一个 Eclipse 项目文件、类路径文件和启动配置。
 
-## 2 设置 Eclipse
+在Mendix中，所有文本都保存在UTF-8编码中。 首先请确保你的源代码也保存在UTF-8\中。 这可以通过以下窗口菜单和选择首选项来实现，然后选择下面屏幕截图中显示的 UTF-8。
 
-在Mendix中，所有文本都保存在UTF-8编码中。 为了确保您的源代码也保存在UTF-8中，请执行以下操作：
+{{% alert type="info" %}}
 
-1.  选择 **窗口 > 首选项**。
-2.  在新菜单窗口中选择 **工作区**。
-3.  选择 **UTF-8**:
+![](attachments/819203/918120.png) 设置 UTF-8 编码。
 
-    ![设置 UTF-8 编码](attachments/java-programming/eclipse-utf8-encoding.png)
+{{% /报警 %}}
 
 您还应该安装并选择一个 Java 开发包 (JDK)。
 
-![选择一个默认 JDK](attachments/java-programming/eclipse-jdk.png)
+{{% alert type="info" %}}
 
-请务必添加 JDK 并在 Eclipse 中选择它作为默认值。
+![](attachments/819203/918186.png) 选择默认JDK。
 
-## 3 添加Mendix 应用程序
+{{% /报警 %}}
 
-要将 Mendix 应用程序添加到 Eclipse，请执行以下操作：
+请确保您在 Eclipse 中添加一个 JDK 并选择它作为默认值。
 
-1.  选择 **文件 > 导入**
-2.  打开 **常规** 文件夹，选择 **现有项目到工作区** 并选择 **下一个 >**：
+要将 Mendix 项目添加到 Eclipse，您可以执行这些步骤：
 
-    ![导入现有项目](attachments/java-programming/eclipse-select-import.png)
+1. 打开 **文件** 菜单并点击 **导入**。
+2. 打开 **常规** 文件夹并选择 **现有项目到工作区** 然后点击 **下一个**。
+3. 使用选项 **选择根目录**，浏览您的 Mendix 项目文件夹并点击 **完成**。
 
-3.  使用选项 **选择根目录**，浏览您的 Mendix 应用文件夹并选择 **完成**：
+{{% alert type="info" %}}
 
-    ![选择根目录](attachments/java-programming/import-eclipse-project.png)
+![](attachments/819203/917580.png) 导入现有项目。
 
-## 4 启动Mendix 应用程序
+{{% /警示%}}!{% alert type="info" %}}
 
-为了启动该项目，采取以下行动：
+![](attachments/819203/917527.png) 导入现有项目步骤2。
 
-1.  选择 **运行 > 运行配置...** 或 **运行 > 调试配置...**, 取决于你想如何启动应用程序。
-2.  选择 **Java 应用程序** 和由Mendix Studio Pro生成的启动配置将会出现。
-3.  选择 **运行** (或 **调试**) 来启动应用程序：
+{{% /报警 %}}
 
-    ![启动配置](attachments/java-programming/eclipse-run-configuration.png)
+现在你可以像通常那样愉快地开始编辑你的 Java 动作。
 
-启动应用程序后， **M2EE 管理控制台** 将会出现。 这是您通常在 Mendix Studio Pro中看到的同一个控制台，如果您将从那里运行该应用程序。 您可以关闭控制台来阻止您的应用程序。
+要真正启动该项目，请根据您想要如何运行该项目，前往'调试配置'或'运行配置'。 在左侧菜单上选择 'Java 应用程序' 菜单，您将看到由 Mendix 桌面模型生成的启动配置。 只需点击右边的“调试”或“运行”即可启动应用程序。
 
-![M2EE 管理控制台](attachments/java-programming/eclipse-debug-log.png)
+{{% alert type="info" %}}
+
+![](attachments/819203/917586.png) 查找您的启动配置。
+
+{{% /报警 %}}
+
+启动应用程序后，您将看到M2EE 管理控制台弹出窗口。 这是一个与您通常在 Mendix 桌面模型中看到的相同的控制台，如果您要从那里运行这个项目。 您可以关闭控制台来阻止您的应用程序。
+
+{{% alert type="info" %}}
+
+![](attachments/819203/917582.png) M2EE 管理控制台。
+
+{{% /报警 %}}
