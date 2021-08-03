@@ -17,7 +17,7 @@ tags:
 * [ロールと権限](settings-security) - **ロールと権限** 経由でアプリとそのドキュメントへのアクセスを管理できます
 * [ウィジェットの概要](settings-widget-overview) - アプリのMendix Marketplace ウィジェットとローカルウィジェットに関する情報が含まれています
 
-**Settings**を開くには、左のメニューバーの歯車アイコンをクリックします。
+**設定**を開くには、左メニューバーの歯車アイコンをクリックします。
 
 ![](attachments/settings/settings-icon.png)
 
