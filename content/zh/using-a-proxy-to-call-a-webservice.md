@@ -1,47 +1,41 @@
 ---
-title: "Using a Proxy to Call a Web Service"
-parent: "consumed-web-services"
+title: "使用代理服务器来调用网络服务"
+parent: "已消耗的网络服务"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/using-a-proxy-to-call-a-webservice.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+在某些情况下，你被困在防火墙后，因此无法直接拨打网络服务。 此文档向您展示如何配置 JVM 来使用代理服务器来呼叫此类服务。
 
-In some cases, you're stuck behind a firewall, and thus unable to call a webservice directly. This document shows you how to configure the JVM to use a proxy to call such services.
+## 2 代理服务器 & 代理端口
 
-## 2 Proxy host and proxy port
-
-There are two JVM parameters (system properties) that specify which proxy server to use. These are http.proxyHost and http.proxyPort You can specify these in your .m2eerc under JVM parameters:
+有两个JVM参数 (系统属性) 指定使用哪个代理服务器。 这些是 http.proxyHost 和 http.proxyPort 。您可以在 JVM 参数下在 .m2eerc 中指定这些参数：
 
 ```java
 ...
-# custom java options, like -Xmx256m or -Djava.foo=bar
- javaopts: [ ..., "-Dhttp.proxyHost=myproxyserver.com", "-Dhttp.proxyPort=3128"]
+# 自定义的 java 选项，例如-Xmx256m 或 -Djava.foo=bar
+ javaops: [ ..., "-Dhttp.proxyHost=myproxyserver.com", "-Dhttp.proxyPort=3128"]
 ...
 
 ```
 
-or directly (when calling from, for instance, eclipse):
+或直接(例如从省略调用时)：
 
 ```java
--Dhttp.proxyHost=myproxyserver.com  -Dhttp.proxyPort=3128
+-Dhttp.proxyHost=myproxyserver.com -Dhttp.proxyPort=3128
 
 ```
 
-## 3 Proxy user and password
+## 3 代理用户 & 密码
 
-Some proxies require authentication. To specify the user and password, simply pass two JVM parameters:
+有些代理需要身份验证。 要指定用户和密码，只需通过两个JVM参数：
 
 ```java
--Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
+-Dhttp.proxyUser=myname -Dhttp.proxyPassword=mypassword
 ```
 
 ## 4 SSL
 
-You can also connect while using a secure sockets layer (ie https). To configure the proxy, you need to specify **different** proxy settings to connect. These settings are called https.proxyHost and https.proxyPort. In addition, you need to import the ssl certificate of the proxy server into your java keystore. More info can be found on the [Oracle website](http://download.oracle.com/javaee/1.4/tutorial/doc/Security6.html)
+您也可以在使用安全套接字层 (ie https)时连接。 要配置代理，您需要指定 **不同的** 代理设置才能连接。 这些设置叫做https.proxyHost和https.proxyPort。 此外，您需要将代理服务器的 ssl 证书导入到您的 java 密钥店。 更多信息可以在 [Oracle 网站](http://download.oracle.com/javaee/1.4/tutorial/doc/Security6.html) 上找到
 
-## 5 References
-
-[Oracle documentation on proxies](http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html)
+欲了解更多信息，请查看代理服务器上的 [Oracle 文档](http://download.oracle.com/javase/6/docs/technotes/guides/net/proxies.html)。
