@@ -1,8 +1,6 @@
 ---
-title: "XPath 错误"
+title: "XPath false"
 parent: "xpate-constraint-function"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
