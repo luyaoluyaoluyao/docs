@@ -1,22 +1,55 @@
 ---
 title: "Expressions"
-parent: "common-elements"
-aliases:
-  - /refguide7/microflow-expressions.html
+parent: "application-logic"
+menu_order: 100
 description: "Describes the expressions that can be used in Mendix for a variety of purposes (for example, to change a member of an object based on logic)."
+tags:
+  - "studio pro"
+  - "expressions"
+  - "microflow expressions"
+aliases:
+  - /refguide8/microflow-expressions.html
 ---
 
-Expressions can for example be used to change a member of an object based on logic. Variables in the microflow can be called in an expression by inserting the name of the variable and adding a dollar sign. E.g. _$customer_ refers to the variable _customer_. Expressions can be used recursively, for example, _1 + 2 + 3_. Attributes and associations of object variables are accessed using a slash, for example, _$customer/Name_, _$customer/CRM.Customer_Order_.
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/expressions.pdf).
+{{% /alert %}}
 
-To illustrate this imagine an object with variable name _package_ with two attributes: _weight_ (Float) and _shippingCosts _(Decimal). Rule: if the weight of a package is less than one kilogram there are no shipping costs. Otherwise the shipping costs are €5.00\. The expression for changing attribute _shippingCosts_ is: _if $package/weight < 1.00 then 0.00 else 5.00_.
+## 1 Introduction
 
-An overview of the possibilities with expressions can be found below.
+Expressions changes a value based on a function or combination of functions.
 
-### [Unary Expressions](unary-expressions):
+Named items in the microflow (for example, objects, lists, or variables) can be called in an expression by inserting the name of the item and adding a dollar sign (for example,  `$customer` could refer to an object named `customer`).
+
+Attributes and associations of objects are accessed using a slash (for example, the **Name** attribute of the customer object is referred to as `$customer/Name`, and the **CRM.Customer_Order** association of the customer object is referred to as `$customer/CRM.Customer_Order`).
+
+Starting from Studio Pro [8.10.0](/releasenotes/studio-pro/8.10#8100), attributes of associated objects can be accessed using multiple slashes (for example, the **Number** attribute of a single associated **CRM.Order** is referred to as `$customer/CRM.Customer_Order/CRM.Order/Number`).
+
+You can combine functions in an expression. In this case, you can use brackets to determine the priority and associativity of calculations. For example, the **SellingPrice** is being calculated based on the default **Price** and **Discount** attributes:
+
+```
+$CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
+```
+
+Arithmetic functions (subtraction, dividing, and multiplying) are being combined here.
+
+### 1.1 Example
+
+For example, you have an object called **package** with two attributes: `weight` (decimal) and `shippingCosts` (decimal). If the weight of a package is less than one kilogram, there are no shipping costs. Otherwise, the shipping costs are €5.00. The expression for changing the `shippingCosts` attribute is:
+
+```
+if $package/weight < 1.00 then 0.00 else 5.00`
+```
+
+### 1.2 Regular Expressions
+
+[Regular Expression](regular-expressions) resource documents cannot be used in expressions. However, the format of regular expressions, sub-expressions, and quantifiers used in regular expression strings is the same as the ones described in the [Expression](regular-expressions#expression) section of *Regular Expressions*.
+
+## 2 Unary Expressions
 
 * [Unary minus ( - )](unary-expressions)
 
-### [Arithmetic Expressions](arithmetic-expressions):
+## 3 Arithmetic Expressions
 
 * [Multiplication ( * )](arithmetic-expressions)
 * [Division ( div or : )](arithmetic-expressions)
@@ -24,7 +57,7 @@ An overview of the possibilities with expressions can be found below.
 * [Addition ( + )](arithmetic-expressions)
 * [Subtraction ( - )](arithmetic-expressions)
 
-### [Relational Expressions](relational-expressions):
+## 4 Relational Expressions
 
 * [Less than ( < )](relational-expressions)
 * [Greater than ( > )](relational-expressions)
@@ -33,117 +66,119 @@ An overview of the possibilities with expressions can be found below.
 * [Is equal to ( = )](relational-expressions)
 * [Is not equal to ( != )](relational-expressions)
 
-### [Special checks](special-checks)
+## 5 Special Checks
 
 * [Checking for an empty object](special-checks)
 * [Checking for an empty object member](special-checks)
-* [`isNew`](special-checks) - Checking whether an object is new
+* [`isNew`](special-checks) – checks whether an object is new
 
-### [Boolean expressions](boolean-expressions)
+## 6 Boolean Expressions
 
 * [and](boolean-expressions)
 * [or](boolean-expressions)
 * [not](boolean-expressions)
 
-### [If expressions](if-expressions)
+## 7 If Expressions
 
-### [Mathematical function calls](mathematical-function-calls)
+* [if](if-expressions) – performs a conditional action
 
-* [`max`](mathematical-function-calls) - Maximum of a list of numbers
-* [`min`](mathematical-function-calls) - Minimum of a list of numbers
-* [`round`](mathematical-function-calls) - Rounding a floating-point number, optionally to a specified precision
-* [`random`](mathematical-function-calls) - Random number generation
-* [`floor`](mathematical-function-calls) - Rounding a floating-point number down
-* [`ceil`](mathematical-function-calls) - Rounding a floating-point number up
-* [`pow`](mathematical-function-calls) - Exponentiation
-* [`abs`](mathematical-function-calls) - Absolute value
-* [`floatsEqual` `/ currenciesEqual`](mathematical-function-calls) - Equality of floats/currencies for a certain precision (deprecated)
+## 8 Mathematical Function Calls
 
-### [String function calls](string-function-calls)
+* [`max`](mathematical-function-calls) – the maximum of a list of numbers
+* [`min`](mathematical-function-calls) – the minimum of a list of numbers
+* [`round`](mathematical-function-calls) – the rounding of a floating-point number, optionally to a specified precision
+* [`random`](mathematical-function-calls) – random number generation
+* [`floor`](mathematical-function-calls) – the rounding of a floating-point number down
+* [`ceil`](mathematical-function-calls) – the rounding of a floating-point number up
+* [`pow`](mathematical-function-calls) – the exponentiation
+* [`abs`](mathematical-function-calls) – the absolute value
 
-* [`toUpperCase`](string-function-calls) - Convert string to uppercase
-* [`toLowerCase`](string-function-calls) - Convert string to lowercase
-* [`length`](string-function-calls) - String length
-* [`substring`](string-function-calls) - Get part of a string
-* [`find`](string-function-calls) - Get substring position
-* [`findLast`](string-function-calls) - Get last substring position
-* [`contains`](string-function-calls) - Contains substring
-* [`startsWith`](string-function-calls)  - Determine whether a string starts with the specified substring
-* [`endsWith`](string-function-calls)  - Determine whether a string ends with the specified substring
-* [`trim`](string-function-calls) - Remove leading and trailing whitespace
-* [`isMatch`](string-function-calls) - Match regular expression
-* [`replaceAll`](string-function-calls) - Replace occurrences of substring
-* [`replaceFirst`](string-function-calls) - Replace first occurrence of substring
-* [String concatenation ( + )](string-function-calls) - Concatenate strings
-* [`urlEncode`](string-function-calls) - Convert a string to be used in a URL
-* [`urlDecode`](string-function-calls) - Convert a string back from a URL
+## 9 String Function Calls
 
-### [Date creation](date-creation)
+* [`toUpperCase`](string-function-calls) – converts the string to upper-case
+* [`toLowerCase`](string-function-calls) – converts the string to lower-case
+* [`length`](string-function-calls) – the string length
+* [`substring`](string-function-calls) – gets a part of a string
+* [`find`](string-function-calls) – gets a sub-string position
+* [`findLast`](string-function-calls) – gets the last sub-string position
+* [`contains`](string-function-calls) – contains the sub-string
+* [`startsWith`](string-function-calls)  – determines whether a string starts with the specified sub-string
+* [`endsWith`](string-function-calls) – determines whether a string ends with the specified sub-string
+* [`trim`](string-function-calls) – removes the leading and trailing whitespace
+* [`isMatch`](string-function-calls) – matches a regular expression
+* [`replaceAll`](string-function-calls) – replaces the occurrences of a sub-string
+* [`replaceFirst`](string-function-calls) – replaces the first occurrence of a sub-string
+* [`String concatenation ( + )`](string-function-calls) – concatenates strings
+* [`urlEncode`](string-function-calls) – converts a string to be used in a URL
+* [`urlDecode`](string-function-calls) – converts a string back from a URL
 
-* [`dateTime`](date-creation) - Creating a date value using the server's calendar
-* [`dateTimeUTC`](date-creation) - Creating a date value using the UTC calendar
+## 10 Date Creation
 
-### [Between date function calls](between-date-function-calls)
+* [`dateTime`](date-creation) – creating a date value using the server's calendar
+* [`dateTimeUTC`](date-creation) – creating a date value using the UTC calendar
 
-* [`millisecondsBetween`](between-date-function-calls) - Milliseconds between two dates
-* [`secondsBetween`](between-date-function-calls) - Seconds between two dates
-* [`minutesBetween`](between-date-function-calls) - Minutes between two dates
-* [`hoursBetween`](between-date-function-calls) - Hours between two dates
-* [`daysBetween`](between-date-function-calls) - Days between two dates
-* [`weeksBetween`](between-date-function-calls) - Weeks between two dates
+## 11 Between Date Function Calls
 
-### [Add date function calls](add-date-function-calls)
+* [`millisecondsBetween`](between-date-function-calls) – the milliseconds between two dates
+* [`secondsBetween`](between-date-function-calls) – the seconds between two dates
+* [`minutesBetween`](between-date-function-calls) – the minutes between two dates
+* [`hoursBetween`](between-date-function-calls) – the hours between two dates
+* [`daysBetween`](between-date-function-calls) – the days between two dates
+* [`weeksBetween`](between-date-function-calls) – the weeks between two dates
+* [`calendarMonthsBetween`](between-date-function-calls) - the months between two dates
+* [`calendarYearsBetween`](between-date-function-calls) - the years between two dates
 
-* [`addMilliseconds`](add-date-function-calls) - Add milliseconds to a date
-* [`addSeconds`](add-date-function-calls) - Add seconds to a date
-* [`addMinutes`](add-date-function-calls) - Add minutes to a date
-* [`addHours`](add-date-function-calls) - Add hours to a date
-* [`addDays`](add-date-function-calls) - Add days to a date
-* [`addDaysUTC`](add-date-function-calls) - Add days to a date using the UTC calendar
-* [`addWeeks`](add-date-function-calls) - Add weeks to a date
-* [`addWeeksUTC`](add-date-function-calls) - Add weeks to a date using the UTC calendar
-* [`addMonths`](add-date-function-calls) - Add months to a date
-* [`addMonthsUTC`](add-date-function-calls) - Add months to a date using the UTC calendar
-* [`addYears`](add-date-function-calls) - Add years to a date
-* [`addYearsUTC`](add-date-function-calls) - Add years to a date using the UTC calendar
+## 12 Add Date Function Calls
 
-### [Trim to date](trim-to-date)
+* [`addMilliseconds`](add-date-function-calls) – adds milliseconds to a date
+* [`addSeconds`](add-date-function-calls) – adds seconds to a date
+* [`addMinutes`](add-date-function-calls) – adds minutes to a date
+* [`addHours`](add-date-function-calls) – adds hours to a date
+* [`addDays`](add-date-function-calls) – adds days to a date
+* [`addDaysUTC`](add-date-function-calls) – adds days to a date using the UTC calendar
+* [`addWeeks`](add-date-function-calls) – adds weeks to a date
+* [`addWeeksUTC`](add-date-function-calls) – adds weeks to a date using the UTC calendar
+* [`addMonths`](add-date-function-calls) – adds months to a date
+* [`addMonthsUTC`](add-date-function-calls) – adds months to a date using the UTC calendar
+* [`addYears`](add-date-function-calls) – adds years to a date
+* [`addYearsUTC`](add-date-function-calls) – adds years to a date using the UTC calendar
 
-* [`trimToSeconds`](trim-to-date) - Trim to seconds
-* [`trimToMinutes`](trim-to-date) - Trim to minutes
-* [`trimToHours`](trim-to-date) - Trim to hours
-* [`trimToHoursUTC`](trim-to-date) - Trim to hours using the UTC calendar
-* [`trimToDays`](trim-to-date) - Trim to days
-* [`trimToDaysUTC`](trim-to-date) - Trim to days using the UTC calendar
-* [`trimToMonths`](trim-to-date) - Trim to months
-* [`trimToMonthsUTC`](trim-to-date) - Trim to months using the UTC calendar
-* [`trimToYears`](trim-to-date) - Trim to years
-* [`trimToYearsUTC`](trim-to-date) - Trim to years using the UTC calendar
+## 13 Trim to Date
 
-### [To string](to-string)
+* [`trimToSeconds`](trim-to-date) – trims to seconds
+* [`trimToMinutes`](trim-to-date) – trims to minutes
+* [`trimToHours`](trim-to-date) – trims to hours
+* [`trimToHoursUTC`](trim-to-date) – trims to hours using the UTC calendar
+* [`trimToDays`](trim-to-date) – trims to days
+* [`trimToDaysUTC`](trim-to-date) – trims to days using the UTC calendar
+* [`trimToMonths`](trim-to-date) – trims to months
+* [`trimToMonthsUTC`](trim-to-date) – trims to months using the UTC calendar
+* [`trimToYears`](trim-to-date) – trims to years
+* [`trimToYearsUTC`](trim-to-date) – trims to years using the UTC calendar
 
-### [To float](to-float) (deprecated)
+## 14 To String
 
-### [Parse integer](parse-integer)
+See [To String](to-string) for details.
 
-### [Parse/format float function calls](parse-and-format-float-function-calls) (deprecated)
+## 15 Parse Integer
 
-* [`parseFloat`](parse-and-format-float-function-calls) - Convert a string to a float
-* [`formatFloat`](parse-and-format-float-function-calls) - Convert a float to a string
+See [Parse Integer](parse-integer) for details.
 
-### [Parse/format decimal function calls](parse-and-format-decimal-function-calls)
+## 16 Parse & Format Decimal Function Calls
 
-* [`parseDecimal`](parse-and-format-decimal-function-calls)  - Convert a string to a decimal
-* [`formatDecimal`](parse-and-format-decimal-function-calls)  - Convert a decimal to a string
+* [`parseDecimal`](parse-and-format-decimal-function-calls) – converts a string to a decimal
+* [`formatDecimal`](parse-and-format-decimal-function-calls) – converts a decimal to a string
 
-### [Parse/format date function calls](parse-and-format-date-function-calls)
+## 17 Parse & Format Date Function Calls
 
-* [`parseDateTime[UTC]`](parse-and-format-date-function-calls) - Convert a string to a date value
-* [`formatDateTime[UTC]`](parse-and-format-date-function-calls) - Convert a date value to a string
-* [`formatTime[UTC]`](parse-and-format-date-function-calls) - Convert the time part of a date value to a string
-* [`formatDate[UTC]`](parse-and-format-date-function-calls) - Convert the date part of a date value to a string
+* [`parseDateTime[UTC]`](parse-and-format-date-function-calls) – converts a string to a date value
+* [`formatDateTime[UTC]`](parse-and-format-date-function-calls) – converts a date value to a string
+* [`formatTime[UTC]`](parse-and-format-date-function-calls) – converts the time part of a date value to a string
+* [`formatDate[UTC]`](parse-and-format-date-function-calls) – converts the date part of a date value to a string
+* [`dateTimeToEpoch`](parse-and-format-date-function-calls) – converts a date to a long
+* [`epochToDateTime`](parse-and-format-date-function-calls) – converts a long to a date
 
-### [Enumerations in expressions](enumerations-in-expressions)
+## 18 Enumerations in Expressions
 
-* [`getCaption`](enumerations-in-expressions) - Get caption of enumeration value in current language
-* [`getKey`](enumerations-in-expressions) - Get technical name of enumeration value
+* [`getCaption`](enumerations-in-expressions) – gets the caption of an enumeration value in current language
+* [`getKey`](enumerations-in-expressions) – gets the technical name of an enumeration value
