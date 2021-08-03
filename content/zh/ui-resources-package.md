@@ -1,43 +1,39 @@
 ---
-title: "UI Resources Package"
-parent: "modules"
+title: "界面资源包"
+parent: "模块"
 tags:
   - "studio pro"
-  - "ui resources"
+  - "ui 资源"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/ui-resources-package.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+UI 资源包是一个指定的 [模块，](modules) 用一个绿色图标在App Explorer中标明。 这决定了应用的外观和感觉。 它这样做有两种不同的方式。 首先，软件包为应用程序提供创建精心设计所需的所有页面文档， 前后一致的页面，例如 [页面模板](page-templates) 和 [建筑块](building-block)。 第二，该包包含主题信息，用户可以轻松地切换与所附页面文件相辅相成的主题。
 
-The UI resources package is a specific [module](modules) marked by a green icon in the Project Explorer, that determines the projects look and feel. It does this in two distinct ways. First, the package supplies the project with all the page documents required to create well-designed, consistent pages, such as [page templates](page-templates) and [building blocks](building-block). Second, the package contains theme information, which allows users to easily switch out themes that complement the accompanying page documents.
+哪个模块被设置为用户界面资源包，由 **用户界面资源包** 设置在 **主题** 选项卡中 [应用设置设置](project-settings) 如果导入新的 UI 资源包，此设置将自动更新。
 
-Which module is set as the UI resources package is governed by the **UI resources package** setting in the **Theme** tab of the [project settings](project-settings). This setting will automatically be updated if a new UI resources package is imported.
+如果模块的内容仅限于页面模板和构件块，则界面资源包作为易于共享的设计实用源的核心概念就能发挥最佳作用。 增加页数、微量流动和实体是可能的，可能是有用的。 但它也迫使用户使用可能不适合其特定应用的静态资源。 因此，当他们不可避免地感到需要调整这些资源以满足他们的需要时， 软件包不再容易被原来的设计师更新和维护。
 
-The core concept of a UI resources package as an easily shared source of design utilities works best if the contents of the module is restricted to page templates and building blocks. Adding pages, microflows, and entities is possible and can be useful, but it also forces users to use static resources that may not be ideally suited to their specific application. Consequently, when they inevitably feel the need to tweak those resources to their requirements, the package can no longer be easily updated and maintained by the original designer.
+## 2个主题文件夹
 
-## 2 Theme Folder
+当一个UI资源包被导入到应用中，它将自动将应用程序的 **主题** 文件夹用自己的主题文件覆盖。 将创建一个 **theme_old** 文件夹来备份上一个主题。 这意味着在软件包中添加到模板的任何类和样式都可以完全被主题使用，而不必担心当您将模板导入到新应用程序时出现的样式故障。 只要模板或构建块仍然留在相同的UI资源包中，它就会看到它的设计方式。
 
-When a UI resources package is imported into the project, it will automatically overwrite the project's **theme** folder with its own theme files. A **theme_old** folder will be created to back up the previous theme. This means that any classes and styles added to templates in the package can be capitalized on fully by the theme without having to worry about the styling breaking when you import the template into a new project. As long as the template or building block remains in the same UI resources package, it will look exactly the way it was designed.
+注意只有在从外部来源导入新的 UI 资源包时才会替换主题文件夹， 例如一个 *。 pk* 或来自市场。 选择一个不同的现有模块作为界面资源包将不会影响主题文件夹。
 
-Note that the replacement of the theme folder only occurs when importing a new UI resources package from an external source, such as an *.mpk* or the Marketplace. Selecting a different existing module as the UI resources package will not affect the theme folder.
+## 3 页模板和建筑块
 
-## 3 Page Templates and Building Blocks
+虽然页面模板和建筑块可以添加到任何模块，但将它们存储在用户界面资源包会带来一些好处。
 
-Although page templates and building blocks can be added to any module, storing them in the UI resources package confers several benefits.
+在包内，为显示页面模板和构件，顶层文件夹被当作类别处理。 将页面模板添加到UI资源包的 **控制面板** 文件夹。 和 a **仪表板** 类别将自动出现在 **创建页面** 包含模板的向导中。
 
-Within the package, top-level folders are treated as categories for the purposes of displaying both page templates and building blocks. Add a page template to the **Dashboard** folder of the UI resources package, and a **Dashboard** category will automatically appear in the **Create Page** wizard containing the template.
+为了方便排序，UI资源包文件夹名称可以用数字前缀。 任何以数字开头的文件夹名称，后面有一段时间和空格，将以数字(而不是字母)顺序出现在创建页面向导中。 前缀将被省略。 例如，名为 *10的文件夹。 管理* 和 *9。 银行* 将显示为 *Banking, Administration*.
 
-To facilitate sorting, UI resources package folder names can be prefixed with a number. Any folder names starting with a number followed by a period and a space will appear in the Create Page wizard in numeric (rather than alphabetic) order. The prefix will be omitted. For example, folders with the names *10. Administration* and *9. Banking* will appear as *Banking, Administration*.
+对于Studio Pro 的 **建筑块** 标签 **工具箱** ，同样的原则也适用于建筑块。 在UI资源包之外的模块中发现的任何构件块或页面模板将出现在通用的 **本地** 类别中。 它总是在顶部排序。
 
-The same principles apply to building blocks with regards to the **Building blocks** tab of Studio Pro **Toolbox**. Any building blocks or page templates found in modules other than the UI resources package will appear in the generic **Local** category, which is always sorted on top.
+此外，在界面资源包中添加页面模板和建筑块可以确保它们与应用的主题保持同步。 即使将它们导入另一个应用程序。
 
-Additionally, adding page templates and building blocks to the UI resources package ensures that they remain in sync with the project's theme, even when importing them into a different project.
+## 4 导入和导出
 
-## 4 Importing and Exporting
+用户界面资源包可以以与正常模块相同的方式导出：右键点击 **App Explorer** 中的软件包，并选择 **导出用户界面资源包**。 与模块的其他文档一道，应用目录中的 **主题** 文件夹将自动与软件包一起导出。 此文件夹将准备插入软件包将导入的任何应用中。 此函数仅适用于标记为 **UI 资源包** 的绿色模块。 导出一个不同的模块作为一个界面资源包。 **UI 资源包** 设置必须在导出前手动设置中设置为该模块。
 
-UI resources packages can be exported in the same manner as a normal module: right-click the package in the **Project Explorer** and select **Export UI resources package**. Along with the rest of the module's documents, the **theme** folder in the project directory will automatically be exported along with the package. This folder will be ready to be inserted into any projects the package is imported into in the future. This function is only available for the green module marked as the **UI resources package**. To export a different module as a UI resources package, the **UI resources package** setting must be manually set to that module in the project settings before export.
-
-When a UI resources packages is imported as a module, it will automatically update the project with a new theme folder and designate itself the project's new UI resources package.
+当一个用户界面资源包作为模块导入时， 它将自动更新应用程序的主题文件夹，并指定它自己的应用程序新的UI资源包。
