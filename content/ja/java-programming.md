@@ -1,13 +1,27 @@
 ---
 title: "Javaプログラミング"
 description: "Mendix Javaライブラリを使用し、Mendix Javaアクションを作成するための環境としてEclipseを使用する方法を説明します。"
+tags:
+  - "studio pro"
 ---
 
 ## 1つの紹介
 
 Javaアクションを使用すると、マイクロフローにこの機能を実装するのが難しい状況でアプリケーションの機能を拡張できます。
 
-ModelerでのJavaアクションについては、 [Java Actions](java-actions) を参照してください。
+MendixでJavaプログラミングを深く掘り下げてみるには、このビデオをご覧ください。
+
+<img
+  style="width: 100%; margin: auto; display: block;"
+  class="vidyard-player-embed"
+  src="https://videoshare.mendix.com/watch/aDNqicHTbTMAqYkQvvxAjc?.jpg"
+  data-uuid="aDNqicHTbTMAqYkQvvxAjc?"
+  data-v="4"
+  data-type="inline"
+ />
+
+Studio Pro で Java アクションについての詳細は、 [Java アクション](java-actions) を参照してください。
+
 
 ## 2 Javaアクションの.javaファイルにコードを書く
 
@@ -22,7 +36,7 @@ Javaアクションの *Java* ファイルでは、マーカー間でJavaコー�
 
 {{% alert type="info" %}}
 
-![](attachments/819203/917584.png) Mendix Desktop Modelerによって生成されたJavaアクション。 この Java アクションには入力パラメータがなく、ブール値を `true` で返します。
+![](attachments/java-programming/917584.png) Mendix Studio Proによって生成されたJavaアクション。 この Java アクションには入力パラメータがなく、ブール値を `true` で返します。
 
 {{% /alert %}}
 
@@ -36,23 +50,31 @@ Javaアクション用に記述するJavaコードでは、Mendix Javaライブ�
 
 {{% alert type="info" %}}
 Javadoc は
-apidocs.rnd.mendix にあります。 om [](http://apidocs.rnd.mendix.com/7/runtime/index.html) または Mendix をインストールしたディレクトリに (例えば、 *C:\Program Files\Mendix\7.0.0\runtime\javado*). </p> 
+apidocs.rnd.mendix にあります。 om [](http://apidocs.rnd.mendix.com/8/runtime/index.html) or in the directory which installed Mendix (example, *C:\Program Files\Mendix\8.0.0\runtime\javadoc*). </p> 
 
 {{% /alert %}}
 
 プロジェクトを Eclipse にインポートすると、このライブラリは自動的にライブラリに追加され、 *mxruntime.jar* と呼ばれます。
 
-使用方法や例については、 [Java API の使い方](/howto7/logic-business-rules/java-api-tutorial) を参照してください。
+使用方法や例については、 [Java API の使い方](/howto8/logic-business-rules/java-api-tutorial) を参照してください。
 
 
 
-## 4 Mendix Javaアクションを記述するための環境としてEclipseを使う
+## 4 HTTP接続を開く
+
+(Mendix Cloudで使用されているものを含む)ほとんどのクラウドインフラストラクチャサービスは、数分間トラフィックがない場合、自動的にHTTP接続を閉じます。 活動がまだ反応を待っていてもね これは、アクティビティがWebサービスを呼び出す場合、応答に長い時間がかかることを意味します。 これを認識せずに接続が切断される可能性があります。あなたのアクティビティは応答を受け取れません。 データが届くのを無期限に待つのではなく立ち往生します
+
+そのため、カスタムJavaコードで接続のタイムアウトを常に設定する必要があります。
+
+
+
+## 5 Mendix Javaアクションを書くための環境としてEclipseを使う
 
 このトピックの詳細については、 [Eclipse の使用](using-eclipse) を参照してください。
 
 
 
-## このカテゴリ内の5つのメインドキュメント
+## このカテゴリ内の6つのメインドキュメント
 
-* [トラブルシューティング](トラブルシューティング)
-* [Eclipse を使用する](using-eclipse)
+* [トラブルシューティング](troubleshooting) - 問題のあるJARファイルと回避策を提示します
+* [Eclipseを使用する](using-eclipse) – MendixアプリでJavaアクションを書き出してデバッグする方法を説明します。
