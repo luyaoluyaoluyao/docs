@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/sidebar-toggle-button.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 {{% alert type="info" %}}Sidebar toggles are not supported on native mobile pages, as scroll container regions are not supported.{{% /alert %}}
@@ -40,11 +36,11 @@ Sidebar toggle properties consist of the following sections:
 
 ### 2.1 Common Section{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 General Section {#general}
 
@@ -60,9 +56,9 @@ The **Tooltip** property determines a text end-users will see in the tooltip tha
 
 The **Icon** property determines the icon that will be shown in front of the caption of the sidebar toggle. Possible options are:
 
-* no icon
-* a glyphicon
-* a (bitmap) image
+* No icon
+* Glyphicon
+* (Bitmap) image
 
 Glyphicons come from the Bootstrap Halflings collection. The advantages of a glyphicon over a bitmap image are that they are scalable, look sharp on high-resolution screens, and their color can be changed by changing the font color. The advantage of an image icon is that it can have multiple colors.
 
@@ -89,4 +85,4 @@ The **Button style** property applies a predefined styling to the sidebar toggle
 
 ### 2.4 Visibility Section{#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
