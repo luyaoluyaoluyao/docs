@@ -1,236 +1,236 @@
 ---
-title: "Task Queue"
-parent: "resources"
+title: "任务队列"
+parent: "资源"
 menu_order: 85
-description: "Concepts and usage of the task queue"
+description: "任务队列的概念和使用"
 tags:
-  - "task queue"
-  - "process queue"
-  - "parallel"
-  - "scheduling"
-  - "microflow"
+  - "任务队列"
+  - "处理队列"
+  - "平行的"
+  - "日程安排"
+  - "微流"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Using a **Task Queue** allows you to run microflows or Java actions asynchronously while controlling the number of tasks that are executed simultaneously by assigning them to a task queue. You can configure the task queue to control the maximum load put on your application by these tasks during peak usage while still ensuring all microflows and Java actions are eventually executed.
+使用 **任务队列** 允许您异步运行微流或 Java 动作，同时通过将它们分配到任务队列来控制同时执行的任务数量。 您可以配置任务队列来控制这些任务在峰值使用期间给您应用程序加载的最大负荷，同时仍然确保所有微流和Java 操作最终被执行。
 
-### 1.1 Replacing the Process Queue module
+### 1.1 替换流程队列模块
 
-This way of executing tasks in the background supersedes the earlier [Process Queue](/appstore/modules/process-queue) Marketplace module.
+这种在后台执行任务的方式取代了先前的 [进程队列](/appstore/modules/process-queue) 市场模块。
 
-See the section [Replacing Process Queue](#process-queue), below, for more information on the differences between the two mechanisms.
+更多关于两个机制之间差异的信息，请参阅下面 [替换流程队列](#process-queue)部分。
 
-## 2 Configuration
+## 2 个配置
 
-Microflows or Java actions can be scheduled to run in the background when they are initiated using a **Call Microflow** or **Call Java Action** action in Studio Pro, or through the Java API.
+当微流或 Java 动作使用 **调用微流** 或 **在 Studio Pro中调用Java 动作** 动作时，可以计划在后台运行 或通过 Java API。
 
-### 2.1 Tasks Running in Task Queues
+### 2.1 任务队列中运行中
 
-#### 2.1.1 Process Flow When Adding a Task to a Task Queue
+#### 2.1.1 添加任务到任务队列时的流程流
 
-Scheduling a microflow or Java action to be executed returns immediately. The task will be executed somewhere in the cluster, as soon as possible after the transaction in which it was called completes.
+计划立即执行microflow 或 Java 动作。 任务将在交易完成后尽快在集群中的某个地方执行。
 
-Because the task is executed in the background, there is no return value. You can only find out if the task ran successfully. For information on how to do that, see [Interfacing the Queue](#interfacing-queue), below.
+因为任务是在后台执行的，所以没有返回值。 您只能在任务成功运行时才能找到。 关于如何做到这一点的信息，见下面 [接口队列](#interfacing-queue)。
 
-#### 2.1.2 Where do the Tasks Run?
+#### 2.1.2 任务在哪里？
 
-In a single node scenario, the tasks in a task queue will simply be executed on the single node.
+在单个节点的情况下，任务队列中的任务将只是在单个节点上执行。
 
-In a clustered setting, the Mendix runtime distributes these tasks transparently throughout the cluster. Should a cluster node be shutdown or fail halfway during executing a task, then the remaining cluster nodes will pick it up (eventually, when the node is detected to be down) and re-execute it. This happens automatically and does not need to be managed.
+在集群设置中，Mendix 运行时间在整个集群中透明地分配这些任务。 如果集群节点在执行任务时关闭或中途失败。 接下来的集群节点将会拿起它(最终检测到节点会被降落时)并重新执行它。 这种情况是自动发生的，不需要管理。
 
-You can control how many tasks can run in parallel on each node when you create your task queue. See [Creating Task Queues](#create-queue), below, for more information.
+当您创建任务队列时，您可以控制每个节点平行运行多少任务。 更多信息，请参阅 [创建任务队列](#create-queue)。
 
-#### 2.1.3 Context in Task Queues
+#### 2.1.3 任务队列中的内容
 
-For microflows and Java actions which are running in a task queue, the context in which the task runs changes slightly in the following ways:
+对于正在运行任务队列的微流程和 Java 动作，任务运行的上下文略有变化：
 
- * They are always executed in a *sudo* context, even if a scheduling microflow has **Apply entity access** set to *true* (see [Microflow Properties](microflow) for more information).
- * Only committed persistable entities can be passed as parameters to the task. Passing a persistable *New* or *Changed* entity produces a runtime error. Basically, this means an entity must have been committed previously or is committed in the same transaction in which the task is created.
- - The task is not executed immediately. The task is added only to a task queue when (and if) the transaction from which it has been scheduled ends successfully. At that point any cluster node may pick it up.
- - If the execution fails with an exception, the failure is logged in the `System.ProcessedQueueTask` table.
+ * 他们总是在 *sundo* 环境中执行的。 即使计划微流程有 **应用实体访问** 设置为 *true* (详情请参阅 [Microflow Properties](microflow))。
+ * 只有已承诺的可持久实体才能作为参数传递给任务。 通过一个可持久的 *新的* 或 *更改了* 实体会产生运行时间错误。 基本上，这意味着一个实体必须事先已经承诺或已经承诺进行与任务产生的同一交易。
+ - 任务未立即执行。 此任务仅添加到任务队列中，当(和如果)它已经成功结束的交易中。 在这一点上，任何集群节点都可以采集。
+ - 如果执行失败但有例外, 故障将登录到 `System.ProcessedQueueT` 表。
 
  {{% alert type="info" %}}
-The context in which a background task runs is still under discussion and may change in the future.
-{{% /alert %}}
+目前仍在讨论背景任务的背景，今后可能会发生变化。
+{{% /报警 %}}
 
-### 2.2 Creating Task Queues{#create-queue}
+### 2.2 创建任务队列{#create-queue}
 
-Background execution is done in so called **Task Queues**. They can be created in Studio Pro as follows:
+后台执行是在名为 **任务队列** 中完成的。 他们可以在 Studio Pro 中创建如下：
 
-1. Right click on a module or folder.
+1. 右键点击模块或文件夹。
 
-2. Select **Add other**.
+2. 选择 **添加其他**。
 
-3. Click **Task Queue**.
+3. 点击 **任务队列**。
 
-4. Enter the value for **Threads** for each cluster node (maximum 40).
+4. 为每个群集节点输入 **线程** 的值(最多40个)。
 
-    Task Queues have a number threads. Each of these threads can process one task at a time. That is, a queue will pick up as many concurrent tasks as it has threads. Whenever a task is finished, the next one will be picked up.
+    任务队列有数个线程。 每个线程都可以同时处理一个任务。 这就是说，队列将接收到与它有线程一样多的并行任务。 每当任务完成时，下一个任务将被挑选。
 
-    In general, one or two threads should be enough, unless there is a large number of tasks or tasks take a long time and need to execute in parallel. Having many threads will put additional load on the database and should not be done if not needed.
+    一般而言，一两条线索就足够了。 除非有大量的任务或任务需要很长时间并需要并行执行。 有许多线程将给数据库带来额外的负荷，如果不需要的话，就不应这样做。
 
-    The total number of worker threads is limited to 40 (per cluster node). There is no hard limit on cluster nodes.
+    工人线程总数限制在40个(按群组节点)。 集群节点没有硬限制。
 
-### 2.3 Scheduling Microflow Executions
+### 2.3 计划微流程执行
 
 #### 2.3.1 In Studio Pro
 
-In Studio Pro, a [Call Microflow](microflow-call) activity can start a microflow in a Task Queue.
+在 Studio Pro， [调用微流程](microflow-call) 活动可以在任务队列中启动微流程。
 
-1. Edit the **Call Microflow** activity.
-2. Check the box **Execute this Microflow in a Task Queue**.
-3. Set **Select Task Queue** to the task queue in which the microflow should be executed.
+1. 编辑 **调用 Microflow** 活动。
+2. 勾选框 **在任务队列** 中执行此微流。
+3. 设置 **选择任务队列** 到应该执行微流程的任务队列。
 
-#### 2.3.2 Through the API
+#### 2.3.2 通过 API
 
-The `Core` class in `com.mendix.core` contains a method `microflowCall`. It can be used to schedule a microflow for background execution as in the following example:
+`核心` 类在 `com.mendix.core` 中包含一个方法 `微flowCall`。 它可以用于安排背景执行的微流，如以下示例：
 
 ```java
-Core.microflowCall("AModule.SomeMicroflow")
+Core.microflowCall("AModule.Some Microflow")
   .withParam("Param1", "Value1")
   .withParam("Param2", "Value2")
-  .executeInBackground(context, "AModule.SomeQueueName");
+  .executeInBackground(context, "AModule.OmotQueueName");
 ```
 
-The method `executeInBackground` takes two parameters: a context and a queue name. The context is only used for creating the task; executing the task will be done with a system context. See the [API documentation](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#microflowCall(java.lang.String)) for more information.
+方法 `ExecuteInBacke` 需要两个参数：一个上下文和一个队列名称。 上下文仅用于创建任务；执行任务时将使用系统上下文。 查看 [API 文档](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#microflowCall(java.lang.String)) 获取更多信息。
 
-### 2.4 Scheduling Java Action Executions
+### 2.4 调度Java 动作执行
 
-#### 2.4.1 In Studio Pro
+#### 2.4.1 Studio Pro
 
-In Studio Pro, a [Call Java action](microflow-call) activity can start a Java action in a Task Queue.
+在 Studio Pro， [调用 Java 操作](microflow-call) 可以在任务队列中启动一个 Java 操作。
 
-1. Edit the **Call Java Action** activity.
-2. Check the box **Execute this Java action in a Task Queue**.
-3. Set **Select Task Queue** to the task queue in which the Java action should be executed.
+1. 编辑 **调用 Java 动作** 活动。
+2. 勾选框 **在任务队列** 中执行此 Java 操作。
+3. 设置 **选择任务队列** 到应该执行Java 动作的任务队列。
 
-#### 2.4.2 Through the API
+#### 2.4.2 通过 API
 
-The `Core` class in `com.mendix.core` contains a method `userActionCall`. It can be used to schedule a Java action for background execution as in the following example:
+`核心` 类在 `com.mendix.core` 中包含一个方法 `userActionCall`。 它可以用来安排一个 Java 动作来进行背景执行，如以下示例：
 
 ```java
-Core.userActionCall("AModule.SomeJavaAction")
+Core.userActionCall("AModule.It JavaScript")
   .withParams(context, "Value1", "Value2")
-  .executeInBackground(context, "AModule.SomeQueueName");
+  .executeInBackground(context, "AModule.有队列名称");
 ```
 
-The method `executeInBackground` takes two parameters: a context and a queue name. The context is only used for creating the task; executing the task will be done with a system context. See the [API documentation](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#userActionCall(java.lang.String)) for more information.
+方法 `ExecuteInBacke` 需要两个参数：一个上下文和一个队列名称。 上下文仅用于创建任务；执行任务时将使用系统上下文。 查看 [API 文档](https://apidocs.rnd.mendix.com/9/runtime/com/mendix/core/Core.html#userActionCall(java.lang.String)) 获取更多信息。
 
-### 2.5 Configuration options{#configuration}
+### 2.5 配置选项{#configuration}
 
-The period for a graceful shutdown of queues can be configured as a [custom runtime](custom-settings) setting in Studio Pro.
+优雅地关闭队列的时间段可以配置为Studio Pro中的 [自定义运行时间](custom-settings) 设置。
 
-| Configuration option            | Example value | Explanation                                               |
-| ------------------------------- | ------------- | --------------------------------------------------------- |
-| `TaskQueue.ShutdownGracePeriod` | 10000         | Time in ms to wait for task to finish when shutting down. |
-
-{{% alert type="info" %}}
-This grace period is applied twice during the [shutdown](#shutdown) (described below) so the maximum time that the runtime will wait for tasks to end is twice this value.
-{{% /alert %}}
-
-### 2.6 Interfacing the Queue{#interfacing-queue}
-
-Besides scheduling and executing tasks, the Mendix platform keeps track of tasks that have been executed in the background: for example, which completed and which failed.
-
-Internally, a scheduled or running task is represented by the Mendix entity `System.QueuedTask`. In a high performance setting, this entity should *not* be used directly by user code, because the underlying database table is heavily used. For example counting how many `System.QueuedTask` objects exist at the moment will lock the table and might cause a serious slowdown in task processing. You should also not Write directly to `System.QueuedTask`. Instead, mark a task for background execution in the **Call Microflow**  or **Call Java Action** activity or using the Java API.
-
-Tasks that have been processed, that is have completed or failed, are saved as objects of entity type `System.ProcessedQueueTask`. These objects are at the user's disposal. They might be used, for example, to do the following:
-
-1. Reschedule failed tasks if desired (this should be done by creating new task(s)),
-2. Verify that tasks have run successfully, or
-3. Debug the application in case of errors.
-
-`System.ProcessedQueueTasks` objects are never deleted. The user is free to delete them when desired.
-
-### 2.7 Task status
-
-The **Status** attribute of `System.QueuedTask` and `System.ProcessedQueueTask` reflects the state that a background task is in. The values are:
-
-* `Idle`: The task was created and is waiting to be executed.
-* `Running`: The task is being executed.
-* `Completed`: The task executed successfully.  A `System.ProcessedQueueTask` is added to reflect this.
-* `Failed`: The task is no longer executing, because an exception occurred. A `System.ProcessedQueueTask` containing the exception is added to reflect the failure. The task will not be retried.
-* `Aborted`: The task is no longer executing, because the cluster node that was executing it went down. A `System.ProcessedQueueTask` is added to reflect this. The task will be retried on another cluster node.
-* `Incompatible`: The task never executed, because the model changed in such a way that it cannot be executed anymore. This could be because the microflow was removed/renamed, the arguments were changed or the Task Queue was removed.
-
-### 2.8 Model changes
-
-During the startup of the Mendix runtime, there is a check to ensure that scheduled tasks in the database fit the current model. The following conditions are checked:
-
-* that the microflows exist
-* that the parameters match
-* that the queue exists
-
-If any of these condition checks fail, tasks are moved to `System.ProcessedQueueTasks` with **Status** `Incompatible`. The Runtime will only start after all scheduled tasks have been checked. This should in general not take very long, even if there are thousands of tasks.
-
-### 2.9 Shutdown{#shutdown}
-
-During shutdown, the `TaskQueueExecutors` will stop accepting new tasks. Running tasks are allowed a [grace period](#configuration) to finish. After this period, the runtime will send an interrupt to all task threads that are still running and again allow a grace period for them to finish. After the second grace period the runtime just continues shutting down, eventually aborting the execution of the tasks. The aborted tasks will be reset, so that they are re-executed later or on another cluster node. In development mode, the first grace period is shortened to 1 second.
+| 配置选项                            | 示例值   | 解释                  |
+| ------------------------------- | ----- | ------------------- |
+| `TaskQueue.ShutdownGracePeriod` | 10000 | 关机时等待任务完成的时间以毫秒为单位。 |
 
 {{% alert type="info" %}}
-Interrupting task threads may cause them to fail. These tasks will be marked as `Aborted` and retried at a later time.
-{{% /alert %}}
+这个宽限期在 [关机](#shutdown) (下面描述)期间应用了两次，所以运行时等待任务结束的最大时间是这个数值的两倍。
+{{% /报警 %}}
 
-## 3 Monitoring
+### 2.6 接口队列{#interfacing-queue}
 
-### 3.1 Logging
+除了安排和执行任务外，还包括安排和执行任务。 Mendix 平台将跟踪已经在上下文执行的任务：例如，已完成且失败的任务。
 
-A [Log Node](logging#mendix-nodes) named `Queue` exists specifically for all actions related to Task Queues.
+在内部，预定任务或运行任务由 Mendix 实体 `System.QueuedTask` 代理。 在高性能设置中，此实体不应被用户代码直接使用 ** ，因为基础数据库表被大量使用。 例如，计算有多少 `系统。 当前存在的 ueuedTask` 对象将锁定表格，并可能导致任务处理严重减缓。 您也不应该直接写入 `System.QueuedTask`。 相反，在 **通话微流程**  或 **调用 Java 行动** 活动或使用 Java API中标记背景执行任务。
 
-## 4 Other
+已处理的任务，已经完成或失败，将被保存为实体类型 `System.ProcessedQueueTask` 的对象。 这些对象供用户使用。 例如，可以利用这些规则来做以下工作：
 
-Executing **Find usages** on a task queue only finds the occurrences of that queue in microflows.
+1. 如果需要，重新安排失败的任务 (这应该通过创建新的任务(s)来完成)
+2. 验证任务已成功运行，或
+3. 发生错误时调试应用程序。
+
+`System.ProcessedQueueTasks` 对象永远不会被删除。 用户可在需要时自由删除它们。
+
+### 2.7 任务状态
+
+`System.QueuedTask` 和 `System.ProcessedQueueTas` 的 **状态** 属性反映了后台任务正在进行的状态。 值为：
+
+* `空闲`: 任务已创建并正在等待执行。
+* `运行`: 任务正在执行中。
+* `完成`: 任务执行成功。  添加 `System.Processed队列任务` 以反映这一点。
+* `失败`: 任务不再执行，因为发生了异常。 添加 `System.ProcessedQueueT` 包含异常以反映失败。 将不会检索此任务。
+* `中止`: 任务不再执行，因为正在执行它的集群节点已经停止。 添加 `System.Processed队列任务` 以反映这一点。 任务将在另一个集群节点重试.
+* `不兼容`: 任务永远不执行，因为模型改变了它的方式，不能再执行。 这可能是因为微流被移除/重命名、参数被更改或任务队列被移除。
+
+### 2.8 模型变化
+
+在 Mendix 运行时间启动过程中，需要检查以确保数据库中的预定任务符合当前模型。 检查以下条件：
+
+* 微流已存在
+* 参数匹配
+* 队列存在
+
+如果这些条件检查失败，任务将被移动到 `System.ProcessedQueueTasks` 与 **状态** `不兼容` 运行时间只有在所有预定任务被选中后才会开始。 即使有数千项任务，这总的来说也不应太长。
+
+### 2.9 关机{#shutdown}
+
+关闭时， `任务队列执行器` 将停止接受新任务。 正在运行的任务允许一个 [宽限期](#configuration) 完成。 在这段时间之后， 运行时间将发送中断到所有仍在运行的任务线程，然后让它们有一个宽限期。 在第二个宽限期之后，运行时间刚刚继续关闭，最终中止执行任务。 中止的任务将被重置，以便稍后或在其他集群节点重新执行。 在发展模式中，第一个宽限期缩短为1秒。
 
 {{% alert type="info" %}}
-Invocations from Java actions are not found.
-{{% /alert %}}
+中断任务线程可能导致失败。 这些任务将被标记为 `中止` 并稍后再试。
+{{% /报警 %}}
 
-### 4.1 Tasks Queue Helper
+## 3 监测
 
-You can use the [Task Queue Helpers](https://marketplace.mendix.com/link/component/117272) module in the Mendix Marketplace to help you to implement Task Queues. It contains the following:
+### 3.1 伐木中
 
-* Pages that can be used to monitor task queues
-* Microflows that can do basic maintenance tasks
+[日志节点](logging#mendix-nodes) 名为 `队列` 专门存在于与任务队列相关的所有动作。
 
-### 4.2 Limitations
+## 4 其他
 
-Task queues have the following limitations:
+执行 **查找任务队列上的使用** 只能在微流中找到该队列的发生。
 
-* Microflows or Java actions that are executed in the background execute as soon as possible in the order they were created, but possibly in parallel. They are consumed in FIFO order, but then executed in parallel in case of multiple threads. There is no way to execute only a single microflow or Java action at any point in time (meaning, ensure tasks are run sequentially), unless the number of threads is set to 1 and there's only a single runtime node.
+{{% alert type="info" %}}
+找不到 Java 动作引起的操作。
+{{% /报警 %}}
+
+### 4.1 任务队列帮助
+
+您可以使用 [任务队列帮助](https://marketplace.mendix.com/link/component/117272) 模块在 Mendix 市场中帮助您实现任务队列。 它包含以下内容：
+
+* 可用来监视任务队列的页面
+* 可以执行基本维护任务的微流
+
+### 4.2 限制
+
+任务队列有以下限制：
+
+* 在后台执行的 Microflow或 Java 动作，尽快按创建顺序执行，但可能是平行的。 它们是按FIFO订单消耗的，但在多个线程的情况下并行执行。 在任何时间点都无法执行单个微流程或 Java 动作(意思, 确保任务按顺序运行，除非线程数设置为1，而且只有一个运行时节点。
 * Microflows or Java actions that are executed in the background can *only* use the following types of parameters: Boolean, Integer/Long, Decimal, String, Date and time, Enumeration, committed Persistent Entity.
-* Microflows or Java actions that are executed in the background use a sudo/system context with all permissions. It is not possible to use a user context with limited permissions.
-* Background microflows or Java actions will start execution as soon as the transaction in which they are created is completed. This ensures that any data that is needed by the background microflow or Java action is committed as well. It is not possible to start a background microflow or Java action immediately, halfway during a transaction. Note that if the transaction is rolled back, the task is not executed at all.
-* The total amount of parallelism per node is limited to 40. This means that at most 40 queues with parallelism 1 can be defined, or a single queue with parallelism 40, or somewhere in between, as long as the total does not exceed 40.
-* Queued actions that have failed can't be rescheduled out-of-the-box currently. You can set up a scheduled microflow to re-attempt failed tasks. They can be queried from `System.ProcessedQueueTask` table.
+* 在后台执行的 Microflow或 Java 动作使用所有权限的 sudo/system环境. 无法使用具有有限权限的用户背景。
+* 一旦创建后的交易完成，背景微流或 Java 操作将立即开始执行。 这就确保了背景微流或Java 行动所需要的任何数据也能够做到。 无法立即启动背景微流程或 Java 操作，在交易过程中的一半时间。 请注意，如果交易被回滚，任务根本没有执行。
+* 每个节点的平行总量限制在40。 这意味着最多可以定义40队列平行性1。 或单个队列，只要总队列不超过40，或有40队列之间的某处。
+* 队列中已失败的操作目前无法重新排定。 您可以设置一个预定的微流程来重新尝试失败的任务。 他们可以从 `System.ProcessedQueueTask` 表查询。
 
-### 4.3 High level implementation overview
+### 4.3 高级别执行概况
 
-Tasks are stored in the database in a `System.QueuedTask` table. For each background task a new object is inserted with a `Sequence` number, `Status = Idle`,  `QueueName`, `QueueId`, `MicroflowName` or `UserActionName`, and `Arguments` of the task. This happens as part of the transaction which calls the microflow  or Java action and places it in the task queue, which means that the task will not be visible in the database until that transaction completes successfully.
+任务存储在数据库中 `System.QueuedTask` 表。 每个后台任务都插入了一个新对象，并且有 `序列` 个数字。 `状态 = 空闲`,  `队列名称`, `队列Id`, `MicroflowName` 或 `UserActionName`, 和 `参数` 这将作为调用microflow 或 Java 动作的交易的一部分，并将其置于任务队列中， 这意味着在该交易成功完成之前，任务将不会在数据库中可见。
 
-The tasks are then consumed by executors that perform a `SELECT FOR UPDATE SKIP LOCKS` SQL statement, that will try to claim the next free task. The `SKIP LOCKS` clause will skip over any tasks that are already locked for update by other executors. The corresponding `UPDATE` changes the `Status` to `Running` and sets the owner of the task in the `XASId` and `ThreadId` attributes.
+任务然后被执行者消耗，执行 `选择更新SKIP LOCKS` SQL 语句。 这将尝试要求下一个免费任务。 `SKIP LOCKS` 条款将跳过任何已被其他执行者锁定以更新的任务。 相应的 `更新` 更改了 `状态` 改为 `运行` 并将任务所有者设置为 `XASId` 和 `ThreadId` 属性。
 
-After the task has been executed, it is moved to be an object of the `System.ProcessedQueueTask` entity with `Status` `Completed` or `Failed`. If the task failed with an exception, this is included in the `ErrorMessage` attribute.
+任务执行后，它将被移动为 `系统的对象。 rocessedQueueTask` 实体与 `状态` `已完成` 或 `失败`. 如果任务失败但有例外情况，它将包含在 `错误消息` 属性中。
 
-Arguments are stored in the `Arguments` attribute as JSON values. Arguments can be any primitive type ([variable](variable-activities))or a committed persistent object, which is included in the `Arguments` field by its Mendix identifier. Upon execution of the task, the corresponding object is retrieved from the database using the Mendix identifier. For this reason the persistent object must be committed before the task executes, because otherwise a runtime exception will occur.
+参数作为JSON值存储在 `参数` 属性中。 参数可以是任何原始类型 ([变量](variable-activities))或承诺的持久对象， 由 Mendix 标识符包含在 `参数` 字段中。 执行任务时，将使用Mendix 标识符从数据库检索相应的对象。 出于这个原因，必须在执行任务之前执行持久性对象，因为否则将出现运行时间异常。
 
-When a node crashes, this is eventually detected by another cluster node, because it no longer updates its heartbeat timestamp. At this point the other node will reset all tasks that were running on the crashed node. The reset performs the following actions:
+当节点崩溃时，这最终会被另一个集群节点检测到，因为它不再更新它的心脏时间戳。 此时，另一个节点将重置在崩溃节点上运行的所有任务。 重置执行以下操作：
 
-* create a copy of the task as a `System.ProcessedQueueTask` object with `Status = Aborted`
-* set the `Status` back to `Idle`
-* increment the `Retried` field
-* clear the `XASId` and `ThreadId` fields
+* 将任务副本创建为 `System.ProcessedQueueT` 对象，包含 `状态 = 中止`
+* 设置 `状态` 返回 `空闲`
+* 增加 `重试` 字段
+* 清除 `XASId` 和 `ThreadId` 字段
 
-The task will then automatically be consumed again by one of the remaining nodes in the cluster. Effectively, this means that a task is guaranteed to be executed at least once.
+然后该任务将被该组中剩余的一个节点自动消耗。 实际上，这意味着一项任务至少保证执行一次。
 
 {{% alert type="warning" %}}
-Under normal circumstances, a task is executed exactly once, but in the face of node failures a task may be (partially) executed multiple times. This is the best guarantee that a distributed system can provide.
-{{% /alert %}}
+在正常情况下，任务只执行一次，但面对节点失败，任务可能(部分)执行多次。 这是分布式系统能够提供的最佳保障。
+{{% /报警 %}}
 
-### 4.4 Replacing Process Queue{#process-queue}
+### 4.4 替换流程队列{#process-queue}
 
-The **Task Queue** supersedes the earlier [Process Queue](/appstore/modules/process-queue) Marketplace module, which has been deprecated with the release of Mendix 9. There are several differences between the Process Queue module and the **Task Queue**:
+**任务队列** 取代了较早的 [进程队列](/appstore/modules/process-queue) 市场模块，因为Mendix 9 的发布已废弃。 流程队列模块和 **任务队列** 之间有几个差异：
 
-* The **Task Queue** supports a multi-node cluster setup and can therefore be used in a horizontally scaled environment.
-* The **Task Queue** does not require additional entities to be created, since Microflows or Java actions can simply be marked to execute in the background.
-* The **Task Queue** does not yet support automatic retrying of failed tasks.
+* **任务队列** 支持一个多节点集群设置，因此可以在水平缩放环境中使用。
+* **任务队列** 不需要创建额外的实体。 因为Microflow或 Java 操作可以被标记为在后台执行。
+* **任务队列** 还不支持自动重试失败的任务。
