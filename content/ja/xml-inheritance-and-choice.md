@@ -1,7 +1,13 @@
 ---
-title: "XML継承と選択"
+title: "XMLの継承 & 選択"
 parent: "mapping-documents"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xml-inheritance-and-choice.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1 エンティティによるオブジェクトの取得
 
