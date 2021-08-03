@@ -1,100 +1,100 @@
 ---
-title: "Regular Expressions"
-parent: "resources"
+title: "正規表現"
+parent: "リソース"
 menu_order: 70
 tags:
   - "studio pro"
-  - "regular expressions"
-  - "regular expression"
+  - "正規表現"
+  - "正規表現"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A regular expression resource document is used in the [validation rules](validation-rules) of an entity to describe a set of criteria that a string must match.
+正規表現リソースドキュメントは、文字列が一致しなければならない一連の条件を記述するためにエンティティの [検証ルール](validation-rules) で使用されます。
 
-A regular expression has the properties described below.
+正規表現には以下のプロパティがあります。
 
-## 2 Common
+## コモン2個
 
-### 2.1 Name
+### 2.1 名前
 
-The name can be used to refer to the regular expression from a [validation rule](validation-rules) of an entity.
+名前は、エンティティの [バリデーションルール](validation-rules) から正規表現を参照するために使用できます。
 
-### 2.2 Documentation
+### 2.2 ドキュメント
 
-This is for documentation purpose only; it is not visible in the end-user application that you are modeling.
+これはドキュメントの目的のみに使用されます。モデリングを行っているエンドユーザーアプリケーションには表示されません。
 
-## 3 Expression{#expression}
+## 3 式{#expression}
 
-The expression defines the criteria that a string should be checked against in a [formal, internationally standardized regular expression language](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
+この式は、文字列を [形式の国際的に標準化された正規表現言語](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) でチェックすべき基準を定義しています。
 
 {{% alert type="info" %}}
 
-For example, an expression for checking the Dutch post code could be: `[1-9][0-9][0-9][0-9] ?[A-Za-z][A-Za-z]`.
+例えば、オランダの郵便番号をチェックする式は次のようになります: `[1-9][0-9][0-9][0-9] ?[A-Za-z][A-Za-z]`.
 
-Here are two post code examples: **3072AP** and **7500 AH**.
+以下に2つの郵便番号例を示します: **3072AP** と **7500 AH**.
 
-These are the criteria:
+以下は基準です：
 
-* The first character is a digit in the range 1 to 9
-* The second, third and fourth characters are digits in the range 0 to 9
-* The last two characters are letters, as expressed by the last two subexpression [A-Za-z], which indicate that the last two characters should be in the range A-Z or the range a-z
-* Between the digits and the letters there can be a space, as expressed by the subexpression which consists of a space and a question mark; the question mark indicates that the space is optional
+* 最初の文字は1から9の範囲の数字です
+* 2 番目、3 番目、4 番目の文字は 0 から 9 の桁数です。
+* 最後の2文字は、最後の2つの部分式 [A-Za-z]で表される文字です。 最後の2文字がA-Zまたは範囲a-zであることを示します。
+* 数字と文字の間にスペースがあります。スペースと疑問符で構成される部分式で表されるように、スペースがあります。 疑問符は空間がオプションであることを示します
 
 {{% /alert %}}
 
-The following sections give a summary of regular expressions that can be used in Mendix. This description also applies to regular expression strings used in functions such as *isMatch()*.
+次のセクションでは、Mendix で使用できる正規表現の概要を示します。 この説明は、 *isMatch()* などの関数で使用される正規表現文字列にも適用されます。
 
 ### 3.1 Subexpressions
 
-A regular expression consists of a sequence of subexpressions. A string matches a regular expression if all parts of the string match these subexpressions in the same order.
+正規表現は、一連の部分式で構成されます。 文字列のすべての部分が同じ順序でこれらの部分式に一致する場合、文字列は正規表現にマッチします。
 
-A regular expression can contain the following types of subexpressions:
+正規表現には、次の種類の部分式を含めることができます。
 
-* `[ ]` – a bracket expression matches a single character that is indicated within the brackets, for example:
+* `[ ]` – 括弧内で示される単一の文字と一致します。例:
     * `[abc]` matches "_a_", "_b_", or "_c_"
-    * `[a-z]` specifies a range which matches any lowercase letter from "_a_" to "_z_"
+    * `[a-z]` は、"_a_" から "_z_ " の小文字に一致する範囲を指定します。
 
     {{% alert type="info" %}}These forms can be mixed: `[abcx-z]` matches "_a_", "_b_", "_c_", "_x_", "_y_", or "_z_", and is equivalent to `[a-cx-z]`. The `-` character is treated as a literal character if it is the last or the first character within the brackets, or if it is escaped with a backslash (`\`).
     {{% /alert %}}
 
-* `[^ ]` – matches a single character that is NOT contained within the brackets, for example:
-    * `[^abc]` matches any character other than "a", "b", or "c"
-    * `[^a-z]` matches any single character that is not a lowercase letter from "a" to "z"
+* `[^ ]` – 括弧内に含まれていない単一の文字に一致します。例えば:
+    * `[^abc]` は "a", "b", "c" 以外の任意の文字に一致します
+    * `[^a-z]` は "a" から "z" までの小文字でない単一文字に一致します
 
-    {{% alert type="info" %}}As above, literal characters and ranges can be mixed.
+    {{% alert type="info" %}}上記のように、リテラル文字と範囲を混在させることができます。
     {{% /alert %}}
 
-* `{m,n}` – matches the preceding element at least _m_ and not more than _n_ times, for example:
+* `{m,n}` – 先行する要素の少なくとも _m_ に一致し、 _n_ 回以下に一致します。例:
 
-    * `a{3,5}` matches only "_aaa_", "_aaaa_", and "_aaaaa_"
-* `{n}` – matches the preceding element exactly n times, for example:
+    * `{3,5}` は "_aaa_", "_aaaaaa_", および "_aaaaa_ " のみ一致します。
+* `{n}` - 前の要素に正確にn回マッチします。例:
 
     * `[1-9][0-9]{3} ?[A-Za-z]{2}` is an alternative way to write the expression for checking the Dutch post code in the example above
 * `.` – a dot matches any single character; if you want to match a dot, you can escape it by prefixing it with a `\` (backslash)
 * A literal character – this is a character that does not have a special meaning in the regular expression language and it matches itself; this is effectively any character except `\[](){}^-$?*+|.`, for example:
-    * The *`space`* in the Dutch post code example is a literal character that just matches itself
+    * オランダ語の郵便番号の例の *`スペース`* は文字列で、それ自体に一致するだけです。
 
     {{% alert type="info" %}}If you need to match one of the characters which is not a literal, prefix it with a backslash (`\`).
     {{% /alert %}}
 
-* `\w` – a word: a letter, digit, or underscore; `\w` is an abbreviation for `[A-Za-z0-9_]`
-* `\d` – a digit" an abbreviation for `[0-9]`
+* `\w` – 単語：文字、数字、またはアンダースコア。 `\w` は `[A-Za-z0-9_]の略語です`
+* `\d` - `[0-9]の略語`
 
-### 3.2 Quantifiers
+### 3.2 クオンティファイア
 
-The number of times that a subexpression may occur in a string is indicated by a quantifier after the subexpression. If no quantifier is present, the subexpression must occur exactly once.
+文字列内でサブ式が発生する回数は、サブ式の後にクオンタイファで示されます。 quantifier が存在しない場合、サブ式は一度だけ発生する必要があります。
 
-The following quantifiers can be used:
+以下のクオンタイファイアを使用できます：
 
-| Quantifier | Description                                                                      |
-| ---------- | -------------------------------------------------------------------------------- |
-| ?          | The preceding sub-expression should occur not or once.                           |
-| *          | The preceding sub-expression occurs any number of times.                         |
-| +          | The preceding sub-expression should occur once or more.                          |
-|            | No quantifier means that the preceding sub-expression should occur exactly once. |
+| Quantifier | 説明                                 |
+| ---------- | ---------------------------------- |
+| ?          | 前のサブ式は、起こらない、または一度起こらないでください。      |
+| *          | 前のサブ式は、任意の回数で発生します。                |
+| +          | 前のサブ式は1回以上でなければなりません。              |
+|            | クオンタイファーは、前のサブ式が一度だけ発生することを意味しません。 |
 
-## 4 Read More
+## 4 続きを読む
 
-* [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#matches-java.lang.String-java.lang.CharSequence-) – information from the Oracle Java SE documentation
-* [Using Regular Expressions in Java](http://www.regular-expressions.info/java.html)  – information about regular expressions in Java from the *Regular-Expressions.info* website
+* [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#matches-java.lang.String-java.lang.CharSequence-) – Oracle Java SEドキュメントからの情報
+* [Using Regular Expressions in Java](http://www.regular-expressions.info/java.html)  – *Regular-Expressions.info* website
