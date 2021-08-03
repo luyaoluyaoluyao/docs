@@ -1,16 +1,19 @@
 ---
-title: "Studio Pro 8 How-to's"
-description: "Step-by-step guides on various Mendix topics that will teach you how to build and customize apps."
+title: "Strategic Partners Guide"
+description: "Documentation for IBM, SAP, and Siemens widgets written and maintained by Mendix"
 tags:
-  - "studio pro"
+  - "strategic partners"
+  - "ibm"
+  - "sap"
+  - "siemens"
 ---
 
 ## 1 Introduction
 
-Browse the *Studio Pro 8 How-to's* to find step-by-step guides that will teach you how to build and customize apps with Mendix.
+The *Mendix Strategic Partners Guide* provides documentation on widgets written and maintained by Mendix which support integration with IBM, SAP, and Siemens cloud platforms and services.
 
-## 2 How-to Categories
+## 2 Guide Categories
 
-The *Studio Pro 8 How-to's* are divided into the following categories:
+The *Strategic Partners Guide* is divided into the following categories:
 
 {{% category_block %}}
