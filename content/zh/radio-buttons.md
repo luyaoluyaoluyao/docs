@@ -1,105 +1,105 @@
 ---
-title: "Radio Buttons"
-parent: "input-widgets"
+title: "单选按钮"
+parent: "输入小部件"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-{{% alert type="warning" %}}The radio buttons widget is not supported on native mobile pages.{{% /alert %}}
+●{% alert type="warning" %}}本机移动页面不支持无线电按钮小部件。{%/提醒 %}}
 
-**Radio Buttons** are used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean* or *Enumeration*.
+**单选按钮** 用于显示或可选显示。 允许最终用户编辑 [数据类型](data-types) *布尔值* 或 *枚举* 的属性值。
 
-When the page is displayed to the end-user, all the possible values are listed, with a filled-in circle next to the selected value and an empty circle next to the unselected value(s). Only one value can be chosen – choosing another value deselects the current value. For example:
+当页面显示给最终用户时，列出了所有可能的值， 与选中值旁边的一个填充的圆圈和未选中值旁边的一个空圆。 只能选择一个值 — — 选择另一个值 取消当前值。 例如：
 
 ![](attachments/radio-buttons/radio-buttons-displayed.png)
 
-Radio buttons must be placed in a [data widget](data-widgets) and display an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the radio button widget, between square brackets, and colored blue.
+单选按钮必须放置在 [数据小部件](data-widgets) 中，并显示该小部件检索到的对象的属性。 要显示的属性名称显示在无线电按钮部件中，方括号和彩色蓝色。
 
-For example, the following image contains two sets of radio buttons.  The first allows the end-user to see, and set, the value of an enumeration identifying the preferred time to contact this person (**PreferredContact**). The second allows the end-user to see, and set, a Boolean indicating whether this is a **Personal** contact.
+例如，下面的图片包含两套无线电按钮。  第一种情况允许最终用户看到和设置。 指明联系此人的首选时间的枚举值(**首选联系人**)。 第二个选项允许最终用户查看并设置一个布尔值表示这是否是一个 **个人** 联系人。
 
 ![](attachments/radio-buttons/radio-buttons.png)
 
-## 2 Properties
+## 2 属性
 
-An example of radio button properties is represented in the image below:
+下面的图像显示了单选按钮属性的示例：
 
 {{% image_container width="250" %}}![](attachments/radio-buttons/radio-buttons-properties.png)
 {{% /image_container %}}
 
-Radio button properties consist of the following sections:
+单选按钮属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [编辑性](#editability)
+* [事件](#events)
+* [A. 概况](#general)
+* [标签](#label)
+* [验证](#validation)
+* [可见性](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 数据源部分{#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 可编辑性部分{#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 事件部分{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 更改时{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 2.5.2 输入时
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+输入小部件时指定了一个执行的动作。 要么使用 <kbd>Tab</kbd> 键，要么用鼠标点击它。
+
+{{% snippet file="refguide/events-section-link.md" %}}
+
+#### 2.5.3 请假
+
+请假属性指定了离开部件时要执行的动作， 要么使用 <kbd>Tab</kbd> 键，要么点击另一个部件。
 
 This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 General Section{#general}
+### 2.6 一般部分{#general}
 
-#### 2.6.1 Orientation
+#### 2.6.1 方向
 
-This property defines whether the radio buttons are rendered as a **Horizontal** or **Vertical** list.
+此属性定义是否将无线电按钮渲染为 **水平** 或 **垂直** 列表。
 
-Default: *Horizontal*
+默认值： *水平*
 
-### 2.7 Label Section{#label}
+### 2.7 标签部分{#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.8 Validation Section{#validation}
+### 2.8 验证部分{#validation}
 
 {{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+### 2.9 可见性部分{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-*   [Data view](data-view)
-*   [Attributes](attributes)
+*   [数据视图](data-view)
+*   [属性](attributes)
