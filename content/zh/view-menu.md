@@ -9,13 +9,18 @@ tags:
   - "顶栏"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/view-menu.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误** 个窗口。 您可以关闭一些窗格来显示您目前需要的窗格。 但您总是可以通过 **视图** 菜单重新打开它们。
 
-通过此菜单，您也可以启用或禁用 [全屏模式](#full-screen) 或 [将您的应用程序的布局](#reset-layout) 重置为默认。
+通过此菜单，您也可以启用或禁用 [全屏模式](#full-screen) 或 [将您的项目的布局](#reset-layout) 重置为默认。
 
-![查看菜单](attachments/view-menu/view-menu.png)
+{{% image_container width="300" %}}![查看菜单](attachments/view-menu/view-menu.png)
+{{% /image_container %}}
 
 ## 2面板布局 {#layout-of-panes}
 
@@ -59,9 +64,7 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 下面的视频展示了如何放置窗格的例子：
 
-<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">视频</video>
-
-如果你有几个面板组合在标签中，你可以通过拖动顶栏来一次改变所有标签的位置。 要更改单独标签的位置，请拖动标签本身。
+<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">视频</video> 如果你有几个面板组合在标签中，你可以通过拖动顶栏来一次改变所有标签的位置。 要更改单独标签的位置，请拖动标签本身。
 
 ## 3 个菜单项
 
@@ -69,11 +72,11 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 ### 3.1 变化
 
-对于版本控制的应用 (指那些有 [团队服务器](/developerportal/collaborate/team-server) 或其他 SVN 服务器的应用程序)， [更改窗格](changes-pane) 显示自上次提交以来应用程序的本地更改。 您可以提交更改，更新到最新版本，并从这里查看历史记录。
+对于版本控制启用的项目 (使用 [团队服务器](/developerportal/collaborate/team-server) 或其他 SVN 服务器的项目)， [更改窗格](changes-pane) 显示自上次提交以来应用程序的本地更改。 您可以提交更改，更新到最新版本，并从这里查看历史记录。
 
 这个窗格有两个级别，所以当你缩放到一个更改的文档中。 您可以查看该文档中的所有更改，而不会在不同级别之间退出。 窗格的缩放级别分成两个网格，左侧的元素和右侧的属性。 在左边选择一个元素表示右边的更改属性：
 
-<video width="640" height="360" controls src="attachments/view-menu/changes.mp4">视频</video>
+![](attachments/view-menu/changes.gif)
 
 ### 3.2 连接器 {#connector}
 
@@ -81,7 +84,7 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 ### 3.3 数据中心 {#data-hub}
 
-[Data Hub pane](data-hub-pane) 使您能够浏览 [Data Hub Catalog](/data-hub/data-hub-catalog) 并在您的应用程序开发中使用注册的数据源。 您可以通过此窗格将 [个外部实体](external-entities) 添加到您的应用中，并查看您的应用中已经消耗的实体和数据源。
+[数据枢纽窗格](data-hub-pane) 允许您浏览 [数据枢纽目录](/data-hub/data-hub-catalog) 并整合您的组织可用的注册数据源。 您可以通过此窗格将 [个外部实体](external-entities) 添加到您的应用中，并查看您项目中已经消耗的实体和服务。
 
 ### 3.3 控制台 {#console}
 
@@ -95,15 +98,15 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 [错误窗格](errors-pane) 显示 [错误](consistency-errors)警告和您的应用程序中存在的弃置状态。
 
-### 3.6 查找结果
+### 3.6 查找结果 {#find}
 
 此窗格显示最新的搜索结果。 您可以搜索文本，使用元素(例如属性)和未使用项目。
 
 有两个 **查找结果** 窗格。 如果您锁定了第一个窗格的结果，第二个窗格将用于在您解锁第一个窗格之前查找操作。
 
-### 3.7 应用浏览器
+### 3.7 项目浏览器
 
-[App Explorer](project-explorer) 窗格显示您应用的完整结构，包括模块中的所有文档。 默认情况下，活动文档总是被选中的，所以您可以快速地看到您正在编辑的文档位于树上。 您可以在 **编辑** > [首选项](preferences-dialog) 中更改此行为。
+[Project Explorer](project-explorer) 窗格显示您应用的完整结构，包括模块中的所有文档。 默认情况下，活动文档总是被选中的，所以您可以快速地看到您正在编辑的文档位于树上。 您可以在 **编辑** > [首选项](preferences-dialog) 中更改此行为。
 
 ### 3.8 属性
 
@@ -119,7 +122,7 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 ### 3.11 调试窗口
 
-欲了解更多有关调试的信息，请参阅 [如何调试微流和 Nanoflows](/howto/monitoring-troubleshooting/debug-microflows-and-nanoflows)。
+关于调试的更多信息，请参阅 [如何调试微流](/howto8/monitoring-troubleshooting/debug-microflows)。
 
 #### 3.1.1 断点
 
@@ -129,19 +132,17 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 **调试器** 工具可用来调试您的应用程序。
 
-#### 3.11.3 变量 {#variables}
+#### 3.11.3 变量
 
 在 **变量** 窗格中，您可以在调试您的应用程序时查看当前变量、列表和对象的值。
 
 ### 3.12 全屏 {#full-screen}
 
-**全屏** 模式隐藏标题栏，让窗口填充整个屏幕。
-
-快捷键： <kbd>F11</kbd>
+**全屏** 模式隐藏标题栏，让窗口填充整个屏幕。 此版本的 **完整屏幕** 已被介绍到Studio Pro [8.3。](/releasenotes/studio-pro/8.3#830); 在以前的版本中， **全屏** 模式关闭所有可停靠窗口窗口。 快捷键： <kbd>F11</kbd>
 
 ### 3.13 分散自由模式 {#distraction-free}
 
-**无干扰模式** 做到与以上 **全屏** 模式相同，但也关闭了所有可停泊的窗口窗口。
+**无干扰模式** 做到与以上 **全屏** 模式相同，但也关闭了所有可停泊的窗口窗口。 这被引入Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830) 中。
 
 快捷键： <kbd>Shift</kbd> + <kbd>F11</kbd>
 
@@ -153,5 +154,5 @@ Studio Pro 支持一些可停靠的窗口面板，例如 **更改** 和 **错误
 
 * [更改面板](changes-pane)
 * [Errors Pane](errors-pane)
-* [应用浏览器](project-explorer)
+* [项目浏览器](project-explorer)
 * [Studio Pro Overview](studio-pro-overview)
