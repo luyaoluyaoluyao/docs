@@ -1,48 +1,57 @@
 ---
 title: "バージョン管理サーバーにアップロード"
-parent: "ダイアログ"
+parent: "version-control-menu"
+menu_order: 70
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/upload-to-team-server-dialog.html
+  - /refguide8/upload-to-team-server-dialog.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/upload-to-version-control-dialog.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1つの紹介
 
-このダイアログボックスを使用すると、バージョン管理サーバーにまだ保存されていないアプリケーションをアップロードできます。
+このダイアログボックスを使用して、バージョン管理サーバーにまだ保存されていないアプリをアップロードします。
 
-![](attachments/upload-to-version-control-dialog/upload-to-version-control-server-dialog.png)
+![バージョン管理サーバーメニューオプションにアップロード](attachments/upload-to-version-control/upload-to-version-control-server.png)
 
-To open the **Upload to Version Control Server** dialog box, go to **Project > More Versioning > Upload to Version Control Server**.
+## 2つの場所
 
-![](attachments/upload-to-version-control-dialog/project-more-versioning-upload-to-version-control-server.png)
-
-## 2 アプリはどこにアップロードしますか?
-
-この設定を使用して、アプリを保存する場所を選択します。 これは、チームサーバー、プライベートサーバー(Team Server以外のSVNサーバー)、またはローカルディスクです。
+この設定を使用して、アプリを保存する場所を選択します。 以下に3つの選択肢があります。
 
 ### 2.1 新しいMendixチームサーバー
 
-**App name** フィールドに、新しい Team Server プロジェクトとリポジトリの名前を入力します。 **OK**をクリックすると、新しいリポジトリが [Mendix Team Server](team-server) に作成され、アプリを保存します。
+[Mendix Team Server](/developerportal/collaborate/team-server) で新しいアプリを作成できます。
+
+* **新しいMendix Team Serverを選択**
+* 新しいTeam Serverプロジェクトとリポジトリの名前を **アプリ名** フィールドに入力します。
+
+    ![New Mendix Team Serverのアプリ名を入力してください](attachments/upload-to-version-control/new-team-server-app.png)
 
 ### 2.2 既存のMendixチームサーバー
 
-**Team Server App** リストで、対応するTeam Serverアプリを選択します。 **OK**をクリックすると、選択したリポジトリにアプリがアップロードされます。
-
-{{% alert type="info" %}}
-
-これは、既存のリポジトリが空の場合にのみ機能します。
-
+{{% alert type="warning" %}}
+リポジトリが空の場合にのみ、既存のリポジトリにアップロードできます
 {{% /alert %}}
+
+* **既存のMendixチームサーバーを選択**
+* リストから **チームサーバーアプリ** を選択します
+
+    ![既存のmendixチームサーバーを選択](attachments/upload-to-version-control/existing-team-server-app.png)
 
 ### 2.3 プライベートサーバー
 
-**App repository address** フィールドに、アプリをアップロードしたいリポジトリアドレスを入力します。 **OK**をクリックすると、このリポジトリにアプリがアップロードされます。
+This option is only available when support for other servers is enabled in **Edit** > **Preferences** > **Advanced** > [Enable private version control](preferences-dialog#enable)).
 
-{{% alert type="info" %}}
+![上級者向けバージョン管理を有効にする](attachments/upload-to-version-control/enable-private-version-control.png)
 
-このオプションは、 [環境設定](preferences-dialog#enabled) ダイアログボックスで他のサーバーのサポートが有効になっている場合にのみ使用できます。
+<a name="private-server"></a>If you select **Private server**, enter the address of the repository to which you want to upload your app in the **App repository address** field.
 
-{{% /alert %}}
+![上級者向けバージョン管理を有効にする](attachments/upload-to-version-control/private-server-app.png)
 
 ## 3 続きを読む
 
-* [チームサーバー](team-server)
+* [オンプレミスバージョン管理サーバーの操作方法](/howto8/collaboration-requirements-management/on-premises-svn-howto)
