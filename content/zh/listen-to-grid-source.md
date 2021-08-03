@@ -1,23 +1,26 @@
 ---
-title: "Listen To Widget Source"
-parent: "data-sources"
+title: "监听小部件源"
+parent: "数据来源"
+tags:
+  - "studio pro"
+  - "监听小部件"
+  - "数据源"
+menu_order: 70
 ---
 
+## 1 导言
 
-The listen-to-widget data source allows a data view to display detailed information on an object selected in a list widget on the same page. The data grid, template grid, and list view are list widgets. This is especially useful when displaying large amounts of data, which limits the information available per object, as it allows the user to view details concerning individual objects without having to open a new page.
+监听-小部件数据源是一个数据视图特定源，允许数据视图在数据网格中选择的对象上显示详细信息， 模板网格，或在同一页面上的列表视图。 这在显示大量数据时尤其有用，因为这些数据限制了每个对象的可用信息， 因为它允许用户在无需打开新页面的情况下查看个别对象的详细信息。
 
-{{% alert type="info" %}}
+{{% image_container width="400" %}}![监听小部件示例](attachments/data-widgets/listen-to-widget-example.jpg)
+{{% /image_container %}}
 
-![](attachments/16713834/16843964.jpg) The data view on the right listens to the data grid on the left. In this example, the listening view will display the image attached to the selected product if one is selected.
+上面的图像中的数据视图到数据网格。 在此示例中，数据视图将显示所选产品的名称。
 
-{{% /alert %}}
+列表视图，模板网格和数据网格是列表小部件，可以收听。 如果列表小部件中没有选择对象，数据视图将保持空且无响应性。
 
-Both list views, template grids, and data grids can be listened to.
+## 2 属性
 
-If no object is selected in the list widget, the data view will remain empty and unresponsive.
+### 2.1 列表部件
 
-## Properties
-
-### List widget
-
-Specifies the list widget from which the data view derives its data.
+指定控制数据视图中显示的对象的列表小部件。
