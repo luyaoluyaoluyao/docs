@@ -1,22 +1,22 @@
 ---
-title: "JavaScript Actions"
-parent: "resources"
+title: "JavaScript アクション"
+parent: "リソース"
 menu_order: 20
-description: "This reference guide details the ways JavaScript Actions can extend the functionality of your Mendix app."
+description: "このリファレンスガイドでは、JavaScript のアクションが Mendix アプリの機能を拡張する方法について詳しく説明します。"
 tags:
   - "javascript"
-  - "javascript action"
-  - "parameter"
+  - "javascript アクション"
+  - "パラメータ"
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can only be used in **Nanoflows**.
+このアクティビティは **Nanoflows** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-With JavaScript actions, you can extend your application's functionality in ways nanoflows alone cannot. To use a JavaScript action, call it from a nanoflow using the [JavaScript Action Call](javascript-action-call).
+JavaScriptアクションを使用すると、アプリケーションの機能をナノフローだけではできない方法で拡張することができます。 JavaScript アクションを使用するには、 [JavaScript アクション コール](javascript-action-call) を使用して nanoflow から呼び出します。
 
 {{% alert type="info" %}}
 
@@ -26,123 +26,123 @@ The skeletons of these *.js* files are generated automatically when you save an 
 
 {{% /alert %}}
 
-To learn how to create, configure, and use a JavaScript action, see these [Build JavaScript Actions](/howto/extensibility/build-javascript-actions) how-to's.
+JavaScript アクションの作成、構成、使用方法については、 [JavaScript アクション](/howto/extensibility/build-javascript-actions) の作成方法を参照してください。
 
-## 2 General Settings
+## 2つの一般設定
 
-After double-clicking a JavaScript action in your **App Explorer** you will see the JavaScript action's settings:
+**App Explorer** で JavaScript アクションをダブルクリックすると、JavaScript アクションの設定が表示されます。
 
 {{% image_container width="400" %}}![javascript settings](attachments/javascript-actions/javascript-action-settings-no-para.png){{% /image_container %}}
 
-The settings for JavaScript actions and their implications are detailed below.
+JavaScript アクションとその影響に関する設定は以下の通りです。
 
-### 2.1 Name
+### 2.1 名前
 
-This setting handles a JavaScript action's name, which a nanoflow refers to when performing a call to it. This name is also the name of the generated *.js* file.
+この設定は JavaScript アクションの名前を処理します。nanoflow は呼び出しを実行するときに参照します。 この名前は、生成された *.js* ファイルの名前でもあります。
 
-### 2.2 Parameters
+### 2.2 パラメータ
 
-Parameters pass data to JavaScript actions. For example, if you had a JavaScript action which multiplied numbers, parameters would define the numbers to be multiplied. A JavaScript action can have zero or more parameters. Each parameter should have a unique name. You may add a parameter by clicking **Parameters** > **Add**, and then customize that parameter to pass data into a JavaScript action:
+パラメータは JavaScript のアクションにデータを渡します。 たとえば、JavaScriptに数値を乗算するアクションがある場合、パラメータは乗算する数値を定義します。 JavaScriptアクションには0以上のパラメータがあります。 各パラメータには一意の名前が必要です。 **パラメータ** > **Add**をクリックしてパラメータを追加できます。 そして、そのパラメータをカスタマイズして、データを JavaScript アクションに渡します。
 
-![parameter](attachments/javascript-actions/parameter-naming.png)
+![パラメータ](attachments/javascript-actions/parameter-naming.png)
 
-In a JavaScript action's **Code** tab, you can see its parameters' values and handle its implementation. Each parameter has a name (1), type (2), category, description (3), and return type (4):
+JavaScript アクションの **コード** タブでは、パラメーターの値を確認し、実装を処理できます。 各パラメータには名前(1)、タイプ(2)、カテゴリ、説明(3)、戻り値(4)があります。
 
-![parameter code](attachments/javascript-actions/parameter-code.png)
+![パラメータコード](attachments/javascript-actions/parameter-code.png)
 
-You will see a parameter's category (1), parameter name (2), and description (3) in the **Call JavaScript Action** dialog box after double-clicking its activity in your nanoflow:
+パラメータのカテゴリ(1)、パラメータ名 (2) が表示されます。 そして、 **JavaScriptアクション** ダイアログボックスの説明 (3) を開きます。
 
 {{% image_container width="400" %}}![call javascript action dialog](attachments/javascript-actions/call-js-action-dialog.png){{% /image_container %}}
 
-The parameter types supported by JavaScript actions are described below.
+JavaScript アクションでサポートされているパラメータ型については、以下で説明します。
 
-#### 2.2.1 Name
+#### 2.2.1 名前
 
-This setting handles the parameter's name. A name is required. Names must start with a letter and contain only letters. Spaces are not permitted in names.
+この設定はパラメータの名前を処理します。 名前が必要です。 名前は文字で始まり、文字だけを含まなければなりません。 名前にスペースは使用できません。
 
-#### 2.2.2 Type
+#### 2.2.2 タイプ
 
-| Name          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Object        | The object parameter type allows you to pass a Mendix object to a JavaScript action. You must also select its entity type, which can be either a specific entity or a type parameter. In the generated JavaScript action template code, this type is represented as an MxObject.                                                                                                                                                                                                                                                |
-| List          | The list parameter type allows you to pass a list of Mendix objects to a JavaScript action. You must also select its entity type, which can be either a specific entity or a type parameter. In the generated JavaScript action template code, this type is represented as an array of MxObjects.                                                                                                                                                                                                                               |
-| Entity        | The entity parameter type is a placeholder. It stands in for an entity that will be replaced with a new entity's name when it is called in a nanoflow. Additionally, the entity type can be used to fill in a type parameter. In the generated JavaScript action template code, this type is represented as a string.                                                                                                                                                                                                           |
-| Nanoflow      | The nanoflow parameter type allows you to pass a nanoflow that you can call from your JavaScript action. The value of the parameter is an async function, where calling will trigger the configured nanoflow. You can specify parameters as a JavaScript object, and capture the return value of the nanoflow once execution finishes. For example, you can call a nanoflow that has a string `Name` parameter and returns a `User` object with this given name: `const user = await nanoflowParameter({ Name: "John Doe" });`. |
-| Boolean       | The Boolean parameter type allows you to pass a Boolean value to a JavaScript action.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Date and Time | The date and time parameter type allows you to pass a date and time value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a JavaScript `Date`.                                                                                                                                                                                                                                                                                                                                |
-| Decimal       | The decimal parameter type allows you to pass a decimal value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a [Big](https://www.npmjs.com/package/big-js) object.                                                                                                                                                                                                                                                                                                           |
-| Enumeration   | The enumeration parameter type allows you to pass a enumeration value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a string.                                                                                                                                                                                                                                                                                                                                               |
-| Integer/Long  | The integer/long parameter type allows you to pass a decimal value to a JavaScript action. In the generated JavaScript action code, this type will be represented as a [Big](https://www.npmjs.com/package/big-js) object.                                                                                                                                                                                                                                                                                                      |
-| String        | The string parameter type allows you to pass a string value to a JavaScript action.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| 名前       | 説明                                                                                                                                                                                                                                                                                                                                                             |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| オブジェクト   | object パラメーターの型は Mendix オブジェクトを JavaScript アクションに渡すことができます。 また、特定のエンティティまたはtypeパラメータのエンティティタイプを選択する必要があります。 生成された JavaScript アクションテンプレートコードでは、この型は MxObject として表現されます。                                                                                                                                                                                         |
+| リスト      | list パラメータの型は Mendix オブジェクトのリストを JavaScript アクションに渡すことができます。 また、特定のエンティティまたはtypeパラメータのエンティティタイプを選択する必要があります。 生成された JavaScript アクションテンプレートコードでは、この型は MxObject の配列として表現されます。                                                                                                                                                                                     |
+| エンティティ   | 図形パラメータの型はプレースホルダです。 これは、nanoflow 内で呼び出されたときに、新しいエンティティの名前に置き換えられるエンティティを表します。 さらに、エンティティタイプを使用して型パラメータを入力することもできます。 生成された JavaScript アクションテンプレートコードでは、この型は文字列として表現されます。                                                                                                                                                                                       |
+| Nanoflow | nanoflowパラメータタイプでは、JavaScriptアクションから呼び出せるナノフローを渡すことができます。 パラメータの値は非同期関数で、呼び出しによって設定されたnanoflowをトリガーします。 パラメータを JavaScript オブジェクトとして指定し、実行が終了すると、nanoflow の戻り値を取得できます。 For example, you can call a nanoflow that has a string `Name` parameter and returns a `User` object with this given name: `const user = await nanoflowParameter({ Name: "John Doe" });`. |
+| Boolean  | ブールパラメータ型は、ブール値をJavaScriptアクションに渡すことができます。                                                                                                                                                                                                                                                                                                                     |
+| 日付と時刻    | 日付と時刻のパラメータタイプを使用すると、日付と時刻の値を JavaScript アクションに渡すことができます。 生成された JavaScript アクションコードでは、この型は JavaScript `Date` として表現されます。                                                                                                                                                                                                                                        |
+| 小数点以下桁数  | 10 進数のパラメータタイプでは、JavaScript のアクションに 10 進数を渡すことができます。 生成された JavaScript アクションコードでは、この型は [Big](https://www.npmjs.com/package/big-js) オブジェクトとして表現されます。                                                                                                                                                                                                             |
+| 列挙型      | enumeration パラメータ型は JavaScript アクションに列挙値を渡すことができます。 生成された JavaScript アクションコードでは、この型は文字列として表現されます。                                                                                                                                                                                                                                                              |
+| 整数       | integer/long パラメータ型は JavaScript アクションに小数値を渡すことができます。 生成された JavaScript アクションコードでは、この型は [Big](https://www.npmjs.com/package/big-js) オブジェクトとして表現されます。                                                                                                                                                                                                             |
+| 文字列      | stringパラメータ型は、文字列の値をJavaScriptアクションに渡すことができます。                                                                                                                                                                                                                                                                                                                 |
 
-#### 2.2.3 Category
+#### 2.2.3 カテゴリ
 
-Use categories to keep parameters apart in a [JavaScript Action Call](javascript-action-call). Categories are useful for making logical groups of parameters when your app has several parameters. If you do not specify a category, the parameter will appear in the **Input** group.
+カテゴリを使用して、 [JavaScript Action Call](javascript-action-call) でパラメータを区別します。 カテゴリは、アプリケーションにいくつかのパラメータがある場合にパラメータの論理グループを作成するのに便利です。 カテゴリを指定しない場合、パラメータは **Input** グループに表示されます。
 
-#### 2.2.4 Description
+#### 2.2.4 説明
 
-For apps with several parameters, descriptions serve as useful reminders of parameters' exact purposes. Descriptions also allow you to describe your parameters to app collaborators. Descriptions may contain both upper- and lower-case letters, numbers, and symbols.
+いくつかのパラメータを持つアプリの場合、説明はパラメータの正確な目的を思い出させる役に立ちます。 説明では、アプリのコラボレーターにパラメータを記述することもできます。 説明には、大文字と小文字、数字、および記号の両方を含めることができます。
 
-### 2.3 Return Type
+### 2.3 返品タイプ
 
-The return parameter type determines the type of data a JavaScript action returns. Because many APIs are asynchronous, you can also return a `Promise` object which resolves to this type. The return value of the JavaScript action can be given a name and stored so it can be used in the nanoflow where it is called. For all types which you can use for parameters, you can also use a return type. In addition, you can use the return type 'Nothing' if no data should return from the action.
+returnパラメータ型は、JavaScriptアクションが返すデータの型を決定します。 多くの API は非同期であるため、この型を解決する `Promise` オブジェクトを返すこともできます。 JavaScript アクションの戻り値は、名前を与えて保存することができます。これは nanoflow で呼び出される場所で使用することができます。 パラメータに使用できるすべての型では、戻り値の型を使用することもできます。 さらに、アクションからデータが返されない場合は、戻り値の型「Nothing」を使用できます。
 
-## 3 Type Parameter
+## 3 タイプパラメータ
 
-A type parameter is a placeholder for an entity type which will be filled with a specific entity when called in a nanoflow. Type parameters can be used when configuring the data type of a parameter, which allows users to pass an object or list of an arbitrary entity type. They can easily be added, edited, or deleted:
+type パラメータは、nanoflow で呼び出されたときに特定のエンティティで満たされるエンティティタイプのプレースホルダです。 型パラメータは、パラメータのデータ型を構成するときに使用できます。 ユーザーは任意のエンティティタイプのオブジェクトまたはリストを渡すことができます。 それらは簡単に追加、編集、または削除できます:
 
 {{% image_container width="450" %}}![type parameter](attachments/javascript-actions/type-parameter.png){{% /image_container %}}
 
-A JavaScript action can have zero or more type parameters. Each type parameter should have a unique name.
+JavaScriptアクションは0以上の型パラメータを持つことができます。 各typeパラメータは一意の名前を持つ必要があります。
 
-## 4 Expose as Nanoflow Action
+## 4 Nanoflow Actionとして露出する
 
-In the **Expose as nanoflow action** tab, it is possible to expose a JavaScript action as a nanoflow action. This sample action has been given *Sample Action* caption text, assigned *Workshop* as its category, and given no icon:
+**公開を nanoflow アクション** タブでは、JavaScript アクションをナノレベルのアクションとして公開することができます。 このサンプルアクションは、 *サンプルアクション* キャプションテキストが与えられており、 *ワークショップ* をカテゴリとして割り当てられており、アイコンが指定されていません:
 
 {{% image_container width="450" %}}![expose action](attachments/javascript-actions/expose-jsaction.png){{% /image_container %}}
 
-Exposing the JavaScript action will make it appear in the **Toolbox** window when editing a nanoflow in the category of your choice. When this action is used in a nanoflow, it will show the caption and icon you provided. The category and caption are apparent here, and the default icon is being displayed as no custom one was assigned:
+JavaScriptアクションを公開すると、選択したカテゴリ内のナノレベルの編集時に **ツールボックス** ウィンドウに表示されます。 このアクションがナノレベルで使用されると、提供されたキャプションとアイコンが表示されます。 ここではカテゴリとキャプションが明らかで、デフォルトのアイコンはカスタムアイコンが割り当てられていないように表示されています:
 
-![workshop exposed](attachments/javascript-actions/workshop-exposed.png)
+![ワークショップを公開しました](attachments/javascript-actions/workshop-exposed.png)
 
-### 4.1 Caption
+### 4.1 図表番号
 
-A caption is required when exposing a JavaScript action. This caption will accompany your JavaScript action inside the nanoflow **Toolbox** window and can give helpful reminder information about your JavaScript action there.
+JavaScript アクションを公開するにはキャプションが必要です。 このキャプションは、nanoflow **Toolbox** ウィンドウ内の JavaScript アクションに伴うもので、JavaScriptアクションに関する有用な情報を提供します。
 
-### 4.2 Category
+### 4.2 カテゴリ
 
-A category is required when exposing a JavaScript action. Use categories to organize JavaScript actions with similar purposes together in the nanoflow **Toolbox** window.
+JavaScript アクションを公開するには、カテゴリが必要です。 カテゴリを使用して、nanoflow **Toolbox** ウィンドウで同様の目的を持った JavaScript アクションを一緒に整理します。
 
-### 4.3 Icon
+### 4.3 アイコン
 
-An icon is optional when exposing a JavaScript action. When no icon is selected, the default JavaScript action icon is used. The recommended size for an icon is 16x16 pixels.
+アイコンは、JavaScript アクションを公開するときに任意です。 アイコンが選択されていない場合、デフォルトの JavaScript アクションアイコンが使用されます。 アイコンの推奨サイズは16x16ピクセルです。
 
-## 5 Documentation
+## 5 ドキュメント
 
-In the **Documentation** tab, press **Edit** to document a JavaScript action:
+**ドキュメント** タブで、 **編集** を押してJavaScriptアクションをドキュメント化します:
 
 {{% image_container width="450" %}}![documentation](attachments/javascript-actions/documentation-pro.png){{% /image_container %}}
 
-Documentation is visible in the **Code** tab. Your documentation also is copied into the JavaScript action as comment on the function in the corresponding *.js* file:
+ドキュメントは **コード** タブで表示されます。 ドキュメントは、対応する *.js* ファイルの関数へのコメントとして、JavaScript アクションにコピーされます。
 
 {{% image_container width="450" %}}![documentation js file](attachments/javascript-actions/documentation-js-file.png){{% /image_container %}}
 
-## 6 Code
+## 6 コード
 
-In the **Code** tab, you can edit the JavaScript action code without leaving Studio Pro. The editor is based on the [Monaco Editor](https://microsoft.github.io/monaco-editor/index.html). It offers features such as syntax highlighting and code completion. The code can be written in modern JavaScript (ES8 / ES2017) and can use functions like `async` with `await` and `Promise`.
+**コード** タブでは、Studio Pro から離れずに JavaScript アクションコードを編集できます。 エディタは [モナコエディタ](https://microsoft.github.io/monaco-editor/index.html)をベースにしています。 構文強調やコード補完などの機能を提供します。 このコードはモダンな JavaScript (ES8 / ES2017) で記述でき、 `async` のような関数を `await` や `Promise` で使用できます。
 
-The code has three sections: an import list, an extra code block, and a user code block. All code that is added should go in one of these blocks. Code outside the blocks will lost when re-generating the template code on deploy or update of the JavaScript action settings.
+コードには、インポート リスト、追加のコード ブロック、ユーザー コード ブロックの 3 つのセクションがあります。 追加されたすべてのコードは、これらのブロックのいずれかに移動する必要があります。 JavaScriptアクション設定のデプロイまたは更新時にテンプレートコードを再生成すると、ブロック外のコードが失われます。
 
-Additional imports should start with `import` and be placed above `// BEGIN EXTRA CODE`. Extra code should be placed between `// BEGIN USER CODE` and `// END USER CODE`. User implementation code should be placed between `// BEGIN EXTRA CODE` and `// END EXTRA CODE`.
+追加のインポートは `import` で開始し、上に配置する必要があります。 `// BEGIN EXTRA CODE`. Extra code should be placed between `// BEGIN USER CODE` and `// END USER CODE`. User implementation code should be placed between `// BEGIN EXTRA CODE` and `// END EXTRA CODE`.
 
 ``` js
-// This file was generated by Mendix Studio Pro.
+// このファイルは Mendix Studio Pro によって生成されました。
 //
-// WARNING: Only the following code will be retained when actions are regenerated:
+// 警告: Only the following code will be continued when actions are regenerated:
 // - the import list
 // - the code between BEGIN USER CODE and END USER CODE
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
-// Other code you write will be lost the next time you deploy the project.
+// Other code you will be lost the next time you deploy the project.
 import { Big } from "big.js";
 
 // BEGIN EXTRA CODE
@@ -153,7 +153,7 @@ import { Big } from "big.js";
 
 /**
  * Show an alert message to an user.
- * @param {string} message - Message shown to the user.
+ * @param {string} message - ユーザーに表示されるメッセージ。
  * @returns {Promise.<void>}
  */
 export async function Hello(message) {
@@ -164,10 +164,10 @@ export async function Hello(message) {
 }
 ```
 
-## 7 Read More
+## 7 続きを読む
 
-* [JavaScript Action Call](javascript-action-call)
-* [Nanoflows](nanoflows)
-* [Build JavaScript Actions](/howto/extensibility/build-javascript-actions)
-* [Java Action Call](java-action-call)
-* [Microflow Call](microflow-call)
+* [JavaScript アクションコール](javascript-action-call)
+* [Nanoflows](ナノフロー)
+* [JavaScriptアクションをビルド](/howto/extensibility/build-javascript-actions)
+* [Java アクションコール](java-action-call)
+* [マイクロフロー通話](microflow-call)
