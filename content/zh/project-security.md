@@ -1,98 +1,98 @@
 ---
-title: "App Security"
-parent: "security"
+title: "应用安全"
+parent: "安全"
 menu_order: 10
 tags:
   - "studio pro"
-  - "security"
-  - "app security"
+  - "安全"
+  - "应用安全"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In **App Security**, you can switch security on or off for the whole app. You can also configure security settings related to the app, such as user roles, administrator credentials, demo users, anonymous users, and password policy. To be able to configure, for example, [security per module](module-security) or [access rule for entities](access-rules), you need to switch the app security on first.
+在 **App Security**, 你可以切换整个应用程序的安全性. 您也可以配置与应用程序相关的安全设置，如用户角色、管理员凭据、演示用户、匿名用户和密码策略。 为了能够配置，例如， [每个模块](module-security) 或 [实体访问规则](access-rules), 您需要先切换应用安全。
 
-To configure the app security, open **App Explorer** > **App** > **Security**, and the dialog box will open:
+要配置应用安全性，请打开 **App Explorer** > **App** > **Security**，对话框将打开：
 
 ![](attachments/project-security/project-security-dialog.png)
 
 {{% alert type="info" %}}
-For more general information on security, see [Security](security).
-{{% /alert %}}
+欲了解更多安全信息，请参阅 [Security](security)。
+{{% /报警 %}}
 
-## 2 Security Level {#security-level}
+## 2 个安全级别 {#security-level}
 
-The security level defines if security is switched off or on for the app and which security settings need to be configured.
+安全等级定义了是关闭还是开启安全性以及需要配置哪些安全性设置。
 
-| Security level | The way security is applied                                                          | Security settings to be configured                                                                     |
-| -------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Off            | No security is applied. Users do not have to sign in and can access everything.      | None                                                                                                   |
-| Prototype/demo | Security is applied to signing in, forms, and microflows. Users can access all data. | Administrator and anonymous access, user roles, security for forms and microflows.                     |
-| Production     | Full security is applied.                                                            | Administrator and anonymous access, user roles, security for forms, microflows, entities, and reports. |
+| 安全等级    | 应用安全的方式                      | 要配置的安全设置                      |
+| ------- | ---------------------------- | ----------------------------- |
+| 关闭      | 不适用任何安全措施。 用户不必登录，可以访问一切。    | 无                             |
+| 原型/演示模式 | 安全适用于签署、表格和微量流动。 用户可以访问所有数据。 | 管理员和匿名访问、用户角色、表单安全和微流。        |
+| 生产      | 充分的安全措施得到执行。                 | 管理员和匿名访问、用户角色、表格安全性、微流、实体和报告。 |
 
 {{% alert type="warning" %}}
-For all licensed Mendix Cloud nodes, you need to use the **Production** security level and configure all security settings accordingly. Security levels **Off** and **Prototype/demo** are only allowed when testing locally, when deploying a Free App, and in cloud environments outside the Mendix Cloud which are specifically set up with **Development mode**.
-{{% /alert %}}
+对于所有已授权的 Mendix 云节点，您需要使用 **Product** 安全等级，并相应配置所有安全设置。 安全等级 **关闭** 和 **原型/演示级** 仅在本地测试时，当部署免费应用程序时才允许使用 和 在 Mendix 云之外的云端环境中，这些云端是专门使用 **开发模式** 设置的。
+{{% /报警 %}}
 
-### 2.1 Settings Availability for Different Security Levels
+### 2.1 不同安全等级的设置可用性
 
-For different security levels different settings are available. Find the list of all security settings and their availability per security level in the table below:
+对于不同的安全等级，可以使用不同的设置。 在下表中查找所有安全设置的列表及其每个安全等级的可用性：
 
-| Setting Name                        | Security Off | Prototype/Demo Security                                         | Production Security                                             |
-| ----------------------------------- | ------------ | --------------------------------------------------------------- | --------------------------------------------------------------- |
-| [Check security](#check-security)   | N/A          | N/A                                                             | Available, see the [Check Security](#check-security) section.   |
-| [App status](#app-status)           | N/A          | Available, see the [App Status](#app-status) section.           | Available, see the [App Status](#app-status) section.           |
-| [Module status](#module-status)     | N/A          | Available, see the [Module Status](#module-status) section.     | Available, see the [Module Status](#module-status) section.     |
-| [User roles](#user-roles)           | N/A          | Available, see the [User roles](#user-roles) section.           | Available, see the [User roles](#user-roles) section.           |
-| [Administrator](#administrator)     | N/A          | Available, see the [Administrator](#administrator) section.     | Available, see the [Administrator](#administrator) section.     |
-| [Demo users](#demo-users)           | N/A          | Available, see the [Demo users](#demo-users) section.           | Available, see the [Demo users](#demo-users) section.           |
-| [Anonymous users](#anonymous-users) | N/A          | Available, see the [Anonymous users](#anonymous-users) section. | Available, see the [Anonymous users](#anonymous-users) section. |
-| [Password policy](#password-policy) | N/A          | Available, see the [Password policy](#password-policy) section. | Available, see the [Password policy](#password-policy) section. |
+| 设置名称                     | 安全关闭 | 原型/演示安全                                | 生产安全                                   |
+| ------------------------ | ---- | -------------------------------------- | -------------------------------------- |
+| [检查安全](#check-security)  | 无    | 无                                      | 可用，请查看 [检查安全](#check-security) 部分。     |
+| [应用状态](#app-status)      | 无    | 可用，请查看 [App Status](#app-status) 部分。   | 可用，请查看 [App Status](#app-status) 部分。   |
+| [模块状态](#module-status)   | 无    | 可用，请查看 [Module 状态](#module-status) 部分。 | 可用，请查看 [Module 状态](#module-status) 部分。 |
+| [用户角色](#user-roles)      | 无    | 可用，请查看 [用户角色](#user-roles) 部分。         | 可用，请查看 [用户角色](#user-roles) 部分。         |
+| [管理员](#administrator)    | 无    | 可用，请参阅 [管理员](#administrator) 部分。       | 可用，请参阅 [管理员](#administrator) 部分。       |
+| [演示用户](#demo-users)      | 无    | 可用，请查看 [演示用户](#demo-users) 部分。         | 可用，请查看 [演示用户](#demo-users) 部分。         |
+| [匿名用户](#anonymous-users) | 无    | 可用，请参阅 [匿名用户](#anonymous-users) 部分。    | 可用，请参阅 [匿名用户](#anonymous-users) 部分。    |
+| [密码策略](#password-policy) | 无    | 可用，请查看 [密码策略](#password-policy) 部分。    | 可用，请查看 [密码策略](#password-policy) 部分。    |
 
-### 2.2 Check Security {#check-security}
+### 2.2 支票安全 {#check-security}
 
-If the security level is set to **Production**, you can specify whether the consistency of security settings should be checked.
+如果安全等级设置为 **Production**, 你可以指定是否检查安全设置的一致性。
 
-When **Check Security** is enabled, for each user role Studio Pro checks which forms are accessible, either directly in the menu bar or indirectly by following forms and microflows. For each of those forms, Studio Pro checks whether referred attributes and associations are accessible for the current user role. If not, an error is added to the error list. These errors are only shown if there are no other consistency errors.
+当 **检查安全** 启用时，每个用户角色Studio Pro 检查哪些表格是可以访问的。 直接在菜单栏中，或通过以下形式和微流间接。 对于其中的每一种形式，Studio Pro 检查被推荐的属性和关联是否可以为当前用户角色访问。 如果没有，错误将添加到错误列表。 只有在没有其他一致性错误的情况下才显示这些错误。
 
-### 2.3 App Status {#app-status}
+### 2.3 应用状态 {#app-status}
 
-The app status indicates the security status for the current app security level.
+应用状态显示当前应用安全等级的安全状态。
 
-| App status | Description                                                                                                                                         |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Complete   | All security settings for the current security level have been configured.                                                                          |
-| Incomplete | Some security settings for the current security level need to be configured. For more information, see the [Module Status](#module-status) section. |
+| 应用状态     | 描述                                                                 |
+| -------- | ------------------------------------------------------------------ |
+| Complete | 已配置当前安全级别的所有安全设置。                                                  |
+| 未完成      | 当前安全等级的一些安全设置需要配置。 欲了解更多信息，请参阅 [Module Status](#module-status) 部分。 |
 
-## 3 Module Status {#module-status}
+## 3个模块状态 {#module-status}
 
-The **Module Status** tab shows the security status for each module. It shows the total number of items for which security needs to be configured, as well as the number of items for which security has been configured already.
+**模块状态** 标签页显示每个模块的安全状态。 它显示安全需要配置的项目总数， 以及已经配置了安全的项目数量。
 
-At the **Prototype/demo** security level, the status of page access and microflow access is shown.
+在 **原型/演示** 安全等级，显示页面访问状态和微流访问状态。
 
-Additionally, at the **Production** security level, the status of entity access and dataset access (if applicable) is shown.
+此外，在 **生产** 安全层面，显示了实体存取和数据集存取(如果适用的话)的状态。
 
-## 4 User Roles {#user-roles}
+## 4 个用户角色 {#user-roles}
 
-A user role aggregates a number of access rights on data, pages, and microflows. An end-user of the application is assigned one or more user roles by an administrator, and gets all access rights that these user roles represent. For more information, see [User Roles](user-roles).
+用户的作用汇集了数据、页数和微流方面的一些访问权。 应用程序的最终用户由管理员分配一个或多个用户角色，并获得这些用户角色所代表的所有访问权限。 欲了解更多信息，请参阅 [用户角色](user-roles)。
 
-## 5 Administrator {#administrator}
+## 5 管理员 {#administrator}
 
-In the **Administrator** tab of **App Security**, you can change the default credentials and a user role for the Administrator user. For more information, see [Administrator](administrator).
+在 **管理员** 标签 **App Security**, 您可以更改管理员用户的默认凭据和用户角色。 欲了解更多信息，请参阅 [管理员](administrator)。
 
-## 6 Demo Users {#demo-users}
+## 6 个演示用户 {#demo-users}
 
-Demo users are a demonstration of each [user role](user-roles) existing in your app. You can use demo users to test what your app looks like for each user role or to demonstrate your app to other people. For more information, see [Demo Users](demo-users).
+演示用户是在您的应用程序中存在的每一个 [用户角色](user-roles) 的演示。 您可以使用演示用户来测试您的应用程序对每个用户角色的看起来是什么，或者向其他人展示您的应用程序。 欲了解更多信息，请参阅 [演示用户](demo-users)。
 
-## 7 Anonymous Users {#anonymous-users}
+## 7 个匿名用户 {#anonymous-users}
 
-Anonymous users allow end-users access your application without having to sign in. You can restrict the data that anonymous users can access by assigning a specific user role to them. For more information, see [Anonymous Users](anonymous-users).
+匿名用户允许最终用户无需登录即可访问您的应用程序。 您可以通过给匿名用户指定一个特定的用户角色来限制他们访问的数据。 欲了解更多信息，请参阅 [匿名用户](anonymous-users)。
 
-## 8 Password Policy {#password-policy}
+## 8 密码策略 {#password-policy}
 
-Specify the password requirements when users create their accounts and set passwords for them. For example, you can set the minimum length of the password, if it must contain digits or an upper case characters. For more information, see [Password Policy](password-policy).
+指定用户创建账户和设置密码时的密码要求。 例如，如果密码必须包含数字或大写字符，您可以设置密码的最小长度。 欲了解更多信息，请参阅 [密码策略](password-policy)。
 
-## 9 Read More
+## 9 阅读更多
 
-* [Security](security)
-* [Module Security](module-security)
+* [安全](安全)
+* [模块安全](module-security)
