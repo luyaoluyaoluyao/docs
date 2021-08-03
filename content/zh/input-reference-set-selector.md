@@ -1,108 +1,103 @@
 ---
 title: "输入参考集选择器"
 parent: "输入小部件"
-menu_order: 90
-tags:
-  - "studio pro"
 ---
 
-{{% alert type="warning" %}}The **input reference set selector** widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 导言
-
-**输入参考集选择器** 用于允许最终用户通过选择相关对象来显示或选择多到多个(参考集) [关联的值](associations)。
-
-必须将输入参考集选择器放置在 [数据小部件](data-widgets) 中。
-
-例如，您可以将客户分组成群，每个客户可以属于几个群组。 每个组可以有许多客户。 **客户** **组** 的实体具有多对多(参考集)关系。 可以使用输入参考设置选择器来选择客户所属的组。
-
-您可以对输入参考集选择器做什么取决于关联的 **所有者**。 在下面的示例域模型中 **所有者** 已设置为 **默认** (在关联属性 **'客户' 对象指的是'组' 对象**)。
-
-![输入参考值的域模型在客户(父)与所有者为默认值的群组之间设置选择器(如： 客户引用到群组)](attachments/input-reference-set-selector/domain-model-owner-default.png)
-
-您可以在客户数据视图中放置一个输入参考集选择器，允许用户选择客户所属的组。 然而，由于客户是协会的所有者， 您不能在组数据视图中放置一个输入参考集选择器来选择组中的客户。
-
-允许您将一个组添加到客户，并将一个客户添加到一个客户组， 您需要将关联的所有权设置为 **这两者都是**。
-
-![输入参考值的域模型在客户(父级)和所有者都是“两者”的组之间设置选择器(如： 客户和组相互参照)](attachments/input-reference-set-selector/domain-model-owner-both.png)
-
-在输入参考集选择器中，要显示的属性路径(关联、关联实体) 显示在输入参考集选择器中，方括号和彩色蓝色。
-
-例如，使用上述域模型。 以下输入参考设置选择器允许最终用户通过设置关联 **Customer_Group** 来将客户与一个或多个组联系起来。 这是通过选择 **组的 **名称**(s) 进行的，**(s) 与当前的 **客户** 相关联。
-
-![](attachments/input-reference-set-selector/input-reference-set-selector.png)
-
-## 2 属性
-
-以下图像是输入参考集选择器属性的示例：
-
-{{% image_container width="250" %}}![](attachments/input-reference-set-selector/input-reference-set-selector-properties.png)
-{{% /image_container %}}
-
-参考集选择器属性由以下部分组成：
-
-* [常用的](#common)
-* [数据源](#data-source)
-* [设计属性](#design-properties)
-* [编辑性](#editability)
-* [事件](#events)
-* [A. 概况](#general)
-* [标签](#label)
-* [可选对象](#selectable-objects)
-* [可见性](#visibility)
-
-### 2.1 共同部分 {#common}
-
-{{% snippet file="refguide/common-section-link.md" %}}
-
-### 2.2 数据源部分 {#data-source}
-
-{{% snippet file="refguide/data-source-section-link.md" %}}
-
-属性路径指定了关联实体的哪个属性在参考集选择器中显示。 路径必须遵循一个关联，类型参考集，从数据视图的实体开始。
-
-### 2.3 设计财产科 {#design-properties}
-
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.4 可编辑部分 {#editability}
-
-{{% snippet file="refguide/editability-section-link.md" %}}
-
-### 2.5 事件部分 {#events}
-
-更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.6 一般财产 {#general}
-
-#### 2.6.1 选择页 次
-
-选择页面属性决定当输入参考选择器被点击时显示哪个页面。 此页面可以用于从可选对象列表中选择关联的对象。 此页面应包含一个数据网格、模板网格或与输入参考集选择器连接到同一个实体的列表视图。
-
-如果输入参考集选择器永远不能编辑，则不需要选择页面。
-
-See the [Show a Page](on-click-event#show-page) section of *On Click Event & Events Section*. 注意选择的页面必须有 [弹出式布局](layout#layout-type)。
+输入参考集选择器是 [输入小部件](input-widgets) ，可用来显示和编辑 [associations](associations) 其多重设置被配置为允许多个父对象与多个子对象相关联。 这类协会也被称为参考集。
 
 {{% alert type="info" %}}
-您可以通过右键点击小部件并选择 **生成选择页面…** 来生成一个新页面以显示。
+
+![](attachments/16713883/16844008.jpg) 可以通过双击 [域模型中的关联](domain-model) 来找到一个关联的多重设置。
+
+{{% /警示%}}!{% alert type="info" %}}
+
+![](attachments/pages/input-reference-set-selector.png) 此输入参考设置选择器允许您将员工链接到组织。
+
 {{% /报警 %}}
 
-### 2.7 标签部分 {#label}
+当点击时 输入参考集选择器将打开一个包含可以用来填写关联的所有对象的小部件的选择页面。
 
-{{% snippet file="refguide/label-section-link.md" %}}
+## 常规属性
 
-### 2.8 可选物体部分 {#selectable-objects}
+### 选择页面
 
-可选对象部分中的属性决定了最终用户可以从中选择的对象。 作为源，您可以使用 **数据库** 或 **XPath**。 当使用 **XPath**时，您可以添加 **XPath 约束**，或者使用 **由** 路径限制。
+选择页面决定当输入参考选择器被点击时显示哪个页面。 此页面可以用来从所有可能的对象列表中选择关联的对象。 此页面应包含一个数据网格、模板网格或与输入参考集选择器连接到同一个实体的列表视图。
 
-欲了解更多信息，请参阅 *参考选择器* 的 [XPath](reference-selector#xpath-constraints) 部分。
+如果输入参考集选择器在任何情况下都不可编辑，则不需要选择页面。
+
+查看 [打开页面](opening-pages)。 请注意禁止打开内容中的选择页面。
+
+{{% alert type="success" %}}
+
+您可以通过右键单击小部件和选择“生成选择页面...”来生成一个新页面以显示。
+
+{{% /报警 %}}
+
+## 可选择的对象属性
+
+### XPath 约束
+
+使用 XPath 约束，您可以添加手动约束来限制可以选择的对象列表。
 
 {{% alert type="info" %}}
-您不能在输入参考集选择器中使用微流来定义可选择的对象。
+
+产品参考选择器的 XPath 约束 `[Instock = true()]` 将确保只有库存中的产品是可以选择的。
+
 {{% /报警 %}}
 
-### 2.9 可见性科 {#visibility}
+### 约束者
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
+输入参考集选择器可以被一个或多个路径限制。 这通常用于使一个参考选择器依赖另一个参考选择器。 例如，在您可以编辑用户的页面中，组织选择器可以受国家选择器的约束。 在选择一个国家之后，组织选择者受到该国的限制，只显示与该国有联系的组织。
+
+{{% alert type="info" %}}
+
+![](attachments/16713883/16844007.jpg)
+
+在网域模型中，用户有一个参考协会与国家和参考协会与组织。 从国家到组织的第三个协会描述这两个实体之间的关系。 这种“三角”形成域模型的一部分是可能的制约因素。
+
+![](attachments/16713883/16844006.jpg)
+
+页面显示了一个参考选择器用于参考国家和一个输入参考选择器用于参考组织设置。 后者受到构成三角的域模型的路径限制。
+
+![](attachments/16713883/16844005.jpg)
+
+{{% /报警 %}}
+
+## 数据源属性
+
+{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
+
+{{% snippet file="refguid7/Label+Property.md" %}}
+
+## 编辑属性
+
+{{% snippet file="refguide7/Editable+Property.md" %}}
+
+{{% snippet file="refguide7/Read+Only+Style.md" %}}
+
+{{% snippet file="refguide7/Condition+Property.md" %}}
+
+## 可见性属性
+
+{{% snippet file="refguide7/Visibility+Property.md" %}}
+
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+
+## 事件属性
+
+{{% snippet file="refguide7/On+Change+Event.md" %}}
+
+## 公共属性
+
+{{% snippet file="refguide7/Name+Property.md" %}}
+
+{{% snippet file="refguide7/Class+Property.md" %}}
+
+{{% snippet file="refguide7/Style+Property.md" %}}
+
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
+
+## 阅读更多
+
+*   [数据视图](data-view)
