@@ -1,40 +1,40 @@
 ---
-title: "Association Source"
-parent: "data-sources"
+title: "关联源"
+parent: "数据来源"
 tags:
   - "studio pro"
-  - "association"
-  - "data source"
+  - "关联"
+  - "数据源"
 menu_order: 60
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Association** source is a data source available to nested [data grids](data-grid), [template grids](template-grid), and [list views](list-view).
-
-{{% alert type="warning" %}}
-
-The **Association** source retrieves objects from memory, not from the database.
-
-{{% /alert %}}
-
-An **Association** data source fills the widget with objects linked to another object by an association. To provide the context, the data widget needs to be nested within another data widget.
-
-Data widgets that can function as a container for other data widgets are the [template grid](template-grid), [list view](list-view), and [data view](data-view).
+**关联** 源是一个数据源，可供嵌套 [数据网格](data-grid) [模板格子](template-grid)和 [列表视图](list-view).
 
 {{% alert type="warning" %}}
 
-Sorting columns and searching is not possible in data widgets with an association data source. This is because these features require a database call to function, which an association data source does not necessarily initiate.
+**关联** 源检索对象从内存而不是从数据库中获取。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Properties
+**关联** 数据源给小部件添加了一个关联到另一个对象的对象。 要提供上下文，数据部件需要嵌套在另一个数据部件中。
 
-### 2.1 Entity (Path)
+可以作为其他数据部件的容器运行的数据小部件是 [模板网格](template-grid)， [列表视图](list-view)和 [数据视图](data-view)。
 
-The **Entity (path)** property specifies the association by which the widget is populated. Only objects that are connected to the object of the surrounding data container by association will appear in the widget.
+{{% alert type="warning" %}}
 
-## 3 Read More
+在带有关联数据源的数据部件中无法排列列列和搜索。 这是因为这些功能需要一个数据库调用才能运行，而一个关联数据源并不一定会启动。
 
-* [Associations](associations)
-* [Data Widgets](data-widgets)
+{{% /报警 %}}
+
+## 2 属性
+
+### 2.1 实体(道路)
+
+**实体 (路径)** 属性指定了部件使用的关联性。 只有连接到周围数据容器对象的对象才会出现在部件中。
+
+## 3 阅读更多
+
+* [社会联系](关联)
+* [数据部件](data-widgets)
