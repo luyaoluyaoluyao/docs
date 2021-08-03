@@ -1,234 +1,238 @@
 ---
-title: "Pages"
-description: "Describes the page editor in Mendix Studio."
+title: "页 次"
+description: "在 Mendix Studio 中描述页面编辑器。"
 menu_order: 20
 tags:
-  - "studio"
-  - "page editor"
-  - "pages"
+  - "工作室"
+  - "页面编辑器"
+  - "页面"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Pages define the end-user interface of a Mendix application. Pages are created and edited in the *page editor*.
+页面定义Mendix 应用程序的最终用户接口。 页面已在 *页面编辑器* 中创建和编辑。
 
-To view the **Pages** of your app in Mendix Studio, click the **Pages** icon in the left menu bar of Studio.
+要在 Mendix Studio 中查看您应用的 **页面** ，请点击 **页面** 在工作室左侧菜单栏中的图标。
 
-{{% image_container width="300" %}}![](attachments/page-editor/pages-icon.png)
-{{% /image_container %}}
+![](attachments/page-editor/pages-icon.png)
 
 {{% alert type="warning" %}}
 
-Studio supports apps based on the Atlas UI framework only. For details on Atlas UI, see [Atlas UI](/howto8/front-end/atlas-ui).
+工作室仅支持基于Atlas界面框架的应用。 关于Atlas界面的详细信息，见 [Atlas界面](/howto/front-end/atlas-ui)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
 Every page is *based on* a layout and a template:
 
-* **Layout** – a frame you put your page in. Every page is based on a layout. For example, **Atlas_Default** or **PopupLayout** are types of layouts you can choose when creating a page. Layouts define a position and look of such UI elements as a page header and menu bars.
-* **Template** – a starting point for a new page. Every time you create a new page, you select a template depending on data you want to display on your page and the way you want to display it: a list, a dashboard, a form. Depending on your choice, a page template can have a number of predefined elements on it, such as lists with images, forms. For example, **Dashboard Action Tiles**, **List Default**, **Master Detail** are types of templates.
+* **布局** — — 一个你放置你的页面的框架。 每个页面都基于一个布局。 例如， **Atlas_default** 或 **PopupLayout** 是您在创建页面时可以选择的布局。 布局定义此界面元素的位置和外观作为页面头和菜单栏。
+* **模板** - 一个新页面的起始点。 每次您创建一个新页面， 您选择一个模板，取决于您想要在页面上显示的数据以及您想要显示的方式：一个列表 一个控制面板，一个表单。 根据您的选择，页面模板可以在它上有一些预定义的元素，例如图片列表、表格。 例如， **仪表板动作瓷块**, **列表默认**, **主详细信息** 是模板类型。
 
-*Look and structure* of a page is defined by the following elements:
+*页面的外观和结构* 由以下元素定义：
 
-* **Widgets** – single user-interface elements. For more information, see the [Widgets](#widgets) section and [Widgets](page-editor-widgets).
-* **Building blocks** – pre-configured set of *widgets* that speeds up the process of building your page and styling it. For more information, see the [Building Blocks](#building-blocks) section.
+* **小部件** — — 单个用户界面元素。 欲了解更多信息，请参阅 [小部件](#widgets) 部分和 [小部件](page-editor-widgets)。
+* **Building block** — — 预先配置的一组 *小部件* 可以加速构建你的页面和设计它的过程。 欲了解更多信息，请参阅 [Building Blocks](#building-blocks) 部分。
 
-The diagram below explains function of layouts, templates, and widgets:
+下图说明布局、模板和部件的功能：
 
 ![](attachments/page-editor/page-structure.png)
 
-All elements described above (layouts, templates, widgets, and building blocks) are powered by Atlas UI. For more information on what Atlas UI is, see [Atlas UI](/howto8/front-end/atlas-ui).
+上述所有元素(布局、模板、部件和建筑块)都由Atlas界面提供动力。 关于Atlas界面的更多信息，见 [Atlas界面](/howto/front-end/atlas-ui)。
 
-## 2 Performing Basic Functions {#page-editor-basic-functions}
+## 2 执行基本函数 {#page-editor-basic-functions}
 
-### 2.1 Opening Pages
+您可以在页面上执行以下基本功能：
 
-After opening Studio, it automatically opens the home page of the app.
+* [打开页面](#opening-page)
+* [创建页面](#creating-new-page)
+* [Duplicate a page](#duplicating)
+* [复制并粘贴页面](#copy-pasting)
+* [删除页面](#deleting-page)
+* [在页面上添加元素](#adding-elements)
+* [查看元素属性](#viewing-elements)
+* [删除元素](#deleting-elements)
 
-To open a page in Studio, do the following:
+### 2.1 开放页面 {#opening-page}
 
-1. Click the **Pages** icon in the left menu bar.
+打开工作室后，它会自动打开应用程序的主页。
 
-2.  In the displayed list of app pages, select the one you want to open and click it.
+要在 Studio 中打开一个页面, 请执行以下操作：
 
-    {{% image_container width="400" %}}![](attachments/page-editor/opening-a-page.png)
-    {{% /image_container %}}
+1. 点击左侧菜单栏中的 **页面** 图标。
 
-The selected page is opened.
+2.  在显示的应用页面列表中，选择您想要打开的页面并单击它。
 
-### 2.2 Creating a New Page {#creating-new-page}
+所选页面已打开。
 
-To create a new page in Studio, do the following:
+### 2.2 创建新页面 {#creating-new-page}
 
-1. Click the **Pages** icon.
+要在 Studio 中创建一个新的页面, 请执行以下操作:
 
-2.  Click **New** in the top right corner of the displayed side panel.
+1. 点击 **页面** 图标。
 
-    {{% image_container width="400" %}}![](attachments/page-editor/new-page.png)
-    {{% /image_container %}}
+2.  选择您想要添加新页面的模块，然后点击此模块旁边的加号图标。
 
-3.  In the **Create new page** dialog box, fill out the title of the page, select a layout and a page template.
+    ![](attachments/page-editor/new-page.png)
+
+    关于哪些模块的更多信息，见 [域模型](domain-models)。
+
+3.  在 **创建新页面** 对话框框中，填写页面标题，选择一个布局和一个页面模板。
 
     ![](attachments/page-editor/create-new-page-dialog.png)
 
-5. Click **Create**.
+5. 点击 **创建**。
 
-A new page is created.
+新页面已创建。
 
-### 2.3 Duplicating a Page
+### 2.3 复制页 {#duplicating}
 
-To duplicate an existing page, do the following:
+要复制一个现有的页面，请执行以下操作：
 
-1. Click the **Pages** icon in the left menu bar.
+1. 点击左侧菜单栏中的 **页面** 图标。
 
-2. In the side panel, click the ellipsis icon and select **Duplicate** in the drop-down menu:
+2. 在侧面板中，单击椭圆图标并在下拉菜单中选择 **重复**
 
-    {{% image_container width="400" %}}
-![Duplicate Page](attachments/page-editor/duplicate-page.png)
+    ![Duplicate Page](attachments/page-editor/duplicate-page.png)
+
+页面已重复。
+
+### 2.4 复制并粘贴一个页面 {#copy-pasting}
+
+要复制和粘贴一个页面，请做以下操作：
+
+1. 点击左侧菜单栏中的 **页面** 图标。
+
+2.  在侧面板中，单击椭圆图标并在下拉菜单中选择 **复制到剪贴板**：
+
+    ![复制页面](attachments/page-editor/copy-page.png)
+
+3. 打开工作室应用程序以粘贴页面并按 <kbd>Ctrl</kbd> +<kbd>V</kbd> 或 <kbd>Cmd</kbd> +<kbd>V</kbd>。
+
+您的页面已粘贴。 欲了解工作室中复制/粘贴函数的更多信息，请在 *常规信息* 中查看 [复制/粘贴页面、微流和枚举](general#copy-paste-documents) 部分。
+
+### 2.5 删除页面 {#deleting-page}
+
+若要删除工作室中的一个页面, 请执行以下操作之一：
+
+1. 打开您想要删除的页面并按照下面的步骤：
+    1. 打开 **属性** 选项卡。
+    2. 点击 **在 **属性底部删除**** 标签。
+ {{% image_container width="250" %}}![](attachments/page-editor/page-delete.png)
+        {{% /image_container %}}
+
+2. 点击左侧菜单栏中的 **页面** 图标并执行以下操作：
+
+    1. 在侧面板中，单击椭圆图标并在下拉菜单中选择 **删除**
+
+        ![删除页面](attachments/page-editor/delete-page.png)
+
+所选页面已删除。
+
+### 2.6 在页面上添加元素 {#adding-elements}
+
+要在页面上添加元素，请执行以下操作：
+
+1. 在 **工具箱**, 打开 [小部件](#widgets) 标签或 [构建块](#building-blocks) 标签页。
+2. 选择一个你想要添加、拖放此元素到页面上的元素。
+
+### 2.7 页面上显示元素 {#viewing-elements}
+
+有两种方式可以查看元素及其 [属性](#page-editor-properties)：
+
+* 点击页面上的元素
+* 点击面包屑中的元素(详情请参阅 [Breadcrumb](#breadcrumb) 部分)
+
+选中的元素用蓝边框标明。 此外，如果元素在数据容器内(数据视图或列表视图)，则将用数据容器图标表示：
+
+{{% image_container width="350" %}}![](attachments/page-editor/input-widget-example.png)
 {{% /image_container %}}
 
-The page is duplicated.
+### 2.8 从一页删除元素 {#deleting-elements}
 
-### 2.4 Copying and Pasting a Page
+要从页面中删除元素，请执行以下操作之一：
 
-To copy and paste a page, do the following:
+* 选择此元素并按 <kbd>删除</kbd>
+* 打开此元素的 **属性** 标签，点击 **在标签底部删除**
 
-1. Click the **Pages** icon in the left menu bar.
+## 3 显示选项
 
-2.  In the side panel, click the ellipsis icon and select **Copy to clipboard** in the drop-down menu:
-
-    {{% image_container width="400" %}}
-![Copying a Page](attachments/page-editor/copy-page.png)
-{{% /image_container %}}
-
-3. Open the Studio app where you want to paste the page and press <kbd>Ctrl</kbd> +<kbd>V</kbd> or <kbd>Cmd</kbd> +<kbd>V</kbd>.
-
-Your page is pasted. For more information on copy/paste function in Studio, see the [Copy/Paste Pages, Microflows, and Enumerations](general#copy-paste-documents) section in *General Info*.
-
-### 2.5 Deleting a Page
-
-To delete a page in Studio, do one of the following:
-
-1. Open the page you want to delete and follow the steps below:
-    1. Open the **Properties** tab.
-    2. Click **Delete** at the bottom of the **Properties** tab.
-
-    ![](attachments/page-editor/page-delete.png)
-
-2. Click the **Pages** icon in the left menu bar and do the following:
-
-    1. In the side panel, click the ellipsis icon and select **Delete** in the drop-down menu:
-
-        {{% image_container width="400" %}}
-![Delete Page](attachments/page-editor/delete-page.png)
-{{% /image_container %}}
-
-The selected page is deleted.
-
-### 2.6 Adding Elements on a Page {#adding-elements}
-
-To add elements on a page, do the following:
-
-1. In **Toolbox**, open the [Widgets](#widgets) tab or the [Building Blocks](#building-blocks) tab.
-2. Select an element you would like to add, drag and drop this element on a page.
-
-### 2.7 Viewing Elements On a Page
-
-There are two ways to view an element and its [properties](#page-editor-properties):
-
-* Clicking the element on a page itself
-* Clicking the element in a breadcrumb (for more information, see the [Breadcrumb](#breadcrumb) section)
-
-The selected element is indicated with an blue border. Additionally, if the element is inside a data container (data view or a list view), it will be indicated with a data container icon:
-
-{{% image_container width="400" %}}![](attachments/page-editor/input-widget-example.png)
-{{% /image_container %}}
-
-### 2.8 Deleting Elements from a Page
-
-To delete an element from a page, do one of the following:
-
-* Select this element and press <kbd>Delete</kbd>
-* Open the **Properties** tab of this element and this click **Delete** at the bottom of the tab
-
-## 3 The Show Option
-
-Located in the top-left corner of a page, the **Show** option highlights items that have [conditional visibility](page-editor-widgets-visibility-section) configured for them. Click the eye icon to enable this option. For more information on conditional visibility and how it works, see [Conditional Visibility Section](page-editor-widgets-visibility-section).
+位于页面左上角， **显示** 选项突出显示了具有 [条件可见性](page-editor-widgets-visibility-section) 配置给他们的项目。 点击眼睛图标启用此选项。 关于条件可见性及其工作方式的更多信息，见 [条件可见性部分](page-editor-widgets-visibility-section)。
 
 ## 4 Breadcrumb {#breadcrumb}
 
-A breadcrumb is displayed on every page in the left bottom corner of Studio.
+在工作室左下角的每个页面都显示面包屑。
 
-The breadcrumb serves two functions:
+面包屑服务两种功能：
 
-* Shows a bottom-up layering of a selected item on a page. For example, when you select a button on a page, you will see that it is placed in a container, which is in a column.  Whereas, the column is in a row, and this row is placed in a layout grid on the page:
+* 在页面上显示选中项目的自下而上的布局。 例如，当您在页面上选择一个按钮时，您会看到它放在一个列中的容器中。  如果列在一行中，此行放置在页面的布局格子里：
 
     ![](attachments/page-editor/breadcrumb.png)
 
-* Allows you to select an element on the page and view its properties. To navigate to an element on a page and view element's properties, click this element in the breadcrumb.
+* 允许您选择页面上的元素并查看其属性。 要导航到页面和视图元素属性上的元素，请在面包屑导航中单击此元素。
 
-## 5 Toolbox Tab
+## 5 工具箱元素
 
-The **Toolbox** shows the tools that can be used on pages.
+**工具箱** 显示了可以在页面上使用的工具。
 
-This tab consists of the following:
+此选项卡由以下内容组成：
 
-* [Widgets](#widgets)
-* [Building Blocks](#building-blocks)
+* [小部件](#widgets)
+* [构建块](#building-blocks)
 
-### 5.1 Widgets {#widgets}
+### 5.1 部件 {#widgets}
 
-Widgets are single user-interface elements that can be configured.
+部件是可以配置的单个用户界面元素。
 
-You can [quickly configure](page-editor-widgets#quick-config) most of the non-custom widgets when adding them on a page. For more information on how to configure widgets, see [Widgets](page-editor-widgets).
+You can [quickly configure](page-editor-widgets#quick-config) most of the non-custom widgets when adding them on a page. 关于如何配置小部件的更多信息，请参阅 [小部件](page-editor-widgets)。
 
-You can update widgets in the [Widget Overview](settings-widget-overview).
+您可以在 [部件概述](settings-widget-overview) 中更新部件。
 
-### 5.2 Building Blocks {#building-blocks}
+### 5.2 建筑块 {#building-blocks}
 
-Building blocks consist of pre-set widgets that allow you to build a page faster:
+建筑块由预设的小部件组成，可以让您更快地构建一个页面：
 
+{{% image_container width="300" %}}
 ![](attachments/page-editor/building-blocks.png)
+{{% /image_container %}}
 
-Building blocks of Studio are divided into the following categories:
+Studio的构件分为以下几类：
 
-| Building Block | Description                                                                                                                                                      |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Headers        | A header combines the functionality of a page title and a control bar for your page. Due to its compact design and versatility it is often used in mobile pages. |
-| Lists          | Use these blocks when you need to display a list of data.                                                                                                        |
-| Cards          | Cards contain diverse building blocks for different purposes.                                                                                                    |
-| Charts         | Use these building blocks if you want to present your data as a chart.                                                                                           |
-| Forms          | Use these building blocks for a form to be filled out by users in your app.                                                                                      |
-| List Controls  | Represent data as a control list and help you to sort and search items in the list.                                                                              |
-| Master Detail  | Use these building blocks to display the list of many items, but to show the details only for the selected element.                                              |
-| Breadcrumbs    | Use these building blocks when you want to show the current page location in your application.                                                                   |
-| Timeline       | Contains building blocks that show a list of events.                                                                                                             |
-| Wizards        | Use these building blocks for inputting information step by step.                                                                                                |
-| Notifications  | Contain building blocks used for different notifications.                                                                                                        |
-| Alignments     | Use these building blocks to align elements.                                                                                                                     |
+| 构建块   | 描述                                            |
+| ----- | --------------------------------------------- |
+| 信头    | 页眉结合了页面标题的功能和您的页面的控制栏。 由于其精密设计和多面性，它常常用于移动网页。 |
+| 列表    | 当您需要显示数据列表时使用这些块。                             |
+| 卡片    | 卡片含有不同用途的不同构件。                                |
+| 图表    | 如果你想要以图表显示你的数据，请使用这些建筑块。                      |
+| 形式    | 使用这些建筑块来填写一个表单，由用户在您的应用程序中填写。                 |
+| 列表控件  | 代表数据作为控制列表，并帮助您排序和搜索列表中的项目。                   |
+| 主详细信息 | 使用这些建筑块来显示许多项目的列表，但只显示所选元素的详细信息。              |
+| 面包屑导航 | 当您想要在应用程序中显示当前页面位置时，使用这些建筑块。                  |
+| 时间表   | 包含显示事件列表的积木块。                                 |
+| 向导    | 使用这些构建模块一步一步输入信息。                             |
+| 通知    | 包含用于不同通知的建筑块。                                 |
+| 对齐    | 使用这些构建模块来对齐元素。                                |
 
-If you want to read documentation on a particular building block and to know more about how and when to use it, click the small icon in the top right corner of the building block.
+如果您想要读取某个建筑块上的文档，并了解更多关于如何和何时使用它的信息， 点击建筑块右上角的小图标。
 
-![](attachments/page-editor/info-icon-building-blocks.png)
+{{% image_container width="300" %}}![](attachments/page-editor/info-icon-building-blocks.png)
+{{% /image_container %}}
 
 {{% alert type="info" %}}
 
-Building blocks categories may differ because Atlas UI can be customized using Studio Pro.
+建筑块类别可能不同，因为Atlas UI可以使用 Studio Pro自定义的。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 6 Properties Tab {#page-editor-properties}
+## 6 个属性选项卡 {#page-editor-properties}
 
-The **Properties** tab displays the properties of the currently selected element and can differ per element.
+**属性** 标签显示当前选中元素的属性，每个元素可能不同。
 
-{{% image_container width="300" %}}![](attachments/page-editor/properties.png)
+{{% image_container width="250" %}}![](attachments/page-editor/properties.png)
 {{% /image_container %}}
 
 For example, if you click **Layout**—which is the layout that you choose when [creating a page](#creating-new-page)—in the breadcrumb, properties will display reference information on page-related actions that you can perform, such as changing the page title and customizing pages' look:
 
-{{% image_container width="300" %}}![](attachments/page-editor/layout.png)
-{{% /image_container %}}
+![](attachments/page-editor/layout.png)
 
-## 7 Main Documents in This Category
+## 7 个此类别中的主要文档
 
-* [Widgets](page-editor-widgets) – describes different type of widgets
+* [小部件](page-editor-widgets) -- 描述不同类型的小部件
