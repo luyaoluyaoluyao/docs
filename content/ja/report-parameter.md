@@ -1,54 +1,54 @@
 ---
-title: "Report Parameter"
-parent: "report-widgets"
+title: "レポートパラメータ"
+parent: "レポートウィジェット"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A **Report parameter** allows the end-user to select a parameter for the [data set](data-sets) that supplies the data for a [Report grid](report-grid). The parameter is used to filter the results in different ways so that the same report can display different sets of data.
+**レポート パラメータ** を使用すると、エンドユーザーは、 [レポート グリッド](data-sets) のデータを提供する [データ セット](report-grid) のパラメータを選択できます。 このパラメータは、同じレポートが異なるデータセットを表示できるように、さまざまな方法で結果をフィルタリングするために使用されます。
 
-For example, a report may show order data for a customer and the report parameter can be used to specify which customer's data should be displayed.
+例えば、 レポートは顧客の注文データを表示し、レポートパラメータを使用して顧客のデータを表示することができます。
 
-The report parameter is displayed in structure mode with the data set parameter name (and the attribute to be displayed if the parameter is an object) shown between square brackets and colored blue.
+レポートパラメータは、データセットパラメータ名 (およびパラメータがオブジェクトの場合に表示される属性) と共に、角括弧と青色の間で表示される構造モードで表示されます。
 
-![Report parameter in structure mode](attachments/report-widgets/report-parameter.png)
+![ストラクチャーモードでのレポートパラメータ](attachments/report-widgets/report-parameter.png)
 
 {{% alert type="info" %}}
-A **Report parameter** cannot be used for data set parameters of type **Date and time**. Date and time parameters must be filtered by a [Report Date Parameter](report-date-parameter) widget.
+**レポート パラメータ** は、 **日付と時刻** 型のデータセットパラメータには使用できません。 日付と時刻のパラメータは、 [日付パラメータ](report-date-parameter) ウィジェットでフィルタリングする必要があります。
 
-If you add a report parameter widget on the page, you must also add a [Report Button](report-button) widget. This allows the end-user to regenerate the report after specifying the parameter.
+ページにレポート パラメータ ウィジェットを追加する場合は、 [レポート ボタン](report-button) ウィジェットも追加する必要があります。 これにより、エンドユーザーはパラメータを指定した後、レポートを再生成することができます。
 {{% /alert %}}
 
-## 2 Report Parameter Properties
+## 2 レポートパラメータのプロパティ
 
-An example of report parameter properties is represented in the image below:
+レポートパラメータのプロパティの例を以下の画像に示します。
 
-{{% image_container width="300" %}}![Report parameter in structure mode](attachments/report-widgets/report-parameter-properties.png)
+{{% image_container width="300" %}}![ストラクチャーモードでのレポートパラメータ](attachments/report-widgets/report-parameter-properties.png)
 {{% /image_container %}}
 
-Report parameter properties consist of the following sections:
+レポート パラメータ プロパティは、次のセクションで構成されます。
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section{#general}
+### 2.3 一般セクション{#general}
 
-#### 2.3.1 Parameter
+#### 2.3.1 パラメータ
 
-**Parameter** is set to a data set parameter, the value of which is restricted by this widget. The corresponding data set must be used by one of the report widgets on the page.
+**パラメータ** は、このウィジェットで制限されるデータセットパラメータに設定されます。 対応するデータセットは、ページのレポート ウィジェットのいずれかで使用する必要があります。
 
-#### 2.3.2 Displayed Attribute
+#### 2.3.2 表示属性
 
-**Displayed attribute** is only available if the data set parameter is an object. Displayed attribute specifies which attribute of the corresponding entity is shown in the drop-down selection.
+**表示される属性** は、データセットパラメータがオブジェクトの場合にのみ使用できます。 表示される属性は、ドロップダウン選択で対応するエンティティの属性を指定します。
