@@ -1,8 +1,6 @@
 ---
-title: "XML 继承 & 选择"
+title: "XML 继承和选择"
 parent: "映射文档"
-tags:
-  - "studio pro"
 ---
 
 ## 1 按实体专业化获得对象
