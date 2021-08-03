@@ -1,75 +1,75 @@
 ---
-title: "Augmented Reality Widgets"
-category: "Mobile"
+title: "拡張現実ウィジェット"
+category: "モバイル"
 menu_order: 55
 tags:
-  - "mobile"
-  - "augmented reality"
+  - "モバイル"
+  - "拡張された現実"
   - "studio pro"
   - "AR"
   - "VR"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This reference guide will place the Augmented Reality (AR) widgets into context, as well as explain how they can be used to create AR experiences. The following terms will be used frequently:
+このリファレンスガイドでは、拡張現実(AR)ウィジェットをコンテキストに配置します。 AR体験を作成するために、それらをどのように使用することができるかを説明するだけでなく 。 以下の用語が頻繁に使用されます。
 
-* Augmented reality (AR): adding virtual objects to the real world, through the mobile phone camera view
-* AR scene: the place where all objects are placed in
-* Billboard: describes the rotation behaviour of an object, where it will always face the camera
-* Origin: the starting position, specifically (0,0,0)
+* 拡張現実(AR):携帯電話のカメラビューを介して仮想オブジェクトを現実の世界に追加する
+* AR シーン: すべてのオブジェクトを配置する場所
+* ビルボード: オブジェクトの回転の挙動を記述します。オブジェクトは常にカメラに直面します。
+* 原点: 開始位置、特に (0,0,0)
 
-## 2 Overview of AR Widgets
+## 2 ARウィジェットの概要
 
-There are 9 total AR Widgets. Some are container widgets, while others are visual widgets:
+ARウィジェットは合計9種類あります。 コンテナウィジェットもありますが、ビジュアルウィジェットもあります。
 
-Container widgets:
+コンテナウィジェット:
 
-1.  **Containter (AR)**
-2.  **Image Tracker (AR)**
-3.  **Plane Selector (AR)**
+1.  **コンテナ (AR)**
+2.  **画像トラッカー (AR)**
+3.  **平面選択 (AR)**
 4.  **Node (AR)**
 
-Visual widgets:
+ビジュアルウィジェット:
 
-5.  **3D Object (AR)**
-6.  **Text (AR)**
+5.  **3D オブジェクト (AR)**
+6.  **テキスト (AR)**
 7.  **Cube (AR)**
 8.  **Sphere (AR)**
 9.  **Square (AR)**
 
-## 3 Container Widgets
+## 3つのコンテナウィジェット
 
-This are the AR widgets that can contain other widgets:
+これは他のウィジェットを含むことができる AR ウィジェットです：
 
-* **Container (AR)**
-* **Image Tracker (AR)**
-* **Plane Selector (AR)**
+* **コンテナ (AR)**
+* **画像トラッカー (AR)**
+* **平面選択 (AR)**
 * **Node (AR)**
 
-These widgets do not necessarily add something visual to the AR scene. Instead, they provide functionality or allow you to group other widgets. Container widgets function as new starting points for the widgets embedded in them. When you start an AR app, the location of your phone serves as the origin.
+これらのウィジェットは、必ずしもビジュアルをARシーンに追加するわけではありません。 代わりに、機能を提供したり、他のウィジェットをグループ化したりできます。 コンテナウィジェットは、埋め込まれたウィジェットの新しい開始点として機能します。 ARアプリを起動すると、携帯電話の場所が原点となります。
 
-### 3.1 Container (AR)
+### 3.1 コンテナ (AR)
 
-Starts the AR camera view, and contains all other AR widgets. This widget is the start of every AR app.
+AR カメラ ビューを開始し、その他すべての AR ウィジェットが含まれます。 このウィジェットはすべてのARアプリの開始です。
 
-### 3.2 Image Tracker (AR)
+### 3.2 画像トラッカー (AR)
 
 **ImageTracker (AR)** takes an image to track, when this image is found in the camera view it becomes the new origin of every AR widget that is embedded in it. For example, if you use a **ImageTracker (AR)** to recognize an image, and put a **Cube (AR)** in it, the cube will start in the exact middle of your image:
 
 {{% image_container width="300" %}}![Cube](../howto/mobile/attachments/how-to-ar-simple-cube/scale-one.jpg){{% /image_container %}}
 
-### 3.3 Plane Selector (AR)
+### 3.3 平面選択 (AR)
 
-**PlaneSelector (AR)** finds surfaces that could fit your specified size. A user first scans their room by walking around the room with their phone while scanning. During this, all the surfaces are found and checked for size. On the large enough surfaces, an object similar to **Square (AR)** is shown and can be clicked to be selected. This will then be the starting point of embedded widgets.
+**Plane Selector (AR)** は、指定したサイズに合うサーフェスを検出します。 ユーザーは、スキャン中に最初に携帯電話で部屋を歩き回って自分の部屋をスキャンします。 この間、すべてのサーフェスが見つかり、サイズがチェックされます。 十分な大きさの面では、 **Square (AR)** に似たオブジェクトが表示され、クリックして選択することができます。 これが埋め込まれたウィジェットの出発点になります。
 
 ### 3.4 Node (AR)
 
-A **Node (AR)** can help group other widgets. Everything embedded in a **Node (AR)** can be oriented with fixed distances and rotations from eachother. **Node (AR)** also has a feature that can make the objects in it 'billboard' to the camera, which is useful for UI like elements. To see an example of this, check **AR-Examples** > **Car Color Picker** and note the the spheres above the car.
+**ノード (AR)** は他のウィジェットのグループ化に役立ちます。 **ノード (AR)** に埋め込まれているものはすべて、各ノードからの固定距離と回転で配置できます。 **ノード (AR)** には、カメラに 'ビルボード' を作ることができる機能もあります。 これは要素のような UI に役立ちます。 この例を見るには、 **AR-Examples** > **Car Color Picker** をチェックし、車の上の球体に注意してください。
 
-## 4 Visual widgets
+## 4つのビジュアルウィジェット
 
-Visual widgets are widgets that add a virtual object to the scene.
+ビジュアルウィジェットは、仮想オブジェクトをシーンに追加するウィジェットです。
 
 ### 4.1 Cube (AR)
 
@@ -81,68 +81,68 @@ Visual widgets are widgets that add a virtual object to the scene.
 
 ### 4.3 Square (AR)
 
-![Square](attachments/ar-widgets/Square.gif)
+![正方形（正方形）](attachments/ar-widgets/Square.gif)
 
-### 4.4 3D Object (AR)
+### 4.4 3D オブジェクト (AR)
 
 ![3DObject](attachments/ar-widgets/3DObject.gif)
 
-Beyond using simple 3D objects, there are also ways to add more complex and custom objects to your scene. The 3D object widget takes either a URL or a FileDocument (you have to upload its model later). There are currently 3 types supported: *.obj*, *.gltf*, and *.glb*. Each with their own benefits. Using a custom material like with the simple visual widgets is only supported in the *.obj* format.
+シンプルな3Dオブジェクト以外にも、シーンに複雑でカスタムオブジェクトを追加する方法もあります。 3D オブジェクト ウィジェットは、URL または FileDocument のいずれかを取ります (後でモデルをアップロードする必要があります)。 現在サポートされている 3 つのタイプがあります: *.obj*, *.gltf*, および *.glb*. それぞれの利点を持つ。 シンプルなビジュアルウィジェットのようなカスタムマテリアルを使用することは、 *.obj* フォーマットでのみサポートされます。
 
-### 4.5 Text (AR)
+### 4.5 テキスト (AR)
 
-![Text](attachments/ar-widgets/Text.gif)
+![テキスト](attachments/ar-widgets/Text.gif)
 
-**Text (AR)** can be used to have 3D or 2D text floating in space. It is best practice to add only a few lines of text to the scene in this way. Bigger paragraphs are better communicated through a 2D textfield on another place in your app.
+**テキスト (AR)** は、空間に浮かんでいる 3D テキストまたは 2D テキストを使用できます。 この方法でシーンにテキストの数行だけを追加することをお勧めします。 より大きな段落は、アプリ内の別の場所にある 2D テキストフィールドを介してより良い通信を行います。
 
-## 5 Common Properties
+## 5つの一般的なプロパティ
 
-All AR widgets share these properties:
+すべての AR ウィジェットはこれらのプロパティを共有します。
 
-* Position
-* Rotation
-* Scale
-* Material
-* Interaction
+* 位置
+* 回転
+* 拡大縮小
+* 材料
+* 相互作用
 
-### 5.1 Position
+### 5.1 位置
 
-**Position** describes where an object should be. In AR, position can be a bit confusing. This is why most positioning is relative to a parent node.
+**位置** は、オブジェクトがどこにあるべきかを記述する。 ARでは、位置は少し混乱する可能性があります。 これが、ほとんどの位置決めが親ノードに対して相対的である理由です。
 
 This means that the origin of (0,0,0) is in the middle of either the **ImageTracker (AR)**, or (0,0,0) is exactly where the user tapped on the **PlaneSelector (AR)**.
 
-It is possible to set a position on visual widgets that is not relative by adding the widget directly into the **Container (AR)**. The 0,0,0 position is then exactly where the camera starts at the beginning of the scene. After the scene has started, the position will not move along with the camera anymore.
+**コンテナ (AR)**に直接ウィジェットを追加することで、相対的でない視覚的なウィジェット上の位置を設定することができます。 0,0,0 の位置は、カメラがシーンの始まりから始まる場所になります。 シーンが開始された後、位置はカメラと一緒に移動しません。
 
-### 5.2 Rotation
+### 5.2 回転
 
-**Rotation** can be used to turn an object on three different axes. When using rotation for custom 3D objects it will turn around the pivot point of the 3D file — the center of the object is not automatically selected.
+**回転** を使用して、3つの異なる軸上のオブジェクトを回転させることができます。 カスタム3Dオブジェクトに回転を使用すると、3Dファイルのピボットポイントが回転します — オブジェクトの中心は自動的に選択されません。
 
-### 5.3 Scale
+### 5.3 スケール
 
-**Scale** is used for setting the size of objects. Widgets that have a set object (**Cube (AR)**, **Sphere (AR)**, or **Square (AR)**) will have a size of 1 or 2 meters. Objects that are added through the 3D Object widget might not conform to that standard unless they are correctly exported with the 1 unit = 1 meter scale. Without that standard scale, objects added with the 3D Object widget can be much larger or smaller than what the scale is set to.
+**スケール** はオブジェクトのサイズの設定に使用されます。 Widgets that have a set object (**Cube (AR)**, **Sphere (AR)**, or **Square (AR)**) will have a size of 1 or 2 meters. [3D オブジェクト] ウィジェットで追加されたオブジェクトは、1 単位 = 1 メータースケールで正しくエクスポートされない限り、その標準に適合しない可能性があります。 この標準スケールがなければ、3D オブジェクト ウィジェットに追加されたオブジェクトは、スケールが設定されているオブジェクトよりもはるかに大きいか小さくなる可能性があります。
 
-### 5.4 Material
+### 5.4 材料
 
-The **Material** tab sets things like color and also the realism of the object that has to be rendered. For example, setting the rendering mode to PBR will enable physically-based rendering (do not forget to set an HDR image as the reflection map and lightsource in the **Container (AR)**).
+**Material** タブでは、色やレンダリングが必要なオブジェクトのリアリズムを設定します。 例えば、 レンダリングモードをPBRに設定すると、物理ベースのレンダリングが有効になります(HDRイメージを **コンテナ (AR)**でリフレクションマップとして設定することを忘れないでください)。
 
-**Material** configurations actually render a 3D element in the camera view. **Cube (AR)**, **Sphere (AR)**, and **Square (AR)** each render a simple 3D object. Only the **Square (AR)** widget can sometimes be invisible from one side. The simple visual widgets come with a way to customize them through scale and material. A material for a 3D object describes what it should look like — think of it like styling. You can add a texture(image), color, different lighting, or even a video to play on the 3D object. The only difference between these objects is in appearance — the configuration is the same on each widget.
+**マテリアル** の構成は、実際にカメラビューで 3D 要素をレンダリングします。 **Cube (AR)**, **Sphere (AR)**, および **Square (AR)** それぞれ単純な3Dオブジェクトをレンダリングする。 **Square (AR)** ウィジェットのみが片側から見えない場合があります。 シンプルなビジュアルウィジェットには、スケールやマテリアルを通じてカスタマイズする方法が付属しています。 3Dオブジェクトのための材料は、それがどのように見えるべきかを説明します — スタイリングのように考えてください。 テクスチャ(画像)、色、照明、または3Dオブジェクトで再生するビデオを追加することができます。 これらのオブジェクトの唯一の違いは外観にあります — 構成は各ウィジェットで同じです。
 
-### 5.5 Interaction
+### 5.5 相互作用
 
-Interaction is used for all actions your 3D objects can do that interact with the environment or the user.
+インタラクションは、3Dオブジェクトが環境やユーザーと対話できるすべてのアクションに使用されます。
 
-#### 5.5.1 Physics
+#### 5.5.1 物理学
 
-Physics allows your 3D object to react to the world, using gravity, or other object using the collision event. Note that the real world environment will not automatically stop your 3D object from falling when gravity is enabled. You have to add these objects yourself. These are the different physics types:
+物理学では、衝突イベントを使用して、重力や他のオブジェクトを使用して、3Dオブジェクトが世界に反応することができます。 重力が有効になっている場合、現実世界の環境では3Dオブジェクトが自動的に落下することはありません。 これらのオブジェクトを自分で追加する必要があります。 以下は、異なる物理タイプです。
 
-* **Kinematic** — Objects with this physics type can only be moved by user input, not by other objects in the scene.
-* **Dynamic** — Dynamic objects can be moved both by user input and by other objects in the scene. For example, if another object with gravity falls onto this object, the object will move.
-* **Static** — Static objects will never move and cannot move through any physics interactions. Static objects can still be moved when specifically changing the position on them.
+* **キネマティック** — この物理タイプを持つオブジェクトは、ユーザー入力によってのみ移動でき、シーン内の他のオブジェクトでは移動できません。
+* **Dynamic** — ダイナミックオブジェクトは、ユーザー入力とシーン内の他のオブジェクトの両方で移動できます。 例えば、重力 を持つ別のオブジェクトがこのオブジェクトに落ちると、そのオブジェクトは動きます。
+* **Static** — 静的オブジェクトは動かず、物理相互作用を通じて動くことはできません。 静的オブジェクトは、それらの位置を具体的に変更する場合でも移動できます。
 
-#### 5.5.2 Dragging
+#### 5.5.2 ドラッグ
 
-By enabling dragging users can move this object around in their space. The dragging type allows users to either have the object at the same distance when they are dragging it. Effectively this means the object is 'stuck' to the phone while they move it around. By changing the type to fixed to world, the object will now be stuck to floors and walls while the user drags it around.
+ドラッグを有効にすることで、ユーザーはこのオブジェクトをスペース内で移動できます。 ドラッグタイプを使用すると、ユーザーは オブジェクトをドラッグしているときと同じ距離にすることができます。 効果的には、 が動かしている間、オブジェクトが携帯電話に「動かない」ことを意味します。 型をワールドに固定することで、オブジェクトは床と壁に固定され、 ユーザーはそれをドラッグします。
 
-#### 5.5.3 Pinching
+#### 5.5.3 ピンチ中
 
-By enabling pinching, and selecting pinch to scale, you allow the user to scale the object through the pinching gesture.
+ピンチを有効にし、ピンチを選択してスケールを拡大することで、ユーザーはピンチジェスチャーを使用してオブジェクトをスケールすることができます。
