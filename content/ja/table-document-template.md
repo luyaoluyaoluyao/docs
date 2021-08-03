@@ -1,63 +1,59 @@
 ---
-title: "Table (Document Template)"
-parent: "document-templates"
+title: "表 (ドキュメントテンプレート)"
+parent: "ドキュメントテンプレート"
 aliases:
-  - /refguide8/table-(document-template).html
-  - /refguide8/Table+(document+template.html
+  - /ja/refguide/table-(document-template).html
+  - /ja/refguide/Table+(document+template.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table-document-template.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+表はフォームのレイアウトを変更するために使用できます。 これらは、行と列の数を含み、2つの交差はセルと呼ばれます。 各セルにウィジェットを含めることができます。 セルは水平方向と垂直方向にマージすることができ、非対称レイアウトを可能にします。
 
-Tables can be used to change the layout of the form. They contain a number of rows and columns and the intersection of the two is called a cell. Each cell can contain widgets. Cells can be merged horizontally and vertically to allow for asymmetric layouts.
-
-Tables can be used both inside and outside the data view or templategrid widgets.
+テーブルは、データ ビューまたはテンプレートグリッドウィジェットの内外の両方で使用できます。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918134.png)
 
-This table has four rows and three columns. The last row contains a data view with another table.
+この表には４行３列がある。 最後の行には、別のテーブルを持つデータビューが含まれます。
 
 {{% /alert %}}
 
-## 2 Components
+## 2つのコンポーネント
 
-### 2.1 Column
+### 2.1 列
 
-A column in a table.
+テーブル内の列。
 
-### 2.2 Row
+### 2.2 行
 
-A row in a table. See [Row (document template)](row-document-template).
+テーブルの行。 See [Row (document template)](row-document-template).
 
-## 3 Appearance Properties
+## 3つの外観プロパティ
 
-### 3.1 Weights
+### 3.1 重量
 
-The column weights are percentages separated by semi-colons that determine the widths of the columns. The weights have to add up to 100\. An alternative way of changing the widths of columns is by dragging the separating line between columns.
+列の重みは、列の幅を決定するセミコロンで区切られたパーセンテージです。 重量は最大100\まで加算する必要があります。 列の幅を変更する別の方法は、列間の区切り線をドラッグすることです。
 
 {{% alert type="info" %}}
 
-In the screenshot above, the column weights of the enclosing table are `25;25;50`.
+上のスクリーンショットでは、囲まれたテーブルの列の重みは `25;25;50` です。
 
 {{% /alert %}}
 
-### 3.2 Cell Spacing
+### 3.2 セル間隔
 
-Cell spacing specifies the space in between cells.
+セルの間隔を指定します。
 
 ### 3.3 Cell Padding
 
-Cell padding specifies the space between the content of the cell and the cell wall.
+セルパディングは、セルの内容とセル壁の間の空間を指定します。
 
-### 3.4 Style
+### 3.4 スタイル
 
-For details, see [Style](style).
+詳細は [スタイル](style) を参照してください。
 
-## 4 Common Properties
+## 4つの一般的なプロパティ
 
-{{% snippet file="refguide8/name-property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
