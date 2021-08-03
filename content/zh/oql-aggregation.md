@@ -1,19 +1,19 @@
 ---
-title: "OQL Aggregation"
-parent: "oql-expressions"
+title: "OQL 聚合"
+parent: "oql-表达式"
 tags:
   - "studio pro"
 ---
 
 
-Aggregations perform specific calculations on the values of the retrieved column(s). The following aggregate functions are possible:
+汇总对检索栏数值进行具体计算。 以下汇总函数是可能的：
 
-| Expression | Description |
-| ---------- | ----------- |
-| AVG        | Average     |
-| COUNT      | Count       |
-| MAX        | Maximum     |
-| MIN        | Minimum     |
-| SUM        | Sum         |
+| 表达式 | 描述  |
+| --- | --- |
+| 平均值 | 平均值 |
+| 币种  | 计数  |
+| 最大值 | 最大值 |
+| MIN | 最小值 |
+| SUM | Sum |
 
-When you are using an aggregate expression in the `SELECT` clause, all expressions in the `SELECT` clause have to be either an aggregation *or* part of the `GROUP BY` clause of the query.
+当您在 `SELECT` 条款中使用集合表达式， `SELECT` 条款中的所有表达式必须是一个聚合 *或* 一部分 `GROUP BY` 条款查询.
