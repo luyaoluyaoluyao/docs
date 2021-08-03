@@ -1,66 +1,66 @@
 ---
-title: "Parse & Format Date Function Calls"
-parent: "expressions"
+title: "解析 & 日付関数呼び出しの書式設定"
+parent: "表現"
 menu_order: 160
-description: "Describes the functions for parsing Date and time values from strings using a specified pattern or producing a string from a Date and time value in Mendix."
+description: "指定されたパターンを使用して文字列からの Date と time の値を解析する関数、Mendix の Date と time の値から文字列を生成する関数について説明します。"
 tags:
   - "studio pro"
-  - "expressions"
+  - "表現"
   - "parsing"
-  - "formatting"
+  - "書式設定"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes functions that are used to parse Date and time values from strings using a specified pattern, or to produce a string from a Date and time value.
+この文書では、指定されたパターンを使用して文字列から日付と時刻の値を解析するために使用される関数について説明します。 または、日付と時刻の値から文字列を生成します。
 
-For details on all pattern possibilities, see [Class SimpleDateFormat](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html).
+すべてのパターンの可能性についての詳細は、 [クラス SimpleDateFormat](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/text/SimpleDateFormat.html) を参照してください。
 
 ## 2 parseDateTime[UTC] {#parsedatetime-utc}
 
-Takes a string and parses it. If it fails and a default value is specified, it returns the default value. Otherwise, an error occurs. The function `parseDateTime` uses the user's timezone and `parseDateTimeUTC` uses the UTC calendar.
+文字列を取り、それを解析します。 失敗し、デフォルト値が指定された場合、デフォルト値を返します。 そうでなければ、エラーが発生します。 関数 `parseDateTime` はユーザのタイムゾーンを使用し、 `parseDateTimeUTC` は UTC カレンダーを使用します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                        | Type                                                                                                     |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Date                         | A string which contains the textual representation of a date, meaning, `dd/mm/yyyy` , `mm/dd/yyyy`, etc. |
-| Format                       | String                                                                                                   |
-| Default value (**optional**) | Date and time                                                                                            |
+| 値                 | タイプ                                                 |
+| ----------------- | --------------------------------------------------- |
+| 日付                | 日付、意味、 `dd/mm/yyyy` 、 `mm/dd/yyyy`、などのテキスト表現を含む文字列。 |
+| 書式                | 文字列                                                 |
+| デフォルト値 (**省略可能**) | 日付と時刻                                               |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                               | Type          |
-| ------------------------------------------------------------------- | ------------- |
-| The parsed date or the default value if a date could not be parsed. | Date and time |
+| 値                                | タイプ   |
+| -------------------------------- | ----- |
+| パースされた日付または日付が解析できなかった場合のデフォルト値。 | 日付と時刻 |
 
-### 2.3 Example
+### 2.3 例
 
-The examples below illustrate which value the expression returns:
+以下の例は、式が返す値を示しています。
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     parseDateTime('2015-05-21', 'yyyy-MM-dd')
     ```
 
-    the output is:
+    出力は
 
     ```java
-    The date May 21st, 2015\. The time will be 12 o'clock at night  because it is not specified.
+    日時 2015年5月21日\. 時間は夜の12時ですので、指定されていません。
     ```
 
-* If you use the following input:
+* 次の入力を使用する場合:
 
     ```java
     parseDateTime('noDateTime', 'dd-MM-yyyy', dateTime(2007))
     ```
 
-    the output is:
+    出力は
 
     ```java
     'Mon Jan 01 00:00:00 CET 2007'
@@ -68,108 +68,108 @@ The examples below illustrate which value the expression returns:
 
 ## 3 formatDateTime[UTC]
 
-Converts the Date and time value to a string, formatted according to the format parameter. Without the format parameter, a standard format is used. The function `formatDateTime` uses the users calendar and `formatDateTimeUTC` uses the UTC calendar.
+format@@0パラメータに従って書式設定された文字列にformat@@1とformat@@2の値を変換します。 format パラメータがなければ、標準フォーマットが使用されます。 関数 formatDateTime `` はユーザカレンダーを使用し、 `formatDateTimeUTC` は UTC カレンダーを使用します。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                 | Type          |
-| --------------------- | ------------- |
-| Date                  | Date and time |
-| Format (**optional**) | String        |
+| 値                 | タイプ   |
+| ----------------- | ----- |
+| 日付                | 日付と時刻 |
+| フォーマット (**省略可能**) | 文字列   |
 
-### 3.2 Output
+### 3.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                  | Type   |
-| ------------------------------------------------------ | ------ |
-| A formatted representation of the Date and time value. | String |
+| 値               | タイプ |
+| --------------- | --- |
+| 日付と時刻の値の書式付き表示。 | 文字列 |
 
-### 3.4 Example
+### 3.4 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-formatDateTime($object/Date1,'EEE, d MMM yyyy HH:mm:ss Z')
+formatDateTime($object/Date1,'EEE, d MMM yyyyy HHH:mm:ss Z')
 ```
 
-the output is:
+出力は
 
 ```java
 'Sun, 8 Jun 2008 10:12:01 +0200'
 ```
 
-To get '1987-12-31T23:59:00', you need to concatenate two formatDateTime[UTC] functions:
+'1987-12-31T23:59:00' を取得するには、2 つの formatDateTime[UTC] 関数を連結する必要があります。
 
 ```java
-formatDateTime($object/Date1,'yyyy-MM-dd') + 'T' + formatDateTime($object/Date1,'HH:mm:ss')
+formatDateTime($object/Date1, 'yyyy-MM-dd') + 'T' + formatDateTime($object/Date1, 'HH:mm:ss')
 ```
 
 ## 4 formatTime[UTC]
 
-Converts the time part of Date and time value to a string in a standard format. `formatTime` uses the users calendar and `formatTimeUTC` uses the UTC calendar.
+日付と時刻の値の時刻部分を標準形式で文字列に変換します。 formatTime `formatTime` はユーザーカレンダーを使用し、 `formatTimeUTC` は UTC カレンダーを使用します。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value | Type          |
-| ----- | ------------- |
-| Date  | Date and time |
+| 値  | タイプ   |
+| -- | ----- |
+| 日付 | 日付と時刻 |
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                   | Type   |
-| ----------------------------------------------------------------------- | ------ |
-| A formatted representation of the time part of the Date and time value. | String |
+| 値                         | タイプ |
+| ------------------------- | --- |
+| 日付と時刻の値の時刻部分を書式設定して表示します。 | 文字列 |
 
-### 4.3 Example
+### 4.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 formatTime(dateTime(1974, 7, 2, 9, 50, 10))
 ```
 
-the output is:
+出力は
 
 ```java
-'9:50 AM'
+「午前9時50分」
 ```
 
 ## 5 formatDate[UTC]
 
-Converts the date part of Date and time value to a string in a standard format. `formatDate` uses the users calendar and `formatDateUTC` uses the UTC calendar.
+日付と時刻の値の日付部分を標準形式で文字列に変換します。 `formatDate` はユーザーのカレンダーを使用し、 `formatDateUTC` は UTC カレンダーを使用します。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value | Type          |
-| ----- | ------------- |
-| Date  | Date and time |
+| 値  | タイプ   |
+| -- | ----- |
+| 日付 | 日付と時刻 |
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                   | Type   |
-| ----------------------------------------------------------------------- | ------ |
-| A formatted representation of the date part of the Date and time value. | String |
+| 値                    | タイプ |
+| -------------------- | --- |
+| 日付と時刻の値の日付部分の書式付き表示。 | 文字列 |
 
-### 5.3 Example
+### 5.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-formatDate(dateTime(1974, 7, 2, 9, 50, 10))
+formatDate(dateTime) (1974, 7, 2, 9, 50, 10))
 ```
 
-the output is:
+出力は
 
 ```java
 '7/2/74'
@@ -177,33 +177,33 @@ the output is:
 
 ## 6 dateTimeToEpoch
 
-Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT to the date.
+1970年1月1日以降のミリ秒数を、日付に 00:00:00 GMT を返します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value | Type          |
-| ----- | ------------- |
-| Date  | Date and time |
+| 値  | タイプ   |
+| -- | ----- |
+| 日付 | 日付と時刻 |
 
-### 6.2 Output
+### 6.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                       | Type         |
-| --------------------------------------------------------------------------- | ------------ |
-| The number of milliseconds since January 1, 1970, 00:00:00 GMT to the date. | Integer/Long |
+| 値                                  | タイプ |
+| ---------------------------------- | --- |
+| 1970年1月1日、00:00:00 GMTから日付までのミリ秒数。 | 整数  |
 
-### 6.3 Example
+### 6.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 dateTimeToEpoch(dateTime(1974, 7, 2, 9, 50, 10))
 ```
 
-The output is:
+出力は:
 
 ```java
 141990610000
@@ -211,33 +211,33 @@ The output is:
 
 ## 7 epochToDateTime
 
-Creates a Datetime that represents the specified number of milliseconds since January 1, 1970, 00:00:00 GMT.
+1970年1月1日から指定されたミリ秒数を表す Datetime を作成します。
 
-### 7.1 Input Parameters
+### 7.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value | Type         |
-| ----- | ------------ |
-| Epoch | Integer/Long |
+| 値    | タイプ |
+| ---- | --- |
+| エポック | 整数  |
 
-### 7.2 Output
+### 7.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                | Type          |
-| ---------------------------------------------------------------------------------------------------- | ------------- |
-| A Datetime that represents the specified number of milliseconds since January 1, 1970, 00:00:00 GMT. | Date and time |
+| 値                                         | タイプ   |
+| ----------------------------------------- | ----- |
+| 1970年1月1日以降のミリ秒数を表すDatetime 00:00:00 GMT。 | 日付と時刻 |
 
-### 7.3 Example
+### 7.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 epochToDateTime(141990610000)
 ```
 
-The output is:
+出力は:
 
 ```java
 dateTime(1974, 7, 2, 9, 50, 10)
