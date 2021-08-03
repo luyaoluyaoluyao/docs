@@ -1,78 +1,86 @@
 ---
-title: "Export Mapping Action"
-parent: "microflow-activities"
+title: "マッピングでエクスポート"
+parent: "インテグレーションアクティビティ"
+tags:
+  - "studio pro"
+  - "統合アクティビティ"
+  - "エクスポートマッピングアクション"
+  - "xmlにエクスポート"
+menu_order: 40
 ---
 
-{{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
 
-## 1 Introduction
+## 1つの紹介
 
-![](attachments/19202807/19399019.png)
+**マッピングによるエクスポート** アクティビティにより、 [ドメイン モデル](domain-model) に格納されているデータを XML ドキュメントにエクスポートすることができます。 JSON ドキュメント、または文字列変数。
 
-With the Export Mapping action, you can export the data stored in [domain model](domain-model) entities into an XML document, JSON document, or string variable.
+## 2つのプロパティ
+
+マッピングプロパティを使用したエクスポートの例は以下のイメージで表されています:
+
+![マッピングプロパティでエクスポート](attachments/integration-activities/export-with-mapping-properties.png)
+
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
+
+マッピングプロパティ ペインを持つエクスポートは以下のセクションで構成されています:
+
+* [アクション](#action)
+* [一般的な](#common)
+
+## 3つのアクションセクション{#action}
+
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
+
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
+
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.1 エクスポートマッピング
+
+[マッピングのエクスポート](export-mappings) アクションは、 [ドメイン モデル](domain-model) 内のデータが、XML スキーマまたは JSON 構造に対応する方法を定義します。
+
+### 3.2 パラメータタイプ
+
+[エクスポート マッピング](export-mappings) が入力を必要とする場合、このフィールドは入力の型を表示します。
+
+### 3.3 パラメータ
+
+[エクスポート マッピング](export-mappings) が入力を必要とする場合、正しい型のパラメータを選択することができます。
+
+### 3.4 コンテンツタイプ
+
+[エクスポート マッピング](export-mappings) がメッセージ定義に基づいている場合、XML と JSON の両方をエクスポートすることができます。 必要な出力タイプを選択します。
+
+### 3.5 スキーマに対する検証
 
 {{% alert type="info" %}}
 
-For details on the properties that all activities share (for example, caption), see [Microflow Element Common Properties](microflow-element-common-properties). This page only describes the properties specific to the action.
+スキーマに対する検証は、エクスポートマッピングが XML にマップされている場合にのみ適用することができます。
 
 {{% /alert %}}
 
-## 2 Action Properties
+エクスポートアクションにより、送信する XML をスキーマ(XSD)に対して検証するかどうかが決定されます。
 
-### 2.1 Export Mapping
+これを「yes」に設定するとパフォーマンスをipmactできます！
 
-The [Export Mapping](export-mappings) action defines in which way the data in the [domain model](domain-model) corresponds with the XML schema or JSON structure.
+デフォルト: *いいえ*
 
-{{% alert type="info" %}}
+### 3.6 オプションとNillable
 
-Export mappings support flat JSON. You can select a JSON structure document in an export mapping, and you can select JSON elements that are at most one level deep. That means that you can export simple JSON objects like `{"Name":"John", "Age":46}`.
+スキーマ内の要素は任意(`minOccurs=0`)またはnillable)にすることができます。 要素の空の値が発生した場合 サーバーは、要素を除外するか(オプション)、nil 属性 (nillable) で要素を送信するかを決定するためにスキーマをチェックします。 空の値が検出されたが、要素が省略可能かnillableではない場合。 サーバーは例外を投げますマイクロフローで自分自身を処理する必要があります これは、XML 検証設定に関係なく発生します。 エクスポートされているデータがスキーマに従って有効であることを確認することをお勧めします。
 
-{{% /alert %}}
+### 3.7 ストアイン
 
-### 2.2 Parameter Type
+「システム」であるオブジェクトにエクスポートマッピングアクティビティの結果を保存するかどうかを選択できます。 ileDocument' またはそのエンティティまたは文字列変数の特殊化。
 
-If the [export mapping](export-mappings) requires an input, this field shows the type of the input.
+### 3.8 名前
 
-### 2.3 Parameter
+アクティビティの結果であるオブジェクトまたは文字列の名前。
 
-If the [export mapping](export-mappings) requires an input, you can select a variable of the correct type.
+## 4つの共通セクション{#common}
 
-### 2.4 Content Type
-
-{{% alert type="info" %}}
-
-This feature was introduced in version 7.10.0.
-
-{{% /alert %}}
-
-If the [export mapping](export-mappings) is based on a message definition, it can export both XML and JSON. Choose which type of output you want.
-
-## 3 Validation Properties
-
-{{% alert type="info" %}}
-
-Validation properties are only applicable if an export mapping is selected that maps to XML.
-
-{{% /alert %}}
-
-### 3.1 Validate Against Schema
-
-This determines whether the export action should validate the outgoing XML against the schema (XSD).
-
-Setting this to yes can greatly decrease performance!
-
-*Default value:* No
-
-### 3.2 Optional and Nillable
-
-Elements in a schema can be optional (`minOccurs=0`) and/or nillable. When an empty value for an element is encountered, the server will check the schema to decide whether to exclude the element (optional) or send the element with a nil attribute (nillable). In case an empty value is encountered but the element is not optional or nillable, the server will throw an exception, which you need to handle yourself in the microflow. This will occur regardless of the XML validation settings. It is recommended to make sure the data that is being exported is valid according to the schema.
-
-## 4 Output Properties
-
-There are two methods of storing the result of an Export Mapping action:
-
-* Inside a 'System.FileDocument'
-* Inside a string variable
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
