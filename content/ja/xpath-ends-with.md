@@ -1,25 +1,21 @@
 ---
-title: "XPath Ends-With"
+title: "XPath で終了"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-ends-with.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`ends-with()` 関数は、文字列属性が特定の文字列 (大文字と小文字を区別しない) で終わるかどうかをチェックします。
 
-The `ends-with()` function checks whether a string attribute ends with a specific string (case-insensitive) as a sub-string.
+## 2つの例
 
-## 2 Example
-
-This query returns all customers whose name ends with the sub-string `sen`:
+このクエリは、サブ文字列 `sen` で終わるすべての顧客を返します。
 
 ```java
 //Sales.Customer[ends-with(Name, 'sen')]
 ```
 
-Customers with the name "Jansen" or "Isaacsen" will be returned, for example, because both names end with "sen."
+「ヤンセン」または「イサクセン」という名前のお客様は、どちらも「せん」で終わるので返却されます。
 
