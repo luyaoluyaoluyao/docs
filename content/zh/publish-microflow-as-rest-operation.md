@@ -11,9 +11,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-此功能是在7.15.0版本中引入的。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/publish-microflow-as-rest-operation.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
