@@ -1,30 +1,30 @@
 ---
-title: "To float"
-parent: "expressions"
+title: "フロートする"
+parent: "表現"
 ---
 
 
-Converts a value of type Decimal to type Float.
+10 進数型の値を Float 型に変換します。
 
 {{% alert type="warning" %}}
 
-This function is deprecated together with the Float type. Use the high-precision Decimal type instead.
+この関数は Float 型とともに非推奨となります。 代わりに高精度の小数タイプを使用します。
 
 {{% /alert %}}
 
 ## toFloat
 
-Converts the specified Decimal value to a value of type Float.
+指定された小数値をFloat型に変換します。
 
-### Input parameters
+### 入力パラメータ
 
-*   A Decimal value that should be converted to a Float value.
+*   浮動小数点数に変換する10進数の値。
 
 ```java
 toFloat(parseDecimal('123.456'))
 ```
 
-returns:
+戻り値:
 
 ```java
 123.456
