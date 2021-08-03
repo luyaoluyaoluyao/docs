@@ -18,7 +18,7 @@ tags:
 
 ![](attachments/microflows-loop/loop.png)
 
-ループには、開始イベントと終了イベントを除く、マイクロフローで使用されるすべてのタイプの要素を含めることができます。 さらに、ループのみが [break events](/refguide/break-event) と [continue events](/refguide/continue-event) を含めることができます。 break イベントはループ内で使用されるのは、オブジェクトのリストの反復を停止し、マイクロフロー内の残りのフローを継続するためだけです。 continue イベントは、現在の反復を停止し、次のオブジェクトの反復を開始するためにのみループで使用されます。
+ループには、開始イベントと終了イベントを除く、マイクロフローで使用されるすべてのタイプの要素を含めることができます。 さらに、ループのみが [break events](/refguide8/break-event) と [continue events](/refguide8/continue-event) を含めることができます。 break イベントはループ内で使用されるのは、オブジェクトのリストの反復を停止し、マイクロフロー内の残りのフローを継続するためだけです。 continue イベントは、現在の反復を停止し、次のオブジェクトの反復を開始するためにのみループで使用されます。
 
 ## 2 つのループプロパティ
 
@@ -41,7 +41,7 @@ Loop プロパティは **データ ソース** セクションで構成され�
 
 1. [ドメインモデルに](domain-models#adding-new-entities) エンティティを作成し、 *Order* という名前を付けます。
 2. [このエンティティのブール型の属性](domain-models#adding-new-attributes) を作成して、この属性のステータスを示し、この属性に名前を付けます。 *処理済み*。
-3. [マイクロフロー](microflows#create) を作成
+3. [マイクロフロー](microflows#creating-new-microflow) を作成
 
 ユースケースを開始するには、次の手順を実行します。
 
