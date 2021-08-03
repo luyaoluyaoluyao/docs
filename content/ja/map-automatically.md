@@ -1,42 +1,42 @@
 ---
-title: "Map Automatically"
+title: "自動的にマップする"
 parent: "mapping-documents"
 tags:
   - "studio pro"
 ---
 
-## 1 Creating Entities, Attributes & Associations from Import or Export Mappings
+## 1 インポートまたはエクスポートマッピングからエンティティ、属性 & 関連付けを作成します
 
-After you have selected a schema source for the mapping document, you need to connect it to entities, associations and attributes. When you do not yet have suitable entities available in your domain model, creating new ones by hand can be quite cumbersome, especially in large mappings. The button "Map automatically" does the majority of the work for you. Based on the selected schema elements, it creates domain model entities and uses them in the mapping.
+マッピングドキュメントのためにスキーマソースを選択した後、エンティティ、関連付け、属性に接続する必要があります。 ドメインモデルで適切なエンティティがまだ使用できない場合 新しいものを手作業で作成するのは特に大きなマッピングでは とても面倒です ボタン「自動的にマップ」は、あなたのための作業の大部分を行います。 選択されたスキーマ要素に基づいて、ドメインモデルエンティティを作成し、マッピング内で使用します。
 
 ![](attachments/16713730/18579457.png)
 
-In the above picture, no entities are connected to the schema elements, and the domain model in the module is empty. After clicking on "Map automatically", the situation is as follows:
+上の図では、スキーマ要素にエンティティが接続されておらず、モジュール内のドメインモデルは空です。 「自動的にマップ」をクリックすると、以下のような状況になります。
 
 ![](attachments/16713730/18579459.png)
 
-The following actions will be applied:
+次のアクションが適用されます:
 
-*   Entities are created for each schema object element. The name is set to the complex type name in the schema.
-*   For XML extension types and choice options, the entity generalization is set to the entity corresponding to the XML base type, or choice container.
-*   Entity attributes are generated for schema primitive types and attributes.
+*   各スキーマオブジェクト要素に対してエンティティが作成されます。 名前はスキーマ内の複合型名に設定されます。
+*   XML 拡張型と選択オプションの場合、エンティティの一般化は XML ベース型、または選択コンテナに対応するエンティティに設定されます。
+*   エンティティ属性はスキーマのプリミティブ型と属性のために生成されます。
 
-A dialog is shown with the changes that have been applied to the domain model and mapping document. (press "Details" to expand the dialog).
+ドメインモデルとマッピングドキュメントに適用された変更と共にダイアログが表示されます。 (「詳細」を押してダイアログを展開します)。
 
 ![](attachments/16713730/18579458.png)
 
-## 2 Using Existing Entities, Attributes & Associations
+## 2 既存のエンティティ、属性 & 関連付けを使用する
 
-If the domain model already contains entities that map to schema elements, they are re-used in the mapping. By default, an entity with the same name of the schema type is used. New attributes may be added, or a generalization may be set if the entity did not already have one. New associations may be created as well if they do not yet exist. The result dialog reports if it reuses existing domain model elements:
+ドメインモデルにスキーマ要素にマップするエンティティがすでに含まれている場合、それらはマッピング内で再利用されます。 デフォルトでは、スキーマ型と同じ名前のエンティティが使用されます。 新しい属性を追加することもできますし、エンティティがまだ持っていない場合は一般化を設定することもできます。 まだ存在しない場合は、新しい関連付けも作成されることがあります。 既存のドメイン モデル要素が再利用された場合、結果ダイアログが報告します。
 
 ![](attachments/16713730/18579460.png)
 
-## 3 Limitations
+## 3つの制限
 
-The parameter entity for import mappings is not created by "Map Automatically". By default, non-persistable entities are created. You can change that manually in the domain model.
+インポートマッピングのパラメータエンティティは、"Map Automatically"によって作成されません。 デフォルトでは、非永続エンティティが作成されます。 ドメインモデルで手動で変更できます。
 
-Note that "Map Automatically" is not going to create entity generalization if there is any impact on the persistence behaviour of the entity.
+"Map Automatically"はエンティティの持続性挙動に影響がある場合、エンティティの一般化を作成しないことに注意してください。
 
-## 4 Manual Verification
+## 4手動認証
 
-"Map automatically" is a helper tool. It creates domain model entities and associations to relieve you from doing a lot of manual work. It is advised that you make sure the changes in the domain model are correct. You can use the reporting dialog, or look at the changes dock of Studio Pro to see what has been changed effectively. Often, in more complex mappings, you may want to rename elements in the domain model, reconnect schema elements to other attributes, or revise entity generalizations. Be aware that if a generalization is set to an entity, this may have consequences for the database tables that store Mendix objects.
+「自動的にマップ」はヘルパーツールです。 多くの手作業からあなたを救うために、ドメインモデルエンティティと関連付けを作成します。 ドメインモデルの変更が正しいことを確認することをお勧めします。 レポートダイアログを使用するか、Studio Pro の変更ドックを確認して、何が効果的に変更されたかを確認できます。 多くの場合、より複雑なマッピングでは、ドメインモデル内の要素の名前を変更したり、スキーマ要素を他の属性に再接続したり、エンティティの一般化を修正したりすることができます。 一般化がエンティティに設定されている場合、Mendix オブジェクトを格納するデータベーステーブルに影響を与える可能性があることに注意してください。
