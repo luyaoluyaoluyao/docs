@@ -1,22 +1,22 @@
 ---
-title: "Hybrid Mobile"
-category: "Mobile"
+title: "ハイブリッドモバイル"
+category: "モバイル"
 menu_order: 3
 tags:
-  - "mobile"
-  - "hybrid"
+  - "モバイル"
+  - "ハイブリッド"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Hybrid mobile apps are deprecated as of Mendix 9. This means that hybrid mobile apps are still supported in Mendix 9 but their usage is discouraged. Accordingly, the creation of new hybrid navigation profiles is disabled.
+Hybrid モバイル アプリは Mendix 9 以降は非推奨です。 つまり、ハイブリッドモバイルアプリは Mendix 9 でもサポートされていますが、その使用は推奨されません。 したがって、新しいハイブリッドナビゲーションプロファイルの作成は無効です。
 
-For more information see this [Hybrid Mobile Apps Deprecation with Mendix 9](https://www.mendix.com/blog/hybrid-mobile-apps-deprecation-with-mendix-9/) blog entry.
+詳細については、こちらをご覧ください [Mendix 9](https://www.mendix.com/blog/hybrid-mobile-apps-deprecation-with-mendix-9/) ブログエントリ.
 
-For hybrid mobile documentation see these Mendix 8 documents:
+ハイブリッド・モバイル・ドキュメントについては、Mendix 8 のドキュメントを参照してください。
 
-* [Hybrid Mobile How To Documentation](/howto8/mobile/hybrid-mobile)
-* [Hybrid Mobile Reference Guide](/refguide8/hybrid-mobile)
+* [ハイブリッドモバイル ドキュメントの方法](/howto8/mobile/hybrid-mobile)
+* [ハイブリッドモバイルリファレンスガイド](/refguide8/hybrid-mobile)
 
 
