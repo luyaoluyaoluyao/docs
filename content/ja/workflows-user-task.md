@@ -1,108 +1,108 @@
 ---
-title: "User Task"
-category: "Workflows"
+title: "ユーザータスク"
+category: "ワークフロー"
 menu_order: 20
 tags:
-  - "workflow"
-  - "workflows"
-  - "user task"
-  - "task"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "ユーザータスク"
+  - "タスク"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-User task allows you to assign a workflow task to a certain user or a group of users.
+ユーザー タスクを使用すると、特定のユーザーまたはユーザーのグループにワークフロー タスクを割り当てることができます。
 
-For example, you can add filters and assign a task to the IT department. When the workflow reaches this user task, the task will appear in their inbox.
+たとえば、フィルタを追加し、IT 部門にタスクを割り当てることができます。 ワークフローがこのユーザータスクに達すると、タスクは受信トレイに表示されます。
 
-## 2 Properties
+## 2つのプロパティ
 
-User task properties consist of the following sections:
+ユーザー タスク プロパティは、次のセクションで構成されます。
 
-* [General](#general)
-* [User Assignment](#user-assignment)
-* [Task Page](#task-page)
-* [Display Information](#display-info)
-* [Due Date](#due-date)
-* [Outcomes](#outcomes)
-* [Events](#events)
-* [Permissions](#permissions)
+* [全般](#general)
+* [ユーザーの割り当て](#user-assignment)
+* [タスクページ](#task-page)
+* [表示情報](#display-info)
+* [締切日](#due-date)
+* [成果](#outcomes)
+* [イベント](#events)
+* [アクセス許可](#permissions)
 
-### 2.1 General Section {#general}
+### 2.1 一般セクション {#general}
 
-**Caption** defines a title of the user task:
+**図表番号** は、ユーザータスクのタイトルを定義します:
 
-![General Section](attachments/workflows-user-task/general.jpg)
+![一般セクション](attachments/workflows-user-task/general.jpg)
 
-### 2.2 User Assignment Section {#user-assignment}
+### 2.2 ユーザ割り当てセクション {#user-assignment}
 
-**Assign user task using** allows you to manage which users can pick up the task. You can filter users or implement a more complicated logic and add several checks using a microflow.
+**** を使用してユーザータスクを割り当てると、どのユーザがタスクを選択できるかを管理できます。 ユーザーをフィルタリングしたり、より複雑なロジックを実装したり、マイクロフローを使用して複数のチェックを追加したりできます。
 
-![User Assignment](attachments/workflows-user-task/user-assignment.jpg)
+![ユーザーの割り当て](attachments/workflows-user-task/user-assignment.jpg)
 
-Possible options of this property are described in the table below:
+このプロパティの可能なオプションについては、以下の表を参照してください。
 
-| Option    | Description                                                                                                                                                                                                                                                                                           |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Filter    | Allows you to filter users who should be assigned to the user task. For example, you can assign a certain task only to users with the Administrator user role. For more information on how to use filters, see [Data Filters](data-filters).                                                          |
-| Microflow | Allows you to assign the user task to certain users. Using a microflow you can check, for example, what users are in the right department and are currently not on vacation and assign the task only to users who passed the check. For more information on microflows, see [Microflows](microflows). |
+| Option  | 説明                                                                                                                                                                 |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| フィルター   | ユーザータスクに割り当てるユーザーをフィルタリングできます。 たとえば、特定のタスクを、管理者ユーザロールを持つユーザにのみ割り当てることができます。 フィルタの使い方についての詳細は、 [データフィルタ](data-filters) を参照してください。                                   |
+| マイクロフロー | ユーザータスクを特定のユーザーに割り当てることができます。 マイクロフローを使用すると、例えば、 どのようなユーザーが適切な部署にいるか、現在休暇中ではありませんし、チェックに合格したユーザーにのみタスクを割り当てます。 マイクロフローの詳細については、 [Microflow](microflows) を参照してください。 |
 
-### 2.3 Task Page Section {#task-page}
+### 2.3 タスクページセクション {#task-page}
 
-**Page** is the page that an assigned user will use to inspect their task and complete it:
+**ページ** は、割り当てられたユーザーがタスクを調査して完了するために使用するページです。
 
-![Task Page](attachments/workflows-user-task/task-page.jpg)
+![タスクページ](attachments/workflows-user-task/task-page.jpg)
 
-### 2.4 Display Information Section {#display-info}
+### 2.4 情報セクション {#display-info}
 
-The **Display Information** section defines the user task name and its description that are displayed in the running (published) app, for example, in the user's task inbox and on the task page.
+**表示情報** セクションでは、実行中(公開済み)アプリに表示されるユーザー タスク名とその説明を定義します。 たとえば、ユーザーのタスク受信トレイとタスクページに表示されます。
 
-![Display Information](attachments/workflows-user-task/display-information.jpg)
+![表示情報](attachments/workflows-user-task/display-information.jpg)
 
-The **Display Information** section properties are described in the table below:
+**表示情報** セクションのプロパティは以下の表に記載されています:
 
-| Property         | Description                                                                                                                                                                                                                                                                                                                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Task Name        | **Task Name** is displayed in the running app. The **Task Name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FullName** attribute value from the **Employee Onboarding** data to display the name of the new employee.                                                                   |
-| Task Description | **Task Description** is a description of the workflow displayed in the running app. The **Task Description** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **PhoneModel** attribute value from the **Employee Onboarding** data to display what phone needs to be shipped for this employee. |
+| 属性     | 説明                                                                                                                                                                |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| タスク名   | **タスク名** が実行中のアプリに表示されます。 **タスク名** には、エンドユーザーに表示される式の結果を含めることができます。 例えば、 **従業員の初期登録** データから **FullName** 属性値を追加して、新規従業員の名前を表示できます。                                |
+| タスクの説明 | **タスクの説明** は、実行中のアプリに表示されるワークフローの説明です。 **タスクの説明** には、エンドユーザーに表示される式の結果を含めることができます。 例えば、 **PhoneModel** 属性値を **従業員オンボーディング** データから追加して、この従業員に出荷する必要がある電話番号を表示できます。 |
 
-### 2.4 Due Date Section {#due-date}
+### 2.4 締切セクション {#due-date}
 
-The **Due Date** section allows you to set a deadline for the user task and keep track of it. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the workflow. For example, you can use this due date to show overdue tasks on a dashboard.
+**締切日** セクションでは、ユーザータスクの期限を設定し、それを追跡することができます。 ただし、これは自動リマインダーではなく、ワークフローを追跡する際に期限を参照します。 たとえば、この期日を使用して、ダッシュボードに期限切れタスクを表示できます。
 
-![Due Date Section](attachments/workflows-user-task/due-date.jpg)
+![締切セクション](attachments/workflows-user-task/due-date.jpg)
 
-The **Due Date** section properties are described in the table below:
+**締切日** セクションのプロパティは以下の表に記載されています:
 
-| Property   | Description                                                                                                                                                                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None       | No due date is set.                                                                                                                                                                                                                         |
-| Duration   | You can set the deadline for the user task with the **Due In** option, which indicates the number of hours, days, or weeks the task is due in. Possible values of the property are the following ones:<br /><ul><li>Hour(s)</li><li>Day(s)</li><li>Week(s)</li> </ul> |
-| Expression | You can set a due date for the user task writing an expression. For example, to set a due date to tomorrow, you can use `addDays([%CurrentDateTime%], 1)`.                                                                                  |
+| 属性 | 説明                                                                                                                    |
+| -- | --------------------------------------------------------------------------------------------------------------------- |
+| なし | 期日が設定されていません。                                                                                                         |
+| 期間 | **期限** オプションで、ユーザータスクの期限を設定できます。 これは、タスクが期限になる時間、日、週の数を示します。 プロパティの可能な値は次のとおりです。<br /><ul><li>時間</li><li>日</li><li>週</li> </ul> |
+| 式  | 式を書き込むユーザ タスクの期日を設定できます。 たとえば、明日に期日を設定するには、 `addDays([%CurrentDateTime%], 1)` を使用できます。                                |
 
-### 2.6 Outcomes Section {#outcomes}
+### 2.6 アウトカムセクション {#outcomes}
 
-The **Outcomes** property allows you to create new outcomes for the user task. These outcomes can be referred to by other elements, such as buttons. For example, you have a process when you need to approve or reject a request. One button on a [task page](#task-page) can refer to the **Approve** outcome of the user task, while the other one can use the **Reject** outcome:
+**結果** プロパティを使用すると、ユーザータスクの新しい結果を作成できます。 これらの結果は、ボタンなどの他の要素によって参照することができます。 たとえば、リクエストを承認または拒否する必要がある場合には、プロセスがあります。 One button on a [task page](#task-page) can refer to the **Approve** outcome of the user task, while the other one can use the **Reject** outcome:
 
-![Outcomes Section](attachments/workflows-user-task/outcomes.jpg)
+![「結果」セクション](attachments/workflows-user-task/outcomes.jpg)
 
-### 2.7 Events Section {#events}
+### 2.7 イベントセクション {#events}
 
-**On Create** event allows you to select a microflow that is executed immediately after users have been determined for a newly created task. For example, you can use this setting for a microflow that will send an email notification about the user task to the assigned users.
+**** イベントでは、新規作成タスクに対してユーザーが決定された直後に実行されるマイクロフローを選択できます。 たとえば、この設定を使用すると、割り当てられたユーザーにユーザー タスクに関する電子メール通知が送信されます。
 
-![Events Section](attachments/workflows-user-task/events.jpg)
+![イベントセクション](attachments/workflows-user-task/events.jpg)
 
-Possible options for this setting are the following:
+この設定の可能なオプションは次のとおりです。
 
-* **Microflow** – a microflow that is executed when users have been determined for a newly created task
-* **Nothing** – no event is executed
+* **Microflow** - 新しく作成されたタスクに対してユーザーが決定されたときに実行されるマイクロフロー
+* **なし** - イベントは実行されません
 
-### 2.8 Permissions Section {#permissions}
+### 2.8 権限セクション {#permissions}
 
-**Allowed roles** defines the [user role](settings-security#roles-and-permissions) that can execute the user task.
+**許可されたロール** は、ユーザー タスクを実行できる [ユーザー ロール](settings-security#roles-and-permissions) を定義します。
 
-![Permissions Section](attachments/workflows-user-task/permissions.jpg)
+![権限セクション](attachments/workflows-user-task/permissions.jpg)
 
-## 3 Read More
+## 3 続きを読む
 
-* [Workflows](workflows)
+* [ワークフロー](workflows)
