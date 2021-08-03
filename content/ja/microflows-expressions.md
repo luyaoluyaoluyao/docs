@@ -6,44 +6,40 @@ description: "Mendix Studio で利用可能なマイクロフロー式につい�
 tags:
   - "スタジオ"
   - "マイクロフロー"
-  - "表現"
-  - "表現"
   - "値を設定"
   - "変数"
 ---
 
 ## 1つの紹介
 
-このドキュメントでは、Mendix Studio でのマイクロフロー式について説明します。 Studio Pro のマイクロフロー式の詳細については、 [Studio Pro ガイド](/refguide8/expressions) の *式* を参照してください。
-
-式は、ロジックに基づいてオブジェクトや変数を作成または変更するために使用できます。
+このドキュメントでは、Mendix Studio でのマイクロフロー式について説明します。 式は、ロジックに基づいてオブジェクトや変数を作成または変更するために使用できます。
 
 **式** タブは、以下のような活動に対応しています。
 
-*  イベントを終了
+*  [イベントを終了](/refguide/end-event)
 *  [決定](microflows-decision)
-*  オブジェクトを作成
-*  オブジェクトの変更
-*  変数を作成
-*  変数の変更
+*  [オブジェクトを作成](/refguide/create-object)
+*  [オブジェクトの変更](/refguide/change-object)
+*  [変数を作成](/refguide/create-variable)
+*  [変数の変更](/refguide/change-variable)
 
 ![](attachments/microflows-expressions/expression-tab.png)
 
-マイクロフローアクティビティの設定と値の変更の詳細については、 see [Set & Change a Value for different Activities in the Microflow](microflows-setting-and-changing-value).
+マイクロフローアクティビティの設定と値の変更の詳細については、 see [How to Set & Change a Value for different Activities in the Microflows](microflows-setting-and-changing-value).
 
 ## 2 式を書く
 
 式を書くには2つの方法があります。
 
-* [候補の使用](#suggestions)
-* [式を手動で書く](#manually)
+* 候補の使用
+* 式を手動で書く
 
-式にエラーが表示されると、説明付きのエラーメッセージが表示されます。
+式にエラーが表示されると、説明のヒントが表示されます。
 
 {{% image_container width="350" %}}![](attachments/microflows-expressions/expression-error.png)
 {{% /image_container %}}
 
-### 2.1 提案を使って式を書く {#suggestions}
+### 2.1 提案を使って式を書く
 
 式を入力し始めると、次のカテゴリに分けられた候補の一覧が表示されます:
 
@@ -67,7 +63,7 @@ tags:
 
 {{% /alert %}}
 
-### 2.2 手動で式を書く {#manually}
+### 2.2 手動で式を書く
 
 手動で表現を記述したい場合は、次の点に注意してください。
 
@@ -75,13 +71,13 @@ tags:
 * オブジェクト変数の属性と関連付けはスラッシュを使用してアクセスします。 例えば、 *$Customer/Name*, *$Customer/Grade* エンティティの名前とグレードを参照します
 * Studio では、Unary、Boolean、およびリレーショナル型の式が使用できます (詳細については、 [式タイプ](#expression-types) セクションを参照してください)
 
-### 2.3 式の例
+## 3 式の例
 
 以下に、式の使用方法を示す2つの例を示します。
 
-#### 2.3.1 例 1
+### 3.1 例 1
 
-[Decision](microflows-decision) があり、顧客の成績が金で、注文の価格が100を超えているかどうかをチェックする式を書く必要があります (この式がtrueの場合に許可される **Decision** の後に割引を設定できます):
+**[Decision](microflows-decision)** があり、顧客の成績が金であり、注文の価格が100を超えているかどうかをチェックする式を書く必要があります (この式がtrueの場合に許可される **Decision** の後に割引を設定できます):
 
 ![](attachments/microflows-expressions/example-decision.png)
 
@@ -89,36 +85,31 @@ tags:
 
 ![](attachments/microflows-expressions/expression-decision.png)
 
-#### 2.3.2 例 2
+### 3.2 例 2
 
-オブジェクト(以下の例では、 [顧客](microflows-decision) )が存在するかどうかをチェックするために、 *決定*を追加します。 また、お客様の名前が特定の名前と一致するかどうかも確認します(下の例では、お客様の名前は *Mendix* です)。 式は次のようになります:
+**[Decision](microflows-decision)** を追加して、オブジェクトが存在するかどうかを確認します(以下の例では、オブジェクト *Customer*です)。 また、お客様の名前が特定の名前と一致するかどうかも確認します(下の例では、お客様の名前は *Mendix* です)。 式は次のようになります:
 
 ![](attachments/microflows-expressions/customer-empty-and-name-example.png)
 
-## 3 式のタイプ {#expression-types}
+## 4 式のタイプ {#expression-types}
 
 Studio で式で使用できる演算子のリストは以下のとおりです。
 
-### 3.1 リレーショナル表現
+### 4.1 リレーショナル表現
 
-次のリレーショナル式を使用できます。
+* [より小さい ( <)](/refguide/relational-expressions)
+* [( > ) より大きい](/refguide/relational-expressions)
+* [以上 ( <= )](/refguide/relational-expressions)
+* [以上 ( >= )](/refguide/relational-expressions)
+* [( = ) と等しいです](/refguide/relational-expressions)
+* [等しくない ( != )](/refguide/relational-expressions)
 
-* [より小さい ( <)](/refguide8/relational-expressions)
-* [( > ) より大きい](/refguide8/relational-expressions)
-* [以上 ( <= )](/refguide8/relational-expressions)
-* [以上 ( >= )](/refguide8/relational-expressions)
-* [( = ) と等しいです](/refguide8/relational-expressions)
-* [等しくない ( != )](/refguide8/relational-expressions)
+### 4.2 ブール式
 
-### 3.2 Boolean Expressions
+* [と](/refguide/boolean-expressions)
+* [または](/refguide/boolean-expressions)
 
-次のブール式を使用できます。
-
-* [と](/refguide8/boolean-expressions)
-* [または](/refguide8/boolean-expressions)
-
-## 4 続きを読む
+## 5 続きを読む
 
 * [マイクロフロー](マイクロフロー)
 * [Set & Change a value for different activities in the Microflow](microflows-setting-and-changing-value)
-* [式](/refguide8/expressions)
