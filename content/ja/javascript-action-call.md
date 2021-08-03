@@ -11,6 +11,10 @@ tags:
   - "アクション通話"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/javascript-action-call.pdf) をクリックしてください。
+{{% /alert %}}
+
 {{% alert type="warning" %}}
 このアクティビティは **Nanoflows** でのみ使用できます。
 {{% /alert %}}
@@ -74,11 +78,11 @@ JavaScriptアクションコールアクティビティは、 [JavaScriptアク�
 
 ## 4つの共通セクション {#common}
 
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
 
 ## 5 続きを読む
 
 * [JavaScript アクション](javascript-actions)
-* [JavaScriptアクションをビルド](/howto/extensibility/build-javascript-actions)
+* [JavaScriptアクションをビルド](/howto8/extensibility/build-javascript-actions)
 * [Nanoflows](ナノフロー)
 * [Java アクションコール](java-action-call)
