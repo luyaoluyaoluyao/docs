@@ -1,59 +1,87 @@
 ---
 title: "Show Message"
 parent: "client-activities"
+menu_order: 4
+tags:
+  - "studio pro"
+  - "show message"
+  - "client activities"
 aliases:
-  - /refguide7/Show+Message.html
+  - /refguide8/Show+Message.html
 ---
 
 {{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/show-message.pdf).
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+This activity can be used in both **Microflows** and **Nanoflows**.
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+This action is ignored and does not work when a microflow is called from an offline, native, or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
 {{% /alert %}}
 
 ## 1 Introduction
 
-With the show-message action you can show a blocking or non-blocking message to the user.
+The **Show message** activity shows a blocking or non-blocking message to an end-user. For example, if the end-user did not select the customer grade in a form, you can show an error message telling them to select a grade to proceed:
 
-{{% alert type="info" %}}
+{{% image_container width="300" %}}
+![Show Message](attachments/client-activities/show-message.png)
+{{% /image_container %}}
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+## 2 Properties
 
-{{% /alert %}}
+There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
 
-## 2 Action Properties
+![Show Message Properties](attachments/client-activities/show-message-properties.png)
 
-### 2.1 Type
+The **Show message** properties pane consists of the following sections:
 
-Type defines the color scheme and icon of the message.
+* [Action](#action)
+* [Common](#common)
+
+## 3 Action Section {#action}
+
+The **Action** section of the properties pane shows the action associated with this activity.
+
+You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+
+You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+
+### 3.1 Type
+
+**Type** defines the color scheme and icon of the message.
 
 There are three message options:
 
-* Information
+* Information *(default)*
 * Warning
 * Error
 
-_Default value:_ Information
+### 3.2 Template
 
-### 2.2 Template
+**Template** defines the text of the message. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2, etc.
 
-Template defines the text of the message. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2 etcetera.
+### 3.3 Parameters
 
-### 2.3 Parameters
+For each parameter in the template, you define an attribute of the context entity or an associated entity. The value of this attribute will be inserted at the position of the parameter. Parameters should be entered using [expressions](expressions) resulting in a string.
 
-For each parameter in the template you define a microflow expression of which the value will be inserted at the position of the parameter. Parameters need to be entered using [expressions](expressions) resulting in a string.
+With parameters you can customize your message with data specific to the situation. For example, the message "An e-mail has been sent to customer {1}." with parameter `$customer/FullName` will show the full name of the customer who an e-mail has been sent to.
 
-{{% alert type="success" %}}
+### 3.4 Blocking
 
-With parameters you can customize your message with data specific to the situation. For example, the message "An e-mail has been sent to customer {1}." with parameter `$customer/FullName` will show the full name of the customer to whom an e-mail has been sent.
+The **Blocking** property defines whether the message shown to the end-user is blocking or not. A non-blocking message lets users continue their work in the app with the pop-up window open, while a blocking message does not let the user continue work until the pop-up window is closed.
 
-{{% /alert %}}
+| Option          | Description                                                                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Yes *(default)* | The message appears in a pop-up in the center of the screen and does not let the user continue work until the pop-up window is closed.                                    |
+| No              | The message appears in a pop-up in the center of the screen but does not block the rest of the screen, allowing the end-user to continue their work with the pop-up open. |
 
-### 2.4 Blocking
+## 4 Common Section {#common}
 
-Blocking defines whether the message appears with a hover on top of the existing form(s).
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
 
-| Option | Description                                                                                                                                                                     |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Yes    | The message appears in a pop-up in the center of the screen on a blocking overlay, rendering the background inaccessible until the pop-up is closed.                            |
-| No     | The message appears in a pop-up in the center of the screen but does not block the rest of the window, allowing the user to continue what they were doing with the pop-up open. |
+## 5 Read More
 
-_Default value:_ Yes
+* [Activities](activities)
