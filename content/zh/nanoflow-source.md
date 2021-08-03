@@ -1,51 +1,51 @@
 ---
-title: "Nanoflow Source"
-parent: "data-sources"
+title: "Nanoflow 源"
+parent: "数据来源"
 tags:
   - "studio pro"
-  - "nanoflow source"
-  - "data source"
+  - "nanoflow 源"
+  - "数据源"
 menu_order: 50
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Nanoflow** data source is available for [data views](data-view) and [list views](list-view).
+**Nanoflow** 数据源用于 [数据视图](data-view) 和 [列表视图](list-view)。
 
-In most cases, you use the *database*, *association* or *XPath* data sources to fill a [data widget](data-widgets). However, sometimes the target objects need to adhere to very specific criteria, or different objects are shown under different circumstances that cannot be handled by an [XPath](xpath-constraints). In these situations a *nanoflow data source* may be required. For more information on nanoflows and their advantages, see [Nanoflows](nanoflows).
+在大多数情况下，您可以使用 *数据库*， *关联* 或 *XPath* 数据源来填写 [数据部件](data-widgets)。 然而，有时目标必须遵守非常具体的标准。 或者不同的对象在无法被 [XPath](xpath-constraints) 处理的不同环境下显示。 在这些情况下，可能需要一个 *nanoflow 数据源*。 欲了解更多关于纳米流量及其优势的信息，请参阅 [Nanoflows](nanoflows)。
 
-When a data widget with a nanoflow data source is displayed in the browser or refreshed, it runs the designated nanoflow and displays the return value. The manner in which the objects are acquired in the nanoflow is entirely up to you, which allows for unlimited control over what objects to return.
+当一个带有nanoflow 数据源的数据部件显示或刷新时， 它运行指定的 nanoflow 并显示返回值。 天体的获取方式完全取决于您。 它允许对要返回的对象进行无限控制。
 
-A nanoflow data source ignores all context. It performs actions described in the nanoflow, nothing else. For example, nested data widgets with a nanoflow data source will not automatically create or invoke associations to the encasing data widget.
+nanoflow 数据源忽略了所有上下文. 它执行nanoflow描述的动作，别的动作。 例如，嵌套数据小部件含有nanoflow 数据源不会自动创建或调用关联到封装数据小部件。
 
-## 2 Nanoflow Data Source Example
+## 2 个Nanoflow 数据源示例
 
-For example, you have a list that needs to display a list of potential orders based on the order type:
+例如，您有一个列表需要显示基于订单类型的潜在订单列表：
 
-![Nanoflow Source](attachments/data-widgets/nanoflow-source.png) If the *OrderType* of the *Order* entity is set to *Cars*, then the data grid should display all *Products* for which the Boolean *Motorized* is set to true. If the *OrderType* is *Bicycles* only objects for which *Motorized* is set to false need be shown. If *OrderType* is empty the data grid should remain empty.
+![Nanoflow 源](attachments/data-widgets/nanoflow-source.png) 如果 *订单的 *订单类型** 实体已设置为 *汽车*然后，数据网格应该显示所有 *产品* 的布尔值 *摩托化* 设置为 true。 如果 *订单类型* 是 *自行车* 只显示 *摩托化* 的对象为false。 如果 *订单类型* 为空，数据网格应保持为空。
 
-![Entities Example](attachments/data-widgets/entities-example.jpg) Because of the mismatch in attribute types this cannot be constrained by XPath and a nanoflow data source is required.
+![实体示例](attachments/data-widgets/entities-example.jpg) 由于属性类型不匹配，这不能被 XPath 约束，需要一个 nanoflow 数据源。
 
-The nanoflow for the use-case should look like this:
+使用案例的nanoflow 应该看起来像这样：
 
-![Nanoflow Example](attachments/data-widgets/microflow-nanoflow-example.jpg) This nanoflow does the following:
+![Nanoflow 示例](attachments/data-widgets/microflow-nanoflow-example.jpg) 这种纳米效果如下：
 
-1. It passes the *Order* of the enclosing data view as a parameter.
+1. 它通过了作为参数的附文数据视图的 *顺序*。
 
-2. It then splits on the *OrderType* attribute and retrieves a different set of products for each enumeration value.
+2. 然后在 *orderType* 属性上拆分并检索每个枚举值的不同产品集。
 
-3. The nanoflow returns a list of products and each end event is configured to return a list.
+3. nanoflow 返回产品列表，并且每个终端事件都被配置为返回列表。
 
     {{% alert type="info" %}}The *empty* path also requires a value, where `empty` is also a value.
-    {{% /alert %}}
+    {{% /报警 %}}
 
-## 3 Properties
+## 3 属性
 
-### 3.1 Nanoflow
+### 3.1 纳诺夫low
 
-Defines the nanoflow used to populate the widget. This nanoflow will be run whenever the widget is loaded into the browser or refreshed. The nanoflow must have a return value of either an object or a list of objects, depending on the widget being used.
+定义用于装入部件的 nanoflow 。 当小部件被加载到浏览器或刷新时，这个nanoflow 将会运行。 nanoflow 必须有对象或对象列表的返回值，这取决于正在使用的部件。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Nanoflows](nanoflows)
-* [Data Widgets](data-widgets)
+* [纳诺夫拉](nanoflows)
+* [数据部件](data-widgets)
