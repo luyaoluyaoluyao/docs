@@ -1,43 +1,43 @@
 ---
-title: "Open App"
-parent: "file-menu"
+title: "アプリを開く"
+parent: "ファイルメニュー"
 menu_order: 20
-description: "Describes the Open App flow and the Open App dialog box"
+description: "アプリを開くフローとアプリを開くダイアログボックスについて説明します"
 tags:
   - "studio pro"
-  - "open app"
+  - "アプリを開く"
 aliases:
-  - /refguide/open-project-dialog.html
+  - /ja/refguide/open-project-dialog.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-To open an app in Mendix Studio Pro, do one of the following:
+Mendix Studio Proでアプリを開くには、次のいずれかを実行します。
 
-* Select **File** > **Open App**
-* Click **Open App** on the Studio Pro landing page
+* **ファイル** > **アプリを開く**
+* Studio Pro のランディングページで **アプリを開く** をクリックします
 
-The **Open App** dialog box will open, where you can select the app location:
+**アプリを開く** ダイアログボックスが開き、アプリの場所を選択できます。
 
-![Open App](attachments/file-menu/open-app.png)
+![アプリを開く](attachments/file-menu/open-app.png)
 
-For more information on the app location, see the [Where Is Your App Stored?](#location) section
+アプリの場所の詳細については、 [アプリはどこに保存されていますか?](#location) セクションを参照してください。
 
-Apps can be located on the Team Server, on another SVN server, or on the local disk. When opening an app from the Team Server or another SVN server, Studio Pro will check whether you have already downloaded this app. If so, it will simply open it. If not, the app will be downloaded from the version control server first.
+アプリはチームサーバー、別のSVNサーバー、またはローカルディスク上に配置できます。 Team Serverまたは別のSVNサーバーからアプリを開くと、このアプリが既にダウンロードされているかどうかをStudio Proが確認します。 もしそうなら、それは単にそれを開きます。 そうでない場合は、最初にバージョン管理サーバーからアプリがダウンロードされます。
 
-## 2 Where Is Your App Stored? {#location}
+## 2 アプリはどこに保存されていますか? {#location}
 
-Use this setting to select the location where your app is stored. This can be the [Team Server](#team-server), a [private server](#private-server), that is an SVN server other than the Team Server, or a [local disk](#local). An app on disk can also be stored in the Team Server or another SVN server, in this case there is no difference in opening it using the **Team Server**/**Private server** option and or the **Locally on disk** option.
+この設定を使用して、アプリが保存されている場所を選択します。 This can be the [Team Server](#team-server), a [private server](#private-server), that is an SVN server other than the Team Server, or a [local disk](#local). ディスク上のアプリは、Team Serverまたは別のSVNサーバーにも保存できます。 この場合、 **チームサーバー**/**プライベートサーバー** オプションと **ローカルディスク** オプションを使用して開くことに違いはありません。
 
-### 2.1 Mendix Team Server {#team-server}
+### 2.1 Mendix チームサーバー {#team-server}
 
-Select the Team Server app you would like to open, then choose the development line.
+開きたいチームサーバーアプリを選択し、開発ラインを選択します。
 
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
+Mendix Team Serverの詳細については、 [Team Server](/developerportal/collaborate/team-server) を参照してください。
 
-For more information about development lines, see [Version Control](version-control).
+開発ラインの詳細については、 [バージョンコントロール](version-control) を参照してください。
 
-### 2.2 Private Server {#private-server}
+### 2.2 プライベートサーバー {#private-server}
 
 {{% alert type="info" %}}
 
@@ -45,12 +45,12 @@ The **Private server** option is only available when support for other SVN serve
 
 {{% /alert %}}
 
-In the **App repository address** field, enter the address of the app you want to open and press the **Connect** button to load development lines from the repository. Then choose the development line in which you want to start developing.
+In the **App repository address** field, enter the address of the app you want to open and press the **Connect** button to load development lines from the repository. 次に、開発を開始する開発ラインを選択します。
 
-### 2.3 Locally on Disk {#local}
+### 2.3 ローカルディスク {#local}
 
-For opening an app you already have on disk, simply point to the app file.
+すでにディスク上にあるアプリを開くには、アプリファイルを指すだけです。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Import App Package](import-project-package-dialog)
+* [アプリパッケージをインポート](import-project-package-dialog)
