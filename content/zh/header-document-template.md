@@ -1,6 +1,6 @@
 ---
-title: "Header (Document Template)"
-parent: "document-templates"
+title: "标题 (文档模板)"
+parent: "文档模板"
 tags:
   - "studio pro"
 aliases:
@@ -8,24 +8,24 @@ aliases:
   - /refguide/Header+(document+template).html
 ---
 
-## 1 Introduction
+## 1 导言
 
-When enabled, the header will be inserted at the top of every page. Other widgets can be put in the header.
+如果启用，头部将插入每个页面的顶部。 其它部件可以放在头部。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918236.png)
 
-A header.
+页眉。
 
-{{% /alert %}}
+{{% /报警 %}}
 
 For details on enabling the header from the properties of the document template itself, see the [Appearance Properties](document-template#appearance-properties) section of *Document Template*.
 
-For details on inserting page numbers, see [Static Label](static-label-document-template).
+关于插入页码的详细信息，请参阅 [静态标签](static-label-document-template)。
 
-## 2 Appearance
+## 2 个外观
 
 ### 2.1 TopMargin
 
-The amount of space between the top of the page and the header in inches.
+页面顶部和页眉之间英寸的空间。
