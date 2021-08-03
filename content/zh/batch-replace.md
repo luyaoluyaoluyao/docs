@@ -9,6 +9,10 @@ tags:
   - "可翻译文本"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/batch-replace.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 **批量替换** 适用于当前选中的语言，允许您用新语言替换任何现有文本。
