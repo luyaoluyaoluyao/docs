@@ -10,10 +10,6 @@ tags:
   - "image property"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/button-properties.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 A button can perform various actions such as calling a microflow or nanoflow or opening a page.
@@ -27,6 +23,7 @@ An example of button properties is represented in the image below:
 
 Button properties consist of the following sections:
 
+* [Accessibility](#accessibility) (only for web buttons when [Render Mode](#RenderMode) is Link)
 * [Common](#common)
 * [Design Properties](#design)
 * [Events](#events)
@@ -34,27 +31,50 @@ Button properties consist of the following sections:
 * [Items](#items) (only for a drop-down button)
 * [Visibility](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 Accessibility Section {#accessibility}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% alert type="info" %}}
 
-### 2.2 Design Properties Section {#design}
+The **Accessibility** section is only shown for web buttons when [Render Mode](#RenderMode) is Link.
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% /alert %}}
 
-### 2.3 Events Section {#events}
+#### 2.1.1 Role Type {#RoleType}
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+The **Role type** property determines the `aria-role` attribute value that will be rendered with the button's HTML. `Aria-role` attributes can be used to improve accessibility, because devices such as screen readers interpret them and present the semantics of the role to end-users. Possible options are the following:
 
-### 2.4 General Section {#general}
+* Button (default)
+* Checkbox
+* Link
+* Menu item
+* Menu item checkbox
+* Menu item radio
+* Option
+* Radio
+* Switch
+* Tab
 
-#### 2.4.1 Caption {#caption}
+### 2.2 Common Section {#common}
+
+{{% snippet file="refguide/common-section-link.md" %}}
+
+### 2.3 Design Properties Section {#design}
+
+{{% snippet file="refguide/design-section-link.md" %}}
+
+### 2.4 Events Section {#events}
+
+{{% snippet file="refguide/events-section-link.md" %}}
+
+### 2.5 General Section {#general}
+
+#### 2.5.1 Caption {#caption}
 
 The **Caption** property defines a text that will be shown on the button. The caption can contain parameters that are written between braces, for example, {1}.
 
-For more information on using parameters, see the [Parameters]() section below.
+For more information on using parameters, see the [Parameters](#parameters) section below.
 
-#### 2.4.2 Parameters {#parameters}
+#### 2.5.2 Parameters {#parameters}
 
 Parameters are attributes the value of which will be displayed. To view **Parameters**, do one of the following:
 
@@ -74,7 +94,7 @@ Parameters have the following settings:
 
     ![Parameter Settings](attachments/button-widgets/button-parameter-settings.png)
 
-##### 2.4.2.1 Adding New Parameters
+##### 2.5.2.1 Adding New Parameters
 
 To add parameters, do the following:
 
@@ -92,7 +112,7 @@ To add parameters, do the following:
 
     ![Parameter Example](attachments/button-widgets/button-parameter-example.png)
 
-##### 2.4.2.2 Performing Other Actions on Parameters
+##### 2.5.2.2 Performing Other Actions on Parameters
 
 In addition to adding new parameters, you can perform the following actions on parameters:
 
@@ -106,11 +126,11 @@ In addition to adding new parameters, you can perform the following actions on p
 
     ![Parameter Actions](attachments/button-widgets/button-parameter-actions.png)
 
-#### 2.4.3 Tooltip
+#### 2.5.3 Tooltip
 
 The **Tooltip** property determines a text end-users will see in the tooltip that appears when they hover over the button. The tooltip text is translatable. For more information on translatable texts, see [Language Menu](translatable-texts). If the tooltip is not specified, no tooltip will be shown when hovering over the button.
 
-#### 2.4.4 Icon {#icon}
+#### 2.5.4 Icon {#icon}
 
 The **Icon** property determines the icon that will be shown in front of the caption of the button. Possible options are:
 
@@ -120,7 +140,7 @@ The **Icon** property determines the icon that will be shown in front of the cap
 
 Glyphicons come from the Bootstrap Halflings collection. The advantages of a glyphicon over a bitmap image are that they are scalable, look sharp on high-resolution screens, and their color can be changed by changing the font color. The advantage of an image icon is that it can have multiple colors.
 
-#### 2.4.5 Render Mode
+#### 2.5.5 Render Mode {#RenderMode}
 
 Defines the way the button will be shown to the end-user. Possible options are the following:
 
@@ -129,7 +149,7 @@ Defines the way the button will be shown to the end-user. Possible options are t
 
 *Default render mode:* Button
 
-#### 2.4.6 Button Style
+#### 2.5.6 Button Style
 
 The **Button style** property applies a predefined styling to the button. Possible options are the following:
 
@@ -141,13 +161,13 @@ The **Button style** property applies a predefined styling to the button. Possib
 * Warning
 * Danger
 
-#### 2.4.7 Disabled During Action
+#### 2.5.7 Disabled During Action
 
 This property is only shown when **Call a microflow** or **Call a nanoflow** is selected as the [on-click event](on-click-event). Selecting **Disabled during action** disables the button until the action is completed or failed.
 
 Default: *true*
 
-### 2.5 Items Section {#items}
+### 2.6 Items Section {#items}
 
 {{% alert type="info" %}}
 
@@ -161,7 +181,7 @@ When an end-user clicks a drop-down button, a pop-up window with a list of items
 
 * Items with the **Create object** event are only shown when you have sufficient permissions on. For more information, see [Security](security).
 
-* Items with the **Sign out** event are not shown for anonymous users. For more information on different security levels and anonymous users, see [Project Security](project-security) and [Anonymous Users](anonymous-users).
+* Items with the **Sign out** event are not shown for anonymous users. For more information on different security levels and anonymous users, see [App Security](project-security) and [Anonymous Users](anonymous-users).
 
 
 {{% /alert %}}
@@ -175,7 +195,7 @@ Each item has the following properties:
     ![Properties of Items](attachments/button-widgets/items-properties.png)
 
 
-#### 2.5.1 Adding New Items
+#### 2.6.1 Adding New Items
 
 To add items to a drop-down buttons, do the following:
 
@@ -194,9 +214,9 @@ To add items to a drop-down buttons, do the following:
 
 
 
-### 2.6 Visibility Section {#visibility}
+### 2.7 Visibility Section {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Read More
 
