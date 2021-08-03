@@ -1,7 +1,13 @@
 ---
 title: "OQL 选择条款"
 parent: "oql"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-select-clause.pdf)。
+{{% /报警 %}}
 
 SELECT 条款规定必须检索哪些实体属性或其他特定数据。 `SELECT` 条款由术语 `SELECT` 和一个或多个表达式组成。 这些表达式必须用逗号分隔。 每个表达式在结果中定义列. 每个表达式都可以有一个别名，这个别名将是结果中列的名称。
 
@@ -20,7 +26,7 @@ SELECT 条款规定必须检索哪些实体属性或其他特定数据。 `SELEC
 
 `*` (星号) - 指定来自FROM 条款中所有实体的所有属性均应退回。
 
-`entity_name。*`, `from_alias。*` - 指定应该返回指定实体或FROM 条款表达式的所有属性。
+`entity_name。*`, `from_alias。*` - 指定应该返回指定实体或FROM 条款表达式的所有属性。 `entity_name` 可以选择地置于双引号中。 如果实体名称是一个保留的 OQL 单词(如 `订单` 或 `组`)，则必须使用双引号。
 
 {{% alert type="info" %}}
 
@@ -30,6 +36,10 @@ SELECT Sales.Customer.* FROM Sales.客户
 
 ```
 选择个人。* 从 Sales.Customer as person
+```
+
+```
+选择"Sales.Order"。* 从"Sales.Order"
 ```
 
 {{% /报警 %}}
