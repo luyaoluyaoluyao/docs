@@ -1,10 +1,16 @@
 ---
 title: "设置"
 parent: "已消耗的应用服务"
+tags:
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/settings.pdf)。
+{{% /报警 %}}
+
+{{% alert type="info" %}}
+应用程序服务已被弃用，并已在Studio Pro 9中删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
 {{% /报警 %}}
 
 在设置屏幕中，您可以看到应用程序服务版本、它的图标和简短描述。 三个选项卡是可选择的选项卡：“动作”、“设置”和“文档”。
