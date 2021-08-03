@@ -1,17 +1,17 @@
 ---
-title: "Team Server"
-category: "Version Control"
+title: "チームサーバー"
+category: "バージョン管理"
 menu_order: 20
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Written on top of Subversion and delivered as a plugin to the Developer Portal, the Mendix Team Server is designed to make the life of a Mendix developer easier. The Mendix Modeler is tightly integrated with the Team Server, and actions like creating a new app (including a versioned model repository), updating an app, committing changes, and merging model versions are all available from within the Mendix Modeler as a single-click actions.
+Subversion の上部に記述され、開発者ポータルにプラグインとして配信されます。 Mendix Team ServerはMendix開発者の生活を楽にするように設計されています。 Mendix Modelerはチームサーバーと緊密に統合されており、新しいアプリケーションの作成(バージョン管理されたモデルリポジトリを含む)などのアクションがあります。 アプリケーションを更新し、変更をコミットし、モデルのバージョンをマージすることはすべて、Mendix Modeler内でシングルクリックアクションとして利用できます。
 
-You can manage Team Server access from the Developer Portal, which allows Mendix to provide you with a efficient ways to combine requirements, implementation, and feedback. When you commit your app model changes to the Team Server from within the Modeler, you can select the user stories (reflecting the requirements) that you have been working on. The Team Server will automatically create links between these user stories and the model changes you made, providing you with a way to navigate from commits to the associated requirements. Furthermore, with these links, Mendix creates a link from a user story to a changeset, which can include a link to a form. While feedback also refers to a form, Mendix can create links between feedback, forms, changesets, and user stories.
+開発者ポータルからTeam Serverへのアクセスを管理できます。 これにより、Mendixは要件、実装、およびフィードバックを組み合わせる効率的な方法を提供できます。 モデラー内からアプリモデルがチームサーバーに変更された場合。 作業中のユーザー ストーリー(要件を反映して)を選択できます。 Team Serverは、これらのユーザーストーリーとモデルの変更との間で自動的にリンクを作成します。 コミットから関連する要件にナビゲートする方法を提供します さらに、これらのリンクでは、Mendixはユーザストーリーからチェンジセットへのリンクを作成し、フォームへのリンクを含めることができます。 フィードバックはまたフォームを指しますが、Mendixはフィードバック、フォーム、変更セット、およびユーザーストーリー間のリンクを作成できます。
 
-The Team Server also connects the capture-and-develop phase of the Agile application lifecycle. When you start working on the next version of your application, you just open the Modeler to see the user stories planned for the current sprint and start working on them. If a user story is based on user feedback, you can directly jump to the form mentioned in the metadata of the feedback and start implementing the requested change.
+Team Serverは、アジャイルアプリケーションライフサイクルのキャプチャと開発フェーズも接続します。 アプリケーションの次のバージョンの作業を開始するとき Modelerを開いて、現在のスプリントで計画されているユーザー ストーリーを見て、それらの作業を開始します。 ユーザーのフィードバックに基づくストーリーの場合 フィードバックのメタデータに記載されているフォームに直接ジャンプし、要求された変更を実装することができます。
 
-## 2 Read More
+## 2 続きを読む
 
 * [Team Server FAQ](team-server-faq)
