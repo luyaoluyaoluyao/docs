@@ -1,60 +1,60 @@
 ---
-title: "OQL Group by Clause"
+title: "按条款排列的 OQL 组"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `GROUP BY` clause will condense all returned rows into a single row that shares the same values for the expressions defined in this clause. The expressions in this clause must exist in the `SELECT` clause of the query. All expressions in the `SELECT` clause which do not exist in the `GROUP BY` clause must be either an aggregation or the result an aggregate function.
+`GROUP BY` 条款将把所有返回的行压缩成一个单行，这个行对该条款定义的表达式具有相同的值。 此条款中的表达式必须存在于查询的 `SELECT` 条款中。 `SELECT` 条款中的所有表达式，如果在 `GROUP BY` 条款中不存在，则必须是一个聚合或结果是一个合计函数。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-GROUP BY
-    expression [ ,...n ]
+由
+    表达式 [ ,...]
 
-[HAVING <constraint>]
+[已有 <constraint>]
 ```
 
-### 2.1 expression
+### 2.1 表达式
 
-`expression` specifies the expressions by which values of the rows are grouped.
+`表达式` 指定了以哪个值分组的表达式。
 
-### 2.2 HAVING \<constraint\>
+### 2.2 Having\<constraint\>
 
-`HAVING <constraint>` specifies a constraint that must be defined in a `HAVING` clause, when a `GROUP BY` expression is used.
+`having <constraint>` 指定了一个必须在 `已有` 条款中定义的约束， 当使用 `组的` 表达式时使用。
 
-## 3 Examples
+## 3 个示例
 
-This query returns the count of all customers per city:
+此查询返回每个城市所有客户的数量：
 
 ```sql
-SELECT COUNT(Sales.Customer/*)
-FROM Sales.Customer
-INNER JOIN Sales.Customer/Sales.Customer_Address/Sales.Address
+选择COUNT(Sales.Customer/*)
+ROM Sales.客户
+INNER JOIN Sales.Customer_Address/Sales.Address
 GROUP BY Sales.Address/City
 ```
 
-This query returns the sum of the total prices of all orders per city:
+此查询返回每个城市所有订单总价格的总和：
+
+```sql
+SELECT SUM(Sales.Order/ TotalPrice)
+从Sales.Order
+INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer_Address/Sales.Address
+GROUP BY Sales.Address/City
+```
+
+此查询返回每个城市所有订单总价的总和，总价大于1000。 0 或 City 是丢失的：
 
 ```sql
 SELECT SUM(Sales.Order/TotalPrice)
-FROM Sales.Order
-INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer/Sales.Customer_Address/Sales.Address
-GROUP BY Sales.Address/City
-```
-
-This query returns the sum of the total prices of all orders per city for which the sum is greater than 1000.00 or the City is Losdun:
-
-```sql
-SELECT SUM(Sales.Order/TotalPrice)
-FROM Sales.Order
-INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer/Sales.Customer_Address/Sales.Address
-GROUP BY Sales.Address/City
-HAVING SUM(Sales.Order/TotalPrice) > 1000.0 OR Sales.Address/City = 'Losdun'
+从Sales.Order
+INNER JOIN Sales.Order/Sales.Customer_Order/Sales.Customer_Address/ Sales.Address
+从销售/地址/地址
+已经拥有SUM(Sales.Order/ TotalPrice) > 1000.0 或销售.Address/City = 'Losdun'
 ```
 
