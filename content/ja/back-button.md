@@ -1,11 +1,11 @@
 ---
-title: "Close Page Button"
-parent: "button-widgets"
+title: "ページを閉じる"
+parent: "ボタン-ウィジェット"
 ---
 
-Pressing this button will close the popup for popup pages, or navigate to the previously visited page for content pages.
+このボタンを押すとポップアップページのポップアップが閉じられるか、コンテンツページの以前に訪れたページに移動します。
 
-## Button properties
+## ボタンのプロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -17,7 +17,7 @@ Pressing this button will close the popup for popup pages, or navigate to the pr
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Name+Property.md" %}}
 
@@ -27,7 +27,7 @@ Pressing this button will close the popup for popup pages, or navigate to the pr
 
 {{% snippet file="refguide7/Tab+index+Property.md" %}}
 
-## Visibility properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
