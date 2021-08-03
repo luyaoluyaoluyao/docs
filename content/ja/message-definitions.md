@@ -1,92 +1,92 @@
 ---
-title: "Message Definitions"
-parent: "integration"
+title: "メッセージ定義"
+parent: "統合"
 menu_order: 50
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Message definitions define the structure of the messages that are sent from and to your app. Defining your messages allows you to create import and export mappings for them.
+メッセージ定義は、アプリから送信されるメッセージの構造を定義します。 メッセージを定義することで、インポートとエクスポートのマッピングを作成できます。
 
-A message definition can be used for both JSON and XML, and it can be used for both single objects and lists of objects.
+メッセージ定義は JSON と XML の両方に使用することができ、単一のオブジェクトとオブジェクトのリストの両方に使用することができます。
 
-## 2 Adding a Message Definitions Document
+## 2 メッセージ定義ドキュメントの追加
 
-Message Definitions is a type of document you can add to modules in your app.
+Message Definitions は、アプリ内のモジュールに追加できるドキュメントの一種です。
 
-To add a message definitions document do the following:
+メッセージ定義ドキュメントを追加するには、以下を行います:
 
-1. Right-click your module or a folder within a module.
+1. モジュール内のモジュールまたはフォルダを右クリックします。
 
-2. Choose **Add other > Message definitions**.
+2. **他の > メッセージ定義を追加** を選択します。
 
-    ![Right-click menu - add Message definitions](attachments/message-definitions/add-definitions-document.png)
+    ![右クリックメニュー - メッセージ定義を追加](attachments/message-definitions/add-definitions-document.png)
 
-3. Give your message definitions a name and click **OK**.
+3. メッセージの定義に名前を付け、 **OK** をクリックします。
 
-## 3 Managing Message Definitions
+## 3 メッセージ定義の管理
 
-The message definition document shows a list of message definitions.
+メッセージ定義ドキュメントには、メッセージ定義のリストが表示されます。
 
-Here you can do the following:
+ここでは、以下の操作ができます。
 
-* **Add** a new [message definition](#message-definition)
-* **Edit** an existing message definition
-* **Delete** an unwanted message definition
-* **Find usages** of a message definition
-* **Generate mapping(s)…** from a message definition (see below)
+* **** 新しい [メッセージ定義](#message-definition) を追加する
+* **既存のメッセージ定義を編集する**
+* **不要なメッセージ定義を** 削除する
+* **メッセージ定義の使用状況** を検索
+* **メッセージ定義 (下記参照) からマッピングを生成する…**
 
-### 3.1 Generate Mapping(s)…
+### 3.1 マッピングを生成…
 
-The **Generate mapping(s)…** button allows you to generate import and/or export mapping documents from the selected message definition. The mappings are added to your module.
+**マッピングの生成…** ボタンは、選択したメッセージ定義からインポートおよび/またはマッピングドキュメントをエクスポートすることを可能にします。 マッピングがモジュールに追加されます。
 
-To generate mappings, do the following:
+マッピングを生成するには、以下を行います:
 
-1. Select the message definition you want to use.
+1. 使用するメッセージ定義を選択します。
 
-2. Click **Generate mapping(s)…**.
+2. **マッピングを生成する…** をクリックします。
 
-3. Ensure that the required mapping(s) is selected.
+3. 必要なマッピングが選択されていることを確認します。
 
 4. Click **OK**.
 
-    ![General mappings dialog](attachments/message-definitions/generate-mappings.png)
+    ![一般的なマッピングダイアログ](attachments/message-definitions/generate-mappings.png)
 
-## 4 Defining a Message Definition{#message-definition}
+## 4 メッセージ定義{#message-definition} の定義
 
-In the message definitions document, click **Add** to create a new message definition or **Edit** to edit an existing message definition.
+メッセージ定義ドキュメントで、 **Add** をクリックして新しいメッセージ定義を作成するか、 **Edit** をクリックして既存のメッセージ定義を編集します。
 
-### 4.1 General
+### 4.1 全般
 
-The message definition is defined in the **General** tab.
+メッセージ定義は **一般** タブで定義されます。
 
-![The Message Definition General tab](attachments/message-definitions/message-definition.png)
+![メッセージ定義の一般タブ](attachments/message-definitions/message-definition.png)
 
-#### 4.1.1 Name
+#### 4.1.1 名前
 
-The name of the message definition.
+メッセージ定義の名前
 
-#### 4.1.2 Entity
+#### 4.1.2 エンティティ
 
-An entity in your app domain model(s) on which to base the message definition. Using this message definition, you will be able to export and import individual objects and lists of objects of this entity type.
+メッセージ定義をベースにするアプリドメインモデルのエンティティ。 このメッセージ定義を使用すると、このエンティティタイプの個々のオブジェクトとオブジェクトのリストをエクスポートおよびインポートすることができます。
 
-#### 4.1.3 Structure
+#### 4.1.3 構造
 
-The structure tree shows the attributes and some of the associations of the entity. Use the **Filter** to find specific attributes.
+構造ツリーには、エンティティの属性と関連性が表示されます。 特定の属性を検索するには、 **フィルター** を使用します。
 
-| Column                    | Description                                                                                                                   | Can edit? | Notes                                                                                                                                                                                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |:---------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Check box                 | Check if the attribute or association is part of the message.                                                                 |     y     |                                                                                                                                                                                                                                                           |
-| Name                      | The name of the item in the Domain Model.                                                                                     |     n     |                                                                                                                                                                                                                                                           |
-| Type                      | The type of the item in the Domain Model.                                                                                     |     n     |                                                                                                                                                                                                                                                           |
-| Occurrence                | How many times this item can occur for each parent item.                                                                      |     n     |                                                                                                                                                                                                                                                           |
-| External Name             | The name of the XML node or the JSON property.                                                                                |     y     | By default, the name of the attribute or (for associations) entity.<br />For a `0..*` occurrence, a letter `s` is added.                                                                                                                            |
-| External Single Item Name | The XML node that represents a single item.                                                                                   |     y     | Only relevant for XML when the occurrence is `0..*`<br /> By default, the entity name.                                                                                                                                                              |
-| Example value             | A typical value for an attribute.                                                                                             |     y     | For a published REST service, this value shows up in the [interactive documentation](published-rest-services#interactive-documentation).<br />A date/time value is specified in the format `year-month-day` or `year-month-day hour:minute:second`. |
-| Public Documentation      | Additional information to be displayed in the [interactive documentation](published-rest-services#interactive-documentation). |     y     |                                                                                                                                                                                                                                                           |
+| 列              | 説明                                                                         | 編集できますか？ | メモ                                                                                                                                                                                                                |
+| -------------- | -------------------------------------------------------------------------- |:--------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| チェック ボックス      | 属性または関連付けがメッセージの一部であるかどうかを確認します。                                           |    y     |                                                                                                                                                                                                                   |
+| 名前             | Domain Model内の項目の名前。                                                       |    n     |                                                                                                                                                                                                                   |
+| タイプ            | ドメインモデルの項目のタイプ。                                                            |    n     |                                                                                                                                                                                                                   |
+| オカレンスformat@@0 | 各親アイテムに対して何回このアイテムが発生するか。                                                  |    n     |                                                                                                                                                                                                                   |
+| 外部名            | XML ノードまたは JSON プロパティの名前。                                                  |    y     | デフォルトでは、属性または(関連付けに対する) エンティティの名前。<br /> `0..*` 発生の場合、文字 `s` が追加されます。                                                                                                                                       |
+| 外部の単一項目名       | 単一の項目を表す XML ノード。                                                          |    y     | 発生が `0..*`<br /> の場合のみ、XML に関連するエンティティ名です。                                                                                                                                                                  |
+| 値の例            | 属性の典型的な値。                                                                  |    y     | 公開された REST サービスの場合、この値は [対話型ドキュメント](published-rest-services#interactive-documentation)に表示されます。 [ 日付/時刻の値は、](published-rest-services#interactive-documentation) 年<br />または `年月日` または `年月日時間:分:秒` の形式で指定されます。 |
+| 公開ドキュメント       | [対話型ドキュメント](published-rest-services#interactive-documentation) に表示される追加情報。 |    y     |                                                                                                                                                                                                                   |
 
-### 4.2 Documentation
+### 4.2 ドキュメント
 
-Use the **Documentation** tab to describe what the message definition is used for.
+**ドキュメント** タブを使用して、メッセージの定義を記述します。
