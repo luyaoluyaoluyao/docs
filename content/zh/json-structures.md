@@ -1,13 +1,10 @@
 ---
 title: "JSON Structures"
 parent: "integration"
+menu_order: 40
 tags:
   - "studio pro"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/json-structures.pdf).
-{{% /alert %}}
 
 ## 1 General
 
