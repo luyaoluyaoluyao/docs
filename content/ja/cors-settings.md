@@ -1,36 +1,31 @@
 ---
-title: "CORS Settings for Published REST Services"
+title: "公開された REST サービスの CORS 設定"
 parent: "published-rest-service"
 menu_order: 60
-description: "Additional options for controlling access to a published REST service"
+description: "公開された REST サービスへのアクセスを制御するための追加オプション"
 tags:
   - "CORS"
-  - "security"
+  - "セキュリティ"
   - "origin"
-  - "domain"
-  - "access"
+  - "ドメイン"
+  - "アクセス"
+  - "studio pro"
 ---
 
-{{% alert type="info" %}}
+## 1つの紹介
 
-The CORS settings feature was introduced in Mendix version 7.18.0.
+クロスオリジンリソース共有 (CORS) は、追加の HTTP ヘッダーを使用して、ブラウザーに別のオリジン(ドメイン)のサーバーから選択したリソースへのアクセスを与えるように指示します。
 
-{{% /alert %}}
+[公開された REST サービス](published-rest-service)で CORS を有効にすると、デフォルトでは、すべてのサーバー上のすべてのウェブサイトがあなたのサービスにアクセスすることが許可されます。 **CORS 設定** ダイアログボックスでは、この種のアクセスをより詳細なレベルで設定できます。
 
-## 1 Introduction
+## 2つの起源を許可する
 
-Cross-Origin Resource Sharing (CORS) uses additional HTTP headers to tell a browser to give access to selected resources from a server in a different origin (domain).
+ここでは、サービスへのアクセスを許可するウェブサイトを指定できます。 **すべて**を選択するか、またはホスト名のカンマ区切りリストを含む定数を指定することができます。
 
-When you enable CORS in a [published REST service](published-rest-service), by default all websites on all servers are allowed to access your service. The **CORS Settings** dialog box allows you to configure this type of access on a more detailed level.
+## 最大3年齢
 
-## 2 Allowed Origins
+ここでは、新しい CORS 設定があるかどうかを確認する前に、ブラウザがこれらの設定を記憶できる期間を選択できます。 ブラウザーがリクエスト数を減らすため、長い時間はパフォーマンスに適しています。 ただし、CORS 設定を変更すると、この時間が経過するまで、これらの変更はすべてのブラウザで反映されません。
 
-Here you can specify which websites are allowed to access your service. You can either select **All**, or specify a constant that contains a comma-separated list of host names.
+## 4 資格情報を許可する
 
-## 3 Max Age
-
-Here you can choose how long a browser is allowed to remember these settings before checking whether there are new CORS settings. A longer time is good for performance, because the browser will perform fewer requests. However, if you change the CORS settings, these changes will not take effect in all browsers until this time has passed.
-
-## 4 Allow Credentials
-
-Check this box to indicate that the browser is allowed to send cookies, authorization headers, and/or client certificates to this service.
+このボックスにチェックを入れて、ブラウザがこのサービスにCookie、許可ヘッダー、および/またはクライアント証明書を送信することが許可されていることを示します。
