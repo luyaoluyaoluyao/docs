@@ -1,21 +1,21 @@
 ---
-title: "Native Mobile"
-category: "Mobile"
+title: "ネイティブ モバイル"
+category: "モバイル"
 menu_order: 1
 tags:
-  - "mobile"
-  - "native"
+  - "モバイル"
+  - "ネイティブ"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-With Mendix you can build powerful native apps. Native mobile apps differ from hybrid apps in that they do not render inside a web view. Instead, they use native UI elements. This enables fast performance, smooth animations, swipe gestures, and improved access to all native device capabilities.
+Mendixを使用すると、強力なネイティブアプリを構築できます。 ネイティブモバイルアプリは、Webビュー内でレンダリングされないという点で、ハイブリッドアプリとは異なります。 代わりに、ネイティブの UI 要素を使用します。 これにより、高速なパフォーマンス、スムーズなアニメーション、スワイプジェスチャー、およびすべてのネイティブデバイス機能へのアクセスが改善されました。
 
-## 2 Documents in This Section
+## このセクション内の2文書
 
-* [Getting the Make It Native App](getting-the-make-it-native-app)
-* [Native Navigation](native-navigation)
-* [Native Template](native-template)
-* [Native Mobile Styling](native-styling-refguide)
-* [Working with Vector Graphics](native-svg)
+* [Make It Native Appsの取得](getting-the-make-it-native-app)
+* [ネイティブナビゲーション](native-navigation)
+* [ネイティブテンプレート](native-template)
+* [ネイティブ モバイル スタイル](native-styling-refguide)
+* [ベクターグラフィックスの操作](native-svg)
