@@ -1,158 +1,157 @@
 ---
-title: "View Menu"
+title: "表示メニュー"
 parent: "menus"
-description: "Describes the View Menu in Studio Pro."
+description: "Studio Pro の表示メニューについて説明します。"
 menu_order: 20
 tags:
   - "Studio Pro"
-  - "view menu"
-  - "top bar"
+  - "メニューを表示"
+  - "トップ バー"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/view-menu.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+Studio Pro は、 **変更** や **エラー** ペインなど、ドッキング可能なウィンドウ ペインの数をサポートしています。 いくつかのウィンドウを閉じて、必要なものを表示することができます。 しかし、いつでも **ビュー** メニューから開くことができます。
 
-Studio Pro supports a number of dockable window panes, such as the **Changes** and **Errors** panes. You can close some panes to just show the ones you need at the moment, but you can always reopen them via the **View** menu.
+このメニューを使用すると、 [フルスクリーンモード](#full-screen) または [レイアウト](#reset-layout) をデフォルトにリセットすることもできます。
 
-Via this menu you can also enable or disable the [full screen mode](#full-screen) or [reset the layout](#reset-layout) of your project to the default.
+![表示メニュー](attachments/view-menu/view-menu.png)
 
-{{% image_container width="300" %}}![View Menu](attachments/view-menu/view-menu.png)
-{{% /image_container %}}
+## 2 ペインのレイアウト {#layout-of-panes}
 
-## 2 Layout of Panes {#layout-of-panes}
-
-You can change the default layout of panes and arrange them in the layout you like.
+ペインの既定のレイアウトを変更し、お好みのレイアウトに配置できます。
 
 {{% alert type="info" %}}
 
-Note that this section describes the behavior of panes, not the behavior of documents in the working area. For more information on the behavior of documents open in the working area, see the [Document Tabs](studio-pro-overview#documents) section in *Studio Pro Overview*.
+このセクションでは、作業領域内のドキュメントの動作ではなく、ペインの動作について説明します。 作業領域で開いているドキュメントの動作の詳細については、 [Studio Pro Overview](studio-pro-overview#documents) の *ドキュメント タブ* セクションを参照してください。
 
 {{% /alert %}}
 
-When you drag a pane, you can see arrows that indicate where you can position this pane. You can position the pane either inside the current pane (arrows grouped together) or make it full-window height or width (individual arrows on the borders). Each position is labelled and explained below:
+ペインをドラッグすると、このペインの位置を示す矢印が表示されます。 ペインを現在のペイン内(グループ化された矢印)に配置するか、フルウィンドウの高さまたは幅(ボーダー上の個々の矢印)にすることができます。 それぞれの位置は以下のように記されている。
 
 ![](attachments/view-menu/interaction-with-panes.png)
 
-1. Within the current *pane* you can position a pane in one of the following ways:
+1. 現在の *ペイン* 内では、次のいずれかの方法でペインを配置できます:
 
-   1. Pane-height – left
+   1. 画面の高さ - 左
 
-   2. Pane-height – right
+   2. ペインの高さ – 右
 
-   3. Pane-height – top
+   3. ペインの高さ – トップ
 
-   4. Pane-height – bottom
+   4. ペインの高さ – 下
 
-   5. New pane as a new tab
+   5. 新しいタブとして新しいペイン
 
-      {{% alert type="info" %}}If you try to position the pane as a new pane inside the working area, it will be opened as a dialog box.
+      {{% alert type="info" %}}ペインを作業領域内に新しいペインとして配置しようとすると、ダイアログボックスとして開きます。
 
       {{% /alert %}}
 
-2. Within the current *window* you can position a pane in one of the following ways:
+2. 現在の *ウィンドウ* 内では、次のいずれかの方法でペインを配置できます。
 
-   1. Full-window height – left
+   1. フルウィンドウの高さ - 左
 
-   2. Full-window height – right
+   2. フルウィンドウの高さ - 右
 
-   3. Full-window height – top
+   3. フルウィンドウの高さ - トップ
 
-   4. Full-window height – bottom
+   4. フルウィンドウの高さ - 下
 
-The video below shows examples of how to position a pane:
+以下のビデオは、ペインの配置方法の例を示しています。
 
-<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">VIDEO</video> If you have several panes grouped together in tabs, you can change the position of all the tabs at once by dragging the top-bar. To change the position of an individual tab, drag the tab itself.
+<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">ビデオ</video>
 
-## 3 Menu Items
+複数のペインをタブにまとめてグループ化している場合は、上部のバーをドラッグすることで、すべてのタブの位置を一度に変更できます。 個々のタブの位置を変更するには、タブ自体をドラッグします。
 
-Menu items of the **View** menu are described in sections below.
+## 3つのメニュー項目
 
-### 3.1 Changes
+**ビュー** メニューのメニュー項目は以下のセクションで説明されています。
 
-For version control enabled projects (projects with [Team Server](/developerportal/collaborate/team-server) or other SVN servers), the [Changes pane](changes-pane) shows the local changes to the app since the last commit. You can commit changes, update to the latest revision, and view the history from here.
+### 3.1 変更
 
-This pane has two levels, so when you zoom into a changed document, you can review all the changes within that document without going back and forth between levels. The zoomed-in level of the pane is split into two grids, with elements on the left and properties on the right. Selecting an element on the left presents the changed properties on the right:
+For version control-enabled apps (meaning, those with [Team Server](/developerportal/collaborate/team-server) or other SVN servers), the [Changes pane](changes-pane) shows the local changes to the app since the last commit. 変更をコミットしたり、最新のリビジョンに更新したり、ここから履歴を見ることができます。
 
-![](attachments/view-menu/changes.gif)
+このペインには2つのレベルがありますので、変更されたドキュメントにズームインすると、 文書内のすべての変更を確認できますレベル間を行き来することなく ペインのズームインレベルは2つのグリッドに分割され、左側の要素と右側のプロパティがあります。 左側の要素を選択すると、右側に変更されたプロパティが表示されます:
 
-### 3.2 Connector {#connector}
+<video width="640" height="360" controls src="attachments/view-menu/changes.mp4">ビデオ</video>
 
-The **Connector** pane displays elements that can be connected to the currently selected element. For example, when a button is a selected, the **Connector** shows microflows that you can drag onto the button to connect them.
+### 3.2 コネクタ {#connector}
 
-### 3.3 Data Hub {#data-hub}
+**コネクタ** ペインには、現在選択されている要素に接続できる要素が表示されます。 例えば、ボタンが選択されている場合、 **コネクタ** には、ボタンにドラッグして接続することのできるマイクロフローが表示されます。
 
-The [Data Hub pane](data-hub-pane) allows you to browse the [Data Hub Catalog](/data-hub/data-hub-catalog) and integrate registered data sources that are available for your organization. You can add [external entities](external-entities) to your app via this pane and view entities and services already consumed in your project.
+### 3.3 データハブ {#data-hub}
 
-### 3.3 Console {#console}
+[Data Hub ペイン](data-hub-pane) を使用すると、 [Data Hub カタログ](/data-hub/data-hub-catalog) を参照し、アプリケーション開発で組織で使用できる登録済みのデータ ソースを使用できます。 このペインを介して [外部エンティティ](external-entities) をアプリに追加し、アプリで既に使用されているエンティティとデータソースを確認できます。
 
-The **Console** pane displays the output of the [Mendix Runtime](runtime) while running an application.
+### 3.3 コンソール {#console}
 
-### 3.4 Documentation
+**コンソール** ペインには、アプリケーションの実行中に [Mendix Runtime](runtime) の出力が表示されます。
 
-The **Documentation** pane displays the documentation for the currently selected element (if applicable).
+### 3.4 ドキュメント
 
-### 3.5 Error List
+**ドキュメント** ペインには、現在選択されている要素のドキュメントが表示されます (該当する場合)。
 
-The [Errors pane](errors-pane) displays the [errors](consistency-errors), warnings, and deprecations that exist in your app.
+### 3.5 エラー リスト
 
-### 3.6 Find Results {#find}
+[エラー ペイン](errors-pane) は、アプリケーションに存在する [エラー](consistency-errors)、警告、および非推奨を表示します。
 
-This pane displays the results of the latest find action. You can search for text, usages of an element (for example, an attribute), and unused items.
+### 3.6 検索結果
 
-There are two **Find Results** panes. If you lock the results of the first pane, the second one is used for subsequent find operations until you unlock the first one.
+このペインには、最新の検索アクションの結果が表示されます。 テキスト、要素の使用 (属性など) 、および使用されていないアイテムを検索できます。
 
-### 3.7 Project Explorer
+**検索結果** ペインは 2 つあります。 最初のペインの結果をロックすると、最初のペインのロックを解除するまで、2番目のペインはその後の検索操作に使用されます。
 
-The [Project Explorer](project-explorer) pane displays the complete structure of your app, including all the documents inside the modules. By default, the active document is always selected, so you can quickly see where the document you are editing is in the tree. You can change this behavior in **Edit** > [Preferences](preferences-dialog).
+### 3.7 App Explorer
 
-### 3.8 Properties
+[App Explorer](project-explorer) ペインには、モジュール内のすべてのドキュメントを含むアプリケーションの完全な構造が表示されます。 デフォルトでは、アクティブなドキュメントは常に選択されているため、編集するドキュメントがツリー内にある場所をすばやく確認できます。 この動作は、 **編集** > [環境設定](preferences-dialog) で変更できます。
 
-The **Properties** pane displays the properties of the currently selected element. This is where a lot of editing in Studio Pro takes place.
+### 3.8 プロパティ
 
-### 3.9 Stories
+**プロパティ** ペインには、現在選択されている要素のプロパティが表示されます。 ここでは、Studio Pro で多くの編集が行われます。
 
-For [Team Server](/developerportal/collaborate/team-server) app, the **Stories** pane shows the [stories](/developerportal/collaborate/stories) of the current [Sprint](/developerportal/collaborate/planning-development). For more information on the **Stories** pane and how to interact with it, see [Stories Pane](stories-pane).
+### 3.9ストーリー
 
-### 3.10 Toolbox {#toolbox}
+[Team Server](/developerportal/collaborate/team-server) アプリの場合、 **ストーリー** ペインには、 [現在の](/developerportal/collaborate/stories) スプリント [の](/developerportal/collaborate/planning-development) のストーリーが表示されます。 **ストーリー** ペインの詳細と操作方法については、 [ストーリー ペイン](stories-pane) を参照してください。
 
-The **Toolbox** pane displays the tools that can be used in the current editor. For example, in a page you can insert all kinds of widgets (for example, [data widgets](data-widgets)) by dragging them from the **Toolbox** onto your page.
+### 3.10 ツールバー {#toolbox}
 
-### 3.11 Debug Windows
+**Toolbox** ペインには、現在のエディタで使用できるツールが表示されます。 たとえば、ページ内にすべての種類のウィジェットを挿入することができます (例えば、 [データ ウィジェット](data-widgets)) を **ツールボックス** からページにドラッグします。
 
-For more information on debugging, see [How to Debug Microflows](/howto8/monitoring-troubleshooting/debug-microflows).
+### 3.11 Windowsのデバッグ
 
-#### 3.11.1 Breakpoints
+デバッグの詳細については、 [Microflows と Nanoflows のデバッグ方法](/howto/monitoring-troubleshooting/debug-microflows-and-nanoflows) を参照してください。
 
-The **Breakpoints** pane shows all the breakpoints in your app. You can enable and disable breakpoints from here.
+#### 3.11.1 ブレークポイント
 
-#### 3.11.2 Debugger {#debugger}
+**ブレークポイント** ペインには、アプリケーション内のすべてのブレークポイントが表示されます。 ここからブレークポイントを有効または無効にできます。
 
-The **Debugger** tool can be used to debug your application.
+#### 3.11.2 デバッガー {#debugger}
 
-#### 3.11.3 Variables
+**デバッガー** ツールを使用してアプリケーションのデバッグを行うことができます。
 
-In the **Variables** pane, you can view the current values of variables, lists, and objects when debugging your application.
+#### 3.11.3 変数 {#variables}
 
-### 3.12 Full Screen {#full-screen}
+**変数** ペインで、アプリケーションのデバッグ時に変数、リスト、オブジェクトの現在の値を表示できます。
 
-The **Full Screen** mode hides the title bar and makes the window fill the entire screen. This version of **Full Screen** was introduced in Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830); in previous versions, the **Full Screen** mode closed all dockable window panes. Shortcut key: <kbd>F11</kbd>
+### 3.12 全画面 {#full-screen}
 
-### 3.13 Distraction Free Mode {#distraction-free}
+**Full Screen** モードはタイトルバーを非表示にし、ウインドウを画面全体に埋めます。
 
-The **Distraction Free Mode** does the same as the **Full Screen** mode above, but also closes all dockable window panes. This was introduced in Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830).
+ショートカットキー: <kbd>F11</kbd>
 
-Shortcut key: <kbd>Shift</kbd> + <kbd>F11</kbd>
+### 3.13 自由モード {#distraction-free}
 
-### 3.14 Reset Layout {#reset-layout}
+**Distraction Free Mode** は、上記の **Full Screen** モードと同じ操作を行いますが、すべてのドッキング可能なウィンドウペインも閉じます。
 
-Resets the layout of dockable window panes to factory defaults.
+ショートカットキー: <kbd>Shift</kbd> + <kbd>F11</kbd>
 
-## 4 Read More
+### 3.14 レイアウトのリセット {#reset-layout}
 
-* [Changes Pane](changes-pane)
+ドッキング可能なウィンドウペインのレイアウトを工場出荷時のデフォルトにリセットします。
+
+## 4 続きを読む
+
+* [ペインの変更](changes-pane)
 * [Errors Pane](errors-pane)
-* [Project Explorer](project-explorer)
+* [アプリエクスプローラー](project-explorer)
 * [Studio Pro Overview](studio-pro-overview)
