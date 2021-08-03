@@ -1,8 +1,6 @@
 ---
 title: "XPath 字符串长度"
 parent: "xpate-constraint-function"
-tags:
-  - "studio pro"
 ---
 
 
