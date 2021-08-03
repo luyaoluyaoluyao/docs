@@ -8,8 +8,13 @@ tags:
   - "query"
   - "parameters"
   - "Date and Time format"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+The **published REST service** feature was introduced in version 7.10.0.
+
+{{% /alert %}}
 
 The specification of a [published REST operation](published-rest-operation) includes a microflow that implements the operation. This microflow may take parameters that come from the query string of the request.
 
