@@ -1,19 +1,47 @@
 ---
-title: "Data Widgets"
-parent: "pages"
+title: "データウィジェット"
+parent: "ページ"
+menu_order: 15
+tags:
+  - "studio pro"
+  - "データウィジェット"
+  - "データコンテナ"
+  - "データビュー"
+  - "リスト表示"
+  - "データグリッド"
 ---
 
+## 1つの紹介
 
-[![](attachments/16713890/16844023.png)](data-grid)**[Data grid](data-grid)** The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed. Using controls provided by the data grid you can browse, search and edit those objects.
+データ ウィジェットは、1 つのオブジェクトまたはオブジェクトのリストの内容を表示します。
 
+データ ウィジェットカテゴリには、次のウィジェットが含まれています。
 
+* [データ ビュー](data-view) - このウィジェットは、1つのオブジェクトの内容を表示します。 たとえば、単一のプログラム項目の詳細を表示する場合は、次のようにデータビューを使用します。
 
-**[![](attachments/16713890/16844022.png)](data-view)[Data view](data-view)** The data view is a central component in Mendix applications. It is the starting point for showing the contents of exactly one object. If, for example, you want to show details of a single customer you would use a data view to do this. The data view typically contains a table with labels and input widgets like text boxes.
+    {{% image_container width="500" %}}![](attachments/data-widgets/data-view-example.png)
+    {{% /image_container %}}
 
+* [データ グリッド](data-grid) - このウィジェットはテーブル形式のオブジェクトのリストを表示します。 たとえば、データ グリッドには、顧客が発注したすべての注文が表示されます。 データ グリッドによって提供されるコントロールを使用すると、それらのオブジェクトを閲覧、検索、編集できます。
 
+    {{% image_container width="450" %}}![](attachments/data-widgets/data-grid-example.png)
+    {{% /image_container %}}
 
-**[![](attachments/16713890/16844021.png)](list-view)[List view](list-view)** The list view is similar to the template grid. The list view shows a list of objects arranged vertically. Each object is shown using a template. During development, the object template is defined by placing a widget inside the list view's dropzone. The list of objects shown is determined by a data source.
+* [テンプレートグリッド](template-grid) - このウィジェットはタイルビューのオブジェクトのリストを表示します。 例えば、テンプレートグリッドは、自分のプロフィール写真を持つ従業員のリストを表示できます。 テンプレートグリッドで提供されるコントロールを使用すると、それらのオブジェクトを閲覧、検索、操作できます。
 
+    {{% image_container width="450" %}}![](attachments/data-widgets/template-grid-example.png)
+    {{% /image_container %}}
 
+* [リストビュー](list-view) - このウィジェットはオブジェクトのリストを表示します。 たとえば、リスト ビューを使用してすべてのプロファイルのリストを表示できます。
 
-[![](attachments/16713890/16844020.png)](template-grid)**[Template grid](template-grid)** The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. Using controls provided by the template grid you can browse, search and manipulate those objects.
+    {{% image_container width="450" %}}![](attachments/data-widgets/list-view-example.png)
+    {{% /image_container %}}
+
+## 2 基本機能の実行
+
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [ページ](ページ)
