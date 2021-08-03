@@ -1,68 +1,68 @@
 ---
-title: "OQL Select Clause"
+title: "OQL 选择条款"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `SELECT` clause specifies which entity attributes or other specified data must be retrieved. The `SELECT` clause consists of the term `SELECT` and one or more expressions. These expressions must be separated by a comma. Each expression defines a column in the result. Each expression can have an alias, which will be the name of the column in the result.
+`SELECT` 条款指定了必须检索哪些实体属性或其他指定数据。 `SELECT` 条款由术语 `SELECT` 和一个或多个表达式组成。 这些表达式必须用逗号分隔。 每个表达式在结果中定义列. 每个表达式都可以有一个别名，这个别名将是结果中列的名称。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-SELECT [ DISTINCT ]
-    {
+选择[ DISTINCT ]
+    format@@
             *
-        | { entity_name | from_alias }.*
-        | { expression [ [ AS ] column_alias ] } [ ,...n ]
-    }
+        | { entity_name | from_alias }
+        | 演变表达式 [ [ AS ] column_alias ] } [ ,. .n ]
+}
 ```
 
-### 2.1 DISTINCT
+### 2.1 情况介绍会
 
-`DISTINCT` specifies that double rows must not be shown in the result.
+`DISTINCT` 指定结果中不能显示双行。
 
-### 2.2 * (asterisk)
+### 2.2 * (星号)
 
-`*` (asterisk) specifies that all attributes from all entities in the `FROM` clause should be returned.
+`*` (asterisk) 指定所有实体在 `FROM` 条款中的所有属性都应该返回.
 
-### 2.3 entity_name.* and from_alias.*
+### 2.3 entity_name.* 和 from_alias.*
 
-`entity_name.*` and `from_alias.*` specify that all attributes of the specified entity or expression of the `FROM` clause should be returned. `entity_name` can be optionally put in double quotes. Double quotes are mandatory if the entity name is a reserved OQL word (like `Order` or `Group`).
-
-```sql
-SELECT Sales.Customer.* FROM Sales.Customer
-```
+`entity_name.*` and `from _alias.` 指定所有指定实体或表达式的属性 `FROM` 条款应返回. `entity_name` 可以选择地置于双引号中。 如果实体名称是一个保留的 OQL 单词，则必须使用双引号 (例如 `订单` 或 `组`)。
 
 ```sql
-SELECT Person.* FROM Sales.Customer AS Person
+SELECT Sales.Customer.* FROM Sales.客户
 ```
 
 ```sql
-SELECT "Sales.Order".* FROM "Sales.Order"
-```
-### 2.4 expression
-
-`expression` is either a constant, a function or any combination of attribute names, constants, and functions connected by operator(s) or a subquery. When you add more expressions, place a comma between each expression.
-
-```sql
-SELECT Name AS CustomerName, LastName AS CustomerLastName, Birthday, Category FROM Sales.Customer
-```
-
-For more information, see [OQL Expressions](oql-expressions).
-
-### 2.5 column_alias
-
-`column_alias` is an alternative name to replace the column name in the result. When the name attribute is retrieved, the result column is "Name". With an alias, you can specify another result column name, like "Customer Name". An alias can contain spaces.
-
-```sql
-SELECT Sales.Customer.Name AS CustomerName FROM Sales.Customer
+选择个人。* 从 Sales.Customer as person
 ```
 
 ```sql
-SELECT Sales.Customer.Name AS 'Customer Name' FROM Sales.Customer
+选择"Sales.Order"。* 从"Sales.Order"
+```
+### 2.4 表达式
+
+`表达式` 是一个常数、一个函数或属性名称、常数和函数的任何组合，或是一个子查询或是一个子查询。 当您添加更多表达式时，在每个表达式之间放置逗号。
+
+```sql
+选择客户名称、 姓氏、 生日客户名称、 类别FROM 销售.客户
+```
+
+欲了解更多信息，见 [OQL Expressions](oql-expressions)。
+
+### 2.5列别名
+
+`column_alias` 是替换结果中列名的替代名称。 当获取名称属性时，结果列为“名称”。 使用别名，您可以指定另一个结果列名，如“客户名称”。 别名可以包含空格。
+
+```sql
+选择销售。Customer.name as Customername FROM Sales.客户
+```
+
+```sql
+SELECT Sales.Customer.name AS '客户名称' FROM Sales.客户
 ```
