@@ -1,66 +1,66 @@
 ---
-title: "Modules"
+title: "モジュール"
 parent: "project-explorer"
 menu_order: 20
 tags:
   - "studio pro"
-  - "module"
-  - "modules"
+  - "モジュール"
+  - "モジュール"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A Mendix app consists of modules: a **System** module, a [UI resources package](ui-resources-package), and one or more user-defined modules. Modules are a way to split the functionality of your application into separate parts. For example, a web shop can put order management in a different module than customer and product management. Studio Pro does not enforce any kind of module structure; it is up to you to choose logical modules for your application.
+Mendix アプリは、 **システム** モジュール、 [UI リソースパッケージ](ui-resources-package)、および1つ以上のユーザー定義モジュールで構成されています。 モジュールは、アプリケーションの機能を個別の部品に分割する方法です。 例えば、Webショップでは、顧客や製品管理とは異なるモジュールで注文管理を行うことができます。 Studio Proは、いかなる種類のモジュール構造も強制しません。アプリケーションの論理モジュールを選択するのはあなた次第です。
 
-A module always contains exactly one [domain model](domain-model). The domain model is a data model that describes the information in your application domain in an abstract way.
+モジュールは常に一つの [ドメインモデル](domain-model)を含んでいます。 ドメインモデルは、アプリケーションドメイン内の情報を抽象的な方法で記述するデータモデルです。
 
-Within a module you can define [module security](module-security) via module roles and specify security settings of those module roles for pages, microflows, entities and datasets.
+モジュール内では、モジュールロールを介して [モジュールセキュリティ](module-security) を定義し、ページのモジュールロールのセキュリティ設定を指定できます。 マイクロフロー、エンティティ、データセット。
 
-Furthermore, a module can contain many different types of documents. Each type of document is described in its own domain-specific language (DSL). For example, user-interface forms are described by using a visual language with elements like text boxes, tables and grids. Below you see tables grouped by category of all the different kinds of documents you can create within a module.
+さらに、モジュールは多くの異なる種類のドキュメントを含むことができます。 各種類のドキュメントは、独自のドメイン固有の言語 (DSL) で説明されています。 例えば、ユーザーインターフェイスのフォームは、テキストボックス、テーブル、グリッドなどの要素を持つ視覚言語を使用して記述されます。 下の表は、モジュール内で作成できるさまざまな種類のドキュメントのカテゴリごとにグループ化されています。
 
-## 2 Common
+## コモン2個
 
-| Document type                | Typical elements                                                                     | Description                                                                                                                                        |
-| ---------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Pages](pages)               | [Data view](data-view), [Data grid](data-grid), [Table](table), [Text box](text-box) | Forms are used to create a user interface for the end-user. They are composed of components that are called widgets.                               |
-| [Microflows](microflows)     | [Activities](activities), [Sequence Flow](sequence-flow)                             | Microflows describe the the logic of your application. They are composed of activities that manipulate objects, interact with the client etcetera. |
-| [Enumerations](enumerations) |                                                                                      | An enumeration is a set of predefined values, for example: in a web shop, an enumeration called MemberType could have the values Gold and Silver.  |
+| ドキュメントの種類           | 代表的な要素                                                                               | 説明                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| [ページ](ページ)          | [Data view](data-view), [Data grid](data-grid), [Table](table), [Text box](text-box) | フォームは、エンドユーザーのユーザーインターフェイスを作成するために使用されます。 これらはウィジェットと呼ばれるコンポーネントで構成されています。               |
+| [マイクロフロー](マイクロフロー)  | [アクティビティ](activities), [シーケンスフロー](sequence-flow)                                     | マイクロフローは、アプリケーションのロジックを説明します。 彼らは、オブジェクトを操作する活動で構成されています, クライアントとの対話など.                  |
+| [列挙型](enumerations) |                                                                                      | enumeration は定義済みの値のセットです。例えば、Web ショップでは、MemberType と呼ばれる列挙は Gold と Silver の値を持つことができます。 |
 
-## 3 Page Resources
+## 3ページのリソース
 
-| Document type       | Description                                                                                                                                                           |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Images](images)    | Images can be used to brighten up your application. Navigation items and the various kinds of buttons have small images (icons) to left of their captions.            |
-| [Layouts](layout)   | Layouts specify what comes where. Each  [page](page) is based on a layout. The layout contains widgets and structures that return on every page based on that layout. |
-| [Menus](menu)       | A menu document defines a navigation menu that can be used by a  [menu widget](menu-widgets).                                                                         |
-| [Snippets](snippet) | Snippets define reusable interface parts. They can be used on  [pages](page) and  [layouts](layout) .                                                                 |
+| ドキュメントの種類           | 説明                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------ |
+| [画像](images)        | 画像はアプリケーションを明るくするのに使用できます。 ナビゲーション項目やボタンの様々な種類には、キャプションの左側に小さな画像 (アイコン) があります。                         |
+| [レイアウト](レイアウト)      | レイアウトでは、どこに来るのかを指定します。 各  [ページ](page) はレイアウトに基づいています。 レイアウトには、そのレイアウトに基づいてすべてのページに戻るウィジェットと構造が含まれています。 |
+| [Menus](メニュー)       | メニュー ドキュメントは、  [メニュー ウィジェット](menu-widgets) で使用できるナビゲーション メニューを定義します。                                   |
+| [Snippets](snippet) | スニペットは再利用可能なインターフェイス部品を定義します。 [ページ](page) と  [レイアウト](layout) で使用できます。                                  |
 
-## 4 Resources
+## 4つのリソース
 
-| Document type                              | Description                                                                                                                                                                                                                                              |
-| ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Constants](constants)                     | Constants are used to define a constant value, for example: to store an URL to a webservice.                                                                                                                                                             |
-| [Datasets](data-sets)                      | A dataset can be used for reporting and is defined using either an OQL query or a custom Java action.                                                                                                                                                    |
-| [Document Templates](document-templates)   | Document Templates are used to model a template needed as input for a document export action which can generate all kinds of documents based on application data. They are composed much in the same way as Forms.                                       |
-| [Java Actions](java-actions)               | With Java actions you can extend the functionality of your application in situations where it would be hard to implement this functionality in microflows. You can call a Java action from a microflow.                                                  |
-| [Regular Expressions](regular-expressions) | A regular expression is used by [validation rules](validation-rules) on an entity to describe a set of criteria that a string can match.                                                                                                                 |
-| [Rules](rules)                             | A rule defines a set of criteria, with a certain input the rule will result in a Boolean or enumeration depending on the criteria met. It can be called from a decision to determine the direction the microflow should go once the decision is reached. |
-| [Task Queue](task-queue)                   | A task queue runs continuously to check if any microflow tasks have been added to it and executes the tasks in the background.                                                                                                                           |
-| [Scheduled Events](scheduled-events)       | A scheduled event is used to execute a microflow at a certain point in time. You can also schedule it to repeat after a given time. For example, a scheduled event can run every morning at 6 A.M.                                                       |
+| ドキュメントの種類                     | 説明                                                                                                                         |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| [定数](定数)                      | 定数は定数を定義するために使用されます。例えば、Web サービスに URL を格納するためなどです。                                                                         |
+| [Datasets](data-sets)         | データセットはレポート作成に使用でき、OQL クエリまたはカスタム Java アクションのいずれかを使用して定義できます。                                                              |
+| [ドキュメントテンプレート](ドキュメントテンプレート)  | ドキュメントテンプレートは、アプリケーションデータに基づいてあらゆる種類のドキュメントを生成できるドキュメントエクスポートアクションの入力として必要なテンプレートをモデル化するために使用されます。 彼らはFormsと同じように構成されています。 |
+| [Java アクション](java-actions)    | Javaアクションを使用すると、この機能をマイクロフローに実装するのが難しい状況でアプリケーションの機能を拡張できます。 マイクロフローからJavaアクションを呼び出すことができます。                               |
+| [正規表現](regular-expressions)   | 正規表現は、文字列が一致できる条件のセットを記述するためにエンティティの [検証ルール](validation-rules) によって使用されます。                                                 |
+| [ルール](rules)                  | ルールは条件のセットを定義します。特定の入力を指定すると、満たされた条件に応じて、ルールはブール値または列挙値になります。 決定に達すると、マイクロフローがどのように進むべきかを決定するために呼び出すことができます。               |
+| [タスクキュー](task-queue)          | タスクキューは継続的に実行され、マイクロフローのタスクが追加されたかどうかを確認し、バックグラウンドでタスクを実行します。                                                              |
+| [予定されたイベント](scheduled-events) | スケジュールされたイベントは、ある時点でマイクロフローを実行するために使用されます。 特定の時間の後に繰り返すようにスケジュールすることもできます。 たとえば、スケジュールされたイベントは毎朝午前6時に実行できます。               |
 
-## 5 Consumed Services
+## 5 消費されたサービス
 
-| Document type                                  | Description                                                                                                                                                   |
-| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Consumed Web Services](consumed-web-services) | Importing web services of other applications (Mendix or otherwise) allows you to call those web services from your microflows.                                |
-|                                                | A domain-to-XML mapping defines a translation from domain model objects to XML objects.                                                                       |
-|                                                | An XML-to-domain mapping defines a translation from XML objects to domain model objects.                                                                      |
-| [XML Schemas](xml-schemas)                     | An XML schema is defined in an XML Schema Definition (XSD) file and can be imported in your model. It describes what a certain XML document should look like. |
+| ドキュメントの種類                           | 説明                                                                                            |
+| ----------------------------------- | --------------------------------------------------------------------------------------------- |
+| [Webサービスを利用する](consed-web-services) | 他のアプリケーション(Mendixまたはそれ以外)のWebサービスをインポートすることで、これらのWebサービスをマイクロフローから呼び出すことができます。                |
+|                                     | ドメイン-XML マッピングは、ドメイン モデル オブジェクトから XML オブジェクトへの翻訳を定義します。                                       |
+|                                     | XML-ドメイン間のマッピングは、XML オブジェクトからドメインモデルオブジェクトへの翻訳を定義します。                                         |
+| [XML Schemas](xml-schemas)          | XML スキーマは XML スキーマ定義 (XSD) ファイル内で定義されており、モデル内でインポートすることができます。 特定の XML ドキュメントがどのように見えるかを記述します。 |
 
-## 6 Published Services
+## 6件の公開済みサービス
 
-| Document type                                        | Description                                                                                                                       |
-| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [Published REST Services](published-rest-services)   | A microflow can be published as a REST service operation so that it can be consumed by other Mendix applications.                 |
-| [Published OData Services](published-odata-services) | Persistable entities can be exposed as an OData resource, so that they can be imported by third-party applications such as Excel. |
-| [Published Web Services](published-web-services)     | A microflow can be published as a web service operation so that it can be called by third-party applications.                     |
+| ドキュメントの種類                                       | 説明                                                                    |
+| ----------------------------------------------- | --------------------------------------------------------------------- |
+| [公開された REST サービス](published-rest-services)      | マイクロフローは、RESTサービス操作として公開することができ、他のMendixアプリケーションで使用することができます。         |
+| [公開されたOData Services](published-odata-services) | 持続可能エンティティは OData リソースとして公開されるため、Excel などのサードパーティアプリケーションからインポートできます。 |
+| [公開されたウェブサービス](published-web-services)          | マイクロフローは、サードパーティのアプリケーションから呼び出すことができるように、Webサービス操作として公開することができます。     |
