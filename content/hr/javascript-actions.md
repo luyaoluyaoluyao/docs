@@ -10,6 +10,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/javascript-actions.pdf).
+{{% /alert %}}
+
 {{% alert type="warning" %}}
 This activity can only be used in **Nanoflows**.
 {{% /alert %}}
@@ -20,17 +24,17 @@ With JavaScript actions, you can extend your application's functionality in ways
 
 {{% alert type="info" %}}
 
-Each JavaScript action defined in Mendix Studio Pro corresponds to a file *{JavaScript action name}.js* in the subdirectory **javascriptsource{module name}/actions/** in your app directory.
+Each JavaScript action defined in Mendix Studio Pro corresponds to a file *{JavaScript action name}.js* in the subdirectory **javascriptsource{module name}/actions/** in your project directory.
 
 The skeletons of these *.js* files are generated automatically when you save an action, and those JavaScript actions can immediately be edited in the embedded code editor.
 
 {{% /alert %}}
 
-To learn how to create, configure, and use a JavaScript action, see these [Build JavaScript Actions](/howto/extensibility/build-javascript-actions) how-to's.
+To learn how to create, configure, and use a JavaScript action, see these [Build JavaScript Actions](/howto8/extensibility/build-javascript-actions) how-to's.
 
 ## 2 General Settings
 
-After double-clicking a JavaScript action in your **App Explorer** you will see the JavaScript action's settings:
+After double-clicking a JavaScript action in your **Project Explorer** you will see the JavaScript action's settings:
 
 {{% image_container width="400" %}}![javascript settings](attachments/javascript-actions/javascript-action-settings-no-para.png){{% /image_container %}}
 
@@ -77,11 +81,11 @@ This setting handles the parameter's name. A name is required. Names must start 
 
 #### 2.2.3 Category
 
-Use categories to keep parameters apart in a [JavaScript Action Call](javascript-action-call). Categories are useful for making logical groups of parameters when your app has several parameters. If you do not specify a category, the parameter will appear in the **Input** group.
+Use categories to keep parameters apart in a [JavaScript Action Call](javascript-action-call). Categories are useful for making logical groups of parameters when your project has several parameters. If you do not specify a category, the parameter will appear in the **Input** group.
 
 #### 2.2.4 Description
 
-For apps with several parameters, descriptions serve as useful reminders of parameters' exact purposes. Descriptions also allow you to describe your parameters to app collaborators. Descriptions may contain both upper- and lower-case letters, numbers, and symbols.
+For projects with several parameters, descriptions serve as useful reminders of parameters' exact purposes. Descriptions also allow you to describe your parameters to project collaborators. Descriptions may contain both upper- and lower-case letters, numbers, and symbols.
 
 ### 2.3 Return Type
 
@@ -129,7 +133,7 @@ Documentation is visible in the **Code** tab. Your documentation also is copied 
 
 ## 6 Code
 
-In the **Code** tab, you can edit the JavaScript action code without leaving Studio Pro. The editor is based on the [Monaco Editor](https://microsoft.github.io/monaco-editor/index.html). It offers features such as syntax highlighting and code completion. The code can be written in modern JavaScript (ES8 / ES2017) and can use functions like `async` with `await` and `Promise`.
+In the **Code** tab, you can edit the JavaScript action code without leaving Studio Pro. The editor is based on the [Monaco Editor](https://microsoft.github.io/monaco-editor/index.html). It offers features such as syntax highlighting and code completion. From Mendix version 8.3 and above, the code can be written in modern JavaScript (ES8 / ES2017) and can use functions like `async` with `await` and `Promise`. The code will be transpiled and polyfilled for you to run (even on Internet Explorer 11).
 
 The code has three sections: an import list, an extra code block, and a user code block. All code that is added should go in one of these blocks. Code outside the blocks will lost when re-generating the template code on deploy or update of the JavaScript action settings.
 
@@ -168,6 +172,6 @@ export async function Hello(message) {
 
 * [JavaScript Action Call](javascript-action-call)
 * [Nanoflows](nanoflows)
-* [Build JavaScript Actions](/howto/extensibility/build-javascript-actions)
+* [Build JavaScript Actions](/howto8/extensibility/build-javascript-actions)
 * [Java Action Call](java-action-call)
 * [Microflow Call](microflow-call)
