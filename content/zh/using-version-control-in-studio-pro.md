@@ -1,398 +1,383 @@
 ---
-title: "Using Version Control in Studio Pro"
-category: "Version Control"
+title: "在Studio Pro 中使用版本控制"
+category: "版本控制"
 menu_order: 10
-description: "How to work with version control and how to resolve some issues which may arise"
+description: "如何使用版本控制以及如何解决可能出现的一些问题"
 tags:
-  - "Version Control"
-  - "Conflicts"
-  - "Resolve"
-  - "Merge"
-  - "Patch"
-  - "Branch"
-  - "Development"
+  - "版本控制"
+  - "冲突"
+  - "决定"
+  - "合并"
+  - "补丁"
+  - "分支"
+  - "贸易和发展会议"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This reference guide describes how to use version control in Mendix Studio Pro. The theory behind how version control works in Mendix, and a definition of the concepts can be found in [Version Contol](version-control).
+本参考指南描述如何在 Mendix Studio Pro中使用版本控制。 版本控制如何在 Mendix 中运行背后的理论以及概念的定义可以在 [版本Contol](version-control) 中找到。
 
-## 2 Starting a Project with Version Control
+## 2 开始一个带版本控制的应用程序
 
-To start a new project with version control do the following:
+若要使用版本控制启动一个新应用，请执行以下操作：
 
-1. Choose **New Project...** in Studio Pro.
-2. In the **App Settings** dialog, set **Enable online services** to *Yes*. This option creates a Team Server repository and a Developer Portal project.
-3. Change the **Project directory**, or leave the default suggested by Studio Pro.
-4. Click **Create app**.
+1. 选择 **文件** > **新应用**.
+2. 在 **应用程序设置** 对话框中，设置 **启用在线服务** 到 *是* 此选项创建团队服务器仓库和开发者门户应用程序。
+3. 更改 **应用程序目录**, 或离开Studio Pro建议的默认。
+4. 点击 **创建应用程序**。
 
-The app is created on the Team Server, and a working copy is created in the **Project directory**. This is opened in Studio Pro so that you can start working immediately.
+该应用创建在团队服务器上，并在 **应用目录** 中创建了工作副本。 这将在 Studio Pro 中打开，以便您可以立即开始工作。
 
 ![](attachments/using-version-control-in-studio-pro/2018-03-02_11-11-18.png)
 
-## 3 Joining a Project
+## 3 加入应用程序
 
-If there is already a Team Server enabled project, you can be invited to join it (see [Team](/developerportal/collaborate/team)).
+如果已经有团队服务器支持的应用程序，您可以被邀请加入它(见 [团队](/developerportal/collaborate/team))。
 
-Once you are a team member, providing you have been given a role with sufficient rights, you can work on the app by doing the following:
+一旦您是团队成员，赋予您足够的权限， 您可以通过以下方式在应用上工作：
 
-1. Choose **Open project...** in Studio Pro.
-2. Select *Mendix Team Server* as for **Where is your App stored?**.
-3. Choose your app from the **Team Server App** drop-down.
-4. Change the **Project directory**, or leave the default suggested by Studio Pro.
-5. Click **Create app**.
+1. 在 Studio Pro中选择 **打开应用程序**。
+2. 选择 **Mendix 团队服务器** for **您的应用程序存储在哪里？**。
+3. 从 **团队服务器应用程序** 下拉列表中选择您的应用程序。
+4. 更改 **应用程序目录**, 或离开Studio Pro建议的默认。
+5. 点击 **创建应用程序**。
 
-The project will be downloaded from the Team Server and opened in Studio Pro.
+该应用将从团队服务器下载并在 Studio Pro中打开。
 
 ![](attachments/using-version-control-in-studio-pro/open-new-team-server-app.png)
 
-## 4 Day-to-Day Development
+## 4 天间发展
 
-Let us say you have a working copy of a project on disk. You make changes to the app and save them. Saved changes are not immediately visible to others. The documents, folders, and modules which have been changed can be identified by looking at the **status**.
+让我们说您在磁盘上有一个应用程序的工作副本。 您对应用程序进行更改并保存。 保存的更改不会立即对其他人可见. 已更改的文档、文件夹和模块可以通过查看 **状态** 来确认。
 
-When you are happy with a set of changes, you **commit** them to the repository. Others can then choose to update and retrieve those changes.
+When you are happy with a set of changes, you **commit** them to the repository. 然后其他人可以选择更新和检索这些更改。
 
 You can **update** your working copy with changes committed by others.
 
-You can also see a **history** of all the changes which have been committed, no matter who committed them.
+您也可以看到所有已经执行的更改的 **历史** ，不管是谁实施的。
 
-### 4.1 Status
+### 4.1 状态
 
-The status of your project is a summary of all the changes in your working copy when compared with the original. Studio Pro shows the status both in the project explorer and in the **Changes** dock.
+您的 proppject 状态是与原始状态相比工作副本中所有变化的概述。 Studio Pro 在 **App Explorer** 和 **更改** 面板中显示状态。
 
-The project explorer shows an icon in front of items (documents, folders, and modules) that are changed in some way. The different icons indicate the different kinds of changes which have been made.
+**App Explorer** 展示了一个图标在一些项目前面显示了被更改的图标(文档、文件夹和模块)。 不同的图标显示了所做的不同类型的更改。
 
-| Icon                                                            | Meaning                                                                                                                                        |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| ![](attachments/using-version-control-in-studio-pro/688173.png) | Nothing happened to this item. It is unchanged with the respect to the original.                                                               |
-| ![](attachments/using-version-control-in-studio-pro/688172.png) | You modified this item (as in, document, folder or module).                                                                                    |
-| ![](attachments/using-version-control-in-studio-pro/688175.png) | You added this item.                                                                                                                           |
-| ![](attachments/using-version-control-in-studio-pro/688174.png) | You moved this item to another position in the project tree.                                                                                   |
-| ![](attachments/using-version-control-in-studio-pro/688164.png) | You deleted this item.                                                                                                                         |
-| ![](attachments/using-version-control-in-studio-pro/688165.png) | You and somebody else made conflicting changes to this item. For more information, see the [Dealing With Conflicts](#conflicts) section below. |
+| 图标                                                              | 含义                                                      |
+| --------------------------------------------------------------- | ------------------------------------------------------- |
+| ![](attachments/using-version-control-in-studio-pro/688173.png) | 这个项目没有发生任何事情。 原件没有变化。                                   |
+| ![](attachments/using-version-control-in-studio-pro/688172.png) | 您修改了这个项目(在文档、文件夹或模块中)。                                  |
+| ![](attachments/using-version-control-in-studio-pro/688175.png) | 您添加了此项目。                                                |
+| ![](attachments/using-version-control-in-studio-pro/688174.png) | 您已将此项目移动到应用树中的另一个位置。                                    |
+| ![](attachments/using-version-control-in-studio-pro/688164.png) | 您删除了此项目。                                                |
+| ![](attachments/using-version-control-in-studio-pro/688165.png) | 您和其他人对此项目进行了冲突性更改。 欲了解更多信息，请参阅下面 [处理冲突](#conflicts) 部分。 |
 
 {{% alert type="info" %}}
-There is only room for one icon and if a document is both modified and moved it is shown as modified.
-{{% /alert %}}
+仅有一个图标的空间，如果文档都被修改并移动，则显示为修改。
+{{% /报警 %}}
 
-For example, say that the microflow *ChangePassword* has been modified. Also a new folder called 'Flows' was added and all microflows were moved inside this folder. In the screenshot you can see that the folders and modules containing changes are depicted with a yellow icon, and the microflows which have been moved have a blue icon. This helps you to quickly see where in the project the changes are.
+例如，说微流 *ChangePassword* 已被修改。 还添加了一个名为“Flows”的新文件夹，所有微流都被移动到这个文件夹中。 在屏幕截图中，您可以看到包含更改的文件夹和模块用黄色图标描绘。 移动的微流有蓝色图标。 这有助于您快速查看应用程序中的更改位置。
 
 ![](attachments/using-version-control-in-studio-pro/project-explorer-documents.png)
 
-You can see the same information in the **Changes** dock. In this case there is an entry for each *change* to an item. If a document is both modified and moved there are *two* lines for that document. The dock also shows items that were deleted, something the project explorer cannot do.
+您可以在 **更改** 面板中看到相同的信息。 在这种情况下，每次 *更改* 为一个项目有一个条目。 如果文档同时被修改并移动，该文档有 *两行* 行。 窗格还显示已被删除的项目，应用浏览器无法做这件事。
 
 ![](attachments/using-version-control-in-studio-pro/changes-pane.png)
 
 {{% alert type="info" %}}
-When you successfully commit your project, this becomes the new original and all the change information is removed from the project explorer and the changes dock.
-{{% /alert %}}
+当您成功提交您的应用， 这将成为新的原始信息，并且所有更改信息都已从应用探索器和更改面板中删除。
+{{% /报警 %}}
 
-### 4.2 Committing
+### 4.2 承诺
 
-Sending changes to the repository is called *committing*. The idea is that you commit small, consistent pieces of work to the repository. We recommend you commit your changes often. Preferably, the versions in the repository are always error-free, Studio Pro will warn against committing while there are errors in your project.
+正在发送对资源库的更改称为 *提交*。 主意是让你将小块和一致的作品提交到仓库中。 我们建议您经常提交您的更改。 最好版本库中的版本总是没有错误的，Studio Pro 会警告您在应用中发生错误时不要承付。
 
-To commit your changes, click the **Commit** button in the **Changes** dock, or choose the **Project > Commit...** menu item.
+若要提交您的更改，请点击 **更改中的 **提交** 按钮** 窗格， 或者选择 **应用程序** > **提交。 。** 菜单项
 
-![Commit Button](attachments/using-version-control-in-studio-pro/commit-button.png)
+![提交按钮](attachments/using-version-control-in-studio-pro/commit-button.png)
 
-In general, it is a good idea to commit after implementing one feature or fixing one bug. By committing often, your work is integrated with the work of others regularly. The benefits of committing include the following:
+一般而言，在实现一个特性或修复一个bug后进行承诺是一个好主意。 通过经常性的承诺，您的工作与其他人的工作是一致的。 承诺的好处包括：
 
-* If any conflicts arise, the changes are still fresh in your mind
-* Revisions are easier to understand
-* If you ever need to revert something, you can revert a small chunk of work
+* 如果出现任何冲突，您的想法仍然是很新鲜的
+* 修改更容易了解
+* 如果你需要恢复某些东西，你可以恢复一小块工作
 
-Committing results in a new revision in the repository. You can add the following information in Studio Pro when you perform a commit, and this will be attached to the newly created revision:
+提交结果导致仓库中的一个新版本。 当您执行提交时，您可以在 Studio Pro 中添加以下信息，这将附加到新创建的版本：
 
-* A textual message. This should be a summary of the changes you made
-* A list of Developer Portal stories that relate to the commit. A small commit will probably relate to one story. Studio Pro shows stories that are in the current Sprint and do not have a status of *Done*. Adding the story to the commit will not change the state of the Developer Portal story. Setting the status to 'Done' must be done manually and depends on your *definition of done*.
+* 文字信息。 这应该是您所做更改的摘要
+* 与提交相关的开发者门户网站故事列表。 一个小的提交可能会涉及一个故事。 Studio Pro 展示了当前Sprint中的故事，不具有 *完成* 的状态。 在提交中添加故事不会改变开发者门户网站的故事。 将状态设置为“完成”必须手动完成，并取决于您的 *完成* 的定义。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_13-50-03.png)
 
-Studio Pro also attaches some information automatically:
+Studio Pro 也自动附加一些信息：
 
-* The person who committed (the *author*)
-* The date and time of the commit
-* The list of changed documents, folders, and modules along with the type of the change (for example *modify* or *add*)
-* The version of Studio Pro that was used to commit
+* 提交人( *作者*)
+* 提交日期和时间
+* 更改的文档、文件夹和模块列表以及更改类型(例如， *修改* 或 *添加*)
+* 用于提交的 Studio Pro 版本
 
-If you also changed Java source code, added widgets or made other changes that affect files other than the project file you will see a **Changes on disk** tab page that shows you what disk changes you are about to commit.
+如果您也修改了 Java 源代码， 添加小部件或其他影响到除应用文件以外的文件的更改，您将在磁盘</strong> 标签页上看到 **更改，显示您将要提交的磁盘更改。</p>
 
-Committing is only allowed if your working copy is up to date with the repository. If someone else committed a change since the last time you updated, you will have to update first. This is because the revision you create with the commit should incorporate both your changes and the changes by the other person. Updating will combine the latest changes in the repository with your changes. After reviewing the result, and fixing any conflicts, you can commit again.
+只有当您的工作副本是最新版本时才允许提交。 如果其他人在上次更新后进行了更改，您必须先更新。 这是因为您用承诺创建的版本应该包含您的更改和对方的更改。 更新将合并仓库中的最新更改和您的更改。 在检查结果并修复任何冲突后，你可以再次承诺。
 
-### 4.3 Updating
+### 4.3 更新
 
-Updating retrieves the latest changes from the repository. You need to do this to incorporate any changes made by others that are not yet in your working copy before you can commit your changes to the repository. It is advisable to frequently update so that the number of changes you retrieve is small.
+正在更新从仓库获取最新的更改。 您需要这样做才能将尚未在您的工作副本中的其他人所做的任何更改都包含进去，然后您才能将您的更改提交到仓库中。 最好经常更新，使您检索的更改数量更少。
 
-To update the working copy of your app, click the **Update** button in the **Changes** dock, or choose the **Project > Update** menu item.
+若要更新您的应用程序的工作副本，请点击 **更改中的 **更新** 按钮** 面板， 或选择 **应用程序** > **更新** 菜单项。
 
-![Update Button](attachments/using-version-control-in-studio-pro/update-button.png)
+![更新按钮](attachments/using-version-control-in-studio-pro/update-button.png)
 
-Changes you receive from the repository when updating are combined with the changes you have made to your working copy (if any). Afterwards, your working copy will contain both your changes and the changes you received. As part of the update, the original of your working copy is updated as well.
+更新时您从仓库收到的更改与您对工作副本所作的更改合并(如果有的话)。 之后，您的工作副本将包含您的更改和您收到的更改。 作为更新的一部分，您的工作副本原件也会更新。
 
-For example, if the last time you updated you received all changes up to and including revision 40, this means that the original for your working copy is revision 40. Since you started making changes to your working copy, other people on your team have made another four commits (41, 42, 43 and 44). If you now update, you will receive those changes and 44 will be the new *original* to which your changes are compared.
+例如，如果您上次更新，您收到的所有更改直到并包含版本40。 这意味着你的工作副本的原件是40。 自从你开始修改你的工作副本以来，你的团队中的其他人又做了另外4次承诺（41、42、43和44）。 如果您现在更新，您将收到这些更改，44将成为您的更改被比较的新的 *原始*。
 
-Usually, combining your changes with the latest revision from the repository will be done automatically. For example, one person may add a page while you are changing a microflow. If the changes are too close, however, a conflict can arise. For example, if one of your team has changed the properties of the same data view which you have also changed. You will have to resolve such conflicts before you can commit. See the  [Dealing With Conflicts](#conflicts) section, below, for information on how to do this.
+通常情况下，将您的更改与来自仓库的最新版本合并将自动完成。 例如，在您更改微流程时，一个人可能会添加一个页面。 但是，如果变化太接近，就可能产生冲突。 例如，如果您的团队已经更改了相同数据视图的属性，您也已经更改。 你必须先解决这种冲突，然后才能完成。 请参阅下面  [处理冲突](#conflicts) 部分，以了解如何处理这个问题。
 
-If your team is committing often you will have to update often. Frequent updating has the benefit that you receive fewer changes with each update, so integrating those changes with your work is easier.
+如果您的团队经常承诺，您将不得不经常更新。 经常更新的好处是您在每次更新中收到的更改较少，因此将这些更改与您的工作结合起来比较容易。
 
-### 4.4 History {#history}
+### 4.4 历史 {#history}
 
-The *history* of the project is a list of all revisions that have been committed. To view the history of the project, click the **History** button in the **Changes** dock, or choose the **Version Control** > **History** menu item.
+应用程序的 *历史* 是已提交的所有修订的列表。 要查看应用程序的历史记录，请点击 **更改中的 **历史记录** 按钮** 窗格， 或选择 **版本控制** > **历史记录** 菜单项。
 
-![History Button](attachments/using-version-control-in-studio-pro/history-button.png)
+![历史按钮](attachments/using-version-control-in-studio-pro/history-button.png)
 
-The revisions are shown in reverse chronological order (newest is at top of list). The history dialog shows you revision number, date, time, author and message of each revision.
+修改按时间顺序反向显示(最新的修改列在列表之首)。 历史对话框显示每个版本的版本号、日期、时间、作者和消息。
 
-Select a revision to see additional details such as related Developer Portal stories, changed documents, Studio Pro version and changes on disk. Icons summarize the kinds of changes that happened in the project.
+选择一个版本来查看更多详细信息，如相关的开发者门户网站故事、更改文档、Studio Pro 版本和磁盘上的更改。 图标概括了应用中发生的几种变化。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_14-06-46.png)
 
-## 5 Reverting Changes
+## 5 次还原更改
 
-Changes that have not yet been committed can be reverted. Say, for example, that you have made a lot of changes to a page and you are not happy with the result. You can revert the page to the original: that is, the state of the page before you started making changes.
+尚未作出的改变可以恢复。 例如，你对一个页面做了很多更改，你对结果不满意。 您可以将页面还原为原始页面：即开始做出更改之前的页面状态。
 
-Deletes of documents, folders, and modules can also be reverted. This will bring them back into the project. Note that you will get back the latest version you have *committed*. For example, if you commit, make some changes to a microflow, and then delete the microflow, reverting the delete will give you the microflow without the changes that you made.
+还可以还原文档、文件夹和模块的删除。 这将把他们带回应用程序。 请注意，您将会收到您提交的 *的最新版本*。 例如，如果您提交，对微流进行一些更改，然后删除微流， 恢复删除将会给您提供微流，而不会做任何更改。
 
-You can revert changes in the **Changes** dock, or from the right-click menu on the document you want to revert.
+您可以还原 **更改** 窗格中的更改，或者从您想要还原的文档上的右键单击菜单。
 
-![Two ways of reverting](attachments/using-version-control-in-studio-pro/revertx2.png)
+![两种还原方式](attachments/using-version-control-in-studio-pro/revertx2.png)
 
-## 6 Dealing With Conflicts {#conflicts}
+## 6 处理冲突 {#conflicts}
 
-If you update your app and the changes cannot be merged automatically you will receive a message telling you there are conflicts. A conflict arises when two changes cannot be combined.
+如果您更新了您的应用并且更改不能自动合并，您将收到一条消息，告诉您存在冲突。 当两种变化无法合并时，就会产生冲突。
 
-![Warning about conflicts](attachments/using-version-control-in-studio-pro/contains-conflicts.png)
+有两种不同的冲突：
 
-There are two different sorts of conflict:
+* 文档冲突
+* 应用程序冲突
 
-* Document conflicts
-* Project conflicts
+### 6.1 解决文件冲突
 
-### 6.1 Resolving a Document Conflict
+在相同的 *文档* 中进行两次更改，实际上彼此相近，可能会导致文档冲突。 例如，两个人都会改变页面上同一个元素的属性。 文档将在 **更改** 面板中标记为冲突。 冲突必须先解决，然后才能再次提交。
 
-Two changes in the same *document* that are really close to each other can cause a document conflict. For example, two people both change the properties of the same element on the page. The document will be marked as conflicted in the **Changes** dock. Conflicts have to be resolved before you can commit again.
+欲了解更多关于解决文档冲突的信息，请参阅 [新合并算法，带有精致的冲突解析](new-merge-algorithm) 和 [更改面板](changes-pane)。
 
-Double-click a document to see which elements have conflicts. You can also see all the changes which have been made by you, and all the changes which were made by other people.
+### 6.2 解决应用冲突
 
-![Detailed document conflicts](attachments/using-version-control-in-studio-pro/document-changes.png)
+应用冲突是指应用一级的冲突。 应用程序冲突有两个原因：
 
-For each *document* you can decide whether to accept the conflicted elements which are **mine** and discard the changes to those by the other person, or to accept the conflicted elements which are **theirs**, if their changes are more relevant.
+1.  一人删除一份文件，另一人在该文件中作了修改。
+2.  这两个人都移动了一个文档，但移动到了应用树中的不同地方。
 
-This decision applies to all the conflicts in the document; you cannot choose your version for some conflicted changes but their changes for others. Non-conflicting changes will be merged as normal.
+所涉文档被标记为冲突文档，您可以在 **更改** 面板的详细列中看到原因。
 
-Ensure you are viewing changes for the whole project in the **Changes** dock, select the document which is conflicted, and use the required option from the **Tasks** drop-down.
-
-![Resolving a conflict using the changes dock](attachments/using-version-control-in-studio-pro/resolve-document-conflict.png)
-
-For example, if you deleted a data view in a page and another person changes something inside that data view, you may choose to discard the changes of the other by clicking 'Use mine'.
-
-Resolving a conflict will make the conflict go away but the document may, of course, still be marked as changed if there are changes to commit.
-
-### 6.2 Resolving a Project Conflict
-
-Project conflicts are conflicts are conflicts at the level of the project. There are two cause for project conflicts:
-
-1.  One person deletes a document and the other makes a change inside that document.
-2.  Both people move a document but to different places in the project tree.
-
-The involved document is marked as conflicted and you can see the reason in the details column of the **Changes** dock.
-
-![Example of project conflicts](attachments/using-version-control-in-studio-pro/project-conflicts.png)
+![应用程序冲突示例](attachments/using-version-control-in-studio-pro/project-conflicts.png)
 
 {{% alert type="info" %}}
-If a whole folder (or module) was *deleted* and another person changes a document inside that folder, the folder/module is restored and also marked as conflicted. This way you know that the intention was to delete that folder but it has been restored to show you the context of the changed document.
-{{% /alert %}}
+If a whole folder (or module) was *deleted* and another person changes a document inside that folder, the folder/module is restored and also marked as conflicted. 这种方式你知道是要删除该文件夹，但它已经被还原以向你显示更改的文档的上下文了。
+{{% /报警 %}}
 
-You can resolve a project conflict by choosing **Tasks > Use mine** or by deleting the involved documents or folders.
+您可以通过选择 **任务 > 来解决应用程序冲突。使用我的** 或者通过删除所涉及的文档或文件夹。
 
-## 7 Using Branches
+## 7 使用分支
 
-A repository can contain a number of development lines. Each development line offers independent development from the other development lines. In the simple case there is just one development line called the main line (called 'trunk' in subversion). All development then happens inside that one line.
+仓库可以包含一些开发线。 每个发展项目都提供来自其他发展项目的独立发展。 在简单的例子中，只有一条发展线称为主线(在颠覆中称为“trunk”)。 然后所有开发都发生在一条线内。
 
 ![](attachments/using-version-control-in-studio-pro/688156.png)
 
-It is often convenient to have more than one development line. For example, one development line for fixing bugs in the currently deployed version of your project and another line where you develop new functionality. If you then find a bug in the deployed version you can fix it in the corresponding development line irrespective of the state of the development line where new functionality is developed. See [Version Control](version-control) for more information about branches.
+有一个以上的发展线往往是方便的。 例如，一个用于修复当前应用版本中的 bug 的开发行和另一个用于开发新功能的开发行。 如果你在部署的版本中找到一个错误，你可以在相应的开发线中修复它，而不论开发新功能的开发线的状态。 更多关于分支的信息，请参阅 [版本控制](version-control)。
 
-### 7.1 When to Use a Branch
+### 7.1 何时使用分支
 
-#### 7.1.1 Patching a Deployed Application
+#### 6.1.1 修补已部署应用
 
-If you want to add some functionality to a deployed application or you want to fix a bug in it, you can do so without interfering with other development.
+如果您想要将一些功能添加到已部署的应用程序中，或者您想要修复其中的一个bug。 你可以在不干扰其他发展的情况下这样做。
 
-1. Determine the version of the deployed application. This information is in the Developer Portal. Alternatively, you can find the version in the *metadata.json* file in the **model** subfolder of your deployment package (mda) archive. For example, `"ModelVersion": "1.0.0.16"`
-2. Choose **Version Control > Manage Branch Lines...** and create a branch based on the tag with the that version number as its name.
+1. 确定部署应用程序的版本。 此信息在开发者门户。 或者，您可以在 *metadata.json* 文件中在 **模型** 子文件夹中找到您的部署包 (mda) 归档。 例如， `"ModelVersion": "1.0.0.16"`
+2. 选择 **版本控制 > 管理分支行号...** 并创建一个基于该版本号的标签作为其名称的分支。
 
     ![](attachments/using-version-control-in-studio-pro/create-from-tag.png)
 
-3. Add the functionality or fix the bug in this newly created branch.
-4. Testing that things work as intended.
-5. Create a new deployment archive with a higher version number (increase patch or minor version).
+3. 添加功能或修复这个新创建的分支中的错误。
+4. 测试情况是否如预期那样有效。
+5. 创建一个更高版本号的部署存档 (增加补丁或次要版本)。
 
 {{% alert type="info" %}}
-We advise you to merge the fixed maintenance branch into the main line quickly, if required. If the merge is too complicated to be made automatically, because the main line has changed too much, you will know how to apply the fix by hand to the main line as the changes will still be fresh in your mind.
+我们建议您在需要时尽快将固定维修分支合并到主线。 如果合并过于复杂，无法自动进行，因为主行变化太大， 您将知道如何手动将修复应用到主行，因为您仍然想到的更改是新鲜的。
 
-Of course, not all maintenance fixes need to be merged to the main line. Sometimes, it is a fix of something that was completely redesigned or eliminated in the main line. In this case, merging is unnecessary.
-{{% /alert %}}
+当然，并非所有维修修复都需要并入主线。 有时，它是在主线上完全重新设计或消除的东西的修复。 在这种情况下，合并是不必要的。
+{{% /报警 %}}
 
-#### 7.1.2 Developing a New Feature Independently
+#### 7.1.2 独立开发新功能
 
-Another reason for creating a branch is to develop a big new feature without interfering with other development. This gives you the freedom to commit a half-implemented feature, possibly even with errors, while other people can still commit and update on the main line. Without using a branch line, you would have to constantly make sure that your project is error free and does not break other parts of the system.
+创立分支机构的另一个原因是在不影响其他发展的情况下发展一个大的新特点。 这使你可以自由地提供一个半实现的功能，甚至可能有错误， 其他人仍然可以在主线上进行承诺和更新。 不使用分支行， 您必须不断确保您的应用程序是无误的且不会破坏系统的其他部分。
 
-Firstly, select **Version Control > Manage Branch Lines...** and create a branch from a revision of the main line.
+首先，选择 **版本控制 > 管理分支行...** 并从主行的修订中创建一个分支。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-28_13-50-39.png)
 
-Now work on the branch until the feature is done and commit the completed work.
+现在在该分支上工作，直到完成功能并完成已完成的工作。
 
-When you want to merge the whole branch back to the main line to integrate the feature there. Do the following:
+当你想要合并整个分支回到主行来整合该功能。 执行以下操作：
 
-1. Open the main line.
-2. Choose **Version Control > Merge changes here**.
-3. Choose **Merge feature branch**.
+1. 打开主线。
+2. 选择 **版本控制 > 在这里合并变化**
+3. 选择 **合并功能分支**。
 
     ![](attachments/using-version-control-in-studio-pro/2018-02-28_14-05-23.png)
 
-4. Select the branch and click **Merge**.
-5. Resolve any conflicts and errors.
-6. Commit the new feature to the main line.
+4. 选择分支并点击 **合并**。
+5. 解决任何冲突和错误。
+6. 将新功能提交到正行。
 
-You can delete the branch after merging it back, if you want.
+如果你想要，你可以在合并后删除分支。
 
-### 7.2 Working with Branches in Studio Pro
+### 7.2 与Studio Pro 中的分支机构合作
 
-#### 7.2.1 Branching
+#### 6.2.1 分支
 
-Development lines other than the main line are called branch lines. Our advice would be to develop new features in the *main line* and to use *branch lines* for fixing bugs in versions that have been deployed. This is the scenario Studio Pro makes easy but other scenarios for more complex projects are supported as well.
+除主线以外的发展线被称为分支线。 我们的建议是在 *主行* 中开发新功能，并使用 *分支行* 来修复已部署版本中的bug。 这是情景Studio Pro 使得更加简单，但其他更复杂的应用程序的情景也得到支持。
 
-You can create branch lines from the Branch Line Manager which you can find at **Version Control > Manage Branch Lines...**.
+您可以从分支行管理器中创建分支行，您可以在 **版本控制 > 管理分支行...**
 
 ![](attachments/using-version-control-in-studio-pro/create-branch-line.png)
 
-#### 7.2.2 Merging
+#### 6.2.2 合并
 
-If you have multiple development lines, you sometimes want to port changes from one development line to another. For example, the fix that you made in a branch line for the production version should also be applied to the new 2.0 version you are developing in the main line. You can, of course, do this by hand but Studio Pro can also help you by merging changes from one development line to another.
+如果你有多个开发线, 你有时想要端口从一个开发线到另一个开发线。 例如，你在生产版本的分支行中做出的修正也应适用于新的2。 您正在开发的版本在主行。 当然，您可以亲手做到这一点，但Studio Pro 也可以通过将更改从一个开发线合并到另一个开发线来帮助您。
 
-Merging is always done while you have a working copy open. The merge will result in extra local changes in that working copy. It is advisable to commit local changes first before merging extra changes into a working copy. Otherwise, the uncommitted local changes and the changes caused by the merge will be combined and it is very hard to untangle them if you are unhappy with the merge. Studio Pro will warn you if you have uncommitted changes.
+合并总是在您有工作副本打开时完成的。 合并将导致该工作副本中额外的本地更改。 最好先进行本地更改，然后再将额外的更改合并成一份工作副本。 否则， 未承诺的本地更改和合并引起的更改将被合并，如果您对合并不满意，很难解开它们。 Studio Pro 将警告您，如果您有未承诺的更改。
 
-Select **Version Control > Merge Changes Here**, then select the appropriate type of merge (for example, **Port fix**).
+选择 **版本控制 > 在此合并**, 然后选择适当的合并类型(例如， **端口修复**)。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_14-19-47.png)
 
-You can merge a single revision or a whole range of revisions from one development line to another. If a branch line represents a big new feature that you want to integrate completely into the main line, you can merge all the revisions of the branch.
+您可以合并单个版本或从一个开发行到另一个开发行的一系列版本。 如果一个分支行代表一个大的新功能，你想要完全融入主线。 您可以合并分支的所有修订。
 
-#### 7.2.3 Reverse Merging
+#### 6.2.3 逆向合并
 
-Reverting changes works for changes that have not been committed yet. Changes that have been committed can never be deleted. However, you can apply the changes 'in reverse' and commit that. This feature is called 'Reverse merging' in Studio Pro.
+还原更改对尚未进行的更改起作用。 已经进行的更改绝不能删除。 然而，你可以“逆向”应用更改并做出承诺。 在Studio Pro中，此功能叫做“逆向合并”。
 
-Choose **Version Control > Reverse Merge Changes...**
+选择 **版本控制 > 反向合并更改...**
 
 ![](attachments/using-version-control-in-studio-pro/revert-committed-changes.png)
 
-After a reverse merge the project will look like the changes never happened; if you 'reverse merge' the adding of a page, the page will be deleted locally. Just like when you are doing a normal merge, conflicts can arise. In the example, if later commits change the added page, the reverse merge will result in a conflict. After resolving any problems, you can commit the results to the repository.
+在反向合并后，应用程序将看起来像永远不会发生的更改； 如果您'反向合并'添加一个页面，这个页面将被本地删除。 就像当你正在进行正常合并时一样，冲突可能出现。 例如，如果后来提交更改添加的页面，反向合并将导致冲突。 在解决任何问题后，您可以将结果提交到仓库中。
 
-#### 7.2.4 Replacing the Main Line with a Branch Line
+#### 6.2.4 将主线替换为分线线
 
-There are two methods for fully replacing your main line with a branch line.
+有两种方法可以用分支线来完全替换你的主线。
 
-The first method is to merge the entire branch line into the main line, essentially replacing the main line contents with the branch line contents). This works as long as the branch line is up to date with the main line (to avoid conflicts. To do this, follow these steps:
+第一种方法是将整个分支行合并到主行中，基本上用分支行内容取代主行内容)。 只要分支线是最新的主线(以避免冲突)，这种做法就能奏效。 要做到这一点，请遵循以下步骤：
 
-1. Select **Version Control > Merge Changes Here** > **Merge feature branch**.
-2. Select the branch to merge into the main line.
+1. 选择 **版本控制 > 在此合并更改** > **合并功能分支**。
+2. 选择要合并到主行的分支。
 
-The second method should be used if the first method is not possible for some reason and you want to "overwrite" the main line with your branch line. For this method, you must follow these steps:
+如果第一个方法因为某种原因不可能，你想要“覆盖”你的分支行的主行时，应该使用第二个方法。 对于这种方法，您必须遵循这些步骤：
 
-1. Check out both the main line and the branch line locally.
-2. Overwrite all the files in the main line project directory with those of the branch line (except for the *.svn* directory).
-3. Commit your changes using Studio Pro.
-4. Reopen the main line project in Studio Pro only after overwriting the files.
+1. 在本地查看主线和分支线。
+2. 将主行应用目录中的所有文件覆盖为分支行(除了 *.svn* 目录之外)。
+3. 使用 Studio Pro提交您的更改。
+4. 仅在覆盖文件后重新打开Studio Pro中的主行应用程序。
 
-## 8 Versioning a Project Deployed to the Cloud {#versioning-project}
+## 8 版本安装到云端的应用程序 {#versioning-project}
 
-### 8.1 Deploying Locally
+### 8.1 本地部署
 
-While developing you can deploy and run your app on your local machine by using the menu item **Run > Run Locally**. This allows you to test the app as it currently is stored on your local machine.
+开发时，您可以通过单击菜单项 **运行** > **本地运行** 来在本地机器上部署和运行您的应用程序。 这允许您测试应用程序，因为它目前存储在您的本地机器上。
 
-### 8.2 Deploying Your Working Copy
+### 8.2 部署您的工作副本
 
-When you deploy to the cloud, you can choose to use the version of the app stored on your local machine, the *working copy* and deploy that to the default environment. If you are using the [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy), or other partner cloud (SAP BTP, for example), choose the menu item **Run > Run** to commit the version of the app stored on your local machine and deploy that to the default environment.
+当你部署到云端时，你可以选择使用存储在你本地机器上的应用版本， *工作副本* 并将其部署到默认环境。 如果您正在使用 [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy), 或其他合作伙伴云(例如，SAP BTP), 点击 **发布** 提交存储在您本地机器上的应用程序版本，并将其部署到默认环境。
 
-### 8.3 Choosing a Specific Development Line and Revision
+### 8.3 选择具体的发展线和修订
 
-It is also possible to choose a specific development line and revision to deploy to the default environment, or to create a package from.
+还可以选择一个特定的开发线和修订线来部署到默认环境或创建一个包。
 
-In this case, Studio Pro will create a fresh checkout of the chosen revision. This means that any team member can always recreate this version of the deployment package. In other words, Studio Pro does *not* rely on your local files for creating a versioned deployment package.
+在这种情况下，Studio Pro 将创建一个新的结算所选的修订版。 这意味着任何团队成员总是可以重新创建这个版本的部署包。 In other words, Studio Pro does *not* rely on your local files for creating a versioned deployment package.
 
 {{% alert type="warning" %}}
-You can only create a versioned deployment package of changes that have been committed. If you have local changes that you want to deploy in a versioned deployment package, commit them first.
-{{% /alert %}}
+您只能创建一个已承诺更改的版本部署包。 如果你想要在一个版本控制的部署包中部署本地更改，请先提交它们。
+{{% /报警 %}}
 
-When it creates the package, Studio Pro will also create a tag representing this version of your project. If you want to make modifications to this version later, independently of other development which has taken place, you can create a branch based on this tag. The name of the tag is a version number that you choose.
+当它创建软件包时，Studio Pro 也会创建一个代表这个版本应用程序的标签。 如果您想要稍后修改此版本 独立于已经发生的其他开发，您可以创建一个基于此标签的分支。 标签的名称是您选择的版本号。
 
-#### 8.3.1 Deploying a Specific Version to a Mendix Licensed Cloud Node
+#### 8.3.1 将特定版本部署到Mendix 许可云节点
 
-If you are using the Mendix Cloud you can choose **Project > Deploy to Licensed Cloud Node** to deploy a specific version.
+如果您正在使用 Mendix 云端，您可以选择 **App** > **部署到授权云端节点** 来部署一个特定版本。
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-21_17-05-05.png)
 
-#### 8.3.2 Creating a Deployment Package from a Specific Version
+#### 8.3.2 从特定版本创建一个部署包
 
-If you are using a different hosting environment, you create a deployment package using the menu item **Project > Create Deployment Package...**.
+如果您正在使用不同的主机环境， 您使用菜单项 **App** > **创建部署包**
 
 ![](attachments/using-version-control-in-studio-pro/2018-02-28_13-44-04.png)
 
-## 9 Working Outside Studio Pro
+## 9 工作室外专业版 {#working-outside-studio-pro}
 
-Studio Pro takes care of some file management automatically. If you add or remove custom widgets they are automatically added or removed from version control, too. Some files and directories (for example, deployment and releases directories) are automatically ignored so that they are not committed to version control.
+Studio Pro 自动处理某些文件管理。 如果您添加或删除自定义小部件，这些小部件也会自动添加或从版本控制中删除。 某些文件和目录（例如部署和发布目录）被自动忽略，这样它们就不会被用于版本控制。
 
-We advise you to always commit and update inside Studio Pro because in this way useful metadata is added to your revisions. Studio Pro has ways to recover from external updates or merges but it is best to not depend on that.
+我们建议您永远在Studio Pro 中提交和更新，因为这种方式将有用的元数据添加到您的版本中。 Studio Pro 可以从外部更新或合并中恢复，但最好不要依赖它。
 
-### 9.1 TortoiseSVN & Subclipse {#tortoisesvn-subclipse}
+### 9.1 种子SVN & 子剪辑 {#tortoisesvn-subclipse}
 
-If you are doing more advanced changes to files, like adding Java actions or resources to your project, you will have to install TortoiseSVN on your computer and perform some operations yourself. You can download it for free at [https://tortoisesvn.net/](https://tortoisesvn.net/).
+如果您正在对文件进行更高级的更改，如为您的应用添加Java 动作或资源， 您必须在您的电脑上安装TortoiseSVN并自己执行一些操作。 您可以在 [https://tortoisesvn.net/](https://tortoisesvn.net/) 免费下载它。
 
 {{% alert type="warning" %}}
-Mendix Studio Pro uses the Subversion 1.9 working copy. Previous versions of the Mendix Desktop Modeler used a Subversion 1.7 working copy. These working copy versions **are not compatible**.
+Mendix Studio Pro 使用 Subversion 1.9 的工作副本。 Mendix 桌面Modeler使用了一个 Subversion 1.7 工作副本。 这些工作副本版本 **不兼容**。
 
-Always use the version of TortoiseSVN which matches your app model. If you open a local model from Mendix version 7.x or 6.x with the latest version of TortoiseSVN **you will no longer be able to open it in Mendix**.
-{{% /alert %}}
+总是使用 TortoiseSVN 版本来匹配您的应用模型。 如果您从 Mendix 版本 7.x 或6 打开本地模型。 使用最新版本的 TortoiseSVN **您将无法在 Mendix** 中打开它。
+{{% /报警 %}}
 
-Also, if you are developing Java actions using Eclipse, we advise you to install Subclipse to help you with version control of Java files. You can download Subclipse from the Eclipse Marketplace inside Eclipse or from [http://subclipse.tigris.org/](http://subclipse.tigris.org/).
+另外，如果您正在使用 Eclipse 开发 Java 操作，我们建议您安装 Subclipse 以帮助您控制版本的 Java 文件。 您可以从 Eclipse Marketplace 或 [http://subclipse.tigris.org/](http://subclipse.tigris.org/) 下载Subclipse
 
-### 9.2 Adding Files & Directories
+### 9.2 添加文件 & 目录
 
-If you add files or directories or delete files using Windows Explorer, Studio Pro automatically adds or deletes these from version control, too.
+如果您添加文件或目录，或使用 Windows Explorer, Studio Pro 自动从版本控制中添加或删除这些文件。
 
-Make sure you use the SVN export feature of TortoiseSVN if you are copying a directory that is already under version control into your project.
+如果您正在复制一个已经在版本控制下的目录，请确保您使用 TortoiseSVN 导出功能。
 
-### 9.3 Deleting Files & Directories
+### 9.3 删除文件 & 目录
 
-If you delete a file from your project, Studio Pro will automatically also delete it from the Team Server.
+如果您从您的应用中删除一个文件，Studio Pro 将自动从团队服务器中删除。
 
-If you want to delete a whole directory, you will have to use the delete command of TortoiseSVN. You can execute this command by right-clicking the directory and choosing 'TortoiseSVN > Delete'.
+如果您想要删除整个目录，您必须使用 TortoiseSVN 的删除命令。 您可以通过右键单击目录来执行此命令，并选择 'TortoiseSVN > Delete'。
 
-### 9.4 Branching & Deploying
+### 9.4 分支 & 部署
 
-If you perform branching outside of Studio Pro, you will not be able to immediately deploy to Mendix Cloud. That is because Studio Pro adds metadata about the Mendix version of your app to each revision when you commit or create a branch, which is needed by the Mendix Cloud deployment. Branching outside of Studio Pro means that metadata is missing from your branch, thus your app cannot successfully be deployed.
+如果您在Studio Pro之外执行分支，您将无法立即部署到 Mendix Cloud。 这是因为Studio Pro 在您提交或创建分支时将Mendix 版本的元数据添加到每个版本， Mendix 云部署所需。 在 Studio Pro 之外的分支意味着您的分支缺少元数据，因此您的应用程序无法成功部署。
 
-To fix this, make a small commit on your branch in Studio Pro (for example, changing a documentation field). Studio Pro will then add the metadata that Mendix Cloud deployment requires, and you will be able to deploy your app.
+为了解决这个问题，在 Studio Pro 中对您的分支做出小的提交(例如，更改文档字段)。 Studio Pro 然后添加Mendix 云部署所需的元数据，您将能够部署您的应用程序。
 
-### 9.5 Reverting Accidental Studio Pro App Model Upgrade
+### 9.5 恢复意外事故工作室专业应用程序升级模型
 
-When working in different app with different Studio Pro versions, you may one day find yourself with an app model upgraded and committed to a newer Studio Pro version, while the the rest of your team is not yet ready to upgrade.
+在不同的应用程序中使用不同的Studio Pro 版本时， 您可能有一天发现自己的应用程序模型升级并致力于更新工作室专业版本， 当你的团队其他部分尚未准备好升级.
 
-To revert this version upgrade of the app model, follow these steps:
+若要恢复此版本的应用模型升级，请遵循以下步骤：
 
-1. Inform your team of the situation and prevent them from making further commits.
-2. Close Studio Pro.
-3. In Windows Explorer, go to your main app directory.
-4. Right-click the directory and select **TortoiseSVN** > **Show log**.
-5. In SVN, find the latest revision that was in the desired Studio Pro version.
-6. Right-click that revision, select **Revert to this version**, confirm, and click **OK**.
-7. Back in Windows Explorer, right-click the folder again, select **TortoiseSVN** > **Commit**, enter your commit message, and click **OK**.
-8. Start the desired Studio Pro version and download the app from Team Server.
-9. Check that everything is okay in your app.
-10. Inform your team that they need to do a fresh checkout of the app or run **TortoiseSVN** > **Update** on their project folder before opening the project in the desired Studio Pro version again.
+1. 将情况通知您的团队，防止他们做出更多的承诺。
+2. 关闭工作室专业版。
+3. 在 Windows Explorer 中，转到您的应用主目录。
+4. 右键点击目录并选择 **种子SVN** > **显示日志**。
+5. 在 SVN 中，找到期望的 Studio Pro 版本的最新版本。
+6. 右键点击该版本，选择 **还原到此版本**, 确认, 然后点击 **确定**。
+7. 返回到 Windows Explorer, 右键再次点击文件夹，选择 **种子SVN** > **提交**, 输入您的提交消息，然后点击 **确定**。
+8. 启动所需的Studio Pro 版本并从团队服务器下载应用程序。
+9. 检查您的应用中的一切都是正常的。
+10. 通知您的团队，他们需要重新结帐应用程序或运行 **TortoiseSVN** > **更新** 然后再将应用程序打开到期望的 Studio Pro 版本中。
 
-## 10 Read More
+## 10 点更多
 
-* [Advanced Branching and Merging Strategies](https://www.mendix.com/blog/advanced-branching-merging-strategies-part-1-2/)
+* [高级分支和合并策略](https://www.mendix.com/blog/advanced-branching-merging-strategies-part-1-2/)
+
