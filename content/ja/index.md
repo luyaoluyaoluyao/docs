@@ -1,5 +1,5 @@
 ---
-title: "Studio 8 How-to."
+title: "Studio 9 How-to."
 tags:
   - "スタジオ"
   - "どうやって?"
@@ -7,7 +7,7 @@ tags:
 
 {{% alert type="warning" %}}
 
-**Studio 8 How-toの** スペースは、Mendix 8 バージョンに対応する Mendix Studio 機能について説明します。 最新のStudio機能と機能について説明します。
+**Studio 9 How-toの** スペースは、Mendix バージョン9に対応するMendix Studio機能を説明します。 最新のStudio機能と機能について説明します。
 
 {{% /alert %}}
 
@@ -17,8 +17,9 @@ Studio How-toには、Mendix Studioでアプリを作成し、それらをカス
 
 ## 2 カテゴリへの方法
 
-*Studio 8 How-to's* は次のカテゴリに分類されます:
+*Studio 9 の使い方* は次のカテゴリに分類されます:
 
+* [従業員のオンボーディングプロセスのスタジオでワークフローを構成する方法](workflow-how-to-configure) – Mendix Studioで従業員のオンボーディングプロセスのワークフローを構成する方法
 * [ページ](pages) – フォームやリストの構築など、さまざまなページパターンの構築に焦点を当てています。 リスト内のデータのフィルタリングなど、さまざまな機能を設定できます
 * [ドメインモデルを構成する方法](domain-model-how-to-configure) – ドメインモデルとその要素を構成する方法を説明する
 * [アプリを保護し、その機能へのアクセスを設定する方法](security-how-to-configure-roles) – アプリを保護し、さまざまなユーザーロールを作成する方法を説明します。
