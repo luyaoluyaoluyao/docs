@@ -31,13 +31,13 @@ enumeration は、enumeration 型の属性をドメインモデルに追加す�
 
 1. [ドメイン モデル](domain-models) を開きます。
 
-2. 属性を作成するエンティティを選択します。 For more information on how to create the entity, see section [3 Adding New Entities](domain-models#adding-new-entities) in *Domain Models Overview*.
+2. 属性を作成するエンティティを選択します。 エンティティの作成方法については、 [ドメインモデルの概要](domain-models#adding-new-entities) の *新規エンティティの追加* セクションを参照してください。
 
-3.  列挙型の新しい属性を作成するには、 **新しい属性** をクリックし、次の操作を行います:<br /> a. 属性 **名前** を設定します。 この例では、属性の名前は *Grade*です。<br /> b. [Type](domain-models-attributes)に**列挙値**を設定します。<br /> c. **Select enumeration**をクリックして新しい列挙を作成します。<br />d. **列挙の選択** ダイアログボックスで、 **新規**をクリックします。<br/> e. In the **Create new enumeration** dialog box, click **Add Item** to add possible options of the enumeration (**Name** is filled out automatically and is the same as the attribute name).<br />
+3.  列挙型の新しい属性を作成するには、 **新しい属性** をクリックし、次の操作を行います:<br /> a. 属性 **名前** を設定します。 この例では、属性の名前は *Grade*です。<br /> b. [Type](domain-models-attributes)に**列挙値**を設定します。<br /> c. **Select enumeration**.<br />d. **列挙の選択** ダイアログボックスで、右上隅のプラスアイコンをクリックします。<br/> e. In the **Create new enumeration** dialog box, click **Add Item** to add possible options of the enumeration (**Name** is filled out automatically and is the same as the attribute name).<br />
 
     ![](attachments/domain-models-enumeration/new-enumeration-add-item.png)<br />
 
-    F **図表番号** の名前を入力します(**名前** が自動的に入力されます)。 この例では、最初に  *Bronze*に記入し、列挙の3つの可能な項目の1つとして: Bronze, Silver, Gold. <br />
+    F **図表番号** の名前を入力します(**名前** が自動的に入力されます)。 以下の例では、  *ブロンズ*に記入する必要があります。 ブロンズ、シルバー、ゴールドの3つの可能性のある項目の1つとして挙げられます。 <br />
 
     ![](attachments/domain-models-enumeration/new-enumeration-add-item-bronze.png)<br />
 
@@ -57,7 +57,7 @@ enumeration は、enumeration 型の属性をドメインモデルに追加す�
 
 3.  列挙型の新しい属性を作成するには、 **新規属性** をクリックして、次の操作を行います:<br />
 
-    a 属性 **名前** を設定します。 この例では、属性の名前は *Grade*です。<br /> b. [Type](domain-models-attributes)に**列挙値**を設定します。<br /> c. **Select enumeration**をクリックして新しい列挙を作成します。<br />
+    a 属性 **名前** を設定します。 この例では、属性の名前は *Grade*です。<br /> b. [Type](domain-models-attributes)に**列挙値**を設定します。<br /> c. **Select enumeration** をクリックします。<br />
 
     ![](attachments/domain-models-enumeration/new-attribute-select-enumeration.png) <br/>
 
@@ -97,7 +97,27 @@ enumeration は、enumeration 型の属性をドメインモデルに追加す�
 
     ![列挙型の重複](attachments/domain-models-enumeration/duplicate.png)
 
+5. ダイアログボックスを閉じます。
+
 列挙は重複しています。
+
+#### 3.5 列挙の削除
+
+列挙を削除するには、以下の手順に従ってください:
+
+1. [ドメイン モデル](domain-models) を開きます。
+
+2. 列挙型の属性を選択し、そのプロパティの **列挙値** をクリックします。
+
+3. **列挙の選択** ダイアログボックスで、削除する列挙を選択し、省略記号アイコンをクリックします。
+
+4. ドロップダウンメニューから **削除** オプションを選択します。
+
+    ![列挙を削除](attachments/domain-models-enumeration/delete-enumeration.png)
+
+5. 選択を確認し、ダイアログボックスを閉じます。
+
+列挙が削除されました。
 
 ## 4 続きを読む
 
