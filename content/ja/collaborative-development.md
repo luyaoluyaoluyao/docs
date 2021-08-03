@@ -1,52 +1,69 @@
 ---
 title: "共同開発"
 category: "バージョン管理"
-description: "Mendix Studio Pro と Mendix Studio の共同開発のプロセスについて説明します。"
+description: "Mendix Desktop ModelerとMendix Web Modelerとの共同開発のプロセスを説明します"
 tags:
-  - "studio pro"
-  - "スタジオ"
+  - "デスクトップモデラー"
   - "共同開発は"
   - "同期"
+aliases:
+  - /howto/web-modeler/syncing-webmodeler-desktop.html
+  - /refguide7/desktop-webmodeler.html
+  - /refguide7/sync-webmodeler-desktopmodeler.html
+  - /web-modeler/general-sync-webmodeler-desktopmodeler-wm.html
 ---
 
 ## 1つの紹介
 
-コラボレーション開発とは、複数のチームがアプリに取り組んでいるときに、アプリモデルの変更を共有するプロセスです。 共同開発により、チームメンバーはMendix Studio ProとMendix Studioの1つのアプリで協力することができます。 [バージョンコントロール](version-control) を使用して簡単に変更を同期します。 Studio Pro を使用すると、アプリのさまざまなブランチで作業できます。一方、Studio はこれらのブランチの 1 つで有効にできます。
+{{% alert type="warning" %}}
 
-{{% alert type="info" %}}
-Studio でアプリを開くときに **Mendix Studio がこのアプリで有効になっていない場合、** メッセージが表示されます。 開発ラインを有効にしてください 詳細については、 [開発ライン用の Studio の有効化](#active-branch) を参照してください。
+共同開発は、Mendix バージョン 7.23.3 以降のプロジェクトの場合にのみ利用できます。 Mendix バージョン 7.23.2 以下のプロジェクトでは、Web Modelerとの同期はできません。
+
+Webモデラーでプロジェクトを開くことができます(Webモデラーは自動的に7の最新バージョンにアップグレードします)。 3)  ただし、Web Modelerからの変更を同期するには、Mendix Desktop Modelerバージョン7.23.3以上を使用する必要があります。
+
 {{% /alert %}}
+
+コラボレーション開発とは、複数のチームがアプリに取り組んでいるときに、アプリモデルの変更を共有するプロセスです。 共同開発により、チームメンバーはデスクトップモデラーとWebモデラーの1つのプロジェクトで協力し、 [バージョンコントロール](version-control)を使用して変更を簡単に同期することができます。 Desktop Modelerは、アプリの異なるブランチで動作するために使用できます。 一方、Webモデラーはこれらのブランチのいずれかで有効にできます。
+
+Mendix Web Modelerを使用したことがない場合は、最初に開発ラインに対して有効にする必要があることに注意してください。 開発ラインの管理に関する詳細は、Desktop Modelerの [](#managing-branches) セクションのformat@@2開発ラインの管理を参照してください。
 
 ## 2 共同開発の概要
 
-Studio Pro のユーザーは、 [バージョンコントロール](version-control) を介して **コミット** と **アップデート** 操作を介してお互いにコラボレーションすることができます。
+デスクトップ モデラーのユーザーは、 [コミット](version-control) と **アップデート** 操作を介して **バージョンコントロール** を介してお互いに協力することができます。
 
-Studio Pro と Studio の共同開発プロセスは、以下の手順で構成されています。
+Desktop ModelerとWeb Modelerとの共同開発プロセスは、以下の手順で構成されています。
 
-1. Studio で行った変更はすべて、自動的に Studio 作業コピーに保存されます。 複数のユーザーが同時にアプリケーションを表示できます: あるユーザーが編集でき、他のユーザーが読み取り専用モードになっています。
-2.  Studio Proユーザーがアプリを開くと、この開発ラインでStudioが有効になっている場合に通知されます。
+1. Web Modelerで行われたすべての変更は、自動的に Web Modelerの作業コピーに保存されます。 複数のユーザが同時にWebモデラーでプロジェクトを表示できます: あるユーザがプロジェクトを編集でき、他のユーザが読み取り専用モードになります。
+
+2.  Desktop Modelerユーザーがプロジェクトを開くと、この開発ラインでWebモデラーが有効になっている場合に通知されます。
 
     ![共同開発が有効な通知](attachments/collaborative-development/collaborative-development-enabled-notification.png)
 
-3. Studio Pro は、Studio Pro ユーザーが動作するローカル作業コピーを作成します。
-4. Team Serverから変更を取得するには、 **Update** をクリックする必要があります。 When the Studio Pro user clicks **Update**, the latest changes from *Studio* are committed automatically to the Team Server before Studio Pro receives the update from it. 最新の *Studio* の変更を含むチームサーバーの最新版は、Studio Pro のローカル作業コピーにマージされます。
-5.  Studio Pro のユーザーは、アプリ上で動作し、ユーザーがいくつかの機能を終了すると(例えば、 バグを修正するか、新しい機能を作成します)、 **コミット** をクリックします。 ユーザはコミットメッセージを入力して確認します。 これは、アップデート中と同じプロセスをトリガーします（ステップ4で説明） そして、Studio Pro の作業コピーが、Team Server の最新のリビジョンとともに更新されます。<br/>
+3. Desktop Modelerは、Desktop Modelerユーザーが動作するローカル作業コピーを作成します。 Team Serverから変更を取得するには、 **Update** をクリックする必要があります(最新のリビジョンは、Team Serverから取得されます。 には、他のDesktop ModelerユーザからのコミットおよびWebモデラーからの最新の変更を含みます。
+
+4. Desktop Modelerユーザーが **Update**をクリックした後。 Web Modelerからの最新の変更は、Desktop Modelerがそこから更新を受け取る前に、Team Serverに自動的に反映されます。 Team Serverからの最新のリビジョンは、Desktop Modelerのローカル作業コピーにマージされます。
+
+5.  Desktop Modelerユーザーはプロジェクトで動作し、ユーザーがいくつかの機能を終了すると(例: バグを修正するか、新しい機能を作成します)、 **コミット** をクリックします。 ユーザはコミットメッセージを入力して確認します。 これは、アップデート中と同じプロセスをトリガーします（ステップ4で説明） そして、Desktop Modelerの作業コピーがチームサーバーからの最新のリビジョンで更新されます。
 
     このマージには2つの可能性のある結果があります:<br/>
 
-    a   競合はありません。Studio Pro のユーザー変更は Team Server に反映されます。 その後、Studio は Team Server から最新のリビジョンを取得し、ロック解除されます。Studio Pro ユーザーの変更は、Studio ユーザーに表示されます。 他のStudio Proユーザーは、アップデートを行うと変更を受け取ります。 <br/> b. 競合があり、Studio Pro のコミットプロセスが停止されます。 Studio は、Studio Pro ユーザーから変更を受けることなくロック解除されます。 Studio Pro のユーザーは、コミットを再実行する前に、最初にマージの競合を解決する必要があります。<br/>
+    a   競合はありません。Desktop Modelerユーザーの変更はチームサーバーに反映されます。 その後、Webモデラーはチームサーバーから最新のリビジョンを取得し、ロック解除されます。 Desktop Modelerユーザーの変更は、WebModelerユーザーに表示されます。 他のDesktop Modelerユーザーは、アップデートを行うと変更を受け取ります。 <br/>
+
+    B 競合があり、Desktop Modelerコミットプロセスが停止されます。 Web Modelerは、Desktop Modelerユーザーから変更を受けることなくアンロックされます。 Desktop Modelerユーザーは、コミットを再実行する前に、最初にマージの競合を解決する必要があります。
 
 {{% alert type="info" %}}
-Studio Proユーザーがクラウドにアプリをデプロイしたい場合は、 **Publish** ボタンをクリックします。 コミットはこのプロセス中に自動的に行われ、ステップ5が実行されます。
+
+Desktop Modelerユーザーがアプリケーションをクラウドにデプロイしたい場合は、 **Run** ボタンをクリックします。 コミットはこのプロセス中に自動的に行われ、ステップ5が実行されます。
+
 {{% /alert %}}
 
-## 3 Studio Perspective
+## 3 ウェブモデラーの展望
 
-Studio の観点からの共同開発については、 [Studio での共同開発](/studio/collaborative-development) を参照してください。
+Web Modelerの観点からの共同開発に関する情報 [Web Modelerガイド](/studio7/general-collaborative-development) の *Web Modelerガイド* を参照してください。
 
-## 4 Studio Pro Perspective
+## 4 デスクトップモデラーの展望
 
-共同開発が有効になっているアプリに接続すると、 Studio が有効になっている開発ライン (メインラインまたはブランチライン) が表示されます。
+共同開発が有効になっているプロジェクトに接続すると、 Web Modelerが有効になっている開発ライン (メインラインまたはブランチライン) が表示されます。
 
 ドロップダウンをクリックして別の行を選択するか、 **OK** をクリックして現在選択されている行を開きます。
 
@@ -54,122 +71,109 @@ Studio の観点からの共同開発については、 [Studio での共同開�
 
 ### 4.1 最新の変更をマージする
 
-チーム サーバーに保存されている最新の変更をマージするには (Studio ユーザーと他の Studio Pro ユーザーの両方から) **Changes** を開き、 **Update** をクリックします。
+チームサーバーに保存されている最新の変更をマージするには (Web Modelerユーザーと他のデスクトップモデラーユーザーの両方から) **Changes** を開き、 **Update** をクリックします。
 
 ![オプションを更新](attachments/collaborative-development/update-button.png)
 
-### 4.2 最新の変更をコミットする
+### 4.2 最新の変更をマージ
 
-最新のアプリの変更をコミットし、他のユーザーが利用できるようにするには、 **変更** を開き、 **コミット** をクリックします。 アプリをデプロイするプロセス( **公開** ボタンをクリックすると)もコミットをトリガーします。
+最新のプロジェクトの変更をコミットし、他のユーザーが利用できるようにするには、 **Changes** を開き、 **Commit** をクリックします。 アプリケーションをデプロイするプロセス( **Run** ボタンをクリックすると)もコミットがトリガーされます。
 
 {{% alert type="info" %}}
-アプリの複数の競合を避けるために、頻繁にアプリを更新し変更をコミットすることをお勧めします。
+
+プロジェクト内の複数の競合を回避するために、プロジェクトを更新したり変更をコミットすることをお勧めします。
+
 {{% /alert %}}
 
-アプリが競合している場合、Studio は変更を受け取ることなくロック解除されます。 Studio Pro で競合を解決する必要がありますが、マージを完了して再度コミットすることができます。
+プロジェクトが競合している場合、Webモデラーは変更を受け取ることなくロック解除されます。 最初に Desktop Modelerで競合を解決し、マージを完了して再度コミットする必要があります。
 
-競合がない場合、変更は Studio に自動的に送信されます。 Studio での共同開発プロセスの詳細については、 [Studio での共同開発](/studio/collaborative-development) を参照してください。
+競合がない場合、変更は自動的にWebモデラーに送信されます。 Web Modelerの共同開発プロセスの詳細については、 [Web Modelerガイド](/studio7/general-collaborative-development) の *Web Modelerガイド* を参照してください。
 
 ### 4.3 コミット履歴の表示
 
-**バージョンコントロール** > **履歴** を使用して、現在の開発ラインに反映されているすべての変更を確認できます。
+**プロジェクト** > **More Versioning** > **履歴**
 
-![履歴ダイアログ ボックス](attachments/history-dialog/history-dialog.png)
+![履歴ダイアログ ボックス](attachments/collaborative-development/history.png)
 
-## 5 開発ラインでのスタジオ管理 {#managing-studio}
 
-Studio Pro では、開発ライン (メインラインまたはブランチライン) の Studio を有効または無効にできます。 共同開発を行う場合は、開発ラインの 1 つで Studio を有効にする必要があります (Team Server アプリのみで利用できます)。
 
-### 5.1 開発ラインで Studio を有効にする {#active-branch}
+## 5 Desktop Modelerで開発ラインを管理する {#managing-branches}
 
-Studio と Studio Pro 間でモデルの変更を共有するには、1 つの開発ラインで Studio を有効にする必要があります。
+Desktop Modelerでは、開発ライン(メインラインまたはブランチライン)に対してWebモデラーを有効にできます。 ブランチ行の作成と削除もできます。
 
-Studio がデフォルトで開発ラインで有効になっているかどうかは、アプリによって異なります。
+共同開発のためには、開発ラインのいずれかで Web Modelerを有効にする必要があります。
 
-* 以下の場合、Studio はメインラインでデフォルトで有効になっています。
-    * 開発者ポータル経由で作成された新しいアプリ
-    * Studio が有効になっている既存のアプリの場合
-* 以下の場合、どの開発ラインでもStudioが有効になっていません。
-    * Studio Pro経由で作成された新しいアプリ
-    * Studio が有効になっていない既存のアプリの場合
+### 5.1 開発ラインの Web モデラーの有効化 {#active-branch-for-the-wm}
 
-Studio で開発ラインを有効にしたり、別の開発ラインに切り替えたりするには、次の手順を実行します。
+Web ModelerとDesktop Modelerの間でモデルの変更を共有するには、開発ラインのいずれかでWebモデラーを有効にする必要があります。
 
-1.  **Version Control** > **Manage Branch Lines** をクリックしてください。 **分岐ライン マネージャー** ダイアログボックスで。 Studio が有効になっている開発ラインには、最初の列に地球儀アイコンが表示されていることがわかります。
+Web Modelerがデフォルトで開発ラインで有効になっているかどうかは、プロジェクトによって異なります。
 
-    ![ブランチラインマネージャーのグローブアイコン](attachments/collaborative-development/globe-icon.png)
+* 次の場合、Webモデラーはメインラインでデフォルトで有効になっています。
+  * 開発者ポータル経由で作成された新規プロジェクトの場合
+  * Web Modelerが有効になっている既存のプロジェクトの場合
+* 以下の場合、Web Modelerは開発ラインで有効になっていません。
+  * Desktop Modeler経由で作成された新しいプロジェクトの場合
+  * Web Modelerが有効になっていない既存のプロジェクトの場合
 
-2.  Studio を有効にする行を選択し、 **Enable for Studio** をクリックします。
+開発ラインでWebモデラーを有効にするか、別の開発ラインに切り替えるには、次の手順を行います。
+
+1.  Click **Project** > **More Versioning** > **Manage Branch Lines**. **分岐ライン マネージャー** ダイアログウィンドウで。 Web Modelerが有効になっている(もしあれば)開発ラインには、最初の列に地球儀アイコンが表示されていることがわかります。<br/>
+
+    ![ブランチラインマネージャーのグローブアイコン](attachments/collaborative-development/globe-icon.png)<br/>
+
+2.  Web Modelerを有効にする行を選択し、 **Enable for the Web Modeler** をクリックします。 <br/>
 
     ![ブランチラインマネージャー - 別のブランチを有効にする](attachments/collaborative-development/enable-another-branch.png)
 
-Studio の開発ラインが選択されました。
+Web Modelerの開発ラインが選択されました。
 
-Studio を別の開発ラインに切り替えると、このプロセスの間、Studio はしばらくロックされます。 Studio Pro ユーザーが Studio の行を変更しているポップアップダイアログがユーザーに表示されます。 Studio からのすべての変更は、現在の開発ラインに反映され、その後にのみ行が変更されます。
+Web Modelerを別の開発ラインに切り替えると、Web Modelerはこのプロセス中に数分間ロックされます。 Desktop ModelerユーザーがWebモデラーの行を変更していることを示すポップアップダイアログがユーザに表示されます。 Web Modelerからのすべての変更は、現在の開発ラインにコミットされ、その後のみ行が変更されます。
 
-### 5.2 開発ラインのスタジオを無効にする
-
-Studio が開発ラインで有効になっている場合、無効にできます。
-
-{{% alert type="info" %}}
-開発ラインでStudioを無効にすると、それが有効になり、他の開発ラインでは有効になりません。 共同開発は利用できなくなります。
-{{% /alert %}}
-
-Studio を無効にするには、次の手順を実行します。
-
-1. Studio で有効になっているブランチを選択します。
-2.  Mendix Studioの **無効化** ボタンをクリックします。
-
-    ![Mendix Studioで無効化](attachments/collaborative-development/disable-for-studio.png)
-
-スタジオはアプリで無効になっています。
-
-## 6 開発ラインの管理 {#managing-branches}
-
-ブランチ行を作成および削除できます。
-
-### 6.1 新しい支線の作成
+### 5.2 新しい支線の作成
 
 新しい分岐線を作成するには、次の操作を行います:
 
-1. **Version Control** > **Manage Branch Lines** をクリックしてください。
-2.  **分岐ライン マネージャー** ダイアログボックスに、既存の開発ラインのリストが表示されます。 **New** をクリックして分岐線を作成します。 <br/>
+1. Click **Project** > **More Versioning** > **Manage Branch Lines**.
+
+2.  **分岐ライン マネージャー** ダイアログウィンドウに、既存の開発ラインのリストが表示されます。 **New** をクリックして分岐線を作成します。 <br/>
 
     ![新しいブランチの作成](attachments/collaborative-development/creating-new-branch.png)<br/>
 
-3.  **ブランチラインの作成** ダイアログボックスで、以下を設定します: <br/>
+3.  **分岐線の作成** ダイアログウィンドウで、以下を設定します: <br/>
 
-    a メインライン、ブランチライン、タグ付けされたバージョンなど、新しいラインを作成する行は何ですか。 これらの概念の詳細については、 [バージョン管理](version-control#concepts) の *コンセプト*セクションを参照してください。 <br/> b. 必要に応じて **Revision**を選択します。 <br/> c. 新しい行の名前を入力します。<br/>
+    a メインライン、ブランチライン、タグ付けされたバージョンなど、新しいラインを作成する行は何ですか。 これらの概念の詳細については、 [バージョンコントロール](version-control#concepts) のセクション *2 コンセプト* を参照してください。 <br/>
 
-    *  これはSVN用のダイアログボックスです:
+    B 必要に応じてリビジョンを選択します。 <br/>
 
-        ![SVN ブランチラインの作成](attachments/collaborative-development/create-branch-dialog.png)
+    C 新しい行の名前を入力します。
 
-    *  これは [Git](create-branch-line-git-dialog) のダイアログボックスです。
+4.  すべての設定を設定したら、 **OK をクリックします。**
 
-        ![Git Branch Line ダイアログの作成](attachments/collaborative-development/create-git-branch-dialog.png)
-
-4.  すべての設定が完了したら、 **OK** をクリックします。
+    ![分岐線の作成](attachments/collaborative-development/create-branch-dialog.png)
 
 新しいブランチラインを作成しました。
 
-### 6.2 支線の削除
+### 5.3 支線の削除
 
 分岐線を削除するには、次の操作を行います。
 
-1. **Version Control** > **Manage Branch Lines** をクリックしてください。
-2.  **Branch Line Manager** ダイアログボックスで、削除したいブランチを選択し、 **Delete** をクリックして削除を確定します。
+1. Click **Project** > **More Versioning** > **Manage Branch Lines**.
+
+2.  **Branch Line Manager** ダイアログウィンドウで、削除したいブランチを選択し、 **Delete** をクリックして削除を確定します。
 
     ![ブランチを削除中](attachments/collaborative-development/deleting-branch.png)
 
 ブランチを削除しました。
 
 {{% alert type="info" %}}
-Studio が有効になっているブランチは削除できません。 このブランチを削除する必要がある場合は、Studio で別の行を有効にし、そのブランチのみを削除します。
+
+Web Modelerが有効になっているブランチは削除できません。 このブランチを削除する必要がある場合は、別の行の Web モデラーを有効にしてからのみ、ブランチを削除します。
+
 {{% /alert %}}
 
-## 7 続きを読む
+## 6もっと読む
 
 * [バージョン管理](version-control)
 * [共同開発のトラブルシューティング](collaborative-development-troubleshooting)
-* [Studio での共同開発](/studio/collaborative-development)
+* [Webモデラーにおける共同開発](/studio7/general-collaborative-development)
