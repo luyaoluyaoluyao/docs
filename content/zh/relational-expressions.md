@@ -1,284 +1,284 @@
 ---
-title: "Relational Expressions"
-parent: "expressions"
+title: "关联表达式"
+parent: "表达式"
 menu_order: 30
-description: "Describes relational expressions in Mendix."
+description: "在Mendix中描述关联表达式。"
 tags:
   - "studio pro"
-  - "relational expression"
-  - "expressions"
+  - "关系表达式"
+  - "表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Relational expressions allow users to compare values and to make changes and perform actions based upon that information. The return type of such expressions is always Boolean.
+关联表达式允许用户比较值并根据该信息进行更改和操作。 这种表达式的返回类型总是布尔值。
 
-## 2 Less Than ( < )
+## 少于2( <)
 
-This expression determines whether the first value is less than the second value.
+此表达式决定第一个值是否小于第二个值。
 
-### 2.1 Input Parameters
+### 2.1 输入参数
 
-Possible values are described in the table below:
+可能的数值见下表：
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 值   | 类型            |
+| --- | ------------- |
+| 两个值 | 字符串           |
+| 两个值 | 数字(整数/中, 十进制) |
+| 两个值 | 日期和时间         |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+两个数值应属于同一类别（例如，如果一个是数字，另一个则是数字）。
+{{% /报警 %}}
 
-### 2.2 Output
+### 2.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 值            | 类型      |
+| ------------ | ------- |
+| `是真` 或 `错误`。 | Boolean |
 
-### 2.3 Example
+### 2.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 4<3
 ```
 
-the output is:
+输出为：
 
 ```java
-False
+错误
 ```
-## 3 Greater Than ( > )
+## 大于 3 ( >)
 
-This expression determines whether the first value is greater than the second value.
+此表达式决定第一个值是否大于第二个值。
 
-### 3.2 Input Parameters
+### 3.2 输入参数
 
-Possible values are described in the table below:
+可能的数值见下表：
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 值   | 类型            |
+| --- | ------------- |
+| 两个值 | 字符串           |
+| 两个值 | 数字(整数/中, 十进制) |
+| 两个值 | 日期和时间         |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+两个数值应属于同一类别（例如，如果一个是数字，另一个则是数字）。
+{{% /报警 %}}
 
-### 3.3 Output
+### 3.3 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 值            | 类型      |
+| ------------ | ------- |
+| `是真` 或 `错误`。 | Boolean |
 
-### 3.4 Example
+### 3.4 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 4>3
 ```
 
-the output is:
+输出为：
 
 ```java
-True
+真的
 ```
-## 4 Less Than or Equal To ( <= )
+## 更少或等于( <= )
 
-This expression determines whether the first value is less than or equal to the second value.
+此表达式决定第一个值是否小于或等于第二个值。
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-Possible values are described in the table below:
+可能的数值见下表：
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 值   | 类型            |
+| --- | ------------- |
+| 两个值 | 字符串           |
+| 两个值 | 数字(整数/中, 十进制) |
+| 两个值 | 日期和时间         |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+两个数值应属于同一类别（例如，如果一个是数字，另一个则是数字）。
+{{% /报警 %}}
 
-### 4.2 Output
+### 4.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 值            | 类型      |
+| ------------ | ------- |
+| `是真` 或 `错误`。 | Boolean |
 
-### 4.3 Examples
+### 4.3 实例
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     6<=3
     ```
 
-    the output is:
+    输出为：
 
     ```java
-    False
+    错误
     ```
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     3<=3
     ```
 
-    the output is:
+    输出为：
 
     ```java
-    True
+    真的
     ```
 
-## 5 Greater Than or Equal To ( >= )
+## 大于或等于 ( >= )
 
-Determines whether the first value is greater than or equal to the second.
+确定第一个值是否大于或等于第二个。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-Possible values are described in the table below:
+可能的数值见下表：
 
-| Value      | Type                            |
-| ---------- | ------------------------------- |
-| Two values | String                          |
-| Two values | Numeric (Integer/Long, Decimal) |
-| Two values | Date and time                   |
+| 值   | 类型            |
+| --- | ------------- |
+| 两个值 | 字符串           |
+| 两个值 | 数字(整数/中, 十进制) |
+| 两个值 | 日期和时间         |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+两个数值应属于同一类别（例如，如果一个是数字，另一个则是数字）。
+{{% /报警 %}}
 
-### 5.2 Output
+### 5.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 值            | 类型      |
+| ------------ | ------- |
+| `是真` 或 `错误`。 | Boolean |
 
-### 5.3 Example
+### 5.3 实例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 4>=3
 ```
 
-the output is:
+输出为：
 
 ```java
-True
+真的
 ```
 
-## 6 Is Equal To ( = )
+## 6 等于( = )
 
-This expression determines whether the two values are equal.
+这个表达式决定这两个值是否相同。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-Possible values are described in the table below:
+可能的数值见下表：
 
-| Value      | Type                                                             |
-| ---------- | ---------------------------------------------------------------- |
-| Two values | String                                                           |
-| Two values | Numeric (Integer/Long, Decimal)                                  |
-| Two values | Date and time                                                    |
-| Two values | Domain entity; equality is checked based on the ID of the object |
+| 值   | 类型               |
+| --- | ---------------- |
+| 两个值 | 字符串              |
+| 两个值 | 数字(整数/中, 十进制)    |
+| 两个值 | 日期和时间            |
+| 两个值 | 域实体；均等性是基于对象的 ID |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+两个数值应属于同一类别（例如，如果一个是数字，另一个则是数字）。
+{{% /报警 %}}
 
-### 6.2 Output
+### 6.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 值            | 类型      |
+| ------------ | ------- |
+| `是真` 或 `错误`。 | Boolean |
 
-### 6.3 Examples
+### 6.3 实例
 
-The examples below illustrate which value the expression returns:
+下面的例子说明表达式返回的价值：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     "mystring" = "myotherstring"
     ```
 
-    the output is:
+    输出为：
 
     ```java
-    False
+    错误
     ```
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     dateTime(2007) = dateTime(2007)
     ```
 
-    the output is:
+    输出为：
 
     ```java
-    True
+    真的
     ```
 
-## 7 Is Not Equal To ( != )
+## 7 不等于 ( != )
 
-Determines whether the two values are not equal.
+确定两个值是否不等值。
 
-### 7.1 Input Parameters
+### 7.1 输入参数
 
-The values be any of the following types, but the two values should be in the same category (for example, both numbers):
+这些值是以下类型中的任何一种，但是这两个值应该是同一类别中的一种(例如两个数值)：
 
-Possible values are described in the table below:
+可能的数值见下表：
 
-| Value      | Type                                                      |
-| ---------- | --------------------------------------------------------- |
-| Two values | String                                                    |
-| Two values | Numeric (Integer/Long, Decimal)                           |
-| Two values | Date and time                                             |
-| Two values | Object; equality is checked based on the ID of the object |
+| 值   | 类型               |
+| --- | ---------------- |
+| 两个值 | 字符串              |
+| 两个值 | 数字(整数/中, 十进制)    |
+| 两个值 | 日期和时间            |
+| 两个值 | 对象; 均等性是基于对象的 ID |
 
 {{% alert type="info" %}}
-The two values should be in the same category (for example, if one is numeric, the other should be numeric too).
-{{% /alert %}}
+两个数值应属于同一类别（例如，如果一个是数字，另一个则是数字）。
+{{% /报警 %}}
 
-### 7.2 Output
+### 7.2 产出
 
-The output is described in the table below:
+产出情况见下表：
 
-| Value              | Type    |
-| ------------------ | ------- |
-| `True` or `False`. | Boolean |
+| 值            | 类型      |
+| ------------ | ------- |
+| `是真` 或 `错误`。 | Boolean |
 
-### 7.3 Example
+### 7.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 "mystring" != "mystring"
 ```
 
-the output is:
+输出为：
 
 ```java
-False
+错误
 ```
