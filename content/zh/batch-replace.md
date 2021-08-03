@@ -1,101 +1,101 @@
 ---
-title: "Batch Replace"
-parent: "translatable-texts"
+title: "批量替换"
+parent: "可翻译文本"
 menu_order: 20
 tags:
   - "studio pro"
-  - "translation"
-  - "languages"
-  - "translatable text"
+  - "翻译"
+  - "语言"
+  - "可翻译文本"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**Batch replace** works on the currently selected language and allows you to replace any existing texts with a new one.
+**批量替换** 适用于当前选中的语言，允许您用新语言替换任何现有文本。
 
-There are a number of reasons that you may wish to do this:
+您可能希望这样做有若干原因：
 
-* The same text should appear in different places in the app, however, it has been entered inconsistently, for example sometimes with capital letters and sometimes not — if you reuse existing text across your app, this will improve the user experience
-* If all occurrences of a piece of text are identical, you only need to enter the translation once — this saves time and improves consistency
-* If you find better wording for a common label or text, you can change them all at once with a single command
+* 同一文本应该出现在应用的不同地方，但是输入不一致。 例如, 有时使用大写字母, 有时不使用 — 如果你在应用程序中重新使用现有文本, 这将提高用户体验
+* 如果文本的所有出现都是相同的，你只需要输入一次翻译——这将节省时间并提高一致性。
+* 如果您找到了一个共同标签或文本的更好的措辞，您可以用单个命令一次性更改所有的措辞。
 
 ![](attachments/language/batch-replace.png)
 
-## 2 Using Batch Replace
+## 2 使用批量替换
 
-Batch replace works on the currently selected language, so first you should select the language you want to work on. For more information, see the [Working in the Currently Selected Language](translatable-texts#selected-language) section in *Language Menu*.
+批量替换当前选中语言的工作，因此您应该首先选择您想要使用的语言。 欲了解更多信息，请查看 [在目前选定的语言](translatable-texts#selected-language) 部分中的 *语言菜单* 中。
 
-### 2.1 Documents/modules
+### 2.1 文件/模块
 
-You can select one or more modules you want to use for batch translate. For example, you may want to ignore texts from imported and system modules in the default language, or concentrate on translating just the system messages into your chosen language.
+您可以选择一个或多个您想要用于批量翻译的模块。 例如，您可能想要忽略从默认语言导入的文本和系统模块。 或集中于将系统消息翻译成您选定的语言。
 
-Click **Select…** and check the modules you want to work on.
+点击 **选择…** 并检查您想要运行的模块。
 
-![Module selection screen](attachments/language/batch-replace-modules.png)
+![模块选择屏幕](attachments/language/batch-replace-modules.png)
 
-The default is to work on all modules in the app.
+默认情况下将在应用程序中的所有模块上工作。
 
-### 2.2 Source Text Contains
+### 2.2 源文本包含
 
-To search for phrases that are similar, type what you want to search for.
+要搜索类似的短语，请输入您想要搜索的内容。
 
-![Batch translate search](attachments/language/batch-replace-search.png)
+![批量翻译搜索](attachments/language/batch-replace-search.png)
 
-By default, all the translatable text from the selected module(s) will be shown.
+默认情况下，将显示所选模块的所有可翻译文本。
 
-Each found text will be displayed in the **Text** column. The **#** column shows the number of times it occurs in the selected module(s).
+每个找到的文本都会显示在 **文本** 列中。 **#** 列显示它在选定的模块中发生的次数。
 
-If you select a line, you can look in the **Show occurrence** section to see the **Object** containing the text and the **Document** it appears in. Double-clicking or clicking **Show occurrence** will open the document and select the object so you can easily see the context.
+如果您选择了一行， 您可以在 **显示情况** 部分查看 **对象** 中包含文本和 **文档** 的内容。 双击或点击 **显示事件** 会打开文档并选择对象，这样您就可以轻松看到上下文了。
 
 {{% alert type="success" %}}
-Tip: move the dialog box to one side to get a better look at the document.
-{{% /alert %}}
+提示：将对话框移动到一边以更好地查看文档。
+{{% /报警 %}}
 
-### 2.3 Replace With
+### 2.3 替换为
 
-In **Replace with**, type new text that you want to use instead of the existing text. Click **Replace** to confirm the replacement.
+在 **替换为**，请输入您想要使用的新文本代替现有文本。 点击 **替换** 以确认替换。
 
 ![](attachments/language/batch-replace-replace.png)
 
-Identical replacement and original texts will be combined into a single entry.
+替代案文和原文将合并为一个条目。
 
-![Show combined entries](attachments/language/batch-replace-replaced.png)
+![显示合并条目](attachments/language/batch-replace-replaced.png)
 
-## 3 Exporting & Importing Text
+## 3 正在导出 & 导入文本
 
-If you want to translate a language outside Studio Pro, you can export the translatable texts to the Microsoft Excel (*.xlsx*) format, make changes, and then import the changes from the updated Excel file.
+如果您想要翻译Studio Pro以外的语言，您可以导出可翻译文本到 Microsoft Excel (*)。 lsx*) 格式，进行更改，然后从更新的 Excel 文件中导入更改。
 
-This is particularly useful if you are working on multiple apps and have already got text for, say, the system modules which you want to reuse.
+如果您正在多个应用上工作并且已经获得了文本，这将特别有用。 例如，您想要重新使用的系统模块。
 
-### 3.1 Export to Excel
+### 3.1 出口到Excel
 
-Click **Export to Excel…** to export the currently displayed text items to a Microsoft Excel (*.xlsx*) format file.
+点击 **导出到 Excel…** 将当前显示的文本项导出到Microsoft Excel (*.xlsx*) 格式文件。
 
-The file will be in the format shown below:
+文件的格式如下所示：
 
-![Sample Excel file](attachments/language/batch-replace-excel.png)
+![Excel文件示例](attachments/language/batch-replace-excel.png)
 
-**Row 1** – *Filter:* indicates the modules which are included in the exported file.
+**第1行** - *过滤：* 表示已导出文件中包含的模块。
 
-**Row 2**  – indicates the language. The first column represents the current text, the second column the *replace with* text.
+**行 2**  — 表示语言。 第一列是当前文本，第二列是 *替换为* 文本。
 
-**Rows 3+**  – show the current texts
+**行 3+**  - 显示当前文本
 
-You can make changes in column B which will be processed if the file is imported.
+如果文件被导入，您可以对B列进行更改。
 
-### 3.2 Import from Excel
+### 3.2 从Excel 导入
 
-Click **Import from Excel…** to import a correctly-constructed Microsoft Excel (*.xlsx*) format file.
+点击 **从 Excel…** 导入正确构建的 Microsoft Excel (*.xlsx*) 格式文件。
 
-This does the following:
+这种做法如下：
 
-* The selected module(s) are set to the ones in the *Filter:* line of the file
-* Any texts which are empty in column B will be ignored
-* Any texts in column A which do not match translatable texts in the selected module(s) will be ignored
-* Any text in column B which is not ignored is entered into the **Replace with** column
+* 选定的模块在 *筛选器中设置为这些模块：* 行文件
+* B栏中空的文本将被忽略
+* A栏中与所选模块中可翻译文本不匹配的任何文本将被忽略
+* B列中没有被忽略的任何文本都输入 **替换为** 列
 
-Changes will only be made if you click **Replace**.
+只有点击 **替换** 才能进行更改。
 
 {{% alert type="warning" %}}
-The formats of the Excel files for batch replace and batch translate are similar. You will be warned if you try to import a batch translate file or a batch replace file with the wrong language but you can still import it if you ignore the warning.
-{{% /alert %}}
+批量替换和批量翻译的 Excel 文件格式相似。 如果您试图导入批量翻译文件或批量替换文件的语言错误，但如果您忽略警告，您仍然可以导入该文件。
+{{% /报警 %}}
