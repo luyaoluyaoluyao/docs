@@ -1,118 +1,119 @@
 ---
-title: "Tricky Custom Settings in Mendix Runtime"
-parent: "custom-settings"
-description: "Describes custom settings that are a little more difficult to configure than normal."
+title: "Mendix ランタイムでトリッキーなカスタム設定"
+parent: "カスタム設定"
+description: "通常よりも設定が少し難しいカスタム設定を説明します。"
 tags:
-  - "Support"
-  - "custom settings"
+  - "サポート"
+  - "カスタム設定"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-There are many custom settings in Mendix, most of which are described in [Runtime Customization](/refguide8/custom-settings).
+Mendixには多くのカスタム設定があり、そのほとんどは [Runtime Customization](/refguide/custom-settings) で説明されています。
 
-However, a few of the more commonly used custom settings can be misunderstood or have effects that one might not expect. That is why we would like to give these settings a bit of special attention and more thoroughly explain the consequences of changing them.
+しかし、より一般的に使用されるカスタム設定のいくつかは誤解されたり、予想外の効果を持つ可能性があります。 だからこそ、これらの設定に少し特別な注意を払って、それらを変更することの結果をより徹底的に説明したいと思います。
 
-## 2 Session Duration
+## 2セッション時間 {#session-duration}
 
-### 2.1 Web Client Settings
+### 2.1 ウェブクライアント設定
 
-The following settings influence the behavior of the Mendix web client:
+以下の設定はMendix Webクライアントの動作に影響します。
 
-| Name              | Description                                                                                                                                                                                                                                                                                                                                 | Default value |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `EnableKeepAlive` | Defines whether the web client sends a keep alive request every `SessionTimeout`/2 milliseconds in order to prevent a session timeout. Each click in the browser also acts as `KeepAlive`. Disabling this property will result in the user being logged out automatically after 10 minutes of inactivity, even if the browser remains open. | true          |
+| 名前                | 説明                                                                                                                                                                                                                                                                    | 既定値  |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| `EnableKeepAlive` | セッションのタイムアウトを防ぐために、 `SessionTimeout`/2ミリ秒ごとにウェブクライアントがキープアライブリクエストを送信するかどうかを定義します。 ブラウザー内の各クリックは `KeepAlive` としても機能します。 このプロパティを無効にすると、ユーザーは `SessionTimeout` ミリ秒間の非アクティブ時間（デフォルト 10 分）後に自動的にログアウトされます たとえブラウザが開いたままでもです 詳細については、次のセクションの `SessionTimeout` を参照してください。 | true |
 
-### 2.2 General Settings
+### 2.2 一般設定
 
-The following custom settings can be configured:
+以下のカスタム設定を構成できます。
 
-| Name                           | Description                                                                                                                                                                                                                                    | Default value |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `SessionTimeout`               | Defines after how much time the session becomes invalid (in milliseconds). After that timeout, a session becomes applicable for removal. The session won't be destroyed until the next time the cluster manager evaluates the active sessions. | 600000        |
-| `ClusterManagerActionInterval` | The interval (in milliseconds) used for performing all cluster manager actions. These actions include unblocking users and removing invalid sessions. If nothing is specified, the interval is half the `SessionTimeout`.                      | 300000        |
+| 名前                             | 説明                                                                                                                            | 既定値           |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `セッションタイムアウト`                  | セッションが無効になる時間(ミリ秒単位)の後に定義します。 そのタイムアウト後、セッションは削除対象となります。 次回クラスターマネージャがアクティブなセッションを評価するまで、セッションは破棄されません。                       | 600000 (10 分) |
+| `LongLivedSessionTimeout`      | この設定は `SessionTimeout`と同じですが、オフラインファーストのプログレッシブウェブアプリに固有です。                                                                   | 604800000（7日） |
+| `ClusterManagerActionInterval` | すべてのクラスターマネージャーアクションの実行に使用する間隔 (ミリ秒単位)。 これらのアクションには、ブロック解除ユーザーと無効なセッションの削除が含まれます。 何も指定されていない場合、間隔は `SessionTimeout` の半分になります。 | 300,000 (5分)  |
 
-Increasing the session timeout can improve the user experience, especially on mobile devices. It is important to keep in mind that entities used to present data to the user or entities that are created or retrieved when a user executes a microflow are tied to that user's session, and those entities can remain in memory for long periods of time. When a user signs out, these entities will be removed from memory, but if the user idles but does not sign out (for example, if they leave the browser tab open while executing other tasks or simply close the browser without signing out), the session timeout can act as a safeguard that prevents memory usage from being tied up by idle sessions. The first case can also be mitigated by setting the `EnableKeepAlive` custom setting to false. On most browsers, this setting will ensure that any idle browser tab will be affected by the session timeout as well.
+セッションタイムアウトを増やすと、特にモバイルデバイスでのユーザーエクスペリエンスが向上します。 ユーザーがマイクロフローを実行したときに作成または取得されたユーザーまたはエンティティにデータを表示するために使用されるエンティティは、そのユーザーのセッションに関連付けられていることに留意しておくことが重要です。 長期間記憶され続けることができます ユーザーがサインアウトすると、これらのエンティティはメモリから削除されますが、ユーザーはアイドル状態でもサインアウトしていない場合(例えば、 他のタスクを実行中にブラウザタブを開いたままにした場合、またはサインアウトせずにブラウザを閉じた場合) セッションのタイムアウトは、アイドルセッションによってメモリ使用量が縛られないように保護することができます。 最初のケースは、 `EnableKeepAlive` カスタム設定を false に設定することで軽減することもできます。 ほとんどのブラウザーでは、この設定はアイドル状態のブラウザータブも同様にセッションタイムアウトの影響を受けることを保証します。
 
-Since the frequency of the session timeout checks and other important events is tied to the `ClusterManagerActionInterval`, it makes sense to not use the default of half the session timeout when the value is increased by a lot (for example, 24 hours or more). It might make sense to put a maximum value on `ClusterManagerActionInterval`, regardless of how high the value of `SessionTimeout` is set. An approximate figure is 15 minutes, but ultimately this will depend on the functional requirements of the application.
+セッションタイムアウトチェックやその他の重要なイベントの頻度は `ClusterManagerActionInterval`に関連付けられているため、 値がたくさん増えた場合、セッションタイムアウトのデフォルト値の半分を使用しないことは理にかなっています(例えば、 24時間以上)。 It might make sense to put a maximum value on `ClusterManagerActionInterval`, regardless of how high the value of `SessionTimeout` is set. おおよその図は15分ですが、最終的にはアプリケーションの機能要件に依存します。
 
-With stateless runtime, the potential of memory usage leading to problems has been reduced for two reasons. The first reason is the ability to run in a horizontally scaled environment. Multiple runtimes will mean unintended memory usage is also divided over those runtimes, reducing the impact of any one idle user session. But the main (and second) reason is that most of the memory usage has been moved to the client. So instead of all entities in the memory ending up on the application node, a large share of them will end up in the browser of the client. This should significantly reduce the potential strain on the application node that can be caused by increasing the `SessionTimeout` default value to a much higher value.
+ステートレスランタイムでは、問題につながるメモリ使用量の可能性が2つの理由で低減されました。 最初の理由は、水平方向にスケールされた環境で実行できることです。 複数のランタイムは、意図しないメモリ使用量がランタイムに分割されることを意味し、1つのアイドルユーザーセッションの影響を軽減します。 しかし、主な(そして第二の)理由は、メモリ使用量の大部分がクライアントに移動されたことです。 したがって、メモリ内のすべてのエンティティがアプリケーションノードに終わるのではなく、 多くのシェアはクライアントのブラウザで終わるでしょう これは、 `SessionTimeout` のデフォルト値をはるかに高い値に増やすことによって引き起こされる可能性のあるアプリケーションノードの潜在的なひずみを大幅に減らす必要があります。
 
-Another important matter that can be affected by increasing the session timeout is the user restrictions imposed by your Mendix license. Longer sessions might mean more concurrent users at any given time. This is something to keep in mind when deciding on the specifics of the license you will need to run your application.
+セッションのタイムアウトを増やすことによって影響を受ける可能性があるもう一つの重要な問題は、Mendixライセンスによって課されるユーザー制限です。 より長いセッションでは、いつでもより多くの同時ユーザーを意味する可能性があります。 これは、アプリケーションを実行する必要があるライセンスの詳細を決定するときに留意する必要があります。
 
-Finally, there is a security consideration to be made. An idle session means that there is a potential for a session to be hijacked in case the user does not follow standard security procedures. If they leave their computer unlocked at any given time and do not remain present at the their computer afterwards, any person with physical access to that user’s computer could steal or use it and would be able to make use of the session for their own gain. With the default session timeout value this risk is reduced, as the window in which physical access is possible is much more limited (meaning, a session timeout of 24 hours is riskier than a session timeout of 10 minutes). How much of a concern this is will depend on the application’s core business goal and the type of people working with the app. For example, IT professionals should be more likely to follow standard security procedures than most other user groups.
+最後に、セキュリティへの配慮があります。 アイドルセッションとは、ユーザが標準的なセキュリティ手順に従わない場合にハイジャックされる可能性があることを意味します。 彼らは任意の時点で自分のコンピュータをロック解除したままにし、後で自分のコンピュータに存在しない場合。 そのユーザーのコンピューターに物理的なアクセス権を持つ人なら誰でも盗んだり使ったりすることができ、自分の利益のためにセッションを利用することができます。 デフォルトのセッションタイムアウト値では、物理的なアクセスが可能であるウィンドウがはるかに制限されているため、このリスクは低減されます(意味)。 24時間のセッションタイムアウトは、10分間のセッションタイムアウトよりも危険です。 これがどれくらいの懸念事項であるかは、アプリケーションの中核的なビジネス目標とアプリで働く人のタイプによって異なります。 たとえば、ITプロフェッショナルは、他のほとんどのユーザーグループよりも標準的なセキュリティ手順に従う可能性が高いはずです。
 
-So, make sure to keep in mind all of the above when changing these values. Also, make sure your decision to alter any of these values is made with the right considerations.
+したがって、これらの値を変更する際は、上記のすべてを覚えておいてください。 また、これらの値のいずれかを変更する決定は、適切な考慮事項に従って行われることを確認してください。
 
-## 3 Query Logging
+## 3 クエリログ
 
-### 3.1 Database Settings: Common settings
+### 3.1 データベース設定: 共通設定
 
-| Name                  | Description                                                                                                                                                                                                                                                                                                                                                            | Default value |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `LogMinDurationQuery` | Defines whether database queries are logged via the `ConnectionBus_Queries` log node if they finished after the amount of milliseconds specified here. By default, only the concerning SQL query will be logged. Set the log level of the `ConnectionBus_Queries` log node to TRACE to show more information about the page or the microflow that leads to this query. |               |
+| 名前                    | 説明                                                                                                                                                                                                  | 既定値 |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| `LogMinDurationQuery` | ここで指定されたミリ秒後に終了した場合、 `ConnectionBus_Queries` ログノードを介してデータベースクエリをログに記録するかどうかを定義します。 デフォルトでは、SQLに関するクエリのみがログに記録されます。 `ConnectionBus_Queries` ログノードのログレベルをTRACEに設定して、このクエリにつながるページまたはマイクロフローの詳細を表示します。 |     |
 
-`LogMinDurationQuery` can be a very helpful tool in detecting queries that are taking longer than expected. This is especially useful for queries that only take longer than expected after the data used in and by the app grows larger, because this might mean the queries will only become slower after a few months of usage and might not have turned up in pre-release performance tests. Determining that a query is slow depends on the type of app you are running. But in general, any query that directly affects a user using the app (meaning, not a background process) will have a lower threshold for determining it as slow than a query running in the background. For example, a drop-down menu that takes 5 seconds to load before anything can be selected is many times worse than a PDF generated in the background taking 8 instead of 4 seconds because of a “slow” query that takes 5 seconds instead of 1 second.
+`LogMinDurationQuery` は、予想よりも時間がかかっているクエリを検出するのに非常に役立つツールです。 これは、アプリで使用されるデータが大きくなった後に予想以上に時間がかかるクエリに特に便利です。 これは、数ヶ月の使用後にのみクエリが遅くなり、プレリリースのパフォーマンステストでは現れない可能性があることを意味するためです。 クエリが遅いことを判断することは、実行しているアプリの種類によって異なります。 しかし、一般的には、アプリを使用しているユーザーに直接影響を与えるクエリ(意味) バックグラウンドプロセスで実行されるクエリよりも遅い値を決定するための閾値が低くなります。 例えば、 何も選択する前に読み込むのに5秒かかるドロップダウンメニューは、1秒ではなく5秒かかる「遅い」クエリのために、4秒ではなく8秒を取るので、バックグラウンドで生成されたPDFよりも何回も悪いです。
 
-In the Mendix Cloud, we have chosen a default value of 10000 (meaning, 10 seconds). As any such query would be noticeable on the front-end of the application. If your application has no background processes, this value might be too high. On the other hand, if your application is running many background processes with minimal user interaction, this value might be too low. In the end, the right value to set will depend on the functional requirements of your app and needs to be set accordingly.
+Mendix Cloudでは、デフォルト値は10000(意味、10秒)に設定されています。 そのようなクエリは、アプリケーションのフロントエンドで顕著になります。 アプリケーションにバックグラウンドプロセスがない場合、この値が高すぎる可能性があります。 一方、ユーザーの操作を最小限に抑えてバックグラウンドプロセスを多数実行している場合、この値が低すぎる可能性があります。 最終的に、設定する正しい値は、アプリの機能要件に依存し、それに応じて設定する必要があります。
 
-The most important part of this setting is to regularly check the application log for any queries exceeding this value and to resolve them if they are deemed problematic. Setting this value without following up on it is as useful as not setting the value at all. Queries running slowly can negatively affect the user experience, the throughput of any action affected by them, the memory usage of the application, the CPU usage of the application, and can even lead to outages in extreme cases. Given all that, Mendix strongly advises setting this value to a number that makes sense for your application and following up on any query that is logged.
+この設定の最も重要な部分は、この値を超えるクエリがないか定期的にアプリケーションログを確認し、問題があるとみなされる場合にそれらを解決することです。 この値をフォローアップせずに設定することは、値を設定しないのと同じくらい便利です。 実行中のクエリは、影響を受けるアクションのスループットに悪影響を及ぼす可能性があります。 アプリケーションのメモリ使用量、アプリケーションのCPU使用率、そして極端な場合の停止につながる可能性さえあります。 そのすべてを考えると、 Mendixは、アプリケーションにとって意味のある数値にこの値を設定し、ログに記録されたクエリをフォローアップすることを強く勧めます。
 
-You can find these log entries by looking for the following phrase in your application log: **Query executed in**. The phrase will appear in an example like this: `Jan 01 02:03:04.567 - WARNING - ConnectionBus_Queries: (1/4) Query executed in 642 seconds and 694 milliseconds: UPDATE "somemodule$someentity”`.
+これらのログエントリは、アプリケーションログ内の次のフレーズを検索することで見つけることができます: **クエリは** で実行されます。 The phrase will appear in an example like this: `Jan 01 02:03:04.567 - WARNING - ConnectionBus_Queries: (1/4) Query executed in 642 seconds and 694 milliseconds: UPDATE "somemodule$someentity”`.
 
-## 4 The Number of Database Connections
+## 4 データベース接続数
 
-### 4.1 Connection Pooling
+### 4.1 接続プール
 
-The settings below are used to define the database connection pooling behavior. The Runtime uses a pool of reusable database connections. You can, for example, define how many connections can be used. Connection pooling is implemented using the [Apache Commons Object-pooling API](http://commons.apache.org/pool/).
+以下の設定は、データベース接続プールの動作を定義するために使用されます。 Runtime は、再利用可能なデータベース接続のプールを使用します。 たとえば、使用できる接続の数を定義できます。 コネクションプールは [Apache Commons Object-pooling API](http://commons.apache.org/pool/) を使用して実装されています。
 
-| Name                         | Value                                                                                                                                                                                                                                                                                                                 | Default value |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `ConnectionPoolingMaxActive` | Sets the cap on the total number of active instances from the pool.                                                                                                                                                                                                                                                   | 50            |
-| `ConnectionPoolingMaxIdle`   | Sets the cap on the number of "idle" instances in the pool.                                                                                                                                                                                                                                                           | 50            |
-| `ConnectionPoolingMinIdle`   | Sets the minimum number of objects allowed in the pool before the evictor thread (if active) spawns new objects. Note that no objects are created when `numActive` + `numIdle` >= `maxActive`.  This setting has no effect if the idle object evictor is disabled (meaning, if `timeBetweenEvictionRunsMillis` <= 0). | 0             |
+| 名前                           | 値                                                                                                                                                                                                                                                       | 既定値 |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| `ConnectionPoolingMaxActive` | プールからアクティブなインスタンスの合計数にキャップを設定します。                                                                                                                                                                                                                       | 50  |
+| `ConnectionPoolingMaxIdle`   | プール内の "idle" インスタンスの数の上限を設定します。                                                                                                                                                                                                                         | 50  |
+| `接続プールミニイル`                  | プール内で許可されているオブジェクトの最小数を設定します。(アクティブな場合) 新しいオブジェクトを生成する前に、エビクタースレッドで許可されているオブジェクトの数を設定します。 `numActive` + `numIdle` >= `maxActive` の場合、オブジェクトは作成されないことに注意してください。  この設定は、アイドルオブジェクト回避ツールが無効になっている場合には効果がありません (つまり、 `timeBetweenEvictionRunsMillis` <= 0). | 0   |
 
 {{% alert type="info" %}}
-If you change these settings, you will need to restart your app to apply the changes.
+これらの設定を変更する場合は、変更を適用するためにアプリを再起動する必要があります。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-These settings are configured *per runtime instance*. If you have [scaled your application](/developerportal/deploy/scale-environment), the number of connections on the database side will be multiplied by the number of runtime instances. For example, if you set `ConnectionPoolingMaxIdle` to `50` and scale your app to 2 runtime instances, each runtime instance will create at most 50 connections, but on the database side this will lead to a maximum of 100 connections.
+これらの設定は、ランタイムインスタンス *ごとに* に設定されています。 [がアプリケーション](/developerportal/deploy/scale-environment)をスケーリングしている場合 データベース側の接続数にランタイムインスタンスの数が乗算されます。 たとえば、 `ConnectionPoolingMaxIdle` を `50` に設定し、アプリケーションを2つのランタイムインスタンスにスケーリングする場合。 各ランタイムインスタンスは最大50の接続で作成されますが、データベース側では最大100の接続になります。
 {{% /alert %}}
 
 When changing the `ConnectionPoolingMaxIdle` and `ConnectionPoolingMinIdle` settings, consider the following points:
 
-* More idle connections means more memory usage
-* More idle connections means less overhead when starting a query as the connection itself does not need to be created
-* Fewer idle connections means less memory usage
-* Fewer idle connections means more overhead when starting a query, as the connection itself needs to be created
+* より多くのアイドル接続はより多くのメモリ使用量を意味します
+* より多くのアイドル接続は、接続自体を作成する必要がないため、クエリを開始する際のオーバーヘッドが少なくなります。
+* アイドル接続が少ないため、メモリ使用量が少なくなります
+* 接続自体を作成する必要があるため、アイドル接続はクエリを開始する際のオーバーヘッドを意味します。
 
-The most interesting setting is `ConnectionPoolingMaxActive`, as this caps the total number of queries that can run in parallel at any given point in time. The default setting for this value in a Mendix application is 50. This means that at any given time, a maximum of 50 queries can be running in parallel. For most applications this will be a very safe number, as most queries only take milliseconds, so it takes a lot of concurrent users to reach a point in which 50 queries are running in parallel. When the app is constantly at its connection pooling limit, you get errors like this:
+最も興味深い設定は `ConnectionPoolingMaxActive`です。 特定の時点で並列に実行できるクエリの合計数が上限されているためです Mendix アプリケーションのこの値のデフォルト設定は 50 です。 これは、任意の時点で最大50個のクエリを並列実行することができることを意味します。 ほとんどのアプリケーションでは、ほとんどのクエリにミリ秒しかかからないため、これは非常に安全な番号になります。 50個のクエリが並行して実行されるまでには多くの同時実行ユーザーが必要です アプリが常に接続プール制限にある場合、次のようなエラーが表示されます。
 
-* `WARNING - ConnectionBus: Database connections: 50 active, 0 idle.`
-* `ERROR - ConnectionBus: Opening JDBC connection to 1.2.3.4:5432 failed with SQLState: null Error code: 0 Message: Cannot get a connection, pool error Timeout waiting for idle object Retrying...(1/4)`
+* `警告 - 接続バス: データベース接続: 50、0アイドル状態。`
+* `エラー - 接続バス: 1.2.3 への JDBC 接続を開きます。 :5432 は SQLState に失敗しました: null エラーコード: 0 メッセージ: コネクションを取得できません、プールエラー アイドルオブジェクトの再試行を待っています...(1/4)`
 
-And/or you get a DB connection pool graph that looks like this:
+以下のようなDB接続プールグラフが表示されます。
 
 ![](attachments/tricky-custom-settings/mendix-customsettings-tricky-img1.png)
 
-It will be tempting to increase the `ConnectionPoolingMaxActive` value to a (much) higher number. But if any of the following are true, this is not the right action to take:
+`ConnectionPoolingMaxActive` の値を (はるかに) 高い数値に増やすことが望ましいでしょう。 しかし、以下のいずれかが真実である場合、これは正しいアクションではありません。
 
-* Long running queries show up in the application log – in that case, it makes more sense to try and fix those first, as otherwise you will eventually run in to the same problem, but it will take a bit longer to occur after a (re)start of the application
-* A database is running low on memory or is even out of memory regularly — in that case, it makes more sense to upgrade the database node size first
-    * In this case, it  will also be likely you can find long running queries in your application log
-* Only a few user sessions are active at any given time — your application might need refactoring unless you can explain why three users constantly use 50 parallel database connections
+* 長い実行中のクエリはアプリケーションログに表示されます – その場合、最初にそれらを試して修正する方が理にかなっています。 そうしないと最終的には同じ問題に陥ります しかし、アプリケーションの(再)起動後に発生するには少し時間がかかります
+* データベースがメモリ不足、またはメモリ不足ですらありません — その場合。 データベースノードのサイズを最初にアップグレードする方が理にかなってる
+    * この場合、アプリケーションログで長時間実行されているクエリを見つけることもできます。
+* 特定の時点でアクティブなユーザーセッションはわずかです。3人のユーザーが常に50の並列データベース接続を使用する理由を説明できない限り、アプリケーションでリファクタリングが必要な場合があります。
 
-However, if all of the following are true, you should increase the `ConnectionPoolingMaxActive` value to a (much) higher number:
+ただし、以下のいずれかが真の場合は、 `ConnectionPoolingMaxActive` の値を (大いに) 高い数値に増やす必要があります。
 
-* There are large amounts of concurrent users (meaning, at least a few thousand)
-* There are no long running queries showing up in the application log, even with the `LogMinDurationQuery` set to a relatively low number (like 3 seconds)
-* There is plenty of database memory available at all times
+* 大量の同時利用者がいます (意味、少なくとも数千)
+* アプリケーション・ログに表示される実行中のクエリはありません。 たとえ `LogMinDurationQuery` が(3 秒のように) 比較的低い数に設定されていても、
+* 常に利用可能なデータベースメモリがたくさんあります
 
-In general, we see that increasing the `ConnectionPoolingMaxActive` value to a (much) higher number is very rarely the right action to take, even if it is unfortunately the action usually taken when you run into connection pooling issues.s
+一般的に `ConnectionPoolingMaxActive` の値を (はるかに) 高い値にすることは、適切なアクションをとることはめったにないことがわかります。 残念ながら接続プールの問題に遭遇すると
 
-In addition, keep in mind that changing this value for an application running in Mendix Cloud v3 will also require an adjustment on the database node that only Mendix can make. So, before changing the value, please file a ticket in the [Mendix Support Portal](https://support.mendix.com/hc/en-us) stating the number to which you intend to change the value. When your application is running in Mendix Cloud v4, you can change the value without a change on the database node.
+加えて、 Mendix Cloud v3で動作するアプリケーションのこの値を変更するには、Mendixのみが行えるデータベースノードの調整も必要になることに注意してください。 ですから、値を変更する前に [Mendix Support Portal](https://support.mendix.com/hc/en-us) に、値を変更する予定の番号を記載したチケットを提出してください。 Mendix Cloud v4でアプリケーションが実行されている場合、データベースノードを変更せずに値を変更することができます。
 
-## 5 Read More
+## 5 続きを読む
 
-* [Runtime Customization](/refguide8/custom-settings)
+* [ランタイムのカスタマイズ](/refguide/custom-settings)
