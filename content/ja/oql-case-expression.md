@@ -1,8 +1,13 @@
 ---
 title: "OQLケース式"
 parent: "oql演算子"
+tags:
+  - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-case-expression.pdf) をクリックしてください。
+{{% /alert %}}
 
 CASE 式は、他のプログラミング言語の if/else ステートメントと同様の条件式です。 各条件は、ブール値の結果を返す式です。 条件の結果が true の場合、CASE式の値は条件に従う結果になります。 そして、CASE 式の残りの部分は処理されません。 条件の結果が true でない場合、後続の WHEN 句はすべて同じ方法で調べられます。 WHEN条件が真でない場合、CASE式の値はELSE節の結果です。 ELSE 句が省略され、条件が true でない場合、結果は null になります。
 
@@ -30,7 +35,7 @@ END
 
 **when_expression** input_expression と比較される式。 input_expression が when_expression に一致する場合、CASE式全体の結果は THEN の後に与えられた result_expression になります。
 
-**boolean_expression** 結果がブール値でなければならない式。 この式が true を返した場合、CASE式全体の結果は THEN の後に与えられた result_expression になります。
+**boolean_expression** 結果はブール値でなければならない式。 この式が true を返した場合、CASE式全体の結果は THEN の後に与えられた result_expression になります。
 
 **result_expression** CASE式全体の可能な結果。
 
