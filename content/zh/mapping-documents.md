@@ -1,9 +1,6 @@
 ---
 title: "映射文档"
 parent: "集成"
-menu_order: 35
-tags:
-  - "studio pro"
 ---
 
 ## 1 导言
@@ -12,10 +9,10 @@ tags:
 
 ## 2 次导入映射
 
-导入映射用于定义传入的 XML 或 JSON 如何转换为 Mendix 对象，根据指定的 XML 架构或 JSON 结构。 为了能够解释从其他系统收到的数据，需要这样做。 在 Mendix 中，有三个基本场景用于从 XML 或 JSON 创建 Mendix 对象：
+导入映射用于定义传入的 XML 或 JSON 如何转换为 Mendix 对象，根据指定的 XML 架构或 JSON 结构。 为了能够解释从其他系统收到的数据，需要这样做。 Mendix 中有三个基本场景用于将 Mendix 对象转换为 XML 或 JSON ：
 
-*   从 web 服务接收 XML (在 [导入的 web 服务](consumed-web-service)中定义)，在 [通话网络服务](call-web-service-action) 活动 中。
-*   正在从 [调用REST 服务](call-rest-action) 中获取 XML 或 JSON 。
+*   在 [拨打网络服务行动](call-web-service-action) 活动中从 web 服务接收XML (在 [导入的 web 服务](consumed-web-service)中定义)。
+*   正在从 [呼叫休息行动](call-rest-action) 中接收 XML 或 JSON 。
 *   直接从映射</a> 导入一个
 
 中导入 XML 或 JSON 。</li> </ul> 
@@ -32,8 +29,8 @@ tags:
 
 导出映射用于定义如何根据指定的 XML 架构将 Mendix 对象转换为 XML。 为了能够以其他系统能够处理的格式向其他系统发送数据，就需要这样做。 Mendix 有两种基本场景来将 Mendix 对象转换为 XML：
 
-*   正在发送 XML 到一个 Web 服务(在 [导入的 web 服务](consumed-web-service)中定义) 在 [通话网络服务](call-web-service-action) 活动 中。
-*   在 [导出时直接导出XML，同时进行映射](export-mapping-action) 操作。
+*   正在发送 XML 到一个 web 服务 (在 [导入的 web 服务](consumed-web-service)中定义) 在 [调用 Web 服务行动](call-web-service-action) 活动 中。
+*   直接导出为 [导出为](export-mapping-action) 动作中的 XML。
 
 这是导出映射文档的示例：
 
@@ -57,7 +54,7 @@ tags:
 
 3.  Click **OK**. 为左边的实体创建了占位符，右侧则选择了XSD 元素。
    
-   在映射文档中可以包括一个参数实体。 需要通过传递配置类型的参数来调用具有参数实体的映射文档(在 [通话网络服务](call-web-service-action) 或 [导出与映射](export-mapping-action) 活动)。 可以在不通过参数的情况下调用没有参数实体的映射文档。 为了导入映射，可以将一个参数实体拖动到使用连接器工具创建的结构中的占位符。 导出映射总是需要有一个参数实体(正在导出的对象)，并为此使用了映射的根元素。 在这两种情况下，参数实体被描述为黄箭头参数符号。
+   在映射文档中可以包括一个参数实体。 需要通过传递已配置类型的参数来调用带有参数实体的映射文档(在 [通话网络服务行动](call-web-service-action) 或 [导出与映射](export-mapping-action) 动作)。 可以在不通过参数的情况下调用没有参数实体的映射文档。 为了导入映射，可以将一个参数实体拖动到使用连接器工具创建的结构中的占位符。 导出映射总是需要有一个参数实体(正在导出的对象)，并为此使用了映射的根元素。 在这两种情况下，参数实体被描述为黄箭头参数符号。
 
 4.  映射模式下的子元素。 实体可以通过以下四种方式获得：
 
@@ -79,7 +76,7 @@ tags:
 
 ## 6 个提示：重要窗口
 
-绘图文件严重依赖两个窗口。 如果它们在 Studio Pro中不可见, 它们可以在 **视图菜单** 中启用。
+绘图文件严重依赖两个窗口。 如果它们在模型中不可见, 它们可以在 **视图菜单** 中启用。
 
 *   **属性窗口**。 此处显示每个映射元素的详细信息。
 *   **连接器窗口**。 连接器窗口中的实体被拖动到映射文档中。
