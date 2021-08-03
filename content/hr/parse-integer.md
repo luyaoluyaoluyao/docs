@@ -1,64 +1,42 @@
 ---
-title: "Parse Integer"
+title: "Parse integer"
 parent: "expressions"
-menu_order: 140
-description: "Describes the function for parsing integer from strings in Mendix."
-tags:
-  - "studio pro"
-  - "expressions"
-  - "parse"
-  - "integer"
 ---
 
-## 1 Introduction
 
-This document describes functions that convert a string to an integer.
+Try to convert a string to an integer.
 
-## 2 parseInteger
+## parseInteger
 
-Takes a string and parses it to an integer.
+Take a string and try to parse it to an integer.
 
-### 2.1 Input Parameters
+### Input parameters
 
-The input parameters are described in the table below:
+*   The string to parse Type: String
+*   (Optional) Default value Type: Integer
 
-| Value                        | Type    |
-| ---------------------------- | ------- |
-| The string to parse          | String  |
-| Default value **(optional)** | Integer |
+### Output
 
-### 2.2 Output
+The integer, if it's possible to parse it from the string. If it's not a valid parsable string, the default value will be returned. If no default value is provided, an error will occur. Type: Integer
 
-The output is described in the table below:
+```java
+parseInteger('42')
+```
 
-| Value                                                                                                                                                                                              | Type    |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| An integer if it is possible to parse it from the string. If  the string cannot be parsed to an integer, the default value will be returned. If no default value is provided, an error will occur. | Integer |
+returns:
 
-### 2.3 Examples
+```java
+42
+```
 
-The examples below illustrate which value the expression returns:
+with default value:
 
-* If you use the following input:
+```java
+parseInteger('not_an_integer', 42)
+```
 
-    ```java
-    parseInteger('42')
-    ```
+returns:
 
-    the output is:
-
-    ```java
-    42
-    ```
-
-* If you use the following input:
-
-    ```java
-    parseInteger('not_an_integer', 42)
-    ```
-
-    the output is:
-
-    ```java
-    42
-    ```
+```java
+42
+```
