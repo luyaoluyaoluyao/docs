@@ -8,7 +8,12 @@ tags:
   - "排序"
   - "选择"
   - "页面"
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/odata-query-options.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
@@ -27,6 +32,14 @@ tags:
 ### 2.2 检索单一对象
 
 通过传递URI中的对象标识符可以检索单个对象。 例如： `/odata/myservice/myresource(8444249301330581)`。
+
+### 2.3 检索相关对象
+
+相关对象可以通过通过 `$expand` 查询参数获取。 例如： `/odata/myservice/Exploque?$expand=Cars,Address/City`
+
+{{% alert type="info" %}}
+`$expand` 功能是在Studio Pro [8.11.0](/releasenotes/studio-pro/8.11#8110) 中介绍的。
+{{% /报警 %}}
 
 ## 3 计数对象数量
 
@@ -65,7 +78,6 @@ tags:
 | ge  | 大于或等于 | `/employees?$filter=Age 15`    |
 | l   | 小于等于  | `/员工？$filter=15岁`              |
 
-
 ### 4.3 算术运算符
 
 | 运算符 | 含义      | 示例                                        | 返回          |
@@ -102,15 +114,26 @@ tags:
 | 不是  | `/员工？$filter=not(Name eq 'John')`                 |
 | ( ) | `/员工？$filter=name eq 'John' 和 (Age gt 65 或 11岁)`  |
 
+### 4.6 按协会筛选
+
+您可以筛选关联实体的属性。 您这样做的方式取决于该社团是否暴露了一个对象或一个对象列表。
+
+| 类型       | 示例                                                  |
+| -------- | --------------------------------------------------- |
+| 筛选关联对象   | `人民？$filter=生平地/Cityname eq '鹿特丹'`                  |
+| 在关联列表中过滤 | `城市？$filter=BornIn/any(person:person/year le 1919)` |
+
+当您 [透露关联关联为链接](odata-representation#associations) 时，可以这样对关联对象或列表进行过滤。 当您 [以关联对象 ID](odata-representation#associations) 的形式揭示关联时，它是不可能的。
+
 ## 5 排序
 
-您可以使用 `$orderby` 查询选项排序结果。 例如： `?$orderby=name`
+您可以使用 `$orderby` 查询选项排序结果。 例如： `?$orderby=name` 或 `?$orderby=出生地/名称`.
 
 默认方向升高，并且您可以让它变得清晰。 例如： `?$orderby=name asc`
 
 您也可以按降序排序结果。 例如： `?$orderby=Name desc`
 
-它可以按多个属性排序，这些属性必须用逗号分隔。 例如： `?$orderby=名称，年龄降`.
+它可以按多个属性排序，这些属性必须用逗号分隔。 例如： `?$orderby=名字升序，年龄降序`
 
 ## 6 选择字段
 
