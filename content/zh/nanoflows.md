@@ -1,155 +1,155 @@
 ---
-title: "Nanoflows"
-parent: "microflows-and-nanoflows"
+title: "纳诺夫拉"
+parent: "微流和微流法"
 menu_order: 20
-description: "Presents an overview of all the elements that can be used in a nanoflow."
+description: "展示所有可用于纳米的元素的概述。"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Nanoflows are similar to [microflows](microflows), in that they allow you to express the logic of your application. However, they do have some specific benefits (for example, they run directly on the browser/device and can be used in an offline app). Furthermore, most of the actions run directly on the device, so there is also a speed benefit for logic which does not need access to the server.
+Nanoflow 类似于 [microflow](microflows)，因为它们允许您表达您应用程序的逻辑。 然而，它们确实有一些具体的好处（例如，它们直接在浏览器/设备上运行，可用于离线应用）。 此外，大多数操作都直接在设备上， 因此对于不需要访问服务器的逻辑也有速度上的好处。
 
 {{% alert type="info" %}}
-This page is an overview of all the elements that can be used in a nanoflow. For the properties of the nanoflow itself, see [Nanoflow Properties](nanoflow).
-{{% /alert %}}
+此页概述了所有可用于纳米的元素。 对于纳米光本身的属性，请参阅 [Nanoflow Properties](nanoflow)。
+{{% /报警 %}}
 
-## 2 When to Use Nanoflows
+## 2 何时使用 Nanoflow
 
-### 2.1 Offline Mobile Apps
+### 2.1 离线移动应用
 
-Nanoflows are designed with offline-first applications in mind, as they allow you to model application logic that works in offline apps. Since all database-related actions will be executed on the local offline database, nanoflows in offline apps will be fast.
+Nanoflow 是用离线第一应用程序设计的，因为它们允许您在离线应用中模拟应用程序逻辑。 由于所有与数据库相关的行动都将在本地离线数据库中执行，离线应用的nanoflow 将很快。
 
-### 2.2 Logic Where No Connection Is Needed
+### 2.2 无需连接的逻辑值
 
-Nanoflows also offer great value to online applications (for example, for UI logic, validations, calculations, and navigation). However, please keep in mind that, when you perform database-related actions, each action will create a separate network request to the Mendix Runtime.
+Nanoflow也为在线应用程序提供了很大的价值(例如，UI逻辑、验证、计算和导航)。 然而，请记住，当您执行与数据库相关的操作时，每个操作都会创建一个单独的 Mendix Runtime。
 
-The following actions interact with the database:
+以下行动与数据库相互作用：
 
-* Create
-* Commit
-* Retrieve
+* 创建
+* 提交
+* 获取
 * Rollback
 
-Therefore, the best practice is to use nanoflows in online applications when they do not contain the above actions.
+因此，最佳做法是在不包含上述行动的情况下，在网上应用程序中使用nanofows。
 
 {{% alert type="info" %}}
-Changing objects without committing is not a database-related action, as changes are applied on the device or in the browser.
-{{% /alert %}}
+更改对象而不提交并不是一个与数据库相关的动作，因为更改应用于设备或浏览器。
+{{% /报警 %}}
 
-#### 2.2.1 Other Cases
+#### 2.2.1 其他案件
 
-Although nanoflows perform best in online applications when no database-related actions are used, and these are generally the best cases, nanoflows that contain at most one database-related action can also still perform well. Because such nanoflows only require one network call, they perform as well as a microflow. An example of such a use case is performing validation logic on an object and committing the object in the same nanoflow.
+尽管在没有使用与数据库相关的行动的情况下，nanoflows在在线应用程序中的表现最佳， 而且这些通常是最好的例子，最多包含一个与数据库有关的行动的纳米调节也仍然可以做得很好。 由于这种纳米技术只需要一个网络电话，它们既能进行微流程，也能进行微流。 这种使用案例的一个例子是对对象执行验证逻辑并将对象承诺于同一纳米。
 
-## 3 Differences from Microflows
+## 3 与微流量的差异
 
-There are five main differences between nanoflows and microflows:
+纳米流量和微流量之间有五个主要差异：
 
-1. When a nanoflow steps through its actions, client actions are directly executed. For example, an open page action immediately opens a page instead of at the end of the nanoflow. This is different from client actions in a microflow, which only run when the client receives the result from the microflow.
-2. When used in nanoflow activities, expressions do not support the following objects and variables: `$latestSoapFault`, `$latestHttpResponse`, `$currentSession`, `$currentUser`, `$currentDeviceType`.
-3. Nanoflows are not run inside a transaction so, if an error occurs in a nanoflow, it will not roll back any previous changes.
-4. Nanoflows and microflows do not provide the same actions. Some actions available in microflows are not available in nanoflows, and vice versa.
-5. Because nanoflows use JavaScript libraries and microflows use Java libraries, there can sometimes be slight differences in the way expressions are executed.
-6. Changes done to the lists in a sub-nanoflow are not reflected in the original nanoflow.
+1. 当通过其动作采取nanoflow步骤时，客户端的动作将直接执行。 例如，打开页面操作会立即打开一个页面，而不是在nanoflow的末尾。 这不同于微流程中的客户动作，微流程只有在客户收到微流程结果时才能运行。
+2. 当在 nanoflow 活动中使用时，表达式不支持以下对象和变量： `$latestSoapFault`， `$latestHttpResponse`, `$currentSession`, , `$currentUser`, `$currentDeviceType`.
+3. Nanoflow 不会在交易中运行，因此如果在nanoflow 中发生错误，它不会回滚以前的任何更改。
+4. 纳诺夫低流量和微流量并不提供同样的行动。 微流中的某些活动在纳米粒子中不可用，反之亦然。
+5. 因为nanoflow使用JavaScript库和microflow使用Java 库，有时在表达式的执行方式上会有轻微的差异。
+6. 在次纳米粒子中对清单所作的改动没有反映在原先的纳米粒子中。
 
-## 4 Notation & Categories
+## 4 标记 & 类别
 
-The graphical notation of nanoflows is based on the [Business Process Model and Notation](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (BPMN). BPMN is a standardized graphical notation for drawing business processes in a workflow.
+nanoflow的图形缩写基于 [业务流程模型和注释](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation) (BPMN)。 BPMN是在工作流程中绘制业务流程的标准化图形标记。
 
-A nanoflow is composed of elements. The following categories are used:
+纳米材料由元素组成。 使用了以下类别：
 
-* [Events](#events) represent the start and endpoints of a nanoflow and special operations in a loop
-* [Flows](#flows) form the connection between elements
-* [Decisions](#decisions) deal with making choices and merging different paths again
-* [Activities](#activities) are the actions that are executed in a nanoflow
-* [Loop](loop) is used to iterate over a list of objects
-* [Parameter](#parameter) is data that serves as input for the microflow.
-* [Annotation](#annotation) is an element that can be used to put comments in a microflow.
+* [事件](#events) 代表一个循环中的纳米和特殊操作的起始点和终点
+* [流动](#flows) 形成元素之间的连接
+* [决策](#decisions) 涉及做出选择并再次合并不同的路径
+* [活动](#activities) 是指在 nanoflow 中执行的操作
+* [循环](loop) 用于在对象列表上迭代。
+* [参数](#parameter) 是作为微流程输入的数据。
+* [注释](#annotation) 是一个可以用来将注释放入微流程的元素。
 
-### 4.1 Events {#events}
+### 4.1 事件 {#events}
 
-Events represent the start and endpoints of a nanoflow and special operations in a loop.
+事件代表一个循环中的纳米和特殊操作的起始点和终点。
 
-| Graphic                                                                                      | Name                             | Description                                                                                                                                                                                                   |
-| -------------------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![start event](attachments/microflows-and-nanoflows/start-event.png)](start-event)          | [Start event](start-event)       | The starting point of the nanoflow. A nanoflow can only have one start event.                                                                                                                                 |
-| [![end event](attachments/microflows-and-nanoflows/end-event.png)](end-event)                | [End event](end-event)           | Defines the location where the nanoflow will stop. Depending on the return type of the nanoflow, in some cases a value must be specified. There can be more than one end event.                               |
-| ![](attachments/microflows-and-nanoflows/error-event.png)                                    | [Error Event](error-event)       | An error event defines a location where the nanoflow will stop and throw an error that occurred earlier. If you call a nanoflow, you may want to know whether any errors occurred within the nanoflow or not. |
-| [![continue event](attachments/microflows-and-nanoflows/continue-event.png)](continue-event) | [Continue event](continue-event) | Used to stop the current iteration of a loop and continue with the next iteration. Continue events can only be used inside a [loop](loop).                                                                    |
-| [![break event](attachments/microflows-and-nanoflows/break-event.png)](break-event)          | [Break Event](break-event)       | Used to stop iterating over the list of objects and to continue with the rest of the flow after the loop. Break events can only be used inside a [loop](loop).                                                |
+| 图形                                                                                 | 名称                     | 描述                                                                              |
+| ---------------------------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------- |
+| [![开始事件](attachments/microflows-and-nanoflows/start-event.png)](start-event)       | [开始活动](start-event)    | nanoflow的起始点。 nanoflow 只能有一个开始事件。                                               |
+| [![结束事件](attachments/microflows-and-nanoflows/end-event.png)](end-event)           | [结束事件](end-event)      | 定义nanoflow 将停止的位置。 根据纳米低的返回类型，在某些情况下必须指定一个值。 可以有多个结束事件。                         |
+| ![](attachments/microflows-and-nanoflows/error-event.png)                          | [错误事件](error-event)    | 一个错误事件定义了一个 nanoflow 将停止并抛出一个之前发生的错误的位置。 如果你叫nanoflow，你可能想知道是否在nanoflow中发生任何错误。 |
+| [![继续事件](attachments/microflows-and-nanoflows/continue-event.png)](continue-event) | [继续事件](continue-event) | 用于停止循环的当前迭代并继续下次迭代。 继续事件只能在 [循环](loop) 中使用。                                     |
+| [![休息事件](attachments/microflows-and-nanoflows/break-event.png)](break-event)       | [中断事件](break-event)    | 用于停止对对象列表的迭代并继续循环后的其余流程。 断开事件只能在 [循环](loop) 中使用。                                |
 
-### 4.2 Flows {#flows}
+### 4.2 资金流动 {#flows}
 
-Flows form the connection between elements.
+流程形成元素之间的连接。
 
-| Graphic                                                                                     | Name                                          | Description                                                                                                                                   |
-| ------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![](attachments/microflows-and-nanoflows/sequence-flow.png)](sequence-flow)                | [Sequence flow](sequence-flow)                | An arrow that links events, activities, decisions, and merges with each other. Together they define the order of execution within a nanoflow. |
-| [![](attachments/microflows-and-nanoflows/annotation-flow.png)](annotation#annotation-flow) | [Annotation flow](annotation#annotation-flow) | A connection that can be used to connect an annotation to another element.                                                                    |
+| 图形                                                                                          | 名称                                 | 描述                                         |
+| ------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------ |
+| [![](attachments/microflows-and-nanoflows/sequence-flow.png)](sequence-flow)                | [序列流](sequence-flow)               | 一个将事件、活动、决定和合并彼此联系起来的箭头。 它们共同确定了在纳米内的执行顺序。 |
+| [![](attachments/microflows-and-nanoflows/annotation-flow.png)](annotation#annotation-flow) | [批注流程](annotation#annotation-flow) | 可用来将注解连接到另一个元素的连接。                         |
 
-### 4.3 Decisions {#decisions}
+### 4.3 决定 {#decisions}
 
-Decisions deal with making choices and merging different paths.
+决策涉及作出选择和合并不同的道路。
 
-| Graphic                                                                    | Name                 | Description                                                                                                                                                                                         |
-| -------------------------------------------------------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![decision](attachments/microflows-and-nanoflows/decision.png)](decision) | [Decision](decision) | Makes a decision based on a condition and follows one and only one of the outgoing flows. **Note**: there is no parallel execution in nanoflows.                                                    |
-| [![merge](attachments/microflows-and-nanoflows/merge.png)](merge)          | [Merge](merge)       | Can be used to combine multiple sequence flows into one. If a choice is made in a nanoflow and afterwards some common work needs to be done, you can combine the two (or more) paths using a merge. |
+| 图形                                                               | 名称         | 描述                                                          |
+| ---------------------------------------------------------------- | ---------- | ----------------------------------------------------------- |
+| [![决 定](attachments/microflows-and-nanoflows/decision.png)](决 定) | [决 定](决 定) | 根据一种条件做出决定，并遵循一种而且只是一种外流流量。 **注意**: nanoflows没有并行执行.        |
+| [![合并](attachments/microflows-and-nanoflows/merge.png)](合并)      | [合并](合并)   | 可以用来将多个序列流合并为一个。 如果是以纳米材料做出选择，然后需要做一些共同的工作。 您可以合并两个(或更多)路径。 |
 
-### 4.4 Activities{#activities}
+### 4.4 活动{#activities}
 
-[Activities](activities) are the actions that are executed in a nanoflow:
+[活动](activities) 是在 nanoflow 中执行的动作：
 
-![Activity](attachments/microflows-and-nanoflows/activity.png)
+![活动](attachments/microflows-and-nanoflows/activity.png)
 
-### 4.5 Loop {#loop}
+### 4.5 循环 {#loop}
 
-A [loop](loop) is used to iterate over a list of objects:
+[循环](loop) 用于在对象列表上迭代：
 
-![Loop](attachments/microflows-and-nanoflows/loop.png)
+![循环](attachments/microflows-and-nanoflows/loop.png)
 
-For every object the flow inside the loop is executed. A loop activity can contain all elements used in nanoflow, with the exception of start and end events.
+对于每个对象，循环内的流程都会被执行。 循环活动可以包含所有在 nanoflow中使用的元素，但启动和结束事件除外。
 
-### 4.6 Parameter {#parameter}
+### 4.6 参数 {#parameter}
 
-A [parameter](parameter) is data that serves as input for the nanoflow.
+一个 [参数](parameter) 是用于为 nanoflow 输入的数据。
 
-![Parameter](attachments/microflows-and-nanoflows/parameter.png)
+![参数](attachments/microflows-and-nanoflows/parameter.png)
 
-Parameters are filled at the location from where the nanoflow is triggered.
+参数填写在触发纳米波的地点。
 
-### 4.7 Annotation {#annotation}
+### 4.7 说明 {#annotation}
 
-An [annotation](annotation) is an element that can be used to put comments in a microflow:
+[注释](annotation) 是一个可以用来在微流程中发表评论的元素：
 
-![Annotation](attachments/microflows-and-nanoflows/annotation.png)
+![批注](attachments/microflows-and-nanoflows/annotation.png)
 
-### 4.8 Item Usages
+### 4.8 项目使用
 
-Studio Pro visualizes which items are used by the selected element(s). It does this by showing the used items in white text on a blue background. Conversely, elements that use the item(s) returned by the selected element(s) are marked with the word 'Usage' in white text on a green background.
+Studio Pro 可视化了选定元素使用哪些项目。 通过在蓝色背景上显示白色文本中使用过的物品来做到这一点。 反之，使用选定元素返回的物品的元素在绿色背景上用白色文本中的“使用”标记。
 
-In the example below, the parameter **AccountPasswordData** is highlighted because it is used in the selected activity (**Retrieve Account**). And the activity **Save password** has a **Usage** label because it uses the object returned by **Retrieve Account**.
+在下面的示例中，参数 **账户密码数据** 被高亮，因为它被用于选定的活动(**检索账户**)。 活动 **保存密码** 有一个 **用法** 标签，因为它使用的对象是 **检索帐户**。
 
 ![](attachments/microflows-and-nanoflows/microflow-nanoflow-example.png)
 
-## 5 Keyboard Support
+## 5 个键盘支持
 
-The nanoflow editor offers keyboard support for navigating and manipulating the nanoflows. The following table shows the keys that can be used.
+nanoflow 编辑器提供键盘支持导航和操纵nanoflow。 下表显示可以使用的密钥。
 
-| Key(s)                                                    | Effect                                                                                          |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Arrow keys                                                | Selects the nearby element (activity, event, loop, or parameter) in the direction of the arrow. |
-| <kbd>Enter</kbd>                                          | Edits the properties of the selected element.                                                   |
-| <kbd>F2</kbd>                                             | Renames the item returned by the selected element.                                              |
-| <kbd>Shift</kbd> + <kbd>F2</kbd> or just starting to type | Edits the caption of the selected element.                                                      |
-| <kbd>Ctrl</kbd> + arrow keys                              | Moves the selected element in the direction of the arrow.                                       |
-| <kbd>Tab</kbd>                                            | If a loop is selected, the first element inside the loop is selected.                           |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd>                         | If an element inside a loop is selected, the loop itself is selected.                           |
-| <kbd>Home</kbd>                                           | Selects the start event.                                                                        |
-| <kbd>End</kbd>                                            | Cycles through the end events.                                                                  |
-| Context-menu key or <kbd>Shift</kbd> + <kbd>F10</kbd>     | Opens the context menu for the currently selected element.                                      |
+| Key(s)                                    | 效果                         |
+| ----------------------------------------- | -------------------------- |
+| 箭头键                                       | 向箭头方向选择附近的元素(活动、事件、循环或参数)。 |
+| <kbd>输入</kbd>                             | 编辑选中元素的属性。                 |
+| <kbd>F2</kbd>                             | 重命名选中元素返回的物品。              |
+| <kbd>Shift</kbd> + <kbd>F2</kbd> 或只是开始输入  | 编辑选中元素的标题。                 |
+| <kbd>Ctrl</kbd> + 箭头键                     | 向箭头方向移动选中的元素。              |
+| <kbd>Tab</kbd>                            | 如果选择循环，循环中的第一个元素将被选中。      |
+| <kbd>Shift</kbd> + <kbd>Tab</kbd>         | 如果选择循环中的元素，循环本身将被选中。       |
+| <kbd>首页</kbd>                             | 选择开始事件。                    |
+| <kbd>结束</kbd>                             | 循环到结束事件。                   |
+| 上下文菜单键或 <kbd>Shift</kbd> + <kbd>F10</kbd> | 打开当前选中元素的上下文菜单。            |
 
-## 6 Security
+## 6 个安全
 
-Nanoflows are executed in the context of the current user. Any operation for which the user is unauthorized will fail. For instance, when objects are retrieved in a nanoflow, only the ones for which the current user has read access will be returned. Committing an object only succeeds when the current user has write access for all changes.
+Nanoflow 是在当前用户的情况下执行的。 用户未经授权的任何操作都将失败。 例如，当天体在nanoflow 中被检索时，只返回当前用户已读取的对象。 只有当当前用户有对所有更改的写权限时，才能提交对象。
