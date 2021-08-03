@@ -1,17 +1,17 @@
 ---
-title: "Search button"
-parent: "control-bar"
+title: "搜索按钮"
+parent: "控制栏"
 ---
 
-The search button toggles the search bar on and off. It is only present if the 'Show search bar' property of the grid is either 'With button (initially open)' or 'With button (initially closed)'.
+搜索按钮开启或关闭搜索栏。 只有当网格的 '显示搜索栏' 属性是 'With 按钮 (初始打开)' 或 'With 按钮 (初始关闭)' 时，它才存在。
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -21,10 +21,10 @@ The search button toggles the search bar on and off. It is only present if the '
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
