@@ -1,100 +1,100 @@
 ---
-title: "Regular Expressions"
-parent: "resources"
+title: "正则表达式"
+parent: "资源"
 menu_order: 70
 tags:
   - "studio pro"
-  - "regular expressions"
-  - "regular expression"
+  - "正则表达式"
+  - "正则表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A regular expression resource document is used in the [validation rules](validation-rules) of an entity to describe a set of criteria that a string must match.
+正则表达式资源文档用于实体的 [验证规则](validation-rules) 以描述字符串必须匹配的一组标准。
 
-A regular expression has the properties described below.
+正则表达式有下面描述的属性。
 
-## 2 Common
+## 2 常用的
 
-### 2.1 Name
+### 2.1 名称
 
-The name can be used to refer to the regular expression from a [validation rule](validation-rules) of an entity.
+名称可以用来指实体的 [验证规则](validation-rules) 的正则表达式。
 
-### 2.2 Documentation
+### 2.2 文件
 
-This is for documentation purpose only; it is not visible in the end-user application that you are modeling.
+这只是为了文件的目的；在你正在模拟的最终用户应用程序中是不可见的。
 
-## 3 Expression{#expression}
+## 3 表达式{#expression}
 
-The expression defines the criteria that a string should be checked against in a [formal, internationally standardized regular expression language](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
+这个表达式定义了一个标准，即一个字符串应该用一个 [正式的、国际标准化的正则表达式语言](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) 来对照.
 
 {{% alert type="info" %}}
 
-For example, an expression for checking the Dutch post code could be: `[1-9][0-9][0-9][0-9] ?[A-Za-z][A-Za-z]`.
+例如，查看荷兰邮编的表达式可以是： `[1-9][0-9][0-9][0-9] ?[A-Za-z][A-Za-z]`。
 
-Here are two post code examples: **3072AP** and **7500 AH**.
+这里有两个帖子代码示例： **3072AP** and **7500 AH**。
 
-These are the criteria:
+这些标准是：
 
-* The first character is a digit in the range 1 to 9
-* The second, third and fourth characters are digits in the range 0 to 9
-* The last two characters are letters, as expressed by the last two subexpression [A-Za-z], which indicate that the last two characters should be in the range A-Z or the range a-z
-* Between the digits and the letters there can be a space, as expressed by the subexpression which consists of a space and a question mark; the question mark indicates that the space is optional
+* 第一个字符是介于 1 到 9 范围内的数字
+* 第二个字符、第三个字符和第四个字符是在0到9个字符之间
+* 最后两个字符是字母，最后两个子表达式 [A-Za-z]表示， 表示最后两个字符应该在范围 A-Z 或范围 a-z
+* 在数字和字母之间可以有一个由空格和问题标记组成的子表达式所表示的空格； 问题标记表示空间是可选的
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The following sections give a summary of regular expressions that can be used in Mendix. This description also applies to regular expression strings used in functions such as *isMatch()*.
+以下各节概述了可以在 Mendix 中使用的正则表达式。 此描述也适用于正则表达式字符串，如 *isMatch()*。
 
 ### 3.1 Subexpressions
 
-A regular expression consists of a sequence of subexpressions. A string matches a regular expression if all parts of the string match these subexpressions in the same order.
+正则表达式由子表达式的序列组成。 一个字符串匹配正则表达式，如果字符串的所有部分以相同的顺序匹配这些子表达式。
 
-A regular expression can contain the following types of subexpressions:
+正则表达式可以包含下列子表达式类型：
 
-* `[ ]` – a bracket expression matches a single character that is indicated within the brackets, for example:
-    * `[abc]` matches "_a_", "_b_", or "_c_"
-    * `[a-z]` specifies a range which matches any lowercase letter from "_a_" to "_z_"
+* `[ ]` -- 括号中的表达式匹配方括号中显示的单个字符，例如：
+    * `[abc]` 匹配"_a_", "_b_", 或 "_c_"
+    * `[a-z]` 指定了一个范围匹配来自"_a_到 "_z_ 的小写字母
 
-    {{% alert type="info" %}}These forms can be mixed: `[abcx-z]` matches "_a_", "_b_", "_c_", "_x_", "_y_", or "_z_", and is equivalent to `[a-cx-z]`. The `-` character is treated as a literal character if it is the last or the first character within the brackets, or if it is escaped with a backslash (`\`).
-    {{% /alert %}}
+    ●{% alert type="info" %}}这些表格可以混合： `[abcx-z]` 匹配"_a_", "_b_", "_c_", " "_x_", "_y_", or "_z_", 等于 `[a-cx-z]`。 `-` 字符被当作字面字符处理，如果它是括号内的最后一个或第一个字符， 或者如果它因反斜杠而逃脱(`\`)。
+    {{% /报警 %}}
 
-* `[^ ]` – matches a single character that is NOT contained within the brackets, for example:
-    * `[^abc]` matches any character other than "a", "b", or "c"
-    * `[^a-z]` matches any single character that is not a lowercase letter from "a" to "z"
+* `[^]` — 匹配一个不包含在括号内的单个字符，例如：
+    * `[^ abc]` 匹配除"a"、"b"或"c"以外的任何字符
+    * `[^a-z]` 匹配任何一个字符，它们不是一个小写字母从 "a" 到 "z"
 
-    {{% alert type="info" %}}As above, literal characters and ranges can be mixed.
-    {{% /alert %}}
+    * E/C{% alert type="info" %}}As above, lital 字符和范围可以混合在一起。
+    {{% /报警 %}}
 
-* `{m,n}` – matches the preceding element at least _m_ and not more than _n_ times, for example:
+* `{m,n}` - 匹配前面的元素至少 _m_ 且不超过 _n_ 次, 例如:
 
-    * `a{3,5}` matches only "_aaa_", "_aaaa_", and "_aaaaa_"
-* `{n}` – matches the preceding element exactly n times, for example:
+    * `a{3,5}` 只匹配"_aa_",_aaa_", and "_aaaa_"
+* `{n}` - 匹配上一个元素的 n 次, 例如:
 
-    * `[1-9][0-9]{3} ?[A-Za-z]{2}` is an alternative way to write the expression for checking the Dutch post code in the example above
-* `.` – a dot matches any single character; if you want to match a dot, you can escape it by prefixing it with a `\` (backslash)
-* A literal character – this is a character that does not have a special meaning in the regular expression language and it matches itself; this is effectively any character except `\[](){}^-$?*+|.`, for example:
-    * The *`space`* in the Dutch post code example is a literal character that just matches itself
+    * `[1-9][0-9]{3} ?[A-Za-z]{2}` 是写入表达式以检查上面的示例中的荷兰邮政编码
+* `.` — 一个点匹配任何单个字符； 如果你想要匹配一个点, 你可以用 `来前缀它` (ackslash)
+* 字数字符 — — 这是一个在正则表达式语言中没有特殊意义的字符，它匹配着自己； 这实际上是除了 `\[](){}^-$? +|。`, 例如:
+    * 荷兰邮编示例中的 *`空格`* 是一个只匹配自身的字体字符
 
     {{% alert type="info" %}}If you need to match one of the characters which is not a literal, prefix it with a backslash (`\`).
-    {{% /alert %}}
+    {{% /报警 %}}
 
-* `\w` – a word: a letter, digit, or underscore; `\w` is an abbreviation for `[A-Za-z0-9_]`
-* `\d` – a digit" an abbreviation for `[0-9]`
+* `\w` — — 单词：字母、 数字或下划线; `\w` 是 `[A-Za-z0-9_]` 的缩写
+* `\d` — — 一个数字" 为 `[0-9]` 的缩写
 
-### 3.2 Quantifiers
+### 3.2 定量器
 
-The number of times that a subexpression may occur in a string is indicated by a quantifier after the subexpression. If no quantifier is present, the subexpression must occur exactly once.
+子表达式在字符串中可能出现的次表达式的次数由子表达式之后的量化表示. 如果没有量化器，子表达式必须出现一次。
 
-The following quantifiers can be used:
+可以使用下列量化器：
 
-| Quantifier | Description                                                                      |
-| ---------- | -------------------------------------------------------------------------------- |
-| ?          | The preceding sub-expression should occur not or once.                           |
-| *          | The preceding sub-expression occurs any number of times.                         |
-| +          | The preceding sub-expression should occur once or more.                          |
-|            | No quantifier means that the preceding sub-expression should occur exactly once. |
+| Quantifier | 描述                     |
+| ---------- | ---------------------- |
+| ?          | 上述子词不应出现，也不应重复出现。      |
+| *          | 上面的子表达式发生任何次数。         |
+| +          | 上一个子表达式应该出现一次或多次。      |
+|            | 没有量化表示上面的子表达式应该准确出现一次。 |
 
-## 4 Read More
+## 4 阅读更多
 
-* [Class Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#matches-java.lang.String-java.lang.CharSequence-) – information from the Oracle Java SE documentation
-* [Using Regular Expressions in Java](http://www.regular-expressions.info/java.html)  – information about regular expressions in Java from the *Regular-Expressions.info* website
+* [班级模式](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#matches-java.lang.String-java.lang.CharSequence-) - 从 Oracle Java SE 文档中获取的信息
+* [在 Java 中使用正则表达式](http://www.regular-expressions.info/java.html)  - 来自 *Regular-Expressions.info 的 Java 中有关正则表达式的信息* 网站
