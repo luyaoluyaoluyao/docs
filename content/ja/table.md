@@ -1,160 +1,156 @@
 ---
-title: "Table"
+title: "表"
 parent: "container-widgets"
 menu_order: 60
 tags:
   - "studio pro"
-  - "table"
-  - "container widget"
-  - "widget"
+  - "表"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/table.pdf).
+{{% alert type="warning" %}}テーブルウィジェットはネイティブのモバイルページではサポートされていません。
 {{% /alert %}}
 
-{{% alert type="warning" %}}The table widget is not supported on native mobile pages.
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+表はページに構造を与えるために使用できます。 [行](table#rows)、列、 [セル](table#cells) を含みます。 各セルにウィジェットを含めることができます。
 
-Tables can be used to give structure to a page. They contain [rows](table#rows), columns, and [cells](table#cells). Each cell can contain widgets.
-
-For example, you can create a table with text widgets, a logo, and a data view information as a customer report:
+たとえば、テキストウィジェット、ロゴ、およびデータビュー情報を顧客レポートとして使用するテーブルを作成できます。
 
 ![](attachments/container-widgets/table.png)
 
-## 2 Components
+## 2つのコンポーネント
 
-A table consist of [rows](#rows), columns, and [cells](#cells).
+テーブルは [行](#rows)、列、 [セル](#cells) で構成されます。
 
-### 2.1 Rows and Their Properties {#rows}
+### 2.1 行とそのプロパティ {#rows}
 
-A table can contain one or more rows. Each row contains columns and the number of columns can differ per row.
+テーブルには 1 つまたは複数の行を含めることができます。 各行に列が含まれており、列の数は行ごとに異なります。
 
-A row has the following properties:
+行には以下のプロパティがあります。
 
-* **Class** – allows you to specify one or more cascading style sheet (CSS) classes
-* **Style** – allows you to specify additional CSS styling
-* **Visible** – allows you to hide an element from a page
+* **クラス** - 複数のカスケードスタイルシート(CSS)クラスを指定できます。
+* **スタイル** - 追加の CSS スタイルを指定できます
+* **Visible** – ページから要素を非表示にすることができます
 
-For more information on properties listed above, see [Properties Common in the Page Editor](common-widget-properties).
+上記のプロパティの詳細については、ページエディターの [プロパティ](common-widget-properties) を参照してください。
 
-### 2.2 Cells and Their Properties {#cells}
+### 2.2 セルとそのプロパティ {#cells}
 
-Each section of a table row or column is called a cell. Cells can contain widgets.
+表行または列の各セクションはセルと呼ばれます。 セルにウィジェットを含めることができます。
 
-A cell has the following properties:
+セルには、次のプロパティがあります。
 
 * **Class** – allows you to specify one or more cascading style sheet (CSS) classes (for more information on this property, see [Properties Common in the Page Editor](common-widget-properties))
 
 * **Style** – allows you to specify additional CSS styling (for more information on this property, see [Properties Common in the Page Editor](common-widget-properties))
 
-* **Cell type** – indicates the type of the cell, the following options are possible:
+* **セルタイプ** - セルの種類を示します。
 
-  * **Normal** – ordinary cell containing data
-  * **Header** – a table header cell
+  * **Normal** – データを含む通常のセル
+  * **ヘッダー** – テーブルヘッダーセル
 
-### 2.3 Performing Actions on Rows
+### 2.3 行に対するアクション
 
-To perform an action on a row , select a row and right-click it. A list of actions will open.
+行上でアクションを実行するには、行を選択して右クリックします。 アクションのリストが開きます。
 
-You can perform the following actions:
+次のアクションを実行できます:
 
-* **Add column left** – creates a column to the left of the selected one
-* **Add column right** – creates a column to the right of the selected one
-* **Move left** – moves a column left in the row
-* **Move right** – moves a column right in the row
+* **左に列を追加** - 選択した列の左に列を作成
+* **列右に追加** - 選択した列の右に列を作成
+* **左に移動** - 行の左に列を移動
+* **右に移動** - 行の右に列を移動
 
-### 2.4 Performing Actions on Columns
+### 2.4 列に対するアクション
 
-To perform an action on a column , select a column and right-click it. A list of actions will open.
+列でアクションを実行するには、列を選択して右クリックします。 アクションのリストが開きます。
 
-You can perform the following actions:
+次のアクションを実行できます:
 
-* **Add row above** – creates a row above the selected one
-* **Add row below** – creates a row below the selected one
-* **Move up** – moves a row up
-* **Move down** – moves a row down
+* **** の上に行を追加 - 選択した行の上に行を作成
+* **下の行を追加** - 選択した行の下に行を作成
+* **上へ移動** - 行を上へ移動
+* **下へ移動** - 行を下へ移動
 
-### 2.5 Performing Actions on Cells
+### 2.5 セルに対するアクション
 
-To perform an action on a cell, select a cell and right-click it. A list of actions will open.
+セル上でアクションを実行するには、セルを選択して右クリックします。 アクションのリストが開きます。
 
-You can perform the following actions:
+次のアクションを実行できます:
 
-* **Add widget** – opens a list of widgets, adds the selected widget to the cell
-* **Add building block** – opens a list of building blocks, adds the selected widget to the cell
-* **Add row above** – creates a row above the selected one
-* **Add row below** – creates a row below the selected one
-* **Add column left** – creates a column to the left of the selected one
-* **Add column right** – creates a column to the right of the selected one
-* **Merge left** – merges a cell to the left of the selected one, you can only merge an empty cell
-* **Merge right** – merges a cell to the right of the selected one, you can only merge an empty cell
-* **Merge up** – merges a cell above the selected one, you can only merge an empty cell
-* **Merge down** – merges a cell below the selected one, you can only merge an empty cell
-* **Unmerge** – turns merged cells into separate ones
-* **Delete row** – deletes the selected row
-* **Delete column** – deletes the selected column
+* **ウィジェットの追加** - ウィジェットのリストを開き、選択したウィジェットをセルに追加
+* **ビルディングブロックの追加** - ビルディングブロックのリストを開き、選択したウィジェットをセルに追加
+* **** の上に行を追加 - 選択した行の上に行を作成
+* **下の行を追加** - 選択した行の下に行を作成
+* **左に列を追加** - 選択した列の左に列を作成
+* **列右に追加** - 選択した列の右に列を作成
+* **左マージ** - 選択したセルの左にセルをマージします。空のセルのみマージできます。
+* **Merge right** – 選択したセルの右側にセルをマージします。空のセルのみマージできます。
+* **Merge up** - 選択したセルの上にセルをマージします。空のセルのみマージできます。
+* **Merge down** – 選択したセルの下にセルをマージします。空のセルのみマージできます。
+* **Unmerge** - 結合されたセルを別々のセルに変換する
+* **行の削除** – 選択した行を削除
+* **列の削除** – 選択した列を削除
 
-To merge cells to the right, left, up, or down, you can also click the corresponding icon:
+セルを右、左、上、下に統合するには、対応するアイコンをクリックすることもできます。
 
-![Merge Icons](attachments/container-widgets/merge-icons.png)
+![アイコンを結合](attachments/container-widgets/merge-icons.png)
 
-## 3 Properties
+## 3つのプロパティ
 
-An example of table properties is represented in the image below:
+以下の図に、テーブルプロパティの例を示します。
 
-{{% image_container width="250" %}}![Table Properties](attachments/container-widgets/table-properties.png)
+{{% image_container width="250" %}}![テーブルのプロパティ](attachments/container-widgets/table-properties.png)
 {{% /image_container %}}
 
-Table properties consist of the following sections:
+表のプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 3.1 Common Section {#common}
+### 3.1 一般的なセクション {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 3.2 Design Properties Section {#design-properties}
+### 3.2 デザインプロパティセクション {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 3.3 General Section {#general}
+### 3.3 一般セクション {#general}
 
 #### 3.3.1 Width Unit
 
-The **Width Unit** defines whether the [Column widths](#column-widths) property is set in percentage or in pixels.
+**幅単位** では、 [列幅](#column-widths) プロパティをパーセントまたはピクセルで設定するかを定義します。
 
-| Value                   | Description                                                                                                                                                     |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Percentage  *(default)* | The **Column widths** property is specified in percentages. When resizing, columns will become wider/narrower while keeping the same relative widths.           |
-| Pixels                  | The **Column widths** property is specified in pixels. When resizing, the pixel width columns will keep the same size; auto columns will become wider/narrower. |
+| 値             | 説明                                                                        |
+| ------------- | ------------------------------------------------------------------------- |
+| 割合  *(デフォルト)* | **列の幅** プロパティはパーセンテージで指定されます。 サイズを変更すると、列は同じ相対的な幅を維持しながら、幅/幅が狭くなります。      |
+| Pixels        | **列 幅** プロパティはピクセル単位で指定されます。 サイズを変更すると、ピクセル幅の列は同じサイズを維持します。自動列は広く/狭くなります。 |
 
-#### 3.3.2 Column Widths {#column-widths}
+#### 3.3.2 列幅 {#column-widths}
 
-The **Column widths** property defines the widths of each column as a list of numbers separated by semi-colons. The **Width unit** (described above) determines if these numbers mean percentages or pixels.
+**列の幅** プロパティは、各列の幅を、セミコロンで区切られた数値のリストとして定義します。 **Width unit** (上記) は、これらの数値がパーセンテージまたはピクセルを意味するかどうかを決定します。
 
-![Width Unit and Column Widths](attachments/container-widgets/width-unit-and-column-widths.png)
+![幅の単位と列の幅](attachments/container-widgets/width-unit-and-column-widths.png)
 
-When **Width unit** is set to *Pixels*, you can set column width to the following:
+幅の単位 **を** に *ピクセル*に設定すると、列の幅を以下に設定できます:
 
-* **Auto** – columns are evenly divided in the available space of the row
-* **Fixed** – columns have a specified pixel value
+* **Auto** - 列は行の利用可能なスペースで均等に分割されています
+* **Fixed** - 列が指定されたピクセル値を持っています
 
 For example, you can you can have three columns of which the first is 200 pixels wide (*Fixed* width), the second is 100 pixels (*Fixed* width), and the last one is set to *Auto* which means that it will take up the rest of the space in the row.
 
-### 3.4 Visibility Section {#visibility}
+### 3.4 表示セクション {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
 
 
