@@ -1,159 +1,159 @@
 ---
-title: "Data Hub Pane"
-parent: view-menu
+title: "データハブペイン"
+parent: 表示メニュー
 menu_order: 15
-description: "Describes the Data Hub pane in Mendix Studio Pro."
+description: "Mendix Studio Proのデータハブペインについて説明します。"
 tags:
   - "studio Pro"
-  - "data hub"
-  - "data hub pane"
-  - "data hub catalog"
+  - "データハブ"
+  - "データハブペイン"
+  - "データハブカタログ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-[Mendix Data Hub](/data-hub/) enables integration of available data sources from the different applications in an organization into your Mendix apps. This means that new apps can be created using shared datasets that are registered in the [Data Hub Catalog](/data-hub/data-hub-catalog/). In Studio Pro, this is possible using the integrated functionality of Data Hub Catalog through the **Data Hub** pane.
+[Mendix Data Hub](/data-hub/) を使用すると、組織内のさまざまなアプリケーションから利用可能なデータソースを Mendix アプリに統合できます。 これは、 [Data Hub Catalog](/data-hub/data-hub-catalog/) に登録されている共有データセットを使用して新しいアプリケーションを作成できることを意味します。 Studio Pro では、 **Data Hub** ペインを通じて、Data Hub Catalog の統合機能を使用できます。
 
 {{% alert type="info" %}}
-You need a license to use Data Hub in Studio Pro. For further information see [Data Hub License](consumed-odata-service-requirements#license-limitations).
+Studio Pro で Data Hub を使用するには、ライセンスが必要です。 詳細については、 [Data Hub License](consumed-odata-service-requirements#license-limitations) を参照してください。
 {{% /alert %}}
 
-You can search in the Data Hub Catalog through the **Data Hub** pane to discover data sources that you can use in your app. Via this pane you can add the entities that are exposed in the registered OData services—called **Data Sources** in Data Hub—into your app's domain model. These entities are called [external entities](external-entities) and are different because they enable the connection to the data associated with the entities in the originating app.
+[ **Data Hub** ] ペインからデータハブカタログを検索して、アプリで使用できるデータソースを検出できます。 このペインを使用すると、データハブの **データ ソース** と呼ばれる登録済みの OData サービスに公開されているエンティティをアプリケーションのドメイン モデルに追加できます。 これらのエンティティは [外部エンティティ](external-entities) と呼ばれ、元のアプリでエンティティに関連付けられているデータへの接続を有効にするために異なります。
 
 {{% alert type="info" %}}
 In the Data Hub Catalog, registered published services are referred to as *data sources* and exposed entities will show the **Entity set** name and are called *datasets.*
 {{% /alert %}}
 
-To display the **Data Hub** pane, click **View** > **Data Hub**:
+**Data Hub** ペインを表示するには、 **View** > **Data Hub**:
 
 {{% image_container width="300" %}}![data-hub-pane](attachments/data-hub-pane/data-hub-pane-empty.png){{% /image_container %}}
 
-## 2 Data Hub Pane in the Domain Model
+## 2領域モデルのデータハブペイン
 
-The Data Hub pane is used to search the Data Hub Catalog for entities that can be dragged and used in your app and also display the external entities and the associated services that are consumed in your current model
+データハブペインは、アプリでドラッグして使用できるエンティティと、現在のモデルで消費されている外部エンティティと関連するサービスを表示するためにデータハブカタログを検索するために使用されます。
 
-### 2.1 Data Hub Search
+### 2.1 データハブ検索
 
 {{% image_container width="300" %}}![](attachments/data-hub-pane/data-hub-pane.png){{% /image_container %}}
 
-The following functionality is available in the pane:
+ペインでは、次の機能を使用できます。
 
-* [Search](#search) – Enter a search string of alphanumeric characters to search in the Data Hub Catalog. The search will be performed on services, entities, attributes, associations, and descriptions in the Catalog.
+* [検索](#search) – データハブカタログで検索する英数字の検索文字列を入力します。 検索は、カタログのサービス、エンティティ、属性、関連付け、および説明で実行されます。
 
-* [Filter](#search) – By default, the search will be performed on assets in the **Production** environment. Click the **Filter** icon to include all other environments such as test, acceptance and also the Mendix free app environment **Sandbox** in the search.
+* [フィルター](#search) – デフォルトでは、 **プロダクション** 環境のアセットに対して検索が実行されます。 Click the **Filter** icon to include all other environments such as test, acceptance and also the Mendix free app environment **Sandbox** in the search.
 
-* [Search results](#viewing) – The search results will show all the assets in the catalog that satisfy the search string. For each "hit" the information this is displayed includes the service name, service version, environment that the service was deployed to, and the assets matching the search string. If attributes or associations satisfy the search criteria, they will be displayed. You can drag the entity from the search results into your domain model and it will be displayed as an [external entity](external-entities):
+* [検索結果](#viewing) – 検索結果は、検索文字列を満たすカタログ内のすべてのアセットを表示します。 「ヒット」ごとに表示される情報には、サービス名、サービスのバージョンが含まれます。 サービスがデプロイされた環境と、検索文字列に一致するアセット。 検索条件を満たす属性または関連性があれば、それらが表示されます。 検索結果からドメインモデルにエンティティをドラッグすると、 [外部エンティティ](external-entities)として表示されます。
 
   ![](attachments/data-hub-pane/external-entities-in-domain-model.png)
 
-  Services and the entities that are currently being used in the current domain model are indicated with a green check-mark in the search results.
+  現在のドメインモデルで使用されているサービスとエンティティは、検索結果に緑色のチェックマークが表示されます。
 
-### 2.2 Data Hub App Pane
+### 2.2 データハブアプリペイン
 
-When no search string has been specified in the **Data Hub** pane, the **App** section is displayed. This shows the consumed services and the external entities used in the current project. The list of entities, associations and attributes for the consumed services are shown as for the search results:
+**Data Hub** ペインで検索文字列が指定されていない場合、 **App** セクションが表示されます。 これは、現在のプロジェクトで使用されている使用済みサービスと外部エンティティを示します。 使用したサービスのエンティティ、関連付け、属性のリストは、検索結果として表示されます。
 
 {{% image_container width="300" %}}![Project Section](attachments/data-hub-pane/project-section.png){{% /image_container %}}
 
-To add entities to your app model, see [Adding an External Entity to a Project](external-entities#adding-external-entities).
+アプリモデルにエンティティを追加するには、 [プロジェクトへの外部エンティティの追加](external-entities#adding-external-entities) を参照してください。
 
-## 3 Searching the Data Hub Catalog {#search}
+## 3 データハブカタログの検索 {#search}
 
-As you enter a search term, all the items in the Data Hub Catalog satisfying the search string are listed in the search results. This will include words in the service, entity and attribute descriptions which are not displayed in the the Data Hub pane. For further information see the [Data Hub Catalog asset details](/data-hub/data-hub-catalog/search#search-details).
+検索語句を入力すると、検索文字列を満たす[Data Hub Catalog]内のすべての項目が検索結果に表示されます。 これには、サービス内の単語、エンティティ、データハブペインに表示されない属性説明が含まれます。 詳細については、 [Data Hub Catalog asset details](/data-hub/data-hub-catalog/search#search-details) を参照してください。
 
-{{% alert type="info" %}}Services that are set to **not-Discoverable** in the Catalog will not be included in the search results for *any* user including owners of the service. To consume entities from these services owners must ensure that they are [Discoverable](/data-hub/data-hub-catalog/curate#discoverability).{{% /alert %}}
+{{% alert type="info" %}}カタログで **not-Discoverable** に設定されているサービスは、 *サービスの所有者を含む* ユーザーの検索結果には含まれません。 これらのサービス所有者からエンティティを消費するには、彼らが [Discoverable](/data-hub/data-hub-catalog/curate#discoverability).{{% /alert %}} であることを確認する必要があります。
 
-### 3.1 Wildcard Search
-You can perform a wildcard search by entering `*` in the search area.
+### 3.1 ワイルドカード検索
+検索エリアに `*` と入力することでワイルドカード検索ができます。
 
 {{% alert type="info" %}}
-The search strings must be a minimum of 3 alphanumeric characters. Punctuation cannot be used as part of the search term except for the wildcard character `*` to perform an "empty" search in the Data Hub Catalog. You cannot use the wildcard in combination with other characters. For further details, see [How to Search for Registered Assets](/data-hub/data-hub-catalog/search).
+検索文字列は英数字3文字以上でなければなりません。 検索語句はワイルドカード文字 `*` データハブカタログで「空」検索を実行する場合を除き、検索語句の一部として使用できません。 他の文字と組み合わせてワイルドカードを使用することはできません。 詳細については、 [登録資産を検索する方法](/data-hub/data-hub-catalog/search) を参照してください。
 {{% /alert %}}
 
-### 3.2 Service Environments
+### 3.2 サービス環境
 By default, the search will be performed on assets in the **Production** environment. To include all other environments such as test, acceptance, and also the Mendix free app environment, **Sandbox** in the search, click the **Filter** icon and check **Show development environments**:
 
 {{% image_container width="300" %}}![Filter Icon](attachments/data-hub-pane/filter-icon.png){{% /image_container %}}
 
 {{% alert type="info" %}}
-When the **Show development environments** is checked, all subsequent searches results will also include those in non-production environments.
+**開発環境を表示** にチェックが入っている場合、以降の検索結果はすべて非本番環境でも表示されます。
 {{% /alert %}}
 
-## 4 Information in Search Results and App Pane {#viewing}
+## 検索結果とアプリペインに表示される4つの情報 {#viewing}
 
-The search results show all the hits for the specified search string and environments. For further information on search results from the Data Hub Catalog, see [Search Results](/data-hub/data-hub-catalog/search#search-results).
+検索結果には、指定された検索文字列と環境のすべてのヒットが表示されます。 データハブカタログからの検索結果の詳細については、 [検索結果](/data-hub/data-hub-catalog/search#search-results) を参照してください。
 
-For each hit the following information is displayed.
+ヒットごとに、次の情報が表示されます。
 
-### 4.1 Services
+### 4.1 サービス
 
-The search results and **Project** pane will show the following at a service level:
+検索結果と **プロジェクト** ペインには、次のようなものがサービスレベルに表示されます。
 
-* **Service name**
+* **サービス名**
 
-*  **Application icon** for the service (for example, Mendix, SAP, Siemens Teamcenter, or as shown in the screenshots above, custom icons)
+*  **サービスのアプリケーション アイコン** (例えば、Mendix、SAP、Siemens Teamcenter、または上のスクリーンショット、カスタムアイコンに表示されているように)
 
-* **Service version**
+* **サービスのバージョン**
 
-*  **Environment name** for non-production environments
+*  **非生産環境の環境名**
 
-    {{% alert type="info" %}}Only the names of non-production environments are displayed. Services in the **Production** will not show an environment name. {{% /alert %}}
+    {{% alert type="info" %}}非本番環境の名前のみが表示されます。 **Production** のサービスには環境名は表示されません。 {{% /alert %}}
 
-* **Green check-mark** if the service or entity is consumed in the app. If you right-click a consumed service, you can do the following:
+* **アプリ内でサービスまたはエンティティが消費されている場合、緑色のチェックマーク**。 使用中のサービスを右クリックすると、次の操作ができます。
 
   {{% image_container width="250" %}}![info on a Service](attachments/data-hub-pane/data-hub-pane-menu.png){{% /image_container %}}
 
-  * **View in Data Hub Catalog** – click this to go to the **Data Source Details** page in the Data Hub Catalog
-  * **Go to connection settings** – click this to open the [consumed OData service](consumed-odata-service) document
+  * **View in Data Hub Catalog** – クリックすると **Data Source Details** ページに移動します
+  * **接続設定に移動** - これをクリックして [OData サービスを使用](consumed-odata-service) ドキュメントを開きます
 
-* **Blue** **Update Service** icon to indicate that there is another version of the consumed service available in the Data Hub. Click to update the service that is consumed in the app to the contract that is now available:
+* **Blue** **Update Service** アイコンは、Data Hub で利用可能な消費されたサービスの別のバージョンがあることを示します。 クリックして、アプリで使用されているサービスを、現在利用可能な限月に更新します。
 
     {{% image_container width="250" %}}![Data Hub Pane update](attachments/data-hub-pane/project-pane-update-available.png){{% /image_container %}}
 
-    {{% alert type="info" %}}If there is an OData Service update available, then the entities that are listed are those that are available in that version of the OData service. These entities will be "grayed-out" to indicate that they cannot be dragged into the domain model, as the *current* contract that is consumed in the app does not have these entities. You must update the contract to the version shown in the search results by clicking the **Update** arrow. {{% /alert %}}
+    {{% alert type="info" %}}OData Service の更新が利用可能な場合。 リストされているエンティティは、そのバージョンの OData サービスで利用可能なエンティティです。 これらのエンティティは、ドメインモデルにドラッグすることができないことを示すために「グレーアウト」になります。 アプリで消費される *現在の* コントラクトにはこれらのエンティティがないため。 **Update** arrowをクリックして、検索結果に表示されるバージョンにコントラクトを更新する必要があります。 {{% /alert %}}
 
   {{% alert type="info" %}}The version number that is shown for the OData service is the latest one that is available in the Data Hub Catalog at the service endpoint—in the example above version 1.0.0 of **BikeVehicleService** is currently consumed in the app, but the contract that is available in the Catalog is different to the one currently consumed.{{% /alert %}}
 
-* **Information icon** to view further details for the service and a link to go directly to the [Service Details](/data-hub/data-hub-catalog/search#search-details) screen in the Data Hub Catalog:
+* **情報アイコン** は、サービスの詳細とデータハブカタログの [サービス詳細](/data-hub/data-hub-catalog/search#search-details) 画面に直接移動するリンクを表示します。
 
   {{% image_container width="250" %}}![Data Hub Pane Information](attachments/data-hub-pane/data-hub-pane-info.png){{% /image_container %}}
 
-### 4.2 Entities, Attributes, and Associations {#association-attributes}
+### 4.2 エンティティ、属性、および関連 {#association-attributes}
 
-Entities, attributes and associations that satisfy the search string are listed in the search results.
+検索文字列を満たすエンティティ、属性、関連性が検索結果に表示されます。
 
-For any service in the list, you can click **:Show details** to see the full list of the exposed entities and the associations and attributes for that service.
+リスト内の任意のサービスに対応 **:詳細を表示する** をクリックすると、公開されたエンティティとそのサービスの関連付けと属性の完全なリストが表示されます。
 
-{{% alert type="info" %}}The associations and attributes that are not supported in your Mendix model are shown as non-selectable (gray) and will not be included when you drag them into the domain model.{{% /alert %}}
+{{% alert type="info" %}}Mendixモデルでサポートされていない関連付けと属性は選択できない(グレー)として表示され、ドメインモデルにドラッグすると含まれません。 {% /alert %}}
 
 {{% image_container width="250" %}}![Data Hub Pane Information](attachments/data-hub-pane/expand-service-list.png){{% /image_container %}}
 
-### 4.2.1 Entity
+### 4.2.1 エンティティ
 
 If you right-click an entity and select **View in Data Hub Catalog**, it will take you to the entity details page in the [Data Hub Catalog](/data-hub/data-hub-catalog/).
 
-If you right-click a consumed entity and **Go to entity**, it will take you to the entity in the domain model.
+消費されたエンティティを右クリックして **エンティティ**に移動すると、ドメインモデル内のエンティティに移動します。
 
-### 4.2.2 Associations
+### 4.2.2 関連
 
-The associations that are exposed in the services are listed before attributes in alphabetical order. You can click on the **+** to see the entity that the association is with.
+サービスに公開されている関連は、属性の前にアルファベット順にリストされています。 **+** をクリックすると、関連付けられているエンティティが表示されます。
 
-**Mulitiple association**s between the same entities are shown before single associations.
+**同一エンティティ間の多重関連**sは単一の関連付けの前に表示される。
 
-In the following example the entity **Customer** has multiple associations with the entity **Order** however, these associations are not supported and cannot be used in your model"
+次の例では、エンティティ **顧客** はエンティティと複数の関連を持っています。 **注文** これらの関連付けはサポートされておらず、モデルでは使用できません」
 
 {{% image_container width="250" %}}![multiple associations](attachments/data-hub-pane/multiple-assocs.png){{% /image_container %}}
 
-### 4.2.3 Attributes
+### 4.2.3 属性
 
-Attributes for a service are listed in alphabetical order. If you right-click an attribute of a consumed entity and **Go to attribute**, it will take you to the attribute in the domain model.
+サービスの属性はアルファベット順に表示されます。 使用されたエンティティの属性を右クリックし、 **属性に移動**、 ドメインモデルの属性に移動します
 
-In the above example, there are two attributes, **Addresses** and **FavoriteColors** which are not supported and therefore will not be included in your model:
+上の例では、2つの属性があります。 **アドレス** および **お気に入り** はサポートされていないため、モデルには含まれません。
 
 {{% image_container width="300" %}}![multiple associations](attachments/data-hub-pane/unsupported-attributes.png){{% /image_container %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [Data Hub Catalog](/data-hub/data-hub-catalog)
-* [External Entities](external-entities)
-* [Consumed OData Service](consumed-odata-service)
-* [How to Consume Registered Assets](/data-hub/data-hub-catalog/consume)
+* [データハブカタログ](/data-hub/data-hub-catalog)
+* [外部エンティティ](external-entities)
+* [消費されたODataサービス](consumed-odata-service)
+* [登録資産を消費する方法](/data-hub/data-hub-catalog/consume)
