@@ -9,12 +9,11 @@ tags:
   - "origin"
   - "domain"
   - "access"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-The CORS settings feature was introduced in Mendix version 7.18.0.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/cors-settings.pdf).
 {{% /alert %}}
 
 ## 1 Introduction
