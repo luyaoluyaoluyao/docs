@@ -1,11 +1,17 @@
 ---
 title: "XPath 演算子"
 parent: "xpath-constraints"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-operators.pdf) をクリックしてください。
+{{% /alert %}}
 
 ## 1 XPath クエリ制約の場合
 
-以下の演算子は、モデラーと Java コードの両方で XPath クエリ制約内で使用することができます。
+以下の演算子は、Studio Pro および Java コード内の XPath クエリ制約内で使用することができます。
 
 | 演算子     | 説明    | 例                              | 戻り値                                                                                         |
 | ------- | ----- | ------------------------------ | ------------------------------------------------------------------------------------------- |
