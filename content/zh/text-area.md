@@ -1,151 +1,147 @@
 ---
-title: "Text Area"
-parent: "input-widgets"
+title: "文本区域"
+parent: "输入小部件"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/text-area.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+一个 **文本区域** 用于显示并且可选的。 允许最终用户编辑 [数据类型](data-types) *字符串* 的属性值。 它不同于 [文本框](text-box) ，因为值可以显示在几行上。
 
-A **text area** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *String*. It differs from a [text box](text-box) In that the value can be displayed over several lines.
-
-A text area must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the text area, between square brackets, and colored blue.
+文本区域必须放置在 [数据部件](data-widgets) 中，并显示从该部件检索到的对象的属性。 要显示的属性名称显示在文本区域中，方括号和彩色蓝色。
 
 For example, the following text area allows the end-user to see, and set, the **Notes** about a contact.
 
 ![](attachments/text-area/text-area.png)
 
-## 2 Properties
+## 2 属性
 
-An example of text area properties is represented in the image below:
+下面的图像是文本区域属性的示例：
 
 {{% image_container width="250" %}}![](attachments/text-area/text-area-properties.png)
 {{% /image_container %}}
 
-Text area properties consist of the following sections:
+文本区域属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [编辑性](#editability)
+* [事件](#events)
+* [A. 概况](#general)
+* [标签](#label)
+* [验证](#validation)
+* [可见性](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 数据源部分{#data-source}
 
-{{% snippet file="refguide8/data-source-section-link.md" %}}
+{{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 设计属性部分{#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 可编辑性部分{#editability}
 
-{{% snippet file="refguide8/editability-section-link.md" %}}
+{{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 事件部分{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 更改时{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.2 On Enter
+#### 2.5.2 输入时
 
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+输入小部件时指定了一个执行的动作。 要么使用 <kbd>Tab</kbd> 键，要么用鼠标点击它。
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 2.5.3 请假
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+请假属性指定了离开部件时要执行的动作， 要么使用 <kbd>Tab</kbd> 键，要么点击另一个部件。
 
 This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
 
-{{% snippet file="refguide8/events-section-link.md" %}}
+{{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 General Section{#general}
+### 2.6 一般部分{#general}
 
-#### 2.6.1 Grow Automatically
+#### 2.6.1 自动扩展
 
-{{% alert type="info" %}}The grow automatically property does not impact the behavior of native mobile pages. On iOS, the text area will always grow automatically
-{{% /alert %}}
+●{% alert type="info" %}}增长自动属性不影响本机移动页面的行为。 在 iOSS 上，文本区域总是自动增长
+{{% /报警 %}}
 
-This property defines whether the text area grows automatically depending on the amount of text in it.
+这个属性决定了文本区域是否自动增长取决于其中的文本数量。
 
-Default: *No*
+默认： *否*
 
-#### 2.6.2 Number of Lines
+#### 2.6.2 线数
 
-**Number of lines** determines the size of the text area, based on the height of the lines. If the text in the text area contains more lines, a scrollbar will enable the end-user to see it all. This property is only used if **Grow automatically** is set to *No*.
+**行数** 根据行高度决定文本区域的大小。 如果文本区域的文本包含更多行，滚动条将使最终用户能够看到所有文本。 此属性仅在 **自动增加** 设置为 *没有* 时才使用。
 
-Default: *5*
+默认： *5*
 
-#### 2.6.3 Counter Message
+#### 2.6.3 计数器信息
 
 {{% alert type="info" %}}Counter message is not supported on native mobile pages.{{% /alert %}}
 
-This is the text displayed when typing in the text area. This text has two [parameters](text#parameters). The first parameter contains the number of characters already typed and the second parameter contains the maximum number of characters.
+这是在文本区域输入时显示的文本。 此文本有两个 [参数](text#parameters)。 第一个参数包含已经输入的字符数，第二个参数包含最大字符数。
 
-For example, if you use the counter message `You've used {1} characters of the {2} characters that are allowed.` for your text area, the end-user will see this message displayed below the text area widget:
+例如，如果您使用的是计数器消息 `您已经使用了 {1} 个字符的 {2} 个字符。` 对于您的文本区域，最终用户将看到此消息显示在文本区域小部件下方：
 
 ![](attachments/text-area/counter-message.png)
 
-#### 2.6.4 Text Too Long Message
+#### 2.6.4 案文太长的信息
 
 {{% alert type="info" %}}Text too long message is not supported on native mobile pages.{{% /alert %}}
 
-This is the text displayed when the number of typed characters is higher than the maximum allowed number of characters.
+当输入的字符数高于允许的最大字符数时，这是显示的文本。
 
-#### 2.6.5 Maximum Length
+#### 2.6.5 最大长度
 
-This property specifies the maximum number of characters that can be typed in this text area.
+此属性指定了可以在此文本区域输入的最大字符数。
 
-| Value                        | Description                                                                                   |
-| ---------------------------- | --------------------------------------------------------------------------------------------- |
-| Attribute length *(default)* | The maximum number of characters is the same as the maximum length of the connected attribute |
-| Unlimited                    | The maximum number of characters is unlimited                                                 |
-| Custom                       | The maximum number of characters is specified in the widget properties                        |
+| 值           | 描述                |
+| ----------- | ----------------- |
+| 属性长度 *(默认)* | 最大字符数与连接属性的最大长度相同 |
+| 无限制         | 最大字符数是无限的         |
+| 自定义         | 小部件属性中指定的最大字符数    |
 
-#### 2.6.6 Placeholder Text
+#### 2.6.6 占位符文本
 
-The placeholder text is shown when no text has been entered yet, or when a displayed attribute is empty.
+当没有输入文本或显示属性为空时，将显示占位符文本。
 
-It can be used, for example, to give a hint to the end-user what kind of text should be entered.
+例如，它可以用来向最终用户说明应填写何种案文。
 
-#### 2.6.7 Autocomplete
+#### 2.6.7 自动完成
 
-The autocomplete property specifies if a text area should have autocomplete enabled. The autocomplete attribute also improves mobile devices' ability to pre-populate fields.
+自动完成属性指定文本区域是否启用自动完成。 自动完成属性也提高了移动设备预填空域的能力。
 
-{{% alert type="info" %}}This option is only available in native pages.{{% /alert %}}
+●{% alert type="info" %}}此选项仅在本机页面中可用。{%/提醒 %}}
 {{% alert type="info" %}}In Android when autocomplete is turned off it will remove support for new lines.{{% /alert %}}
 
-### 2.8 Label Section{#label}
+### 2.7 标签部分{#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.8 Validation Section{#validation}
+### 2.8 验证部分{#validation}
 
-{{% snippet file="refguide8/widget-validation-link.md" %}}
+{{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+### 2.9 可见性部分{#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-*   [Data view](data-view)
-*   [Attributes](attributes)
+*   [数据视图](data-view)
+*   [属性](attributes)
