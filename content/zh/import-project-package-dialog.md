@@ -1,66 +1,63 @@
 ---
-title: "Import App Package"
-parent: "file-menu"
-menu_order: 40
-description: "Describes the Import App Package process and Import App Package dialog box."
-tags:
-  - "studio pro"
-  - "import app package"
+title: "Import Project Package"
+parent: "dialogs"
 ---
 
 ## 1 Introduction
 
-To create a new app from a Mendix app package (*.mpk*) file, you need to import an app package. The new app can either be stored in a version control server or locally on disk.
+To create a new app from a Mendix project package (*.mpk*) file, you need to import an app package. The new app can either be stored in a version control server or locally on disk.
 
-To import an app package, do the following:
+To open this dialog box,  go to **File > Import App Package**, browse to the *.mpk* file, and then open it.
 
-1. Select the **File** menu in the top bar > **Import App Package**
-
-2. Browse to the *.mpk* file you would like to import.
-
-3.  Select the relevant options in the **Import App Package** dialog box and click **OK**. For more information on what options you can select, see the sections below.
-
-    ![Import App Package Dialog Window](attachments/file-menu/import-project-package.png)
-
-App packages can be created using [Export App Package](export-project-package-dialog).
+![](attachments/import-project-package-dialog/import-project-package.png)
 
 ## 2 Where Should We Store Your App?
 
-Use this setting to select the location where you want to store your app. This can be the [Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
+Use this setting to select the location where you want to store your app. This can be the [Mendix Team Server](#team-server), a [private server](#private-server) (an SVN server other than the Team Server), or a [local disk](#local).
 
 ### 2.1 Mendix Team Server {#team-server}
 
-When uploading the app to the Team Server, you can choose between creating a new repository, or uploading to an existing one.
+When uploading the app to the Mendix Team Server, you can choose between creating a new repository or uploading to an existing one.
 
 #### 2.1.1 New Mendix Team Server
 
-If you select to store your app in a new Mendix Team Server, a new Team Server app will be created. You need to enter the name for the new Team Server app and repository in the **App name** field.
+If you select this option, a new Team Server repository will be created to store the app. You need to enter the name for the new Team Server app and repository in the **App name** field.
 
 #### 2.1.2 Existing Mendix Team Server
 
-If you want to use an existing repository, select the app in the **Team Server App** option. Note that this works only when the existing repository is empty.
-
-For more information about the Mendix Team Server, see [Team Server](/developerportal/collaborate/team-server).
-
-### 2.2 Private Server {#private-server}
+If you select this option, the app will be uploaded to an existing Team Server repository. You need to select the repository in the **Team Server App** drop-down list.
 
 {{% alert type="info" %}}
 
-The **Private server** option is only available when support for other SVN servers is enabled: **Edit** >**Preferences** > **Version Control** > **Enable private version control**.
+This only works when the existing repository is empty.
 
 {{% /alert %}}
 
-In the **App repository address** field, enter the address of the repository you want to upload your app to.
+### 2.2 Private Server {#private-server}
+
+If you select this option, the app will be stored on a private server. You need to enter the **App repository address** to which you want to upload your app.
+
+{{% alert type="info" %}}
+
+This option is only available when support for other servers is enabled in the [Preferences](preferences-dialog#enabled) dialog box.
+
+{{% /alert %}}
 
 ### 2.3 Locally on Disk {#local}
 
-Select this option if you don't need to upload the new app to a version control server. In this case it will only be stored on the local disk of the computer that's running Studio Pro.
+If you select this option, the app will be stored on the local disk of the computer that is running Desktop Modeler.
 
-## 3 App Directory
+{{% alert type="info" %}}
 
-Use this field to choose the directory where the app files of the app will be stored. If the version control is enabled, the suggested name ends with *-main* to indicate this will be the main development line of the app.
+Select this option if you do not need to upload the new app to a version control server.
+
+{{% /alert %}}
+
+## 3 Disk Location
+
+In the **Project directory** field, specify the directory where the project files of the app will be stored. If version control is enabled, the suggested name includes ends with **-main** to indicate this will be the main development line of the app.
 
 ## 4 Read More
 
-* [Team Server](/developerportal/collaborate/team-server)
-* [Export App Package](export-project-package-dialog)
+* [Export Project Package](export-project-package-dialog)
+
