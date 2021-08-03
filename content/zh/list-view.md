@@ -1,98 +1,59 @@
 ---
 title: "列表视图"
 parent: "数据部件"
-menu_order: 40
-tags:
-  - "studio pro"
 ---
 
-## 1 导言
 
-列表视图显示对象列表。 例如，您可以显示所有配置文件列表：
+列表视图类似于模板网格。 列表视图显示垂直排列的对象列表。 每个对象都使用模板显示。 开发过程中，对象模板是通过在列表视图的拖放区域中放置一个小部件来定义的。 显示的对象列表由数据源决定。
 
-![](attachments/data-widgets/list-view-example-profile.png)
+{{% alert type="info" %}}
 
-每个对象都使用模板显示。 此模板是通过在列表视图的下拉区域中放置小部件定义的。 显示的对象列表是由 [数据源](#data-source) 决定的。
+![](attachments/pages/list-view.png) 显示所有配置文件的只读列表视图。
 
-## 2 属性
+{{% /报警 %}}
 
-列表视图属性的示例在下面的图像中显示：
+## 共同属性
 
-{{% image_container width="250" %}}![](attachments/data-widgets/list-view-properties.png)
-{{% /image_container %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-列表视图属性由以下部分组成：
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-* [常用的](#common)
-* [数据源](#data-source)
-* [设计属性](#design-properties)
-* [A. 概况](#general)
-* [模板](#templates)
-* [可见性](#visibility)
+{{% snippet file="refguide7/Style+Property.md" %}}
 
-### 2.1 共同部分 {#common}
+## 常规属性
 
-{{% snippet file="refguide/common-section-link.md" %}}
+### 可编辑
 
-### 2.2. 数据源部分 {#data-source}
+如果此属性被设置为“是”，列表视图中的项目可以被编辑。 对列表视图项目所作的更改可以通过保存按钮保存并使用取消按钮还原。 搜索和分页被禁用，以避免在保存或还原的更改上出现混乱。
+
+### 单击操作
+
+点击操作定义列表视图“点击”时执行的操作。 这可以打开一个页面或调用微流程。 打开页面请参阅 [打开页面](opening-pages) ，微流程设置请查看 [启动微流程](starting-microflows)。 列表视图没有确认或高级微流设置。
+
+### 页面大小
+
+使用此属性您可以更改将显示在一个页面中的容器数量。 当列表视图可以编辑时，您不能设置此属性。
+
+## 数据源属性
 
 数据源决定在列表视图中显示哪些对象。 关于数据源的一般信息，请参阅 [数据源](data-sources)。
 
-#### 2.2.1 Type
+### 类型
 
-列表视图支持以下类型的数据源：
+列表视图支持以下类型的数据源：数据库源、XPath 源、关联源和微流程源。 数据库和 XPath 源从数据库中检索对象并支持搜索和排序。 数据库源也可以在 [离线](offline) 应用程序中使用。 关联源从所附数据视图中跟踪一个社团才能到达物体。 最后，微流源通过执行微流来计算对象列表。
 
-* [数据库源](database-source) - 直接检索对象组成数据库。 数据库源可以在 [离线](offline-first) 应用程序中使用。
-* [XPath 源](xpath-source) - 直接从数据库中检索对象
-* [微流程源](microflow-source) - 通过执行微流程计算对象列表
-* [Nanoflow 源](nanoflow-source) — — 通过执行 nanoflow 计算对象列表
-* [关联源](association-source) - 关注一个协会来到对象
+### 其他属性
 
-数据库和 XPath 源从数据库中检索对象并支持搜索和排序。
+查看其属性的相应数据源：
 
-{{% alert type="warning" %}}Searching is not supported on native mobile pages.{{% /alert %}}
+*   [数据库源](database-source)
+*   [XPath 源](xpath-source)
+*   [微流程源](microflow-source)
+*   [关联源](association-source)
 
-### 2.3 设计属性部分{#design-properties}
+## 模板属性
 
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.4 一般部分 {#general}
-
-#### 2.4.1 可编辑
-
-如果此属性设置为 *是*，列表视图中的项目可以被编辑。 对列表视图项目所作的更改可以通过 **保存** 按钮保存并使用 **取消** 按钮还原。 **点击** and **页面大小** 将不会显示为避免在保存或还原的更改方面出现混乱。
-
-#### 2.4.2 点击时
-
-点击事件定义了用户点击列表视图行时执行的动作。 关于点击事件的更多信息，见 [点击事件](on-click-event)。
-
-#### 2.4.3 页大小 {#page-size}
-
-页面上显示的行数；达到指定的上限后， **加载更多...** 按钮将显示在页面上。
-
-{{% alert type="info" %}}The **Load more** button is not visible on native mobile pages. 当显示当前加载的最后一个项目时，列表视图将自动加载新项目。{{%/提醒 %}}
-
-#### 2.4.4 滚动方向
-
-●{% alert type="info" %}}只在本机移动页面上支持滚动方向属性。{%/提醒 %}}
-
-此属性决定列表视图是垂直(默认)或水平显示其项目。
-
-#### 2.4.5 栏数
-
-●{% alert type="info" %}}。只在本机移动页面上支持列属性。{%/提醒 %}}
-
-有了这个属性，你可以更改彼此以一行显示的条目数量。 如果您将滚动方向属性设置为水平，这个属性决定每列的项目数量。
-
-#### 2.4.6 下一步行动
-
-●{% alert type="info" %}}。只在本机移动页面上支持列属性。{%/提醒 %}}
-
-下拉动操作定义了在列表视图上向下拖动时执行的操作。 它的常见行为是通过同步数据更新列表视图的内容。
-
-### 2.5 模板部分 {#templates}
-
-原生移动页面不支持{% alert type="warning" %}}模板。{{%/提醒 %}}
+### 模板
 
 如果连接到列表视图的实体有专业化，您可以为每个专业指定模板。 列表中每行显示最特定的模板。 可以通过单击添加专业化模板时出现的额外页眉来选择不同的模板。
 
@@ -104,21 +65,8 @@ tags:
 
 {{% /报警 %}}
 
-### 2.6 可见性科 {#visibility}
+## 可见性属性
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-## 3 执行特定操作
-
-要在列表视图中执行操作，请在页面上选择并右键单击它。 可能的动作列表已打开。 此列表中的一些动作，例如 **选择数据源**, **编辑可见条件**这是设置属性的快速方式，下面是您可以执行的特定动作：
-
-* **转到实体** — 打开一个域模型并突出显示一个实体被用作数据源
-* **转到数据源** **microflow **-这个动作仅在微流程设置为数据源并打开这个微流程时显示
-* **转到数据源 nanoflow** - 这个动作仅在将nanoflow 设置为数据源并打开这个nanoflow 时显示
-
-## 4 阅读更多
-
-* [页](page)
-* [数据部件](data-widgets)
-* [数据源](数据来源)
-* [页面编辑器中常见的属性](common-widget-properties)
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
