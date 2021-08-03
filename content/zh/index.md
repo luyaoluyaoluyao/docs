@@ -1,53 +1,28 @@
 ---
-title: "Studio Pro 9 Guide"
-description: "The various sections of the Mendix Studio Pro Guide provide details on the features and functionality of the Mendix Platform."
+title: "市场指南"
+description: "介绍关于配置和使用平台支持组件的最新版本的文档。"
 tags:
-  - "studio pro"
+  - "市场"
+  - "组件"
+  - "平台支持"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The *Mendix Studio Pro 9 Guide* covers important topics concerning [Studio Pro](modeling), the [Mendix Runtime](runtime), and other components of the Mendix Platform.
+Mendix Studio Pro and Studio 包含许多核心的外部小部件，如数据网格和代码片段。 如果您想要使用更多的小部件和模块来扩展您的应用程序(例如， [忘记密码模块](https://marketplace.mendix.com/link/component/1296/))，简单的图表， 一个 [Excel 导入器](https://marketplace.mendix.com/link/component/1296/)和其他功能，您需要从 [Mendix Marketplace](https://marketplace.mendix.com/) 添加内容。 该市场包含由Mendix 以及我们的合作伙伴和社区创建的许多有用和可复用的小部件和模块。
 
-Before installing Studio Pro 9, please read [System Requirements](system-requirements). For information on how to install Studio Pro, see [How to Install Mendix Studio Pro](/howto/general/install).
+本指南提供配置和使用最新版本的 [平台支持](/appstore/general/app-store-content-support#category) 市场组件的文档。
 
-If you have been using Studio Pro version 8, we recommend reading [Moving from Mendix Studio Pro 8 to 9](moving-from-8-to-9).
+关于 Studio Pro 版本使用和组件发布时所需的详细信息 请查看Mendix Marketplace中的特定组件页面。 欲了解更多信息，请查看 [市场发行说明](/releasenotes/app-store/)。
 
-If you are looking for step-by-step guides on performing various Mendix actions, browse the [Studio Pro 9 How-to's](/howto).
+## 指南类别
 
-## 2 Studio Pro Functionality
+*市场指南* 分成以下类别：
 
-Studio Pro allows you to create, test, and run apps.
+* [常规信息](general/)
+* [连接器](connectors/)
+* [模块](modules/)
+* [主题](themes/)
+* [小部件](widgets/)
 
-### 2.1 Modeling
-
-Modeling an app is the process of creating an app and involves creating pages, adding logic, configuring security, etc. For more information on what functionality you can use to model your app, see [App Modeling](modeling).
-
-### 2.2 Testing
-
-When it comes to testing your application, you first need to decide what you are going to test: integration with external services, app logic (microflows), etc. For more information on how to test your application, see [Testing](/howto/testing).
-
-### 2.3 Deploying
-
-Studio Pro allows you to run and view your app locally or in the default environment.
-
-For more information on options for deploying your app see [Deployment](/developerportal/deploy).
-
-## 3 Version Control
-
-[Version Control](version-control) allows you to manage your app development, work on multiple development lines, as well as collaboratively work with [Mendix Studio](/studio).  For information on how Studio Pro handles versioning of apps, see the [Versioning an App Deployed to the Cloud](using-version-control-in-studio-pro#versioning-project) section in *Using Version Control in Studio Pro*.
-
-## 4 Mendix Runtime
-
-The [Mendix Runtime](runtime) executes the application model that is created in Studio Pro. It is included in the Studio Pro 9 Guide as it is uses the same version numbering.
-
-## 5 Mobile
-
-Mobile app development allows you to create native mobile and hybrid apps and an important part of Studio Pro. For more information, see [Mobile](mobile).
-
-## 6 Guide Categories
-
-The *Studio Pro 9 Guide* is divided into the following categories:
-
-{{% category_block %}}
 
