@@ -2,12 +2,18 @@
 title: "已发布REST 路径参数"
 parent: "已发布的rest-service"
 menu_order: 30
+#description: " "
 tags:
   - "已发布 REST"
   - "路径参数"
   - "数据和时间"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+**已发布的REST service** 功能已引入7.10.0版本。
+
+{{% /报警 %}}
 
 在 [已发布的 REST 操作](published-rest-operation) 中的操作路径指定了操作的最后部分 (URL)。
 
