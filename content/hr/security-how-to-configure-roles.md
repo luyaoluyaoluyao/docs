@@ -49,9 +49,9 @@ There are the following pages in this app:
 
 Before starting this how-to, make sure you have completed the following prerequisites:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio/page-editor).
-* Familiarize yourself with information about security, roles, and permissions in Studio. For more information, see [Security, Roles & Permissions](/studio/settings-security).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio/domain-models).
+* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
+* Familiarize yourself with information about security, roles, and permissions in Studio. For more information, see [Security, Roles & Permissions](/studio8/settings-security).
+* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
 
 ## 3 Enabling Security
 
@@ -99,11 +99,11 @@ When you restrict access to a certain page or a microflow, widgets that open thi
 
 After you have set access for pages and microflows, you can test what each user role would see.
 
-You can test the roles that you set with [demo users](/studio/settings-security#demo-users) when you preview your app. Do the following:
+You can test the roles that you set with [demo users](/studio8/settings-security#demo-users) when you preview your app. Do the following:
 
 1. Click the **pages** icon to exit the **Roles and Permissions** screen.
 
-2. Click the **Preview** button in the top-right corner to [preview your app](/studio/publishing-app).
+2. Click the **Preview** button in the top-right corner to [preview your app](/studio8/publishing-app).
 
 3. When your app is previewed, click a user icon in the right side of the screen:
 
@@ -121,7 +121,7 @@ You can test the roles that you set with [demo users](/studio/settings-security#
 
 Congratulations! You have configured access for different user roles in your app.
 
-You can see that the button is hidden from the **Front_Desk** role, but the container is not. You can use conditional visibility to hide it entirely. For more information, see [Conditional Visibility Section](/studio/page-editor-widgets-visibility-section).
+You can see that the button is hidden from the **Front_Desk** role, but the container is not. You can use conditional visibility to hide it entirely. For more information, see [Conditional Visibility Section](/studio8/page-editor-widgets-visibility-section).
 
-When you preview your app, you can test different user role, while after you publish it, you can manage the end-users and assign user roles to them. For more information, see the [Managing App Users](/studio/settings-security#managing-app-users) section in *Security, Roles & Permissions*.
+When you preview your app, you can test different user role, while after you publish it, you can manage the end-users and assign user roles to them. For more information, see the [Managing App Users](/studio8/settings-security#managing-app-users) section in *Security, Roles & Permissions*.
 
