@@ -1,60 +1,101 @@
 ---
-title: "Create Object"
-parent: "object-activities"
+title: "オブジェクトを作成"
+parent: "object-activity"
+menu_order: 40
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
-
-The Create object action can be used to create an object.
-
-{{% alert type="info" %}}
-
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all microflow activities share (for example, caption). This page only describes the properties specific to the action.
-
-{{% /alert %}}
-
-## 2 Action Properties
-
-### 2.1 Entity
-
-The entity of which you want to create an object.
-
-### 2.2 Commit Type
-
-The **Commit type** defines the way the object is committed.
-
-| Option                     | Description                                                                                      |
-| -------------------------- | ------------------------------------------------------------------------------------------------ |
-| Yes with event handlers    | The object is saved in the database and the [event handlers](event-handlers) are triggered.      |
-| Yes without event handlers | The object is saved in the database, but the [event handlers](event-handlers) are not triggered. |
-| No                         | The object is changed without being saved in the database.                                       |
-
 {{% alert type="warning" %}}
-
-Nanoflows do not support committing changes without events. Committing while running in an online app sends a commit request to the Mendix Runtime and runs the events. If a Create object action is used in an offline app, the changes are committed to the offline database.
-
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-_Default value:_ No
+## 1つの紹介
 
-### 2.3 Refresh in Client
+create object activity はオブジェクトを作成するために使用できます。
 
-If the microflow is called from the client, [data sources](data-sources) do not reload, unless **Refresh in client** is set to *Yes*.
+## 2つのプロパティ
 
-{{% alert type="warning" %}}
+以下の画像では、create object プロパティの例を示します。
 
-When inside a [nanoflow](nanoflows), the Create object action reloads [data sources](data-sources) as if Refresh in client was set to *Yes*.
+![オブジェクトのプロパティを作成](attachments/object-activities/create-properties.png)
 
-{{% /alert %}}
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-_Default value_: No
+作成オブジェクトのプロパティペインは以下のセクションで構成されています:
 
-### 2.3 Initialize Members
+* [アクション](#action)
+* [一般的な](#common)
 
-You can initialize members of the newly created object. Values for members are specified with an [expression](expressions) and should be of the same type as the member.
+## 3 アクションセクション {#action}
 
-## 3 Output Properties
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-### 3.1 Variable Name
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-Variable name defines the name of the resulting object variable. It can be used by all activities that follow this activity.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.1 エンティティ
+
+オブジェクトを作成するエンティティ。
+
+### 3.2 コミット
+
+**コミット** はオブジェクトがコミットされる方法を定義します。 コミットの詳細については、 [コミットの動作](committing-objects#how-commits-work) のセクション *コミットオブジェクト* を参照してください。
+
+| Option        | 説明                                                            |
+| ------------- | ------------------------------------------------------------- |
+| イベントハンドラでははい  | オブジェクトがデータベースに保存され、 [イベントハンドラ](event-handlers) がトリガーされます。     |
+| はい、イベントハンドラなし | オブジェクトはデータベースに保存されますが、 [イベントハンドラ](event-handlers) はトリガーされません。 |
+| *なし（デフォルト）*   | オブジェクトはデータベースに保存されずに変更されます。                                   |
+
+#### 3.2.1 Nanoflow内のコミット
+
+Nanoflowはイベントなしでのコミット変更をサポートしていません。 オンラインアプリで実行中にコミットすると、Mendix Runtimeにコミットリクエストが送信され、イベントが実行されます。 変更オブジェクトアクションがオフラインアプリで使用されている場合、変更はオフラインデータベースに反映されます。
+
+### 3.3 クライアントで更新
+
+この設定では、エンドユーザーに表示されるページに変更が反映される方法を定義します。
+
+デフォルト: *いいえ*
+
+#### 3.3.1 マイクロフローは、オンラインアプリでクライアントから呼び出されます
+
+クライアント **の更新** が *いいえ*に設定されている場合、変更はクライアント内のどのウィジェットにも反映されません。
+
+If **Commit** and **Refresh in client** are both set to *Yes*, [data sources](data-sources) are reloaded and the new object's values are displayed in relevant widgets.
+
+#### 3.3.2 マイクロフローはオフライン、ネイティブ、またはハイブリッドアプリで呼び出されます
+
+オフライン、ネイティブ、またはハイブリッドアプリから呼び出されるマイクロフロー内の場合 **クライアントの** オプションは無視され、 **いいえ** に設定されているかのように機能します。
+
+詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
+
+#### 3.3.4 アクションはNanoflow にあります
+
+ナノフローでは、Create object action reload [data source](data-sources) がクライアントで Refresh が *はい* に設定されているかのように。
+
+### 3.4 メンバーの変更
+
+新しく作成したオブジェクトのメンバー (属性と関連付け) の値を、 [エンティティ](entities) に設定されている既定値と異なる値に設定できます。 メンバーに対する値は [式](expressions) で指定され、メンバーと同じ型でなければなりません。
+
+### 3.5 オブジェクト名
+
+これは、このアクティビティに続くすべてのアクティビティで使用できる結果として生成されるオブジェクトの名前です。
+
+## 4つの共通セクション{#common}
+
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
+
+## 5 創造の間に何が起こるか?
+
+オブジェクトが初期化された場所では、すべてのイベントが常に実行されます。 デフォルトの **Create** ボタン、マイクロフロー内でのアクティビティ、そしてウェブサービスは常に以下の画像で説明されている手順に従います。
+
+* イベント: すべてのイベントが実行され、before-create イベントが false を返した場合、例外をスローできます。
+    * イベント中に例外が発生した場合、デフォルトのエラー処理動作ですべての変更が元に戻されます。
+* データベース: before-create イベントまたはafter-create イベントで指定されていない限り、このイベントではデータベース通信が行われません。
+* Result: これらのトリガーの後に新しいオブジェクトが使用可能です
+    * オブジェクトは **インスタンス化された** の状態を持ちます
+    * これは他のオブジェクトの動作に影響を与えます
+
+![](attachments/object-activities/18582173.png)
