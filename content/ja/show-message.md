@@ -7,12 +7,8 @@ tags:
   - "show message"
   - "client activities"
 aliases:
-  - /refguide8/Show+Message.html
+  - /refguide/Show+Message.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/show-message.pdf).
-{{% /alert %}}
 
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
@@ -80,7 +76,7 @@ The **Blocking** property defines whether the message shown to the end-user is b
 
 ## 4 Common Section {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
 ## 5 Read More
 
