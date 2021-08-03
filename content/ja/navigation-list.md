@@ -1,77 +1,77 @@
 ---
-title: "Navigation List"
+title: "ナビゲーションリスト"
 parent: "container-widgets"
 menu_order: 70
 tags:
   - "studio pro"
-  - "navigation list"
-  - "container widget"
-  - "widget"
+  - "ナビゲーションリスト"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 ---
 
 {{% alert type="warning" %}}
-The navigation list widget is not supported on native mobile pages.
+ナビゲーション リスト ウィジェットは、ネイティブ モバイル ページではサポートされていません。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A navigation list can be used to attach an action to an entire row when a user clicks this row. Such a row is called a navigation list item.
+ユーザーがこの行をクリックしたときに、ナビゲーションリストを使用してアクションを行全体にアタッチできます。 そのような行はナビゲーションリスト項目と呼ばれます。
 
-For example, clicking one row can open a page, clicking another one can execute a microflow.
+たとえば、ある行をクリックするとページを開くことができます。別の行をクリックすると、マイクロフローが実行されます。
 
-![Navigation List](attachments/container-widgets/navigation-list.png)
+![ナビゲーションリスト](attachments/container-widgets/navigation-list.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of navigation list properties is represented in the image below:
+ナビゲーションリストのプロパティの例を以下の画像に示します。
 
-{{% image_container width="250" %}}![Navigation List Properties](attachments/container-widgets/navigation-list-properties.png)
+{{% image_container width="250" %}}![ナビゲーションリストのプロパティ](attachments/container-widgets/navigation-list-properties.png)
 {{% /image_container %}}
 
-Navigation list properties consist of the following sections:
+ナビゲーション リストのプロパティは、次のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Visibility Section {#visibility}
+### 2.3 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Navigation List Item
+## 3つのナビゲーションリストアイテム
 
-A row in a navigation list is a navigation list item. You can set a separate **On click** event for each row of the navigation list.
+ナビゲーションリストの行は、ナビゲーションリストの項目です。 ナビゲーション・リストの各行ごとに **をクリックすると** イベントを個別に設定できます。
 
-### 3.1 Navigation List Item Properties
+### 3.1 ナビゲーションリスト項目プロパティ
 
-#### 3.1.1 Common Section
+#### 3.1.1 共通セクション
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-#### 3.1.2 General Section
+#### 3.1.2 一般セクション
 
-In the **General** section, you can set a specific on click event for each navigation list item. An on click event defines what action is performed when a user clicks a row. For more information on on click events, see [On Click Event & Events Section](on-click-event).
+**一般** セクションでは、ナビゲーションリストの項目ごとにクリックイベントを特定することができます。 on click イベントは、ユーザーが行をクリックしたときに実行されるアクションを定義します。 クリックイベントの詳細については、 [[イベント & イベント]セクション](on-click-event)を参照してください。
 
 {{% alert type="info" %}}
 
-Microflows set as an on click event for a navigation list item have no **Execution**, **Confirmation**, or **Advanced** microflow settings. For more information on calling a microflow, see [On Click Event & Events Section](on-click-event#call-microflow).
+Microflows set as an on click event for a navigation list item have no **Execution**, **Confirmation**, or **Advanced** microflow settings. マイクロフローを呼び出す方法の詳細については、 [[イベント & イベント]セクション](on-click-event#call-microflow)をクリックしてください。
 
 {{% /alert %}}
 
-#### 3.1.3 Visibility Section
+#### 3.1.3 表示セクション
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 4 Read More
+## 4 続きを読む
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
