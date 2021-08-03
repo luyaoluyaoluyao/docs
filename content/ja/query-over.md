@@ -9,6 +9,10 @@ tags:
   - "ドメインモデル"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/query-over.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 場合によっては、データの型と構造により柔軟性を高めるために、より一般的なドメインモデルを作成したい場合があります。 この場合、継承または自己参照を使用して、シンプルでありながら効率的に設計されたモデルを可能にすることがよくあります。 これにより、マイクロフローとアプリケーションロジックの構築がはるかに簡単になります。 しかし、正しいオブジェクトをクエリすることは難しくなります:特に自己参照を使用している場合。
