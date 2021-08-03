@@ -8,10 +8,6 @@ tags:
   - "widget"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/common-widgets.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 Common widgets category contain widgets that are commonly used. This category contains the following widgets:
@@ -37,7 +33,7 @@ Common widgets category contain widgets that are commonly used. This category co
 
 ## 2 Performing Basic Functions
 
-{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
 ## 3 Read More
 
