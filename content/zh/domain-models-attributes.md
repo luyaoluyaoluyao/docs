@@ -1,62 +1,62 @@
 ---
-title: "Attributes"
-parent: "domain-models"
-description: "Describes attribute types in Mendix Studio."
+title: "属性类型"
+category: "域模型"
+description: "在 Mendix Studio 中描述属性类型。"
 tags:
-  - "studio"
-  - "domain model"
-  - "attributes"
-  - "attribute types"
+  - "工作室"
+  - "域模型"
+  - "属性"
+  - "属性类型"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes attributes and their types in Mendix Studio. Attributes are characteristics that describe and/or identify the entity. If we compare these to an database table, attributes are columns of the table. For example, a *Customer* entity typically has attributes for the name of the customer, an e-mail address, and other personal information.
+本文档描述Mendix Studio中的属性及其类型。 属性是描述和/或确定实体的特征。 如果我们将它们与数据库表相比较，属性就是表中的字段。 例如， *客户* 实体通常具有客户名称、电子邮件地址和其他个人信息的属性。
 
-## 2 Types
+## 2 种类型
 
-Attributes in Studio can be of the following types:
+工作室中的属性可以是以下类型：
 
-| Type          | Description                                                                                                                                                                                                                                                                   |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Autonumber    | A positive or negative whole number. AutoNumber attributes are automatically generated numbers. The default value of the attribute determines the first number that will be generated. Each created object will have an AutoNumber that is one greater than the previous one. |
-| Binary        | Binary data. For example, an entire file.                                                                                                                                                                                                                                     |
-| Boolean       | True or false.                                                                                                                                                                                                                                                                |
-| Date and Time | A point in time that consists of a date and a time component, accurate up to milliseconds.                                                                                                                                                                                    |
-| Decimal       | A positive or negative number that can have digits after the decimal point.                                                                                                                                                                                                   |
-| Enumeration   | A list of predefined values.                                                                                                                                                                                                                                                  |
-| Hashed String | A text that will be stored after it is hashed (encrypted). This type can for example be used to store a password.                                                                                                                                                             |
-| Integer       | A whole number.  The range of this type is –2,147,483,648 to 2,147,483,647.                                                                                                                                                                                                   |
-| Long          | A whole number.  The range of this type is –9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.                                                                                                                                                                           |
-| String        | A text containing letters, spaces, numbers and other characters. You can set this type to unlimited or to limit it with the number of symbols you like.                                                                                                                       |
+| 类型         | 描述                                                                   |
+| ---------- | -------------------------------------------------------------------- |
+| Autonumber | 正整数或负整数。 自动编号属性是自动生成的数字。 属性的默认值决定将生成的第一个数字。 每个创建的对象将有一个比上一个对象大的自动编号。 |
+| 二进制文件      | 二进制数据。 例如，整个文档。                                                      |
+| Boolean    | 判断题：                                                                 |
+| 日期和时间      | 一个由一个日期和一个时间组件组成的时间点，精确到毫秒。                                          |
+| 小数         | 小数点后可以有数字的正数或负数。                                                     |
+| 枚举数        | 预定义值列表。                                                              |
+| 哈希字符串      | 一个文本在被散列后将被存储(加密)。 这种类型可以用来存储密码。                                     |
+| 整数         | 整数。  这种类型的范围是2,147,483,648到2,147,483,647。                            |
+| 长          | 整数。  这种类型的范围是9,223,372,036,854,775,808到9,223,372,036,854,775,807人。   |
+| 字符串        | 包含字母、空格、数字和其他字符的文本。 您可以将这种类型设置为无限或使用你喜欢的符号来限制它。                      |
 
-For more technical information on attribute types, see the [Type](/refguide8/attributes#type) section in *Attributes* in the *Studio Pro Guide*.
+欲了解更多关于属性类型的技术信息，请在 *Studio Pro Guide*中查看 [类型](/refguide/attributes#type) 部分 *属性*
 
-## 3 Attribute Properties {#attribute-properties}
+## 3 个属性属性 {#attribute-properties}
 
-While attributes have common properties, some properties are specific for a particular attribute type.
+属性具有共同的属性，但某些属性是特定的属性类型。
 
-### 3.1 Common Properties
+### 3.1 共同财产
 
-You can find the description of the common properties in the table below.
+您可以在下表中找到共同属性的描述。
 
-| Property      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name          | Defines the name of the attribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Type          | Shows the type of the attribute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Default Value | Defines the preset value of the attribute when the object is created. Setting the default value can speed up the process of interacting with your app. For instance, you have an attribute of the enumeration type, defining addresses where customers can pick their orders up. The default value can display the most popular pickup point. <br />The default value should be compatible with the type of the attribute. For example, you cannot write a text as a default value for decimal.  <br />**Note** All attribute types can have a default value except binary. |
+| 财产  | 描述                                                                                                                                                                               |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称  | 定义属性的名称。                                                                                                                                                                         |
+| 类型  | 显示属性的类型。                                                                                                                                                                         |
+| 默认值 | 定义对象创建时属性的预设值。 设置默认值可以加速与您的应用的交互过程。 例如，您有一个枚举类型的属性，定义客户可以在哪里提取他们的订单。 默认值可以显示最受欢迎的采集点。 <br />默认值应该与属性的类型兼容。 例如，您不能将文本作为小数点的默认值。  <br />**注意** 所有属性类型都可以有一个除二进制之外的默认值。 |
 
-### 3.2 Specific Properties
+### 3.2 特定属性
 
-You can find the description of specific properties that differ per attribute type in the table below.
+您可以在下表中找到每个属性类型不同的特定属性的描述。
 
-| Property                                 | Attribute Type | Description                                                                                                                                                                                                                                              |
-| ---------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Localize                                 | Date and Time  | Indicates if local time or server time is used. **Use local time** means the local time zone of a user will be used. **Use server time** means UTC  will be set for all users. <br />*Default value: Use local time*                               |
-| [Enumeration](domain-models-enumeration) | Enumeration    | With this property you can define an enumeration (predefined list of options), by creating a new list or choosing from existing enumerations. For more information, see [Enumeration](domain-models-enumeration).                                        |
-| Length                                   | String         | Specifies whether the length of a string is limited or unlimited. In the case the length is limited, the **Max-Length** property specifies the maximum number of characters that can be stored in the attribute . <br />*Default value: Unlimited* |
+| 财产                               | 属性类型  | 描述                                                                                            |
+| -------------------------------- | ----- | --------------------------------------------------------------------------------------------- |
+| 本地化                              | 日期和时间 | 指示是否使用本地时间或服务器时间。 **使用本地时间** 表示将使用用户的本地时区。 **使用服务器时间** 表示将为所有用户设置UTC <br />*默认值：使用本地时间* |
+| [枚举数](domain-models-enumeration) | 枚举数   | 使用此属性您可以定义枚举(预定义选项列表)，创建一个新列表或从现有枚举中进行选择。 欲了解更多信息，请参阅 [枚举](domain-models-enumeration)。        |
+| 长度                               | 字符串   | 指定字符串长度是受限还是无限的。 在这种情况下，长度有限。 **Max-Length** 属性指定了可以存储在属性中的最大字符数。 <br />*默认值：无限*        |
 
-## 4 Read More
+## 4 阅读更多
 
-* [Domain Model](domain-models)
-* [Enumeration](domain-models-enumeration)
+* [域模型](域名模型)
+* [枚举数](domain-models-enumeration)
