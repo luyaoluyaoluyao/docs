@@ -1,17 +1,17 @@
 ---
-title: "Remove button"
-parent: "control-bar"
+title: "ボタンを削除"
+parent: "コントロール バー"
 ---
 
-The remove button is a button specifically made for the reference set selector. With this button the end-user can remove objects that have been added to the reference set selector.
+削除ボタンは、リファレンスセットセレクタ用に特別に作成されたボタンです。 このボタンを使用すると、エンドユーザーはリファレンスセットセレクターに追加されたオブジェクトを削除できます。
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -23,7 +23,7 @@ The remove button is a button specifically made for the reference set selector. 
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
