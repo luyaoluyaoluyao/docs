@@ -53,10 +53,10 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio8/page-editor)。
-* 熟悉自己有条件可见度。 欲了解更多信息，请参阅 [条件可见部分](/studio8/page-editor-widgets-visibility-section)。
+* 熟悉页面条款和如何在页面上执行基本功能。 欲了解更多信息，请参阅 [页面](/studio/page-editor)。
+* 熟悉自己有条件可见度。 欲了解更多信息，请参阅 [条件可见部分](/studio/page-editor-widgets-visibility-section)。
 * 启用安全性并将用户角色添加到您的应用中。 欲了解更多信息，请参阅 [如何保护您的应用并配置访问其功能](security-how-to-configure-roles)。
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
 
 ## 3 设置账单地址条件
 
@@ -78,17 +78,16 @@ tags:
 
 2. 选择 **计费地址** 字段并转到其属性。
 
-3. 在 **条件可见性** 部分中，点击 **属性** 属性：
+3. 在 **条件可见性** 部分中，切换基于数据的 **可见性** 属性，然后点击 **属性** 属性：
 
-    {{% image_container width="250" %}}![Conditional Visibility Section](attachments/pages-how-to-set-visibility/conditional-visibility-section.png){{% /image_container %}}
+    ![根据数据可见](attachments/pages-how-to-set-visibility/visible-based-on-data.png)
 
-4. 在 **选择属性** 对话框中，选择 **BillingAddressame** 属性，然后点击 **选择**。
+4. 点击 **选择属性** 对话框，选择 **BillingAddressame** 属性，然后点击 **选择**。
 
-5. **属性值** 属性现在显示在属性中。 撤销 *True* 值，因为它不符合您想要设置的条件。 并退出 **错误** 选中的值：
+5. **属性值** 属性现在显示在属性中。 撤销 *True* 值，因为它不符合您想要设置的条件。 并保持 **错误** 值已选定。
 
-    {{% image_container width="250" %}}![Attribute-Based Visibility](attachments/pages-how-to-set-visibility/attribute-based-visibility-set.png){{% /image_container %}}
 
-干得好！ 如果您 [预览您的应用程序](/studio8/publishing-app)， 您将会看到只有当您取消  **账单地址与送货地址相同** 选项时才显示账单地址。
+干得好！ 如果您 [预览您的应用程序](/studio/publishing-app)， 您将会看到只有当您取消  **账单地址与送货地址相同** 选项时才显示账单地址。
 
 ## 仅向某些用户角色显示元素
 
@@ -100,13 +99,13 @@ tags:
 
     {{% image_container width="450" %}}![List of Products](attachments/pages-how-to-set-visibility/list-of-products.png){{% /image_container %}}
 
-2. 打开其属性并且在 **条件可见性** 部分切换基于 **角色的** 属性：
+2. 打开它的属性，并在 **条件可见性** 部分切换基于角色</strong> 属性的 **可见性。</p></li>
 
-    {{% image_container width="250" %}}![Role-Based Property](attachments/pages-how-to-set-visibility/role-based-property.png){{% /image_container %}}
+3
 
-3. 您应用中可用角色列表显示在 **角色** 属性中。 撤销 **客户** 角色：
+您应用中可用角色列表显示在 **角色** 属性中。 撤销 **客户** 角色：
 
-    {{% image_container width="250" %}}![Unselected Roles](attachments/pages-how-to-set-visibility/unselected-roles.png){{% /image_container %}}
+    ![未选择的角色](attachments/pages-how-to-set-visibility/unselected-roles.png)</ol>
 
 干得好！ 现在 **编辑** 按钮将只显示给 **管理员** 和 **Sales_Manager** 用户角色。
 
@@ -126,4 +125,4 @@ tags:
 
 恭喜！ 您为您的小部件设置了几个条件，您学会了如何在页面上查看这些小部件以便于找到它们。
 
-您现在可以预览您的应用并测试您设置的条件：当账单地址显示时，以及哪些用户角色可以查看 **编辑** 按钮。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio8/publishing-app)。
+您现在可以预览您的应用并测试您设置的条件：当账单地址显示时，以及哪些用户角色可以查看 **编辑** 按钮。 关于如何预览您的页面的更多信息，请参阅 [预览 & 发布您的应用程序](/studio/publishing-app)。
