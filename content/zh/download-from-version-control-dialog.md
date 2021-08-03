@@ -1,47 +1,50 @@
 ---
-title: "从版本控制服务器下载"
-parent: "版本控制-菜单"
-menu_order: 60
-tags:
-  - "studio pro"
+title: "从版本控制服务器对话框下载"
+parent: "对话框"
 aliases:
-  - /refguide/download-from-team-server-dialog.html
+  - /refguide7/download-from-team-server-dialog.html
 ---
 
 ## 1 导言
 
-使用 **从版本控制服务器下载…** 菜单项从版本控制服务器下载应用 (例如) [团队服务器](/developerportal/collaborate/team-server) 如果您正在编辑应用程序， 应用程序将被关闭(在提示保存任何更改后)，新下载的应用程序将使用当前版本的Studio Pro打开.
+使用 **从 Version Control Server** 对话框下载应用，从SVN 版本控制服务器下载应用。
+
+![](attachments/download-from-version-control-server-dialog/download-from-version-control-server-dialog-original.png)
 
 {{% alert type="info" %}}
-如果已下载的应用程序是用不同版本的 Mendix 创建的，您将被问及是否可以转换为当前版本。
 
-您也可以使用 [打开应用对话框](open-app-dialog) 从团队服务器下载并打开一个应用程序。 然而，仍然存在着这种情况。 如果您想要下载您已经在磁盘上的应用程序(和开发线)的第二个副本，您将需要使用此选项。
+您可以使用 [打开App](open-app-dialog) 对话框从团队服务器下载并打开一个应用程序。 然而，仍然存在着这种情况。 如果您想要下载您已经在磁盘上的应用程序(和开发线)的第二个副本，您将需要使用此选项。
+
 {{% /报警 %}}
 
-![从版本控制服务器对话框下载](attachments/version-control-menu/download-from-version-control-server.png)
+要打开 **从版本控制服务器** 对话框中下载 前往 **项目 > 更多版本 > 从版本控制服务器下载**。
 
 ## 2 您的应用存放在哪里？
 
-如果 **启用私有版本控制** (要么为 SVN 或 Git 或同时为 Git ) 设置在应用程序 [首选项](preferences-dialog#enable), 您可以在 **Mendix 团队服务器** 或 **私人服务器** 之间选择。 如果未启用，您将只能从Mendix 团队服务器中选择一个应用程序。
+使用此设置选择您应用存储的位置。 您可以在团队服务器或团队服务器以外的 SVN 服务器之间选择。
 
 ### 2.1 Mendix 团队服务器
 
-使用 **团队服务器应用程序** 下拉菜单选择您想要下载的应用程序。
+在 **团队服务器应用程序** 下拉列表中，选择您想要打开的团队服务器应用程序。 然后选择你想要下载的 **开发行** 下拉列表
 
-关于Mendix Team Server的更多信息，请参阅 [Team Server](/developerportal/collaborate/team-server)。
+![](attachments/download-from-version-control-server-dialog/download-from-version-control-server.png)
+
+关于Mendix Team Server的更多信息，请参阅 [Team Server](team-server)。
+
+欲了解更多有关开发行的信息，请参阅 [版本控制概念](version-control)。
 
 ### 2.2 私人服务器
 
-在 **应用程序存储库地址** 中输入您私有的 SVN 服务器的 URL，并点击 **连接**。
+在 **应用仓库地址** 字段中 输入您想要打开的应用的仓库地址，然后点击 **Connect** 从仓库中加载开发行。 然后选择你想要在 **开发行** 下拉列表中下载的开发行。
 
-![从版本控制服务器对话框下载](attachments/version-control-menu/download-from-private-server.png)
+![](attachments/download-from-version-control-server-dialog/download-from-private-server.png)
 
-## 3 发展线
+{{% alert type="info" %}}
 
-选择您想要下载的 **开发行**。
+此选项仅在 [首选项](preferences-dialog#enabled) 对话框中启用对其他服务器的支持时才可用。
 
-欲了解更多有关开发行的信息，请参阅 [版本控制](version-control)。
+{{% /报警 %}}
 
-## 4 个应用目录
+## 3 磁盘位置
 
-选择要下载应用程序的 **应用目录**。 建议的名称包括开发行的名称(*主* 或分支行的名称)， 但如果你想要的话，你可以更改这个。
+在 **项目目录** 字段中，选择您想要存储下载应用的目录。 建议的名称包括开发线的名称(**主** 或分支线的名称)。
