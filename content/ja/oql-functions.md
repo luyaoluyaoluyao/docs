@@ -1,17 +1,17 @@
 ---
-title: "OQL Functions"
-parent: "oql-expressions"
+title: "OQL関数"
+parent: "oql-expression"
 tags:
   - "studio pro"
 ---
 
-For more information on OQL functions, see the pages below.
+OQL 関数の詳細については、以下のページを参照してください。
 
-* [OQL CAST](oql-cast)
+* [OQL キャスト](oql-cast)
 * [OQL COALESCE](oql-coalesce)
 * [OQL DATEDIFF](oql-datediff)
 * [OQL DATEPART](oql-datepart)
-* [OQL LENGTH](oql-length)
-* [OQL RANGEBEGIN](oql-rangebegin)
+* [OQLの長さ](oql-length)
+* [OQL範囲](oql-rangebegin)
 * [OQL RANGEEND](oql-rangeend)
-* [OQL ROUND](oql-round)
+* [OQLROUND](oql-round)
