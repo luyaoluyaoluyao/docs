@@ -1,41 +1,41 @@
 ---
-title: "File Menu"
+title: "ファイルメニュー"
 parent: "menus"
-description: "Describes the File Menu in Studio Pro."
+description: "Studio Pro のファイルメニューについて説明します。"
 menu_order: 5
 tags:
   - "Studio Pro"
-  - "file menu"
-  - "file"
+  - "ファイルメニュー"
+  - "ファイル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **File** menu allows you to manage documents and apps, for example, to create a new app or save changes:
+**ファイル** メニューでは、ドキュメントやアプリを管理したり、新しいアプリを作成したり、変更を保存したりできます。
 
-![File Menu](attachments/file-menu/file-menu.png)
+![ファイルメニュー](attachments/file-menu/file-menu.png)
 
 
-## 2 Menu Items Overview {#overview}
+## 2メニューアイテムの概要 {#overview}
 
-The **File** menu items are described in the table below:
+**ファイル** メニュー項目は以下の表に記載されています。
 
-| Menu Item              | Description                                                                                                                                                                                                                                                                  | Shortcut Key                                      |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| **New Document**       | Creates a new document within the app currently open. You can choose the name, location, and type of document.                                                                                                                                                               | <kbd>Ctrl</kbd> + <kbd>N</kbd>                    |
-| **New App**            | Creates a new single-developer app. A single-developer app is simply a file (with the extension *.mpr*) that is stored in the local file system. For more information, see [New App](new-project).                                                                           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> |
-| **Open App**           | Opens an existing single-developer app (*.mpr*) or app package (*.mpk*). See **New App** above for information on single-developer apps. For more information, see [Open App](open-app-dialog).                                                                              | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
-| **Recent Apps**        | Shows a list of recently opened apps for quick opening.                                                                                                                                                                                                                      |                                                   |
-| **Save**               | Saves the changes in the currently active document tab.                                                                                                                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>S</kbd>                    |
-| **Save All**           | Saves the changes in all documents that are open.                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |
-| **Close**              | Closes the current document. You will be asked to save or discard changes when needed.                                                                                                                                                                                       | <kbd>Ctrl</kbd> + <kbd>W</kbd>                    |
-| **Close All**          | Closes all document tabs. You will be asked to save or discard changes when needed.                                                                                                                                                                                          | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> |
-| **Close App**          | Closes the currently open App and returns to the start page.                                                                                                                                                                                                                 |                                                   |
-| **Export as Image**    | Exports the current document as an image in the *.png* format. The following document types can be exported as images: microflows, domain models, document templates, and XML mappings.                                                                                      |                                                   |
-| **Export App Package** | Exports the current app to a package (*.mpk*) file. This is useful for example when you want to give someone the entire app, or when you need to provide a test app when submitting a ticket. For more information, see [Export App Package](export-project-package-dialog). |                                                   |
-| **Import App Package** | Imports a package that was created with the **Export App Package** menu item. For more information, see [Import App Package](import-project-package-dialog).                                                                                                                 |                                                   |
-| **Exit**               | Closes Studio Pro                                                                                                                                                                                                                                                            |                                                   |
+| メニュー項目              | 説明                                                                                                                                                                       | ショートカットキー                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| **新しいドキュメント**       | 現在開いているアプリ内で新しいドキュメントを作成します。 ドキュメントの名前、場所、種類を選択できます。                                                                                                                     | <kbd>Ctrl</kbd> + <kbd>N</kbd>                    |
+| **新しいアプリ**          | 新しい単一開発者アプリを作成します。 単一の開発者アプリは、ローカルファイルシステムに格納されているファイル(拡張子 *.mpr*を持つ)にすぎません。 詳細については、 [New App](new-project) を参照してください。                                                  | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> |
+| **アプリを開く**          | 既存の単一開発者アプリ (*.mpr*) またはアプリパッケージ (*.mpk* ) を開きます。 シングル開発者向けアプリについては、上記の **New App** を参照してください。 詳細については、 [アプリを開く](open-app-dialog) を参照してください。                             | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
+| **最近のアプリ**          | 最近開いたアプリの一覧を表示します。                                                                                                                                                       |                                                   |
+| **保存**              | 現在アクティブなドキュメントタブに変更を保存します。                                                                                                                                               | <kbd>Ctrl</kbd> + <kbd>S</kbd>                    |
+| **すべて保存**           | 開いているすべてのドキュメントに変更を保存します。                                                                                                                                                | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |
+| **閉じる**             | 現在のドキュメントを閉じます。 必要に応じて変更を保存または破棄するよう求められます。                                                                                                                              | <kbd>Ctrl</kbd> + <kbd>W</kbd>                    |
+| **すべて閉じる**          | すべてのドキュメントタブを閉じます。 必要に応じて変更を保存または破棄するよう求められます。                                                                                                                           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> |
+| **アプリを閉じる**         | 現在開いているアプリを閉じ、開始ページに戻ります。                                                                                                                                                |                                                   |
+| **画像としてエクスポート**     | 現在のドキュメントを *.png* 形式の画像としてエクスポートします。 以下のドキュメント型をイメージとしてエクスポートすることができます: マイクロフロー、ドメインモデル、ドキュメントテンプレート、および XML マッピング。                                                      |                                                   |
+| **アプリパッケージのエクスポート** | 現在のアプリをパッケージ (*.mpk*) ファイルにエクスポートします。 これは、誰かにアプリ全体を渡したい場合などに便利です。 またはチケットを提出する際にテストアプリを提供する必要がある場合。 詳細については、 [アプリパッケージのエクスポート](export-project-package-dialog) を参照してください。 |                                                   |
+| **アプリパッケージをインポート**  | **アプリパッケージのエクスポート** メニュー項目で作成されたパッケージをインポートします。 詳細については、 [アプリパッケージのインポート](import-project-package-dialog) を参照してください。                                                      |                                                   |
+| **終了**              | Studio Pro を閉じる                                                                                                                                                          |                                                   |
 
-## 3 Read More
+## 3 続きを読む
 
 * [Studio Pro Overview](studio-pro-overview)
