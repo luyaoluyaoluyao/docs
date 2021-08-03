@@ -1,10 +1,10 @@
 ---
-title: "Import XML"
-parent: "integration-activities"
+title: "XML をインポート"
+parent: "インテグレーションアクティビティ"
 ---
 
 {{% alert type="warning" %}}
 
-Please see [Import Mapping Action](import-mapping-action) for details on importing XML.
+XML のインポートの詳細については、 [マッピングのインポート アクション](import-mapping-action) を参照してください。
 
 {{% /alert %}}
