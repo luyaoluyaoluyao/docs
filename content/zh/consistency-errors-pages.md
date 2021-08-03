@@ -1,300 +1,316 @@
 ---
-title: "Page Editor Consistency Errors"
-parent: "consistency-errors"
+title: "页面编辑器一致性错误"
+parent: "一致性错误"
 menu_order: 10
-description: "Describes consistency errors in Mendix Studio Pro and the way to fix them."
+description: "描述Mendix Studio Pro 中的一致性错误以及解决这些错误的方法。"
 tags:
   - "Studio Pro"
-  - "consistency errors"
-  - "checks"
-  - "errors"
-  - "pages"
+  - "一致性错误"
+  - "检查"
+  - "错误"
+  - "页面"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In this document, we explain how to solve the most common or complicated consistency errors that can occur when configuring pages in Studio Pro. An example of a consistency error on a page is when you do not specify the entity property of a data view on a page.
+在本文件中，我们解释了如何解决在配置Studio Pro页面时可能出现的最常见或复杂的一致性错误。 一个页面一致性错误的例子是当您没有在页面上指定数据视图的实体属性。
 
 {{% alert type="info" %}}
 
-This document does not describe *all* the errors, as there are a lot of errors that can occur, some of which are simple and do not need extra explanation, others are rare and/or heavily dependent on a use-case.
+此文档没有描述 *所有* 个错误，因为有许多错误可能发生。 其中有些简单，无需额外解释，另一些则极少和（或）严重依赖使用案件。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Some errors have error codes and if these errors are described in documentation, Studio Pro has a clickable link to the corresponding document. Others do not have an error code, in this case, you can manually search whether a particular error is described in documentation (you can search by a message you see in the **Errors** pane).
+一些错误有错误代码，如果这些错误在文档中描述，Studio Pro 就有一个可点击的链接到相应文档。 在这种情况下，其他人没有错误代码。 您可以手动搜索文件中是否描述了某个错误 (您可以通过在 **错误** 面板中看到的消息搜索)。
 
-## 2 List View Consistency Errors
+## 2 列表视图一致性错误
 
-If you do not configure a [data source](data-sources) for a [list view](list-view) properly, you will get consistency errors.
+如果您没有配置 [数据源](data-sources) for a [列表视图](list-view) ，您将会遇到一致性错误。
 
-The scheme below shows that the data source of the list view has been set to **Database**, but the entity that needs to be retrieved from the database has not been specified. This results in a consistency error.
+下面的方案显示，列表视图的数据源已设置为 **数据库**， 但尚未指定需要从数据库中检索的实体。 这造成一致性错误。
 
-![Data Source Consistency Error Scheme](attachments/consistency-errors-pages/list-view-error.png)
+![数据源一致性错误方案](attachments/consistency-errors-pages/list-view-error.png)
 
-The table below describes the most common errors which can occur when configuring a list view,  the causes of these errors, and ways to fix them.
+下表描述了在配置列表视图时可能发生的最常见错误。 这些错误的原因以及纠正这些错误的方法。
 
-| Error Code | Message in the Error Pane                                                                                    | Cause of the Error                                                                                                                          | Way to Fix                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| CE0488     | No entity configured for the data source of this list view. Select an entity or change the data source.      | The **Database/XPath/Association** option is selected as a data source for a list view, but no entity is specified.                         | Do one of the following: <ul><li>Open the list view's properties > **Data source** and select an entity in the **Entity (path)** field</li><li>Change the type of the data source</li></ul>                                                     |
-|            | No microflow configured for the data source of this list view. Select a microflow or change the data source. | The data source is set to **Microflow**, but no microflow is specified.                                                                     | Do one of the following: <ul><li>Open the list view's properties > **Data source** and select a microflow in the **Microflow** field</li><li>Change the type of the data source</li></ul>                                                     |
-|            | No nanoflow configured for the data source of this list view. Select a nanoflow or change the data source.   | The data source is set to **Nanoflow**, but no nanoflow is specified.                                                                       | Do one of the following: <ul><li>Open the list view's properties > **Data source** and select a nanoflow in the **Nanoflow** field</li><li>Change the type of the data source</li></ul>                                                     |
-| CE0595     | Attribute {AttributeName} is not an attribute of entity {EntityName}.                                        | You have changed the target entity of a list view without updating its contents. The list view is filled with attributes of another entity. | Open the widget's properties > **Data source** and select another attribute for **Attribute (path)**. |
+| 错误代码   | 错误面板中的消息                                     | 错误的原因                                    | 修复路径                                     |
+| ------ | -------------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| CE0488 | 未为此列表视图的数据源配置任何实体。 选择一个实体或更改数据源。             | **数据库/XPath/关联** 选项被选为列表视图的数据源，但没有指定实体。  | 做以下一件： <ul><li>打开列表视图属性 > **数据源** 并在 **Entity (路径)** 字段中选择一个实体</li><li>更改数据源的类型</li></ul>          |
+|        | 没有为此列表视图的数据源配置微流。 选择微流程或更改数据源。               | 数据源设置为 **微流**, 但没有指定微流。                  | 做以下一件： <ul><li>打开列表视图属性 > **数据源** 并在 **Microflow** 字段中选择微流</li><li>更改数据源的类型</li></ul>          |
+|        | 没有为此列表视图的数据源配置nanoflow 选择一个 nanoflow 或更改数据源。 | 数据源设置为 **Nanoflow**, 但没有指定nanoflow       | 做以下一件： <ul><li>打开列表视图属性 > **数据源** 并在 **Nanoflow** 字段中选择一个 nanoflow</li><li>更改数据源的类型</li></ul>          |
+| CE0595 | 属性 {AttributeName} 不是实体 {EntityName} 的属性。    | 您更改了列表视图的目标实体，但没有更新其内容。 列表视图填充了另一个实体的属性。 | 打开小部件属性 > **数据源** 并为 **属性(路径)** 选择另一个属性。 |
 
-## 3 Data View Consistency Errors
+## 3 数据视图一致性错误
 
-If you do not configure a [data source](data-sources) for a [data view](data-view) properly, you will get consistency errors.
+如果您没有配置 [数据源](data-sources) for a [数据视图](data-view) ，您将会遇到一致性错误。
 
-For example, you have selected **Listen to widget** as the data source, but you have not selected the specific **List widget** you are listening to.
+例如，您已选择 **监听小部件** 作为数据源。 但您尚未选择特定的 **列表小部件** 您正在收听。
 
-![Data View With no List Widget Configured](attachments/consistency-errors-pages/data-view-no-list-widget.png)
+![没有配置列表小部件的数据视图](attachments/consistency-errors-pages/data-view-no-list-widget.png)
 
-The table below describes the most common errors you can come across when configuring a data view,  causes of these errors, and ways to fix them.
+下表描述了您在配置数据视图时可能遇到的最常见错误。 造成这些错误的原因，以及解决这些错误的方法。
 
-| Error Code | Message in the Error Pane                                                                                   | Cause of the Error                                                                                                                                 | Way to Fix                                        |
-| ---------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| CE0488     | No entity configured for the data source of this data view. Select an entity or change the data source.     | **Context** is selected as a data source for a data view, but no entity is specified.                                                              | Do one of the following: <ul><li>Open the data view's properties > **Data Source** and select an entity in the **Entity** field</li><li>Change the type of the data source</li></ul> |
-|            | No microflow configured for the data source of this data view. Select a microflow or change the data source | A microflow is selected as a data source, but no microflow is specified.                                                                           | Do one of the following: <ul><li>Open the data view's properties > **Data Source** and select a microflow in the **Microflow** field</li><li>Change the type of the data source</li></ul> |
-|            | No nanoflow configured for the data source of this data view. Select a nanoflow or change the data source   | A nanoflow is selected as a data source, but no nanoflow is specified.                                                                             | Do one of the following: <ul><li>Open the data view's properties > **Data Source** and select a nanoflow in the **Nanoflow** field</li><li>Change the type of the data source</li></ul> |
-| CE0536     | No list widget configured for the data source of this data view. Select a widget or change the data source. | A **Listen to widget** is configured as a data source for a data view, but the list view widget specified does not exist anymore on the same page. | Do one of the following: <ul><li>Create a list view on the same page, configure it, and select it as the list widget for the data view</li><li>Change the type of the data source</li></ul> |
-| CE0558     | All data views receiving an object from the page parameter must have the same entity.                       | You have several data views on one page that have different entities as their data sources.                                                        | Do one of the following: <ul><li>Select the same entity for all data views using the page context</li><li>Change the data source for them</li></ul> |
+| 错误代码   | 错误面板中的消息                                    | 错误的原因                                        | 修复路径                            |
+| ------ | ------------------------------------------- | -------------------------------------------- | ------------------------------- |
+| CE0488 | 没有为此数据视图的数据源配置任何实体。 选择一个实体或更改数据源。           | **Context** 被选为数据视图的数据来源，但没有指定实体。            | 做以下一件： <ul><li>打开数据视图属性 > **数据源** 并在 **实体** 字段中选择一个实体</li><li>更改数据源的类型</li></ul> |
+|        | 没有为此数据视图的数据源配置微流。 选择微流程或更改数据源               | 微流被选为数据来源，但没有指定微流。                           | 做以下一件： <ul><li>打开数据视图属性 > **数据源** 并在 **微流程** 字段中选择微流</li><li>更改数据源的类型</li></ul> |
+|        | 没有为此数据视图的数据源配置nanoflow 选择一个 nanoflow 或更改数据源 | nanoflow 被选为数据源，但未指定nanoflow                 | 做以下一件： <ul><li>打开数据视图属性 > **数据源** 并在 **Nanoflow** 字段中选择一个 nanoflow</li><li>更改数据源的类型</li></ul> |
+| CE0536 | 没有为此数据视图的数据源配置列表小部件。 选择一个小部件或更改数据源。         | **监听小部件** 已配置为数据视图的数据源。 但指定的列表视图部件在同一页面上不存在。 | 做以下一件： <ul><li>在同一页上创建列表视图，配置它，并选择它作为数据视图的列表部件</li><li>更改数据源的类型</li></ul> |
+| CE0558 | 所有从页面参数接收对象的数据视图必须具有相同的实体。                  | 您在一个页面上有几次数据视图，有不同的实体作为其数据源。                 | 做以下一件： <ul><li>使用页面上下文选择所有数据查看的同一个实体</li><li>更改他们的数据源</li></ul> |
 
-## 4 Context Not Available Consistency Errors
+## 4 上下文不可用的一致性错误
 
-The errors that you can get when a page is expecting a context that is unavailable are described in the table below.
+下面的表格描述了当一个页面需要不可用的上下文时您可能遇到的错误。
 
-| Error Code | Message in the Error Pane                                                                                                               | Cause of the Error                                                                                                                                                                                                                                                                                                               | Way to Fix                                                                                                                                                                                           |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE1568     | The selected page {Name of the page} expects an object of type {type of object}, which is not available here.                           | The page has a data view that expects an object of a particular type to be passed to it. This error occurs when the page is called from another page, which does not have this object available. For a more detailed example, see the [Error Fix Example for CE1568](#error-example-1).                                          | Make sure that the object is passed to the page that has a configured data view on it. For more information, see the [Error Fix Example for CE1568](#error-example-1).                               |
-| CE1569     | The selected page {Name of page} expects an object of type X, which is not compatible with the object of type Y that is available here. | You have a widget (for example, a button) that opens a page. The page has a data view that expects an object of particular type to be passed to it. However, the widget is placed inside a data container with another type of object. For a detailed example, see the [Error Fix Example for CE1569](#error-example-2) section. | Make sure that the button is placed in a data container which passes the correct type of object to the page. For more information, see the [Error Fix Example for CE1569](#error-example-2) section. |
+| 错误代码   | 错误面板中的消息                                                     | 错误的原因                                                                                                                | 修复路径                                                                          |
+| ------ | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| CE1568 | 选中的页面 {Name of the page} 需要一个 {type of object}类型的对象，这在这里不可用。 | 页面有一个数据视图，期望某一特定类型的对象传递给它。 这个错误发生在从另一个页面调用页面时，因为该页面没有这个对象。 更详细的示例，请参阅CE1568 的 [错误修复示例](#error-example-1)。            | 确保将对象传递到具有配置数据视图的页面。 欲了解更多信息，请参阅 [错误修复CE1568](#error-example-1) 示例。           |
+| CE1569 | 选定的页面 {Name of page} 需要一个 X 类型的对象，这与在此处可用的 Y 类型对象不兼容。        | 您有一个打开页面的小部件 (例如按钮)。 页面的数据视图需要传递给特定类型的对象。 然而，小部件被放置在带有另一种类型对象的数据容器中。 详细的示例，请查看 [CE1569](#error-example-2) 部分的错误修复示例。 | 确保按钮放置在数据容器中，将对象的正确类型传递到页面。 欲了解更多信息，请查看 [错误修复CE1569](#error-example-2) 部分的示例。 |
 
-### 4.1 Error Fix Example for CE1568 {#error-example-1}
+### 4.1 错误修复CE1568 的示例 {#error-example-1}
 
-When a page expects a context that is not passed to it from a calling page or a microflow, you will get consistency errors.
+当一个页面期望某个上下文不会从一个调用页面或微流程传递给它时，您将会遇到一致性错误。
 
-For example, the **Customers** page contains a list view with a list of all customer names (**Customer** is set as **Entity** in the **Data Source** properties), and a **Details** button outside of the list view (placed in a [container](container) only). The **Details** button opens a **Customer Details** page when a user clicks it (the **On Click Action** for the button is set to **Page**).
+例如， **客户** 页面包含一个列表视图，列出所有客户名称 (**客户** 被设置为 **实体** 被设置为 **数据源** 属性), 和 **详细信息** 列表视图以外的按钮 (仅放入 [容器](container))。 **详细信息** 按钮在用户点击时打开 **客户详细信息** 页面 ( **点击动作** 按钮设置为 **页面**).
 
-![Button Properties on the Customers Page](attachments/consistency-errors-pages/customers-page.png)
+![客户页面上的按钮属性](attachments/consistency-errors-pages/customers-page.png)
 
-However, the **Customer Details** page has a data view that expects an object *Customer* to be passed to it. In other words, this page needs to get data first to be able to display it.
+然而， **客户明细** 页面有一个数据视图，期望一个对象 *客户* 传递给它。 换言之，此页面需要先获取数据才能显示。
 
-![Data View Expects the Customer Object](attachments/consistency-errors-pages/data-view-customer.png)
+![数据视图期望客户对象](attachments/consistency-errors-pages/data-view-customer.png)
 
-As this object is not passed to it from the **Customers** page, you get a consistency error.
+由于这个对象不是从 **客户** 页面传递给它，您会遇到一个一致性错误。
 
-As the **Details** button to the **Customers** page is outside a data container, it does not know which object to pass. The way of fixing this error depends on the following:
+因为 **详细信息** 按钮到 **客户** 页面在数据容器之外，所以它不知道要通过哪个对象。 修复这个错误的方法取决于以下方面：
 
-* You want to pass a specific *Customer* object from the Customer list to the **Customer Details** page, in other words, the details of a particular customer will be displayed on the **Customer Details** page (for more information, see the [Passing a Specific Object to the Page](#passing-specific-object) section)
-* You want to create a new object of the *Customer* type and pass it to the **Customer Details** page, this means that a new customer will be created (for more information, see the [Creating a New Object and Passing it to the Page](#creating-new-object) section)
+* 您想要将客户列表中指定的 *客户* 对象传递到 **客户详细信息** 页面， 换言之， 特定客户的详细信息将显示在 **客户详细信息** 页 (详细信息) 查看 [将特定对象传递到页面](#passing-specific-object) 部分)
+* 您想要为 *客户* 类型一个新对象，并将其传递到 **客户明细** 页面， 这意味着将创建一个新客户(用于更多信息) 查看 [创建一个新对象并传递到页面](#creating-new-object) 部分)
 
-#### 4.1.1 Passing a Specific Object to the Page {#passing-specific-object}
+#### 4.1.1 将特定对象移至页 {#passing-specific-object}
 
-If you want the **Customer Details** page to open the details of a specific customer, this means you want to pass a specific object to the page. As we already have a list view with the customers list on the **Customer** page, we can fix this error the following way:
+如果你想要 **客户详细信息** 页面来打开特定客户的详细信息， 这意味着您想要将特定对象传递到页面。 由于我们已经有客户列表在 **客户** 页面上的列表视图，我们可以通过以下方式解决这个错误：
 
-1. Open the **Customers** page.
+1. 打开 **客户** 页面。
 
-2.  Drag the **Details** button inside the list view.
+2.  在列表视图中拖动 **详细信息** 按钮。
 
-    ![The Details Button Example](attachments/consistency-errors-pages/details-button-inside-the-list-view.png)
+    ![详细信息按钮示例](attachments/consistency-errors-pages/details-button-inside-the-list-view.png)
 
-Now the button gets the object of type *Customer* from the list view on the **Customers** page, and it will be passed to the **Customer Details** page. As a result, the details of a particular customer is displayed on the **Customer Details** page.
+现在按钮会从邮件列表视图中获取类型 *客户* 的对象 **客户** 页面， 并且它将传递到 **客户详细信息** 页面。 因此，某个客户的详细信息会显示在 **客户详细信息** 页面上。
 
-#### 4.1.2 Creating a New Object and Passing it to the Page {#creating-new-object}
+#### 4.1.2 创建一个新对象并将其传到页面 {#creating-new-object}
 
-If you want to create a new customer and fill in the customer's details on the **Customers Details** page, you can do the following:
+如果您想要在 **客户详细信息** 页面上创建一个新客户并填写客户的详细信息， 您可以做以下工作：
 
-1. Open the **Customers** page.
+1. 打开 **客户** 页面。
 
-2. Open properties for the **Details** button, and set **Create Object** as an **On Click Action**.
+2. 为 **详细信息** 按钮打开属性，并将 **创建对象** 设置为 **点击操作**。
 
-3. Set **Customer** as **Entity**.
+3. 设置 **客户** 为 **实体**。
 
-4.  Set **Customer Details** as **Page**.
+4.  设置 **客户详细信息** 为 **页面**。
 
-    ![On Click Event Example](attachments/consistency-errors-pages/button-create-object.png)
+    ![点击事件示例](attachments/consistency-errors-pages/button-create-object.png)
 
-5. Change the button's caption from **Details** to **Add**, as this button will now create a new customer instead of showing the details of an existing customer.
+5. 将按钮的标题从 **细节** 更改为 **添加**因为此按钮现在将创建一个新客户，而不是显示现有客户的详细信息。
 
-Now when a user clicks this button, the **Customer Details** page will open, and the new *Customer* object will be created.
+现在当用户点击此按钮时， **客户详细信息** 页面将打开，新的 *客户* 对象将被创建。
 
-### 4.2 Error Fix Example for CE1569 {#error-example-2}
+### 4.2 错误修复CE1569的示例 {#error-example-2}
 
-If a widget opens a page and this widget is inside a data container of entity X, but the referred page expects entity Y, you will get a consistency error.
+如果一个小部件打开页面，此小部件在实体X的数据容器内， 但所引用的页面需要实体Y, 您将会遇到一致性错误。
 
-For example, you have a **Details** button on the **Engineers** page that opens the **Tasks** page.
+例如，您在 **Engineers** 页面上有 **详细信息** 按钮，打开 **任务** 页面。
 
-![A Button on Engineers Page](attachments/consistency-errors-pages/engineers-page.png)
+![工程师页面上的按钮](attachments/consistency-errors-pages/engineers-page.png)
 
-The button is placed inside a list view; the list view's data source is set to entity *Engineer* in **Properties** > **Data Source**.
+按钮放置在列表视图中； 列表视图的数据源设置为实体 *Engineer* in **Properties** > **Data Source**。
 
-The Tasks page has a data view on it, but the data view's data source is set to entity *SmartTask* in **Properties** > **Data Source**.
+任务页面上有一个数据视图。 但数据视图的数据源已设置为实体 *智能任务* **属性** > **数据源**。
 
-This means that data view expects the object of type *SmartTask* passed to it, but the **Engineers** page is passing the object of type *Engineer*.
+这意味着数据视图期望传递给它类型为 *SmartTask* 的对象。 但是 **Engineers** 页面正在通过类型 *Engineer* 的对象。
 
-![Data Source Example](attachments/consistency-errors-pages/tasks-page-list-view.png)
+![数据源示例](attachments/consistency-errors-pages/tasks-page-list-view.png)
 
-To fix this error you can do one of the following:
+为了解决这个错误，您可以做以下事情之一：
 
-* Place the **Details** button in a data container that will pass the correct type of data to the page:
+* 将 **细节** 按钮放置在数据容器中，该容器将把正确的数据类型传递到页面：
 
     {{% image_container width="350" %}}![](attachments/consistency-errors-pages/details-button.png)
     {{% /image_container %}}
 
-* Select another page for the button that will not expect any object to be passed to it, or will expect the object of type *Engineer*
+* 选择另一个页面用于不指望任何对象会被传递给它的按钮 或者期望类型 *Engineer* 的对象
 
-* Change the data source of the data view on the **Tasks** page to entity *Engineer*
+* 将 **任务** 页面上的数据来源更改为实体 *Engineer*
 
-## 5 Data Consistency Errors
+## 5 数据一致性错误
 
-When a widget that expects as object from its data source does not get it or gets an object from a different entity type, it causes errors in data consistency.
+当一个预期从其数据源获取对象或从另一个实体类型获取对象的部件时， 它造成数据一致性错误。
 
-Some of the most common errors of this type are described in the table below:
+下表说明了这类最常见的错误：
 
-| Error Code | Message in the Error Pane                                                                                                                                                               | Cause of the Error                                                                                                                                                                                                                                 | Way to Fix                                                                                                                                                                                                                                                                                              |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE0552     | Microflow {name of the microflow} does not return an object.                                                                                                                            | The data source of a widget (for example, a data view) is set to **Microflow**, but the microflow does not return any object.                                                                                                                      | Open the microflow and configure a return value of the end event for it.                                                                                                                                                                                                                                |
-| CE0551     | Microflow {name of the microflow} does not return a list.                                                                                                                               | The data source of a list view is set to **Microflow**, but the microflow does not return a list.                                                                                                                                                  | Open the microflow and configure its end event to return a list.                                                                                                                                                                                                                                        |
-| CE1573     | Parameter {Name of the parameter} of the selected microflow/nanoflow does not match available arguments. No arguments available to {Name of the widget}.                                | You selected a microflow or a nanoflow as an on-click event of a widget (for example, of a button) and the microflow/nanoflow contains a parameter, but no argument (for example, an object) is available for the widget to pass to the microflow. | Place the widget in a data container and make sure that the data source of the data container matches the entity selected in **Data type** property of the microflow/nanoflow parameter. For a detailed example and a fix for it, see the [Error Fix Example for CE1573](#error-fix-example-3) section. |
-| CE1574     | Parameter {Name of the parameter} of the selected microflow/nanoflow does not match available arguments. Arguments available to {Name of the widget} are {list of available arguments}. | You selected a microflow or nanoflow as the data source of a widget, but the argument (or arguments) available for this widget does not match the parameter(s) of the microflow.                                                                   | Make sure that an argument (for example, an object) available for the widget matches the entity selected in the **Data type** property of the microflow/nanoflow parameter. For a detailed example and a fix for it, see the [Error Fix Example for CE1574](#error-fix-example-4) section.              |
+请确保一个参数 (例如) 一个对象可用来匹配在 **数据类型** 属性 microflow/nanoflow 参数中所选定的实体。 关于详细的示例和它的修复，请参阅CE1574</a> 部分的 错误修复示例。</td> </tr> </tbody> </table> 
 
-### 5.1 Error Fix Example for CE1573 {#error-fix-example-3}
 
-When you set a microflow or a nanoflow as an on-click event for a widget, and this microflow expects an argument (for example, an object) that is not available, this will result in an error.
 
-For example, on a page named *Customers* you have a button that calls a microflow (that is an [On click event](on-click-event) of the button is set to *Microflow*).
+### 5.1 修复CE1573 的示例 {#error-fix-example-3}
 
-However, the microflow contains a parameter *Customer*:
+当您设置一个微流程或nanoflow 作为一个小部件的点击事件时， 而且这种微流需要一个参数（例如一个物体），它是不可用的，这将导致错误。 
+
+例如， 在一个名为 *客户* 的页面上，您有一个调用微流程的按钮(即 [点击事件](on-click-event) 按钮被设置为 *微流程*)。
+
+然而，微流程包含一个参数 *客户*:
 
 ![](attachments/consistency-errors-pages/microflow-parameter.png)
 
-The microflow parameter expects an argument *Customer*, and since this argument is not available on the page where the button is located, it results in an error.
+microflow 参数需要一个参数 *客户*, 而且由于此参数在按钮所在的页面上不可用，它会导致错误。 
 
-To fix it, do the following:
+要修复它，请做以下操作：
 
-1. Open the *Customers* page and drag and drop a data container on it. For example, you can drag and drop a list view.
+1. 打开 *客户* 页面并拖放一个数据容器。 例如，您可以拖放列表视图。
 
-2.  Set the data source type of the list view to *Database* and set **Entity (path)** to *Customer*.
+2.  将列表视图的数据源类型设置为 *数据库* 并设置 **实体 (路径)** 设置为 *客户*。
+   
+   ![](attachments/consistency-errors-pages/data-source-list-view.png)
 
-    ![](attachments/consistency-errors-pages/data-source-list-view.png)
+3. 将按钮放置在列表视图中。
 
-3. Place the button inside the list view.
+现在 *客户* 对象可以在页面上使用，它与microflow 参数 *客户* 匹配。 
 
-Now the *Customer* object is available on the page and it matches the microflow parameter *Customer*.
 
-### 5.2 Error Fix Example for CE1574 {#error-fix-example-4}
 
-When you set a microflow or nanoflow as an on-click event for a widget, and this microflow/nanoflow expects a certain argument, but a different argument is available to the widget, this will result in an error.
+### 5.2 错误修复CE1574 的示例 {#error-fix-example-4}
 
-For example, on a page named *Customers* you have a button that calls a microflow (that is an [On click event](on-click-event) of the button is set to *Microflow*).
+当您设置一个微流程或nanoflow 作为一个小部件的点击事件时，这个微流程/nanoflow 需要一个特定的参数， 但小部件有不同的参数，这将导致错误。 
 
-The microflow contains a parameter *Customer*:
+例如， 在一个名为 *客户* 的页面上，您有一个调用微流程的按钮(即 [点击事件](on-click-event) 按钮被设置为 *微流程*)。
+
+microflow包含一个参数 *客户*:
 
 ![](attachments/consistency-errors-pages/microflow-parameter.png)
 
-On the *Customers* page you also have a data container, for example, a data view, that has an object *Photo* available. That means that the data source type of the data view is set to *Context* and **Entity (path)** is set to *Photo*:
+在 *客户* 页面上，您也有一个数据容器，比如一个数据视图，它有一个对象 *照片* 可用。 这意味着数据视图的数据源类型设置为 *Context* and **Enty (路径)** 设置为 *照片*：
 
 ![](attachments/consistency-errors-pages/data-view-data-source.png)
 
-As the microflow has the parameter *Customer*, and the data view has the object *Photo*, they are conflicting and resulting into an error.
+因为microflow有参数 *客户*, 数据视图有对象 *照片*，它们相互冲突并导致错误。
 
-The best way to fix this error is to either change the microflow to accept *Photo* or put the button in a data container for a different entity.
+解决这个错误的最佳方法是更改微流程以接受 *照片* 或将按钮放入不同实体的数据容器中。
 
-## 6 Input Widget Consistency Errors
 
-The most common errors for input widgets, their causes, and ways to fix them are described in the table below. For more information on input widgets, see [Input Widgets](input-widgets).
 
-| Error Code | Message in the Error Pane                                                                                    | Cause of the Error                                                                                                                                                                                                                                                                         | Way to Fix                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ---------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CE0544     | This widget can only function inside a data container. Move it into a data view, list view or template grid. | You have added an input widget to a page, but it is not inside a data container. Input widgets need to refer to an attribute of a specific entity type. And entities are only available via data containers. For more information about input widgets, see [Input Widgets](input-widgets). | Place this widget into a data container: a data view, list view, or template grid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| CE0545     | Select an attribute for this {widget name}.                                                                  | You have added an input widget, and it is inside a data container, but an attribute is not selected for it.                                                                                                                                                                                | Right-click the widget, click **Select Attribute** in the drop-down list, and set an attribute; or open widget's properties > the **Data source** section and set an attribute in the **Attribute (path)** field.                                                                                                                                                                                                                                                                                                                                                                                                         |
-|            | Association {Name} must be a reference (not a reference set)                                                 | You have added a reference selector, and then you changed the association from reference type to reference set (from one-to-many or one-to-one to many-to-many).                                                                                                                           | Open your domain model, find the association you have selected for the reference selector, and change it to a one-to-many association. Note that changing the domain model can result in other errors. To avoid changing the domain model, you might want to use another widget instead of the reference selector.<br />For more information on how to fix this error for the reference selector, see the [Incorrect Multiplicity for a Reference Selector](#incorrect-multiplicity-reference) section                                                                                                              |
-|            | Association {Name} must be a reference set (not a reference)                                                 | You have added an input reference set selector, and then you changed the association from reference set type to reference (from many-to-many to one-to-many or one-to-one).                                                                                                                | Open your domain model, find the association you have selected for the input reference set selector, and change it to a many-to-many association. Note that changing the domain model can result in other errors. To avoid changing the domain model, you might want to use another widget instead of the reference set selector. <br />For more information on how to fix the consistency error for the reference set selector and input reference set selector, see the [Incorrect Multiplicity for a Reference Set Selector and an Input Reference Set Selector](#incorrect-multiplicity-reference-set) section. |
-|            | The reference set selector expects an association of type reference set that starts in the data view entity. | You have added a reference set selector, and then you changed the association from reference set type to reference (from many-to-many to one-to-many or one-to-one).                                                                                                                       | Open your domain model, find the association you have selected for the reference set selector, and change it to a many-to-many association. Note that changing the domain model can result in other errors. To avoid changing the domain model, you might want to use another widget instead of the input reference set selector. <br />For more information on how to fix the consistency error for the reference set selector and input reference set selector, see the [Incorrect Multiplicity for a Reference Set Selector and an Input Reference Set Selector](#incorrect-multiplicity-reference-set) section. |
+## 6 输入部件一致性错误
 
-### 6.1 Incorrect Multiplicity for a Reference Selector {#incorrect-multiplicity-reference}
+最常见的输入小部件错误、原因和修复方法见下表。 关于输入小部件的更多信息，请参阅 [输入小部件](input-widgets)。 
 
-A reference selector is a widget that is used to display and edit one-to-many or one-to-one associations. For more information on the widget, see [Reference Selector](reference-selector).
+| 错误代码   | 错误面板中的消息                               | 错误的原因                                                                                                | 修复路径                                                                                                                                                                                                              |
+| ------ | -------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CE0544 | 这个小部件只能在数据容器内运行。 将其移动到数据视图，列表视图或模板网格中。 | 您已将输入部件添加到页面，但它不在数据容器内。 输入部件需要指向特定实体类型的属性。 实体只能通过数据容器获得。 欲了解更多关于输入小部件的信息，请参阅 [输入小部件](input-widgets)。 | 将此部件放入数据容器：数据视图，列表视图或模板网格。                                                                                                                                                                                        |
+| CE0545 | 选择此 {widget name} 的属性。                 | 您已经添加了一个输入小部件，它在数据容器内，但没有为它选择一个属性。                                                                   | 右键单击小部件，在下拉列表中点击 **选择属性** 并设置属性； 或打开部件属性 > **数据源** 部分并在 **属性(路径)** 字段中设置属性。                                                                                                                                       |
+|        | 关联 {Name} 必须是一个引用(不是一个参考集)             | 您已经添加了一个参考选择器，然后您将关联从参考类型改为参考组(从一对数或一对一到多)。                                                          | 打开您的域名，找到您选择的参考选择器的关联，并将其更改为一对一的关联。 请注意，更改域模型可能会导致其他错误。 为了避免更改域模型，您可能想要使用另一个小部件而不是参考选择器。<br />更多关于如何解决这个错误的参考选择器的信息, 查看 [参考选择器](#incorrect-multiplicity-reference) 部分的多重性                                   |
+|        | 关联 {Name} 必须是一个参考集(不是引用)               | 您已添加一个输入参考集选择器。 然后您将关联从参考集类型改为参考类型(从多到多到多或一到一)。                                                      | 打开您的域名，找到您选择的用于输入参考集选择器的关联，并将其更改为多对多的关联。 请注意，更改域模型可能会导致其他错误。 为了避免更改域模型，您可能想要使用另一个小部件而不是参考设置选择器。 <br />关于如何修复参考集选择器和输入参考集选择器的一致性错误的更多信息, 查看 [参考集选择器和输入参考集选择器](#incorrect-multiplicity-reference-set) 部分的多重性。 |
+|        | 参考集选择器需要一个从数据视图实体开始的类型参考集的关联。          | 您已经添加了一个参考集选择器，然后您将关联从参考集的类型更改为引用(从多对多到多或一对一)。                                                       | 打开您的域名，找到您选择的参考设置选择器的关联，并将其更改为多的关联。 请注意，更改域模型可能会导致其他错误。 为了避免更改域模型，您可能想要使用另一个小部件而不是输入参考集选择器。 <br />关于如何修复参考集选择器和输入参考集选择器的一致性错误的更多信息, 查看 [参考集选择器和输入参考集选择器](#incorrect-multiplicity-reference-set) 部分的多重性。     |
 
-For example, you have several employees who are associated with one city where they work. This is a one-to-many association: multiple *Employees* objects are associated with one *City* object.  Associations that refer to a single object in this manner are *references*, as opposed to *reference sets*, in which multiple objects can refer to multiple other objects. In a reference, the "single object" side of the association is always the association's owner. For more information on associations and their types, see [Associations](associations).
 
-![One-to-many Association](attachments/consistency-errors-pages/many-to-one-association.png)
 
-If you have the wrong type of association, you will get a consistency error: *Association {Name} must be a reference (not a reference set)*.
 
-To fix this error, do the following:
+### 6.1 参考选择器的多重性 {#incorrect-multiplicity-reference}
 
-1. Open your domain model and double-click the association that you are using for the reference selector.
+参考选择器是用于显示和编辑一对一或一对一关联的小部件。 关于小部件的更多信息，请参阅 [参考选择器](reference-selector)。  
 
-2.  In **Properties of Association** dialog box, change **Multiplicity** to one-to-many (in our example, multiple 'Employee' objects are associated with one 'City' objects).
+例如，你有几名雇员与他们工作所在的一个城市有联系。 这是一个一对多的关联：多个 *员工* 对象与一个 *城市* 对象相关联。  以这种方式引用单个对象的关联是 *引用*， 相对于 *引用集*, 其中多个对象可以引用多个其他对象。 在一个参考中，协会的“单一对象”方面始终是协会的业主。 关于关联及其类型的更多信息，见 [Associations](associations)。
 
-    ![Multiplicity for One-to-many Association](attachments/consistency-errors-pages/one-to-many-multiplicity.png)
+![一对多协会](attachments/consistency-errors-pages/many-to-one-association.png)
 
-3. Click **OK** to save changes.
+如果您有错误的关联类型， 您将会遇到一个一致性错误： *关联 {Name} 必须是一个引用(而不是一个参考集)*
 
-You have changed the association multiplicity and fixed the error.
+要修复此错误，请执行以下操作：
 
-{{% alert type="info" %}}
+1. 打开您的域模型并双击您为参考选择器使用的关联。
 
-Сhanging the domain model can result in other errors. To avoid changing the domain model, you might want to use another widget instead of the reference selector, for example, a reference set selector or input reference set selector.
+2.  在 **关联** 对话框属性中，将 **多重性** 更改为一对多(在我们的示例中) 多个“员工”对象与一个城市对象相关联。
+   
+   ![一对多的协会的多重性](attachments/consistency-errors-pages/one-to-many-multiplicity.png)
 
-{{% /alert %}}
+3. 点击 **确定** 保存更改。
 
-### 6.2 Incorrect Multiplicity for a Reference Set Selector and an Input Reference Set Selector {#incorrect-multiplicity-reference-set}
-
-Reference set selector and input set selector are widgets that are used to display and edit many-to-many associations. For more information on these widgets, see [Reference Set Selector](reference-set-selector) and [Input Reference Set Selector](input-reference-set-selector).
-
-For example, you have several employees who can visit customers in different cities during the week. Thus, many employees are associated with many cities, this is a many-to-many association between an *Employee* entity and a *City* entity (multiple employees are associated with multiple cities). Associations that refer to multiple objects in this manner are *reference set*. For more information on associations and their types, see [Associations](associations).
-
-![Many-to-many Association](attachments/consistency-errors-pages/many-to-many-association.png)
-
-If you have a wrong type of association, you will get the following errors:
-
-*  *Association {Name} must be a reference set (not a reference)* – for an input reference set selector
-*   *The reference set selector expects an association of type reference set that starts in the data view entity* – for a reference set selector
-
-To fix the error, do the following:
-
-1. Open your domain model and double-click the association that you are using for the reference set selector or the input reference set selector and do the following: <br/>
-
-2.  In **Properties of Association** dialog box, change **Multiplicity** to many-to-many (in our example, multiple 'Employee' objects are associated with multiple 'City' objects).
-
-    ![Multiplicity for Many-to-many Association](attachments/consistency-errors-pages/changing-multiplicity.png)
-
-3. Click **OK** to save changes.
-
-You have changed the association multiplicity and fixed the error.
+您更改了关联的多重性并修复了错误。 
 
 {{% alert type="info" %}}
 
-Сhanging the domain model can result in other errors. To avoid changing the domain model, you might want to use another widget instead of the reference set selector or input reference set selector, for example, a reference selector.
+建立域模型可能会导致其他错误。 为了避免更改域模型，您可能想要使用另一个小部件而不是参考选择器。 例如，一个参考集选择器或输入参考集选择器。 
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 7 File Widget Consistency Errors
 
-File widgets should be placed in a data container, otherwise you will get consistency errors. Another way to fix consistency errors is to place a file widget in a snippet and configure the snippet. For more information on file widgets, see [File Widgets](file-widgets).
 
-| Error code | Message in the Error Pane                                                                                                                           | Cause of the Error                                                                                                                             | Way to Fix                                                                                                                                                                                                                                                   |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|            | A [file manager](file-manager) must be placed in a data view or  snippet that is connected to the entity ‘System.FileDocument’ or a specialization. | You have added a file manager to a page, but it is not inside a data view or a snippet that is configured properly.                            | Place this widget into a data container. If you want to place it into a snippet, mind that you need to configure it properly: either set System.FileDocument (or its specialization) as an entity for this snippet or place the snippet in a data container. |
-|            | An [image uploader](image-uploader) must be placed in a data view or snippet that is connected to the entity ‘System.Image’ or a specialization.    | You have added an image uploader to a page, but it is not inside a data view or a snippet that is configured properly.                         | Place this widget into a data container. If you want to place it into a snippet, mind that you need to configure it properly: set System.Image (or its specialization) as an entity for this snippet or place the snippet in a data container.               |
-|            | Move this widget into a data container, for example a data view or list view.                                                                       | You have added an [image viewer](image-viewer) to your page, but it is not inside a data view or a list view.                                  | Place this widget inside a data view or a list view.                                                                                                                                                                                                         |
-| CE0489     | Select an entity for the data source of this [image viewer](image-viewer).                                                                          | You have added an image viewer to a page, it is placed inside a data view or a list view, but an entity for the image viewer is not specified. | Open image viewer's properties > the **Data source** section and select an entity in the **Entity (path)** field.                                                                                                                                            |
-## 8 Image Widget Consistency Errors
+### 6.2 参考集选择器和输入参考集选择器的多重性不正确 {#incorrect-multiplicity-reference-set}
 
-A consistency error for an image widget is described in the table below:
+参考集选择器和输入集选择器是用于显示和编辑多对多个关联的部件。 关于这些部件的更多信息，请参阅 [Reference Set Selector](reference-set-selector) and [Input Reference Set Selector](input-reference-set-selector)。 
 
-| Error code | Message in the Error Pane | Cause of the Error                                                           | Way to Fix                                                                                                                           |
-| ---------- | ------------------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-|            | No image selected         | You have added an image widget to a page, but do not select an image itself. | Open the image properties >**General** > **Image** and select an image. For more information on an image widget, see [Image](image). |
+例如，您有几名雇员可以在本周访问不同城市的客户。 因此，许多雇员与许多城市有关联。 这是一个 *员工* 实体和 *城市* 实体之间的多对多的关联(多名员工与多个城市相关联)。 以这种方式引用多个对象的关联是 *参考设置*。 关于关联及其类型的更多信息，见 [Associations](associations)。 
 
-## 9 On Click Event Consistency Errors
+![多对多协会](attachments/consistency-errors-pages/many-to-many-association.png)
 
-You can specify an [On click event](on-click-event) for different widgets, for example, for buttons or images.
+如果您有错误的关联类型，您将会遇到以下错误：
 
-The most common consistency errors are connected with not configuring the on click event.
+*  *关联 {Name} 必须是一个参考集(不是一个引用)* - 对于输入参考集选择器
+*   *参考集选择器需要一个从数据视图实体起始的类型参考集的关联* - 一个参考集选择器
 
-To fix the consistency errors, finish configuring the on click event (for example, for an on click event **Show a page**, select a particular page that should open), or change the on click event.
+要修复错误，请执行以下操作：
 
-## 10 Read More
+1. 打开您的域模型并双击您为参考集选择器或输入参考集选择器所使用的协会，并执行以下操作： <br/>
 
-* [Pages](pages) 
+2.  在 **关联** 对话框属性中，将 **多重性** 更改为多(在我们的示例中) 多个“员工”对象与多个“城市”对象相关联。
+   
+   ![多对多协会的多重性](attachments/consistency-errors-pages/changing-multiplicity.png)
+
+3. 点击 **确定** 保存更改。
+
+您更改了关联的多重性并修复了错误。 
+
+{{% alert type="info" %}}
+
+建立域模型可能会导致其他错误。 为了避免更改域模型，您可能想使用另一个小部件，而不是参考集选择器或输入参考集选择器。 例如，一个参考选择器。 
+
+{{% /报警 %}}
+
+
+
+## 7 文件部件一致性错误
+
+文件部件应该放置在数据容器中，否则你将会遇到一致性错误。 修复一致性错误的另一种方法是将一个文件部件放入代码片段并配置代码片段。 关于文件部件的更多信息，见 [文件小部件](file-widgets)。 
+
+| 错误代码   | 错误面板中的消息                                                             | 错误的原因                                             | 修复路径                                                                                          |
+| ------ | -------------------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+|        | [文件管理器](file-manager) 必须放置在连接到实体“System.FileDocument”或专业化的数据视图或代码片段。 | 您已经向页面添加了一个文件管理器，但它不在数据视图或配置正确的代码段内。              | 将此部件放入数据容器。 如果你想要将它放入代码片段，请注意你需要正确配置它：要么设置系统。 作为此代码片段的实体的 ileDocument (或其专业化)，或将代码片段放置在数据容器中。 |
+|        | [图像上传器](image-uploader) 必须放置在连接到实体'System.Image' 或专业化的数据视图或代码片段。     | 您已将图像上传器添加到一个页面，但它不在数据视图或正确配置的代码段内。               | 将此部件放入数据容器。 如果你想要将它放入代码片段，请注意你需要正确配置它：设置系统。 将代码片段 (或其专业化) 作为此代码片段的实体或将代码片段放入数据容器中。            |
+|        | 将此部件移动到数据容器中，例如数据视图或列表视图。                                            | 您已将 [图像查看器](image-viewer) 添加到您的页面，但它不在数据视图或列表视图内。 | 将此小部件放置在数据视图或列表视图。                                                                            |
+| CE0489 | 选择此 [图像查看器](image-viewer) 的数据源实体。                                    | 您已将图像查看器添加到一个页面，它被放置在数据视图或列表视图中。 但没有指定图像查看器的实体。   | 打开图像查看器的属性 > **数据源** 部分，并在 **实体(路径)** 字段中选择一个实体。                                              |
+
+
+
+## 8 图像部件一致性错误
+
+图像部件的一致性错误描述于下表：
+
+| 错误代码 | 错误面板中的消息 | 错误的原因                  | 修复路径                                                          |
+| ---- | -------- | ---------------------- | ------------------------------------------------------------- |
+|      | 未选择图像    | 您已将图像部件添加到页面，但不选择图像本身。 | 打开图像属性 >**常规** > **图像** 并选择图像。 欲了解图像部件上的更多信息，请参阅 [图像](image)。 |
+
+
+
+
+## 9 点击事件一致性错误
+
+您可以在单击事件</a> 时为不同的部件指定一个 ，例如，用于按钮或图像。 </p> 
+
+最常见的一致性错误与没有配置单击事件有关。 
+
+要修复一致性错误，请完成对点击事件的配置 (例如) 对于点击事件 **显示页面**, 选择一个应该打开的特定页面, 或者在点击时更改事件。 
+
+
+
+## 10 点更多
+
+* [页 次](页面) 
