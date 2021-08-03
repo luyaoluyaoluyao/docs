@@ -1,32 +1,28 @@
 ---
-title: "XPath Constraint Functions"
-parent: "xpath-constraints"
+title: "XPath 约束函数"
+parent: "xpat-conditions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-constraint-functions.pdf).
-{{% /alert %}}
+以下页面描述了可以在约束范围内执行的函数：
 
-The following pages describe the functions that can be executed within constraints:
-
-* [contains](xpath-contains)
-* [day-from-dateTime](xpath-day-from-datetime)
-* [day-of-year-from-dateTime](xpath-day-of-year-from-datetime)
-* [ends-with](xpath-ends-with)
+* [包含](xpath-contains)
+* [日-日期时间](xpath-day-from-datetime)
+* [年份从日期开始时间](xpath-day-of-year-from-datetime)
+* [结束于](xpath-ends-with)
 * [false](xpath-false)
-* [hours-from-dateTime](xpath-hours-from-datetime)
-* [length](xpath-length)
-* [minutes-from-dateTime](xpath-minutes-from-datetime)
-* [month-from-dateTime](xpath-month-from-datetime)
-* [not](xpath-not)
-* [quarter-from-dateTime](xpath-quarter-from-datetime)
-* [seconds-from-dateTime](xpath-seconds-from-datetime)
-* [starts-with](xpath-starts-with)
-* [string-length](xpath-string-length)
+* [从日期起的时间](xpath-hours-from-datetime)
+* [长度](xpath-length)
+* [从日期起的时间](xpath-minutes-from-datetime)
+* [月从日期时间](xpath-month-from-datetime)
+* [不是](xpath-not)
+* [四分之一从日期时间](xpath-quarter-from-datetime)
+* [从日期起秒数](xpath-seconds-from-datetime)
+* [开始于](xpath-starts-with)
+* [字符串长度](xpath-string-length)
 * [true](xpath-true)
-* [week-from-dateTime](xpath-week-from-datetime)
-* [weekday-from-dateTime](xpath-weekday-from-datetime)
-* [year-from-dateTime](xpath-year-from-datetime)
+* [周起日期时间](xpath-week-from-datetime)
+* [周日-日期时间](xpath-weekday-from-datetime)
+* [年份从日期时间](xpath-year-from-datetime)
 
