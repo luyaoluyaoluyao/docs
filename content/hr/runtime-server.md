@@ -34,7 +34,7 @@ M2ee communicates with the Runtime Server through authenticated POST requests, i
 
 ### 2.2 Runtime Core
 
-This is an interpreter written in Java and Scala, which uses the app model to decide how to process a request from the Mendix Client or a request from an external service, and controls the various processes which need to take place to service the request.
+This is an interpreter written in Java and Scala, which uses the project model to decide how to process a request from the Mendix Client or a request from an external service, and controls the various processes which need to take place to service the request.
 
 ### 2.3 Project Model
 
@@ -84,7 +84,7 @@ This manages the objects which are maintained in the Runtime Server (non-persist
 
 ### 2.13 Microflow Engine
 
-This runs the logic which is defined in the microflows in the app model.
+This runs the logic which is defined in the microflows in the project model.
 
 ### 2.14 Scheduler
 
@@ -96,7 +96,7 @@ This is a service which provides information about the license which is being us
 
 ### 2.16 Custom Java
 
-This runs custom Java which is held as Java actions in the app model.
+This runs custom Java which is held as Java actions in the project model.
 
 ### 2.17 Mendix Client API
 
