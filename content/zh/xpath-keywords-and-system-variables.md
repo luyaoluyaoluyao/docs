@@ -1,9 +1,6 @@
 ---
-title: "XPath 关键字 & 系统变量"
+title: "XPath 关键字和系统变量"
 parent: "xpat-conditions"
-tags:
-  - "studio pro"
-  - "开始"
 ---
 
 ## 1 概览
@@ -46,10 +43,6 @@ tags:
 | ---------------------------- | -------- |
 | `[%UserRole_Administrator%]` | 管理员用户角色。 |
 
-以下是检索该用户角色的示例：
-
-![](attachments/xpath/user-role.png)
-
 ### 3.3 时间相关的
 
 以下令牌可以用来获取日期和时间值：
@@ -91,7 +84,6 @@ tags:
 | `[%MinuteLength%]` | 1分钟的长度。     |
 | `[%SecondLength%]` | 1秒的长度。      |
 | `[%WeekLength%]`   | 为期一周(7天)。   |
-| `[%MonthLength%]`  | 一个月的长度。     |
 | `[%YearLength%]`   | 一年长度。       |
 
 {{% alert type="info" %}}
