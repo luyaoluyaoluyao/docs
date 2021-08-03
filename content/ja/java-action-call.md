@@ -1,38 +1,75 @@
 ---
-title: "Java Action Call"
-parent: "action-call-activities"
+title: "Java アクションコール"
+parent: "action-call-activity"
+menu_order: 10
+tags:
+  - "studio pro"
+  - "Java"
+  - "javaアクションコール"
+  - "アクション通話"
 ---
 
-{{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The Java action call activity can be used to call a [Java action](java-actions). Arguments can be passed to the action and the result can be stored in a variable.
+**Java アクションコール** アクティビティは、 [Java アクション](java-actions) を呼び出すために使用できます。
 
-{{% alert type="info" %}}
+{{% image_container width="200" %}}
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+![Java アクション](attachments/action-call-activities/java-action-call.png)
 
-{{% /alert %}}
+{{% /image_container %}}
 
-## 2 Action Properties
+引数はアクションに渡すことができ、結果を保存することができます。
 
-### 2.1 Java action
+## 2つのプロパティ
 
-The Java action that is called by this activity.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-### 2.2 Arguments
+![Javaアクションコールプロパティ](attachments/action-call-activities/java-action-call-properties.png)
 
-For each parameter of the Java action you have to supply an argument of the same type. The values of the arguments are expressed using [expressions](expressions).
+**Java アクションコール** プロパティペインは以下のセクションで構成されています。
 
-## 3 Output Properties
+* [アクション](#action)
+* [一般的な](#common)
 
-### 3.1 Return Type
+## 3 アクションセクション {#action}
 
-The return type is the [data type](data-types) of the result of the Java action. The return type is defined by the Java action.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-### 3.2 Variable Name
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-The result of the Java action will be stored in a variable with this name.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.1 Java アクション
+
+このアクティビティによって呼び出されるJavaアクション。
+
+### 3.2 引数
+
+引数を入力するには、パラメータの横にある **** をクリックします。
+
+引数は、Java アクションに渡す入力データです。 Javaアクションパラメータごとに、同じ型の引数を指定する必要があります。
+
+引数の値は [式](expressions) を使用して定義されます:
+
+![引数](attachments/action-call-activities/argument-edit.png)
+
+### 3.3 戻り値の種類
+
+この読み取り専用プロパティは、変数、オブジェクト、またはリストを取得するかどうかを示します。 戻り値の型は Java アクションによって定義されます。
+
+### 3.4 戻り値を使用
+
+**User return value** が *Yes* に設定されている場合、返り値に名前を付けるように求められます。
+
+### 3.5 変数名、オブジェクト名、またはリスト名
+
+Javaアクションの結果には、この名前が与えられます。 ラベルは、結果が変数、オブジェクト、またはリストであるかどうかを示します。 オブジェクトまたはリストの場合、 **Return type** は、返されるエンティティを示します。
+
+## 4つの共通セクション {#common}
+
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
