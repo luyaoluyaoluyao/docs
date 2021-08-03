@@ -1,10 +1,10 @@
 ---
-title: "Comparison Search Field"
-parent: "search-bar"
+title: "比較検索フィールド"
+parent: "検索バー"
 ---
 
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Search+Field+Caption+Property.md" %}}
 
@@ -18,18 +18,18 @@ parent: "search-bar"
 
 {{% snippet file="refguide7/Search+Field+Placeholder+Property.md" %}}
 
-## General Properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Search+Field+Attribute+Path+Property.md" %}}
 
 {{% snippet file="refguide7/Search+Field+Comparison+Property.md" %}}
 
-### Date comparisons and the influence of the default value
+### 日付の比較とデフォルト値の影響
 
-It is possible to search on date attributes using equality. What happens with the time component belonging to the date is dependent on the default value of the comparison search field.
+日付の属性を等価で検索することができます。 日付に属する時刻コンポーネントは、比較検索フィールドのデフォルト値に依存します。
 
-| Default value         | Search query                                                                                                     |  | Result example (input: August 4, 2100)                               |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------- |  | -------------------------------------------------------------------- |
-| None                  | Search field is empty. Represents a 24 hour date range starting at midnight of the specified date.               |  | Search between August 4, 0:00 - August 5, 0:00                       |
-| [%CurrentDateTime%]   | Search field shows the current date. Represents a 24 hour date range starting at the _current time_.             |  | Search between August 4, <current time> and August 5, <current time> |
-| [%BeginOfCurrentDay%] | Search field shows the current date. Represents a 24 hour date range starting at midnight of the specified date. |  | Search between August 4, 0:00 - August 5, 0:00                       |
+| 既定値                   | 検索クエリ                                                 |  | 結果例 (input: August 4, 2100)                   |
+| --------------------- | ----------------------------------------------------- |  | --------------------------------------------- |
+| なし                    | 検索フィールドが空です。 指定された日付の深夜から始まる24時間の日付の範囲を表します。          |  | 8月4日0:00~8月5日0:00の間で検索                        |
+| [%CurrentDateTime%]   | 検索フィールドに現在の日付が表示されます。 _現在時刻_から始まる24時間の日付範囲を表します。      |  | 8月4日から検索 <current time> -8月 5日 <current time> |
+| [%BeginOfCurrentDay%] | 検索フィールドに現在の日付が表示されます。 指定された日付の深夜から始まる24時間の日付の範囲を表します。 |  | 8月4日0:00~8月5日0:00の間で検索                        |
