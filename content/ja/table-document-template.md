@@ -2,8 +2,8 @@
 title: "表 (ドキュメントテンプレート)"
 parent: "ドキュメントテンプレート"
 aliases:
-  - /ja/refguide/table-(document-template).html
-  - /ja/refguide/Table+(document+template.html
+  - /refguide7/Table+(document+template.html
+  - /refguide7/table-(document-template).html
 ---
 
 ## 1つの紹介
@@ -14,7 +14,7 @@ aliases:
 
 {{% alert type="info" %}}
 
-![](attachments/document-templates/918134.png)
+![](attachments/819203/918134.png)
 
 この表には４行３列がある。 最後の行には、別のテーブルを持つデータビューが含まれます。
 
@@ -56,4 +56,4 @@ aliases:
 
 ## 4つの一般的なプロパティ
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
