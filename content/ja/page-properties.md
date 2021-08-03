@@ -1,128 +1,128 @@
 ---
-title: "Page Properties"
-parent: "page"
+title: "ページのプロパティ"
+parent: "ページ"
 menu_order: 10
 tags:
   - "studio pro"
-  - "page"
-  - "properties"
+  - "ページ"
+  - "プロパティ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes page properties. For details on what pages are for and what kind of widgets can be placed on them, see [Pages](pages).
+このドキュメントでは、ページ プロパティについて説明します。 どのページにどのようなウィジェットを配置できるかの詳細については、 [ページ](pages) を参照してください。
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of page properties is represented in the image below:
+以下の画像では、ページ プロパティの例を示します。
 
-{{% image_container width="250" %}}![Page Properties](attachments/page/page-properties.png)
+{{% image_container width="250" %}}![ページのプロパティ](attachments/page/page-properties.png)
 {{% /image_container %}}
 
-Page properties consist of the following sections:
+ページプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Designer](#designer)
-* [General](#general)
+* [一般的な](#common)
+* [デザイナー](#designer)
+* [全般](#general)
 * [Navigation](#navigation)
-* [Pop-up](#pop-up)
-* [Usage](#usage)
+* [ポップアップ](#pop-up)
+* [使用法](#usage)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Designer Section {#designer}
+### 2.2 デザイナーセクション {#designer}
 
 {{% snippet file="refguide/designer-properties.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Platform
+#### 2.3.1 プラットフォーム
 
-The values for the **Platform** property are:
+**Platform** プロパティの値は以下のとおりです。
 
-* Web *(default)* – pages which are going to be displayed in a browser or hybrid mobile app
-* Native – pages which are going to be displayed in a native mobile app
+* Web *(デフォルト)* – ブラウザまたはハイブリッドモバイルアプリに表示されるページ
+* ネイティブ - ネイティブモバイルアプリに表示されるページ
 
-#### 2.3.2 Layout Type {#layout-type}
+#### 2.3.2 レイアウトタイプ {#layout-type}
 
-The **Layout type**, determines the purpose of the page and how it is opened.
+**レイアウト タイプ**は、ページの目的と開き方を決定します。
 
-| Layout Type         | Description                                                                                                         |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **Responsive**      | Pages that will work fine on all types of devices.                                                                  |
-| **Tablet specific** | Pages to be displayed on a tablet because the responsive option does not provide a good user interface on a tablet. |
-| **Phone specific**  | Pages to be displayed on a phone because the responsive option does not provide a good user interface on a phone.   |
-| **Modal pop-up**    | Pages that appear as [modal pop-up windows](https://www.wikiwand.com/en/Modal_window).                              |
-| **Pop-up**          | Pages that appear as *modeless* pop-up windows.                                                                     |
+| レイアウトタイプ       | 説明                                                                       |
+| -------------- | ------------------------------------------------------------------------ |
+| **レスポンシブ**     | あらゆる種類のデバイスで正常に動作するページ。                                                  |
+| **タブレット固有の**   | レスポンシブオプションはタブレット上で良いユーザーインターフェイスを提供しないため、タブレットに表示されるページ。                |
+| **電話番号指定**     | レスポンシブオプションが電話で良いユーザーインターフェイスを提供しないので、電話に表示されるページ。                       |
+| **モーダルポップアップ** | モーダルポップアップウィンドウ [として表示されるページ](https://www.wikiwand.com/en/Modal_window)。 |
+| **ポップアップ**     | *モデル* ポップアップウィンドウとして表示されるページ                                             |
 
-#### 2.3.3 Layout
+#### 2.3.3 レイアウト
 
-The [layout](layout) on which this page is based.
+このページが基づく [レイアウト](layout)
 
-#### 2.3.4 Title {#title}
+#### 2.3.4 タイトル {#title}
 
-The title of the page that is shown using the [page title widget](page-title). If the page is shown in a pop-up window, the title appears in the title bar of the pop-up.
+[ページ タイトル ウィジェット](page-title) を使用して表示されるページのタイトル。 ページがポップアップウィンドウに表示されると、ポップアップのタイトルバーにタイトルが表示されます。
 
-The title can be overridden. For example, the [Create button](control-bar) and the [Edit button](control-bar) of a data grid can refer to the same page, but they override the titles to **New** and **Edit**, respectively.
+タイトルは上書きすることができます。 For example, the [Create button](control-bar) and the [Edit button](control-bar) of a data grid can refer to the same page, but they override the titles to **New** and **Edit**, respectively.
 
 #### 2.3.6 URL
 
-The URL of the page can be used to directly navigate to the page (for example, from external links or bookmarks). It will be shown in the address bar of the browser when you visit the page. When navigating to a page without a URL configured, the last visited URL is shown. Note that the full URL of the page will be the base URL of your application followed by `/p` and then by the configured URL of the page (for example, `http://example.mendixcloud.com/p/home_page`).
+ページの URL を使用して、直接ページに移動することができます (例えば、外部リンクやブックマークから)。 ページにアクセスすると、ブラウザのアドレスバーに表示されます。 URLが設定されていないページに移動すると、最後に訪問したURLが表示されます。 Note that the full URL of the page will be the base URL of your application followed by `/p` and then by the configured URL of the page (for example, `http://example.mendixcloud.com/p/home_page`).
 
-Pages with top-level data views (parameterized pages) can also have URLs. The URL property of such pages should contain the `{Id}` path segment at the end. In the browser, the `{Id}` segment will be replaced with the actual identifier of an entity.
+トップレベルのデータビュー(パラメータ化されたページ)を持つページにはURLもあります。 そのようなページの URL プロパティには、最後に `{Id}` のパスセグメントが含まれている必要があります。 ブラウザーでは、 `{Id}` セグメントはエンティティの実際の識別子に置き換えられます。
 
-In simple e-commerce applications, the URLs can be configured as follows:
+簡単な電子商取引アプリケーションでは、次のようにURLを構成できます。
 
 * */orders/* – the URL for a page with a data grid for `Orders` (in a browser, the URL will look like `http://example.mendixcloud.com/p/orders/`)
 
 * */order/{Id}* – the URL for a page with data from a particular `Order` (in a browser, the URL will look like `http://example.mendixcloud.com/p/order/3212449487634321`, wherein `3212449487634321` is the unique identifier of the `Order`)
 
-### 2.4 Navigation Section {#navigation}
+### 2.4 ナビゲーションセクション {#navigation}
 
-#### 2.4.1 Visible For
+#### 2.4.1 表示
 
-This property defines for what module roles the page is visible. This has an effect on [menu widgets](menu-widgets) and on buttons that are visible only if allowed (for example, an [action button](button-widgets) for editing).
+このプロパティは、ページが表示されるモジュールのロールを定義します。 This has an effect on [menu widgets](menu-widgets) and on buttons that are visible only if allowed (for example, an [action button](button-widgets) for editing).
 
-For more information, see [Module Security](module-security).
+詳細については、 [モジュールセキュリティ](module-security) を参照してください。
 
-### 2.5 Pop-Up Section {#pop-up}
+### 2.5 ポップアップセクション {#pop-up}
 
-The **Pop-up** section is only displayed for pop-up pages. For more information on what pop-up pages are, see the [Layout Type](#layout-type) section.
+**ポップアップ** セクションはポップアップページにのみ表示されます。 ポップアップページの詳細については、 [Layout Type](#layout-type) セクションを参照してください。
 
-#### 2.5.1 Width (in Pixels)
+#### 2.5.1 幅 (ピクセル単位)
 
-This property specifies the pop-up page width in pixels. When set to 0, the width is determined automatically.
+ポップアップページの幅をピクセル単位で指定します。 0に設定すると、幅が自動的に決まります。
 
-Default: *0*
+デフォルト: *0 0*
 
-#### 2.5.2 Height (in Pixels)
+#### 2.5.2 高さ (ピクセル単位)
 
-This property specifies the pop-up page height in pixels. When set to 0, the height is determined automatically.
+このプロパティは、ポップアップページの高さをピクセルで指定します。 0に設定すると、高さが自動的に決まります。
 
-Default: *0*
+デフォルト: *0 0*
 
 #### 2.5.3 Resizable
 
-This property specifies whether the end-user can resize the pop-up or not.
+このプロパティは、エンドユーザーがポップアップのサイズを変更できるかどうかを指定します。
 
-Default: *Yes*
+デフォルト: *はい*
 
-#### 2.5.4 Close Action
+#### 2.5.4 アクションを閉じる
 
-Configures the behavior of a button that closes the pop-up page. The default behavior of the pop-up close button is to rollback any changes and close the pop-up window.
+ポップアップページを閉じるボタンの動作を設定します。 ポップアップ閉じボタンのデフォルトの動作は、変更をロールバックしてポップアップウィンドウを閉じることです。
 
-If you want to customize the behavior of the pop-up close button, you can point to a button on the page. When the pop-up close button is clicked, it will then act as if the selected button is clicked. If the selected button is not available the pop-up close button will revert back to the default behavior.
+ポップアップを閉じるボタンの動作をカスタマイズしたい場合は、ページ上のボタンを指すことができます。 ポップアップ閉じボタンがクリックされると、選択したボタンがクリックされたように動作します。 選択したボタンが使用できない場合、ポップアップ閉じるボタンはデフォルトの動作に戻ります。
 
-Default: *Default (cancel)*
+デフォルト: *デフォルト (キャンセル)*
 
-### 2.6 Usage Section {#usage}
+### 2.6 使用セクション {#usage}
 
-#### 2.6.1 Mark as Used
+#### 2.6.1 使用済みマーク
 
-You can search for unused items in Studio Pro by pressing <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>. Pages that are only used from Java code will be listed as unused, because Studio Pro cannot look inside Java source code.
+Studio Pro で未使用の項目を検索するには、 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> を押します。 Studio Pro は、Java ソースコード内を参照することができないため、Java コードからのみ使用されるページは、使用されていないと表示されます。
 
-By setting the property **Mark as used** to *Yes*, you specify that the document is used implicitly and Studio Pro will no longer list it when searching for unused items.
+プロパティ **使用済みとして** を *はい*に設定する ドキュメントが暗黙的に使用されていることを指定し、使用されていない項目を検索するときに Studio Pro がリストに追加されなくなります。
 
-*Default value*: No
+*デフォルト値*: いいえ
