@@ -1,24 +1,32 @@
 ---
 title: "Title (Document Template)"
 parent: "document-templates"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Title+(document+template).html
-  - /refguide7/title-(document-template).html
+  - /refguide8/title-(document-template).html
+  - /refguide8/Title+(document+template).html
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/title-document-template.pdf).
+{{% /alert %}}
+
+## 1 Introduction
 
 A title works much like a static label but can be placed outside a data view, templategrid or table.
 
-## Appearance Properties
+## 2 Appearance Properties
 
-### Caption
+### 2.1 Caption
 
 This is the value you wish to display in the document.
 
-### Style
+### 2.2 Style
 
-See [Style](style)
+For details, see [Style](style).
 
-## Common Properties
+## 3 Common Properties
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide8/name-property.md" %}}
+
