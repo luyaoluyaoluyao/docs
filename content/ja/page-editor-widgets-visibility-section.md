@@ -1,138 +1,117 @@
 ---
-title: "Conditional Visibility Section"
+title: "条件付き表示セクション"
 parent: "page-editor-widgets"
-description: "Describes the Conditional Visibility section in widgets properties in Mendix Studio."
+description: "Mendix Studio のウィジェットのプロパティで条件付き表示セクションを説明します。"
 menu_order: 30
 tags:
-  - "studio"
-  - "page editor"
-  - "widgets"
-  - "on click action"
-  - "events"
+  - "スタジオ"
+  - "ページエディタ"
+  - "ウィジェット"
+  - "クリックアクション"
+  - "イベント"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Conditional Visibility** section in widget properties allows you to show a widget only when certain conditions are met. You can make widgets visible based on the following conditions:
+ウィジェット プロパティの **条件付き可視性** セクションでは、特定の条件が満たされたときにのみウィジェットを表示できます。 次の条件に基づいてウィジェットを表示することができます。
 
-* [An attribute value of a widget](#attribute-based)
-* [User roles in your app](#role-based)
+* [データに基づくVisibile](#based-on-data)
+* [ロールに基づいて表示](#role-based)
 
-For example, you have a web shop and you do not want to bother users with filling in the same address twice when the delivery address matches the billing address. You would like to show fields to fill the billing address in only when a user unchecks the **Billing address is the same as delivery address** option (which is checked by default). In this case you can make the billing address fields visible based on an *attribute value*: the field will be displayed only when the *BillingAddressSame* is unticked (set to *false*):
+例えば、 Webショップを持っていて、配達先住所が請求先住所と一致した場合に同じ住所を2回入力する必要はありません。 ユーザーが **請求先住所が配送先住所** オプション（デフォルトでチェックされている）と同じチェックを外した場合にのみ請求先住所を入力するフィールドを表示します。 この場合、 *属性値*に基づいて請求先住所フィールドを表示させることができます: フィールドは *BillingAddressSame* のチェックが外されている場合にのみ表示されます ( *false* に設定):
 
-![](attachments/page-editor-widgets-visibility-section/attribute-based-example.png)
+![表示例](attachments/page-editor-widgets-visibility-section/attribute-based-example.png)
 
-You can also show a widget to a certain *user role* only. For example, you can show a widget showing salary amounts only to Finance Managers.
+特定の *ユーザー ロール* にのみウィジェットを表示することもできます。 たとえば、給与金額を財務マネージャーにのみ表示するウィジェットを表示できます。
 
-To see which widgets that have conditional visibility configured, click the eye icon is the **Show** option in the top-left corner of a page: ![](attachments/page-editor-widgets-visibility-section/highlight-conditional-items.png)
+条件付き表示が設定されているウィジェットを確認するには、 目のアイコンをクリックすると、ページの左上隅にある **表示** オプションが表示されます。 ![オプションを表示](attachments/page-editor-widgets-visibility-section/highlight-conditional-items.png)
 
-## 2 Conditional Visibility Properties
+## 2 条件付き可視性プロパティ
 
-You can enable conditional visibility based on the selected attribute value and/or a user role. Conditional visibility properties are described below.
+[動的データ](#based-on-data) および/または [ユーザーロール](#role-based)の結果に基づいて条件付き表示を有効にすることができます。 条件付き可視性プロパティについては、以下で説明します。
 
-### 2.1 Attribute-Based {#attribute-based}
+### 2.1 データに基づいて表示 {#based-on-data}
 
-**Attribute-Based** visibility allows you to show widgets only when they match a certain value of the selected attribute.
+**データに基づいて可視化する** を使用すると、動的データの結果に基づいてウィジェットを表示できます。 例えば、 **Gold** 成績の顧客のみに特別なオファー価格を表示したいとします。
+
+![データに基づいて表示](attachments/page-editor-widgets-visibility-section/visible-based-on-data.jpg)
+
+### 2.2 に基づく条件 {#condition}
+
+**** プロパティに基づく条件は、 [データ](#based-on-data) に基づく表示が有効な場合にのみ表示されます。 次のオプションが使用できます。
+
+* **属性** – 条件が属性値に基づいているかどうかを定義します。 この場合、ウィジェットは選択した属性の特定の値に一致する場合にのみ表示されます。
+* **式** – 条件が式に基づいているかどうかを定義します。 この場合、ウィジェットは、式がブール値 `true` を返した場合にのみ表示されます。 式の詳細については、 [式](expressions) を参照してください。
+
+### 2.3 属性 {#attribute}
+
+このプロパティは、 [](#condition) に基づく条件が **属性** に設定されている場合にのみ表示されます。 条件に基づく属性を選択できます。 属性は、ブール型または列挙型でなければなりません。
+
+### 2.4 属性値 {#attribute-values}
+
+このプロパティは、属性が [属性](#attribute) プロパティに選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
+
+**Gold** 採点のお客様にのみ特別価格を表示したい場合。 ** 属性 ** プロパティで *成績* を選択し、 **属性** 値として *ゴールド* を選択する必要があります。 **属性値**:
+
+![属性ベースの可視性](attachments/page-editor-widgets-visibility-section/attribute-based-visibility.png)
+
+### 2.5 Expression
+
+このプロパティを使用すると、式を作成でき、式が [](#condition) に基づいている **式** に設定されている場合にのみ表示されます。 式はブール型でなければなりません。 式の作成方法の詳細については、 [式](expressions) を参照してください。
+
+### 2.7 ロールに基づいて表示 {#role-based}
+
+ウィジェットは特定のユーザーロールを持つユーザーにのみ表示できます。 たとえば、タクシーの予約アプリで お客様や管理者にタクシー運転手を評価させたいのですが タクシー運転手からはっきり隠してください
+
+![ロールに基づいて表示](attachments/page-editor-widgets-visibility-section/visible-based-on-role.jpg)
 
 {{% alert type="info" %}}
 
-The attribute must be of the Boolean or enumeration type.
+セキュリティが有効な場合にのみ、ロールベースの条件付き表示を設定できます。 詳細については、 [セキュリティ、ロール & 権限](settings-security) を参照してください。
 
 {{% /alert %}}
 
-{{% alert type="info" %}}
+### 2.8 ロール
 
-You can only configure attribute-based conditional visibility when a widget is placed in a data container: a data view or a list view.
+**ロール** プロパティは、 [ロールに基づく表示](#role-based) プロパティが有効な場合にのみ表示され、アプリケーションで使用可能なロールのリストが表示されます。
 
-{{% /alert %}}
+## 3 基本機能の実行
 
-### 2.2 Attribute Values
+### 3.1 属性値に基づく可視性の設定
 
-This property is shown only when an attribute in the [Attribute-Based](#attribute-based) property is selected. The **Attribute Values** property allows you to select certain attribute values.
+属性値に基づいて可視性を設定するには、以下の手順に従ってください。
 
-For example, you would like to show a special offer price only for customers with the **Gold** grade. Select *Grade* in the **Attribute-Based** property and *Gold* in as the **Attribute Value**:
+1. 特定の属性値にのみ表示したいウィジェットを選択し、そのプロパティに移動します。
 
-{{% image_container width="300" %}}
-![](attachments/page-editor-widgets-visibility-section/attribute-based-visibility.png)
-{{% /image_container %}}
+2. **条件付き可視性** セクションで、 **データに基づいて** プロパティを切り替えます。
 
-### 2.3 Role-Based {#role-based}
+3. **に基づく条件** はデフォルトで **属性** に設定されます。 **属性** プロパティをクリックします。
 
-The widget can be made visible to a specific of the user roles available in your app. When enabled, this setting will render the widget visible to all users that are linked to one of the selected user roles.
+    ![](attachments/page-editor-widgets-visibility-section/attribute-based-property.png)
 
-{{% alert type="info" %}}
+4. **属性の選択** ダイアログボックスで、ブール値または列挙型の属性を選択し、 **Select** をクリックします。
 
-You can only configure role-based conditional visibility when security is enabled. For more information, see [Security, Roles & Permissions](settings-security).
-
-{{% /alert %}}
-
-### 2.4 Roles
-
-The **Roles** property is only shown when the [Role-Based](#role-based) property is enabled and shows a list of roles available in your app. Select the roles that you would like to make a widget visible for. For example, in a taxi booking app, you would like to show a taxi driver rating to customers and administrators, but hide it from taxi drivers:
-
-{{% image_container width="300" %}}
-![](attachments/page-editor-widgets-visibility-section/role-based-visbility.png)
-{{% /image_container %}}
-
-## 3 Performing Basic Functions
-
-### 3.1 Configuring Attribute-Based Conditional Visibility
-
-To configure attribute-based visibility, do the following:
-
-1. Select a widget you would like to make visible only for certain attribute values and go to its properties.
-
-2. In **Conditional Visibility** section, click the **Attribute-Based** property:
-
-    {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/attribute-based-property.png){{% /image_container %}}
-
-3. In the **Select Attribute** dialog box, select an attribute of the Boolean or enumeration type and click **Select**.
-
-4. The **Attribute Values** property is now displayed in properties. Untick the values that does not meet the conditions you would like to set:
+5. **属性値** プロパティがプロパティに表示されるようになりました。 設定したい条件を満たさない値のチェックを外します:
 
     {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/attribute-values.png){{% /image_container %}}
 
-Attribute-based conditional visibility is set for the widget.
+属性値に基づく条件付き可視性がウィジェットに設定されます。
 
-### 3.2 Disabling Attribute-Based Conditional Visibility
+### 3.2 ロールに基づく条件付き可視性の設定
 
-To disable attribute-based visibility, follow the steps below:
+ロールベースの条件付き可視性を設定するには、次の手順を実行します。
 
-1. Select a widget you would like to disable attribute-based visibility and go to its properties.
+1. 特定のユーザー ロールにのみ表示したいウィジェットを選択し、そのプロパティに移動します。
 
-2. In **Conditional Visibility** section, click the **Attribute-Based** property.
+2. **条件付き可視性** セクションで、 **ロールに基づいて** プロパティを切り替えます。
 
-3. In the **Select Attribute** dialog box, click **Clear**:
+3. アプリケーションで利用可能なロールのリストは、 **ロール** プロパティに表示されます。 ウィジェットを非表示にしたいロールのチェックを外します:
 
-    {{% image_container width="400" %}}![](attachments/page-editor-widgets-visibility-section/clear-attribute-based-visibility.png){{% /image_container %}}
+    ![](attachments/page-editor-widgets-visibility-section/role-based-example.png)
 
-The attribute-based conditional visibility is cleared for the widget.
+ユーザー ロールに基づく条件付き表示がウィジェットに設定されます。
 
-### 3.3 Configuring Role-Based Conditional Visibility
+## 4 続きを読む
 
-To configure role-based conditional visibility, do the following:
-
-1. Select a widget you would like to make visible only for certain user roles and go to its properties.
-
-2. In **Conditional Visibility** section, toggle the **Role-Based** property.
-
-3. A list of roles available in your app is displayed in the **Roles** property. Untick the roles who would like to hide the widget from:
-
-    {{% image_container width="300" %}}![](attachments/page-editor-widgets-visibility-section/role-based-example.png){{% /image_container %}}
-
-
-Role-based conditional visibility is set for the widget.
-
-### 3.4 Disabling Role-Based Conditional Visibility
-
-To disable role-based conditional visibility, follow the steps below:
-
-1. Select a widget you would like to disable role-based visibility and go to its properties.
-2. In **Conditional Visibility** section, disable the **Role-Based** property.
-
-Role-based conditional visibility is disabled for the widget.
-
-## 4 Read More
-
-* [Widgets](page-editor-widgets)
-* [Security, Roles & Permissions](settings-security)
+* [ウィジェット](page-editor-widgets)
+* [セキュリティ、ロール & 権限](settings-security)
