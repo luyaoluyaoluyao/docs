@@ -1,18 +1,60 @@
 ---
 title: "ホームページを表示"
 parent: "client-activities"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "ホームページを表示"
+  - "ホームページ"
+  - "クライアントアクティビティ"
 aliases:
-  - /ja/refguide7/Show+Home+Page.html
+  - /refguide8/Show+Home+Page.html
 ---
 
 {{% alert type="info" %}}
-この活性は、ナノフローではなく、マイクロフローでのみ使用できます。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/show-home-page.pdf) をクリックしてください。
 {{% /alert %}}
 
-format@@0アクションは、現在のユーザーのホームページに移動します。 それはあなたがサインインした後に行くと同じページに行き、ロールベースのホームページを尊重します。 このアクションには設定するプロパティがありません。
-
-{{% alert type="info" %}}
-
-すべてのアクティビティが共有するプロパティ(図表など)については、 [Microflow Element Common Properties](microflow-element-common-properties) を参照してください。
-
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** でのみ使用できます。
 {{% /alert %}}
+
+{{% alert type="warning" %}}
+このアクションは無視され、オフライン、ネイティブ、またはハイブリッド・アプリケーションからマイクロフローが呼び出されたときには機能しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
+{{% /alert %}}
+
+## 1つの紹介
+
+**Show home page** アクティビティは、エンドユーザーのホームページを開きます。 たとえば、ログインしていないユーザーをホームページに移動させることができます。
+
+{{% image_container width="200" %}}
+![ホームページを表示](attachments/client-activities/show-home-page.png)
+{{% /image_container %}}
+
+このアクティビティは、ログイン後にエンドユーザーに表示される同じページを表示します。 つまり、現在のユーザーロールに対して定義されているホームページが表示されます。 ロールベースのホームページの詳細については、 [ナビゲーション](navigation) を参照してください。
+
+## 2つのプロパティ
+
+**Show home page** アクティビティ プロパティは以下のセクションで構成されています:
+
+* [アクション](#action)
+
+* [一般的な](#common)
+
+    {{% image_container width="300" %}}
+![ホームページのプロパティを表示](attachments/client-activities/show-home-page-properties.png)
+{{% /image_container %}}
+
+## 3 アクションセクション {#action}
+
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
+
+## 4つの共通セクション {#common}
+
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+
+## 5 続きを読む
+
+* [ページを表示](show-page)
+* [アクティビティ](アクティビティ)
+
