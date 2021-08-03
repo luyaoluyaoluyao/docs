@@ -1,90 +1,90 @@
 ---
-title: "Report Date Parameter"
-parent: "report-widgets"
+title: "报告日期参数"
+parent: "报告小部件"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A **Report date parameter** allows the end-user to specify a Date and time parameter for the [data set](data-sets) that supplies the data for a [Report grid](report-grid). The parameter is used to filter the results in different ways so that the same report can display different sets of data.
+**报告日期参数** 允许最终用户为 [数据集指定日期和时间参数](data-sets) 提供一个 [报告网格](report-grid) 的数据。 该参数用于以不同方式过滤结果，以便相同的报告可以显示不同的数据集。
 
-For example, a report may show order data for a customer over a selected period, and the report date parameter can be used to specify which period should be selected.
-
-{{% alert type="info" %}}
-You can add more fields to a report date parameter widget to make it easier for an end-user to select a date range. See [Additional Report Date Parameter Fields](#additional-fields), below, for more information.
-{{% /alert %}}
-
-The report date parameter is displayed in structure mode with the data set parameter name shown between square brackets and colored blue. The **From** and **To** dates shown in blue are examples to indicate that these are date fields.
-
-![Report date parameter in structure mode](attachments/report-widgets/report-date-parameter.png)
+例如，报告可能显示客户在选定时期的订单数据。 和报表日期参数可以用来指定应选择的时间段。
 
 {{% alert type="info" %}}
-If you have a report date parameter widget on the page, you must also add a [Report Button](report-button) widget so that it is possible for the end-user to regenerate the report after specifying the parameter.
-{{% /alert %}}
+您可以添加更多字段到报表日期参数小部件，以使最终用户更容易选择日期范围。 更多信息请参阅 [附加报告日期参数](#additional-fields)。
+{{% /报警 %}}
 
-## 2 Report Date Parameter Properties
+报告日期参数显示在结构模式中，数据集参数名称显示在方括号和彩色蓝色。 **从** 和 **到** 以蓝色显示的日期是示例来表示这些是日期字段。
 
-An example of report date parameter properties is represented in the image below:
+![在结构模式中报告日期参数](attachments/report-widgets/report-date-parameter.png)
 
-{{% image_container width="300" %}}![Report date parameter in structure mode](attachments/report-widgets/report-date-parameter-properties.png)
+{{% alert type="info" %}}
+如果您在页面上有报告日期参数小部件， 您还必须添加 [报告按钮](report-button) 小部件，以便最终用户能够在指定参数后重新生成报告。
+{{% /报警 %}}
+
+## 2 个报告日期参数属性
+
+报表日期参数属性的示例在下面的图像中表示：
+
+{{% image_container width="300" %}}![在结构模式中报告日期参数](attachments/report-widgets/report-date-parameter-properties.png)
 {{% /image_container %}}
 
-Report date parameter properties consist of the following sections:
+报表日期参数属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section{#general}
+### 2.3 一般部分{#general}
 
-#### 2.3.1 Parameter
+#### 2.3.1 参数
 
-**Parameter** is set to a data set parameter of type Date and time, the value of which is restricted by this widget. The corresponding data set must be used by one of the report widgets on the page.
+**参数** 已设置为类型日期和时间的数据集参数，其值受此部件限制。 相应的数据集必须被页面上的报告小部件所使用。
 
-#### 2.3.2 Fields Per Row
+#### 2.3.2 每行字段
 
-**Fields per row** specifies how many [date range fields](date-range-field) can be placed beside each other in a row. There are always two rows available for data range fields. See [Additional Report Date Parameter Fields](#additional-fields), below, for more information.
+**每行** 个字段指定了多少 [日期范围字段](date-range-field) 可以一行放在彼此旁边。 数据范围字段总是有两行可用的。 更多信息请参阅 [附加报告日期参数](#additional-fields)。
 
-#### 2.3.3 From Caption
+#### 2.3.3 从字幕
 
-**From** specifies the text that is displayed against the **from** date selector, where the end-user can choose the start of the period for which data should be shown in the report.
+**从** 中指定了从</strong> 日期选择器对 **显示的文本。 如果最终用户可以选择报告中应列出数据的起始期。</p>
 
-#### 2.3.4 To Caption
+#### 2.3.4 标题
 
-**To** specifies the text that is displayed against the **to** date selector, where the end-user can choose the end of the period for which data should be shown in the report.
+**到** 指定了显示在 **到** 日期选择器中的文本。 如果最终用户可以选择报告应载列数据的期限的终点。
 
-#### 2.3.5 Show From/To
+#### 2.3.5 显示从/到
 
 Set **Show from/to** to **Yes** if the **from** and **to** field results should be shown on the report page.
 
-Set this to **No** if the **from** and **to** field results should not be shown. In this case, the filter must be set using [date range fields](date-range-field) added to the report date parameter.
+Set this to **No** if the **from** and **to** field results should not be shown. 在这种情况下，过滤器必须使用 [日期范围字段](date-range-field) 添加到报告日期参数。
 
-#### 2.3.6 Min. Year
+#### 2.3.6 最小值。 年份
 
-**Min. year** is the earliest year that the end-user can choose in the **Year** [date range field](date-range-field).
-
-{{% alert type="warning" %}}
-The value in **Min. year** will not prevent an end-user from choosing an earlier date in the **From** or **To** fields of the report date parameter widget. It only applies to the *year* date range field.
-{{% /alert %}}
-
-#### 2.3.7 Max. year
-
-**Max. year** is the latest year that the end-user can choose in the **Year** [date range field](date-range-field).
+**最小. 年** 是最终用户可以在 **年** [日期范围](date-range-field) 中选择的最早年份。
 
 {{% alert type="warning" %}}
-The value in **Max. year** will not prevent an end-user from choosing a later date in the **From** or **To** fields of the report date parameter widget. It only applies to the *year* date range field.
-{{% /alert %}}
+**分钟内的值。 年** 不会阻止最终用户在 **中选择较早的日期。从** 或 **到** 报表日期参数小部件中的字段。 它仅适用于 *年* 日期范围域。
+{{% /报警 %}}
 
-## 3 Additional Report Date Parameter Fields{#additional-fields}
+#### 2.3.7 最大值 年
 
-You can add extra fields to allow the end-user to easily select date ranges without needing to enter both the **From** and **To** dates. For more information, see [Date Range Field](date-range-field).
+**最大值。 年** 是最终用户可以在 **年** [日期范围](date-range-field) 中选择的最后一年。
+
+{{% alert type="warning" %}}
+最大值 ** 年** 不会阻止最终用户在 **中选择稍后日期。从** 或 **到** 报表日期参数小部件中的字段。 它仅适用于 *年* 日期范围域。
+{{% /报警 %}}
+
+## 附加报告日期参数{#additional-fields}
+
+您可以添加额外的字段，允许最终用户轻松选择日期范围，而无需同时输入 **从** 和 **到** 日期。 欲了解更多信息，请参阅 [日期范围字段](date-range-field)。
