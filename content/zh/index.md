@@ -1,19 +1,16 @@
 ---
-title: "战略伙伴指南"
-description: "IBM, SAP 和 Siemens 小部件由Mendix 写入和维护的文档"
+title: "Studio Pro 8 助手"
+description: "Mendix 主题上的一步一步指南将教你如何构建和自定义应用。"
 tags:
-  - "战略伙伴"
-  - "ibm"
-  - "锯子"
-  - "siemens"
+  - "studio pro"
 ---
 
 ## 1 导言
 
-*Mendix Strategic Partners Guide* 提供由 Mendix 写入和维护的小部件的文档，支持整合IBM SAP和Siemens云平台和服务。
+浏览 *Studio Pro 8 How-to's* 来寻找分步指南，教你如何构建和自定义Mendix 应用程序。
 
-## 指南类别
+## 2 个操作类别
 
-*战略伙伴指南* 分为以下几类：
+*Studio Pro 8 How-to的* 被分成以下类别：
 
 {{% category_block %}}
