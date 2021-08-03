@@ -1,66 +1,66 @@
 ---
-title: "Microflow Source"
-parent: "data-sources"
+title: "微流程源"
+parent: "数据来源"
 tags:
   - "studio pro"
-  - "microflow source"
-  - "data source"
+  - "微流程源"
+  - "数据源"
 menu_order: 40
 ---
 
-## 1 Introduction
+## 1 导言
 
-In most cases, you use the **Database**, **XPath**, or **Association** data sources to fill a [data widget](data-widgets). For example, if the properties of a data grid require an object of an entity selected in the data grid, the data grid gets its objects from a database query. Another example is that a nested template grid can retrieve its objects over an association. However, sometimes the target objects need to adhere to very specific criteria, or different objects are shown under different circumstances that cannot be handled by an [XPath](xpath-constraints). In these situations a **Microflow** data source may be required.
+在大多数情况下，您使用 **数据库**, **XPath**, 或 **关联** 数据源以填充 [数据部件](data-widgets) 例如，如果数据网格的属性需要数据网格中选定实体的对象， 数据网格从数据库查询中获取其对象。 另一个例子是，嵌套的模板网格可以在关联上检索其对象。 然而，有时目标必须遵守非常具体的标准。 或者不同的对象在无法被 [XPath](xpath-constraints) 处理的不同环境下显示。 在这些情况下，可能需要一个 **微流** 数据源。
 
-When a data widget with a microflow data source is displayed in the browser or refreshed, it runs the designated microflow and displays the return value. The manner in which the objects are acquired in the microflow is entirely up to you, which allows for unlimited control over what objects to return.
+当带有微流数据源的数据部件显示在浏览器或刷新时， 它运行指定的微流程并显示返回值。 物体在微流中获得的方式完全取决于您。 它允许对要返回的对象进行无限控制。
 
-A microflow data source ignores all context. It performs the actions described in the microflow, nothing else. For example, nested data widgets with a microflow data source will not automatically create or invoke associations to the encasing data widget.
+微流数据源忽略了所有上下文. 它执行微流中描述的动作，没有其他动作。 例如，嵌套的带有微流数据源的数据部件不会自动创建或调用关联到封装数据部件。
 
 {{% alert type="info" %}}
-When **Microflow** is selected as the data source, this is regarded as "indirect usage." This means that you cannot also select an **Entity (path)** as you can with the **Database**, **XPath**, or **Association** data source types.
-{{% /alert %}}
+当 **微流** 被选为数据源时，这被视为“间接使用”。 这意味着您也不能选择一个 **实体 (路径)** ，因为您可以使用 **数据库**， **XPath**, 或 **关联** 数据源类型。
+{{% /报警 %}}
 
-## 2 Microflow Data Source Example
+## 2 微流程数据源示例
 
-In this scenario, you have a data grid that needs to display a list of potential orders based on the order type:
+在这个场景中，您有一个数据网格需要显示基于订单类型的潜在订单列表：
 
-{{% image_container width="400" %}}![Microflow Data Source for a Data Grid](attachments/data-widgets/data-grid-microflow-source.jpg)
+{{% image_container width="400" %}}![数据网格的微流程数据源](attachments/data-widgets/data-grid-microflow-source.jpg)
 {{% /image_container %}}
 
-If the **OrderType** of the **Order** entity is set to **Cars**, then the data grid should display all the **Products** for which the Boolean **Motorized** is set to true. If the **OrderType** is **Bicycles**, only objects for which **Motorized** is set to false need be shown. Finally, if **OrderType** is empty, the data grid should remain empty.
+如果 **订单的 **订单类型**** 实体已设置为 **汽车**然后，数据网格应该显示所有 **产品** 的布尔值 **摩托化** 设置为 true。 如果 **订单类型** 是 **自行车**, 只显示 **摩托化** 的对象为false。 最后，如果 **订单类型** 为空，数据网格应该保持为空。
 
-![Entities Example](attachments/data-widgets/entities-example.jpg)
+![实体示例](attachments/data-widgets/entities-example.jpg)
 
-Because of the mismatch in attribute types, this cannot be constrained by XPath, so a microflow data source is required.
+由于属性类型不匹配，这不能受到XPath的限制，所以需要微流数据源。
 
-The microflow for this scenario should look like this:
+这种情景的微流应该看起来像这样：
 
-![Microflow Example](attachments/data-widgets/microflow-nanoflow-example.jpg)
+![微流程示例](attachments/data-widgets/microflow-nanoflow-example.jpg)
 
-This microflow does the following:
+这种微流的作用如下：
 
-1. It passes the **Order** of the enclosing data view as a parameter.
-2. It then splits on the **OrderType** attribute and retrieves a different set of products for each enumeration value.
-3. It returns a list of products, and each end event is configured to return a list. Note that the **empty** path also requires a value, wherein **empty** is also a value.
+1. 它通过了作为参数的附文数据视图的 **顺序**。
+2. 然后在 **orderType** 属性上拆分并检索每个枚举值的不同产品集。
+3. 它返回产品列表，并且每个终端事件都被配置为返回列表。 请注意， **空的** 路径也需要一个值，其中 **空的** 也是一个值。
 
-## 3 Properties
+## 3 属性
 
-### 3.1 Microflow{#microflow}
+### 3.1 微流{#microflow}
 
-This designates the microflow to be used to populate the data widget. This microflow will be run whenever the data widget is loaded into the browser or refreshed. The microflow must have a return value of either an object or a list of objects, depending on the data widget being used.
+这指的是用于填充数据部件的微流。 当数据部件加载到浏览器或刷新时，将运行此微流。 微流必须有对象或对象列表的返回值，这取决于正在使用的数据部件。
 
-### 3.2 Microflow Settings
+### 3.2 微流程设置
 
-**Microflow settings** opens a dialog box enabling you to specify what parameters will be passed to the microflow.
+**微流程设置** 打开对话框，使您能够指定哪些参数传递到微流程。
 
-#### 3.2.1 Microflow
+#### 3.2.1 微流
 
-This duplicates the [Microflow](#microflow) specified above.
+这重复了上面指定的 [微流程](#microflow)。
 
-#### 3.2.2 Microflow Arguments
+#### 3.2.2 微流参数
 
-**Microflow arguments** are automatically configured based on the parameters of the selected microflow and the available arguments. In general arguments are taken from any enclosing data widget. If the data widget enclosing the widget calling a microflow is inside another (nested) data widget, then objects from that data widget and any others in which it is nested can also be passed.
+**微流程参数** 是根据选定的微流程参数和可用参数自动配置的。 一般参数来自任何附加数据部件。 如果数据小部件包含调用微流的小部件在另一个(嵌套)数据小部件内， 然后也可以传递来自该数据部件的对象和它嵌套的任何其他对象。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Data Widgets](data-widgets)
+* [数据部件](data-widgets)
