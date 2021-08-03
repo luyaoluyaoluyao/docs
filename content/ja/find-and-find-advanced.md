@@ -11,6 +11,10 @@ tags:
   - "メニューを編集"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/find-and-find-advanced.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 アプリでは、さまざまな要素、ドキュメント、Xpath、さまざまな要素への変更や使用を検索できます。  **Find**, **Find Advanced**, and **Find Usages** オプションで **Edit** メニューを選択します。
@@ -25,7 +29,7 @@ tags:
 
 2. **Find** ダイアログボックスで、 **Match case** and **Match the whole word** selected. この方法で、"Employee"、"Employee"、または "Department_Employee" などのインスタンスを含む単語「Employee」のすべてのインスタンスを検索します。
 
-3. **Look in** セクションで、検索したくないアプリの項目を選択解除します:
+3. **Look in** セクションで、プロジェクト内の検索対象外の項目を選択解除します:
 
    ![セクションを見る](attachments/find-and-find-advanced/look-in.jpg)
 
@@ -35,7 +39,7 @@ tags:
 
 ## 3つの高度な検索オプション
 
-With the **Find Advanced** option you can set advanced criteria and find specific elements in your app, such as all [object activities](#find-object-activities), or [unused elements](#find-unused-elements).
+With the **Find Advanced** option you can set advanced criteria and find specific elements in your project, such as all [object activities](#find-object-activities), or [unused elements](#find-unused-elements).
 
 ### 3.1 オブジェクトアクティビティの検索 {#find-object-activities}
 
@@ -73,7 +77,7 @@ With the **Find Advanced** option you can set advanced criteria and find specifi
 
 {{% alert type="info" %}}
 
-アプリから除外されたオブジェクトは、未使用のアイテムリストには表示されません。
+プロジェクトから除外されたオブジェクトは、使用されていないアイテムリストには表示されません。
 
 {{% /alert %}}
 
@@ -85,7 +89,9 @@ With the **Find Advanced** option you can set advanced criteria and find specifi
 
 2. プロパティに移動し、 **** プロパティとして **いいえ** から **はい** に変更します。
 
-## 4つの使い方を見つけるオプション {#find-usages}
+   ![](attachments/find-and-find-advanced/mark-as-used-property.png)
+
+## 4つの使い方を見つけるオプション
 
 **使用法検索** オプションを使用すると、特定の要素が使用される場所を見つけることができます。 例えば、特定のページを開くすべてのボタンを検索します。
 
@@ -96,8 +102,7 @@ With the **Find Advanced** option you can set advanced criteria and find specifi
 特定の要素が使用される場所を見つけるには、次の手順を実行します。
 
 1. 要素を含むドキュメントを開きます。 たとえば、ドメインモデルを開きます。
-2. 要素を選択します (例えば、 エンティティ) をクリックして **編集** > **使用状況を検索** 上部バーで要素を右クリックし、 **使用状況を検索**:
-    {{% image_container width="350" %}}![Find Usages](attachments/find-and-find-advanced/find-usages.png){{% /image_container %}}
+2. 要素を選択します (例えば、 エンティティ) をクリックして **編集** > **使用状況を検索** 上部バーで要素を右クリックし、 **使用状況を検索**: ![使い方を探す](attachments/find-and-find-advanced/find-usages.png)
 
 Studio Pro は、このエンティティのすべての使用状況を **検索結果** ペインに表示します。 ![検索結果ペイン](attachments/find-and-find-advanced/found-usages.png)
 
