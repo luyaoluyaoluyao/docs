@@ -1,30 +1,30 @@
 ---
-title: "Grid Create Button"
-parent: "control-bar"
+title: "グリッド作成ボタン"
+parent: "コントロール バー"
 ---
 
 
-The **Create** button allows the user to create new objects in a grid or reference set selector.
+**** ボタンを使用すると、グリッドまたは参照セットセレクタに新しいオブジェクトを作成できます。
 
-## Common Properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## Data Source Properties
+## データソースのプロパティ
 
-### Entity
+### エンティティ
 
-This property determines of which entity this button should create an instance. If the entity that is connected to the grid or reference set selector has no specializations, the page builder will automatically set this property for you. Otherwise, you will have to select one of the specializations yourself.
+このプロパティは、インスタンスを作成するエンティティを決定します。 グリッドまたは参照セットセレクターに接続されているエンティティに特殊化がない場合。 ページビルダーは自動的にこのプロパティを設定します。 それ以外の場合は、専門分野のいずれかを選択する必要があります。
 
 {{% alert type="info" %}}
 
-Let us say you have an entity Vehicle and two specializations, namely Bicycle and Car. In a grid on Vehicle you have to specify for the create button whether a Vehicle, a Bicycle or a Car will be created. You can even have three create buttons, one for each possibility.
+私たちは、エンティティ車と2つの専門、すなわち自転車と車を持っていると言ってみましょう。 車両上のグリッドでは、車両、自転車、または車を作成するかどうかの作成ボタンを指定する必要があります。 3つの作成ボタンを持つこともできます。それぞれの可能性のために一つずつ。
 
 {{% /alert %}}
 
-## General Properties
+## 一般プロパティ
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -36,22 +36,22 @@ Let us say you have an entity Vehicle and two specializations, namely Bicycle an
 
 {{% snippet file="refguide7/Is+default+button+Property.md" %}}
 
-### Edit location
+### 位置情報の編集
 
-| Value            | Description                                                                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Inline at top    | The new instance is added directly at the top of the grid or reference set selector and can be edited inline.                          |
-| Inline at bottom | The new instance is added directly at the bottom of the grid or reference set selector and can be edited inline.                       |
-| In a page        | The new instance is added and can be edit in a page. The page in which this instance is being edited can be set with the page property |
+| 値         | 説明                                                                  |
+| --------- | ------------------------------------------------------------------- |
+| 上部にインライン  | 新しいインスタンスはグリッドまたは参照セットセレクタの上部に直接追加され、インラインで編集できます。                  |
+| 一番下にインライン | 新しいインスタンスはグリッドまたは参照セットセレクタの下部に直接追加され、インラインで編集できます。                  |
+| ページ内      | 新しいインスタンスが追加され、ページ内で編集できます。 このインスタンスが編集されているページは、page プロパティで設定できます。 |
 
-_Default value:_ In a page
+_デフォルト値:_ ページ内
 
-### Page
+### ページ
 
-This property is relevant if the edit location is set to 'In a page' and it indicates the page that is shown to the end-user when he or she clicks this button. The end-user can use this page to edit the newly created object before it is saved. This page should contain a data view connected to the same entity as this grid or reference set selector.
+このプロパティは、編集場所が 'In a page' に設定されており、このボタンをクリックしたときにエンドユーザーに表示されるページを示す場合に関連します。 エンドユーザーは、このページを使用して、新しく作成されたオブジェクトを保存する前に編集できます。 このページには、このグリッドまたは参照セットセレクタと同じエンティティに接続されたデータビューが含まれている必要があります。
 
-See [Opening Pages](opening-pages).
+[ページを開く](opening-pages) を参照してください。
 
-## Visibility Properties
+## 表示プロパティ
 
 {{% snippet file="refguide7/Visible+Property.md" %}}
