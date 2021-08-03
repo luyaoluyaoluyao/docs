@@ -1,108 +1,108 @@
 ---
-title: "User Task"
-category: "Workflows"
+title: "用户任务"
+category: "工作流"
 menu_order: 20
 tags:
-  - "workflow"
-  - "workflows"
-  - "user task"
-  - "task"
+  - "工作流"
+  - "工作流"
+  - "用户任务"
+  - "任务"
 ---
 
-## 1 Introduction
+## 1 导言
 
-User task allows you to assign a workflow task to a certain user or a group of users.
+用户任务允许您将一个工作流任务分配给某个用户或某个用户组。
 
-For example, you can add filters and assign a task to the IT department. When the workflow reaches this user task, the task will appear in their inbox.
+例如，您可以添加过滤器并将任务分配给IT部门。 当工作流到此用户任务时，任务将出现在他们的收件箱中。
 
-## 2 Properties
+## 2 属性
 
-User task properties consist of the following sections:
+用户任务属性由以下部分组成：
 
-* [General](#general)
-* [User Assignment](#user-assignment)
-* [Task Page](#task-page)
-* [Display Information](#display-info)
-* [Due Date](#due-date)
-* [Outcomes](#outcomes)
-* [Events](#events)
-* [Permissions](#permissions)
+* [A. 概况](#general)
+* [用户分配](#user-assignment)
+* [任务页面](#task-page)
+* [显示信息](#display-info)
+* [截止日期](#due-date)
+* [成果](#outcomes)
+* [事件](#events)
+* [权限](#permissions)
 
-### 2.1 General Section {#general}
+### 2.1 一般部分 {#general}
 
-**Caption** defines a title of the user task:
+**标题** 定义用户任务的标题：
 
-![General Section](attachments/workflows-user-task/general.jpg)
+![一般部分](attachments/workflows-user-task/general.jpg)
 
-### 2.2 User Assignment Section {#user-assignment}
+### 2.2 用户分配科 {#user-assignment}
 
-**Assign user task using** allows you to manage which users can pick up the task. You can filter users or implement a more complicated logic and add several checks using a microflow.
+**使用** 分配用户任务允许您管理哪些用户可以接收到任务。 您可以筛选用户或实现一个更复杂的逻辑，并使用微流程添加几个检查。
 
-![User Assignment](attachments/workflows-user-task/user-assignment.jpg)
+![用户分配](attachments/workflows-user-task/user-assignment.jpg)
 
-Possible options of this property are described in the table below:
+这一财产的可能备选方案见下表：
 
-| Option    | Description                                                                                                                                                                                                                                                                                           |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Filter    | Allows you to filter users who should be assigned to the user task. For example, you can assign a certain task only to users with the Administrator user role. For more information on how to use filters, see [Data Filters](data-filters).                                                          |
-| Microflow | Allows you to assign the user task to certain users. Using a microflow you can check, for example, what users are in the right department and are currently not on vacation and assign the task only to users who passed the check. For more information on microflows, see [Microflows](microflows). |
+| 选项  | 描述                                                                                                |
+| --- | ------------------------------------------------------------------------------------------------- |
+| 筛选器 | 允许您过滤应分配给用户任务的用户。 例如，您只能将某个任务分配给具有管理员角色的用户。 关于如何使用过滤器的更多信息，请参阅 [Data Filters](data-filters)。      |
+| 微流  | 允许您将用户任务分配给某些用户。 例如您可以使用微流程检查 哪些用户在正确的部门，目前没有休假，并且只将任务分配给通过检查的用户。 欲了解更多微流信息，请参阅 [微流](microflows)。 |
 
-### 2.3 Task Page Section {#task-page}
+### 2.3 任务页部分 {#task-page}
 
-**Page** is the page that an assigned user will use to inspect their task and complete it:
+**页面** 是指派的用户用来检查他们的任务并完成它的页面：
 
-![Task Page](attachments/workflows-user-task/task-page.jpg)
+![任务页面](attachments/workflows-user-task/task-page.jpg)
 
-### 2.4 Display Information Section {#display-info}
+### 2.4 显示信息部分 {#display-info}
 
-The **Display Information** section defines the user task name and its description that are displayed in the running (published) app, for example, in the user's task inbox and on the task page.
+**显示信息** 部分定义了在运行的 (已发布) 应用程序中显示的用户任务名称及其描述， 例如，在用户的任务收件箱和任务页面上。
 
-![Display Information](attachments/workflows-user-task/display-information.jpg)
+![显示信息](attachments/workflows-user-task/display-information.jpg)
 
-The **Display Information** section properties are described in the table below:
+下面的表格描述了 **显示信息** 部分属性：
 
-| Property         | Description                                                                                                                                                                                                                                                                                                                                            |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Task Name        | **Task Name** is displayed in the running app. The **Task Name** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **FullName** attribute value from the **Employee Onboarding** data to display the name of the new employee.                                                                   |
-| Task Description | **Task Description** is a description of the workflow displayed in the running app. The **Task Description** can contain expression outcomes, which will be displayed to the end-users. For example, you can add the **PhoneModel** attribute value from the **Employee Onboarding** data to display what phone needs to be shipped for this employee. |
+| 财产   | 描述                                                                                                              |
+| ---- | --------------------------------------------------------------------------------------------------------------- |
+| 任务名称 | **任务名称** 显示在运行中的应用中。 **任务名称** 可以包含表达式结果，这些结果将显示给最终用户。 例如， 您可以从 **员工在线** 数据添加 **完整名称** 属性值以显示新员工的名称。             |
+| 任务描述 | **任务描述** 是运行中应用程序中显示的工作流的描述。 **任务描述** 可以包含表达式结果，这些结果将显示给最终用户。 例如， 您可以添加 **电话模型** 属性值从 **员工在线** 数据来显示该员工需要发货的电话。 |
 
-### 2.4 Due Date Section {#due-date}
+### 2.4 截止日期部分 {#due-date}
 
-The **Due Date** section allows you to set a deadline for the user task and keep track of it. However, this is not an automatic reminder but rather a deadline you reference when keeping track of the workflow. For example, you can use this due date to show overdue tasks on a dashboard.
+**到期日** 部分允许您为用户任务设定一个截止日期并跟踪它。 然而，这并不是自动提醒，而是在跟踪工作流程时你提到的最后期限。 例如，您可以使用此截止日期在仪表盘上显示过期的任务。
 
-![Due Date Section](attachments/workflows-user-task/due-date.jpg)
+![截止日期部分](attachments/workflows-user-task/due-date.jpg)
 
-The **Due Date** section properties are described in the table below:
+**到期日** 部分属性在下表中描述：
 
-| Property   | Description                                                                                                                                                                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None       | No due date is set.                                                                                                                                                                                                                         |
-| Duration   | You can set the deadline for the user task with the **Due In** option, which indicates the number of hours, days, or weeks the task is due in. Possible values of the property are the following ones:<br /><ul><li>Hour(s)</li><li>Day(s)</li><li>Week(s)</li> </ul> |
-| Expression | You can set a due date for the user task writing an expression. For example, to set a due date to tomorrow, you can use `addDays([%CurrentDateTime%], 1)`.                                                                                  |
+| 财产  | 描述                                                                                            |
+| --- | --------------------------------------------------------------------------------------------- |
+| 无   | 未设定截止日期。                                                                                      |
+| 期限  | 您可以设置用户任务的截止日期与 **在** 选项中。 指的是任务到期的小时数、天数或周数。 该属性的可能值如下：<br /><ul><li>小时数</li><li>日 (秒)</li><li>周数</li> </ul> |
+| 表达式 | 您可以设置用户任务写一个表达式的截止日期。 例如，要设定明天的截止日期，您可以使用 `addDays([%CurrentDateTime%], 1)`                   |
 
-### 2.6 Outcomes Section {#outcomes}
+### 2.6 成果科 {#outcomes}
 
-The **Outcomes** property allows you to create new outcomes for the user task. These outcomes can be referred to by other elements, such as buttons. For example, you have a process when you need to approve or reject a request. One button on a [task page](#task-page) can refer to the **Approve** outcome of the user task, while the other one can use the **Reject** outcome:
+**结果** 属性允许您为用户任务创建新结果。 这些结果可以用其他要素，例如按钮。 例如，当您需要批准或拒绝请求时，您有一个过程。 [任务页面上的一个按钮](#task-page) 可以参考 **批准** 用户任务的结果。 而另一个人可以使用 **拒绝** 结果：
 
-![Outcomes Section](attachments/workflows-user-task/outcomes.jpg)
+![成果科](attachments/workflows-user-task/outcomes.jpg)
 
-### 2.7 Events Section {#events}
+### 2.7 事件科 {#events}
 
-**On Create** event allows you to select a microflow that is executed immediately after users have been determined for a newly created task. For example, you can use this setting for a microflow that will send an email notification about the user task to the assigned users.
+**创建** 事件允许您选择一个微流程，在用户确定新创建的任务后立即执行。 例如，您可以使用此设置进行微流程，向指定用户发送有关用户任务的电子邮件通知。
 
-![Events Section](attachments/workflows-user-task/events.jpg)
+![活动部分](attachments/workflows-user-task/events.jpg)
 
-Possible options for this setting are the following:
+此设置的可能选项如下：
 
-* **Microflow** – a microflow that is executed when users have been determined for a newly created task
-* **Nothing** – no event is executed
+* **Microflow** - 当用户为新创建的任务确定时执行的微流
+* **无** -- 没有事件被执行
 
-### 2.8 Permissions Section {#permissions}
+### 2.8 许可科 {#permissions}
 
-**Allowed roles** defines the [user role](settings-security#roles-and-permissions) that can execute the user task.
+**允许的角色** 定义了可以执行用户任务的 [用户角色](settings-security#roles-and-permissions)
 
-![Permissions Section](attachments/workflows-user-task/permissions.jpg)
+![权限部分](attachments/workflows-user-task/permissions.jpg)
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflows](workflows)
+* [工作流](workflows)
