@@ -1,71 +1,73 @@
 ---
-title: "Date & Time Handling"
-category: "Mendix Runtime"
+title: "日期 & 时间处理"
+category: "Mendix 运行时间"
+tags:
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The Mendix Server operations use the time zone of the user instead of the server time zone. Previously operations like generating documents, exporting to Excel/CSV and date computations in microflows/OQL all used the server time zone. This is fine if the server and all users of your application are in the same time zone. If they are not, however, generated output can contain unexpected results.
+Mendix 服务器操作使用用户时区而不是服务器时区。 以往的操作，如生成文档，导出到 Excel/CSV 和日期计算（microflow/ OQL），都使用服务器时区。 如果您的应用程序的服务器和所有用户在同一时区，这是很好的。 然而，如果它们没有生成，则可能会包含意外结果。
 
-## 2 Relevant Time Zones
+## 2 相关时区
 
-There are three time zones that come into play in a Mendix application:
+Mendix 应用程序中有三个时区：
 
-1.  User/client: The time zone where the client is running is used for presenting dates and times to the end user. The time zone is now (optionally) stored with each user to properly deal with daylight saving time. If the time zone is not set daylight saving time (DST) is not applied.
-2.  Coordinated Universal Time (UTC): The platform stores all dates in the UTC time zone. This is a time standard that is often used in servers to provide an unambiguous date format. It does not change with a change of the seasons (DST). Every time a date or time is presented to the user it is localized to the time zone of the client unless specified differently.
-3.  Server: The time zone that the server is running in is only used for scheduling the time at which scheduled events run. When defining a scheduled event you can choose whether you want to use server time or UTC time. For everything else, the server time is irrelevant.
+1.  用户/客户端：客户端运行的时区用于向最终用户提交日期和时间。 时区现在（可选）存储在每个用户上，以适当处理节省日光的时间。 如果时区未设置日光保护时间(DST)，则不适用。
+2.  协调世界时间 (UTC)：平台将所有日期存储在 UTC 时区。 这是一种时间标准，在服务器上常常用来提供明确的日期格式。 季节变化不会改变。 每次将一个日期或时间呈现给用户时，除非有不同的说明，否则它将本地化到客户端的时区。
+3.  服务器：服务器运行的时区仅用于预定事件运行时间。 当定义预定事件时，您可以选择使用服务器时间还是UTC 时间。 对于其他一切，服务器时间是无关紧要的。
 
-For brevity we will call these time zones user time, UTC and server time.
+为简洁起见，我们将调用这些时区用户时间、UTC 和服务器时间。
 
-## 3 Changes
+## 3 更改
 
-The server needs to know the time zone of each user. Unfortunately, the web browser cannot report this information. It only reports the current offset to UTC. This is not enough to determine the exact time zone and properly deal with daylight saving time of future and past dates. For this reason web applications often offer you the option of setting your time zone and we have now built this option into Mendix, too. You can explicitly set a time zone for each user and this time zone is then used for server operations.
+服务器需要知道每个用户的时区。 很遗憾，浏览器无法报告此信息。 它只向UTC 报告当前的偏移。 这还不足以确定确切的时区，并适当处理今后和过去日期的日光节省时间。 出于这个原因，网络应用程序常常为您提供设置时区的选择，我们现在已经将此选项建立在Mendix中。 您可以为每个用户设置一个时区，然后此时区用于服务器操作。
 
-The entity TimeZone has been added to the System module along with an association between User and TimeZone. The TimeZone entity has three attributes: a code (based on the Olson database), a description suitable for showing to the user ("(GMT-05:00) New York") and a raw offset that is using for sorting the list of time zones.
+实体时区以及用户和时间区之间的关联已经添加到系统模块。 时限区实体有三个属性：一个代码（以Olson数据库为基础）。 适合向用户显示 ("GMT-05:00) 纽约"的描述，以及用于排序时区列表的原始偏移量。
 
-In the Administration module the Account_NewEdit form adds a time zone selector to set the time zone of the user. By default, the form MyAccount does not have this selector. It is the administrator's task to correctly set the time zone. You can add it yourself if you want your end users to be able to set their time zone.
+在管理模块中，账户新编辑页面添加时区选择器来设置用户的时区。 默认情况下，MyAccount 页面没有此选择器。 正确设置时区是管理员的任务。 如果您希望您的最终用户能够设置他们的时区，您可以自己添加它。
 
-The Modeler adds a setting to the project Settings dialog. On the 'Model' tab you can specify a default time zone. This time zone is used for new users, but it is also applied to all users that do not have a time zone yet when starting your application.
+Studio Pro 在 **应用设置** 对话框中添加了一个设置。 在“模型”选项卡上，您可以指定一个默认时区。 此时区用于新用户， 但它也应用于所有尚无时区的用户启动您的应用程序。
 
-## 4 Existing Projects
+## 4 个现有的应用程序
 
-To make use of the new date/time handling you have to take some action after converting your existing project. Those actions depend on the type of the project: single time zone or multiple time zone. In a single time zone project all users are in the time zone or they are at least willing to use the same time zone. The time zone of the server is not important, so a project is still single time zone if all users are in the Netherlands but the server is in England. Multiple time zone projects have users in different time zones. Let us see what you need to do in each case.
+要使用新的日期/时间处理，您必须在转换您现有的应用程序后采取一些行动。 这些动作取决于应用程序的类型：单时区或多时区。 在一个时区应用程序中，所有用户都在时区或者他们至少愿意使用同一个时区。 服务器的时区并不重要。 如果所有用户都在荷兰，但服务器在英格兰，则应用程序仍然是单一时区。 多个时区应用拥有不同时区的用户。 让我们看看你在每个问题上需要做些什么。
 
-### 4.1 Single Time Zone Project
+### 4.1 单时区应用
 
-If you do nothing in a single time zone project where the server is also in that time zone the situation for server operations is actually slightly worse than before. Users will not have a time zone and if that is the case the server uses the current offset from UTC sent by the web browser. This offset is not enough to determine the exact time zone and this means that daylight saving time (DST) will not be taken into account. In practice this means that dates and times in the future and past - past DST changes - are one hour off.
+如果您在一个时区应用程序中不做任何事情，服务器也在该时区中，服务器操作的情况实际上比以前稍差一些。 用户将没有时区，如果情况如此，服务器将使用当前由网络浏览器发送的 UTC 偏移。 这种偏移不足以确定确切的时区，这意味着将不考虑日光节省时间。 实际上，这意味着未来和以往的日期和时间――过去的DST 变化――要差一小时。
 
-To make sure that all users have their time zone set, you have to set the default time zone in the project settings in the Modeler. When the application is started again all existing users will get this default time zone. Also, when new users are created they will also get this default time zone automatically.
+确保所有用户都设置了时区， 您必须在 Studio Pro中设置应用程序设置的默认时区。 当应用程序重新启动时，所有现有用户都将得到这个默认时区。 此外，当新用户创建时，他们也会自动获得这个默认时区。
 
-In summary, in a single time zone project all you have to do is to set the default time zone in the Modeler and you are done.
+概括而言， 在单时区应用中，您需要做的只是设置工作室专业版的默认时区，您已经完成。
 
-### 4.2 Multiple Time Zone Project
+### 4.2 多时区应用
 
-If you do nothing in a multiple time zone project the situation for server operations improves automatically. Before, the server time zone would be used for operations like generating Excel exports and other documents. This meant that if a user in China generated a report and the server was in the United States dates and times would be way off. The server will at least use the browser's UTC offset. Only daylight saving time will not be handled properly yet. To get proper DST handling as well, the time zone of users needs to be set.
+如果您在多个时区应用中不做任何事情，服务器操作的情况会自动改善。 在此之前，服务器时区将用于生成Excel导出和其他文档等操作。 这意味着，如果中国的用户生成报告，而服务器在美国的日期和时间都会关闭。 服务器将至少使用浏览器的 UTC 偏移。 只有白天节省时间将无法正常处理。 为了做到正确的DST 处理，需要设置用户的时区。
 
-There are several things you can do in a multiple time zone project:
+您可以在多个时区应用程序中做几件事：
 
-*   Nothing. If you do nothing server operations will use the user's current UTC offset and this is a reasonable approximation of actually setting the time zone. Only DST will not be handled properly.
-*   Allow the users to set their own time zone. Add the time zone reference selector to the form with which users can manage their own account, by default MyAccount in Administration. When doing this, take note that a timezone will only effectively be updated after a user logged out and back in.
-*   The administrator sets the time zone. Add the time zone reference selector to the form with which the administrator manages accounts, by default Account_NewEdit in Administration. If the application does not have too many users this is a viable solution.
-*   Automatically set the time zone by using a microflow. If your application is used in few time zones and you can automatically determine which users should which time zone you can write an after startup microflow to set the time zones. For example, if the application is used in the United States and in the Netherlands and all users in the United States have their language set to American English and all users in the Netherlands have their language set to Dutch a microflow can loop through all users and set the time zone based on the language code of the user.
+*   什么都没有。 如果您不做任何操作，用户当前的 UTC 偏移将使用，这是实际设置时区的合理近似值。 仅限DST 无法正确处理。
+*   允许用户设置自己的时区。 将时区参考选择器添加到用户可以管理自己账户的页面中，默认是MyAccount。 在这样做时，请注意，只有在用户退出并返回后，时区才会有效更新。
+*   管理员设置时区。 将时区参考选择器添加到管理员管理账户的页面。默认账户_NewEdit 在管理中。 如果应用程序没有太多用户，这是一个可行的解决方案。
+*   使用微流程自动设置时区。 如果您的应用程序在几个时区中使用，您可以自动确定哪个用户应该在启动微流后写入哪个时区来设置时区。 例如， 如果应用程序在美国和荷兰使用，美国所有用户的语言设置为美国英语，荷兰所有用户的语言设置为荷兰语，微流可以通过所有用户循环，并根据用户的语言代码设置时区。
 
 {{% alert type="warning" %}}
 
-Do NOT use the default time zone setting in the Modeler for multiple time zone projects because that will set the default time zone for all users!
+不要在Studio Pro 中为多个时区应用使用默认时区设置，因为这将为所有用户设置默认时区！
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 5 Anonymous users
+## 5 个匿名用户
 
-If your application is accessible without signing in, those anonymous users will get the default time zone that is set in the Modeler. If no time zone is set in the Modeler they will use the offset reported by the browser. Only DST for dates in the future and past will not be handled properly.
+如果您的应用程序可以在没有登录的情况下访问，这些匿名用户将得到工作室专业版设置的默认时区。 如果工作室专业版没有设置时区，他们将使用浏览器报告的偏移量。 只有将来和过去的日期才能得到适当处理。
 
-## 6 To Localize or Not to Localize
+## 6 个本地化或不本地化
 
-Per attribute of type DateTime you can specify whether you want the date and time to be localized. This is not a new feature but worth mentioning on this page. Both localized and non-localized attributes are stored in UTC but only localized attributes are converted to the time zone of the user when displaying their value. Use non-localized attributes if you are not interested in the time component (for example, birthdays) or if you want a date to look exactly the same all over the world.
+每个类型 **日期和时间的属性** 可以指定您是否想要将日期和时间本地化。 这不是一个新的功能，但值得在此页面上提及。 本地化和非本地化属性都存储在 UTC 中，但只有本地化属性才会在显示值时转换到用户的时区。 如果您对时间组件不感兴趣，使用非本地化属性 (例如) 如果你想要一个日期看上去与全世界完全相同。
 
-See the documentation of the Localize property of [Attributes](attributes) for more information.
+更多信息请参阅 [属性](attributes) 本地化属性的文档。
 
-## 7 Tokens
+## 7 个令牌
 
-Tokens for referring to specific moments like [%BeginOfCurrentDay%] now refer to the user time zone. Where it makes sense, UTC versions of tokens have been added, for example, [%BeginOfCurrentDayUTC%]].
+指向指定时刻的令牌，如 [%BeginOfCurrentDay%] 现在指的是用户时区。 在有意义的地方，标记的 UTC 版本已被添加，例如， [%BeginOfCurrentDayUTC%]]。
