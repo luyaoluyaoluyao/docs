@@ -1,49 +1,49 @@
 ---
-title: "Button Widgets"
-parent: "pages"
+title: "ボタンウィジェット"
+parent: "ページ"
 menu_order: 40
 tags:
   - "studio pro"
-  - "button widgets"
-  - "buttons"
-  - "widget"
+  - "ボタンウィジェット"
+  - "ボタン"
+  - "ウィジェット"
 aliases:
   - /refguide/action-button.html
   - /refguide/drop-down-button.html
-  - /refguide/link-button.html
+  - /ja/refguide/link-button.html
   - /refguide/sign-out-button.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Button widgets perform an action when clicked. They can be rendered as a button or as a hyperlink. Button widgets can be divided into the following ones:
+ボタンウィジェットはクリックされたときにアクションを実行します。 ボタンまたはハイパーリンクとしてレンダリングできます。 ボタンウィジェットは次のウィジェットに分けることができます。
 
-* **Action Button** – a general name for a button that performs a certain action. You can assign an action yourself or you can select a button with a preconfigured action, such as:
-  * Call microflow button
-  * Call nanoflow button
-  * Open page button
-  * Save button
-  * Cancel button
-  * Link button
-  * Close page button
-  * Delete button
-  * Call workflow button
-    * Complete user task button
-  * Show user task page button
-  * Show workflow admin page button
-  * Synchronize button ![Preconfigured Buttons](attachments/button-widgets/preconfigured-action-button.png)
+* **アクションボタン** – 特定のアクションを実行するボタンの一般的な名前。 アクションを自分で割り当てることも、事前設定されたアクションでボタンを選択することもできます:
+  * マイクロフローボタンを呼び出す
+  * ナノフローボタンを呼び出します。
+  * ページを開くボタン
+  * 保存ボタン
+  * キャンセルボタン
+  * リンクボタン
+  * ページを閉じるボタン
+  * 削除ボタン
+  * コールワークフローボタン
+    * タスクを完了するボタン
+  * ユーザータスクページボタンを表示
+  * ワークフロー管理ページボタンを表示
+  * ボタンを同期![事前設定されたボタン](attachments/button-widgets/preconfigured-action-button.png)
 
-* **Drop-Down Button** – shows a list of items, an action is performed when one of the items is clicked. A pop-up window with a list of possible actions appears when an end-user clicks a drop-down button:
+* **ドロップダウンボタン** – アイテムのリストを表示し、いずれかのアイテムがクリックされたときにアクションが実行されます。 エンドユーザーがドロップダウンボタンをクリックすると、アクションのリストがポップアップウィンドウが表示されます。
 
-    ![Drop-Down Button Example](attachments/button-widgets/drop-down-example.png)
+    ![ドロップダウンボタンの例](attachments/button-widgets/drop-down-example.png)
 
-  Different items can perform different actions. For more information on items and actions that can be assigned to them, see the [Item Section](button-properties#items) in *Button Properties*.
+  異なるアイテムは異なるアクションを実行できます。 これらに割り当てることができるアイテムとアクションの詳細については、 [ボタンプロパティ](button-properties#items) の *アイテム セクション* を参照してください。
 
-## 2 Performing Basic Functions
+## 2 基本機能の実行
 
 {{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Pages](pages)
+* [ページ](page)
+* [ページ](ページ)
