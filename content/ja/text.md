@@ -1,120 +1,55 @@
 ---
 title: "テキスト"
 parent: "コモンウィジェット"
-menu_order: 10
-tags:
-  - "studio pro"
-  - "テキスト"
-  - "テキストウィジェット"
-  - "共通ウィジェット"
 ---
 
-## 1つの紹介
 
-テキストウィジェットには、必要に応じてパラメータを含めることができるテキストが表示されます。 すべての属性はこの属性の値に置き換えられます。 例えば、 [データ ビュー](data-view) にテキストウィジェットを配置し、パラメータを追加することで、ユーザーに挨拶メッセージを表示できます。
+テキストウィジェットには、オプションとしてパラメータを含めることができるテキストが表示されます。 すべてのパラメータは、参照する属性の値で置き換えられます。 テキストウィジェットは、ユーザーにテキストを表示するための推奨方法です。
 
-![テキストウィジェット](attachments/common-widgets/text.png)
+{{% alert type="info" %}}
 
-空のコンテナに入力し始めると、Studio Pro は自動的にテキストウィジェットを生成してテキストを表示します。
+![](attachments/pages/text.png)
 
-## 2つのプロパティ
+テキストウィジェットはデータビューに配置され、ユーザーへの挨拶メッセージが表示されます。
 
-以下の画像にテキストプロパティの例を示します。
+{{% /alert %}}
 
-{{% image_container width="300" %}}![テキストのプロパティ](attachments/common-widgets/text-properties.png)
-{{% /image_container %}}
+空のコンテナに入力し始めると、モデラーはテキストウィジェットを自動的に生成してテキストを表示します。
 
-テキストプロパティは以下のセクションで構成されています:
+## 一般プロパティ
 
-* [一般的な](#common)
-* [デザインプロパティ](#design-properties)
-* [全般](#general)
-* [公開範囲](#visibility)
+### テキストテンプレート
 
-### 2.1 共通セクション {#common}
+テキストテンプレートは、表示されるテキストを定義します。 テンプレートには、たとえば、 {1} のようなブレース間の数値として記述されるパラメータを含めることができます。 最初のパラメータは、数字1、2番目の2などです。 テンプレート パラメータを使用するには、ウィジェットをエンティティのコンテキストに配置する必要があります。 例えば、 [データビュー](data-view) または [リストビュー](list-view) の内部。
 
-{{% snippet file="refguide/common-section-link.md" %}}
+### パラメータ
 
-### 2.2 デザインプロパティセクション {#design-properties}
+テンプレート内の各パラメータに対して、コンテキストエンティティの属性、またはパラメータの位置に値が挿入される参照エンティティを定義します。
 
-{{% snippet file="refguide/design-section-link.md" %}}
+### レンダリングモード
 
-### 2.3 一般セクション {#general}
+レンダリングモードでは、Webブラウザでどのようにテキストを表示するかを決定します。
 
-#### 2.3.1 図表番号 {#caption}
+| 値     | 説明                                                              |
+| ----- | --------------------------------------------------------------- |
+| テキスト  | テキストはページ上の前/次のテキストとともにインラインでレンダリングされます (`<span>` HTMLのタグ) |
+| 段落    | テキストは別段落としてレンダリングされます (`<p>` HTML内のタグ)                    |
+| 見出し 1 | テキストは大きな見出しとしてレンダリングされます (`<h1>` HTMLのタグ)                 |
+| ...   | ...                                                             |
+| 見出し 6 | テキストは小さな見出しとしてレンダリングされます (`<h6>` HTMLのタグ)                 |
 
-**図表番号** は表示されるテキストを定義します。 図表番号には、たとえば、 {1} のように、括弧間で書かれたパラメータを含めることができます。
+_デフォルト値:_ テキスト
 
-パラメータの使用に関する詳細は、以下の [パラメータ](#parameters) セクションを参照してください。
+## 表示プロパティ
 
-#### 2.3.2 パラメータ {#parameters}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-パラメータは、その値が表示される属性です。 **パラメータ**を表示するには、次のいずれかを実行します。
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-* プロパティの **図表番号** 設定をダブルクリックします。
+## 共通のプロパティ
 
-*  Double-click the text widget on the page and click **Edit** in the **General** section > **Caption**:
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-    ![パラメータを開く](attachments/common-widgets/caption-edit-button.png)
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-パラメータには以下の設定があります:
-
-* **Index** - パラメータの識別番号
-
-* **属性 (path)** - 値が表示される属性
-
-*  **書式** - 属性値を表示するフォーマット
-
-    ![パラメーターの設定](attachments/common-widgets/parameter-settings.png)
-
-##### 2.3.2.1 新しいパラメータの追加
-
-パラメータを使用するには、次の操作を行います。
-
-1. **テキスト** ウィジェットを、 [データ ウィジェット](data-widgets) 内側のように、エンティティのコンテキスト内に配置する必要があります。
-
-2. テキストウィジェットのプロパティで **図表番号** 設定をダブルクリックします。
-
-3.  **図表番号の編集** ダイアログ ボックス > **パラメータ** セクションで **新規作成**:
-
-    ![新しいパラメータの追加](attachments/common-widgets/adding-parameter.png)
-
-4. **テンプレートパラメータの編集** ダイアログボックスで、 **を選択**をクリックし、属性を選択して選択を確定します。
-
-5.  In the **Caption** setting, write the text you would like to display and type **Index** of the parameter you would like to include. In the example below, to include a full name of your customer and a number of unread messages, you need to use indexes {1} for the *FullName* attribute, and {2} for the *NrOfUnread* attribute:
-
-    ![パラメータの例](attachments/common-widgets/parameters-example.png)
-
-##### 2.3.2.2 パラメータに対するその他のアクションの実行
-
-新しいパラメータの追加に加えて、パラメータに対して以下のアクションを実行できます。
-
-* **削除** – パラメータを削除するには、削除をクリックするか、キーボードの <kbd>削除</kbd> を押します
-
-* **編集** – パラメータをダブルクリックして編集するか、編集をクリックします
-
-* **Move up** – to move a parameter up in the list of parameters and also to change its index, click **Move up**
-
-*  **Move down** – to move a parameter down in the list of parameters and also to change its index, click **Move down**
-
-    ![パラメーターアクション](attachments/common-widgets/parameter-actions.png)
-
-#### 2.3.3 レンダリングモード
-
-レンダリングモードでは、テキストの表示方法を決定します。
-
-| 値               | 説明                                                                                                  |
-| --------------- | --------------------------------------------------------------------------------------------------- |
-| テキスト  *(デフォルト)* | テキストは、ページ上の前/次のテキストとともにインラインでレンダリングされます (`<span>` HTMLのタグ)。                                   |
-| 段落              | テキストは別の段落としてレンダリングされます (`<p>` HTMLのタグ)。                                                       |
-| 見出し 1 - 見出し 6   | テキストは選択された見出しとしてレンダリングされます (例えば、HTMLの `<h1>` タグ)。 **見出し1** は見出しの最大タイプです。 **見出し6** は最も小さいものです。 |
-
-### 2.4 表示セクション {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 続きを読む
-
-* [ページ](page)
-* [一般的なウィジェット](コモンウィジェット)
-* [ページエディターで共通のプロパティ](common-widget-properties)
+{{% snippet file="refguide7/Style+Property.md" %}}
