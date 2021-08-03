@@ -1,70 +1,65 @@
 ---
-title: "Version Control Menu"
+title: "バージョン管理メニュー"
 parent: "menus"
-description: "Describes the Project Menu in Studio Pro."
+description: "Studio Pro のバージョン管理メニューについて説明します。"
 menu_order: 40
 tags:
   - "Studio Pro"
-  - "project menu"
-  - "top bar"
+  - "バージョン管理"
+  - "トップ バー"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/version-control-menu.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+**バージョン コントロール** メニューでは、バージョン管理に接続されている設定を表示または操作できます。 たとえば、現在の開発ラインの履歴を表示できます。
 
-In the **Version Control** menu you can view and/or manipulate settings that are connected to the version control. For example, you can view the history of the current development line.
+![バージョン管理メニュー](attachments/version-control-menu/version-control-menu.png)
 
-{{% image_container width="300" %}}![Version Control Menu](attachments/version-control-menu/version-control-menu.png)
-{{% /image_container %}}
+## 2件の更新
 
-## 2 Update
+**Update** オプションは、ローカルアプリをバージョン管理サーバーにコミットされた最新のリビジョンに更新します。
 
-The **Update** option updates the local app to the latest revision that was committed to the version control server.
+## 3 コミット
 
-## 3 Commit
+**コミット** オプションは、以前のバージョン管理サーバーへのコミット以降、アプリに行われたすべてのローカル変更をコミットします。 詳細については、 [コミット](commit-dialog) を参照してください。
 
-The **Commit** option commits all local changes made to the app since the previous commit to the version control server. For more information, see [Commit](commit-dialog).
+## 4ディスクに変更を表示する
 
-## 4 Show Changes on Disk
+**ディスクに変更を表示** 前回のコミット以降にディスク上のファイルが変更されたことを示すダイアログを開きます。
 
-**Show Changes on Disk** opens a dialog that shows which files on disk have been changed since the last commit.
+## 5つの履歴
 
-## 5 History
+**History** オプションには、アプリのコミットされたリビジョンの履歴が表示されます。 **履歴**に表示される情報については、 [履歴](history-dialog) を参照してください。
 
-The **History** option shows the history of committed revisions of the app. For more information on what is displayed in **History**, see [History](history-dialog).
+## 6 バージョン管理サーバーからダウンロード
 
-## 6 Download from Version Control Server
+**バージョン管理サーバーからダウンロード** オプションは、Team Serverまたは他のプライベートサーバーからアプリをダウンロードします。 これにより、開発用のアプリのローカル作業コピーが作成されます。 For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
 
-The **Download from Version Control Server** option downloads an app from the Team Server or another SVN server. This creates a local working copy of the app for development. For more information on what settings are displayed in the **Download from Version Control Server** dialog box, see [Download from Version Control Server](download-from-version-control-dialog).
+## 7 バージョン管理サーバーにアップロード
 
-## 7 Upload to Version Control Server
+**バージョン管理サーバーにアップロード** オプションは、ローカルアプリを新規または既存のTeam Serverリポジトリにアップロードします。 または別のプライベートサーバーに これは、アプリがまだバージョン管理されていない場合にのみ可能です。 For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
 
-The **Upload to Version Control Server** option uploads a local app to a new or existing Team Server repository, or to another SVN server. This is only possible if the app is not yet version controlled. For more information on what settings are displayed in the **Upload to Version Control Server** dialog box, see [Upload to Version Control Server](upload-to-version-control-dialog).
+## 8 支線の管理
 
-## 8 Manage Branch Lines
+**Manage Branch Lines** オプションを使用すると、バージョン管理サーバーのブランチラインを管理でき、メインラインとは別に機能を開発することができます。 ブランチラインマネージャの詳細と新しいブランチラインの作成 see [Branch Line Manager](branch-line-manager-dialog) and [Create Branch Line](create-branch-line-dialog).
 
-The **Manage Branch Lines** option allows you to manage branch lines on the version control server that can be used to develop functionality separately from the main line. For more information on the Branch Line Manager and creating a new branch line, see [Branch Line Manager](branch-line-manager-dialog) and [Create Branch Line](create-branch-line-dialog).
+## 9 変更をここにマージする
 
-## 9 Merge Changes Here
+**Merge Changes Here** オプションを使用すると、別の開発ラインでコミットされた変更を Studio Pro で現在開いている開発ラインにマージできます。
 
-The **Merge Changes Here** option allows you to merge changes that were committed in another development line to the development line that is currently opened in Studio Pro.
+## 10 変更を逆マージする
 
-## 10 Reverse Merge Changes
+**Reverse Merge Changes** オプションを使用すると、バージョン管理リポジトリにコミットされた変更をローカルでロールバックできます。 これらのローカル変更は、新しいリビジョンとして反映されます。
 
-The **Reverse Merge Changes** option allows locally rolling back changes that were committed to the version control repository. These local changes can then be committed as a new revision.
+## 11 すべての変更を元に戻す
 
-## 11 Revert All Changes {#revert-all}
+**すべての変更を元に戻す** オプションでは、すべてのローカルの変更を元に戻すことができます。 前回のコミット以降に導入されたアプリとディスク上のファイルの両方。
 
-The **Revert All Changes** option allows rolling back all local changes, both in the project and in files on disk, that have been introduced since the last commit.
+## 12 データのスナップショットを追加
 
-## 12 Add Snapshot of Data
+**Add Snapshot of Data** オプションは、組み込みデータベースのスナップショットを作成し、バージョン管理リポジトリに追加します。 これは、テストデータをアプリに追加したり、デモ目的で使用する場合に特に便利です。
 
-The **Add Snapshot of Data** option creates a snapshot of the built-in database and adds that to the version control repository. This is especially useful for adding test data to your app or for demo purposes.
-
-## 13 Read More
+## 13 続きを読む
 
 * [Studio Pro Overview](studio-pro-overview)
-* [Version Control](version-control)
+* [バージョン管理](version-control)
