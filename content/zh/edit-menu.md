@@ -9,12 +9,16 @@ tags:
   - "顶栏"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/edit-menu.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 通过 **编辑** 菜单，您可以在使用特定文档的地方执行各种操作，例如剪切/复制/粘贴或搜索。 您也可以打开包含用户特定设置的 [首选项](preferences-dialog) 对话框。
 
-![编辑菜单](attachments/edit-menu/edit-menu.png)
-
+{{% image_container width="300" %}}![编辑菜单](attachments/edit-menu/edit-menu.png)
+{{% /image_container %}}
 
 ## 2 个菜单项概述
 
@@ -33,7 +37,7 @@ tags:
 | **查找用法** (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>)   | 打开 **查找结果** 窗格并显示选中对象的用法。                                                                            |
 | **下次查找结果** (<kbd>F3</kbd>)                                   | 突出显示下一个在 **查找结果** 窗格中的结果，并在编辑器中打开它。                                                                  |
 | **上一个查找结果** (<kbd>Shift</kbd> + <kbd>F3</kbd>)               | 突出显示先前在 **查找结果** 窗格中找到结果，并在编辑器中打开它。                                                                  |
-| **转到** (<kbd>Ctrl</kbd> + <kbd>G</kbd>)                      | 通过输入几个字母并按 <kbd>输入</kbd> 来快速导航到应用中的任何文档或域模型元素。                                                       |
+| **转到** (<kbd>Ctrl</kbd> + <kbd>G</kbd>)                      | 通过输入几个字母并按 <kbd>输入</kbd> 来快速导航到项目中的任何文档或域模型元素。                                                       |
 | **下一个错误** (<kbd>F8</kbd>)                                    | 突出显示 **错误列表** 窗格中的下一个错误，并在编辑器中打开它。                                                                   |
 | **上一个错误** (<kbd>Shift</kbd> + <kbd>F8</kbd>)                 | 高亮前一个错误导致 **错误列表** 窗格并在编辑器中打开它。                                                                      |
 | **首选项**                                                      | 打开 **首选项** 对话框，您可以在哪里设置您的常规、模型和高级编辑首选项。 关于 **首选项** 对话框的更多信息，见 [首选项](preferences-dialog)。             |
@@ -42,5 +46,5 @@ tags:
 
 * [更改面板](changes-pane)
 * [Errors Pane](errors-pane)
-* [应用浏览器](project-explorer)
+* [项目浏览器](project-explorer)
 * [Studio Pro Overview](studio-pro-overview)
