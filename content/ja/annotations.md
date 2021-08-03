@@ -1,23 +1,27 @@
 ---
 title: "注釈"
 parent: "ドメインモデル"
+menu_order: 30
 tags:
   - "ドメインモデル"
   - "アノテーション:"
+  - "studio pro"
 ---
 
-注釈は、ドメインモデルにコメントを入れるために使用できる要素です。
-
 {{% alert type="info" %}}
-
-注文エンティティには、合計金額とディスカウント属性の両方が含まれています。 あなたは、合計価格とは異なり、事実を述べるために注釈を追加します。 割引は金額ではなくパーセンテージで表されます
-
-![](attachments/domain-model-editor/16844036.png)
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/annotations.pdf) をクリックしてください。
 {{% /alert %}}
 
-## 共通のプロパティ
+## 1つの紹介
 
-### 図表番号
+**アノテーション** は、ドメインモデルにコメントを追加するために使用できます。
+
+例えば、注文エンティティには、 **TotalPrice** と **Discount** という 2 つの小数属性が含まれています。 注釈を追加することができます。 注釈は、合計価格とは異なり、割引はパーセンテージであり、金額ではないことに注意してください。
+
+![](attachments/domain-model/16844036.png)
+
+## 2つの一般的なプロパティ
+
+### 2.1 図表番号
 
 caption プロパティには、注釈のテキストが含まれます。
