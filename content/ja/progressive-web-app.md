@@ -1,114 +1,114 @@
 ---
-title: "Progressive Web Apps"
-category: "Mobile"
+title: "プログレッシブウェブアプリ"
+category: "モバイル"
 menu_order: 2
 tags:
-  - "mobile"
-  - "progressive web app"
+  - "モバイル"
+  - "プログレッシブウェブアプリ"
   - "PWA"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Progressive web apps (PWAs) are an evolution of traditional web apps. Overall, PWAs tend to behave more like native mobile apps, and their popularity is increasing. One difference and possible advantage of PWAs compared to hybrid and native mobile apps is that PWAs do not need to be distributed via an app store but can be accessed directly via the browser.
+プログレッシブウェブアプリ(PWA)は、従来のウェブアプリの進化です。 全体として、PWA はネイティブのモバイルアプリのように振る舞う傾向があり、その人気は高まっています。 ハイブリッドおよびネイティブモバイルアプリと比較してPWAの違いと考えられる利点の1つは、PWAはアプリストアを介して配布する必要はなく、ブラウザ経由で直接アクセスできることです。
 
-Progressive web apps have three main characteristics:
+プログレッシブウェブアプリには主に3つの特徴があります:
 
-* **Installable —** PWAs let you add your app to your user's home screen and start a full screen app. This makes PWAs feel more fully-capable native apps.
-* **Reliable —** Using service workers, PWAs can work offline or partially offline. Mendix PWAs can work partially offline (resources like styling, pages, and images are cached) or fully offline (like hybrid offline and native mobile apps).
-* **Capable —** PWAs can leverage several device capabilities like the camera and location, and can offer support for web push notifications. Note that support for features depend on which browser is used.
+* **インストール可能 —** PWAでは、ユーザーのホーム画面にアプリを追加し、フルスクリーンアプリを起動できます。 これにより、PWA はより完全なネイティブアプリを感じさせることができます。
+* **信頼性の高い —** サービスワーカーを使用すると、PWA はオフラインまたは部分的にオフラインで作業できます。 Mendix PWA は部分的にオフラインで動作します (スタイリング、ページ、画像などのリソースはキャッシュされます)、または完全にオフラインで動作します (ハイブリッドオフラインやネイティブモバイルアプリなど)。
+* **機能 —** PWA はカメラやロケーションなどの複数のデバイス機能を活用でき、Web プッシュ通知のサポートを提供できます。 機能のサポートは、使用されるブラウザによって異なります。
 
-## 2 Enabling PWA Features
+## 2 PWA機能の有効化
 
-As PWAs are basically web apps with additional features, Mendix offers these features as a part of web navigation profiles. Based on what is needed, you can create a fully offline-capable PWA, or a web application that requires an internet connection but still uses PWA features.
+PWAは基本的に追加機能を備えたWebアプリなので、Mendixはこれらの機能をWebナビゲーションプロファイルの一部として提供します。 必要なものに基づいて、完全にオフライン対応した PWA を作成できます。 またはインターネット接続を必要としながらもPWA機能を使用するWebアプリケーション。
 
-To create a full offline-first PWA, choose and add one of the following profiles (depending on which form factor you need): Responsive Web Offline, Phone Web Offline, or Tablet Web Offline. For more information about offline-first apps, see the [Offline-First Reference Guide](/refguide/offline-first).
+完全なオフラインファーストPWAを作成するには、次のプロファイルのいずれかを選択して追加します(必要なフォームファクタに応じて): レスポンシブWebオフライン。 電話ウェブオフライン、またはタブレットウェブオフライン。 オフラインファーストアプリの詳細については、 [オフラインファーストリファレンスガイド](/refguide/offline-first) を参照してください。
 
 {{% alert type="info" %}}
-Offline-first progressive web apps have some restrictions to make sure they can fully work offline. For more information, see the [Ensuring Your App Is Offline-First ](offline-first#limitations) section of the *Offline-First Reference Guide*.
+オフラインで最初のプログレッシブWebアプリには、完全にオフラインで動作できるようにするための制限があります。 詳しい情報については、 [オフライン-ファーストリファレンスガイド ](offline-first#limitations) の *アプリがオフラインであることを確認する* セクションを参照してください。
 {{% /alert %}}
 
-Within the navigation profiles the following PWA features can be configured:
+ナビゲーション プロファイル内では、次の PWA 機能を設定できます。
 
 {{% image_container width="350" %}}![PWA settings](attachments/progressive-web-app/settings.png){{% /image_container %}}
 
-To be able to fully test PWA functionalities, the app needs to be deployed to the cloud. This is because the service worker is only enabled in the cloud over HTTPS.
+PWA 機能を完全にテストできるようにするには、アプリケーションをクラウドにデプロイする必要があります。 これは、Service Worker が HTTPS 経由でクラウドでのみ有効になっているためです。
 
-### 2.1 Publish as a Progressive Web App
+### 2.1 プログレッシブウェブアプリとして公開
 
-When checked and deployed to the cloud, the app registers a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers) that is the basis for PWAs. On offline navigation profiles, this option is always enabled. In online navigation profiles, enabling this option will also give the end-user a custom page when the device has no connection. Where desired, this page can be customized by adding an *offline.html* page to the theme folder (for example, *theme/offline.html*). Note that this page should not load any other resources over the network.
+チェックしてクラウドにデプロイすると、アプリケーションはPWAの基礎となる [サービスワーカー](https://developers.google.com/web/fundamentals/primers/service-workers) を登録します。 オフラインナビゲーションプロファイルでは、このオプションは常に有効です。 オンラインナビゲーションプロファイルでは、このオプションを有効にすると、デバイスに接続がない場合に、エンドユーザーにカスタムページが表示されます。 必要に応じて、このページは *offline.html* ページをテーマフォルダに追加することでカスタマイズできます(例えば、 *theme/offline.html*)。 このページはネットワーク経由で他のリソースをロードしてはいけないことに注意してください。
 
-### 2.2 Allow "Add to Home Screen" Prompt
+### 2.2 「ホーム画面に追加」プロンプトを許可する
 
-When the **Add to Home Screen** option is selected, the end-user might be actively asked to add the app to their device's home screen or desktop. The behavior can differ per browser and over time. When unselected, the app can still always be added to the home screen, but the user will not be actively asked.
+**Add to Home Screen** オプションが選択された場合。 エンドユーザーは、デバイスのホーム画面やデスクトップにアプリを追加するように積極的に求められる場合があります。 動作はブラウザごとに、時間の経過とともに異なる場合があります。 選択されていない場合でも、アプリは常にホーム画面に追加することができますが、ユーザーはアクティブに求められません。
 
-### 2.3 Preload Static Resources
+### 2.3 静的リソース
 
-Enabling this option will make the app pre-load static resources like pages, images, and widgets in the background. This can aid performance. This pre-loading happens when a user opens the app for the first time, or when the model has changed. This makes the app feel faster when navigating to new pages. It comes at a cost, however, as it consumes more bandwidth and device storage initially.
+このオプションを有効にすると、バックグラウンドでページ、画像、ウィジェットなどの静的リソースが事前にロードされます。 これはパフォーマンスを助けることができる。 このプリロードは、ユーザーが初めてアプリを開くとき、またはモデルが変更されたときに行われます。 これにより、新しいページに移動するときにアプリがより速く感じられます。 しかし、最初はより多くの帯域幅とデバイスストレージを消費するため、コストがかかります。
 
-In offline profiles, this feature is automatically enabled to allow the app to function fully offline.
+オフラインプロファイルでは、この機能は自動的に有効になり、アプリが完全にオフラインで機能するようになります。
 
-Note that all pages and images reachable in the navigation profile are loaded by the browser. This configuration can be undesirable from a security perspective, depending on your use case and requirements.
+ナビゲーションプロファイルに到達可能なすべてのページと画像はブラウザによって読み込まれることに注意してください。 この構成は、使用事例と要件に応じて、セキュリティの観点から望ましくない場合があります。
 
-## 3 Preview or Test a PWA
+## 3 PWAのプレビューまたはテスト
 
-PWAs can be directly viewed and tested in the browser on your machine or device. Via the **View** menu you can directly open the PWA profiles in your browser:
+PWA は、お使いのマシンまたはデバイスのブラウザで直接見ることができます。 **ビュー** メニューから、PWAプロファイルを直接ブラウザで開くことができます。
 
-![View menu](attachments/progressive-web-app/view-menu.png)
+![メニューを表示](attachments/progressive-web-app/view-menu.png)
 
-You can also open PWA profiles on your device via the **View on your device** option:
+お使いのデバイスの **ビュー** オプションを使用して、PWAプロファイルをデバイスで開くこともできます。
 
 {{% image_container width="350" %}}![View menu](attachments/progressive-web-app/view-dialog.png){{% /image_container %}}
 
-Note that if you are running on a Mac with Parallels, make sure that port 8080 (or whichever port you have configured for your app) is forwarded and that you use your Mac IP instead of the Virtual Machine’s IP. For more information on Mendix and Parallels, see [How to Configure Parallels](/howto/mobile/using-mendix-studio-pro-on-a-mac).
+Parallels 付きの Mac で実行している場合は、注意してください。 ポート8080(またはアプリに設定されているいずれかのポート)が転送され、仮想マシンのIPの代わりにMacのIPを使用することを確認してください。 Mendix と Parallels の詳細については、 [Parallels の設定方法](/howto/mobile/using-mendix-studio-pro-on-a-mac) を参照してください。
 
 {{% alert type="info" %}}
-When previewing or testing an offline-first PWA locally, an internet connection is always required to load the app. After initial loading, the app behaves fully offline, but it can not be reloaded without a connection. Once the app is deployed to the cloud, end-users can always load it without a connection after the first visit.
+オフライン最初の PWA をローカルでプレビューまたはテストする場合、アプリをロードするには常にインターネット接続が必要です。 初期読み込み後、アプリは完全にオフラインで動作しますが、接続なしで再読み込みすることはできません。 アプリがクラウドにデプロイされると、エンドユーザーは最初にアクセスした後、接続なしでいつでもアプリをロードできます。
 {{% /alert %}}
 
-### 3.1 PWA Lighthouse Check
+### 3.1 PWA灯台チェック
 
-To check a PWA's capabilities, you can use [Lighthouse](https://developers.google.com/web/tools/lighthouse). Lighthouse is an open-source, automated tool for improving the quality of web pages. It can check if your app meets the progressive web app requirements and can offer suggestions for improving your web app.
+PWAの能力を確認するには、 [灯台](https://developers.google.com/web/tools/lighthouse)を使用できます。 Lighthouseは、Webページの品質を向上させるためのオープンソースの自動化ツールです。 アプリがプログレッシブウェブアプリの要件を満たしているかどうかを確認し、ウェブアプリを改善するための提案を提供することができます。
 
-## 4 Distribute or Share the PWA
+## 4 PWAを配布または共有
 
-As PWAs are web apps, these can be shared easily by sharing the PWA's URL.
+PWA はウェブアプリなので、PWA の URL を共有することで簡単に共有できます。
 
-When opening the app on a device or browser, Mendix automatically determines the navigation profile based on the user agent and the browser capabilities. If the browser does not support offline functionality, an online profile will be used instead.
+デバイスまたはブラウザでアプリを開くと、Mendixはユーザーエージェントとブラウザの機能に基づいてナビゲーションプロファイルを自動的に決定します。 ブラウザーがオフライン機能をサポートしていない場合は、代わりにオンラインプロフィールが使用されます。
 
-Google Chrome and Microsoft Edge (Chromium edition) fully support running offline-first apps.
+Google ChromeとMicrosoft Edge(Chromiumエディション)は、オフラインファーストアプリの実行を完全にサポートしています。
 
-### 4.1 Example of Profile Selection
+### 4.1 プロファイル選択の例
 
-For example, when a Phone Web Offline profile is configured and the app is opened in the browser, the following scenarios can occur:
+たとえば、Phone Web Offline プロファイルが構成されていて、ブラウザーでアプリが開かれている場合、次のシナリオが発生する可能性があります。
 
-| Device & Browser         | Result                                                                                                                                                         |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Desktop browser          | Responsive Web profile is loaded                                                                                                                               |
-| Android - Chrome browser | Phone Web Offline profile is loaded                                                                                                                            |
-| iOS - Any browser        | If there is a Phone Web profile, this is loaded; otherwise, the Responsive Web profile is loaded. This is because offline PWAs are not (yet) supported on iOS. |
+| デバイス & ブラウザー          | 結果                                                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------------ |
+| デスクトップ ブラウザー          | レスポンシブWebプロファイルが読み込まれました                                                                                     |
+| Android - Chromeブラウザー | 電話ウェブオフラインプロファイルが読み込まれました                                                                                    |
+| iOS - 任意のブラウザ         | Phone Web プロファイルがある場合、これは読み込まれます。そうでなければ、Responsive Web プロファイルが読み込まれます。 これは、オフラインPWAがiOSで(まだ)サポートされていないためです。 |
 
-Next to that, it is possible to force a profile by providing the profile name in the URL as a query parameter: for example `http://localhost:8080/?profile=PhoneOffline`. Possible profile values are as follows:
+Next to that, it is possible to force a profile by providing the profile name in the URL as a query parameter: for example `http://localhost:8080/?profile=PhoneOffline`. プロファイルの値は次のとおりです。
 
-| Profile Name           | Value in URL      |
-| ---------------------- | ----------------- |
-| Responsive web         | Responsive        |
-| Responsive web offline | ResponsiveOffline |
-| Phone web              | Phone             |
-| Phone web offline      | PhoneOffline      |
-| Tablet web             | Tablet            |
-| Tablet web offline     | TabletOffline     |
+| プロファイル名          | URL 内の値     |
+| ---------------- | ----------- |
+| レスポンシブウェブ        | レスポンシブ      |
+| レスポンシブWebオフライン   | レスポンシブオフライン |
+| 電話のウェブ           | 電話番号        |
+| オフライン電話          | オフライン電話     |
+| タブレットウェブ         | タブレット       |
+| タブレットの web オフライン | タブレットオフライン  |
 
-When forcing a specific profile on a cloud deployment, it can be necessary to first clear the browser cache.
+クラウド展開に特定のプロファイルを強制する場合は、まずブラウザキャッシュをクリアする必要があります。
 
-## 5 Advanced Settings
+## 5つの詳細設定
 
-See the sections below for information on advanced settings.
+詳細設定については、以下のセクションを参照してください。
 
 ### 5.1 Web App Manifest
 
-PWAs use a web app manifest that provides information to the browser about the application. Mendix generates one automatically based on the model. It can be customized for specific needs by changing the `manifest-overrides.webmanifest` *.json* file in the **theme** folder. The `background_color` and `theme_color` properties will often be useful to customize:
+PWA は、アプリケーションに関する情報をブラウザに提供する Web アプリマニフェストを使用します。 Mendixはモデルに基づいて自動的に生成されます。 It can be customized for specific needs by changing the `manifest-overrides.webmanifest` *.json* file in the **theme** folder. `background_color` と `theme_color` プロパティは、しばしばカスタマイズに役立ちます。
 
 ```json
 {
@@ -119,71 +119,71 @@ PWAs use a web app manifest that provides information to the browser about the a
 
 For more information on the available properties in the web app manifest, read this [short introduction](https://web.dev/add-manifest/) or view [the full reference at MDN](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 
-### 5.2 Sessions
+### 5.2 セッション
 
-Offline-first PWAs use long-lived sessions, which keep users logged in for a longer period even after their apps are closed. By default, users will be logged out after 7 days of inactivity. This can be customized using the *LongLivedSessionTimeout* runtime setting.
+オフライン最初の PWA は、長寿命のセッションを使用します。これにより、ユーザーは自分のアプリが閉じられた後も長期間ログインできます。 デフォルトでは、ユーザーは7日間操作が行われなかった後にログアウトされます。 これは、 *LongLivedSessionTimeout* ランタイム設定を使用してカスタマイズできます。
 
-For more information on sessions and how to customize the timeout, see the [Session Duration](tricky-custom-runtime-settings#session-duration) section of the *Tricky Custom Settings in Mendix Runtime Reference Guide*.
+セッションの詳細とタイムアウトをカスタマイズする方法 [Mendix Runtime Reference Guide](tricky-custom-runtime-settings#session-duration) の *トリッキーカスタム設定* セクションを参照してください。
 
-## 6 Accessing Device Features
+## 6 デバイスの機能へのアクセス
 
-Browsers offer access to device features through APIs that can be leveraged in PWAs. These device features can be used by available widgets and nanoflow actions. It is also possible to leverage additional device features by extending the platform using [JavaScript Actions](/refguide/javascript-actions) or [Pluggable Widgets](/howto/extensibility/pluggable-widgets).
+ブラウザは、PWA で活用できる API を通じてデバイス機能にアクセスできます。 これらのデバイス機能は、利用可能なウィジェットとナノフローアクションで使用できます。 [JavaScript アクション](/refguide/javascript-actions) または [Pluggable Widgets](/howto/extensibility/pluggable-widgets) を使用してプラットフォームを拡張することで、追加のデバイス機能を活用することもできます。
 
-This table lists the most used device features and APIs, and also documents their compatibility with common browsers:
+この表には、最も使用されているデバイスの機能と API のほか、一般的なブラウザとの互換性も記載されています。
 
-| Feature                                                                                            | Chrome/Edge                                                                       | Firefox                                                                           | Safari                                                                            |
-| -------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [Camera](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices)                            | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) |
-| [Payment](https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API)                    | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) |
-| [Credentials (Biometrics)](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/credentials) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [Push Notifications](https://developer.mozilla.org/en-US/docs/Web/API/Push_API)                    | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [Permissions](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/permissions)              | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [Foreground Detection](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)       | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         |
-| [Bluetooth](https://developer.mozilla.org/en-US/docs/Web/API/Bluetooth)                            | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [File Access](https://developer.mozilla.org/en-US/docs/Web/API/File)                               | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         |
-| [Geo Location](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)             | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) |
-| [Battery](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery)                   | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [Share](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)                          | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) | ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg) |
-| [Vibrate](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate)                      | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [Memory](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory)                  | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
-| [Connection](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation)                  | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)         | ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)           |
+| 機能                                                                                        | Chrome/Edge                                                           | Firefox                                                               | Safari                                                                |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [カメラ](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices)                      | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) |
+| [支払い](https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API)               | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) |
+| [資格情報 (バイオメトリクス)](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/credentials) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [プッシュ通知](https://developer.mozilla.org/en-US/docs/Web/API/Push_API)                       | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [アクセス許可](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/permissions)          | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [フォアグラウンド検出](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)        | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       |
+| [Bluetooth](https://developer.mozilla.org/en-US/docs/Web/API/Bluetooth)                   | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [ファイルアクセス](https://developer.mozilla.org/en-US/docs/Web/API/File)                         | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       |
+| [ジオロケーション](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)        | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) |
+| [バッテリー](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery)            | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [共有](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share)                    | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) | ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg) |
+| [振動](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/vibrate)                  | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [メモリ](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/deviceMemory)            | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
+| [接続](https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation)                 | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)       | ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)    |
 
-**Legend** — The symbols above correspond to the following definitions:
+**凡例** — 上記の記号は以下の定義に対応しています。
 
-*  Fully compatible:
+*  完全な互換性:
 
-    ![Fully compatible](attachments/progressive-web-app/icons/check-mark.svg)
+    ![完全な互換性](attachments/progressive-web-app/icons/check-mark.svg)
 
-*  Compatible only when using HTTPS protocol:
+*  HTTPS プロトコルを使用している場合のみ互換性があります。
 
-    ![Compatible when using HTTPS](attachments/progressive-web-app/icons/warning.svg)
+    ![HTTPSを使用する際の互換性](attachments/progressive-web-app/icons/warning.svg)
 
-*  Not compatible:
+*  互換性がありません:
 
-    ![Not compatible](attachments/progressive-web-app/icons/cross-mark.svg)
+    ![互換性がありません](attachments/progressive-web-app/icons/cross-mark.svg)
 
-For more information on browser support for certain device features, see the third-party website [Can I Use](https://caniuse.com/).
-
-{{% alert type="info" %}}
-In order to test the features requiring HTTPS protocol, use [ngrok](https://ngrok.com/) to enable features in your localhost.
-{{% /alert %}}
-
-## 7 Deciding Between a PWA or Native Mobile App
-
-Mendix offers options to build both native mobile apps and PWAs. Depending on your app's requirements or constraints, one or the other can be a better fit. It is also possible to have both native mobile and PWA profiles in a single app, which can run next to each other and overlap significantly.
+特定のデバイス機能のブラウザーサポートの詳細については、サードパーティのウェブサイト [使用できる](https://caniuse.com/) を参照してください。
 
 {{% alert type="info" %}}
-Important limitation: Apple does not support push notifications for PWAs on iOS.
-
-Currently, it is not possible to create a fully offline-first PWA for iOS — adding that support is part of our 2022 roadmap.
+HTTPS プロトコルを必要とする機能をテストするには、 [ngrok](https://ngrok.com/) を使用して、localhost内の機能を有効にします。
 {{% /alert %}}
 
-Use the following diagram to decide whether to build a PWA, a native mobile app, or both:
+## 7 PWAまたはネイティブモバイルアプリ間で決定する
+
+MendixはネイティブモバイルアプリとPWAの両方を構築するためのオプションを提供します。 アプリの要件や制約に応じて、どちらか一方または他方が適合することがあります。 1つのアプリでネイティブモバイルとPWAの両方のプロファイルを持つこともできます。 お互いに並んで重なり合うことができます
+
+{{% alert type="info" %}}
+重要な制限: iOS 上の PWA のプッシュ通知は、Apple ではサポートされていません。
+
+現在、完全にオフラインで初めてiOS用PWAを作成することはできません。サポートは2022年のロードマップの一部です。
+{{% /alert %}}
+
+次の図を使用して、PWA、ネイティブ モバイル アプリケーション、または両方を作成するかどうかを決定します。
 
 {{% image_container width="350" %}}![Native app or PWA](attachments/progressive-web-app/native-or-pwa.png){{% /image_container %}}
 
-## 8 Read More
+## 8 続きを読む
 
-* [Native Mobile Reference Guide](native-mobile)
-* [Offline-First Reference Guide](offline-first)
-* [Navigation Reference Guide](navigation)
+* [ネイティブモバイルリファレンスガイド](native-Mobile)
+* [オフライン-ファーストリファレンスガイド](offline-first)
+* [ナビゲーションリファレンスガイド](navigation)
