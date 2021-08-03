@@ -1,233 +1,190 @@
 ---
-title: "Arithmetic Expressions"
+title: "Arithmetic expressions"
 parent: "expressions"
-menu_order: 20
-tags:
-  - "studio pro"
-  - "expressions"
-  - "arithmetic expressions"
 ---
 
-## 1 Introduction
 
-This document describes the arithmetic operators which are supported in expressions. These all work on numeric data types (Integer/Long and Decimal).
+A number of arithmetic expressions are supported, all of which work on numeric types (Integer/Long, Float and Decimal).
 
-## 2 Multiplication
+## Multiplication
 
 Multiplies two numbers.
 
-### 2.1 Input parameters
+### Input parameters
 
-The input parameters are described in the table below:
+*   First number Type: Integer/Long, Float or Decimal
+*   Second number Type: Integer/Long, Float or Decimal
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
-
-### 2.2 Output
+### Output
 
 If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+If any of the two inputs is of type Decimal, the result is of type Decimal.
 
-### 2.3 Example
-
-If you use the following input:
-
+if any of the two inputs is of type Float and they're both not of type Decimal, the result is of type Float.
 
 ```java
-2*3
+3 * 4
 ```
-The output is:
+
+results in
 
 ```java
-6
+12
 ```
 
-## 3 Division
+## Division
 
-Divides two numbers. You can use either the `div` or colon ( `:` ) syntax, as can be seen below in the examples. The colon ( `:` ) syntax is inspired by the divide symbol `÷`. We cannot use the more conventional slash ( / ) syntax because that would conflict with the slash which is used for separating objects and members.
+Divides two numbers. You can use either the `div` or colon ( : ) syntax, as can be seen below in the examples. The colon ( : ) syntax is inspired by the divide symbol `÷`. We cannot use the more conventional slash ( / ) syntax because that would conflict with the slash we use for separating objects and members.
 
-### 3.1 Input Parameters
+### Input parameters
 
-The input parameters are described in the table below:
+*   First number Type: Integer/Long, Float or Decimal
+*   Second number Type: Integer/Long, Float or Decimal
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+### Output
 
-### 3.2 Output
+If any of the two inputs is of type Decimal, the result is of type Decimal. Otherwise the result is of type Float.
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+"div" syntax:
 
-### 3.3 Example
+```java
+3 div 5
+```
 
-Find the example of usages below:
+results in
 
-* The `div` syntax example: if you use the following input:
+```java
+0.6
+```
 
-  ```java
-  3 div 5
-  ```
+":" syntax:
 
-  The output is:
+```java
+12 : 3
+```
 
-  ```java
-  0.6
-  ```
+results in
 
-* `:` syntax example: if you use the following input:
+```java
+4.0
+```
 
-  ```java
-  12 : 3
-  ```
+## Modulo
 
-  The output is:
+Calculates the remainder of the division of one number by another. In other words, m modulo n corresponds to: m = p + k*n, where p is the result of the operation m modulo n.
 
-  ```java
-  4.0
-  ```
+### Input parameters
 
-### 3.4 Remarks
+*   First number Type: Integer/Long, Float or Decimal
+*   Second number Type: Integer/Long, Float or Decimal
 
-The result of a division is only an approximation if it has an infinite decimal expansion. The two examples below illustrate this approximation:
-
-* If you use the following input:
-
-    ```java
-    3 : 7
-    ```
-
-    the output is:
-
-    ```java
-    0.4285714285714285714285714285714286
-    ```
-
-    If you continue a calculation with the results of a division, the results might be unexpected. The following input:
-
-    ```java
-    (3 : 7) * 7
-    ```
-
-    results in the output below:
-
-    ```java
-    3.0000000000000000000000000000000002
-    ```
-
-* If you use the following input:
-
-    ```java
-    ceil((3 : 7) * 7)
-    ```
-
-    the output is:
-
-    ```java
-    4
-    ```
-
-Therefore, it is recommended to do division operations last.
-
-## 4 Modulo
-
-Calculates the remainder of the division of one number by another. In other words, `m` modulo `n` corresponds to: `m = p + k*n`, where `p` is the result of the operation `m` modulo `n`.
-
-### 4.1 Input Parameters
-
-The input parameters are described in the table below:
-
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
-
-### 4.2 Output
+### Output
 
 If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+If any of the two inputs is of type Decimal, the result is of type Decimal.
 
-### 4.3 Example
-
-If you use the following input:
+if any of the two inputs is of type Float and they're both not of type Decimal, the result is of type Float.
 
 ```java
 23 mod 5
 ```
 
-the output is:
+results in an Integer/Long with value
 
 ```java
 3
 ```
-## 5 Addition
+
+Alternatively,
+
+```java
+23 mod 5.6
+```
+
+results in a Float with value
+
+```java
+0.6
+```
+
+## Addition
 
 Adds two numbers.
 
-For the use of the addition symbol for string concatenation, see [String function calls](string-function-calls).
+{{% alert type="info" %}}
 
-### 5.1 Input Parameters
+See [String function calls](string-function-calls) for more information.
 
-The input parameters are described in the table below:
+{{% /alert %}}
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+### Input parameters
 
-### 5.2 Output
+*   First number Type: Integer/Long, Float or Decimal
+*   Second number Type: Integer/Long, Float or Decimal
+
+### Output
 
 If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+If any of the two inputs is of type Decimal, the result is of type Decimal.
 
-### 5.3 Example
-
-If you use the following input:
+if any of the two inputs is of type Float and they're both not of type Decimal, the result is of type Float.
 
 ```java
 -3 + 4
 ```
 
-the output is:
+results in an Integer/Long with value
 
 ```java
 1
 ```
 
-## 6 Subtraction
+```java
+4.5 + 3
+```
+
+results in a Float with value
+
+```java
+7.5
+```
+
+## Subtraction
 
 Subtracts the second input from the first.
 
-### 6.1 Input Parameters
+### Input parameters
 
-The input parameters are described in the table below:
+*   First number Type: Integer/Long, Float or Decimal
+*   Second number Type: Integer/Long, Float or Decimal
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
-
-### 6.2 Output
+### Output
 
 If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+If any of the two inputs is of type Decimal, the result is of type Decimal.
 
-### 6.3 Example
-
-If you use the following input:
+if any of the two inputs is of type Float and they're both not of type Decimal, the result is of type Float.
 
 ```java
 5 - 4
 ```
 
-the output is:
+results in an Integer/Long with value
 
 ```java
 1
+```
+
+```java
+34.4 - 3.1
+```
+
+results in a Float with value
+
+```java
+31.3
 ```
