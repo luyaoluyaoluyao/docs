@@ -1,39 +1,30 @@
 ---
 title: "Static Image (Document Template)"
 parent: "document-templates"
-tags:
-  - "studio pro"
 aliases:
-  - /refguide/Static+Image+(document+template).html
-  - /refguide/static-image-(document-template).html
+  - /refguide7/Static+Image+(document+template).html
+  - /refguide7/static-image-(document-template).html
 ---
 
-## 1 Introduction
 
-A static image shows a predefined image. It can be put either inside or outside a data view or template grid.
+A static image shows a predefined image. It can be put either in- or outside a data view or templategrid.
 
-{{% alert type="info" %}}
+![](attachments/819203/918133.png) A static image inside a table cell.
 
-![](attachments/document-templates/918133.png)
+## Appearance Properties
 
-A static image inside a table cell.
-
-{{% /alert %}}
-
-## 2 Appearance Properties
-
-### 2.1 Image
+### Image
 
 This property defines the image that will appear in the document.
 
-### 2.2 Width
+### Width
 
 The width defines the width of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
 
-### 2.3 Height
+### Height
 
 The height defines the height of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
 
-## 3 Common Properties
+## Common Properties
 
-{{% snippet file="refguide/name-property.md" %}}
+{{% snippet file="refguide7/Name+Property.md" %}}
