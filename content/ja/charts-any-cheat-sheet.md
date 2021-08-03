@@ -1,23 +1,23 @@
 ---
-title: "Any Chart Cheat Sheet"
+title: "任意のチャートチートシート"
 parent: "chart-widgets"
-description: "Shows, with examples, how the most common types of chart can be configured using the Any Chart Widget"
+description: "最も一般的な種類のチャートを、任意のチャートウィジェットを使用してどのように設定できるか例を示します。"
 menu_order: 50
 tags:
-  - "Any Chart"
-  - "Examples"
-  - "Charts"
-  - "Widget"
+  - "任意のグラフ"
+  - "例"
+  - "グラフ"
+  - "ウィジェット"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This *cheat sheet* lists the most common chart types, together with a visual sample and the json required to create them. More chart types can be found at [https://plot.ly/javascript/](https://plot.ly/javascript/).
+この *チートシート* は、最も一般的なチャート タイプと、視覚的なサンプルとそれらを作成するために必要な json を示しています。 チャートの種類は [https://plot.ly/javascript/](https://plot.ly/javascript/) にあります。
 
-## 2 Basic Charts
+## 2つの基本チャート
 
-### 2.1 Line Chart {#line-chart}
+### 2.1 折れ線グラフ {#line-chart}
 
 ![LineChartProperties](attachments/charts/line-chart2.png)
 
@@ -36,9 +36,9 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 ]
 ```
 
-### 2.2 Bubble Chart
+### 2.2 バブルチャート
 
-![BubbleChartProperties](attachments/charts/bubble-chart.png)
+![バブルチャートプロパティ](attachments/charts/bubble-chart.png)
 
 ``` json
 [ {
@@ -52,7 +52,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 2.3 Scatter Chart
+### 2.3 散布図
 
 ![ScatterPlotProperties](attachments/charts/scatter-plot.png)
 
@@ -66,44 +66,44 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 2.4 Heatmap
+### 2.4 ヒートマップ
 
-![HeatMapProperties](attachments/charts/heat-map2.png)
+![ヒートマッププロパティ](attachments/charts/heat-map2.png)
 
 ``` json
 [ {
   "z": [ [ 1, 2 ], [ 3, 4 ] ],
   "type": "heatmap"
-} ]
+}
 ```
 
-### 2.5 Bar Chart
+### 2.5 棒グラフ
 
 ![BarChartProperties](attachments/charts/bar-chart2.png)
 
 ``` json
 [ {
-  "y": [ "giraffe", "elephant" ],
+  "y": ["giraffe", "elephant" ],
   "x": [ 2, 4 ],
   "type": "bar",
   "orientation": "h"
 } ]
 ```
 
-### 2.6 Column Chart
+### 2.6 棒グラフ
 
-![ColumnChartProperties](attachments/charts/column-chart2.png)
+![カラムチャートプロパティ](attachments/charts/column-chart2.png)
 
 ``` json
 [ {
-  "x": [ "giraffe", "elephant" ],
+  "x": ["giraffe", "elephant" ],
   "y": [ 2, 4 ],
   "type": "bar",
   "orientation": "v"
 } ]
 ```
 
-### 2.7 Pie Chart
+### 2.7円グラフ
 
 ![PieChartProperties](attachments/charts/pie-chart2.png)
 
@@ -115,7 +115,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 2.8 Doughnut Chart
+### 2.8 ドーナツチャート
 
 ![DoughNutChartProperties](attachments/charts/doughnut-chart.png)
 
@@ -128,46 +128,46 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 2.9 Area Chart
+### 2.9 エリアチャート
 
 ![AreaChartProperties](attachments/charts/area-chart2.png)
 
 ``` json
 [ {
-  "x": [ 1, 2, 3 ],
-  "y": [ 1, 2, 3 ],
+  "x": [1, 2, 3 ],
+  "y": [1, 2, 3 ],
   "mode": "scatter",
   "fill": "tonexty"
 } ]
 ```
 
-## 3 Statistical Charts
+## 3つの統計チャート
 
 ### 3.1 Histograms
 
-![HistogramProperties](attachments/charts/histogram.png)
+![ヒストグラムプロパティ](attachments/charts/histogram.png)
 
 ``` json
 [ {
-  "x": [ 0, 2, 1, 3, 4, 2 ],
+  "x": [0, 2, 1, 3, 4, 2 ],
   "type": "histogram"
-} ]
+}
 ```
 
-### 3.2 Box Chart
+### 3.2 ボックスチャート
 
 ![BoxPlotProperties](attachments/charts/box-plot.png)
 
 ``` json
 [ {
-  "x": [ 1, 2, 3, 4, 5 ],
+  "x": [1, 2, 3, 4, 5 ],
   "type": "box"
 } ]
 ```
 
-### 3.3 2D Histogram
+### 3.3 2D ヒストグラム
 
-![2DHistogramProperties](attachments/charts/2d-histogram.png)
+![2Dヒストグラムプロパティ](attachments/charts/2d-histogram.png)
 
 ``` json
 [ {
@@ -177,11 +177,11 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-## 4 Maps
+## 4つのマップ
 
-### 4.1 Bubble Map
+### 4.1 バブルマップ
 
-![BubbleMapProperties](attachments/charts/bubble-map.png)
+![バブルマッププロパティ](attachments/charts/bubble-map.png)
 
 ``` json
 [ {
@@ -196,22 +196,22 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 4.2 Choropleth Map
+### 4.2 合唱マップ
 
 ![ChoroplethMapProperties](attachments/charts/choropleth-map.png)
 
-#### 4.2.1 Choropleth Map Data
+#### 4.2.1 Choropleth マップデータ
 
 ``` json
 [ {
-  "locations": [ "AZ", "CA", "VT" ],
+  "locations": ["AZ", "CA", "VT" ],
   "locationmode": "USA-states",
   "z": [ 10, 20, 40 ],
   "type": "scattergeo"
 } ]
 ```
 
-#### 4.2.2 Choropleth Map Layout
+#### 4.2.2 合計地図レイアウト
 
 ``` json
 { 
@@ -221,9 +221,9 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 }
 ```
 
-### 4.3 Scatter Map
+### 4.3 スキャッターマップ
 
-![ScatterMapProperties](attachments/charts/scatter-map.png)
+![スキャッターマッププロパティ](attachments/charts/scatter-map.png)
 
 ``` json
 [ {
@@ -235,9 +235,9 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-## 5 3D Charts
+## 5つの3D チャート
 
-### 5.1 3D Surface Chart
+### 5.1 3Dサーフェスチャート
 
 ![3DSurfacePlotProperties](attachments/charts/3d-surface-plot.png)
 
@@ -249,7 +249,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 5.2 3D Line Chart
+### 5.2 3D ライン チャート
 
 ![3DLineChartProperties](attachments/charts/3d-line-chart.png)
 
@@ -263,7 +263,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 5.3 3D Scatter Chart
+### 5.3 3D スキャッターチャート
 
 ![3DScatterPlotProperties](attachments/charts/3d-scatter-plot.png)
 
@@ -277,20 +277,20 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-## 6 Other Charts
+## その他の6つのグラフ
 
-### 6.1 Contour Chart
+### 6.1 輪郭グラフ
 
 ![ContourProperties](attachments/charts/contour.png)
 
 ``` json
 [ {
-  "z": [ [ 2, 2, 4, 11 ], [ 5, 14, 8, 11 ] ],
+  "z": [ 2, 2, 4, 11 ], [ 5, 14, 8, 11 ] ],
   "type": "contour"
-} ]
+}
 ```
 
-### 6.2 Time Series
+### 6.2 時系列数
 
 ![TimeSeriesProperties](attachments/charts/time-series2.png)
 
@@ -298,12 +298,12 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 [ {
   "type": "scatter",
   "mode": "lines",
-  "x": [ "2018-09-04", "2018-10-04", "2018-11-04", "2018-12-04", "2018-12-04" ],
+  "x": [ "2018-09-04", "2018-10-04", "2018-11-04", "2018-12-04", "2018-12-04", "2018-12-04" ],
   "y": [ 5, 2, 7, 10 ]
-} ]
+}
 ```
 
-### 6.3 Group By Chart
+### 6.3 グラフ別グループ
 
 ![GroupByChartProperties](attachments/charts/group-by-chart.png)
 
@@ -316,9 +316,9 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 6.4 Symmetric Error Bar
+### 6.4 対称エラーバー
 
-![ErrorBarProperties](attachments/charts/error-bar.png)
+![ErrorBarプロパティ](attachments/charts/error-bar.png)
 
 ``` json
 [ {
@@ -332,7 +332,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 } ]
 ```
 
-### 6.5 Polar Chart
+### 6.5 極グラフ
 
 ![PolarChartProperties](attachments/charts/polar-chart.png)
 
@@ -349,7 +349,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 
 ![TernaryPlotProperties](attachments/charts/ternary-plot.png)
 
-#### 6.6.1 Ternary Plot Data
+#### 6.6.1 Ternary Plot データ
 
 ``` json
 [{
@@ -362,7 +362,7 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 }]
 ```
 
-#### 6.6.2 Ternary Plot Layout
+#### 6.6.2 Ternary Plot レイアウト
 
 ```json
 {
@@ -372,8 +372,8 @@ This *cheat sheet* lists the most common chart types, together with a visual sam
 }
 ```
 
-## 7 Read More
+## 7 続きを読む
 
-* Full chart documentation is here: [https://plot.ly/javascript/](https://plot.ly/javascript/)
-* [Any Chart Widget](charts-any-configuration)
-* [How to Use Any Chart](/howto/front-end/charts-any-usage)
+* チャートの完全なドキュメントはこちらです: [https://plot.ly/javascript/](https://plot.ly/javascript/)
+* [任意のグラフウィジェット](charts-any-configuration)
+* [任意のグラフの使い方](/howto/front-end/charts-any-usage)
