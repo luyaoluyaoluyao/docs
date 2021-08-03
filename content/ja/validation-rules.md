@@ -1,79 +1,146 @@
 ---
-title: "Validation Rules"
-parent: "entities"
+title: "検証ルール"
+parent: "エンティティ"
 menu_order: 40
 tags:
-  - "domain model"
-  - "entity"
-  - "validation rule"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "検証ルール"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-rules.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+検証ルールは、オブジェクトがコミットされる前に満たされるべき条件です。 オブジェクトがコミットされたときに、バリデーションルールによって定義された条件が満たされない場合、ランタイムサーバーはバリデーションエラーを生成します。
 
-Validation rules are conditions that should be satisfied before an object is committed. If a condition defined by a validation rule is not satisfied when the object is committed, the runtime server generates a validation error.
+オブジェクトがフォームを使用してコミットされた場合、これはバリデーションメッセージになります。
 
-If the object was committed using a form, this results in a validation message.
+オブジェクトがmicroflowでコミットされた場合、カスタムエラー処理を使用してエラーを処理することができます。
 
-If the object was committed in a microflow, this results in an error that can be handled using custom error handling.
+その他のすべての場合、検証エラーは Java 例外がスローされます。
 
-In all other cases, a validation error results in a Java exception being thrown.
-
-For example, for entity 'Customer' the name and credit need to be filled in at all times, and the expenses cannot be higher than the credit. This is visualized in the domain model editor as follows:
+たとえば、エンティティ「顧客」の場合、名前とクレジットを常に入力する必要があります。 経費はクレジット以上にはなりません これは以下のようにドメインモデルエディタで視覚化されます。
 
 ![](attachments/domain-model/customer-validation-rules.png)
 
 {{% alert type="warning" %}}
-You can only define validation rules for persistable entities as they are designed to ensure database integrity. Therefore, validation rules are disabled for non-persistable entities.
+データベースの整合性を確保するように設計されているため、持続可能エンティティの検証ルールを定義することができます。 そのため、永続性のないエンティティでは検証ルールは無効になります。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-You can add and edit validation rules for an entity from the [entity dialog box](entities#dialog-box).
+[エンティティ ダイアログ ボックス](entities#dialog-box) から、エンティティの検証ルールを追加および編集できます。
 
-An example of the validation rule properties is represented in the image below:
+バリデーションルールプロパティの例は以下の画像で表されています:
 
 ![](attachments/domain-model/validation-rule-properties.png)
 
-Validation rule properties consist of the following sections:
+バリデーションルール プロパティは以下のセクションで構成されています:
 
-* [General](#general)
-* [Rule](#rule)
+* [全般](#general)
+* [ルール](#rule)
 
-### 2.1 General Properties {#general}
+### 2.1 一般プロパティ {#general}
 
-#### 2.1.1 Attribute
+#### 2.1.1 属性
 
-**Attribute** specifies the attribute to which the validation rule applies. The validation rules apply to attributes of the entity and, if it has a generalization, the attributes of its generalization.
+**属性** は、検証ルールが適用される属性を指定します。 検証ルールはエンティティの属性に適用され、一般化がある場合はその一般化の属性に適用されます。
 
-#### 2.1.2 Error Message
+#### 2.1.2 エラー メッセージ
 
-**Error message** defines the message that is displayed to the end-user when the attribute value does not satisfy the condition defined by the validation rule.
+**Error message** は、属性値が検証ルールによって定義された条件を満たさない場合、エンドユーザーに表示されるメッセージを定義します。
 
-### 2.2 Rule Properties {#rule}
+### 2.2 ルールのプロパティ {#rule}
 
-#### 2.2.1 Rule
+#### 2.2.1 ルール
 
-The rule defines which condition an attribute should satisfy.
+ルールは、属性が満足すべき条件を定義します。
 
-| Option               | Description                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Required *(default)* | The attribute needs to have a value. It cannot be empty.                                                                                                                                               |
-| Unique               | The value of this attribute must be different from the values of this attribute in all other objects of the same entity.                                                                               |
-| Equals               | The attribute value needs to be equal to a specified value or equal to the value of another attribute of the same object.                                                                              |
-| Range                | The attribute value needs to be greater than or equal to, less than or equal to, or between two values. The values are either specified fixed values or values of other attributes of the same object. |
-| Regular expression   | The attribute needs to match a regular expression stored in a [regular expression](regular-expressions) resource.                                                                                      |
-| Maximum length       | The attribute may have no more than the specified number of characters.                                                                                                                                |
+| Option         | 説明                                                                                              |
+| -------------- | ----------------------------------------------------------------------------------------------- |
+| 必須 *（デフォルト）*   | 属性には値が必要です。 空にすることはできません。                                                                       |
+| ユニークな          | この属性の値は、同じエンティティを持つ他のすべてのオブジェクトのこの属性の値と異なる必要があります。 詳細については、以下の [ユニークな制約](#uniqueness)を参照してください。 |
+| 等しい            | 属性値は、指定された値または同じオブジェクトの他の属性の値と同じである必要があります。                                                     |
+| Range          | 属性値は、2つの値以上、またはそれ以下、または2つの値間である必要があります。 値は、同じオブジェクトの他の属性の固定値または値を指定します。                         |
+| 正規表現           | この属性は、 [正規表現](regular-expressions) リソースに格納された正規表現に一致する必要があります。                                  |
+| Maximum length | 属性は指定された文字数を超えない可能性があります。                                                                       |
 
 {{% alert type="info" %}}
-Date values should be entered in [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format, for example 2015-07-26.
+日付の値は [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) フォーマットで入力する必要があります。たとえば、2015-07-26 です。
 {{% /alert %}}
 
-#### 2.2.2 Rule Order
+#### 2.2.2 ルールの順序
 
-Validation rules can be ordered in Studio Pro. The order of the rules determines the order they are applied. If multiple rules are violated, all their error messages will be recorded (in the defined order) and shown in the page. Although the order can be set for all the validation rules in the entity, only the order per attribute will have an impact as all validation rules are executed for all attributes.
+Studio Pro ではバリデーションルールを順序付けることができます。 ルールの順序は、適用される順序を決定します。 複数のルールに違反した場合、すべてのエラーメッセージが(定義済みの順序で)記録され、ページに表示されます。 ただし、順序はエンティティ内のすべての検証ルールに設定できます。 すべての属性に対してすべての検証ルールが実行されるため、属性ごとの順序だけが影響を受けます。
 
-The `uniqueness` validations do not follow the defined order. This validation requires a database query and is executed only when the complete object satisfies to all the other validation rules.
+`一意性` の検証は、定義された順序に従いません。 この検証はデータベースクエリを必要とし、完全なオブジェクトが他のすべての検証ルールを満たす場合にのみ実行されます。
+
+## 3つのユニークな制約{#uniqueness}
+
+一意性検証制約はデータベースによって処理されます。 これにより、ステートレスなクラスタリング、並行ユーザ数の増加、トランザクション速度の高いアプリケーションを効率的に処理することができます。
+
+データベースでは、次のルールが検証されます。
+
+* エンティティ属性のユニークルール
+* 1対多の団体の *多面* 、および1対1の団体の *両側*。
+
+一意性制約を適用する際に考慮すべきことがいくつかあります。 特に制約を加えているエンティティに既存のデータがある場合
+
+### 3.1 エンティティの一意性
+
+#### 3.1.1 文字列
+
+一意性制約は、元のデータベースがケースの感度を扱う方法を考慮に入れます。 これに関する詳しい議論については、 [大文字と小文字を区別する データベースの動作](case-sensitive-database-behavior) を参照してください。
+
+#### 3.1.2 既存のエンティティ
+
+既にデータが含まれているエンティティに一意性制約を追加する場合 影響を受けるエンティティの既存のすべてのオブジェクトは、属性の一意性のためのデプロイでチェックされます。 たとえば、保険番号に独自性の検証を適用し、同じ保険番号を持つ複数の人がある場合:
+
+* Studio Pro からアプリをデプロイすると、デプロイ時にエラーが表示されます。
+* デプロイメントパッケージからアプリをデプロイする場合 (Mendix cloudなど) アプリが起動せず、エラーがログに書き込まれます
+
+![](attachments/datastorage/startup-error.png)
+
+#### 3.1.3 一般化
+
+別の(一般化)エンティティの専門化であるエンティティを使用している場合、データベースの一意性検証の使用には制限があります。
+
+データベースの一意性検証オプションが有効になっています このエンティティの一般化から来る属性の特殊化エンティティに一意の検証ルールを定義することはできません。 これを行うと、この画像のように一貫性エラーが報告されます。
+
+![](attachments/datastorage/unique-validation-rule-unresolved.png)
+
+ただし、特別なエンティティに追加される属性の一意の検証ルールを定義することができます。
+
+---
+
+たとえば、2つのエンティティがあります。
+
+* 一般エンティティ **Employee** 属性を持つ **EmployeeNumber**
+* **EmailAddress**属性を持つ *Employee* に基づく、特殊なエンティティ **SalesEmployee**。
+
+各 *SalesEmployee* は *EmployeeNumber* を *Employee* エンティティに含みます。 ただし、 *SalesEmployee* エンティティで *EmployeeNumber* を一意にする検証ルールを設定することはできません。
+
+ただし、 *SalesEmployee* エンティティにのみ表示されるため、 *EmailAddress* をユニークにするバリデーションルールを設定できます。
+
+---
+
+これらの属性の一意の検証ルールを属性が定義された一般化エンティティに移動することで、この問題を簡単に解決できます。
+
+![](attachments/datastorage/unique-validation-rule-resolved.png)
+
+### 3.2 協会の一意性
+
+ユニークな制約は関連付けにも適用されます。 これは、関連付けの1つまたは両側を `*` の代わりに `*` (倍数)に設定するように、関連付けのタイプを変更することによって行われます。 一意ではないデータを含む関連に一意性制約を適用すると、エラーが発生することがあります。
+
+次の例を考えてみましょう:
+
+![](attachments/datastorage/one-to-many-assoc.PNG)
+
+ドメインモデルは最初に、 **アドレス** と **人** の間の1対多の関連付けを含んでいます。 つまり、Person は複数のアドレスを持つことができます。 しばらくすると、1人につき1つのアドレスだけを保持したいので、データ構造が変更されます。 適切なデータモデリングでは、関連付けを1対1の関連付けに変更することが規定されています。 新しいデータは更新された関連付けを正しく反映します。
+
+![](attachments/datastorage/one-to-one-assoc.PNG)
+
+データベース内の既存の関連データも更新された1対1の関連付けに準拠している必要があります。 これはデプロイ時にチェックされます。 個人が複数のアドレスを持っている場合、モデルはデプロイされません。 そして、Studio Pro または (Mendix) クラウドのデプロイログにエラーが表示されます。
+
+![](attachments/datastorage/startup-error-assoc.png)
+
+私たちは、1人あたり1つのアドレス(実際にはデータベースに複数のアドレスが存在する場合)のみを返すような見過ごされやすい間違いを避けるために、この新しい厳格な関連付けを既存のデータに適用します。 たとえば、Mendix プラットフォームは、実行ごとに同じアドレスを一貫して返すことができますが、他のアドレスはデータベース内の休止状態のエントリになります。
