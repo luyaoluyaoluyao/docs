@@ -1,51 +1,66 @@
 ---
-title: "Domain Model"
-category: "Desktop Modeler"
+title: "ドメインモデル"
+category: "アプリモデリング"
+menu_order: 30
 tags:
-  - "domain model"
-  - "entity"
-  - "association"
-  - "annotation"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "関連"
+  - "アノテーション:"
+  - "studio pro"
 ---
 
+## 1つの紹介
 
-The domain model is a data model that describes the information in your application domain in an abstract way. It is central to the architecture of your application. The domain model consists of [entities](entities) and their relations represented by [associations](associations).
+**ドメイン モデル** は、アプリケーションが抽象的な方法で使用する情報 (または *データ*) を記述するモデルです。 それはあなたのアプリケーションのアーキテクチャの中心です。 各 [モジュール](modules) には、そのモジュールで使用されるデータを記述する独自のドメインモデルがあります。 アプリ内のすべてのモジュールは、アプリ内のすべてのドメインモデルのデータを使用できます。
 
-Here is a domain model that defines customers and orders. The line between them is an association. The words 'Customer' and 'Order' are the names of the entities. The words below the entity names are the attributes of the entities.
+ドメインモデルは、 [関連](entities) によって表される他のエンティティとの関係を持つ [エンティティ](associations) で構成されています。 ドメインモデルに [注釈](annotations) を追加して、どのように使用するかを説明することもできます。
 
-![](attachments/domain-model-editor/917531.png)
+以下は、顧客と注文を定義するドメインモデルです。 エンティティの名前は `顧客` と `注文` です。 それらの間の線は関連である。 `Order_Customer`. 1つの顧客は多くの注文をすることができますが、各注文は1つの顧客のためにあります。 エンティティを表すボックス内には、エンティティの [属性](attributes) とそれらが保持しているデータの [タイプ](attributes#type) が表示されます。 [非永続](persistability) エンティティ、 `ProductQueryResults`もあります。 これは、別の製品システムから取得される製品情報を記録するために使用されます。
 
-## Components
+![ドメインモデルに構造注釈付きです](attachments/domain-model/annotated-domain-model.png)
 
-*   [Entities](entities)
-*   [Associations](associations)
-*   [Annotations](annotations)
+| 要素          | 表示                                                                                                |
+| ----------- | ------------------------------------------------------------------------------------------------- |
+| 注釈          | ドメインモデルの側面を説明するコメント                                                                               |
+| エンティティ名     | データベースで [エンティティ](entities) を参照する方法                                                                |
+| イベントハンドラ(s) | 1つまたは複数の [イベントハンドラ](event-handlers) がこのエンティティに設定されていることを示しています                                    |
+| 画像          | エンティティを識別するのに役立つ画像                                                                                |
+| 検証ルール       | 1つ以上の [バリデーションルール](validation-rules) がこの属性に設定されていることを示します。                                        |
+| 計算された値      | この [属性](attributes) の値が計算されていることを示す                                                               |
+| 1           | このエンティティのいずれかが関連付けの反対側のエンティティの数に関係していることを示します                                                     |
+| 関連付け名       | データベースで [アソシエーション](associations) を参照する方法                                                          |
+| 多くの         | これらのエンティティの多くが、関連付けの反対側にあるエンティティの数に関係していることを示します。                                                 |
+| 関連の所有者      | 矢印のない関連付けの終了は、このエンティティ [が関連付けを所有していることを示します](associations#ownership) (両方のエンティティが関連付けを所有することも可能です) |
+| 属性名         | データベースでこの属性を参照する方法                                                                                |
+| 属性タイプ       | この属性に格納されているデータの [型](attributes#type)                                                             |
+| 非持続可能エンティティ | これはデータベースに保存されていないが、一時的にアプリ内に保存されているエンティティです                                                      |
 
-## Technical Appendix
+## 2の実装 {#implementation}
 
-In the database every entity is stored in one separate table and has columns for the attributes defined in the Modeler, the system attributes and a unique identifier for the object. If an entity has specializations there is also a column indicating which specialization the object belongs to. An association is stored in a cross-table with the identifiers (ID) of both objects.
+データベースでは、すべてのエンティティが個別のテーブルに保存され、Studio Pro で定義された属性の列があります (計算されたものを除く)。 システム属性と一意のオブジェクト識別子 エンティティに専門性がある場合、オブジェクトが属する専門性を示す列もあります。 関連付けは、両方のオブジェクトの識別子(ID)を持つ連結テーブルに保存されます。
 
-Take a look at the following domain model.
+次のドメインモデルを見てみましょう。
 
-![](attachments/domain-model-editor/917890.png)
+![](attachments/domain-model/customer-order.png)
 
-The entity 'Customer' is stored in the table 'module$customer' which is shown below. Take note of the 'system$owner' and 'system$changedby' columns which contain the IDs of the 'User' objects from the 'System' module.
+エンティティ「顧客」は、以下に示すテーブル「モジュール$customer」に格納されています。 'System' モジュールの 'User' オブジェクトの ID を含む 'system$owner' と 'system$changedby' 列に注意してください。
 
-| id | createddate             | changeddate             | system$owner | system$changedby | fullname   |
-| -- | ----------------------- | ----------------------- | ------------ | ---------------- | ---------- |
-| 1  | 2006-10-24 08:10:45.053 | 2009-11-27 09:56:45.099 | 66           | 29               | Steve Jobs |
-| 3  | 2007-09-30 09:56:45.099 | 2008-04-01 08:10:45.053 | 66           | 34               | Bill Gates |
+| id | createddate             | changeddate             | システム$owner | システム$changedby | fullname   |
+| -- | ----------------------- | ----------------------- | ---------- | -------------- | ---------- |
+| 1  | 2006-10-24 08:10:45.053 | 2009-11-27 09:56:45.099 | 66         | 29             | Steve Jobs |
+| 3  | 2007-09-30 09:56:45.099 | 2008-04-01 08:10:45.053 | 66         | 34             | ビルゲート      |
 
-The association 'Order_Customer' is stored in the table 'module$order_customer' which is shown below. Both columns contain IDs of the associated objects.
+関連 'Order_Customer' は、以下に示すテーブル 'module$order_customer' に格納されています。 両方の列には、関連するオブジェクトの ID が含まれます。
 
-| module$orderid | module$customerid |
-| -------------- | ----------------- |
-| 8              | 1                 |
-| 5              | 3                 |
+| モジュール$orderid | モジュール$customerid |
+| ------------- | ---------------- |
+| 8             | 1                |
+| 5             | 3                |
 
-The entity 'Order' is stored in the table 'module$order' which is shown below. It is similar to the table of the entity 'Customer'. However all system attributes have been disabled and are not stored in the table.
+エンティティ「Order」は、以下に示すテーブル「$order」に格納されています。 これは、エンティティ「顧客」の表に似ています。 ただし、すべてのシステム属性は無効化されており、テーブルに保存されていません。
 
-| id | number | date                    |
-| -- | ------ | ----------------------- |
-| 5  | 5      | 2009-11-27 09:56:45.099 |
-| 8  | 8      | 2008-04-01 08:10:45.053 |
+| id | 数値 | 日付                      |
+| -- | -- | ----------------------- |
+| 5  | 5  | 2009-11-27 09:56:45.099 |
+| 8  | 8  | 2008-04-01 08:10:45.053 |
