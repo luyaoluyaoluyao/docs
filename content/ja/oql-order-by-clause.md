@@ -1,56 +1,56 @@
 ---
-title: "OQL Order by Clause"
+title: "条項別OQL注文"
 parent: "oql"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1つの説明
 
-The `ORDER BY` clause specifies the sort order used on columns returned in a `SELECT` statement. Multiple columns can be specified. Columns are ordered in the sequence of the items in the `ORDER BY` clause.
+`ORDER BY` 節は、 `SELECT` ステートメントで返される列のソート順序を指定します。 複数の列を指定できます。 列は `ORDER BY` 節の項目の順序で並べられます。
 
 This clause can include items that do not appear in the `SELECT` clause, except when `SELECT DISTINCT` is specified or when a `GROUP BY` clause exists. When `UNION` is used, the column names or aliases must be those specified in the `SELECT` clause of the first part of the query.
 
-## 2 Syntax
+## 2つの構文
 
 
-The syntax is as follows:
+構文は以下の通りです:
 
 ```sql
 ORDER BY
     {
-        order_by_expression [ ASC | DESC ]
-    }
+        order_by_expression [ ASC| DESC ]
+}
 ```
 
 ### 2.1 order_by_expression
 
-`order_by_expression` specifies an attribute of an entity or an alias from the `FROM` clause to sort on.
+`order_by_expression` はソートする `FROM` 節からのエンティティまたはエイリアスの属性を指定します。
 
-### 2.2 ASC
+### 2.2 ASC。
 
-`ASC` specifies that the results must be ordered ascending, from the lowest to the highest value. This is the default sort type.
+`ASC` では、結果を昇順に、最低から最高値に昇順にする必要があることを指定します。 これはデフォルトのソートタイプです。
 
 ### 2.3 DESC
 
-`DESC` specifies that the results must be ordered descending, from the highest to the lowest value.
+`DESC` では、結果を降順に、最高値から最低値にするように指定します。
 
 {{% alert type="info" %}}
-For details on the default ordering behavior of NULL values, see the [NULL Values Order Behavior](ordering-behavior#null-ordering-behavior) section of *Order By Behavior*.
+NULL 値のデフォルト順序の動作の詳細 see the [NULL値 Order Behavior](ordering-behavior#null-ordering-behavior) section of *Order By Behavior*.
 {{% /alert %}}
 
-## 3 Examples
+## 3つの例
 
-This query retrieves all customers and returns the first names sorted on the last name, ascending:
+このクエリはすべての顧客を取得し、姓、昇順でソートされた名を返します。
 
 ```sql
-SELECT FirstName FROM Sales.Customer
+Select FirstName FROM Sales.Customer
 ORDER BY LastName
 ```
 
-This query retrieves all customers and returns the first and last name sorted on the last name, descending:
+このクエリはすべての顧客を取得し、姓でソートされた姓と姓を返します。
 
 ```sql
 SELECT FirstName + ' ' + LastName FROM Sales.Customer
-ORDER BY LastName DESC
+ORDER BY LastName DESC.
 ```
