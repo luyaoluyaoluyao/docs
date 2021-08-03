@@ -1,17 +1,17 @@
 ---
-title: "Context Source"
-parent: "data-sources"
+title: "コンテクストソース"
+parent: "データソース"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The context source is one possible data source for a data view. Data views with this data source get their object from the context, which can be one of two things:
+コンテキストソースは、データビューのデータソースとして考えられます。 このデータソースを使用したデータビューは、コンテキストからオブジェクトを取得します。これは2つのうちの1つです。
 
-* A surrounding data container such as a data view or list view – in this case, the entity (path) property should be an entity path following the associations from the entity of the container
-* The page parameter's value – the page parameter will contain the object that is passed to the page when opening it (either another page passing the selection of a grid or a microflow passing an object from the show page action)
+* この場合、データビューまたはリストビューなどの周囲のデータコンテナ エンティティ (path) プロパティは、コンテナのエンティティからの関連付けに続くエンティティパスでなければなりません
+* ページパラメータの値 – ページパラメータは、ページを開くときにページに渡されるオブジェクトを含みます(グリッドの選択を渡す別のページ、またはページの表示アクションからオブジェクトを渡すマイクロフローのいずれか)。
 
-## 2 Properties
+## 2つのプロパティ
 
-### 2.1 Entity (Path)
+### 2.1 エンティティ (パス)
 
-The entity (path) property specifies the entity that will be shown in the data view. For a top-level data view, this is simply an entity. In this case, the opener of the page supplies the object that will be shown. A nested data view has an entity **path** that follows associations from the enclosing data container.
+エンティティ (path) プロパティは、データ ビューに表示されるエンティティを指定します。 トップレベルのデータビューでは、これは単なるエンティティです。 この場合、ページのオープナーは表示されるオブジェクトを提供します。 ネストされたデータビューには、データコンテナの関連付けに従うエンティティ **パス** があります。
