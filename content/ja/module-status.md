@@ -1,7 +1,7 @@
 ---
-title: "Module Status"
+title: "モジュールの状態"
 parent: "project-security"
 ---
 
 
-The module status overview shows the security status for each module. It shows the total number of items for which security needs to be configured, as well as the number of items for which security has been configured already. At the 'Prototype / demo' security level, the status of form access and microflow access is shown. Additionally, at the 'Production' security level, the status of entity access and dataset access (if applicable) is shown.
+モジュールステータスの概要は、各モジュールのセキュリティステータスを表示します。 セキュリティを設定する必要がある項目の合計数を表示します。 セキュリティがすでに設定されている項目の数と同様に。 「プロトタイプ/デモ」セキュリティレベルでは、フォームアクセスとマイクロフローアクセスのステータスが表示されます。 さらに、「Production」セキュリティレベルでは、エンティティアクセスとデータセットアクセスのステータス(該当する場合)が表示されます。
