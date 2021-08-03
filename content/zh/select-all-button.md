@@ -1,17 +1,17 @@
 ---
-title: "Select All Button"
-parent: "control-bar"
+title: "选择所有按钮"
+parent: "控制栏"
 ---
 
-The select all button allows the end-user to select all objects in a grid, or reference set selector. With the selection type property you can determine whether this button should select the objects on the current page, or the objects on all pages.
+选择所有按钮允许最终用户在网格中选择所有对象，或参考设置选择器。 使用选择类型属性，您可以确定此按钮是否应该选择当前页面上的对象，或者选择所有页面上的对象。
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -21,25 +21,25 @@ The select all button allows the end-user to select all objects in a grid, or re
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-### Selection Type
+### 选择类型
 
-| Value       | Description                                                      |
-| ----------- | ---------------------------------------------------------------- |
-| Select page | Clicking on this button selects all objects on the current page. |
-| Select all  | Clicking on this button selects all objects.                     |
+| 值    | 描述                  |
+| ---- | ------------------- |
+| 选择页面 | 点击此按钮可选择当前页面上的所有对象。 |
+| 选择所有 | 点击此按钮选择所有对象。        |
 
 {{% alert type="warning" %}}
 
-Due to technical limitations, a button with the selection type "Select all" cannot be combined with Remove, Delete, or Select buttons. An Edit button always behaves as if the selection type is "Select page," regardless of the actual settings of the "Select all" button that had been used to select objects.
+由于技术限制，选择类型“全选”的按钮不能与删除、删除或选择按钮合并。 编辑按钮总是表现为选择类型为“选择页” 不论用于选择对象的“选择全部”按钮的实际设置。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-_Default value:_ Select page
+_默认值：_ 选择页面
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
