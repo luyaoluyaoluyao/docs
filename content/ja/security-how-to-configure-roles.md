@@ -1,127 +1,127 @@
 ---
-title: "Secure Your App and Configure Access to Its Functionality"
-description: "Describes how to configure security in Mendix Studio."
+title: "アプリを保護し、機能へのアクセスを設定する"
+description: "Mendix Studio でセキュリティを設定する方法を説明します。"
 menu_order: 40
 tags:
-  - "studio"
-  - "security"
-  - "user roles"
-  - "secure your app"
-  - "conditional visibility"
+  - "スタジオ"
+  - "セキュリティ"
+  - "ユーザーの役割"
+  - "アプリの保護"
+  - "条件付きの可視性"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This how-to explains how you can secure your app, create user roles, and open access to certain pages and microflows for specific user roles. As a result, your end-users will be able to view only those pages that they have access to.
+この方法では、アプリのセキュリティ確保、ユーザーロールの作成、特定のユーザーロールの特定のページやマイクロフローへのアクセスを開く方法を説明します。 その結果、エンドユーザーはアクセスできるページのみを表示できます。
 
-**This how-to will teach you how to do the following:**
+**以下の方法を教えてくれます。**
 
-* Enable security
-* Create user roles
-* Set access to certain pages for specific user roles
-* Test your security configuration
+* セキュリティを有効にする
+* ユーザーロールを作成
+* 特定のユーザーロールの特定のページへのアクセスを設定
+* セキュリティ設定をテストする
 
-The how-to describes the following use case:
+以下のユースケースについて説明します。
 
-There is a car rental company that has a car rental app. Customers can register there, pick a car to rent, and fill in a car rental form; front-desk agents have access to a car rental form and car details. So, there are two types of users: customers and front-desk agents. You would like them to access the following information:
+レンタカーアプリを持っているレンタカー会社があります。 お客様はそこに登録してレンタカーを選んでレンタカーのフォームに記入することができます。 フロントデスクのエージェントはレンタカーのフォームと車の詳細にアクセスできます。 お客様とフロントデスクエージェントという2種類のユーザーがいます。 以下の情報にアクセスしてください:
 
-* Customers – their profile, details about a car, and the car rental form
-* Front-desk agents –  details about a car and the car rental form
+* お客様のプロフィール、車の詳細、レンタカーフォーム
+* フロントデスクのエージェント – 車とレンタカーフォームの詳細
 
-The domain model of this app looks the following way:
+このアプリのドメインモデルは、次のようになります。
 
-![Domain Model](attachments/security-how-to-configure-roles/domain-model.png)
+![ドメインモデル](attachments/security-how-to-configure-roles/domain-model.png)
 
-There are the following pages in this app:
+このアプリには次のページがあります：
 
-* *Home_Web* – a home page which should be accessed by all roles. Buttons on the home page open the corresponding page:
+* *Home_Web* – すべてのロールによってアクセスされるべきホームページ。 ホームページのボタンは、対応するページを開きます。
 
-    ![Home Page](attachments/security-how-to-configure-roles/home-page.png)
+    ![ホームページ](attachments/security-how-to-configure-roles/home-page.png)
 
-* *Car_Details* – a page listing car details
+* *Car_Details* – 車の詳細一覧
 
-* *Car_Rental_Form* – a form filled out when renting the car
+* *Car_Rental_Form* – 車を借りるときに記入されたフォーム
 
-* *Personal_Profile* – a customer's profile with their details
+* *Personal_Profile* - 詳細を含む顧客のプロフィール
 
 
-## 2 Prerequisites
+## 2 つの前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+この方法を開始する前に、以下の必要条件を完了していることを確認してください:
 
-* Familiarize yourself with page terms and how to perform basic functions on pages. For more information, see [Pages](/studio8/page-editor).
-* Familiarize yourself with information about security, roles, and permissions in Studio. For more information, see [Security, Roles & Permissions](/studio8/settings-security).
-* Familiarize yourself with the domain model terms and learn how to perform basic functions. For more information, see [Domain Model](/studio8/domain-models).
+* ページの用語や基本的な機能をどのように実行するかに慣れます。 詳細については、 [ページ](/studio/page-editor) を参照してください。
+* Studio のセキュリティ、役割、および権限に関する情報に精通してください。 詳細については、 [セキュリティ、ロール & 権限](/studio/settings-security) を参照してください。
+* ドメインモデルの用語に慣れ、基本的な機能を実行する方法を学びます。 詳細については、 [ドメインモデル](/studio/domain-models) を参照してください。
 
-## 3 Enabling Security
+## 3 セキュリティを有効にしています
 
-Depending on your app type and version, you might need to enable security first. Do the following:
+アプリの種類とバージョンによっては、まずセキュリティを有効にする必要がある場合があります。 次の操作を行います:
 
-1. Click the **App Settings** icon in your app.
+1. アプリの **App Settings** アイコンをクリックします。
 
-2. In the **Roles and Permissions** screen, click **Enable Security**:
+2. **ロールと権限** 画面で、 **セキュリティを有効にする** をクリックします。
 
     {{% image_container width="550" %}}![Enable Security](attachments/security-how-to-configure-roles/enable-security.png){{% /image_container %}}
 
-3. After security is enabled, you can see a table with three tabs: **Roles,** **Pages**, **Microflows**. Two roles are created by default: **Administrator** and **User**. The **Administrator** role is read-only, meaning you cannot delete or rename it. As it is already configured and has access to all functionality, you can use this role for your app administrators in the future.
+3. セキュリティが有効になると、次の3つのタブが表示されます: **ロール,** **ページ**, **マイクロフロー**. デフォルトで2つのロールが作成されます: **管理者** と **ユーザー**。 **管理者** のロールは読み取り専用で、削除や名前の変更はできません。 すでに設定されており、すべての機能にアクセスできるため、将来的にはアプリ管理者にこの役割を使用できます。
 
     To rename the **User** role, click the ellipsis icon next to the **User** role and select **Edit** in the drop-down menu:
 
-    ![User Role](attachments/security-how-to-configure-roles/user-role.png)
+    ![ユーザーロール](attachments/security-how-to-configure-roles/user-role.png)
 
-4. In the **Edit Role** dialog box, rename it to **Customer** and click **Save**.
+4. **ロール** の編集ダイアログボックスで、 **顧客** に名前を変更し、 **保存** をクリックします。
 
-5. To add a role for the front-desk agent, click the **Add Role** button.
+5. フロントデスクエージェントにロールを追加するには、 **Add Role** ボタンをクリックします。
 
-6. In the **Create Role** dialog box, fill in the role name as **Front_Desk** and click **Save**:
+6. **ロールの作成** ダイアログボックスで、ロール名を **Front_デスク** に入力し、 **Save** をクリックします。
 
     {{% image_container width="450" %}}![Create Role](attachments/security-how-to-configure-roles/create-role.png){{% /image_container %}}
 
-You now have three user roles: Administrator, Customer, and Front_Desk.
+管理者、顧客、Front_Deskの3つのユーザー ロールが追加されました。
 
-![Create Roles](attachments/security-how-to-configure-roles/roles-created.png)
+![ロールの作成](attachments/security-how-to-configure-roles/roles-created.png)
 
-## 4 Managing Role Access
+## 4 ロールアクセスの管理
 
-If you look at the table of your user roles, you will see that by default they can access all pages and microflows available in your app. To restrict access to certain pages, do the following:
+ユーザロールの表を見ると、 デフォルトでは、アプリケーションで利用可能なすべてのページとマイクロフローにアクセスできることがわかります。 特定のページへのアクセスを制限するには、次の操作を行います。
 
-1. Click the **Page Access** tab. You will see a matrix listing all pages in lines, and all roles in columns.
+1. **ページ アクセス** タブをクリックします。 行内のすべてのページと列内のすべてのロールをリストする行列が表示されます。
 
-2. As front-desk agents should not have access to customer's personal profiles, untick the check-box in the **Front-Desk** column next in the **Personal_Profile** line:
+2. フロントデスクのエージェントがお客様の個人プロファイルにアクセスすることはできません。 **Personal_Profile** 行の **フロントデスク** 列のチェックボックスを外します。
 
-    ![Page Access for the Front-Desk Role](attachments/security-how-to-configure-roles/page-access-front-desk.png)
+    ![フロントデスクロールのページアクセス](attachments/security-how-to-configure-roles/page-access-front-desk.png)
 
-Good job! You have set the access for pages for your user roles.
+よくできました！ ユーザロールのページへのアクセスを設定していること。
 
-## 5 Testing Your User Roles
+## 5あなたのユーザーロールのテスト
 
-When you restrict access to a certain page or a microflow, widgets that open this page or run this microflow will be automatically hidden to this role. For example, since you have not given access for front-desk agents to customer personal profiles, they will not see a corresponding button which opens the personal profile either.
+特定のページまたはマイクロフローへのアクセスを制限する場合 このページを開いたり、microflow を実行したりするウィジェットは、このロールに自動的に非表示になります。 たとえば、フロントデスクエージェントに顧客個人プロファイルへのアクセス権を与えていない場合などです。 彼らは個人的なプロフィールを開くボタンを見ることはできません。
 
-After you have set access for pages and microflows, you can test what each user role would see.
+ページとマイクロフローにアクセス権を設定した後、各ユーザーロールがどのように表示されるかをテストできます。
 
-You can test the roles that you set with [demo users](/studio8/settings-security#demo-users) when you preview your app. Do the following:
+[デモ ユーザー](/studio/settings-security#demo-users) で設定したロールは、アプリのプレビュー時にテストできます。 次の操作を行います:
 
-1. Click the **pages** icon to exit the **Roles and Permissions** screen.
+1. **ページ** アイコンをクリックして、 **ロールと権限** 画面を終了します。
 
-2. Click the **Preview** button in the top-right corner to [preview your app](/studio8/publishing-app).
+2. 右上の **プレビュー** ボタンをクリックして、 [アプリをプレビュー](/studio/publishing-app)します。
 
-3. When your app is previewed, click a user icon in the right side of the screen:
+3. アプリがプレビューされたら、画面の右側にあるユーザーアイコンをクリックします。
 
-    ![Demo User Icon](attachments/security-how-to-configure-roles/demo-users-icon.png)
+    ![デモユーザーアイコン](attachments/security-how-to-configure-roles/demo-users-icon.png)
 
-4. In the displayed menu bar, select a demo user and the app will be viewed from the perspective of the corresponding role. Click the **demo_customer** to test which functionality can the **Customer** role view and access.
+4. 表示されたメニューバーで、デモユーザーを選択すると、アプリが対応するロールの観点から表示されます。 **demo_customer** をクリックして、 **Customer** ロールの表示とアクセスができる機能をテストします。
 
     {{% image_container width="350" %}}![Select Demo User](attachments/security-how-to-configure-roles/select-user.png){{% /image_container %}}
 
-5. Repeat steps 3-4 to test the **Front_Desk** role:
+5. 手順 3-4 を繰り返して、 **Front_デスク** のロールをテストします。
 
-    ![Testing Roles](attachments/security-how-to-configure-roles/testing-roles.png)
+    ![役割のテスト](attachments/security-how-to-configure-roles/testing-roles.png)
 
-6. Click **Close Preview** in the top-right corner to finish your test.
+6. 右上の **プレビューを閉じる** をクリックしてテストを終了します。
 
-Congratulations! You have configured access for different user roles in your app.
+おめでとうございます アプリのさまざまなユーザーロールに対するアクセス権を設定しています。
 
-You can see that the button is hidden from the **Front_Desk** role, but the container is not. You can use conditional visibility to hide it entirely. For more information, see [Conditional Visibility Section](/studio8/page-editor-widgets-visibility-section).
+ボタンが **Front_デスク** ロールから非表示になっていることがわかりますが、コンテナはそうではありません。 条件付き表示を使用して完全に非表示にできます。 詳細については、 [条件付き表示セクション](/studio/page-editor-widgets-visibility-section) を参照してください。
 
-When you preview your app, you can test different user role, while after you publish it, you can manage the end-users and assign user roles to them. For more information, see the [Managing App Users](/studio8/settings-security#managing-app-users) section in *Security, Roles & Permissions*.
+アプリをプレビューすると、公開後に異なるユーザーロールをテストできます。 エンドユーザーを管理し、ユーザーロールを割り当てることができます。 For more information, see the [Managing App Users](/studio/settings-security#managing-app-users) section in *Security, Roles & Permissions*.
 
