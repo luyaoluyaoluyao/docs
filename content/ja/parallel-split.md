@@ -1,44 +1,44 @@
 ---
-title: "Parallel Split"
-parent: "workflows"
+title: "並列分割"
+parent: "ワークフロー"
 menu_order: 30
 tags:
-  - "workflow"
-  - "workflows"
-  - "parallel split"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "平行分割"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The parallel split is used to have parallel processes in your workflow. For example, when onboarding a new employee, you can have several processes running in parallel: the HR preparing necessary documents, the IT department preparing a workstation, and the Administration department scheduling a training for the employee:
+並列分割はワークフロー内の並列プロセスに使用されます。 たとえば、新規従業員の登録時には、複数のプロセスが並行して実行されることができます。HRは必要な書類を準備しています IT部門がワークステーションを準備し、管理部門が従業員向けの研修を予定しています。
 
-![Parallel Split Example](attachments/parallel-split/parallel-split.jpg)
+![並列分割例](attachments/parallel-split/parallel-split.jpg)
 
 {{% alert type="info" %}}
-The workflow needs to complete all paths of the parallel split before it can continue to the next activity.
+ワークフローは、次のアクティビティに続ける前に、並列分割のすべてのパスを完了する必要があります。
 {{% /alert %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-Parallel split properties consist of the following sections:
+並列分割プロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [General](#general)
-* [Paths](#paths)
+* [一般的な](#common)
+* [全般](#general)
+* [パス](#paths)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名前** は要素の内部名です。 アプリ内の要素を参照する場合は、この名前を使用します。 ワークフロー内で一意である必要がありますが、異なるワークフロー内で同じ名前を持つ2つの要素を持つことができます。
 
-### 2.2 General Section {#general}
+### 2.2 一般セクション {#general}
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**図表番号** では、この要素で何が起こるかを説明します。 ワークフロー要素に表示され、アノテーションを追加することなく、ワークフローを読みやすくし、理解しやすくします。
 
-### 2.2 Paths Section {#paths}
+### 2.2 パスセクション {#paths}
 
-The **Paths** property allows you to add as many paths as there are parallel processes.
+**パス** プロパティを使用すると、並列プロセスと同じ数のパスを追加できます。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Workflow Properties](workflow-properties)
+* [ワークフローのプロパティ](workflow-properties)
