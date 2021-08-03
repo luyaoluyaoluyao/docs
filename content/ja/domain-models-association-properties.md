@@ -1,97 +1,95 @@
 ---
-title: "Associations"
+title: "関連"
 parent: "domain-models"
-description: "Describes the association properties in Mendix Studio."
+description: "Mendix Studioの関連プロパティについて説明します。"
 tags:
-  - "studio"
-  - "domain model"
+  - "スタジオ"
+  - "ドメインモデル"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-An association describes a relation between entities. In the domain model, an association is represented by a line or an arrow between two entities.
+関連付けはエンティティ間の関係を記述します。 ドメイン モデルでは、関連は、2 つのエンティティ間の線または矢印によって表されます。
 
-In Mendix Studio, associations have the following properties:
+Mendix Studio では、関連付けには次のプロパティがあります。
 
-* [Name](#name)
-* [Multiplicity](#multiplicity)
-*  [Delete behavior](#delete-behavior)
+* [名前](#name)
+* [多重度](#multiplicity)
+* [動作を削除](#delete-behavior)
 
-   {{% image_container width="300" %}}![](attachments/domain-models-association-properties/association-properties.png)
-   {{% /image_container %}}
+    ![](attachments/domain-models-association-properties/association-properties.png)
 
-In relation to the module the associations can be of two types:
+モジュールに関連付けられている関連付けは 2 種類あります:
 
-* Associations within one module
-* [Cross module associations](#cross-module-associations)
+* 1つのモジュール内の関連付け
+* [クロスモジュールの関連](#cross-module-associations)
 
-## 2 Name {#name}
+## 2名 {#name}
 
-The name of the association is used to refer to it from forms, microflows, etc.
+関連付けの名前は、フォーム、マイクロフローなどから参照されます。
 
-## 3 Multiplicity {#multiplicity}
+## 3 多重度 {#multiplicity}
 
-Multiplicity  defines the number of possible referred objects. The cardinality (or number of referred objects) of an association is indicated by the number one (`1`) or a star (`*`) at either side of the association.
+多重度は参照可能なオブジェクトの数を定義します。 関連付けの二項性(または参照されるオブジェクトの数)は、関連付けの両側の数 1 (`1`) またはスター (`*`) で示されます。
 
-Multiplicity can be of the following types:
+多重度には以下のタイプがあります:
 
-* One-to-one – one X object is associated with one Y object
-* one-to-many – one X object is associated with multiple Y object
-* Many-to-many – multiple X objects are associated with multiple Y objects
+* 1 対1 – 1 X オブジェクトが 1 つの Y オブジェクトに関連付けられています
+* 1対多のXオブジェクトが複数のYオブジェクトに関連付けられています
+* 多対多―複数の X オブジェクトが複数の Y オブジェクトに関連付けられています
 
-Multiplicity shows the owner and the direction of association if the association is of the one-to-many or many-to-many type. In the domain model it is displayed as an arrow pointing the direction. The owner is the entity the association starts from, so it is located at the start of the arrow. In one-to-one associations both entities are owners.
+関連が1対多または多対多のタイプの場合は、関連付けの所有者と方向が表示されます。 ドメインモデルでは、方向を指す矢印として表示されます。 オーナーは、関連付けが開始されるエンティティであるため、矢印の先頭に配置されます。 一対一の関連では、両方のエンティティは所有者です。
 
-{{% image_container width="400" %}}![](attachments/domain-models-association-properties/association-domainmodel.png)
-{{% /image_container %}}
+![](attachments/domain-models-association-properties/association-domainmodel.png)
 
-You can swap the direction of the multiplicity if its type is one-to-many or many-to-many. In this case you will change the owner of association.
+型が1対多または多対多の場合、多重度の方向を交換できます。 この場合、関連付けの所有者を変更します。
 
 {{% alert type="info" %}}
-For more details on the reasoning underlying associations, ownership, and multiplicity, see the [Introduction](/refguide8/associations#intro) section of *Associations* in the *Studio Pro Guide*.
+根底にある関連、所有権、および多重性の理由の詳細については、 [Studio Pro Guide](/refguide/associations#intro) の *Associations* の *はじめに* セクションを参照してください。
 {{% /alert %}}
 
-## 4 Delete Behavior {#delete-behavior}
+## 4 動作の削除 {#delete-behavior}
 
-Delete behavior defines what should happen to the associated object when an object is deleted. The following options can be configured for each end of the association.
+削除動作は、オブジェクトが削除されたときに関連するオブジェクトに何が起こるかを定義します。 以下のオプションは、関連付けの各端に設定できます。
 
-| Value                                                                                             | Description                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Keep {name of entity} object(s)                                                                   | When an object is deleted, the associated object(s) are not deleted.                                                                                                                                                                                                                                                           |
-| Delete {name of entity} object(s) as well                                                         | When an object is deleted, the associated object(s) are also deleted.                                                                                                                                                                                                                                                          |
-| Delete {name of entity} object only if it is not associated with {name of other entity} object(s) | An object can only be deleted if it is not associated with any other object(s). <br />You can also specify an error message for your end-users when they try to delete an object that is associated with other entity's objects. For example: "You cannot delete this location, because a course is associated with it." |
+| 値                                                                           | 説明                                                                                                                                                                  |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {name of entity} 個のオブジェクトを保持                                                | オブジェクトが削除されると、関連するオブジェクトは削除されません。                                                                                                                                   |
+| {name of entity} 個のオブジェクトを削除する                                              | オブジェクトが削除されると、関連するオブジェクトも削除されます。                                                                                                                                    |
+| {name of entity} オブジェクトが {name of other entity} オブジェクトに関連付けられていない場合にのみ削除します | オブジェクトは他のオブジェクトと関連付けられていない場合にのみ削除できます。 <br />他のエンティティのオブジェクトに関連付けられているオブジェクトを削除しようとするときに、エンドユーザーにエラーメッセージを指定することもできます。 例: 「コースが関連付けられているため、この場所を削除することはできません。 |
 
-For examples of delete behavior configuring, see section [7 Delete Behavior](/howto8/data-models/create-a-basic-data-layer#delete-behavior) in *How to Create a Basic Data Layer* in the *Mendix Studio Pro How-to’s*.
+削除動作設定の例 [Delete Behavior](/howto/data-models/create-a-basic-data-layer#delete-behavior) のセクションを参照してください。 *Basic Data Layer* を作成する方法 *Mendix Studio Pro How-to’s*.
 
 
 ## 5 Cross-Module Associations {#cross-module-associations}
 
-Cross-module association makes an association between entities of different modules.
+クロスモジュール関連付けは、異なるモジュールのエンティティ間の関連付けを行います。
 
 {{% alert type="info" %}}
 
-You cannot create separate modules in Studio. But if you have different modules in Studio Pro, you can see the list of different domain models (except the System module and Marketplace modules) and make cross-module associations in Studio.
+Studio で個別のモジュールを作成することはできません。 ただし、Studio Pro に別のモジュールがある場合。 さまざまなドメイン モデルのリスト(システム モジュールと Marketplace モジュールを除く)を確認し、Studio でクロスモジュール関連付けを行うことができます。
 
 {{% /alert %}}
 
-In Studio, cross-module association is indicated with the following:
+Studio では、以下のようにクロスモジュール関連付けが示されます。
 
-*  An icon next to the entity that has such association:
+*  そのような関連を持つエンティティの隣にあるアイコン
 
    ![](attachments/domain-models-association-properties/association-icon.png)
 
-*  A pop-up window, which displays when you click the icon:
+*  アイコンをクリックするとポップアップウィンドウが表示されます。
 
    ![](attachments/domain-models-association-properties/association-pop-up.png)
 
-Cross module associations have the following properties:
+クロスモジュールの関連付けには、次のプロパティがあります。
 
-| Property                      | Description                                                                                         |
-| ----------------------------- | --------------------------------------------------------------------------------------------------- |
-| Type                          | Defines the direction of the association and can be of two types: **Outgoing** and **Incoming**     |
-| Name                          | Defines the name of the association                                                                 |
-| [Multiplicity](#multiplicity) | Defines the type of multiplicity                                                                    |
-| Target                        | Defines the module (name before the dot) and second entity of the association (goes after the dot). |
+| 属性                   | 説明                                               |
+| -------------------- | ------------------------------------------------ |
+| タイプ                  | 関連付けの方向を定義し、2 つのタイプを指定できます: **送信** と **受信**      |
+| 名前                   | 関連付け名を定義します。                                     |
+| [多重度](#multiplicity) | 多重度の種類を指定します。                                    |
+| Target               | 関連付けのモジュール（ドットの前の名前）と2番目のエンティティ（ドットの後の名前）を定義します。 |
 
-## 6 Read More
+## 6もっと読む
 
-* [Domain Model](domain-models)
+* [ドメインモデル](domain-models)
