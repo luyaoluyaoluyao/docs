@@ -1,293 +1,293 @@
 ---
-title: "Between Date Function Calls"
-parent: "expressions"
+title: "日付関数呼び出し間隔"
+parent: "表現"
 menu_order: 100
 tags:
   - "studio pro"
-  - "between date function calls"
-  - "expression"
-  - "expressions"
+  - "日付関数呼び出しの間に"
+  - "表現"
+  - "表現"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Between date function calls calculate the differences between two dates.
+日付関数の呼び出しの間で、2 つの日付の違いを計算します。
 
-## 2 millisecondsBetween
+## 2 ミリ秒間隔
 
-The `millisecondsBetween` function calculates the difference between the input values in milliseconds.
+`ミリ秒間の` 関数は、ミリ秒単位で入力値の差を計算します。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                         | Type    |
-| ------------------------------------------------------------- | ------- |
-| The difference between the two dates measured in milliseconds | Decimal |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| ミリ秒単位で測定された2つの日付の違い | 小数点以下桁数 |
 
-### 2.3 Example
+### 2.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-millisecondsBetween(dateTime(2007, 1, 1, 1, 1, 1), dateTime(2007,1,1,1,1,3))
+millisecondsBetween(dateTime(2007, 1, 1, 1, 1), dateTime(2007,1,1,1,1,3))
 ```
 
-The output is:
+出力は:
 
 ```java
 2000
 ```
 
-## 3 secondsBetween
+## 3 秒の間
 
-The `secondsBetween` function calculates the difference between the input values in seconds.
+`秒間` 関数は、入力値の差を秒単位で計算します。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 3.2 Output
+### 3.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                     | Type    |
-| --------------------------------------------------------- | ------- |
-| The difference between the two dates measured in seconds. | Decimal |
+| 値                     | タイプ     |
+| --------------------- | ------- |
+| 2つの日付の違いは、秒単位で測定されます。 | 小数点以下桁数 |
 
-### 3.3 Example
+### 3.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-secondsBetween(dateTime(2007, 1, 1, 1, 1, 1), dateTime(2007,1,1,1,2,3))
+secondsBetween(dateTime(2007, 1, 1, 1, 1), dateTime(2007,1,1,1,2,3))
 ```
 
-The output is:
+出力は:
 
 ```java
 62
 ```
 
-## 4 minutesBetween
+## 4 分間
 
-The `minutesBetween` function calculates the difference between the input values in minutes.
+`minutes Between` 関数は、入力値の差を分単位で計算します。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                     | Type    |
-| --------------------------------------------------------- | ------- |
-| The difference between the two dates measured in minutes. | Decimal |
+| 値                    | タイプ     |
+| -------------------- | ------- |
+| 2つの日付の違いは分単位で測定されます。 | 小数点以下桁数 |
 
-### 4.3 Example
+### 4.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-minutesBetween(dateTime(2007, 1, 1, 1, 2, 1), dateTime(2007,1,1,1,1,1))
+minutes Between(dateTime(2007, 1, 1, 1, 2, 1), dateTime(2007,1,1,1,1,1))
 ```
 
-The output is:
+出力は:
 
 ```java
 1
 ```
 
-## 5 hoursBetween
+## 5時間の間
 
-The `hoursBetween` function calculates the difference between the input values in hours.
+`hoursBetween` 関数は、時間単位の入力値の差を計算します。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                   | Type    |
-| ------------------------------------------------------- | ------- |
-| The difference between the two dates measured in hours. | Decimal |
+| 値                   | タイプ     |
+| ------------------- | ------- |
+| 時間単位で測定された2つの日付の違い。 | 小数点以下桁数 |
 
-### 5.3 Example
+### 5.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-hoursBetween(dateTime(2007, 1, 1, 3, 31, 1), dateTime(2007,1,1,1,1,1))
+hoursBetween(dateTime(2007, 1, 1, 3, 311), dateTime(2007,1,1,1,1,1))
 ```
 
-The output is:
+出力は:
 
 ```java
 2.5
 ```
 
-## 6 daysBetween
+## 6日前
 
-The `daysBetween` function calculates the difference between the input values in days.
+`daysBetween` 関数は、日数の入力値の差を計算します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 6.2 Output
+### 6.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                                                                                                                                                      | Type             |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- |
-| The difference between the two dates as a positive Decimal measured in days. Time is taken into consideration, so comparing `date-x 0:00` with `date-x 06:00` will result in `0.25000000`. | Positive decimal |
+| 値                                                                                                 | タイプ        |
+| ------------------------------------------------------------------------------------------------- | ---------- |
+| 2つの日付の違いは、日数で測定された正の小数として。 時間は考慮されるので、 `date-x 0:00` と `date-x 06:00` を比較すると、 `0.25000000` となります。 | 正の小数点以下の桁数 |
 
-### 6.3 Example
+### 6.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-daysBetween(dateTime(2007, 2, 13, 1, 1, 1), dateTime(2007,1,1,1,1,1))
+daysBetween(dateTime(2007, 2, 13, 1, 1, 1), dateTime(2007,1,1,1,11))
 ```
 
-The output is:
+出力は:
 
 ```java
 43
 ```
 
-## 7 weeksBetween
+## 7 週間の間
 
-The `weeksBetween` function calculates the difference between the input values in weeks.
+`週間` 関数は、数週間の入力値の差を計算します。
 
-### 7.1 Input Parameters
+### 7.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 7.2 Output
+### 7.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                   | Type    |
-| ------------------------------------------------------- | ------- |
-| The difference between the two dates measured in weeks. | Decimal |
+| 値                  | タイプ     |
+| ------------------ | ------- |
+| 数週間で測定された二つの日付の違い。 | 小数点以下桁数 |
 
-### 7.3 Example
+### 7.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
 weeksBetween(dateTime(2007, 1, 9, 1, 1, 1), dateTime(2007,1,1,1,1,1))
 ```
 
-The output results in 8 days divided by 7 days in a week:
+出力結果は週に7日で8日で分割されます。
 
 ```java
 1.1428571428571428
 ```
 
-## 8 calendarMonthsBetween
+## 8 カレンダーの間で
 
-The `calendarMonthsBetween` function calculates the difference between the input values in months. Time will be ignored. The dates are assumed to be in the end-user's local time zone.
+`calendar MonthsBetween` 関数は月単位の入力値の差を計算します。 時間は無視されます。 日付は、エンドユーザーのローカルタイムゾーンにあると想定されます。
 
-### 8.1 Input Parameters
+### 8.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 8.2 Output
+### 8.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                    | Type         |
-| -------------------------------------------------------- | ------------ |
-| The difference between the two dates measured in months. | Integer/Long |
+| 値                     | タイプ |
+| --------------------- | --- |
+| 2つの日付の違いは、数ヶ月で測定されます。 | 整数  |
 
-### 8.3 Example
+### 8.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-calendarMonthsBetween(dateTime(2007, 1, 1, 10, 1, 1), dateTime(2007, 8, 1, 1, 1, 1))
+calendarMonthsBetween(dateTime(2007年、1、10、1、1)、dateTime(2007年、8、1、1、1、1))
 ```
 
-The output results in the amount of months between the two dates:
+出力は、2つの日付の間の月数になります:
 
 ```java
 7
 ```
 
-## 9 calendarYearsBetween
+## 9 カレンダー年の間
 
-The `calendarYearsBetween` function calculates the difference between the input values in years. Time will be ignored. The dates are assumed to be in the end-user's local time zone.
+`calendar Years` 関数の間では、入力値の年数の差を計算します。 時間は無視されます。 日付は、エンドユーザーのローカルタイムゾーンにあると想定されます。
 
-### 9.1 Input Parameters
+### 9.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value       | Type          |
-| ----------- | ------------- |
-| First date  | Date and time |
-| Second date | Date and time |
+| 値      | タイプ   |
+| ------ | ----- |
+| 最初の日付  | 日付と時刻 |
+| 2回目の日付 | 日付と時刻 |
 
-### 9.2 Output
+### 9.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                                   | Type         |
-| ------------------------------------------------------- | ------------ |
-| The difference between the two dates measured in years. | Integer/Long |
+| 値                   | タイプ |
+| ------------------- | --- |
+| 二つの日付の違いは年間で測定されます。 | 整数  |
 
-### 9.3 Example
+### 9.3 例
 
-If you use the following input:
+次の入力を使用する場合:
 
 ```java
-calendarYearsBetween(dateTime(2007, 1, 1, 10, 1, 1), dateTime(2017, 1, 1, 1, 1, 1))
+calendarYearsBetween(dateTime(2007年1, 1, 10, 1), dateTime(2017年1, 1, 1, 1, 1))
 ```
 
-The output results in the amount of years between the two dates:
+出力は、2つの日付の間の年数になります:
 
 ```java
 10
