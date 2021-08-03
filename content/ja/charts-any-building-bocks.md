@@ -1,55 +1,55 @@
 ---
-title: "Any Chart Building Blocks"
+title: "任意のグラフのBuilding Blocks"
 parent: "chart-widgets"
-description: "A reference guide to the Any Chart building blocks which are provided as part of the Any Chart widget"
+description: "任意のチャートウィジェットの一部として提供されている任意のチャート構築ブロックへの参照ガイド"
 menu_order: 40
 tags:
-  - "Any Chart"
-  - "Charts"
+  - "任意のグラフ"
+  - "グラフ"
   - "Building Blocks"
-  - "Widget"
-  - "Desktop Modeler"
+  - "ウィジェット"
+  - "デスクトップ モデラー"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Any Chart is a widget which is available in the Mendix app store here: [Any Chart](/appstore/modules/any-chart) module. The Any Chart widget enables you to build all the chart types that are possible with Plotly.js. More about Plotly.js is available here: https://plot.ly/javascript/reference/.
+任意のチャートは、Mendixアプリストアで利用可能なウィジェットです: [任意のチャート](/appstore/modules/any-chart) モジュール。 format@@0ウィジェットでは、Plotly.jsで使用可能なすべてのチャートタイプを作成できます。 Plotly.js の詳細はこちら: https://plot.ly/javascript/reference/ .
 
-Any Chart building blocks are pre-configured page building blocks with the basic properties of a chart already defined. They can be placed on a Mendix page in the same way as any other widget or building block. They contain samples of the **data** and **Layout** objects which are required to create a chart. These objects are used for demo purposes at run time when there is no Source attribute selected or when rendering sample data in the Studio preview.
+任意のチャート構成ブロックは、既に定義されているチャートの基本的なプロパティを持つ、事前に構成されたページ構成ブロックです。 他のウィジェットやBuilding Blockと同じ方法でMendixページに配置できます。 グラフを作成するために必要な **データ** と **レイアウト** オブジェクトのサンプルが含まれています。 これらのオブジェクトは、Source 属性が選択されていない場合や、Studio プレビューでサンプルデータをレンダリングする場合に、実行時にデモ目的で使用されます。
 
-## Properties
+## プロパティー
 
-The Any Chart building blocks contain the basic configuration essential for the widget. Some changes need to be made to customize the look of the chart. The properties below should, as a minimum, be configured when placing an Any Chart building block in your app.
+format@@0の構成ブロックには、ウィジェットに不可欠な基本構成が含まれます。 チャートの外観をカスタマイズするには、いくつかの変更を行う必要があります。 以下のプロパティは、アプリに任意のチャート構築ブロックを配置する際に最小限に設定する必要があります。
 
-Open the properties of an Any Chart widget by double-clicking on the widget.
+ウィジェットをダブルクリックして、任意のチャートウィジェットのプロパティを開きます。
 
-### Data
-The data to be plotted is described in an array usually called data, whose elements are trace objects of various types (for example, scatter, bar etc) as documented in the [Full Reference](https://plot.ly/javascript/reference).
-
-#### Static
-A data JSON array based on https://plot.ly/javascript/reference/.
-
-#### Source attribute
-The attribute data will merge and overwrite **Static** data.
-
-#### Sample data
-Data for preview. It will be merged with the **Static data** in Mendix Studio or at runtime when no **Source attribute** is selected.
-
-#### Mode
-The development mode adds a button to the charts when running the app which is used to toggle a live editor for the advanced configuration options.
-
-### Layout Options
-The layout of the plot – non-data-related visual attributes such as the title or annotations – is described in an object usually called layout, as documented in the [Full Reference](https://plot.ly/javascript/reference/#layout).
+### データ
+プロットされるデータは、通常はdataと呼ばれる配列で記述されます。その要素は、さまざまな種類のトレースオブジェクトです(例えば、 文書化されている [完全なリファレンス](https://plot.ly/javascript/reference) にある scatter、bar など。
 
 #### Static
-A JSON object based on https://plot.ly/javascript/reference/.
+https://plot.ly/javascript/reference/ に基づくデータJSON配列。
 
-#### Source attribute
-The attribute layout will merge and overwrite static layout options.
+#### ソース属性
+属性データがマージされ、 **静的** データが上書きされます。
 
-#### Sample layout
-Layout options for preview. It will be merged with the 'Static' in Mendix Studio or at runtime when no 'Source attribute' is selected.
+#### サンプルデータ
+データをプレビューします。 **ソース属性** が選択されていない場合、Mendix Studioの **静的データ** とマージされます。
+
+#### モード
+開発モードでは、アプリを実行するときに、チャートにボタンが追加されます。このボタンは、詳細設定オプションのライブエディタを切り替えるために使用されます。
+
+### レイアウトオプション
+プロットのレイアウト – タイトルや注釈などの非データ関連の視覚的属性 – は、通常はlayoutと呼ばれるオブジェクトに記述されています。 [完全な参照](https://plot.ly/javascript/reference/#layout) で文書化されています。
+
+#### Static
+https://plot.ly/javascript/reference/ ベースの JSON オブジェクト。
+
+#### ソース属性
+属性レイアウトは静的レイアウトオプションをマージおよび上書きします。
+
+#### サンプルレイアウト
+プレビュー用のレイアウトオプション。 「ソース属性」が選択されていない場合、Mendix Studioの「静的」または実行時にマージされます。
 
 {{% alert type="info" %}}
-For more a detailed description of Any Chart configuration, see [Any Chart Widgets](charts-any-configuration)
+任意のチャート構成の詳細については、 [任意のチャートウィジェット](charts-any-configuration) を参照してください。
 {{% /alert %}}
