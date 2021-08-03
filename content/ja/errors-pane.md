@@ -10,6 +10,10 @@ tags:
   - "errors pane"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/errors-pane.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 アプリケーションが常に一貫して正しくビルドされていることを確認するために、Studio Proはアプリケーションのビルド時に一貫性を確認します。
@@ -47,7 +51,7 @@ You can toggle what messages are displayed in the **Errors** pane by clicking **
 
 ### 3.2 今すぐチェックオプション
 
-**Check now** オプションは、一貫性の失敗時にアプリケーションのチェックを開始します。 **Edit** > **Preferences** で自動チェックの遅延を設定している場合に便利です。 自動遅延が指定されていない場合は、変更ごとに直ちにチェックが行われます。
+**Check now** オプションは、一貫性の失敗についてプロジェクトのチェックを開始します。 **Edit** > **Preferences** で自動チェックの遅延を設定している場合に便利です。 自動遅延が指定されていない場合は、変更ごとに直ちにチェックが行われます。
 
 ### 3.3 現在のタブに制限オプション
 
@@ -59,7 +63,7 @@ You can toggle what messages are displayed in the **Errors** pane by clicking **
 
 * アイコン – メッセージ [の種類を示します](#message-types)
 * インデックス番号 - 各メッセージに割り当てられたインデックス番号
-* **コード** - エラーに固有のコード。警告と非推奨にはエラーコードがありません
+* **Error Code** - エラーに固有のコード。警告と非推奨にはエラーコードがありません
 * **メッセージ** – チェック失敗の説明/説明
 * **要素** - チェックに失敗する要素
 * **ドキュメント** – 要素がある場所
@@ -76,8 +80,8 @@ You can toggle what messages are displayed in the **Errors** pane by clicking **
 ドロップダウンメニューでは、次の操作を使用できます。
 
 * ** {the name of the element}** に移動します。メッセージをダブルクリックするとチェックに失敗する要素が表示されます。
-* ** {an error or the name of the element}についてのドキュメントを見る** - このチェックに失敗したことを説明する対応するドキュメントを開き、それを修正する方法を示します。 現在のメッセージにドキュメントがない場合、オプションは greyed-out です
-* メッセージ固有のアクション – 上記の例では、メッセージに依存するアクション アプリで使用されていないmicroflow パラメータを削除できます。
+* ** {an error code or the name of the element}についてのドキュメントを見る** - このチェックに失敗したことを説明する対応するドキュメントを開き、それを修正する方法を示します。 現在のメッセージにドキュメントがない場合、オプションは greyed-out です
+* メッセージ固有のアクション – 上記の例では、メッセージに依存するアクション プロジェクトで使用されていないマイクロフローパラメータを削除できます
 
 ## 4 続きを読む
 
