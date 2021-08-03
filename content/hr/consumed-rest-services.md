@@ -2,6 +2,9 @@
 title: "Consumed REST Services"
 parent: "integration"
 description: "Presents an overview of consumed REST services and JSON in Mendix."
+menu_order: 15
+tags:
+  - "studio pro"
 ---
 
 ## 1 REST
@@ -33,9 +36,3 @@ JavaScript object notation (JSON) is a lightweight representation of data.
 ```
 
 Above, the object `person` is described with the corresponding values for the attributes `name`, `age`, and the referred object `address`.
-
-## 3 Examples
-
-**How to consume REST natively with Mendix**
-
-{{% youtube waOlvSqdaP4 %}}
