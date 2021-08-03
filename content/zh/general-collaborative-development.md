@@ -1,62 +1,62 @@
 ---
-title: "Collaborative Development in Studio"
-category: "General Info"
-description: This document describes the process of collaborative development between Mendix Studio and Mendix Studio from the perspective of Mendix Studio.
+title: "合作开发工作室"
+category: "常规信息"
+description: 本文件从Mendix Studio的角度介绍Mendix Studio与Mendix Studio之间的合作开发过程。
 tags:
-  - "studio"
-  - "collaborative development"
-  - "sync"
+  - "工作室"
+  - "合作发展"
+  - "同步"
 menu_order: 5
 ---
 
-## 1 Introduction
+## 1 导言
 
 {{% alert type="warning" %}}
 
-Collaborative development is only available if your app has Mendix version 7.23.3 or above. You cannot sync your changes with the Desktop Modeler if your app has Mendix version 7.23.2 or below.
+只有当您的应用有 Mendix 版本 7.23.3 或以上时，协作开发才可用。 如果您的应用有 Mendix 版本的 7.23.2 ，您不能将您的更改同步到桌面模型。
 
-You will still be able to open your app in the Web Modeler. However, to sync changes between two modelers, the Desktop Modeler must be upgraded to version 7.23.3 or above.
+您仍然可以在 Web Modeler 中打开您的应用程序。 但是，要同步两个模型之间的更改，桌面模型必须升级到7.23.3或以上版本。
 
-{{% /alert %}}
+{{% /报警 %}}
 
 Collaborative development is the process that allows team members work together on one app in Mendix Studio Pro and Mendix Studio and easily synchronize changes made by others using [version control](/refguide/version-control).
 
-If you are working in a team (or switch from Studio to Studio Pro yourself), it is easy to share app model changes. All changes made in Studio are auto-saved. Studio Pro users get these changes when they click **Update** or **Commit**. If they commit, they push their own changes at the same time, so both Studio and Studio Pro are synchronized. For a more technical and detailed process overview, see [Collaborative Development](/refguide/collaborative-development) in *Version Control*.
+如果您正在一个团队(或从工作室切换到工作室专业版)，分享应用模型更改是容易的。 工作室中的所有更改都是自动保存的。 Studio Pro 用户点击 **更新** 或 **提交** 时获得这些更改。 如果他们提交，他们同时推送自己的更改，所以Studio 和 Studio Pro 都是同步的。 欲了解更多技术性和详细的流程概述，请在 *版本控制中查看 [协作开发](/refguide/collaborative-development)*。
 
-Multiple users can view the app in Studio at the same time: one user can edit it and others are in read-only mode.
+多个用户可以同时在工作室查看应用程序：一个用户可以编辑它，其他用户则处于只读模式。
 
-## 2 Concepts
+## 2 概念
 
-For concepts and definitions, see section [2 Concepts](/refguide/version-control) in *Version Control*.
+关于概念和定义，见 [2 Concepts](/refguide/version-control) in *版本控制*。
 
-## 3 Collaborative Development from Studio Perspective
+## 3 从工作室角度看合作发展
 
-As all Studio changes are auto-saved, the collaborative development is indicated by pop-ups that you see when the content of the app is being changed or synchronized. This can happen in the following cases:
+因为所有工作室更改已自动保存， 合作开发通过弹出窗口表示。当应用程序的内容被更改或同步时。 在下列情况下可以做到这一点：
 
-1. **Committing Your Changes** – if your team members are working on the same development line in Studio Pro and they click **Update**, your screen gets locked for a few moments while your changes are automatically committed to the Team Server and then applied to Studio Pro. For more information on the collaborative development process in Studio Pro, see section [4 Studio Pro Perspective](/refguide/collaborative-development) in *Collaborative Development* in *Version Control*.
+1. **正在提交您的更改** - 如果您的团队成员正在工作Studio Pro 中的同一条开发线，他们点击 **更新**您的屏幕会被锁定几分钟，您的更改会自动提交团队服务器，然后应用到Studio Pro。 欲了解更多关于Studio Pro合作发展进程的信息 查看 [4 Studio Pro Perspective](/refguide/collaborative-development) in *Collaborative Development* in *版本控制*。
 
-    {{% image_container width="350" %}}![Committing Changes Dialog Box](attachments/general-collaborative-development/committing-changes.png)
+    {{% image_container width="350" %}}![正在提交更改对话框](attachments/general-collaborative-development/committing-changes.png)
    {{% /image_container %}}
 
-2.  **Syncing Changes** – your screen gets locked for a few moments each time the Studio Pro users commit. <br/>
+2.  **同步更改** - 每次Studio Pro 用户提交时，您的屏幕会被锁定几分钟。 <br/>
 
-    {{% image_container width="350" %}}![Synching Changes Dialog Box](attachments/general-collaborative-development/synching-changes.png)<br/>
+    {{% image_container width="350" %}}![正在同步更改对话框](attachments/general-collaborative-development/synching-changes.png)<br/>
 
     {{% /image_container %}}
 
-    There are two possible outcomes of this process:<br/>
+    这一进程有两种可能的结果：<br/>
 
-    a.  In Studio Pro, there are no conflicts in the app, and changes from Studio Pro will be applied to Studio. (Conflicts are changes that contradict each other and cannot be merged automatically. For example, one user has changed a caption of a button, while another user has deleted this button).
+    a.  在 Studio Pro，应用程序中没有冲突，Studio Pro 的更改将适用于Studio 。 (冲突是相互矛盾的变化，不能自动合并。) 例如，一个用户更改了按钮的标题，而另一个用户删除了此按钮)。
 
-    b.  There are app conflicts which should be solved in Studio Pro before the Studio Pro user can commit again. Your screen is unlocked without any changes to your app.
+    b. 会议文件。  在Studio Pro 中，在Studio Pro 用户能够再次提交之前，有一些应用冲突需要解决。 您的屏幕已解锁，但您的应用没有任何更改。
 
-3.  **Switching Contents** – in Studio Pro, users can change the branch line Studio is enabled for. For more information on managing branches, see section [5 Managing Development Lines](/refguide/collaborative-development#managing-branches) in the *Collaborative Development* in *Version Control*. During this process Studio gets locked for a few moments, all changes are auto-saved on the current development line, and a pop-up dialog is shown that the Studio Pro user is changing the branch line for Studio. This means that the contents of your app will change.
+3.  **切换内容** - 在 Studio Pro中，用户可以更改分支线工作室已启用。 关于管理分支的更多信息 查看 [5版管理开发行](/refguide/collaborative-development#managing-branches) *协作开发* *版本控制* 在此进程工作室被锁定几分钟，所有更改都会自动保存到当前的开发线。 并且显示一个弹出式对话框，Studio Pro 用户正在更改Studio的分支线。 这意味着您的应用程序的内容将会改变。
 
-    {{% image_container width="350" %}}![Switching Contents Dialog Box](attachments/general-collaborative-development/switching-branches.png)
+    {{% image_container width="350" %}}![切换内容对话框](attachments/general-collaborative-development/switching-branches.png)
   {{% /image_container %}}
 
-## 4 Read More
+## 4 阅读更多
 
-* [Version Control](/refguide/version-control)
-* [Collaborative Development](/refguide/collaborative-development)
+* [版本控制](/refguide/version-control)
+* [合作发展](/refguide/collaborative-development)
 
