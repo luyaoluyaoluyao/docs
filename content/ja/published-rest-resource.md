@@ -1,26 +1,26 @@
 ---
-title: "Published REST Resource"
+title: "公開されたRESTリソース"
 parent: "published-rest-service"
 menu_order: 50
-description: "The configurable options for a published REST resource"
+description: "公開された REST リソースの設定可能なオプション"
 tags:
-  - "published REST"
-  - "resource"
+  - "公開された REST"
+  - "リソース"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A published REST resource is part of a [published REST service](published-rest-service) and represents a collection of items on which one or more [operations](published-rest-operation) can be defined.
+公開された REST リソースは、 [公開 REST サービス](published-rest-service) の一部であり、1 つまたは複数の [操作](published-rest-operation) を定義できるアイテムのコレクションを表します。
 
-You can generate a published REST resource from an entity in your domain model. See [Generate a Published REST resource](generate-rest-resource).
+ドメインモデル内のエンティティから公開された REST リソースを生成できます。 [公開された REST リソースの生成](generate-rest-resource) を参照してください。
 
-## 2 General
+## 2つの全般
 
-### <a name="name"></a>2.1 Resource Name
+### <a name="name"></a>2.1 リソース名
 
-The resource name uniquely identifies the resource in the [service](published-rest-service). It is part of the location of the operations, so it cannot contain spaces or special characters.
+リソース名は、 [サービス](published-rest-service) 内のリソースを一意に識別します。 操作の場所の一部であるため、スペースや特殊文字を含めることはできません。
 
-## <a name="public-documentation"></a>2.2 Public Documentation
+## <a name="public-documentation"></a>2.2 公開ドキュメント
 
-The public documentation is used in the service's [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation). You can use [GitHub-flavored markdown](gfm-syntax) for rich text.
+公開ドキュメントは、サービスの [OpenAPI (Swagger) ドキュメント ページ](published-rest-services#interactive-documentation) で使用されます。 リッチテキストには、 [GitHub風味のマークダウン](gfm-syntax) を使用できます。
