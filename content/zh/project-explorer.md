@@ -1,42 +1,42 @@
 ---
-title: "App Explorer"
-parent: view-menu
+title: "应用浏览器"
+parent: 视图菜单
 menu_order: 40
 tags:
   - "studio pro"
-  - "App Explorer"
+  - "应用浏览器"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **App Explorer** shows the complete structure of your app including all documents inside the modules:
+**App Explorer** 显示您应用的完整结构，包括模块中的所有文档：
 
 ![](attachments/app-explorer/app-explorer.png)
 
-The **App Explorer** consists of the following:
+**App Explorer** 包含以下内容：
 
-* **App** folder – contains settings and documents that apply to your app as a whole (for more information, see [Apps](project))
-* **Modules**  – contain settings, a domain model, and *documents* that apply to this module (for more information, see [Modules](modules))
-  * **Domain model** – a model that describes the information (or *data*) used by your application in an abstract way; one module can have one domain model only
-  * **Document** – an individual file, for example, a [page](pages), [microflow](microflows), or a [scheduled event](scheduled-events).
+* **App** 文件夹 — — 包含适用于您整个应用程序的设置和文档 (详细信息，请参阅 [App](project))
+* **模块**  - 包含设置，域模型。 和 *适用于此模块的文档* (详情请参阅 [模块](modules))
+  * **域模型** — — 一个以抽象方式描述您应用程序使用的信息(或 *数据*)的模型； 一个模块只能有一个域模型
+  * **文档** - 一个单独的文件，例如一个 [页面](pages), [microflow](microflows), 或 [预定的事件](scheduled-events)。
 
-## 2 Performing Basic Functions
+## 2 执行基本函数
 
-In the **App Explorer**, you can do the following:
+在 **App Explorer**中，您可以做以下工作：
 
-* **Filter** – enter the name of a module, folder, or document into the **Filter** field to filter documents of the app and highlight entered text within the **App Explorer**. When filtering by a module or folder name, all content of matching modules and/or folders is displayed. In addition, while focused on the **Filter** field, it is possible to do the following:
-  * Navigate the **App Explorer** using <kbd>↑</kbd> and <kbd>↓</kbd> keys
-  * Expand a folder or open a document by pressing <kbd>Enter</kbd>
-  * Clear the filter query by pressing <kbd>Esc</kbd>
-* **Open the document** – double-click the document to open it
-* **Select the active document** – click the icon in the top-right corner of the **App Explorer** to quickly view the active document in the **App Explorer** tree. By default the active document is always selected so you can quickly see where the document you are editing is located. You can change this behavior in the **Edit** > **Preferences** dialog box.
-* **Expand all documents** – click the plus icon in the top-left corner of the **App Explorer** to expand all document and see the whole structure of your app
-* **Collapse all documents** – click the minus icon in the top-left corner of the **App Explorer** to collapse all documents
-* **Expand or collapse an individual folder** – to expand/collapse documents in an individual folder click the plus/minus icon or double-click the folder
-* **Perform actions specific to the selected folder** – right-click the selected folder to see what functions you can perform. The list of functions depends on the folder, for example, when right-clicking the **System** module, you can only find usages of this module, while when right-clicking **MyFirstModule** you can add a page, add a microflow, rename the module, export the module package, copy/paste documents, and much more.
+* **筛选器** — — 输入一个模块的名称, 文件夹, 或 document into the **Filter** fields to filter the app documents and highlight included text within the **App Explorer** 当通过模块或文件夹名称过滤时，将显示所有匹配模块或文件夹的内容。 此外，在聚焦于 **筛选器** 字段时，可以这样做：
+  * 浏览 **App Explorer** 使用 <kbd>AS/</kbd> 和 <kbd>Mac</kbd> 键
+  * 按 <kbd>进入</kbd> 来展开文件夹或打开文档
+  * 按 <kbd>Esc 清除过滤器查询</kbd>
+* **打开文档** - 双击文档以打开它
+* **选择活动文档** - 点击 **App Explorer** 右上角的图标快速查看在 **App Explorer** 树木中的活动文档。 默认情况下，活动文档总是被选中的，所以您可以快速查看您正在编辑的文档位于哪里。 您可以在 **编辑** > **首选项** 对话框中更改此行为。
+* **展开所有文档** - 点击左上角的加号图标 **App Explorer** 以扩展所有文档并查看您应用的整个结构
+* **折叠所有文档** - 点击左上角的减号图标 **App Explorer** 折叠所有文档
+* **展开或折叠一个单独的文件夹** - 以在一个单独的文件夹中展开/折叠文档，单击附加/减小图标或双击文件夹。
+* **执行选定文件夹中的特定动作** -- 右键点击选定的文件夹查看您可以执行的函数。 函数列表取决于文件夹。 当右键点击 **System** 模块时，您只能找到此模块的用法。 当右键点击 **MyFirstModule** 时，您可以添加一个页面，并添加一个微流程， 重命名模块，导出模块包，复制/粘贴文档等等。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Apps](project)
-* [Modules](modules)
-* [Security](security)
+* [应用程序](项目)
+* [模块](模块)
+* [安全](安全)
