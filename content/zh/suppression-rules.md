@@ -1,178 +1,174 @@
 ---
-title: "Suppression Rules"
+title: "制止规则"
 parent: "errors-pane"
 menu_order: 10
-description: "Describes suppression rules for warnings in Studio Pro."
+description: "在Studio Pro描述用于警告的抑制规则。"
 tags:
   - "Studio Pro"
-  - "consistency errors"
-  - "checks"
-  - "warnings"
+  - "一致性错误"
+  - "检查"
+  - "警告"
 ---
 
-## 1 Introduction {#intro}
+## 1 导言 {#intro}
 
-When you work on an app, Studio Pro performs consistency checks, which may result in warnings. Warnings identify issues that are not critical, but point to something that might be a problem. These warnings are shown in the **Errors** pane.
+当您在应用上工作时，Studio Pro 进行一致性检查，这可能会导致警告。 警告确定了一些不是关键问题的问题，但指出了可能是一个问题的问题。 这些警告在 **错误** 面板中显示。
 
-![Warnings in the Errors pane](attachments/suppression-rules/errors-pane-with-warnings.png)
+![错误窗格中的警告](attachments/suppression-rules/errors-pane-with-warnings.png)
 
-While warnings can be valuable, there are some situations where you might want to disable them, such as the following ones:
+虽然警告可能是有价值的，但有些情况下您可能想要禁用它们，如：
 
-* You made a deliberate choice in your app that leads to a warning, and you know this will not lead to problems.
-* You are using an Marketplace module that contains warnings and you do not want to change the Marketplace module.
-* The number of warnings is so large that the **Warnings** tab is not usable anymore, and you want to temporarily disable some of them.
+* 你在你的应用中做出了有意识的选择，导致警告，你知道这不会导致问题。
+* 您正在使用包含警告的市场模块，不想更改市场模块。
+* 警告的数量太大， **警告** 标签页已不可用。 您想要暂时禁用其中的一些内容。
 
-With **Suppression rules** it is possible to disable warnings. You can [suppress warnings](#suppress-warning) from the **Errors** pane and [manage them](#managing-rules) via the **Suppression rules** option. It is also possible to [suppress warnings for all Marketplace modules](#suppress-appstore-warnings).
+使用 **抑制规则** 是可以禁用警告的。 You can [suppress warnings](#suppress-warning) from the **Errors** pane and [manage them](#managing-rules) via the **Suppression rules** option. 也可以使用 [抑制所有应用市场模块](#suppress-appstore-warnings) 的警告。
 
-## 2 Suppression Rule Logic {#suppression-rules-logic}
+## 2 抑制规则逻辑。 {#suppression-rules-logic}
 
-Suppression rules are for one user and for one instance of an app. The warnings that you suppress are not shared between users or apps, so warnings will not be suppressed for your team members working on the same app.
+抑制规则适用于一个用户和应用程序的一个实例。 您抑制的警告不在用户或应用之间共享， 对于在同一应用上工作的团队成员来说，警告不会被压制。
 
-Suppression rules are stored locally in the app directory, in a file called *project-settings.user.json*. When committing your changes to the Team Server, Studio Pro will ignore this file.
+抑制规则在本地存储在一个名为 *project-settings.user.json* 的文件中。 将您的更改提交给团队服务器时，Studio Pro 将忽略此文件。
 
-![The settings file shown in Windows Explorer](attachments/suppression-rules/windows-explorer-showing-settings-files.png)
+![在 Windows Explorer 中显示的设置文件](attachments/suppression-rules/windows-explorer-showing-settings-files.png)
 
-However, it is possible to export and import suppression rules manually. For more information on how to export and import warning, see [Exporting Your Suppression Rules](#export) and [Importing Your Suppression Rules](#import) sections.
+然而，可以手工进出口制止规则。 关于如何导出和导入警告的更多信息，请参阅 [导出您的抑制规则](#export) and [导入您的抑制规则](#import) 章节。
 
-## 3 Suppressing a Warning in the Errors Pane {#suppress-warning}
+## 3 在错误面板中压制警告 {#suppress-warning}
 
-From the **Errors** pane, you can suppress a warning for a document, a module, or the entire app:
+从 **错误** 面板，您可以压制文档、模块或整个应用程序的警告：
 
-![Suppressing a Warning](attachments/suppression-rules/suppressing-warning.png)
+![抑制警告](attachments/suppression-rules/suppressing-warning.png)
 
-### 3.1 Suppressing a Warning for a Specific Document
+### 3.1 制止对具体文件提出警告
 
-To suppress a warning for a specific document only, do the following:
+只对特定文件制止警告，请做以下操作：
 
-1. Right-click the warning you would like to suppress.
-2. Select **Suppress this warning** > **For the document {Document name}**.
+1. 右键单击您想要取消的警告。
+2. 选择 **禁止此警告** > **文档 {Document name}**。
 
-The warning is only suppressed for the specific document. If the same warning appears in another document (for example, on another page), it will still be displayed for that document.
+此警告仅在特定文档中被压制。 如果在另一个文档中出现相同的警告(例如在另一页)，它仍然会显示该文档。
 
-### 3.2 Suppressing a Warning for a Specific Module
+### 3.2 制止特定模块的警告
 
-To suppress a warning for a specific module, do the following:
+为了阻止某个特定模块的警告，请执行以下操作：
 
-1. Right-click the warning you would like to suppress.
-2. Select **Suppress this warning** > **For the module {Module name}**.
+1. 右键单击您想要取消的警告。
+2. 选择 **禁止此警告** > **模块 {Module name}**。
 
-The warning is suppressed for the whole module. If the same warning appears in another module, it will still be displayed for that module.
+整个模块的警告被压制。 如果在另一个模块中出现同样的警告，它仍将被显示为该模块。
 
-### 3.3 Suppress a Warning for the Entire App
+### 3.3 取消整个应用的警告
 
-To suppress a warning for the entire app, do the following:
+要阻止整个应用的警告，请执行以下操作：
 
-1. Right-click the warning you would like to suppress.
-2. Select **Suppress this warning** > **For the entire project**.
+1. 右键单击您想要取消的警告。
+2. 选择 **禁止此警告** > **整个项目**。
 
-The warning is suppressed for the whole app and the list of warnings is updated in the **Errors** pane.
+警告已为整个应用禁用，警告列表已在 **错误** 面板中更新。
 
-For more information on how to edit or delete a suppression rule, see the [Managing Suppression Rules](#managing-rules) section.
+关于如何编辑或删除抑制规则的更多信息，请参阅 [管理抑制规则](#managing-rules) 部分。
 
-## 4 Managing Suppression Rules {#managing-rules}
+## 4 管理制止规则 {#managing-rules}
 
-You can add, edit, delete, export, or import suppression rules. You can also suppress warnings from the Marketplace.
+您可以添加、编辑、删除、导出或导入抑制规则。 您也可以抑制来自市场的警告。
 
 {{% alert type="info" %}}
-After modifying suppression rules, click **OK** to close the **Manage Suppression Rules** dialog box and apply changes.
-{{% /alert %}}
+修改抑制规则后，点击 **确定** 关闭 **管理抑制规则** 对话框并应用更改。
+{{% /报警 %}}
 
-### 4.1 Suppressing Marketplace Warnings {#suppress-appstore-warnings}
+### 4.1 抑制市场警告 {#suppress-appstore-warnings}
 
-To suppress Marketplace warnings, do the following:
+为了抑制市场警告，请做以下工作：
 
-1.  Click the **Suppression rules** button in the **Errors** pane.
-2. In the **Manage Suppression Rules** dialog box, check the **Suppress warnings from Marketplace modules** option.
-3. Click **OK** to apply the new setting.
+1.  点击 **抑制规则** 按钮在 **错误** 窗格中。
+2. 在 **管理抑制规则** 对话框中，检查 **禁用市场模块** 选项。
+3. 点击 **确定** 应用新设置。
 
-Warnings from Marketplace modules are suppressed.
+来自市场模块的警告已被制止。
 
-### 4.2 Adding a Rule
+### 4.2 增加一条规则
 
-For more advanced cases, you may want to manually add a new rule. This gives you full control over the settings that the rule uses, when deciding which warnings to suppress.
+对于更高级的情况，您可能想要手动添加一个新的规则。 这使您能够在决定要抑制哪些警告时完全控制规则使用的设置。
 
-To manually add a new rule, follow the steps below:
+要手动添加新规则，请按下面的步骤：
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2. In the **Manage Suppression Rules** dialog box, select the **New** button.
-3.  In the **Add Suppression Rule** dialog box, set the necessary options to add the rule (for more information on settings, see the [Rule Setting](#rule-settings) section.
+1. 点击 **抑制规则** 按钮在 **错误** 窗格中。
+2. 在 **管理抑制规则** 对话框中，选择 **新的** 按钮。
+3.  在 **添加抑制规则** 对话框中， 设置添加规则的必要选项(关于设置的更多信息，请参阅 [规则设置](#rule-settings) 部分)。
 
-    ![Rules window - add suppression](attachments/suppression-rules/new-warning-window.png)
+    ![规则窗口 - 添加抑制项](attachments/suppression-rules/new-warning-window.png)
 
-4. Confirm your choice by clicking **OK**.
-5. Click **OK** in the **Manage Suppression Rules** dialog box to save your changes.
+4. 点击 **确定** 来确认您的选择。
+5. 在 **管理抑制规则** 对话框中点击 **确定** 以保存您的更改。
 
-The suppression rule is created.
+已创建抑制规则。
 
-### 4.3 Editing a Rule
+### 4.3 编辑规则
 
-To edit an existing rule, follow the steps below:
+要编辑现有的规则，请按照下面的步骤：
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.  In the **Manage Suppression Rules** dialog box, select the **Edit** button.
-3.  In the **Edit Suppression Rule** dialog box, edit options to change the rule (for more information on settings, see the [Suppression Rule Settings](#rule-settings) section.
+1. 点击 **抑制规则** 按钮在 **错误** 窗格中。
+2.  在 **管理抑制规则** 对话框中，选择 **编辑** 按钮。
+3.  在 **编辑抑制规则** 对话框中，编辑更改规则的选项 (对于设置的更多信息)。 查看 [制止规则设置](#rule-settings) 部分。
 
-    ![Rule settings window](attachments/suppression-rules/rule-settings-window.png)
+    ![规则设置窗口](attachments/suppression-rules/rule-settings-window.png)
 
-4. Confirm your choice by clicking **OK**.
-5. Click **OK** in the **Manage Suppression Rules** dialog box to save your changes.
+4. 点击 **确定** 来确认您的选择。
+5. 在 **管理抑制规则** 对话框中点击 **确定** 以保存您的更改。
 
-The suppression rule is edited.
+抑制规则已编辑。
 
-### 4.4 Deleting a Rule
+### 4.4 删除规则
 
-To delete the existing rule, follow the steps below:
+若要删除现有规则，请采取以下步骤：
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.   In the **Manage Suppression Rules** dialog box, click the **Delete** button.
+1. 点击 **抑制规则** 按钮在 **错误** 窗格中。
+2.   在 **管理抑制规则** 对话框中，点击 **删除** 按钮。
 
-The suppression rule is deleted.
+抑制规则已删除。
 
-### 4.5 Importing Suppression Rules {#import}
+### 4.5 进口制止规则 {#import}
 
-To import suppression rules, do the following:
+为了进口制止规则，请采取以下行动：
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.  In the **Manage Suppression Rules** dialog box, select the **Import** button.
-3. Browse to the folder where you would like to import (the file extension that you are importing must be *.suppressions.json*).
-4. Click **Open** to select the file.
-5.  In a confirmation pop-up window, click **OK** to dismiss it:
+1. 点击 **抑制规则** 按钮在 **错误** 窗格中。
+2.  在 **管理抑制规则** 对话框中，选择 **导入** 按钮。
+3. 浏览到您想要导入的文件夹(您正在导入的文件扩展名必须是 *.suppressions.json*)。
+4. 点击 **打开** 来选择该文件。
+5.  在确认弹出窗口中，点击 **确定** 来关闭它：
 
-    ![Import rules confirmation](attachments/suppression-rules/confirmation-dialog-after-rules-imported.png)
+    ![导入规则确认](attachments/suppression-rules/confirmation-dialog-after-rules-imported.png)
 
-6. Click **OK** in the **Manage Suppression Rules** dialog box.
+6. 在 **管理抑制规则** 对话框中点击 **确定**。
 
-The list of warnings is updated.
+警告列表已更新。
 
-### 4.6 Exporting Your Suppression Rules {#export}
+### 4.6 导出您的抑制规则 {#export}
 
-To export your suppression rules, do the following:
+要导出您的抑制规则，请执行以下操作：
 
-1. Click the **Suppression rules** button in the **Errors** pane.
-2.  In the **Manage Suppression Rules** dialog box, select the **Export** button.
-3. Browse to the folder where you wish to export the rules (by default the file name is `<your app name>.suppressions.json`).
+1. 点击 **抑制规则** 按钮在 **错误** 窗格中。
+2.  在 **管理抑制规则** 对话框中，选择 **导出** 按钮。
+3. 浏览到要导出规则的文件夹 (默认文件名是 `<your app name>.suppressions.json`)。
 
-4. Click the **Save** button to save the exported rules.
-5.  In a confirmation pop-up window, click **OK** to dismiss it:
+4. 点击 **保存** 按钮以保存导出的规则。
+5.  在确认弹出窗口中，点击 **确定** 来关闭它：
 
-    ![Export rules confirmation](attachments/suppression-rules/confirmation-dialog-after-rules-exported.png)
+    ![导出规则确认](attachments/suppression-rules/confirmation-dialog-after-rules-exported.png)
 
-6. Click **OK** in the **Manage Suppression Rules** dialog box.
+6. 在 **管理抑制规则** 对话框中点击 **确定**。
 
-Your suppression rules are exported. Another user can [import](#import) that file to use the same suppression rules.
+您的抑制规则已导出。 Another user can [import](#import) that file to use the same suppression rules.
 
-## 5 Suppression Rule Settings {#rule-settings}
+## 5 抑制规则设置 {#rule-settings}
 
-The table below describes the available settings:
+下表描述了可用设置：
+仅在 **错误代码** 选项在上面的</strong> 选择器的 **禁止中被选择时才显示。 您可以输入一个特定的错误代码，例如 **CW1234**, 来制止这个特定的警告。</td> </tr> </tbody> </table> 
 
-| Setting      | Description                                                                                                                                                                                                               |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Module       | Suppresses warnings within the selected module. When **(All)** is selected, the rule applies to all modules.                                                                                                              |
-| Document     | Suppresses warnings within the selected document. When **(All)** is selected, the rule applies to all documents in the selected module. **Note**: to select a particular document, you first need to select a **Module**. |
-| Suppress for | Allows you to suppress a warning for a specific *error code* or for *all* warnings.                                                                                                                                       |
-| Value        | Only displayed when the **Error code** option is selected in the **Suppress for** selector above. You can type in a specific error code, for example **CW1234**, to suppress only this specific warning.                  |
 
-## 6 Read More {#read-more}
+
+## 6 阅读更多 {#read-more}
 
 * [Errors Pane](errors-pane)
-* [Consistency Errors](consistency-errors)
+* [一致性错误](一致性错误)
