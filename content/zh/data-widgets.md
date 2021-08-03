@@ -1,19 +1,47 @@
 ---
-title: "Data Widgets"
-parent: "pages"
+title: "数据部件"
+parent: "页面"
+menu_order: 15
+tags:
+  - "studio pro"
+  - "数据部件"
+  - "数据容器"
+  - "数据视图"
+  - "列表视图"
+  - "数据网格"
 ---
 
+## 1 导言
 
-[![](attachments/16713890/16844023.png)](data-grid)**[Data grid](data-grid)** The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed. Using controls provided by the data grid you can browse, search and edit those objects.
+数据部件显示一个对象的内容或对象列表。
 
+数据部件类别包含以下部件：
 
+* [数据视图](data-view) - 这个小部件显示一个对象的内容。 例如，如果您想要显示单个程序项的详细信息，您将为此使用数据视图：
 
-**[![](attachments/16713890/16844022.png)](data-view)[Data view](data-view)** The data view is a central component in Mendix applications. It is the starting point for showing the contents of exactly one object. If, for example, you want to show details of a single customer you would use a data view to do this. The data view typically contains a table with labels and input widgets like text boxes.
+    {{% image_container width="500" %}}![](attachments/data-widgets/data-view-example.png)
+    {{% /image_container %}}
 
+* [数据网格](data-grid) - 这个小部件显示一个表格式的对象列表。 例如，数据网格可以显示客户发出的所有订单。 使用数据网格提供的控件，您可以浏览、搜索和编辑这些对象。
 
+    {{% image_container width="450" %}}![](attachments/data-widgets/data-grid-example.png)
+    {{% /image_container %}}
 
-**[![](attachments/16713890/16844021.png)](list-view)[List view](list-view)** The list view is similar to the template grid. The list view shows a list of objects arranged vertically. Each object is shown using a template. During development, the object template is defined by placing a widget inside the list view's dropzone. The list of objects shown is determined by a data source.
+* [模板网格](template-grid) - 这个小部件显示一个图块视图中的对象列表。 例如，模板网格可以显示带有个人资料图片的雇员列表。 使用模板网格提供的控件，您可以浏览、搜索和操作这些对象。
 
+    {{% image_container width="450" %}}![](attachments/data-widgets/template-grid-example.png)
+    {{% /image_container %}}
 
+* [列表视图](list-view) - 这个小部件显示一个对象列表。 例如，您可以使用列表视图显示所有配置文件列表。
 
-[![](attachments/16713890/16844020.png)](template-grid)**[Template grid](template-grid)** The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. Using controls provided by the template grid you can browse, search and manipulate those objects.
+    {{% image_container width="450" %}}![](attachments/data-widgets/list-view-example.png)
+    {{% /image_container %}}
+
+## 2 执行基本函数
+
+{{% snippet file="refguide/performancing-basic-functions-widgets.md" %}}
+
+## 3 阅读更多
+
+* [页](page)
+* [页 次](页面)
