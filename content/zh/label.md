@@ -1,39 +1,63 @@
 ---
 title: "Label"
 parent: "common-widgets"
+menu_order: 30
+tags:
+  - "studio pro"
+  - "label"
+  - "common widgets"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/label.pdf).
+{{% /alert %}}
+
+## 1 Introduction
+
+{{% alert type="warning" %}}The label widget is not supported on native mobile pages.{{% /alert %}}
 
 {{% alert type="warning" %}}
 
-For input widgets it is recommended to use the more powerful [label property](text-box) to describe their purpose.
+For input widgets, it is recommended to use the [label property](text-box) to describe the purpose of widgets to end-users.
 
-For all other text use the [text widget](text) as it provides more features, for example, text templates, and generates semantically correct HTML.
-
-{{% /alert %}}
-
-A label shows static text, which intent is to describe the purpose of a specific widget to the user.
-
-{{% alert type="info" %}}
-
-![](attachments/pages/label.png) A label placed in a cell with render mode header.
+You can also use the [text widget](text) as it provides more features, for example, you can add parameters, and it generates semantically correct HTML.
 
 {{% /alert %}}
 
-## General properties
+A label shows static text, which describes the purpose of a specific widget to a user.
 
-{{% snippet file="refguide7/Caption+Property.md" %}}
+## 2 Properties
 
-## Visibility properties
+An example of label properties is represented in the image below:
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+{{% image_container width="300" %}}![Label Properties](attachments/common-widgets/label-properties.png)
+{{% /image_container %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+Label properties consist of the following sections:
 
-## Common properties
+* [Common](#common)
+* [Design Properties](#design-properties)
+* [General](#general)
+* [Visibility](#visibility)
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+### 2.1 Common Section {#common}
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+### 2.2 Design Properties Section {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 General Section {#general}
+
+The **General** section contains the **Caption** property. **Caption** defines the text that will be shown to a user.
+
+### 2.4 Visibility Section {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 3 Read More
+
+* [Page](page)
+* [Common Widgets](common-widgets)
+* [Properties Common in the Page Editor](common-widget-properties)
