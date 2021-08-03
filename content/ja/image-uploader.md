@@ -1,83 +1,83 @@
 ---
-title: "Image Uploader"
+title: "画像アップロード"
 parent: "file-widgets"
 tags:
   - "studio pro"
-  - "image uploader"
-  - "file widget"
-  - "widget"
+  - "画像アップローダー"
+  - "ファイルウィジェット"
+  - "ウィジェット"
 ---
 
-{{% alert type="warning" %}}The image uploader widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}画像アップローダーウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-An image uploader is used to upload images to the server. It also generates a thumbnail of the uploaded image. The uploaded image or its thumbnail can be displayed by an image viewer. It must be placed inside a data view connected to the entity System.Image or a specialization thereof.
+画像アップローダーは、サーバーに画像をアップロードするために使用されます。 また、アップロードされた画像のサムネイルも生成します。 アップロードされた画像またはサムネイルは、画像ビューアで表示できます。 エンティティシステムに接続されたデータビューの中に配置する必要があります。
 
-In the example below, an image uploader is placed in a nested data view (the *Profile* entity is a specialization of System.Image):
+以下の例では、イメージアップローダーがネストされたデータビューに配置されます ( *プロファイル* エンティティは System.Imageの専門化です):
 
-![Image Uploader](attachments/file-widgets/image-uploader.png)
+![画像アップロード](attachments/file-widgets/image-uploader.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of image uploader properties is represented in the image below:
+以下の画像では、画像アップローダーのプロパティの例を示します。
 
-{{% image_container width="250" %}}![Image Uploader Properties](attachments/file-widgets/image-uploader-properties.png)
+{{% image_container width="250" %}}![画像アップローダーのプロパティ](attachments/file-widgets/image-uploader-properties.png)
 {{% /image_container %}}
 
-Image uploader properties consist of the following sections:
+画像アップローダーのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [General](#general)
-* [Label](#label)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [全般](#general)
+* [ラベル](#label)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Editability Section {#editability}
+### 2.3 編集可能セクション {#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.4 General Section {#general}
+### 2.4 一般セクション {#general}
 
-#### 2.4.1 Maximum file size (MB)
+#### 2.4.1 最大ファイルサイズ (MB)
 
-**Max file size (MB)** determines the maximum size of files (in megabytes) that can be uploaded.
+**最大ファイルサイズ (MB)** アップロード可能なファイルの最大サイズを指定します。
 
-Default: *5*
+デフォルト: *5*
 
-#### 2.4.2 Allowed Extensions {#allowed-extensions}
+#### 2.4.2 許可されたエクステンション {#allowed-extensions}
 
-You can specify file extensions that users are allowed to upload. If no extension is specified, all file extensions are allowed. Separate multiple extensions by a semi-colon (for example, `txt;doc`).
+ユーザがアップロードできるファイル拡張子を指定できます。 拡張子が指定されていない場合、すべてのファイル拡張子が許可されます。 複数の拡張をセミコロンで区切ってください (例: `txt;doc`)。
 
-If a file with an extension that is not allowed is selected, a [system text](system-texts) for **File manager/image viewer** > **Error: incorrect file extension** will be shown below the file manager.
+許可されていない拡張子のファイルが選択されている場合。 [システムテキスト](system-texts) **ファイルマネージャ/画像ビューアー** > **エラー: ファイル拡張子** がファイルマネージャの下に表示されます。
 
-#### 2.4.3 Thumbnail Width
+#### 2.4.3 サムネイル幅
 
-**Thumbnail width** determines the width of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+**サムネイルの幅** はピクセル単位で生成されるサムネイルの幅を決定します。 ただし、サムネイル生成時の画像のアスペクト比は変わりません。
 
-#### 2.4.4 Thumbnail Height
+#### 2.4.4 サムネイル高さ
 
-**Thumbnail height** determines the height of the generated thumbnail in pixels. However, the aspect ratio of the image will remain the same during thumbnail generation.
+**サムネイルの高さ** はピクセル単位で生成されたサムネイルの高さを決定します。 ただし、サムネイル生成時の画像のアスペクト比は変わりません。
 
-### 2.5 Label Section {#label}
+### 2.5 ラベルセクション {#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.6 Visibility Section {#visibility}
+### 2.6 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [File Widgets](file-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [ファイルウィジェット](file-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
