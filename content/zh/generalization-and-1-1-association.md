@@ -1,78 +1,78 @@
 ---
-title: "Generalization & One-to-One Associations"
-parent: "entities"
+title: "常规化 & 一对一关联"
+parent: "实体"
 menu_order: 5
 ---
 
-Mendix developers have to choose on a daily basis whether or not they want to use inheritance. It starts the moment you initiate a new project; how do you want to setup your users? Are you going to keep using the already available Account entity in the Administration module? Or are you going to work with separate entities with a one-to-one association to the user account? Or are you going to add (multiple) entities that inherit from **System.User**?
+Mendix 开发者必须每天选择是否使用继承权。 它是在您启动一个新项目时开始的；您想如何设置您的用户？ 您是否将继续使用管理模块中已有的帐户实体？ 或者您是否要与拥有一对一关联的单独实体一起工作到用户帐户？ 或者您是否要添加 **System.User** 继承的 (多个)实体？
 
-When defining closely related structures, it can be difficult to decide on the best architecture. Should the entity inherit from my structure or do I rather want a one-to-one association? You should consider both options. Both options can have a huge impact on the performance of the application or the speed of development.
+在界定密切相关的结构时，很难决定最佳结构。 该实体是从我的结构继承还是想要一对一的协会？ 你应该考虑这两个选项。 这两种备选办法都会对应用的表现或发展速度产生巨大影响。
 
-## Generalization, Specialization, and Inheritance in Mendix
+## Mendix 中的普及、专业化和继承问题
 
-The Mendix domain model is based on the [UML](http://en.wikipedia.org/wiki/Unified_Modeling_Language) [class diagram](http://en.wikipedia.org/wiki/Class_diagram), which allows us to specify the objects/entities, their attributes and associations. The concept of generalization in UML is exactly the same in Mendix, however, the Mendix Domain model uses a different notation to display the Generalization. The UML class diagram uses associations with a hollow triangle (arrow) pointing to the super class. In Mendix generalization is expressed with a blue label above the entity, specifying the entity name.
+Mendix 域模型基于 [UML](http://en.wikipedia.org/wiki/Unified_Modeling_Language) [类图](http://en.wikipedia.org/wiki/Class_diagram), 允许我们指定对象/实体、其属性和关联性。 在Mendix中，UML中的一般化概念完全相同，但Mendix 域模型使用不同的符号来显示一般化。 UML 类图表使用一个空三角形(arrow)指向超级类的关联。 Mendix 通用表示实体上方的蓝色标签，指定实体名称。
 
-UML also allows us to specify the types of associations, such as an [Aggregation](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) or [Composition](http://en.wikipedia.org/wiki/Object_composition). The definition of these associations specify whether or not the objects can exist without each other. Unlike UML we can not specify how strong a relation ship is. Any dependencies between the two objects have to be specified using [event microflows](/refguide7/event-handlers) or [delete behavior/prevention](/refguide7/associations).
+UML 还允许我们指定关联的类型，例如 [聚合](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) 或 [合成](http://en.wikipedia.org/wiki/Object_composition) 这些协会的定义具体规定了对象是否能够彼此不相容地存在。 与 UML 不同，我们无法指定关系船的强度。 必须使用 [事件微流](/refguide7/event-handlers) 或 [删除行为/预防](/refguide7/associations) 指定两个对象之间的任何依赖关系。
 
-### Performance
+### 业绩
 
-In order to understand the impact and behavior of the application, you need to understand the basic concepts of [Transactions](http://en.wikipedia.org/wiki/Database_transaction) and [(Database) Isolation Levels](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed). The Mendix Platform uses Transactions, which means that every microflow, commit, and delete will happen in a (database) transaction. The transaction is initialized as soon as the microflow executes its first write to the database. Retrieve activities will never start a transaction.
+为了了解应用程序的影响和行为， 您需要了解 [交易](http://en.wikipedia.org/wiki/Database_transaction) 和 [(数据库) 隔离级别](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed) 的基本概念。 Mendix 平台使用交易，这意味着每个微流程、提交和删除都会在一个(数据库)交易中发生。 一旦microflow 执行首次写入数据库，交易就会初始化。 获取活动将永远不会启动交易。
 
-The Mendix Platform uses the transaction level [Read Committed](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed), which means, as the name suggests, that only committed objects are visible outside the transaction. Any other microflows trying to access an object that is being changed at the same time, will have to wait until the transaction has completed. This is important to know, since this has significant impact on your choice between inheritance or associated objects.
+Mendix 平台使用交易级别 [读取提交](http://en.wikipedia.org/wiki/Isolation_(database_systems)#Read_committed), 这意味着， 正如名称所暗示的那样，只有提交的对象是在交易之外可见的。 任何其他试图访问同时被更改的对象的微流都必须等待交易完成。 这一点对知道很重要，因为这对你在继承权或相关物品之间的选择有重大影响。
 
-### Creating and Changing Objects
+### 创建和更改对象
 
-When changing an object, the Mendix Platform will write those changes to the database as soon as you execute the commit activity. The update or insert query will be performed based on the values you have changed. This behavior varies per database, but most likely this will lock the record and prevent other users from reading it until the transaction has been completed (either finished or rolled back).
+当更改对象时，Mendix 平台将在您执行提交活动后立即将这些更改写入数据库。 将根据您更改的值执行更新或插入查询。 这种行为因数据库而异。 但这很可能会锁定记录，并阻止其他用户阅读，直到交易完成(要么完成要么回滚)。
 
-#### Inheritance
+#### 继承权
 
-When you change an object with inheritance the platform will potentially prevent all the retrieves on all entities from the hierarchy, since it will look at the super class, which is required for all retrieves.
+当您更改具有继承权的对象时，平台可能会阻止所有实体从层次结构中获取所有的东西。 因为它将查看超级类，这是所有检索所必需的。
 
-#### One-to-One Association
+#### 一对一协会
 
-When changing an object, none of the associated objects will be changed. There are two exceptions to this rule: of course if you change the associated object in an object event, or because associated objects are being 'auto-committed', see [How to Work with Object Events](/howto7/data-models/working-with-object-events).
+当更改对象时，任何关联对象都不会被更改。 这条规则有两个异常：当然如果你在对象事件中更改相关的对象 或因为关联的对象是自动委员会，请参阅 [如何与对象事件一起工作](/howto7/data-models/working-with-object-events)。
 
-Whenever you have a high number of write transactions in your application, it is far better to choose for a one-to-one association, since this limits the number of tables that are being changed/locked during a transaction. However, if you do more inserts than updates it might be worth using inheritance again. Inheritance uses one less table to store the relationship, it does not have the association table. Therefore, any inserts require one indexed table fewer to be updated.
+每当您的应用程序中有大量的写交易，最好为一对一的协会选择， 因为这限制了交易过程中更改/锁定的表数量。 然而，如果您插入的次数多于更新，可能值得再次使用继承。 继承使用一个较少的表来保存这种关系，它没有联系表。 因此，任何插入都需要少一个索引表才能更新。
 
-### Retrieving Objects
+### 正在获取对象
 
-Mendix is optimized to only retrieve the data that is required for the action that is being executed. That means, for example: if you do not show any associated or inherited attributes, those objects will not be included in the retrieve queries.
+Mendix 是最优化的，只能检索正在执行的操作所需的数据。 这意味着，如果您不显示任何关联或继承属性，这些对象将不会被包含在检索查询中。
 
-#### Inheritance
+#### 继承权
 
-If you retrieve any specializations from the super class the platform will always include the entire hierarchy in the query, in order to guarantee a consistent data structure. For example, if you have an overview of **Adminstration.Account**, the platform will include the System.User table whether or not you show any System.User attributes, just to make sure that the data is consistent and complete. Both tables have a clustered index on the object id, so joining the information in the database is extremely efficient.
+如果您从超级类检索到任何专业，平台将始终包括查询中的整个层次结构， 为保证数据结构的连贯性。 例如，如果您有 **Adminstration.Account**，平台将包含系统。 您是否显示任何System.User 属性的表格，只是为了确保数据的一致性和完整。 两个表格都在对象id上有一个分类索引，因此将信息并入数据库是极为有效的。
 
-#### One-to-One  Association
+#### 一对一协会
 
-The associated objects will only be retrieved when they are shown in a page. This is less efficient than with inheritance, because the information is retrieved using the association table, but based on how the information is ordered and filtered, it will be far less efficient to join over the association table than over the clustered index that is used with inheritance.
+只有当相关对象出现在一个页面时才能检索。 这比继承效率低，因为信息是使用关联表检索的。 但基于信息是如何排序和过滤的。 通过关联表加入比继承使用的集群索引低得多。
 
-If you require a lot of searching, sorting and displaying of the inherited/associated information it can be significantly more efficient to use inheritance. If the associated information is only required on a few pages, the additional delay retrieving the information over association instead of inheritance might be acceptable compared to the faster retrieve times on any other place in the application.
+如果您需要大量的搜索、分类和显示继承/相关信息，使用继承可能会更加有效。 如果只需要几页的相关信息， 与申请中任何其他地方更快的检索时间相比，通过关联而不是继承权检索信息的额外延迟可能是可以接受的。
 
-## Flexibility
+## 灵活度
 
-Making a decision between inheritance and associations is something you should do before loading a lot of data into the application. When adding associations, additional data may be required to specify the relationships between objects. When you remove generalizations, the relationship between the two objects will get lost. There are tricks you can use to resolve any previous relationships, however, this can be extremely difficult and time consuming once there is a lot of data available in your application.
+在将大量数据加载到应用程序之前，您应该在继承和关联之间做出决定。 添加关联时，可能需要额外的数据来指定对象之间的关系。 当您移除一般化时，两个对象之间的关系将会丢失。 不过，您可以使用一些技巧来解决以前的任何关系 一旦您的应用程序中有大量的数据，这可能是极其困难和耗费时间的。
 
-### Inheritance
+### 继承权
 
-Using inheritance can make your microflows easier to maintain, you can re-use functionality but you also loose flexibility. Once you have applied inheritance to an entity it is difficulty to remove the inheritance and keep all the data with a relationship. Or if a record can change type of subclass, for example an employee object changes and becomes a project manager object. In most scenarios there is no perfect solution and there are always concessions to make, just be aware of the implications when making a choice.
+使用继承权可以使您的微流更容易维护，您可以重新使用功能，但您也可以松散灵活性。 一旦您将继承权应用到一个实体，就很难移除继承权并保留所有的数据与关系。 或者如果记录可以更改子类的类型，例如员工对象改变并成为一个项目管理器对象。 在大多数情况下，没有完美的解决办法，总是可以作出让步，只要在作出选择时意识到所涉问题。
 
-Don't just add inheritance because it is easier, or remove it because it is slower. Especially in scenarios were different object types have to go through a similar process it can be worth it to apply inheritance just so you can re-use functionality and increase the consistency and stability of your application. One place you definitely don't want to use inheritance is in a system with a high transaction volume. Writing and updating records in tables with inheritance is slower than just updating a single table. If there are many new or changed objects loaded through, Excel, web services, or any other integration inheritance can slow the process down significantly.
+不要仅仅因为继承更容易添加，或者因为继承更慢而移除它。 特别是在不同的场景中，不同的对象类型必须经过一个类似的过程，应用继承可能是值得的，以便您可以重新使用功能并提高应用程序的一致性和稳定性。 一个你当然不想使用继承的地方是一个交易量高的系统。 编写和更新带有继承权的表格中的记录比仅仅更新单一表格要慢。 如果有许多新的或更改过的对象通过Excel、web 服务或任何其他集成继承，可以大大减慢该进程的速度。
 
-### One-to-One Association
+### 一对一协会
 
-When loading data through an integration, inheritance can improve the development speed, because functionality can be re-used. This is a huge advantage since all future changes only have to be applied in a single place. Inheritance however, could case the slower performance if all the changes can be stored in a separate entity. If it is possible to separate all data in a separate entity, and this information is only used by the application in a limited number of locations, it will be significantly faster to keep a one-to-one entity.
+当通过集成加载数据时，继承可以提高开发速度，因为功能可以被重新使用。 这是一个巨大的优势，因为今后的所有变化只能在一个地方适用。 但是，如果所有变化都可以存放在一个单独的实体中，继承权就会出现表现较慢的情况。 如果可以在一个单独的实体中分离所有数据， 而且这种信息只在有限的几个地点被应用使用， 保持一对一实体的速度要快得多。
 
-## Conclusion
+## 五. 结论
 
-This explanation might not have given you an explicit answer to the question on when to use inheritance, but that is because there is no right or wrong answer. Both inheritance and one-to-one associations have their advantages and disadvantages. Based on the situation you need to decide what is better for a particular entity. Below is a short summary of all the pros and cons for each situation. Based on these criteria you will need to decide for your entity which solution is worth it.
+这个解释可能没有给您一个关于何时使用继承权的问题的明确答案， 但这是因为没有正确或错误的答案。 继承权和一对一的社团都有其优点。 根据你需要决定哪个实体更好的情况。 下文简要概述了每个局势的所有利弊。 基于这些标准，您需要为您的实体决定哪个解决方案是值得的。
 
-There are a few situations where a clear answer can be given:
+有几种情况可以给出明确的答案：
 
-_Never use inheritance for entities with:_
+_从不对实体使用继承权：_
 
-*   _A high number of transactions on the different sub entities (As a high we consider multiple changes or creates per second)_
-*   _Only a handful common attributes. If you feel that it isn't worth creating associated objects for the information, it isn't worth inheriting either_
+*   _不同子实体的大量交易 (作为一个高度我们考虑多次更改或每秒创建)_
+*   _只有少数共同属性。 如果你觉得不值得为信息创建相关的对象，它就不值得继承其中任何一种。_
 
-_Never use one-to-one association for entities:_
+_实体从不使用一对一的协会：_
 
-*   _That always require the information from the associated objects, and users intensively search and sort on the associated attributes._
+*   _这总是需要来自相关对象的信息，用户对相关属性进行大量搜索和排序。_
