@@ -1,91 +1,101 @@
 ---
-title: "Import Mappings"
-parent: "mapping-documents"
+title: "导入映射"
+parent: "映射文档"
 tags:
   - "studio pro"
 ---
 
-Please refer to [Mapping Documents](mapping-documents) for an introduction.
+导入请参考 [映射文档](mapping-documents)。
 
-## 1 Obtaining Objects in Import Mappings
+## 1 在导入映射中获取对象
 
-Figure 1 depicts an example of an Import Mapping document in which two elements from an XML Schema have been selected using the **Select elements...** dialog. Following this the ReceivedPartners and ReceivedClient entities were added, and mapped to the Result and Client schema elements. Each time the Import Mapping is invoked, a new ReceivedPartners object is created.
+图1展示了导入映射文件的一个示例，其中，使用 **选择元素从XML Schema 中选取了两个元素。 。** 对话框。 在此之后，接收伙伴和接收客户实体被添加，并映射到结果和客户模式元素。 每次导入映射被调用时，都会创建一个新的接收伙伴对象。
 
 ![](attachments/import-mappings/16843942.png)
 
-**Figure 1**
+**图1**
 
-### 1.1 Obtaining an Object
+### 1.1 获得对象
 
-For each XML or JSON object, a Mendix object needs to be obtained. You can create one or you can find an existing object in the database. Alternatively, you can use a custom microflow that returns an object. You can see how a Mendix object is obtained in the window depicted in figure 2, which is shown after double clicking a specific mapping element.
+对于每一个 XML 或 JSON 对象，需要获取一个 Mendix 对象。 您可以创建一个或者您可以在数据库中找到一个现有的对象。 或者，您可以使用返回对象的自定义微流。 您可以看到如何在图2描述的窗口中获得Mendix 对象。 在双击特定映射元素后显示。
 
 ![](attachments/import-mappings/16843943.png)
 
-**Figure 2**
+**图2**
 
-### 1.2 Attribute Mapping Properties
+### 1.2 属性映射
 
-#### 1.2.1 Obtain Mendix Object Methods
+#### 1.2.1 获得Mendix Object Methods
 
-| Property                    | Description                                                                                                                                                                                                                                                                                                                             |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Create an object**        | Simply creates a new object. An error can be thrown if there are any before create microflows that fail.                                                                                                                                                                                                                                |
-| **Find an object (by key)** | Searches for an object, using keys defined in the attributes list. The runtime searches for the object by taking all attributes marked as **Key** (in the **Value element to attribute mapping** section below) and converting them to an XPath query. If more than one object is returned by the XPath query, an error will be thrown. |
-| **Call a microflow**        | Calls a microflow to obtain an object. If the microflow expects any parameters, these need to be specified in the **Select...** window. Possible parameters are the input parameter (see above), any parent entity in the mapping and of course any attributes in the current XML element.                                              |
+搜索对象，使用属性列表中定义的键。 将所有属性标记为 **密钥** (在下面用于属性映射</strong> 部分的 **值元素中)，并转换为一个 XPath 查询，从而为对象进行运行时间搜索。 如果在 XPath 查询中返回多个对象，将会抛出一个错误。</td> </tr> 
 
-#### 1.2.2 If No Object Was Found
+</tbody> </table> 
 
-This is the action that the runtime will perform when an error occurred in the specified **Obtain Mendix Object** action.
+
+
+#### 1.2.2 如果没有发现对象
+
+当指定的 **获取Mendix 对象** 动作发生错误时，运行时将执行的动作。
 
 ![](attachments/import-mappings/no-object-found.png)
 
-| Property   | Description                                                                                                  |
-| ---------- | ------------------------------------------------------------------------------------------------------------ |
-| **Create** | Create an object of the correct entity to map to.                                                            |
-| **Ignore** | Don't map this element and continue parsing the rest of the XML.                                             |
-| **Error**  | Explicitly stop parsing the XML and throw an error. This error needs to be handled in the calling microflow. |
+| 财产     | 描述                                   |
+| ------ | ------------------------------------ |
+| **创建** | 创建正确实体的对象进行映射。                       |
+| **忽略** | 不要映射此元素并继续解析其余的 XML。                 |
+| **错误** | 明确停止解析 XML 并抛出一个错误。 这个错误需要在调用微流程中处理。 |
 
-If this is the top level of the mapping, you can check **Decide this at the place where the mapping gets used**. If this is checked the option **if no object was found** can be set whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
 
-### 1.3 Setting Associations
+如果这是映射的最高层，您可以检查 **在映射所使用的地点决定**。 If this is checked the option **if no object was found** can be set whenever you use the mapping, for instance in an [import mapping action](import-mapping-action) or a [call REST service action](call-rest-action).
 
-Optionally, you may set an association to the parent object. If set to Yes, a list of allowed associations is shown. If an association is selected, it is drawn in the mapping document.
+
+
+### 1.3 设置关联
+
+可选，您可以设置一个关联到父对象。 如果设置为 “是”，将显示允许的关联列表。 如果选择一个关联，它会被绘制在映射文档中。
 
 {{% alert type="warning" %}}
 
-Be aware that lists are not stored ordered in the Mendix database. XML Schema can prescribe that a grouping of objects is a sequence, but the order of Mendix objects in the database may differ from the order of incoming XML elements.
+请注意，列表没有在 Mendix 数据库中存储。 XML Schema可以规定对象组是一个序列， 但数据库中Mendix 对象的顺序可能不同于传入的 XML 元素的顺序。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Mapping Attributes in Import Mappings
 
-Each selected XML or JSON element needs to be mapped to an attribute in the domain entity. If you don't want to map certain elements, simply uncheck them in the **Select elements...** dialog box. Configuring how to map the attributes is done in the screen depicted in figure 3, which is shown after double clicking a specific mapping element.
+
+## 导入映射中的 2 个映射属性
+
+每个选定的 XML 或 JSON 元素都需要映射到域实体中的属性。 如果您不想映射某些元素，请在 **选择元素中取消勾选它们...** 对话框框中。 配置如何映射属性是在图3描述的屏幕上进行的，在双击一个特定映射元素后显示。
 
 ![](attachments/import-mappings/16843943.png)
 
-**Figure 3**
+**图3**
 
-Having defined the mappings for the attributes, these mappings are also shown in the mapping document. When a specific attribute is selected the schema element is also selected. This works the other way around too. An example of this is shown in figure 4, where the **dati** attribute is selected in both the Entity and the schema element (in this case dati is mapped to dati).
+在定义了属性的映射之后，这些映射也会显示在映射文档中。 当选择特定属性时，方案元素也被选中。 这也起了相反的作用。 图4显示了这方面的一个例子。 其中 **dati** 属性是在实体和schema 元素中同时选择的(在这种情况下，数据库被映射到数据库)。
 
 ![](attachments/import-mappings/16843944.png)
 
-**Figure 4**
+**图4**
 
-### 2.1 Mapping Attribute Properties
 
-| Property                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Entity Attribute         | Here you can select an attribute to map this value element to. Each value mapping needs to be mapped, except when it is used as a parameter in the microflow to obtain an object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Schema value element     | The name and type of the schema value element.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Occurrence               | Reflects how often the element may occur. This can be **0..1** or **1**, depending on if it is required or not. If the value is empty and the minimum required occurrence of the element is 0 (as specified by the schema) the creation of the element will be skipped. In the case you want to never map a value to an optional element, simply disable it in the **Select elements...** dialog.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Convert using (optional) | If the incoming data of a value element is not in the right format, you can use a microflow to convert it to a different data type. The conversion microflow should have one parameter that matches the element type. Alternatively, the parameter may be of type String, as all incoming data is in fact a String. For example, when the incoming data contains an exotic DateTime format, you can parse this format yourself by using a conversion microflow with a String parameter. If this value element maps to an attribute, the return type of the conversion microflow must match the attribute type. Conversion microflows of value elements are executed before these value elements are used as search keys or microflow parameters to obtain an object. This means that when using a value element with a conversion microflow as parameter for the microflow to obtain an object, the parameter type should match the return type of the conversion microflow. |
-| Key                      | This property specifies whether the value element is used as search key to obtain an object. If a value element is used as search key, you must specify the attribute it maps to. The XML value will be matched to the value of this attribute when searching for an object. Attribute with 'binary' type is not supported to be set as key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Map attributes by name   | If this button is clicked, an attempt is made to match attributes by name. A dialog appears reporting what has been changed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
-## 3 Mapping Parameter
+### 2.1 制图属性
 
-Import mappings have the additional option to receive an incoming parameter. The parameter can be passed in by the calling microflow when microflow uses the [import from mapping](import-mapping-action) action.
+| 财产        | 描述                                                                                                                                                                                                                                                                 |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 实体属性      | 在这里，您可以选择一个属性来映射此值元素。 每个值映射都需要映射，除非它被用作微流程中的参数来获取一个物体。                                                                                                                                                                                                             |
+| 图案值元素     | 架构值元素的名称和类型。                                                                                                                                                                                                                                                       |
+| 出现的       | 反映该元素发生的频率。 这可以是 **0..1** 或 **1**, 取决于是否需要它。 如果值是空的且元素的最小发生时间是0 (按照方案的指定)，则元素的创建将被跳过。 如果你想永远不要映射一个值到一个可选元素，只需在 **选择元素中禁用它...** 对话框。                                                                                                                                |
+| 转换使用 (可选) | 如果输入值元素的数据格式不正确， 您可以使用微流程转换到不同的数据类型。 转换微流应该有一个与元素类型匹配的参数。 或者，参数可能是类型字符串，因为所有传入的数据事实上都是一个字符串。 例如，当传入的数据含有外来的日期时间格式 您可以使用带有字符串参数的转换微流来解析此格式。 如果此值元素映射到属性，转换微流的返回类型必须匹配属性类型。 值元素的转换微流是在这些值元素用作搜索密钥或微流参数以获取对象之前执行的。 这意味着当使用一个带转换微流的值元素作为微流获取物体的参数时， 参数类型应匹配转换微流程的返回类型。 |
+| 关键字       | 此属性指定值元素是否用作搜索键以获取对象。 如果一个值元素用作搜索密钥，您必须指定它映射到的属性。 当搜索对象时，XML值将匹配到此属性的值。 不支持设置为“binary”类型的属性。                                                                                                                                                                       |
+| 按名称映射属性   | 如果点击此按钮，请尝试使用名称匹配属性。 出现了一个对话框，报告了已经发生的变化。                                                                                                                                                                                                                          |
 
-To define a parameter for your mapping, click the parameter box and select the data type. You can also drag an entity to the parameter box.
 
-You can use a parameter as a key or in a microflow to obtain objects. When you use an entity parameter, you can set associations to it. When you use a primitive parameter (string, integer, etc.), you can write the value to an attribute of an object that is being imported.
+
+
+## 3 映射参数
+
+导入映射具有接收传入参数的附加选项。 当微流程使用 [导入映射](import-mapping-action) 动作时，参数可以通过调用微流程传递。
+
+要定义您映射的参数，请单击参数框并选择数据类型。 您也可以拖动一个实体到参数框。 
+
+您可以使用参数作为密钥或在微流程中获取对象。 当您使用实体参数时，您可以设置关联到它。 当您使用原始参数(字符串、整数等)，您可以将值写入正在导入的对象的属性。
