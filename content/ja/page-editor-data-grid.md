@@ -1,255 +1,256 @@
 ---
-title: "Data Grid"
+title: "データグリッド"
 parent: "page-editor-widgets"
-description: "Describes a data grid in the page editor of Mendix Studio."
+description: "Mendix Studioのページエディタでデータグリッドを説明します。"
 menu_order: 15
 tags:
-  - "studio"
-  - "page editor"
-  - "pages"
-  - "data view"
-  - "list view"
+  - "スタジオ"
+  - "ページエディタ"
+  - "ページ"
+  - "データビュー"
+  - "リスト表示"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A *data grid* shows a list of objects in a table format. For example, a data grid can show all the program items for an event. Using controls, end-users can browse, search, and edit objects in the data grid.
+*データ グリッド* はテーブル形式のオブジェクトのリストを表示します。 たとえば、データ グリッドは、イベントのすべてのプログラム アイテムを表示できます。 エンドユーザーは、コントロールを使用して、データ グリッド内のオブジェクトを参照、検索、編集できます。
 
 ![](attachments/page-editor-data-grid/data-grid-example.png)
 
-A data grid belongs to the **Data Container** category of widgets. For more information on different widget categories, see [Widgets](page-editor-widgets).
+データ グリッドはウィジェットの **データ コンテナ** カテゴリに属します。 ウィジェットカテゴリの詳細については、 [ウィジェット](page-editor-widgets) を参照してください。
 
-## 2 Data Grid Properties
+## 2 データグリッドのプロパティ
 
-Data grid contains the following properties:
+データ グリッドには、次のプロパティが含まれています。
 
-* [Data Source](#grid-data-source)
-* [Columns](#grid-columns)
-* [Rows](#grid-rows)
-* [Search](#grid-search)
-* [Events](#grid-events)
-* [Control Bar](#grid-control-bar)
-* [Conditional Visibility](#visibility)
-* [Design](#grid-design-section)
+* [データソース](#grid-data-source)
+* [列](#grid-columns)
+* [行](#grid-rows)
+* [検索](#grid-search)
+* [イベント](#grid-events)
+* [コントロール バー](#grid-control-bar)
+* [条件付き可視性](#visibility)
+* [デザイン](#grid-design-section)
 
-### 2.1 Data Source {#grid-data-source}
+### 2.1 データソース {#grid-data-source}
 
-The data source determines which objects will be shown in the data grid.
+データ ソースは、データ グリッドに表示されるオブジェクトを決定します。
 
 ![](attachments/page-editor-data-grid/data-grid-data-source.png)
 
-The **Data Source** section properties are described in the table below:
+**データ ソース** セクションのプロパティは以下の表に記載されています。
 
-| Data Source Property | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Database             | A data source that determines that the object or objects shown are retrieved directly from the database. You need to select an **Entity** (that you have in the domain model), or create a new entity, if you set database as the data source. <br />When you select an existing entity, the [grid columns](#grid-columns) are automatically created for each attribute of this entity. However, if the entity has more than eight attributes, you can choose whether you want to generate columns for all of them or select only several attributes. <br/>**Filter** – limits data in the data grid. You can create a filter only after you specify an entity for the data grid. For more information on data filtering, see [Data Filters](data-filters).<br />**Sort Order** – the order in which rows in the data grid are shown. You can specify a sort order only after you select an entity for the data grid. You can add multiple sorting rules. For example, you can add two sorting rules: one is to sort item by name in ascending order, and the other one is to sort items by email in descending order. Unique items will be sorted by name in ascending order, but if two or more items have the same name, then these items will be sorted by email. |
-| Microflow            | A data source that runs a selected microflow and displays a return value (as in, a list of objects).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| XPath                | Currently, this data source can only be configured in Studio Pro. For more information, see [XPath Source](/refguide8/xpath-source).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Association          | Available to data grids placed inside a data view or a list view. The data grid is filled with the objects linked to a data view/list view object by an association. Sorting columns and searching is not possible in data widgets with an association data source.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| データソースプロパティ | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| データベース      | 表示されているオブジェクトまたはオブジェクトがデータベースから直接取得されることを決定するデータソース。 **エンティティ** (ドメインモデルにある) を選択する必要があります。 または、データベースをデータソースとして設定する場合は、新しいエンティティを作成します。 <br />既存のエンティティを選択すると、 [グリッド列](#grid-columns) がこのエンティティの各属性に対して自動的に作成されます。 ただし、エンティティに 8 つ以上の属性がある場合。 すべての列を生成するか、複数の属性のみを選択できます。 <br/>**フィルター** - データグリッドのデータを制限します。 データ グリッドの図形を指定した後にのみフィルターを作成できます。 データフィルタリングの詳細については、 [データフィルター](data-filters)を参照してください。 [](data-filters)<br />**並べ替え順序** – データグリッドの行が表示される順序。 データ グリッドの図形を選択した後にのみ、並べ替え順序を指定できます。 複数の並べ替えルールを追加できます。 たとえば、2つの並べ替えルールを追加できます。1つは、昇順でアイテムを名前で並べ替えることです。 もう一つは電子メールで降順に並べ替えることです ユニークなアイテムは昇順で名前でソートされます 2つ以上の項目が同じ名前の場合、これらの項目は電子メールで並べ替えられます。 |
+| マイクロフロー     | 選択したマイクロフローを実行し、(オブジェクトのリストのように)戻り値を表示するデータソース。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| XPath       | 現在、このデータソースはStudio Proでのみ設定できます。 詳細に関しては、 [XPath ソース](/refguide/xpath-source) を参照してください。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 関連付け        | データ ビューまたはリスト ビュー内に配置されたデータ グリッドで使用できます。 データ グリッドには、関連付けによってデータ ビュー/リスト ビュー オブジェクトにリンクされたオブジェクトが表示されます。 関連データソースを持つデータ ウィジェットでは列の並べ替えや検索はできません。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
-For general information on data sources, see [Data Sources](/refguide8/data-sources) in the *Studio Pro Guide*.
+データソースに関する一般的な情報については、 [Studio Pro Guide](/refguide/data-sources) の *データソース* を参照してください。
 
-### 2.2 Columns {#grid-columns}
+### 2.2 カラム {#grid-columns}
 
-In **Columns** section, you can set the width for the data grid columns, add columns, edit, and delete them.
+**列** セクションでは、データ グリッド列の幅を設定し、列を追加、編集、削除できます。
 
 ![](attachments/page-editor-data-grid/data-grid-columns-section.png)
 
-The **Columns** section properties are described in the table below:
+**列** セクションのプロパティは以下の表に記載されています。
 
-| Property        | Description                                                                                                                                                                                                    |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Column Width in | Determines whether column widths can be set to fixed pixel values or if they should automatically scale to the width of the grid. Possible values of this property are the following: <ul><li>**Percentages** – column widths will be scaled to the widths of the grid, you can override width for each column, clicking the **Edit** icon and going to the [**Grid Column** properties](#grid-column-properties)</li><li>**Pixels** – column width will be set to fixed pixel values. *Auto* next to the **Edit** icon means that these columns have auto width and are evenly scaled in the data grid. You can override width for each column, clicking the **Edit** icon and going to the [**Grid Column** properties](#grid-column-properties). If you, for example, select a custom width for one column and make it bigger, the other columns with auto width will still be evenly scaled in the remained space.</li></ul> |
-| Columns         | Lists all the columns in the data grid. If you want to change the order of columns, click and drag the column name. Possible actions of this property are the following: <ul><li>**Reset Widths** – resets all custom widths to default values</li><li>**Edit** icon– navigates you to the [**Grid Column** properties](#grid-column-properties), where you can change its data source, name and width of the column</li><li>**Add Column** – adds a new column to the data grid and navigates you to the [**Grid Column** properties](#grid-column-properties)</li></ul>              |
+| 属性  | 説明                                                                                                         |
+| --- | ---------------------------------------------------------------------------------------------------------- |
+| 列の幅 | 列の幅を固定ピクセル値に設定できるか、グリッドの幅に自動的に拡大縮小できるかを指定します。 このプロパティの可能な値は次のとおりです。 <ul><li>**パーセンテージ** – 列の幅はグリッドの幅に合わせて拡大されます。各列の幅を上書きすることができます **編集** アイコンをクリックし、[**グリッド列** プロパティ](#grid-column-properties) に移動します</li><li>**ピクセル** - 列の幅は固定ピクセル値に設定されます。 **編集** アイコンの横にある *自動* は、これらの列の自動幅を持ち、データグリッドで均等にスケーリングされることを意味します。 各列の幅を上書きすることができます。**編集** アイコンをクリックして [**グリッド列** プロパティ](#grid-column-properties) に移動します。 たとえば、1 つの列のカスタム幅を選択し、それを大きくします。 自動幅を持つ他の列は、残りのスペースで均等に拡大されます。</li></ul>               |
+| 列   | データ グリッド内のすべての列を一覧表示します。 列の順序を変更する場合は、列名をクリックしてドラッグします。 このプロパティの可能なアクションは次のとおりです。 <ul><li>**幅をリセット** – すべてのカスタム幅をデフォルト値にリセットします</li><li>**編集** icon– [**Grid Column** プロパティ](#grid-column-properties) に移動し、列のデータソース、名前、幅を変更できます。</li><li>**列を追加** – データグリッドに新しい列を追加し、[**Grid Column** プロパティ](#grid-column-properties) に移動します。</li></ul> |
 
-#### 2.2.1 Grid Column Properties {#grid-column-properties}
+#### 2.2.1 グリッド列のプロパティ {#grid-column-properties}
 
-In the **Grid Column** properties, you can select the attribute, change the name, width, and editability of the data grid column.
+**グリッド列** プロパティでは、属性を選択し、データグリッド列の名前、幅、編集可能性を変更できます。
 
-![](attachments/page-editor-data-grid/grid-column-properties.png)
+{{% image_container width="300" %}}![](attachments/page-editor-data-grid/grid-column-properties.png)
+{{% /image_container %}}
 
-The properties are described in the table below:
+プロパティは以下の表に記載されています。
 
-| Property           | Description                                                                                                                                                                                                                                                                                                                      |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Attribute          | Determines which attribute of the object will be displayed in this column. Note that you need to configure the grid's data source first to select an attribute. For more information, see section [2 Data Source](#grid-data-source).                                                                                            |
-| Caption            | Defines which caption will be shown in the column header.                                                                                                                                                                                                                                                                        |
-| Width              | Displayed for **Column Width In** set to *Percentages*. Determines how much space in percentage the column should take.                                                                                                                                                                                                          |
-| Fixed Width        | Displayed for **Column Width In** set to *Pixels*. Determines if this column should have a fixed width or use the available space. When enabled, you can type in the fixed width in **Width In Pixels** (see below).                                                                                                             |
-| Width In Pixels    | Displayed only when **Fixed Width** is enabled. You can type in the value in this setting for the fixed column width.                                                                                                                                                                                                            |
-| Editable           | When enabled, clicking fields in this column will allow end-users to edit values directly, without the need for an edit form. <br />Only available if **Database** is selected as the data source of the grid. For more information on data source, see section [2 Data Source](#grid-data-source).                        |
-| Aggregate Function | With this property, you can calculate a sum, count, average, minimum, or maximum value that will be calculated and shown at the bottom of the data grid column. For example, you can display the total number of orders of a customer.<br />Only available for columns with attributes of type Decimal, Integer, and Long. |
-| Aggregate Caption  | Displayed only when **Aggregate Function** is selected. Defines which caption will be shown at the bottom of the grid column.                                                                                                                                                                                                    |
+| 属性        | 説明                                                                                                                                                                                      |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 属性        | この列に表示するオブジェクトの属性を指定します。 グリッドのデータソースを最初に設定して属性を選択する必要があることに注意してください。 詳しい情報については、 [2 Data Source](#grid-data-source) セクションを参照してください。                                                     |
+| 図表番号      | 列ヘッダーに表示するキャプションを指定します。                                                                                                                                                                 |
+| Width     | **列の幅に表示** で *パーセント* に設定します。 列のパーセント数のスペースを指定します。                                                                                                                                       |
+| 固定幅       | **列の幅に表示** で *ピクセル* に設定します。 この列に固定幅を設定するか、使用可能なスペースを使用するかを指定します。 有効にすると、 **Width In Pixels** で固定幅を入力できます (下記参照)。                                                                        |
+| 幅（ピクセル単位） | **固定幅** が有効な場合にのみ表示されます。 この設定で固定列幅の値を入力できます。                                                                                                                                            |
+| 編集可能      | 有効にすると、この列の項目をクリックすると、編集フォームなしでエンドユーザーが値を直接編集できるようになります。 <br />グリッドのデータ ソースとして **データベース** が選択されている場合にのみ使用できます。 データソースの詳細については、 [2 Data Source](#grid-data-source) セクションを参照してください。 |
+| 集計関数      | このプロパティでは、合計、カウント、平均、最小値を計算できます。 または、データグリッド列の下部に表示される最大値です。 たとえば、顧客の注文総数を表示できます。<br />小数、整数、および長さの属性を持つ列でのみ利用できます。                                                               |
+| 集計図表番号    | **集計関数** が選択されている場合にのみ表示されます。 グリッド列の下部にどの図表を表示するかを定義します。                                                                                                                                |
 
-### 2.3 Rows {#grid-rows}
+### 2.3 行 {#grid-rows}
 
-In the **Rows** section, you can set up the number of rows to be displayed on the data grid page, and the way to display them.
+**行** セクションで。 データグリッドページに表示される行数と表示方法を設定できます。
 
 ![](attachments/page-editor-data-grid/data-grid-rows-section.png)
 
-The properties are described in the table below:
+プロパティは以下の表に記載されています。
 
-| Property        | Description                                                                                                                               |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Number of Rows  | The maximum number of rows shown on one page of the data grid.                                                                            |
-| Show Empty Rows | When enabled, the data grid will always show the specified number of rows, even when the grid does not contain enough items to fill them. |
+| 属性     | 説明                                                  |
+| ------ | --------------------------------------------------- |
+| 行数     | データ グリッドの 1 ページに表示される行の最大数。                         |
+| 空の行を表示 | 有効にすると、グリッドに必要な項目がない場合でも、データグリッドには常に指定された行数が表示されます。 |
 
-### 2.4 Search {#grid-search}
+### 2.4 検索 {#grid-search}
 
-End-users can search for objects in the data grid if you enable search. You can determine the behavior of  search bar controls, as well as add, edit, and delete search fields.
+検索を有効にすると、エンドユーザーはデータ グリッド内のオブジェクトを検索できます。 検索バーコントロールの動作を決定したり、検索フィールドの追加、編集、削除を行うことができます。
 
 ![](attachments/page-editor-data-grid/data-grid-search-section.png)
 
-The **Search** section properties are described in the table below:
+**検索** セクションのプロパティは以下の表に記載されています。
 
-| Property             | Description                                                                                                                                                                                                                                            |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Enable Search        | When enabled, the end-user can search for objects in the data grid; when disabled no search bar or search button are displayed.                                                                                                                        |
-| Show Search Controls | Determines the way the search bar toggle button functions, and, as a result, how the search bar is displayed. This property is only displayed if **Enable Search** is on. Possible values of this property are the following: <ul><li>**With toggle button (initially open)** – the end-user can open and close the search bar using the **Search Bar Toggle Button**; the search bar is initially open (for more information on the **Search Bar Toggle Button**, see section [2.5.1. Grid Action Buttons](#grid-action-button))</li><li>**With toggle button (initially closed)** – the end-user can open and close the search bar using the **Search Bar Toggle Button**; the search bar is initially closed</li><li>**Always** – the search bar is always visible, there is no search bar toggle button</li></ul> |
-| Search Fields        | Lists search fields in the search bar. To change the order of fields, click and drag the field name. Possible actions of this property are the following: <ul><li>**Reset Search Field** – deletes all custom search fields and re-populates the bar with the default set of search fields – one for each applicable attribute with default values.</li><li>**Edit** icon – navigates you to the [**Search Field** properties](#grid-search-fields), where you can edit the search field</li><li>**Add Search Field** –  creates a new search field and navigates you to the [**Search Field** properties](#grid-search-fields), where you can configure the new search field</li></ul>                                                                     |
+| 属性          | 説明                                                                                                                                |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 検索を有効化      | 有効にすると、エンドユーザーはデータグリッド内のオブジェクトを検索できます。無効にすると、検索バーや検索ボタンが表示されません。                                                                  |
+| 検索コントロールの表示 | 検索バーがボタンの機能を切り替える方法と、結果として検索バーの表示方法を決定します。 このプロパティは、 **検索を有効にする** がオンの場合にのみ表示されます。 このプロパティの可能な値は次のとおりです。 <ul><li>**切り替えボタン（最初に開く）** – エンドユーザーは**検索バーの切り替えボタン**を使用して検索バーを開閉できます。 検索バーは最初に開いています(**Search Bar Toggle Button**の詳細については、[2. .1. グリッドアクションボタン](#grid-action-button))</li><li>**切り替えボタンで(最初は閉じました)** – エンドユーザーは**検索バーの切り替えボタン**を使用して、検索バーを開閉できます。 検索バーは最初は閉じられています</li><li>**常に** – 検索バーは常に表示され、検索バーのトグルボタンはありません</li></ul> |
+| 検索フィールド     | 検索バーに検索フィールドが一覧表示されます。 フィールドの順序を変更するには、フィールド名をクリックしてドラッグします。 このプロパティの可能なアクションは次のとおりです。 <ul><li>**検索フィールドをリセット** – すべてのカスタム検索フィールドを削除し、デフォルトの検索フィールドセットを持つバーに再入力します。</li><li>**編集** アイコン – [**検索フィールド** プロパティ](#grid-search-fields) に移動し、検索フィールドを編集できます。</li><li>**検索フィールドを追加** – 新しい検索フィールドを作成し、[**検索フィールド** プロパティ](#grid-search-fields) に移動し、新しい検索フィールドを設定できます。</li></ul>                   |
 
-#### 2.4.1 Search Field Properties {#grid-search-fields}
+#### 2.4.1 検索フィールドのプロパティ {#grid-search-fields}
 
-You can select the type of the search field in the **Search Field Properties**. Each type has its specific properties.
+検索フィールドの種類は **検索フィールドのプロパティ** で選択できます。 それぞれのタイプには特定のプロパティがあります。
 
-##### 2.4.2.1 Search Field Types
+##### 2.4.2.1 検索フィールドのタイプ
 
-Search field can be of three types:
+検索フィールドには3つのタイプがあります:
 
 ![](attachments/page-editor-data-grid/search-field-types.png)
 
-* **Input** – search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: AutoNumber, Date and Time, Integer, Long, String, Decimal
-* **Range** –  will apply a filter based on whether the search term falls between the values of two selected attributes. Possible attribute types: AutoNumber, Date and Time, Integer, Long, Decimal
-* **Drop-down** – search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: Boolean, Enumerations, Associations
+* **Input** – 検索結果は、指定した検索語と比較してフィルタリングされます。 検索値が属性値に一致する場合、このオブジェクトは検索結果の一部になります。 可能な属性タイプ: AutoNumber, Date and Time, Integer, Long, String, Decimal
+* **範囲** - 検索語が選択された2つの属性の値の間に該当するかどうかに基づいてフィルタを適用します。 可能な属性タイプ: AutoNumber, Date and Time, Integer, Long, Decimal
+* **ドロップダウン** – 検索結果は、特定の検索語と比較することでフィルタリングされます。 検索値が属性値に一致する場合、このオブジェクトは検索結果の一部になります。 可能な属性タイプ: ブーリアン、列挙、関連
 
-##### 2.4.2.2 Search Field Common Properties
+##### 2.4.2.2 検索フィールド 共通プロパティ
 
-The following properties are common for all types of search fields:
+以下のプロパティは、すべてのタイプの検索フィールドに共通です。
 
-* **Label** – the name of the search field
+* **Label** – 検索フィールドの名前
 
-*  **Default Value** – defines a  prefilled value for the search field
+*  **デフォルト値** - 検索フィールドの事前設定値を定義する
 
     ![](attachments/page-editor-data-grid/search-fields-common-properties.png)
 
-##### 2.4.2.3 Input and Drop-down Search Field Specific Properties
+##### 2.4.2.3 入力とドロップダウン検索フィールド固有のプロパティ
 
-Input and drop-down search fields have the following specific properties:
+入力フィールドとドロップダウン 検索フィールドには、次の特定のプロパティがあります。
 
-* **Attribute** – the value of the selected attribute will be compared to the search term.
+* **属性** - 選択した属性の値が検索語と比較されます。
 
-*  **Comparison** – the method used to compare the attribute with the search term.
+*  **比較** – 属性を検索語と比較するために使用される方法。
 
     ![](attachments/page-editor-data-grid/input-and-drop-down-search-field-properties.png)
 
-##### 2.4.2.4 Range Search Field Specific Properties
+##### 2.4.2.4 範囲検索フィールド固有のプロパティ
 
-A range search field has the following specific properties:
+範囲検索フィールドには、次の特定のプロパティがあります。
 
-* **Minimum Value** – determines which attribute of the entity the search term must exceed
+* **最小値** - 検索用語が超えなければならないエンティティの属性を決定する
 
-  * **Include Minimum Value** – when enabled, the minimum value is included into the range
+  * **最小値を含む** - 有効にすると、最小値が範囲内に含まれます
 
-* **Maximum Value** – determines which attribute of the entity the search term must fall below
+* **最大値** - 検索用語が下回るべきエンティティの属性を決定します
 
-  *  **Include Maximum Value** –  when enabled, the maximum value is included into the range
+    *  **最大値を含む** - 有効にすると、最大値が範囲内に含まれます
 
-      ![](attachments/page-editor-data-grid/range-search-field-properties.png)
+        ![](attachments/page-editor-data-grid/range-search-field-properties.png)
 
-### 2.5 Control Bar {#grid-control-bar}
+### 2.5 コントロール バー {#grid-control-bar}
 
-The control bar allows you to control the objects displayed in the data grid by means of buttons.
+コントロールバーを使用すると、ボタンを使用してデータ グリッドに表示されるオブジェクトを制御できます。
 
-The **Control Bar** section properties are described below:
+**コントロール バー** セクションのプロパティは以下のとおりです。
 
-*  **Show Paging Controls** – indicates if the buttons for paging through the data grid are visible to the end-user and has the following options:
+*  **Show Paging Controls** – データ グリッドをページングするためのボタンがエンドユーザーに表示され、以下のオプションがあるかどうかを示します。
 
     * **Yes (with total count)** – paging buttons are shown, including the **Go to last page** button and the total count of objects
-    * **Yes (without total count)** – paging buttons are shown except for the **Go to last page** button. Also, the total count of objects is not shown, as page numbers are shown instead
-    * **No** – The paging buttons are not shown. Hide the buttons if you are sure that the data grid will contain only one page
+    * **はい (合計数なし)** – ページングボタンは、 **最後のページに移動** ボタンを除き表示されます。 また、ページ番号が代わりに表示されるため、オブジェクトの総数は表示されません。
+    * **いいえ** – ページングボタンが表示されません。 データグリッドに1ページしか含まれていない場合はボタンを非表示にします
 
-        ![Show Paging Controls](attachments/page-editor-data-grid/control-bar-show-paging-controls.png)
+        ![ページングコントロールの表示](attachments/page-editor-data-grid/control-bar-show-paging-controls.png)
 
-* **Show Buttons** – determines whether the buttons defined in the **Buttons** section are shown. If disabled, none of the buttons will be accessible in any way, other than the one designated as the **On Click Action**. For more information, see sections [2.5.1 Grid Action Button](#grid-action-button) and [2.6 Events](#grid-events)
+* **Show Buttons** – **Buttons** セクションで定義されているボタンを表示するかどうかを決定します。 無効にすると、 **クリックアクション**として指定されたボタン以外のボタンはアクセスできません。 詳細については、 [2.5.1 グリッドアクションボタン](#grid-action-button) および [2.6 イベント](#grid-events) のセクションを参照してください。
 
-*  **Buttons** – lists buttons in the control bar. A button set as **On Click Action** in the **Events** section will be indicated as *On Click Action.* This means that even if buttons are hidden, when the end-user clicks or double clicks (depending on settings in the [Events](#grid-events) section) the grid item, the default button (action) will be triggered
+*  **ボタン** – コントロールバーのボタンを一覧表示します。 A button set as **On Click Action** in the **Events** section will be indicated as *On Click Action.* This means that even if buttons are hidden, when the end-user clicks or double clicks (depending on settings in the [Events](#grid-events) section) the grid item, the default button (action) will be triggered
 
     ![](attachments/page-editor-data-grid/control-bar-default-button.png)
 
   * **Edit** icon – depending on the button navigates you either to [**Grid Action Button** properties](#grid-action-button), or to [**Search Bar Toggle** properties](#search-bar-toggle)
-  * **Add Button** – navigates you to [**Grid Action Button** properties](#grid-action-button), where you can configure a new button for the data grid. When you create a new button, the action of this button is added to the list of possible on-click actions in the **Events** section (for more information, see section [2.6 Events](#grid-events))
+  * **Add Button** - [**Grid Action Button** プロパティ](#grid-action-button)に移動します。 をクリックして、データ グリッドの新しいボタンを設定できます。 When you create a new button, the action of this button is added to the list of possible on-click actions in the **Events** section (for more information, see section [2.6 Events](#grid-events))
 
-#### 2.5.1 Grid Action Buttons {#grid-action-button}
+#### 2.5.1 グリッドアクションボタン {#grid-action-button}
 
-A **Grid Action** button performs an action in the data grid. It can also be set as a default action for an **On Click Action** (except the **Search Bar Toggle**), this means that when an end-user clicks or double clicks (depending on the settings) the grid item, the default button will be triggered.
+**グリッドアクション** ボタンは、データ グリッドでアクションを実行します。 **クリックアクション** ( **検索バー トグル**を除く) のデフォルトアクションとして設定することもできます。 これは、エンドユーザーが(設定に応じて)グリッドアイテムをクリックまたはダブルクリックすると、デフォルトのボタンがトリガーされることを意味します。
 
 By default, the data grid will be created with a **Search Bar Toggle Button**, **New**, **Edit**, and **Delete** button in the control bar.
 
-You can add more buttons to the data grid and configure them for a specific on-click action.
+データ グリッドにさらにボタンを追加し、特定のオン クリック操作に合わせて設定できます。
 
-In the **On Click Action** section, you can select a data grid specific action for a button (for example, deselect all or export to Excel), or a standard one (for example, execute a microflow or save changes). For more information on buttons and standard on click actions, see [Buttons](page-editor-widgets-buttons) and [Events Section](page-editor-widgets-events-section).
+**On Click Action** セクションでは、ボタンに対するデータ グリッド固有のアクションを選択できます。 Excel にすべての選択またはエクスポートを解除するか、標準 1 (例えば、マイクロフローの実行、変更の保存など) を選択解除します。 ボタンとクリックアクションに関する標準の詳細については、 [ボタン](page-editor-widgets-buttons) および [イベント セクション](page-editor-widgets-events-section) を参照してください。
 
-Data grid specific actions are the following ones:
+データ グリッド固有のアクションは次のとおりです。
 
-*  <a name="search-bar-toggle"></a> **Search Bar Toggle Button** – opens or hides the search bar when you click it and is specific for the data grid. This button cannot be used if the data source is set to *Microflow*. Note that if the **Show Search Control** property is set to **Always**, there is no search bar toggle button, as the search bar is always open
+*  <a name="search-bar-toggle"></a> **Search Bar Toggle Button** – クリックすると、検索バーが開き、または非表示になります。 このボタンは、データ ソースが *Microflow* に設定されている場合には使用できません。 **Show Search Control** プロパティが **Always**に設定されている場合に注意してください。 検索バーは常に開いているため、検索バーの切り替えボタンはありません
 
     ![](attachments/page-editor-data-grid/search-bar-toggle-button.png)
 
-* **Create** – allows end-users to create new objects in a grid (for more information, see section [2.5.1.1 Grid Create Button](#grid-create-button))
+* **作成** - エンドユーザーがグリッドに新しいオブジェクトを作成できるようにします (詳細については、 [2.5.1.1 グリッド作成ボタン](#grid-create-button) を参照してください)
 
-* **Select** – confirms the choice of a row of the grid when it is used for selecting an object for a drop-down with an association selected as a data source or reference set selector. For this reason, the select button can only be placed on a grid that is connected to a drop-down with an association as a data source or a reference set selector
+* **Select** – データソースまたは参照セットセレクタとして選択された関連とドロップダウン用のオブジェクトを選択するために使用されるグリッドの行の選択を確認します。 このため、 select ボタンは、データソースまたは参照セットセレクタと関連付けを持つドロップダウンに接続されているグリッド上にのみ配置できます。
 
 * **Select All** – allows the end-user to select all objects in the grid; can only be used if you set [Selection Mode](#selection-mode) to **Multi-selection** or **One-click multi-selection** (for more information, see section [2.6 Events](#grid-events))
 
-* **Deselect All** – deselects all selected objects in the grid
+* **すべて選択解除** - グリッド内の選択されたすべてのオブジェクトの選択を解除
 
-* **Export to CSV** – export the contents of the grid to a CSV file. The csv export function relies on a specific data retrieval method, and cannot be used in a data grid with **Database** data source.
+* **CSVにエクスポート** – グリッドの内容をCSVファイルにエクスポートします。 csv export 関数は、特定のデータ検索メソッドに依存し、 **Database** データソースを持つデータ グリッドでは使用できません。
 
-    * **Maximum Number Of Rows** – defines the maximum number of rows to be exported.
+    * **行の最大数** - エクスポートする行の最大数を定義します。
 
-* **Export to Excel** – export the contents of the grid to an Excel file. The Excel export function relies on a specific data retrieval method, and cannot be used in a data grid with **Database** data source.
+* **Excel にエクスポート** – グリッドの内容をExcelファイルにエクスポートします。 Excel エクスポート関数は、特定のデータ検索メソッドに依存し、 **Database** データソースを持つデータ グリッドでは使用できません。
 
-    *  **Maximum Number Of Rows** – defines the maximum number of rows to be exported.
+    *  **行の最大数** - エクスポートする行の最大数を定義します。
 
-    *  **Date Export Format** – defines how dates will be exported. When *Date value* is selected, date values will be exported as real dates, allowing Excel functions on them. When *Text* is selected, date values will be exported exactly as shown in the data grid without allowing Excel to format them.
+    *  **日付エクスポートフォーマット** - 日付をエクスポートする方法を定義します。 *日付値* を選択すると、日付値が実際の日付としてエクスポートされ、Excel関数が使用できます。 *テキスト* を選択すると、Excel で書式を設定することなく、日付値がデータ グリッドに表示されるように正確にエクスポートされます。
 
-      ![](attachments/page-editor-data-grid/grid-export-to-excel-button.png)
+        ![](attachments/page-editor-data-grid/grid-export-to-excel-button.png)
 
-#### 2.5.1.1 Grid Create Button {#grid-create-button}
+#### 2.5.1.1 グリッド作成ボタン {#grid-create-button}
 
-The **Create** button allows end-users to create new objects in the data grid.
+**** ボタンを使用すると、エンドユーザーはデータ グリッドに新しいオブジェクトを作成できます。
 
 ![](attachments/page-editor-data-grid/grid-create-button.png)
 
-Users can edit new objects in the location specified in the **Edit Location** option. You can choose the following locations:
+ユーザーは、 **場所の編集** オプションで指定された場所の新しいオブジェクトを編集できます。 次の場所を選択できます。
 
-* **In a page** – the new object is added and can be edited in a page. The page in which this instance is being edited can be set with the page property.
-    * **Page** – this property is only displayed when the **Edit Location** is set to **In a page** and it indicates the page that is shown to end-users when they click this button. The end-user can use this page to edit the newly created object before it is saved. This page should contain a data view connected to the same entity as the data grid.
-* **Inline at a top** – the new object is added at the top of the grid and can be edited inline.
-* **Inline at bottom** – the new object is added at the bottom of the grid and can be edited inline.
+* **ページ** では、新しいオブジェクトが追加され、ページで編集できます。 このインスタンスが編集されているページは page プロパティで設定できます。
+    * **ページ** - このプロパティは、 **ページの** 編集 **に設定されている場合にのみ表示され、** このボタンをクリックしたときにエンドユーザーに表示されるページを示します。 エンドユーザーは、このページを使用して、新しく作成されたオブジェクトを保存する前に編集できます。 このページには、データ グリッドと同じエンティティに接続されたデータ ビューが含まれている必要があります。
+* **上部のインライン** – 新しいオブジェクトはグリッドの上部に追加され、インラインで編集できます。
+* **下部のインライン** – 新しいオブジェクトはグリッドの下部に追加され、インラインで編集できます。
 
-### 2.6 Events {#grid-events}
+### 2.6 イベント {#grid-events}
 
-In the **Events** section, you can select the actions performed automatically when an end-user clicks an item in the grid. You can also determine whether the user can select items, and the way the user can select them.
+**イベント** セクションでは、エンドユーザーがグリッド内の項目をクリックしたときに自動的に実行されるアクションを選択できます。 ユーザが項目を選択できるかどうか、ユーザが項目を選択できる方法を指定することもできます。
 
 ![](attachments/page-editor-data-grid/data-grid-events.png)
 
-The **Events** section properties are described in the table below:
+**イベント** セクションのプロパティは以下の表に記載されています。
 
-| Property                                     | Description                                                                                                                                                                                                                                                               |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **On Click Action**                          | Describes which control bar button should be triggered when clicking a grid item. You can create a new action in the **Control Bar** section and it will appear in the drop-down list of this property. Possible actions are the following ones: <ul><li>**None** – no action is taken</li><li>**New** – a new object is created</li><li>**Edit** – a user can edit the item</li><li>**Delete** – the item is deleted from the data grid</li></ul> |
-| **On Click Action Trigger**                  | Determines how the action selected in the **On Click Action** property is triggered. Possible values of this property are the following: <ul><li>**Double-click** – a double click triggers the selected on-click action</li><li>**Single-click** – a single click triggers the selected on-click action. Single-click cannot be used in combination with **Single selection** mode (see below)</ul>                                                                                                         |
-| **Selection Mode** <a name="selection-mode"></a> | Determines the way an end-user selects item in the data grid. Possible values of this property are the following: <ul><li>**No selection** – the user cannot select items</li><li>**Single selection** –  the user can select one item at a time by clicking it</li><li>**Always one selection** – the user can select one item at a time by clicking it, however, the user cannot deselect an item (by default the first item will be selected)</li><li>**Multi-selection** – the user can select multiple items by clicking the first one and holding the <kbd>Ctrl</kbd> key while clicking other items. Simply clicking an item will deselect all items and make the clicked item the selection.</li><li>**One-click multi-selection** – the user can select multiple items by simply clicking them.</li></ul>                                                                                                                                |
+| 属性                                  | 説明                                                                                                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **クリックアクション**                       | グリッドアイテムをクリックしたときにどのコントロールバーボタンをトリガーするかを説明します。 **コントロール バー** セクションで新しいアクションを作成することができ、このプロパティのドロップダウン リストに表示されます。 可能なアクションは以下のとおりです: <ul><li>**なし** – アクションが取られません</li><li>**新しい** - 新しいオブジェクトが作成されました</li><li>**編集** – ユーザーがアイテムを編集できます</li><li>**削除** – アイテムはデータグリッドから削除されます</li></ul> |
+| **クリックアクショントリガー**                   | **** プロパティで選択したアクションがトリガーされる方法を指定します。 このプロパティの可能な値は次のとおりです。 <ul><li>**Double-click** – ダブルクリックすると選択したオンクリックアクションがトリガーされます</li><li>**シングルクリック** – ワンクリックで選択したオンクリックアクションがトリガーされます。 **単一クリック** モードと組み合わせて使用することはできません (下記参照)</ul>                                                                          |
+| **選択モード** <a name="selection-mode"></a> | データ グリッド内の項目をエンドユーザーが選択する方法を指定します。 このプロパティの可能な値は次のとおりです。 <ul><li>**選択されていません** – ユーザーはアイテムを選択できません</li><li>**単一選択** – クリックすることで一度に1つのアイテムを選択できます</li><li>**Always one selection** – ユーザーはクリックすることで一度に1つの項目を選択することができます ただし、ユーザーはアイテムの選択を解除できません（デフォルトでは最初のアイテムが選択されます）</li><li>**複数選択** – 最初の項目をクリックし、 <kbd>Ctrl</kbd> キーを押しながら他の項目をクリックすることで複数の項目を選択できます。 単にアイテムをクリックすると、すべてのアイテムの選択が解除され、クリックしたアイテムが選択されます。</li><li>**ワンクリックで複数選択** – ユーザーはクリックするだけで複数のアイテムを選択できます。</li></ul>                                                                             |
 
-### 2.7 Conditional Visibility {#visibility}
+### 2.7 条件付き可視性 {#visibility}
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-### 2.8 Design {#grid-design-section}
+### 2.8 デザイン {#grid-design-section}
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Pages](page-editor)
+* [ページ](page-editor)
