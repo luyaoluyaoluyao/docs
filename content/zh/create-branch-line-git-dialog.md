@@ -1,40 +1,40 @@
 ---
-title: "Create Branch Line (Git)"
-parent: "branch-line-manager-dialog"
+title: "创建分支线(Git)"
+parent: "分支行管理器对话框"
 menu_order: 20
 tags:
   - "studio pro"
-  - "create branch line"
+  - "创建分支线"
 ---
 
-## 1 Introduction
+## 1 导言
 
-For Git, use the **Create Branch Line** dialog box to create a new [branch line](version-control#branches) via the **Branch Line Manager**:
+Git, 使用 **创建分支行** 对话框来创建新的 [分支行](version-control#branches) 通过 **分支行管理器**
 
 ![](attachments/version-control-menu/create-git-branch-line.png)
 
-To view the **Create Branch Line** dialog box,  do the following:
+要查看 **创建分支行** 对话框，请执行以下操作：
 
-1. Open **Version Control** > **Manage Branch Lines**.
-2. In the **Branch Line Manager**, click **New**.
+1. 打开 **版本控制** > **管理分支行**。
+2. 在 **分支行管理器**，点击 **新**。
 
-The **Create Branch Line** dialog box is displayed.
+**创建分支行** 对话框已显示。
 
-For more information on how to manage branch lines, see the [Managing Development Lines](collaborative-development#managing-branches) section in *Collaborative Development* and [Branch Line Manager](branch-line-manager-dialog). For information on the version control, see [Version Control](version-control).
+关于如何管理分支线的更多信息 查看 [管理开发线](collaborative-development#managing-branches) 部分在 *合作发展* 和 [分支行管理器](branch-line-manager-dialog)。 关于版本控制的信息，请参阅 [版本控制](version-control)。
 
-## 2 Base Branch Line
+## 2 基本分支线
 
-**Base branch line** allows you to choose the development line from which you want to create the branch line.
+**基础分支行** 允许您选择要创建分支线的开发线。
 
-## 3 Branch Name
+## 3 分支名称
 
-Enter a name for the new branch line.
+输入新分支行的名称。
 
 {{% alert type="warning" %}}
-Branch names cannot include special characters (for example, `@`, `$`, `#`).
-{{% /alert %}}
+分支名称不能包含特殊字符 (例如， `@`, `$`, `#`).
+{{% /报警 %}}
 
-## 4 Read More
+## 4 阅读更多
 
-* [Version Control](version-control)
-* [Collaborative Development](collaborative-development)
+* [版本控制](version-control)
+* [合作发展](collaborative-development)
