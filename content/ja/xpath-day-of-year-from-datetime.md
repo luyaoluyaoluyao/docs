@@ -1,22 +1,18 @@
 ---
-title: "XPath Day-of-Year-from-DateTime"
+title: "XPath の日付開始日"
 parent: "xpath-constraint-functions"
 tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-day-of-year-from-datetime.pdf).
-{{% /alert %}}
+## 1つの概要
 
-## 1 Overview
+`year-of-dateTime()` 関数は、 **Date and time** 属性から年の日を抽出し、値と比較するために使用することができます。 値は 1 (1 月 1日) から 366 (うるう年のため) の範囲です。
 
-The `day-of-year-from-dateTime()` function extracts the day in the year from a **Date and time** attribute so it can be used to compare to a value. Values range from 1 (January 1st) to 366 (due to leap years).
+## 2つの例
 
-## 2 Example
-
-This query returns all the logs where the day in the year in `DateAttribute` is 30 (for example, "2011-01-30" and "2012-01-30"):
+このクエリは、 `DateAttribute` の年の日付が 30 であるすべてのログを返します(例: "2011-01-30" と "2012-01-30" )。
 
 ```java
-//Logging.Log[day-of-year-from-dateTime(DateAttribute) = 30]
+//Logging.Log[year-of-dateTime(DateAttribute) = 30]
 ```
