@@ -1,42 +1,66 @@
 ---
-title: "Create Deployment Package Dialog"
-parent: "dialogs"
+title: "创建部署包"
+parent: "应用菜单"
+tags:
+  - "studio pro"
+  - "项目菜单"
+  - "部署包"
 ---
 
-## 1 Introduction
+## 1 导言
 
-With this dialog box, you can create a deployment package. A deployment package can be deployed on the Developer Portal or on a server that is configured to run Mendix software. While developing you can deploy and run on your local machine, but once you are ready to deploy your project on a real server you will need to create a deployment package.
+一个部署包可以部署到另一个云供应商Mendix Cloud(例如SAPBTP)， 或在配置为 Mendix 软件的服务器上。 开发时，你可以在本地机器上部署和运行， 但一旦您准备好在其他地方部署您的应用，您将需要创建一个部署包。 对于某些平台，这是作为部署过程的一部分自动完成的，但对于另一些平台，您需要明确创建部署包。
 
-To open the **Create Deployment Package** dialog box, go to **Project > Create Deployment Package**.
+![创建部署包对话框](attachments/app-menu/create-deployment-package.png)
 
-![](attachments/create-deployment-package-dialog/create-deployment-package-dialog.png)
+{{% alert type="warning" %}}
+大多数部署目标对你可以部署的未压缩的部署包的大小有限制。 例如：
 
-## 2 Versioned
+| Target    | 最大部署包大小 |
+| --------- | ------- |
+| Mendix 云  | 1GB     |
+| SAP BTP   | 1.5GB   |
+| 隐私云Mendix | 200 MB  |
 
-If you select **Yes** for **Versioned**, a versioned deployment package is built from a fresh download of a specific revision in the Team Server. This means that you can always trace its origin and recreate it.
+这是部署包的未压缩大小 (.mpk 文件)。 您可以在文件存档程序中打开您的软件包文件，例如 [7-Zip](https://www.7-zip.org/) 并查看文件属性或 **信息** 来找到未压缩的文件大小。
 
-If you select **No** for **Versioned**, an unversioned deployment package will be built based on your local project on disk. An unversioned deployment package cannot be traced back to a specific revision. Therefore, we recommend that you create versioned deployment packages unless you have very good reasons.
+不幸的是，从部署记录中显示的错误来看，并非总是很清楚包的大小是一个问题。 但如果你在应用部署时遇到问题，你应该检查包大小作为一个可能的原因。
+{{% /报警 %}}
 
-## 3 Development Line (for Versioned)
+## 2 个版本
 
-Choose the **Development line** for which you want to create a deployment package. This can be the main line or any branch line. For example, you create a package from a maintenance branch line if your want to put a fix you implemented there online. Or you create a deployment package from the main line because you are ready to deploy the next big version of your application.
+您可以在这里决定是否创建一个版本控制的部署包。
 
-## 4 Revision (for Versioned)
+一个版本化的部署包是从重新下载在团队服务器中保存的特定版本来构建的。 这意味着您可以随时追踪其来源并重新创建它。 我们建议您创建版本部署包，除非您有很好的理由。
 
-Choose the **Revision** of the selected development line for which you want to create a deployment package. This is not necessarily the latest revision because you might want to exclude some recently developed functionality.
+非版本部署包基于您的本地磁盘应用，不能追溯到特定的版本。
 
-## 5 New Version (for Versioned)
+## 版本部署包的选项
 
-Choose a **New version** for the deployment package. The version consists of four numbers: **Major** version, **Minor** version, **Patch**, and **Revision**. The revision is fixed and determined by the revision you selected for **Revision**.
+如果您正在创建一个版本化的部署包，您将需要输入下面描述的信息。 关于版本控制的更多信息，见 [版本控制](version-control)。
 
-You are free to choose the other numbers, but it is wise to use a convention for the numbering. Major versions typically contain major new features or rewrites of existing features. A minor version contains small new features and fixes. A patch solves minor issues and should not change the data model of the application. A patch release should be interchangeable with another patch release with no changes to the data.
+### 3.1 发展线
 
-The Desktop Modeler will show you the latest version that you created a package for (if any). You can increase major, minor, or patch according to the convention you use.
+选择你想要创建部署包的 **开发行**。 这可以是主线或任何分支线。 例如，如果你想要在网上修复你的操作，你可以从维护分支线创建一个包。 或者您从主行创建一个部署包，因为您准备好部署下一个大版本的应用程序。
 
-## 6 Description (for Versioned)
+### 3.2 修订
 
-You can enter a custom **Description** for this deployment package. It is purely for your own reference so that you can quickly recognize a package. The Developer Portal will show you this description along with the version number.
+Choose the **Revision** of the selected development line for which you want to create a deployment package. 您可能不想要更新的一个原因是如果您想排除一些最近开发的功能。
 
-## 7 Disk Location
+### 3.3 新版本
 
-This shows the location where the deployment package will be placed. This is not editable. All packages are placed in a directory called **releases** inside your project directory. This directory is automatically ignored so that these packages will not be committed to the repository. You can always recreate a deployment package (assuming you have the Desktop Modeler version you used) so there is no need to put them on the Team Server.
+为部署包选择一个 **新版本**。 该版本由四个数字组成：主要版本、次要版本、补丁和订正。 修订版本由您选择的 **修订版** 固定和决定。
+
+您可以自由选择其它数字，但是最好用约定来进行编号。 主要版本通常含有主要的新特征或重写现有特征。 一个小版本包含小的新功能和修复。 补丁解决了一些小问题，不应更改应用程序的数据模型。 补丁发布应该可以与另一个补丁发布互换，但数据没有变化。
+
+Studio Pro 将向您展示您创建软件包的最新版本(如果有的话)。 您可以根据您使用的约定，增加主要、次要或补丁。
+
+### 3.4 描述
+
+您可以为这个部署包输入一个自定义 **描述**。 它纯粹是为了您自己的参考，以便您可以快速识别一个包。 开发者门户将向您展示此描述以及版本号。
+
+## 4 个文件名
+
+对于版本和非版本部署包，你需要知道部署包将保存在哪里。 这在 **文件名** 字段中显示。 不可编辑。
+
+所有软件包都放置在您的应用目录中的目录 **releases** 中。 此目录被自动忽略，所以这些软件包不会被导入资源库。 您总是可以重新创建一个部署包 (使用您最初使用的Studio Pro 版本)，所以没有必要将它们放到团队服务器。
