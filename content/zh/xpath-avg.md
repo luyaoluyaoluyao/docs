@@ -1,7 +1,13 @@
 ---
-title: "XPatroad avg"
+title: "XPath 平均值"
 parent: "xpath-query函数"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xpath-avg.pdf)。
+{{% /报警 %}}
 
 ## 1 概览
 
