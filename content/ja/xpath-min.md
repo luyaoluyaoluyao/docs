@@ -1,8 +1,6 @@
 ---
-title: "XPath 最小値"
+title: "XPath 分"
 parent: "xpath-query-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
