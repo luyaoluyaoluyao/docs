@@ -1,66 +1,66 @@
 ---
-title: "Microflow Source"
-parent: "data-sources"
+title: "マイクロフローソース"
+parent: "データソース"
 tags:
   - "studio pro"
-  - "microflow source"
-  - "data source"
+  - "マイクロフローソース"
+  - "データソース"
 menu_order: 40
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In most cases, you use the **Database**, **XPath**, or **Association** data sources to fill a [data widget](data-widgets). For example, if the properties of a data grid require an object of an entity selected in the data grid, the data grid gets its objects from a database query. Another example is that a nested template grid can retrieve its objects over an association. However, sometimes the target objects need to adhere to very specific criteria, or different objects are shown under different circumstances that cannot be handled by an [XPath](xpath-constraints). In these situations a **Microflow** data source may be required.
+In most cases, you use the **Database**, **XPath**, or **Association** data sources to fill a [data widget](data-widgets). たとえば、データ グリッドのプロパティがデータ グリッドで選択された図形のオブジェクトを必要とする場合。 データグリッドはそのオブジェクトをデータベースクエリから取得します。 別の例として、ネストされたテンプレート グリッドは、関連付け上でオブジェクトを取得できます。 ただし、対象となるオブジェクトは特定の基準に準拠する必要がある場合があります。 [XPath](xpath-constraints) では扱えない、または異なるオブジェクトが異なる状況下で表示されます。 このような状況では、 **Microflow** データソースが必要になる可能性があります。
 
-When a data widget with a microflow data source is displayed in the browser or refreshed, it runs the designated microflow and displays the return value. The manner in which the objects are acquired in the microflow is entirely up to you, which allows for unlimited control over what objects to return.
+マイクロフローデータソースを持つデータ ウィジェットがブラウザーに表示または更新されたとき。 指定されたマイクロフローを実行し戻り値を表示します オブジェクトがマイクロフローで取得される方法は、完全にあなた次第です。 どの物体が戻ってくるかを無限にコントロールできるのです
 
-A microflow data source ignores all context. It performs the actions described in the microflow, nothing else. For example, nested data widgets with a microflow data source will not automatically create or invoke associations to the encasing data widget.
+マイクロフローデータソースはすべてのコンテキストを無視します。 これは、マイクロフローで説明されているアクションを実行します。 たとえば、マイクロフローデータソースを持つネストされたデータウィジェットは、自動的にデータウィジェットを作成したり、エンサイジングウィジェットへの関連付けを呼び出したりすることはありません。
 
 {{% alert type="info" %}}
-When **Microflow** is selected as the data source, this is regarded as "indirect usage." This means that you cannot also select an **Entity (path)** as you can with the **Database**, **XPath**, or **Association** data source types.
+データソースとして **マイクロフロー** を選択した場合、これは「間接使用」とみなされます。 This means that you cannot also select an **Entity (path)** as you can with the **Database**, **XPath**, or **Association** data source types.
 {{% /alert %}}
 
-## 2 Microflow Data Source Example
+## 2 マイクロフローデータソースの例
 
-In this scenario, you have a data grid that needs to display a list of potential orders based on the order type:
+このシナリオでは、注文タイプに基づいて潜在的な注文のリストを表示する必要があるデータ グリッドがあります。
 
-{{% image_container width="400" %}}![Microflow Data Source for a Data Grid](attachments/data-widgets/data-grid-microflow-source.jpg)
+{{% image_container width="400" %}}![データグリッドのマイクロフローデータ](attachments/data-widgets/data-grid-microflow-source.jpg)
 {{% /image_container %}}
 
-If the **OrderType** of the **Order** entity is set to **Cars**, then the data grid should display all the **Products** for which the Boolean **Motorized** is set to true. If the **OrderType** is **Bicycles**, only objects for which **Motorized** is set to false need be shown. Finally, if **OrderType** is empty, the data grid should remain empty.
+If the **OrderType** of the **Order** entity is set to **Cars**, then the data grid should display all the **Products** for which the Boolean **Motorized** is set to true. **OrderType** が **Bicycles**の場合、 **Motorized** がfalse に設定されているオブジェクトのみを表示する必要があります。 最後に、 **OrderType** が空の場合、データグリッドは空のままにする必要があります。
 
-![Entities Example](attachments/data-widgets/entities-example.jpg)
+![エンティティの例](attachments/data-widgets/entities-example.jpg)
 
-Because of the mismatch in attribute types, this cannot be constrained by XPath, so a microflow data source is required.
+属性型が一致しないため、XPathでは制約を受けられないため、マイクロフローのデータソースが必要です。
 
-The microflow for this scenario should look like this:
+このシナリオのマイクロフローは次のようになります:
 
-![Microflow Example](attachments/data-widgets/microflow-nanoflow-example.jpg)
+![マイクロフローの例](attachments/data-widgets/microflow-nanoflow-example.jpg)
 
-This microflow does the following:
+このマイクロフローは以下のようになります:
 
-1. It passes the **Order** of the enclosing data view as a parameter.
-2. It then splits on the **OrderType** attribute and retrieves a different set of products for each enumeration value.
-3. It returns a list of products, and each end event is configured to return a list. Note that the **empty** path also requires a value, wherein **empty** is also a value.
+1. パラメータとして、囲まれたデータビューの **Order** を渡します。
+2. その後、 **OrderType** 属性に分割され、各列挙値に対して異なる製品セットを取得します。
+3. これは製品のリストを返し、各エンドイベントはリストを返すように構成されています。 **空の** パスにも値が必要であり、ここで **空の** も値であることに注意してください。
 
-## 3 Properties
+## 3つのプロパティ
 
-### 3.1 Microflow{#microflow}
+### 3.1 マイクロフロー{#microflow}
 
-This designates the microflow to be used to populate the data widget. This microflow will be run whenever the data widget is loaded into the browser or refreshed. The microflow must have a return value of either an object or a list of objects, depending on the data widget being used.
+これは、データ ウィジェットを生成するために使用するマイクロフローを指定します。 このマイクロフローは、データ ウィジェットがブラウザーにロードされたり更新されたりするたびに実行されます。 使用するデータ ウィジェットに応じて、microflow はオブジェクトまたはオブジェクトのリストの戻り値を持つ必要があります。
 
-### 3.2 Microflow Settings
+### 3.2 マイクロフローの設定
 
-**Microflow settings** opens a dialog box enabling you to specify what parameters will be passed to the microflow.
+**マイクロフロー設定** では、どのパラメータをマイクロフローに渡すかを指定するためのダイアログボックスを開きます。
 
-#### 3.2.1 Microflow
+#### 3.2.1 マイクロフロー
 
-This duplicates the [Microflow](#microflow) specified above.
+これは、上記で指定した [Microflow](#microflow) を複製します。
 
-#### 3.2.2 Microflow Arguments
+#### 3.2.2 マイクロフロー引数
 
-**Microflow arguments** are automatically configured based on the parameters of the selected microflow and the available arguments. In general arguments are taken from any enclosing data widget. If the data widget enclosing the widget calling a microflow is inside another (nested) data widget, then objects from that data widget and any others in which it is nested can also be passed.
+**マイクロフロー引数** は、選択したマイクロフローと利用可能な引数のパラメータに基づいて自動的に設定されます。 一般的な引数は、囲むデータウィジェットから取得されます。 マイクロフローを呼び出すウィジェットを囲むデータ ウィジェットが別の(ネストされた)データ ウィジェットの中にある場合。 そして、データ ウィジェットやネストされているその他のオブジェクトも渡すことができます。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Data Widgets](data-widgets)
+* [データウィジェット](data-widgets)
