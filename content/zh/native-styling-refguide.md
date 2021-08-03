@@ -1,147 +1,147 @@
 ---
-title: "Native Mobile Styling"
-parent: "native-mobile"
+title: "原生移动样式"
+parent: "本地移动版"
 menu_order: 20
-description: "This reference guide will contextualize the style elements Mendix uses in native mobile apps, as well as explain the classes and style properties of Mendix’s widgets."
+description: "本参考指南将在本地移动应用中自定义Mendix 风格元素， 同时解释Mendix小部件的类和风格属性。"
 tags:
-  - "Native"
-  - "Class"
-  - "Design"
-  - "Property"
-  - "Style"
-  - "Widget"
+  - "原生的"
+  - "类"
+  - "设计"
+  - "财产"
+  - "样式"
+  - "小部件"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This reference guide will contextualize the style elements Mendix uses in native mobile apps, as well as explain the classes and style properties of Mendix’s widgets. To learn the basics of native styling, you can consult [How to Implement Native Mobile Styling](/howto/mobile/native-styling) and then follow [How to Style Your Mendix Native Mobile App](/howto/mobile/how-to-use-native-styling).
+本参考指南将在本地移动应用中自定义Mendix 风格元素， 同时解释Mendix小部件的类和风格属性。 学习本机搭配的基础知识， 您可以咨询 [如何实现本地移动式样式](/howto/mobile/native-styling) 然后跟随 [如何使您的Mendix 本地移动式应用程序](/howto/mobile/how-to-use-native-styling)。
 
-Mendix apps use layouts to dictate how pages can look and function. For native mobile apps specifically, you can use a native layout to easily integrate navigation and settings optimized for native functionality. For more information on layouts, see [Layout](layout).
+Mendix 应用程序使用布局来决定页面的外观和功能。 对于本机移动应用，您可以使用本机布局来轻松整合导航和设置以优化本机功能。 欲了解更多布局信息，请参阅 [布局](layout)。
 
-To keep widgets responsive, Mendix apps use Flexbox. Using Flexbox, a component can set the layout of its child components. This allows your app to retain a consistent layout across multiple form factors. For more information on layout, see React Native’s [Flexbox documentation](https://reactnative.dev/docs/flexbox).
+要保持小部件的响应性，Mendix 应用程序使用 Flexbox。 使用Flexbox，组件可以设置子组件的布局。 这允许您的应用在多个表单因素之间保留一个一致的布局。 欲了解更多关于布局的信息，请参阅React Native的 [Flexbox 文档](https://reactnative.dev/docs/flexbox)。
 
-You can use the `height` and `width` properties to set a widget component’s dimensions. For more information on size, see React Native’s [Height and Width documentation](https://reactnative.dev/docs/height-and-width).
+您可以使用 `高度` 和 `宽度` 属性来设置部件组件的尺寸。 欲了解更多关于大小的信息，请参阅React Native的 [高度和宽度文档](https://reactnative.dev/docs/height-and-width)。
 
-## 2  Style Objects {#style-objects}
+## 2 样式对象 {#style-objects}
 
-A widget is composed of various elements, and each can be styled individually. You can customize your widgets using style objects. A style object is a JavaScript object with a set of attributes specific for each widget. Some of the attributes reuse properties of other elements, such as React Native’s ViewStyle, TextStyle, ImageStyle, and Colors elements. You can consult the following property sets for more information on styling properties as you customize your app:
+一个小部件由各种元素组成，每个元素都可以单独设计。 您可以使用样式对象自定义您的部件。 样式对象是具有针对每个部件的一组属性的 JavaScript 对象。 某些属性会重新使用其他元素的属性，例如React的视觉风格、TextStyle、ImageStyle和颜色元素。 当您自定义应用时，您可以咨询以下属性集以获取关于样式属性的更多信息：
 
-* **ViewStyle** – React Native’s [View Style](https://reactnative.dev/docs/view-style-props) property set helps you alter borders, opacity, and other general aspects of your app (the view style property set also contains layout, shadow, and transform properties)
-* **TextStyle** – React Native’s [Text](https://reactnative.dev/docs/text-style-props) property set will allow you to style text – using these props you can control text’s font, selection status, and more (the text property set also contains layout properties)
-* **ImageStyle** – React Native’s [Image](https://reactnative.dev/docs/image-style-props) property set will allow you to style images from network sources, a local library, and temporary local images – using these properties you can alter an image’s size, border, and more, while the image property set also contains layout properties (the `resizeMode` value `repeat` is not supported)
-* **Colors** – React Native’s [Color Reference](https://reactnative.dev/docs/colors) property set will allow you to alter colors – you can customize colors using red-green-blue notation, change hue or saturation, and more
+* **视图样式** — React Native [视图样式](https://reactnative.dev/docs/view-style-props) 属性集帮助您更改边界，不透明度 和您应用的其他一般方面(视图样式属性集也包含布局、阴影和变换属性)
+* **TextStyle** — — React Native的 [Text](https://reactnative.dev/docs/text-style-props) 属性集将允许您使用样式文本——使用这些属性可以控制文本的字体， 选择状态和更多 (文本属性集也包含布局属性)
+* **ImageStyle** — React Native's [Image](https://reactnative.dev/docs/image-style-props) property set will allow you to style image from network sources, 一个本地库和临时本地图像 - 使用这些属性，您可以更改图像的大小 更多 图像属性也包含布局属性( `调整大小模式` 值 `重复` 不支持)
+* **颜色** — React Native [颜色参考](https://reactnative.dev/docs/colors) 属性集将允许您更改颜色 — 您可以使用红-绿色符号自定义颜色。 更改色调或饱和度，及更多
 
-### 2.1  Class Names
+### 2.1 类名
 
-Each style object has a name, referred to as the object’s class name. You can create new custom classes, and then apply styling to a single widget by setting a class name onto a widget class property. Here you can see the code for creating a `customClassName`:
+每个样式对象都有一个名称，称为对象的类名称。 您可以创建新的自定义类，然后通过设置类名称到小部件类属性来应用样式到单个小部件。 您可以在这里看到用于创建 `自定义类名称` 的代码：
 
 ```javascript
-// A custom styling class
-export const customClassName = {
-    container: {
-        // ViewStyle properties
+// 一个自定义样式类
+导出const customClassname = }
+    container: @un.org
+        // 查看样式属性
         paddingTop: 5
     },
-    text: {
-        // TextStyle properties
-        fontWeight: "bold"
+    文本：欧共体
+        // TextStyle 属性
+        字体权重："bold"
     }
 }
 ```
 
-That custom class can be easily accessed in Mendix Studio Pro:
+该自定义类可以轻松访问 Mendix Studio 专业版：
 
 {{% image_container width="400" %}}![custom class](attachments/native-styling-refguide/custom-class.png){{% /image_container %}}
 
-When you want to apply styling to one instance of a widget, you can extend that widget’s default class. Each widget's default class is named in the [Data Widgets](#understanding-data-widgets) section below. The example below shows how to extend a default class:
+当你想要将样式应用于一个小部件的实例时，你可以扩展该小部件的默认类。 每个小部件的默认类都在下面的 [数据小部件](#understanding-data-widgets) 部分中命名。 下面的示例显示如何扩展默认类：
 
 ```javascript
-export const ActionButton = {
-    container: {
+导出const ActionButton = Power
+    container:vol
         // ViewStyle properties
-        borderWidth: 3
+        borderWid: 3
     },
-    caption: {
-        // TextStyle properties
-        fontSize: 20
+    字体描述：
+        // 文本样式属性
+        字体大小：20
     },
 };
 ```
 
-Add-on widgets each have their own default styling classes based on their full widget IDs (found in *{widget name}.xml*), and can be created by replacing the dots with underscores. The example below shows a pluggable widget’s default styling class:
+附加组件小部件每个都有基于其完整小部件ID的默认样式类 (在 *{widget name}中找到)。 ml*)，可以通过下划线替换点来创建。 下面的示例显示插件的默认样式类：
 
 ```javascript
-export const com_mendix_widget_native_badge_Badge = (Badge = {
-    text: {
-        // TextStyle properties
-        color: "#00FF00",
+导出const com_mendix_widget_native_badge_Badge = (Badge = Power
+    text:
+        // TextStyle 属性
+        颜色: "#00FF00",
     }
 });
 ```
 
-For more information on creating your own classes, see the [Creating Your Own Classes](/howto/mobile/how-to-use-native-styling#creating-your-own-classes) section in *Style Your Mendix Native Mobile App*. That document also shows how to use custom classes as design properties.
+关于创建您自己的班级的更多信息 查看 [在 *样式您的Mendix 原生移动应用程序* 中创建您自己的类](/howto/mobile/how-to-use-native-styling#creating-your-own-classes) 部分。 该文档还显示如何使用自定义类作为设计属性。
 
-## 3  Data Widgets {#understanding-data-widgets}
+## 3 个数据部件 {#understanding-data-widgets}
 
-Data widgets are essential to many Mendix apps. These widgets will allow your users to create and handle data objects, and can be customized to fit your app’s needs.
+数据部件对许多Mendix 应用程序至关重要。 这些小部件将允许您的用户创建和处理数据对象，并且可以自定义以满足您的应用需要。
 
-### 3.1 Data View Widget
+### 3.1 数据视图部件
 
-The data view widget shows the contents of one data object. For more information about this widget, see [Data View](data-view).This widget has no user interface, so it does not support any styling.
+数据视图小部件显示一个数据对象的内容。 欲了解更多关于这个部件的信息，请参阅 [数据视图](data-view)。这个部件没有用户界面，所以它不支持任何样式。
 
-### 3.2 List View Widget {#list-view}
+### 3.2 列表视图部件 {#list-view}
 
-The list view shows a list of objects arranged vertically or horizontally. For more information about this widget, see [List View](list-view). This is not the default list view, but how a list view widget could look in an app:
+列表视图显示垂直或水平排列对象列表。 欲了解更多关于此部件的信息，请参阅 [List View](list-view)。 这不是默认的列表视图，但是列表视图小部件如何在应用程序中显示：
 
 {{% image_container width="350" %}}![list view](attachments/native-styling-refguide/list-view.png){{% /image_container %}}
 
-This is how the widget’s code is structured:
+这是小部件代码的构建方式：
 
 ```xml
 <container>
-    <listItem>content</listItem>
-    <listItem>content</listItem>
+    <listItem>内容</listItem>
+    <listItem>内容</listItem>
 </container>
 ```
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
-| Element            | Style Properties              | Description                                                                                                                                                                      |
-| ------------------ | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`        | All ViewStyle properties      |                                                                                                                                                                                  |
-| `container`        | `numColumns`                  | This is the number of columns that the list should render (defaults to 1).                                                                                                       |
-| `listItem`         | All ViewStyle properties      |                                                                                                                                                                                  |
-| `listItem`         | `rippleColor`                 | This is the color of the ripple on Android, and will be applied only when the item has an on click action set, otherwise it will be ignored (defaults to `rgba(0, 0, 0, 0.2)`).  |
-| `listItem`         | `underlayColor`               | This is the color while pressing the item on iOS, and will be applied only when the item has an on click action set, otherwise it will be ignored and defaulted to opacity only. |
-| `listItemDisabled` | Same properties as `listItem` | Overrides `listItem` styles if the item has an on click action and the action cannot be executed or is disabled during action.                                                   |
+| 元素       | 样式属性          | 描述                                                                        |
+| -------- | ------------- | ------------------------------------------------------------------------- |
+| `容器`     | 所有视图样式属性      |                                                                           |
+| `容器`     | `numColumns`  | 这是列表应渲染的列数(默认为1)。                                                         |
+| `列表项`    | 所有视图样式属性      |                                                                           |
+| `列表项`    | `rippleColor` | 这是Android上的波纹的颜色，只有当项目有单击动作设置时才会使用。 否则它将被忽略(默认为 `rgba(0, 0, 0, 0, 0). )`。 |
+| `列表项`    | `下颜色`         | 这是在iOS上按下项目时的颜色，只有当项目有单击动作设置时才会使用。 否则它将被忽略，默认仅不透明。                        |
+| `列表项已禁用` | 与 `列表项相同的属性`  | 覆盖 `列表项` 样式，如果项目有单击动作，且操作无法执行或禁用。                                         |
 
-The default class to style all list views is named `ListView`.
+样式所有列表视图的默认类命名为 `ListView`。
 
-## 4 Common Widgets
+## 4 个常用部件
 
-Common widgets are used in almost all app pages. Because of their ubiquity, learning to style common widgets will make a large difference for your apps.
+在几乎所有应用页面中都使用了常见的小部件。 因为它们无所不在，学习如何风格共同的小部件将对您的应用产生很大的影响。
 
-### 4.1 Text
+### 4.1 案文
 
-The text widget shows text which can optionally contain parameters. For more information on these widgets, see [Text Widgets](text). The widget’s style properties are as follows:
+文本小部件显示可选包含参数的文本。 关于这些小部件的更多信息，见 [文本小部件](text)。 小部件的样式属性如下：
 
 ```xml
 <container>
-    <text>content</text>
+    <text>内容</text>
 </container>
 ```
 
-| Element     | Style Properties                   | Description |
-| ----------- | ---------------------------------- | ----------- |
-| `container` | This has all ViewStyle properties. |             |
-| `text`      | This has all TextStyle properties. |             |
+| 元素   | 样式属性                 | 描述 |
+| ---- | -------------------- | -- |
+| `容器` | 这包含所有视图样式属性。         |    |
+| `文本` | 这包含所有的 TextStyle 属性。 |    |
 
-The default class to style all texts is named `Text`.
+所有文本样式的默认类命名为 `文本`。
 
-### 4.2 Image {#image}
+### 4.2 图像 {#image}
 
-The image widget can be used to show a predefined image on a page, layout, or snippet. For more information on these widgets, see [Image Widgets](image). The widget’s style properties are as follows:
+图像部件可以用于在页面、布局或代码片段上显示预定义的图像。 关于这些小部件的更多信息，请参阅 [图像小部件](image)。 小部件的样式属性如下：
 
 ```xml
 <container>
@@ -149,67 +149,67 @@ The image widget can be used to show a predefined image on a page, layout, or sn
 </container>
 ```
 
-| Element             | Style Properties                    | Description                                                                                                                                                                                |
-| ------------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `container`         | This has all ViewStyle properties.  |                                                                                                                                                                                            |
-| `container`         | `rippleColor`                       | This is the color of the ripple on Android, and will be applied only when the container has an on click action set, otherwise it will be ignored (defaults to `rgba(0, 0, 0, 0.2)`).       |
-| `container`         | `underlayColor`                     | This is the color while pressing the container on iOS, and will be applied only when the container has an on click action set, otherwise it will be ignored and defaulted to opacity only. |
-| `containerDisabled` | Same properties as `container`      | Overrides `container` styles if the image has an on click action and the action cannot be executed or is disabled during action.                                                           |
-| `image`             | This has all ImageStyle properties. |                                                                                                                                                                                            |
-| `imageDisabled`     | Same properties as `image`          | Overrides `image` styles if the image has an on click action and the action cannot be executed or is disabled during action.                                                               |
+| 元素      | 样式属性          | 描述                                                                       |
+| ------- | ------------- | ------------------------------------------------------------------------ |
+| `容器`    | 这包含所有视图样式属性。  |                                                                          |
+| `容器`    | `rippleColor` | 这是Android上的波纹的颜色，仅当容器有单击动作设置时才会使用。 否则它将被忽略(默认为 `rgba(0, 0, 0, 0, 0). )`。 |
+| `容器`    | `下颜色`         | 这是在iOS上按下容器时的颜色，只有当容器有点击动作设置时才会使用。 否则它将被忽略，默认仅不透明。                       |
+| `容器已禁用` | 与 `容器相同的属性`   | 如果图像在单击操作上有操作且操作无法执行或禁用，则覆盖 `容器` 风格。                                     |
+| `图片`    | 这包含所有图像样式属性。  |                                                                          |
+| `图片已禁用` | 与 `图像相同的属性`   | 如果图像在单击动作上有操作且操作无法执行或在操作过程中被禁用，则覆盖 `图像` 样式。                              |
 
-The default class to style all static image styles is named `Image`. Please note that images loaded from the model are styled with `NativeDynamicImage` as described in the [Image Viewer](#image-viewer) section below.
+所有静态图像风格的默认类命名为 `图像`。 请注意从模型中加载的图像被风格为 `NativeDynamicImage` 描述于下面的 [图像查看器](#image-viewer) 部分。
 
-### 4.3 Page Title
+### 4.3 页面标题
 
-The page title widget shows the title of the page on which it is used. This can be the title defined on the page itself, or the override title defined when showing a page. For more information on this widget, consult [Page Title](page-title). The widget’s style properties are as follows:
+页面标题小部件显示使用它的页面标题。 这可以是页面本身定义的标题，或者是显示页面时定义的覆盖标题。 欲了解此部件的更多信息，请参阅 [页面标题](page-title)。 小部件的样式属性如下：
 
 ```xml
 <container>
-    <text>Page Title</text>
+    <text>页面标题</text>
 </container>
 ```
 
-| Element     | Style Properties                   | Description |
-| ----------- | ---------------------------------- | ----------- |
-| `container` | This has all ViewStyle properties. |             |
-| `text`      | This has all TextStyle properties. |             |
+| 元素   | 样式属性                 | 描述 |
+| ---- | -------------------- | -- |
+| `容器` | 这包含所有视图样式属性。         |    |
+| `文本` | 这包含所有的 TextStyle 属性。 |    |
 
-The default class to style all page titles is named `PageTitle`.
+样式所有页面标题的默认类命名为 `页面标题`。
 
-### 4.4 Layout Grid
+### 4.4 布局网格
 
-The layout grid widget can be used to structure the content on your page. You are able to create rows and columns which you can configure to have fixed or dynamic sizing.
+布局网格插件可以用于构建您页面上的内容。 您可以创建可以配置为固定或动态大小的行和列。
 
-The widget’s style properties are divided over several objects: `LayoutGrid`, `row`, `noGuttersRow`, `col`, `colFitToContent`, `col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `col7`, `col8`, `col9`, `col10`, `col11`, `col12`, and `noGutters`.
+小部件的样式属性分为几个对象： `Layoutgrid`, `行`, `nottersRow`, `col`, `colFitToContent`, `col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `col7`, `col8`, `col9`, `col10`, `col11`, `col12`和 `notters`。
 
-`col` is being applied when the Width property on a column is "Auto-fill".
+`当列上的宽度属性为“自动填充”时，正在应用col`。
 
-`colFitToContent` is being applied when the Width property on a column is "Auto-fit content".
+`colFitToContent` 正在应用当列上的宽度属性为“自动适合内容”。
 
-`col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `col7`, `col8`, `col9`, `col10`, `col11`, `col12` are applied when the Width on a column property is "Manual". Only one class is applied based on the related Size property.
+`col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `col7`, `col8`, `col9`, `col10`, `col11`, `col12` 当列属性上的宽度为“手动”时适用。 基于相关大小属性只应用了一个类。
 
-`noGuttersRow` (Row) and `noGutters` (Column) are being applied when the Spacing between columns property on a row is set to "No".
+`nottersRoow` (Row) and `noGutters` (Column) 正在应用当行列属性之间的间距设置为“否”。
 
-The main `LayoutGrid`:
-
-```xml
-<container></container>
-```
-
-The `row`, `noGuttersRow`:
+主 `Layoutgrid`:
 
 ```xml
 <container></container>
 ```
 
-The `col`, `colFitToContent`, `col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `col7`, `col8`, `col9`, `col10`, `col11`, `col12`, `noGutters`:
+`行`, `nottersRow`:
 
 ```xml
 <container></container>
 ```
 
-The resulting DOM looks like this:
+`col`, `colFitToContent`, `col1`, `col2`, `col3`, `col4`, `col5`, `col6`,  `col7`, `col8`, `col9`, `col10`, `col11`, `col12`, `notters`:
+
+```xml
+<container></container>
+```
+
+生成的 DOM 看起来像这样：
 
 ```xml
 <container>
@@ -219,36 +219,36 @@ The resulting DOM looks like this:
 </container>
 ```
 
-## 5 Container Widgets
+## 5 容器部件
 
-Container widgets are a set of tools that allow you to provide structure for your page’s content. There is also a specific widget called container widget detailed below. For more information on these widgets, see [Container Widgets](container-widgets).
+容器部件是一组工具，允许您为页面内容提供结构。 下面还有一个叫做容器部件的特定部件。 关于这些部件的更多信息，见 [容器部件](container-widgets)。
 
-### 5.1 Container
+### 5.1 容器
 
-A container widget can be used to style or hide a group of widgets. This widget does not have a visual representation by default, though styling can be used to add spacing. The widget’s style properties are as follows:
+容器部件可以用来样式或隐藏一组部件。 默认情况下，这个部件没有视觉演示文稿，不过样式可以用来添加间距。 小部件的样式属性如下：
 
 ```xml
 <container>
-    content
+    内容
 </container>
 ```
 
-| Element             | Style Properties                   | Description                                                                                                                                                                                |
-| ------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `container`         | This has all ViewStyle properties. |                                                                                                                                                                                            |
-| `container`         | `rippleColor`                      | This is the color of the ripple on Android, and will be applied only when the container has an on click action set, otherwise it will be ignored (defaults to `rgba(0, 0, 0, 0.2)`).       |
-| `container`         | `underlayColor`                    | This is the color while pressing the container on iOS, and will be applied only when the container has an on click action set, otherwise it will be ignored and defaulted to opacity only. |
-| `containerDisabled` | Same properties as `container`     | This overrides `container` styles if the there is an on click action set and the action cannot be executed or is disabled during action.                                                   |
+| 元素      | 样式属性          | 描述                                                                       |
+| ------- | ------------- | ------------------------------------------------------------------------ |
+| `容器`    | 这包含所有视图样式属性。  |                                                                          |
+| `容器`    | `rippleColor` | 这是Android上的波纹的颜色，仅当容器有单击动作设置时才会使用。 否则它将被忽略(默认为 `rgba(0, 0, 0, 0, 0). )`。 |
+| `容器`    | `下颜色`         | 这是在iOS上按下容器时的颜色，只有当容器有点击动作设置时才会使用。 否则它将被忽略，默认仅不透明。                       |
+| `容器已禁用` | 与 `容器相同的属性`   | 如果在单击操作集中，且操作无法执行或禁用，则此选项将覆盖 `容器` 风格。                                    |
 
-The default class to style all page titles is named `Container`.
+样式所有页面标题的默认类命名为 `Container`。
 
-### 5.2 Tab Container
+### 5.2 标签容器
 
-Tab containers are used to show information categorized into multiple tab pages. Tab containers can help display information which exceeds a device’s screen space. This is how a default tab container widget could look in an app:
+标签容器用于显示分类到多个标签页的信息。 标签容器可以帮助显示超出设备屏幕空间的信息。 这是默认标签容器小部件在应用程序中可以看到的方式：
 
 {{% image_container width="350" %}}![tab container](attachments/native-styling-refguide/tab-container.png){{% /image_container %}}
 
-This is how the widget’s code is structured:
+这是小部件代码的构建方式：
 
 ```xml
 <container>
@@ -266,100 +266,100 @@ This is how the widget’s code is structured:
 </container>
 ```
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
-| Element          | Style Properties                   | Description                                                                                                          |
-| ---------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `container`      | This has all ViewStyle properties. |                                                                                                                      |
-| `tabBar`         | This has all ViewStyle properties. |                                                                                                                      |
-| `tabBar`         | `bounces`                          | This is a Boolean value indicating whether the tab bar bounces when scrolling.                                       |
-| `tabBar`         | `pressColor`                       | This is a color for material ripple (Android only).                                                                  |
-| `tabBar`         | `pressOpacity`                     | This is opacity for a pressed tab.                                                                                   |
-| `tabBar`         | `scrollEnabled`                    | This is a Boolean value enabling scrollable tabs.                                                                    |
-| `tabBar`         | `tabBarPosition`                   | This is the position of the tab bar in the tab view, and possible values are `top` and `bottom` (defaults to `top`). |
-| `indicator`      | This has all ViewStyle properties. |                                                                                                                      |
-| `tab`            | This has all ViewStyle properties. |                                                                                                                      |
-| `label`          | This has all TextStyle properties. |                                                                                                                      |
-| `activeLabel`    | This has all TextStyle properties. |                                                                                                                      |
-| `badgeContainer` | This has all ViewStyle properties. |                                                                                                                      |
-| `badgeCaption`   | This has all TextStyle properties. |                                                                                                                      |
+| 元素       | 样式属性                 | 描述                                            |
+| -------- | -------------------- | --------------------------------------------- |
+| `容器`     | 这包含所有视图样式属性。         |                                               |
+| `tabBar` | 这包含所有视图样式属性。         |                                               |
+| `tabBar` | `弹出`                 | 这是一个布尔值，表示标签栏是否在滚动时退出。                        |
+| `tabBar` | `press彩色`            | 这是材料riple (仅Android 版)的颜色。                    |
+| `tabBar` | `压力不透明度`             | 这是按下标签页的不透明度。                                 |
+| `tabBar` | `启用滚动`               | 这是一个启用滚动标签的布尔值。                               |
+| `tabBar` | `制表符位置`              | 这是标签视图中标签栏的位置。 和可能的值是 `顶部` 和 `底部` (默认为 `顶部`)。 |
+| `指标`     | 这包含所有视图样式属性。         |                                               |
+| `tab`    | 这包含所有视图样式属性。         |                                               |
+| `标签`     | 这包含所有的 TextStyle 属性。 |                                               |
+| `活动标签`   | 这包含所有的 TextStyle 属性。 |                                               |
+| `徽章容器`   | 这包含所有视图样式属性。         |                                               |
+| `徽章标题`   | 这包含所有的 TextStyle 属性。 |                                               |
 
-The default class to style all tab containers is named `TabContainer`.
+样式所有标签容器的默认类命名为 `标签容器`。
 
-### 5.3 Scroll Container
+### 5.3 滚动容器
 
-A scroll container is used to make enable scrolling for a part of a page. This widget does not have a visual representation by default, though styling can be used to add spacing.  The widget’s style properties are as follows:
+一个滚动容器用于启用一个页面的一部分滚动。 默认情况下，这个部件没有视觉演示文稿，不过样式可以用来添加间距。  小部件的样式属性如下：
 
 ```xml
 <container>
-    scrollable content
+    可滚动的内容
 </container>
 ```
 
-| Element     | Style Properties                   | Description |
-| ----------- | ---------------------------------- | ----------- |
-| `container` | This has all ViewStyle properties. |             |
+| 元素   | 样式属性         | 描述 |
+| ---- | ------------ | -- |
+| `容器` | 这包含所有视图样式属性。 |    |
 
-The default class to style all scroll containers is named `ScrollContainer`.
+样式所有滚动容器的默认类名为 `ScrollContainer`。
 
-## 6 Input Widgets
+## 6 输入部件
 
-Input widgets are typically used to show data to the user and allow them to edit data. For more information on these widgets, see [Input Widgets](input-widgets).
+输入小部件通常用于向用户显示数据并允许他们编辑数据。 关于这些小部件的更多信息，请参阅 [输入小部件](input-widgets)。
 
-### 6.1 Text Box {#text-box}
+### 6.1 文本框 {#text-box}
 
-A text box can be used to display or edit a textual value. This is how a text box widget with validation feedback and a plain text box widget could look in an app:
+文本框可以用于显示或编辑文本值。 这是一个带验证反馈的文本框小部件和纯文本框小部件在应用中可以看到的方式：
 
 {{% image_container width="350" %}}![text box](attachments/native-styling-refguide/text-box.png){{% /image_container %}}
 
-The widget’s style properties are structured as follows:
+小部件的样式属性结构如下：
 
 ```xml
 <container>
-    <label>Text box</label>
-    <inputError>Content invalid</inputError>
-    <validationMessage>Input validation feedback message</validationMessage>
+    <label>文本框</label>
+    <inputError>内容无效</inputError>
+    <validationMessage>输入验证反馈</validationMessage>
 </container>
 <container>
-    <label>Text box</label>
-    <input>Valid text</input>
+    <label>文本框</label>
+    <input>有效文本</input>
 </container>
 ```
 
-| Element             | Style Properties                        | Description                                                                                                                                                                                                                                                                                                               |
-| ------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`         | This has all ViewStyle properties.      |                                                                                                                                                                                                                                                                                                                           |
-| `containerDisabled` | Same properties as `container`          | Overrides `container` styles if the text box is non-editable.                                                                                                                                                                                                                                                             |
-| `input`             | This has all TextStyle properties.      |                                                                                                                                                                                                                                                                                                                           |
-| `input`             | `autoCapitalize`                        | This automatically capitalizes certain characters when the user types:<br><br>* `characters`: capitalizes all characters<br>* `words`: capitalizes the first letter of each word<br>* `sentences`: capitalizes the first letter of each sentence (default)<br>* `none`: capitalizes nothing |
-| `input`             | `placeholderTextColor`                  | This is the text color of the placeholder string.                                                                                                                                                                                                                                                                         |
-| `input`             | `selectionColor`                        | This is the highlight and cursor color of the text input.                                                                                                                                                                                                                                                                 |
-| `input`             | `underlineColorAndroid`                 | This is the color of the `input` underline.                                                                                                                                                                                                                                                                               |
-| `inputFocused`      | Same properties as `input`              | Overrides `input` styles if the text box is focused (with Studio Pro v8.15).                                                                                                                                                                                                                                              |
-| `inputError`        | This has the same properties as `input` | Overrides `input` styles if there are validation errors.                                                                                                                                                                                                                                                                  |
-| `inputDisabled`     | Same properties as `input`              | Overrides `input` styles if the text box is non-editable.                                                                                                                                                                                                                                                                 |
-| `label`             | This has all TextStyle properties       |                                                                                                                                                                                                                                                                                                                           |
-| `label`             | `numberOfLines`                         | This is the maximum number of lines to wrap the label text. If the text is any longer, it will be cut off with an ellipsis (defaults to 1).                                                                                                                                                                               |
-| `labelDisabled`     | Same properties as `label`              | Overrides `label` styles if the text box is non-editable.                                                                                                                                                                                                                                                                 |
-| `validationMessage` | This has all TextStyle properties.      |                                                                                                                                                                                                                                                                                                                           |
+| 元素           | 样式属性                 | 描述                                                                                                                                      |
+| ------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `容器`         | 这包含所有视图样式属性。         |                                                                                                                                         |
+| `容器已禁用`      | 与 `容器相同的属性`          | 如果文本框不可编辑，则覆盖 `容器` 风格。                                                                                                                  |
+| `input`      | 这包含所有的 TextStyle 属性。 |                                                                                                                                         |
+| `input`      | `自动Capitalize`       | 当用户类型的时候, 这会自动大写某些字符:<br><br>* `字符`: 大写所有字符<br>* `单词`: 大写每个单词的第一个字母<br>* `句子`: 大写每个句子的第一个字母(默认)<br>* `No` |
+| `input`      | `占位符文本颜色`            | 这是占位符字符串的文本颜色。                                                                                                                          |
+| `input`      | `选择颜色`               | 这是文本输入的高亮和光标颜色。                                                                                                                         |
+| `input`      | `下划线颜色安卓系统`          | 这是 `输入` 下划线的颜色。                                                                                                                         |
+| `输入焦点`       | 与 `输入相同的属性`          | 覆盖 `输入` 样式，如果文本框被聚焦(Studio Pro v8.15)。                                                                                                  |
+| `inputError` | 这个属性与 `输入相同`         | 如果验证错误，覆盖 `输入的` 样式。                                                                                                                     |
+| `Input禁用`    | 与 `输入相同的属性`          | 如果文本框不可编辑，则覆盖 `输入的` 样式。                                                                                                                 |
+| `标签`         | 这包含所有的 TextStyle 属性  |                                                                                                                                         |
+| `标签`         | `编号OfLines`          | 这是要包装标签文本的最大行数。 如果案文更长了，它将被省略线切断(默认为1)。                                                                                                 |
+| `标签已禁用`      | 与 `标签相同的属性`          | 如果文本框不可编辑，则覆盖 `标签` 样式。                                                                                                                  |
+| `验证消息`       | 这包含所有的 TextStyle 属性。 |                                                                                                                                         |
 
-The default class to style all text boxes is named `TextBox`.
+所有文本框样式的默认类命名为 `TextBox`。
 
-### 6.2 Text Area
+### 6.2 文本区
 
-A text box can be used to display or edit a textual value with multiple lines. This widget supports the same style properties and structure as the [Text Box](#text-box) widget above. This is how a text area widget with validation feedback and a plain text area widget could look in an app:
+文本框可以用于显示或编辑带多行的文本值。 这个小部件支持与上面的 [文本框](#text-box) 小部件相同的样式属性和结构。 这是一个带验证反馈的文本区域小部件和纯文本区域小部件在应用中的显示方式：
 
 {{% image_container width="350" %}}![text area](attachments/native-styling-refguide/text-area.png){{% /image_container %}}
 
-The default class to style all text areas is named `TextArea`.
+所有文本区域样式的默认类命名为 `TextArea`。
 
-### 6.3 Drop-Down {#drop-down}
+### 6.3% {#drop-down}
 
-A drop-down is an input widget that can be used to display and edit enumeration attributes.
+下拉是一个可用于显示和编辑枚举属性的输入小部件。
 
-Since Studio Pro v8.11, the drop-down widget has a new style property called `useUniformDesign: boolean` which enables the uniform design in both platforms.
+自Studio Pro v8.11以来，下拉窗口小部件有一个新的风格属性，名为 `Use UniformDesign: boolan` 让两个平台都有一个统一的设计。
 
-The widget’s render hierarchy is as follows for non-uniform:
+小部件的渲染层次结构如下为非一致性：
 
 ```xml
 <container>
@@ -378,7 +378,7 @@ The widget’s render hierarchy is as follows for non-uniform:
 </picker>
 ```
 
-The widget’s render hierarchy is as follows for uniform:
+小部件的渲染层次结构如下为一致性：
 
 ```xml
 <container>
@@ -402,198 +402,198 @@ The widget’s render hierarchy is as follows for uniform:
 </menuWrapper>
 ```
 
-| Element                 | Style Properties                                | Description                                                                                                                           |
-| ----------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`             | This has all ViewStyle properties.              |                                                                                                                                       |
-| `containerDisabled`     | Same properties as `container`                  | Overrides `container` styles if the drop-down is non-editable.                                                                        |
-| `label`                 | This has all TextStyle properties.              |                                                                                                                                       |
-| `label`                 | `numberOfLines`                                 | The maximum number of lines to wrap the label text. If the text is any longer it will be cut off with an ellipsis. Defaults to `1`.   |
-| `labelDisabled`         | Same properties as `label`                      | Overrides `label` styles if the drop-down is non-editable.                                                                            |
-| `pickerIOS`             | This has all ViewStyle properties.              |                                                                                                                                       |
-| `pickerBackdropIOS`     | This has all ViewStyle properties.              |                                                                                                                                       |
-| `pickerTopIOS`          | This has all ViewStyle properties.              |                                                                                                                                       |
-| `validationMessage`     | This has all TextStyle properties.              | Styles the validation message (with Studio Pro v8.11).                                                                                |
-| `value`                 | This has all TextStyle properties               | Styles the value button which toggle's dropdown and PickerIOS items. If placeholder is selected, placeholderTextColor will be applied |
-| `useUniformDesign`      | `boolean`                                       | Enables new uniformDesign (with Studio Pro v8.11).                                                                                    |
-| `iconStyle`             | This has all TextStyle properties               | Styles the arrow down icon next to the value (with Studio Pro v8.15).                                                                 |
-| `value`                 | `placeholderTextColor: string`                  | If placeholder is selected, placeholderTextColor will be applied (with Studio Pro v8.11).                                             |
-| `valueFocused`          | Same properties as `value`                      | Overrides `value` styles if the dropdown box is focused. (with Studio Pro v8.15).                                                     |
-| `valueContainer`        | This has all ViewStyle properties & rippleColor | Styles the value button's container (with Studio Pro v8.11).                                                                          |
-| `valueContainerFocused` | Same properties as `valueContainer`             | Overrides `valueContainer` styles if the dropdown box is focused (with Studio Pro v8.15).                                             |
-| `menuWrapper`           | This has all ViewStyle properties               | Styles the wrapper view surrounding all the menu items (with Studio Pro v8.11).                                                       |
-| `itemContainer`         | This has all ViewStyle properties               | Styles all the item containers in dropdown menu including selected item container (with Studio Pro v8.11).                            |
-| `item`                  | This has all TextStlye properties               | Styles all the items in dropdown menu including selected item (with Studio Pro v8.11).                                                |
-| `selectedItem`          | This has all TextStyle properties               | Styles the selected item in dropdown menu (with Studio Pro v8.11).                                                                    |
-| `selectedItemContainer` | This has all ViewStyle properties               | Styles the selected item's container in dropdown menu (with Studio Pro v8.11).                                                        |
+| 元素             | 样式属性                    | 描述                                          |
+| -------------- | ----------------------- | ------------------------------------------- |
+| `容器`           | 这包含所有视图样式属性。            |                                             |
+| `容器已禁用`        | 与 `容器相同的属性`             | 如果下拉菜单不可编辑，则覆盖 `容器` 样式。                     |
+| `标签`           | 这包含所有的 TextStyle 属性。    |                                             |
+| `标签`           | `编号OfLines`             | 打包标签文本的最大行数。 如果文本已经存在，它将被椭圆切断。 默认为 `1`。     |
+| `标签已禁用`        | 与 `标签相同的属性`             | 如果下拉功能不可编辑，则覆盖 `标签` 样式。                     |
+| `选取的 IOS`      | 这包含所有视图样式属性。            |                                             |
+| `选择器后台IOS`     | 这包含所有视图样式属性。            |                                             |
+| `选取主题`         | 这包含所有视图样式属性。            |                                             |
+| `验证消息`         | 这包含所有的 TextStyle 属性。    | 样式验证消息(Studio Pro v8.11)。                   |
+| `值`            | 这包含所有的 TextStyle 属性     | 切换下拉菜单项和选取器IOS 项的值按钮样式。 如果选择占位符，占位符文本颜色将被应用 |
+| `使用统一设计`       | `boolean`               | 启用新的校服设计(与Studio Pro v8.11一起)。              |
+| `图标样式`         | 这包含所有的 TextStyle 属性     | 在值旁边的箭头图标样式(Studio Pro v8.15)。              |
+| `值`            | `占位符文本颜色：字符串`           | 如果选择占位符，占位符文本颜色将被应用(Studio Pro v8.11)。      |
+| `对焦值`          | 与 `值相同的属性`              | 如果下拉框被聚焦，则覆盖 `的值` 样式。 （Studio Pro v8.15）。   |
+| `值容器`          | 这包含所有视图样式属性 & ripplle彩色 | 给值按钮的容器样式(Studio Pro v8.11)。                |
+| `值容器聚焦于`       | 与 `值容器相同的属性`            | 重写 `值容器` 样式，如果下拉菜单被聚焦(Studio Pro v8.15)。    |
+| `menuWrapper`  | 这包含所有视图样式属性             | 所有菜单项的包装器视图样式(Studio Pro v8.11)。            |
+| `项目容器`         | 这包含所有视图样式属性             | 下拉菜单中的所有项目容器样式，包括选定的项目容器(Studio Pro v8.11)。 |
+| `项目`           | 这包含所有 TextStlye 属性      | 在下拉菜单中设置所有项目的样式，包括所选项目 (Studio Pro v8.11)。  |
+| `selectedItem` | 这包含所有的 TextStyle 属性     | 下拉菜单中选中项目的样式(Studio Pro v8.11)。             |
+| `已选项目容器`       | 这包含所有视图样式属性             | 在下拉菜单中所选项目的容器样式(Studio Pro v8.11)。          |
 
-### 6.4 Check Box
+### 6.4 复选框
 
-A check box input widget can be used to display and edit Boolean attributes and is rendered as a switch. This is how a check box widget could look in an app:
+复选框输入小部件可以用于显示和编辑布尔属性，并呈现为开关。 这是一个复选框小部件可以在应用程序中看到的方式：
 
 {{% image_container width="350" %}}![check box](attachments/native-styling-refguide/check-box.png){{% /image_container %}}
 
-The widget’s style properties structure is as follows:
+小部件的样式属性结构如下：
 
 ```xml
 <container>
-    <label>Boolean switch</label>
+    <label>布尔开关</label>
     <inputError>
         <trackColorOff/>
         <thumbColorOff/>
     </inputError>
-    <validationMessage>Feedback switch input</validationMessage>
+    <validationMessage>反馈开关输入</validationMessage>
 </container>
 <container>
-    <label>Valid boolean</label>
+    <label>有效布尔值</label>
     <input>
         <trackColorOn/>
         <thumbColorOn/>
     </input>
-</container>
+</container> </container>
 ```
 
-| Element             | Style Properties                        | Description                                                                                                                         |
-| ------------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `container`         | This has all ViewStyle properties.      |                                                                                                                                     |
-| `containerDisabled` | Same properties as `container`          | Overrides `container` styles if the text box is non-editable.                                                                       |
-| `input`             | This has all TextStyle properties.      |                                                                                                                                     |
-| `input`             | `trackColorOn`                          | Custom color for the switch track when turned on.                                                                                   |
-| `input`             | `trackColorOff`                         | Custom color for the switch track when turned off.                                                                                  |
-| `input`             | `thumbColorOn`                          | Color of the foreground switch grip when turned on. If this is set on iOS, the switch grip will lose its drop shadow.               |
-| `input`             | `thumbColorOff`                         | Color of the foreground switch grip when turned off. If this is set on iOS, the switch grip will lose its drop shadow.              |
-| `inputError`        | This has the same properties as `input` | Overrides `input` styles if there are validation errors.                                                                            |
-| `inputDisabled`     | This has the same properties as `input` | Overrides `input` styles if the check box is non-editable.                                                                          |
-| `label`             | This has all TextStyle properties       |                                                                                                                                     |
-| `label`             | `numberOfLines`                         | The maximum number of lines to wrap the label text. If the text is any longer it will be cut off with an ellipsis. Defaults to `1`. |
-| `labelDisabled`     | Same properties as `label`              | Overrides `label` styles if the check box is non-editable.                                                                          |
-| `validationMessage` | This has all TextStyle properties.      |                                                                                                                                     |
+| 元素           | 样式属性                 | 描述                                      |
+| ------------ | -------------------- | --------------------------------------- |
+| `容器`         | 这包含所有视图样式属性。         |                                         |
+| `容器已禁用`      | 与 `容器相同的属性`          | 如果文本框不可编辑，则覆盖 `容器` 风格。                  |
+| `input`      | 这包含所有的 TextStyle 属性。 |                                         |
+| `input`      | `trackColoron`       | 开启时切换曲目的自定义颜色。                          |
+| `input`      | `trackColoroff`      | 关闭时切换曲目的自定义颜色。                          |
+| `input`      | `thumbColorOn`       | 开启时前景开关的颜色。 如果设置为 iOS，开关抓取将丢失阴影。        |
+| `input`      | `thumbColorOff`      | 关闭时前景开关的颜色。 如果设置为 iOS，开关抓取将丢失阴影。        |
+| `inputError` | 这个属性与 `输入相同`         | 如果验证错误，覆盖 `输入的` 样式。                     |
+| `Input禁用`    | 这个属性与 `输入相同`         | 复选框不可编辑时覆盖 `输入的` 样式。                    |
+| `标签`         | 这包含所有的 TextStyle 属性  |                                         |
+| `标签`         | `编号OfLines`          | 打包标签文本的最大行数。 如果文本已经存在，它将被椭圆切断。 默认为 `1`。 |
+| `标签已禁用`      | 与 `标签相同的属性`          | 如果复选框不可编辑，则覆盖 `标签` 样式。                  |
+| `验证消息`       | 这包含所有的 TextStyle 属性。 |                                         |
 
-The default class to style all check box inputs is named `Checkbox`.
+所有复选框输入样式的默认类命名为 `复选框`。
 
-### 6.5 Date Picker
+### 6.5 日期选择器
 
-A date picker is an input widget that can be used to display and edit date or time attributes. This is how a date picker widget could look in an app:
+日期选择器是一个可用于显示和编辑日期或时间属性的输入部件。 这是一个日期选择器小部件在应用程序中可以看到的方式：
 
 {{% image_container width="300" %}}![date picker](attachments/native-styling-refguide/date-picker.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
-    <label>Drop down enumeration</label>
-    <value>Content invalid</value>
-    <validationMessage>Validation feedback enumeration</validationMessage>
-    <pickerBackdropIOS>iOS picker modal shadow container
-        <pickerIOS>iOS picker
-            <pickerTopIOS>iOS picker modal header</pickerTopIOS>
+    <label>下拉枚举</label>
+    <value>内容无效</value>
+    <validationMessage>验证反馈计数</validationMessage>
+    <pickerBackdropIOS>iOS 选择器模式阴影容器
+        <pickerIOS>iOS 选择器
+            <pickerTopIOS>iOS 选择器模式标题</pickerTopIOS>
         </pickerIOS>
     </pickerBackdropIOS>
 </container>
 ```
 
-| Element               | Style Properties                   | Description                                                                                                                                   |
-| --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`           | This has all ViewStyle properties. |                                                                                                                                               |
-| `containerDisabled`   | Same properties as `container`     | Overrides `container` styles if the date picker is non-editable.                                                                              |
-| `label`               | This has all TextStyle properties. |                                                                                                                                               |
-| `label`               | `numberOfLines`                    | This is the maximum number of lines to wrap the label text. If the text is any longer, it will be cut off with an ellipsis (defaults to `1`.) |
-| `labelDisabled`       | Same properties as `label`         | Overrides `label` styles if the date picker is non-editable.                                                                                  |
-| `value`               | This has all TextStyle properties  |                                                                                                                                               |
-| `value`               | `rippleColor`                      | This is the color of the ripple on Android, and will be applied only when the date picker is pressed (defaults to `rgba(0, 0, 0, 0.2)`).      |
-| `value`               | `underlayColor`                    | This is the color while pressing the date picker on iOS, if not set it will be defaulted to opacity only.                                     |
-| `valueDisabled`       | This has all TextStyle properties  | Overrides `value` styles if the date picker is non-editable.                                                                                  |
-| `placeholder`         | This has all TextStyle properties  |                                                                                                                                               |
-| `placeholderDisabled` | This has all TextStyle properties  | Overrides `placeholder` styles if the date picker is non-editable.                                                                            |
-| `validationMessage`   | This has all TextStyle properties  |                                                                                                                                               |
-| `pickerBackdropIOS`   | This has all ViewStyle properties  |                                                                                                                                               |
-| `pickerIOS`           | This has all ViewStyle properties  |                                                                                                                                               |
-| `pickerIOS`           | `color`                            |                                                                                                                                               |
-| `pickerTopIOS`        | This has all ViewStyle properties  |                                                                                                                                               |
+| 元素         | 样式属性                 | 描述                                                            |
+| ---------- | -------------------- | ------------------------------------------------------------- |
+| `容器`       | 这包含所有视图样式属性。         |                                                               |
+| `容器已禁用`    | 与 `容器相同的属性`          | 如果日期选择器不可编辑，则覆盖 `容器` 风格。                                      |
+| `标签`       | 这包含所有的 TextStyle 属性。 |                                                               |
+| `标签`       | `编号OfLines`          | 这是要包装标签文本的最大行数。 如果文本更长了，它将被省略线切断(默认为 `1`。)                    |
+| `标签已禁用`    | 与 `标签相同的属性`          | 如果日期选择器不可编辑，则覆盖 `标签` 样式。                                      |
+| `值`        | 这包含所有的 TextStyle 属性  |                                                               |
+| `值`        | `rippleColor`        | 这是Android上的波纹的颜色。 并且只在按下日期选择器时才会应用(默认为 `rgba(0, 0, 0, 0). )`。 |
+| `值`        | `下颜色`                | 当按下 iOSS 上的日期选择器时使用这种颜色，如果不设置它将被默认设置为仅透明的话。                   |
+| `值已禁用`     | 这包含所有的 TextStyle 属性  | 如果日期选择器不可编辑，则覆盖 `值` 风格。                                       |
+| `占位符`      | 这包含所有的 TextStyle 属性  |                                                               |
+| `占位符已禁用`   | 这包含所有的 TextStyle 属性  | 如果日期选择器不可编辑，则覆盖 `占位符` 风格。                                     |
+| `验证消息`     | 这包含所有的 TextStyle 属性  |                                                               |
+| `选择器后台IOS` | 这包含所有视图样式属性          |                                                               |
+| `选取的 IOS`  | 这包含所有视图样式属性          |                                                               |
+| `选取的 IOS`  | `颜色`                 |                                                               |
+| `选取主题`     | 这包含所有视图样式属性          |                                                               |
 
-The default class to style all date picker inputs is named `DatePicker`.
+默认的类来样式所有日期选择器输入为 `日期选择器`。
 
-### 6.6 Reference selector
+### 6.6 参考选择器
 
-The reference selector is an input widget that can be used to display and edit associations. For more information on this widget, see [Reference Selector](reference-selector). This widget supports the same style properties and structure as the [drop-down](#drop-down) widget above.
+参考选择器是一个可用于显示和编辑关联的输入小部件。 关于此部件的更多信息，请参阅 [参考选择器](reference-selector)。 这个小部件支持与上面 [下拉](#drop-down) 小部件相同的样式属性和结构。
 
-The default class to style all reference selector inputs is named `ReferenceSelector`.
+所有引用选择器输入样式的默认类命名为 `ReferenceSelector`。
 
-## 7 File Widgets
+## 7 个文件部件
 
-File widgets help your user app manage images and other files. For more information on these widgets, see [File Widgets](file-widgets).
+文件小部件帮助您的用户应用管理图像和其他文件。 关于这些部件的更多信息，请参阅 [文件小部件](file-widgets)。
 
-### 7.1 Image Viewer {#image-viewer}
+### 7.1 图像查看器 {#image-viewer}
 
-An image viewer can be used to display an image. This widget supports the same style properties and structure as the [Image](#image) widget above.
+图像查看器可以用来显示图像。 这个小部件支持与上面的 [图像](#image) 小部件相同的样式属性和结构。
 
-The default class to style all image viewers is named  `NativeDynamicImage`.
+样式所有图像查看器的默认类命名为  `NativeDynamicImage`。
 
-## 8 Button Widgets
+## 8 按钮部件
 
-Button widgets help your user perform actions. For more information about these widgets, see [Button Widgets](button-widgets).
+按钮小部件帮助您的用户执行操作。 关于这些小部件的更多信息，请参阅 [按钮小部件](button-widgets)。
 
-### 8.1 Action Button
+### 8.1 动作按钮
 
-An action button can perform various actions such as calling a nanoflow, opening a page.
+一个动作按钮可以执行各种动作，如呼叫nanoflow，打开一个页面。
 
 {{% image_container width="350" %}}![action button](attachments/native-styling-refguide/action-button.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
-    <icon/><caption>primary</caption>
+    <icon/><caption>主要</caption>
 </container>
 ```
 
-| Element             | Style Properties                   | Description                                                                                                                          |
-| ------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `container`         | This has all ViewStyle properties. |                                                                                                                                      |
-| `container`         | `rippleColor`                      | This is the color of the ripple on Android (defaults to `rgba(0, 0, 0, 0.2)`).                                                       |
-| `container`         | `underlayColor`                    | This is the color while pressing the button on iOS, if not set it will be defaulted to opacity only.                                 |
-| `containerDisabled` | Same properties as `container`     | Overrides `container` styles if the button has on click action set and it cannot be executed or is set with `Disable during action`. |
-| `caption`           | This has all TextStyle properties. |                                                                                                                                      |
-| `captionDisabled`   | Same properties as `caption`       | Overrides `caption` styles if the button has on click action set and it cannot be executed or is set with `Disable during action`.   |
-| `icon`              | This has all ViewStyle properties. |                                                                                                                                      |
-| `icon`              | `size`                             | This is the size of the button icon (defaults to `12`).                                                                              |
-| `icon`              | `color`                            | This is the color of the button icon.                                                                                                |
-| `iconDisabled`      | Same properties as `icon`          | Overrides `icon` styles if the button has on click action set and it cannot be executed or is set with `Disable during action`.      |
+| 元素      | 样式属性                 | 描述                                                                                                                              |
+| ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `容器`    | 这包含所有视图样式属性。         |                                                                                                                                 |
+| `容器`    | `rippleColor`        | 这是Android上的波纹的颜色(默认为 `rgba(0, 0, 0, 0.2)`)。                                                                                     |
+| `容器`    | `下颜色`                | 按下 iOSS 按钮时使用此颜色，如果不设置此颜色将被默认设置为仅透明度。                                                                                           |
+| `容器已禁用` | 与 `容器相同的属性`          | 如果按键设置了单击动作且无法执行或设置为 `则覆盖 <code>容器` 样式。在动作中禁用</code>。                                                                        |
+| `标题`    | 这包含所有的 TextStyle 属性。 |                                                                                                                                 |
+| `标题已禁用` | 与 `标题相同的属性`          | 如果按键设置了单击动作且无法执行或设置为 `则覆盖 <code>标题` 样式。在动作中禁用</code>。                                                                        |
+| `图标`    | 这包含所有视图样式属性。         |                                                                                                                                 |
+| `图标`    | `大小`                 | 这是按钮图标的大小(默认为 `12`)。                                                                                                            |
+| `图标`    | `颜色`                 | 这是按钮图标的颜色。                                                                                                                      |
+| `图标已禁用` | 与 `图标相同`             | Overrides `icon` styles if the button has on click action set and it cannot be executed or is set with `Disable during action`. |
 
-The default class to style all actions buttons is named `ActionButton`. However, an action button in a header has the default class `ActionButtonHeader`.
+样式所有动作按钮的默认类命名为 `ActionButton`。 然而，标题中的动作按钮有默认类 `ActionButtonader`。
 
-## 9 Pages {#pages}
+## 9 页 {#pages}
 
-To style pages, you can add classes to a page or its layout. The status bar and header are part of a page and can also be styled this way.
+到样式页面，您可以将类添加到页面或它的布局。 状态栏和页眉是页面的一部分，也可以以这种方式设计。
 
 ```xml
 <page>
     <statusBar/>
     <header/>
     <container>
-        application content
+        应用程序内容
     </container>
 </page>
 ```
 
-| Element     | Style Properties                   | Description                                                                                                   |
-| ----------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `statusBar` | `barStyle`                         | The style of the status bar, which can be either `dark-content` (black text) or `light-content` (white text). |
-| `statusBar` | `backgroundColor`                  | The background color of the status bar (Android only).                                                        |
-| `header`    | `container`                        | This has all ViewStyle properties.                                                                            |
-| `header`    | `title`                            | This has all TextStyle properties.                                                                            |
-| `header`    | `backButtonText`                   | This has all TextStyle properties.                                                                            |
-| `header`    | `backButtonIcon`                   | This has all ImageStyle properties.                                                                           |
-| `container` | This has all ViewStyle properties. |                                                                                                               |
+| 元素    | 样式属性         | 描述                                       |
+| ----- | ------------ | ---------------------------------------- |
+| `状态栏` | `barStyle`   | 状态栏的风格可以是 `深色内容` (黑色文本) 或 `浅色内容` (白色文本)。 |
+| `状态栏` | `背景颜色`       | 状态栏的背景颜色 (仅安卓)                           |
+| `标题`  | `容器`         | 这包含所有视图样式属性。                             |
+| `标题`  | `标题`         | 这包含所有的 TextStyle 属性。                     |
+| `标题`  | `背面按钮文本`     | 这包含所有的 TextStyle 属性。                     |
+| `标题`  | `背面按钮图标`     | 这包含所有图像样式属性。                             |
+| `容器`  | 这包含所有视图样式属性。 |                                          |
 
-The default classes for layouts and pages are `Layout` and `Page`.
+布局和页面的默认类是 `布局` 和 `页面`。
 
 ## 10 Navigation {#navigation-widget}
 
-The navigation consists of the bottom bar (which allows users to navigate within your app) and the progress overlay (which can be used to show a loading indicator while waiting for something to load). This is how navigation could look like in an app:
+导航由底部栏(允许用户在您的应用程序内导航)和进度叠加(可以在等待加载时显示加载指示器)。 这是导航在应用中可以看起来的方式：
 
 {{% image_container width="300" %}}![navigation widget](attachments/native-styling-refguide/nav-widget.png){{% /image_container %}}
 
-The navigation style properties are as follows:
+导航样式属性如下：
 
 ```xml
 <app>
@@ -610,31 +610,31 @@ The navigation style properties are as follows:
 </progressOverlay>
 ```
 
-| Element           | Style Properties    | Description                                                               |
-| ----------------- | ------------------- | ------------------------------------------------------------------------- |
-| `bottomBar`       | `container`         | This has all ViewStyle properties.                                        |
-| `bottomBar`       | `label`             | This has all TextStyle properties.                                        |
-| `bottomBar`       | `selectedLabel`     | This has all TextStyle properties.                                        |
-| `bottomBar`       | `icon`              | This has all ViewStyle properties.                                        |
-| `bottomBar`       | `selectedIcon`      | This has all ViewStyle properties.                                        |
-| `progressOverlay` | `background`        | This has all ViewStyle properties.                                        |
-| `progressOverlay` | `container`         | This has all ViewStyle properties.                                        |
-| `progressOverlay` | `activityIndicator` | This is the same as the [activity indicator](#activity-indicator) widget. |
-| `progressOverlay` | `text`              | This has all TextStyle properties.                                        |
+| 元素                | 样式属性    | 描述                                     |
+| ----------------- | ------- | -------------------------------------- |
+| `bottomBar`       | `容器`    | 这包含所有视图样式属性。                           |
+| `bottomBar`       | `标签`    | 这包含所有的 TextStyle 属性。                   |
+| `bottomBar`       | `选择的标签` | 这包含所有的 TextStyle 属性。                   |
+| `bottomBar`       | `图标`    | 这包含所有视图样式属性。                           |
+| `bottomBar`       | `选中图标`  | 这包含所有视图样式属性。                           |
+| `progressOverlay` | `二. 背景` | 这包含所有视图样式属性。                           |
+| `progressOverlay` | `容器`    | 这包含所有视图样式属性。                           |
+| `progressOverlay` | `活动指示器` | 这与 [活动指示器](#activity-indicator) 小部件相同。 |
+| `progressOverlay` | `文本`    | 这包含所有的 TextStyle 属性。                   |
 
-The default class to style the navigation is named  `navigationStyle`. There is no support for custom class styling on navigation.
+导航样式的默认类命名为  `导航样式`。 在导航上不支持自定义类样式。
 
-## 11 Add-On Widgets
+## 11 附加组件小部件
 
-Add-on widgets are distributed through the [Native Mobile Resources](/appstore/modules/native-mobile-resources) module, and are not shipped with Mendix Studio Pro. Other add-on widgets might also be distributed through app templates, as well as modules importing pages from other apps.
+附加组件会通过 [原生移动资源](/appstore/modules/native-mobile-resources) 模块分发，它不会通过 Mendix Studio Pro 发送。 其它附加组件也可以通过应用模板以及从其它应用导入页面的模块来分发。
 
-### 11.1 Activity Indicator {#activity-indicator}
+### 11.1 活动指标 {#activity-indicator}
 
-The activity indicator widget displays a circular loading indicator. This is how an activity indicator widget could look in an app:
+活动指示小部件显示循环加载指示器。 这是一个活动指示器小部件可以在应用程序中看到的方式：
 
 {{% image_container width="350" %}}![activity indicator](attachments/native-styling-refguide/activity-indicator.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```javascript
 <container>
@@ -642,23 +642,23 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element     | Style Properties                   | Description                                                                  |
-| ----------- | ---------------------------------- | ---------------------------------------------------------------------------- |
-| `container` | This has all ViewStyle properties. |                                                                              |
-| `indicator` | `color`                            | This is the color of the indicator (defaults to `gray`).                     |
-| `indicator` | `size`                             | Possible values for indicator are `large` and `small` (defaults to `large`). |
+| 元素   | 样式属性         | 描述                               |
+| ---- | ------------ | -------------------------------- |
+| `容器` | 这包含所有视图样式属性。 |                                  |
+| `指标` | `颜色`         | 这是指示器的颜色(默认为 `灰色`)。              |
+| `指标` | `大小`         | 指示器的可能值是 `大的` 和 `小的` (默认为 `大的`)。 |
 
-The default class to style all activity indicators is named `com_mendix_widget_native_activityindicator_ActivityIndicator`.
+所有活动指示器样式的默认类命名 `com_mendix_widget_native_activityindicator_ActivityIndicator`。
 
-### 11.2 App Events
+### 11.2 应用事件
 
-The app events widget allows you to set actions when your app’s network status is changed, and can let you set limits on action calls. This widget has no user interface so does not support any styling.
+应用事件小部件允许您在您的应用网络状态被更改时设置动作，并允许您设定动作调用限制。 这个小部件没有用户界面，所以不支持任何样式。
 
-### 11.3 Background Image
+### 11.3 背景图像
 
-The background image widget enables layering one or more widgets on top of an image.
+背景图像小部件可以将一个或多个部件放置在图像顶部。
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```javascript
 <container>
@@ -666,40 +666,40 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element     | Style Properties                    | Description                                                      |
-| ----------- | ----------------------------------- | ---------------------------------------------------------------- |
-| `container` | This has all ViewStyle properties.  |                                                                  |
-| `image`     | This has all ImageStyle properties. |                                                                  |
-| `image`     | `svgColor`                          | Property to set the color of an SVG image (defaults to `black`). |
+| 元素   | 样式属性         | 描述                         |
+| ---- | ------------ | -------------------------- |
+| `容器` | 这包含所有视图样式属性。 |                            |
+| `图片` | 这包含所有图像样式属性。 |                            |
+| `图片` | `svgColor`   | 设置 SVG 图像颜色的属性 (默认为 `黑色`)。 |
 
-The default class to style all background images is named `com_mendix_widget_native_backgroundimage_BackgroundImage`.
+所有背景图像样式的默认类命名 `com_mendix_widget_native_backgroundimage_BackgroundImage_BackgroundImage`。
 
-### 11.4 Badge
+### 11.4 徽章
 
-The badge widget displays text or values as a badge. This is how a badge widget could look in an app:
+徽章小部件以徽章形式显示文本或值。 这是一个徽章小部件在应用中可以看到的方式：
 
 {{% image_container width="350" %}}![badge](attachments/native-styling-refguide/badge.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
-    <text>New</text>
+    <text>新</text>
 </container>
 ```
 
-| Element     | Style Properties                   | Description |
-| ----------- | ---------------------------------- | ----------- |
-| `container` | This has all ViewStyle properties. |             |
-| `text`      | This has all TextStyle properties. |             |
+| 元素   | 样式属性                 | 描述 |
+| ---- | -------------------- | -- |
+| `容器` | 这包含所有视图样式属性。         |    |
+| `文本` | 这包含所有的 TextStyle 属性。 |    |
 
-The default class to style all badges is named `com_mendix_widget_native_badge_Badge`.
+所有徽章样式的默认类命名为 `com_mendix_widget_native_badge_Badge`。
 
-### 11.5 Barcode Scanner
+### 11.5 条码扫描器
 
-The barcode scanner widget allows your app to scan barcodes and QR codes. This widget renders a camera view in a styleable container.
+条形码扫描器小部件允许应用扫描条形码和二维码。 这个小部件以风格容器渲染相机视图。
 
-The widget's style properties are as follows:
+小部件的样式属性如下：
 
 ```javascript
 <container>
@@ -707,97 +707,97 @@ The widget's style properties are as follows:
 <container />
 ```
 
-| Element     | Style Properties                       | Description                                                                          |
-| ----------- | -------------------------------------- | ------------------------------------------------------------------------------------ |
-| `container` | This has all ViewStyle properties.     |                                                                                      |
-| `mask`      | This only allows the properties below. |                                                                                      |
-| `mask`      | `color`                                | Property to set the color of the mask border indicators (defaults to `#62B1F6`).     |
-| `mask`      | `width`                                | Property to set the width of the barcode reader.                                     |
-| `mask`      | `height`                               | Property to set the height of the barcode reader.                                    |
-| `mask`      | `backgroundColor`                      | Property to set the background color of the mask (defaults to `rgba(0, 0, 0, 0.6)`). |
+| 元素   | 样式属性         | 描述                                      |
+| ---- | ------------ | --------------------------------------- |
+| `容器` | 这包含所有视图样式属性。 |                                         |
+| `掩码` | 这只允许下面的属性。   |                                         |
+| `掩码` | `颜色`         | 设置面具边框指示器颜色的属性(默认为 `#62B1F6`)。          |
+| `掩码` | `width`      | 设置条形码阅读器宽度的属性。                          |
+| `掩码` | `高度`         | 设置条形码阅读器高度的属性。                          |
+| `掩码` | `背景颜色`       | 设置遮罩背景颜色的属性 (默认为 `rgba(0, 0, 0, 0.6)`)。 |
 
-The default class to style all barcode scanner widgets is named `com_mendix_widget_native_barcodescanner_BarcodeScanner`.
+样式所有条形码扫描小部件的默认类名称， `com_mendix_widget_native_barcodescanner`。
 
-### 11.6 Feedback
+### 11.6 反馈
 
-The feedback widget allows users to give direct feedback. This is how a feedback widget could look in an app:
+反馈小部件允许用户提供直接反馈。 这是一个反馈小部件在应用程序中可以看到的方式：
 
 {{% image_container width="350" %}}![feedback](attachments/native-styling-refguide/feedback-two.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
-| Element             | Style Properties                   | Description                                                                                                                        |
-| ------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `floatingButton`    | This has all ViewStyle properties. |                                                                                                                                    |
-| `dialog`            | This has all ViewStyle properties. |                                                                                                                                    |
-| `title`             | This has all TextStyle properties. |                                                                                                                                    |
-| `textAreaInput`     | This has all TextStyle properties. |                                                                                                                                    |
-| `textAreaInput`     | `placeholderTextColor`             | This is the text color of the placeholder string.                                                                                  |
-| `textAreaInput`     | `selectionColor`                   | This is the highlight and cursor color of the text input.                                                                          |
-| `textAreaInput`     | `underlineColorAndroid`            | This is the underline color for Android devices.                                                                                   |
-| `textAreaInput`     | `numberOfLines`                    | This is the height of the text area is based on this number of text lines.                                                         |
-| `switchLabel`       | This has all TextStyle properties. |                                                                                                                                    |
-| `switchInput`       | This has all TextStyle properties. |                                                                                                                                    |
-| `switchInput`       | `trackColorOn`                     | This is the custom color for the switch track when turned on.                                                                      |
-| `switchInput`       | `trackColorOff`                    | This is the custom color for the switch track when turned off.                                                                     |
-| `switchInput`       | `thumbColorOn`                     | This is the color of the foreground switch grip when turned on. If this is set on iOS, the switch grip will lose its drop shadow.  |
-| `switchInput`       | `thumbColorOff`                    | This is the color of the foreground switch grip when turned off. If this is set on iOS, the switch grip will lose its drop shadow. |
-| `button`            | `borderColor`                      | This is the color of dialog button borders.                                                                                        |
-| `button`            | `borderWidth`                      | This is the width of dialog button borders.                                                                                        |
-| `button`            | `color`                            | This is the color of dialog button text.                                                                                           |
-| `buttonDisabled`    | `color`                            | This is the color of dialog button text when disabled.                                                                             |
-| `activityIndicator` | `color`                            | This is the color of the activity indicator that is shown while feedback is being submitted.                                       |
+| 元素              | 样式属性                 | 描述                                 |
+| --------------- | -------------------- | ---------------------------------- |
+| `浮动按钮`          | 这包含所有视图样式属性。         |                                    |
+| `对话框`           | 这包含所有视图样式属性。         |                                    |
+| `标题`            | 这包含所有的 TextStyle 属性。 |                                    |
+| `textAreaInput` | 这包含所有的 TextStyle 属性。 |                                    |
+| `textAreaInput` | `占位符文本颜色`            | 这是占位符字符串的文本颜色。                     |
+| `textAreaInput` | `选择颜色`               | 这是文本输入的高亮和光标颜色。                    |
+| `textAreaInput` | `下划线颜色安卓系统`          | 这是Android 设备的下划线颜色。                |
+| `textAreaInput` | `编号OfLines`          | 这是文本区域的高度，以这个文本行数为基础。              |
+| `切换标签`          | 这包含所有的 TextStyle 属性。 |                                    |
+| `切换输入`          | 这包含所有的 TextStyle 属性。 |                                    |
+| `切换输入`          | `trackColoron`       | 开启时切换曲目的自定义颜色。                     |
+| `切换输入`          | `trackColoroff`      | 关闭时切换曲目的自定义颜色。                     |
+| `切换输入`          | `thumbColorOn`       | 开启时这是前景开关的颜色。 如果设置为 iOS，开关抓取将丢失阴影。 |
+| `切换输入`          | `thumbColorOff`      | 开关时这是前景开关的颜色。 如果设置为 iOS，开关抓取将丢失阴影。 |
+| `按钮`            | `边框颜色`               | 这是对话框按钮边界的颜色。                      |
+| `按钮`            | `borderWidth`        | 这是对话框按钮边界的宽度。                      |
+| `按钮`            | `颜色`                 | 这是对话框按钮文本的颜色。                      |
+| `按钮已禁用`         | `颜色`                 | 禁用时这是对话框按钮文本的颜色。                   |
+| `活动指示器`         | `颜色`                 | 这是提交反馈时显示的活动指示器的颜色。                |
 
-The default class to style all feedback widgets is named `com_mendix_widget_native_feedback_Feedback`.
+样式所有反馈小部件的默认类命名 `com_mendix_widget_native_feedback_反馈`。
 
-### 11.7 Floating Action Button
+### 11.7 浮动操作按钮
 
-The floating action button widget lets you customize the appearance and functionality of floating action buttons. The widget’s style properties are as follows:
+浮动动动动作按钮可以让您自定义浮动动动作按钮的外观和功能。 小部件的样式属性如下：
 
-| Element                           | Style Properties                    | Description                                  |
-| --------------------------------- | ----------------------------------- | -------------------------------------------- |
-| `container`                       | This has all ViewStyle properties.  |                                              |
-| `button`                          | This has all ViewStyle properties.  |                                              |
-| `button`                          | `size`                              | This is the radius of the button.            |
-| `button`                          | `rippleColor`                       | This is the color of the ripple on Android.  |
-| `buttonIcon`                      | This has all ImageStyle properties. |                                              |
-| `secondaryButton`                 | This has all ViewStyle properties.  |                                              |
-| `secondaryButton`                 | `size`                              | This is the radius of the secondary buttons. |
-| `secondaryButtonIcon`             | This has all ImageStyle properties. |                                              |
-| `secondaryButtonCaption`          | This has all TextStyle properties.  |                                              |
-| `secondaryButtonCaptionContainer` | This has all ViewStyle properties.  |                                              |
+| 元素                     | 样式属性                 | 描述                |
+| ---------------------- | -------------------- | ----------------- |
+| `容器`                   | 这包含所有视图样式属性。         |                   |
+| `按钮`                   | 这包含所有视图样式属性。         |                   |
+| `按钮`                   | `大小`                 | 这是按钮的半径。          |
+| `按钮`                   | `rippleColor`        | 这是Android上的波纹的颜色。 |
+| `按钮图标`                 | 这包含所有图像样式属性。         |                   |
+| `次要按钮`                 | 这包含所有视图样式属性。         |                   |
+| `次要按钮`                 | `大小`                 | 这是次要按钮的半径。        |
+| `次要按钮图标`               | 这包含所有图像样式属性。         |                   |
+| `次要按钮字幕`               | 这包含所有的 TextStyle 属性。 |                   |
+| `次要按钮CaptionContainer` | 这包含所有视图样式属性。         |                   |
 
-The default class to style all floating actions buttons is named `com_mendix_widget_native_floatingactionbutton_FloatingActionButton`.
+所有浮动动动作按钮样式的默认类命名 `com_mendix_widget_native_floatingactionbuton_FloatingAction按钮`。
 
-### 11.8 Maps
+### 11.8 地图
 
-The maps widget supports various digital map providers. This is how a maps widget could look in an app:
+地图小部件支持各种数字地图提供者。 这是一个地图小部件可以在应用中看到的方式：
 
 {{% image_container width="350" %}}![maps](attachments/native-styling-refguide/maps.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
-| Element            | Style Properties                   | Description                                 |
-| ------------------ | ---------------------------------- | ------------------------------------------- |
-| `container`        | This has all ViewStyle properties. |                                             |
-| `loadingOverlay`   | This has all ViewStyle properties. |                                             |
-| `loadingIndicator` | `color`                            | This is the color of the loading indicator. |
-| `marker`           | `color`                            | This is the color of the location marker.   |
-| `marker`           | `opacity`                          | This is the opacity of the location marker. |
+| 元素               | 样式属性         | 描述           |
+| ---------------- | ------------ | ------------ |
+| `容器`             | 这包含所有视图样式属性。 |              |
+| `loadingOverlay` | 这包含所有视图样式属性。 |              |
+| `加载指示器`          | `颜色`         | 这是加载指示器的颜色。  |
+| `标记`             | `颜色`         | 这是位置标记的颜色。   |
+| `标记`             | `不透明度`       | 这是位置标记的不透明度。 |
 
-The default class to style all map widgets is named `com_mendix_widget_native_maps_Maps`.
+所有地图部件样式的默认类命名 `com_mendix_widget_native_maps_Maps`。
 
-### 11.9 Notifications
+### 11.9 通知
 
-The notifications widget lets you display a custom message in your app. This widget has no user interface so does not support any styling.
+通知小部件允许您在应用中显示自定义消息。 这个小部件没有用户界面，所以不支持任何样式。
 
-### 11.10 Progress Bar
+### 11.10 进度条
 
-The progress bar widget shows percentage of progress. This is how a progress bar widget could look in an app:
+进度栏小部件显示进度百分比。 这是进度条小部件可以在应用程序中看到的方式：
 
 {{% image_container width="300" %}}![progress bar](attachments/native-styling-refguide/progress-bar.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -806,22 +806,22 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element             | Style Properties                   | Description                                                      |
-| ------------------- | ---------------------------------- | ---------------------------------------------------------------- |
-| `container`         | This has all ViewStyle properties. |                                                                  |
-| `bar`               | This has all ViewStyle properties. |                                                                  |
-| `fill`              | `backgroundColor`                  | This is the background color of the filled progress bar portion. |
-| `validationMessage` | This has all TextStyle properties. |                                                                  |
+| 元素     | 样式属性                 | 描述              |
+| ------ | -------------------- | --------------- |
+| `容器`   | 这包含所有视图样式属性。         |                 |
+| `条形图`  | 这包含所有视图样式属性。         |                 |
+| `填充`   | `背景颜色`               | 这是填充进度条部分的背景颜色。 |
+| `验证消息` | 这包含所有的 TextStyle 属性。 |                 |
 
-The default class to style all progress bars is named `com_mendix_widget_native_progressbar_ProgressBar`.
+样式所有进度条的默认类命名 `com_mendix_widget_native_progressbar_ProgressBar`。
 
-### 11.11 Progress Circle
+### 11.11 进步圆
 
-The progress circle widget displays progress in a circle using positive or negative values. This is how a progress circle widget could look in an app:
+进度圈小部件在一个循环中显示正值或负值的进展。 这是进度圈小部件可以在应用程序中看到的方式：
 
 {{% image_container width="300" %}}![progress circle](attachments/native-styling-refguide/progress-circle.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -830,27 +830,27 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element             | Style Properties                   | Description                                                             |
-| ------------------- | ---------------------------------- | ----------------------------------------------------------------------- |
-| `container`         | This has all ViewStyle properties. |                                                                         |
-| `circle`            | `size`                             | This is the radius of the progress circle.                              |
-| `circle`            | `borderWidth`                      | This is the border width of the progress circle.                        |
-| `circle`            | `borderColor`                      | This is the color of the progress circle border.                        |
-| `fill`              | `backgroundColor`                  | This is the color of the circle’s filled portion.                       |
-| `fill`              | `width`                            | This is the width of the progress circle.                               |
-| `fill`              | `lineCapRounded`                   | This determines if the rotating line’s front tip is rounded off or not. |
-| `text`              | This has all TextStyle properties. |                                                                         |
-| `validationMessage` | This has all TextStyle properties. |                                                                         |
+| 元素     | 样式属性                 | 描述                |
+| ------ | -------------------- | ----------------- |
+| `容器`   | 这包含所有视图样式属性。         |                   |
+| `圆圈`   | `大小`                 | 这是进度圈的半径。         |
+| `圆圈`   | `borderWidth`        | 这是进度圈的边框宽度。       |
+| `圆圈`   | `边框颜色`               | 这是进度圆边框的颜色。       |
+| `填充`   | `背景颜色`               | 这是圆圈填充部分的颜色。      |
+| `填充`   | `width`              | 这是进度圈的宽度。         |
+| `填充`   | `线性圆角`               | 这决定了旋转线前端是否已四舍五入。 |
+| `文本`   | 这包含所有的 TextStyle 属性。 |                   |
+| `验证消息` | 这包含所有的 TextStyle 属性。 |                   |
 
-The default class to style all progress circles is named `com_mendix_widget_native_progresscircle_ProgressCircle`.
+所有进度圈样式的默认类命名 `com_mendix_widget_native_progresscircle_ProgressCircle`。
 
 ### 11.12 QR Code
 
-The QR code widget generates a QR code based on a value, which a user can then scan. This is how a QR code widget could look in an app:
+二维码小部件生成基于一个值的二维码，然后用户可以扫描。 这是一个二维码小部件在应用程序中可以看到的方式：
 
 {{% image_container width="350" %}}![qr code](attachments/native-styling-refguide/qr-code.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -858,22 +858,22 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element     | Style Properties                   | Description                              |
-| ----------- | ---------------------------------- | ---------------------------------------- |
-| `container` | This has all ViewStyle properties. |                                          |
-| `qrcode`    | `size`                             | The size of the QR code.                 |
-| `qrcode`    | `color`                            | The color of the QR code.                |
-| `qrcode`    | `backgroundColor`                  | The background color behind the QR code. |
+| 元素       | 样式属性         | 描述          |
+| -------- | ------------ | ----------- |
+| `容器`     | 这包含所有视图样式属性。 |             |
+| `qrcode` | `大小`         | 二维码的大小。     |
+| `qrcode` | `颜色`         | 二维码的颜色。     |
+| `qrcode` | `背景颜色`       | 二维码背后的背景颜色。 |
 
-The default class to style all QR codes is named `com_mendix_widget_native_qrcode_QRCode`.
+样式所有二维码的默认类命名 `com_mendix_widget_native_qrcode_QRCode`。
 
 ### 11.13 Range Slider {#range-slider}
 
-The range slider widget allows you to change a range of values using a slider with maximum and minimum bound values. This is how a range slider widget could look in an app:
+范围滑块小部件允许您使用滑块更改范围内的最大和最小绑定值。 这是一个范围滑块小部件可以在应用程序中看到的方式：
 
 {{% image_container width="300" %}}![range slider](attachments/native-styling-refguide/range-slider.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -887,53 +887,53 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element             | Style Properties                   | Description |
-| ------------------- | ---------------------------------- | ----------- |
-| `container`         | This has all ViewStyle properties. |             |
-| `track`             | This has all ViewStyle properties. |             |
-| `trackDisabled`     | This has all ViewStyle properties. |             |
-| `highlight`         | This has all ViewStyle properties. |             |
-| `highlightDisabled` | This has all ViewStyle properties. |             |
-| `marker`            | This has all ViewStyle properties. |             |
-| `markerActive`      | This has all ViewStyle properties. |             |
-| `markerDisabled`    | This has all ViewStyle properties. |             |
-| `validationMessage` | This has all TextStyle properties. |             |
+| 元素         | 样式属性                 | 描述 |
+| ---------- | -------------------- | -- |
+| `容器`       | 这包含所有视图样式属性。         |    |
+| `曲目`       | 这包含所有视图样式属性。         |    |
+| `Track已禁用` | 这包含所有视图样式属性。         |    |
+| `高亮显示`     | 这包含所有视图样式属性。         |    |
+| `高亮已禁用`    | 这包含所有视图样式属性。         |    |
+| `标记`       | 这包含所有视图样式属性。         |    |
+| `标记激活`     | 这包含所有视图样式属性。         |    |
+| `标记已禁用`    | 这包含所有视图样式属性。         |    |
+| `验证消息`     | 这包含所有的 TextStyle 属性。 |    |
 
-The default class to style all range slider inputs is named `com_mendix_widget_native_rangeslider_RangeSlider`.
+样式所有滑块输入的默认类命名 `com_mendix_widget_native_rangeslider_RangeSlider`。
 
-### 11.14 Safe Area View
+### 11.14 安全区域视图
 
-The safe area view widget prevents content from being rendered in unwanted areas, such as behind rounded screen corners or notches. This widget is only supported on iOS apps. Note that `container` styling will only be applied to the safe area.
+安全区域视图小部件防止内容在不需要的区域中，例如在环形屏幕边缘或节点后面。 这个小部件仅在 iOS 应用程序上支持。 注意 `容器` 样式只适用于安全区域。
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
-<container>content</container>
+<container>内容</container>
 ```
 
-| Element     | Style Properties                   | Description |
-| ----------- | ---------------------------------- | ----------- |
-| `container` | This has all ViewStyle properties. |             |
+| 元素   | 样式属性         | 描述 |
+| ---- | ------------ | -- |
+| `容器` | 这包含所有视图样式属性。 |    |
 
-The default class to style all safe area views is named `com_mendix_widget_native_safeareaview_SafeAreaView`.
+样式所有安全区域视图的默认类命名 `com_mendix_widget_native_safeareaview.SafeAreaView`。
 
-### 11.15 Slider
+### 11.15 滑块
 
-The slider widget simply allows you to change a number value using a slider. This is how a slider widget could look in an app:
+滑块小部件允许您使用滑块更改数字值。 这是一个滑块小部件在应用程序中可以看到的方式：
 
 {{% image_container width="300" %}}![slider](attachments/native-styling-refguide/slider.png){{% /image_container %}}
 
-This widget supports the same style properties as the \[range slider\] (#range-slider) widget above.
+这个小部件支持上面的 \[range slider\] (#range-slider) 小部件相同的样式属性。
 
-The default class to style all slider inputs is named `com_mendix_widget_native_slider_Slider`.
+样式所有滑块输入的默认类命名 `com_mendix_widget_native_slider_Slider`。
 
-### 11.16 Ratings
+### 11.16 评分
 
-The ratings widget allows users to rate an object from 0 to 5. This is how a ratings widget could look in an app:
+评分小部件允许用户对对象从 0 到 5 评分。 这是一个评级小部件在应用中可以看到的方式：
 
 {{% image_container width="350" %}}![ratings](attachments/native-styling-refguide/ratings.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -945,24 +945,24 @@ The widget’s style properties are as follows:
 </containerDisabled>
 ```
 
-| Element             | Style Properties                   | Description                          |
-| ------------------- | ---------------------------------- | ------------------------------------ |
-| `container`         | This has all ViewStyle properties. |                                      |
-| `containerDisabled` | This has all ViewStyle properties. |                                      |
-| `icon`              | This has all ViewStyle properties. |                                      |
-| `icon`              | `size`                             | The size of the icon.                |
-| `icon`              | `color`                            | The color of the icon.               |
-| `icon`              | `selectedColor`                    | The color of the icon when selected. |
+| 元素      | 样式属性         | 描述        |
+| ------- | ------------ | --------- |
+| `容器`    | 这包含所有视图样式属性。 |           |
+| `容器已禁用` | 这包含所有视图样式属性。 |           |
+| `图标`    | 这包含所有视图样式属性。 |           |
+| `图标`    | `大小`         | 图标的大小。    |
+| `图标`    | `颜色`         | 图标的颜色。    |
+| `图标`    | `选中的颜色`      | 选择图标时的颜色。 |
 
-The default class to style all rating inputs is named `com_mendix_widget_native_rating_Rating`.
+样式所有评分输入的默认类命名为 `com_mendix_widget_native_rating_Rating`。
 
-### 11.17 Toggle Buttons
+### 11.17 切换按钮
 
-The toggle buttons widget allows you to set an enumeration attribute. This is how a toggle buttons widget could look in an app:
+切换按钮小部件允许您设置枚举属性。 这是一个切换按钮小部件在应用程序中可以看到的方式：
 
 {{% image_container width="350" %}}![toggle buttons](attachments/native-styling-refguide/toggle-buttons.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -980,52 +980,52 @@ The widget’s style properties are as follows:
 </containerDisabled>
 ```
 
-| Element             | Style Properties                   | Description |
-| ------------------- | ---------------------------------- | ----------- |
-| `container`         | This has all ViewStyle properties. |             |
-| `containerDisabled` | This has all ViewStyle properties. |             |
-| `button`            | This has all ViewStyle properties. |             |
-| `text`              | This has all TextStyle properties. |             |
-| `activeButton`      | This has all ViewStyle properties. |             |
-| `activeButtonText`  | This has all TextStyle properties. |             |
-| `validationMessage` | This has all TextStyle properties. |             |
+| 元素       | 样式属性                 | 描述 |
+| -------- | -------------------- | -- |
+| `容器`     | 这包含所有视图样式属性。         |    |
+| `容器已禁用`  | 这包含所有视图样式属性。         |    |
+| `按钮`     | 这包含所有视图样式属性。         |    |
+| `文本`     | 这包含所有的 TextStyle 属性。 |    |
+| `活动按钮`   | 这包含所有视图样式属性。         |    |
+| `活动按钮文本` | 这包含所有的 TextStyle 属性。 |    |
+| `验证消息`   | 这包含所有的 TextStyle 属性。 |    |
 
-The default class to style all toggle buttons is named `com_mendix_widget_native_togglebuttons_ToggleButtons`.
+所有切换按钮的默认类名称， `com_mendix_widget_native_togglebutons_ToggleButtons`。
 
-### 11.18 Video Player
+### 11.18 视频播放器
 
-The video player widget allows you to play video based on a URL, and is limited to MP4 only. This is how a video player widget could look in an app:
+视频播放器小部件允许您根据URL播放视频，仅限 MP4。 这是视频播放器小部件可以在应用程序中看到的方式：
 
 {{% image_container width="300" %}}![video player](attachments/native-styling-refguide/video-player.png){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
-| Element        | Style Properties                   | Description                  |
-| -------------- | ---------------------------------- | ---------------------------- |
-| `container`    | This has all ViewStyle properties. |                              |
-| `indicator`    | `color`                            | The loading indicator color. |
-| `video`        | This has all ViewStyle properties. |                              |
-| `errorMessage` | This has all TextStyle properties. |                              |
+| 元素     | 样式属性                 | 描述       |
+| ------ | -------------------- | -------- |
+| `容器`   | 这包含所有视图样式属性。         |          |
+| `指标`   | `颜色`                 | 加载指示器颜色。 |
+| `视频`   | 这包含所有视图样式属性。         |          |
+| `错误消息` | 这包含所有的 TextStyle 属性。 |          |
 
-The default class to style all video players is named `com_mendix_widget_native_videoplayer_VideoPlayer`.
+所有视频播放器样式的默认类命名为 `com_mendix_widget_native_videoplayer_VideoPlayer`。
 
-### 11.19 Web View
+### 11.19 Web 视图
 
-The web view widget allows you to embed static or dynamic websites in your app. The widget’s style properties are as follows:
+网页视图小部件允许您将静态或动态网站嵌入到您的应用中。 小部件的样式属性如下：
 
-| Element          | Style Properties                   | Description |
-| ---------------- | ---------------------------------- | ----------- |
-| `container`      | This has all ViewStyle properties. |             |
-| `errorContainer` | This has all ViewStyle properties. |             |
-| `errorText`      | This has all TextStyle properties. |             |
+| 元素     | 样式属性                 | 描述 |
+| ------ | -------------------- | -- |
+| `容器`   | 这包含所有视图样式属性。         |    |
+| `容器错误` | 这包含所有视图样式属性。         |    |
+| `错误文本` | 这包含所有的 TextStyle 属性。 |    |
 
-The default class to style all web views is named `com_mendix_widget_native_webview_WebView`.
+所有网页视图样式的默认类命名 `com_mendix_widget_native_webview_WebView`。
 
-### 11.20 Animation
+### 11.20 动画
 
-The animation widget allows you to animate a container. You can make the content wiggle, move, change size, and more.
+动画小部件允许您动画容器。 您可以让内容变量、 移动、 更改大小等等。
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -1033,19 +1033,19 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element     | Style Properties                   | Description |
-| ----------- | ---------------------------------- | ----------- |
-| `container` | This has all ViewStyle properties. |             |
+| 元素   | 样式属性         | 描述 |
+| ---- | ------------ | -- |
+| `容器` | 这包含所有视图样式属性。 |    |
 
-The default class to style all animation widgets is named `com_mendix_widget_native_animation_Animation`.
+默认类样式所有动画小部件名为 `com_mendix_widget_native_animation_动画`。
 
-### 11.21 Introduction Screen
+### 11.21 介绍屏幕
 
-This introduction screen widget displays paginated contents you can swipe through, and offers buttons on each page to proceed or go back:
+这个介绍屏幕小部件显示您可以滑动的分页内容，并在每个页面提供按钮继续或返回：
 
 {{% image_container width="350" %}}![intro screen](attachments/native-styling-refguide/intro-screen.gif){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <fullscreenContainer>
@@ -1091,29 +1091,29 @@ The widget’s style properties are as follows:
 </popupContainer>
 ```
 
-| Element               | Style Properties                   | Description                                                       |
-| --------------------- | ---------------------------------- | ----------------------------------------------------------------- |
-| `fullscreenContainer` | This has all ViewStyle properties. |                                                                   |
-| `popupContainer`      | This has all ViewStyle properties. |                                                                   |
-| `paginationContainer` | This has all ViewStyle properties. |                                                                   |
-| `paginationText`      | This has all TextStyle properties. |                                                                   |
-| `dotStyle`            | This has all ViewStyle properties. |                                                                   |
-| `activeDotStyle`      | This has all ViewStyle properties. |                                                                   |
-| `buttonsContainer`    | This has all ViewStyle properties. |                                                                   |
-| `container`           | This has all ViewStyle properties. | Meant for buttonSkip, buttonDone, buttonPrevious, and buttonNext. |
-| `caption`             | This has all ViewStyle properties. |                                                                   |
-| `icon`                | `size`                             | The size of the icon.                                             |
-| `icon`                | `color`                            | The color of the icon.                                            |
+| 元素         | 样式属性                 | 描述               |
+| ---------- | -------------------- | ---------------- |
+| `全屏容器`     | 这包含所有视图样式属性。         |                  |
+| `弹出容器`     | 这包含所有视图样式属性。         |                  |
+| `分页容器`     | 这包含所有视图样式属性。         |                  |
+| `分页文本`     | 这包含所有的 TextStyle 属性。 |                  |
+| `dotStyle` | 这包含所有视图样式属性。         |                  |
+| `活动Dot样式`  | 这包含所有视图样式属性。         |                  |
+| `按钮容器`     | 这包含所有视图样式属性。         |                  |
+| `容器`       | 这包含所有视图样式属性。         | 键盘、按钮完成、上次按钮和按钮。 |
+| `标题`       | 这包含所有视图样式属性。         |                  |
+| `图标`       | `大小`                 | 图标的大小。           |
+| `图标`       | `颜色`                 | 图标的颜色。           |
 
-The default class to style all into screen widgets is named `com_mendix_widget_native_animation_Animation`.
+默认类为屏幕小部件风格的名称为 `com_mendix_widget_native_animation_动画`。
 
-### 11.22 List View Swipe
+### 11.22 滑动列表
 
-The list view swipe widget can make a list view interactive by adding swipe gestures and extra buttons in the background behind a list item:
+列表视图的滑动小部件可以通过在列表项目的后台添加滑动手势和额外按钮使列表视图交互：
 
 {{% image_container width="350" %}}![list view swipe](attachments/native-styling-refguide/list-view-swipe-buttons.gif){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container>
@@ -1127,31 +1127,31 @@ The widget’s style properties are as follows:
 </container>
 ```
 
-| Element       | Style Properties                   | Description                                                           |
-| ------------- | ---------------------------------- | --------------------------------------------------------------------- |
-| `container`   | This has all ViewStyle properties. |                                                                       |
-| `leftAction`  | This has all ViewStyle properties. |                                                                       |
-| `leftAction`  | `panelSize`                        | The number of pixels and the combined size of the background buttons. |
-| `leftAction`  | `threshold`                        | The number of pixels to accept the swipe action.                      |
-| `rightAction` | This has all ViewStyle properties. |                                                                       |
-| `rightAction` | `panelSize`                        | The number of pixels and the combined size of the background buttons. |
-| `rightAction` | `threshold`                        | The number of pixels to accept the swipe action.                      |
+| 元素     | 样式属性         | 描述              |
+| ------ | ------------ | --------------- |
+| `容器`   | 这包含所有视图样式属性。 |                 |
+| `左侧操作` | 这包含所有视图样式属性。 |                 |
+| `左侧操作` | `panelSize`  | 背景按钮的像素数量和合并大小。 |
+| `左侧操作` | `阈值`         | 接受滑动动动作的像素数量。   |
+| `右侧操作` | 这包含所有视图样式属性。 |                 |
+| `右侧操作` | `panelSize`  | 背景按钮的像素数量和合并大小。 |
+| `右侧操作` | `阈值`         | 接受滑动动动作的像素数量。   |
 
-The default class to style all animation widgets is named `com_mendix_widget_native_listviewswipe_ListViewSwipe`.
+默认类样式所有动画小部件名为 `com_mendix_widget_native_listviewswipe_ListViewSwipe`。
 
-### 11.23 Bottom Sheet
+### 11.23 底板
 
-The bottom sheet widget creates a set of options while blocking interaction with the rest of the screen or a draggable surface anchored to the bottom of the screen. There are two customizable variations:
+底部板材小部件在阻止与屏幕其他部分的互动或固定在屏幕底部的可拖动的表面时创建了一组选项。 有两个可自定义的变量：
 
-* Modal bottom sheet:
+* 模式底板：
 
     {{% image_container width="350" %}}![modal bottom sheet](attachments/native-styling-refguide/modal-bottom-sheet.gif){{% /image_container %}}
 
-* Expanding bottom sheet:
+* 正在展开底部工作表：
 
     {{% image_container width="350" %}}![expanding bottom sheet](attachments/native-styling-refguide/expanding-bottom-sheet.gif){{% /image_container %}}
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container />
@@ -1165,23 +1165,23 @@ The widget’s style properties are as follows:
 </modalItems>
 ```
 
-| Element                           | Style Properties                   | Description                                                        |
-| --------------------------------- | ---------------------------------- | ------------------------------------------------------------------ |
-| `container`                       | This has all ViewStyle properties. |                                                                    |
-| `containerWhenExpandedFullscreen` | This has all ViewStyle properties. | Only available if `Expading` and `Enable full screen` are enabled. |
-| `modal`                           | This has all ViewStyle properties. |                                                                    |
-| `defaultStyle`                    | This has all TextStyle properties. | Available when `Default` is selected as style for basic items.     |
-| `primaryStyle`                    | This has all TextStyle properties. | Available when `Primary` is selected as style for basic items.     |
-| `dangerStyle`                     | This has all TextStyle properties. | Available when `Danger` is selected as style for basic items.      |
-| `customStyle`                     | This has all TextStyle properties. | Available when `Custom` is selected as style for basic items.      |
+| 元素             | 样式属性                 | 描述                         |
+| -------------- | -------------------- | -------------------------- |
+| `容器`           | 这包含所有视图样式属性。         |                            |
+| `容器扩展全屏`       | 这包含所有视图样式属性。         | 只有在 `展开` and `启用全屏` 时才可用。  |
+| `模式`           | 这包含所有视图样式属性。         |                            |
+| `defaultStyle` | 这包含所有的 TextStyle 属性。 | 当 `默认` 被选为基本项目的样式时可用。      |
+| `primaryStyle` | 这包含所有的 TextStyle 属性。 | 当 `主` 被选为基本项目的样式时可用。       |
+| `危险样式`         | 这包含所有的 TextStyle 属性。 | 当 `危险` 被选为基本物品的样式时有效。      |
+| `自定义样式`        | 这包含所有的 TextStyle 属性。 | 当 `被选择为基本项目的风格时，自定义` 是可用的。 |
 
-The default class to style all bottom sheet widgets is named `com_mendix_widget_native_bottomsheet_BottomSheet`.
+所有底部板块样式的默认类命名 `com_mendix_widget_native_bottomSheet`。
 
 ### 11.24 Popup Menu
 
-The popup menu widget allows you to show a context menu exactly where the user taps.
+弹出菜单小部件允许您显示上下文菜单，正是在哪里点击。
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 <container/>
@@ -1206,50 +1206,50 @@ The widget’s style properties are as follows:
 <basic/>
 ```
 
-A main object has four objects.
+一个主对象有四个对象。
 
-| Element         | Style Properties                   | Description                                                                                                      |
-| --------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| basic           | BasicItemStyle                     | Styles basic items.                                                                                              |
-| custom          | CustomItemStyle                    | Styles custom items.                                                                                             |
-| buttonContainer | This has all ViewStyle properties. | Styles the wrapper view of triggerer since there could be multiple elements, and it has to be wrapped in a view. |
-| container       | This has all ViewStyle properties. | Styles the wrapper view around the whole menu.                                                                   |
+| 元素   | 样式属性           | 描述                               |
+| ---- | -------------- | -------------------------------- |
+| 基本的  | BasicItemStyle | 样式基本项。                           |
+| 自定义  | 自定义项目样式        | 自定义条目样式。                         |
+| 按钮容器 | 这包含所有视图样式属性。   | 触发器的包装视图样式，因为可能有多个元素，它必须用一个视图包裹。 |
+| 容器   | 这包含所有视图样式属性。   | 在整个菜单周围设置包装器视图样式。                |
 
 #### BasicItemStyle
 
-| Element        | Style Properties                   | Description                                       |
-| -------------- | ---------------------------------- | ------------------------------------------------- |
-| containerStyle | This has all ViewStyle properties. | Styles the wrapper container around a basic item. |
-| itemStyle      | ItemStyle                          | Styles the basic items.                           |
-| dividerColor   | `string`                           | Styles the divider color.                         |
+| 元素   | 样式属性         | 描述                |
+| ---- | ------------ | ----------------- |
+| 容器样式 | 这包含所有视图样式属性。 | 围绕一个基本项目样式包装器的样式。 |
+| 项目样式 | 项目样式         | 基本项目样式。           |
+| 分红颜色 | `字符串`        | 样式分隔符颜色。          |
 
-#### ItemStyle
+#### 项目样式
 
-| Element       | Style Properties                    | Description                                                                                       |
-| ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------- |
-| ellipsizeMode | `head`, `middle`, `tail`, or `clip` | Styles how the text will be clipped if its too long.                                              |
-| rippleColor   | `string`                            | Styles the color of touch feedback when item is tapped. Works for both iOS and Android platforms. |
-| defaultStyle  | This has all TextStyle properties.  | Styles all basic menu items which have the `default` style selected.                              |
-| primaryStyle  | This has all TextStyle properties.  | Styles all basic menu items which have the `primary` style selected.                              |
-| dangerStyle   | This has all TextStyle properties.  | Styles all basic menu items which have the `danger` style selected.                               |
-| customStyle   | This has all TextStyle properties.  | Styles all basic menu items which have the `custom` style selected.                               |
+| 元素           | 样式属性                   | 描述                                                                   |
+| ------------ | ---------------------- | -------------------------------------------------------------------- |
+| 椭圆大小模式       | `头`, `中`, `尾部`, 或 `素材` | 如果文本过长, 将如何剪切。                                                       |
+| rippleColor  | `字符串`                  | 点击项目时，触摸反馈的颜色样式。 适用于 iOS 和 Android 平台。                               |
+| defaultStyle | 这包含所有的 TextStyle 属性。   | Styles all basic menu items which have the `default` style selected. |
+| primaryStyle | 这包含所有的 TextStyle 属性。   | 所有基本菜单项都选择了 `主菜单样式` 样式。                                              |
+| 危险样式         | 这包含所有的 TextStyle 属性。   | 选择了所有基本菜单项的样式 `危险` 风格。                                               |
+| 自定义样式        | 这包含所有的 TextStyle 属性。   | 所有基本菜单项都选择了 `自定义` 风格。                                                |
 
 
-#### CustomItemStyle
+#### 自定义项目样式
 
-| Element        | Style Properties                   | Description                                                                                       |
-| -------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
-| containerStyle | This has all ViewStyle properties. | Styles the wrapper container around a custom item.                                                |
-| itemStyle      | `rippleColor: string`              | Styles the color of touch feedback when item is tapped. Works for both iOS and Android platforms. |
-| dividerColor   | `string`                           | Styles the divider color.                                                                         |
+| 元素   | 样式属性              | 描述                                     |
+| ---- | ----------------- | -------------------------------------- |
+| 容器样式 | 这包含所有视图样式属性。      | 环绕一个自定义项目的包装器样式。                       |
+| 项目样式 | `ripplColor: 字符串` | 点击项目时，触摸反馈的颜色样式。 适用于 iOS 和 Android 平台。 |
+| 分红颜色 | `字符串`             | 样式分隔符颜色。                               |
 
-The default class to style all popup menus is named `com_mendix_widget_native_popupmenu_PopupMenu`.
+样式所有弹出菜单的默认类命名 `com_mendix_widget_native_popupmenu_Popupmenu`。
 
 ### 11.25 Carousel
 
-The carousel widget allows you to show swipeable items in a carousel.
+轮播小部件允许您在旋转时显示可滑动的项目。
 
-The widget’s style properties are as follows:
+小部件的样式属性如下：
 
 ```xml
 </container>
@@ -1279,88 +1279,88 @@ The widget’s style properties are as follows:
 </fullWidthLayout>
 ```
 
-Main object has to have three objects called `container`, `cardLayout`, and `fullWidthLayout`. `cardLayout` and `fullWidthLayout` will be applied automatically depending on selected layout in widget properties.
+主对象必须有三个对象，名为 `container`, `cardLayout`, 和 `完整宽度`。 `卡布局` and `全宽布局` 将根据小部件属性中选定的布局自动应用。
 
 ```
-export myCarouselStyle = {
-    container: ViewStyle  //
+导出myCarouselStyle = 然后
+    container: ViewStyle //
     cardLayout: ...LayoutStyle,
-    fullWidthLayout: ...LayoutStyle
+    全宽布局: ...LayoutStyle
 }
 ```
 
-| Element         | Style Properties                   | Description                                                                                            |
-| --------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| container       | This has all ViewStyle properties. | Styles the view surrounding the carousel widget. For best results, make sure to give a fixed `height`. |
-| cardLayout      | LayoutStyle                        | Styles the carousel when the layout is set to card                                                     |
-| fullWidthLayout | LayoutStyle                        | Styles the carousel when the layout is set to full width.                                              |
+| 元素   | 样式属性         | 描述                                       |
+| ---- | ------------ | ---------------------------------------- |
+| 容器   | 这包含所有视图样式属性。 | 旋转旋转小部件的视图样式。 为了获得最好的结果，请确保给定一个固定的 `高度`。 |
+| 卡片布局 | 布局样式         | 布局设置为卡时的旋转样式                             |
+| 全宽布局 | 布局样式         | 当布局设置为全宽时，旋转滚轮的样式。                       |
 
-#### LayoutStyle
+#### 布局样式
 
-| Element           | Style Properties                   | Description                                                                                    |
-| ----------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------- |
-| slideItem         | This has all ViewStyle properties. | Styles the view surrounding each slide, including inactive slides.                             |
-| inactiveSlideItem | `opacity: number, scale: number`   | `inactiveSlideOpacity` and `inactiveSlideScale`, will allow inactive slides smaller and faded. |
-| indicator         | `color: string`                    | Styles the loading indicator which will be shown while the carousel is loading.                |
-| pagination        | Pagination                         | Styles pagination container, dots, active dots, and text.                                      |
+| 元素      | 样式属性            | 描述                                         |
+| ------- | --------------- | ------------------------------------------ |
+| 幻灯片项目   | 这包含所有视图样式属性。    | 每张幻灯片周围的视图样式，包括非活动幻灯片。                     |
+| 禁用幻灯片项目 | `不透明度：数字，缩放：数字` | `非活动幻灯片不透明度` and `非活动幻灯片`, 将允许非活动幻灯片缩放和淡入。 |
+| 指标      | `颜色：字符串`        | 旋转屏幕加载时显示的加载指示器。                           |
+| 分页      | 分页              | 样式分页容器、点、活动点和文本。                           |
 
-#### Pagination
+#### 分页
 
-| Element           | Style Properties                                                           | Description                                                                                                                    |
-| ----------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| container         | This has all ViewStyle properties.                                         | Styles the main view around pagination, regardless of text or dot.                                                             |
-| dotStyle          | All ViewStyle properties + `color: string`                                 | Styles all the pagination dots.                                                                                                |
-| inactiveDotStyle  | All ViewStyle properties + `opacity: number; scale: number; color: string` | Additional styles for inactive dots. Will be merged with `dotStyle`.                                                           |
-| dotContainerStyle | This has all ViewStyle properties.                                         | Styles the view around individual pagination dots.                                                                             |
-| text              | This has all TextStyle properties.                                         | Will be applied when there are more than five elements in carousel, in which case pagination buttons become text like **1/5**. |
+| 元素             | 样式属性                              | 描述                                                  |
+| -------------- | --------------------------------- | --------------------------------------------------- |
+| 容器             | 这包含所有视图样式属性。                      | 无论文字或点如何，分页周围的主视图样式。                                |
+| dotStyle       | 所有视图样式属性 + `颜色：字符串`               | 样式所有分页点.                                            |
+| 禁用DotStyle     | 所有视图样式属性 + `不透明度：数字；大小：数字；颜色：字符串` | 非活动点的额外样式。 将与 `点风格` 合并。                             |
+| dotContainer样式 | 这包含所有视图样式属性。                      | 为单个分页点的视图风格。                                        |
+| 文本             | 这包含所有的 TextStyle 属性。              | 当有超过五个元素的卡路塞尔时，将会应用。在这种情况下，分页按钮将会变成像 **1/5** 这样的文本。 |
 
-The default class to style all popup menus is named `com_mendix_widget_native_carousel_Carousel`.
+样式所有弹出菜单的默认类命名 `com_mendix_widget_native_carousel_Carousel`。
 
-### 11.26 Signature {#signature}
+### 11.26 签名 {#signature}
 
-The signature widget allows you to draw and save a signature. The signature widget looks like this:
+签名小部件允许您绘制和保存签名。 签名小部件看起来像这样：
 
 {{% image_container width="350" %}}![signature](attachments/native-styling-refguide/signature.png){{% /image_container %}}
 
-The widget’s style properties are structured as follows:
+小部件的样式属性结构如下：
 
 ```xml
 <container>
     <signature/>
     <buttonWrapper>
         <Button>
-            <Caption>Clear</Caption>
+            <Caption>清除</Caption>
         </Button>
         <Button>
-            <Caption>Save</Caption>
+            <Caption>保存</Caption>
         </Button>
     </buttonWrapper>
 </container>
 ```
 
-| Element                | Style Properties                   | Description                                                      |
-| ---------------------- | ---------------------------------- | ---------------------------------------------------------------- |
-| `container`            | This has all ViewStyle properties. |                                                                  |
-| `container`            | `penColor`                         | This will change the color of the stroke.                        |
-| `buttonWrapper`        | This has all ViewStyle properties. |                                                                  |
-| `buttonClearContainer` | This has all ViewStyle properties. |                                                                  |
-| `buttonClearContainer` | `rippleColor`                      | This will change the color of the ripple on Android.             |
-| `buttonClearContainer` | `activeOpacity`                    | This will change the opacity when touch is active on iOS.        |
-| `buttonClearContainer` | `underlayColor`                    | This will change the underlay color when touch is active on iOS. |
-| `buttonClearCaption`   | This has all TextStyle properties. |                                                                  |
-| `buttonSaveContainer`  | This has all ViewStyle properties. |                                                                  |
-| `buttonSaveContainer`  | `rippleColor`                      | This will change the color of the ripple on Android.             |
-| `buttonSaveContainer`  | `activeOpacity`                    | This will change the opacity when touch is active on iOS.        |
-| `buttonSaveContainer`  | `underlayColor`                    | This will change the underlay color when touch is active on iOS. |
-| `buttonSaveCaption`    | This has all TextStyle properties. |                                                                  |
+| 元素       | 样式属性                 | 描述                         |
+| -------- | -------------------- | -------------------------- |
+| `容器`     | 这包含所有视图样式属性。         |                            |
+| `容器`     | `笔色`                 | 这将改变笔画的颜色。                 |
+| `按钮包装器`  | 这包含所有视图样式属性。         |                            |
+| `按钮清理容器` | 这包含所有视图样式属性。         |                            |
+| `按钮清理容器` | `rippleColor`        | 这将改变Android上的波纹的颜色。        |
+| `按钮清理容器` | `活动不透明度`             | 当触摸在iOS上处于活动状态时，这将会改变不透明度。 |
+| `按钮清理容器` | `下颜色`                | 当触摸在iOS上时，这将更改下层颜色。        |
+| `按钮清除标题` | 这包含所有的 TextStyle 属性。 |                            |
+| `按钮保存容器` | 这包含所有视图样式属性。         |                            |
+| `按钮保存容器` | `rippleColor`        | 这将改变Android上的波纹的颜色。        |
+| `按钮保存容器` | `活动不透明度`             | 当触摸在iOS上处于活动状态时，这将会改变不透明度。 |
+| `按钮保存容器` | `下颜色`                | 当触摸在iOS上时，这将更改下层颜色。        |
+| `按钮保存标题` | 这包含所有的 TextStyle 属性。 |                            |
 
-The default class to style all text boxes is named `com_mendix_widget_native_signature_Signature`.
+所有文本框样式的默认类命名 `com_mendix_widget_native_signature`。
 
-### 11.27 Line Chart
+### 11.27 线图
 
-The [line chart](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/line-chart-native) widget renders a scalable line graph based on static and dynamic data sets.
+[行图](https://github.com/mendix/widgets-resources/blob/master/packages/pluggableWidgets/line-chart-native) 小部件会根据静态和动态数据集呈现可缩放的行图。
 
-The widget consists of the following elements:
+小部件由下列元素组成：
 
 ```xml
 <container/>
@@ -1390,58 +1390,58 @@ The widget consists of the following elements:
 <lineColorPalette/>
 ```
 
-| Element                                                                 | Style Properties                                                           | Description                                                                                                                                                              |
-| ----------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `container`                                                             | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                          |
-| `errorMessage`                                                          | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                          |
-| `chart`                                                                 | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                          |
-| `grid`                                                                  | `backgroundColor`                                                          | Applies a color to the grid background (string).                                                                                                                         |
-| `grid`                                                                  | `dashArray`                                                                | Applies a pattern of dashes and gaps to the grid lines (string containing a [dash pattern](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty)).          |
-| `grid`                                                                  | `lineColor`                                                                | Applies a color to the grid lines (string).                                                                                                                              |
-| `grid`                                                                  | `lineWidth`                                                                | Applies a width to the grid lines (number).                                                                                                                              |
-| `grid`                                                                  | `padding`                                                                  | Applies padding to all sides of the grid (number). Use it to make axis value labels visible.                                                                             |
-| `grid`                                                                  | `paddingBottom`                                                            | Applies padding to the bottom side of the grid (number). Use it to make axis value labels visible.                                                                       |
-| `grid`                                                                  | `paddingHorizontal`                                                        | Applies padding to the horizontal sides of the grid (number). Use it to make axis value labels visible.                                                                  |
-| `grid`                                                                  | `paddingLeft`                                                              | Applies padding to the left side of the grid (number). Use it to make axis value labels visible.                                                                         |
-| `grid`                                                                  | `paddingRight`                                                             | Applies padding to the right side of the grid (number). Use it to make axis value labels visible.                                                                        |
-| `grid`                                                                  | `paddingTop`                                                               | Applies padding to the top side of the grid (number). Use it to make axis value labels visible.                                                                          |
-| `grid`                                                                  | `paddingVertical`                                                          | Applies padding to the vertical sides of the grid (number). Use it to make axis value labels visible.                                                                    |
-| `xAxis`                                                                 | `color`                                                                    | Applies a color to the axis value labels (string).                                                                                                                       |
-| `xAxis`                                                                 | `dashArray`                                                                | Applies a pattern of dashes and gaps to the axis line (string containing a [dash pattern](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty)).           |
-| `xAxis`                                                                 | `fontFamily`                                                               | Applies fonts to the axis value labels (string).                                                                                                                         |
-| `xAxis`                                                                 | `fontSize`                                                                 | Applies a size to the axis value labels (number).                                                                                                                        |
-| `xAxis`                                                                 | `fontStyle`                                                                | Applies a font style to the axis value labels ("normal" or "italic").                                                                                                    |
-| `xAxis`                                                                 | `fontWeight`                                                               | Applies a font weight to the axis value labels ("normal" or "bold" or "100" or "200" or "300" or "400" or "500" or "600" or "700" or "800" or "900").                    |
-| `xAxis`                                                                 | `lineColor`                                                                | Applies a color to the axis line (string).                                                                                                                               |
-| `xAxis`                                                                 | `lineWidth`                                                                | Applies a width to the axis line (number).                                                                                                                               |
-| `xAxis` > `label`                                                       | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                          |
-| `xAxis` > `label`                                                       | `relativePositionGrid`                                                     | Positions the axis label at the bottom or right side of the grid ("bottom" or "right").                                                                                  |
-| `yAxis`                                                                 | All `xAxis` element styles.                                                |                                                                                                                                                                          |
-| `yAxis` > `label`                                                       | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                          |
-| `yAxis` > `label`                                                       | `relativePositionGrid`                                                     | Positions the axis label at the top or left side of the grid ("top" or "left").                                                                                          |
-| `legend` > `container`                                                  | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                          |
-| `legend` > `item`                                                       | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                          |
-| `legend` > `indicator`                                                  | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                          |
-| `legend` > `label`                                                      | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                          |
-| `lines`                                                                 | `lineColorPalette`                                                         | Provides colors to lines that do not have a line color configured (string with list of colors separated by ';').                                                         |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `line`    | `dashArray`                                                                | Applies a pattern of dashes and gaps to the graph line (string containing a [dash pattern](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty)).          |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `line`    | `ending`                                                                   | Applies a flat or rounded line end to the graph line ("flat" or "round").                                                                                                |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `line`    | `lineColor`                                                                | Applies a color to the graph line (string).                                                                                                                              |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `line`    | `lineWidth`                                                                | Applies a width to the graph line (number).                                                                                                                              |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `markers` | `backgroundColor`                                                          | Applies a background color to the markers of the graph line (string).                                                                                                    |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `markers` | `borderColor`                                                              | Applies a border color to the markers of the graph line (string).                                                                                                        |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `markers` | `borderWidth`                                                              | Applies a border width to the markers of the graph line (string).                                                                                                        |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `markers` | `display`                                                                  | Influences whether markers are displayed. When displayed, it positions the markers of the graph line on top or underneath the line ("false" or "underneath" or "onTop"). |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `markers` | `size`                                                                     | Applies a size to the markers of the graph line (number).                                                                                                                |
-| `lines` > `customLineStyles` > `any_custom_line_style_name` > `markers` | `symbol`                                                                   | Applies a symbol to the markers of the graph line ("circle" or "diamond" or "plus" or "minus" or "square" or "star" or "triangleDown" or "triangleUp").                  |
+| 元素                                                   | 样式属性                                                         | 描述                                                                                                          |
+| ---------------------------------------------------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `容器`                                                 | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `错误消息`                                               | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `图表`                                                 | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `网格`                                                 | `背景颜色`                                                       | 将颜色应用于网格背景(字符串)。                                                                                            |
+| `网格`                                                 | `仪表阵列`                                                       | 对网格线应用破折号和间隙图案 (包含 [破折模式](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty) 的字符串)。         |
+| `网格`                                                 | `线性颜色`                                                       | 将颜色应用于网格线(字符串)。                                                                                             |
+| `网格`                                                 | `lineWidth`                                                  | 将宽度应用于网格线(数)。                                                                                               |
+| `网格`                                                 | `padding`                                                    | 将填充应用于网格的所有边(数字)。 使用它来使坐标轴值标签可见。                                                                            |
+| `网格`                                                 | `paddingBottom`                                              | 将填充应用于网格底部(数)。 使用它来使坐标轴值标签可见。                                                                               |
+| `网格`                                                 | `垂直平移`                                                       | 将填充应用于网格的水平边(数)。 使用它来使坐标轴值标签可见。                                                                             |
+| `网格`                                                 | `paddingLeft`                                                | 将填充应用于网格左侧(数)。 使用它来使坐标轴值标签可见。                                                                               |
+| `网格`                                                 | `paddingRight`                                               | 将填充应用于网格右侧(数)。 使用它来使坐标轴值标签可见。                                                                               |
+| `网格`                                                 | `paddingTop`                                                 | 将填充应用于网格的顶部(数字)。 使用它来使坐标轴值标签可见。                                                                             |
+| `网格`                                                 | `垂直平移`                                                       | 将填充应用于网格的垂直边(数)。 使用它来使坐标轴值标签可见。                                                                             |
+| `xAxis`                                              | `颜色`                                                         | 将颜色应用于坐标轴值标签(字符串)。                                                                                          |
+| `xAxis`                                              | `仪表阵列`                                                       | 对轴线应用破折号和间隙模式(包含 [破折模式](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty) 的字符串)。           |
+| `xAxis`                                              | `字体类`                                                        | 将字体应用于轴值标签(字符串)。                                                                                            |
+| `xAxis`                                              | `fontSize`                                                   | 将大小应用于轴值标签(数)。                                                                                              |
+| `xAxis`                                              | `fontStyle`                                                  | 将字体样式应用于轴值标签("普通" 或 "斜体")。                                                                                  |
+| `xAxis`                                              | `字体权重`                                                       | 将字体重应用于轴值标签(“普通”或“粗体”或“100”或“200”或“300”或“400”或“500”或“600”或“700”或“700”或“800”或“800”或“800”或“900”或“900”或“900”)。 |
+| `xAxis`                                              | `线性颜色`                                                       | 将颜色应用于轴线(字符串)。                                                                                              |
+| `xAxis`                                              | `lineWidth`                                                  | 将宽度应用于轴线(数值)。                                                                                               |
+| `xAxis` > `标签`                                       | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `xAxis` > `标签`                                       | `相对位置网格`                                                     | 轴标签位于网格底部或右侧("底部"或"右")。                                                                                     |
+| `yAxis`                                              | 所有 `xAxis` 元素样式。                                             |                                                                                                             |
+| `yAxis` > `标签`                                       | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `yAxis` > `标签`                                       | `相对位置网格`                                                     | 坐标轴标签位于网格顶部或左侧("顶部"或"左")。                                                                                   |
+| `图例` > `容器`                                          | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `传说` > `项目`                                          | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `传说` > `指示器`                                         | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `图例` > `标签`                                          | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `行`                                                  | `lineColorPalette`                                           | 向没有配置线条颜色的行提供颜色(用';'分隔的颜色列表的字符串)。                                                                           |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `行`  | `仪表阵列`                                                       | 将破折号和间隙应用于图行(包含 [破折模式](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty) 的字符串)。            |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `行`  | `结束`                                                         | 将平坦或四舍五入的行末尾应用于图形行(“平整”或“圆形”)。                                                                              |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `行`  | `线性颜色`                                                       | 将颜色应用于图形行(字符串)。                                                                                             |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `行`  | `lineWidth`                                                  | 将宽度应用于图形行(数字)。                                                                                              |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `标记` | `背景颜色`                                                       | 将背景颜色应用于图形行的标记 (字符串)。                                                                                       |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `标记` | `边框颜色`                                                       | 将边框颜色应用于图形行的标记 (字符串)。                                                                                       |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `标记` | `borderWidth`                                                | 将边框宽度应用于图形线的标记(字符串)。                                                                                        |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `标记` | `显示`                                                         | 是否显示标记的影响。 当显示时，它会将图形行的标记放在顶部或下面("false"或者"底部"或者"onTop")。                                                   |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `标记` | `大小`                                                         | 将大小应用于图形行的标记(数字)。                                                                                           |
+| `行` > `自定义行风格` > `any_custom_line_style_name` > `标记` | `符号`                                                         | 将符号应用于图形行的标记(“圆圈”或“钻石”或“附加”或“微小”或“正方形”或“星”或“三角下载”或“三角形”)。                                                   |
 
-The default class to style all line chart widgets is named `com_mendix_widget_native_linechart_LineChart`.
+样式所有行图小部件的默认类命名 `com_mendix_widget_native_linechart_LineChart`。
 
-### 11.28 Bar Chart
+### 11.28 条形图
 
-The bar chart widget renders a horizontal bar graph based on static and dynamic data sets.
+条形图小部件根据静态和动态数据集绘制水平条形图。
 
-The widget consists of the following elements:
+小部件由下列元素组成：
 
 ```xml
 <container/>
@@ -1475,55 +1475,55 @@ The widget consists of the following elements:
 </bars>
 ```
 
-| Element                                                            | Style Properties                                                           | Description                                                                                                                                                                            |
-| ------------------------------------------------------------------ | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `container`                                                        | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                                        |
-| `errorMessage`                                                     | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                                        |
-| `chart`                                                            | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                                        |
-| `grid`                                                             | `backgroundColor`                                                          | Applies a color to the grid background (string).                                                                                                                                       |
-| `grid`                                                             | `dashArray`                                                                | Applies a pattern of dashes and gaps to the grid lines (string containing a [dash pattern](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty)).                        |
-| `grid`                                                             | `lineColor`                                                                | Applies a color to the grid lines (string).                                                                                                                                            |
-| `grid`                                                             | `width`                                                                    | Applies a width to the grid lines (number).                                                                                                                                            |
-| `grid`                                                             | `padding`                                                                  | Applies padding to all sides of the grid (number). This makes axis value labels visible.                                                                                               |
-| `grid`                                                             | `paddingBottom`                                                            | Applies padding to the bottom side of the grid (number). This makes axis value labels visible.                                                                                         |
-| `grid`                                                             | `paddingHorizontal`                                                        | Applies padding to the horizontal sides of the grid (number). This makes axis value labels visible.                                                                                    |
-| `grid`                                                             | `paddingLeft`                                                              | Applies padding to the left side of the grid (number). This makes axis value labels visible.                                                                                           |
-| `grid`                                                             | `paddingRight`                                                             | Applies padding to the right side of the grid (number). This makes axis value labels visible.                                                                                          |
-| `grid`                                                             | `paddingTop`                                                               | Applies padding to the top side of the grid (number). This makes axis value labels visible.                                                                                            |
-| `grid`                                                             | `paddingVertical`                                                          | Applies padding to the vertical sides of the grid (number). This makes axis value labels visible.                                                                                      |
-| `xAxis`                                                            | `color`                                                                    | Applies a color to the axis value labels (string).                                                                                                                                     |
-| `xAxis`                                                            | `dashArray`                                                                | Applies a pattern of dashes and gaps to the axis line (string containing a [dash pattern](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty)).                         |
-| `xAxis`                                                            | `fontFamily`                                                               | Applies a font type to the axis value labels (string).                                                                                                                                 |
-| `xAxis`                                                            | `fontSize`                                                                 | Applies a size to the axis value labels (number).                                                                                                                                      |
-| `xAxis`                                                            | `fontStyle`                                                                | Applies a font style to the axis value labels ("normal" or "italic").                                                                                                                  |
-| `xAxis`                                                            | `fontWeight`                                                               | Applies a font weight to the axis value labels ("normal" or "bold" or "100" or "200" or "300" or "400" or "500" or "600" or "700" or "800" or "900").                                  |
-| `xAxis`                                                            | `lineColor`                                                                | Applies a color to the axis line (string).                                                                                                                                             |
-| `xAxis`                                                            | `lineWidth`                                                                | Applies a width to the axis line (number).                                                                                                                                             |
-| `xAxis` > `label`                                                  | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                                        |
-| `xAxis` > `label`                                                  | `relativePositionGrid`                                                     | Positions the axis label at the **bottom** or **right** side of the grid.                                                                                                              |
-| `yAxis`                                                            | All `xAxis` element styles.                                                |                                                                                                                                                                                        |
-| `yAxis` > `label`                                                  | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                                        |
-| `yAxis` > `label`                                                  | `relativePositionGrid`                                                     | Positions the axis label at the **top** or **left** side of the grid.                                                                                                                  |
-| `legend` > `container`                                             | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                                        |
-| `legend` > `item`                                                  | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                                        |
-| `legend` > `indicator`                                             | All [ViewStyle](https://reactnative.dev/docs/view-style-props) properties. |                                                                                                                                                                                        |
-| `legend` > `label`                                                 | All [TextStyle](https://reactnative.dev/docs/text-style-props) properties. |                                                                                                                                                                                        |
-| `domain` > `padding`                                               | `x`                                                                        | Applies a number of pixels of padding to add the beginning and end of the X axis domain (number).                                                                                      |
-| `domain` > `padding`                                               | `y`                                                                        | Applies a number of pixels of padding to add the beginning and end of the Y axis domain (number).                                                                                      |
-| `bars`                                                             | `barColorPalette`                                                          | Provides colors to bars that do not have a bar color configured (string with list of colors separated by ';').                                                                         |
-| `bars`                                                             | `barsOffset`                                                               | Determines the number of pixels each bar in a group should be offset from its original position on the Y axis (number). This is only applicable when presentation mode is **Grouped**. |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `bar`   | `ending`                                                                   | Specifies a radius to apply to each bar.                                                                                                                                               |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `bar`   | `color`                                                                    | Applies a color to the bar (string). If bars are configured to have labels, the labels will be the same color as the bar.                                                              |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `bar`   | `width`                                                                    | Applies a width to the bar (number).                                                                                                                                                   |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `fontFamily`                                                               | Applies a font type to the bar label (string).                                                                                                                                         |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `fontSize`                                                                 | Applies a size to the bar label (number).                                                                                                                                              |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `fontStyle`                                                                | Applies a font style to the bar label (**normal** or **italic**).                                                                                                                      |
-| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `fontWeight`                                                               | Applies a font weight to the bar label ("normal" or "bold" or "100" or "200" or "300" or "400" or "500" or "600" or "700" or "800" or "900").                                          |
+| 元素                                                                 | 样式属性                                                         | 描述                                                                                                          |
+| ------------------------------------------------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| `容器`                                                               | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `错误消息`                                                             | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `图表`                                                               | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `网格`                                                               | `背景颜色`                                                       | 将颜色应用于网格背景(字符串)。                                                                                            |
+| `网格`                                                               | `仪表阵列`                                                       | 对网格线应用破折号和间隙图案 (包含 [破折模式](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty) 的字符串)。         |
+| `网格`                                                               | `线性颜色`                                                       | 将颜色应用于网格线(字符串)。                                                                                             |
+| `网格`                                                               | `width`                                                      | 将宽度应用于网格线(数)。                                                                                               |
+| `网格`                                                               | `padding`                                                    | 将填充应用于网格的所有边(数字)。 这使得轴值标签可见。                                                                                |
+| `网格`                                                               | `paddingBottom`                                              | 将填充应用于网格底部(数)。 这使得轴值标签可见。                                                                                   |
+| `网格`                                                               | `垂直平移`                                                       | 将填充应用于网格的水平边(数)。 这使得轴值标签可见。                                                                                 |
+| `网格`                                                               | `paddingLeft`                                                | 将填充应用于网格左侧(数)。 这使得轴值标签可见。                                                                                   |
+| `网格`                                                               | `paddingRight`                                               | 将填充应用于网格右侧(数)。 这使得轴值标签可见。                                                                                   |
+| `网格`                                                               | `paddingTop`                                                 | 将填充应用于网格的顶部(数字)。 这使得轴值标签可见。                                                                                 |
+| `网格`                                                               | `垂直平移`                                                       | 将填充应用于网格的垂直边(数)。 这使得轴值标签可见。                                                                                 |
+| `xAxis`                                                            | `颜色`                                                         | 将颜色应用于坐标轴值标签(字符串)。                                                                                          |
+| `xAxis`                                                            | `仪表阵列`                                                       | 对轴线应用破折号和间隙模式(包含 [破折模式](https://www.w3.org/TR/SVG11/painting.html#StrokeDasharrayProperty) 的字符串)。           |
+| `xAxis`                                                            | `字体类`                                                        | 将字体类型应用于轴值标签(字符串)。                                                                                          |
+| `xAxis`                                                            | `fontSize`                                                   | 将大小应用于轴值标签(数)。                                                                                              |
+| `xAxis`                                                            | `fontStyle`                                                  | 将字体样式应用于轴值标签("普通" 或 "斜体")。                                                                                  |
+| `xAxis`                                                            | `字体权重`                                                       | 将字体重应用于轴值标签(“普通”或“粗体”或“100”或“200”或“300”或“400”或“500”或“600”或“700”或“700”或“800”或“800”或“800”或“900”或“900”或“900”)。 |
+| `xAxis`                                                            | `线性颜色`                                                       | 将颜色应用于轴线(字符串)。                                                                                              |
+| `xAxis`                                                            | `lineWidth`                                                  | 将宽度应用于轴线(数值)。                                                                                               |
+| `xAxis` > `标签`                                                     | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `xAxis` > `标签`                                                     | `相对位置网格`                                                     | Positions the axis label at the **bottom** or **right** side of the grid.                                   |
+| `yAxis`                                                            | 所有 `xAxis` 元素样式。                                             |                                                                                                             |
+| `yAxis` > `标签`                                                     | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `yAxis` > `标签`                                                     | `相对位置网格`                                                     | Positions the axis label at the **top** or **left** side of the grid.                                       |
+| `图例` > `容器`                                                        | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `传说` > `项目`                                                        | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `传说` > `指示器`                                                       | 所有 [视图风格](https://reactnative.dev/docs/view-style-props) 属性。 |                                                                                                             |
+| `图例` > `标签`                                                        | 所有 [文本样式](https://reactnative.dev/docs/text-style-props) 属性。 |                                                                                                             |
+| `domain` > `padding`                                               | `x`                                                          | 应用数个填充点的像素来添加X轴域的起始和终(数字)。                                                                                  |
+| `domain` > `padding`                                               | `年`                                                          | 应用数个填充点的像素来添加Y轴域的起始和终(数字)。                                                                                  |
+| `条`                                                                | `barColorPalette`                                            | 提供颜色给未配置条形状的条形状(以';'分隔的颜色列表的字符串)。                                                                           |
+| `条`                                                                | `barsOffset`                                                 | 确定组中每个条形应从其在 Y 轴上的原始位置(数字)抵销的像素数量。 这仅适用于演示模式为 **分组** 的情况。                                                   |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `bar`   | `结束`                                                         | 指定一个半径来应用于每个条形。                                                                                             |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `bar`   | `颜色`                                                         | 将颜色应用于栏 (字符串)。 如果条形被配置为有标签，标签将与条形状相同。                                                                       |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `bar`   | `width`                                                      | 将宽度应用于栏 (数字)。                                                                                               |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `字体类`                                                        | 将字体类型应用于条形标签(字符串)。                                                                                          |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `fontSize`                                                   | 将大小应用于条形标签(数字)。                                                                                             |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `fontStyle`                                                  | 将字体样式应用于条形标签(**普通** 或 **斜体**)。                                                                              |
+| `bars` > `customBarStyles` > `any_custom_bar_style_name` > `label` | `字体权重`                                                       | 将字体重应用于条形标签(“普通”或“粗体”或“100”或“200”或“300”或“400”或“500”或“600”或“700”或“700”或“800”或“800”或“900”或“900”)。             |
 
-The default class to style all bar chart widgets is named `com_mendix_widget_native_barchart_BarChart`.
+样式所有条形图部件的默认类命名 `com_mendix_widget_native_barchart_BarChart`。
 
-## 12 Read More
+## 12 阅读更多
 
-* [How to Style Your Mendix Native Mobile App](/howto/mobile/how-to-use-native-styling)
-* [How to Implement Native Mobile Styling](/howto/mobile/native-styling)
-* [Design Properties Documentation](/apidocs-mxsdk/apidocs/design-properties)
+* [如何样式您的 Mendix 本地移动应用程序](/howto/mobile/how-to-use-native-styling)
+* [如何实现本地移动样式](/howto/mobile/native-styling)
+* [设计属性文档](/apidocs-mxsdk/apidocs/design-properties)
