@@ -1,145 +1,145 @@
 ---
-title: "Report Grid"
-parent: "report-widgets"
+title: "レポートグリッド"
+parent: "レポートウィジェット"
 menu_order: 10
 tags:
   - "studio pro"
 ---
 
 {{% alert type="info" %}}
-This widget been deprecated in version 9.0 and will be marked for removal in a future version.
+このウィジェットはバージョン 9.0 で非推奨となり、将来のバージョンでは削除用にマークされます。
 {{% /alert %}}
 {{% alert type="warning" %}}
-The report grid widget is not supported on native mobile pages.
+レポート グリッド ウィジェットは、ネイティブ モバイル ページではサポートされていません。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A **Report grid** shows data retrieved from the database using a [Data set](data-sets) in a grid format. Each row in the grid displays a single result from the data set. Each time a report is created, the data is retrieved from the database.
+**レポート グリッド** はグリッド形式の [データ セット](data-sets) を使用してデータベースから取得したデータを表示します。 グリッドの各行には、データセットからの単一の結果が表示されます。 レポートが作成されるたびに、データはデータベースから取得されます。
 
-The difference between a data grid and a report grid is that you can use a data grid to edit the data shown. A report grid will only display data. However, in a report grid, you can create additional information by merging and processing attributes when you define the data set which retrieves the data.
+データ グリッドとレポート グリッドの違いは、データ グリッドを使用して表示されるデータを編集できることです。 レポートグリッドにはデータのみが表示されます。 ただし、レポートグリッドでは、データを取得するデータセットを定義する際に、属性をマージして処理することで、追加情報を作成できます。
 
-The report grid is displayed in structure mode with the data set source shown between square brackets and colored blue. The data fields returned by the data set are shown in the report grid columns, under the column captions. See [Report Grid Column Data Source](#column-data-source) for information on how to assign a data field to a column.
+レポートグリッドは構造モードで表示され、データセットソースは角括弧と青色の間で表示されます。 データセットによって返されるデータフィールドは、列キャプションの下のレポート グリッド列に表示されます。 列にデータフィールドを割り当てる方法については、 [レポートグリッド列 データ ソース](#column-data-source) を参照してください。
 
-![Report grid in structure mode](attachments/report-widgets/report-grid.png)
+![構造モードでのレポートグリッド](attachments/report-widgets/report-grid.png)
 
-## 2 Report Grid Properties
+## 2 レポート グリッドのプロパティ
 
-An example of report grid properties is represented in the image below:
+レポート グリッドプロパティの例を以下の画像に示します。
 
-{{% image_container width="300" %}}![Report grid in structure mode](attachments/report-widgets/report-grid-properties.png)
+{{% image_container width="300" %}}![構造モードでのレポートグリッド](attachments/report-widgets/report-grid-properties.png)
 {{% /image_container %}}
 
-Report grid properties consist of the following sections:
+レポート グリッドプロパティは、次のセクションで構成されます。
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
 
-Each column in a report grid also has properties: see [Report Grid Column Properties](#column-properties), below.
+レポート グリッド内の各列にもプロパティがあります: [レポート グリッド プロパティ](#column-properties)を参照してください。
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 データソースセクション{#data-source}
 
-#### 2.2.1 Data Set
+#### 2.2.1 データセット
 
-**Data set** specifies the [Data set](data-sets) which defines the data that will be shown in the report grid. Any of the selected attributes or aggregations (for example totals or averages) from the data set can be dragged into a data grid column from the **Connector** pane: see [Report Grid Column Data Source](#column-data-source), below.
+**データ セット** は、レポート グリッドに表示されるデータを定義する [データ セット](data-sets) を指定します。 データセットから選択された属性または集計(合計または平均など)のいずれかを、 **コネクタ** ペインからデータ グリッド列にドラッグすることができます: [レポート グリッド列 データ ソース](#column-data-source)を参照してください。 以下です
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 General Section{#general}
+### 2.4 一般セクション{#general}
 
-#### 2.4.1 Use Paging
+#### 2.4.1 ページングを使用
 
-Set **Use paging** to **Yes** if you expect more data than you can display on one page. This splits the results into several pages.
+1ページ以上のデータが必要な場合は、 **ページ** を **はい** に設定してください。 これは結果を複数のページに分割します。
 
-#### 2.4.2 Page Size
+#### 2.4.2 ページサイズ
 
-**Page size** specifies the number of results which are displayed on one page if **Use paging** is yes.
+**ページサイズ** は、 **ページ使用** が yes の場合、1 ページに表示される結果の数を指定します。
 
-#### 2.4.3 Zoom {#zoom}
+#### 2.4.3 ズーム {#zoom}
 
-**Zoom** specifies a page which will be displayed when the end-user double-clicks a result in the report.
+**Zoom** は、エンドユーザーがレポートの結果をダブルクリックしたときに表示されるページを指定します。
 
-If the selected page contains a report, the columns of the current report can be mapped to the parameters of the data set which is the basis of the report in the other page.
+選択したページにレポートが含まれている場合。 現在のレポートの列は、別のページのレポートの基礎となるデータセットのパラメータにマッピングできます。
 
-![Zoom configuration showing columns being passed as parameters](attachments/report-widgets/report-zoom.png)
+![パラメータとして渡されている列を表示するズーム構成](attachments/report-widgets/report-zoom.png)
 
-#### 2.4.4 Column Widths
+#### 2.4.4 列幅
 
-The widths of the columns are expressed as a percentage of the total width of the basic report. You can edit this property in two ways:
+列の幅は、基本レポートの総幅のパーセンテージで表されます。 このプロパティは以下の2つの方法で編集できます:
 
-* by dragging the border between the columns:
+* 列間の境界線をドラッグすることで、次のようになります。
 
-    ![Drag column widths](attachments/report-widgets/drag-column-width.png)
+    ![ドラッグ列の幅](attachments/report-widgets/drag-column-width.png)
 
-* by entering the percentages explicitly
+* 割合を明示的に入力することで
 
-    ![Enter column widths](attachments/report-widgets/enter-column-widths.png)
+    ![列の幅を入力](attachments/report-widgets/enter-column-widths.png)
 
-Each column in a report grid also has properties: see [Report Grid Column Properties](#column-properties), below.
+レポート グリッド内の各列にもプロパティがあります: [レポート グリッド プロパティ](#column-properties)を参照してください。
 
-The data source for each column can be dragged into the column from the **Connector** pane: see [Report Grid Column Data Source](#column-data-source), below.
+各列のデータソースは、 **コネクタ** ペインから列にドラッグすることができます: [レポートグリッド列 データソース](#column-data-source)を参照してください。 以下です
 
-#### 2.4.5 Show Export Button
+#### 2.4.5 エクスポートボタンを表示
 
-Set **Show export button** to **Yes** to display the **Export to Excel** button to the end-user on the report grid.
+**エクスポート ボタン** を **** に設定すると、レポート グリッドの **Excel へのエクスポート** ボタンがエンドユーザーに表示されます。
 
-![Add the Export to Excel button](attachments/report-widgets/export-to-excel.png)
+![Excelにエクスポートボタンを追加](attachments/report-widgets/export-to-excel.png)
 
-When the end-user clicks this button, the report is exported as a `Microsoft Excel 97-2003 Worksheet` which the end-user can download or view, depending on their browser's settings.
+エンドユーザーがこのボタンをクリックしたとき レポートは、エンドユーザーがダウンロードまたは表示できる `Microsoft Excel 97-2003 Worksheet` としてエクスポートされます。 それぞれのブラウザの設定によって異なります
 
-#### 2.4.6 Generate on Page Load
+#### 2.4.6 ページ読み込み時に生成する
 
-If **Generate on page load** is set to **No**, the report grid will not show any data until the end-user presses the [Generate report button](report-button). This is especially useful if the report uses parameters that should first be specified by the end-user.
+If **Generate on page load** is set to **No**, the report grid will not show any data until the end-user presses the [Generate report button](report-button). これは、レポートが最初にエンドユーザによって指定されるべきパラメータを使用する場合に特に便利です。
 
-## 3 Report Grid Column Properties{#column-properties}
+## 3 レポート グリッド列のプロパティ{#column-properties}
 
-An example of report grid properties is represented in the image below:
+レポート グリッドプロパティの例を以下の画像に示します。
 
-{{% image_container width="250" %}}![Report grid column properties](attachments/report-widgets/report-grid-column-properties.png)
+{{% image_container width="250" %}}![レポート グリッド列のプロパティ](attachments/report-widgets/report-grid-column-properties.png)
 {{% /image_container %}}
 
-Report grid properties consist of a single section, [General](#column-general).
+レポート グリッド プロパティは 1 つのセクションで構成されます。 [一般](#column-general)。
 
-### 3.1 General Section{#column-general}
+### 3.1 一般セクション{#column-general}
 
-#### 3.1.1 Caption
+#### 3.1.1 図表番号
 
-**Caption** contains the text which appears at the top of each column of the report grid.
+**図表番号** には、レポート グリッドの各列の上部に表示されるテキストが含まれています。
 
-#### 3.1.2 Alignment
+#### 3.1.2 配置
 
-**Alignment** sets the alignment of the caption and data displayed in this column. The values are:
+**配置** は、この列に表示されるキャプションとデータの配置を設定します。 値は次のとおりです。
 
-* Left
-* Center
-* Right
+* 左
+* 中央揃え
+* 右
 
-#### 3.1.3 Format
+#### 3.1.3 フォーマット
 
-**Format** allows you to convert a numeric value in the column to a month or day name. If the value in the column is not a number, **Default** format will be used.
+**書式** では、列の数値を月または日名に変換できます。 列の値が数値でない場合は、 **既定の** 形式が使用されます。
 
-The possible values are:
+使用可能な値は次のとおりです。
 
-* Default – the data will be displayed in the default string format
-* Month name – a numeric value will be interpreted as a month name (for example **8** is displayed as **August**)
-* Weekday name – a numeric value will be interpreted as a day of the week (for example **4** is displayed as **Wednesday**)
+* デフォルト – データはデフォルトの文字列形式で表示されます
+* 月の名前 - 数値は月の名前として解釈されます (例えば **8** は **8 月** として表示されます)
+* 平日の名前 - 数値は曜日として解釈されます (例えば **4** は **水曜日** として表示されます)
 
-#### 3.1.4 Visible
+#### 3.1.4 表示
 
-If **Visible** is set to **No** then this column will not be displayed in the report.
+**Visible** が **No** に設定されている場合、この列はレポートに表示されません。
 
-This can be used to add a value to the report which can be passed to a report on a page specified with [Zoom](#zoom) without displaying it as part of the report.
+これは、レポートの一部として表示せずに、 [Zoom](#zoom) で指定したページのレポートに渡すことができるレポートに値を追加するために使用できます。
 
-## 4 Report Grid Column Data Source{#column-data-source}
+## 4 レポートグリッド列のデータソース{#column-data-source}
 
-To add data to a column, select the column, open the **Connector** pane, and drag one of the results into the column. You will need to select the report grid, or part of it, to see the results of the data set in the connector pane.
+列にデータを追加するには、列を選択し、 **コネクタ** ペインを開き、結果のいずれかを列にドラッグします。 コネクタ ペインで設定されたデータの結果を確認するには、レポート グリッドまたはその一部を選択する必要があります。
 
-![Drag value from Connector pane into a column](attachments/report-widgets/drag-column-value.png)
+![コネクタペインから列に値をドラッグする](attachments/report-widgets/drag-column-value.png)
