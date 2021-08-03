@@ -1,70 +1,66 @@
 ---
-title: "Checks"
-description: "Describes checks during publishing process in Mendix Studio."
+title: "检查"
+description: "描述在 Mendix Studio 发布过程中的检查。"
 menu_order: 70
 tags:
-  - "studio"
-  - "app viewing"
-  - "checks"
-  - "errors"
-  - "consistency errors"
+  - "工作室"
+  - "查看应用"
+  - "检查"
+  - "错误"
+  - "一致性错误"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix Studio checks your app for consistency in real-time, for example, it checks if any necessary properties of elements are missing. Such checks help you build an app that will function properly.
+Mendix Studio实时检查您的应用程序是否一致，例如它检查元素是否缺少任何必要的属性。 这种检查帮助您构建一个能正常运行的应用程序。
 
-If your app passes the check, the **Checks** button will have a green check mark and the app will be ready to be [previewed or published](publishing-app): ![Passed Check](attachments/checks/passed-check.jpg)
+如果您的应用通过检查， **检查** 按钮将有绿色的勾选标记，应用程序将准备好 [预览或发布](publishing-app)： ![通过检查](attachments/checks/passed-check.jpg)
 
-If the app does not pass the check, you see the **Checks** button goes red with the number of failed checks – [consistency errors](consistency-errors). If you click the button, a **Checks** panel with the list of errors will open and the elements that did not pass the check will be highlighted. This list can be seen as a to-do list that you need to complete before your app can be [previewed or published](publishing-app).
+如果应用程序没有通过检查， 你看到 **检查** 按钮的数量与失败的检查次数—— [一致性错误](consistency-errors)。 如果您点击按钮， a **检查** 面板与错误列表将打开，未通过检查的元素将被突出显示。 此列表可以被视为您需要完成的待办事项列表，然后您的应用程序才能被 [预览或发布](publishing-app)。
 
 ![](attachments/checks/checks-button.png)
 
 {{% alert type="info" %}}
 
-**Preview** and **Publish** become available only when the app is fully consistent and all checks have been solved.
+**预览** and **发布** 只有在应用程序完全一致且所有检查都已解决时才可用。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 2 Viewing Checks and Interacting with the Checks Panel {#viewing-checks}
+## 2 查看检查并与检查面板互动 {#viewing-checks}
 
-If your app has consistency errors, the **Checks** button will have the red border and the number of errors will be indicated on the button. To display consistency errors for your app and view the impacted elements in it, you can do the following:
+如果您的应用有一致性错误， **检查** 按钮将有红色边框，错误数量将在按钮上标明。 要显示您应用的一致性错误并查看它中受影响的元素，您可以做以下操作：
 
-1. Click the **Checks** button or press the <kbd>C</kbd> shortcut to open the **Checks** panel:
-
-    ![](attachments/checks/checks-button-red.png)
-
-    The panel with the list of consistency errors appears at the bottom of the screen. For more information on the **Checks** panel, see the [Checks Panel Overview](#checks-panel-overview) section below.
+1. 点击 **检查** 按钮或按 <kbd>C</kbd> 快捷键打开 **检查** 面板。 面板与一致性错误列表出现在屏幕底部。 关于 **检查** 面板的更多信息，请参阅 [检查面板概述](#checks-panel-overview) 下面的部分。
 
     ![](attachments/checks/checks-panel.png)
 
-4. To view the exact place and element that the error refers to in the corresponding editor, click the row in the **Checks** panel (you can click any place of the row, the whole row is responsive), and the element that failed a check will be displayed and highlighted.
+4. 查看错误在相应编辑器中的确切位置和元素， 点击 **检查** 面板中的行 (您可以单击任何行的位置, 整个行是响应性的。将显示和突出显示未能检查的元素。
 
-5. To close the panel, either click the close button in the top-right corner of the panel, click **Checks** in the top-right corner of Studio, or press <kbd>C</kbd> .
+5. 要关闭面板，要么点击面板右上角的关闭按钮， 点击 **在工作室右上角检查** ，或按 <kbd>C</kbd>。
 
-To sort the errors, click the column header in the panel. Thus, you can sort errors in ascending or descending order by **Message**, **Code**, **Module**, **Document**, or **Element**. For more information on items displayed in the **Checks** panel, see the [Checks Panel Overview](#checks-panel-overview) section.
+要排序错误，请点击面板中的列头部。 因此，您可以通过 **消息**、 **代码**排序或降序排序错误。 **模块**, **文档**, 或 **元素**. 关于 **检查** 面板中显示的项目的更多信息，请参阅 [检查面板概述](#checks-panel-overview) 部分。
 
 {{% alert type="info" %}}
 
-If there are no consistency errors, the **Checks** panel will be empty and **Preview** and **Publish** buttons will be clickable.
+如果没有一致性错误， **检查** 面板将是空的， **预览** 和 **发布** 按钮将是可点击的。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## 3 Checks Panel Overview {#checks-panel-overview}
+## 3 个检查面板概述 {#checks-panel-overview}
 
 ### {#checks-panel-overview}
 
-The **Checks** panel is represented as a table and shows you a list of consistence errors. This prevents your app from functioning in an incorrect way and being published (for example, if you do not specify an entity for the data view, your app cannot function correctly). For more information on consistency errors, see [Consistency Errors](consistency-errors).
+**检查** 面板是一个表，并向您展示了一个一致性错误列表。 这将防止您的应用以不正确的方式运行并被发布(例如) 如果您没有为数据视图指定一个实体，您的应用无法正常运作)。 关于一致性错误的更多信息，见 [一致性错误](consistency-errors)。
 
-The items displayed in the table of the **Checks** panel are described below.
+**检查** 面板表中显示的内容描述如下。
 
-| Item     | Description                                                                                                                                                                                                    |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Message  | Contains an explanation of the error and an error code. If an error has documentation and an explanation how to fix it, the error code is underlined and clickable, and the corresponding documentation opens. |
-| Module   | Indicates the module where the error is found.                                                                                                                                                                 |
-| Document | Indicates the place of your app where the error is found (for example, a page, a microflow).                                                                                                                   |
-| Element  | Indicated the exact element that is faulty (button, activity, etcetera ).                                                                                                                                      |
+| 项目 | 描述                                                    |
+| -- | ----------------------------------------------------- |
+| 留言 | 包含错误的解释和错误代码。 如果一个错误有文档并解释如何修复它，错误代码将被划线和点击，并打开相应的文档。 |
+| 模块 | 指示找到错误的模块。                                            |
+| 文件 | 指示您应用中发现错误的位置(例如，一个页面、一个微流程)。                         |
+| 元素 | 指明了错误的精确元素 (按钮，活动等等)。                                 |
 
-## 4 Main Documents in This Category
+## 此类别中的4个主要文档
 
-* [Consistency Errors](consistency-errors) – provides information on what consistency errors are and how to fix them
+* [一致性错误](consistency-errors) - 提供关于哪些一致性错误以及如何修复这些错误的信息
