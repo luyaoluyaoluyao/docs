@@ -1,33 +1,23 @@
 ---
 title: "プロキシを使用してREST サービスを呼び出します。"
 parent: "rest-services"
-tags:
-  - "studio pro"
 ---
 
-## 1つの紹介
+場合によってはファイアウォールの背後に立ち往生し、RESTサービスを直接呼び出すことができないこともあります。 このドキュメントでは、そのようなサービスを呼び出すためにプロキシを使用するようにアプリを構成する方法を説明します。
 
-場合によっては、ファイアウォールの背後に立ち往生し、RESTサービスを直接呼び出すことができない場合があります。 このページでは、そのようなサービスを呼び出すためにプロキシを使用するようにアプリを構成する方法を説明します。
-
-## 2 プロキシホスト & プロキシポート
+## プロキシホストとプロキシポート
 
 REST コールを実行するときに使用するプロキシサーバを指定する 2 つのパラメータがあります: `http.proxyHost` と `http.proxyPort`。 プロキシによっては認証が必要なものもあります。これは `http.proxyUser` と `http.proxyPassword` として指定できます。
 
-これらをカスタム設定として指定するか、以下のセクションで説明されている JVM パラメータとして指定することができます。
+これらをカスタム設定として指定するか、JVM パラメーター (システムプロパティ) として指定することができます。
 
-{{% alert type="info" %}}
-カスタム設定とJVMパラメータの両方で設定を指定すると、カスタム設定が使用されます。
-{{% /alert %}}
+## カスタム設定
 
-### 2.1 カスタム設定
+REST プロキシ設定をカスタムサーバー設定として指定する方法については、 [Configuration](configuration#custom) を参照してください。
 
-REST プロキシ設定は、 **App** > **設定** > **Configurations** > **Custom** tab. 詳細については、 [Configurations](configuration#custom) の *Custom* セクションを参照してください。
+## JVM パラメータ
 
-### 2.2 JVM パラメータ
-
-REST proxy settings can be configured in the **App** > **Settings** > **Configurations** > **Server** tab > **Extra JVM parameters** field. 詳細については、 [設定](configuration#server) の *サーバー* セクションを参照してください。
-
-また、 *.m2eerc* の JVM パラメータとして指定することもできます。 これらの設定を使って [ウェブサービス](using-a-proxy-to-call-a-webservice) を消費したい場合に便利です。
+または、JVM パラメータの下に `.m2eerc` でJVMパラメータを指定することもできます。 これらの設定を使用して [ウェブサービス](using-a-proxy-to-call-a-webservice) を利用したい場合にも便利です。
 
 ```java
 ...
@@ -36,8 +26,10 @@ REST proxy settings can be configured in the **App** > **Settings** > **Configur
 ...
 ```
 
-Studio Pro からローカルで実行する場合や、Eclipse から呼び出す場合にも、これらを直接指定することができます。
+または直接(モデラーからローカルで実行する場合、または Eclipse から呼び出す場合):
 
 ```java
 -Dhttp.proxyHost=myproxyserver.com -Dhttp.proxyPort=3128 -Dhttp.proxyUser=myusername -Dhttp.proxyPassword=mypassword
 ```
+
+カスタム設定とJVMパラメータの両方で設定を指定すると、カスタム設定が使用されます。
