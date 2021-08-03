@@ -1,153 +1,153 @@
 ---
-title: "Data Filters"
-category: "Working with Data"
+title: "データフィルタ"
+category: "データの操作"
 menu_order: 40
-description: "Describes data filtering in page and microflow editors in Mendix Studio."
+description: "Mendix Studioのページとマイクロフローエディタでのデータフィルタリングについて説明します。"
 tags:
-  - "studio"
-  - "microflow"
-  - "filter"
-  - "filters"
-  - "filtering"
-  - "data"
-  - "data filtering"
-  - "retrieve"
-  - "page"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "フィルター"
+  - "フィルター"
+  - "フィルター中"
+  - "データ"
+  - "データのフィルタリング"
+  - "取得"
+  - "ページ"
   - "xpath"
-  - "constraints"
+  - "制約"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-In Mendix Studio, you can filter data in pages and microflows.
+Mendix Studio では、ページとマイクロフローのデータをフィルタリングできます。
 
-*In a microflow*, you can filter the retrieved data by creating filters for the **Retrieve** activity. To add a filter objects should be retrieved from the database:
+*マイクロフロー*では、 **** アクティビティを取得するためのフィルタを作成して、取得したデータをフィルタリングできます。 フィルターオブジェクトを追加するには、データベースから取得する必要があります:
 
 {{% image_container width="300" %}}
 ![](attachments/filters/retrieve-from-database.png)
 {{% /image_container %}}
 
-*In a page*, you can add a filter to a list view or a data grid. Mind that the data source of the list view or the data grid should be **Database**:
+*ページ*では、リストビューまたはデータ グリッドにフィルターを追加できます。 リスト ビューのデータ ソースまたはデータ グリッドが **データベース** であることに注意してください。
 
 {{% image_container width="300" %}}
 ![](attachments/filters/page-database.jpg)
 {{% /image_container %}}
 
-## 2 Conditions and Groups
+## 2つの条件とグループ
 
-A filter consists of conditions and groups.
+フィルタは条件とグループで構成されます。
 
-A *condition* is an expression that restricts the retrieved data. For example, you can retrieve all customers who do not have an email filled out.
+*条件* は、取得したデータを制限する式です。 たとえば、メールが記入されていないすべての顧客を取得できます。
 
 ![](attachments/filters/filter-condition.png)
 
-When you have more than one condition, `and` and `or` operators are used. For *conditions*, operators define if all (`and` operator) or only one of conditions (`or` operator) should be met. In the example below all three conditions should be satisfied for the data to be retrieved:
+複数の条件がある場合は、 `と` と `または` 演算子が使用されます。 For *conditions*, operators define if all (`and` operator) or only one of conditions (`or` operator) should be met. 以下の例では、取得されるデータのためにすべての3つの条件を満たす必要があります:
 
 ![](attachments/filters/and-operator-in-conditions.png)
 
-*Groups* are sets of conditions that are connected with `and`  or `or` logic.
+*グループ* は、 `または`  または `または` ロジックに接続されている条件のセットです。
 
-For *groups*, operators define the following:
+*グループ*の場合、演算子は以下を定義します:
 
-* `and` – all groups of conditions should be met
-* `or` – only one (or more) of the groups of conditions should be met when filtering the data
+* `と` - すべての条件グループを満たす必要があります
+* `または` - データをフィルタリングするときに条件のグループの1つ(またはそれ以上)のみを満たす必要があります
 
-In the example below, only program items that meet the following conditions are retrieved:
+以下の例では、以下の条件を満たすプログラムアイテムのみが取得されます。
 
-* If the full name is empty, the description is filled in, and email contains "mendix.com"
-* If the full name is empty, the description is filled in, and email contains "siemens.com"
+* 完全な名前が空の場合、説明は記入され、電子メールには"mendix.com"が含まれています
+* 完全な名前が空の場合、説明は記入され、電子メールには「siemens.com」が含まれています
 
 ![](attachments/filters/operators-between-groups.png)
 
-## 3 Operators Used in Conditions
+## 条件で使用される3つの演算子
 
-While `and` and `or` operators are used between conditions and groups, other operators are used to define the condition itself.
+`と` と `または` 演算子は条件とグループの間で使用されますが、他の演算子は条件自体を定義するために使用されます。
 
 ![](attachments/filters/operator-examples.png)
 
-Available operators depend on the attribute type you have selected in the left part of a condition. Possible operators used in conditions are described in the table below:
+利用可能な演算子は、条件の左側で選択した属性タイプによって異なります。 条件で使用可能な演算子については、以下の表を参照してください。
 
-| Operator                 | Description                                                                                         | Example                                    |
-| ------------------------ | --------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| is                       | the attribute data exactly matches the given value                                                  | CompanyName is Mendix                      |
-| is not                   | the attribute data should not equal the given value                                                 | CustomerName is not John                   |
-| contains                 | the attribute data should contain the selected value                                                | Address contains Rotterdam                 |
-| does not contain         | the attribute data should not contain the selected value                                            | Address does not contain Boston            |
-| starts with              | the attribute data should start with the given value                                                | CustomerNumber starts with 1000            |
-| ends with                | the attribute data should end with the given value                                                  | PostCode ends with 1122                    |
-| less than                | the value of the attribute data should be less than the given value                                 | Creation Date less than Today              |
-| less than or equal to    | the value of the attribute data should be less than or equal to the given value                     | Price less than 150                        |
-| greater than             | the value of the attribute data should exceed the given value                                       | OrderNumber greater than 555               |
-| greater than or equal to | the value of the attribute data should equal or exceed the given value                              | CustomerNumber greater than or equal to 10 |
-| in same quarter as       | the value (a date) of the attribute data falls into the same quarter of the year as the given value | Last Changed Date in same quarter as Today |
+| 演算子    | 説明                                  | 例                            |
+| ------ | ----------------------------------- | ---------------------------- |
+| は      | 属性データは指定された値と完全に一致します               | CompanyName は Mendix         |
+| ではない   | 属性データは指定された値と同じではありません              | CustomerNameはジョンではありません      |
+| を含む    | 属性データには選択した値を含める必要があります             | アドレスにロッテルダムが含まれています          |
+| を含まない  | 属性データに選択した値を含めないでください               | アドレスにボストンは含まれていません           |
+| で始まる   | 属性データは指定された値で始まる必要があります             | CustomerNumberは1000から始まります   |
+| で終わる   | 属性データは指定された値で終了する必要があります            | 郵便番号は1122で終了します              |
+| より小さい  | 属性データの値は指定された値より小さくなければなりません        | 作成日が今日より少ない日                 |
+| 以下か等しい | 属性データの値は指定された値以下である必要があります          | 150未満の価格                     |
+| より大きい  | 属性データの値は指定された値を超える必要があります           | OrderNumber greater than 555 |
+| 以上     | 属性データの値は指定された値以上でなければなりません          | 10以上のCustomerNumber          |
+| 同じ四半期に | 属性データの値 (日付) は、指定された値と同じ年の四半期に入ります。 | 今日と同じ四半期の最終変更日               |
 
-## 4 Creating a New Filter
+## 4 新しいフィルターの作成
 
-To create a new filter, do the following:
+新しいフィルタを作成するには、次の手順を実行します。
 
-1. To add a filter to a *microflow*, open the **Retrieve** action properties.
+1. フィルターを *マイクロフロー*に追加するには、 **** の取得アクションプロパティを開きます。
 
-    To add a filter to a *page*, open properties of a list view or a data grid).
+    *ページ*にフィルターを追加するには、リスト ビューまたはデータ グリッドのプロパティを開きます。
 
-2. Make sure the database is selected as the data source and that an entity is selected.
+2. データベースがデータ ソースとして選択され、図形が選択されていることを確認します。
 
-2. Click the **Filter** field.
+2. **フィルター** フィールドをクリックします。
 
     {{% image_container width="300" %}}![](attachments/filters/filter-field.png){{% /image_container %}}
 
-3. In the **Add Filter** dialog box, specify the attribute/association on the left first, as operators depend on the type of attribute that you have chosen. For example, if you choose *Date and Time* attribute type, you will be able to select the **in same quarter as** operator, while this operator is unavailable for other attribute types.
+3. **フィルターの追加** ダイアログボックスで、最初に左側の属性/関連付けを指定します。 は、選択した属性の種類によって異なります。 For example, if you choose *Date and Time* attribute type, you will be able to select the **in same quarter as** operator, while this operator is unavailable for other attribute types.
 
     ![](attachments/filters/in-same-quarter-as-operator-example.png)
 
-4. Select an operator and a value on the right.
+4. 演算子と右側の値を選択します。
 
-    The value on the right can be a literal value that you type in (only available for string, long, integer, decimal, and autonumber attribute types), or it can be an attribute, association, or value you choose from the drop-down list. The options in the drop-down list depend on the left attribute/association.
+    右側の値は、文字列、long、integer、decimalでのみ使用できる文字列を入力することができます。 または、ドロップダウンリストから選択した属性、関連付け、または値を指定できます。 ドロップダウン リストのオプションは、左側の属性/関連付けによって異なります。
 
     ![](attachments/filters/list-of-options.png)
 
-5. To add more conditions and manage them, do the following: <br/>
+5. より多くの条件を追加し、それらを管理するには、以下を行います: <br/>
 
-    a. Click **Add new condition**. <br/>
+    a **新しい条件の追加** をクリックします。 <br/>
 
     ![](attachments/filters/add-new-condition.png)<br/>
 
-    b. If needed, change the `and` operator to `or` operator clicking the drop-down arrow. <br/> c.  If you want to change the order of conditions, click the icon on the left (appears when you hover over it) and drag it.<br/>
+    B 必要に応じて、ドロップダウン矢印をクリックする `と` 演算子を `または` 演算子に変更します。 <br/> c.  条件の順序を変更したい場合は、左側のアイコンをクリックしてドラッグします。<br/>
 
     ![](attachments/filters/change-order.png)<br/>
 
-6. To create a new group and manage it, do the following: <br/>
+6. 新しいグループを作成して管理するには、次の手順を実行します。 <br/>
 
-    a.  Hover over the bottom of the dialog-box and click **Create a New Group** that appears there.<br/>
+    a  ダイアログボックスの下部にカーソルを合わせて、そこに表示される **新しいグループを作成** をクリックします。<br/>
 
     ![](attachments/filters/create-new-group.png)<br/>
 
-    b. To change the `and` operator applied to groups to `or` operator, click the drop-down arrow.
+    B グループに適用される `と` 演算子を `または` 演算子に変更するには、ドロップダウン矢印をクリックします。
 
-7. Click **Add** to save the filter.
+7. フィルタを保存するには、 **Add** をクリックします。
 
-The new filter is added. In the properties, you can see the total amount of conditions in the filter.
+新しいフィルターが追加されました。 プロパティでは、フィルタ内の条件の合計量を確認できます。
 
-## 5 Deleting a Filter
+## 5 フィルターの削除
 
-To delete a filter, do the following:
+フィルタを削除するには、次の手順を実行します。
 
-1. In a *microflow*, navigate to properties of the **Retrieve** action.
+1. *microflow*で、 **** 取得アクションのプロパティに移動します。
 
-    In a *page*, navigate to properties of a list view or a data grid.
+    *ページ*で、リスト ビューまたはデータ グリッドのプロパティに移動します。
 
-2. Click the **Filter** field.
+2. **フィルター** フィールドをクリックします。
 
-3. In the **Edit Filter** dialog box, click **Clear**.
+3. **フィルター** の編集ダイアログボックスで、 **クリア** をクリックします。
 
     ![](attachments/filters/clear-filter.png)
 
-All conditions in the filter are deleted.
+フィルター内のすべての条件が削除されます。
 
 {{% alert type="info" %}}
-If you want to delete just one condition and not all of them, click the trash can icon on the right.
+1つの条件だけを削除し、すべてではない場合は、右側のゴミ箱アイコンをクリックします。
 {{% /alert %}}
 
-## 6 Read More
+## 6もっと読む
 
-* [Microflows](microflows)
-* [Pages](page-editor)
+* [マイクロフロー](マイクロフロー)
+* [ページ](page-editor)
