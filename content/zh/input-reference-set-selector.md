@@ -1,6 +1,6 @@
 ---
-title: "Input Reference Set Selector"
-parent: "input-widgets"
+title: "输入参考集选择器"
+parent: "输入小部件"
 menu_order: 90
 tags:
   - "studio pro"
@@ -8,101 +8,101 @@ tags:
 
 {{% alert type="warning" %}}The **input reference set selector** widget is not supported on native mobile pages.{{% /alert %}}
 
-## 1 Introduction
+## 1 导言
 
-An **input reference set selector** is used to allow the end-user to display or select the value(s) of a many-to-many (reference set) [association](associations) by selecting the associated object(s).
+**输入参考集选择器** 用于允许最终用户通过选择相关对象来显示或选择多到多个(参考集) [关联的值](associations)。
 
-An input reference set selector must be placed in a [data widget](data-widgets).
+必须将输入参考集选择器放置在 [数据小部件](data-widgets) 中。
 
-For example, you could group customers into groups, and each customer could belong to several groups. Each Group can have many customers. The entities **Customer** and **Group** have a many-to-many (reference set) relationship. An input reference set selector can be used to select the groups the customer belongs to.
+例如，您可以将客户分组成群，每个客户可以属于几个群组。 每个组可以有许多客户。 **客户** **组** 的实体具有多对多(参考集)关系。 可以使用输入参考设置选择器来选择客户所属的组。
 
-What you can do with an input reference set selector depends on the **Owner** of the association. In the example domain model below, **Owner** is set to **Default** (in the association properties **'Customer' objects refer to 'Group' objects**).
+您可以对输入参考集选择器做什么取决于关联的 **所有者**。 在下面的示例域模型中 **所有者** 已设置为 **默认** (在关联属性 **'客户' 对象指的是'组' 对象**)。
 
-![The domain model for an input reference set selector between Customer (parent) and Group where the owner is 'default' (as in, the Customer refers to the Group)](attachments/input-reference-set-selector/domain-model-owner-default.png)
+![输入参考值的域模型在客户(父)与所有者为默认值的群组之间设置选择器(如： 客户引用到群组)](attachments/input-reference-set-selector/domain-model-owner-default.png)
 
-You can put an input reference set selector in a Customer data view to allow the user to select the Group(s) to which the customer belongs. However, because the Customer is the owner of the association, you cannot put an input reference set selector in a Group data view to select the Customer(s) in the Group.
+您可以在客户数据视图中放置一个输入参考集选择器，允许用户选择客户所属的组。 然而，由于客户是协会的所有者， 您不能在组数据视图中放置一个输入参考集选择器来选择组中的客户。
 
-To allow you to both add a Group to a Customer, and add a Customer to a Group, you need to set ownership of the association to **Both**.
+允许您将一个组添加到客户，并将一个客户添加到一个客户组， 您需要将关联的所有权设置为 **这两者都是**。
 
-![The domain model for an input reference set selector between Customer (parent) and Group where the owner is 'both' (as in, the Customer and Group refer to each other)](attachments/input-reference-set-selector/domain-model-owner-both.png)
+![输入参考值的域模型在客户(父级)和所有者都是“两者”的组之间设置选择器(如： 客户和组相互参照)](attachments/input-reference-set-selector/domain-model-owner-both.png)
 
-In the input reference set selector, the path to the attribute to be displayed (association, related entity, and attribute) is shown inside the input reference set selector, displayed between square brackets, and colored blue.
+在输入参考集选择器中，要显示的属性路径(关联、关联实体) 显示在输入参考集选择器中，方括号和彩色蓝色。
 
-For example, using the domain model above, the following input reference set selector allows the end-user to associate a Customer with one or more Groups by setting the association **Customer_Group**. This is done by selecting the **Name**(s) of the **Group**(s) associated with the current **Customer**.
+例如，使用上述域模型。 以下输入参考设置选择器允许最终用户通过设置关联 **Customer_Group** 来将客户与一个或多个组联系起来。 这是通过选择 **组的 **名称**(s) 进行的，**(s) 与当前的 **客户** 相关联。
 
 ![](attachments/input-reference-set-selector/input-reference-set-selector.png)
 
-## 2 Properties
+## 2 属性
 
-An example of input reference set selector properties is represented in the image below:
+以下图像是输入参考集选择器属性的示例：
 
 {{% image_container width="250" %}}![](attachments/input-reference-set-selector/input-reference-set-selector-properties.png)
 {{% /image_container %}}
 
-Reference set selector properties consist of the following sections:
+参考集选择器属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Selectable Objects](#selectable-objects)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [编辑性](#editability)
+* [事件](#events)
+* [A. 概况](#general)
+* [标签](#label)
+* [可选对象](#selectable-objects)
+* [可见性](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section {#data-source}
+### 2.2 数据源部分 {#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-The attribute path specifies which attribute(s) of an associated entity is shown in the reference set selector. The path must follow one association, of type reference set, starting in the entity of the data view.
+属性路径指定了关联实体的哪个属性在参考集选择器中显示。 路径必须遵循一个关联，类型参考集，从数据视图的实体开始。
 
-### 2.3 Design Properties Section {#design-properties}
+### 2.3 设计财产科 {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section {#editability}
+### 2.4 可编辑部分 {#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section {#events}
+### 2.5 事件部分 {#events}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 General Properties {#general}
+### 2.6 一般财产 {#general}
 
-#### 2.6.1 Select Page
+#### 2.6.1 选择页 次
 
-The select page property determines which page is displayed when the input reference selector is clicked. This page can be used to select associated objects from the list of selectable objects. This page should contain a data grid, template grid or list view connected to the same entity as the input reference set selector.
+选择页面属性决定当输入参考选择器被点击时显示哪个页面。 此页面可以用于从可选对象列表中选择关联的对象。 此页面应包含一个数据网格、模板网格或与输入参考集选择器连接到同一个实体的列表视图。
 
-If an input reference set selector is never editable, a select page is not required.
+如果输入参考集选择器永远不能编辑，则不需要选择页面。
 
-See the [Show a Page](on-click-event#show-page) section of *On Click Event & Events Section*. Note that select pages must have a [pop-up layout](layout#layout-type).
+See the [Show a Page](on-click-event#show-page) section of *On Click Event & Events Section*. 注意选择的页面必须有 [弹出式布局](layout#layout-type)。
 
 {{% alert type="info" %}}
-You can generate a new page to show by right-clicking the widget and selecting **Generate select page…**.
-{{% /alert %}}
+您可以通过右键点击小部件并选择 **生成选择页面…** 来生成一个新页面以显示。
+{{% /报警 %}}
 
-### 2.7 Label Section {#label}
+### 2.7 标签部分 {#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.8 Selectable Objects Section {#selectable-objects}
+### 2.8 可选物体部分 {#selectable-objects}
 
-The properties in the Selectable objects section determine the objects from which the end user can make a selection. As source, you can use **Database** or **XPath**. When using **XPath**, you can add an **XPath constraint**, or use a **Constrained by** path.
+可选对象部分中的属性决定了最终用户可以从中选择的对象。 作为源，您可以使用 **数据库** 或 **XPath**。 当使用 **XPath**时，您可以添加 **XPath 约束**，或者使用 **由** 路径限制。
 
-For more information, see the [XPath](reference-selector#xpath-constraints) section of *Reference Selector*.
+欲了解更多信息，请参阅 *参考选择器* 的 [XPath](reference-selector#xpath-constraints) 部分。
 
 {{% alert type="info" %}}
-You cannot use a microflow to define selectable objects in an input reference set selector.
-{{% /alert %}}
+您不能在输入参考集选择器中使用微流来定义可选择的对象。
+{{% /报警 %}}
 
-### 2.9 Visibility Section {#visibility}
+### 2.9 可见性科 {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
