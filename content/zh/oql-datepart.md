@@ -1,41 +1,41 @@
 ---
-title: "OQL DATEPART"
-parent: "oql-functions"
+title: "OQL 日期"
+parent: "oql-函数"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `DATEPART` function retrieves a specified element from a date/time values. This element is of type integer.
+`DATEPART` 函数从日期/时间值中检索到指定的元素。 此元素是类型整数。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-DATEPART ( datepart , date_expression )
+DATEPAT ( datepart , date_expression )
 ```
 
-### 2.1 datepart
+### 2.1 日期部分
 
-`datepart` specifies the part of the date/time value to retrieve. For possible values, see the [Example](#oql-datepart-example) below.
+`日期部分` 指定要检索的日期/时间值的部分。 关于可能的值，请参阅下面的 [示例](#oql-datepart-example)。
 
-### 2.2 date_expression
+### 2.2 日期表达式
 
-`date_expression` specifies the date to retrieve an element from. This should be formatted in an expression which resolves to a date/time value.
+`date_expression` 指定了获取元素的日期。 这个格式应该用一个表达式解析成一个日期/时间值。
 
-## 3 Example{#oql-datepart-example}
+## 3 示例{#oql-datepart-example}
 
-| datepart    | Definition                                       | Example (Friday July 1, 2005, 16:34:20) |
-| ----------- | ------------------------------------------------ | --------------------------------------- |
-| `YEAR`      |                                                  | 2005                                    |
-| `QUARTER`   | 1, 2, 3 or 4                                     | 3                                       |
-| `MONTH`     | 1 to 12                                          | 7                                       |
-| `DAYOFYEAR` | 1 to 366                                         |                                         |
-| `DAY`       | 1 to 31                                          | 5                                       |
-| `WEEK`      | 1 to 53 (depends on the database implementation) |                                         |
-| `WEEKDAY`   | 1 to 7 (1 = Sunday, 7 = Saturday)                | 6                                       |
-| `HOUR`      | 0 to 23                                          | 16                                      |
-| `MINUTE`    | 0 to 59                                          | 34                                      |
-| `SECOND`    | 0 to 59                                          | 20                                      |
+| 日期部分        | 定 义                     | 例子(2005年7月1日星期五，16：34：20) |
+| ----------- | ----------------------- | ------------------------- |
+| `YEAR`      |                         | 2005                      |
+| `去除数`       | 1、2、3或4                 | 3                         |
+| `MONH`      | 1 到 12                  | 7                         |
+| `DAYOFYEAR` | 1 到 366                 |                           |
+| `日`         | 1 到 31                  | 5                         |
+| `周一`        | 1 到 53 (取决于数据库实现情况)     |                           |
+| `周日`        | 1 到 7 (1 = 星期日，7 = 星期六) | 6                         |
+| `房源`        | 0 到 23                  | 16                        |
+| `分`         | 0 到 59                  | 34                        |
+| `秒`         | 0 到 59                  | 20                        |
