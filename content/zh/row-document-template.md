@@ -4,13 +4,9 @@ parent: "table-document-template"
 tags:
   - "studio pro"
 aliases:
-  - /refguide8/row-(document-template).html
-  - /refguide8/Row+(document+template).html
+  - /refguide/row-(document-template).html
+  - /refguide/Row+(document+template).html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/row-document-template.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
