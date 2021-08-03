@@ -1,76 +1,72 @@
 ---
-title: "Tab Container"
-parent: "container-widgets"
+title: "标签容器"
+parent: "容器部件"
 menu_order: 40
 tags:
   - "studio pro"
-  - "tab container"
+  - "标签容器"
   - "tab page"
-  - "container widget"
-  - "widget"
+  - "容器部件"
+  - "小部件"
 aliases:
-  - /refguide8/tab-page.html
+  - /refguide/tab-page.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/tab-container.pdf).
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
+标签容器用于显示按标签分类的信息。 如果必须显示的信息数量大于屏幕上的空间数量，这将非常有用。
 
-Tab containers are used to show information categorized into tabs. This can be very useful if the amount of information that has to be displayed is larger than the amount of space on the screen.
+![标签容器](attachments/container-widgets/tab-container.png)
 
-![Tab Container](attachments/container-widgets/tab-container.png)
+## 2 属性
 
-## 2 Properties
+标签容器属性的示例在下面的图像中显示：
 
-An example of tab container properties is represented in the image below:
-
-{{% image_container width="250" %}}![Tab Container Properties](attachments/container-widgets/tab-container-properties.png)
+{{% image_container width="250" %}}![标签容器属性](attachments/container-widgets/tab-container-properties.png)
 {{% /image_container %}}
 
-Tab container properties consist of the following sections:
+标签容器属性由以下章节组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [可见性](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 设计属性科 {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 Visibility Section {#visibility}
+### 2.3 可见科 {#visibility}
 
-{{% snippet file="refguide8/visibility-section-link.md" %}}
+{{% snippet file="refguide/visibility-section-link.md" %}}
 
 ## 3 Tab Page {#tab-page}
 
-A tab container contains one or more tab pages where you place widgets. For example, a tab page can contain a grid of orders.
+标签容器包含一个或多个您放置小部件的标签页。 例如，标签页可以包含一个网格订单。
 
-### 3.1 Tab Page-Specific Properties
+### 3.1 特定页数属性
 
 #### 3.1.1 Default Tab Page
 
-**Default tab page** defines which tab is displayed when the page is opened. If no tab is set as the default one, the first tab page will be shown.
+**默认标签页** 定义打开页面时显示哪个标签页。 如果没有标签被设置为默认标签，将显示第一个标签页。
 
-Default: *False*
+默认： *False*
 
-#### 3.1.2 Refresh on Show {#refresh}
+#### 3.1.2 显示时刷新 {#refresh}
 
-**Refresh on show** indicates whether the contents of the tab page should be refreshed when the tab page is shown. Set this property to *No* if you know that nothing will affect the information on the tab page.
+**在显示时刷新** 表示标签页的内容是否应该在显示标签页时刷新。 如果您知道什么都不会影响标签页上的信息，将此属性设置为 *没有*。
 
-Default: *True*
+默认： *True*
 
 {{% alert type="info" %}}
-This property is not supported on native mobile pages.
-{{% /alert %}}
+本机移动页面不支持此属性。
+{{% /报警 %}}
 
-## 4 Read More
+## 4 阅读更多
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [页](page)
+* [容器部件](容器部件)
+* [页面编辑器中常见的属性](common-widget-properties)
