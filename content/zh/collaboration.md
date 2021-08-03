@@ -1,25 +1,25 @@
 ---
-title: "Collaboration"
+title: "合作"
 menu_order: 110
-description: "Describes collaborative development and Buzz in Mendix Studio."
+description: "描述Mendix Studio中的协作开发和 Buzz。"
 tags:
-  - "studio"
-  - "data"
-  - "working with data"
-  - "work with data"
+  - "工作室"
+  - "数据"
+  - "使用数据"
+  - "使用数据"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Collaboration is an important part of Mendix Studio experience. Studio and Studio Pro users collaborate with each other a lot and need to be able to work together seamlessly. For example, a Studio Pro user who has built technical functionality might ask a Studio user to review it from the business perspective.
+协作是Mendix Studio体验的一个重要部分。 Studio 和 Studio Pro 用户相互合作，需要能够无缝合作。 例如，已经建立技术功能的Studio Pro 用户可能会要求Studio 用户从商业角度对其进行审查。
 
-Or, the Studio users can ask their Studio Pro colleagues to extend the app with a more technically complex functionality.
+或者，工作室用户可以要求他们的 Studio Pro 同事使用技术上更复杂的功能来扩展应用程序。
 
-To provide such collaboration, the changes to your app model will be shared and synchronized automatically with team members using Mendix Studio and/or Mendix Studio Pro. This process is called collaborative development. For more information, see [Collaborative Development in Studio](collaborative-development).
+提供这种协作， 您应用模型的更改将会被自动分享并与团队成员使用Mendix Studio和/或Mendix Studio Pro同步。 这一进程被称为合作发展。 欲了解更多信息，请访问 [Studio 协作开发](collaborative-development)。
 
-You can also collaborate with your team members while creating the app and leave comments, for example, on a specific page or a microflow, in the **Buzz** pane. For more information, see [Buzz](collaboration-buzz).
+您也可以在创建应用程序和留下评论时与您的团队成员合作。 例如，在一个特定页面或微流程中， **Buzz** pane. 欲了解更多信息，请参阅 [Buzz](collaboration-buzz)。
 
-## 2 Main Documents in This Category
+## 2 个此类别的主要文档
 
-* [Collaborative Development in Studio](collaborative-development)
-* [Buzz](collaboration-buzz)
+* [合作开发工作室](collaborative-development)
+* [布兹斯](collaboration-buzz)
