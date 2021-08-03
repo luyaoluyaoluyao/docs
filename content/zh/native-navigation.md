@@ -106,15 +106,11 @@ tags:
 
 您可以在关闭页面操作上配置这种行为，您在页面上已经模拟了这些动作， 或在您的nanoflows中的关闭页面活动。 这个数字可以用表达式设置，以便您可以为更复杂的情况设置一个静态数字或一个快照计算的数字。
 
-**所有** 选项都可以用来关闭当前堆栈中的所有页面。
-
 #### 4.2.2 关闭和开启页面
 
 对于更复杂的情景， 当导航到一个新的页面时，可以透明地从当前堆栈中删除一个或多个页面。 这样做可以确保用户不能无意中回到不再相关的页面。 例如，当用户到达三步向导流结束时， 您可以配置打开页面活动来打开第三页，同时关闭前两个页面。 因此，用户将看到单一的过渡，回去将不会导致他们走到头两页。
 
-**所有** 选项都可以用来关闭当前堆栈中的所有页面。
-
-此外，您可以在导航到页面时配置打开页面操作来 **清除历史**。 这有效地重置整个导航系统，而不仅仅是当前的堆栈， 而且用户将无法从目标页面返回导航。
+此外，您可以在导航到页面时配置打开页面操作来 **清除历史**。 这将有效地重置整个导航系统，用户将无法从目标页面返回导航。
 
 ### 4.3 更新数据
 
@@ -144,10 +140,10 @@ tags:
 
 ## 6 自定义
 
-在方框之外，底部栏和顶部栏有默认样式。 To change this styling, see the [Pages](/refguide/native-styling-refguide#pages) section of the *Native Styling Reference Guide*. 但是，如果你想要进一步定制样式以匹配你的设计。 您可以创建插件插件来替换一些默认的导航组件。 欲了解更多信息，请参阅 [插件API 文档](/apidocs-mxsdk/apidocs/pluggable-widgets)
+在方框之外，底部栏和顶部栏有默认样式。 To change this styling, see the [Pages](/refguide8/native-styling-refguide#pages) section of the *Native Styling Reference Guide*. 但是，如果你想要进一步定制样式以匹配你的设计。 您可以创建插件插件来替换一些默认的导航组件。 欲了解更多信息，请参阅 [插件API 文档](/apidocs-mxsdk/apidocs/pluggable-widgets)
 
 ## 7 阅读更多
 
-* [显示页面参考指南](/refguide/show-page)
-* [关闭页面参考指南](/refguide/close-page)
-* [本机导航样式参考指南](/refguide/native-styling-refguide#navigation-widget)
+* [显示页面参考指南](/refguide8/show-page)
+* [关闭页面参考指南](/refguide8/close-page)
+* [本机导航样式参考指南](/refguide8/native-styling-refguide#navigation-widget)
