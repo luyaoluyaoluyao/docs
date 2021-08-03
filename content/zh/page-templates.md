@@ -1,23 +1,26 @@
 ---
 title: "页面模板"
-parent: "页面"
+parent: "页面资源"
+menu_order: 20
+tags:
+  - "studio pro"
+  - "页面模板"
+  - "页面资源"
 aliases:
-  - /refguide7/page-template.html
+  - /refguide8/page-template.html
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/page-templates.pdf)。
+{{% /报警 %}}
 
 ## 1 导言
 
 页面模板是创建新页面的起点。 每次创建一个新页面 一个页面模板被选定为基线，然后进行编辑以满足页面特定需求。
 
-当创建一个新页面时，用户将收到项目中所有兼容页面模板的概述。 Mendix 7.9.0之前, 这是一个静态选择, 旨在匹配大多数通用场景. Mendix 7.9.0 引入了作为文档类型的页面模板，允许用户编辑现有的页面模板，甚至创建全新的模板。
+当创建一个新页面时，用户将收到项目中所有兼容页面模板的概述。 作为文档类型的页面模板允许用户编辑现有的页面模板，甚至创建全新的模板。
 
 ## 2 个自定义页面模板
-
-{{% alert type="info" %}}
-
-编辑和管理自定义页面模板的选项已添加到 Mendix 7.9.0。
-
-{{% /报警 %}}
 
 通过绘制一个项目的共同设计模式，可以减少创建新网页所涉及的大量初步工作。
 
@@ -31,19 +34,11 @@ aliases:
 
 ## 3 个公共属性
 
-{{% snippet file="refguide7/Document+Name+Property.md" %}}
-
-{{% snippet file="refguide7/Documentation+Property.md" %}}
-
-{{% snippet file="refguide7/Document+Class+Property.md" %}}
-
-{{% snippet file="refguide7/Style+Property.md" %}}
+{{% snippet file="refguide8/common-section-link.md" %}}
 
 ## 4 设计师属性
 
-{{% snippet file="refguide7/Canvas+Width+Property.md" %}}
-
-{{% snippet file="refguide7/Canvas+Hight+Property.md" %}}
+{{% snippet file="refguide8/designer-properties.md" %}}
 
 ## 5 个一般属性
 
@@ -59,15 +54,13 @@ aliases:
 
 根据创建页面的背景，用户会有不同的页面模板来选择。 此设置决定了哪个页面模板属于哪个页面。
 
-| 值        | 描述                              |
-| -------- | ------------------------------- |
-| 创建新页面    | 当从大部分上下文，如项目探索器创建新页面时，页面模板是可用的。 |
-| 正在生成编辑页面 | 当用户从新的或编辑按钮生成新页面时，页面模板是可用的。     |
-| 正在生成选择页面 | 当用户从所选按钮生成新页面时，页面模板是可用的。        |
+| 值            | 描述                              |
+| ------------ | ------------------------------- |
+| 创建新页面 *(默认)* | 当从大部分上下文，如项目探索器创建新页面时，页面模板是可用的。 |
+| 正在生成编辑页面     | 当用户从新的或编辑按钮生成新页面时，页面模板是可用的。     |
+| 正在生成选择页面     | 当用户从所选按钮生成新页面时，页面模板是可用的。        |
 
 此设置也可能会对模板设置额外限制。 作为新页面或编辑页面的页面模板需要一个顶级数据视图。 用于选择页面的页面模板只需要一个列表视图，数据网格或模板网格。
-
-*默认值：* 创建新页面
 
 ### 5.4 布局类型
 
