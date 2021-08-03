@@ -14,6 +14,10 @@ tags:
   - "自定义身份验证"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-technical-details.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 已发表的REST 文档的这一节描述了Mendix 已出版的REST 能力的更多技术方面。
@@ -34,7 +38,7 @@ tags:
 
 ### 2.3 [OpenAPI 2.0 文档](open-api)
 
-在 OpenApi (Swagger)文档页面上创建描述已发布的 REST 服务的 swagger.json 文件的技术细节。
+*swagger.jso* 文件的技术细节，这个文件是为了在一个 OpenApi (Swagger) 文档页面描述已发布的REST 服务而创建的。
 
 ### 2.4 [自定义认证微流程参数](published-rest-authentication-parameter)
 
