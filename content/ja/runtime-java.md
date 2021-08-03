@@ -2,68 +2,68 @@
 title: "Mendix Runtime & Java"
 category: "Mendix Runtime"
 tags:
-  - "runtime"
-  - "java"
+  - "ランタイム:"
+  - "ジャバ"
 ---
 
-## 1 Introduction
-When you're developing or running Mendix you will sooner or later come in contact with Java. In this document we'll explain some of the basic concepts of Java in Mendix.
+## 1つの紹介
+Mendixを開発または実行している場合は、遅かれ早かれJavaに連絡します。 このドキュメントでは、Mendix で Java の基本的な概念のいくつかを説明します。
 
-## 2 Concepts
-The Java concepts are listed below.
+## 2つのコンセプト
+Java の概念は以下のとおりです。
 
 ### 2.1 Java Virtual Machine (JVM)
-When using Mendix you will use it together with Java (JDK) to deploy and run the actual application in a Java Virtual Machine (JVM). The JVM is a container in which the Mendix application runs. It looks like this:
+Mendixを使用する場合は、Java(JDK)と一緒に使用して、実際のアプリケーションをJava仮想マシン(JVM)でデプロイして実行します。 JVM は、Mendix アプリケーションが実行されるコンテナです。 次のようになります：
 
 ![](attachments/mendix-runtime-java/2.jpg)
 
-Or as shown in the Mendix Cloud:
+または、Mendix Cloudに表示されているように:
 
 ![](attachments/mendix-runtime-java/4.jpg)
 
-### 2.2 Stack
+### 2.2 スタック
 
-Another interesting area is the Stack. This is what holds, among other things, all information about microflows, domain models and other Mendix specific information. Any microflow that is executed will also end up in the stack (see *thread stacks* in the graph above).
+もう一つの興味深い分野はスタックです。 これは、とりわけ、マイクロフロー、ドメインモデルおよびその他のMendix固有の情報に関するすべての情報を保持するものです。 実行されるすべてのマイクロフローは、スタックに終わることになります(上のグラフの *スレッドスタック* を参照)。
 
-### 2.3 Heap, Garbage Collector and OOM Errors
+### 2.3 ヒープ、ガベージコレクタ、OOM エラー
 
-Next up is the heap space (Heap). But before we go into that, let’s briefly discuss another important part of the JVM: the Garbage Collector (GC).
+次はヒープスペース(ヒープ)です。 しかし、その前に、JVM のもう一つの重要な部分、すなわちガベージコレクター(GC)について簡単に説明しましょう。
 
-A GC is responsible for:
+GC の責任者:
 
-*   allocating memory
-*   ensuring that any referenced objects remain in memory
-*   recovering memory used by objects that are no longer reachable from references in executing code
+*   メモリの割り当て
+*   参照されたオブジェクトがメモリ上に残るようにすること
+*   コードの実行時に参照からアクセスできなくなったオブジェクトによって使用されるメモリを回復する
 
-Simply put, any object in the Heap that is currently in use (which is a fairly broad concept) is considered to be alive. Any object that is no longer used is considered dead. The GC takes care of removing all these dead objects to free up memory in the Heap again.
+簡単に言えば、現在使用されているヒープ内のオブジェクト(かなり広い概念です)は、生きていると考えられています。 もはや使用されていないすべてのオブジェクトは死んだと見なされます。 GCは、ヒープ内のメモリを再び解放するために、これらの死んだオブジェクトをすべて削除するようにします。
 
-A GC is not responsible for preventing out of memory errors (OOM errors) in itself. You could, for example, keep creating objects indefinitely, and since they will stay alive until you are done doing so, the GC wouldn’t even touch those objects, but you would still end up with an OOM error.
+GCは、メモリエラー(OOMエラー)自体を防止する責任を負いません。 例えば、無期限にオブジェクトを作成し続けることができますし、そうするまでそれらは生き続けることができます。 GCはこれらのオブジェクトにも触れませんが、OOMエラーに終わることになります。
 
-Back to the Heap. We can divide it into three parts:
+ヒープに戻る。 これを３つの部分に分けることができます
 
-1.  Eden Space (young generation)
-2.  Survivor Space (young generation)
-3.  Tenured Generation (old generation)
+1.  エデン空間（若い世代）
+2.  サバイバー空間（若い世代）
+3.  世襲（旧世代）
 
-When the GC executes a minor garbage collection it will try to clean up all the objects in the young generation only. If it fails to clean up an Eden Space object it will move it to the Survivor Space. If it fails to clean up a Survivor Space object enough times, it will move it to the Tenured Generation. If the Tenured Generation grows large enough (around 60% of the total space available to the Heap) it will execute a major garbage collection and try to clean up all the objects in both the young and the old generation. So a healthy JVM would have a Heap that goes up and down in relation to its memory usage in the various parts.
+GCがマイナーなガベージコレクションを実行すると、若い世代のすべてのオブジェクトをクリーンアップしようとします。 エデン空間オブジェクトをクリーンアップできない場合は、Survivor Spaceに移動します。 Survivor Spaceオブジェクトを十分な時間でクリーンアップできなかった場合は、それをTenured Generationに移動します。 生殖能力が十分に大きくなった場合(ヒープが利用できるスペースの約60%)は、主要なガベージコレクションを実行し、若い世代と古い世代の両方のオブジェクトをすべてクリーンアップしようとします。 したがって、健全なJVMは、さまざまな部分におけるメモリ使用量に関連して上下するヒープを備えています。
 
-You can see this quite well in the following JVM Object Heap graph taken from the Mendix Cloud:
+Mendix Cloudから取得された以下のJVMオブジェクトヒープグラフでは、これがよく分かります。
 
 ![](attachments/mendix-runtime-java/5.jpg)
 
-The purple and green spikes are minor garbage collections. The large drops in the red part are major garbage collections. This is a healthy looking Heap.
+紫と緑のスパイクはマイナーなゴミ収集品です。 赤色部分に大きな落下が大きなゴミ収集品です。 これは健康そうなヒープです。
 
-### 2.4 Application Server
+### 2.4 アプリケーションサーバー
 
-And finally a Mendix Cloud graph where all of the above comes together:
+そして最後に、上記のすべてが一緒に来るMendix Cloudのグラフ。
 
 ![](attachments/mendix-runtime-java/6.jpg)
 
-The green part (apps) is basically the JVM in which the Mendix application is running. Anything else is reserved for the operating system of the application server.
+緑色の部分(アプリ)は、基本的にMendixアプリケーションが実行されているJVMです。 他のものは、アプリケーションサーバーのオペレーティングシステム用に予約されています。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Non-Persistable Objects & Garbage Collecting](transient-objects-garbage-collecting)
-* [Java Memory Usage](java-memory-usage)
-* [Common Runtime & Java Errors](runtime-java-errors)
+* [非永続的なオブジェクト & ごみの収集](transient-objects-garbage-collecting)
+* [Java メモリ使用量](java-memory-usage)
+* [一般的なランタイム & Java エラー](runtime-java-errors)
 
