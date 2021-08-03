@@ -1,136 +1,136 @@
 ---
-title: "Commit Object(s)"
-parent: "object-activities"
+title: "提交对象(s)"
+parent: "对象活动"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Commit** activity works on one or more objects. For persistable entities, committing an object stores it in the database. Committing non-persistable entities stores the current attribute values and association values in memory, this allows a rollback to revert to those values. See also [Persistability](persistability).
+**提交** 活动在一个或多个对象上工作。 对于可持久的实体，提交对象存储在数据库中。 承诺不可持续的实体在内存中存储当前属性值和关联值，这允许回滚回到这些值。 另见 [可持久性](persistability)。
 
 {{% alert type="info" %}}
-A Mendix commit does not always behave like a database commit. See [How Commits Work](#how-commits-work), below, for more information.
-{{% /alert %}}
+Mendix 提交并不总是像数据库提交一样。 更多信息请参阅 [如何提交工作](#how-commits-work)。
+{{% /报警 %}}
 
-## 2 Properties
+## 2 属性
 
-An example of commit object(s) properties is represented in the image below:
+提交对象属性的示例在下面的图像中表示：
 
-![commit object(s) properties](attachments/object-activities/commit-properties.png)
+![提交对象(s)属性](attachments/object-activities/commit-properties.png)
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right.
+该活动有两组属性。 那些在左边的对话框中的人，以及那些在属性中在右边的人。
 
-The commit object(s) properties pane consists of the following sections:
+提交对象属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section{#action}
+## 3 行动部分{#action}
 
-The Action section of the properties pane shows the action associated with this activity.
+属性窗格的动作部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Object or List
+### 3.1 目标或清单
 
-The object or list of objects that you want to commit.
+您想要提交的对象或对象列表。
 
-### 3.2 With Events
-
-{{% alert type="info" %}}
-This property is for microflows only.
-{{% /alert %}}
-
-Indicates whether or not to execute the commit event handlers of the objects.
-
-Default: *Yes*
-
-#### 3.2.1 Events in Nanoflows
-
-Nanoflows do not have this property.
-
-If the commit object(s) action is used in an online app, it sends a commit request to the Mendix Runtime and always runs the events.
-
-If the commit object(s) action is used in an offline app, the changes are committed to the offline database, and event handlers are run when the offline app synchronizes.
-
-### 3.3 Refresh in Client{#refresh-in-client}
-
-This setting defines how changes are reflected in the pages presented to the end-user.
-
-Default: *No*
+### 3.2 与活动
 
 {{% alert type="info" %}}
-To make pages of a Mendix app efficient, many widgets display values from an attribute of an object which is cached on the page. Attributes in widgets which use cached data are *always* reflected in the client when they are updated or deleted irrespective of the value of **Refresh in client**.
+此属性仅用于微流。
+{{% /报警 %}}
 
-If a widget is only updated when a [data source](data-sources) is loaded, then changes will only be seen when **Refresh in client** is set to *Yes*.
+指示是否执行对象的提交事件处理程序。
 
-When testing your app, ensure that the desired data is being displayed by the widgets you have chosen.
-{{% /alert %}}
+默认： *是*
+
+#### 3.2.1 纳诺夫洛夫事件
+
+Nanoflow 没有这个财产。
+
+如果在线应用中使用提交对象动作，它会向Mendix Runtime发送提交请求并总是运行事件。
+
+如果提交对象行动在离线应用中使用，更改将被承诺到离线数据库中。 和事件处理程序在离线应用同步时运行。
+
+### 3.3 刷新客户端{#refresh-in-client}
+
+此设置定义了如何在向最终用户展示的页面中反映变化。
+
+默认： *否*
+
+{{% alert type="info" %}}
+为了提高Mendix 应用页面的效率，许多小部件显示的值来自缓存在页面上的对象属性。 使用缓存数据的小部件中的属性 *在客户端更新或删除时始终反映在* 中，而不论客户端 **刷新值** 中。
+
+如果小部件仅在加载 [数据源](data-sources) 时更新， 然后只有在 **在客户端** 中刷新设置为 *是* 时才会看到更改。
+
+测试您的应用时，请确保您选择的小部件显示所需的数据。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
-When committing a large number of objects, we recommend that you do not enable 'Refresh in client' because it can slow things down.
-{{% /alert %}}
+当提交大量对象时，我们建议您不要启用"刷新客户端"，因为它可以减慢速度。
+{{% /报警 %}}
 
-#### 3.3.1 Microflow is Called from the Client in an Online App
+#### 3.3.1 在线应用程序中从客户端呼叫微流
 
-If **Refresh in client** is set to *No*, the change is not reflected in the client.
+如果客户端</strong> 中的 **更新设置为 *no*, 此更改不会反映在客户端中。</p>
 
-If set to *Yes*, the object is refreshed across the client, which includes reloading the relevant [data sources](data-sources).
+如果设置为 *是*, 则对象会在客户端上刷新, 包括重新加载相关的 [数据源](data-sources)。
 
-#### 3.3.2 Microflow is Called in an Offline, Native, or Hybrid App
+#### 3.3.2 微流在离线、非或混合应用程序
 
-When inside a microflow that is called from an offline, native, or hybrid app, the **Refresh in client** option is ignored and functions as if it was set to **No**.
+在从离线、本机或混合应用程序调用的微流程内， 客户端</strong> 选项中的 **刷新被忽略，其功能仿佛设置为 **否**。</p>
 
 For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
 
-#### 3.3.3 Action is in a Nanoflow
+#### 3.3.3 行动处于纳诺夫洛夫状态
 
-When inside a [nanoflow](nanoflows), the object is refreshed across the client as if **Refresh in client** was set to *Yes*.
+在 [nanoflow](nanoflows)内， 客户端更新对象，仿佛 **客户端刷新** 设置为 *是*
 
-## 4 Common Section{#common}
+## 4 通用部分{#common}
 
 {{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 How Commits Work{#how-commits-work}
+## 5 如何提交工作{#how-commits-work}
 
-### 5.1 Committing Objects
+### 5.1 提交对象
 
-When you commit an object, the current value is saved. This means that you cannot rollback to the previous values of the object using the **Rollback** action of a microflow.
+当您提交对象时，当前值将被保存。 这意味着您不能使用微流程的 **回滚** 动动作回滚到对象的前几个值。
 
-However, a Mendix **Commit** is not the same as a database **Commit**. For an object of a persistable entity, the saved value is not committed to the database until the microflow and any microflows from which it is called, completes. This means that errors in a microflow *can* initiate a rollback. If a microflow action errors and has **Error handling** set to *Rollback* or *Custom with rollback*, the value of the object *will* be rolled back to the value it had at the start of the microflow. See [Error Event](error-event#errors-in-microflows) for more information.
+然而，一个 Mendix **提交** 与数据库 **提交** 并不相同。 对于可持久实体的物件， 保存的值在微流和任何调用它的微流完成之前不会被用于数据库。 This means that errors in a microflow *can* initiate a rollback. If a microflow action errors and has **Error handling** set to *Rollback* or *Custom with rollback*, the value of the object *will* be rolled back to the value it had at the start of the microflow. 查看 [错误事件](error-event#errors-in-microflows) 获取更多信息。
 
-Mendix mimics this behavior for *non-persistable* entities. Committing a non persistable entity means you cannot use a **Rollback** action to go back to the previous values, although rollback error handling in a microflow *will* roll back to the original values.
+对于 *不可持续的* 实体的Mendix 模仿。 Committing a non persistable entity means you cannot use a **Rollback** action to go back to the previous values, although rollback error handling in a microflow *will* roll back to the original values.
 
-### 5.2 Autocommit and Associated Objects
+### 5.2 自动承付和相关对象
 
-When an object is committed through a default Save button, a commit activity, or web services, it will always trigger the commit events. The platform will also evaluate all associated objects. To guarantee data consistency, the platform may also autocommit associated objects.
+当一个对象通过默认的保存按钮、提交活动或网络服务进行时，它总是会触发提交事件。 平台还将评估所有相关对象。 为了保证数据的一致性，平台也可以自动提交相关的对象。
 
-An autocommit is an automatic commit from the platform, which is done to keep the domain model in sync. If your application ends up having autocommitted objects, then you will have a modeling error. Since an association is also a member of an object, the association will be stored in the database as well. This means that if you create an order line inside an order and the order line is the parent of the association, when you commit the order line, the order will be autocommitted.
+自动提交是指从平台自动提交的, 以保持域模型同步. 如果您的应用程序最终有自动提交的对象，那么您将有一个建模错误。 由于一个协会也是对象的成员，该协会也将存入数据库。 这意味着，如果您在订单内创建一个订单行，而订单线是联盟的父连线。 当您提交订单行时，订单将自动提交。
 
 {{% alert type="warning" %}}
-An autocommit is not the same as an explicit commit!
+自动提交与明示提交不同！
 
-If a rollback is triggered for any reason (for example, if the user session is terminated by the user closing the browser), then autocommitted objects will be deleted from the database. See [Persistability](/refguide/persistability) for more information about how Mendix handles persistable objects.
-{{% /alert %}}
+如果一个回滚因任何原因而触发(例如，如果用户会话因关闭浏览器而终止)， 然后自动提交对象将从数据库中删除。 See [Persistability](/refguide/persistability) for more information about how Mendix handles persistable objects.
+{{% /报警 %}}
 
-If you end up with autocommitted objects, it is always because of a modeling error. At some point in time, an association was set to a new object, the associated object was committed, and all of its associations were committed as well to keep all the data consistent.
+如果你最后有自动提交的对象，它总是由于建模错误。 在某个时候，一个协会被设置为一个新的对象，相关对象已经被承诺。 它的所有协会也承诺保持所有数据的一致性。
 
-During commit the the following will occur:
+2. 在执行过程中将发生下列情况：
 
-* Events: For *explicitly committed* objects all before and after events are executed, and if any before-rollback event returns false, an exception can be thrown
-    * If an exception occurs during an event, all the applied changes are reverted with the default error handling behavior
-    * Changes made prior to the commit will be kept
+* 事件：对于 *在事件执行前后明确提交的* 个对象， 如果任何事先回滚事件返回错误，可以抛出异常。
+    * 如果在事件中发生异常，所有应用更改都将恢复为默认错误处理
+    * 在提交之前所作的更改将被保留
         {{% alert type="warning" %}}Before and after events are not executed for autocommitted objects.{{% /alert %}}
-* Database: there is an insert or update query executed both for explicitly committed objects and auto committed objects
-    * Depending on the object state, the platform will do an insert for objects with the state **Instantiated** and an update for all other states
-* Result: an object with the state Instantiated will be inserted into the database, and an object with any other state will be updated
+* 数据库：对于明确承诺的对象和自动提交的对象，都有一个输入或更新查询
+    * 视对象状态而定。 平台将对状态 **实例化** 的对象进行插入，并对所有其他状态进行更新
+* 结果: 一个具有状态实例化的对象将被插入数据库，并且一个具有任何其他状态的对象将被更新
 
 ![](attachments/object-activities/18582172.png)
