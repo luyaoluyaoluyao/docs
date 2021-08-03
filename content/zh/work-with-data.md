@@ -1,29 +1,29 @@
 ---
-title: "Working with Data"
+title: "使用数据"
 menu_order: 30
-description: "Describes how to work with data in Mendix Studio."
+description: "描述如何在 Mendix Studio 中使用数据。"
 tags:
-  - "studio"
-  - "data"
-  - "working with data"
-  - "work with data"
+  - "工作室"
+  - "数据"
+  - "使用数据"
+  - "使用数据"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In Mendix Studio, you work with data in various ways. For example, you create your own data and use it on pages and in microflows; you can start an app uploading your data from a spreadsheet, or use data from other apps in your organization.
+在 Mendix Studio 中，您可以多种方式使用数据。 例如，您创建自己的数据并在页面和微流程中使用它； 您可以从电子表格开始应用上传您的数据，或者在您的组织中使用其他应用的数据。
 
-Using data in Studio can be divided into the following:
+在Studio中使用数据可以分为以下几个部分：
 
-* **Working with your own data** – working with the data that you have created.
-  * **Creating and managing data in the domain model** – the domain model is a visual editor where you work with data. The domain model is a data model that describes the information in your application domain in an abstract way. It is central to the architecture of your application. For more information on the domain model and how to work with it, see [Domain Model](domain-models).
-  * **Starting with your own data** – with Studio, you can also build an app starting with your own data. To do that, you need to use the **App from a spreadsheet** app template where you can import a Microsoft Excel spreadsheet. Data from the spreadsheet will be automatically converted to entities, attributes, and associations. For more information on the **App from a spreadsheet**, see [Starting With Your Own Data](start-with-data).
-* **Working with external data** – if your organization has a Data Hub license, you can connect external data from other apps in your organization to your app and use this data locally. For more information, see [Data Hub in Studio](data-hub-in-studio).
-* **Showing and controlling data** – you can show data through pages, and control what data to retrieve and show through microflows and pages. With [microflows](microflows), you can retrieve object/list of objects. On [pages](page-editor), you can show data using data containers ([data view](page-editor-data-view-list-view#data-view-properties), [list view](page-editor-data-view-list-view#list-view-properties), or [data grid](page-editor-data-grid)) and other widgets on pages. Finally, you can control what data is shown on pages and microflows using [data filters](data-filters).
+* **使用您自己的数据** - 使用您创建的数据。
+  * **在域模型中创建和管理数据** - 域模型是一个你使用数据的视觉编辑器。 域模型是一个数据模型，以抽象的方式描述您应用程序域中的信息。 它是您应用程序架构的核心。 欲了解更多关于域模型和如何使用它的信息，请参阅 [域模型](domain-models)。
+  * **从您自己的数据** — — 您也可以使用工作室来构建一个从您自己的数据开始的应用程序。 要做到这一点，您需要从电子表格</strong> 应用程序模板中使用 **应用，您可以导入微软Excel电子表格。 电子表格中的数据将自动转换成实体、属性和关联性。 关于 **应用的更多信息来自电子表格**，请查看 [开始使用您自己的数据](start-with-data)。</li> </ul></li>
+* **使用外部数据** - 如果您的组织拥有数据集许可， 您可以将来自您组织中的其他应用的外部数据连接到您的应用并在本地使用此数据。 欲了解更多信息，见 [Studio 中的数据集群](data-hub-in-studio)。
+* **显示和控制数据** - 您可以通过页面显示数据，并控制要通过微流和页面检索和显示的数据。 使用 [微流](microflows)，您可以检索对象/对象列表。 在 [页](page-editor), 你可以使用数据容器显示数据([数据视图](page-editor-data-view-list-view#data-view-properties), [列表视图](page-editor-data-view-list-view#list-view-properties), 或 [数据网格](page-editor-data-grid)) 以及页面上的其他小部件。 最后，您可以使用 [数据过滤器](data-filters) 控制页面和微流中显示的数据。</ul>
 
-## 2 Main Documents in This Category
+## 2 个此类别的主要文档
 
-* [Domain Model](domain-models)
-* [Starting With Your Own Data](start-with-data)
-* [Data Hub in Studio](data-hub-in-studio)
-* [Data Filters](data-filters)
+* [域模型](域名模型)
+* [从您自己的数据开始](start-with-data)
+* [工作室中的数据中心](data-hub-in-studio)
+* [数据过滤器](data-filters)
