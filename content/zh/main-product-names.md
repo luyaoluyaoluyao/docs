@@ -1,105 +1,105 @@
 ---
-title: "Main Product Names"
+title: "主要产品名称"
 menu_order: 1
 draft: true
 ---
 
-## Introduction
+## 一. 导言
 
-These are branded Mendix product names. However, they do not always need "Mendix" in front of them in the documentation.
+这些是带有品牌的 Mendix 产品名称。 然而，她们并不总是在文件前需要“Mendix”。
 
-### Under Each Term
+### 根据每个学期
 
-Details and cross-references where necessary.
+细节和必要时相互参照。
 
 {{% alert type="info" %}}
-Guidelines for usage.
-{{% /alert %}}
+6. 使用准则。
+{{% /报警 %}}
 
 {{% alert type="success" %}}
-Example usage.
-{{% /alert %}}
+示例用法。
+{{% /报警 %}}
 
-## Mendix Cloud
-
-{{% alert type="info" %}}
-Capitalize in all instances.
-{{% /alert %}}
-
-## Mendix Cloud version {#mx-cloud-version}
-
-There are two versions of Mendix Cloud: v3 and v4.
+## Mendix 云
 
 {{% alert type="info" %}}
-Use a lower-case "v", except when beginning a sentence or heading.<br />
+在所有实例中大写。
+{{% /报警 %}}
+
+## Mendix 云版本 {#mx-cloud-version}
+
+有两个版本的 Mendix 云：v3 和 v4。
+
+{{% alert type="info" %}}
+使用小写的“v”字，除非在开始判决或标题时。<br />
 <br />
-Use "Mendix Cloud" before the version, except where the context is clear.
-{{% /alert %}}
+在版本前使用"Mendix Cloud"，除非上下文清晰。
+{{% /报警 %}}
 
 {{% alert type="success" %}}
-These are the main differences between Mendix Cloud v3 and v4.<br />
+这些是Mendix Cloud v3和v4之间的主要差异。<br />
 <br />
-V4 has much better security than v3.
-{{% /alert %}}
+V4的安全程度要比v3好得多。
+{{% /报警 %}}
 
-## Mendix Developer Portal {#devportal}
+## Mendix 开发者门户网站 {#devportal}
 
-This term appears on the **My Apps** page in Studio Pro and in the **Back to the Developer Portal** button in Studio.
+这个词出现在Studio Pro 的 **我的应用程序** 页面上，并出现在 **返回开发者门户网站** Studio 中的按钮。
 
-The Developer Portal includes what is sometimes referred to as the "Cloud Portal," which is not an official term and is not used in the product UI or documentation (for more information, see [Terminology History](terminology-history)
+开发者门户包含有时被称为“云端门户”的内容， (b) 产品界面或文件中没有使用(关于更多信息，请查阅)； 查看 [名词历史](terminology-history)
 
 {{% alert type="info" %}}
-This term replaces "Sprintr," "Platform Portal," and "Mendix App Platform." These terms are not to be used in the product UI or documentation. For more information, see [Terminology History](terminology-history).<br />
+此词替换"Sprintr""平台门户"和"Mendix 应用平台"。 这些术语不得用于产品界面或文档。 欲了解更多信息，见 [名词历史](terminology-history)。<br />
 <br />
-Capitalize in all instances.
-{{% /alert %}}
+在所有实例中大写。
+{{% /报警 %}}
 
-## Mendix Marketplace {#marketplace}
-
-{{% alert type="info" %}}
-Capitalize in all instances, even when just writing "Marketplace."
-{{% /alert %}}
-
-## Mendix Platform {#platform}
-
-Describes Mendix as a product and encompasses all the products released by Mendix (as in, Studio Pro, Studio, Developer Portal, etc.).
+## Mendix 市场 {#marketplace}
 
 {{% alert type="info" %}}
-Capitalize "Platform" when used in "Mendix Platform."
-{{% /alert %}}
+在所有情况下资本化，即使只是写“市场”时
+{{% /报警 %}}
+
+## Mendix 平台 {#platform}
+
+将Mendix 描述为一种产品，包含由Mendix 发布的所有产品(例如在Studio Pro、Studio、开发者门户等中)。
+
+{{% alert type="info" %}}
+在“Mendix Platform”中使用 "Platform" 时首页
+{{% /报警 %}}
 
 {{% alert type="success" %}}
-This is the power of the Mendix Platform.<br />
+这是Mendix 平台的力量。<br />
 <br />
-The platform includes Mendix Studio and our cloud hosting.
-{{% /alert %}}
+平台包括Mendix Studio和我们的云端主机。
+{{% /报警 %}}
 
-## Mendix Studio {#studio}
+## Mendix 工作室 {#studio}
 
-The rebranded name for the [Web Modeler](terminology-history#wm) as of Mendix 8.
+[Web Modeler](terminology-history#wm) 的重命名为 Mendix 8。
 
 {{% alert type="info" %}}
-"Studio" can be used where regular repetition is necessary in a doc. However, where possible, "Mendix" should be added to the product name.<br />
+“Studio”可以在文档中需要常规重复时使用。 但是，在可能的情况下，应在产品名称中加上“Mendix”。<br />
 <br />
-Capitalize in all instances.
-{{% /alert %}}
+在所有实例中大写。
+{{% /报警 %}}
 
 ## Mendix Studio Pro {#pro}
 
-The rebranded name for the [Desktop Modeler](terminology-history#dm) as of Mendix 8.
+[桌面模式模组](terminology-history#dm) 的重命名为 Mendix 8。
 
 {{% alert type="info" %}}
-"Studio Pro" can be used where regular repetition is necessary in a doc. However, where possible, "Mendix" should be added to the product name.<br />
+“Studio Pro”可以在文档中需要常规重复时使用。 但是，在可能的情况下，应在产品名称中加上“Mendix”。<br />
 <br />
-Capitalize in all instances.
-{{% /alert %}}
+在所有实例中大写。
+{{% /报警 %}}
 
-## Mendix Studios
+## Mendix 工作室
 
 {{% alert type="info" %}}
-Where you are describing a feature applicable to both Mendix Studio and Studio Pro, use "Mendix Studio and Studio Pro." However, after you introduce the names of both products once and need to refer to them together again, use "the Mendix Studios."<br />
+在您描述同时适用于Mendix Studio 和 Studio Pro的功能的地方，请使用“Mendix Studio and Studio Pro.” 然而，在您一次介绍这两种产品的名称后，需要再次一起引用，请使用“Mendix Studios”。<br />
 <br />
-When you need to use one general product name in a diagram, it is fine to use just "Studios."<br />
+当你需要在图表中使用一个普通产品名称时，它很好只能使用"Studios"。<br />
 <br />
-Capitalize in all instances.
-{{% /alert %}}
+在所有实例中大写。
+{{% /报警 %}}
