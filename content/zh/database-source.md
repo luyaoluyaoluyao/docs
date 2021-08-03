@@ -1,62 +1,70 @@
 ---
-title: "Database Source"
-parent: "data-sources"
+title: "数据库来源"
+parent: "数据来源"
+tags:
+  - "studio pro"
+  - "数据库"
+  - "数据源"
+menu_order: 10
 ---
 
+## 1 导言
 
-If database is selected as the data source for a widget then the object or objects shown are retrieved directly from the database with a query. This data source is also supported in [offline](offline) applications in which case the data will come from the database on the mobile device.
+如果 **数据库** 被选为一个小部件的数据源，那么显示的对象或对象将直接从数据库中检索到查询结果。 [离线](offline-first) 应用程序也支持此数据源，在这种情况下，数据将来自移动设备上的数据库。
 
-{{% alert type="success" %}}
+您可以在数据库 [约束](#constraints) 的帮助下过滤显示的数据。 然而，如果您想限制数据不是针对一个小部件，而是针对几个小部件， 您可能想要对实体应用 [访问规则](access-rules) ，而不是数据库限制。 这种方式你知道对象将永远受到这些规则的约束。 当执行可节省您重复限制的微流时，访问规则也将被应用。
 
-Use access rules whenever possible to limit data in data grids. This way you know that the objects will always be constrained by these rules (as opposed to constraints on a single data grid). The access rules will also be applied when executing microflows which saves you from repeating constraints.
+## 2 属性
 
-{{% /alert %}}
+### 2.1 实体(道路)
 
-## Components
+**实体 (路径)** 属性指定了数据库查询的目标。 如果您拥有顶级数据小部件, **实体 (路径)** 将直接获取选定实体的对象。 如果你有嵌套的数据部件, 你也可以选择父数据容器的实体。 在这种情况下，对象会按照关联路径检索，关联会被解析为数据库查询中的额外约束。
 
-### Search bar
+{{% image_container width="400" %}}![数据源示例](attachments/data-widgets/data-source-example.png)
+{{% /image_container %}}
 
-See [Search Bar](search-bar).
+{{% alert type="info" %}}
 
-### Sort bar
+当从内存而不是数据库检索对象时，这不同于 [关联数据源](association-source)。
 
-See [Sort Bar](sort-bar).
+{{% /报警 %}}
 
-## Properties
+### 2.2 显示搜索栏 {#show-search-bar}
 
-### Entity (Path)
+**显示搜索栏** 仅适用于数据网格。 您可以选择显示数据网格的 **[搜索栏](search-bar)**
 
-The entity (path) property specifies the target of the database query. A top-level data grid is always connected to an entity.
+| 值                  | 描述                                                                 |
+| ------------------ | ------------------------------------------------------------------ |
+| 从不使用               | 没有显示搜索栏或搜索按钮。 有效禁用搜索。                                              |
+| 按钮(最初打开)           | 最终用户可以使用 [**搜索** 按钮](control-bar#search-button)打开和关闭搜索栏；搜索栏最初是打开的。 |
+| 使用按钮 (初始关闭) *(默认)* | 用户可以使用搜索按钮打开并关闭搜索栏；搜索栏最初已关闭。                                       |
+| 总是显示               | 搜索栏总是可见的，无法关闭，也没有搜索按钮。                                             |
 
-A nested data grid can either be connected to an entity or to an entity path starting in the entity of the containing data view. The entity path follows one association of type reference in the opposite direction in which the association's arrow is pointing (from * to 1).
+### 2.3 等待搜索
 
-Please note that this differs from the [association data source](association-source) in that the objects are not retrieved from the client cache but directly from the database. The association is simply parsed as an extra constraint in the database query.
+**等候搜索** 属性可用，如果 **[显示搜索栏](#show-search-bar)** 设置为 *按钮(最初打开)* 或 *总是*
 
-### Show search bar
+当 **等待搜索** 设置为 *是*时，最终用户开始搜索的内容仍然是空的。 如果目标实体包含一系列极大的对象，那么这可能是有用的，但大多数突变只需要一个数据子集。 等待搜索将确保在指定所需子集之前不执行数据库查询， 因此跳过与主要数据检索相关的初始加载期。
 
-With this property you can influence if and when a search bar is shown.
+默认： *false*
 
-| Value                          | Description                                                                                             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------- |
-| Never                          | No search bar or search button are ever shown. Effectively disables search.                             |
-| With button (initially open)   | The user can open and close the search bar using the search button; the search bar is initially open.   |
-| With button (initially closed) | The user can open and close the search bar using the search button; the search bar is initially closed. |
-| Always                         | The search bar is always visible and cannot be close, nor is there a search button.                     |
+### 2.4{#constraints}
 
-_Default value:_ With button (initially closed)
+制约因素允许对显示的数据进行自定义和硬编码限制。 这种限制将适用于安全方面的限制。 例如，如果您的实体有一个访问规则，使它只适合用户读取和/或有一个 XPath 约束， XPath 约束将首先应用。
 
-### Wait for search
+每个约束包含一个 **属性**, 一个 **运算符**, 和 **值**:
 
-If set to true, the grid will remain empty of contents until a search has been performed. This can be useful if the target entity contains an extremely large set of objects but most mutations only require a subset of the data. Waiting for search will ensure that no database query is performed until the desired subset is specified, thus skipping the initial loading period associated with major data retrievals.
+![约束示例](attachments/data-widgets/constraint-example.png)
 
-_Default value:_ false
-
-### Constraints
-
-Constraints allow for custom, hard-coded limitations on the data displayed. This constraint will be applied after constraints already applied through security. Each constraint consists of an attribute, an operator and a value. Multiple constraints will limit the data even more ("and"). There is no way to create "or" constraints, except by switching to an [XPath data source](xpath-source).
+多重限制会限制更多的数据 (逻辑运算符 **和**)。 无法在约束下使用逻辑运算符 **或** 但您可以切换到 [XPath 数据源](xpath-source) 并创建一个 XPath 限制。
 
 {{% alert type="warning" %}}
 
-Constraints are applied equally to all users and only apply to the data displayed in a single data widget. If the goal is to shield a particular subset of the data from users then [entity access rules](access-rules) are superior in that they can be tailored to each individual user role and that they apply system-wide.
+限制因素平等适用于所有用户，只适用于单个数据部件中显示的数据。 如果目标是限制用户访问特定数据子集，那么应该使用实体的 [访问规则](access-rules) ，因为它们可以应用于个人用户角色，并应用于整个系统。
 
-{{% /alert %}}
+{{% /报警 %}}
+
+## 3 阅读更多
+
+* [数据部件](data-widgets)
+* [数据网格](数据网格)
