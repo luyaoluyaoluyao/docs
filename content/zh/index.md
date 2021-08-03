@@ -1,52 +1,93 @@
 ---
-title: "Mendix 产品命名指南"
-draft: true
+title: "数据中心指南"
+description: "本指南介绍Mendix Data Hub 用于查找和分享企业数据资产。"
+tags:
+  - "数据中心"
+  - "数据枢纽目录"
+  - "数据中心横图"
+aliases:
+  - /data-hub/data-catalog/index.html
 ---
 
-## 本指南的目的
+## 1 导言
 
-本指南展示Mendix 产品的主要名称、其他Mendix 术语以及正在Mendix Platform 界面中使用的合作伙伴术语。 [Mendix 文档](https://docs.mendix.com/), 和 [Mendix 平台评估指南](https://www.mendix.com/evaluation-guide/welcome).
-
-本指南的目的是提供关于使用情况、资本化的准则。 并拼写以及重要细节和 [术语历史](terminology-history) 的注释。 提供和适用这些准则的目的是在整个公司范围内就使用问题达成共识。
-
-本指南的目的不是为每个术语提供一个定义。 此处只是在必要时才提供术语细节。 在 Mendix 文档和 Mendix 平台评估指南中找到产品定义。 为了维护，本文不重复或概述。
-
-要将一个术语列入本指南，它应已经出现在Mendix Platform UI, Mendix Documentation, and/or Mendix Platform Evaluation Guide 中。
-
-由于下列原因，这一术语可能尚未列入本指南：
-
-* 没有关于该术语的具体使用准则或决定（至少尚未这样做）
-* 这是一个通用术语，不被Mendix 标记(例如，"domain model," "page," "template," 或 "layout")
-* 这是一个内部术语(例如，仅在 R&D 团队中使用的应用名称或技术术语)
-* 该术语在UI中的独特特性不足以要求使用准则（例如，关于文档中的资本化）
-* 该词已经过时(意思，它的用法已经决定了；如有实例，请参阅 [术语历史](terminology-history))
-* 在客户面对的资源中不应使用该词。
-
-{{% alert type="warning" %}}
-本指南不应对产品路线图或公司内部业务提供深入的了解。
-{{% /报警 %}}
-
-## 本指南的章节
-
-*产品命名指南* 分成以下文档：
-
-* [主要产品名称](main-product-names)
-* [其他Mendix 条款](other-terms)
-* [战略伙伴条款](strategic-partner-terms)
-* [术语历史](terminology-history)
-
-## 根据每个学期
-
-细节和必要时相互参照。
+[Mendix Data Hub](https://hub.mendix.com) 是一个产品，用于整合应用开发与组织中许多应用程序的可用数据。 它是一个组织寻找和连接相关共享数据集的中心枢纽。 它还确保整个组织使用的数据的一致性。 数据枢纽使可靠的数据源能够从一个点到中心位置，并使用户能够通过它连接到它们。
 
 {{% alert type="info" %}}
-6. 使用准则。
+要使用Mendix Data Hub，需要一个许可证，其中也包括将Studio Pro中的数据集合起来。
 {{% /报警 %}}
 
-{{% alert type="success" %}}
-示例用法。
+{{% alert type="info" %}}
+Data Hub集成可以在 Studio Pro 8.14 及以上版本中找到。 要使用最新的数据集群功能，请下载最新版本的Studio Pro。 {{% /报警 %}}
+
+从 [数据枢纽](https://hub.mendix.com) 主页跟随使用可用数据集(或Mendix 应用提供服务的实体集)构建应用程序的旅程， 或尝试建立一个快速应用，方法如下 [如何使用Mendix Data Hub在应用程序之间分享数据](share-data/)。
+
+## Mendix 数据枢纽概览
+
+Mendix Data Hub 拥有能够灵活分享数据集的组件。 下面的图表显示了这些组件如何使用共享数据集启动应用开发：
+
+![](attachments/overview-schematic-datahub.png)
+
+1. 已发布的应用和其他软件暴露了OData服务中的数据集，可用来提供一个一致和可靠的共享数据网络。 数据保存在相应的源应用中。
+2. 工作室专业版， 发布的OData服务显示数据集(或在Studio Pro中命名的实体集)，连接到现有数据自动在 [Data Hub 目录](data-hub-catalog/) 中注册。 其他应用程序的OData服务也可以手动注册。 对于每项服务，结构性和描述性元数据以及数据集的位置都在数据集目录中登记。 注册服务和数据集的管理由服务所有者完成， [数据枢纽管理](#admin) 和 [数据管理员](#curator)
+3. 在数据枢纽目录中搜索或使用 Studio Pro 中的集成数据集寻找合适的共享数据资源用于您的应用开发。
+4. 消耗Studio Pro 中注册的数据集来创建新的应用。
+5. 在 Studio Pro中部署应用程序后，注册服务将在数据集目录中更新，以显示已发布的依赖关系和消费的依赖关系。 并且建立了与共享数据源的连接。
+6. 消费应用程序直接连接到源系统（如已发布的服务元数据所定义）以使用与消费数据集相关的数据。
+7. [Data Hub Landscape](data-hub-landscape/) 使用户能够看到组件与数据相关性之间的依赖关系，并确定数据线性。
+
+## Data Hub{#data-hub-roles} 中的 3 角色
+
+在Mendix Data Hub，施政是基石。 共享资产的管理对于界定如何使用共享数据资产至关重要，并确定与用户的相关性。 确保正确的用户能够找到资源，并管理共享数据的存取、安全和保密程度。
+
+本节介绍一般数据集群用户以及分配的 [数据集管理员](#admin) 和 [数据集馆管理员](#curator) 角色。
+
+### 3.1 数据枢纽用户
+
+典型的 Mendix 用户能够使用数据集目录来搜索和使用注册服务。 用户还可以通过发布的OData服务注册新服务，作为所有者，用户可以对OData服务拥有管理权。
+
+数据集群用户可以做以下工作：
+
+* 发布服务并注册到来自Studio Pro 的数据中心目录
+* 手动注册发布的 OData V4 非Mendix 应用程序服务
+* 更新元数据，如描述、标签和他们自己注册服务的联系信息
+* 所有者可以设定其服务的可发现性，从而发布服务和暴露数据集供其他用户使用
+* 查看在其组织数据集目录中注册的所有可发现的服务和数据集，并通过在其应用程序Mendix Studios 中将已发布的实体作为外部实体连接到数据
+
+{{% alert type="info" %}}
+发布OData服务的用户是服务的技术所有者，因此在他们自己的服务上有 [数据集管理员](#curator) 角色。 如果他们注册的服务没有公布，也没有发现，但只有他们才能找到和使用这些服务。
 {{% /报警 %}}
 
-## 保留 & 更新本指南
+### 3.2 数据枢纽管理 {#admin}
 
-该指南可在各部门协作保存和更新。 在这个意义上，适用标准的文件工作流程：更新指南， 发送 [合并请求](https://github.com/mendix/docs/tree/development/content/product-naming) (关于更多信息，参见 [如何为文档贡献](/developerportal/community-tools/contribute-to-the-mendix-documentation))。 将与相关的利益攸关方一起审查合并请求，并将对文件进行必要的更新。
+数据枢纽管理层的作用是与该组织的数据管理员、安全官员和安全建筑师合作开展数据枢纽业务和治理。
+
+数据集管理员可以做以下工作：
+
+* 担任组织数据中心的技术管理员
+* 分配 [数据集馆管理员](#curator) 角色
+* 根据本组织的数据管理政策管理数据中心
+* 访问组织数据中心目录中所有已注册的资产
+
+当前发布的数据集群管理员由 [Mendix 支持](https://support.mendix.com/hc/en-us)分配：请联系 Mendix Support 来设置它。
+
+管理任务在 [Data Hub Administration](general/data-hub-admin-functions) 中描述。
+
+### 3.3 数据集馆管理员 {#curator}
+
+数据枢纽管理员管理数据中心目录中的注册服务，以确保有关用户能够看到注册服务，并丰富关于已注册资产的信息。 一个组织可以拥有几个数据中心管理员。
+
+管理员由 [数据集管理员](#admin) 分配，他们执行以下功能：
+
+* 维护注册的 OData 服务并管理版本
+* 确保相关用户发现他们的资产
+* 丰富注册服务和数据集的元数据 — — 例如描述、标签和联系信息
+
+## 4 个指南类别
+
+*数据集指南* 分为以下类别：
+
+* [如何使用Mendix Data Hub 在应用程序之间共享数据](share-data/)
+* [常规信息](general/)
+* [数据集目录](data-hub-catalog/)
+* [数据枢纽横屏](data-hub-landscape/)
