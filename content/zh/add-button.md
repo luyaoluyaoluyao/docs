@@ -1,18 +1,18 @@
 ---
-title: "Add Button"
-parent: "control-bar"
+title: "添加按钮"
+parent: "控制栏"
 ---
 
 
-The add button can only be used in the reference set selector. With this button, the user can select objects that have to be added to the reference set selector.
+添加按钮只能在参考集选择器中使用。 通过此按钮，用户可以选择必须添加到参考集选择器中的对象。
 
-## Common Properties
+## 公共属性
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General Properties
+## 常规属性
 
 {{% snippet file="refguide7/Caption+Property.md" %}}
 
@@ -22,16 +22,16 @@ The add button can only be used in the reference set selector. With this button,
 
 {{% snippet file="refguide7/Button+Style+Property.md" %}}
 
-{{% snippet file="refguide7/Is+default+button+Property.md" %}}
+{{% snippet file="refguide7/Is+default+buton+Property.md" %}}
 
-### Page
+### 页
 
-This property indicates the page that is shown to users after they click this button. The user can use this page to select objects that have to be added to the reference set selector. This page should contain a data grid, template grid, or list view connected to the same entity as the reference set selector.
+此属性指向用户点击此按钮后显示的页面。 用户可以使用此页面选择必须添加到参考集选择器的对象。 此页面应包含一个数据网格、模板网格或与参考集选择器连接到同一个实体的列表视图。
 
-See [Opening Pages](opening-pages). Note that opening select pages in content is prohibited.
+查看 [打开页面](opening-pages)。 请注意禁止打开内容中的选择页面。
 
-## Visibility Properties
+## 可见性属性
 
 {{% snippet file="refguide7/Visibility+Property.md" %}}
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+{{% snippet file="refguid7/Visibility+Property+With+Module+Roles+Simple.md" %}}
