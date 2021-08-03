@@ -1,53 +1,52 @@
 ---
-title: "编辑Cloud Foundry 设置"
-parent: "运行菜单"
+title: "编辑Cloud Foundry 设置对话框"
+parent: "对话框"
 tags:
   - "Cloud Foundry"
   - "部署"
-  - "studio pro"
 ---
 
 ## 1 导言
 
-**编辑Cloud Foundry 设置** 菜单选项允许您指定将您的应用程序部署到云端基金会实例所需的信息。
+使用此对话框来指定将您的应用部署到云端基金会实例所需的信息。
 
 {{% alert type="info" %}}
-关于部署到Cloud Foundry的更多信息可在 [Cloud Foundry：部署](/developerportal/deploy/cloud-foundry-deploy) 中找到。
+
+关于部署到云端Foundry的更多信息，见 [Cloud Foundry：在 *开发者门户指南* 中部署](/developerportal/deploy/cloud-foundry-deploy)
+
 {{% /报警 %}}
 
-## 2 个正在进入凭据
+## 2 名正在进入凭据
 
-为云端基金会部署配置配置配置应用程序的第一步是输入您想要使用的云端基金会账户信息。
-
-![输入Cloud Foundry 凭据](attachments/run-menu/cloud-foundry-credentials.png)
+配置您的云端基金会部署应用的第一步是输入您想要使用的云端基金会实例的帐户信息。
 
 输入屏幕上的详细信息，如下所述，然后点击 **下一个** 验证指定的凭据并显示下一个配置步骤。
 
-### 2.1 API Endpoint
+### 2.1 API endpoint
 
-定义云端基金会平台的 **API 端点** 的URL，将用于部署。
+这是将用于部署的云端平台的 **API 端点** 的 URL。
 
 ### 2.2 用户名
 
-The **User name** of your Cloud Foundry account.
+This is the **User name** of your Cloud Foundry account.
 
 ### 2.3 密码
 
-您的云端Foundry账户的 **密码**。
+这是云端Foundry帐户的 **密码**。
 
-## 3 选择云端创始应用程序
+按下“下一步”按钮将验证指定的凭据并显示下一步配置步骤。
 
-第二步允许您在云端基金会组织中选择一个现有的应用或创建一个新的应用程序。 您的 Mendix 应用程序将在这里部署。
+## 3 选择 Cloud Foundry 应用程序
 
-![输入云端Foundry应用的设置](attachments/run-menu/cloud-foundry-app-settings.png)
+第二步允许您在云端基金会实例中选择一个应用，您的 Mendix 应用将被部署。
 
 ### 3.1 组织
 
-选择您想要使用的 **组织**。 如果没有组织可用，您将需要在您的云端基金帐户中配置一个组织； 无法从 Mendix Studio Pro内部创建一个新的。
+选择您想要使用的 **组织**。 如果没有组织可用，您将需要在您的云端基金帐户中配置一个组织； 无法从桌面模式中创建一个新的模式。
 
 ### 3.2 空间
 
-选择您想要使用的 **空间**。 请注意，您想要使用的空间必须已经在您的云端账户中配置； 无法从 Mendix Studio Pro内部创建一个新的。
+选择您想要使用的 **空间**。  如果没有空格，您需要在您的云端基金帐户中配置空格； 无法从桌面模式中创建一个新的模式。
 
 ### 3.3 应用
 
@@ -55,16 +54,13 @@ The **User name** of your Cloud Foundry account.
 
 #### 3.3.1 选择现有应用
 
-如果您 **选择现有的应用程序** ，您将能够从下拉列表中选择正确的应用程序。
+如果您 **选择现有的应用程序** ，您将能够在下拉列表中选择正确的应用程序。
 
 #### 3.3.2 创建新应用
 
-如果您 **创建新的应用程序** ，您需要做以下工作：
+如果您 **创建新的应用程序**， 您需要选择 **域** 应用将在下拉列表中运行的域 </strong> 然后输入应用程序的 **应用程序名称**。
 
-1. 选择应用程序将从下拉列表运行的 **域**。
-2. 为应用程序输入 **应用程序名称**。
-
-您的应用程序的 URL 将是 {App name}.(Domain)。
+您的应用程序的 URL 将是 {App name}.(Domain)
 
 ### 3.4 建筑包
 
