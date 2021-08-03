@@ -1,14 +1,17 @@
 ---
-title: "Line break (Document Template)"
-parent: "document-templates"
+title: "改行（ドキュメントテンプレート）"
+parent: "ドキュメントテンプレート"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Line+Break+(document+template).html
-  - /refguide7/line-break-(document-template).html
+  - /ja/refguide/Line+Break++(document+template).html
+  - /ja/refguide/line-break-(document-template).html
 ---
 
+## 1つの紹介
 
-A new line will be started at the insertion of a Line Break.
+改行の挿入時に新しい行が開始されます。
 
-## Common Properties
+## 2つの一般的なプロパティ
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
