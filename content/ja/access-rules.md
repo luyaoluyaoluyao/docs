@@ -11,10 +11,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/access-rules.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
 The **access rules** of an entity define what a user is allowed to do with objects of the entity. Users can be allowed to create and/or delete objects, and to view and/or edit member values. A member is an attribute or an association of an entity. Furthermore, the set of objects available for viewing, editing, and removing can be limited by means of an [XPath constraint](xpath-constraints).
@@ -37,7 +33,7 @@ Access rules are defined via entity's **Properties** > **Access rules**, or on t
 ![Access Rules for Entities](attachments/domain-model/access-rules-tab.png)
 
 {{% alert type="info" %}}
-The **Access rules** section is visible only if the [Project Security](project-security) is set to **Production**.
+The **Access rules** section is visible only if the [App Security](project-security) is set to **Production**.
 {{% /alert %}}
 
 An example of the access rules properties is represented in the image below:
