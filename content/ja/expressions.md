@@ -1,31 +1,53 @@
 ---
 title: "式"
-parent: "application-logic"
-menu_order: 100
-description: "Mendixで様々な目的で使用できる式について説明します(例えば、 をクリックして、論理に基づいてオブジェクトのメンバーを変更します。"
+menu_order: 55
+description: "Mendix Studio で利用可能なマイクロフロー式について説明します。"
 tags:
-  - "studio pro"
+  - "スタジオ"
+  - "マイクロフロー"
   - "表現"
-  - "マイクロフロー式"
+  - "表現"
+  - "値を設定"
+  - "変数"
 aliases:
-  - /refguide8/microflow-expressions.html
+  - /ja/studio/microflows-expressions.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/expressions.pdf) をクリックしてください。
-{{% /alert %}}
 
 ## 1つの紹介
 
 式は関数または関数の組み合わせに基づいて値を変更します。
 
-マイクロフロー内の名前付きアイテム (例えば、オブジェクト、リスト) または変数)は、アイテムの名前を挿入し、ドル記号を追加することによって式で呼び出すことができます(例えば、  `$customer` は、 `顧客` という名前のオブジェクトを参照することができます。
+ワークフロー、ページ、マイクロフローに式を使用できます。 式は通常、特定のアクティビティまたはプロパティの条件を設定するために使用されます。 例えばマイクロフローやワークフローの決定条件です
 
-Attributes and associations of objects are accessed using a slash (for example, the **Name** attribute of the customer object is referred to as `$customer/Name`, and the **CRM.Customer_Order** association of the customer object is referred to as `$customer/CRM.Customer_Order`).
+ワークフローでは、次の要素に式を使用できます。
 
-Starting from Studio Pro [8.10.0](/releasenotes/studio-pro/8.10#8100), attributes of associated objects can be accessed using multiple slashes (for example, the **Number** attribute of a single associated **CRM.Order** is referred to as `$customer/CRM.Customer_Order/CRM.Order/Number`).
+* [決定](workflows-general-activities)
+* **** [ワークフロー](workflow-properties) と [ユーザー タスク](workflows-user-task) の期限 </a> プロパティ
 
-式内の関数を結合できます。 この場合、かっこを使用して、計算の優先度と関連性を決定できます。 例えば、 **SellingPrice** は、デフォルトの **Price** と **Discount** 属性に基づいて計算されます。
+式は、ページ上の以下のプロパティで使用できます。
+
+* ウィジェットの条件付き編集
+* ウィジェットの条件付き表示
+* **コンテンツ** プロパティ [テキスト ウィジェット](page-editor-widgets-text)
+
+表現は、マイクロフロー内で以下のアクティビティに使用できます。
+
+*  オブジェクトの変更
+*  変数の変更
+*  オブジェクトを作成
+*  変数を作成
+*  [決定](microflows-decision)
+*  イベントを終了
+
+マイクロフローアクティビティの設定と値の変更の詳細については、 see [Set & Change a Value for different Activities in the Microflow](microflows-setting-and-changing-value).
+
+## 2 式を書く
+
+マイクロフローとワークフロー内の名前付き項目 (オブジェクト、リストなど) または変数)は、アイテムの名前を挿入し、ドル記号を追加することによって式で呼び出すことができます(例えば、  `$Customer` は、 `Customer` という名前のオブジェクトを参照することができます。
+
+オブジェクトの属性と関連付けはスラッシュを使用してアクセスされます (例えば、 顧客オブジェクトの **Name** 属性は `$Customer/Name` と呼ばれます。
+
+かっこを使用して、計算の優先度と関連性を決定できます。 例えば、 **SellingPrice** は、デフォルトの **Price** と **Discount** 属性に基づいて計算されます。
 
 ```
 $CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
@@ -33,152 +55,139 @@ $CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
 
 ここでは算術関数(減算、除算、乗算)を組み合わせています。
 
-### 1.1 例
+式ではプレーンテキストを入力することはできません。テキストはその周りにシングルクォテーションマーク (`'`) で記述する必要があります。 例えば、文字列 `Mendix`を返したい場合は、 `'Mendix'` として記述する必要があります。
 
-たとえば、 **パッケージ** と呼ばれる2つの属性を持つオブジェクトがあります。 `weight` (decimal) と `shippingCosts` (decimal) です。 パッケージの重量が1キロ未満の場合、送料はかかりません。 それ以外の場合、送料は€5.00です。 `shippingCosts` 属性を変更するための式は次のとおりです。
+式を書くのに役立つ候補のリストを使うことができます。 このリストを表示するには、 <kbd>Ctrl</kbd> + <kbd>スペース</kbd> のショートカットを使用します。 提案は次のカテゴリに分けることができます:
 
-```
-if $package/weight < 1.00 then 0.00 else 5.00`
-```
+* **変数とその属性** - 現在のマイクロフロー、ページ、またはワークフローで利用可能な変数または属性
+* **列挙値** - 式で使用できる [列挙タイプ](domain-models-enumeration) の値
+* **関数** - 式で使用できる操作 (詳細については、 [式タイプ](#expression-types) セクションを参照してください)
+* **Keywords** – key phrases or words that you can use in an expression (for example, `empty` – a value that can be used to check if a variable is empty)
+* **Booleans** – trueまたはfalse キーワード
+* **Operators** – code elements that perform logical or mathematical operations; you can use Boolean or relational expressions (for more information, see the [Expression Types](#expression-types) section below)
 
-### 1.2 正規表現
+式にエラーがある場合は、エラーのある場所 が赤色に強調表示され、マウスポインタを置くとエラーメッセージが表示されます。  場合によっては、問題を迅速に解決するための迅速な修正があります。
 
-[正規表現](regular-expressions) リソースドキュメントを式で使用することはできません。 ただし、正規表現、サブ表現の形式 そして、正規表現文字列で使用されるクオンタイファイアは、 [正規表現](regular-expressions#expression) の *正規表現* のセクションで説明されているものと同じです。
+![](attachments/expressions/expression-error.png)
 
-## 2つの単語式
 
-* [単位マイナス（-）](unary-expressions)
+### 2.3 式の例
 
-## 3 つの算術式
+式の使用方法を示す例を以下に示します。
 
-* [かけ算 ( * )](arithmetic-expressions)
-* [Division ( div or : )](arithmetic-expressions)
-* [Modulo ( mod )](arithmetic-expressions)
-* [追加 ( + )](arithmetic-expressions)
-* [減算 ( - )](arithmetic-expressions)
+#### 2.3.1 例 1
 
-## 4つのリレーショナル式
+マイクロフローに [Decision](microflows-decision) があり、顧客の成績が金であり、注文の価格が100を超えているかどうかをチェックする式を書く必要があります (この式がtrueの場合に許可される **Decision** の後に割引を設定できます):
 
-* [より小さい ( <)](relational-expressions)
-* [( > ) より大きい](relational-expressions)
-* [以上 ( <= )](relational-expressions)
-* [以上 ( >= )](relational-expressions)
-* [( = ) と等しいです](relational-expressions)
-* [等しくない ( != )](relational-expressions)
+![](attachments/expressions/example-decision.png)
 
-## 5つの特別チェック
+式は次のようになります:
 
-* [空のオブジェクトをチェックしています](special-checks)
-* [空のオブジェクトメンバーをチェックしています](special-checks)
-* [isNew``](special-checks) - オブジェクトが新しいものかどうかをチェックする
+![](attachments/expressions/expression-decision.png)
 
-## 6 ブール式
+#### 2.3.2 例 2
 
-* [と](boolean-expressions)
-* [または](boolean-expressions)
-* [いいえ](boolean-expressions)
+マイクロフローに [の決定](microflows-decision) を追加して、オブジェクトが存在するかどうかをチェックします(以下の例では、オブジェクト *顧客*です)。 また、お客様の名前が特定の名前と一致するかどうかも確認します(下の例では、お客様の名前は *Mendix* です)。 式は次のようになります:
 
-## 7 式の場合
+![](attachments/expressions/customer-empty-and-name-example.png)
 
-* [if](if-expressions) – 条件付きアクションを実行する
+#### 2.3.3 例 3
 
-## 8 数学関数コール
+ワークフローに [ユーザー タスク](workflows-user-task) があり、明後日までにユーザー タスクを行う必要があることをリマインダーとして **締切日** を追加します。 次の式を記述できます。
 
-* [`max`](mathematical-function-calls) - 数値のリストの最大値
-* [`min`](mathematical-function-calls) – 数値のリストの最小値
-* [`ラウンド`](mathematical-function-calls) - 浮動小数点数の丸め、必要に応じて指定された精度に
-* [`random`](mathematical-function-calls) - 乱数生成
-* [`floor`](mathematical-function-calls) - 浮動小数点数の丸め
-* [`ceil`](mathematical-function-calls) - 浮動小数点数の丸め
-* [`pow`](mathematical-function-calls) - 指数化
-* [`abs`](mathematical-function-calls) – 絶対値
+![ユーザータスク式](attachments/expressions/user-task-due-date.png)
 
-## 9 文字列関数コール
+## 3 式のタイプ {#expression-types}
 
-* [`toUpperCase`](string-function-calls) - 文字列を大文字に変換します
-* [`toLowerCase`](string-function-calls) – 文字列を小文字に変換します
-* [`length`](string-function-calls) - 文字列の長さ
-* [`substring`](string-function-calls) - 文字列の一部を取得する
-* [`find`](string-function-calls) - 部分文字列の位置を取得する
-* [`findLast`](string-function-calls) – gets the last sub-string position
-* [`には`](string-function-calls) が含まれています - サブストリングを含む
-* [`startsWith`](string-function-calls)  - 文字列が指定された部分文字列で始まるかどうかを決定する
-* [`endsWith`](string-function-calls) - 文字列が指定されたサブストリングで終わるかどうかを決定します
-* [`trim`](string-function-calls) - 先頭と末尾の空白を削除する
-* [`isMatch`](string-function-calls) – 正規表現に一致
-* [`replaceAll`](string-function-calls) – サブストリングの出現を置き換え
-* [`replaceFirst`](string-function-calls) - サブストリングの最初の発生を置き換えます
-* [`String concatenation ( + )`](string-function-calls) – 文字列の結合
-* [`urlEncode`](string-function-calls) – URLで使用する文字列を変換します。
-* [`urlDecode`](string-function-calls) – URLから文字列を戻します。
+Studio で最も多く使用されている式のリストは以下のとおりです。 使用可能な式の完全なリストについては、 [Studio Pro Guide](/refguide/expressions) の *式* を参照してください。
 
-## 10 日付の作成
+### 3.1 単項式
 
-* [`dateTime`](date-creation) - サーバーのカレンダーを使用して日付値を作成する
-* [`dateTimeUTC`](date-creation) - UTCカレンダーを使用して日付値を作成する
+* [単位マイナス（-）](/refguide/unary-expressions)
 
-## 日付関数呼び出しの間に11
+### 3.2 算術式
 
-* [`ミリ秒間隔`](between-date-function-calls) - 2つの日付間のミリ秒
-* [`秒`](between-date-function-calls) - 2つの日付の間の秒
-* [`分前`](between-date-function-calls) - 2日間の分
-* [`時間`](between-date-function-calls) - 2つの日付の間の時間
-* [`日前`](between-date-function-calls) - 2日前
-* [`週間`](between-date-function-calls) - 2つの日付の間の週
-* [`calendarMontsBetween`](between-date-function-calls) - 2つの日付の間のヶ月
-* [`calendar YearsBetween`](between-date-function-calls) - the years between two date
+* [かけ算 ( * )](/refguide/arithmetic-expressions)
+* [Division ( div or : )](/refguide/arithmetic-expressions)
+* [Modulo ( mod )](/refguide/arithmetic-expressions)
+* [追加 ( + )](/refguide/arithmetic-expressions)
+* [減算 ( - )](/refguide/arithmetic-expressions)
 
-## 12 日付関数呼び出しを追加
+### 3.3 リレーショナル式
 
-* [`addMilliseconds`](add-date-function-calls) - 日付にミリ秒を追加します
-* [`addSeconds`](add-date-function-calls) - 日付に秒を追加
-* [`addMinutes`](add-date-function-calls) - 日付に分を追加
-* [`addHours`](add-date-function-calls) - 日付に時間を追加
-* [`addDays`](add-date-function-calls) - 日付に日付を追加
-* [`addDaysUTC`](add-date-function-calls) - UTCカレンダーを使用して日付を追加します
-* [`addWeek`](add-date-function-calls) - 日付に週を追加
-* [`addWeksUTC`](add-date-function-calls) - UTCカレンダーを使用して週を日付に追加
-* [`addMonths`](add-date-function-calls) - 月を日付に追加
-* [`addMonthsUTC`](add-date-function-calls) - UTCカレンダーを使用して月を日付に追加
-* [`addYears`](add-date-function-calls) - 日付に年を追加
-* [`addYearsUTC`](add-date-function-calls) - UTCカレンダーを使用して日付に年を追加
+* [より小さい ( <)](/refguide/relational-expressions)
+* [( > ) より大きい](/refguide/relational-expressions)
+* [以上 ( <= )](/refguide/relational-expressions)
+* [以上 ( >= )](/refguide/relational-expressions)
+* [( = ) と等しいです](/refguide/relational-expressions)
+* [等しくない ( != )](/refguide/relational-expressions)
 
-## 13 日付までトリム
+### 3.5 ブール式
 
-* [`trimToSeconds`](trim-to-date) - 秒単位でトリムする
-* [`trimToMinutes`](trim-to-date) - 分単位でトリムする
-* [`trimToHours`](trim-to-date) - 時間をトリムする
-* [`trimToHoursUTC`](trim-to-date) - UTCカレンダーを使用して時間をトリムする
-* [`trimToDays`](trim-to-date) - 日数をトリムする
-* [`trimToDaysUTC`](trim-to-date) - UTCカレンダーを使用して日数をトリムする
-* [`trimToMonths`](trim-to-date) - 月にトリムする
-* [`trimToMonthsUTC`](trim-to-date) - UTCカレンダーを使用して月にトリムします
-* [`trimToYears`](trim-to-date) - 年をトリムする
-* [`trimToYearsUTC`](trim-to-date) - UTCカレンダーを使用して年をトリムする
+* [と](/refguide/boolean-expressions)
+* [または](/refguide/boolean-expressions)
+* [いいえ](/refguide/boolean-expressions)
 
-## 14 To String
+### 3.6 数学関数コール
 
-詳細は [To String](to-string) を参照してください。
+* [`max`](/refguide/mathematical-function-calls) - 数値のリストの最大値
+* [`min`](/refguide/mathematical-function-calls) – 数値のリストの最小値
+* [`ラウンド`](/refguide/mathematical-function-calls) - 特定の精度に数値を四捨五入します
+* [`random`](/refguide/mathematical-function-calls) - 乱数生成
+* [`floor`](/refguide/mathematical-function-calls) - 浮動小数点数の丸め
+* [`ceil`](/refguide/mathematical-function-calls) - 浮動小数点数の丸め
+* [`pow`](/refguide/mathematical-function-calls) - 指数化
+* [`abs`](/refguide/mathematical-function-calls) – 絶対値
 
-## 15 parse Integer
+### 3.7 文字列関数コール
 
-詳細は [整数の解析](parse-integer) を参照してください。
+* [`toUpperCase`](/refguide/string-function-calls) - 文字列を大文字に変換します
+* [`toLowerCase`](/refguide/string-function-calls) – 文字列を小文字に変換します
+* [`length`](/refguide/string-function-calls) - 文字列の長さ
+* [`substring`](/refguide/string-function-calls) - 文字列の一部を取得する
+* [`find`](/refguide/string-function-calls) - 部分文字列の位置を取得する
+* [`findLast`](/refguide/string-function-calls) – gets the last sub-string position
+* [`には`](/refguide/string-function-calls) が含まれています - サブストリングを含む
+* [`startsWith`](/refguide/string-function-calls)  - 文字列が指定された部分文字列で始まるかどうかを決定する
+* [`endsWith`](/refguide/string-function-calls) - 文字列が指定されたサブストリングで終わるかどうかを決定します
+* [`trim`](/refguide/string-function-calls) - 先頭と末尾の空白を削除する
+* [`replaceAll`](/refguide/string-function-calls) – サブストリングの出現を置き換え
+* [`replaceFirst`](/refguide/string-function-calls) - サブストリングの最初の発生を置き換えます
+* [`String concatenation ( + )`](/refguide/string-function-calls) – 文字列の結合
 
-## 16 parse & Format Decimal Function Calls
+### 3.8 日付作成
 
-* [`parseDecimal`](parse-and-format-decimal-function-calls) - 文字列を小数に変換します
-* [formatDecimal`formatDecimal`](parse-and-format-decimal-function-calls) - 小数を文字列に変換します。
+* [`dateTime`](/refguide/date-creation) - サーバーのカレンダーを使用して日付値を作成する
 
-## 17 Parse & Format Date Function Calls
+### 3.9 日付関数の呼び出し間
 
-* [`parseDateTime[UTC]`](parse-and-format-date-function-calls) - 文字列を日付値に変換します
-* [`formatDateTime[UTC]`](parse-and-format-date-function-calls) - 日付の値を文字列に変換します
-* [`formatTime[UTC]`](parse-and-format-date-function-calls) - 日付値の時刻部分を文字列に変換します。
-* [`[UTC]`](parse-and-format-date-function-calls) – 日付値の日付部分を文字列に変換します。
-* [`dateTimeToEpoch`](parse-and-format-date-function-calls) - 日付を長いに変換します
-* [`epochToDateTime`](parse-and-format-date-function-calls) - 長さを日付に変換する
+* [`ミリ秒間隔`](/refguide/between-date-function-calls) - 2つの日付間のミリ秒
+* [`秒`](/refguide/between-date-function-calls) - 2つの日付の間の秒
+* [`分前`](/refguide/between-date-function-calls) - 2日間の分
+* [`時間`](/refguide/between-date-function-calls) - 2つの日付の間の時間
+* [`日前`](/refguide/between-date-function-calls) - 2日前
+* [`週間`](/refguide/between-date-function-calls) - 2つの日付の間の週
+* [`calendarMontsBetween`](/refguide/between-date-function-calls) - 2つの日付の間のヶ月
+* [`calendar YearsBetween`](/refguide/between-date-function-calls) - the years between two date
 
-## 式で18列挙型
+### 3.10 日付関数呼び出しを追加
 
-* [`getCaption`](enumerations-in-expressions) – 現在の言語の列挙値のキャプションを取得
-* [`getKey`](enumerations-in-expressions) – 列挙値の技術的な名前を取得
+* [`addMilliseconds`](/refguide/add-date-function-calls) - 日付にミリ秒を追加します
+* [`addSeconds`](/refguide/add-date-function-calls) - 日付に秒を追加
+* [`addMinutes`](/refguide/add-date-function-calls) - 日付に分を追加
+* [`addHours`](/refguide/add-date-function-calls) - 日付に時間を追加
+* [`addDays`](/refguide/add-date-function-calls) - 日付に日付を追加
+* [`addWeek`](/refguide/add-date-function-calls) - 日付に週を追加
+* [`addMonths`](/refguide/add-date-function-calls) - 月を日付に追加
+* [`addYears`](/refguide/add-date-function-calls) - 日付に年を追加
+
+### 3.11 parse & Format Decimal Function Calls
+
+* [formatDecimal`formatDecimal`](/refguide/parse-and-format-decimal-function-calls) - 小数を文字列に変換します。
+
+## 4 続きを読む
+
+* [マイクロフロー](マイクロフロー)
+* [ワークフロー](workflows)
+* [Set & Change a value for different activities in the Microflow](microflows-setting-and-changing-value)
+* [式](/refguide/expressions)
