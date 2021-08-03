@@ -1,59 +1,59 @@
 ---
-title: "Non-Persistable Objects & Garbage Collecting"
-parent: "runtime-java"
+title: "非永続的なオブジェクト & ごみの収集"
+parent: "runtime-Java"
 menu_order: 1
-description: "This page will explain the life cycle of both persistable and non-persistable objects, and how they flow through the platform memory."
+description: "このページでは、持続可能オブジェクトと非持続可能オブジェクトの両方のライフサイクルと、それらがプラットフォームメモリにどのように流れるかについて説明します。"
 tags:
-  - "persistable"
-  - "non-persistable"
-  - "objects"
+  - "永続的な"
+  - "非永続性"
+  - "オブジェクト"
   - "garbage"
-  - "collecting"
+  - "回収中"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This page explains the life cycle of both persistable and non-persistable objects, and how they flow through the platform memory. In order to understand the behavior of non-persistable objects there are a few facts that you need to be aware of:
+このページでは、持続可能オブジェクトと非持続可能オブジェクトの両方のライフサイクルと、それらがプラットフォームメモリにどのように流れるかについて説明します。 永続性のないオブジェクトの動作を理解するためには、いくつかの事実を認識する必要があります。
 
-*   A non-persistable object is an object that is considered temporary and only exists in memory
-*   Changed persistable objects that are not committed only exist in memory and behave similarly to non-persistable objects
-*   The Mendix Platform will remove objects automatically when they are no longer "used" (the definition of "used" will be explained later)
+*   非永続オブジェクトは一時的とみなされ、メモリ内にのみ存在するオブジェクトです。
+*   コミットされていない変更された持続可能オブジェクトはメモリ上に存在し、非持続可能オブジェクトと同様に動作します。
+*   Mendix プラットフォームは、それらがもはや「使用」されていないときに自動的にオブジェクトを削除します(「使用」の定義は後述します)
 
-## 2 Behavior
+## 2つの動作
 
-Non-persistable objects in Mendix are not kept in the [Runtime Server](runtime-server), but maintained in the [Mendix Client](mendix-client). This means there is no server-side garbage collection. This simplifies the handling of objects on the server side because an object will not be garbage collected while it exists on the server.
+Mendix の永続性のないオブジェクトは [Runtime Server](runtime-server)には保持されませんが、 [Mendix Client](mendix-client) で保持されます。 つまり、サーバ側のガベージコレクションは存在しません。 これにより、サーバー側のオブジェクトの処理が簡単になります。サーバー上に存在するオブジェクトはガベージコレクションされないためです。
 
-Objects will be returned to the client together with the response to a request. Objects created outside the context of a request (like Scheduled Event execution) will automatically be discarded when the scheduled event has finished.
+オブジェクトは、リクエストへのレスポンスとともにクライアントに返されます。 リクエストのコンテキスト外で作成されたオブジェクト (スケジュールされたイベント実行など) は、スケジュールされたイベントが終了すると自動的に破棄されます。
 
-### 2.1 Influencing the Impact on Response Size
+### 2.1 応答サイズへの影響
 
-As the objects that are still available are returned with the server call automatically, it is possible to reduce the response size by deleting non-persistable objects that are not useful for the client or subsequent requests. This can happen by deleting non-persistable objects or rolling back changed persistable objects.
+利用可能なオブジェクトは自動的にサーバーの呼び出しで返されます。 クライアントやその後のリクエストには役に立たない永続性のないオブジェクトを削除することで、レスポンスサイズを小さくすることができます。 これは、永続性のないオブジェクトを削除したり、永続性のあるオブジェクトをロールバックしたりすることで発生します。
 
-## 3 Client Side Garbage Collection
+## 3クライアントサイドガベージコレクション
 
-The Mendix Client has a garbage collector. This garbage collector will automatically free up memory by deleting objects that are no longer used or necessary to keep in memory. Objects are used when they are visible in a widget. For non-persistable objects it also means that they are seen as in-use when other used objects refer to them. Unchanged persistable objects are removed from memory when they aren't used because they can be reloaded from the Mendix Database when necessary.
+Mendix クライアントにはガベージコレクタがあります。 このガベージコレクタは、使用されなくなったオブジェクトやメモリ内に保持するために必要なオブジェクトを削除することで、自動的にメモリを解放します。 オブジェクトはウィジェットで表示されるときに使用されます。 持続不可能なオブジェクトについては、他の使用されているオブジェクトがそれらを参照しているときに、それらがインユースとして見られることも意味します。 必要に応じてMendixデータベースから再読み込みできるため、変更されていない持続可能オブジェクトは使用されていないときにメモリから削除されます。
 
-### 3.1 Exceptional Cases
+### 3.1 例外的ケース
 
-#### 3.1.1 Objects Associated with Current User or Session
+#### 3.1.1 現在のユーザーまたはセッションに関連付けられたオブジェクト
 
-When non-persistable objects are associated with the current user or the current session, they (and any non-persistable objects associated with them) are not garbage collected. As such, this can function as a way for objects to survive requests, although this should be used with care as it can easily lead to a growing state.
+非永続性のあるオブジェクトが現在のユーザまたは現在のセッションに関連付けられている場合、それらのオブジェクト(およびそれに関連付けられている非永続性のあるオブジェクト)はガベージコレクションされません。 これにより、オブジェクトがリクエストを生き残るための方法として機能することができます。 これは気をつけて使うべきではありますが成長状態に至りやすいのです
 
-#### 3.1.2 Objects Which Are Parameters of Web Pages
+#### 3.1.2 Web ページのパラメータであるオブジェクト
 
-Objects which are the parameter of a page which is closed in a web browser are only garbage collected after five new pages have been opened. This means that the end-user can use the back button in their browser (a limited number of times) and still see the same page they saw before, even if the parameter is non-persistable.
+ウェブブラウザで閉じられているページのパラメータであるオブジェクトは、5つの新しいページが開かれた後に収集されたガベージのみです。 つまり、エンドユーザーはブラウザで「戻る」ボタンを使用し(限られた回数)、以前に見たのと同じページを見ることができます。 たとえパラメータが持続不可能な場合でもです
 
 {{% alert type="info" %}}
-This is not relevant in mobile apps as pages are not closed in the same way, and always remain alive.
+これは、ページが同じように閉じられず、常に生き続けているため、モバイルアプリでは関係ありません。
 {{% /alert %}}
 
-## 4 Tracking State Growth
+## 4 状態の成長追跡
 
-As state is managed by the client, it can be hard to get an overview of all the state used by all clients in Mendix (it is not available in one place, but distributed over all the clients). However, there are means in Mendix to track state growth by observing the log files.
+状態はクライアントによって管理されます。 Mendixのすべてのクライアントによって使用されているすべての状態の概要を取得するのは難しい場合があります(1つの場所では利用できません)。 しかし全ての依頼人に分配されている) ただし、Mendixにはログファイルを観察することで状態の成長を追跡する手段があります。
 
-### 4.1 Observing State Growth by Session
+### 4.1 セッション別の状態の成長を観察する
 
-By enabling `TRACE` level logging on the `RequestStatistics` log node, Mendix Runtime will log a message for every request that contains information about state. This information is logged in the form of a JSON structure, allowing it to be used in tooling to create graphs over time. See this example of a log statement (formatted for readability in this case):
+`RequestStatistics` ログノードで `TRACE` レベルのロギングを有効にすることによって。 Mendix Runtime は状態に関する情報を含むリクエストごとにメッセージをログに記録します。 この情報はJSON構造体の形で記録され、ツールで時間をかけてグラフを作成することができます。 ログ文の例を参照してください (この場合、読みやすさのためにフォーマットされています)。
 ```
 TRACE: Request-State statistics: {
   session: "fd0771fe-8c12-49cf-8667-921058b116a3",
@@ -65,38 +65,38 @@ TRACE: Request-State statistics: {
   }
 }
 ```
-In the details section you find the number of instances per entity type available in the state of a request.
+詳細セクションには、リクエストの状態で使用可能なエンティティタイプごとのインスタンス数があります。
 
-### 4.2 Detecting Requests with Large State
+### 4.2 大きな状態でリクエストを検出する
 
-By default the Mendix Runtime will log a `WARNING` on the `RequestStatistics` log node when the request state exceeds the configured threshold. See this example of a log statement:
+デフォルトでは、リクエストの状態が設定されたしきい値を超えると、Mendix Runtime は `WARNING` を `RequestStatistics` ログノードに記録します。 log 文の例を参照してください:
 
 ```
-WARNING: Request state size of 551 objects exceeds the threshold of 500 objects. Request details: type `execute-action` in session `fd0771fe-8c12-49cf-8667-921058b116a3`. State consists of:
+警告: 551オブジェクトのリクエスト状態サイズが500オブジェクトの閾値を超えています。 リクエストの詳細: セッション `fd0771fe-8c12-49cf-8667-921058b116a3` に `execute-action` を入力します。 State は以下で構成されます:
  * MyModule.MyEntity: 421 objects
  * AnotherModule.SomeEntity: 130 objects
 ```
 This threshold can be configured with the custom setting `com.mendix.webui.StateSizeWarningThreshold` (the value is a number that reflects the total number of objects in the request state).
 
-#### 4.2.1 Choosing a Correct Threshold Level
+#### 4.2.1 正しいしきい値レベルの選択
 
-Choosing the right level for the threshold is crucial because when it is set too low it will trigger too often and setting it too high will cause the detection of problems too late. It is meant to detect state memory leakage, which means that state grows to certain levels and does not get properly garbage collected. In some apps it is possible that some pages use a large number of non-persistable objects to show the data on-screen. In that case the threshold should be larger then the number of objects that are normally shown on this screen to prevent this warning from being logged too often.
+スレッショルドに適したレベルを選択することは非常に重要です。なぜなら、設定が小さすぎると、あまりにも頻繁にトリガーされ、設定が大きすぎると、問題の検出が遅すぎるからです。 これは、状態メモリリークを検出することを意味します。つまり、状態が特定のレベルまで拡大し、適切なガベージコレクションを取得しないことを意味します。 一部のアプリでは、永続性のないオブジェクトを大量に使用して、データを画面上に表示することが可能です。 その場合、しきい値を大きくする必要があり、この警告が頻繁にログされることを防ぐために、この画面に通常表示されるオブジェクトの数を指定します。
 
-#### 4.2.2 Acting on Large Request State Problems
+#### 4.2.2 大きな要求状態問題に対するアクション
 
-When the request state exceeds the configured threshold, you can look at the following list of possible causes (or a combination of them):
+リクエスト状態が設定されたしきい値を超えた場合、次の原因のリスト(またはそれらの組み合わせ)を確認できます。
 
-* A problem in a widget (for example, if the widget does not unsubscribe itself from updates on objects which it showed previously)
-* Too many objects are associated with the current session or user
-* Non-persistable objects are associated with an object shown in a widget in a layout (meaning that this object stays in use as long as this layout is shown, usually a long time)
+* ウィジェットの問題 (例えば、ウィジェットが以前に表示したオブジェクトの更新から自分自身を登録解除しない場合)
+* 現在のセッションまたはユーザーに関連付けられているオブジェクトが多すぎます
+* 非持続可能オブジェクトは、レイアウトのウィジェットに表示されるオブジェクトに関連付けられます (つまり、このオブジェクトはこのレイアウトが表示されている限り使用され続けます)。 通常は長い時間です
 
-In order to find the root cause of this state size, you need to press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> to make a state overview dump using the developer tools in the client. The results are shown in the browser console. This allows you to see the objects that are in the state and why they are not garbage collected.
+この状態サイズの根本原因を見つけるために クライアントの開発ツールを使用して状態の概要をダンプするには、 <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> を押してください。 結果はブラウザコンソールに表示されます。 これにより、状態にあるオブジェクトと、それらがガベージコレクションされていない理由を見ることができます。
 
-## 5 Server-Side Memory Management
+## サーバー側メモリ管理
 
-For every request to the Mendix Runtime — be it from the client or via web service calls — objects are cleaned up at the end of the request. This means that if you create a lot of temporary objects in a microflow, they will occupy Runtime memory until the end of the request.
+Mendix Runtimeへのリクエストごとに、クライアントからのリクエスト、またはWebサービスコールを介して、リクエストの最後にオブジェクトがクリーンアップされます。 つまり、マイクロフロー内に多くの一時オブジェクトを作成すると、リクエストの終了までRuntimeメモリが占有されます。
 
-## 6 Read More
+## 6もっと読む
 
-* Mendix blog [The art of state, Part 1: Introduction to the client state ](https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/)
-* [Java Memory Usage](java-memory-usage)
+* Mendix blog [状態の芸術, パート1: クライアントの状態への入門 ](https://www.mendix.com/blog/the-art-of-state-part-1-introduction-to-the-client-state/)
+* [Java メモリ使用量](java-memory-usage)
