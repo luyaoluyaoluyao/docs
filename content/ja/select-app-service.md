@@ -1,32 +1,26 @@
 ---
-title: "Select App Service"
-parent: "consumed-app-services"
-tags:
-  - "studio pro"
+title: "アプリサービスを選択"
+parent: "consed-app-services"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/select-app-service.pdf).
+アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 既存のアプリサービスを利用するには、 [ウェブサービス](consumed-web-services) を使用してください。
 {{% /alert %}}
 
-{{% alert type="info" %}}
-App services are deprecated and were removed in Studio Pro 9. Use a [consumed web service](consumed-web-services) to consume existing app services.
-{{% /alert %}}
+## ソース
 
-## Source
+モジュールのformat@@0メニューで新しいApp Serviceドキュメントを選択することで、アプリケーション・サービスをモデルに追加できます。 このダイアログでは、3 つのソースからアプリサービスを選択できます。
 
-You can add an app service to your model by selecting a new App Service document in the Add menu of a module. In the dialog, you can select an app service from 3 sources:
+*   マーケットプレイス。 最新の9つのアプリサービスがカルーセルに表示されます。 いずれかを選択してOKを押します。 詳細を見たい場合は、「詳細」を押してください。Modelerアプリストアにリダイレクトされます。
+*   File: 'Select' を押して、Mendix サービス定義 (MSD) ファイルをディスクからインポートします。
+*   Url: ローカルネットワークまたはインターネット上の場所からMSDファイルをダウンロードするには、Urlを入力します。
 
-*   Marketplace. The 9 most recent app service are displayed in a caroussel. Select one and press OK. If you want to see more details, press 'Details'; you will be redirected to Studio Pro App store.
-*   File: Press 'Select' to import an Mendix Service Definition (MSD) file from disk.
-*   Url: Enter a Url to download an MSD file from a location on the local network or on the internet.
+## 最新のアプリサービス
 
-## Most recent app services
+### マーケットプレイス内のすべてのアプリサービスを表示
 
-### View all app services in the Marketplace
+「最新のアプリサービスの概要」の右端で、このリンクを選択できます。 選択すると、モデラーのページが開き、利用可能なすべてのアプリが表示されます。
 
-In the rightmost corner of the 'Most recent app services overview', you can select this link. When selected, it will open a page in Studio Pro which shows you all apps available to you.
+### タイル
 
-### Tile
-
-Selecting a tile and then selecting the OK button will import the app service for you in Studio Pro. See [Consumed App Services](consumed-app-services) for information about the use of imported app services.
+タイルを選択し、OK ボタンを選択すると、モデラーにアプリサービスがインポートされます。 インポートされたアプリサービスの使用方法については、 [アプリサービスの利用状況](consumed-app-services) を参照してください。
