@@ -1,77 +1,127 @@
 ---
-title: "小数点関数呼び出しの解析と書式設定"
+title: "解析 & 小数点以下の関数呼び出しの書式設定"
 parent: "表現"
+menu_order: 150
+tags:
+  - "studio pro"
+  - "表現"
+  - "parsing"
+  - "書式設定"
 ---
 
-すべてのパターンの可能性についての詳細は、 [Class DecimalFormat](http://docs.oracle.com/javase/7/docs/api/java/text/DecimalFormat.html) を参照してください。
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/parse-and-format-decimal-function-calls.pdf) をクリックしてください。
+{{% /alert %}}
 
-## parseDecimal
+## 1つの紹介
+
+このドキュメントでは、小数点以下の関数呼び出しの解析と書式設定について説明します。 すべてのパターンの可能性についての詳細は、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください。
+
+## 2 parseDecimal
 
 文字列の値を小数値に変換します。 書式とデフォルト値のオプションパラメータを取得します。
 
-### 入力パラメータ
+### 2.1 入力パラメータ
 
-* 解析する値
-    * タイプ: 文字列
-* デフォルト値 (省略可能)
-    * 種類: decimal or empty
+入力パラメータは以下の表に記載されています:
 
-### 出力
+| 値                                                                                                                                                       | タイプ      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| 解析する値                                                                                                                                                   | 文字列      |
+| Java ライブラリに基づく入力値のフォーマット `DecimalFormat` (詳細は、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください) | 文字列      |
+| デフォルト値 **(任意)**                                                                                                                                         | 小数または空です |
 
-入力された文字列値に一致する小数値。 値が解析できない場合 (意味、フォーマットパラメータと一致しないか、不正な文字が含まれています)、デフォルト値が返されます。 デフォルト値が指定されていない場合、エラーが発生します。
+### 2.2 出力
 
-* `parseDecimal ('3.45')` は、 3.45 を返します。
-* `parseDecimal('noDecimal', 5.05)` returns 5.05
-* `parseDecimal('noDecimal', empty)` は空を返す。
+出力は以下の表に記載されています:
 
-## formatDecimal
+| 値                                                                                                                      | タイプ     |
+| ---------------------------------------------------------------------------------------------------------------------- | ------- |
+| 出力は、与えられた文字列の値に一致する10進数です。 値が解析できない場合 (意味、フォーマットパラメータと一致しないか、不正な文字が含まれています)、デフォルト値が返されます。 デフォルト値が指定されていない場合、エラーが発生します。 | 小数点以下桁数 |
+
+### 2.3 例
+
+以下の例は、入力パラメータに応じてどの出力を取得するかを示しています。
+
+* `parseDecimal ('3.45')` は、 `3.45` を返します。
+* `parseDecimal ('noDecimal', 5.05)` returns `5.05`
+* `parseDecimal('noDecimal', empty)` は `を空` を返します
+* `parseDecimal ('3,241.98', '#,###.##')` は `3241.98` を返します。
+
+## 3 formatDecimal
 
 小数を文字列値に指定された書式に従って変換します。
 
-### 入力パラメータ
+### 3.1 入力パラメータ
 
-* 変換する値
-    * 種類: decimal
-* Java ライブラリに基づく結果のフォーマット `DecimalFormat` (詳細については、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください)
-    * タイプ: 文字列
-* 結果をフォーマットするロケール（オプション）
-   * サポートされている値については、 [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-) を参照してください。
-   * 省略された場合、ユーザーが設定したロケールが使用されます
-   * Mendix 7.3からサポート
-   * タイプ: 文字列
+formatDecimal の機能は、マイクロフローで使用されるか、ナノレベルで使用されるかによって異なります。
 
-### 出力
+#### 3.1.1 マイクロフローの入力パラメータ
 
-`format` パラメータで指定された形式の小数の文字列表現。
+入力パラメータは以下の表に記載されています:
 
-* タイプ: 文字列
+| 値                                                                                                                                                                                                        | タイプ     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| 変換する値                                                                                                                                                                                                    | 小数点以下桁数 |
+| Java ライブラリに基づく結果のフォーマット `DecimalFormat` (詳細については、 [Class DecimalFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DecimalFormat.html) を参照してください)                                               | 文字列     |
+| 結果をフォーマットするロケール **(任意)**。 サポートされている値の詳細については、 [forLanguageTag](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html#forLanguageTag-java.lang.String-) を参照してください。 省略されると、ユーザーが設定したロケールが使用されます。 | 文字列     |
 
-```java
-formatDecimal(1234.56, '#,###.#')
-```
+#### 3.1.2 Nanoflow内のパラメータの入力
 
-を返します。
+nanoflowsでは、この関数は以下で説明した単一のパラメータのみを取ります。
 
-```java
-'1,234.5' または '1.234,5'
-```
+| 値     | タイプ     |
+| ----- | ------- |
+| 変換する値 | 小数点以下桁数 |
 
-```java
-formatDecimal(1234.56, '¤ #,##0.00')
-```
+### 3.2 出力
 
-を返します。
+出力は以下の表に記載されています:
 
-```java
-'€ 1.234,50' または '$ 1,234.50'
-```
+| 値                                | タイプ |
+| -------------------------------- | --- |
+| `format` パラメータで指定された形式の小数の文字列表現。 | 文字列 |
 
-```java
-formatDecimal(0.56, '% ##0')
-```
+### 3.3 マイクロフローの例
 
-戻り値:
+以下の例は、式が返す値を示しています。
 
-```java
-'% 56' 
-```
+* 次の入力を使用する場合:
+
+    ```java
+    formatDecimal(1234.56, '#,###.#')
+    ```
+
+    出力は (言語設定によって)
+
+    ```java
+    '1,234.5' または '1.234,5'
+    ```
+
+* 次の入力を使用する場合:
+
+    ```java
+    formatDecimal(1234.56, '¤ #,##0.00')
+    ```
+
+    出力は (言語設定によって)
+
+    ```java
+    '€ 1.234,50' または '$ 1,234.50'
+    ```
+
+* 次の入力を使用する場合:
+
+    ```java
+    formatDecimal(0.56, '% ##0')
+    ```
+
+    出力は
+
+    ```java
+    '% 56' 
+    ```
+
+### 3.4 Nanoflowの例
+
+nanoflowでは、ユーザーのロケールに適した形式で小数をフォーマットします。
