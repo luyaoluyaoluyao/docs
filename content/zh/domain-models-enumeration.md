@@ -1,24 +1,25 @@
 ---
 title: "枚举数"
-category: "域模型"
-description: "描述Mendix Studio中枚举类型的属性。"
+parent: "域名模型"
+description: "描述Mendix Studio中的枚举."
 tags:
   - "工作室"
   - "域模型"
   - "属性"
-  - "属性类型"
   - "枚举数"
 ---
 
 ## 1 导言
 
-本文档描述Mendix Studio中的枚举属性类型。 枚举是具有预定义选项列表的属性类型。 枚举有一个或多个项目 (值)。 每个项目代表一个选项。 例如，客户等级可以是青铜、银和金级。 因此，客户级别的枚举将由三个项目组成： *青铜*, *Silver*, *Gold*。  欲了解更多信息，请参阅 [枚举项](#enumeration-items)。
+本文档描述Mendix Studio中的枚举。 枚举是一个或多个项目的列表(值)。 每个项目代表一个选项。 例如，客户可以被分配给 *青铜*, *银质*, 和 *黄金* 等级。 因此， *客户等级* 是一个列举。 *青铜*, *银币*, 和 *金币* 是列举项。  欲了解更多项目信息，请参阅 [枚举项](#enumeration-items) 部分。
+
+当您创建 *枚举* 属性时，您要么给它分配一个现有的枚举，要么创建一个新的枚举。 关于枚举类型属性属性的详细信息，请参阅 *属性中的 [属性](domain-models-attributes#attribute-properties) 部分*。
 
 ## 2 枚举项 {#enumeration-items}
 
 枚举由枚举项或数值组成。 每个项目代表一个选项。
 
-枚举类型的属性也可以代表未初始化状态。 例如，如果您不将任何成绩分配给客户，成绩状态是 *空的*。
+枚举还可以代表 *未初始化状态*。 例如，如果您不将任何成绩分配给客户，成绩状态是 *空的*。
 
 ## 3 基本操作
 
@@ -30,23 +31,23 @@ tags:
 
 1. 打开您的 [域模型](domain-models)。
 
-2. 选择一个您想要创建属性的实体。 关于如何创建实体的更多信息，见第 [3节，在 *域模型概述* 中添加新实体](domain-models#adding-new-entities)。
+2. 选择一个您想要创建属性的实体。 欲了解如何创建实体的更多信息，请参阅 *域模型概述* 中的 [添加新实体](domain-models#adding-new-entities) 部分。
 
-3.  若要创建枚举类型的新属性，请点击 **新属性** 并执行以下内容：<br /> a。 设置属性 **名称**。 在我们的示例中，属性的名称是 *级*。<br /> b. 设置[**类型**](domain-models-attributes)为**枚举**。<br /> c. 点击**选择枚举**以创建一个新的枚举。<br />d。 在 **选择枚举** 对话框窗口中，点击 **新**。<br/> e。 在 **创建新枚举** 对话框窗口， 点击 **添加项目** 以添加可能的枚举选项(**名称** 自动填写并与属性名称相同)。<br />
+3.  若要创建枚举类型的新属性，请点击 **新属性** 并执行以下内容：<br /> a。 设置属性 **名称**。 在我们的示例中，属性的名称是 *级*。<br /> b. 将[类型](domain-models-attributes)设置为**枚举**。<br /> c. 点击**选择枚举**。<br />d。 在 **选择枚举** 对话框中，点击右上角的加号图标。<br/> e。 在 **中创建新枚举** 对话框， 点击 **添加项目** 以添加可能的枚举选项(**名称** 自动填写并与属性名称相同)。<br />
 
     ![](attachments/domain-models-enumeration/new-enumeration-add-item.png)<br />
 
-    g. 平均输出功率超过1瓦； 填写**标题** (**名称** 自动填写)。 在我们的示例中，我们首先填写  *Bronze*, 作为枚举的三个可能的项目之一：Bronze, Silver和Gold。 <br />
+    g. 平均输出功率超过1瓦； 填写**标题** (**名称** 自动填写)。 在下面的示例中，您需要填充  *青铜*， 作为列举的三个可能项目之一：青铜、银和金矿。 <br />
 
     ![](attachments/domain-models-enumeration/new-enumeration-add-item-bronze.png)<br />
 
-    g. 点击 **添加** 并重复上面的步骤来创建其他枚举项目。<br /> h. 点击**创建**来关闭对话框窗口并创建新属性。
+    g. 点击 **添加** 并重复上面的步骤来创建其他枚举项目。<br /> h. 点击**创建**来关闭对话框并创建新属性。
 
     ![](attachments/domain-models-enumeration/new-enumeration-bronze-silver-gold.png)
 
 已创建属性和枚举项。
 
-### 3.2 选择一个现有的枚举数 {#select-existing-enumeration}
+### 3.2 选择枚举数 {#select-existing-enumeration}
 
 您也可以为枚举类型的属性设置一个现有枚举. 执行以下操作：
 
@@ -56,21 +57,69 @@ tags:
 
 3.  要创建枚举类型的新属性，请点击 **新属性** 并执行以下操作：<br />
 
-    a. 设置属性 **名称**。 在我们的示例中，属性的名称是 *级*。<br /> b. 设置[**类型**](domain-models-attributes)为**枚举**。<br /> c. 点击**选择枚举**来创建一个新的枚举。<br />
+    a. 设置属性 **名称**。 在我们的示例中，属性的名称是 *级*。<br /> b. 将[类型](domain-models-attributes)设置为**枚举**。<br /> c. 点击**选择枚举**。<br />
 
     ![](attachments/domain-models-enumeration/new-attribute-select-enumeration.png) <br/>
 
-    b. 平均输出功率超过1瓦； 在 **选择枚举** 对话框窗口中，现有的枚举显示在列表中。 点击您想要使用的单击，然后点击 **选择**。<br />
+    b. 平均输出功率超过1瓦； 在 **选择枚举** 对话框中，现有的枚举显示在列表中。 点击您想要使用的单击，然后点击 **选择**。<br />
 
     ![](attachments/domain-models-enumeration/selecting-existing-enumeration.png)
 
 现有枚举是为枚举类型的属性选定的。
 
-## 4 属性
+### 3.3 复制并粘贴枚举数
 
-关于枚举类型属性属性的详情，请见 [3 属性](domain-models-attributes#attribute-properties) 在 *属性类型* 中。
+您可以复制并粘贴枚举到另一工作室应用程序。 遵循下面的步骤：
 
-## 5 阅读更多
+1. 打开您的 [域模型](domain-models)。
+
+2. 选择枚举类型的属性，然后点击属性中的 **枚举**。
+
+3. 在 **选择枚举** 对话框中，选择要复制的枚举，然后单击椭圆图标。
+
+4. 在下拉菜单中选择 **复制到剪贴板** 选项。 ![复制 Enumeration](attachments/domain-models-enumeration/copy-to-clipboard.png)
+
+5. 打开不同的模块或 Studio 应用程序，导航到域型号并按 <kbd>Ctrl</kbd> + <kbd>V</kbd>。
+
+枚举被粘贴。 欲了解工作室中复制/粘贴函数的更多信息，请在 *常规信息* 中查看 [复制/粘贴页面、微流和枚举](general#copy-paste-documents) 部分。
+
+### 3.4 复制枚举
+
+若要重复列举，请按下面步骤：
+
+1. 打开您的 [域模型](domain-models)。
+
+2. 选择枚举类型的属性，然后点击属性中的 **枚举**。
+
+3. 在 **选择枚举** 对话框中，选择你想要重复的枚举并点击椭圆图标。
+
+4.  在下拉菜单中选择 **重复的** 选项。
+
+    ![重复枚举](attachments/domain-models-enumeration/duplicate.png)
+
+5. 关闭对话框。
+
+此列举重复进行。
+
+#### 3.5 删除枚举中
+
+若要删除枚举，请按下面步骤：
+
+1. 打开您的 [域模型](domain-models)。
+
+2. 选择枚举类型的属性，然后点击属性中的 **枚举**。
+
+3. 在 **选择枚举** 对话框中，选择要删除的枚举，然后单击椭圆图标。
+
+4. 在下拉菜单中选择 **删除** 选项：
+
+    ![删除枚举数](attachments/domain-models-enumeration/delete-enumeration.png)
+
+5. 确认您的选择并关闭对话框。
+
+枚举已删除。
+
+## 4 阅读更多
 
 * [域模型](域名模型)
-* [属性类型](domain-models-attributes) 
+* [属性](domain-models-attributes) 
