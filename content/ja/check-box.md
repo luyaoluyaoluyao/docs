@@ -1,87 +1,87 @@
 ---
-title: "Check Box"
+title: "チェックボックス"
 parent: "input-widgets"
 menu_order: 40
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A **check box** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean*. It displays a tick if the value is true and remain empty if it is false.
+A **check box** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *Boolean*. 値が true の場合はチェックマークを表示し、false の場合は空のままにします。
 
-{{% alert type="info" %}}In native mobile applications, the check box widget is rendered as a toggle.{{% /alert %}}
+{{% alert type="info" %}}ネイティブ モバイル アプリケーションでは、チェック ボックス ウィジェットは toggle.{{% /alert %}} としてレンダリングされます。
 
-A check box must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the check box widget, between square brackets, and colored blue.
+チェック ボックスは [データ ウィジェット](data-widgets) に配置し、ウィジェットによって取得されたオブジェクトの属性を表示する必要があります。 表示される属性の名前は、チェック ボックス ウィジェット内に、角括弧と青色の間で表示されます。
 
-For example, this check box allows you to see, and set, whether someone is subscribed to your newsletter.
+たとえば、このチェックボックスをオンにすると、誰かがニュースレターを購読しているかどうかを確認し、設定することができます。
 
 ![](attachments/check-box/check-box.png)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of check box properties is represented in the image below:
+以下の画像には、チェック ボックス プロパティの例が示されています。
 
 {{% image_container width="250" %}}![](attachments/check-box/check-box-properties.png)
 {{% /image_container %}}
 
-Check box properties consist of the following sections:
+チェック ボックスのプロパティは、次のセクションで構成されています。
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [Label](#label)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [データソース](#data-source)
+* [デザインプロパティ](#design-properties)
+* [編集可能](#editability)
+* [イベント](#events)
+* [ラベル](#label)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共通セクション{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 データソースセクション{#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 デザインプロパティセクション{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 編集可能セクション{#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 イベントセクション{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 変更時{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+on-change プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、値が変更された後に別のウィジェットをクリックします。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 2.5.2 入口で
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
-
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
+on-enter プロパティは、ウィジェットの入力時に実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、マウスでクリックします。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 Label Section{#label}
+#### 休暇中 2.5.3
+
+on-leave プロパティは、ウィジェットを離れたときに実行されるアクションを指定します。 <kbd>Tab</kbd> キーを使用するか、別のウィジェットをクリックします。
+
+これは、値が変更されていない場合でも、イベントが常にトリガーされるという点で [On change](#on-change) プロパティとは異なります。
+
+{{% snippet file="refguide/events-section-link.md" %}}
+
+### 2.6 ラベルセクション{#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.7 Visibility Section{#visibility}
+### 2.7 可視性セクション{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-*   [Data view](data-view)
-*   [Attributes](attributes)
+*   [データビュー](data-view)
+*   [属性](attributes)
