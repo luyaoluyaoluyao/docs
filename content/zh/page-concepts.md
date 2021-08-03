@@ -1,35 +1,35 @@
 ---
-title: "Page Concepts"
-parent: "pages"
+title: "页面概念"
+parent: "页面"
 menu_order: 5
-description: "Basic information on how pages are structured and ways to create an application flow."
+description: "关于页面结构和创建应用程序流程方式的基本信息。"
 tags:
-  - "Visibility"
-  - "editability"
-  - "Example"
-  - "Tags"
+  - "可见性"
+  - "可编辑"
+  - "示例"
+  - "标签"
 ---
 
-## Introduction
+## 一. 导言
 
-The documentation in this section describes the basic concepts that you need when working with pages in your app. It also helps you to create a flow which makes use of Mendix features.
+本节的文档描述了您在处理您的应用程序中的页面时需要的基本概念。 它还有助于您创建一个使用 Mendix 功能的流程。
 
-### [Conditions](conditions)
+### [条件](conditions)
 
-This page describes how pages can be made dynamic by setting conditions, based on context, to decide whether a specific element is shown.
+此页面描述了如何通过基于上下文设置条件使页面动态化，以决定是否显示某个特定元素。
 
-### [Data Sources](data-sources)
+### [数据源](数据来源)
 
-This page describes how data can be retrieved and used in data and list views.
+此页描述了如何在数据和列表视图中检索和使用数据。
 
-### [On Click Event](on-click-event)
+### [点击事件](on-click-event)
 
-This page describes how to trigger a microflow when clicking a widget.
+此页面描述了点击小部件时如何触发微流。
 
-### [Opening Pages](opening-pages)
+### [打开页面](opening-pages)
 
-This page describes how to open pages, how to ensure that the page displays the right information, and other things to bear in mind when designing your flow through the app.
+此页面描述了如何打开页面、如何确保页面显示正确的信息 在设计您通过应用程序的流量时应铭记的其他内容。
 
-### [Starting Microflows](starting-microflows)
+### [启动微流](starting-microflows)
 
-This page describes all the different ways in which microflows can be triggered within a page.
+此页面描述了在页面中触发微流的所有不同方式。
