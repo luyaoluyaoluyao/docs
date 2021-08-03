@@ -1,19 +1,19 @@
 ---
-title: "Cell (Document Template)"
+title: "セル (ドキュメントテンプレート)"
 parent: "row-document-template"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/cell-(document-template).html
-  - /refguide/Cell+(document+template).html
+  - /ja/refguide/cell-(document-template).html
+  - /ja/refguide/Cell+(document+template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Cells are part of a table. They can contain other widgets.
+セルはテーブルの一部です。 他のウィジェットを含めることができます。
 
-## 2 Appearance Properties
+## 外観のプロパティ
 
-### 2.1 Style
+### 2.1 スタイル
 
-For details, see [Style](style).
+詳細は [スタイル](style) を参照してください。
