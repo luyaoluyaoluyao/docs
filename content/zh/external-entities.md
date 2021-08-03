@@ -14,56 +14,51 @@ tags:
   - "消耗的 OData 服务"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/external-entities.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
-外部实体可以通过 [数据枢纽窗框](data-hub-pane) 添加到域模型。 他们在 Domain Model 中被显示为 *紫色* 实体容器。 外部实体代表通过 [Mendix Data Hub](/data-hub/) 注册的共享数据源提供的数据集链接。 数据来源是在OData服务中公布的各实体集集集（称为数据集）。
+外部实体通过 [Mendix Data Hub](/data-hub/) 连接到共享数据源的数据。 这些外部实体代表着与外部应用程序保存和储存的数据集的链接。 您可以在您的项目中集成或 *消耗* 外部实体，并与本地实体一起使用它们来创建一个使用共享数据集的应用程序。 外部实体连接的这个数据集将因源应用程序中的更改而更新。
 
-数据集在源应用程序中维护和更新。 You can integrate or *consume* these datasets through external entities in your app development, and any changes to the data in the originating app is automatically updated in the consuming apps.
+这意味着外部实体的几个属性是在其原始应用程序中确定的，无法在您的项目中更改。
 
-然而，外部实体可以与地方实体一起使用。 因为数据集是在源应用程序中保存的，因此不是所有属性都可以在消耗应用程序中更改。
-
-要关注如何从 **数据枢纽** 窗格中添加外部元素，请参阅 [添加外部实体](#adding-external-entities)。
+外部实体通过 [数据枢纽窗格](data-hub-pane) 添加到域模型，并以 *紫色* 实体容器在域模型中显示。
 
 {{% alert type="info" %}}
 使用Mendix Data Hub 并通过在您的应用中消费的 OData 服务连接到外部数据源是必需的。
 {{% /报警 %}}
 
-## 将外部实体添加到应用程序 {#adding-external-entities}
+关于从 **数据枢纽** 窗格添加外部元素的更多信息，见 [添加外部实体](#adding-external-entities)。
 
-若要将外部实体添加到您的应用模型，请遵循以下步骤：
+## 将外部实体添加到项目 {#adding-external-entities}
 
-1. 在您的域模型中，应用模型在 **Data Hub** 窗格中搜索您想要在应用中使用的实体或数据源。
+要将外部实体添加到您的项目，请执行以下操作：
 
-    ●{% alert type="info" %}}在 [Data Hub 目录](/data-hub/data-hub-catalog/search), 一种OData服务可能是多次注册，有不同的版本号或部署到不同的环境， 所有曝光您可能想要使用的实体 (数据集)) 首先搜索数据集目录，然后找到与您应用的要求最相关的。{%/提醒 %}}
+1. 转到域模型。
 
-3. 拖放域模型中的实体。
+2. 在 **Data Hub** 面板中，搜索您想要在您的应用中使用的实体。
 
-4. 实体及其属性然后添加到您的应用，并且在 **App Explorer** 中添加了两个文档：
+   {{% alert type="info" %}}In the Data Hub Catalog, an OData service may be registered several times with different versions or deployed to different environments all exposing the entity that you may want to use. 首先搜索数据集目录，找到与您的项目要求最相关的数据集。{{%/提醒 %}}
 
-    * **消耗的OData服务** 文档包含OData服务的详细信息和元数据； 所显示的徽标识别了服务的原始应用
-    * 指定服务位置常量的 **OData 位置**
+3.  拖放域模型中的实体。 实体及其属性然后添加到您的应用：
 
-    ![ 虚拟实体和 OData 服务文件](attachments/external-entities/consumed-service-docs.png)
+    ![虚拟实体示例](attachments/data-hub-pane/virtual-entity-example.png)
 
 {{% alert type="info" %}}
-当您从同一服务中拖动一个与实体关联的实体时，已经在您的域模式中， 社团将在实体之间显示和建立。 欲了解更多关于外部实体之间关联的信息，请参阅 [Associations](#properties)。
+如果您从同一服务中拖动一个与实体关联的实体已经在您的域模型中， 将在各实体之间建立协会。 欲了解更多关于外部实体之间关联的信息，请参阅 [Associations](#properties)。
 {{% /报警 %}}
 
-欲了解更多信息，请参阅 [消耗的OData服务](consumed-odata-service)。
+当外部实体被添加到域模型中时， 两个文档将被添加到 **Project Explorer**： **Consumed OData Service** 包含消费实体元数据的文档。 和数据集的 **OData 位置** 欲了解更多信息，请参阅 [消耗的OData服务](consumed-odata-service)。
 
-在 **App** **Data Hub** 的部分中，列出了当前应用程序中所消费的实体：
-
-![ 虚拟实体和 OData 服务文件](attachments/external-entities/data-hub-app.png)
+在 **数据枢纽的 **项目部分** 中，** 将会显示当前项目中所消耗的实体。
 
 {{% alert type="info" %}}
 如果有新版本的消费服务可以在数据枢纽Catlog中获取， 这将在 **数据枢纽** 面板中通过更新的箭头与服务名称相匹配。 欲了解更多信息，请参阅 *消费的 OData 服务* 中的 [更新或切换消费的 OData 服务](consumed-odata-service#updating) 部分。
 {{% /报警 %}}
 
 您可以对外部实体的属性进行本地更改，这只会影响数据在消费应用程序中的使用和显示方式。 所有其他属性都在源应用程序中定义，不能更改。 当同一OData服务的多个外部实体被用于模块或应用程序时， 实体间的关联(创建于源应用程序中)将自动在本地模块中。
-
-{{% alert type="info" %}}
-如果您从域模式中删除外部实体， 服务文档仍然留在应用探索器列表中，服务仍然被列入数据集应用窗口。 如果您不再使用消费服务中的任何实体，您可以删除这两个服务文档。
-{{% /报警 %}}
 
 更多关于通过数据中心目录使用已发布的OData服务和实体的信息 查看 [如何消耗注册资产](/data-hub/data-hub-catalog/consume) 在 *数据中心指南* 中。
 
@@ -77,7 +72,7 @@ tags:
 
 ### 2.1 概况
 
-此选项卡显示外部实体的一般属性。 在原始应用程序中定义的值被显示但不能编辑。 可以编辑的值只适用于本地应用：
+此选项卡显示外部实体的一般属性。 在原始应用程序中定义的值被显示但不能编辑。 可以编辑的值将仅适用于本地项目：
 
 ![外部实体属性](attachments/external-entities/external-entity-properties.png)
 
@@ -104,10 +99,10 @@ tags:
 ![编辑属性](attachments/external-entities/edit-attributes.png)
 
 * **常规标签**
-    * **名称** -- 可以指定属性的本地名称。
+    * **名称** -- 属性的本地名称
     * **原始名称** - 这是一个只读的值，显示原始应用程序中给出的属性的原始名称
-    * **摘要** — 一个只读的摘要，显示原始应用中属性的描述； 要输入本地描述，请在 [文档选项卡中添加](#documentation)
-    * **输入** — **类型** 和 **长度** 和 **最大只读卷。 原始应用定义的属性长度**
+    * **摘要** - 原始应用中属性的描述； 要输入本地描述，请在 [文档选项卡中添加](#documentation)
+    * **输入** - **类型** 和 **长度** 属性定义于原始应用中
 * **文档** - 显示给当前应用用户的属性描述
 
 ### 2.3 社会联系 {#associations}
@@ -118,7 +113,7 @@ tags:
 
 以下内容适用于外部实体的所有社团：
 
-**名称** -- 当前应用程序显示的关联名称 **类型** -- 两个外部实体之间的关联只读 **所有者** -- 两个外部实体之间的关联只读 **父** -- 两个外部实体之间的关联只读 **子** -- 两个外部实体之间的关联只读**</p>
+**名称** -- 关联名称 **类型** -- 只读给两个外部实体之间的关联 **所有者** -- 只读给两个外部实体之间的关联 **上级** - 只读给两个外部实体之间的关联 **子** - 只读给两个外部实体之间的关联
 
 您可以 **添加** and **编辑** 关联到具有本地实体的外部实体。 However, the association cannot be made *from* an external entity to a local entity: the local entity must be the owner of the association.
 
@@ -133,13 +128,12 @@ tags:
 {{% /报警 %}}
 
 ### 2.3.1 关联财产
-
-当您 **编辑** 一个包含在同一OData服务中的两个实体的关联 以下属性被显示，而本地唯一可以做出的更改是本地名称：
+当您 **编辑** 一个包含在同一OData服务中的两个实体的关联 以下属性被显示，而唯一可以命名的本地更改是本地名称：
 
 ![编辑外部关联](attachments/external-entities/association-properties.png)
 
 * **名称** - 协会的本地名称
-* **原始名称** -- 原始应用程序给它的只读关联名称
+* **原始名称** -- 原始应用程序给它的关联名称
 * **摘要** - 原始应用程序中只读的关联描述
 * **多重性** - 只读的原始应用的多重性值
 * **文档** - 到此选项卡添加外部实体关联的本地描述
