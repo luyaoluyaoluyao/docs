@@ -1,32 +1,32 @@
 ---
-title: "Decisions"
-parent: "microflows-and-nanoflows"
+title: "决 定"
+parent: "微流和微流法"
 menu_order: 50
 tags:
   - "studio pro"
-  - "decision"
-  - "decisions"
+  - "决 定"
+  - "经济及社会理事会"
 ---
 
-## 1 Introduction
-Decisions are elements that split or merge sequence flows based on conditions set for these elements. Decisions have a shape of a diamond.
+## 1 导言
+决定是根据为这些要素设定的条件分割或合并顺序流动的要素。 决定的形状是钻石。
 
-The elements described in this document are in the **Decisions** section of the **Toolbox**:
+此文档中描述的元素在 **Toolbox 的 **Decision** 部分** 中：
 
 {{% image_container width="300" %}}
-![Decisions](attachments/decisions/decisions.png)
+![决 定](attachments/decisions/decisions.png)
 {{% /image_container %}}
 
-There are following types of decisions:
+有以下几类决定：
 
-* [Decision](decision) – makes a choice based on a condition and follows one and only one of the outgoing sequence flows
+* [决 定](decision) — — 根据一个条件做一个选择，遵循一个只是一个输出序列流
 
     {{% image_container width="400" %}}![](attachments/decisions/decision-example.png){{% /image_container %}}
 
-* [Object Type Decision](object-type-decision) – makes a choice based on the type of an object of a generalized entity
+* [对象类型决定](object-type-decision) - 根据一个普通实体的对象类型作出选择
 
     ![](attachments/decisions/object-type-decision.png)
 
-* [Merge](merge) – merges incoming flows
+* [合并](merge) — — 合并进来的流程
 
     ![](attachments/decisions/merge.png)
