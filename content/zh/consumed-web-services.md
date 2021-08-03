@@ -1,13 +1,10 @@
 ---
 title: "Consumed Web Services"
 parent: "integration"
+menu_order: 25
 tags:
   - "studio pro"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/consumed-web-services.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -61,7 +58,7 @@ An XSD (XML Schema Definition) document is a document that describes how the XML
 
 A WSDL (Web Service Definition Language) document is a document that describes how a client can interact with the server that publishes it. It describes the types of messages (incoming and outgoing) and where the messages must be sent to (an endpoint URL).
 
-Using imported web services, you can import a web service from an external application to use in your own application. You can import web services from third parties (such as the [w3schools example service](http://www.w3schools.com/xml/tempconvert.asmx?WSDL)) or from other Mendix projects.
+Using imported web services, you can import a web service from an external application to use in your own application. You can import web services from third parties (such as the [w3schools example service](http://www.w3schools.com/xml/tempconvert.asmx?WSDL)) or from other Mendix apps.
 
 To use these imported web services in a microflow, see [Call Web Service](call-web-service-action).
 
