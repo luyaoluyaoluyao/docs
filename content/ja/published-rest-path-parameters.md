@@ -2,17 +2,15 @@
 title: "公開された REST パスのパラメータ"
 parent: "published-rest-service"
 menu_order: 30
-#description: " "
 tags:
   - "公開された REST"
   - "パスパラメータ"
   - "データと時間"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**公開されたRESTサービス** 機能は、バージョン7.10.0で導入されました。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-path-parameters.pdf) をクリックしてください。
 {{% /alert %}}
 
 [公開された REST 操作](published-rest-operation) 内の操作パスは、操作の場所 (URL) の最後の部分を指定します。
