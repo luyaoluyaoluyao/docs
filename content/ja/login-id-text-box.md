@@ -1,27 +1,61 @@
 ---
 title: "ログインIDテキストボックス"
 parent: "認証ウィジェット"
+tags:
+  - "studio pro"
+  - "ログイン ID"
+  - "認証ウィジェット"
+  - "認証"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/login-id-text-box.pdf) をクリックしてください。
+{{% /alert %}}
 
-ログイン ID テキスト ボックスは、認証のためのログイン ID を提供するために使用できるウィジェットです。 ログイン ID は、ユーザーを識別するために使用される一意の識別子です。 例として、ユーザー名またはメールアドレスがあります。
+{{% alert type="warning" %}}The **Login ID text box** ウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-[ログイン ID テキスト ボックス](login-id-text-box) と [サインイン ボタン](sign-in-button) と一緒にページに配置する必要があります。
+## 1つの紹介
 
-## 共通のプロパティ
+**ログイン ID テキスト ボックス** は、認証用のログイン ID を提供するために使用できるウィジェットです。 ログイン ID は、ユーザーの一意の識別子です。例えば、ユーザー名または電子メール アドレスです。
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+![ログインIDテキストボックス](attachments/authentication-widgets/login-id.png)
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+**ログイン ID テキスト ボックス** は、 [パスワード テキスト ボックス](password-text-box) と [サインイン ボタン](sign-in-button) と一緒にページに配置する必要があります。
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+## 2つのプロパティ
 
-{{% snippet file="refguide7/Tab+index+Property.md" %}}
+以下の画像では、ログイン ID テキスト ボックスのプロパティの例を示します。
 
-## 一般プロパティ
+{{% image_container width="250" %}}![ログインIDテキストボックスのプロパティ](attachments/authentication-widgets/logid-id-properties.png)
+{{% /image_container %}}
 
-### プレースホルダー
+[ログイン ID] テキスト ボックスのプロパティは、次のセクションで構成されています。
 
-テキストがまだ入力されていない場合、プレースホルダー テキストが表示されます。 入力するテキストの種類についてのヒントをユーザーに与えるために使用することができます。
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [ラベル](#label)
 
-{{% snippet file="refguide7/Login+Label+Properties.md" %}}
+### 2.1 共通セクション {#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.2 デザインプロパティセクション {#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 一般セクション {#general}
+
+#### 2.3.1 プレースホルダー
+
+**プレースホルダー** は、エンドユーザーがまだテキストを入力していない場合にテキストを表示します。 フィールドに入力すべき情報について、エンドユーザーにヒントを与えるために使用できます。
+
+### 2.4 ラベルセクション {#label}
+
+{{% snippet file="refguide8/label-section-link.md" %}}
+
+## 3 続きを読む
+
+* [ページ](page)
+* [パスワードのテキストボックス](password-text-box)
+* [サインインボタン](sign-in-button)
