@@ -1,306 +1,306 @@
 ---
-title: "App Settings"
-parent: "project"
+title: "应用设置"
+parent: "项目"
 menu_order: 10
-description: "Settings which apply to the app as a whole."
+description: "应用到整个应用程序的设置。"
 tags:
-  - "app"
-  - "configuration"
-  - "runtime"
+  - "应用"
+  - "配置"
+  - "运行时间"
   - "Studio Pro"
-  - "languages"
-  - "certificate"
-  - "theme"
-  - "hashing"
-  - "hashing algorithm"
+  - "语言"
+  - "证书"
+  - "主题"
+  - "哈希值"
+  - "哈希算法"
 ---
 
-## 1 Introduction
+## 1 导言
 
-In the **App Settings** dialog box, you can alter the settings that are applicable to the whole app:
+在 **应用设置** 对话框中，您可以更改适用于整个应用的设置：
 
 ![](attachments/project-settings/project-settings-configuration.png)
 
-The categories described below are available.
+下列类别可供参考。
 
-## 2 Configurations Tab
+## 2 配置选项卡
 
-A configuration is a group of settings. You can define any number of configurations. The active configuration (meaning, the one that will be used when running your application) is determined by the drop-down menu in the toolbar of Studio Pro.
+配置是一组设置。 您可以定义任何数目的配置。 活动配置 (意思, 工作室专业版工具栏下拉菜单决定在运行您的应用程序时使用的程序)。
 
-For more information on settings in a configuration, see [Configuration](configuration).
+关于配置中设置的更多信息，请参阅 [配置](configuration)。
 
 ## 3 Runtime Tab
 
-These settings influence the behavior of the Runtime when running your application.
+这些设置在运行应用程序时会影响运行时的行为。
 
-### 3.1 Static Resources from Disk
+### 3.1 来自磁盘的静态资源
 
-If this option is enabled, the static resources for your mobile application are downloaded as soon as you open your application rather than bit by bit as you navigate through the app. This can drastically cut down the number of network requests, as the files can be retrieved from the disk rather than from the server.
+如果启用此选项， 移动应用程序的静态资源会在您打开应用程序时立即下载，而不是在您浏览应用程序时随时下载。 这可以大幅度减少网络请求的数量，因为文件可以从磁盘而不是从服务器上检索。
 
-The resources are downloaded to the device once for each deployment and are reused for subsequent runs of your app. This affects a number of files, including: your theme; the JavaScript client; CSS files; and pages.
+每次部署的资源都会被下载一次到设备上，然后再用于运行您的应用程序。 这会影响到一些文件，包括：您的主题；JavaScript 客户端；CSS 文件；以及页面。
 
-### 3.2 Optimize Network Calls {#optimize-network-calls}
+### 3.2 优化网络电话 {#optimize-network-calls}
 
-If this option is enabled (**true** by default), Mendix analyzes every microflow that can be triggered from the client to minimize the number of objects required to be sent. This speeds up your app significantly.
+如果启用此选项(**true** 默认情况下), Mendix 分析每个可以从客户端触发的微流，以尽量减少需要发送的对象数量。 这大大加快了您的应用速度。
 
-If you experience an issue while running your app in which objects seem to be lost, this option can be disabled to resolve that issue. If this does resolve the issue, please file a bug report so that we can fix the issue in the platform.
+如果您在运行您的应用时遇到了似乎丢失对象的问题，此选项可以被禁用来解决这个问题。 如果这确实解决了这个问题，请提交错误报告，以便我们能够在平台上解决这个问题。
 
-### 3.3 After Startup{#after-startup}
+### 3.3 启动后{#after-startup}
 
-Here you can select a microflow that is automatically executed immediately after the application has been started up.
+在这里您可以选择一个在应用程序启动后立即自动执行的微流。
 
 {{% alert type="warning" %}}
-There is a timeout of *11 minutes* on the after startup microflow. If your after startup microflow takes longer than 11 minutes your whole app will fail to start.
+启动微流程后有 *11 分钟的超时* 如果您启动后微流程需要超过 11 分钟，您的整个应用程序将无法启动。
 
-After startup is designed to initialize the app and therefore runs *before* the app is able to respond to incoming service requests (for example, published REST services).
-{{% /alert %}}
+启动后的应用程序设计是为了初始化应用程序，因此在</em> 之前运行 *应用程序能够响应传入的服务请求(例如，) 已发布的REST 服务)。 </p>
+{{% /报警 %}}
 
-### 3.4 Before Shutdown
+### 3.4 关闭前
 
-Here you can select a microflow that is automatically executed when a shutdown command has been given, just before the application shuts down.
+在这里您可以选择一个微流程，在程序关闭前自动执行关闭命令。
 
-### 3.5 Health Check
+### 3.5 健康检查
 
-Here you can select a microflow which performs the checks on a running app that you think are required to assess the app's health.
+在这里您可以选择一个微流程，对运行中的应用程序进行检查，您认为这是评估应用程序健康状况所必需的。
 
-The result of each check is returned as a string, which is displayed in the [Developer Portal](/developerportal/deploy/environments). When the microflow returns an empty string, the application is healthy; otherwise, the string presents an explanation of why the application is not healthy.
+每次检查的结果作为字符串返回，显示在 [开发者门户网站](/developerportal/deploy/environments) 中。 当微流程返回空字符串时，应用程序是健康的；否则，这个字符串将解释为什么应用程序不健全。
 
-This microflow gets called every 10 seconds to check if the app is still healthy. This is done by executing it using m2ee on the admin port of your app. For more information, see the section [Health Check](monitoring-mendix-runtime#check-health) in *Monitoring Mendix Runtime*.
+这个微流每隔10秒调用来检查应用程序是否仍然有效。 这是通过在您的应用程序的管理端口使用 m2ee 执行的。 欲了解更多信息，请查看 [健康检查](monitoring-mendix-runtime#check-health) *Monitoring Mendix Runtime*
 
 {{% alert type="info" %}}
 
-The health check microflow is specific to the [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy). For other clouds, the admin port can be called, or the health check microflow can be exposed through a REST API.
+健康检查微流为 [Mendix Cloud](/developerportal/deploy/mendix-cloud-deploy)。 对于其他云端，管理端口可以被调用，或者健康检查微流可以通过REST API曝光。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 3.6 First Day of the Week {#first-day-of-the-week}
+### 3.6 本周的第一天 {#first-day-of-the-week}
 
-The first day of the week setting determines the first day of the week in the date picker widget.
+星期设置的第一天决定在日期选择器部件中的一周第一天。
 
-| Option                                 | Description                                                                          |
-| -------------------------------------- | ------------------------------------------------------------------------------------ |
-| Default (based on locale)  *(default)* | The first day of the week in date picker widgets is based on the locale of the user. |
-| Sunday                                 | Use Sunday as first day of the week in date picker widgets.                          |
-| Monday                                 | Use Monday as first day of the week in date picker widgets.                          |
-| Tuesday                                | Use Tuesday as first day of the week in date picker widgets.                         |
-| Wednesday                              | Use Wednesday as first day of the week in date picker widgets.                       |
-| Thursday                               | Use Thursday as first day of the week in date picker widgets.                        |
-| Friday                                 | Use Friday as first day of the week in date picker widgets.                          |
-| Saturday                               | Use Saturday as first day of the week in date picker widgets.                        |
+| 选项                | 描述                        |
+| ----------------- | ------------------------- |
+| 默认 (基于本地)  *(默认)* | 在日期选择器小部件中的第一天是基于用户的区域设置。 |
+| 周日                | 在日期选择器小部件中使用星期日作为星期日的第一天。 |
+| 周一                | 在日期选择器小部件中使用星期一作为星期的第一天。  |
+| 星期二               | 在日期选择器小部件中使用星期二作为星期二的第一天。 |
+| 星期三               | 在日期选择器小部件中使用星期三作为星期的第一天。  |
+| 星期四               | 在日期选择器小部件中使用星期四作为星期的第一天。  |
+| 星期五               | 在日期选择器小部件中使用星期五作为星期的第一天。  |
+| 周六                | 在日期选择器小部件中使用星期六作为一周的第一天。  |
 
-### 3.7 Default Time Zone
+### 3.7 默认时区
 
-The default time zone determines the time zone for newly created users. If your application is only used in one time zone, setting this default will make sure that users of your application never have to worry about setting their time zone.
+默认时区决定新创建的用户的时区。 如果您的应用程序仅在一个时区内使用， 设置此默认设置将确保应用程序的用户不必担心设置他们的时区。
 
-### 3.8 Scheduled Event Time Zone {#scheduled}
+### 3.8 预定事件时区 {#scheduled}
 
-The scheduled event time zone defines under which timezone scheduled events run. The default is UTC and this has been the case since 3.0. If you would like to run scheduled events under another time zone (such as the time zone of the company office or the app default timezone), you can select it here.
+预定的事件时区定义了预定事件的运行时间。 默认是 UTC ，自3.0 起就是这种情况。 如果您想要在另一时区中运行预定的事件(例如公司办公室的时区或应用程序默认时区)， 您可以在此选择它。
 
-This affects time zone-related operations, such as parsing and formatting dates from/to strings and obtaining the beginning of the current day.
+这影响到与时区有关的操作，例如从字符串到字符串的解析和格式化日期以及获得本日的开头。
 
-If you run on-premises, then you can select the time zone to which the server is set. However, please note that no guarantees are given for the whereabouts of application servers in the cloud.
+如果您运行在房地，您可以选择设置服务器的时区。 但是，请注意，在云端没有为应用程序服务器的下落提供任何保证。
 
-### 3.9 Hash Algorithm{#hash-algorithm}
+### 3.9 哈希算法{#hash-algorithm}
 
-The hash algorithm is used to generate hash values for attributes of the **Hashed string** type, such as the password of a user. Mendix offers two recommended hashing algorithms:
+散列算法用于为 **哈希字符串** 类型的属性生成哈希值，如用户的密码。 Mendix 提供了两个推荐的散列算法：
 
-| Option                        | Description                                             |
-| ----------------------------- | ------------------------------------------------------- |
-| BCrypt (default, recommended) | Resistant to brute-force search attacks.                |
-| SSHA256                       | Seeded Secure Hash Algorithm 2, digest length 256 bits. |
+| 选项             | 描述                      |
+| -------------- | ----------------------- |
+| BCrypt (默认，推荐) | 抗击野蛮的搜查攻击。              |
+| SSHA256        | 种子安全哈希算法 2, 摘要长度 256 位. |
 
-Mendix believes both algorithms are secure enough to store passwords within Mendix. The main difference between BCrypt and SSHA256 is that the BCrypt algorithm has been configured so that it is relatively slow on purpose, since it was designed specifically to stop brute force attacks. That's why this results in a slight performance difference with the SSHA256 algorithm.
+Mendix 相信两种算法都足够安全，可以在Mendix 中存储密码。 BCrypt和SSSHA256之间的主要区别是，BCrypt算法已经配置起来，目的相对较慢。 因为它是专门为了制止野蛮武力袭击而设计的。 这就是为什么这与SSHA256算法略有性能差的原因。
 
-#### 3.9.1 Performance
+#### 3.9.1 业绩
 
-This performance difference is hardly noticeable to a single user when signing in (the password you enter when signing in is hashed using the selected algorithm), so in general the performance alone is not a reason to choose SSHA256 over BCrypt. This situation can change when dealing with high concurrency of hashing operations. A common example of an area where this occurs is published web services exposing operations that compute quickly, like short-running microflows.
+这种性能差异对单个用户在登录时几乎不会明显(您在登录时输入的密码用选定的算法哈希)， 一般来说，单单性能并不是选择 SSHA256 而不是 BCrypt 的理由。 当处理高度的散列操作时，这种情况可能会改变。 出现这种情况的一个领域的一个常见例子是已经公布的网络服务，它揭示了像短期微流这样快速计算的业务。
 
-#### 3.9.2 Performance Tests
+#### 3.9.2 性能测试
 
-A (web service) user will sign in to execute a web service operation, wait for the operation to finish, and finally get the result back (if any).
+一个(网络服务)用户将登录以执行网络服务操作。 等待操作结束，最后返回结果(如果有)。
 
-Imagine an empty microflow that returns nothing at all exposed as a published web service. We ask one user to execute this operation as many times as he can in one minute (simulated with SoapUI). First we set the hashing algorithm to BCrypt, then we set it to SSHA256. Any extra overhead here (on top of establishing the connection, building the XML message and so forth) is basically the hashing algorithm, as the operation should take near zero milliseconds and there is no result. So that leaves only the login, or, more precisely, the hashing of the password.
+想象一种空的微流，完全不会以发布的网络服务返回任何曝光状态。 我们请一个用户在一分钟内尽可能多地执行此操作(用SoapUI模拟)。 首先，我们将散列算法设置为 BCrypt, 然后我们将其设置为 SSHA256。 在此处的任何额外的管理费用(除了建立连接、构建XML信息等)基本上是散列算法。 因为操作需要近零毫秒且没有结果。 所以这只留下登录，或更确切地说，留下密码的哈希。
 
-| Hashing Algorithm | Total Operations Executed | Operation per Second | Overhead in Milliseconds |
-| ----------------- | ------------------------- | -------------------- | ------------------------ |
-| BCrypt            | 654                       | 10.88                | 91.9                     |
-| SSHA256           | 7163                      | 119.36               | 8.4                      |
+| 哈希算法    | 执行的操作总数 | 每秒操作数  | 毫秒的间接费用 |
+| ------- | ------- | ------ | ------- |
+| BCrypt  | 654     | 10.88  | 91.9    |
+| SSHA256 | 7163    | 119.36 | 8.4     |
 
-So 80 milliseconds per operation is not that much, right? Well, that depends on how long the operation itself takes.
+所以每次操作80毫秒不是那么多的，对吗？ 这取决于行动本身需要多长时间。
 
-| Operation Duration in Seconds | Operations per Hour (BCrypt) | Operations per Hour (SSHA256) | Difference % |
-| ----------------------------- | ---------------------------- | ----------------------------- | ------------ |
-| 0.1                           | 18760                        | 33210                         | +77%         |
-| 0.25                          | 10529                        | 13932                         | +32%         |
-| 1                             | 3297                         | 3570                          | +8%          |
-| 5                             | 707                          | 719                           | +1.67%       |
-| 15                            | 239                          | 240                           | +0.5%        |
+| 持续时间（秒） | 每小时操作 (BCrypt) | 每小时操作(SHA256) | 差值 %   |
+| ------- | -------------- | ------------- | ------ |
+| 0.1     | 18760          | 33210         | +77%   |
+| 0.25    | 10529          | 13932         | +32%   |
+| 1       | 3297           | 3570          | +8%    |
+| 5       | 707            | 719           | +1.67% |
+| 15      | 239            | 240           | +0.5%  |
 
-The difference is noticeable when the operation takes less time. So if you expect a very high amount of concurrency in operations where hashing takes place (most commonly any place where login operations are involved), you might want to consider changing your hashing algorithm.
+当操作耗费较少的时间时，差异是明显的。 所以，如果您期望在进行散列的操作中具有很高的同义词（最常见的是任何涉及登录操作的地方）， 您可能想要考虑更改您的散列算法。
 
 {{% alert type="info" %}}
-It is important to remember when changing hashing algorithms is that any hashed attribute (like the System$User password attribute) has its algorithm set on hashing. In other words, for the hashing type to take effect, any existing hashed attribute will have to be reset using the new hashing type.
-{{% /alert %}}
+在改变散列算法时必须记住，任何哈希属性(如系统$User 密码属性)都有其算法设置在散列上。 换言之，要使散列类型生效，任何现有的哈希属性都必须使用新的散列类型重置。
+{{% /报警 %}}
 
-### 3.10 Rounding Numbers{#rounding}
+### 3.10 四舍五入数{#rounding}
 
-The **Round Numbers** setting is used to select how to round numbers when performing calculations.
+**圆数** 设置用于选择执行计算时的圆形数字。
 
-The rounding methods **Half away from zero** and **Half to the nearest even number** indicate how rounding is performed in the case of a tie (for example, 2.5).
+四舍五入方法 **从零减半** 和 **一半到最近的偶数** 表示在连接的情况下是如何进行四舍五入的 (例如) 页：1
 
-This table presents the results of rounding the input to one digit with the given method of rounding numbers:
+本表列出了将投入四舍五入到一位数的结果，并列出了给定的四舍五入方法：
 
-| Input Number | Half Away from Zero  *(default)* | Half to the Nearest Even Number |
-| ------------ | -------------------------------- | ------------------------------- |
-| 5.5          | 6                                | 6                               |
-| 2.5          | 3                                | 2                               |
-| 1.6          | 2                                | 2                               |
-| 1.1          | 1                                | 1                               |
-| 1.0          | 1                                | 1                               |
-| -1.0         | -1                               | -1                              |
-| -1.1         | -1                               | -1                              |
-| -1.6         | -2                               | -2                              |
-| -2.5         | -3                               | -2                              |
-| -5.5         | -6                               | -6                              |
+| Input Number | 半途远离零  *(默认)* | 即使是最近的数字也有一半的 |
+| ------------ | ------------- | ------------- |
+| 5.5          | 6             | 6             |
+| 2.5          | 3             | 2             |
+| 1.6          | 2             | 2             |
+| 1.1          | 1             | 1             |
+| 1.0          | 1             | 1             |
+| -1.0         | -1            | -1            |
+| -1.1         | -1            | -1            |
+| -1.6         | -2            | -2            |
+| -2.5         | -3            | -2            |
+| -5.5         | -6            | -6            |
 
-### 3.11 Multiple Sessions per User {#multiple-sessions}
+### 3.11 每个用户的多个会话 {#multiple-sessions}
 
-If this option is enabled, users can sign in multiple times through different clients (for example, desktop browser and tablet). Otherwise, an existing session for a user is signed out when the user signs in somewhere else.
+如果启用此选项，用户可以多次通过不同的客户端登录(例如桌面浏览器和平板电脑)。 否则，用户的现有会话将在用户在其他地方签名时签名。
 
 {{% alert type="warning" %}}
 
-In production, this only works with licenses based on concurrent users.
+在生产中，这只适用于基于同时使用者的许可证。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Default: *Yes*
+默认： *是*
 
-## 4 Languages Tab {#languages-tab}
+## 4 种语言选项卡 {#languages-tab}
 
-For more information about using different languages in your app, see [Language Menu](translatable-texts).
+关于在您的应用中使用不同语言的更多信息，请参阅 [语言菜单](translatable-texts)。
 
-### 4.1 Default Language
+### 4.1 默认语言
 
-The default language indicates the language that is used when a user has not chosen a language. The default language is also used as a fall-back language when a certain text is not translated to another language.
+默认语言指用户未选择语言时使用的语言。 当某个文本未翻译成另一种语言时，默认语言也被用作后退语言。
 
-### 4.2 Languages {#languages}
+### 4.2 语文 {#languages}
 
-This is the list of languages in which your application will be available for users.
+这是您的应用程序将提供给用户的语言列表。
 
-For each language, you can configure whether to check that all mandatory texts have a value. The default language is always checked. If a language is not checked and certain texts are not translated in Studio Pro, the default language is used as fall-back language. This means that you can run your application even though you have only partially translated your interface into a new language.
+对于每种语言，您可以配置是否检查所有强制文本都有一个值。 默认语言总是选中的。 如果一个语言未被选中，且某些文本未被翻译为 Studio Pro，默认语言将被用作后退语言。 这意味着您可以运行您的应用程序，即使您只是部分翻译了您的界面到了新的语言。
 
-## 5 Certificates Tab
+## 5 个证书标签
 
-Certificates are used to connect to web services over HTTPS when the following requirements are met:
+证书用于在满足以下要求时通过 HTTPS 连接到网络服务：
 
-* The server uses a self-signed certificate authority, and/or
-* A client certificate (certificate with a private key) is required
+* 服务器使用了自签名的证书授权和/或。
+* 需要客户端证书(带私人密钥的证书)
 
-These certificates can be imported into Studio Pro using the **Import** button. Certificate authority files usually have a *.crt* extension, and client certificates usually have a *.p12* or *.pfx* extension. After importing, use **View details** to acquire more information concerning the certificate.
+这些证书可以使用 **导入** 按钮导入到 Studio Pro 。 证书权威文件通常有一个 *.crt* 扩展，客户端证书通常有一个 *.p12* 或 *.pfx* 扩展。 导入后，使用 **查看详细信息** 获取有关证书的更多信息。
 
-Client certificates added here will be used whenever a server accepts a client certificate. If you upload more than one client certificate, one of them will be chosen based on the requirements of the server. If you need more control over client certificates, you should not upload the certificates here, but use the [Runtime customization](custom-settings) *ClientCertificates*, *ClientCertificatePasswords*, and *ClientCertificateUsages* settings.
+此处添加的客户端证书将在服务器接受客户端证书时使用。 如果您上传多个客户端证书，将根据服务器的要求选择其中一个。 如果您需要更多地控制客户端证书，您不应在此处上传证书。 但使用 [运行时自定义](custom-settings) *客户证书* *ClientCertificatePasswords*和 *ClientCertificateUsages* 设置。
 
 {{% alert type="warning" %}}
 
-When running from Studio Pro or from Eclipse, the certificates will be used automatically to connect over *HTTPS*. When running on a server, the location of the certificate files has to be specified in the configuration file.
+当从 Studio Pro 或 Eclipse 运行时，证书将被自动用来通过 *HTTPS* 连接。 在服务器上运行时，必须在配置文件中指定证书文件的位置。
 
-{{% /alert %}}
+{{% /报警 %}}
 {{% alert type="warning" %}}
 
-Be aware that during local deployment, the certificate files will be located in the **deployment** folder, under **model/certificates**. Therefore, do not use production certificates during development.
+请注意，在本地部署期间，证书文件将位于 **部署** 文件夹中，在 **模型/证书** 下。 因此，在开发过程中不使用生产证书。
 
-{{% /alert %}}
+{{% /报警 %}}
 {{% alert type="info" %}}
 
-Certificates can be installed in the Windows Certificate Store using the **Install Certificate** wizard in the **View details** form. This can be useful when trying to access a WSDL-file using an *HTTPS* connection which requires a client certificate.
+证书可以在 Windows 证书商店使用 **安装证书** 向导安装在 **查看详细信息** 表单中。 当尝试使用 *HTTPS* 需要客户端证书的连接访问WSDL文件时，这可能是有用的。
 
-{{% /alert %}}
+{{% /报警 %}}
 {{% alert type="info" %}}
 
-When an SSLException occurs at runtime with the message `HelloRequest followed by an unexpected handshake message` or when a web service does not respond (Java 6 update 21 and above) when using the imported certificates, this is caused by either the client or server not being [RFC-5746](http://www.ietf.org/rfc/rfc5746.txt)-compatible.
+当运行时发生SSLException 时消息 `HelloRequest, 然后是意外的握手消息` 或当网络服务使用导入证书时不响应(Java 6 update 21及以上) 这是因为客户端或服务器不是 [RFC-5746](http://www.ietf.org/rfc/rfc5746.txt)-兼容。
 
-If updating the client and server to be compatible with RFC-5746 is not feasible, the following should be added to **Extra JVM parameters** in the **Server** tab to avoid this exception:
+如果更新客户端和服务器与 RFC-5746 兼容是不可行的。 以下内容应该添加到 **Server** 选项卡中的 **额外的 JVM 参数** ，以避免此异常：
 
-`-Dsun.security.ssl.allowUnsafeRenegotiation=true`
+`-Dsun.security.ssl.allowUnsafeRenerenefination=true`
 
-Be warned that this does make the client-server communication vulnerable to an exploit which has been fixed in RFC-5746.
+请注意，这确实会使客户端-服务器通信容易受到RFC-5746中固定的利用。
 
-When client and server are RFC-5746 compatible at a future point in time, this JVM parameter can be removed.
+当客户端和服务器在未来某个时间点兼容时，可以删除此JVM参数。
 
-For background information, see [Transport Layer Security (TLS) Renegotiation Issue Readme](http://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html).
+欲了解背景信息，请参阅 [Transport Layer Security (TLS) 重新谈判问题 Readme](http://www.oracle.com/technetwork/java/javase/documentation/tlsreadme2-176330.html)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
 ## 6 Theme Tab
 
-### 6.1 UI Resources Package
+### 6.1 UI 资源包
 
-The look and feel of a Mendix application is governed by the [UI resources package](ui-resources-package). This package supplies the app with all the required theme information accompanied by matching page templates and building blocks. The module which is designated as the UI resources package is governed by the **UI resources package** setting. Generally, this is automatically updated when a new UI resources package is imported. However, with this setting, the desired module can also be set manually.
+Mendix 应用程序的外观和感觉受 [UI 资源包](ui-resources-package) 的制约。 这个软件包为应用程序提供所有所需的主题信息，同时提供匹配的页面模板和构建模块。 指定为 UI 资源包的模块受 **UI 资源包** 设置的制约。 一般来说，当一个新的 UI 资源包被导入时，这将自动更新。 然而，在这种情况下，也可以手工设置理想的模块。
 
-### 6.2 Theme ZIP File
+### 6.2 主题ZIP文件
 
 {{% alert type="warning" %}}
 
-[Deprecated] The use of a ZIP file to configure an app's theme is deprecated. A [UI resources package](ui-resources-package) is the preferred method of sharing themes.
+[Deprecated] 使用ZIP文件来配置应用程序的主题已被弃用。 [UI 资源包](ui-resources-package) 是共享主题的首选方法。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-Older apps may still use a theme ZIP file as the basis for their theme. In this situation, the **Theme ZIP file** setting can be used to switch between any ZIP files found in the **theme** folder. Note that this practice is deprecated and will be removed in a future version.
+旧应用仍然可以使用主题ZIP文件作为其主题的基础。 在这种情况下， **主题 ZIP 文件** 设置可以用于切换在 **主题中发现的任意ZIP 文件** 文件夹。 请注意，此做法已经废弃，并将在未来的版本中删除。
 
-Switching from a ZIP file to a UI resources package is straightforward:
+从ZIP文件切换到UI资源包是简单的：
 
-1. Firstly, replace the contents of the theme folder with the contents of the desired ZIP file.
+1. 首先，用所需ZIP文件的内容替换主题文件夹的内容。
 
-2. Then, use the **UI resources package** setting described above to select a module. Ideally, this module should only contain UI documents, such as page templates and building blocks. This will allow you to export and import the module to other apps without worrying about reference errors.
+2. 然后，使用上面描述的 **UI 资源包** 设置来选择一个模块。 理想的情况是，此模块只能包含界面文档，例如页面模板和建筑块。 这将允许您将模块导出并导入到其他应用，而不必担心推荐错误。
 
-3. Lastly, set the **Theme ZIP file** setting to **None**.
+3. 最后，将 **主题 ZIP 文件** 设置为 **无**。
 
-### 6.3 Marking as a UI Resources Module
+### 6.3 标记为用户界面资源模块
 
-Modules that contain theme styling should be marked as UI resources modules. To do so, right-click the **Module {name}** in the App Explorer, then click **Mark as UI resources module**. This will give the modules a green icon, which makes it easy to distinguish theme modules from other modules, and also influences the order in which styling will be applied from those modules:
+包含主题样式的模块应该标记为界面资源模块。 要做到这一点，请右键点击应用探索器中的 **模块 {name}** 然后点击 **标记为UI 资源模块**。 这将为模块提供一个绿色图标，便于区分主题模块和其他模块， 而且还影响从这些模块应用样式的顺序：
 
-![green module](attachments/project-settings/green-module.png)
+![绿色模块](attachments/project-settings/green-module.png)
 
-### 6.4 Ordering UI Resource Modules
+### 6.4 排序用户界面资源模块
 
-When a module contains styling (SCSS/CSS), be sure it is added to the compiled CSS file in the correct order relative to other files. For example, if a theme module should overwrite styling that is defined in **Atlas_Core**, it is important that the theme module is added *after* **Atlas_Core**.
+当一个模块包含样式(SCSS/CSS)，请确保它被添加到编译后的 CSS 文件中，相对于其他文件的顺序是正确的。 例如，如果一个主题模块应该覆盖在 **Atlas_Core**中定义的样式， 重要的是在</em> **Atlas_Core** 之后添加主题模块 * </p>
 
-You can set an explicit order in the theme settings (**App Settings** > **Theme**). This contains a list of all modules that are marked as UI resource modules, and allows you to set the explicit order in which they are added to the CSS file. Note that the lower a module is ordered in the list, the higher its precedence. For example, an app that uses a company theme module could be ordered as follows:
+您可以在主题设置中设置一个明确的顺序(**应用设置** > **主题**)。 这包含被标记为界面资源模块的所有模块列表， 并允许您设置将他们添加到CSS 文件的明确顺序。 请注意，在清单中排序较低的模块，排序越高。 例如，一个使用公司主题模块的应用可以按以下方式订购：
 
-![app theme settings](attachments/project-settings/app-theme-settings.png)
+![应用主题设置](attachments/project-settings/app-theme-settings.png)
 
-## 7 Workflows Tab {#workflows}
+## 7 工作流选项卡 {#workflows}
 
-### 7.1 User Entity
+### 7.1 用户实体
 
-**User entity** defines the entity which is used in [assigning a user task](user-task#user-assignment). If you assign a user task using an XPath, you can use attributes of this entity. If you are using a microflow, the entity defines the return type the microflows expects. For more information, see the [User Task Assignment](user-task#user-assignment) section in *User Task*.
+**用户实体** 定义了在 [分配用户任务](user-task#user-assignment) 中使用的实体。 如果您使用 XPath，您可以使用此实体的属性。 如果您正在使用微流，实体将定义微流预期的返回类型。 欲了解更多信息，请参阅 *用户任务* 中的 [用户任务指派](user-task#user-assignment) 部分。
 
-## 7.2 Execution
+## 7.2 执行
 
-Allows you to set a maximum number of workflow and user task transactions that can be executed simultaneously by the runtime. This is an advanced setting that gives developers control over app performance.
+允许您设置可以在运行时同时执行的最大工作流量和用户任务交易数。 这是一个高级设置，让开发者控制应用性能。
 
-### 7.2.1 Parallel Workflow Executions
+### 6.2.1 并行工作流程执行
 
-Defines the maximum number of workflow transactions that the runtime will execute simultaneously. The limit is 10.
+定义运行时间同时执行的工作流交易的最大数量。 限额为10。
 
-### 7.2.2 Parallel Task Executions
+### 6.2.2 并行任务执行
 
-Defines the maximum number of user task transactions that the runtime will execute simultaneously. The limit is 10.
+定义运行时间同时执行的用户任务交易的最大数量。 限额为10。
 
-## 8 Miscellaneous Tab {#miscellaneous}
+## 8 杂项选项卡 {#miscellaneous}
 
-These settings determine the behavior of Studio Pro for this app. The settings apply to everyone that is working on this app.
+这些设置决定了此应用Studio Pro 的行为。 设置应用程序适用于在这个应用程序上工作的每个人。
 
-### 8.1 Bundle Widgets When Running Locally
+### 8.1 本地运行时捆绑部件
 
-When deploying to the cloud, custom widgets are bundled to optimize client-server communication. When deploying locally, this step is skipped to accelerate startup duration. In some cases, this may obfuscate errors triggered by faulty custom widgets.
+当部署到云端时，自定义小部件被捆绑起来以优化客户端-服务器通信。 当本地部署时，此步骤会被跳过以加速启动持续时间。 在某些情况下，这可能会混淆错误的自定义小部件引发的错误。
 
-If this option is set, custom widgets will also be bundled locally. This mimics the production deployment, eliminating risk at the cost of start-up time.
+如果设置此选项，自定义小部件也将被本地捆绑。 这种模仿生产部署，消除了以开办时间为代价的风险。
 
-### 8.2 Suggest Lower-Case Variable Names in Microflows
+### 8.2 微流中建议较低大小写变量名称
 
-When enabled, the names that Studio Pro suggests in microflows will start with a lower-case letter instead of an upper-case letter.
+如果启用，Studio Pro 在微流中建议的名称将以小写字母而不是大写字母开始。
 
-### 8.3 Activity Default Colors
+### 8.3 活动默认颜色
 
-This table allows you to select a default color for each microflow activity type that is available in your app. The selected color will be used as the background color for all microflow activities of that type in your app. It is possible to override this default value for individual activities in the microflow editor. If you change the default color for an activity type, and there are activities of that type present in the app that have an individual background color specified, a dialog will be shown that allows you to apply the new default color to these activities as well.
+此表允许您为您应用中可用的每个微流活动类型选择默认颜色。 选中的颜色将被用作您应用中所有此类微流活动的背景颜色。 可以在微流编辑器中覆盖此默认值。 如果您更改活动类型的默认颜色 而且在应用程序中存在这种类型的活动具有指定的单独背景颜色， 将显示对话框，允许您也对这些活动应用新的默认颜色。
