@@ -1,29 +1,29 @@
 ---
-title: "Monitoring Client State"
+title: "クライアントの状態の監視"
 category: "Mendix Runtime"
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The state is in the client (web browser). This allows the server to be scaled to multiple instances. As the state now resides in the client, it can be useful to monitor what's in the state and why at a given time.
+状態はクライアント(ウェブブラウザ)にあります。 これにより、サーバーを複数のインスタンスにスケーリングすることができます。 状態がクライアントに存在するため、状態内のものと、特定の時点でなぜかを監視するのに役立ちます。
 
-To do this, use the <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> key combination to dump the state into the browser console. The state is displayed in a JSON object and is grouped by entity type. If the entity is not-persistable, this is indicated with the suffix `[NPE]`.
+これを行うには <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> キーの組み合わせを使用して、ブラウザーコンソールに状態をダンプします。 状態は JSON オブジェクトで表示され、エンティティタイプごとにグループ化されます。 エンティティが持続可能でない場合、これはサフィックス `[NPE]` で示されます。
 
 {{% alert type="info" %}}
-The <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> key combination works in all browsers except Mozilla Firefox in [Parallels](/howto/mobile/using-mendix-studio-pro-on-a-mac).
+ <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>G</kbd> キーの組み合わせは、 [Parallels](/howto/mobile/using-mendix-studio-pro-on-a-mac) 内の Mozilla Firefox を除くすべてのブラウザーで動作します。
 {{% /alert %}}
 
-## 2 Details
+## 2つの詳細
 
-For each entity type, the IDs of the object instances that are in the state are listed. Every object instance shows the following information:
+エンティティタイプごとに、状態にあるオブジェクトインスタンスの ID が表示されます。 各オブジェクトインスタンスには以下の情報が表示されます:
 
-* The suffix `(new)` after the object ID – whether the object is new (the object has not yet been committed)
-* The suffix `(changed)` after the object ID – whether the object has uncommitted changes (the object has been committed before)
-* The property `changes` – the changes that are present in the object
-* The property `subscribedWidgets` – the widgets that are using the object
+* オブジェクト ID の後のサフィックス `(新しい)` - オブジェクトが新しいか (オブジェクトがまだコミットされていない)
+* オブジェクト ID の後のサフィックス `(変更された)` - オブジェクトが反映されていない変更があるかどうか (オブジェクトが以前に反映されているかどうか)
+* プロパティ `の変更` – オブジェクトに存在する変更
+* プロパティ `subscribedWidgets` – オブジェクトを使用しているウィジェット
     * The widget name is in the form of `Module.PageName.widgetName` (for example, `MyFirstModule.Entity_NewEdit.dataView1`), which allows you to quickly find the referenced widget in Studio Pro
-* The property `referencedBy` – the objects that reference this object
+* プロパティ `referencedBy` – このオブジェクトを参照するオブジェクト
 
-Both the `subscribedWidgets` and `referencedby` properties explain why the object is still in the state. If they are both empty, the text "Going to be garbage collected" is displayed.
+`subscribedWidgets` と `referencedby` プロパティの両方が、オブジェクトがまだ状態にある理由を説明しています。 それらが両方とも空の場合は、「ガベージコレクションにする」というテキストが表示されます。
