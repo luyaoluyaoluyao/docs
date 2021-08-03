@@ -1,20 +1,71 @@
 ---
-title: "Enumerations"
-category: "Desktop Modeler"
+title: "枚举数"
+parent: "资源"
+menu_order: 40
+tags:
+  - "studio pro"
+  - "枚举数"
+  - "枚举值"
+  - "枚举值"
+aliases:
+  - /refguide/numeration-values.html
 ---
 
-An enumeration defines a list of options. An attribute can be of type enumeration and that means that its value is one of the options of the enumeration. For example, the status of an order can be Open, Closed, or In progress. An enumeration would be ideal to represent these options.
+## 1 导言
 
-An enumeration has one or more [enumeration values](enumeration-values). Each value represents one option. An attribute of type enumeration can also be empty to represent an uninitialized state.
+枚举定义了预定义值的列表。 枚举属性类型使用枚举。 例如，订单状态可以是 *打开*, *关闭*, 或 *正在进行*。 因此，订单状态的枚举将由三个值组成： *打开*, *已关闭*和 *In_Progress*。
 
-## Common Properties
+枚举由一个或多个 [枚举值](enumerations#enum-properties) 组成。 每个值代表一个选项。 枚举类型的属性也可以代表未初始化状态：例如， 如果您不将任何状态分配给订单，订单状态将为 *空*。
 
-### Name
+## 2 创建枚举值
 
-The name of the enumeration.
+若要创建一个新的计数，请执行以下操作：
 
-## Enumeration Values
+1.  在 [App Explorer](project-explorer)右键单击您想要添加枚举到操作列表中的模块或文件夹 选择 **添加其他** > **枚举**:
 
-Each enumeration value has a caption, a name and an image.
+    ![](attachments/enumerations/add-enumeration.png)
 
-See [Enumeration Values](enumeration-values).
+2. 在 **添加 枚举** 对话框中，填写枚举的名称。
+
+3.  在 **枚举** 对话框中，点击 **新** 创建枚举值：
+
+    a.  填写 **名称** 和 **标题** 枚举值。 如有必要，您可以设置 **图像**。 欲了解更多关于枚举属性的信息，请参阅 [枚举属性](#enum-properties) 部分。 <br />
+
+    ![](attachments/enumerations/add-enum-value.png)
+
+    b. 会议文件。  点击 **确定** 保存枚举值。
+
+4. 重复你想要创建的每个枚举值的第3步.
+
+5. 点击 **确定** 保存枚举.
+
+您已经为您的应用添加了一个新枚举。 您可以对应用程序中枚举类型的不同属性使用相同枚举。
+
+## 3 枚举属性 {#enum-properties}
+
+枚举具有下列属性：
+
+* **名称** - 枚举的名称
+
+*  **枚举值** -- 枚举有一个或多个枚举值。 每个值代表一个选项。 欲了解更多枚举值及其属性的信息，请参阅 [枚举值属性](#enum-value-properties) 部分。
+
+    ![](attachments/enumerations/enumeration-properties.png)
+
+### 3.1 枚举值属性 {#enum-value-properties}
+
+枚举值属性描述如下：
+
+* **标题** - 枚举值的标题是最终用户查看此枚举值的文本。 这是一个可翻译的文本。 欲了解更多信息，请参阅 [语言菜单](translatable-texts)。
+
+* **名称** - 枚举值的名称是用于在您的应用中引用枚举值的技术名称。
+
+    ●{% alert type="warning" %}}一个枚举值的名称也用于存储数据库中的枚举值。 这就是为什么不允许更改枚举值的 **名称** 。它将使您的数据库中的数据无效。 然而， **标题**可以更改，这是显示给最终用户的文本。<br />枚举值的名称必须是技术名称，不含空格和特殊字符。 枚举值的标题可以是任何字符。 例如，枚举值可以将 *In_Progress* 作为其名称和 *正在进行中* 作为其标题。
+    {{% /报警 %}}
+
+* **图像** - 为枚举值选择的图像可以显示在数据网格列中。 在这种情况下，列的枚举格式应该是 *图像*。 关于数据网格列的更多信息，请参阅 [网格列](columns)。
+
+## 4 阅读更多
+
+* [属性](attributes)
+* [实体](实体)
+
