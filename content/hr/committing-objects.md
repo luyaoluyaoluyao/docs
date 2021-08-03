@@ -6,17 +6,17 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/committing-objects.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
 {{% /alert %}}
 
 ## 1 Introduction
 
-The **Commit** activity can commit one or more objects. For persistable entities this means that the object will be stored in the database. Committing non-persistable entities stores the current attribute values and association values in memory, this allows a rollback to revert to those values. See also [Persistability](persistability).
+The **Commit** activity works on one or more objects. For persistable entities, committing an object stores it in the database. Committing non-persistable entities stores the current attribute values and association values in memory, this allows a rollback to revert to those values. See also [Persistability](persistability).
+
+{{% alert type="info" %}}
+A Mendix commit does not always behave like a database commit. See [How Commits Work](#how-commits-work), below, for more information.
+{{% /alert %}}
 
 ## 2 Properties
 
@@ -97,9 +97,19 @@ When inside a [nanoflow](nanoflows), the object is refreshed across the client a
 
 ## 4 Common Section{#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
 ## 5 How Commits Work{#how-commits-work}
+
+### 5.1 Committing Objects
+
+When you commit an object, the current value is saved. This means that you cannot rollback to the previous values of the object using the **Rollback** action of a microflow.
+
+However, a Mendix **Commit** is not the same as a database **Commit**. For an object of a persistable entity, the saved value is not committed to the database until the microflow and any microflows from which it is called, completes. This means that errors in a microflow *can* initiate a rollback. If a microflow action errors and has **Error handling** set to *Rollback* or *Custom with rollback*, the value of the object *will* be rolled back to the value it had at the start of the microflow. See [Error Event](error-event#errors-in-microflows) for more information.
+
+Mendix mimics this behavior for *non-persistable* entities. Committing a non persistable entity means you cannot use a **Rollback** action to go back to the previous values, although rollback error handling in a microflow *will* roll back to the original values.
+
+### 5.2 Autocommit and Associated Objects
 
 When an object is committed through a default Save button, a commit activity, or web services, it will always trigger the commit events. The platform will also evaluate all associated objects. To guarantee data consistency, the platform may also autocommit associated objects.
 
@@ -108,7 +118,7 @@ An autocommit is an automatic commit from the platform, which is done to keep th
 {{% alert type="warning" %}}
 An autocommit is not the same as an explicit commit!
 
-If a rollback is triggered for any reason (for example, if the user session is terminated by the user closing the browser), then autocommitted objects will be deleted from the database. See [Persistability](/refguide8/persistability) for more information about how Mendix handles persistable objects.
+If a rollback is triggered for any reason (for example, if the user session is terminated by the user closing the browser), then autocommitted objects will be deleted from the database. See [Persistability](/refguide/persistability) for more information about how Mendix handles persistable objects.
 {{% /alert %}}
 
 If you end up with autocommitted objects, it is always because of a modeling error. At some point in time, an association was set to a new object, the associated object was committed, and all of its associations were committed as well to keep all the data consistent.
