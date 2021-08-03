@@ -1,6 +1,6 @@
 ---
-title: "Page Break (Document Template)"
-parent: "document-templates"
+title: "改ページ（ドキュメントテンプレート）"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
@@ -8,19 +8,19 @@ aliases:
   - /refguide/page-break-(document-template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When inserting a page break, the current page will be cut off after the break and widgets below the break will be inserted in a new page.
+改ページを挿入するとき 改行後に現在のページが切り離され、改行の下のウィジェットが新しいページに挿入されます。
 
 {{% alert type="info" %}}
 
 ![](attachments/document-templates/918135.png)
 
-A page break.
+改ページ。
 
 {{% /alert %}}
 
-## 2 Common Properties
+## 2つの一般的なプロパティ
 
 {{% snippet file="refguide/name-property.md" %}}
 
