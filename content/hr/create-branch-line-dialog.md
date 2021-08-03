@@ -1,15 +1,11 @@
 ---
 title: "Create Branch Line"
 parent: "branch-line-manager-dialog"
-menu_order: 90
+menu_order: 10
 tags:
   - "studio pro"
   - "create branch line"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/create-branch-line-dialog.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
@@ -24,7 +20,7 @@ To view the **Create Branch Line** dialog box,  do the following:
 
 The **Create Branch Line** dialog box is displayed.
 
-For more information on how to manage branch lines, see the [Managing Development Lines in Studio Pro](collaborative-development#managing-branches) section in *Collaborative Development* and [Branch Line Manager](branch-line-manager-dialog). For information on the version control, see [Version Control](version-control).
+For more information on how to manage branch lines, see the [Managing Development Lines](collaborative-development#managing-branches) section in *Collaborative Development* and [Branch Line Manager](branch-line-manager-dialog). For information on the version control, see [Version Control](version-control).
 
 ## 2 Create Branch From
 
@@ -50,11 +46,11 @@ Select from which branch line you want to create another branch line. We recomme
 
 This setting is only available when you select [Tagged version](#tagged-version) in **Create branch from**.
 
-Select from which tagged version you want to create a branch line. Every time you create a deployment archive a tag is created so that you can always refer back to that version of the project.
+Select from which tagged version you want to create a branch line. Every time you create a deployment archive a tag is created so that you can always refer back to that version of the app.
 
 ## 6 Branch Name
 
-Enter a name of the new branch line.
+Enter a name for the new branch line.
 
 {{% alert type="warning" %}}
 Branch names cannot include special characters (for example, `@`, `$`, `#`).
