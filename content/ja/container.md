@@ -1,47 +1,94 @@
 ---
 title: "コンテナ"
 parent: "container-widgets"
+menu_order: 20
+tags:
+  - "studio pro"
+  - "コンテナ"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 ---
 
-コンテナウィジェットを使用して、ウィジェットのスタイルを設定したり、ウィジェットのグループを同時に非表示にしたりすることができます。 ブラウザーでは、デフォルトで単純な `div` 要素としてレンダリングされます。 コンテナを HTML5 半分要素のいずれかとしてレンダリングすることもできます (例えば、 `section`, `main`, `article`, `nav`).
-
 {{% alert type="info" %}}
-
-![](attachments/16713858/16843976.png) 空のコンテナ。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/container.pdf) をクリックしてください。
 {{% /alert %}}
 
-## 共通のプロパティ
+## 1つの紹介
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+コンテナは、配置されたウィジェットのグループを同時にスタイル設定、非表示、ドラッグ、または削除することができるレイアウト要素です。
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+![コンテナの例](attachments/container-widgets/container.png)
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+ブラウザーでは、デフォルトで単純な `div` 要素としてレンダリングされます。 HTML 5のセマンティック要素の1つとしてコンテナをレンダリングすることもできます(例えば、 `section`, `main`, `article`, `nav`).
 
-## 一般プロパティ
+## 2つのプロパティ
 
-### レンダリングモード
+以下の画像には、コンテナプロパティの例が示されています。
 
-レンダリングモードは、Webブラウザでコンテナを表示するために使用されるHTML5タグを決定します。
+{{% image_container width="300" %}}![コンテナのプロパティ](attachments/container-widgets/container-properties.png)
+{{% /image_container %}}
 
-| 値      | HTML タグ  |
-| ------ | -------- |
-| Div    | `div`    |
-| セクション  | `セクション`  |
-| 記事     | `記事`     |
-| ヘッダー   | `ヘッダー`   |
-| フッター   | `フッター`   |
-| メイン    | `メイン`    |
-| Nav    | `nav`    |
-| アサイド   | `はさておき`  |
-| Hgroup | `hgroup` |
-| 住所     | `アドレス`   |
+コンテナープロパティは以下のセクションで構成されています:
 
-_Default value:_ Div
+* [アクセシビリティ](#accessibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [イベント](#events)
+* [公開範囲](#visibility)
 
-## 表示プロパティ
+### 2.1 アクセシビリティ {#accessibility}
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+#### 2.1.1 スクリーンリーダーの非表示
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+このプロパティは、コンテナをスクリーンリーダーから非表示にするかどうかを指定します。
+
+{{% alert type="info" %}} コンテナには、入力ウィジェット、リンク、ボタンなど、フォーカス可能な要素を含めないでください。 これらの要素により、コンテナはスクリーンリーダーによって発表されます。
+{{% /alert %}}
+
+### 2.2 共通セクション {#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.3 デザインプロパティセクション{#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.4 一般セクション {#general}
+
+#### 2.4.1 レンダリングモード
+
+**レンダリングモード** は、Web ブラウザでコンテナを表示するために使用する HTML5 タグを決定します。
+
+| 値               | HTML タグ  |
+| --------------- | -------- |
+| Div *(default)* | `div`    |
+| セクション           | `セクション`  |
+| 記事              | `記事`     |
+| ヘッダー            | `ヘッダー`   |
+| フッター            | `フッター`   |
+| メイン             | `メイン`    |
+| Nav             | `nav`    |
+| アサイド            | `はさておき`  |
+| Hgroup          | `hgroup` |
+| 住所              | `アドレス`   |
+
+{{% alert type="info" %}}レンダリングモードはネイティブのモバイルページではサポートされていません。{{% /alert %}}
+
+### 2.5 イベントセクション {#events}
+
+#### 2.5.1 On-Click {#on-click}
+
+**Onclick** プロパティは、ユーザーがコンテナをクリックしたときに実行されるアクションを指定します (マウスポインタを使用するか、コンテナがフォーカスされているときに <kbd>Enter</kbd> または <kbd>Space</kbd> キーを押します)。
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+### 2.6 表示セクション {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 4 続きを読む
+
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
