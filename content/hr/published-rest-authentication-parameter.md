@@ -14,9 +14,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-This feature was introduced in version 7.17.0. Prior to that, all authentication microflow parameters were query parameters.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-authentication-parameter.pdf).
 {{% /alert %}}
 
 ## 1 Introduction
