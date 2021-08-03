@@ -34,7 +34,7 @@ tags:
 
 ### 2.3 [OpenAPI 2.0 文档](open-api)
 
-*swagger.jso* 文件的技术细节，这个文件是为了在一个 OpenApi (Swagger) 文档页面描述已发布的REST 服务而创建的。
+在 OpenApi (Swagger)文档页面上创建描述已发布的 REST 服务的 swagger.json 文件的技术细节。
 
 ### 2.4 [自定义认证微流程参数](published-rest-authentication-parameter)
 
