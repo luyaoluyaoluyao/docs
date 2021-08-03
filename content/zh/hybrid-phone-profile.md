@@ -1,15 +1,15 @@
 ---
-title: "Hybrid Phone Profile"
-parent: "navigation-before-72"
-description: "Describes usage of the Hybrid Phone profile in a Mendix app for Mendix versions 7.0 and 7.1."
+title: "混合电话配置"
+parent: "导航前-72"
+description: "描述Mendix 版本 7.0 和 7.1 的 Mendix 应用程序中混合电话配置文件的使用情况。"
 ---
 
 {{% alert type="warning" %}}
 
-For details on how this works in Mendix versions 7.2 and 7.3, see [Navigation in 7.2 and 7.3](navigation-in-72-and-73). For Mendix version 7.4 and above, see [Navigation](navigation).
+关于Mendix 版本7.2和7.3如何工作的详细情况，见 [导航在7.2和7.3](navigation-in-72-and-73)。 Mendix 版本 7.4 及以上版本，请参阅 [Navigation](navigation)。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-When the hybrid phone profile is enabled, a users who accesses the Mendix application from a PhoneGap hybrid application running on a phone device will automatically be redirected to this profile. If the hybrid phone profile is disabled, phone users will be redirected to the [hybrid tablet profile](hybrid-tablet-profile). If there is no hybrid tablet profile, the user will be redirected to the [desktop profile](desktop-profile).
+当混合电话配置启用时， 从手机设备上运行的 PhoneGap 混合应用程序访问Mendix 应用程序的用户将被自动重定向到此配置文件。 如果混合手机配置文件被禁用，电话用户将被重定向到 [混合平板电脑配置](hybrid-tablet-profile)。 如果没有混合平板电脑配置文件，用户将被重定向到 [桌面配置文件](desktop-profile)。
 
 {{% snippet file="refguide7/Profile+properties.md" %}}
