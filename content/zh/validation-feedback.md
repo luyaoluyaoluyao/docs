@@ -1,80 +1,76 @@
 ---
-title: "Validation Feedback"
-parent: "client-activities"
+title: "验证反馈"
+parent: "客户活动"
 menu_order: 70
 tags:
   - "studio pro"
-  - "validation feedback"
-  - "client activities"
+  - "验证反馈"
+  - "客户活动"
 aliases:
-  - /refguide8/Validation+Feedback.html
+  - /refguide/Validation+Feedback.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-feedback.pdf).
-{{% /alert %}}
+{{% alert type="warning" %}}
+此活动可以同时用于 **微流** and **Nanoflows**。
+{{% /报警 %}}
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
+这个动作被忽略，当从离线、本地或混合应用调用微流时不起作用。 For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
+{{% /报警 %}}
 
-{{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline, native, or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
-{{% /alert %}}
+## 1 导言
 
-## 1 Introduction
-
-The **Validation feedback** activity does a validation check, and if this check fails, it shows a red message to the end-user below the widget that displays the attribute or association which failed the validation. For example, if the customer did not verify their email, a message will be displayed that the customer should verify it before they can log in:
+**验证反馈** 活动进行验证检查，如果此检查失败， 它向小部件下方的最终用户显示红色信息，显示失败的属性或关联性。 例如，如果客户没有验证他们的电子邮件， 一个消息将被显示在客户可以登录之前应该验证它：
 
 {{% image_container width="200" %}}
-![Validation Feedback](attachments/client-activities/validation-feedback.png)
+![验证反馈](attachments/client-activities/validation-feedback.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2 属性
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
 
-![Validation Feedback Properties](attachments/client-activities/validation-feedback-properties.png)
+![验证反馈属性](attachments/client-activities/validation-feedback-properties.png)
 
-The **Validation feedback** properties pane consists of the following sections:
+**验证反馈** 属性窗格由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+您可以打开一个对话框，通过点击操作旁边的椭圆(**…**)来配置此动作。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Variable
+### 3.1 变量
 
-**Variable** specifies which object will be validated.
+**变量** 指定哪些对象将被验证。
 
-### 3.2 Member
+### 3.2 成员
 
-**Member** defines for which attribute or association the message will be shown. In you have a [reference selector](reference-selector) or [reference set selector](reference-set-selector), you should select the association that is edited with these widgets.
+**成员** 定义消息将显示哪个属性或关联。 您有 [个参考选择器](reference-selector) 或 [参考设置选择器](reference-set-selector), 您应该选择用这些小部件编辑的关联。
 
-### 3.3 Template
+### 3.3 模板
 
-**Template** is the message that will be shown to the end-user. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2, etc.
+**模板** 是将显示给最终用户的消息。 模板可以包含以数字写在括号之间的参数，例如 {1}。 第一个参数包含数字1，第二个参数，等等。
 
 {{% alert type="warning" %}}
 
-Nanoflows do not support text templates in validation feedback. Only a static message text can be provided.
+Nanoflow不支持验证反馈中的文本模板。 只能提供静态消息文本。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 3.4 Parameters
+### 3.4 参数
 
-Parameters are attributes the value of which will be displayed. Parameters need to be entered using [expressions](expressions) resulting in a string.
+参数是将显示的属性值。 参数需要使用 [表达式](expressions) 输入导致字符串。
 
-## 4 Common Section {#common}
+## 4 共同部分 {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 阅读更多
 
-* [Activities](activities)
+* [活动](活动)
