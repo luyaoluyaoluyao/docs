@@ -1,177 +1,205 @@
 ---
 title: "Studio Pro Overview"
-category: "App Modeling"
-description: "Describes Studio Pro in general: tabs, menus, shortcut keys."
+category: "应用程序模型"
+description: "泛泛描述工作室专业版：标签、菜单、快捷键。"
 menu_order: 10
 tags:
   - "Studio Pro"
 aliases:
-  - /refguide/desktop-modeler-overview.html
+  - /refguide/desktop modeler-overview.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-Mendix Studio Pro is a tool for creating, viewing, and editing your Mendix applications.
+Mendix Studio Pro 是创建、查看和编辑Mendix 应用程序的工具。
 
-One Studio Pro instance can have only one app open at a time, but you can open two Studio Pro instances when necessary.
+One Studio Pro 实例一次只能打开一个应用程序，但您可以在必要时打开两个Studio Pro 实例。
 
 {{% alert type="info" %}}
 When Studio Pro is open, press <kbd>F1</kbd> to quickly jump to documentation.
-{{% /alert %}}
+{{% /报警 %}}
 
-This document describes the user interface of Mendix Studio Pro:
+本文档描述Mendix Studio Pro的用户界面：
 
-<img src="attachments/studio-pro-overview/studio-pro-diagram.png" alt="Studio Pro Diagram" />
+<img src="attachments/studio-pro-overview/studio-pro-diagram.png" alt="Studio Pro 图表" />
 
-## 2 Top Bar
+## 2 顶栏
 
-The Studio Pro top bar contains the following items:
+Studio Pro 顶栏包含以下项目：
 
-* [Switch-to menu](#switch-to)
+* [切换到菜单](#switch-to)
 * [Menus](#menus)
-* [Buttons to run and view your app](#run-and-view)
-* [Links to the Developer Portal and Marketplace](#links)
+* [要运行和查看您的应用程序的按钮](#run-and-view)
+* [与开发者门户和应用市场的链接](#links)
 
-### 2.1 Switch-to Menu {#switch-to}
+### 2.1 切换到菜单 {#switch-to}
 
-The **Switch-to** menu is located at the top-left of Studio Pro and contains links to various parts of the platform. For more information on the **Switch-to** menu, see the [Navigation]() section in the *Developer Portal Guide*.
+**切换到** 菜单位于Studio Pro 左上角，包含平台各个部分的链接。 关于 **切换到** 菜单的更多信息，见 [导航]() 章节在 *开发者门户指南* 中。
 
 ### 2.2 Menus {#menus}
 
-In the Studio Pro top bar, you can see several menus, such as [Edit](edit-menu), [View](view-menu), and [Version Control](version-control-menu). Each menu contains menu items that allow you to perform various actions, for example, to [create a deployment package](create-deployment-package-dialog), set [preferences](preferences-dialog), or view the [Errors](errors-pane) pane.
+在 Studio Pro 顶部栏中，您可以看到一些菜单，例如 [编辑](edit-menu)， [查看](view-menu), 和 [版本控制](version-control-menu)。 每个菜单包含菜单项允许您执行各种操作，例如 [创建一个部署包](create-deployment-package-dialog)， 设置 [首选项](preferences-dialog)，或查看 [错误](errors-pane) 面板。
 
-For more information on menus, see [Menus](menus).
+关于菜单的更多信息，请参阅 [菜单](menus)。
 
-### 2.2 Run & View App {#run-and-view}
+### 2.2 运行 & 查看应用程序 {#run-and-view}
 
-You can deploy your app by clicking the **Publish** or play (**Run locally**) buttons. To view your deployed app, click **View App**.
+您可以通过点击 **发布** 或播放 (**在本地运行**) 按钮来部署您的应用程序。 要查看您部署的应用，请点击 **查看应用**。
 
-For more information on deployment in Mendix, see [Deployment](/developerportal/deploy).
+欲了解Mendix部署的更多信息，请参阅 [部署](/developerportal/deploy)。
 
-For more information on deploying your app and versioning it, see  the [Versioning an App Deployed to the Cloud](using-version-control-in-studio-pro#versioning-project) section in *Using Version Control in Studio Pro*.
+关于部署您的应用程序和版本的更多信息。 查看 [版本应用已部署到云](using-version-control-in-studio-pro#versioning-project) 部分 *在 Studio Pro 中使用版本控制*。
 
-### 2.3 Links and User Profile Menu {#links}
+### 2.3 链接和用户配置文件菜单 {#links}
 
-You can find links to the [Mendix Studio](/studio) (if enabled), [Developer Portal](/developerportal), and [Marketplace](/appstore) in the top-right corner of Studio Pro.
+您可以找到链接到 [Mendix Studio](/studio) (如果启用)， [开发者门户](/developerportal), 和 [商城](/appstore) 位于Studio Pro的上角。
 
-Your profile picture is displayed next to them if you are signed in. When you click the profile picture, the drop-down menu is displayed with your full name and email, as well as links to your user profile, My Apps screen, and signing out option.
+如果您登录，您的个人资料图片将显示在它们旁边。 当您点击个人资料图片时，下拉菜单会显示您的全名和电子邮件， 您的用户资料链接，我的应用程序屏幕和退出选项。
 
-## 3 App Structure
+## 3个应用结构
 
-An app consists of individual files (*documents*) and settings that are grouped in folders and [modules](modules). The complete structure of your app can be viewed in the [App Explorer](project-explorer).
+一个应用程序由单独的文件(*document*)以及分组在文件夹中的设置和 [模块](modules) 组成。 您的应用的完整结构可以在 [App Explorer](project-explorer) 中查看。
 
-## 4 Working Area
+## 4个工作区
 
-A working area is a current document tab that you work in. The working area and its settings differs depending on an editor (for example, pages, microflows, domain model editors) and type of the document.
+工作区是当前文档选项卡，您正在工作。 工作区及其设置因编辑器（如页面、微流、域模型编辑器）和文档类型而异。
 
-### 4.1 Document Tabs {#documents}
+### 4.1 文件标签 {#documents}
 
-The documents you view and edit are shown in tabs.
+您查看和编辑的文档以标签显示。
 
 {{% alert type="info" %}}
 
-This section describes documents in the working area, not panes that you can open and position around the working area. For more information on behavior of panes, see the [Layout of Panes](view-menu#layout-of-panes) section in *View Menu*.
+本节介绍工作区内的文件，而不是您可以在工作区内打开和定位的窗格。 欲了解更多关于窗格行为的信息，请在 *查看菜单* 中查看面板</a> 部分的
+布局。</p> 
 
-{{% /alert %}}
+{{% /报警 %}}
 
-You can have a number of tabs open, just like in a modern web browser. They can be closed, reordered, and shown side by side.
+您可以打开一些标签，就像在现代浏览器中一样。 他们可以关闭、重新排序和并肩显示。 
 
-Each document has its own save state, history, and future, so undo and redo actions are unlimited.
+每份文件都有自己的省略状态、历史和未来，所以撤销和回击行动是无限制的。
 
-## 5 Dockable Panes
 
-Dockable panes can be positioned around the working area and contain various elements and settings. For example, you can view list of errors, configure properties of a specific document or an element, view toolbox. Panes are opened via [Menus](menus).
 
-## 6 Status Bar
+## 5 个可停靠面板
 
-At the bottom of the Studio Pro main window pane is a status bar.
+可停靠窗格可以放置在工作区周围，包含各种元素和设置。 例如，您可以查看错误的列表，配置特定文档或元素的属性，查看工具箱。 面板是通过 [菜单](menus) 打开的。
 
-On the left is the current status of Studio Pro.
 
-On the right is the currently selected language. If you have set up multiple languages in your app you can change the currently selected language by clicking here. For more information see [Language Menu](translatable-texts).
 
-## 7 Shortcut Keys
+## 6 个状态栏
 
-### 7.1 General Shortcut Keys
+Studio Pro 主窗口窗格底部是一个状态栏。
 
-In the main window pane, <kbd>Ctrl</kbd> + <kbd>Tab</kbd> can be used to navigate between all open documents. Other shortcut keys that can be used in the main window pane can be found next to their relevant menu item in  [Menus](menus).
+左侧是Studio Pro的当前状态。
 
-In most dialog boxes for editing properties, the following shortcut keys can be used:
+右边是当前选定的语言。 如果您在应用中设置了多种语言，您可以点击这里更改当前选中的语言。 欲了解更多信息，请参阅 [语言菜单](translatable-texts)。
 
-| Key                                   | Description                                                                                                                                                                                                                    |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>Ctrl</kbd> + <kbd>Enter</kbd>    | Confirms all changes and closes the dialog box. Works as if the **OK** button was clicked. This is especially useful if the focus is on a multi-line text box; otherwise, pressing <kbd>Enter</kbd> will have the same effect. |
-| <kbd>Esc</kbd>                        | Cancels all changes and closes the dialog box. Works as if the **Cancel** button was clicked.                                                                                                                                  |
-| <kbd>Ctrl</kbd> + Mouse scroll wheel  | Zooms in or out. This works in all editors.                                                                                                                                                                                    |
-| <kbd>Shift</kbd> + Mouse scroll wheel | Scrolls left or right. Works as if you were using the horizontal scroll bars.                                                                                                                                                  |
 
-In most edit grids (such as the list of attributes in the entity properties), the following shortcut keys can be used:
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>N</kbd> | Creates a new item.                     |
-| <kbd>Enter</kbd>               | Edits the currently selected item.      |
-| <kbd>Delete</kbd>              | Deletes the currently selected item(s). |
+## 7 快捷键
 
-### 7.2 Domain Model Editor Shortcut Keys
 
-The following shortcut keys are available in the domain model editor:
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>F2</kbd>                  | Edits the name of the selected element. |
-| <kbd>Ctrl</kbd> + <kbd>A</kbd> | Selects all entities.                   |
-| <kbd>Esc</kbd>                 | Clears selection.                       |
+### 7.1 通用快捷键
 
-### 7.3 Page Editor Shortcut Keys
+在主窗口窗格中， <kbd>Ctrl</kbd> + <kbd>Tab</kbd> 可以用于导航所有打开的文档。 可以在主窗口窗格中使用的其他快捷键可以在相关菜单项  [菜单项](menus) 旁边找到。
 
-The following shortcut keys are available in the page editor:
+在大多数编辑属性的对话框中，可以使用以下快捷键：
 
-| Key                          | Description                                                                                                                                                                                                            |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                   | Moves the selection box to the widget or element in the direction of the arrow key. For example, if currently a label is selected and you press the right arrow key, the text box to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys | Moves the currently selected item up/down or left/right. This works on table columns and rows, tab pages, grid and data view buttons, search fields, etc.                                                              |
-| <kbd>Enter</kbd>             | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                 |
-| <kbd>F2</kbd>                | Edits the caption of a label or button inline on the page. You can also just start typing a letter or a digit and the caption will be replaced by what you type.                                                       |
+| 关键字                             | 描述                                                                            |
+| ------------------------------- | ----------------------------------------------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>输入</kbd> | 确认所有更改并关闭对话框。 似乎点击 **OK** 按钮。 如果焦点是多行文本框，那么这将特别有用；否则按 <kbd>输入</kbd> 将具有相同的效果。 |
+| <kbd>埃斯克文</kbd>                 | 取消所有更改并关闭对话框。 似乎点击 **取消** 按钮。                                                 |
+| <kbd>Ctrl</kbd> + 鼠标滚轮。         | 放大进出。 这适用于所有编辑器。                                                              |
+| <kbd>Shift</kbd> + 鼠标滚轮。        | 向左或向右滚动。 似乎您使用了水平滚动栏。                                                         |
 
-### 7.4 Microflow Editor Shortcut Keys
 
-The following shortcut keys are available in the microflow editor:
+在大多数编辑网格(例如实体属性中的属性列表)，可以使用以下快捷键：
 
-| Key                                                | Description                                                                                                                                                                                                                            |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                                         | Moves the selection box to the activity or element in the direction of the arrow key. For example, if currently a show page activity is selected and you press the right arrow key, the end event to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys                       | Moves the currently selected item up/down or left/right.                                                                                                                                                                               |
-| <kbd>Enter</kbd>                                   | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                                 |
-| <kbd>F2</kbd>                                      | Edits the name of the return value of the currently selected activity. This shortcut will not function on activities that do not return a result.                                                                                      |
-| <kbd>Home</kbd>                                    | Highlights and focus on the start event of the current microflow.                                                                                                                                                                      |
-| <kbd>End</kbd>                                     | Highlights and focus on an end event in the current microflow. If there are multiple end events, clicking **End** multiple times will toggle between the different events.                                                             |
-| <kbd>Shift</kbd> when resizing an activity         | When resizing the entity, by holding <kbd>Shift</kbd> , the microflow component will stay centered at its current position and will expand equally in all directions.                                                                  |
-| <kbd>Ctrl</kbd> when selecting multiple activities | When pressing the <kbd>Ctrl</kbd>, you can select additional microflow components. Clicking a selected component while holding <kbd>Ctrl</kbd> will deselect it.                                                                       |
+| 关键字                            | 描述         |
+| ------------------------------ | ---------- |
+| <kbd>Ctrl</kbd> + <kbd>N</kbd> | 创建一个新项目。   |
+| <kbd>输入</kbd>                  | 编辑当前选中的项目。 |
+| <kbd>删除</kbd>                  | 删除当前选中的项目  |
 
-### 7.5 Microflow Debugger Shortcut Keys {#debugger-shortcuts}
 
-The following shortcut keys are available for the microflow debugger:
 
-| Key                            | Description                                                                          |
-| ------------------------------ | ------------------------------------------------------------------------------------ |
-| <kbd>Alt</kbd> + <kbd>F5</kbd> | *Step into* – moves the debugger into the sub-microflow or loop.                     |
-| <kbd>Alt</kbd> + <kbd>F6</kbd> | *Step over* – moves the debugger to the next step in the same microflow.             |
-| <kbd>Alt</kbd> + <kbd>F7</kbd> | *Step out* – instructs the debugger to leave the sub-microflow or loop.              |
-| <kbd>Alt</kbd> + <kbd>F8</kbd> | *Continue* – instructs the debugger to continue until it reaches another breakpoint. |
 
-### 7.6 Language Shortcut Keys
+### 7.2 域名模型编辑器快捷键
 
-The following shortcut keys control the currently selected language:
+以下快捷键可在域模型编辑器中使用：
 
-| Key                                               | Description                                                                             |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>L</kbd>                    | Choose the next language in the list of languages chosen in **Language Settings…**.     |
-| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> | Choose the previous language in the list of languages chosen in **Language Settings…**. |
+| 关键字                            | 描述         |
+| ------------------------------ | ---------- |
+| <kbd>F2</kbd>                  | 编辑选中元素的名称。 |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> | 选择所有实体。    |
+| <kbd>埃斯克文</kbd>                | 清除选择。      |
 
-## 8 Read More
 
-* [App Explorer](project-explorer)
+
+
+### 7.3 页面编辑器快捷键
+
+以下快捷键可在页面编辑器中使用：
+
+| 关键字                   | 描述                                                     |
+| --------------------- | ------------------------------------------------------ |
+| 箭头键                   | 向箭头键方向移动选择框到小部件或元素。 例如，如果当前选择了一个标签，您按右箭头键，右侧的文本框就会被选中。 |
+| <kbd>Ctrl</kbd> + 箭头键 | 向上/向下或向左/向右移动当前选中的物品。 这适用于表列和行、标签页、网格和数据视图按钮、搜索字段等。    |
+| <kbd>输入</kbd>         | 在对话框中编辑当前选中对象的属性。                                      |
+| <kbd>F2</kbd>         | 编辑页面上标签或按钮的标题。 您也可以只需输入字母或数字，标题将被您输入的内容所取代。            |
+
+
+
+
+### 7.4 微流程编辑器快捷键
+
+以下快捷键可在微流编辑器中使用：
+
+| 关键字                     | 描述                                                                  |
+| ----------------------- | ------------------------------------------------------------------- |
+| 箭头键                     | 向箭头键方向移动选择框到活动或元素。 例如，如果您选择了当前显示的页面活动并按右箭头键， 右侧的结束事件被选中。            |
+| <kbd>Ctrl</kbd> + 箭头键   | 向上/向下或向左/向右移动当前选中的物品。                                               |
+| <kbd>输入</kbd>           | 在对话框中编辑当前选中对象的属性。                                                   |
+| <kbd>F2</kbd>           | 编辑当前选中活动的返回值的名称。 这个快捷方式不会对不返回结果的活动起作用。                              |
+| <kbd>首页</kbd>           | 突出并注重当前微流的启动活动。                                                     |
+| <kbd>结束</kbd>           | 在当前微流中突出并侧重于结束活动。 如果有多个结束事件，单击 **结束** 将在不同事件之间切换多次。                 |
+| <kbd>调整活动大小时偏移</kbd>    | 当按住 <kbd>Shift</kbd> 键调整实体大小时，, 微流组件将以其目前的位置为中心，并将在所有方向平等扩展。        |
+| <kbd>Ctrl</kbd> 选择多个活动时 | 按下 <kbd>Ctrl</kbd>时，您可以选择额外的微流组件。 按住 <kbd>Ctrl</kbd> 时点击选中的组件将取消选择。 |
+
+
+
+
+### 7.5 微流调试器快捷键 {#debugger-shortcuts}
+
+下面的快捷键可用于微流调试器：
+
+| 关键字                            | 描述                         |
+| ------------------------------ | -------------------------- |
+| <kbd>Alt</kbd> + <kbd>F5</kbd> | *步入* - 将调试器移动到子微流程或循环。     |
+| <kbd>Alt</kbd> + <kbd>F6</kbd> | *步过* — — 将调试器移动到同一微流中的下一步。 |
+| <kbd>Alt</kbd> + <kbd>F7</kbd> | *步出* - 指示调试器离开子微流程或循环。     |
+| <kbd>Alt</kbd> + <kbd>F8</kbd> | *继续* - 指示调试器继续到达另一个断点。     |
+
+
+
+
+### 7.6 语言快捷键
+
+以下快捷键控制当前选中语言：
+
+| 关键字                                               | 描述                          |
+| ------------------------------------------------- | --------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>L</kbd>                    | 在 **语言设置中选择的语言列表中选择下一种语言…** |
+| <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> | 在 **语言设置中选择的语言列表中选择上一种语言…** |
+
+
+
+
+## 8 阅读更多
+
+* [应用浏览器](project-explorer)
 * [Menus](menus)
 
   
