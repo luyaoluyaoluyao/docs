@@ -1,10 +1,9 @@
 ---
 title: "一致性错误"
-parent: "errors-pane"
-menu_order: 10
-description: "描述Mendix Studio Pro 中的一致性错误以及解决这些错误的方法。"
+category: "桌面模型"
+description: "描述Mendix 桌面模型中的一致性错误以及修复这些错误的方法。"
 tags:
-  - "Studio Pro"
+  - "桌面模组"
   - "一致性错误"
   - "检查"
   - "错误"
@@ -12,40 +11,23 @@ tags:
 
 ## 1 导言
 
-为了确保您的应用始终一致且构建得当，Studio Pro 在构建您的应用时会检查是否一致。
+为了确保您的应用始终一致且构建得当，桌面模型在构建您的应用时会检查是否一致。 当不符合一致性检查时，桌面模型会在 **错误** 标签页上通过一致性错误通知您。
 
-当不符合一致性检查时，Studio Pro 将通过 [错误窗格](errors-pane) 的一致性错误通知您。 将突出强调页面、微流、域模型和文件模板中的错误：
+![错误标签](attachments/consistency-errors/dm-errors-tab.png)
 
-![Errors Pane](attachments/errors-pane/errors-pane.png)
+需要解决错误才能发布您的应用。 在模型的下列编辑或功能中可能出现一致性错误：
 
-如果您看不到 **错误** 面板，您可以从菜单选项 **查看 > 错误列表** 启用它。
-
-为了让您能够快速找到您的错误，每个错误都会显示您：
-
-* 错误唯一的 **错误代码**
-* 描述错误的 **消息**
-* 页面 **元素** 的名称导致错误
-* 此元素所在的 **文档**
-* 文档所在的 **模块**
-
-双击错误将直接将您带到导致错误的元素。
-
-需要解决错误才能部署您的应用程序。 Studio Pro的以下编辑器或功能可能出现一致性错误：
-
-* [页 次](consistency-errors-pages)
-* [Navigation](consistency-errors-navigation)
-* [微型流动](微流)
-* [工作流](workflows)
-* [域模型](域名模型)
-* [集成](integration)
-* [安全](安全)
+* 页 次
+* Navigation
+* 微型流动
+* 域模式
+* 集成
+* 安全
 
 ## 2 次阅读更多
 
 * [页面编辑器一致性错误](consistency-errors-pages)
 * [导航一致性错误](consistency-errors-navigation)
-* [Errors Pane](errors-pane)
 * [页 次](页面)
 * [微型流动](微流)
-* [工作流](workflows)
-* [Mendix 导航](navigation)
+* [Mendix 7.4 & 上方的导航](navigation)
