@@ -1,44 +1,44 @@
 ---
-title: "Images"
-category: "App Modeling"
+title: "图像"
+category: "应用程序模型"
 menu_order: 70
 tags:
-  - "Images"
-  - "Image Collections"
+  - "图像"
+  - "图片收藏"
   - "png"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Images can be used to brighten up your application. [Navigation items](navigation-tree) and the various kinds of [buttons](button-widgets) have small images (icons) to left of their captions. Images can also be used in the image viewer widgets in [pages](pages) and [document templates](document-templates). Also, [enumeration values](enumerations#enum-value-properties) can have images that can then be shown in data grid columns.
+图像可以用来调亮您的应用程序。 [导航项目](navigation-tree) 和各种类型的 [按钮](button-widgets) 有小图像 (图标) 来留下它们的字幕。 图像也可以在 [页面](pages) 和 [文档模板](document-templates) 中的图像查看器小部件中使用。 另外， [枚举值](enumerations#enum-value-properties) 可以包含图像，然后可以显示在数据网格列中。
 
-The **System** module contains some images that are used by the standard components. If you place a data view on a page, the **Save** and **Cancel** buttons will have images from the **System** module on them. You can always use different images if you like. The same holds for images on the control bar buttons of the data grid.
-
-{{% alert type="info" %}}
-This sort of image is called a **static** image as it is always the same. For example, the icon you put on a save button will always look the same whatever object you are saving.
-
-If you want different images to appear for different objects (for example, a picture of a product) these images should be stored as images in the database. See [How To Work with Images & Files](/howto/data-models/working-with-images-and-files) for more information.
-{{% /alert %}}
-
-## 2 Supported Formats
-
-The following image formats are supported: *png*, *jpeg*, *gif*, *bmp*, and *svg*. The *png* format is recommended, as it is compressed without losing any information and supports transparency very well.
-
-## 3 Custom Images
-
-To use your own images, they must first be added to an [image collection](image-collection). For information on how to create an image collection, and add images to it, see [Image Collection](image-collection).
-
-You should not add custom images to the existing image collections in imported modules, for example in the Atlas UI module. If you do this, there is a risk that they may be overwritten if you import a new version of the module at a later date.
-
-Once you have added images to an image collection, you can use them in any module in your app.
+**系统** 模块包含一些用于标准组件的图像。 如果您在一个页面上放置数据视图， **保存** 和 **取消** 按钮将会有来自 **系统** 模块的图像。 如果您喜欢，您总是可以使用不同的图像。 数据网格控制栏按钮上的图像也是如此。
 
 {{% alert type="info" %}}
-If you need to refer to an image in an image collection from CSS or custom widgets, the name of the image will be `/img/{module_name}${image_collection_name}${image_name}`.
-{{% /alert %}}
+这种图像被称为 **静态** 图像，因为它总是一样的。 例如，您放在保存按钮上的图标将总是看起来与您保存的对象相同。
 
-## 4 Common Properties
+如果你想要为不同对象显示不同的图像 (例如) 产品图片) 这些图像应作为图像存储在数据库中。 查看 [如何使用图像 & 文件](/howto/data-models/working-with-images-and-files) 获取更多信息。
+{{% /报警 %}}
 
-### 4.1 Name
+## 2 支持的格式
 
-This the name of the image.
+支持以下图像格式： *png*, *jpeg*, *gif*, *bmp*, and *svg*. 推荐使用 *png* 格式，因为它被压缩而不会丢失任何信息，并且很好地支持透明度。
+
+## 3 个自定义图像
+
+要使用您自己的图像，必须首先将它们添加到 [图像收藏](image-collection) 中。 关于如何创建图像集合并将图像添加到它的信息，请参阅 [图像集](image-collection)。
+
+您不应该在导入的模块中添加自定义图像到现有的图像收藏，例如在Atlas界面模块中。 如果你这样做， 如果您稍后导入一个新版本的模块，它们可能会被覆盖。
+
+一旦您将图像添加到图像集合中，您可以在应用的任何模块中使用这些图像。
+
+{{% alert type="info" %}}
+如果您需要从 CSS 或自定义部件引用图像收藏中的图像， 图像的名称将是 `/img/{module_name}${image_collection_name}${image_name}`
+{{% /报警 %}}
+
+## 4 个公共属性
+
+### 4.1 名称
+
+这是图像的名称。
