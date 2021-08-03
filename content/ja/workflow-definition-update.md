@@ -1,78 +1,78 @@
 ---
-title: "Updating Your Workflow Definition"
-parent: "workflows"
+title: "ワークフロー定義の更新"
+parent: "ワークフロー"
 menu_order: 60
 tags:
-  - "workflow"
-  - "workflows"
-  - "versions"
-  - "update"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "バージョン"
+  - "更新"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Workflows are long running processes. When the workflow definition changes, e.g. tasks or activities are added or removed from the workflow definition, running instances of the workflow may therefore still exist.
+ワークフローは長い間実行されているプロセスです。 ワークフロー定義が変更されると、 タスクまたはアクティビティがワークフロー定義から追加または削除され、ワークフローの実行インスタンスがまだ存在する可能性があります。
 
-Any time a new workflow definition is deployed and the Runtime starts, it will upgrade running workflow instances to the latest definition that exists. That means the existing workflow instances can remain running successfully. These instances will follow the latest workflow definition from that moment on.
+新しいワークフロー定義がデプロイされ、ランタイムが開始されると、実行中のワークフローインスタンスが存在する最新の定義にアップグレードされます。 つまり、既存のワークフローインスタンスは正常に動作し続けることができます。 これらのインスタンスは、その瞬間から最新のワークフロー定義に従います。
 
-In some cases though, the Runtime will not be able to upgrade running workflow instances.
+ただし、実行中のワークフローインスタンスをアップグレードできない場合があります。
 
-This document describes both these cases in more detail.
+この文書では、両方の事例について詳しく説明します。
 
-## 2 Successful Upgrades to the Latest Workflow Definition
+## 2 最新のワークフロー定義へのアップグレードに成功しました
 
-Any of the following changes are interpreted as non-conflicting:
+以下の変更のいずれかが競合していないと解釈されます。
 
-* Adding activities in the paths that have not been executed by the current workflow yet
-* Removing activities in the path that is being executed by the current workflow
-* Reordering activities in  the path that is being executed by the current workflow
-* Changing properties of activities or outcomes:
-* * Changing names, captions, and titles
-  * Changing a referenced microflow in the **Call microflow** activity, or a referenced workflow in the **Workflow call** activity
-  * Changing a referenced page in a user task
-  * Changing user assignment or user assignment option in a user task
-  * Changing due dates of a user task
-* Adding outcomes in a **Decision**, **Call microflow** or **User task** activities
-* Changing the context entity, referenced microflows, referenced pages, or referenced workflows
+* 現在のワークフローによって実行されていないパスにアクティビティを追加する
+* 現在のワークフローで実行されているパス内のアクティビティを削除します
+* 現在のワークフローで実行されているパス内のアクティビティの並び替え
+* アクティビティまたは結果のプロパティの変更:
+* * 名前、キャプション、タイトルの変更
+  * **microflow** アクティビティの 参照されているマイクロフローの変更、または **ワークフローコール** アクティビティ内の参照されているワークフローの変更
+  * ユーザータスク内の参照ページの変更
+  * ユーザータスクのユーザー割り当てまたはユーザー割り当てオプションの変更
+  * ユーザータスクの期日を変更する
+* **決定**、 **マイクロフロー** または **ユーザー タスク** アクティビティを呼び出します。
+* コンテキストエンティティ、参照されているマイクロフロー、参照ページ、または参照されているワークフロー
 
-## 3 Conflicts When Upgrading to the Latest Workflow Definition
+## 最新のワークフロー定義にアップグレードする際の3つの競合があります
 
-The Runtime detects the following situations as being conflicting when upgrading to the latest workflow definition:
+ランタイムは、最新のワークフロー定義にアップグレードする際に、次の状況が競合していることを検出します。
 
-* One of the current active activities of a workflow is removed in the latest **WorkflowDefinition** (e.g. the user task that the workflow instance is currently waiting for, was removed from the definition altogether)
-* A parallel path is introduced in the path that is already being executed
-* An activity is introduced in the path that is already being executed
-* A selected outcome has been replaced
-* An activity that is already being executed is moved to a place where it will be re-executed in the **WorkflowDefinition**
-* The context entity is changed
-* The **WorkflowDefinition** is removed
-
-{{% alert type="info" %}}
-
-Depending on the actual workflow, the above situations may functionally not lead to a problem. Of course, this requires a prior knowledge of the business domain. As a result, the Runtime may detect more conflicts than strictly required from a business perspective.
-
-{{% /alert %}}
-
-Conflicted workflow instances will be marked with state **Incompatible**. The **Reason** field will be updated with a text explaining the found conflicts. The workflow cannot be executed in this state.
+* 最新の **WorkflowDefinition** (e. をクリックします。ワークフローインスタンスが現在待機しているユーザータスクは、その定義から完全に削除されました。
+* 既に実行されているパスに並列パスが導入されます
+* すでに実行されているパスにアクティビティが導入されます
+* 選択した結果が置き換えられました
+* すでに実行されているアクティビティは、 **WorkflowDefinition** で再実行される場所に移動されます。
+* コンテキストのエンティティが変更されました
+* **ワークフロー定義** が削除されました
 
 {{% alert type="info" %}}
 
-The system can change an Incompatible workflow instance into the state **InProgress** and auto-upgrade it when a subsequent app deployment changes the **WorkflowDefinition** to no longer be conflicting.
+実際のワークフローによっては、上記の状況が機能的に問題を引き起こさない可能性があります。 もちろん、これはビジネスドメインの事前知識が必要です。 その結果、ランタイムは、ビジネスの観点から厳密に必要とされるよりも多くの競合を検出する可能性があります。
 
 {{% /alert %}}
 
-## 4 System Module Entities
+競合するワークフローインスタンスは状態 **互換性のない** でマークされます。 **Reason** フィールドは、発見された競合を説明するテキストで更新されます。 この状態ではワークフローを実行できません。
 
-The Runtime will add or change data for the following system entities on startup:
+{{% alert type="info" %}}
 
-* When changes to the workflow definition are detected
-* A new **WorkflowVersion** instance is created (referencing the previous one)
-* The **WorkflowDefinition** is changed to point to the new **WorkflowVersion** as its current version
+システムは、互換性のないワークフローインスタンスを状態 **InProgress** に変更し、後続のアプリ展開が **WorkflowDefinition** を競合しなくなると自動的にアップグレードできます。
 
- The **WorkflowVersion** instance also refers to all **WorkflowTaskDefinition** instances present in that version of the model.
+{{% /alert %}}
 
-For more information, see the the [Workflow Entities in the System Module](workflows#workflow-entities) section in *Workflows*.
+## 4 システムモジュールエンティティ
 
-## 3 Read More
+ランタイムは起動時に次のシステムエンティティのデータを追加または変更します。
 
-* [Workflows](workflows)
+* ワークフロー定義への変更が検出されたとき
+* 新しい **WorkflowVersion** インスタンスが作成されます (前のインスタンスを参照してください)
+* **WorkflowDefinition** が、現在のバージョンとして新しい **WorkflowVersion** を指すように変更されました。
+
+ **WorkflowVersion** インスタンスは、モデルのそのバージョンに存在するすべての **WorkflowTaskDefinition** インスタンスを参照します。
+
+詳細については、 [ワークフロー](workflows#workflow-entities) セクションの *ワークフロー* を参照してください。
+
+## 3 続きを読む
+
+* [ワークフロー](workflows)
