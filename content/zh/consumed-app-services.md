@@ -1,23 +1,23 @@
 ---
-title: "Consumed App Services"
-parent: "integration"
+title: "已消耗的应用服务"
+parent: "集成"
 ---
 
 {{% alert type="info" %}}
-App services have been deprecated in version 7.23.4 and are marked for removal. Use a [consumed web service](consumed-web-services) to consume existing app services.
-{{% /alert %}}
+应用程序服务已经在7.23.4版本中被废弃，并被标记为可删除。 使用 [消费的 web 服务](consumed-web-services) 来消费现有的应用服务。
+{{% /报警 %}}
 
-App services are a way of connecting Mendix applications to each other. An app service can be imported and its content can be used. As for now, app services provide the following content:
+应用服务是连接Mendix 应用程序之间的一种方式。 可以导入应用服务并使用其内容。 到目前为止，应用服务提供了以下内容：
 
-*   Microflow actions
-*   Domain model entities
+*   微流程操作
+*   域模型实体
 
-In the project explorer, an app service can be selected in the 'Add' context menu on a module. See [Select app service](select-app-service) for more information.
+在项目探险家中，可以在模块上的“添加”上下文菜单中选择应用服务。 查看 [选择应用程序服务](select-app-service) 获取更多信息。
 
-See the [Settings](settings) page for more information on document options.
+关于文档选项的更多信息，请参阅 [设置](settings) 页面。
 
-App service actions are directly available in Microflows. If a new activity is added, new app service actions are shown below the standard microflow actions.
+应用服务操作可直接在 Microflow中获得。 如果添加了新的活动，新的应用服务操作会显示在标准的微流操作之下。
 
 ![](attachments/16713703/16843891.png)
 
-An app service action may require parameters, and usually it supplies a return value. The return value can be used in the rest of the microflow. Parameters and return values can be an object or a list type; the entities which are accepted by the app service are included in the domain model of the app service.
+应用服务操作可能需要参数，通常提供返回值。 返回值可以用于微流的其余部分。 参数和返回值可以是对象或列表类型； 被应用服务接受的实体包含在应用服务的域模型中。
