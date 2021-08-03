@@ -1,45 +1,45 @@
 ---
-title: "Jump"
-parent: "workflows"
+title: "跳转"
+parent: "工作流"
 menu_order: 35
 tags:
-  - "workflow"
-  - "workflows"
-  - "jump"
+  - "工作流"
+  - "工作流"
+  - "跳转"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Jump** activity allows you to jump to other activities in the workflow. This is useful when, for example, you are approving a request and need more details that are provided in one of the previous user tasks:
+**跳过** 活动允许您跳转到工作流程中的其他活动。 例如，当您批准请求并需要上一个用户任务中提供的更多细节时，这很有用：
 
-![Jump Example](attachments/jump-activity/jump-activity.jpg)
+![跳转示例](attachments/jump-activity/jump-activity.jpg)
 
-## 2 Properties
+## 2 属性
 
-The Jump activity properties consist of the following sections:
+跳转活动属性由以下部分组成：
 
-* [Common](#common)
-* [General](#general)
+* [常用的](#common)
+* [A. 概况](#general)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名称** 是元素的内部名称。 当提及应用程序中的元素时，您将使用此名称。 它在工作流中必须是唯一的，但你可以在不同的工作流中拥有两个名称相同的元素。
 
-### 2.2 General Section {#general}
+### 2.2 一般部分 {#general}
 
-#### 2.2.1 Caption
+#### 2.2.1 标题
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**标题** 描述了这个元素中发生的情况。 它显示在工作流元素中，使工作流更容易阅读和理解，而无需添加注释。
 
 #### 2.2.2 Target
 
-**Target** is the activity that the workflow process will jump to during execution. You can select the activity you would like to go to from the drop-down menu.
+**目标** 是工作流程过程在执行过程中跳转到的活动。 您可以从下拉菜单中选择您想要进行的活动。
 
 {{% alert type="warning" %}}
-You cannot use the **Jump** activity in a [Parallel split](parallel-split) or in a path where it would end the workflow without any other path continuing it.
-{{% /alert %}}
+您不能在 [并联拆分](parallel-split) 中使用 **跳转** 活动，也不能在一个路径中使用它将结束工作流，而没有任何其他路径继续它。
+{{% /报警 %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflow Properties](workflow-properties)
+* [工作流属性](workflow-properties)
