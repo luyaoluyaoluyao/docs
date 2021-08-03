@@ -1,13 +1,19 @@
 ---
 title: "公開済みアプリサービス"
 parent: "統合"
+tags:
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-アプリサービスはバージョン 7.23.4 で非推奨となり、削除マークが付いています。 [公開されたWebサービス](published-web-services) または [公開されたRESTサービス](published-rest-services) を代わりに使用してください。
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-app-services.pdf) をクリックしてください。
 {{% /alert %}}
 
 ## 1つの紹介
+
+{{% alert type="info" %}}
+App サービスは非推奨となり、Studio Pro 9 で削除されました。 [公開されたWebサービス](published-web-services) または [公開されたRESTサービス](published-rest-services) を代わりに使用してください。
+{{% /alert %}}
 
 アプリサービスは **ファイル** > **新規ドキュメント** を介して作成することができます。
 
