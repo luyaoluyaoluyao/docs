@@ -1,230 +1,226 @@
 ---
-title: "Trim to Date"
-parent: "expressions"
+title: "日付にトリムする"
+parent: "表現"
 menu_order: 120
 tags:
   - "studio pro"
-  - "trim to date"
-  - "expression"
-  - "expressions"
+  - "これまでにトリムする"
+  - "表現"
+  - "表現"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/trim-to-date.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
-
-These are functions to round off dates to different time units.
+これらは、日付を異なる時間単位に切り替える機能です。
 
 ## 2 trimToSeconds
 
-This function is used to trim the date to seconds, rounding off all milliseconds to zero.
+この関数は、日付を秒単位でトリムし、すべてのミリ秒をゼロに丸めます。
 
-### 2.1 Input Parameters
+### 2.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 値               | タイプ   |
+| --------------- | ----- |
+| トリミングする必要がある日付。 | 日付と時刻 |
 
-### 2.2 Output
+### 2.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                       | Type          |
-| ------------------------------------------- | ------------- |
-| The same date, but rounded down to seconds. | Date and time |
+| 値                 | タイプ   |
+| ----------------- | ----- |
+| 同じ日付が、秒に切り下げられます。 | 日付と時刻 |
 
-### 2.3 Example
+### 2.3 例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51.387':
+たとえば、'08-06-2008 10:12:51.387' を表す変数 `$myDate` があります。
 
 ```java
 trimToSeconds($myDate)
 ```
 
-The output is:
+出力は:
 
 ```java
-'Sun Jun 08 10:12:51 CEST 2008'
+'サン08 10:12:51CEST2008'
 ```
 
 ## 3 trimToMinutes
 
-This function is used to trim the date to minutes, rounding off all (milli)seconds to zero.
+この関数は、日付を分にトリミングし、すべての(ミリ)秒をゼロに丸めます。
 
-### 3.1 Input Parameters
+### 3.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 値               | タイプ   |
+| --------------- | ----- |
+| トリミングする必要がある日付。 | 日付と時刻 |
 
-### 3.2 Output
+### 3.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                       | Type          |
-| ------------------------------------------- | ------------- |
-| The same date, but rounded down to minutes. | Date and time |
+| 値                  | タイプ   |
+| ------------------ | ----- |
+| 同じ日付が、分に切り下げられました。 | 日付と時刻 |
 
-### 3.3 Example
+### 3.3 例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+たとえば、'08-06-2008 10:12:51'を表す変数 `$myDate` があります。
 
 ```java
 trimToMinutes($myDate)
 ```
 
-The output is:
+出力は:
 
 ```java
-'Sun Jun 08 10:12:00 CEST 2008'
+'Sun 08 10:12:00 CEST 2008'
 ```
 
 ## 4 trimToHours[UTC]
 
-This function is used to trim the date to hours, rounding off all minutes to zero.
+この関数は、日付を時間にトリムし、すべての分をゼロに丸めます。
 
-`trimToHours` uses the user's time zone, and `trimToHoursUTC` uses the UTC time zone.
+`trimToHours` はユーザのタイムゾーンを使用し、 `trimToHoursUTC` は UTC タイムゾーンを使用します。
 
-### 4.1 Input Parameters
+### 4.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 値               | タイプ   |
+| --------------- | ----- |
+| トリミングする必要がある日付。 | 日付と時刻 |
 
-### 4.2 Output
+### 4.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                     | Type          |
-| ----------------------------------------- | ------------- |
-| The same date, but rounded down to hours. | Date and time |
+| 値                 | タイプ   |
+| ----------------- | ----- |
+| 同じ日付が、時間に切り下げられた。 | 日付と時刻 |
 
-### 4.3 Example
+### 4.3 例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+たとえば、'08-06-2008 10:12:51'を表す変数 `$myDate` があります。
 
 ```java
 trimToHours($myDate)
 ```
 
-The output is:
+出力は:
 
 ```java
-'Sun Jun 08 10:00:00 CEST 2008'
+'Sun June 08 10:00:00 CEST 2008'
 ```
 
 ## 5 trimToDays[UTC]
 
-This function is used to trim the date to days, rounding off all hours to zero.
+この関数は、日付を日付にトリムし、すべての時間をゼロに丸めます。
 
-`trimToDays` uses the user's time zone, and `trimToDaysUTC` uses the UTC time zone.
+`trimToDays` はユーザのタイムゾーンを使用し、 `trimToDaysUTC` は UTC タイムゾーンを使用します。
 
-### 5.1 Input Parameters
+### 5.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 値               | タイプ   |
+| --------------- | ----- |
+| トリミングする必要がある日付。 | 日付と時刻 |
 
-### 5.2 Output
+### 5.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                    | Type          |
-| ---------------------------------------- | ------------- |
-| The same date, but rounded down to days. | Date and time |
+| 値                | タイプ   |
+| ---------------- | ----- |
+| 同じ日付が、日に切り下げられた。 | 日付と時刻 |
 
-### 5.3 Example
+### 5.3 例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+たとえば、'08-06-2008 10:12:51'を表す変数 `$myDate` があります。
 
 ```java
 trimToDays($myDate)
 ```
 
-The output is:
+出力は:
 
 ```java
-'Sun Jun 08 00:00:00 CEST 2008'
+'Sun June 08 00:00:00 CEST 2008'
 ```
 
 ## 6 trimToMonths[UTC]
 
-This function is used to trim the date to months, rounding off all days to zero.
+この関数は、日付を月にトリミングし、すべての日付をゼロに丸めます。
 
-`trimToMonths` uses the user's timezone and `trimToMonthsUTC` uses the UTC timezone.
+`trimToMonths` はユーザーのタイムゾーンを使用し、 `trimToMonthsUTC` は UTC タイムゾーンを使用します。
 
-### 6.1 Input Parameters
+### 6.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 値               | タイプ   |
+| --------------- | ----- |
+| トリミングする必要がある日付。 | 日付と時刻 |
 
-### 6.2 Output
+### 6.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                      | Type          |
-| ------------------------------------------ | ------------- |
-| The same date, but rounded down to months. | Date and time |
+| 値                  | タイプ   |
+| ------------------ | ----- |
+| 同じ日付が、月に切り下げられました。 | 日付と時刻 |
 
-### 6.3 Example
+### 6.3 例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+たとえば、'08-06-2008 10:12:51'を表す変数 `$myDate` があります。
 
 ```java
 trimToMonths($myDate)
 ```
 
-The output is:
+出力は:
 
 ```java
-'Sun Jun 01 00:00:00 CEST 2008'
+'Sun June 01 00:00:00 CEST 2008'
 ```
 
-## 7 trimToYears[UTC]
+## 7 trimtoYears[UTC]
 
-This function is used to trim the date to years, rounding off all months and days to zero.
+この関数は、日付を年にトリミングするために使用され、すべての月と日をゼロに丸めます。
 
-`trimToYears` uses the user's time zone, and `trimToYearsUTC` uses the UTC time zone.
+`trimToYears` はユーザのタイムゾーンを使用し、 `trimToYearsUTC` は UTC タイムゾーンを使用します。
 
-### 7.1 Input Parameters
+### 7.1 入力パラメータ
 
-The input parameters are described in the table below:
+入力パラメータは以下の表に記載されています:
 
-| Value                            | Type          |
-| -------------------------------- | ------------- |
-| The date that should be trimmed. | Date and time |
+| 値               | タイプ   |
+| --------------- | ----- |
+| トリミングする必要がある日付。 | 日付と時刻 |
 
-### 7.2 Output
+### 7.2 出力
 
-The output is described in the table below:
+出力は以下の表に記載されています:
 
-| Value                                     | Type          |
-| ----------------------------------------- | ------------- |
-| The same date, but rounded down to years. | Date and time |
+| 値                  | タイプ   |
+| ------------------ | ----- |
+| 同じ日付が、年に切り下げられました。 | 日付と時刻 |
 
-### 7.3 Example
+### 7.3 例
 
-For example, you have a variable `$myDate` that represents '08-06-2008 10:12:51':
+たとえば、'08-06-2008 10:12:51'を表す変数 `$myDate` があります。
 
 ```java
 trimToYears($myDate)
 ```
 
-The output is:
+出力は:
 
 ```java
-'Tue Jan 01 00:00:00 CEST 2008'
+'Tue 1月01 00:00:00 CEST 2008'
 ```
