@@ -1,42 +1,42 @@
 ---
-title: "Published Web Services"
-parent: "integration"
+title: "公開されたウェブサービス"
+parent: "統合"
 menu_order: 30
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-This document describes published web services. If you're looking for specific information on the published web services screen, you can check the [Published web service](published-web-service) documentation.
+この文書では、公開された Web サービスについて説明します。 公開された Web サービスの画面で特定の情報を探している場合は、 [公開された Web サービス](published-web-service) のドキュメントを確認できます。
 
-You can publish your own web services in a Mendix application. These webservices are made up of operations. Other applications can then call operations of this webservice and you can return a result. This result is based on a microflow that will be executed when the webservice is called.
+Mendixアプリケーションで独自のWebサービスを公開できます。 これらのウェブサービスは操作で構成されています。 他のアプリケーションは、このWebサービスの操作を呼び出すことができ、結果を返すことができます。 この結果は、webservice が呼び出されたときに実行されるマイクロフローに基づいています。
 
-To enable usage of a microflow as a web service, right-click anywhere in the whitespace of the microflow and select "Publish as web service operation...".
+マイクロフローをWebサービスとして利用できるようにするには、マイクロフローの空白の任意の場所を右クリックし、「Webサービス運用として公開...」を選択します。
 
-## 2 Runtime Documentation
+## 2 ランタイムドキュメント
 
-When running, Mendix projects publish webservices documentation. The address is (if running locally) `http://localhost:8080/ws-doc/`. This documentation explains how the service can be used, in two ways:
+実行時にMendixプロジェクトはWebサービスのドキュメントを公開します。 The address is (if running locally) `http://localhost:8080/ws-doc/`. このドキュメントでは、サービスがどのように使用されるかを2つの方法で説明します。
 
 ### 2.1 WSDL
 
-This is an XML document that is computer readable. This means that Studio Pro can read this document and automatically figure out how to interact with the webservice.
+これは、コンピュータが読み取ることができるXMLドキュメントです。 これは、Studio Proがこのドキュメントを読んで、Webサービスとのやり取りを自動的に把握できることを意味します。
 
-### 2.2 Example Request/Response XML Messages
+### 2.2 リクエスト/応答 XML メッセージの例
 
-On the "Published webservices" page (`http://localhost:8080/ws-doc/`) you will also find a list of all operations, per published webservice. These link to pages which describe sample messages. Note that you do not need these examples when building a Mendix-to-Mendix interaction, they are there purely to help people who want to create their own clients.
+"公開済みWebサービス" ページ (`http://localhost:8080/ws-doc/`) には、公開済みWebサービスごとに、すべての操作のリストもあります。 サンプルメッセージを記述するページへのリンク。 Mendix-to-Mendix相互作用を構築する際に、これらの例は必要ないことに注意してください。 彼らは純粋に自分の顧客を作りたい人々を助けるためにいるのです
 
-## 3 How Does a Published Web Service Call Work?
+## 3公開されたWebサービスの通話はどのように機能しますか?
 
-A microflow that has been published can be called by systems from the outside. In this section, we will take a look at how this process works.
+発行されたマイクロフローは、外部からシステムによって呼び出すことができます。 このセクションでは、このプロセスがどのように動作するかを見ていきます。
 
-### 3.1 Call Is Initiated
+### 3.1 通話が開始されました
 
-A webservice call is simply a HTTP call that the runtime receives and recognizes as a webservice call. An XML message is received and parsed to a format that the runtime understands.
+Webサービス呼び出しは、ランタイムが受け取り、Webサービス呼び出しとして認識するHTTP呼び出しです。 XML メッセージが受信され、ランタイムが理解するフォーマットに解析されます。
 
-#### 3.1.1 Authentication
+#### 3.1.1 認証
 
-Every webservice call requires authentication. Specifically, the SOAP envelope header should contain an element called "authentication", which contains a username and password:
+Webサービスの呼び出しごとに認証が必要です。 具体的には、SOAP envelope ヘッダーにはユーザー名とパスワードが含まれる「認証」という要素が含まれている必要があります。
 
 ```xml
 <soap:Header>
@@ -48,28 +48,28 @@ Every webservice call requires authentication. Specifically, the SOAP envelope h
 
 ```
 
-These details _must_ match an existing webservice user in the runtime. These users can be created by signing in as an Administrator and clicking on "create webservice user" in the Users datagrid in the system module. Normal (non-webservice) users cannot be used to call webservices and webservice users cannot sign in via the standard login page.
+これらの詳細は __ ランタイム内の既存のWebサービスユーザーと一致する必要があります。 これらのユーザーは、管理者としてサインインし、システムモジュールのユーザデータグリッドの「Webサービスユーザーの作成」をクリックすることで作成できます。 通常(非Webサービス)のユーザーはWebサービスを呼び出すことはできませんし、Webサービスのユーザーは標準ログインページからログインできません。
 
-Other than that, there is no difference between how normal users and web service users call microflows.
+それ以外に、通常のユーザーとWebサービスのユーザーがマイクロフローと呼ぶ方法に違いはありません。
 
-#### 3.1.2 Parameter Handling
+#### 3.1.2 パラメーター処理
 
-Depending on which types of parameters are inputs to the published Microflow, two things can happen.
+パブリッシュされたMicroflowへの入力パラメータの種類に応じて、2つのことが起こります。
 
-If an input is a Domain Entity, the XML is translated to the entity using an XML-to-Domain mapping. Note that these mappings create actual domain objects, depending on the mapping.
+入力が Domain Entity の場合、XML は XML から Domain マッピングを使用してエンティティに変換されます。 これらのマッピングはマッピングに応じて実際のドメインオブジェクトを作成することに注意してください。
 
-Normal parameters (integer, string etc) aren't converted in any way and used as inputs directly.
+通常のパラメータ(整数、文字列など)はいかなる方法でも変換されず、直接入力として使用されます。
 
-### 3.2 Microflow Is Executed
+### 3.2 マイクロフローが実行されます
 
-Once the parameters have been parsed from the XML, the microflow call proceeds as normal.
+XML からパラメータが解析されると、マイクロフローの呼び出しは通常通りに進行します。
 
-### 3.3 Result Is Converted Back to XML
+### 3.3 結果は XML に戻ります
 
-If the microflow has a return value, it will be returned as a result of the webservice call. As with the parameters, basic types will be returned directly, and Domain Entities require a mapping to be converted to XML. Formatting of numbers is consistent between consumed and published web services. Trailing zeroes are removed from numbers and no scientific notation is used.
+マイクロフローが戻り値を持つ場合、それは webservice 呼び出しの結果として返されます。 パラメータと同様に、基本型は直接返され、ドメインエンティティは XML に変換されるマッピングが必要です。 数値の書式設定は、消費されたWebサービスと公開されたWebサービスの間で一貫しています。 ゼロの末尾は数字から削除され、科学的表記は使用されません。
 
-### 3.4 Response Statuses
+### 3.4 応答ステータス
 
-The default HTTP status code in the response is 200 (OK). When the client sends a malformed request, or when an internal server error occurs, the runtime responds with a SOAP fault. The HTTP header will contain status 500 in these cases.
+レスポンスのデフォルトのHTTPステータスコードは200(OK)です。 クライアントが不正な形式のリクエストを送信した場合、または内部サーバーエラーが発生したとき、ランタイムはSOAP障害で応答します。 HTTPヘッダーには、これらの場合にステータス500が含まれます。
 
-Please note that the status code is sent before the actual response. If during the response sending an error occurs, the response status cannot be changed. This means that the receiving side may receive a status code 200, even though the service failed afterwards during the serialization of the response. The reason for this is that to optimize memory usage we do not create the entire response in memory. Instead, during serialization the response is immediately sent to the client to free up memory. This means that you need to make sure you have the data needed to create a valid response before finishing the webservice.
+ステータスコードは実際のレスポンスの前に送信されますのでご注意ください。 応答中にエラーが発生した場合、応答ステータスは変更できません。 これは、レスポンスのシリアル化中にサービスが失敗した場合でも、受信側がステータスコード200を受け取ることができることを意味します。 その理由は、メモリ使用量を最適化するために、メモリに応答全体を作成しないことです。 代わりに、シリアル化中に、応答はすぐにクライアントに送信され、メモリを解放します。 つまり、Webサービスを終了する前に、有効なレスポンスを作成するために必要なデータがあることを確認する必要があります。
