@@ -1,55 +1,55 @@
 ---
-title: "Indexes"
-parent: "entities"
+title: "インデックス"
+parent: "エンティティ"
 menu_order: 60
 tags:
-  - "domain model"
-  - "entity"
-  - "attribute"
-  - "index"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "属性"
+  - "インデックス"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Indexes** are lists of attributes for which a database index is created on the underlying database table of the entity. Indexes improve the speed of retrieving objects if the indexed attributes are used in a search field, the XPath constraint of a data grid or template grid, or a `WHERE` clause of an OQL query. However, search fields where the `Comparison` property has value `Contains` do not take advantage of the improved performance.
+**インデックス** は、エンティティの基盤となるデータベーステーブル上にデータベースインデックスが作成される属性のリストです。 インデックス付けされた属性が検索フィールドで使用されている場合、インデックスはオブジェクトを取得する速度を向上させます。 データ グリッドまたはテンプレート グリッドの XPath 条件式、または OQL クエリの `WHERE` 節。 ただし、 `比較` プロパティが値 `を含む` を持つ検索フィールドは、パフォーマンスの向上を利用しません。
 
-Indexes can be added and edited from the **Indexes** tab of the entity properties.
+インデックスはエンティティプロパティの **インデックス** タブから追加および編集できます。
 
-![Example of index tab](attachments/domain-model/index-properties.png)
+![インデックスタブの例](attachments/domain-model/index-properties.png)
 
 {{% alert type="info" %}}
-Index properties are read-only for external entities. For further details, see [External Entities](external-entities).
+インデックスプロパティは外部エンティティの読み取り専用です。 詳細については、 [外部エンティティ](external-entities) を参照してください。
 {{% /alert %}}
 
-## 2 Important Considerations
+## 2つの重要な考慮事項
 
-### 2.1 Order of Attributes
+### 2.1 属性の順序
 
-Indexes are ordered, which means that when you create an index on two or more attributes it is important to consider the order of the attributes. To take advantage of the improved performance when searching or querying on multiple attributes, these attributes should be in the same order as those in the index. By extension, when the retrieval is constrained by only one attribute, the improved performance is only achieved if this is the first attribute in the index.
+インデックスは順序付けされています つまり、2つ以上の属性にインデックスを作成する場合、属性の順序を考慮することが重要です。 複数の属性を検索またはクエリする際のパフォーマンスの向上を利用するために。 これらの属性はインデックスの属性と同じ順序である必要があります。 拡張機能により、検索が1つの属性のみに制限される場合。 パフォーマンスの向上は、インデックスの最初の属性の場合にのみ達成されます。
 
-### 2.2 Indexes on System Members
+### 2.2 システムメンバーのインデックス
 
-If you choose to store an entity's `owner` and `changedBy` system members, an index is created. This is not so for the `createdDate` and `changedDate` system members. In addition, an index is created for the automatically generated attribute `id`. See [Domain Model](domain-model) for more information about the implementation of these attributes.
+エンティティの `所有者` と `changedBy` システムメンバを保存することを選択すると、インデックスが作成されます。 これは、 `createdDate` と `changedDate` システムメンバーにとってはそうではありません。 また、自動生成された属性 `id` のインデックスが作成されます。 これらの属性の実装に関する詳しい情報は [Domain Model](domain-model) を参照してください。
 
-### 2.3 Indexes on Non-Persistable Entities
+### 非持続可能エンティティ上の2.3 インデックス
 
-You can only define indexes for persistable entities as indexes are a database concept. Consequently, indexes are disabled for non-persistable entities.
+データベースの概念として、持続可能エンティティのインデックスのみを定義できます。 したがって、非持続可能エンティティではインデックスは無効になります。
 
-### 2.4 Performance Considerations
+### 2.4 パフォーマンスに関する考慮事項
 
-Changing and deleting objects of an entity with indexes takes longer, because the index needs to be updated in addition to the actual data. Therefore, for attributes that are rarely used as criteria in a search or query, only create an index if the increase in retrieval performance justifies the decrease in update performance.
+インデックスを持つエンティティのオブジェクトの変更と削除は、実際のデータに加えてインデックスを更新する必要があるため、時間がかかります。 したがって、検索やクエリではほとんど条件として使用されない属性に対して。 検索パフォーマンスの向上が更新パフォーマンスの低下を正当化する場合にのみインデックスを作成します。
 
-## 3 Example
+## 3つの例
 
-Customers are usually retrieved by a combination of ZIP code and house number. So, *one* index is set on the combination of the attributes:
+顧客は通常、郵便番号と家番号の組み合わせで取得されます。 したがって、 *1つの* インデックスは属性の組み合わせに設定されます。
 
 ![](attachments/domain-model/customer-index-example.png)
 
-The objects are retrieved by the following OQL query – note that the order of the attributes in the `WHERE` clause is the same as the order of the attributes for the index:
+オブジェクトは以下の OQL クエリによって取得されます。 `WHERE` 節の属性の順序は、インデックスの属性の順序と同じであることに注意してください。
 
 ```sql
 FROM Module.Customer AS c
-WHERE c.zipcode = $ParameterZipCode AND c.housenumber = $ParameterHouseNumber
+WHERE c.zipcode = $ParameterZipCode AND c.houshouseenumber = $ParameterHouseNumber
 SELECT c.name AS CustomerName
 ```
