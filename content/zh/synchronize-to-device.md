@@ -1,74 +1,69 @@
 ---
-title: "Synchronize to Device"
-parent: "client-activities"
+title: "同步到设备"
+parent: "客户活动"
 tags:
   - "studio pro"
-  - "synchronize to device"
-  - "client activities"
+  - "同步到设备"
+  - "客户活动"
 menu_order: 60
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/synchronize-to-device.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
-{{% /alert %}}
+此活动只能用于在离线第一个应用程序中运行的 **微流程** (本地或离线PWA应用程序)。
+{{% /报警 %}}
 
-## 1 Introduction
+## 1 导言
 
-The **Synchronize to device** activity can be used to selectively synchronize one or more objects or lists to a device and store them in the offline database. It is meant to be used in offline apps and does nothing when used in online ones.
+**与设备** 活动同步可以有选择地同步一个或多个对象或列表到设备并将它们存储在离线数据库中。 它意在用于离线应用，当在线应用时不做任何事情。
 
 {{% image_container width="200" %}}
-![Synchronize to device](attachments/client-activities/synchronize-to-device-action.png)
+![同步到设备](attachments/client-activities/synchronize-to-device-action.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2 属性
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+该活动有两组属性。 左侧对话框中的人，以及右侧属性窗格中的人：
 
-![Synchronize to device Properties](attachments/client-activities/synchronize-to-device-action-properties.png)
+![同步到设备属性](attachments/client-activities/synchronize-to-device-action-properties.png)
 
-The **Synchronize to device** activity properties consists of the following sections:
+**与设备** 活动属性同步由以下部分组成：
 
-* [Action](#action)
-* [Common](#common)
+* [行 动](#action)
+* [常用的](#common)
 
-## 3 Action Section {#action}
+## 3 行动科 {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+属性窗格的 **动作** 部分显示与此活动相关的动作。
 
-You can open a dialog box to configure this action by clicking the ellipsis (…) next to the action.
+您可以打开对话框来配置此动作，点击动作旁边的椭圆(…)。
 
 You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
 
-### 3.1 Object or List
+### 3.1 目标或清单
 
-A variable that refers to an object or a list to be synchronized.
+指向要同步的对象或列表的变量。
 
-## 4 Common Section {#common}
+## 4 共同部分 {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Limitations
+## 5 限制
 
-When adding **Synchronize to device** to a microflow consider the following:
+将 **同步到设备** 到微流程时考虑以下因素：
 
-* Only persistable objects or lists of persistable objects that you use in your offline-first app can be synchronized.
-* If the current user cannot access some of the objects due to access rules, they will not be synchronized to a device. If the offline database already contains the same object, it will be removed.
-* If the object to synchronize to a device is deleted in the same microflow, **Synchronize to device** activity will remove it from the offline database, if found.
-* Autocommited and new objects get skipped.
-* Synchronizing files is not allowed.
-* It will only synchronize objects in a microflow that are called from a nanoflow, not from an event microflow.
+* 只有您在离线第一个应用程序中使用的可持久对象或可持久对象列表才能同步。
+* 如果当前用户由于访问规则无法访问某些对象， 他们将不会同步到设备。 如果离线数据库已经包含相同对象，它将被删除。
+* 如果要同步到设备的对象在相同的微流中被删除， **同步到设备** 活动将从离线数据库中删除，如果找到的话。
+* 自动跳过并跳过新的对象。
+* 它只会同步来自纳米流而非事件微流的微流中的物体。
 
-## 6 Remarks
+## 6 点评论
 
-When adding **Synchronize to device** to a microflow consider the following:
+将 **同步到设备** 到微流程时考虑以下因素：
 
-* This action should be used in combination with the [Nothing (preserve data)](offline-first#customizable-synchronization) option to make sure your data is not cleared during a synchronize action.
-* **Synchronize to device** action works in an append mode, it does not replace all data in the database. Any existing data is kept and only objects that are sent to the client are affected.
-* synchronizing the same object or list multiple times will synchronize it only once. The latest commited state will be synchronized.
-* When synchronizing an already existing dirty object, dirty values are overridden and dirty status is cleaned. But uncommitted changes are still available in the app until you rollback the object.
-* **Synchronize to device** always overrides the existing data when the same object has been found in the database. That means if **Synchronize to device** is used for offline objects that were changed and commited in offline, all those changes will be lost and attributes of the affected objects will be reset to their runtime values.
-* Uncommitted changes in a microflow for synchronized objects are sent to the client, but the objects rollback to their offline versions.
+* 此动作应与 [没有 (保留数据)](offline-first#customizable-synchronization) 选项结合使用，以确保您的数据在同步操作过程中没有被清除。
+* **同步到设备** 动作在附加模式下工作，它不能替换数据库中的所有数据。 任何现有数据都被保存，只有发送给客户的对象才会受到影响。
+* 同步同一个对象或多次列表将只同步一次。 最新的被命令的状态将被同步。
+* 当同步已存在的肮脏对象时，肮脏的值会被覆盖，并且清理脏状态。 但未承诺的更改在应用程序中仍然可用，直到你回滚对象。
+* **同步到设备** 总是在数据库中找到相同对象时覆盖现有数据。 这意味着如果 **同步到设备** 被用于离线被更改并在离线中执行的离线对象。 所有这些更改将丢失，受影响对象的属性将被重置为运行时值。
+* 用于同步对象的微流中未提交的更改将发送给客户端，但对象回滚到离线版本。
