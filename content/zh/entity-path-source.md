@@ -1,17 +1,17 @@
 ---
-title: "Context Source"
-parent: "data-sources"
+title: "上下文来源"
+parent: "数据来源"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The context source is one possible data source for a data view. Data views with this data source get their object from the context, which can be one of two things:
+上下文源是数据视图的一个可能的数据源。 使用此数据源的数据视图从上下文中获得对象，这可以是两件事之一：
 
-* A surrounding data container such as a data view or list view – in this case, the entity (path) property should be an entity path following the associations from the entity of the container
-* The page parameter's value – the page parameter will contain the object that is passed to the page when opening it (either another page passing the selection of a grid or a microflow passing an object from the show page action)
+* 周围的数据容器，如数据视图或列表视图 - 在此情况下 实体(路径)属性应该是从容器的实体中跟随社团的实体路径
+* 页面参数的值——页面参数将包含打开页面时传递到页面的对象(要么是通过网格选择的另一页，要么是通过显示页面动作传递对象的微流程)
 
-## 2 Properties
+## 2 属性
 
-### 2.1 Entity (Path)
+### 2.1 实体(道路)
 
-The entity (path) property specifies the entity that will be shown in the data view. For a top-level data view, this is simply an entity. In this case, the opener of the page supplies the object that will be shown. A nested data view has an entity **path** that follows associations from the enclosing data container.
+实体(路径)属性指定将显示在数据视图中的实体。 对于高层数据而言，这只是一个实体。 在这种情况下，页面开启器提供将显示的对象。 嵌套的数据视图有一个实体 **路径** ，它跟随来自封闭数据容器的关联。
