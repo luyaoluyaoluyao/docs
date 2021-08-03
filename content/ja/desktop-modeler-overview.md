@@ -1,236 +1,236 @@
 ---
-title: "Desktop Modeler Overview"
-category: "Desktop Modeler"
-description: "Describes the Desktop Modeler in general: tabs, menus, shortcut keys."
+title: "デスクトップ モデラーの概要"
+category: "デスクトップ モデラー"
+description: "Desktop Modelerの一般的な説明:タブ、メニュー、ショートカットキー。"
 menu_order: 10
 tags:
-  - "desktop modeler"
+  - "デスクトップモデラー"
 aliases:
   - /refguide7/modeler.html
   - /refguide7/Modeler.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The Mendix Desktop Modeler is the tool for creating, viewing, and editing your Mendix applications. A Mendix app is called a [project](project) in the Modeler. A project consists of many documents that are grouped in [modules](modules) and folders. There are some project-level settings, but the core of the functionality is inside the modules. Examples of documents are [project settings](project-settings), [domain models](domain-model), [pages](pages), and [microflows](microflows). One Modeler instance can have only one project open at a time, but you can open two Modeler instances when necessary.
+Mendix Desktop Modelerは、Mendixアプリケーションの作成、表示、および編集のためのツールです。 Mendixアプリはモデラーでは [プロジェクト](project) と呼ばれます。 プロジェクトは、 [モジュール](modules) とフォルダにグループ化された多くのドキュメントで構成されています。 いくつかのプロジェクトレベル設定がありますが、機能のコアはモジュール内にあります。 ドキュメントの例としては、 [プロジェクト設定](project-settings)、 [ドメインモデル](domain-model)、 [ページ](pages)、 [microflow](microflows) があります。 1つのModelerインスタンスは、一度に1つのプロジェクトしか開くことができませんが、必要に応じて2つのModelerインスタンスを開くことができます。
 
-This documentation describes the graphical user interface of the Modeler. The rest of the documentation follows the structure of the project explorer.
+このドキュメントでは、モデラーのグラフィカルユーザーインターフェイスについて説明します。 残りのドキュメントは、プロジェクトエクスプローラの構造に従います。
 
 {{% alert type="success" %}}
 
-Press <kbd>F1</kbd> while in the Desktop Modeler to quickly jump to the right page in the documentation.
+Desktop Modelerで <kbd>F1</kbd> を押すと、ドキュメント内の適切なページにすばやく移動します。
 
 {{% /alert %}}
 
 ## 2 Dockable Window Panes {#dockable-panes}
 
-The Modeler supports a number of dockable window panes. You can close some panes to just show the ones you need at the moment, but you can always reopen them via the **View** menu.
+モデラーは、ドッキング可能なウィンドウペインの数をサポートしています。 いくつかのウィンドウを閉じて、必要なものを表示することができます。 しかし、いつでも **ビュー** メニューから開くことができます。
 
-The table below describes all the available dockable window panes.
+以下の表は、利用可能なドッキング可能なウィンドウペインを示しています。
 
-| Pane                            | Description                                                                                                                                                                                                                                                                                                              |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Breakpoints (via Debug Windows) | Shows all breakpoints in the project. You can enable/disable breakpoints from here.                                                                                                                                                                                                                                      |
-| Changes                         | For [Team Server](team-server) projects, this pane shows the local changes to the project since the last commit. You can commit changes, update to the latest revision and view the history from here.                                                                                                                   |
-| Connector                       | Shows what elements can be connected to the currently selected element. For example, when a button is a selected, the connector will show microflows that you can drag and drop onto the button to connect them.                                                                                                         |
-| Console                         | Shows the output of the Mendix Runtime while running an application.                                                                                                                                                                                                                                                     |
-| Debugger (via Debug Windows)    | This can be used to debug your application.                                                                                                                                                                                                                                                                              |
-| Documentation                   | Shows the documentation for the currently selected element (if applicable).                                                                                                                                                                                                                                              |
-| Error List                      | Shows the errors and warning currently in your project.                                                                                                                                                                                                                                                                  |
-| Find Results                    | Shows the results of the latest find action. You can search for text, for usages of an element (for example, attribute) and for unused items. There are two **Find Results** panes. If you lock the results of the first pane, the second one will be used for subsequent find operations until you unlock it.           |
-| Get Started                     | Shows useful resources for getting started with the Mendix Modeler.                                                                                                                                                                                                                                                      |
-| Project Explorer                | Shows the complete structure of your project including all documents inside the modules. By default the active document is always selected in the project explorer so you can quickly see where the document you are editing is in the tree. You can change this behavior in the **Edit** > **Preferences** window pane. |
-| Properties                      | Shows properties of the currently selected element. This is where a lot of editing in the Modeler takes place.                                                                                                                                                                                                           |
-| Stories                         | For [Team Server](team-server) enabled projects, this pane shows the stories of the current sprint.                                                                                                                                                                                                                      |
-| Toolbox                         | Shows the tools that can be used in the current editor. For example, in a page you can insert all kinds of widgets (for example, text box and data view) by dragging them from the **Toolbox** to your form.                                                                                                             |
-| Variables (via Debug Windows)   | You can view the current values of variables here when debugging your application.                                                                                                                                                                                                                                       |
+| ペイン                   | 説明                                                                                                                                                                |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ブレークポイント(デバッグウィンドウ経由) | プロジェクト内のすべてのブレークポイントを表示します。 ここからブレークポイントを有効/無効にすることができます。                                                                                                         |
+| 変更                    | [Team Server](team-server) プロジェクトの場合、このペインには前回のコミット以降のプロジェクトのローカル変更が表示されます。 変更をコミットしたり、最新のリビジョンに更新したり、ここから履歴を見ることができます。                                           |
+| コネクタ                  | 現在選択されている要素に接続できる要素を表示します。 例えば、ボタンが選択されている場合、コネクタには、ボタンにドラッグ&ドロップして接続できるマイクロフローが表示されます。                                                                           |
+| コンソール                 | アプリケーションの実行中に Mendix Runtime の出力が表示されます。                                                                                                                          |
+| デバッガー (デバッグウィンドウ経由)   | これはアプリケーションのデバッグに使用できます。                                                                                                                                          |
+| ドキュメント                | 現在選択されている要素のドキュメントを表示します (該当する場合)。                                                                                                                                |
+| エラーリスト                | 現在プロジェクトにエラーと警告が表示されます。                                                                                                                                           |
+| 検索結果                  | 最新の検索アクションの結果を表示します。 テキスト、要素の使用 (属性など) 、および使用されていないアイテムを検索できます。 **検索結果** ペインは 2 つあります。 最初のペインの結果をロックすると、2番目のペインはロックを解除するまでその後の検索操作に使用されます。                        |
+| はじめよう                 | Mendix Modelerを使い始めるための有用なリソースを表示します。                                                                                                                             |
+| プロジェクトエクスプローラー        | モジュール内のすべてのドキュメントを含むプロジェクトの完全な構造を表示します。 デフォルトでは、プロジェクトエクスプローラでアクティブなドキュメントが常に選択されているため、編集するドキュメントがツリー内にある場所をすばやく確認できます。 この動作は、 **編集** > **環境設定** ウィンドウペインで変更できます。 |
+| プロパティー                | 現在選択されている要素のプロパティを表示します。 これがモデラーの多くの編集が行われる場所です。                                                                                                                  |
+| ストーリー                 | [Team Server](team-server) が有効になっているプロジェクトの場合、このペインには現在のスプリントのストーリーが表示されます。                                                                                       |
+| ツールバー                 | 現在のエディタで使用できるツールが表示されます。 たとえば、ページ内にすべての種類のウィジェットを挿入することができます (例えば、 **ツールボックス** からフォームにドラッグします。                                                                    |
+| 変数（Windowsのデバッグ経由）    | アプリケーションのデバッグ時に変数の現在の値をここで確認できます。                                                                                                                                 |
 
-## 3 Document Tabs
+## 3つのドキュメントタブ
 
-Documents that you are viewing and/or editing at the moment are shown in tabs. You can have a number of tabs open, just like in a modern web browser. They can be closed, reordered, and shown side by side. Each document has its own save state and history/future. Undo and redo actions are unlimited.
+現在表示および/または編集中のドキュメントがタブに表示されます。 最新のWebブラウザのように、開いているタブの数を増やすことができます。 彼らは閉じることができます, 並べ替え, 並んで表示されます. 各ドキュメントには、独自の保存状態と履歴/未来があります。 元に戻す/やり直すアクションは制限されません。
 
 ## 4 Menus {#menus}
 
-Using items in the menu bar of the Modeler, you can create new projects, deploy and run them, search for text, and more.
+Modelerのメニューバーにある項目を使用すると、新しいプロジェクトを作成し、デプロイして実行し、テキストを検索するなどできます。
 
-### 4.1 File Menu
+### 4.1 ファイルメニュー
 
-| Menu Item              | Description                                                                                                                                                                                           | Shortcut Key                                      |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| New Document           | Creates a new document within the project that is currently open. You can choose the name, location and type of the document.                                                                         | <kbd>Ctrl</kbd> + <kbd>N</kbd>                    |
-| New Project            | Creates a new single-developer project. A single-developer project is simply a file (with the extension *.mpr* , which stands for "Mendix project") that is stored in the local file system.          | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> |
-| Open Project           | Opens an existing single-developer project (*.mpr*) or a project package (*.mpk*). See **New Project** above for information on single-developer projects.                                            | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
-| Recent Projects        | Shows a list of recently opened projects for quick opening.                                                                                                                                           |                                                   |
-| Save                   | Saves the changes in the currently active document tab.                                                                                                                                               | <kbd>Ctrl</kbd> + <kbd>S</kbd>                    |
-| Save All               | Saves the changes in all documents that are open.                                                                                                                                                     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |
-| Close                  | Closes the current document. You will be asked to save or discard changes when needed.                                                                                                                | <kbd>Ctrl</kbd> + <kbd>W</kbd>                    |
-| Close All              | Closes all document tabs. You will be asked to save or discard changes when needed.                                                                                                                   | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> |
-| Close Project          | Closes the currently open project and return to the start page.                                                                                                                                       |                                                   |
-| Export as Image        | Exports the current document as an image in the *.png* format. The following document types can be exported as images: forms, microflows, domain models, document templates, and XML mappings.        |                                                   |
-| Export Project Package | Exports the current app to a project package (*.mpk*) file. This is useful for example when you want to give someone the entire app, or when you need to provide a test app when submitting a ticket. |                                                   |
-| Import Project Package | Imports a project package that was created with the **Export Project Package** menu item.                                                                                                             |                                                   |
-| Exit                   | Closes the Modeler                                                                                                                                                                                    |                                                   |
+| メニュー項目             | 説明                                                                                                                                                                         | ショートカットキー                                         |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| 新しいドキュメント          | 現在開いているプロジェクト内に新しいドキュメントを作成します。 ドキュメントの名前、場所、種類を選択できます。                                                                                                                    | <kbd>Ctrl</kbd> + <kbd>N</kbd>                    |
+| 新規プロジェクト           | 新しい単一開発者プロジェクトを作成します。 A single-developer project is simply a file (with the extension *.mpr* , which stands for "Mendix project") that is stored in the local file system. | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd> |
+| プロジェクトを開く          | 既存の単一開発者プロジェクト (*.mpr*) またはプロジェクトパッケージ (*.mpk* ) を開きます。 単一開発プロジェクトについては、上記の **New Project** を参照してください。                                                                     | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd> |
+| 最近のプロジェクト          | 最近開いたプロジェクトのリストを表示します。                                                                                                                                                     |                                                   |
+| 保存                 | 現在アクティブなドキュメントタブに変更を保存します。                                                                                                                                                 | <kbd>Ctrl</kbd> + <kbd>S</kbd>                    |
+| すべて保存              | 開いているすべてのドキュメントに変更を保存します。                                                                                                                                                  | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> |
+| 閉じる                | 現在のドキュメントを閉じます。 必要に応じて変更を保存または破棄するよう求められます。                                                                                                                                | <kbd>Ctrl</kbd> + <kbd>W</kbd>                    |
+| すべて閉じる             | すべてのドキュメントタブを閉じます。 必要に応じて変更を保存または破棄するよう求められます。                                                                                                                             | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>W</kbd> |
+| プロジェクトを閉じる         | 現在開いているプロジェクトを閉じ、開始ページに戻ります。                                                                                                                                               |                                                   |
+| 画像としてエクスポート        | 現在のドキュメントを *.png* 形式の画像としてエクスポートします。 フォーム、マイクロフロー、ドメインモデル、ドキュメントテンプレート、XML マッピングとして、次のドキュメント型をイメージとしてエクスポートすることができます。                                                      |                                                   |
+| プロジェクトパッケージのエクスポート | 現在のアプリをプロジェクト パッケージ (*.mpk*) ファイルにエクスポートします。 これは、誰かにアプリ全体を渡したい場合などに便利です。 またはチケットを提出する際にテストアプリを提供する必要がある場合。                                                                 |                                                   |
+| プロジェクトパッケージのインポート  | **プロジェクトパッケージのエクスポート** メニュー項目で作成されたプロジェクトパッケージをインポートします。                                                                                                                   |                                                   |
+| 終了                 | モデラーを閉じる                                                                                                                                                                   |                                                   |
 
-### 4.2 Edit Menu
+### 4.2 編集メニュー
 
-| Menu Item            | Description                                                                                                                                                                                                                                                                                                                                                                            | Shortcut Key                                      |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| Undo                 | Undoes the last action in a document tab. Undo and redo actions are unlimited.                                                                                                                                                                                                                                                                                                         | <kbd>Ctrl</kbd> + <kbd>Z</kbd>                    |
-| Redo                 | Redoes the last action that was undone in a document tab.                                                                                                                                                                                                                                                                                                                              | <kbd>Ctrl</kbd> + <kbd>Y</kbd>                    |
-| Cut                  | Copies the selected element to the clipboard and delete it.                                                                                                                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>X</kbd>                    |
-| Copy                 | Copies the selected element to the clipboard.                                                                                                                                                                                                                                                                                                                                          | <kbd>Ctrl</kbd> + <kbd>C</kbd>                    |
-| Paste                | Pastes the contents of the clipboard in the current editor.                                                                                                                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>V</kbd>                    |
-| Delete               | Deletes the selected element.                                                                                                                                                                                                                                                                                                                                                          | <kbd>Delete</kbd>                                 |
-| Find                 | Searches the model for text. The following texts are searched: all texts that appear in the end user interface (captions of labels, buttons, etc); names and documentation of documents; entity, association, and attribute names and documentation; access rule documentation; form widget names; captions and documentation of microflow objects; variable definitions in microflow. | <kbd>Ctrl</kbd> + <kbd>F</kbd>                    |
-| Find Advanced        | Opens a dialog box that allows for advanced search operations. Examples are searching for any document type and searching for unused documents.                                                                                                                                                                                                                                        | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
-| Find Usages          | Opens the **Find Results** pane and displays usages of the selected object.                                                                                                                                                                                                                                                                                                            | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>   |
-| Next Find Result     | Highlights the next find result in the **Find Results** pane and open it in an editor.                                                                                                                                                                                                                                                                                                 | <kbd>F3</kbd>                                     |
-| Previous Find Result | Highlights the previous find result in the **Find Results** pane and open it in an editor.                                                                                                                                                                                                                                                                                             | <kbd>Shift</kbd> + <kbd>F3</kbd>                  |
-| Go to                | Quickly navigates to any document or domain model element in the project by typing a few letters and pressing <kbd>Enter</kbd>.                                                                                                                                                                                                                                                        | <kbd>Ctrl</kbd> + <kbd>G</kbd>                    |
-| Next Error           | Highlights the next error in the **Error List** pane and open it in an editor.                                                                                                                                                                                                                                                                                                         | <kbd>F8</kbd>                                     |
-| Previous Error       | Highlights the previous error result in the **Error List** pane and open it in an editor.                                                                                                                                                                                                                                                                                              | <kbd>Shift</kbd> + <kbd>F8</kbd>                  |
-| Preferences          | Opens the **Preferences** dialog box, where you can set your general, model, and advanced editing preferences.                                                                                                                                                                                                                                                                         |                                                   |
+| メニュー項目 | 説明                                                                                                                                                                                               | ショートカットキー                                         |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------- |
+| 元に戻す   | ドキュメントタブの最後の操作を元に戻します。 元に戻す/やり直すアクションは制限されません。                                                                                                                                                   | <kbd>Ctrl</kbd> + <kbd>Z</kbd>                    |
+| Redo   | ドキュメントタブで取り消された最後のアクションをやり直します。                                                                                                                                                                  | <kbd>Ctrl</kbd> + <kbd>Y</kbd>                    |
+| 切り取り   | 選択した要素をクリップボードにコピーし、削除します。                                                                                                                                                                       | <kbd>Ctrl</kbd> + <kbd>X</kbd>                    |
+| コピー    | 選択した要素をクリップボードにコピーします。                                                                                                                                                                           | <kbd>Ctrl</kbd> + <kbd>C</kbd>                    |
+| 貼り付け   | クリップボードの内容を現在のエディタに貼り付けます。                                                                                                                                                                       | <kbd>Ctrl</kbd> + <kbd>V</kbd>                    |
+| 削除     | 選択した要素を削除します。                                                                                                                                                                                    | <kbd>削除</kbd>                                     |
+| 検索     | テキストのモデルを検索します。 次のテキストが検索されます: エンドユーザーインターフェイスに表示されるすべてのテキスト (ラベル、ボタンなどのキャプション); ドキュメントの名前とドキュメント; エンティティ、関連付け、属性名とドキュメント; ルールドキュメントへのアクセス; ウィジェット名; マイクロフローオブジェクトのキャプションとドキュメント; マイクロフロー内の変数定義。 | <kbd>Ctrl</kbd> + <kbd>F</kbd>                    |
+| 高度な検索  | 高度な検索操作を可能にするダイアログボックスを開きます。 例は、任意のドキュメントタイプを検索し、使用されていないドキュメントを検索します。                                                                                                                           | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd> |
+| 使い方を探す | **検索結果** ペインを開き、選択したオブジェクトの使用状況を表示します。                                                                                                                                                           | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>   |
+| 次の検索結果 | **検索結果** ペインで次の検索結果をハイライトし、エディタで開きます。                                                                                                                                                            | <kbd>(F3)</kbd>                                   |
+| 前の検索結果 | **検索結果** ペインで前の検索結果をハイライトし、エディタで開きます。                                                                                                                                                            | <kbd>Shift</kbd> + <kbd>M3</kbd>                  |
+| 移動     | いくつかの文字を入力して <kbd>Enter</kbd> を押して、プロジェクト内の任意のドキュメントまたはドメインモデル要素にすばやく移動します。                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>G</kbd>                    |
+| 次のエラー  | **Error List** ペインで次のエラーを強調表示し、エディタで開きます。                                                                                                                                                        | <kbd>(F8)</kbd>                                   |
+| 以前のエラー | **Error List** ペインで前のエラー結果をハイライトし、エディタで開きます。                                                                                                                                                     | <kbd>Shift</kbd> + <kbd>F8</kbd>                  |
+| 設定     | **環境設定** ダイアログボックスを開き、一般、モデル、および高度な編集環境設定を設定できます。                                                                                                                                                |                                                   |
 
-### 4.3 View Menu
+### 4.3 表示メニュー
 
-| Menu Item                   | Description                                                                                           | Shortcut Key   |
-| --------------------------- | ----------------------------------------------------------------------------------------------------- | -------------- |
-| Changes                     | Opens the dockable window pane [Changes](#dockable-panes).                                            |                |
-| Connector                   | Opens the dockable window pane [Connector](#dockable-panes).                                          |                |
-| Console                     | Opens the dockable window pane [Console](#dockable-panes).                                            |                |
-| Documentation               | Opens the dockable window pane [Documentation](#dockable-panes).                                      |                |
-| Error List                  | Opens the dockable window pane [Error List](#dockable-panes).                                         |                |
-| Find Results 1              | Opens the dockable window pane [Find Results 1](#dockable-panes).                                     |                |
-| Find Results 2              | Opens the dockable window pane [Find Results 2](#dockable-panes).                                     |                |
-| Project Explorer            | Opens the dockable window pane [Project Explorer](#dockable-panes).                                   |                |
-| Properties                  | Opens the dockable window pane [Properties](#dockable-panes).                                         |                |
-| Stories                     | Opens the dockable window pane [Stories](#dockable-panes).                                            |                |
-| Toolbox                     | Opens the dockable window pane [Toolbox](#dockable-panes).                                            |                |
-| Debug Windows > Breakpoints | Opens the dockable window pane [Breakpoints](#dockable-panes).                                        |                |
-| Debug Windows > Debugger    | Opens the dockable window pane [Debugger](#dockable-panes).                                           |                |
-| Debug Windows > Variables   | Opens the dockable window pane [Variables](#dockable-panes).                                          |                |
-| Full Screen                 | Temporarily hides all dockable window panes so that the tabbed documents can be shown in full screen. | <kbd>F11</kbd> |
-| Reset Layout                | Resets the layout of the Modeler to factory defaults.                                                 |                |
+| メニュー項目                  | 説明                                                         | ショートカットキー      |
+| ----------------------- | ---------------------------------------------------------- | -------------- |
+| 変更                      | ドッキング可能なウィンドウペイン [変更](#dockable-panes) を開きます。              |                |
+| コネクタ                    | ドッキング可能なウィンドウペイン [コネクタ](#dockable-panes) を開きます。            |                |
+| コンソール                   | ドッキング可能なウィンドウ ペイン [コンソール](#dockable-panes) を開きます。          |                |
+| ドキュメント                  | ドッキング可能なウィンドウ ペイン [ドキュメント](#dockable-panes) を開きます。         |                |
+| エラーリスト                  | ドッキング可能なウィンドウ ペイン [エラーリスト](#dockable-panes) を開きます。         |                |
+| 検索結果1                   | ドッキング可能なウィンドウペイン [結果を検索1](#dockable-panes) を開きます。          |                |
+| 検索結果2                   | ドッキング可能なウィンドウペイン [結果を検索2](#dockable-panes) を開きます。          |                |
+| プロジェクトエクスプローラー          | ドッキング可能なウィンドウ ペイン [プロジェクト エクスプローラ](#dockable-panes) を開きます。 |                |
+| プロパティー                  | ドッキング可能なウィンドウ ペイン [プロパティ](#dockable-panes) を開きます。          |                |
+| ストーリー                   | ドッキング可能なウィンドウ ペイン [ストーリー](#dockable-panes) を開きます。          |                |
+| ツールバー                   | ドッキング可能なウィンドウペイン [ツールボックス](#dockable-panes) を開きます。         |                |
+| Windows > ブレークポイントのデバッグ | ドッキング可能なウィンドウペイン [ブレークポイント](#dockable-panes) を開きます。        |                |
+| デバッグ Windows > デバッガー    | ドッキング可能なウィンドウ ペイン [デバッガー](#dockable-panes) を開きます。          |                |
+| Windows > 変数のデバッグ       | ドッキング可能なウィンドウペイン [変数](#dockable-panes) を開きます。              |                |
+| 全画面                     | タブ付きドキュメントを全画面表示できるように、一時的にすべてのドッキング可能なウィンドウペインを非表示にします。   | <kbd>F11</kbd> |
+| レイアウトをリセット              | Modelerのレイアウトを工場出荷時のデフォルトにリセットします。                         |                |
 
-### 4.4 Project Menu
+### 4.4 プロジェクトメニュー
 
-| Menu Item                                              | Description                                                                                                                                                                                                                                                                                                                              | Shortcut Key                    |
-| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| Update                                                 | Updates the local app to the latest revision that was committed to the version control server.                                                                                                                                                                                                                                           |                                 |
-| Commit                                                 | Commits all local changes made to the app since the previous commit to the version control server.                                                                                                                                                                                                                                       |                                 |
-| Show Changes on Disk                                   | Opens a dialog that shows which files on disk have been changed since the last commit.                                                                                                                                                                                                                                                   |                                 |
-| More Versioning > History                              | Shows the history of committed revisions of the app.                                                                                                                                                                                                                                                                                     |                                 |
-| More Versioning > Download from Version Control Server | Downloads an app from the Team Server or another SVN server. This creates a local working copy of the app for development.                                                                                                                                                                                                               |                                 |
-| More Versioning > Upload to Version Control Server     | Uploads a local app to a new or existing Team Server repository, or to another SVN server. This is only possible if the app is not yet version controlled.                                                                                                                                                                               |                                 |
-| More Versioning > Manage Branch Lines                  | Manages branch lines on the version control server that can be used to develop functionality separately from the main line.                                                                                                                                                                                                              |                                 |
-| More Versioning > Merge Changes Here                   | Merges changes that were committed in another development line to the development line that is currently opened in the Modeler.                                                                                                                                                                                                          |                                 |
-| More Versioning > Reverse Merge Changes                | Allows locally rolling back changes that were committed to the version control repository. These local changes can then be committed as a new revision.                                                                                                                                                                                  |                                 |
-| More Versioning > Add Snapshot of Data                 | Creates a snapshot of the built-in database and adds that to the version control repository. This is especially useful for adding test data to your app or for demo purposes.                                                                                                                                                            |                                 |
-| Tools > Batch update button icons                      | Opens the **Batch Update Button Icons** dialog box so that you can configure the batch update of many button icons at once.                                                                                                                                                                                                              |                                 |
-| Tools > Batch update layouts                           | Opens the **Batch Update Layouts** dialog box so that you can configure the batch update of the layouts of many pages at once.                                                                                                                                                                                                           |                                 |
-| Tools > Batch convert Split panes                      | Opens the **Batch Convert Split Panes** dialog box so that you can convert split panes in Mendix 6 apps into layout grids. See [Split Panes](/releasenotes/studio-pro/7.0#split-panes) in the Mendix 7 release notes for more information.                                                                                               |                                 |
-| Tools > Update Widgets (available in version 7.23)     | Presents the current versions of the widgets you are using in your app, what the latest versions of the widgets are, and an update option.                                                                                                                                                                                               |                                 |
-| Tools > Check Widgets                                  | Checks that the widgets you have implemented in the app have been built correctly.                                                                                                                                                                                                                                                       |                                 |
-| Synchronize Project Directory                          | If necessary, this action creates folders inside the project directory (resources, widgets, theme, etc.). It also reads the widget packages that are currently inside the widgets folders. For example, if you add widgets to the widgets folder, you needs to synchronize the project directory for them to appear in the form toolbox. | <kbd>F4</kbd>                   |
-| Show Project Directory in Explorer                     | Shows the directory that contains the project file (*.mpr*) and other assets such as resources and Java actions in Windows Explorer.                                                                                                                                                                                                     |                                 |
-| Deploy for Eclipse                                     | Deploys the project to the deployment directory. The Java stubs are generated so that you can start editing them in Eclipse. This action does not compile the Java actions. Use this if you are writing Java actions and you want to compile and debug them through Eclipse.                                                             | <kbd>F6</kbd>                   |
-| Create Deployment Package                              | Creates a Mendix Deployment Archive package (*.mda*) that contains all necessary files to run the project. This can be used if you want to deploy your project on a Windows server or on a custom Mendix Cloud.                                                                                                                          | <kbd>F7</kbd>                   |
-| Clean Deployment Directory                             | Cleans the deployment directory.                                                                                                                                                                                                                                                                                                         |                                 |
-| Deploy to Licensed Cloud Node                          | Deploys the latest committed revision of a Team Server project to the associated Mendix Cloud node.                                                                                                                                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>F5</kbd> |
+| メニュー項目                            | 説明                                                                                                                                                                                  | ショートカットキー                       |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| 更新                                | ローカルアプリをバージョン管理サーバーにコミットされた最新のリビジョンに更新します。                                                                                                                                          |                                 |
+| コミット                              | 以前のバージョン管理サーバーへのコミット以降、アプリに加えられたすべてのローカル変更をコミットします。                                                                                                                                 |                                 |
+| ディスクに変更を表示する                      | 前回のコミット以降にディスク上のファイルが変更されたことを示すダイアログを開きます。                                                                                                                                          |                                 |
+| その他のバージョン > 履歴                    | アプリのコミットされたリビジョンの履歴を表示します。                                                                                                                                                          |                                 |
+| その他のバージョン管理 > バージョン管理サーバーからダウンロード | Team Serverまたは別のSVNサーバーからアプリをダウンロードします。 これにより、開発用のアプリのローカル作業コピーが作成されます。                                                                                                             |                                 |
+| その他のバージョン管理 > バージョン管理サーバーにアップロード  | ローカルアプリを新規または既存のTeam Serverリポジトリ、または別のSVNサーバーにアップロードします。 これは、アプリがまだバージョン管理されていない場合にのみ可能です。                                                                                          |                                 |
+| その他のバージョン管理 > 支線の管理               | バージョン管理サーバ上でブランチラインを管理し、メインラインとは別に機能を開発することができます。                                                                                                                                   |                                 |
+| その他のバージョン > 変更をマージする              | Modelerで現在開かれている開発ラインに別の開発ラインでコミットされた変更をマージします。                                                                                                                                     |                                 |
+| その他のバージョン > 変更を逆にマージする            | バージョン管理リポジトリに反映された変更をローカルにロールバックできます。 これらのローカル変更は、新しいリビジョンとして反映されます。                                                                                                                |                                 |
+| その他のバージョン管理 > データのスナップショットを追加     | ビルトインデータベースのスナップショットを作成し、それをバージョン管理リポジトリに追加します。 これは、テストデータをアプリに追加したり、デモ目的で使用する場合に特に便利です。                                                                                            |                                 |
+| ツール > バッチ更新ボタンのアイコン               | 多数のボタンアイコンを一度に一括更新できるように、 **ボタンのアイコン** ダイアログボックスを開きます。                                                                                                                              |                                 |
+| ツール > 一括更新レイアウト                   | **一度に多くのページのレイアウトを一括更新できるようにする** ダイアログボックスを開きます。                                                                                                                                    |                                 |
+| ツール > 分割ペインの一括変換                  | **分割ペインの一括変換** ダイアログボックスを開き、Mendix 6 アプリの分割ペインをレイアウトグリッドに変換できます。 詳細については、Mendix 7リリースノートの [分割ペイン](/releasenotes/studio-pro/7.0#split-panes) を参照してください。                              |                                 |
+| ツール > ウィジェットの更新(バージョン7.23で利用可能)   | アプリで使用しているウィジェットの最新バージョン、最新バージョンのウィジェット、更新オプションを表示します。                                                                                                                              |                                 |
+| ツール > ウィジェットの確認                   | アプリで実装したウィジェットが正しくビルドされていることを確認します。                                                                                                                                                 |                                 |
+| プロジェクトディレクトリを同期                   | 必要に応じて、この操作によりプロジェクト ディレクトリ (リソース、ウィジェット、テーマなど) 内にフォルダーが作成されます。 また、現在ウィジェットフォルダ内にあるウィジェットパッケージも読み込みます。 たとえば、ウィジェットフォルダにウィジェットを追加する場合は、プロジェクトディレクトリがフォームツールボックスに表示されるように同期する必要があります。 | <kbd>(F4)</kbd>                 |
+| プロジェクトディレクトリをエクスプローラーで表示          | プロジェクト ファイル (*.mpr*) が含まれるディレクトリと、Windows エクスプローラでリソースや Java アクションなどのその他のアセットが表示されます。                                                                                               |                                 |
+| Eclipse 用にデプロイ                    | プロジェクトをデプロイディレクトリにデプロイします。 Java スタブが生成され、Eclipse 内で編集を開始できます。 このアクションは Java アクションをコンパイルしません。 Java アクションを記述していて、Eclipse を使用してコンパイルおよびデバッグしたい場合に使用します。                                | <kbd>(F6)</kbd>                 |
+| デプロイパッケージを作成                      | プロジェクトを実行するために必要なすべてのファイルを含むMendix Deployment Archive パッケージ (*.mda*) を作成します。 これは、プロジェクトを Windows サーバーまたはカスタム Mendix Cloud にデプロイする場合に使用できます。                                         | <kbd>F7</kbd>                   |
+| デプロイメントディレクトリを削除                  | デプロイディレクトリをクリーンアップします。                                                                                                                                                              |                                 |
+| ライセンスされたクラウドノードにデプロイする            | Team Serverプロジェクトの最新のコミット済みリビジョンを、関連するMendix Cloudノードにデプロイします。                                                                                                                      | <kbd>Ctrl</kbd> + <kbd>F5</kbd> |
 
-### 4.5 Run Menu
+### 4.5 実行メニュー
 
-| Menu Item                   | Description                                                                                                                                                              | Shortcut Key                                       |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------- |
-| Run                         | Deploys and run the project locally. The **Console** pane is activated and this shows the output of the server that runs the project.                                    | <kbd>F5</kbd>                                      |
-| Run on Cloud Foundry        | Opens the **Edit Cloud Foundry Settings** dialog box so you can run your app on Cloud Foundry.                                                                           |                                                    |
-| Edit Cloud Foundry Settings | Opens the **Edit Cloud Foundry Settings** dialog box so you can edit your Cloud Foundry settings.                                                                        |                                                    |
-| Run Locally                 | Runs the project locally so you can view the app.                                                                                                                        | <kbd>F5</kbd>                                      |
-| Stop                        | Stops the currently running project.                                                                                                                                     | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
-| Configuration               | Sets the configuration level (**Default**).                                                                                                                              |                                                    |
-| Default log level           | Allows setting the default log level before running the project locally. The options are **Trace**, **Debug**, **Info** (default), **Warning**, **Error**, **Critical**. |                                                    |
-| Debug                       | Allows you to connect the [Debugger](#dockable-panes).                                                                                                                   |                                                    |
-| Responsive Browser          | Shows the web client for the currently running project in the browser.                                                                                                   | <kbd>F9</kbd>                                      |
-| Tablet Browser              | Shows the tablet mobile client for the currently running project in the browser.                                                                                         | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
-| Phone Browser               | Shows the mobile client for the currently running project in the browser.                                                                                                | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
-| Hybrid Phone App Online     | Views the app as a phone app online.                                                                                                                                     |                                                    |
-| View in the Mendix App      | Views the app via the [Mendix Mobile app](getting-the-mendix-app).                                                                                                       |                                                    |
+| メニュー項目              | 説明                                                                                                                                     | ショートカットキー                                          |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| 実行                  | プロジェクトをローカルにデプロイおよび実行します。 **コンソール** ペインが有効化され、プロジェクトを実行するサーバーの出力が表示されます。                                                               | <kbd>(F5)</kbd>                                    |
+| Cloud Foundryで実行    | **Cloud Foundry 設定の編集** ダイアログボックスを開き、Cloud Foundry でアプリケーションを実行できます。                                                                   |                                                    |
+| Cloud Foundryの設定を編集 | **Cloud Foundry 設定の編集** ダイアログボックスを開き、Cloud Foundry の設定を編集できます。                                                                         |                                                    |
+| ローカルで実行             | プロジェクトをローカルで実行し、アプリを表示できます。                                                                                                            | <kbd>(F5)</kbd>                                    |
+| 停止                  | 現在実行中のプロジェクトを停止します。                                                                                                                    | <kbd>Shift</kbd> + <kbd>F5</kbd>                   |
+| 設定                  | 設定レベル (**デフォルト** ) を設定。                                                                                                                |                                                    |
+| デフォルトのログレベルです       | プロジェクトをローカルで実行する前に、デフォルトのログレベルを設定できます。 The options are **Trace**, **Debug**, **Info** (default), **Warning**, **Error**, **Critical**. |                                                    |
+| Debug               | [デバッガー](#dockable-panes) を接続できます。                                                                                                      |                                                    |
+| レスポンシブブラウザー         | 現在実行中のプロジェクトのWebクライアントをブラウザで表示します。                                                                                                     | <kbd>(F9)</kbd>                                    |
+| タブレットブラウザ           | 現在実行中のプロジェクトのタブレットモバイルクライアントをブラウザで表示します。                                                                                               | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F9</kbd> |
+| 端末ブラウザー             | 現在実行中のプロジェクトのモバイル・クライアントをブラウザーで表示します。                                                                                                  | <kbd>Ctrl</kbd> + <kbd>F9</kbd>                    |
+| ハイブリッド電話アプリオンライン    | オンラインの電話アプリとしてアプリを表示します。                                                                                                               |                                                    |
+| Mendix アプリで表示       | [Mendix Mobile app](getting-the-mendix-app) を介してアプリを表示します。                                                                             |                                                    |
 
-### 4.6 Language Menu
+### 4.6 言語メニュー
 
-| Menu Item                | Description                                                                                                                                  | Shortcut Key                                  |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| Current Language         | Displays the current language of your app and allows you to make another language the current language.                                      |                                               |
-| Select Previous Language | Makes the previous language of your app the current language.                                                                                | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> |
-| Select Next Language     | Makes the next language of your app the current language.                                                                                    | <kbd>Ctrl</kbd>+<kbd>L</kbd>                  |
-| Language Settings        | Opens the **Project Settings** dialog box to the **Languages** tab so that you can adjust the language configuration of the app.             |                                               |
-| Batch Replace            | Opens a form in which you can correct texts within one language. This is useful to check whether texts presented to the user are consistent. |                                               |
-| Batch Translate          | Opens a form in which you can quickly translate many texts from one language to another.                                                     |                                               |
-| Language Operations      | Opens a form in which you can copy, move, swap, or delete all translations in a given language for selected modules.                         |                                               |
+| メニュー項目  | 説明                                                                   | ショートカットキー                                     |
+| ------- | -------------------------------------------------------------------- | --------------------------------------------- |
+| 現在の言語   | アプリの現在の言語を表示し、別の言語を現在の言語にすることができます。                                  |                                               |
+| 前の言語を選択 | アプリの前の言語を現在の言語にします。                                                  | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> |
+| 次の言語を選択 | アプリの次の言語を現在の言語にします。                                                  | <kbd>Ctrl</kbd>+<kbd>L</kbd>                  |
+| 言語設定    | **Project Settings** ダイアログボックスを **Languages** タブで開き、アプリの言語設定を調整できます。 |                                               |
+| 一括置換    | 1つの言語でテキストを修正できるフォームを開きます。 これは、ユーザに提示されたテキストが一貫しているかどうかを確認するために便利です。 |                                               |
+| 一括翻訳    | ある言語から別の言語に多くのテキストをすばやく翻訳できるフォームを開きます。                               |                                               |
+| 言語操作    | 選択したモジュールの特定の言語ですべての翻訳をコピー、移動、交換、または削除できるフォームを開きます。                  |                                               |
 
-### 4.7 Help Menu
+### 4.7 ヘルプメニュー
 
-| Menu Item               | Description                                                                                                                                             | Shortcut Key  |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| Help                    | Opens the documentation page about the currently selected element. If an entity is selected, for example, the documentation for entities will be shown. | <kbd>F1</kbd> |
-| Help Contents           | Opens the start page of the documentaton in the default web browser.                                                                                    |               |
-| Ask a Question          | Opens the [Mendix Forum](https://forum.mendixcloud.com/index4.html) in the default web browser.                                                         |               |
-| Open Log File Directory | Opens the log files for your app locally.                                                                                                               |               |
-| About Mendix Modeler    | Shows information about the current version of the Mendix Modeler.                                                                                      |               |
+| メニュー項目             | 説明                                                                             | ショートカットキー     |
+| ------------------ | ------------------------------------------------------------------------------ | ------------- |
+| ヘルプ                | 現在選択されている要素に関するドキュメントページを開きます。 図形が選択されている場合、例えば図形のドキュメントが表示されます。               | <kbd>F1</kbd> |
+| ヘルプの内容             | ドキュメントの開始ページをデフォルトのWebブラウザで開きます。                                               |               |
+| 質問する               | [Mendix Forum](https://forum.mendixcloud.com/index4.html) をデフォルトのウェブブラウザで開きます。 |               |
+| ログファイルディレクトリを開く    | アプリのログファイルをローカルで開きます。                                                          |               |
+| Mendix Modelerについて | Mendix Modelerの現在のバージョンに関する情報を表示します。                                           |               |
 
-## 5 General Shortcut Keys
+## 5つの一般的なショートカットキー
 
-In the main window pane, <kbd>Ctrl</kbd> + <kbd>Tab</kbd> can be used to navigate between all open documents. Other shortcut keys that can be used in the main window pane can be found next to their relevant menu item in the [Menus](#menus) section above.
+メインウィンドウペインでは、 <kbd>Ctrl</kbd> + <kbd>Tab</kbd> を使用して、開いているすべてのドキュメント間を移動できます。 メインウィンドウペインで使用できるその他のショートカットキーは、上の [メニュー](#menus) セクションの関連するメニュー項目の横にあります。
 
-In most dialog boxes for editing properties, the following shortcut keys can be used:
+ほとんどの編集プロパティでは、次のショートカットキーを使用できます。
 
-| Key                                   | Description                                                                                                                                                                                                              |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>Ctrl</kbd> + <kbd>Enter</kbd>    | Confirms all changes and closes the form. Works as if the **OK** button was clicked. This is especially useful if the focus is on a multi-line text box; otherwise, pressing <kbd>Enter</kbd> will have the same effect. |
-| Escape                                | Cancels all changes and closes the form. Works as if the **Cancel** button was clicked.                                                                                                                                  |
-| <kbd>Ctrl</kbd> + Mouse scroll wheel  | Zooms in or out. This works in all editors.                                                                                                                                                                              |
-| <kbd>Shift</kbd> + Mouse scroll wheel | Scrolls left or right. Works as if you were using the horizontal scroll bars.                                                                                                                                            |
+| キー                                 | 説明                                                                                                                              |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | すべての変更を確認し、フォームを閉じます。 **OK** ボタンがクリックされたように動作します。 これは、フォーカスが複数行のテキストボックスにある場合に特に便利です。それ以外の場合は、 <kbd>Enter</kbd> を押すと同じ効果が得られます。 |
+| エスケープ                              | すべての変更をキャンセルし、フォームを閉じます。 **キャンセル** ボタンがクリックされたように動作します。                                                                         |
+| <kbd>Ctrl</kbd> + マウススクロールホイール     | ズームイン/ズームアウトします。 これはすべてのエディタで動作します。                                                                                             |
+| <kbd>Shift</kbd> + マウススクロールホイール    | 左右にスクロールします。 横スクロールバーを使っているかのような作品。                                                                                             |
 
-In most edit grids (such as the list of attributes in the entity properties), the following shortcut keys can be used:
+ほとんどの編集グリッド (図形プロパティ内の属性のリストなど) では、次のショートカットキーを使用できます。
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>Ctrl</kbd> + <kbd>N</kbd> | Creates a new item.                     |
-| <kbd>Enter</kbd>               | Edits the currently selected item.      |
-| <kbd>Delete</kbd>              | Deletes the currently selected item(s). |
+| キー                             | 説明                   |
+| ------------------------------ | -------------------- |
+| <kbd>Ctrl</kbd> + <kbd>N</kbd> | 新しいアイテムを作成します。       |
+| <kbd>Enter</kbd>               | 現在選択されているアイテムを編集します。 |
+| <kbd>削除</kbd>                  | 現在選択されているアイテムを削除します。 |
 
-## 6 Domain Model Editor Shortcut Keys
+## 6 ドメインモデルエディタのショートカットキー
 
-The following shortcut keys are available in the domain model editor:
+ドメインモデルエディタでは、次のショートカットキーを使用できます。
 
-| Key                            | Description                             |
-| ------------------------------ | --------------------------------------- |
-| <kbd>F2</kbd>                  | Edits the name of the selected element. |
-| <kbd>Ctrl</kbd> + <kbd>A</kbd> | Selects all entities.                   |
-| <kbd>Esc</kbd>                 | Clears selection.                       |
+| キー                             | 説明               |
+| ------------------------------ | ---------------- |
+| <kbd>F2</kbd>                  | 選択した要素の名前を編集します。 |
+| <kbd>Ctrl</kbd> + <kbd>A</kbd> | すべての図形を選択します。    |
+| <kbd>Esc</kbd>                 | 選択をクリアします。       |
 
-## 7 Form Editor Shortcut Keys
+## フォームエディタのショートカットキー
 
-The following shortcut keys are available in the form editor:
+フォームエディタでは、次のショートカットキーを使用できます。
 
-| Key                          | Description                                                                                                                                                                                                            |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                   | Moves the selection box to the widget or element in the direction of the arrow key. For example, if currently a label is selected and you press the right arrow key, the text box to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys | Moves the currently selected item up/down or left/right. This works on table columns and rows, tab pages, grid and data view buttons, search fields, etc.                                                              |
-| <kbd>Enter</kbd>             | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                 |
-| <kbd>F2</kbd>                | Edits the caption of a label or button inline in the form. You can also just start typing a letter or a digit and the caption will be replaced by what you type.                                                       |
+| キー                     | 説明                                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| 矢印キー                   | 選択ボックスを矢印キーの方向のウィジェットまたは要素に移動します。 たとえば、現在ラベルが選択されていて、右矢印キーを押すと、その右側のテキストボックスが選択されます。 |
+| <kbd>Ctrl</kbd> + 矢印キー | 現在選択されている項目を上下または左右に移動します。 これは、テーブルの列と行、タブページ、グリッドとデータビューのボタン、検索フィールドなどで動作します。       |
+| <kbd>Enter</kbd>       | ダイアログボックスで現在選択されているオブジェクトのプロパティを編集します。                                               |
+| <kbd>F2</kbd>          | ラベルまたはボタンのキャプションをフォーム内でインラインで編集します。 文字や数字を入力するだけで、キャプションは入力した文字に置き換えられます。            |
 
-## 8 Microflow Editor Shortcut Keys
+## マイクロフローエディタのショートカットキー
 
-The following shortcut keys are available in the microflow editor:
+マイクロフローエディタでは、次のショートカットキーを使用できます。
 
-| Key                                                | Description                                                                                                                                                                                                                            |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arrow keys                                         | Moves the selection box to the activity or element in the direction of the arrow key. For example, if currently a show page activity is selected and you press the right arrow key, the end event to the right of it becomes selected. |
-| <kbd>Ctrl</kbd> + arrow keys                       | Moves the currently selected item up/down or left/right.                                                                                                                                                                               |
-| <kbd>Enter</kbd>                                   | Edits the properties of the currently selected object in a dialog box.                                                                                                                                                                 |
-| <kbd>F2</kbd>                                      | Edits the name of the variable generated by the currently selected activity. This shortcut will not function on activities that do not result in a variable.                                                                           |
-| <kbd>Home</kbd>                                    | Highlights and focus on the start event of the current microflow.                                                                                                                                                                      |
-| <kbd>End</kbd>                                     | Highlights and focus on an end event in the current microflow. If there are multiple end events, clicking **End** multiple times will toggle between the different events.                                                             |
-| <kbd>Shift</kbd> when resizing an activity         | When resizing the entity, by holding <kbd>Shift</kbd> , the microflow component will stay centered at its current position and will expand equally in all directions.                                                                  |
-| <kbd>Ctrl</kbd> when selecting multiple activities | When pressing the <kbd>Ctrl</kbd>, you can select additional microflow components. Clicking a selected component while holding <kbd>Ctrl</kbd> will deselect it.                                                                       |
+| キー                                | 説明                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------------ |
+| 矢印キー                              | 選択ボックスを、矢印キーの方向のアクティビティまたは要素に移動します。 たとえば、現在表示ページのアクティビティが選択されている場合、右矢印キーを押します。 右側の終了イベントが選択されます  |
+| <kbd>Ctrl</kbd> + 矢印キー            | 現在選択されている項目を上下または左右に移動します。                                                                       |
+| <kbd>Enter</kbd>                  | ダイアログボックスで現在選択されているオブジェクトのプロパティを編集します。                                                           |
+| <kbd>F2</kbd>                     | 現在選択されているアクティビティによって生成された変数の名前を編集します。 このショートカットは、変数にならないアクティビティでは機能しません。                         |
+| <kbd>ホーム</kbd>                    | 現在のマイクロフローの開始イベントをハイライトし、焦点を合わせます。                                                               |
+| <kbd>終了</kbd>                     | 現在のマイクロフローのエンドイベントに焦点を当てます。 複数の終了イベントがある場合は、 **End** を複数回クリックすると、異なるイベント間で切り替えられます。              |
+| <kbd>アクティビティのサイズ変更時のシフト</kbd>     | <kbd>Shift</kbd> を押しながらエンティティのサイズを変更すると、 マイクロフロー成分は現在の位置の中心に留まり、すべての方向に等しく拡大します。                 |
+| <kbd>複数のアクティビティを選択するときにCtrl</kbd> | <kbd>Ctrl</kbd>を押すと、追加のマイクロフローコンポーネントを選択できます。 <kbd>Ctrl</kbd> を押しながら選択したコンポーネントをクリックすると選択解除されます。 |
