@@ -15,171 +15,160 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-这个功能是在版本7.10.0中引入的。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-operation.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
 
-已发布的REST 操作是 [已发布REST 资源](published-rest-resource) 的一部分，定义了客户端可以调用的端点， 计算、发布、修补或删除资源中的项目。
+已发布的REST 操作是 [已发布REST 资源](published-rest-resource) 的一部分，定义了客户端可以调用到GET的端点， PUT、POST、PATCH或从资源中删除项目。
 
-此文档描述了通过 *添加资源* 弹出对话框配置REST 操作时的选项。
+在 **已发布的REST Service** 文档中，您可以将要包含在服务中的项目添加为 **Resources**：
 
-## 2 概况
+![发布的REST 服务](attachments/published-rest-operation/publshed-rest-service.png)
 
-### 2.1 方法
+## 2 操作定义
 
-方法指定了微流程执行的操作类型：
+当您 **添加** 或 **编辑资源** 时， 您可以在 **操作** 定义对话框中定义选中项的资源如下：
 
-* 'GET' - 操作在指定位置检索条目或条目
-* 'PUT' - 该操作在指定位置替换条目或条目，如果它们不存在，它将创建它们。
-* 'POST' - 该操作在指定位置的收藏中创建一个条目
-* 'PATCH' - 在指定位置的操作更新(部分)
-* 'DELETE' - 操作会删除在指定位置的条目或条目
-* 'HEAD' - 操作检索关于在指定位置输入或条目的信息； 这与 _GET_, 除非它不返回消息内容
-* '选项' - 操作返回关于可用通信选项的信息
+![REST 操作](attachments/published-rest-operation/operation-definition.png)
 
-### <a name="operation-path"></a>2.2 操作路径
+### 2.1 概况
 
-可以到达操作的地点从资源的位置开始。
+在 **常规** 标签中，您可以输入此部分描述的操作细节。
 
-操作路径指定了操作的剩余位置。 您可以留空使用资源的位置。
+#### 2.1.1 方法
 
-您可以使用 [路径参数](published-rest-path-parameters) 来捕获部分位置作为微流程参数或导入映射的参数。 在 '{' and '} '之间的操作路径中指定路径参数。 路径参数位置的 URL 中的任何内容都会传递到微流程或导入映射。
+该方法指定了通过微流执行的操作类型。 从下拉菜单中您可以选择以下一种：
 
-方法和操作路径确定 [为给定请求 URL](published-rest-routing) 执行了哪些操作。
+* **获取** - 在指定位置检索条目或条目
+* **PUT** — — 替换在指定位置的条目或条目，如果它们不存在，则创建它们。
+* **POST** — — 在指定位置在集合中创建一个条目
+* **PATCH** — — 更新 (部分) 条目在指定位置
+* **删除** - 删除在指定位置的条目或条目
+* **HEAD** - 检索在指定位置的条目或条目信息； 这与 **GET**完全相同，但没有返回消息内容
+* **选项** - 返回关于可用通信选项的信息
 
-### <a name="example-location"></a>2.3 示例位置
+#### 2.1.2 操作路径{#operation-path}
 
-示例位置提供了一个可以达到操作的 URL 的示例。 它显示路径参数和查询参数值作为'{' and '} '之间的占位符。
+可以达到操作的位置始于资源的 URL 和 **操作路径** ，指定了操作的其余路径。 您可以留空使用资源的位置。
 
-### 2.4 微流
+您可以使用 [路径参数](published-rest-path-parameters) 来捕获部分位置作为微流程参数或导入映射的参数。 在操作路径中指定路径参数，介于 `named@@` and `}` 之间。 路径参数的 URL 中的值将传递到微流或导入映射。
 
-{{% alert type="info" %}}
+**方法** and **操作路径** 定义了在 [发布的路由](published-rest-routing) 中为给定请求的 URL 执行的操作。
 
-在这些微流程中支持 **文件文档** 是在版本 7.13.0 中引入的。
+#### 2.1.3 示例位置{#example-location}
 
-{{% /报警 %}}
+**示例位置** 提供了一个可以达到操作的 URL 的示例。
 
-一个操作有不同的参数：
+#### 2.1.4 微流
 
- * [路径参数](published-rest-path-parameters), 它们是URL路径的一部分
- * [查询参数](published-rest-query-parameters)，其形式为 `的 URL 末尾？ ame1=value1&name2=value2` (当微流程参数不在路径中且不是对象时，它被视为查询参数)
- * 源自请求的 HTTP 头参数
- * 正文参数(可选)，它在操作的请求正文中 (“GET”) 'HEAD'和'DELETE'操作没有物体参数)。 只有实体参数可以有 *List* 或 *对象* 类型。
+一个操作可以有以下参数：
+
+ * [查询参数](published-rest-query-parameters), 正处于URL结尾的形式 `?name1=value1&name2=value2`
+   {{% alert type="info" %}}
+   当微流参数不在路径中且不是对象时，它被视为查询参数。
+   {{% /报警 %}}
+* [路径参数](published-rest-path-parameters)，它是URL 路径的一部分
+* 正文参数(可选)，它在请求操作的正文中
+   {{% alert type="info" %}}
+   **GET**, **HEAD**, 和 **DELETE** 操作没有物体参数。
+   {{% /报警 %}}
+* 源自请求的 HTTP 头参数
+* 一个表单参数(可选)，它是多部分形式请求正文的一部分
 
 一个操作的微流程将这些操作参数作为输入。
 
-一个 *list* 或 *对象* 类型的微流程参数表示一个物体参数。 您可以指定导入映射来转换 JSON 或 XML。 如果参数是文件或从文件继承，则不需要导入映射。
+包含 *List* 或 *对象* 类型的微流程参数表示一个物体参数。 您可以指定导入映射来转换 JSON 或 XML。 *FileDocument* 类型(或继承自 *FileDocument*)的参数是特殊的：它也可以用于表单参数， 并且不需要导入映射。
 
-操作微流也可能需要一个 [HttpRequest](http-request-and-response-entities#http-request) 参数。 如果您想要查看请求的 URL 和标题，您可以添加此参数。
+操作微流也可能需要一个 [HttpRequest](http-request-and-response-entities#http-request) 参数。 如果您想要查看请求的 URL 和头部，您可以添加此参数。
 
-要设置状态代码、理由短语和信头， 您应该添加 [HttpResponse](http-request-and-response-entities#http-response) 对象参数，并设置该对象的属性， 或返回 *HttpResponse*
+要设置状态代码、理由短语和信头， 添加 [HttpResponse](http-request-and-response-entities#http-response) 对象参数并设置该对象的属性，或返回 *HttpResponse*。
 
-微流的结果是操作的结果。 你在这里有几个选项，这些选项描述如下。
+微流的结果是操作的结果，可包括：
 
-第一个选项是 ***返回一个 *邮件列表* 或一个 ***对象******。 您需要指定导出映射才能转换为 XML 或 JSON 。
-
-第二个选项是 **返回一个原始的**。 当您的微流程返回一个字符串、整数、Boolean等时，对操作的响应将是这个值。 如果您从microflow返回一个非空值, *HtpResponse* 对象的 *内容* 属性将被忽略。 If you return an empty value from the microflow, then the *Content* of the *HttpResponse* is taken as the result.
-
-第三个选项是 **返回一个文件文档**。 当你想要返回一个文件的数据(例如PDF或图片), 然后，您可以让您的微流程返回一个文件文档。
-
-最后一个选项是 **返回一个 [HttpResponse](http-request-and-response-entities#http-response)**。 在 *HttpResponse*中，您可以设置状态代码、理由短语和内容(作为字符串)。 例如，您可以用另一个源的映射或字符串的结果来填充内容。 您也可以在响应中添加头部。 要设置的一个重要标题是 *Content-Type*。 不返回 *空* *HttpResponse*，因为这将永远导致错误。
+1. **返回** ***列表*** **或一个** ***对象***- 您必须指定导出映射才能将其转换为 XML 或 JSON
+2. **返回原始** - 当微流程返回值时，例如： 一个字符串，整数或布尔值，然后对操作的响应将是这个值。
+   {{% alert type="info" %}}
+   如果返回来自微流的非空值，则忽略 *HtpResponse* 对象的 *内容* 属性。 If an empty value from the microflow is returned, then the *Content* of the *HttpResponse* is taken as the result.
+   {{% /报警 %}}
+3.  **返回一个文件** - 当你想要返回一个文件的数据(例如PDF或图片), 然后，微流程返回文件文档。
+4. **返回** [HttpResponse](http-request-and-response-entities#http-response) - 在 *HttpResponse*您可以设置状态代码、理智短语和内容(作为字符串)。 例如，您可以用另一个源的映射或字符串的结果来填充内容。 您也可以在响应中添加头部。
+   {{% alert type="info" %}}
+   要设置的一个重要标题是 *Content-Type*。 不返回 *空* *HttpResponse* ，因为这将永远导致错误。
+   {{% /报警 %}}
 
 如果微流程丢失了一个未处理的异常，响应是 **500: 内部服务器错误**。
 
-如果启用了安全性，那么微流程需要至少配置一个角色才能访问。
+当启用安全性时，微流需要至少配置一个角色才能访问。
 
-### 2.5 废弃的
+#### 2.1.5 废弃的
 
-如果选中此框，操作将在服务的 [OpenApi (Swagger) 文档页](published-rest-services#interactive-documentation) 中标记为已弃用。 这让客户不再使用它。
+选中此框以标记该操作在服务的 OpenApi (Swagger) 文档页面中已被废弃，正如 [发布的REST 服务](published-rest-services) 部分 [描述的](published-rest-services#interactive-documentation)。 这通知客户端不再使用它。
 
-### 2.6 参数
+#### 2.1.6 参数
 
-{{% alert type="info" %}}
+您可以 **添加**， **更新** 或 **删除** [发布的REST 操作参数](published-rest-operation-parameter)
 
-这项功能是在第7.12.0版中引入的。
+##### 2.1.6.1 进口映射 {#import-mapping}
 
-7.17.0 版本引入了编辑参数的能力
+对于实体参数，您可以选择一个 [导入映射](import-mappings) 将请求的正文转换为对象。 除文件外，所有对象和列表参数必须选择导入映射。
 
-{{% /报警 %}}
+若要选择导入映射，请双击参数或在选择参数后点击 **编辑网格中的**。 当选择导入映射时，您也可以选择映射的提交行为：您可以选择要么提交， 不提交事件或不提交导入的对象。
 
-In this list, you can add, update or delete the [parameters of the operation](published-rest-operation-parameter).
-
-<a name="import-mapping"></a>
-
-### 2.6.1 进口映射
-
-{{% alert type="info" %}}
-
-这一特点在第7.14.0版中引入。 使用导入映射参数在 7.17.0 版本中引入了导入映射。
-
-{{% /报警 %}}
-
-对于实体参数，您可以选择一个 [导入映射](import-mappings) 将请求的正文转换为对象。 除了文件外，所有对象和列表参数都必须选择导入映射。 若要选择导入映射，请双击参数或在选择参数后点击 **编辑网格中的**。 当选择导入映射时，您也可以选择映射的提交行为。 您可以选择提交、提交或不提交导入对象。
-
-您可以选择一个不需要参数的导入映射，或者一个导入映射使用原始参数(字符串、整数、等)。 If you select an import mapping with a primitive parameter, you need to have exactly one [path parameter](published-rest-path-parameters) with the same type. 该路径参数将传递到导入映射中。
+您可以选择一个不需要参数的导入映射，或者一个导入映射使用原始参数(例如字符串、整数)。 If you select an import mapping with a primitive parameter, you need to have exactly one [path parameter](published-rest-path-parameters) with the same type. 该路径参数将传递到导入映射中。
 
 You can indicate what should happen **if no object was found** when the import mapping has checked the box **decide this at the place where the mapping gets used**.
 
-如果您选择同时支持 XML 和 JSON 的导入映射(e.g. 一个基于消息定义的映射，然后该操作将能够同时处理XML和JSON请求。
+如果您选择同时支持 XML 和 JSON 的导入映射(例如) 一个基于消息定义的映射，然后该操作将能够同时处理XML和JSON请求。
 
-有效请求需要包含 *Content-Type* 标题。 请参阅下面 [表 1: 已识别的介质类型](#table1) , 以了解导入映射的介质类型列表。 如果使用不支持的内容类型，操作将导致一个“400个错误请求”响应。
+有效请求必须包含 *Content-Type* header。 请参阅 [公认的介质类型](#table1) 以获取导入映射所理解的介质类型列表。 如果使用不支持的内容类型，操作将产生一个 "**400 错误请求**" 响应。
 
 导入映射也用于生成操作响应的对象方案在 [OpenAPI (Swagger) 文档页](published-rest-services#interactive-documentation) 基于 [JSON Schema](published-rest-service-json-schema)
 
-### 2.7 答复
+#### 2.1.7 答复
+这定义了操作的响应。 您可以指定微流结果的类型以及对它的导出映射(如果有的话)。
 
-{{% alert type="info" %}}
-
-对 **导出映射和模型的 OpenAPI (Swagger)** 的支持已在 7.14.0 中添加。
-
-{{% /报警 %}}
-
-这显示有关操作响应的信息。 您可以看到微流结果的类型以及应用到它的导出映射(如果有)。
-
-#### 2.7.1 Type
-
+##### 2.1.7.1 Type
 这显示微流的结果类型。
 
-#### 2.7.2 出口映射
+##### 2.1.7.2 出口映射
+当微流程返回对象或对象列表时，您必须指定此结果如何映射到 JSON 或 XML。 选择导出映射，将微流结果作为输入。
 
-当微流程返回对象或对象列表时，您需要指定此结果如何映射到 JSON 或 XML。 选择导出映射，将微流结果作为输入。
+如果您选择同时支持 XML 和 JSON 的导出映射(例如，基于消息定义的映射)， 然后输出取决于微流是否有类型 *System的参数。 ttpResponse* 并添加 *Content-Type* 标题。 可能出现的情况如下：
 
-如果您选择同时支持 XML 和 JSON 的导出映射（例如，基于消息定义的映射）， 然后输出取决于微流是否有类型 *System的参数。 ttpResponse* 并添加 *Content-Type* 标题。 这些都是可能出现的情况：
+* When the microflow sets the *Content-Type* header parameter with a media type that is XML, then the operation returns XML as given in the table below.
 
-* 当microflow 设置为 *Content-Type* header的媒体类型为 XML (见 [Table 1: Recognized media types](#table1)), 然后操作返回 XML
-* 当微流设定 *Content-Type* 头到其他东西时，操作返回 JSON
-* 当微流没有设置 *Content-Type* header, 然后通过检查 *接受请求中的标题* 来确定输出：第一个媒体类型被理解为XML或JSON(见 [表1：公认的媒体类型](#table1)) 决定操作结果， 和 *内容类型* 为 *application-xml* (当它是 XML) 或 *application-json* (当它是 JSON)
+    <a name="table1">**识别的媒体类型**</a>
+
+    | 媒体类型           | 公认为  |
+    | -------------- | ---- |
+    | *应用程序/xml*     | XML  |
+    | *text/xml*     | XML  |
+    | *+xml* 结尾的任何内容 | XML  |
+    | *应用程序/json*    | JSON |
+    | 任何结尾为 *+json*  | JSON |
+
+* 当微流设定 *Content-Type* 头到其他东西时，操作返回JSON。
+
+* 当微流没有设置 *Content-Type* header, 然后通过检查 *接受请求中的* 页眉来决定输出。 被识别为 XML 或 JSON 的第一个媒体类型(如上文表中给出的那样)决定了操作结果： *Content-Type* 是 *application/xml* (当它是 XML) 或 *application/json* (当它是 JSON 时)。
+
 * 当没有 *时，接受* 头或 *接受* 头不包含可识别的媒体类型 然后操作返回 JSON ， *Content-Type* 为 *application/json*
-
-| 媒体类型           | 已确认为 |
-| -------------- | ---- |
-| *应用程序/xml*     | XML  |
-| *text/xml*     | XML  |
-| *+xml* 结尾的任何内容 | XML  |
-| *应用程序/json*    | JSON |
-| 任何结尾为 *+json*  | JSON |
-
-<a name="table1"></a>**表1: 公认的媒体类型**
 
 导出映射也用于生成操作响应在 [OpenAPI (Swagger) 文档页](published-rest-services#interactive-documentation) 基于 [JSON schema](published-rest-service-json-schema) 的对象方案。
 
-## 3 公开文档
+### 2.2 公开文件
 
-公共文档被用于服务的 [OpenAPI (Swagger) 文档页](published-rest-services#interactive-documentation) 中。
+在 **公开文档** 标签页中，您可以指定将用于服务 [OpenAPI (Swagger) 文档页面](published-rest-services#interactive-documentation) 的文档。
 
-### <a name="summary"></a>3.1 Summary
+#### 2.2.1 Summary {#summary}
+提供操作的简短说明。
 
-摘要简要介绍了操作的情况。
+#### 2.2.2 描述 {#description}
+输入操作的完整概述。 您可以使用 [GitHub-flavered markdown](gfm-syntax) 语法来风格文本。
 
-### <a name="description"></a>3.2 描述
+## 3 个示例
 
-描述提供了操作的完整概览。 您可以使用 [GitHub-flavered markdown](gfm-syntax) 作为丰富文本。
+**如何在Studio Pro 8中发布REST**
 
-## 4 个示例
+{{% youtube Ff_P84NOcZk %}}
 
-**如何使用Mendix 本地发布REST**
-
-{{% youtube HzrFkv0U4n8 %}}
