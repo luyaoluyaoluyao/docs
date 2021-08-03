@@ -1,67 +1,67 @@
 ---
-title: "Navigation Profile"
+title: "ナビゲーション プロファイル"
 parent: "navigation"
-description: "Describes the profile properties and profile buttons for Mendix version 7.4 and above."
+description: "Mendix バージョン 7.4 以降のプロファイルプロパティとプロファイルボタンについて説明します。"
 ---
 
 {{% alert type="info" %}}
 
-For details on how this works in Mendix versions 7.0 and 7.1, see [Navigation Before Mendix Version 7.2](navigation-before-72). For 7.2 and 7.3, see [Navigation in Mendix Versions 7.2 and 7.3](navigation-in-72-and-73)
+Mendix バージョン 7.0 および 7.1 での動作の詳細については、 [Mendix バージョン 7.2 以前のナビゲーション](navigation-before-72) を参照してください。 7.2と7.3については、Mendixバージョン7.2と7.3の [ナビゲーションを参照してください](navigation-in-72-and-73)
 
 {{% /alert %}}
 
-## 1 Overview
+## 1つの概要
 
-Management of profiles is available from the **Navigation** section of a project.
+プロファイルの管理は、プロジェクトの **ナビゲーション** セクションから利用できます。
 
 ![](attachments/modeler-core/2018-03-01_17-29-32.png)
 
-A profile can be added with the **Add navigation profile** button. Only one profile per type is allowed. While adding the profile, it is possible to copy the settings from an existing profile.
+プロファイルは、 **ナビゲーションプロファイル** を追加するボタンで追加できます。 タイプごとに1つのプロファイルのみが許可されます。 プロファイルを追加する際に、既存のプロファイルから設定をコピーすることができます。
 
 ![](attachments/modeler-core/2018-03-01_17-31-42.png)
 
-## 2 Profile Properties
+## 2 プロファイルのプロパティ
 
-### 2.1 General
+### 2.1 全般
 
-#### 2.1.1 Application Title
+#### 2.1.1 アプリケーションタイトル
 
-This specifies the application title. This title is shown in the title bar of the browser.
+アプリケーションのタイトルを指定します。 このタイトルはブラウザのタイトルバーに表示されます。
 
-### 2.2 Home Pages
+### 2.2 ホーム ページ
 
-#### 2.2.1 Default Home Page
+#### 2.2.1 デフォルトのホームページ
 
-The default home page indicates which [page](page) or [microflow](microflow) is opened after a user signs in. If role-based home pages (see below) are specified for one of the [user roles](user-roles) of the user, then that home page will be used instead.
+デフォルトのホームページは、ユーザーがサインインした後に [ページ](page) または [マイクロフロー](microflow) が開かれることを示します。 ロールベースのホームページ(下記参照)が、ユーザーの [ユーザー ロール](user-roles) のいずれかに指定されている場合。 そのホームページが代わりに使われます
 
-#### 2.2.2 Role-Based Home Pages
+#### 2.2.2 ロールベースのホーム ページ
 
-By using role-based home pages, you can show different home pages for different users. If a user logs in, the first role-based home page of which the user role matches the user role of the user is displayed. If no match is found, the default home page is used.
+ロールベースのホームページを使用することで、ユーザーごとに異なるホームページを表示できます。 ユーザがログインすると、ユーザのロールと一致するロールの最初のロールベースのホームページが表示されます。 一致するものがない場合は、デフォルトのホームページが使用されます。
 
-For each role-based home page, you can specify the user role it applies to and the target (page or microflow) that will be opened.
+ロールベースのホームページごとに、適用されるユーザーロールと開かれるターゲット (ページまたはマイクロフロー) を指定できます。
 
-### 2.3 Authentication
+### 2.3 認証
 
 If an [anonymous user](anonymous-users) tries to access a resource to which the user has no access, the configured [sign-in page](authentication-widgets) will be displayed, prompting the user to sign in.
 
-If the sign-in page is set to none, a built-in pop-up window will appear instead. The page title is translatable and may be overridden.
+サインインページが none に設定されていない場合、代わりにビルトインのポップアップウィンドウが表示されます。 ページタイトルは翻訳可能で、上書きされる可能性があります。
 
-### 2.4 Menu
+### 2.4 メニュー
 
-Each device type contains a default menu. You can use these menus in [menu widgets](menu-widgets). Defining the menu for a device type works the same as when editing a menu document. For more details, see [Menu](menu).
+各デバイス タイプには、デフォルトのメニューが含まれています。 これらのメニューは [メニュー ウィジェット](menu-widgets) で使用できます。 デバイス タイプのメニューを定義することは、メニュー ドキュメントの編集と同様に機能します。 詳細は [メニュー](menu) を参照してください。
 
 {{% alert type="warning" %}}
 
-If [security](project-security) is enabled, the menu will only show the items to which the user has access.
+[security](project-security) が有効になっている場合、メニューには、ユーザーがアクセスできるアイテムのみが表示されます。
 
 {{% /alert %}}
 
-## 3 Profile Buttons
+## プロファイルボタン 3
 
-### 3.2 Change Profile Type
+### 3.2 プロファイルタイプの変更
 
-Allows for changing the [profile type](navigation).
+[プロファイルタイプ](navigation) を変更できます。
 
-### 3.3 Delete
+### 3.3 削除
 
-This deletes the profile. If [menu widgets](menu-widgets) are still referring to the profile, errors will appear. It is possible to undo the deletion of a profile.
+プロファイルを削除します。 [メニュー ウィジェット](menu-widgets) がまだプロファイルを参照している場合、エラーが表示されます。 プロファイルの削除を元に戻すことは可能です。
