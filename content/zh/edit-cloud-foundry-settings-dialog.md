@@ -1,67 +1,71 @@
 ---
-title: "Edit Cloud Foundry Settings Dialog"
-parent: "dialogs"
+title: "编辑Cloud Foundry 设置"
+parent: "运行菜单"
 tags:
   - "Cloud Foundry"
-  - "Deploy"
+  - "部署"
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Use this dialog to specify the information necessary for deploying your app to a Cloud Foundry instance.
+**编辑Cloud Foundry 设置** 菜单选项允许您指定将您的应用程序部署到云端基金会实例所需的信息。
 
 {{% alert type="info" %}}
+关于部署到Cloud Foundry的更多信息可在 [Cloud Foundry：部署](/developerportal/deploy/cloud-foundry-deploy) 中找到。
+{{% /报警 %}}
 
-For more information on deploying to Cloud Foundry, see [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy) in *Developer Portal Guide*.
+## 2 个正在进入凭据
 
-{{% /alert %}}
+为云端基金会部署配置配置配置应用程序的第一步是输入您想要使用的云端基金会账户信息。
 
-## 2 Entering credentials
+![输入Cloud Foundry 凭据](attachments/run-menu/cloud-foundry-credentials.png)
 
-The first step in configuring your app for Cloud Foundry deployment is to enter the account information of the Cloud Foundry instance you wish to use.
+输入屏幕上的详细信息，如下所述，然后点击 **下一个** 验证指定的凭据并显示下一个配置步骤。
 
-Enter the details on the screen, as described below, then click **Next** to validate the specified credentials and show the next configuration step.
+### 2.1 API Endpoint
 
-### 2.1 API endpoint
+定义云端基金会平台的 **API 端点** 的URL，将用于部署。
 
-This is the URL defining the **API endpoint** of the Cloud Foundry platform that will be used for deployment.
+### 2.2 用户名
 
-### 2.2 User Name
+The **User name** of your Cloud Foundry account.
 
-This is the **User name** of your Cloud Foundry account.
+### 2.3 密码
 
-### 2.3 Password
+您的云端Foundry账户的 **密码**。
 
-This is the **Password** of your Cloud Foundry account.
+## 3 选择云端创始应用程序
 
-Pressing the 'Next' button will validate the specified credentials and show the next configure step.
+第二步允许您在云端基金会组织中选择一个现有的应用或创建一个新的应用程序。 您的 Mendix 应用程序将在这里部署。
 
-## 3 Selecting the Cloud Foundry app
+![输入云端Foundry应用的设置](attachments/run-menu/cloud-foundry-app-settings.png)
 
-The second step allows you to select an app in the Cloud Foundry instance to which your Mendix app will be deployed.
+### 3.1 组织
 
-### 3.1 Organization
+选择您想要使用的 **组织**。 如果没有组织可用，您将需要在您的云端基金帐户中配置一个组织； 无法从 Mendix Studio Pro内部创建一个新的。
 
-Select the **Organization** you want to use. If no organizations are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Desktop Modeler.
+### 3.2 空间
 
-### 3.2 Space
+选择您想要使用的 **空间**。 请注意，您想要使用的空间必须已经在您的云端账户中配置； 无法从 Mendix Studio Pro内部创建一个新的。
 
-Select the **Space** you want to use.  If no spaces are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Desktop Modeler.
+### 3.3 应用
 
-### 3.3 App
+如果您想要使用现有的应用环境，请 **选择现有的应用** 或 **如果您想要创建一个新的应用环境，则创建新的应用**
 
-Either **Select existing app** if you want to use an existing app environment, or **Create new app** if you want to create a new app environment.
+#### 3.3.1 选择现有应用
 
-#### 3.3.1 Select Existing App
+如果您 **选择现有的应用程序** ，您将能够从下拉列表中选择正确的应用程序。
 
-If you **Select existing app** you will be able to choose the correct app in a drop-down list.
+#### 3.3.2 创建新应用
 
-#### 3.3.2 Create New App
+如果您 **创建新的应用程序** ，您需要做以下工作：
 
-If you **Create new app**, you need to select the **Domain** in which the app will run in the drop-down list, and then enter the **App name** for the app.
+1. 选择应用程序将从下拉列表运行的 **域**。
+2. 为应用程序输入 **应用程序名称**。
 
-The URL for your app will be {App name}.(Domain)
+您的应用程序的 URL 将是 {App name}.(Domain)。
 
-### 3.4 Buildpack
+### 3.4 建筑包
 
-Here you can enter the URL of the **Buildpack** you want to use in your Cloud Foundry app. Only change this if you don't want to use the default Mendix buildpack.
+在这里您可以输入您想要在云端基金会应用程序中使用的 **Buildpack** 的 URL。 仅当您不想使用默认的 Mendix 构建包时才更改此设置。
