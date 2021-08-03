@@ -1,143 +1,143 @@
 ---
-title: "MxAssist Performance Bot"
-parent: "view-menu"
+title: "MxAssist性能机器人"
+parent: "视图菜单"
 menu_order: 50
-description: "Describes MxAssist Performance Bot in Mendix Studio Pro."
+description: "描述Mendix Studio Pro中的MxAssist性能箱。"
 tags:
   - "studio pro"
-  - "performance bot"
-  - mendix assist", "AI", "assist", "mx assist"
+  - "性能机器人"
+  - mendix assistance”、“AI”、“assist”、“mx assist”
 ---
 
-## 1 Introduction
+## 1 导言
 
-MxAssist Performance Bot is an intelligent virtual co-developer bot that helps you improve the performance of your app by inspecting your app model against Mendix development best practice in Mendix Studio Pro. It detects anti-patterns during the design and development, pinpoints you to these anti-patterns, suggests you how to resolve it, and in many cases can automatically fix these issues.
+MxAssist性能机器人是一个智能的虚拟合作开发者机器人，它通过在Mendix Studio Pro中检查您的应用模型来帮助您提高您应用的性能。 它在设计和开发过程中检测到反模式，将您指向这些反模式。 建议你如何解决它，并且在许多情况下可以自动解决这些问题。
 
-MxAssist Performance Bot is built using statistical analysis of thousands of anonymized Mendix app to learn common anti-patterns as well as using Mendix Expert Services best practices in the development of microflows, domain models, pages, security, etc.
+MxAssist性能箱是利用对数千个匿名Mendix 应用软件的统计分析来建立的，目的是学习共同的反模式，并利用Mendix Expert Services 的最佳做法来发展微流量。 域模型、 页面、 安全等
 
-It consists of a three-level assistance:
+它包括三级援助：
 
-1. **Detection** – the bot inspects the model, identifies issue, and pinpoints you to the document/element causing the issue.
-2. **Recommendation** – the bot explains the identified issue, the potential impact, and how to fix it. There is also a detailed best practice guide with a     dedicated step-by-step guideline of how to fix the issue.
-3. **Auto-fixing** – the bot can automatically implement the best practice and fix the issue.
+1. **检测** - 机器人检查模型，识别问题，并将您指向导致问题的文档/元素。
+2. **建议** - 机器人解释了已确定的问题、潜在影响以及如何修复它。 还有一份详细的最佳做法指南，其中有一个关于如何解决这个问题的专门的逐步指南。
+3. **自动修复** — 机器人可以自动实现最佳做法并解决问题。
 
-## 2 MxAssist Performance Bot Pane
+## 2 MxAssist性能机器人面板
 
-To access settings of MxAssist Performance Bot, open **Edit** > **Preferences** >the **General** tab >the **MxAssist Performance Bot** tab. For more information, see [Preferences](preferences-dialog).
+要访问 MxAssist性能箱的设置， 打开 **编辑** > **首选项** >一般 **标签页** 标签 >the **MxAssist性能箱** 标签。 欲了解更多信息，请参阅 [首选项](preferences-dialog)。
 
-MxAssist Performance Bot is enabled by default and is designed as a pane. To access the **MxAssist Performance Bot** pane, click **View** > **MxAssist Performance Bot.**
+MxAssist性能箱默认启用，设计成一个窗格。 要访问 **MxAssist性能箱** 面板，点击 **查看** > **MxAssist性能箱。**
 
-The pane gives you information on each anti-pattern and contains MxAssist Performance Bot settings and configurations:
+窗格提供了每个反模式的信息，包含MxAssist性能箱和配置：
 
-![Performance Bot Pane](attachments/mx-assist-performance-bot/performance-bot-pane.png)
+![性能机器人面板](attachments/mx-assist-performance-bot/performance-bot-pane.png)
 
-### 2.1 Options and Configuration
+### 2.1 备选方案和配置
 
-At the top of the **MxAssist Performance Bot** pane you can see the following options:
+在 **MxAssist性能箱顶部** 窗格，您可以看到以下选项：
 
-* **Inspect now** – inspects your app model on performance issues.
+* **现在查看** — — 检查您的应用模型关于性能问题。
 
-* **Limit to current  tab** – limits the messages displayed in the pane to the current document.
+* **限于当前标签** - 将窗格中显示的消息限制为当前文档。
 
-* **Configuration** – defines the modules and documents that the MxAssist  Performance Bot will analyze. Click the **Configuration** button to open the **MxAssist Performance Bot Configuration** dialog box that contains the **Project Model** and **Best Practice** tabs.
+* **配置** — 定义MxAssist性能箱将分析的模块和文档。 点击 **配置** 按钮打开 **MxAssist性能箱配置** 包含 **项目模型的对话框** 和 **最佳做法** 选项卡。
 
-    * The **Project Model** tab lists all relevant documents in your app. You can choose which specific modules or documents to inspect or leave out.
+    * **Project Model** 标签列出了您应用中所有相关的文档。 您可以选择要检查或离开的特定模块或文档。
 
-        ![Project Model](attachments/mx-assist-performance-bot/project-model.jpg)
+        ![项目模型](attachments/mx-assist-performance-bot/project-model.jpg)
 
-    * The **Best Practice** tab lists the available best practice. You can choose your preferred best practices and inspect your model against it:
+    * **最佳做法** 标签列出了可用的最佳做法。 您可以选择您喜欢的最佳做法，并查看您的模型：
 
-        ![Best Practice](attachments/mx-assist-performance-bot/best-practice.jpg)
+        ![最佳做法](attachments/mx-assist-performance-bot/best-practice.jpg)
 
-You can use both app model and best practice configuration together.
+您可以同时使用应用模型和最佳做法配置。
 
-### 2.2 Anti-Pattern Overview
+### 2.2 反模式概览
 
-Each anti-pattern line in the pane provides you with the following information:
+窗格中的每条反模式线都为您提供了以下信息：
 
-* **Icon** – indicates if the anti-pattern can be automatically fixed; if the icon has the “A” letter, the issue can be auto-fixed
+* **图标** -- 表示是否能自动修复反图案；如果图标有“A”字母，问题可以自动修复
 
-* **Code** – a unique code that is specific to the anti-pattern type
+* **代码** - 一个唯一专门针对反模式类型的代码
 
-* **Blue circle** – indicates a new detected anti-pattern
+* **蓝圆** - 表示一个新检测到的反图案
 
-* **Message** – description/explanation of the anti-pattern
+* **消息** - 反图案描述/解释
 
-* **Element** – the element causing the issue
+* **元素** - 造成问题的元素
 
-* **Document** – the document containing the element
+* **文档** - 包含元素的文档
 
-* **Module** – the module containing the document
+* **模块** — — 包含文档的模块
 
-    ![Anti-Pattern Overview](attachments/mx-assist-performance-bot/anti-pattern-overview.jpg)
+    ![反模式概述](attachments/mx-assist-performance-bot/anti-pattern-overview.jpg)
 
-Right-clicking the message line of an anti-pattern in the pane opens the drop-down menu:
+右键点击窗格中反模式的消息行打开下拉菜单：
 
-![Drop-Down Menu](attachments/mx-assist-performance-bot/drop-down-menu.jpg)
+![下拉菜单](attachments/mx-assist-performance-bot/drop-down-menu.jpg)
 
-The following actions are available in the drop-down menu:
+下拉菜单中有以下操作：
 
-* **Go to Cause** – takes you to the element causing the issue.
-* **Go to Usage** – opens the corresponding locations where the anti-pattern is used.
-* **View MxAssist Performance recommendation** – opens the pop-up window with recommendations (similar to double-clicking the message).
-* **Mark as read** – marks the issue as read. This will make the blue circle to disappear.
-* **Suppress this recommendation** – suppresses the issue. This will gray out the issue and send it to the bottom of the list. The related indicator in the editor will disappear.
+* **转到原因** — — 带你到导致问题的元素。
+* **转到使用** - 打开使用反模式的相应位置。
+* **查看 MxAssist性能建议** - 打开弹出窗口并提供建议 (类似于双击消息)。
+* **标记为已读** - 将问题标记为已读。 这将使蓝色圆消失了。
+* **禁止此推荐** — — 抑制此问题。 这将使问题灰心，并将其发送到列表底部。 编辑中的相关指标将消失。
 
-## 3 Using MxAssist Performance Bot in App Development
+## 3 在应用程序开发中使用 MxAssist性能机器人
 
-### 3.1 Detecting an Anti-Pattern {#detecting}
+### 3.1 检测反模式 {#detecting}
 
-The first level of assistance is **detection** that includes inspecting the app model, identifying anti-patterns, and pinpointing you to the document causing the issue.
+第一级援助是 **检测** , 其中包括检查应用模型。 识别反模式，并指向您的文档。
 
-To inspect your app model, click **Inspect now** in the **MxAssist Performance Bot** pane.
+要查看您的应用模型，请点击 **现在查看** 在 **MxAssist性能箱** 窗格。
 
 {{% alert type="info" %}}
 
-The **Inspect now** option will be disabled if there are consistency errors in the app. In this case, you need to resolve the consistency errors first.
+如果应用程序中出现一致性错误， **现在检查** 选项将被禁用。 在这种情况下，您需要先解决一致性错误。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-The bot will detect performance anti-patterns and list them in the pane under the associated anti-pattern type. To learn more about each anti-pattern type, click the anti-pattern code link. Click the plus icon next to the anti-pattern type to see the detected cases of this type:
+机器人将侦测性能反模式，并将其列在窗格中相关的反模式类型。 要了解更多关于每种反模式类型的信息，请单击反模式代码链接。 点击反模式类型旁边的加号图标来查看检测到的此类型的实例：
 
-![Viewing Anti-Pattern](attachments/mx-assist-performance-bot/viewing-anti-pattern.jpg)
+![查看反图案](attachments/mx-assist-performance-bot/viewing-anti-pattern.jpg)
 
-To view the element or the document where the anti-pattern is located, double-click the message line or right-click the message line and choose **Go to Cause** or **Go to Usage** in the drop-down menu.
+要查看反模式所在的元素或文档， 双击消息行或右键单击消息行，并选择 **转到原因** 或 **转到下拉菜单中的用法**
 
-### 3.2 Recommending a Fix {#recommending}
+### 3.2 建议修复 {#recommending}
 
-The second level of assistance is **recommendation** – giving you an overview of the issue and recommending how to fix it.
+第二级援助是 **建议** - 给您一个问题概述并建议如何解决它。
 
-There are two ways to view the recommendations:
+有两种观点看待这些建议：
 
-1.  Right-click an anti-pattern message on the pane and select **View MxAssist Performance Recommendation** in the drop-down menu.
+1.  右键点击窗格上的反模式消息，并在下拉菜单中选择 **查看MxAssist性能建议**。
 
-2. Click an indicator in the visual editor to view the detected issue:
+2. 在视觉编辑器中点击一个指示器来查看检测到的问题：
 
-   ![Indicator in the Editor](attachments/mx-assist-performance-bot/indicator-in-editor.jpg)
+   ![编辑器中的指示器](attachments/mx-assist-performance-bot/indicator-in-editor.jpg)
 
-The recommendation contains the description of the identified issue, potential impact from it, the way to fix it, and a link to a more detailed guidance on fixing the issue:
+该建议描述了已查明的问题、可能产生的影响。 解决该问题的方法，以及与解决问题的更详细指南的链接：
 
-![Performance Recommendation](attachments/mx-assist-performance-bot/performance-recommendation.jpg)
+![业绩建议](attachments/mx-assist-performance-bot/performance-recommendation.jpg)
 
-### 3.3. Auto-Fixing the Anti-Pattern {#auto-fixing}
+### 3.3. 自动修复反模式 {#auto-fixing}
 
-The third level of assistance is **auto-fixing** where the bot can automatically implement the best practice and fix the issue in just one click. To avoid undesirable changes, auto-fixing is only available when the bot can safely refactor the code without creating an error or making other undesirable change in the model. Each performance issue has an icon in the pane that indicates whether it is auto-fixable. If the icon has the “A” letter, the issue can be auto-fixed:
+第三级援助是 **自动修复** ，机器人可以自动执行最佳做法，只需点击一次即可解决这个问题。 避免不受欢迎的更改， 只有当机器人可以安全地重新计算代码，而不会在模型中造成错误或其他不受欢迎的更改时，自动修复才是可用的。 每个性能问题都有一个图标，表明它是否是自动修复的。 如果图标有“A”字母，问题可以自动解决：
 
-{{% image_container width="45" %}}![Auto-Fixable Icon](attachments/mx-assist-performance-bot/auto-fixable.png)
+{{% image_container width="45" %}}![自动固定图标](attachments/mx-assist-performance-bot/auto-fixable.png)
 {{% /image_container %}}
 
-To auto-fix the issue, follow the steps below:
+要自动修复此问题，请按下面的步骤：
 
-1. Right-click the message line in the pane and select **View MxAssist Performance Recommendation** in the drop-down menu or click the corresponding indicator in the editor to open the recommendation.
+1. 右键单击窗格中的消息行，并在下拉菜单中选择 **查看MxAssist性能建议** 或点击编辑器中的相应指示器来打开建议。
 
-2. In the **MxAssist Performance Recommendation** pop-up window, click the available action button, for example, **Fix the Commit**:
+2. 在 **MxAssist性能推荐** 弹出窗口中，单击可用的动作按钮。例如， **修复提交**：
 
-    ![Fix Performance Issue](attachments/mx-assist-performance-bot/fix-performance-issue.jpg)
+    ![修复性能问题](attachments/mx-assist-performance-bot/fix-performance-issue.jpg)
 
-After the issue is auto-fixed, a pop-up window listing the changes appears. You can click **Show the fix** to view the changed document and element.
+在问题自动修复后，出现了一个弹出窗口，列出了变更。 您可以点击 **显示修复** 查看更改的文档和元素。
 
-## 4 Read More
+## 4 阅读更多
 
-* [Mendix Assist](mx-assist-studio-pro)
-* [MxAssist Logic Bot](mx-assist-logic-bot)
-* [How to Implement Mendix Best Practices for Development](/howto/general/dev-best-practices)
+* [Mendix 助手](mx-assist-studio-pro)
+* [MxAssist逻辑箱](mx-assist-logic-bot)
+* [如何落实Mendix 最佳发展做法](/howto/general/dev-best-practices)
