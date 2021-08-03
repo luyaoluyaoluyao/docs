@@ -1,27 +1,15 @@
 ---
 title: "統合"
-category: "アプリモデリング"
-menu_order: 110
-tags:
-  - "studio pro"
+category: "デスクトップ モデラー"
 ---
 
-## 1つの紹介
 
-他のアプリケーション(他のMendixアプリ、または異なるテクノロジーで構築されたアプリケーション)との統合は、OData、RESTまたはSOAP/Webサービスを使用して行うことができます。 MendixはXMLとJSONからデータをインポートおよびエクスポートすることができます。
+他のアプリケーション(Mendix以外)との統合は、RESTまたはSOAP/Webサービスを使用して行うことができます。 MendixはXMLとJSONからデータをインポートおよびエクスポートすることができます。
 
-Mendixアプリケーション間の統合は、RESTサービスに最適です(詳細については、 [公開されたRESTサービス](published-rest-services) および [コールRESTサービス](call-rest-action)を参照してください)。 最も頻繁に使用される用語のいくつかは以下に説明されます。
+Mendixアプリケーション間の統合は、RESTサービス( [公開されたRESTサービス](published-rest-services) および [RESTサービスアクション](call-rest-action)を参照)で最も効果的に行われます。 最も頻繁に使用される用語のいくつかは、以下に説明されています。
 
 {{% alert type="info" %}}
-[コールの REST サービス](call-rest-action) アクティビティと [マッピングドキュメント](mapping-documents)内の JSON サポートについては、 [Consumed REST Services](consumed-rest-services) を参照してください。
+[Call REST Service Action](call-rest-action) and JSON support in [Mapping Documents](mapping-documents), see [Consumed REST Services](consumed-rest-services).
 {{% /alert %}}{{% alert type="info" %}}
-[Web サービス](call-web-service-action) を呼び出し、SOAP Web サービス/XML のサポートについては、 [Web サービス](consumed-web-services) を参照してください。
+[Web Service Action](call-web-service-action) を呼び出し、SOAP Web Services/XML のサポートについては、 [Web サービス](consumed-web-services) を参照してください。
 {{% /alert %}}
-
-## 2 このセクションのその他のドキュメント
-
-* [HttpRequest & HttpResponse System Entities](http-request-and-response-entities)
-* [JSON 構造](json-structures)
-* [メッセージ定義](message-definitions)
-* [公開されたOData Services](published-odata-services)
-* [XML Schemas](xml-schemas)
