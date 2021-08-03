@@ -1,80 +1,80 @@
 ---
-title: "Operation Parameters for Published REST"
+title: "公開されたREST用の操作パラメータ"
 parent: "published-rest-service"
 menu_order: 20
-description: "Configure a published REST Operation by adding parameters to an operation"
+description: "操作にパラメータを追加して公開された REST Operationを構成します"
 tags:
-  - "published REST"
-  - "operation"
-  - "parameter"
-  - "resource"
-  - "mapping"
-  - "not found"
-  - "commit"
+  - "公開された REST"
+  - "操作"
+  - "パラメータ"
+  - "リソース"
+  - "マッピング"
+  - "見つかりませんでした"
+  - "コミット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When a client calls a published REST operation, it calls a URL with an optional query string and possibly a body. These parameters can be passed to the microflow and import mapping as query parameters, path parameters, body parameters, header parameters, and form parameters.
+クライアントが公開されたRESTオペレーションを呼び出すと、オプションのクエリ文字列とおそらく本文を使用してURLを呼び出します。 これらのパラメータは microflow に渡され、クエリパラメータ、パスパラメータ、ボディパラメータ、ヘッダパラメータ、フォームパラメータとしてマッピングをインポートすることができます。
 
-When you add or edit a parameter in a published REST operation, you can specify the settings described below. These settings are in the **Add parameter** section of the **Add operation for resource** dialog box.
+パブリッシュされた REST 操作でパラメーターを追加または編集する場合、以下で説明されている設定を指定できます。 これらの設定は、 **リソースに対する操作の追加** ダイアログボックスの **パラメーターの追加** セクションにあります。
 
-## 2 General
+## 2つの全般
 
-### 2.1 Parameter Type
+### 2.1 パラメータタイプ
 
-Specify where the parameter comes from. Possible values are the following:
+パラメータがどこから来るかを指定します。 可能な値は次のとおりです。
 
-* **Query** – When the request contains a query string such as `?name=John&age=42`, you can pass these to the microflow by adding query parameters. For more information, see [Published REST Query Parameters](published-rest-query-parameters).
-* **Path** – The operation path can contain parameters as well. If you add a path parameter, make sure you add it to the operation path as well. For more information, see [Published REST Path Parameters](published-rest-path-parameters).
-* **Body** – The microflow can have 0 or 1 body parameters. A body parameter is taken from the body of the request. If the body is a file document or an image, its contents will be filled with the body of the request. If the body parameter is another type of object or a list, an import mapping is needed to convert the body content of the request into an object or a list. `GET`, `HEAD`, and `OPTIONS` operations should not have body parameters.
-* **Header** – The value of a header parameter is taken from the (first) request header with that name.
-* **Form** – The value of a form parameter is taken from the body part with that name (these are available for `multipart/form-data` requests).
+* **クエリ** – リクエストに `のようなクエリ文字列が含まれている場合。 ame=John&age=42`, クエリパラメータを追加することで、これらをマイクロフローに渡すことができます。 詳細については、 [公開された REST クエリ パラメータ](published-rest-query-parameters) を参照してください。
+* **Path** – 操作パスにもパラメータを含めることができます。 path パラメータを追加する場合は、操作パスにも追加するようにしてください。 詳細については、 [公開された REST Path パラメータ](published-rest-path-parameters) を参照してください。
+* **Body** – マイクロフローは、0 または 1 のボディパラメータを持つことができます。 リクエストの本文からbodyパラメータが取られます。 本文がファイルドキュメントまたは画像の場合、その内容はリクエストの本文で満たされます。 bodyパラメータがオブジェクトまたはリストの別のタイプの場合。 リクエストのボディコンテンツをオブジェクトまたはリストに変換するためにインポートマッピングが必要です。 `GET`, `HEAD`, および `OPTIONS` 操作には、ボディパラメータを持たないでください。
+* **ヘッダー** – ヘッダーパラメータの値は、その名前の(最初の)リクエストヘッダーから取得されます。
+* **フォーム** - フォームパラメータの値は、その名前を持つ本体部分から取得されます (これらは `multipart/form-data` リクエストで使用できます)。
 
-### 2.2 Name
+### 2.2 名前
 
-The name of the parameter. For a header parameter, this should be the name of the request header.
+パラメータの名前。 ヘッダパラメータの場合、これはリクエストヘッダの名前でなければなりません。
 
-### 2.3 Type
+### 2.3 タイプ
 
-Specify the type of the parameter. Object or list parameters can only come from the body of the request.
+パラメータの種類を指定します。 オブジェクトやリストのパラメータはリクエストの本文からのみ取得できます。
 
-### 2.4 Microflow Parameter
+### 2.4 マイクロフローパラメータ
 
-Specify the microflow parameter that will be filled with the value from this operation parameter. You should always select one, except for when you defined a path parameter to be passed to the import mapping.
+この操作パラメータから値を入力するマイクロフローパラメータを指定します。 インポートマッピングに渡されるパスパラメーターを定義したとき以外は、常に1つを選択する必要があります。
 
-## 3 Mapping
+## 3つのマッピング
 
-The mapping group is only shown for body parameters.
+マッピンググループはボディパラメータに対してのみ表示されます。
 
-### 3.1 Import Mapping
+### 3.1 インポートマッピング
 
-Specify the import mapping that converts the body of the request (JSON or XML) into an Object or a List.
+リクエストの本文(JSONまたはXML)をオブジェクトまたはリストに変換するインポートマッピングを指定します。
 
-You can use an import mapping that takes a primitive parameter (string, integer, etcetera) if the operation has no more than one path parameter with that type. The value of that path parameter will be passed to the microflow. If there is no path parameter, and empty value will be passed to the import mapping.
+プリミティブパラメーター (文字列、整数) を取るインポートマッピングを使用できます。 etcetera) オペレーションがその型を持つ複数のパスパラメータを持たない場合。 そのパスパラメータの値がマイクロフローに渡されます。 パスパラメータがない場合、空の値がインポートマッピングに渡されます。
 
-### 3.2 If No Object Was Found
+### 3.2 オブジェクトが見つからなかった場合
 
-This sets the behavior of the operation when a find operation does not find an existing object.
+検索操作が既存のオブジェクトを見つけなかった場合の動作を設定します。
 
-If the top-level of an [import mapping](import-mappings) has **Decide this at the place where the mapping gets used** unchecked, then the behavior is set in the import mapping.
+[インポート マッピング](import-mappings) の最上位レベルに **マッピングが使用される場所** がチェックされていない場合、これを決定します。 インポートマッピングで動作が設定されます
 
-If the import mapping has **Decide this at the place where the mapping gets used** checked, then you can define the **If no object was found** action in the REST operation itself. This means you can use the same import mapping in multiple operations, but have a different behavior for each of them. The options are:
+If the import mapping has **Decide this at the place where the mapping gets used** checked, then you can define the **If no object was found** action in the REST operation itself. つまり、同じインポートマッピングを複数の操作で使用することができますが、それぞれに異なる動作があります。 オプションは以下の通りです:
 
-* Create – create an object of the correct entity to map to — typically used for **POST** operations
-* Ignore – don't map this element and continue parsing
-* Error – stop parsing the XML and throw an error — typically used for **PUT** and **PATCH** operations
+* Create – マップする正しいエンティティのオブジェクトを作成します。通常は **POST** 操作に使用されます。
+* 無視 - この要素をマップせず、解析を続ける
+* Error - XMLの解析を停止し、エラーをスローします — 通常 **PUT** と **PATCH** の操作に使用されます
 
-### 3.3 Commit
+### 3.3 コミット
 
-You can indicate whether the import mapping should commit the objects that it creates or changes. You can choose between the following:
+インポートマッピングが作成または変更を行うオブジェクトをコミットするかどうかを指定することができます。 次のいずれかを選択できます。
 
-* **Yes** – commits the changes and triggers events such as validation rules
-* **Yes without events** – commits the changes without triggering events such as validation rules
-* **No** – does not commit the changes, so you can commit them in your microflow. This is useful if you want to add some additional checks in your microflow, and skip the commit if one of those checks fail
+* **はい** - 変更をコミットし、バリデーションルールなどのイベントをトリガーします
+* **はい、イベントなし** - バリデーションルールなどのイベントをトリガーせずに変更をコミットします
+* **いいえ** – 変更をコミットしないので、マイクロフローでコミットすることができます。 これは、microflowに追加のチェックを追加し、それらのチェックのいずれかが失敗した場合にコミットをスキップする場合に便利です。
 
-## 4 Public Documentation
+## 4 公開ドキュメント
 
-Provide a **Description** of the parameter. You can use [GitHub-flavored Markdown](gfm-syntax) for rich text.
+パラメータの **説明** を指定します。 リッチテキストには、 [GitHub風味のマークダウン](gfm-syntax) を使用できます。
 
-This is used in the service's [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation).
+これはサービスの [OpenAPI (Swagger) ドキュメント ページ](published-rest-services#interactive-documentation) で使用されます。
