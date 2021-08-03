@@ -1,29 +1,29 @@
 ---
-title: "Login Behavior"
+title: "ログインの動作"
 category: "Mendix Runtime"
-description: "Describes default and customized login behavior in Runtime."
+description: "ランタイムでのデフォルトとカスタマイズされたログインの動作を説明します。"
 tags:
   - "Runtime"
-  - "login"
+  - "ログイン"
   - "studio pro"
 ---
 
-## 1 Default Login Behavior
+## 1つのデフォルトログインの動作
 
-A user is blocked after 3 consecutive bad login attempts, regardless of the time between the login attempts. The failed login count is reset after a successful login attempt or when a blocked user is unblocked. Blocking users only occurs when the app security level is set to **Production**.
+ログイン試行の間の時間に関係なく、3回連続して不正なログイン試行が行われた後、ユーザーはブロックされます。 ログインが成功した後、またはブロックされたユーザーがブロック解除されたときに失敗したログイン数はリセットされます。 ユーザーのブロックは、アプリのセキュリティレベルが **Production** に設定されている場合にのみ発生します。
 
-Users are unblocked each time the cluster manager runs, and at that point, the failed login count is also reset to 0. By default, the cluster manager runs every 5 minutes. This interval can be changed using the [Runtime customization](custom-settings) `ClusterManagerActionInterval` setting.
+クラスタマネージャが実行されるたびにユーザーのブロックが解除され、その時点で失敗したログイン回数も0にリセットされます。 デフォルトでは、クラスタマネージャは5分ごとに実行されます。 この間隔は、 [ランタイムカスタマイズ](custom-settings) `ClusterManagerActionInterval` 設定を使用して変更できます。
 
 {{% alert type="warning" %}}
-The cluster manager does more than just unblocking users. For example, it also removes expired sessions. So, changing this interval has a broader impact.
+クラスタマネージャは、ユーザーのブロックを解除するだけではありません。 たとえば、期限切れのセッションも削除します。 ですから、この間隔を変えることは、より大きな影響を与えます。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-If a user is blocked just 1 second before the cluster manager starts to unblock all blocked users, the lock is removed after 1 second.
+クラスターマネージャーがブロックを解除し始める1秒前にユーザーがブロックされた場合、ロックは1秒後に削除されます。
 {{% /alert %}}
 
-## 2 Customizing Login Behavior
+## 2 ログインの動作をカスタマイズ
 
-Login behavior can be customized by implementing a custom Java action and registering it to be used instead of the default login action.
+カスタムJavaアクションを実装し、デフォルトのログインアクションの代わりに使用するように登録することでログイン動作をカスタマイズできます。
 
-Cluster manager behavior currently cannot be changed.
+クラスタマネージャの動作は現在変更できません。
