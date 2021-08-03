@@ -1,96 +1,96 @@
 ---
-title: "Loop"
-category: "Microflows"
+title: "ループ"
+category: "マイクロフロー"
 menu_order: 30
-description: "Describes a loop in Mendix Studio."
+description: "Mendix Studioでループを説明します。"
 tags:
-  - "studio"
-  - "microflow"
-  - "loop"
-  - "loops"
+  - "スタジオ"
+  - "マイクロフロー"
+  - "ループ"
+  - "ループ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A loop is used to iterate over a list of object and perform actions on each item of the list when building [microflows](microflows). For example, you can retrieve a list of orders from your database, then loop over this list and mark orders as processed. For more details on use cases, see the [Configuring a Loop](#loop-example) section.
+ループは、オブジェクトのリストを反復処理し、 [microflow](microflows) を構築するときにリストの各項目に対してアクションを実行するために使用されます。 たとえば、データベースから注文のリストを取得し、次にこのリストをループし、処理済みとして注文をマークできます。 ユースケースの詳細については、 [ループの設定](#loop-example) セクションを参照してください。
 
-The loop is visualized as a frame. The flow inside the loop is executed for each object. That means, if you add more than one activity to the loop, the full flow gets executed on each item. For example, you can add a loop that will prevent orders from processing if the order is not paid:
+ループはフレームとして視覚化されます。 ループ内のフローは、オブジェクトごとに実行されます。 つまり、ループに複数のアクティビティを追加すると、各項目に対してフルフローが実行されます。 たとえば、注文が支払われていない場合に注文が処理されないようにするループを追加できます。
 
 ![](attachments/microflows-loop/loop.png)
 
-The loop can contain all types of elements used in microflows, except for start and end events. Additionally, only a loop can contain [break events](/refguide8/break-event) and [continue events](/refguide8/continue-event). A break event is used in loops only to stop iterating over a list of objects and continue with the rest of the flow in a microflow. A continue event is used in loops only to stop the current iteration and start the iteration of the next object.
+ループには、開始イベントと終了イベントを除く、マイクロフローで使用されるすべてのタイプの要素を含めることができます。 さらに、ループのみが [break events](/refguide/break-event) と [continue events](/refguide/continue-event) を含めることができます。 break イベントはループ内で使用されるのは、オブジェクトのリストの反復を停止し、マイクロフロー内の残りのフローを継続するためだけです。 continue イベントは、現在の反復を停止し、次のオブジェクトの反復を開始するためにのみループで使用されます。
 
-## 2 Loop Properties
+## 2 つのループプロパティ
 
-Loop properties consists of the **Data Source** section and are described below:
+Loop プロパティは **データ ソース** セクションで構成され、以下に説明します。
 
-* **Loop Over** – a variable that is a list of items you will loop through
+* **Loop Over** - ループするアイテムのリストである変数
 
-*  **Loop Variable Name** – refers to the name of the list item that is currently being worked on
+*  **Loop Variable Name** - 現在作業中のリスト項目の名前を指します。
 
-    {{% image_container width="350" %}}![Data Source Properties of a Loop](attachments/microflows-loop/loop-properties.png)
+    {{% image_container width="350" %}}![ループのデータ ソースのプロパティ](attachments/microflows-loop/loop-properties.png)
     {{% /image_container %}}
 
-## 3 Configuring a Loop {#loop-example}
+## 3 ループの設定 {#loop-example}
 
-A straightforward use-case is where you retrieve a list of orders from your database, loop over this list, and mark orders as processed as a result.
+簡単なユースケースは、データベースから注文リストを取得する場所です。 このリストをループし、結果として処理された注文をマークします。
 
-![Loop Example](attachments/microflows-loop/loop-example.png)
+![ループ例](attachments/microflows-loop/loop-example.png)
 
-Make sure you have the following prerequisites:
+以下の前提条件があることを確認してください:
 
-1. [Create an entity](domain-models#adding-new-entities) in your domain model and name it *Order*.
-2. [Create an attribute](domain-models#adding-new-attributes) of the Boolean type for this entity to indicate the status of an order and name this attribute *Processed*.
-3. [Create a microflow](microflows#creating-new-microflow).
+1. [ドメインモデルに](domain-models#adding-new-entities) エンティティを作成し、 *Order* という名前を付けます。
+2. [このエンティティのブール型の属性](domain-models#adding-new-attributes) を作成して、この属性のステータスを示し、この属性に名前を付けます。 *処理済み*。
+3. [マイクロフロー](microflows#create) を作成
 
-To start the use-case, do the following:
+ユースケースを開始するには、次の手順を実行します。
 
-1. Open a microflow you want to add a loop to.
+1. ループを追加するマイクロフローを開きます。
 
-2. First of all, you need to get the list of orders to loop over. Do the following: <br />
+2. まず、ループオーバーする注文のリストを取得する必要があります。 次の操作を行います: <br />
 
-    a. In the **Toolbox**, select **Retrieve**, drag and drop it to the microflow. <br />
+    a **ツールバー**で **取得**を選択し、マイクロフローにドラッグ&ドロップします。 <br />
 
-    b. In **Properties** > the **Data Source** section, select **From Database**, and set *Order* as an entity for this activity. (The **Range** property is set to **All** by default): <br />
+    B In **Properties** > the **Data Source** section, select **From Database**, and set *Order* as an entity for this activity. ( **Range** プロパティはデフォルトで **All** に設定されています): <br />
 
-    {{% image_container width="350" %}}![Retrieve Object Properties](attachments/microflows-loop/retrieve-properties.png)
+    {{% image_container width="350" %}}![オブジェクトのプロパティを取得](attachments/microflows-loop/retrieve-properties.png)
     {{% /image_container %}}
 
-3. As you have retrieved the list of orders you can work on, you now need to create a loop and logic for it. Do the following: <br />
+3. 作業できる注文のリストを取得したので、ループとロジックを作成する必要があります。 次の操作を行います: <br />
 
-    a. In the **Toolbox**, select **Loop**, drag and drop it to the microflow. <br />
+    a **Toolbox**で **Loop**を選択し、マイクロフローにドラッグ&ドロップします。 <br />
 
-    ![Loop is Added](attachments/microflows-loop/loop-added.png)<br />
+    ![ループが追加されました](attachments/microflows-loop/loop-added.png)<br />
 
-    b. In **Properties**, set **OrderList** as **Loop Over** (**Loop Variable Name** is set automatically). So, you have selected the list of objects to loop over. <br />
+    B **プロパティ**で、 **OrderList** を **Loop Over** に設定します(**Loop Variable Name** は自動的に設定されます)。 そのため、ループするオブジェクトのリストを選択していることになります。 <br />
 
-    {{% image_container width="350" %}}![Loop Properties in an Example](attachments/microflows-loop/loop-properties-in-example.png)
+    {{% image_container width="350" %}}![例のループプロパティ](attachments/microflows-loop/loop-properties-in-example.png)
      {{% /image_container %}}
 
-4. Now you can add the activity that will change the status of each order to *Processed*. This means that the activities you add inside the loop will be performed on each object (each order). Do the following:<br />
+4. これで、各注文のステータスを *処理済*に変更するアクティビティを追加できます。 つまり、ループ内で追加したアクティビティは、各オブジェクト(順序ごと)に対して実行されます。 次の操作を行います:<br />
 
-    a. In the **Toolbox**, select **Change Object**, drag and drop it inside the loop .<br />
+    a **Toolbox**で **Change Object**を選択し、ループ内にドラッグ&ドロップします。<br />
 
-    b. In **Properties** > the **Data Source** section for the **Change Object** activity, set **Object** to **Order**.<br/>
+    B In **Properties** > the **Data Source** section for the **Change Object** activity, set **Object** to **Order**.<br/>
 
-    c. When the **Change Members** option appears, click **Add New Value**.<br />
+    C **メンバーの変更** オプションが表示されたら、 **新しい値を追加** をクリックします。<br />
 
-    ![Change Object Properties in Loop Example](attachments/microflows-loop/change-object-properties.png)
+    ![ループの例でオブジェクトのプロパティを変更](attachments/microflows-loop/change-object-properties.png)
 
-5. In the **Change value** dialogue window, do the following:<br />
+5. **値の変更** ダイアログで、次の操作を行います。<br />
 
-    a. Set **Select an Attribute or Association** to **Processed (Boolean)**.<br />
+    a **属性または関連付け** を **処理済み(ブール語)** に設定します。<br />
 
-    b. In the **Expressions** tab, set the **New value** of this attribute by typing in *true*. <br />
+    B **式** タブで、 **true** と入力して、この属性の *新しい値* を設定します。 <br />
 
-    ![Example of Change Value Dialogue Window](attachments/microflows-loop/change-value-dialogue-example.png)
+    ![値を変更するダイアログの例](attachments/microflows-loop/change-value-dialogue-example.png)
 
-    c. Click **Add** to save the changes.
+    C **追加** をクリックして変更を保存します。
 
-This video shows the process of configuring the example above:
+このビデオは、上記の例を構成するプロセスを示しています。
 
-<video width="768" height="432" controls src="attachments/microflows-loop/loop-example-video.mp4">VIDEO</video> As a result, you have a list of orders retrieved to your microflow, and a loop that iterates over this list. The activity inside the loop sets the status of each order to processed.
+<video width="768" height="432" controls src="attachments/microflows-loop/loop-example-video.mp4">ビデオ</video> 結果として、microflow に取得した注文のリストと、このリストを反復するループがあります。 ループ内のアクティビティでは、処理する各注文のステータスが設定されます。
 
-## 4 Read More
+## 4 続きを読む
 
-* [Microflows](microflows)
+* [マイクロフロー](マイクロフロー)
