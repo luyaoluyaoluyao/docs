@@ -1,67 +1,71 @@
 ---
-title: "Edit Cloud Foundry Settings Dialog"
-parent: "dialogs"
+title: "Cloud Foundryの設定を編集"
+parent: "run-menu"
 tags:
   - "Cloud Foundry"
-  - "Deploy"
+  - "デプロイ"
+  - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Use this dialog to specify the information necessary for deploying your app to a Cloud Foundry instance.
+**Edit Cloud Foundry Settings** メニューオプションでは、アプリケーションをCloud Foundryインスタンスにデプロイするために必要な情報を指定できます。
 
 {{% alert type="info" %}}
-
-For more information on deploying to Cloud Foundry, see [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy) in *Developer Portal Guide*.
-
+Cloud Foundryへのデプロイの詳細は [Cloud Foundry: Deploy](/developerportal/deploy/cloud-foundry-deploy)をご覧ください。
 {{% /alert %}}
 
-## 2 Entering credentials
+## 2 資格情報の入力
 
-The first step in configuring your app for Cloud Foundry deployment is to enter the account information of the Cloud Foundry instance you wish to use.
+Cloud Foundryデプロイメント用にアプリを構成する最初のステップは、使用したいCloud Foundryアカウントのアカウント情報を入力することです。
 
-Enter the details on the screen, as described below, then click **Next** to validate the specified credentials and show the next configuration step.
+![クラウドファウンドリー資格情報を入力してください](attachments/run-menu/cloud-foundry-credentials.png)
 
-### 2.1 API endpoint
+以下で説明されているように画面に詳細を入力し、 **Next** をクリックして指定された資格情報を検証し、次の構成ステップを表示します。
 
-This is the URL defining the **API endpoint** of the Cloud Foundry platform that will be used for deployment.
+### 2.1 API Endpoint
 
-### 2.2 User Name
+デプロイに使用されるCloud Foundryプラットフォームの **APIエンドポイント** を定義するURL。
 
-This is the **User name** of your Cloud Foundry account.
+### 2.2 ユーザー名
 
-### 2.3 Password
+Cloud Foundryアカウントの **ユーザー名**。
 
-This is the **Password** of your Cloud Foundry account.
+### 2.3 パスワード
 
-Pressing the 'Next' button will validate the specified credentials and show the next configure step.
+Cloud Foundryアカウントの **パスワード**。
 
-## 3 Selecting the Cloud Foundry app
+## 3クラウドファウンドリアプリの選択
 
-The second step allows you to select an app in the Cloud Foundry instance to which your Mendix app will be deployed.
+2番目のステップでは、既存のアプリを選択したり、新しいアプリを作成したりすることができます。 ここでMendixアプリが展開されます。
 
-### 3.1 Organization
+![Cloud Foundryアプリの設定を入力](attachments/run-menu/cloud-foundry-app-settings.png)
 
-Select the **Organization** you want to use. If no organizations are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Desktop Modeler.
+### 3.1 組織
 
-### 3.2 Space
+使用する **組織** を選択します。 利用可能な組織がない場合は、Cloud Foundryアカウントで組織を構成する必要があります。 Mendix Studio Proから新しいものを作成することはできません。
 
-Select the **Space** you want to use.  If no spaces are available, you will need to configure one in your Cloud Foundry account; it is not possible to create a new one from within Desktop Modeler.
+### 3.2 スペース
 
-### 3.3 App
+使用する **スペース** を選択します。 使用する領域は、Cloud Foundryアカウントに既に設定されている必要があります。 Mendix Studio Proから新しいものを作成することはできません。
+
+### 3.3 アプリ
 
 Either **Select existing app** if you want to use an existing app environment, or **Create new app** if you want to create a new app environment.
 
-#### 3.3.1 Select Existing App
+#### 3.3.1 既存のアプリを選択
 
-If you **Select existing app** you will be able to choose the correct app in a drop-down list.
+**既存のアプリを選択** すると、ドロップダウンリストから正しいアプリを選択することができます。
 
-#### 3.3.2 Create New App
+#### 3.3.2 新しいアプリを作成
 
-If you **Create new app**, you need to select the **Domain** in which the app will run in the drop-down list, and then enter the **App name** for the app.
+**新しいアプリを作成** する場合は、次の手順を実行する必要があります。
 
-The URL for your app will be {App name}.(Domain)
+1. ドロップダウンからアプリを実行する **ドメイン** を選択します。
+2. アプリの **アプリ名** を入力します。
+
+アプリの URL は {App name}(ドメイン) になります。
 
 ### 3.4 Buildpack
 
-Here you can enter the URL of the **Buildpack** you want to use in your Cloud Foundry app. Only change this if you don't want to use the default Mendix buildpack.
+Cloud Foundryアプリで使用したい **Buildpack** のURLを入力できます。 デフォルトのMendixビルドパックを使用したくない場合にのみ、これを変更してください。
