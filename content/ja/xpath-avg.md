@@ -1,8 +1,6 @@
 ---
-title: "XPath 平均"
+title: "XPath avg"
 parent: "xpath-query-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
