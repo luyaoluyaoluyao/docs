@@ -1,86 +1,86 @@
 ---
-title: "Design Section"
-parent: "page-editor-widgets"
-description: "Describes the Design section in widgets properties in Mendix Studio."
+title: "设计部分"
+parent: "页面编辑器部件"
+description: "在 Mendix Studio 中描述部件属性中的设计部分。"
 tags:
-  - "studio"
-  - "page editor"
-  - "widgets"
-  - "on click action"
-  - "events"
+  - "工作室"
+  - "页面编辑器"
+  - "小部件"
+  - "点击动作"
+  - "事件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Design** section in **Properties** allows you to change spacing and alignment of a widget on a page, but is not limited to these functions. For some elements you can, for example, change their color. Hover over the information icon to get more details on each option.
+在 **属性中的 **设计** 部分** 允许您更改页面上一个部件的间距和对齐， 但不限于这些职能。 对于某些元素，您可以更改其颜色。 悬停在信息图标上以获取更多关于每个选项的详细信息。
 
 ![](attachments/page-editor-widgets-design-section/design-section-info-icon.png)
 
-## 2 Common Properties {#design-common-properties}
+## 2 公共属性 {#design-common-properties}
 
-The **Design** section has the following properties common to all widgets:
+**设计** 部分具有以下所有部件共有的属性：
 
 
-| Property                                                 | Description                                                                                                                          | Possible Values                                                                                                                          |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Spacing Top/ Spacing Bottom/ Spacing Left/ Spacing Right | Adds margin above/ below/ left/ right of the widget                                                                                  | Possible values for **Spacing Top**/ **Spacing Bottom**/ **Spacing Left**/ **Spacing Right** are the following:<ul><li>None – no extra spacing is applied</li><li>Small – applies small spacing</li><li>Medium –  applies medium spacing</li><li>Large – applies large spacing</li><li>Layout – applies the same spacing as the current layout  (if you do not change the layout spacing, large and layout spacings are the same by default) </li></ul> |
-| Align Self                                               | Aligns the widget within its layout element. For more information on layout elements, see [Structure](page-editor-widgets-structure) | Possible values for **Align Self** are the following:<ul><li>None – places the element next to the previous element</li><li>Left – aligns the element to the left (places the element to the left of its layout element)</li><li>Right – aligns the element to the right (places the element to the right of its layout element)</li></ul>                                                           |
+| 财产              | 描述                                                              | 可能的值                                                                    |
+| --------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 空格顶/空格底/空格左/右间距 | 在下面/小部件左/右添加边距                                                  | **间距顶部**/ **间距底部**/ **间距左侧**/ **间距右侧** 可能的值如下：<ul><li>无 — — 没有额外的间距被应用</li><li>小-应用小间距</li><li>介质-应用介质</li><li>大 - 应用较大的间距</li><li>布局——应用与当前布局相同的间距(如果你不改变布局间距) 大和布局间距默认相同) </li></ul> |
+| Align Self      | 在布局元素中对齐部件。 关于布局元素的更多信息，请参阅 [结构](page-editor-widgets-structure) | **自我对齐** 的可能值如下：<ul><li>无 — — 将元素置于前一个元素旁边。</li><li>左对齐元素左边(将元素放置在布局元素左边)</li><li>右对齐元素到右(将元素放置在布局元素右侧)</li></ul>                               |
 
-The example of how spacing works on a button is schematically shown on an image below:
+在下面的图像上显示间距如何在按钮上工作的示例：
 
 ![](attachments/page-editor-widgets-design-section/design-section-scheme.png)
 
-## 3 Specific Properties
+## 3 个特定属性
 
-The following widgets have specific properties:
+以下小部件具有特定属性：
 
-* [List view](#list-view-design-properties)  (a Data Container widget)
-* [Container](#container-design-properties) (a Structure widget)
-* [Buttons](#button-design-properties) (all Button widgets)
-* [Text](#text-design-properties) (a Text widget)
+* [列表视图](#list-view-design-properties)  (数据容器部件)
+* [容器](#container-design-properties) (一个结构部件)
+* [按钮](#button-design-properties) (所有按钮部件)
+* [文本](#text-design-properties) (文本部件)
 
-### 3.1 List View Specific Properties {#list-view-design-properties}
+### 3.1 名单对特定财产的看法 {#list-view-design-properties}
 
-Specific properties for **List View** are described in the table below:
+**List View** 的特定属性在下表中描述：
 
-| Property    | Description                                                                  | Possible Values                                                              |
-| ----------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| Style       | Changes the appearance of lines in the list view.                            | Possible values for **Style** are the following:<ul><li>None</li><li>Striped</li><li>Bordered</li><li>Lined</li><li>No Styling</li></ul>    |
-| Hover Style | Highlights a row when hovering over it. Only useful if the row is clickable. | Enabled/Disabled                                                             |
-| Row Size    | Changes the size of the row.                                                 | Possible values for **Row Size** are the following:<ul><li>None</li><li>Small</li><li>Large</li></ul> |
-### 3.2 Container Specific Properties {#container-design-properties}
+| 财产          | 描述                         | 可能的值                                     |
+| ----------- | -------------------------- | ---------------------------------------- |
+| 样式          | 更改列表视图中的行外观。               | **样式** 的可能值如下：<ul><li>无</li><li>条形状：</li><li>有边框</li><li>已嵌入</li><li>没有样式</li></ul>  |
+| Hover Style | 悬停在上方时突出显示一行。 仅当行可以点击时才有用。 | 启用/禁用                                    |
+| 行大小         | 更改行的大小。                    | **行大小** 的可能值如下：<ul><li>无</li><li>小的</li><li>大的</li></ul> |
+### 3.2 集装箱特定属性 {#container-design-properties}
 
-Specific properties for the **Container** widget are described in the table below:
+**容器** 部件的特定属性在下表中描述：
 
-| Property         | Description                        | Possible Values                                                                                                                                                                                                                                                                                |
-| ---------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Align Content    | Aligns content inside a container. | Possible values for **Align Content** are the following:<ul><li>None</li><li>Left align as a row</li><li>Center align as row</li><li>Right align as row</li><li>Left align as column</li><li>Center align as column</li><li>Right align as column</li></ul><br />When aligning content as a column, elements inside a container will be aligned one under another; when aligning content as a row, elements inside a container will be aligned next to each other. |
-| Background color | Applies a background color.        | Possible values for **Background color** are the following:<ul><li>None – color defined in **Backgrounds** > **Default** of the **UI Customization** section of the [Theme Customizer](theme-customizer)</li><li>Default</li><li>Primary</li><li>Inverse</li><li>Success</li><li>Warning</li><li>Danger</li></ul><br />The color for each value depends on your settings in the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer).                                                          |
+| 财产            | 描述        | 可能的值                                                                                                                  |
+| ------------- | --------- | --------------------------------------------------------------------------------------------------------------------- |
+| Align Content | 在容器内对齐内容。 | **对齐内容** 的可能值如下：<ul><li>无</li><li>左对齐作为行</li><li>居中对齐作为行</li><li>右对齐作为行</li><li>左对齐作为列</li><li>居中对齐列</li><li>右对齐列</li></ul><br />当将内容作为列对齐时，容器内的元素将在另一列下对齐； 当将内容作为行对齐时，容器内的元素将彼此对齐。               |
+| 背景颜色          | 应用背景颜色。   | **背景颜色** 的可能值如下：<ul><li>无 - 在 **背景** > **默认** 中定义了 [主题自定义器](主题自定义程序) 的 **UI 自定义** 的颜色</li><li>默认设置</li><li>主要的</li><li>反转</li><li>成功</li><li>警告</li><li>危险</li></ul><br />每个值的颜色取决于您在 **主题定制器** 中的设置。 欲了解详情，请参阅 [主题定制器](theme-customizer)。 |
 
-### 3.3 Button Specific Properties {#button-design-properties}
+### 3.3 按钮特定属性 {#button-design-properties}
 
-Specific properties for **Buttons** are described in the table below:
+**按钮** 的特定属性描述于下表：
 
-| Property   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           | Possible Values                                                                                          |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Size       | Changes the size of the button.                                                                                                                                                                                                                                                                                                                                                                                                                       | You can change the size from the preset size by selecting one of the following:<ul><li>Small – the button is smaller than the preset one</li><li>Large – the button is larger than the preset</li></ul> |
-| Full Width | The button takes the whole width of a layout element it is placed in. For more information on layout elements, see [Structure](page-editor-widgets-structure).                                                                                                                                                                                                                                                                                        | Enabled/Disabled                                                                                         |
-| Bordered   | Changes the style of the button to a button with a transparent background, a colored border, and a colored text. Color of the border and the text are inverted from the background color, that means, if the button background is red, the background will become transparent, but the border and text will become red.<br />{{%alert type="info" %}}This option has no effect on buttons which are rendered as links.<br />{{%/alert %}} | Enabled/Disabled                                                                                         |
-| Align Icon | Moves an icon (if any) to the right of the text or on top of it.                                                                                                                                                                                                                                                                                                                                                                                      | Possible values for **Align Icon** are the following:<ul><li>None – icon is to the left of the text</li><li>Right – icon is moved to the right side of the button or link</li><li>Top – icon is centered above the button text for *button* style and left-justified above the button text for *link* style (for more information on button styles, see [Buttons](page-editor-widgets-buttons))</li></ul>                           |
+| 财产         | 描述                                                                                                                                                                                                                                                                                                                                                                 | 可能的值                                           |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| 大小         | 更改按钮的大小。                                                                                                                                                                                                                                                                                                                                                           | 您可以从预设大小中选择以下一种来更改大小：<ul><li>小-按钮小于预设的按钮</li><li>大 — 按钮大于预设值</li></ul> |
+| 全宽度        | 按钮占用它放置的布局元素的整个宽度。 关于布局元素的更多信息，请参阅 [结构](page-editor-widgets-structure)。                                                                                                                                                                                                                                                                                            | 启用/禁用                                          |
+| 有边框        | 将按钮的样式更改为具有透明背景、彩色边界和彩色文本的按钮。 Color of the border and the text are inverted from the background color, that means, if the button background is red, the background will become transparent, but the border and text will become red.<br />{{%alert type="info" %}}This option has no effect on buttons which are rendered as links.<br />{{%/alert %}} | 启用/禁用                                          |
+| Align Icon | 将图标移动到文本右侧或顶部。                                                                                                                                                                                                                                                                                                                                                     | **对齐图标** 的可能值如下：<ul><li>无 -- 图标在文本左侧</li><li>右-图标移动到按钮或链接的右边</li><li>顶部 - 图标位于按钮* 样式的按钮文本上方左边的 *link* 样式的左边(关于按钮样式的更多信息) 查看 [Buttons](page-editor-widgets-butons))</li></ul>      |
 
-### 3.4 Text Specific Properties {#text-design-properties}
+### 3.4 特定文本属性 {#text-design-properties}
 
-Specific properties for the **Text** widget are described in the table below:
+**文本** 部件的特定属性在下表中描述：
 
-| Property     | Description                          | Possible Values                                                                                                                                                                                                                                                             |
-| ------------ | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Weight       | Changes the weight of the font       | Possible values for **Weight** are the following:<ul><li>None</li><li>Light</li><li>Normal <em>(used if weight is set to **None**)</em></li><li>Semibold</li><li>Bold</li></ul>                                                                                                                                                                                                  |
-| Color        | Changes the color of the text        | Possible values for **Color** are the following:<ul><li>Header color</li><li>Detail color (light-gray color)</li><li>Default – note that this is the default text color, not the default button color</li><li>Primary</li><li>Inverse</li><li>Success</li><li>Warning</li><li>Danger</li></ul><br />{{%alert type="info" %}}The color for each value depends on your settings in the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer).<br />{{%/alert %}} |
-| Alignment    | Aligns the text                      | Possible values for **Alignment** are the following:<ul><li>None</li><li>Left</li><li>Center</li><li>Right</li></ul>                                                                                                                                                                                              |
-| Transform    | Changes letter case of the text      | Possible values for **Transform** are the following:<ul><li>None</li><li>Lowercase</li><li>Uppercase</li><li>Capitalize</li></ul>                                                                                                                                                                                              |
-| Wrap Options | Wrap a long text into multiple lines | Possible values for **Wrap Options** are the following:<ul><li>None – text is not wrapped</li><li>Wrap</li><li>No Wrap</li></ul>                                                                                                                                                                                           |
+| 财产   | 描述         | 可能的值                                                                                                                                                              |
+| ---- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 权重   | 更改字体的权重    | **重量** 的可能值如下：<ul><li>无</li><li>亮色的</li><li>普通 <em>(如果重量设置为 **无** )</em></li><li>Semibold</li><li>Bold</li></ul>                                                                                                                           |
+| 颜色   | 更改文本颜色     | **颜色** 的可能值如下：<ul><li>标题颜色</li><li>详细颜色 (浅灰色颜色)</li><li>默认 — 注意这个是默认文本颜色，而不是默认按钮颜色</li><li>主要的</li><li>反转</li><li>成功</li><li>警告</li><li>危险</li></ul><br />●{%alert type="info" %}}每个值的颜色取决于您在 **主题定制器** 中的设置。 欲了解详情，请参阅 [主题自定义器](theme-customizer)。<br />{%/提醒 %}} |
+| 对齐   | 对齐文本       | **对齐** 的可能值如下：<ul><li>无</li><li>左侧</li><li>居中</li><li>右侧</li></ul>                                                                                                                          |
+| 变换   | 更改文本的字母大小写 | **变换** 的可能值如下：<ul><li>无</li><li>小写</li><li>大写</li><li>首页</li></ul>                                                                                                                          |
+| 换行选项 | 将长文本换成多行   | **包装选项** 的可能值如下：<ul><li>无 - 文本没有被包围。</li><li>换行</li><li>无换行</li></ul>                                                                                                                        |
 
 
-## 4 Read More
+## 4 阅读更多
 
-* [Widgets](page-editor-widgets)
+* [小部件](页面编辑器部件)
