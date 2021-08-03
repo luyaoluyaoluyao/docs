@@ -1,15 +1,12 @@
 ---
 title: "Select Elements"
 parent: "mapping-documents"
-tags:
-  - "studio pro"
 aliases:
-  - /refguide/Select++Elements.html
+  - /refguide7/Select++Elements.html
 ---
 
-## 1 Introduction
 
-For both [import](import-mappings) and [export mappings](export-mappings) you need to specify the elements structure you want to map. You do this in the **Select schema elements** window. An example of this screen is shown below.
+For both [import](import-mappings)and [export mappings](export-mappings) you need to specify the elements structure you want to map. You do this in the **Select schema elements** window. An example of this screen is shown below.
 
 ![](attachments/16713729/19399143.png)
 
@@ -19,11 +16,15 @@ Perform the following steps in the **Select schema elements** window:
 2.  If source is XML schema then select the root element of the mapping. This is done by selecting the **Start at** element for the XML schema or the **request part** for the web service operation. **Start at** lists the root elements in an XML schema. You can select one root element to base your mapping on. If source is Web service operation, **Request part** lists the header and body element of the request part of an operation. If an operation has multiple parameters, these are listed in the Request part as well. **Request part** is only applicable to export mappings.
 3.  Finally, select specific elements in the tree explorer below. Typically you do not need to map an entire source, since they can be quite large.
 
-{{% alert type="info" %}}
-If the contents of the used schema source change, the mapping document does not match with the schema anymore and a consistency error is shown. This consistency error is easily fixed by right-clicking the consistency error itself and selecting 'Resolve by updating from schema'. Schema contents can change by importing a changed XML schema, WSDL or by changing a JSON structure.
+{{% alert type="success" %}}
+
+If the contents of the used schema source change, the mapping document does not match with the schema anymore and a consistency error is shown. This consistency error is easily fixed by right-clicking the consistency error itself and selecting 'Resolve by updating from schema'.
+
+Schema contents can change by importing a changed XML schema, WSDL or by changing a JSON structure.
+
 {{% /alert %}}
 
-## 2 Rules and Restrictions
+## Rules and Restrictions
 
 Keep in mind the following rules and restrictions for element selection:
 
@@ -41,11 +42,15 @@ For ease of use, some elements will automatically be checked or unchecked:
 
 When working on an import mapping you are allowed to skip elements in the hierarchy but still select the children. You can do this when you're not interested in the information stored in the intermediary elements.
 
-{{% alert type="info" %}}
+{{% alert type="success" %}}
+
 You may encounter element selection checkboxes that are greyed out. If you hover the mouse over the checkbox, you see which rule or restriction prevents you from changing the checkbox value. For example, you may need to select a parent node first before you can select a child node.
+
 {{% /alert %}}
 
-## 3 Convenience Functions
+## Convenience functions
+
+{{% alert type="info" %}}
 
 | Function     | Description                                                                                                                                                                                                                                   |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -54,3 +59,5 @@ You may encounter element selection checkboxes that are greyed out. If you hover
 | Collapse all | Collapses the entire tree, so that only the root node remains visible                                                                                                                                                                         |
 | Check all    | Checks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.                                                                                                                        |
 | Uncheck all  | Unchecks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.                                                                                                                      |
+
+{{% /alert %}}
