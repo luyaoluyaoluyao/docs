@@ -1,149 +1,149 @@
 ---
-title: "Creating Your Own Documents"
-parent: "document-templates"
-description: "This documentation will give you insight into creating documents with Mendix."
+title: "独自のドキュメントを作成する"
+parent: "ドキュメントテンプレート"
+description: "このドキュメントでは、Mendix を使用したドキュメントの作成に関する洞察を提供します。"
 tags:
-  - "Document"
-  - "Generate"
-  - "Word"
+  - "ドキュメント"
+  - "生成"
+  - "単語"
   - "PDF"
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Have you been wondering how to create your own documents with Mendix? This reference will tell you how to do it!
+Mendixで独自のドキュメントを作成する方法を考えていましたか? このリファレンスはあなたにそれを行う方法を教えてくれます!
 
-With Mendix, you can generate documents in different ways. Here, you will learn the fundamentals of generating a document from your own application.
+Mendix を使用すると、さまざまな方法でドキュメントを生成できます。 ここでは、自分のアプリケーションからドキュメントを生成するための基礎を学びます。
 
-Before we start, we recommend you first read the following two pages:
+始める前に、まず次の2つのページを読むことをお勧めします。
 
-* [Document Templates](document-templates)
-* [Generate Documents](generate-document)
+* [ドキュメントテンプレート](ドキュメントテンプレート)
+* [ドキュメントの生成](generate-document)
 
-## 2 Knowing Your Document
+## 2 あなたの書類を知る
 
-Before you start producing a document with Mendix, it is advisable to make a draft version of the document you want to produce. You can sketch something on a piece of paper or ask your customer to provide you with an example. Either way, it is good to have in mind what you want to achieve.
+Mendixでドキュメントを作成する前に、生成したいドキュメントのドラフト版を作成することをお勧めします。 紙に何かをスケッチしたり、お客様に例を提供してもらうことができます。 いずれにせよ、あなたが達成したいことを念頭に置いておくのは良いことです。
 
-Using your desired document, you can choose a strategy for producing it. Mendix offers numerous options for producing documents using the out-of-the-box document template functionality, but you may find that the Mendix features are not sufficient to generate your document. Don’t worry. For an alternative way of producing documents with Mendix, see [Alternative Way of Creating Documents](#Alternative).
+目的のドキュメントを使用して、それを作成するための戦略を選択できます。 Mendixには、すぐに使えるドキュメントテンプレート機能を使用してドキュメントを作成するための多数のオプションがあります。 しかし、Mendixの機能がドキュメントを生成するのに十分ではないことがわかるかもしれません。 心配しないで。 Mendix でドキュメントを作成する別の方法については、 [ドキュメントを作成する代替方法](#Alternative) を参照してください。
 
-For our example, we’ve concluded that the Mendix functionality does suffice. So, let’s have a look at how this works with an example.
+例えば、Mendixの機能は十分であると結論付けました。 では例を見てみましょう
 
-## 3 Business Case
+## 3件のビジネスケース
 
-In this application, customers can purchase products. They will do so by creating orders and selecting the products they want to purchase. To be able to present the customer with an overview of their order, a PDF will be created and sent to the customer as an attachment to their confirmation email. The order should show the customer details, the logo of the company, the products with their price, and the total value of the order.
+このアプリケーションでは、顧客は製品を購入することができます。 彼らは注文を作成し、購入する製品を選択することによってそうします。 注文の概要をお客様に提示できるようにするには PDFが作成され、確認メールの添付ファイルとしてお客様に送信されます。 注文は、顧客の詳細を表示する必要があります, 会社のロゴ, 彼らの価格で製品, そして、注文の合計値.
 
-## 4 Generating a Document with Out-of-the-Box Mendix Functionality
+## 4 ボックス外のMendix機能を備えたドキュメントの生成
 
-### 4.1 Domain Model
+### 4.1 ドメインモデル
 
-The domain model for this application looks like this:
+このアプリケーションのドメインモデルは次のようになります。
 
 ![](attachments/core/2018-02-28_16-37-25.png)
 
-The **Customer** holds the address information and the preferred communication language. The **Order** owns the date and sum of all the order lines. The **OrderLine** entity has the customer-specific price for a **Product**. Because you want to generate a document, the **OrderDocument** entity has been added. This entity inherits from the **System.FileDocument** entity.
+**顧客** は、住所情報と優先通信言語を保持しています。 **Order** は、すべての注文行の日付と合計を所有します。 **注文ライン** エンティティには、 **商品** の顧客固有の価格があります。 ドキュメントを生成するため、 **OrderDocument** エンティティが追加されました。 このエンティティは **System.FileDocument** エンティティを継承します。
 
 {{% alert type="info" %}}
-Do not use the **System.FileDocument** entity directly, because you have no control over the security of that part from the **System** module.
+**システムを使用しないでください。 ileDocument **** エンティティを直接、あなたは **システム** モジュールからその部品のセキュリティを制御することができないため。 </p>
 {{% /alert %}}
 
-### 4.2 Microflow
+### 4.2 マイクロフロー
 
-Now the domain model has been set up, you are ready to create the microflow for your new generate document function.
+ドメインモデルが設定されました。新しい生成ドキュメント機能のマイクロフローを作成する準備ができました。
 
-Create a new folder to organize all the order document creation related sources:
+新しいフォルダを作成して、すべての注文ドキュメント作成関連のソースを整理します。
 
 ![](attachments/core/2018-02-28_17-02-05.png)
 
-Now you need a microflow to handle the creation of the document:
+ドキュメントの作成を処理するためのマイクロフローが必要になります。
 
 ![](attachments/core/2018-02-28_17-04-03.png)
 
-The microflow consists of just the default start and endpoint at present:
+マイクロフローは、現在のデフォルトの開始と終了点だけで構成されています。
 
 ![](attachments/core/2018-02-28_16-30-18.png)
 
-After creating the microflow, decide what information you would like to use in the document. Let’s start with an order as input. Later on, you can retrieve additional data via the order instance.
+マイクロフローを作成したら、ドキュメントでどの情報を使用するかを決定します。 注文を入力として始めましょう。 後で、注文インスタンスを介して追加のデータを取得できます。
 
 {{% alert type="info" %}}
-When you create microflows, it is a best practice to limit the number of input parameters to promote reuse.
+マイクロフローを作成するときは、再利用を促進するための入力パラメータの数を制限することをお勧めします。
 {{% /alert %}}
 
-Here is the input parameter:
+ここに入力パラメータがあります:
 
 ![](attachments/core/2018-02-28_16-32-33.png)
 
-In the next step, you will create a new OrderDocument. This object will store the actual document. Set the reference to the **Order** object and the name of the document:
+次のステップでは、新しいOrderDocumentを作成します。 このオブジェクトは実際のドキュメントを保存します。 **Order** オブジェクトとドキュメントの名前への参照を設定します。
 
 ![](attachments/core/2018-02-28_16-52-43.png)
 
-Now you need to have a **Language** object. In our case, the **Customer** is associated with the preferred communication language. In our microflow example, you first retrieve the **Customer** via the **Order**, and then retrieve the **Language** from that **Customer**:
+ここで、 **Language** オブジェクトが必要になります。 私たちの場合、 **顧客** は優先通信言語と関連付けられています。 In our microflow example, you first retrieve the **Customer** via the **Order**, and then retrieve the **Language** from that **Customer**:
 
 ![](attachments/core/2018-02-28_16-58-54.png)
 
-The next step is to use the **Generate document** activity. Within this activity, you can use the available objects and select the document template to create the document. However, the document template does not exist yet, so you need to create it and place it in your folder:
+次のステップは、 **ドキュメント** の生成アクティビティを使用することです。 このアクティビティでは、使用可能なオブジェクトを使用してドキュメントテンプレートを選択してドキュメントを作成できます。 ただし、ドキュメントテンプレートはまだ存在しないため、作成してフォルダに配置する必要があります:
 
 ![](attachments/core/2018-02-28_17-06-53.png)
 
-This is the document template configuration:
+これはドキュメントテンプレートの構成です:
 
 ![](attachments/core/2018-03-01_13-03-55.png)
 
 {{% alert type="info" %}}
-Based on the changes you make to the selected template, the arguments will change.
+選択したテンプレートに加えた変更に基づいて、引数が変更されます。
 {{% /alert %}}
 
-The **Generate document** activity has been added:
+**ドキュメント生成** アクティビティが追加されました:
 
 ![](attachments/core/2018-03-01_13-06-33.png)
 
-After you have configured the general settings of the document template, you do not need a separate commit for **NewOrderDocument**. This entity is automatically committed via the document template activity.
+ドキュメントテンプレートの一般的な設定を行った後、 **NewOrderDocument** に別々のコミットは必要ありません。 このエンティティはドキュメントテンプレートアクティビティを介して自動的にコミットされます。
 
-Now that you have set up the **Generate document** configuration, you can configure the template itself.
+ドキュメントを生成する **** 構成を設定したので、テンプレート自体を構成することができます。
 
 {{% alert type="info" %}}
-Make sure to set the correct entity access for entities and their attributes used in the document template. Read access is a must for those attributes that are shown in the template. Here is a **Customer** entity that is configured to **Read, Write** for the **User** module role:
+ドキュメントテンプレートで使用されるエンティティとその属性に正しいエンティティアクセス権を設定してください。 読み取りアクセスは、テンプレートに表示されている属性には必須です。 ここに **顧客** エンティティがあり、 **読み取り、** を **ユーザー** モジュールのロールに書き込みます：
 
 ![](attachments/core/2018-03-01_13-12-28.png)
 
 {{% /alert %}}
 
-### 4.3 Document Template
+### 4.3 ドキュメントテンプレート
 
-In this example, the following document template is available:
+この例では、次のドキュメント テンプレートを使用できます。
 
 ![](attachments/core/2018-03-01_14-05-07.png)
 
-In this document template, you start with a data view containing the order details. From this order, you can get the customer information and, from the order lines, the information about the purchased products.
+このドキュメントテンプレートでは、注文の詳細を含むデータ ビューから始めます。 この注文から、顧客情報を取得し、注文行から購入した製品に関する情報を取得できます。
 
-The data view makes use of tables, table cells, labels, pictures, line breaks, and a template grid to compose the document.
+データビューは、ドキュメントを構成するためにテーブル、テーブルセル、ラベル、画像、改行、およびテンプレートグリッドを使用します。
 
-Now that you have created the document template, you can see that there is an error in the error dock:
+ドキュメントテンプレートを作成したので、エラードックにエラーがあることがわかります:
 
 ![](attachments/core/2018-03-01_14-08-48.png)
 
-To resolve this error, open the **Generate document** activity of the microflow. When the activity is opened, the parameter mapping will be updated and allocated to the mapping parameter.
+このエラーを解決するには、マイクロフローの **ドキュメント** を生成するアクティビティを開きます。 アクティビティが開かれると、パラメーターのマッピングが更新され、マッピングパラメーターに割り当てられます。
 
-Now, your **Generate document** configuration should look like this:
+これで、 **ドキュメントを生成する** の設定は次のようになります。
 
 ![](attachments/core/2018-03-01_14-12-03.png)
 
-The document template is now configured, and the microflow is ready to be used. If we call this microflow as a sub-microflow, you can add a download activity in the main microflow. This microflow could do the following:
+ドキュメントテンプレートが設定され、マイクロフローが使用できるようになりました。 このマイクロフローをサブマイクロフローと呼ぶ場合、ダウンロードアクティビティをメインのマイクロフローに追加できます。 このマイクロフローは以下のようになります:
 
-* Call the sub-microflow to create the document
-* Retrieve the created document
-* Download the file
+* サブマイクロフローを呼び出してドキュメントを作成します
+* 作成されたドキュメントを取得します
+* ファイルをダウンロード
 
 ![](attachments/core/2018-03-01_14-21-38.png)
 
-This is the resulting document:
+これが結果として生成されるドキュメントです:
 
 ![](attachments/how-to-create-your-own-documents/15_Result.png)
 
-In this example, you retrieved the **OrderLine** information via the **Entity (path)** data source. An alternative way of doing this would be to use a microflow that returns objects for the list presentation. If you do this, make sure to add the correct user role(s) to the microflows that are being used as data source microflows within the document template.
+この例では、 **Entity (path)** データソースを介して **OrderLine** 情報を取得しました。 これを行う別の方法は、リストプレゼンテーションのオブジェクトを返すマイクロフローを使用することです。 これを行う場合 ドキュメント テンプレート内のデータ ソース マイクロフローとして使用されているマイクロフローに正しいユーザー ロールを追加するようにしてください。
 
-## 5 Alternative Way of Creating Documents {#Alternative}
+## ドキュメントを作成する5つの別の方法 {#Alternative}
 
-The other way to generate documents is via a Java API called IText. This Java library is free to use.
+ドキュメントを生成するもう1つの方法は、ITextというJava APIを使用することです。 このJavaライブラリは無料で使用できます。
 
-For more information on this way of working, see [iText Developers](http://developers.itextpdf.com/developers-home).
+この作業方法の詳細については、 [iText Developers](http://developers.itextpdf.com/developers-home) を参照してください。
