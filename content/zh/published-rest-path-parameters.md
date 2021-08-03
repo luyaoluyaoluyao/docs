@@ -1,27 +1,27 @@
 ---
-title: "Published REST Path Parameters"
-parent: "published-rest-service"
+title: "已发布REST 路径参数"
+parent: "已发布的rest-service"
 menu_order: 30
 tags:
-  - "published REST"
-  - "path parameters"
-  - "Data and Time"
+  - "已发布 REST"
+  - "路径参数"
+  - "数据和时间"
   - "studio pro"
 ---
 
-The operation path in the [published REST operation](published-rest-operation) specifies the last part of the location (URL) of the operation.
+在 [已发布的 REST 操作](published-rest-operation) 中的操作路径指定了操作的最后部分 (URL)。
 
-You can use one or more path parameters to capture part of the location as a microflow parameter. Specify path parameters in the operation path between `{` and `}`.
+您可以使用一个或多个路径参数来捕获部分位置作为微流参数。 在操作路径中指定路径参数，介于 `named@@` and `}` 之间。
 
-Whatever is in the URL at the place of the path parameter will be is passed to the microflow, the import mapping or both.
+路径参数位置的 URL 中的任何内容都会传递给微流程、导入映射或两者。
 
-These are the requirements for path parameters:
+这些是路径参数的要求：
 
-* You cannot use the same path parameter twice in an operation path
-* Path parameter names cannot contain curly braces (`{` or `}`)
-* Path parameters can only have primitive types (Boolean, date and time, decimal, enumeration, integer/long, or string)
-* Path parameters can only appear between slashes (`/`) in the path
+* 您不能在操作路径中两次使用相同的路径参数
+* 路径参数名称不能包含大括号(`format@@` or `}`)
+* 路径参数只能有原始类型(布尔, 日期和时间, 小数, 整数, 整数/长, 或字符串)
+* 路径参数只能在路径中的斜线(`/`) 之间显示
 
-When generating a new microflow from the [published REST operation](published-rest-operation) editor window, the resulting microflow will have string parameters for each of the path parameters specified in the operation path. If you want the path parameters to be of a different type, you can change the type in the microflow.
+当从 [发布的REST 操作](published-rest-operation) 生成新的微流程时， 由此产生的微流程将为操作路径中指定的每个路径参数提供字符串参数。 如果你想要路径参数具有不同类型，你可以更改微流程中的类型。
 
-Date and time parameters should be entered in the [ISO-8601](https://www.w3schools.com/xml/schema_dtypes_date.asp) format (for example, `2018-12-31T09:00:00`).
+日期和时间参数应以 [ISO-8601](https://www.w3schools.com/xml/schema_dtypes_date.asp) 格式输入(例如， `2018-12-31T09:00:00`)。
