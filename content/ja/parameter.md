@@ -1,28 +1,33 @@
 ---
 title: "Parameter"
-parent: "common-elements"
+parent: "application-logic"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "parameter"
+  - "microflow"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/parameter.pdf).
+{{% /alert %}}
 
 ## 1 Introduction
 
-A parameter is data that serves as input for the flow. Parameters are filled at the location from where the flow is triggered.
+A parameter is a special kind of variable that is used an input for the microflow. When a microflow is triggered, the parameters are filled with the current values.
 
-{{% alert type="info" %}}
+If you want to use an object of the *Customer* entity in a microflow, use the parameter. In the picture below, the object name is *EnclosingCustomer* and is shown in black. The data type is object, therefore the entity name is shown underneath the object name in blue.
 
-When you have an object of the entity 'Customer' that you want to use in a microflow, a parameter is used. The variable name is 'EnclosingCustomer' and is shown in black. The data type is object, therefore the entity name is shown underneath the variable name in blue.
-
-![](attachments/819203/917903.png)
-
-{{% /alert %}}
+![](attachments/parameter/parameter.png)
 
 ## 2 Output Properties
 
-### 2.1 Variable Name
+### 2.1 Name
 
-Variable name defines the name of the variable in which the argument of the parameter is stored.
+**Name** refers to the value of the parameter.
 
 ### 2.2 Data Type
 
-The data type of a flow parameter defines the type of the value that it expects. See [Data Types](data-types) for the possible data types.
+The data type of a parameter defines the type of the value that it expects. See [Data Types](data-types) for the possible data types.
 
-_Default value:_ Object
+Default: *Object*
