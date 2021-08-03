@@ -10,11 +10,15 @@ tags:
   - "常规化"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/generalization-and-association.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 有时，您想要将信息添加到一个在不同模块中使用的实体。 也许是从Mendix Marketplace导入的一个模块。 您不想自定义实体，因为这将阻止您获得更新的模块版本。 在其他时候，您可能想要向某个实体的某些对象添加额外信息，而不是向另一些对象添加额外信息。 对于这些情况，您可以使用两种方法： **概括** (或 *继承* 通常被叫做继承)或 **关联实体**。
 
-Mendix 开发者必须每天选择是否要使用继承权或关联。 在大多数应用中出现的一个例子是决定如何设置您的用户。 您是否将继续使用管理模块中已有的帐户实体？ 或者您是否要与拥有一对一关联的单独实体一起工作到用户帐户？ 或者您是否要添加 **System.User** 继承的 (多个)实体？ 在这种情况下，直接向该系统增加额外信息是不好的做法。 服务器实体以及事实上，Mendix 阻止您这样做。
+Mendix 开发者必须每天选择是否要使用继承权或关联。 大多数项目中出现的一个例子是决定如何设置您的用户。 您是否将继续使用管理模块中已有的帐户实体？ 或者您是否要与拥有一对一关联的单独实体一起工作到用户帐户？ 或者您是否要添加 **System.User** 继承的 (多个)实体？ 在这种情况下，直接向该系统增加额外信息是不好的做法。 服务器实体以及事实上，Mendix 阻止您这样做。
 
 在界定密切相关的结构时，很难决定最佳结构。 实体是从基础结构继承，还是想要使用一对一的关联？ 你应该考虑这两个选项，因为每个选项都可以对应用程序的性能或开发速度产生巨大影响。
 
@@ -24,7 +28,7 @@ Mendix 域模型是基于 [UML](http://en.wikipedia.org/wiki/Unified_Modeling_La
 
 ![一般说明的示例](attachments/domain-model/generalization-indication.png)
 
-UML 还允许我们指定关联的类型，例如 [聚合](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) 或 [合成](http://en.wikipedia.org/wiki/Object_composition) 这些协会的定义具体规定了对象是否能够彼此不相容地存在。 与 UML 不同，我们无法指定关系的强度。 必须使用 [事件微流](/refguide/event-handlers) 或 [删除行为/预防](/refguide/association-properties#delete-behavior) 指定两个对象之间的任何依赖关系。
+UML 还允许我们指定关联的类型，例如 [聚合](http://en.wikipedia.org/wiki/Aggregation_(object-oriented_programming)) 或 [合成](http://en.wikipedia.org/wiki/Object_composition) 这些协会的定义具体规定了对象是否能够彼此不相容地存在。 与 UML 不同，我们无法指定关系的强度。 必须使用 [事件微流](/refguide8/event-handlers) 或 [删除行为/预防](/refguide8/association-properties#delete-behavior) 指定两个对象之间的任何依赖关系。
 
 ### 2.1 业绩
 
