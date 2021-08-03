@@ -1,54 +1,54 @@
 ---
-title: "Report Parameter"
-parent: "report-widgets"
+title: "报告参数"
+parent: "报告小部件"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A **Report parameter** allows the end-user to select a parameter for the [data set](data-sets) that supplies the data for a [Report grid](report-grid). The parameter is used to filter the results in different ways so that the same report can display different sets of data.
+A **Report parameter** allows the end-user to select a parameter for the [data set](data-sets) that supplies the data for a [Report grid](report-grid). 该参数用于以不同方式过滤结果，以便相同的报告可以显示不同的数据集。
 
-For example, a report may show order data for a customer and the report parameter can be used to specify which customer's data should be displayed.
+例如， 报表可以显示客户的订单数据，报告参数可以用来指定客户的数据应该显示。
 
-The report parameter is displayed in structure mode with the data set parameter name (and the attribute to be displayed if the parameter is an object) shown between square brackets and colored blue.
+报告参数显示在结构模式中，数据集参数名称（如果参数是对象，则显示属性）显示在方括号和彩色蓝色。
 
-![Report parameter in structure mode](attachments/report-widgets/report-parameter.png)
+![在结构模式中报告参数](attachments/report-widgets/report-parameter.png)
 
 {{% alert type="info" %}}
-A **Report parameter** cannot be used for data set parameters of type **Date and time**. Date and time parameters must be filtered by a [Report Date Parameter](report-date-parameter) widget.
+**报表参数** 不能用于类型 **日期和时间的数据集参数**。 日期和时间参数必须使用 [报告日期参数](report-date-parameter) 小部件过滤。
 
-If you add a report parameter widget on the page, you must also add a [Report Button](report-button) widget. This allows the end-user to regenerate the report after specifying the parameter.
-{{% /alert %}}
+如果你在页面上添加报告参数小部件, 你还必须添加 [报告按钮](report-button) 小部件。 这使最终用户能够在指定参数后重新生成报告。
+{{% /报警 %}}
 
-## 2 Report Parameter Properties
+## 2 报告参数属性
 
-An example of report parameter properties is represented in the image below:
+下面的图像显示了报告参数属性的示例：
 
-{{% image_container width="300" %}}![Report parameter in structure mode](attachments/report-widgets/report-parameter-properties.png)
+{{% image_container width="300" %}}![在结构模式中报告参数](attachments/report-widgets/report-parameter-properties.png)
 {{% /image_container %}}
 
-Report parameter properties consist of the following sections:
+报告参数属性由以下部分组成：
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
+* [常用的](#common)
+* [设计属性](#design-properties)
+* [A. 概况](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section{#design-properties}
+### 2.2 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section{#general}
+### 2.3 一般部分{#general}
 
-#### 2.3.1 Parameter
+#### 2.3.1 参数
 
-**Parameter** is set to a data set parameter, the value of which is restricted by this widget. The corresponding data set must be used by one of the report widgets on the page.
+**参数** 已设置为数据集参数，其值受此部件限制。 相应的数据集必须被页面上的报告小部件所使用。
 
-#### 2.3.2 Displayed Attribute
+#### 2.3.2 显示的属性
 
-**Displayed attribute** is only available if the data set parameter is an object. Displayed attribute specifies which attribute of the corresponding entity is shown in the drop-down selection.
+**只有当数据集参数是对象时，显示属性** 才可用。 显示属性指定在下拉选择中显示相应实体的属性。
