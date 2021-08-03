@@ -1,27 +1,41 @@
 ---
 title: "Password Policy"
 parent: "project-security"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "password policy"
+  - "project security"
+  - "security"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/password-policy.pdf).
+{{% /alert %}}
 
-You can specify a number of requirements for passwords. These requirements will be enforced when creating new users or changing passwords of existing users.
+## 1 Introduction
 
-### Minimum length
+You can specify a number of requirements for passwords. These requirements will be applied when creating new users or changing passwords of existing users.
 
-Specifies the minimum length of passwords.
+## 2 Password Policy Properties
 
-### Require digit
+To set password policy properties, open **Project Security** > the **Password policy** tab:
 
-Specifies whether at least one digit is required in passwords.
+![](attachments/password-policy/password-policy-tab.png)
 
-### Require mixed case
+Password policy properties are described in the table below:
 
-Specifies whether passwords must contain at least one lowercase character and one uppercase character.
+| Property           | Description                                                                                                                                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Minimum length     | Specifies the minimum length of a password.                                                                                                                  |
+| Require digit      | Specifies whether at least one digit is required in a password.                                                                                              |
+| Require mixed case | Specifies whether a password must contain at least one lowercase character and one uppercase character.                                                      |
+| Require symbol     | Specifies whether passwords must contain at least one special symbol. The following characters are considered symbols: <br /> <code> ` ~ ! @ # $ % ^ & * ( ) - _ = + [ { ] } \ </code> |
 
-### Require symbol
+## 3 Read More
 
-Specifies whether passwords must contain at least one special symbol.
-
-The following characters are considered symbols:
-
-` ~ ! @ # $ % ^ & * ( ) - _ = + [ { ] } \ | ; : ' " < , > . / ?
+* [Project Security](project-security)
+* [User Roles](user-roles)
+* [Administrator](administrator)
+* [Demo Users](demo-users)
+* [Anonymous Users](anonymous-users)
