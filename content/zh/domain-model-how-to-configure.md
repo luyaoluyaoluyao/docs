@@ -28,7 +28,7 @@ tags:
 
 在启动此操作之前，请确保您已完成以下前提条件：
 
-* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio/domain-models)。
+* 熟悉域模型条款并学习如何执行基本功能。 欲了解更多信息，请参阅 [域模型](/studio8/domain-models)。
 
 ## 3 定义要包含的数据
 
@@ -65,7 +65,7 @@ tags:
 
 1. 创建 **产品** 实体。 执行以下操作：
 
-    1. 打开您的 [域模型](/studio/domain-models)。
+    1. 打开您的 [域模型](/studio8/domain-models)。
 
     2. 打开 **工具箱**, 拖放 **实体** 在您的域模型中：
 
@@ -139,11 +139,11 @@ tags:
 
     4. 将属性 **名称** 设置为 *状态* 和 **类型** 设置为 *枚举*。 枚举将包含不同的状态值，例如： *已放置* 或 *已发货*。
 
-    5. 点击 **选择枚举** 创建一个新的 [枚举](/studio/domain-models-enumeration)
+    5. 点击 **选择枚举** 创建一个新的 [枚举](/studio8/domain-models-enumeration)
 
         {{% image_container width="450" %}}![Select Enumeration](attachments/domain-model-how-to-configure/select-enumeration.png){{% /image_container %}}
 
-    6. 在 **选择枚举** 对话框中，点击右上角的加号图标添加新枚举。
+    6. 在 **选择枚举** 对话框中，点击 **新枚举**。
 
     7. 在 **中创建新枚举** 对话框， 点击 **添加项目** (*状态* 被自动填写为 **名称**)。
 
@@ -192,7 +192,7 @@ tags:
 遵循下面的步骤：
 
 1. 创建 **客户** 实体。 使用与创建 **产品** 实体相同的方法。 欲了解更多信息，请参阅 [定义产品](#product) 部分。
-2. 为 **客户** 实体创建属性 (关于如何创建属性的更多信息, 见 [添加新属性](/studio/domain-models#adding-new-attributes) 部分在 *域模型*。 执行以下操作：<br />
+2. 为 **客户** 实体创建属性 (关于如何创建属性的更多信息, 见 [添加新属性](/studio8/domain-models#adding-new-attributes) 部分在 *域模型*。 执行以下操作：<br />
 1. 选择实体并点击 **新属性**。
     2. 在 **创建新属性** 对话框，设置 **名称** 为 *Customer_ID*将 **类型** 设置为 *Autonumber*, 然后点击 **创建**。
 3. 重复步骤 2a 以创建 *名称* 属性。
@@ -217,7 +217,7 @@ tags:
 
 <img src="attachments/domain-model-how-to-configure/entities.png" alt="实体" />
 
-现在您需要定义这些实体如何相互连接并创建关联。 欲了解更多关联信息，请参阅 [关联](/studio/domain-models-association-properties)。
+现在您需要定义这些实体如何相互连接并创建关联。 欲了解更多关联信息，请参阅 [关联](/studio8/domain-models-association-properties)。
 
 首先，定义实体之间如何相互连接：
 
@@ -255,7 +255,7 @@ tags:
 
 {{% alert type="info" %}}
 
-或者，， 您可以创建一个图片或文件实体，点击 **新属性** > **添加文件或图片**在这种情况下，默认情况下创建一个关联。 For more information, see the [Adding New Image or File Entities](/studio/domain-models#adding-image-or-file-entities) section in *Domain Model*.
+或者，， 您可以创建一个图片或文件实体，点击 **新属性** > **添加文件或图片**在这种情况下，默认情况下创建一个关联。 For more information, see the [Adding New Image or File Entities](/studio8/domain-models#adding-image-or-file-entities) section in *Domain Model*.
 
 {{% /报警 %}}
 
@@ -263,11 +263,11 @@ tags:
 
 ![域名模型在线购物应用](attachments/domain-model-how-to-configure/domain-model-online-shop.png)
 
-现在您可以为它构建 [页面](/studio/page-editor) 或使用 [Buzz](/studio/collaboration-buzz) 与您团队的开发者和设计者合作，并建立应用程序体验。
+现在您可以为它构建 [页面](/studio8/page-editor) 或使用 [Buzz](/studio8/collaboration-buzz) 与您团队的开发者和设计者合作，并建立应用程序体验。
 
 ## 8 阅读更多
 
-* [域模型](/studio/domain-models)
-* [页 次](/studio/page-editor)
-* [微型流动](/studio/microflows)
-* [布兹斯](/studio/collaboration-buzz)
+* [域模型](/studio8/domain-models)
+* [页 次](/studio8/page-editor)
+* [微型流动](/studio8/microflows)
+* [布兹斯](/studio8/collaboration-buzz)
