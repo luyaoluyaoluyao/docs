@@ -1,58 +1,30 @@
 ---
 title: "Create Variable"
 parent: "variable-activities"
-tags:
-  - "studio pro"
-  - "create variable"
-  - "variable"
-  - "variable activities"
 ---
-
-{{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
-{{% /alert %}}
 
 ## 1 Introduction
 
-With this action, you can create a new variable and assign a value to it. For example, you can create a *$Discount* variable and assign a value 0.5 to give customers a 50% discount and use this value to calculate a price for a customer:
+With this action, you can create a new variable and assign a value to it.
 
-![Create Variable](attachments/variable-activities/create-variable.png)
+{{% alert type="info" %}}
 
-## 2 Properties
+See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all microflow activities share (for example, caption). This page only describes the properties specific to the action.
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+{{% /alert %}}
 
-![Create Variable Properties](attachments/variable-activities/create-variable-properties.png)
+## 2 Action Properties
 
-The **Create variable** properties pane consists of the following sections:
+### 2.1 Data Type
 
-* [Action](#action)
-* [Common](#common)
+Defines what kind of data can be stored in the variable. A variable can have one of the following [data types](data-types): Boolean, Enumeration, Decimal, Float (deprecated), Integer/Long or String.
 
-## 3 Action Section {#action}
+### 2.2 Initial Value
 
-The **Action** section of the properties pane shows the action associated with this activity.
+Defines the initial value of the variable. The value is entered using an [expression](expressions) (the result of the microflow expression should match the data type of the variable).
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+## 3 Output Properties
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+### 3.1 Variable Name
 
-### 3.1 Data Type
-
-**Data type** defines what type of data is stored in the variable. A variable can have one of the following [data types](data-types): Boolean, Enumeration, Decimal, Integer/Long, or String.
-
-### 3.2 Initial Value
-
-Defines the initial value of the variable. The value is entered using an [expression](expressions) (the result of the microflow expression must match the data type of the variable).
-
-### 3.3 Variable Name
-
-Variable defines the name of the resulting variable. The variable can be used by all activities following this activity in the flow.
-
-## 4 Common Section {#common}
-
-{{% snippet file="refguide/microflow-common-section-link.md" %}}
-
-## 5 Read More
-
-* [Activities](activities)
+Variable name defines the name of the resulting variable. The variable can be used by all activities following this activity in the flow.
