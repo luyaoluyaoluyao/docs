@@ -1,49 +1,49 @@
 ---
 title: "Oracle"
-parent: "data-storage"
+parent: "数据存储"
 menu_order: 60
 tags:
   - "studio pro"
-  - "database"
-  - "oracle"
+  - "数据库"
+  - "奥拉克"
 ---
 
-## 1 Introduction
+## 1 导言
 
-There are some minor differences in how Mendix behaves when using an Oracle database in comparision to using a PostgreSQL database. This document describes these differences.
+使用 Oracle 数据库与使用 PostgreSQL 数据库相比, Mendix 如何操作有一些小的差异。 本文件描述了这些差异。
 
-## 2 Setting Up a User for Mendix
+## 2 设置Mendix 用户
 
-When setting up an integration with an Oracle backend we recommend that you create a user/schema with the appropriate privileges. In Mendix, we use a single user to update the schema-structure (for example, tables and indices) and to execute DML statements. The former is done when Mendix is starting up and synchronizing the model with the storage structure, and the latter is done in normal runtime operations.
+当建立与Oracle后端的集成时，我们建议您创建一个拥有适当权限的用户/架构。 在 Mendix 中，我们使用单个用户来更新方案结构(例如表格和指数)，并执行 DML 语句。 前者是在 Mendix 启动并同步模型与存储结构时完成的。 后者是在正常运行状态下完成的。
 
-When setting-up perform the following steps:
+设置时执行以下步骤：
 
-1. Create a new user and schema for Mendix with the profile "DEFAULT".
-2. Grant the user the following privileges:
+1. 为 Mendix 创建一个新的用户和架构，配置文件为 DEFAULT。
+2. 授予用户以下权限：
 
-   * CREATE SESSION
+   * 创建会话
 
-   * CREATE SEQUENCE
+   * 创建设置
 
-   * CREATE TABLE This will ensure that the account has sufficient privileges to create the structure needed to represent the domain model and to create, query, and modify data.
-3. Ensure that the user has been granted enough quotas to create the resources they need, or give them an unlimited grant (for example, `GRANT UNLIMITED TABLESPACE TO mendix` where `mendix` is the user/schema that you have created).
+   * 创建 这将确保帐户拥有足够的权限来创建代表域模型和创建所需的结构， 查询和修改数据。
+3. 确保用户获得足够的配额来创建他们所需的资源，或给予他们无限制的赠款(例如) `无法进入菜单` 。 `mendix` 是您创建的用户/模式)。
 
 {{% alert type="info" %}}
-During the creation of the Mendix database, the number of structural modifications made will depend on the size of your domain model. If this number is quite large, or if there is a large structural change, it may be prudent to increase the value of `OPEN_CURSORS`.
-{{% /alert %}}
+在 Mendix 数据库创建过程中，结构修改的数量将取决于您的域模型的大小。 如果这个数字相当大，或者发生了大规模的结构变化， 增加 `OPEN_CURSORS` 的值可能是谨慎的。
+{{% /报警 %}}
 
-## 2 Unlimited and Very Long Strings
+## 2 个无限和非常长的字符串
 
-The majority of differences between PostgreSQL and Oracle are in how they handle very long, or unlimited length, strings.
+PostgreSQL 和 Oracle 之间的大部分差异在于它们如何处理长度或无限长度字符串。
 
-### 2.1 Comparison Functions
+### 2.1 比较职能
 
-Oracle does not support unlimited strings or strings with a specified size greater than 2000 characters when using the equal (`=`) or not equal (`!=`) operators in XPath constraints. However, it does support functions including `contains()`, `starts-with()`, and `ends-with()`.
+Oracle 不支持使用等效的 (`=`) 或不等价的字符串或字符串。`！`XPath 约束的运营商。 然而，它确实支持函数包括 `contains()`, `starts-with()`, 和 `ends-with()`。
 
-### 2.2 Sorting, Grouping, and Aggregating
+### 2.2 排序、分组和聚合
 
-It is not possible to sort, group, or use aggregate functions such as `count()` on unlimited strings or strings with a specified length greater than 2000 characters. This is because such long or unlimited strings are implemented with the data type CLOB. Consider decreasing the length of the string attribute or removing it from data grids.
+无法排序、群组。 或在不限字符串或字符串上使用总合函数，如 `count()`。 这是因为这么长或无限的字符串是用数据类型 CLOB 实现的。 考虑缩短字符串属性的长度或从数据网格中移除。
 
-### 2.3 Selecting DISTINCT Attribute
+### 2.3 选择DISTINCT 属性
 
-Selecting DISTINCT attributes of the string type with a size greater than 2000 characters is not supported by Mendix due to a known Oracle limitation of selecting DISTINCT columns with a CLOB data type. If you run into this limitation, you may encounter an exception in the logs with a message like this: **Error Msg = ORA-06502: PL/SQL: numeric or value error: character string buffer too small**.
+选择大小大于2000的字符串类型的DISTINCT 属性不被Mendix 支持，因为已知的 Oracle 限制选择带有CLOB 数据类型的 DISTINCT 列。 如果您遇到此限制， 您可能会在日志中遇到类似于以下消息的异常： **错误 Msg = ORA-06502: PL/SQL: 数字或值错误：字符串缓冲器太小**。
