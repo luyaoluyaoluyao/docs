@@ -1,6 +1,6 @@
 ---
-title: "Sign In Dialog"
-parent: "dialogs"
+title: "登录对话框"
+parent: "对话框"
 ---
 
-With this dialog box you can sign in with your Mendix account to get access to your **My Apps** page, the Team Server, your Mendix Cloud apps, and other content.
+通过这个对话框，您可以使用Mendix账户登录以获取您的 **我的应用程序** 页面， 团队服务器、您的 Mendix 云应用程序和其他内容。
