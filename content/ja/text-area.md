@@ -1,147 +1,108 @@
 ---
 title: "Text Area"
 parent: "input-widgets"
-menu_order: 20
-tags:
-  - "studio pro"
 ---
 
-## 1 Introduction
 
-A **text area** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *String*. It differs from a [text box](text-box) In that the value can be displayed over several lines.
+A text area can be used to display and/or edit a long text value that can be split over several lines.
 
-A text area must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the text area, between square brackets, and colored blue.
+{{% alert type="info" %}}
 
-For example, the following text area allows the end-user to see, and set, the **Notes** about a contact.
+![](attachments/pages/text-area.png)
 
-![](attachments/text-area/text-area.png)
+This text area allows the end-user to set the description of the product.
 
-## 2 Properties
-
-An example of text area properties is represented in the image below:
-
-{{% image_container width="250" %}}![](attachments/text-area/text-area-properties.png)
-{{% /image_container %}}
-
-Text area properties consist of the following sections:
-
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
-
-### 2.1 Common Section{#common}
-
-{{% snippet file="refguide/common-section-link.md" %}}
-
-### 2.2 Data Source Section{#data-source}
-
-{{% snippet file="refguide/data-source-section-link.md" %}}
-
-### 2.3 Design Properties Section{#design-properties}
-
-{{% snippet file="refguide/design-section-link.md" %}}
-
-### 2.4 Editability Section{#editability}
-
-{{% snippet file="refguide/editability-section-link.md" %}}
-
-### 2.5 Events Section{#events}
-
-#### 2.5.1 On Change{#on-change}
-
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.3 On Leave
-
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
-
-This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-### 2.6 General Section{#general}
-
-#### 2.6.1 Grow Automatically
-
-{{% alert type="info" %}}The grow automatically property does not impact the behavior of native mobile pages. On iOS, the text area will always grow automatically
 {{% /alert %}}
+
+A text area must be placed in a data view or template grid and connected to an attribute of type String. The connected attribute is shown in blue and between brackets inside the text area.
+
+## General Properties
+
+### Grow Automatically
 
 This property defines whether the text area grows automatically depending on the amount of text in it.
 
-Default: *No*
+_Default value:_ No
 
-#### 2.6.2 Number of Lines
+### Number of Lines
 
-**Number of lines** determines the size of the text area, based on the height of the lines. If the text in the text area contains more lines, a scrollbar will enable the end-user to see it all. This property is only used if **Grow automatically** is set to *No*.
+The number of lines determine how many lines the text area shows at the same time. If the text in the text area contains more lines you will have to use a scrollbar to see it all. This property is only shown if Grow automatically is set to No.
 
-Default: *5*
+_Default value:_ 5
 
-#### 2.6.3 Counter Message
+### Counter Message
 
-{{% alert type="info" %}}Counter message is not supported on native mobile pages.{{% /alert %}}
+This is the text displayed when typing in the text area. This text has 2 placeholders. The first placeholder shows the number of characters already typed and the second placeholder shows the maximum number of characters.
 
-This is the text displayed when typing in the text area. This text has two [parameters](text#parameters). The first parameter contains the number of characters already typed and the second parameter contains the maximum number of characters.
+{{% alert type="info" %}}
 
-For example, if you use the counter message `You've used {1} characters of the {2} characters that are allowed.` for your text area, the end-user will see this message displayed below the text area widget:
+You've used {1} characters of the {2} characters that are allowed.
 
-![](attachments/text-area/counter-message.png)
+{{% /alert %}}
 
-#### 2.6.4 Text Too Long Message
-
-{{% alert type="info" %}}Text too long message is not supported on native mobile pages.{{% /alert %}}
+### Text Too Long Message
 
 This is the text displayed when the number of typed characters is higher than the maximum allowed number of characters.
 
-#### 2.6.5 Maximum Length
+### Maximum Length
 
-This property specifies the maximum number of characters that can be typed in this text area.
+This property indicates the maximum number of characters that can be typed in this text box.
 
-| Value                        | Description                                                                                   |
-| ---------------------------- | --------------------------------------------------------------------------------------------- |
-| Attribute length *(default)* | The maximum number of characters is the same as the maximum length of the connected attribute |
-| Unlimited                    | The maximum number of characters is unlimited                                                 |
-| Custom                       | The maximum number of characters is specified in the widget properties                        |
+| Value            | Description                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| Attribute length | The maximum number of characters is the same as the maximum length of the connected attribute. |
+| Unlimited        | The maximum number of characters is unlimited.                                                 |
+| Custom           | The maximum number of characters is set by the user.                                           |
 
-#### 2.6.6 Placeholder Text
+_Default value: Attribute length_
 
-The placeholder text is shown when no text has been entered yet, or when a displayed attribute is empty.
+### Placeholder Text
 
-It can be used, for example, to give a hint to the end-user what kind of text should be entered.
+The placeholder text is shown when no text has been entered yet. It can be used to give a hint to the user what kind of text should be entered.
 
-#### 2.6.7 Autocomplete
+## Validation Properties
 
-The autocomplete property specifies if a text area should have autocomplete enabled. The autocomplete attribute also improves mobile devices' ability to pre-populate fields.
+{{% snippet file="refguide7/Widget+Validation.md" %}}
 
-{{% alert type="info" %}}This option is only available in native pages.{{% /alert %}}
-{{% alert type="info" %}}In Android when autocomplete is turned off it will remove support for new lines.{{% /alert %}}
+## Data Source Properties
 
-### 2.7 Label Section{#label}
+{{% snippet file="refguide7/Attribute+Path+Property.md" %}}
 
-{{% snippet file="refguide/label-section-link.md" %}}
+{{% snippet file="refguide7/Label+Property.md" %}}
 
-### 2.8 Validation Section{#validation}
+## Editability Properties
 
-{{% snippet file="refguide/widget-validation-link.md" %}}
+{{% snippet file="refguide7/Editable+Property.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+{{% snippet file="refguide7/Read+Only+Style.md" %}}
 
-{{% snippet file="refguide/visibility-section-link.md" %}}
+{{% snippet file="refguide7/Condition+Property.md" %}}
 
-## 3 Read More
+## Visibility Properties
+
+{{% snippet file="refguide7/Visibility+Property.md" %}}
+
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+
+## Events Properties
+
+{{% snippet file="refguide7/On+Change+Event.md" %}}
+
+{{% snippet file="refguide7/On+Enter+event.md" %}}
+
+{{% snippet file="refguide7/On+Leave+Event.md" %}}
+
+## Common Properties
+
+{{% snippet file="refguide7/Name+Property.md" %}}
+
+{{% snippet file="refguide7/Class+Property.md" %}}
+
+{{% snippet file="refguide7/Style+Property.md" %}}
+
+{{% snippet file="refguide7/Tab+index+Property.md" %}}
+
+## Read More
 
 *   [Data view](data-view)
 *   [Attributes](attributes)
