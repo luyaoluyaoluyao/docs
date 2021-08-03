@@ -1,48 +1,48 @@
 ---
-title: "Commit"
+title: "コミット"
 parent: "version-control-menu"
 menu_order: 20
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The commit dialog is used for committing changes to the Team Server. You can enter a message and, if applicable, select related stories.
+format@@0 ダイアログは、Team Server への変更のコミットに使用されます。 メッセージを入力し、該当する場合は関連するストーリーを選択できます。
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-stories.png)
+![バージョン管理メニュー](attachments/version-control-menu/commit-dialog-stories.png)
 
-## 2 Branch
+## 2支局
 
-At the top of the dialog box you will see the branch which you are committing. This will be one of the following:
+ダイアログボックスの上部に、コミットしているブランチが表示されます。 これは次のいずれかになります:
 
-| Branch Description                                                          | Notes                                   |
-| --------------------------------------------------------------------------- | --------------------------------------- |
-| ![Version Control Menu](attachments/version-control-menu/commit-main.png)   | you are committing the main line        |
-| ![Version Control Menu](attachments/version-control-menu/commit-branch.png) | you are committing the specified branch |
+| ブランチの説明                                                            | メモ                  |
+| ------------------------------------------------------------------ | ------------------- |
+| ![バージョン管理メニュー](attachments/version-control-menu/commit-main.png)   | お前は主要な線を引いている       |
+| ![バージョン管理メニュー](attachments/version-control-menu/commit-branch.png) | 指定されたブランチをコミットしています |
 
-## 3 Message
+## 3件のメッセージ
 
-Enter a message describing the changes you have made. This message may contain multiple lines. If you want to make the commit using the keyboard you can press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
+変更内容を説明するメッセージを入力します。 このメッセージは複数行を含んでいる可能性があります。 キーボードを使用してコミットを行う場合は、 <kbd>Ctrl</kbd>+<kbd>Enter</kbd> を押すことができます。
 
-## 4 Commit Tabs
+## 4つのタブをコミット
 
-### 4.1 Related Stories {#stories}
+### 4.1 関連するストーリー {#stories}
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-stories.png)
+![バージョン管理メニュー](attachments/version-control-menu/commit-dialog-stories.png)
 
-Tick the boxes next to the stories that are related to your commit. We recommend committing a small number of changes at a time, so there is usually just one related story.
+コミットに関連するストーリーの横にあるボックスにチェックを入れます。 私たちは、一度に少ない数の変更を行うことをお勧めします, 通常、一つの関連する話があります.
 
-### 4.2 Changes in Model
+### 4.2 モデルの変更
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-model-changes.png)
+![バージョン管理メニュー](attachments/version-control-menu/commit-dialog-model-changes.png)
 
-If there are changes in the model this tab shows a summary of those changes. See [Changes Pane](changes-pane) for a description of how changes are reported in Studio Pro.
+モデルに変更がある場合、このタブにはそれらの変更の概要が表示されます。 Studio Pro でどのように変更が報告されるかについては、 [変更 ペイン](changes-pane) を参照してください。
 
-### 4.3 Changes on Disk
+### 4.3 ディスク上の変更
 
-![Version Control Menu](attachments/version-control-menu/commit-dialog-disk-changes.png)
+![バージョン管理メニュー](attachments/version-control-menu/commit-dialog-disk-changes.png)
 
-If there are changes on disk this page shows a summary of those changes. Click **Open containing folder** to open the folder containing the selected file in Windows Explorer.
+ディスクに変更がある場合、このページにはそれらの変更の概要が表示されます。 **含まれるフォルダを開く** をクリックして、Windows エクスプローラで選択したファイルを含むフォルダを開きます。
 
-The tab page will be hidden if there are no disk changes. Often, there are model changes but the only change on disk is the app file (*.mpr*) reflecting these model changes. In this case, it will also be hidden, because it does not add useful information.
+ディスクが変更されていない場合、タブページは非表示になります。 多くの場合、モデルの変更はありますが、ディスク上の唯一の変更は、これらのモデルの変更を反映したアプリファイル (*.mpr*) です。 この場合、役に立つ情報を追加しないので、非表示になります。
