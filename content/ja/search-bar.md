@@ -1,217 +1,217 @@
 ---
-title: "Search Bar"
-parent: "grids"
+title: "検索バー"
+parent: "グリッド"
 menu_order: 40
 tags:
   - "studio pro"
-  - "search bar"
-  - "comparison search field"
-  - "drop down search field"
-  - "range search field"
-  - "grid"
+  - "検索バー"
+  - "比較検索フィールド"
+  - "ドロップダウンの検索フィールド"
+  - "範囲検索フィールド"
+  - "グリッド"
 aliases:
   - /refguide/comparison-search-field.html
-  - /refguide/drop-down-search-field.html
+  - /ja/refguide/drop-down-search-field.html
   - /refguide/range-search-field.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The search bar contains search fields that allow the end-user to quickly find the information they need in a [data grid](data-grid) or [template grid](template-grid).
+検索バーには、エンドユーザーが [データ グリッド](data-grid) または [テンプレート グリッド](template-grid) で必要な情報をすばやく見つけることができる検索フィールドが含まれています。
 
-To add a search field to the search bar, right-click within the search bar in your data grid and choose **Add search field** > [Type of the search field](#search-field-type).
+検索バーに検索フィールドを追加する データグリッド内の検索バーを右クリックし、 **検索フィールドの追加** > [検索フィールドの入力](#search-field-type).
 
 ![](attachments/data-widgets/add-search-field.png)
 
-## 2 Search Field Types {#search-field-type}
+## 2つの検索フィールドタイプ {#search-field-type}
 
-There are three different types of search fields that can be used for different kinds of information:
+検索フィールドには、さまざまな種類の情報に使用できる3つの異なるタイプがあります。
 
-* **Comparison** – Search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: AutoNumber, Date and Time, Integer, Long, String, Decimal.
-* **Drop-down** – Search results are filtered by comparing them to the given search term. If the search value matches the attribute value, this object will be a part of the search result. Possible attribute types: Boolean, Enumerations, Associations.
-* **Range** –  This will apply a filter based on whether the search term falls between the values of two selected attributes. Possible attribute types: AutoNumber, Date and Time, Integer, Long, Decimal.
+* **比較** – 検索結果は、指定した検索語と比較することでフィルタリングされます。 検索値が属性値に一致する場合、このオブジェクトは検索結果の一部になります。 可能な属性タイプ: AutoNumber, Date and Time, Integer, Long, String, Decimal
+* **ドロップダウン** - 検索結果は、指定された検索語と比較することでフィルタリングされます。 検索値が属性値に一致する場合、このオブジェクトは検索結果の一部になります。 可能な属性タイプ: ブーリアン、列挙、関連付け。
+* **範囲** - 検索語が選択された2つの属性の値の間にあるかどうかに基づいてフィルタが適用されます。 可能な属性タイプ: AutoNumber, Date and Time, Integer, Long, Decimal
 
 {{% alert type="info" %}}
-You cannot change the type of a search field, you will need to delete it and then add a new one of a different type.
+検索フィールドのタイプを変更することはできません。それを削除し、別のタイプの新しいものを追加する必要があります。
 {{% /alert %}}
 
-## 3 Search Field Properties {#search-field-properties}
+## 3 検索フィールドのプロパティ {#search-field-properties}
 
-Search field properties depend on the type of the search field.
+検索フィールドのプロパティは、検索フィールドのタイプによって異なります。
 
-An example of drop-down search field properties properties is represented in the image below:
+ドロップダウンの検索フィールド プロパティのプロパティの例を以下の画像に示します。
 
-{{% image_container width="250" %}}![Search Field Properties](attachments/data-widgets/search-field-properties.png)
+{{% image_container width="250" %}}![検索フィールドのプロパティ](attachments/data-widgets/search-field-properties.png)
 {{% /image_container %}}
 
-Search field properties consist of the following sections:
+検索フィールドのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [General](#general)
+* [一般的な](#common)
+* [全般](#general)
 
-### 3.1 Common Section {#common}
+### 3.1 一般的なセクション {#common}
 
-Properties as **Name**, **Caption**, and **Type** are common for most of the widgets. {{% snippet file="refguide/common-section-link.md" %}}
+プロパティは **名前**、 **図表番号**、 **タイプ** として、ほとんどのウィジェットで共通です。 {{% snippet file="refguide/common-section-link.md" %}}
 
-However, there are additional properties that are described in the sections below.
+ただし、以下のセクションで説明されている追加のプロパティがあります。
 
-#### 3.1.1 Custom Date Format
+#### 3.1.1 カスタム日付フォーマット
 
-**Custom date format** is only available when you select an attribute of *Date and Time* type in the [**Attribute (path)**](#attribute-path) property. This property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally. The **Format example** will show you a date example.
+**カスタム日付フォーマット** は、 *属性 (パス)* プロパティで [日付と時間**の属性を選択した場合にのみ使用できます。**](#attribute-path) このプロパティは、属性値のフォーマット方法を決定します。 カスタム日付フォーマットは、以下の表で見つかった任意のシンボルを組み合わせることができる文字列です。 句読点は文字通りレンダリングされます。 **フォーマットの例** に日付の例が表示されます。
 
 {{% alert type="info" %}}
 
-Search input formatting must be an exact day. Custom date formatting is not limited.
+検索入力書式は正確な日数でなければなりません。 カスタム日付の書式は制限されていません。
 
 {{% /alert %}}
 
 {{% snippet file="refguide/custom-date-format-tokens.md" %}}
 
-#### 3.1.2 Placeholder Text
+#### 3.1.2 プレースホルダーテキスト
 
-**Placeholder text** is only available when you select an attribute of *Date and Time* type in the [**Attribute (path)**](#attribute-path) property.
+**プレースホルダー テキスト** は、 *属性 (パス)* プロパティで [日付と時間**の属性を選択した場合にのみ使用できます。**](#attribute-path)
 
-The placeholder text is shown if the date attribute is empty. It can be used to give the end-user a hint as to the expected format.
+date 属性が空の場合、プレースホルダー テキストが表示されます。 エンドユーザーに期待されるフォーマットについてのヒントを与えるために使用できます。
 
-### 3.2 General Section {#general}
+### 3.2 一般セクション {#general}
 
-#### 3.2.1 Attribute (Path) {#attribute-path}
-
-{{% alert type="info" %}}
-
-This property is available for **Comparison** and **Drop-down** search fields.
-
-{{% /alert %}}
-
-Many input widgets (like text boxes and drop-down widgets) can be connected to the following:
-
-* An attribute of the entity of the data view that contains the widget; in this case, the widget is connected to an attribute
-* An attribute of an entity associated with the data view entity by following one or more associations of the reference type through the domain model; in this case, the widget is connected to an attribute path
-
-In the first case, we say the widget is connected to an attribute, and in the second case it is connected to an attribute path.
-
-You can edit attributes presented in input widgets over a path.
-
-#### 3.2.2 Comparison
+#### 3.2.1 属性 (パス) {#attribute-path}
 
 {{% alert type="info" %}}
 
-This property is available for **Comparison** and **Drop-down** search fields.
+このプロパティは、 **比較** および **ドロップダウン** 検索フィールドで使用できます。
 
 {{% /alert %}}
 
-The value entered by the end user (or the default value in the case of hidden and read-only search fields) is compared to the value of the attribute of each of the objects in the grid. If the match succeeds, the object will be part of the search result. There are different ways in which the attribute value and the entered value can be compared. In the third column below you see the type of search field for which the comparison operator is allowed.
+多くの入力ウィジェット(テキスト ボックスやドロップダウン ウィジェットなど)を以下に接続できます。
 
-| Value             | Description                                                        | Search Field Types                      | Date Input Query           |
-| ----------------- | ------------------------------------------------------------------ | --------------------------------------- | -------------------------- |
-| Contains          | Does the attribute value contain the entered value?                | Text (attribute must be of type String) |                            |
-| Starts with       | Does the attribute value start with the entered value?             | Text (attribute must be of type String) |                            |
-| Greater           | Is the attribute value greater than the entered value?             | Text, Date                              | > date + 1 day             |
-| Greater or equal  | Is the attribute value greater than or equal to the entered value? | Text, Date                              | > date                     |
-| Equal *(default)* | Is the attribute value the same as the entered value?              | Text, Date, Drop-down                   | >= date and < date + 1 day |
-| Not equal         | Is the attribute value not the same as the entered value?          | Text, Date, Drop-down                   | != date                    |
-| Smaller or equal  | Is the attribute value smaller than or equal to the entered value? | Text, Date                              | < date + 1 day             |
-| Smaller           | Is the attribute value smaller than the entered value?             | Text, Date                              | < date                     |
+* ウィジェットを含むデータビューのエンティティの属性。この場合、ウィジェットは属性に接続されます。
+* ドメインモデルを介して参照タイプの1つまたは複数の関連付けに従うことにより、データビューエンティティに関連付けられたエンティティの属性 この場合、ウィジェットは属性パスに接続されます。
+
+最初のケースでは、ウィジェットが属性に接続されており、2番目のケースでは属性パスに接続されています。
+
+パス上の入力ウィジェットに表示される属性を編集できます。
+
+#### 3.2.2 比較
 
 {{% alert type="info" %}}
 
-For **Drop-down** search fields:  there is no limit on the number of drop-down selection options, thus a selected attribute can have an unlimited amount of unique values. However, having thousands of options which must be retrieved from the server will slow page loading considerably on older browsers. Initially hiding the search bar which contains the drop-down search field can improve page loading performance on first load.
+このプロパティは、 **比較** および **ドロップダウン** 検索フィールドで使用できます。
 
 {{% /alert %}}
 
-**Date comparisons and the influence of the default value**
+エンドユーザーによって入力された値(または非表示と読み取り専用の検索フィールドの場合のデフォルト値)は、グリッド内の各オブジェクトの属性の値と比較されます。 一致が成功すると、オブジェクトは検索結果の一部になります。 属性値と入力された値を比較するにはさまざまな方法があります。 下の3番目の列には、比較演算子が許可されている検索フィールドのタイプが表示されます。
 
-It is possible to search on date attributes using equality. What happens with the time component belonging to the date is dependent on the default value of the comparison search field.
-
-| Default value         | Search query                                                                                                     |  | Result example (input: August 4, 2100)                               |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------- |  | -------------------------------------------------------------------- |
-| None                  | Search field is empty. Represents a 24 hour date range starting at midnight of the specified date.               |  | Search between August 4, 0:00 - August 5, 0:00                       |
-| [%CurrentDateTime%]   | Search field shows the current date. Represents a 24 hour date range starting at the _current time_.             |  | Search between August 4, <current time> and August 5, <current time> |
-| [%BeginOfCurrentDay%] | Search field shows the current date. Represents a 24 hour date range starting at midnight of the specified date. |  | Search between August 4, 0:00 - August 5, 0:00                       |
-
-### 3.3 Allow Multi-Select
+| 値             | 説明                         | 検索フィールドタイプ              | 日付入力クエリ                    |
+| ------------- | -------------------------- | ----------------------- | -------------------------- |
+| 以下を含む         | 属性値には入力された値が含まれていますか?      | テキスト（属性は文字列型でなければなりません） |                            |
+| で始まる          | 属性値は入力された値で始まりますか?         | テキスト（属性は文字列型でなければなりません） |                            |
+| 大きい順          | 属性値は入力された値より大きいですか?        | テキスト、日付                 | > 日付 + 1日                  |
+| 以上            | 属性値は入力された値以上か同じですか?        | テキスト、日付                 | > 日付                       |
+| 等しい *(デフォルト)* | 属性値は入力された値と同じですか?          | テキスト、日付、ドロップダウン         | >= date and < date + 1 day |
+| 等しくない         | 属性値は入力された値と同じではありませんか?     | テキスト、日付、ドロップダウン         | != 日付                      |
+| 小さいか等しい       | 属性値は入力された値より小さいか、または同じですか? | テキスト、日付                 | < 日付 + 1日                  |
+| 小さく           | 属性値は入力された値より小さいですか?        | テキスト、日付                 | < 日付                       |
 
 {{% alert type="info" %}}
 
-This property is available for **Drop-down** search fields.
+**ドロップダウン** 検索フィールドの場合: ドロップダウン選択オプションの数に制限はありません。 つまり、選択された属性は無限の量の一意な値を持つことができます。 しかし、サーバーから取得する必要のある何千ものオプションを持つと、古いブラウザではページの読み込みが大幅に遅くなります。 ドロップダウンの検索フィールドが含まれている検索バーを最初に非表示にすると、最初の読み込み時のページの読み込みパフォーマンスが向上します。
 
 {{% /alert %}}
 
-If this property is set to 'Yes', the resulting drop-down allows you to select multiple values instead of just one. When searching all records match for which the corresponding attribute is equal to one of the selected values. For example, you can search for all orders with status 'Submitted' or 'In progress'.
+**日付の比較とデフォルト値の影響**
 
-### 3.4 XPath Constraint
+日付の属性を等価で検索することができます。 日付に属する時刻コンポーネントは、比較検索フィールドのデフォルト値に依存します。
+
+| 既定値                   | 検索クエリ                                                 |  | 結果例 (input: August 4, 2100)                   |
+| --------------------- | ----------------------------------------------------- |  | --------------------------------------------- |
+| なし                    | 検索フィールドが空です。 指定された日付の深夜から始まる24時間の日付の範囲を表します。          |  | 8月4日0:00~8月5日0:00の間で検索                        |
+| [%CurrentDateTime%]   | 検索フィールドに現在の日付が表示されます。 _現在時刻_から始まる24時間の日付範囲を表します。      |  | 8月4日から検索 <current time> -8月 5日 <current time> |
+| [%BeginOfCurrentDay%] | 検索フィールドに現在の日付が表示されます。 指定された日付の深夜から始まる24時間の日付の範囲を表します。 |  | 8月4日0:00~8月5日0:00の間で検索                        |
+
+### 3.3 複数選択を許可
 
 {{% alert type="info" %}}
 
-This property is available for **Drop-down** search fields.
+このプロパティは、 **ドロップダウン** 検索フィールドで使用できます。
 
 {{% /alert %}}
 
-If the 'drop-down' search field is connected to an attribute of an associated entity (as opposed to the grid entity itself) the XPath constraint can be used to limit objects shown in the drop-down.
+このプロパティが「はい」に設定されている場合、結果のドロップダウンでは1つではなく複数の値を選択できます。 すべてのレコードを検索すると、対応する属性が選択された値のいずれかに一致します。 たとえば、「送信済み」または「処理中」のすべての注文を検索できます。
+
+### 3.4 XPath 制約
 
 {{% alert type="info" %}}
 
-Let us say you have a grid showing bicycles. In the domain model the bicycle has an association to the shops where you can buy those bicycles. You can add a search field to the grid allowing the end-user to select a shop by name. The XPath can then be used to limit the shops to those that are in a given country. `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
+このプロパティは、 **ドロップダウン** 検索フィールドで使用できます。
 
 {{% /alert %}}
 
-### 3.5 Sort Order
+'drop-down' 検索フィールドが(グリッドエンティティ自体ではなく)関連するエンティティの属性に接続されている場合、ドロップダウンに表示されるオブジェクトを制限するために XPath 制約を使用することができます。
 
 {{% alert type="info" %}}
 
-This property is available for **Drop-down** search fields.
+自転車を示すグリッドがあるとしましょう。 ドメインモデルでは、自転車が買えるお店との関連があります。 エンドユーザーが名前でショップを選択できるように、検索フィールドをグリッドに追加できます。 XPath を使用すると、特定の国にあるショップを限定することができます。 `[MyWebshop.Bicycle_Shop/MyWebshop.Shop/Country='Netherlands']`
 
 {{% /alert %}}
 
-The sort order specifies the order in which the items in the drop-down search field are shown. You can sort on multiple attributes in both directions (ascending and descending). If no sort order is specified, the drop-down search field sorts on the displayed attribute.
-
-Default: *No sort order*
-
-### 3.6 Lower Bound
+### 3.5 並べ替え順
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+このプロパティは、 **ドロップダウン** 検索フィールドで使用できます。
 
 {{% /alert %}}
 
-This attribute (path) determines the lower bound of the range.
+並べ替え順序は、ドロップダウン検索フィールドの項目を表示する順序を指定します。 複数の属性を並べ替えることができます (昇順と降順)。 ソート順が指定されていない場合、ドロップダウンの検索項目が表示される属性をソートします。
 
-### 3.7 Lower Bound Operator
+デフォルト: *ソート順がありません*
+
+### 3.6 低いバウンド
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+このプロパティは、 **範囲** の検索フィールドで使用できます。
 
 {{% /alert %}}
 
-The lower bound operator determines whether the comparison with the lower bound is inclusive (>=) or not (>). It can be either 'Greater' or 'Greater or equal'.
+この属性 (path) は範囲の下限を決定します。
 
-Default: *Greater*
+### 3.7 低境界演算子
+
+{{% alert type="info" %}}
+
+このプロパティは、 **範囲** の検索フィールドで使用できます。
+
+{{% /alert %}}
+
+The lower bound operator determines whether the comparison with the lower bound is inclusive (>=) or not (>). それは 'Greater' または 'Greater or or equal' のいずれかになります。
+
+デフォルト: *大きい*
 
 ### 3.8 Upper Bound
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+このプロパティは、 **範囲** の検索フィールドで使用できます。
 
 {{% /alert %}}
 
-This attribute (path) determines the upper bound of the range.
+この属性 (path) は範囲の上限を決定します。
 
 ### 3.9 Upper Bound Operator
 
 {{% alert type="info" %}}
 
-This property is available for **Range** search fields.
+このプロパティは、 **範囲** の検索フィールドで使用できます。
 
 {{% /alert %}}
 
-The upper bound operator determines whether the comparison with the upper bound is inclusive (<=) or not (<). It can be either 'Smaller' or 'Smaller or equal'.
+The upper bound operator determines whether the comparison with the upper bound is inclusive (<=) or not (<). 「Smaller」または「Smaller」または「Smaller」のいずれかです。
 
-Default: *Smaller*
+デフォルト: *小さい*
 
-## 4 Read More
+## 4 続きを読む
 
-* [Data Grid](data-grid)
-* [Template Grid](template-grid)
+* [データグリッド](データグリッド)
+* [テンプレートグリッド](template-grid)
