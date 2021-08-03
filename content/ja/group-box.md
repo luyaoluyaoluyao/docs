@@ -1,76 +1,76 @@
 ---
-title: "Group Box"
+title: "グループボックス"
 parent: "container-widgets"
 menu_order: 30
 tags:
   - "studio pro"
-  - "group box"
-  - "container widget"
-  - "widget"
+  - "グループボックス"
+  - "コンテナウィジェット"
+  - "ウィジェット"
 ---
 
-{{% alert type="warning" %}}The group box widget is not supported on native mobile pages.{{% /alert %}}
+{{% alert type="warning" %}}グループボックスウィジェットはネイティブのモバイルページではサポートされていません。{{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-A group box can be used to visually group related widgets together. Group boxes are displayed as a frame around nested widgets with an optional header. Group boxes can be configured to collapse and expand dynamically.
+グループ ボックスを使用して、関連ウィジェットを視覚的にグループ化できます。 グループボックスは、ネストされたウィジェットの周りのフレームとして任意のヘッダーで表示されます。 グループボックスは、動的に折りたたんだり展開したりするように構成できます。
 
 ![](attachments/container-widgets/group-box.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-An example of group box properties is represented in the image below:
+グループ ボックス プロパティの例を以下の画像に示します。
 
-{{% image_container width="300" %}}![Group Box Properties](attachments/container-widgets/group-box-properties.png)
+{{% image_container width="300" %}}![グループボックスのプロパティ](attachments/container-widgets/group-box-properties.png)
 {{% /image_container %}}
 
-Group box properties consist of the following sections:
+グループ ボックス プロパティは、次のセクションで構成されています:
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+* [公開範囲](#visibility)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+### 2.2 デザインプロパティセクション {#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.3 General Section {#general}
+### 2.3 一般セクション {#general}
 
-#### 2.3.1 Show Header
+#### 2.3.1 ヘッダーの表示
 
-**Show Header** defines whether a header is shown above the group box.
+**ヘッダの表示** は、ヘッダがグループボックスの上に表示されるかどうかを定義します。
 
-Default: *True*
+デフォルト: *True*
 
-#### 2.3.2 Caption
+#### 2.3.2 図表番号
 
-This property is only displayed when the **Show Header** option is enabled. It defines the caption that is shown in the header.
+このプロパティは、 **ヘッダーの表示** オプションが有効な場合にのみ表示されます。 ヘッダーに表示されるキャプションを定義します。
 
-Default: *Group box*
+デフォルト: *グループボックス*
 
-#### 2.3.3 Collapsible
+#### 2.3.3 折りたたみ可能
 
-This property specifies whether the group box can be collapsed by clicking the header and if so, whether it is displayed collapsed or expanded. This property is only displayed when the **Show Header** is enabled.
+このプロパティは、ヘッダーをクリックすることでグループボックスを折りたたむことができるかどうかを指定します。 このプロパティは、 **Show Header** が有効な場合にのみ表示されます。
 
-Possible values of this property are the following:
+このプロパティの可能な値は次のとおりです。
 
-* **Yes (start expanded)**  *(default)* – the elements inside the group box will be initially displayed and can be collapsed when a user clicks a minus icon in the header
-* **Yes (start collapsed)** – the elements inside the group box will be initially hidden and can be expanded when a user clicks a plus icon in the header
-* **No** – group box elements are always displayed and the group box cannot be collapsed
+* **はい (展開開始)**  *(デフォルト)* - グループボックス内の要素は最初に表示され、ユーザーがヘッダーのマイナスアイコンをクリックすると折りたたむことができます
+* **はい (折りたたみ開始)** - ユーザーがヘッダーのプラスアイコンをクリックすると、グループボックス内の要素は最初に非表示になり、拡張することができます
+* **いいえ** - グループボックス要素は常に表示され、グループボックスを折りたたむことはできません
 
-### 2.4 Visibility Section {#visibility}
+### 2.4 表示セクション {#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 続きを読む
 
-* [Page](page)
-* [Container Widgets](container-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+* [ページ](page)
+* [コンテナウィジェット](container-widgets)
+* [ページエディターで共通のプロパティ](common-widget-properties)
 
 
