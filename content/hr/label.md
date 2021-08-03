@@ -1,59 +1,39 @@
 ---
 title: "Label"
 parent: "common-widgets"
-menu_order: 30
-tags:
-  - "studio pro"
-  - "label"
-  - "common widgets"
 ---
 
-## 1 Introduction
-
-{{% alert type="warning" %}}The label widget is not supported on native mobile pages.{{% /alert %}}
 
 {{% alert type="warning" %}}
 
-For input widgets, it is recommended to use the [label property](text-box) to describe the purpose of widgets to end-users.
+For input widgets it is recommended to use the more powerful [label property](text-box) to describe their purpose.
 
-You can also use the [text widget](text) as it provides more features, for example, you can add parameters, and it generates semantically correct HTML.
+For all other text use the [text widget](text) as it provides more features, for example, text templates, and generates semantically correct HTML.
 
 {{% /alert %}}
 
-A label shows static text, which describes the purpose of a specific widget to a user.
+A label shows static text, which intent is to describe the purpose of a specific widget to the user.
 
-## 2 Properties
+{{% alert type="info" %}}
 
-An example of label properties is represented in the image below:
+![](attachments/pages/label.png) A label placed in a cell with render mode header.
 
-{{% image_container width="300" %}}![Label Properties](attachments/common-widgets/label-properties.png)
-{{% /image_container %}}
+{{% /alert %}}
 
-Label properties consist of the following sections:
+## General properties
 
-* [Common](#common)
-* [Design Properties](#design-properties)
-* [General](#general)
-* [Visibility](#visibility)
+{{% snippet file="refguide7/Caption+Property.md" %}}
 
-### 2.1 Common Section {#common}
+## Visibility properties
 
-{{% snippet file="refguide/common-section-link.md" %}}
+{{% snippet file="refguide7/Visibility+Property.md" %}}
 
-### 2.2 Design Properties Section {#design-properties}
+{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
 
-{{% snippet file="refguide/design-section-link.md" %}}
+## Common properties
 
-### 2.3 General Section {#general}
+{{% snippet file="refguide7/Name+Property.md" %}}
 
-The **General** section contains the **Caption** property. **Caption** defines the text that will be shown to a user.
+{{% snippet file="refguide7/Class+Property.md" %}}
 
-### 2.4 Visibility Section {#visibility}
-
-{{% snippet file="refguide/visibility-section-link.md" %}}
-
-## 3 Read More
-
-* [Page](page)
-* [Common Widgets](common-widgets)
-* [Properties Common in the Page Editor](common-widget-properties)
+{{% snippet file="refguide7/Style+Property.md" %}}
