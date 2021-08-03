@@ -1,44 +1,44 @@
 ---
-title: "Parallel Split"
-parent: "workflows"
+title: "并联拆分"
+parent: "工作流"
 menu_order: 30
 tags:
-  - "workflow"
-  - "workflows"
-  - "parallel split"
+  - "工作流"
+  - "工作流"
+  - "平行拆分"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The parallel split is used to have parallel processes in your workflow. For example, when onboarding a new employee, you can have several processes running in parallel: the HR preparing necessary documents, the IT department preparing a workstation, and the Administration department scheduling a training for the employee:
+平行分割用于在您的工作流中有并行过程。 例如，当新员工上岗时，您可以同时运行几个过程：人力资源准备必要的文档。 为雇员安排培训的信息技术部门和行政部门：
 
-![Parallel Split Example](attachments/parallel-split/parallel-split.jpg)
+![并联拆分示例](attachments/parallel-split/parallel-split.jpg)
 
 {{% alert type="info" %}}
-The workflow needs to complete all paths of the parallel split before it can continue to the next activity.
-{{% /alert %}}
+工作流需要完成并行分割的所有路径才能继续下一个活动。
+{{% /报警 %}}
 
-## 2 Properties
+## 2 属性
 
-Parallel split properties consist of the following sections:
+并联分割属性由以下部分组成：
 
-* [Common](#common)
-* [General](#general)
-* [Paths](#paths)
+* [常用的](#common)
+* [A. 概况](#general)
+* [路径](#paths)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名称** 是元素的内部名称。 当提及应用程序中的元素时，您将使用此名称。 它在工作流中必须是唯一的，但你可以在不同的工作流中拥有两个名称相同的元素。
 
-### 2.2 General Section {#general}
+### 2.2 一般部分 {#general}
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**标题** 描述了这个元素中发生的情况。 它显示在工作流元素中，使工作流更容易阅读和理解，而无需添加注释。
 
-### 2.2 Paths Section {#paths}
+### 2.2 路径部分 {#paths}
 
-The **Paths** property allows you to add as many paths as there are parallel processes.
+**路径** 属性允许您添加尽可能多的路径，因为存在着并行过程。
 
-## 3 Read More
+## 3 阅读更多
 
-* [Workflow Properties](workflow-properties)
+* [工作流属性](workflow-properties)
