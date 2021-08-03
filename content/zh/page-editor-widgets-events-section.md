@@ -1,100 +1,182 @@
 ---
-title: "Events Section"
-parent: "page-editor-widgets"
+title: "活动部分"
+parent: "页面编辑器部件"
 menu_order: 70
-description: "Describes the Events section in widgets properties in Mendix Studio."
+description: "在 Mendix Studio 中描述部件属性中的事件部分。"
 tags:
-  - "studio"
-  - "page editor"
-  - "widgets"
-  - "on click action"
-  - "events"
+  - "工作室"
+  - "页面编辑器"
+  - "小部件"
+  - "点击动作"
+  - "事件"
 ---
 
-## 1 Introduction
+## 1 导言
 
-The **Events** section is a section in the **Properties** tab that is common for different widgets in Mendix Studio, for example, for a static image, buttons, list view, and data view.
+**事件** 部分是一个 **属性** 选项卡中常见于Mendix Studio 中的不同小部件中。 例如，静态图像、按钮、列表视图和数据视图。
 
-In the **Events** section, you can set the **On Click Action** for widgets and specify what action will be performed when users click the widget. For example, you can specify that when a user clicks a profile image, the page with the user's personal account will open.
+在 **事件** 部分。 您可以设置 **点击动作** 小部件，并指定最终用户点击小部件时将执行什么操作。 例如，您可以指定当用户点击个人资料图片时，用户个人帐户的页面将会打开。
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets-events-section/events-section.png)
 {{% /image_container %}}
 
-## 2 On Click Action {#on-click-action}
+## 2 点按动作 {#on-click-action}
 
-You can find the description of possible on click actions below:
+您可以找到下面可能的点击操作的描述：
 
-* **Nothing** – no action is taken when the user clicks a widget
-* **Page** –  the specified page is opened
-  * **Create Object** – creates a new object and passed it to the selected page (disabled by default). For more information, see section [2.1 Create Object Option](#create-object-option)
-* **Microflow** – the selected microflow is executed
-* **More** – contains the following type of actions:
-  * **Save Changes** – saves (commits) all changes made on the page
-  * **Cancel Changes** – rolls back all changes made on the page
-  * **Close Page** – closes the pop-up window (for pop-up pages) or navigates to the previously visited page
-  * **Sign Out** – the current user is signed out of the app
-  * **Open Link** – triggers an action based on the link type (for more information, see section [2.2 Open Link Action](#open-link-action)
-  * **Delete Object** – deletes an object (for more information, see section [2.3 Delete Object Action](#delete-object-action))
+* [无](#do-nothing)
+* [页](#show-page)
+* [微流](#microflow)
+* [呼叫工作流](#call-workflow)
+* [显示工作流页面](#show-workflow-page)
+* [显示任务页面](#show-task-page)
+* [Complete Task](#complete-task)
+* [保存更改](#save-changes)
+* [取消更改](#cancel-changes)
+* [关闭页面](#close-page)
+* [登出](#sign-out)
+* [打开链接](#open-link-action)
+* [删除对象](#delete-object-action)
 
 {{% alert type="info" %}}
 
-The list of available on click actions may differ depending on the widget. For example, **Delete Object** on-click action is unavailable for the list view.
+可用的点击操作列表可能因部件而异。 例如， **删除对象** 在列表视图中不可用的点击动作。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 2.1 Create Object Option {#create-object-option}
+### 2.1 无 {#do-nothing}
 
-When you set the **On Click Action** to **Open Page**, you can enable the **Create Object** option. You need to pass an object if the selected page expects a context.
+没有采取任何行动。 此选项用于设置页面而不定义基本功能。
 
-For example, you want to create a new customer by clicking the **New** button. This button will open a page where you can fill in a new customer's details and save them. However, the *Customer Details* page needs to get data first, in other words, it expects the object *Customer* to be passed to it.
+### 2.2 导 言 {#show-page}
 
-{{% image_container width="350" %}}![Data View Expects the Customer Object](attachments/consistency-errors-pages/data-view-customer.png)
+**页面** 动作打开指定的页面。
+
+以下属性是此操作的特定属性：
+
+* **页面** - 一个 [页面应该打开](page-editor)
+
+* **创建对象** - 创建一个新对象并传递到所选页面 (默认禁用)。 欲了解更多信息，请参阅下面 [创建对象选项](#create-object-option) 部分
+
+#### 2.2.1 创建对象选项 {#create-object-option}
+
+当您设置 **在点击操作** 为 **页面**时，您可以启用 **创建对象** 选项。 如果选中的页面需要上下文，您需要传递对象。
+
+例如，您想要通过点击 **新的** 按钮来创建一个新客户。 此按钮将打开一个页面来填写新客户的详细信息并保存。 然而， *客户详细信息* 页面需要先获取数据。 换言之，它期望将对象 *客户* 传递给它。
+
+{{% image_container width="350" %}}![数据视图期望客户对象](attachments/consistency-errors-pages/data-view-customer.png)
 {{% /image_container %}}
 
-Thus, when setting the on-click action of the **New** button to **Page**, you need to enable the **Create Object** option and select the **Customer** entity.
+因此，当将 **新的** 按钮的点击操作设置为 **页面**您需要启用 **创建对象** 选项并选择 **客户** 实体。
 
 ![](attachments/page-editor-widgets-events-section/create-object-example.png)
 
-If you enable **Create Object** option, you need to set the following:
+如果您启用 **创建对象** 选项，您需要设置以下选项：
 
-* **Page** – specifies which page with the new created object should be shown. The page should contain a data view that expects this object.
-* **Entity** – specifies the object of which entity will be created and passed to the selected page as a context.
+* **页面** - 指定新创建对象的页面应该显示。 页面应该包含一个期望此对象的数据视图。
+* **实体** - 指定哪个实体将被创建并传递到选定页面作为上下文的对象。
 
-### 2.2 Open Link Action {#open-link-action}
+### 2.3 微流 {#microflow}
 
-When you set the **On Click Action** to **Open Link**, several properties are available.
+**微流程** 动作执行所选微流程。 **Microflow** 属性，允许您选择一个微流程，是此动作的特定属性。
+
+### 2.4 呼叫工作流 {#call-workflow}
+
+**调用 Workflow** 动作执行指定的工作流。
+
+以下属性是此操作的特定属性：
+
+* **Workflow** -- [Workflow](workflows) 应该执行。
+* **关闭页面** - 指定当前页面是否应该关闭。
+* **提交** - 指定在运行工作流程时是否应该提交对象。
+
+### 2.5 显示工作流页面 {#show-workflow-page}
+
+**显示工作流页面** 打开一个概览(管理员) 页面 此点动作的元素应该放置在连接到 **System.Workflow实例** 实体的数据容器中。
+
+### 2.6 显示任务页面 {#show-task-page}
+
+**Show Task Page** opens an overview page set for the [user task](workflows-user-task) in properties. 此点动作的元素应该放置在连接到 **System.WorkflowUserTask** 实体的数据容器中。
+
+### 2.7 Complete Task {#complete-task}
+
+**完整任务** 动作将工作流程中指定的用户任务标记为已完成。
+
+以下属性是此操作的特定属性：
+
+* **任务** -- [用户任务](workflows-user-task) 应该标记为已完成。
+
+* **结果** - 列出选定的 [用户任务](workflows-user-task) 的结果并遵循选定的结果。 如果用户任务只有一个结果， **默认** 将设置为一个结果，不能编辑属性。
+
+* **关闭页面** - 指定当前页面是否应该关闭。
+
+* **提交** - 指定在将任务标记为完成时是否应该提交对象。
+
+### 2.8 保存更改 {#save-changes}
+
+**保存更改** 动作保存页面上的所有更改。
+
+### 2.9 取消更改 {#cancel-changes}
+
+**取消更改** 动作回滚页面上的所有更改。
+
+### 2.10 关闭页面 {#close-page}
+
+**关闭页面** 动作关闭一个弹出窗口(用于弹出页面)或导航到以前访问的页面。
+
+### 2.11 注销 {#sign-out}
+
+**退出** 动作标志当前已登录的最终用户离开应用程序。
+
+### 2.12 打开链接操作 {#open-link-action}
+
+**打开链接** 动作触发基于链接类型的动作：
 
 {{% image_container width="300" %}}![](attachments/page-editor-widgets-events-section/open-link-action.png)
 {{% /image_container %}}
 
-See the description in the table below:
+以下属性是此操作的特定属性：
 
-| Action Property | Description                                                                                                                                                                                                                                                                                                                                                            |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Link Type       | Possible values for **Link Type** are the following: <ul><li>**Web** – navigates to a website</li><li>**Email** – composes an email</li><li>**Phone Call** – starts a phone call</li><li>**Text Message** – sends a text message</li></ul>{{%alert type="info" %}}When you configure **Email**, **Phone Call** or **Message** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message.<br />{{%/alert %}} |
-| Source          | Possible values for **Source** are the following: <ul><li>**Use literal value** – you can fill a value out (Specify **Url** for **Web**, **Recipient** for **Email**, and **Phone Number** for **Phone Cal**l and **Message**) </li><li>**Use attribute** – if you select **Database**>**Entity** as a data source for the list view,  you can choose the attribute of a string type that belongs to the entity or create a new one (when the **Use attribute** option is configured, you do not need to fill out any information manually, it will be updated dynamically)</li></ul>                                                                                                                                                                                                                                                                                             |
+* **链接类型** - 指定链接执行的动作。 **链接类型** 的可能值如下：
 
-### 2.3 Delete Object Action {#delete-object-action}
+  * **Web** — 导航到一个网站。
 
-Behavior of the **Delete Object** action depends on a data container it is placed in: a [list view](page-editor-data-view-list-view#list-view-properties) or a [data view](page-editor-data-view-list-view#data-view-properties).
+  * **电子邮件** — — 撰写一封电子邮件。
 
-#### 2.3.1 Delete Object Action in a List View
+  * **电话呼叫** — — 开始一个电话。
 
-If you place the **Delete Object** in a list view, the corresponding list view item will be deleted, when a user clicks a button.
+  * **文本消息** - 发送文本消息。
 
-For example, you have a page with a list view showing customer names. A **Delete** button is placed inside the list next to each name. Thus, if you click **Delete** in a line that says "Peter", this customer and all customer's details will be deleted.
+    {{%alert type="info" %}}When you configure **Email**, **Phone Call** or **Message** options, the corresponding default app will be opened on the device when the action is triggered, for example, the default email client will be opened to compose a message.
+
+    {{%/提醒 %}}
+
+* **源** — — 取决于所选的链接类型，以及您是否想使用一个字数值或使用一个属性的值。 **源** 的可能值如下：
+
+  * **使用字数值** - 您可以填写一个值 (指定 **Url** 为 **Web** **收件人** 收件人 **电子邮件**和 **电话号码** 电话号码 **电话号码**l 和 **信息**)。
+  * **使用属性** - 如果您选择 **数据库**>**实体** 作为列表视图的数据源 您可以选择属于实体的字符串类型的属性，或者创建一个新的属性(当 **使用属性** 选项被配置时， 您无需手动填写任何信息，将动态更新)。
+
+### 2.13 删除对象操作 {#delete-object-action}
+
+**删除对象** 动作的行为取决于一个数据容器： [列表视图](page-editor-data-view-list-view#list-view-properties) 或 [数据视图](page-editor-data-view-list-view#data-view-properties)
+
+#### 2.13.1 在清单中删去对象行动
+
+如果您在列表视图中放置 **删除对象** 当用户点击按钮时，相应的列表视图项将被删除。
+
+例如，您有一个显示客户名称列表视图的页面。 **删除** 按钮放在每个名称旁边的列表中。 因此，如果您单击 **删除** 行中的“Peter”，该客户和所有客户的详细信息将被删除。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets-events-section/list-view-delete.png)
 {{% /image_container %}}
 
 
-#### 2.3.2 Delete Object Action in a Data View
+#### 2.13.2 删除数据视图中的对象行动
 
-When placed on a data view, **Delete Object** will delete the connected object. For example, you opened a page with customer's details. The details are placed in a data view. You have **Save** and **Delete** buttons at the bottom of the page. When you press **Delete**, the customer "John" and customer's details will be deleted and the page will be closed.
+放置在数据视图上后， **删除对象** 将会删除所连接的对象。 例如，您打开了一个包含客户详细信息的页面。 详细信息放在数据视图中。 您有 **保存** 和 **在页面底部删除** 按钮。 当您按 **删除**时，客户"John" 和客户的详细信息将被删除，页面将被关闭。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets-events-section/data-view-delete.png)
 {{% /image_container %}}
 
-## 3 Read More
+## 3 阅读更多
 
-* [Widgets](page-editor-widgets)
+* [小部件](页面编辑器部件)
