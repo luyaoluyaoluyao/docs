@@ -1,45 +1,45 @@
 ---
-title: "Arithmetic Expressions"
-parent: "expressions"
+title: "算术表达式"
+parent: "表达式"
 menu_order: 20
 tags:
   - "studio pro"
-  - "expressions"
-  - "arithmetic expressions"
+  - "表达式"
+  - "算术表达式"
 ---
 
-## 1 Introduction
+## 1 导言
 
-This document describes the arithmetic operators which are supported in expressions. These all work on numeric data types (Integer/Long and Decimal).
+本文档描述了表示支持的算术运营商。 所有这些都适用于数字数据类型(整数/长/小数)。
 
-## 2 Multiplication
+## 2 乘法
 
-Multiplies two numbers.
+乘以两个数字。
 
-### 2.1 Input parameters
+### 2.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个数字 | 整数/小数 |
+| 第二个数字 | 整数/小数 |
 
-### 2.2 Output
+### 2.2 产出
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+如果这两种输入都是整数/Long，结果是整数/Long。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+如果两个输入中的任何一个都是小数型，结果是小数型。
 
-### 2.3 Example
+### 2.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 
 ```java
 2*3
 ```
-The output is:
+输出为：
 
 ```java
 6
@@ -47,186 +47,186 @@ The output is:
 
 ## 3 Division
 
-Divides two numbers. You can use either the `div` or colon ( `:` ) syntax, as can be seen below in the examples. The colon ( `:` ) syntax is inspired by the divide symbol `÷`. We cannot use the more conventional slash ( / ) syntax because that would conflict with the slash which is used for separating objects and members.
+除去两个数字。 您可以使用 `div` 或 colon ( `:` ) 语法, 如下面的示例所示。 冒号 ( `:` ) 语法是由分隔符号 `X` 启发的。 我们不能使用更常规的 slash ( / ) 语法，因为这会与用于分离对象和成员的斜线相冲突。
 
-### 3.1 Input Parameters
+### 3.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个数字 | 整数/小数 |
+| 第二个数字 | 整数/小数 |
 
-### 3.2 Output
+### 3.2 产出
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+如果两个输入中的任何一个都是小数型，结果是小数型。
 
-### 3.3 Example
+### 3.3 示例
 
-Find the example of usages below:
+查找下面的用法示例：
 
-* The `div` syntax example: if you use the following input:
+* `div` 语法示例：如果您使用了以下输入：
 
   ```java
   3 div 5
   ```
 
-  The output is:
+  输出为：
 
   ```java
   0.6
   ```
 
-* `:` syntax example: if you use the following input:
+* `:` 语法示例: 如果你使用以下输入:
 
   ```java
   12 : 3
   ```
 
-  The output is:
+  输出为：
 
   ```java
   4.0
   ```
 
-### 3.4 Remarks
+### 3.4 评论
 
-The result of a division is only an approximation if it has an infinite decimal expansion. The two examples below illustrate this approximation:
+分割的结果只是一个近似值，如果它有无限的小数点扩张。 以下两个例子说明了这种近似情况：
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
     3 : 7
     ```
 
-    the output is:
+    输出为：
 
     ```java
     0.4285714285714285714285714285714286
     ```
 
-    If you continue a calculation with the results of a division, the results might be unexpected. The following input:
+    如果你继续计算一个分区的结果，结果可能是意料之外的。 以下输入：
 
     ```java
     (3 : 7) * 7
     ```
 
-    results in the output below:
+    以下输出结果：
 
     ```java
     3.0000000000000000000000000000000002
     ```
 
-* If you use the following input:
+* 如果您使用以下输入：
 
     ```java
-    ceil((3 : 7) * 7)
+    最高限额(3：7*7)
     ```
 
-    the output is:
+    输出为：
 
     ```java
     4
     ```
 
-Therefore, it is recommended to do division operations last.
+因此，建议在最后完成各司的业务。
 
 ## 4 Modulo
 
-Calculates the remainder of the division of one number by another. In other words, `m` modulo `n` corresponds to: `m = p + k*n`, where `p` is the result of the operation `m` modulo `n`.
+计算一个数字的其余部分。 换言之， `m` modulo `n` 对应于： `m = p + k*n`, 在这里 `p` 是操作的结果 `m` modulo `n`
 
-### 4.1 Input Parameters
+### 4.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个数字 | 整数/小数 |
+| 第二个数字 | 整数/小数 |
 
-### 4.2 Output
+### 4.2 产出
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+如果这两种输入都是整数/Long，结果是整数/Long。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+如果两个输入中的任何一个都是小数型，结果是小数型。
 
-### 4.3 Example
+### 4.3 例子
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 23 mod 5
 ```
 
-the output is:
+输出为：
 
 ```java
 3
 ```
-## 5 Addition
+## 5 添加
 
-Adds two numbers.
+添加两个数字。
 
-For the use of the addition symbol for string concatenation, see [String function calls](string-function-calls).
+用于字符串连接的附加符号，请参阅 [字符串函数调用](string-function-calls)。
 
-### 5.1 Input Parameters
+### 5.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个数字 | 整数/小数 |
+| 第二个数字 | 整数/小数 |
 
-### 5.2 Output
+### 5.2 产出
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+如果这两种输入都是整数/Long，结果是整数/Long。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+如果两个输入中的任何一个都是小数型，结果是小数型。
 
-### 5.3 Example
+### 5.3 实例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 -3 + 4
 ```
 
-the output is:
+输出为：
 
 ```java
 1
 ```
 
-## 6 Subtraction
+## 6 减法
 
-Subtracts the second input from the first.
+从第一个中减去第二个输入。
 
-### 6.1 Input Parameters
+### 6.1 输入参数
 
-The input parameters are described in the table below:
+下面的表格描述了输入参数：
 
-| Value         | Type                  |
-| ------------- | --------------------- |
-| First number  | Integer/Long, Decimal |
-| Second number | Integer/Long, Decimal |
+| 值     | 类型    |
+| ----- | ----- |
+| 第一个数字 | 整数/小数 |
+| 第二个数字 | 整数/小数 |
 
-### 6.2 Output
+### 6.2 产出
 
-If the two inputs are both of type Integer/Long, the result is of type Integer/Long.
+如果这两种输入都是整数/Long，结果是整数/Long。
 
-If either of the two inputs is of type Decimal, the result is of type Decimal.
+如果两个输入中的任何一个都是小数型，结果是小数型。
 
-### 6.3 Example
+### 6.3 示例
 
-If you use the following input:
+如果您使用以下输入：
 
 ```java
 5 - 4
 ```
 
-the output is:
+输出为：
 
 ```java
 1
