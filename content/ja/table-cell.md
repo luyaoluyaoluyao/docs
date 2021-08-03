@@ -1,26 +1,26 @@
 ---
-title: "Table cell"
-parent: "table"
+title: "テーブルセル"
+parent: "表"
 ---
 
 
-Each section of a table row or column is called a cell. Cells can contain a wide variety of widgets.
+表行または列の各セクションはセルと呼ばれます。 セルにはさまざまなウィジェットが含まれています。
 
-## Common properties
+## 共通のプロパティ
 
 {{% snippet file="refguide7/Class+Property.md" %}}
 
 {{% snippet file="refguide7/Style+Property.md" %}}
 
-## General properties
+## 一般プロパティ
 
-### Cell type
+### セルの種類
 
-Indicates the type of the cell. Two types are supported:
+セルの種類を示します。 2 つのタイプがサポートされています:
 
-| Value  | Description                                                  |
-| ------ | ------------------------------------------------------------ |
-| Normal | Normal cell containing data (<td>).     |
-| Header | Header cell containing captions (<th>). |
+| 値    | 説明                                           |
+| ---- | -------------------------------------------- |
+| 標準   | データを含むノーマルセル (<td>).    |
+| ヘッダー | キャプションを含むヘッダーセル (<th>). |
 
-_Default value:_ Normal
+_デフォルト値:_ 標準
