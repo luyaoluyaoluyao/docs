@@ -1,87 +1,64 @@
 ---
-title: "Text"
+title: "テキスト"
 parent: "page-editor-widgets"
-description: "Describes typography widgets in Mendix Studio."
+description: "Mendix Studioでタイポグラフィウィジェットを説明します。"
 menu_order: 40
 tags:
-  - "studio"
-  - "page editor"
-  - "typography"
-  - "text widgets"
-  - "widgets"
+  - "スタジオ"
+  - "ページエディタ"
+  - "タイポグラフィー(文章)"
+  - "テキストウィジェット"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Text is a group of [widgets](page-editor-widgets) that consists of [Text, Paragraph, Headings (H1-H6)](#text-widget), and the [Page Title](#page-title-widget). They are used to display textual information to the end-user. For example, you can display a text paragraph:
+テキストは、 [テキスト、段落、見出し(H1-H6)](page-editor-widgets) 、 [ページタイトル](#text-widget)で構成される [ウィジェット](#page-title-widget)のグループです。 これらはエンドユーザーにテキスト情報を表示するために使用されます。 たとえば、テキスト段落を表示できます。
 
 {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/paragraph-example.png)
 {{% /image_container %}}
 
-## 2 Text, Paragraph, and Headings General Properties {#text-widget}
+## 2 テキスト、段落、見出し一般プロパティ {#text-widget}
 
 You can use **Text**, **Paragraph**, or **Heading** widgets to display a text to the end-user. In **Properties** > **General**, you can type the text that will be displayed, define if it contains attribute values, and set the [render mode](#render-mode).
 
-### 2.1 Content
+### 2.1 コンテンツ {#content}
 
-In **Content**, you define the text that will be shown. You can also add attributes, and the attribute value will be displayed to the user. For example, when the user logs in to the account, a greeting message can be shown, where *Name* and *NumberOfMessages* are attribute values:
+**コンテンツ**では、エンドユーザーに表示されるテキストを定義します。 ここで動的データを表示することもできます: 属性値と式の結果。
+
+属性を追加すると、ユーザに属性値が表示されます。 **追加** > **属性** を選択するか、 <kbd>Ctrl</kbd> + <kbd>スペース</kbd> を押して属性を選択します。  たとえば、ユーザーがアカウントにログインすると、グリーティングメッセージを表示できます。 where *Name* and *NumberOfMessages* is attribute value:
 
 ![](attachments/page-editor-widgets-text/content-example.png)
 
-#### 2.1.1 Configuring Content Without Adding Attributes
+式を設定し、式の結果を表示することもできます (式の詳細については、 [式](expressions) を参照してください)。 式を書くには、 **追加** > **式結果** を選択してください。 たとえば、付加価値税(VAT)を除く価格を表示できます。
 
-To configure **Content** without adding attributes, you can do one of the following:
+![コンテンツ例式](attachments/page-editor-widgets-text/content-example-expression.png)
 
-* Double-click the widget on the page and start typing the text you want to show to the end-user; press <kbd>Enter</kbd> to save changes
-* Open **Properties** of the widget, delete the default text in the **General** section > **Content**, and type the message you want to show to the end-user
+**コンテンツ**を編集するには、ページのウィジェットをダブルクリックします。
 
-#### 2.1.2 Configuring Content and Adding Attributes
 
-To configure **Content** and add attributes to it, do the following:
+### 2.2 レンダリングモード {#render-mode}
 
-1. Place the widget (**Text**, **Paragraph**, or **Heading**) inside a data container (a list view or a data view) and set an entity for the list view/data view. For more information, see [Data View & List View](page-editor-data-view-list-view). This is necessary to allow attributes of the selected entity to be inserted into the text.
+レンダリングモードでは、テキストをエンドユーザーに表示する方法を定義します。 Basically, **Text**, **Paragraph**, and **Heading** widgets are different render modes of the same widget. レンダリングモードの可能な値は以下の表に記載されています。
 
-2.  Open **Properties** of the **Text**, **Paragraph**, or **Heading**, delete the default text in the **General** section > **Content** and start typing the message you want to show to the end-user.
+| 値     | 説明                                                |
+| ----- | ------------------------------------------------- |
+| テキスト  | テキストはページ上の前/次のウィジェットとともにインラインでレンダリングされます          |
+| 段落    | テキストは別の段落としてレンダリングされます                            |
+| H1-H6 | テキストは見出しとしてレンダリングされます。 H1は見出しの最大のタイプで、H6は最小のものです。 |
 
-    {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/content.png)
-    {{% /image_container %}}
+## 3 ページタイトル一般プロパティ {#page-title-widget}
 
-3. To insert attribute values into your message, click **Add attribute** or press <kbd>Ctrl</kbd> + <kbd>Space</kbd>.  The list of attributes which can be inserted will be shown.
+ページタイトルウィジェットは現在のページのタイトルを設定し、表示します。 このタイトルは、ブラウザタブにページタイトルとしても表示されます。  タイトルは **テーマカスタマイザ** の **H1**スタイルで表示されます。 詳細は [テーマカスタマイズ](theme-customizer) を参照してください。
 
-4.  Scroll through the list of attributes (you can also use <kbd>Up</kbd> and <kbd>Down</kbd> arrows for that) and select the attribute you want to add to the **Text**.
-
-    {{% image_container width="350" %}}![](attachments/page-editor-widgets-text/list-of-attributes.png)
-    {{% /image_container %}}
-
-5. Type the rest of the text, and insert more attributes if required, to finish your message.
-
-You have configured the **Content** of your widget. If you want to edit it, you can double click the widget in the page; the **Edit Text** pop-up dialog will be shown for widgets with attributes in their content.
-
-{{% image_container width="350" %}}![](attachments/page-editor-widgets-text/edit-text.png)
-{{% /image_container %}}
-
-### 2.2 Render Mode {#render-mode}
-
-The render mode defines the way a text will be shown to the end-user. Basically, **Text**, **Paragraph**, and **Heading** widgets are different render modes of the same widget. Possible values of the render mode are described in the table below.
-
-| Value     | Description                                                                                            |
-| --------- | ------------------------------------------------------------------------------------------------------ |
-| Text      | The text will be rendered inline with the previous/next widgets on a page                              |
-| Paragraph | The text will be rendered as a separate paragraph                                                      |
-| H1-H6     | The text will be rendered as a heading. H1 is the largest type of the heading, H6 is the smallest one. |
-
-## 3 Page Title General Properties {#page-title-widget}
-
-The page title widget sets the title of the current page and displays it. This title also appears as the page title in your browser tab.  The title will be displayed in the **H1** style of the **Theme Customizer**. For details, see [Theme Customizer](theme-customizer).
-
-If you want to change the name of the page, do the following:
+ページ名を変更する場合は、次の操作を行います。
 
 1. Open **Properties** of the widget > the **General** section.
-2. Change a name in the **Title** field.
+2. **タイトル** フィールドの名前を変更します。
 
-The page title is changed.
+ページタイトルが変更されました。
 
-The **Title** that you see in the page properties and in widget is one and the same. This means, if you make changes to the title in page properties, this change will be displayed in the widget, and vice versa.
+ページプロパティとウィジェットに表示される **タイトル** は同じです。 つまり、ページ プロパティのタイトルに変更を加えると、この変更はウィジェットに表示され、その逆も同様です。
 
 ![](attachments/page-editor-widgets-text/page-title-interrelation.png)
 
@@ -89,19 +66,19 @@ The **Title** that you see in the page properties and in widget is one and the s
 
 {{% alert type="info" %}}
 
-You can put several **Title** widgets on your page, but they will all display the same text and cannot be edited individually.
+**タイトル** ウィジェットを複数ページに配置できますが、それらはすべて同じテキストを表示し、個別に編集することはできません。
 
 {{% /alert %}}
 
-## 4 Conditional Visibility Section
+## 4 条件付き表示セクション
 
 {{% snippet file="studio/visibility-section-link.md" %}}
 
-## 5 Design Section {#input-elements-design}
+## 5デザインセクション {#input-elements-design}
 
-For information on the **Design** section and its properties, see [Design Section](page-editor-widgets-design-section).
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
 
-## 6 Read More
+## 6もっと読む
 
-* [Pages](page-editor)
-* [Widgets](page-editor-widgets)
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)
