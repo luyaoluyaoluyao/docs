@@ -8,6 +8,10 @@ tags:
   - "studio pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/association-member-properties.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 [アソシエーション](associations) のプロパティを編集するには2つの方法があります。 このドキュメントでは、図形プロパティの **関連** タブから編集できるプロパティについて説明します。 If you want to edit the association as described in [Association Properties](association-properties), you can click **Edit** to open the association properties dialog.
