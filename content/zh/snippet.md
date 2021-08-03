@@ -1,68 +1,68 @@
 ---
-title: "Snippet"
-parent: "page-resources"
+title: "代码片段"
+parent: "页面资源"
 menu_order: 30
 tags:
   - "studio pro"
-  - "snippet"
-  - "page resources"
+  - "代码片段"
+  - "页面资源"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Snippets define reusable interface parts. They can be used on both [pages](page) and [layouts](layout). By using snippets you can make changes in fewer places when you modify the interface. For example, you can have a snippet that is used both in the contents area of a template grid and in a data view. If you change something in the snippet, that change will show up in both places.
+代码片段定义了可重复使用的接口部件。 它们可以同时用于 [页面](page) 和 [布局](layout)。 通过使用代码片断，当您修改接口时，您可以在较少的地方进行更改。 例如，您可以有一个代码片段用于模板网格的内容区域和数据视图。 如果你在代码片段中更改某些内容，那么这种改变将会出现在这两个地方。
 
-A snippet is indicated by a blue bar above a drop-zone. The blue bar has the snippet icon at the left and the name of an entity, if the snippet is in the context of an entity. If the snippet has no context, the bar says `(none)`.
+一个片段由一个下拉区上方的蓝色条标出。 蓝色栏左侧有代码片段图标和实体名称， 如果代码片段在一个实体的上下文中。 如果代码片段没有上下文，它会说 `(none)`。
 
-In the example below, the snippet is used in the context of the **Orders.Order** entity.
+在下面的示例中，代码片段用于 **订单** 实体。
 
-{{% image_container width="400" %}}![Example of a snippet](attachments/page-resources/snippet.png)
+{{% image_container width="400" %}}![代码片段示例](attachments/page-resources/snippet.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2 属性
 
-An example of snippet properties is represented in the image below:
+代码片段属性的示例在下面的图像中表示：
 
-{{% image_container width="250" %}}![Example of the snippet properties pane](attachments/page-resources/snippet-properties.png)
+{{% image_container width="250" %}}![代码片段属性窗格示例](attachments/page-resources/snippet-properties.png)
 {{% /image_container %}}
 
-Snippet properties consist of the following sections:
+代码片段属性由以下部分组成：
 
-* [Common](#common)
-* [Designer](#designer)
-* [General](#general)
+* [常用的](#common)
+* [设计师](#designer)
+* [A. 概况](#general)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Designer Section{#designer}
+### 2.2 设计师部分{#designer}
 
-#### 2.2.1 Canvas Width
+#### 2.2.1 画布宽度
 
-**Canvas width** defines the width in pixels of the page in the page editor. It is purely used for editing purposes; this property has no effect on the width of the page in the actual application.
+**画布宽度** 定义页面编辑器中页面的像素宽度。 它纯粹用于编辑目的；此属性对实际应用程序中页面宽度没有影响。
 
-Default value: *800*
+默认值： *800*
 
-#### 2.2.2 Canvas Height
+#### 2.2.2 画布高度
 
-**Canvas height** defines the preferred minimum height in pixels of the page in the page editor. It is purely used for editing purposes; this property has no effect on the height of the page in the actual application.
+**画布高度** 定义页面编辑器中首选的最小高度值。 它纯粹用于编辑目的；此属性对页面在实际应用程序中的高度没有影响。
 
-Default value: *600*
+默认值： *600*
 
-### 2.3 General Properties{#general}
+### 2.3 常规属性{#general}
 
-#### 2.3.1 Platform
+#### 2.3.1 平台
 
-The values for the platform property are:
+平台属性的值是：
 
-* Web *(default)* – these snippets are used for pages which are going to be displayed in a browser or hybrid mobile app
-* Native – these snippets are used for pages which are going to be displayed in a native mobile app
+* Web *(默认)* — 这些代码片段用于将显示在浏览器或混合移动应用程序中的页面
+* 原生——这些代码片段用于将显示在本机移动应用中的页面
 
-#### 2.3.2 Entity
+#### 2.3.2 实体
 
-This property defines the entity that is used as context for the widgets placed on this snippet.
+此属性定义了用于此代码片段上部件的上下文的实体。
 
-Entity optionally specifies an [entity](entities) that serves as the context for the widgets placed on it. When an entity is defined on a snippet, any usages of the snippet need to be placed inside a context for that entity or a specialization: a data view, for example.
+Entity optionally specifies an [entity](entities) that serves as the context for the widgets placed on it. 当一个实体在代码片段上定义时, 代码片段的任何用法都需要放在该实体或专门化的上下文中：例如，数据视图。
 
-For example, if you wanted to use an attribute of a Customer entity in a snippet, you could place a text box that shows the customer's name in the snippet without having to define a data view first.
+例如，如果您想要在代码片段中使用客户实体的属性， 您可以放置一个文本框，在代码片段中显示客户的名称，而不必先定义数据视图。
