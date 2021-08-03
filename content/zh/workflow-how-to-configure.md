@@ -1,359 +1,367 @@
 ---
-title: "Configure a Workflow in Studio for the Employee Onboarding Process"
-description: "Describes how to configure a workflow in Mendix Studio."
+title: "配置工作室中员工上岗流程的工作流"
+description: "描述如何在 Mendix Studio 中配置一个工作流。"
 menu_order: 5
 tags:
-  - "studio"
-  - "workflow"
-  - "how to"
-  - task", "onboarding"
+  - "工作室"
+  - "工作流"
+  - "如何处理"
+  - 任务", "登机"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Workflow is a new visual language in Mendix Studio and Mendix Studio Pro that allows you to build extendable processes. It is fully integrated with other visual languages, such as microflow editor and page editor.
+Workflow 是 Mendix Studio 和 Mendix Studio Pro 中的一种新的视觉语言，它允许您构建可扩展的流程。 它与其他视觉语言如微流编辑器和页面编辑器完全集成。
 
-This how-to explains how to build an employee onboarding process using the workflow editor. For more information on how to build a similar process in Studio Pro, see [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure).
+如何使用工作流编辑器来构建员工上岗流程。 关于如何在Studio Pro中建立类似进程的更多信息 查看 [如何配置Studio Pro 中的员工待寄流程工作流程](/howto/logic-business-rules/workflow-how-to-configure)。
 
-**This how-to will teach you how to do the following:**
+**这个教程将教你如何做以下事情：**
 
-* Enabling and creating workflows
-* Configuring a workflow entity
-* Triggering the workflow from a page
-* Creating user tasks for different user roles
-* Configuring pages for the user tasks
-* Restricting page access to the relevant user roles
-* Creating a decision
+* 启用并创建工作流
+* 配置工作流实体
+* 从页面触发工作流
+* 为不同的用户角色创建用户任务
+* 为用户任务配置页面
+* 限制页面访问相关用户角色
+* 创建一个决定
 * Configuring navigation
-* Testing your workflow from the perspective of different users
+* 从不同用户的角度测试您的工作流
 
-The how-to describes the following use case:
+如何描述下面的用例：
 
-You would like to build an employee onboarding process. At first, an HR specialist needs to initiate the onboarding process for a new employee. The employee's manager will then step in, select devices for the employee and specify whether the new hire is working from the office or home . The Facilities department will then need to prepare a workspace. Depending on where the new hire works from (the office or home), the Facilities department will either prepare a desk or ship the devices to the employee's address.
+你想要建立一个员工在职过程。 起初，一名人力资源专家需要为一名新雇员启动上岗程序。 然后该雇员的经理就会走进去。 选择供雇员使用的设备，并指定新雇员是在办公室还是在家工作。 设施部门将需要准备一个工作空间。 视新的雇用地点(办公室或家里)的情况而定， 设施部门要么准备一个台，要么将设备运到雇员的住处。
 
-## 2 Prerequisites
+## 2 个前提条件
 
-Before starting this how-to, make sure you have completed the following prerequisites:
+在启动此操作之前，请确保您已完成以下前提条件：
 
-* Familiarize yourself with workflow terms. For more information, see [Workflows](/refguide/workflows).
-* Make sure your app has Mendix version 9
-* Make sure your app is based on the Blank app template
+* 熟悉工作流程条款。 欲了解更多信息，请参阅 [Workflow](/refguide/workflows)。
+* 请确保您的应用有 Mendix 版本 9
+* 请确保您的应用基于空白应用模板
 
-## 3 Enabling Workflows {#enable-workflows}
+## 3 有利于工作流 {#enable-workflows}
 
-First, you need to enable workflows for your app. Do the following:
+首先，您需要为您的应用启用 Workflow。 执行以下操作：
 
-1. Click the workflow icon in the left menu bar.
+1. 点击左侧菜单栏中的工作流图标。
 
-2. Before enabling workflows, you need to enable security first. Click **Enable Security**:
+2. 在启用工作流之前，您需要先启用安全性。 点击 **启用安全**：
 
-    {{% image_container width="250" %}}![Enable Security](attachments/workflow-how-to-configure/enable-security.png)
+    {{% image_container width="250" %}}![启用安全](attachments/workflow-how-to-configure/enable-security.png)
     {{% /image_container %}}
 
-3. After security is enabled, click **Enable Workflows**.
+3. 启用安全性后，点击 **启用 Workflow**。
 
-4. In the **Workflows Enabled** pop-up menu, click **Create Workflow**:
+4. 在 **工作流启用** 弹出菜单中，点击 **创建工作流**：
 
-    {{% image_container width="300" %}}![Create Workflow](attachments/workflow-how-to-configure/create-workflow.png)
+    {{% image_container width="300" %}}![创建工作流](attachments/workflow-how-to-configure/create-workflow.png)
     {{% /image_container %}}
 
-5. In the **Create new workflow** dialog box, set the **Title** to **Employee_Onboarding**, and then click the **Workflow Entity** field to create a new workflow entity.
+5. 在 **创建新的 Workflow** 对话框中，将 **标题** 设置为 **Employeee_Onboard**然后点击 **工作流实体** 字段创建一个新的工作流实体。
 
-6. In the **Select Workflow Entity** dialog box, click **Create Workflow Entity**.
+6. 在 **选择工作流程实体** 对话框中，点击 **创建工作流程实体**。
 
-7. In The **Create New Workflow Entity** dialog box, set the **Name** to **EmployeeOnboarding** and click **Create**.
+7. 在 **创建新的工作流实体** 对话框中，将 **名称** 设置为 **员工在** 并点击 **创建**
 
-8. Click **Create** to confirm your choice once again.
+8. 点击 **创建** 再次确认您的选择。
 
-Good job! You have created a workflow and a workflow-specific entity. For more information on workflow entities, see the [Entities and Their Types](/studio/domain-models#entity-types) section in *Domain Model*.
+干得好！ 您已创建了一个工作流程和针对工作流程的实体。 欲了解更多关于工作流实体的信息，请在 *域模型* 中查看 [实体及其类型](/studio/domain-models#entity-types) 部分。
 
-## 4 Configuring a Domain Model
+## 4 配置域模型
 
-1. Open the [domain model](/studio/domain-models).
-2.  The **EmployeeOnboarding** entity you have created will hold the information about the employee to onboard, as well as capture information added during execution of the workflow, such as the laptop model that the new employee requires. Add the following attributes to the **EmployeeOnboarding** entity (for more information on how to create attributes, see [Adding New Attributes](/studio/domain-models#adding-new-attributes) section in the *Domain Model*):
-    1. Add the **FullName** attribute and set the type to string.
-    2. Add the **FirstDay** attribute and set its type to Date and Time.
-    3. Add the **WFH** (Work from home) attribute and set its type to Boolean.
-    4. Add the **PhoneModel** enumeration with the following enumeration items: iPhone, iPhone_Pro, Samsung. For more information on enumerations and how to create them, see the [Creating a New Enumeration](/studio/domain-models-enumeration#create-new-enumeration) section in *Enumerations*.
-    5. Add the **LaptopModel** enumeration with the following enumeration items: Lenovo, Mac, Dell. For more information on enumerations and how to create them, see the [Creating a New Enumeration](/studio/domain-models-enumeration#create-new-enumeration) section in *Enumerations*.
+1. 打开 [域模型](/studio/domain-models)。
+2.  您已创建的 **员工登临** 实体将保持关于员工登机的信息。 以及捕获在执行工作流程过程中添加的信息，例如新雇员所需的膝上型计算机模型。 Add the following attributes to the **EmployeeOnboarding** entity (for more information on how to create attributes, see [Adding New Attributes](/studio/domain-models#adding-new-attributes) section in the *Domain Model*):
+    1. 添加 **全名** 属性并将类型设置为字符串。
+    2. 添加 **第一天** 属性，并将其类型设置为日期和时间。
+    3. 添加 **FWH** (在家工作) 属性，并将其类型设置为 Boolean。
+    4. 添加 **PhoneModel** 枚举与下列枚举项: iPhone、iPhone_Pro、三星。 欲了解更多关于枚举和如何创建这些枚举的信息，请在 *枚举* 中查看 [创建一个新枚举](/studio/domain-models-enumeration#create-new-enumeration) 部分。
+    5. 用以下枚举项添加 **笔记模型** 个枚举：Lenovo, Mac, Dell。 欲了解更多关于枚举和如何创建这些枚举的信息，请在 *枚举* 中查看 [创建一个新枚举](/studio/domain-models-enumeration#create-new-enumeration) 部分。
 
-You have configured the **EmployeeOnboarding** entity: ![Domain Model](attachments/workflow-how-to-configure/domain-model.png)
+您已经配置 **员工toon** 实体： ![域模型](attachments/workflow-how-to-configure/domain-model.png)
 
-## 5 Configuring Security
+## 5 配置安全
 
-In the [Enabling Workflows](#enable-workflows) section, you have enabled security for your app, and several roles and permissions were added automatically. However, you need to add more roles to your app: HR, Manager, and Facilities roles. Follow the steps below:
+在 [启用工作流](#enable-workflows) 部分中，您已经为您的应用启用了安全性，并且自动添加了几个角色和权限。 然而，您需要为您的应用添加更多的角色：HR、经理和设施角色。 遵循下面的步骤：
 
-1. Open **App Settings** > **Roles and Permissions**.
-2. Click **Add Role** in the right corner.
-3. Set the role's name to **HR** and click **Create**.
-4. Repeat steps 2 and 3 to create **Manager** and **Facilities** roles.
+1. 打开 **应用设置** > **角色和权限**。
+2. 点击 **在右角添加角色**。
+3. 将角色的名称设置为 **HR** 并点击 **创建**.
+4. 重复步骤2和3以创建 **管理器** 和 **设施** 角色。
 
-Now all necessary roles are created for your app. For more information about security, see [Security, Roles & Permissions](/studio/settings-security).
+现在为您的应用创建了所有必要的角色。 欲了解更多安全信息，请参阅 [安全性，角色 & 权限](/studio/settings-security)
 
-## 6 Triggering the Workflow from a Page
+## 6 从页面触发工作流
 
-To start your workflow, you need to trigger it. In this use case, the workflow is started by an HR specialist who should fill in the new hire's name, the first day, and then click the **Start Onboarding** button that will trigger the workflow. Do the following:
+要启动您的工作流，您需要触发它。 在这种情况下，工作流程是由一名人力资源专家启动的，该专家应填写新租用的姓名： 第一天，然后单击 **启动上岗** 按钮，触发工作流。 执行以下操作：
 
-1. Create an **EmployeesToOnboard** page that contains a list view with the **EmployeeOnboarding** entity as its data source. (For more information on how to create a page and add widgets to it, see the [Performing Basic Functions](/studio/page-editor#page-editor-basic-functions) section in *Pages*.)
+1. 创建一个 **EmployeesToOnboard** 页面，其中包含一个 **EmployeeOnboard** 实体作为其数据源。 (更多关于如何创建一个页面并添加小部件的信息。) 查看 [履行基本函数](/studio/page-editor#page-editor-basic-functions) 部分在 *页面* 中 .)
 
-    {{% image_container width="500" %}}![Employees to Onboard List](attachments/workflow-how-to-configure/employees-to-onboard-list.png)
+    {{% image_container width="500" %}}![在线员工列表](attachments/workflow-how-to-configure/employees-to-onboard-list.png)
      {{% /image_container %}}
 
-2. Add a button that will initiate the workflow to the list view. Follow the steps below:
+2. 在列表视图中添加启动工作流的按钮。 遵循下面的步骤：
 
-    1. Open the **Toolbox** and search for the **Call Workflow** button.
+    1. 打开 **工具箱** 并搜索 **调用工作流程** 按钮。
 
-    2. Drag and drop the button inside the list view:
+    2. 拖放列表视图中的按钮：
 
-        ![Start Onboarding Button](attachments/workflow-how-to-configure/start-onboarding-button.png)
+        ![启动登机按钮](attachments/workflow-how-to-configure/start-onboarding-button.png)
 
-    3. Open the button properties and set the **Workflow** property to **Employee_Onboarding**.
+    3. 打开按钮属性并将 **Workflow** 属性设置为 **Employeee_Onboard**。
 
-    4. Set the **Caption** of the button to **Start Onboarding**.
+    4. 将按钮的 **标题** 设置为 **启动上船**。
 
-3. The HR specialist also needs a page where they can fill in new hire's details. Add a **Create Object** button on the top of the page (outside the list view):
+3. 人力资源专家还需要一个网页，他们可以填写新的租户细节。 在页面顶部添加 **创建对象** 按钮(在列表视图之外)：
 
-    {{% image_container width="500" %}}![Employees to Onboard Page](attachments/workflow-how-to-configure/employees-to-onboard-page.png)
+    {{% image_container width="500" %}}![员工到在线页面](attachments/workflow-how-to-configure/employees-to-onboard-page.png)
     {{% /image_container %}}
 
-4. Set **Entity** to **EmployeeOnboarding**:
+4. 将 **实体** 设置为 **员工Ontool**：
 
     ![](attachments/workflow-how-to-configure/create-object-button.png)
 
-5. Click the **Page** property.
+5. 点击 **页面** 属性。
 
-6. In the **Select Page** dialog box, click the plus icon.
+6. 在 **选择页面** 对话框中，点击加号图标。
 
-7. In the **Create new page** dialog box, you can see the templates for forms. Do the following:
+7. 在 **创建新页面** 对话框中，您可以看到窗体的模板。 执行以下操作：
 
-    1. Set the **Title** to **Employee_Details**.
+    1. 将 **标题** 设置为 **员工详细信息**。
 
-    2. Set the **Layout** to **PopupLayout**.
+    2. 将 **布局** 设置为 **弹出布局**。
 
-    3. Select the **Forms Columns** template.
+    3. 选择 **表单列** 模板。
 
-    4. Click **Create**.
+    4. 点击 **创建**。
 
-        ![Create Employee Details Page](attachments/workflow-how-to-configure/create-employee-details-page.png)
+        ![创建员工详细信息页面](attachments/workflow-how-to-configure/create-employee-details-page.png)
 
-8. The new page opens. By default all attributes are added to the form. However, the HR specialist needs to specify only the name and the first day of the new hire. Leave the relevant widgets and delete all other ones from the form:
+8. 新页面正在打开 默认情况下，所有属性都添加到表单中。 然而，人力资源专家只需具体说明新聘人员的姓名和第一天。 保留相关的小部件并从表单中删除所有其他小部件：
 
-    ![Employee Details Form](attachments/workflow-how-to-configure/employee-details-form.png)
+    ![员工详细信息表单](attachments/workflow-how-to-configure/employee-details-form.png)
 
-Good job! Now you have a page where the HR specialist can start the workflow.
+干得好！ 现在你有一个可以启动工作流程的 HR 专家页面。
 
-## 7 Specifying Details of the New Hire {#specify-details}
+## 7 指明新租的详细信息 {#specify-details}
 
-The manager of a new employee will get a task to specify devices for the new hire. The manager also needs to indicate whether the new hire is working home (WFH) or not. For this functionality you need to add activities to the workflow. Follow the steps below:
+一名新员工的经理将获得一项任务，指定新员工的设备。 管理人员还需要说明新聘用者是否在家工作。 为了此功能，您需要将活动添加到工作流。 遵循下面的步骤：
 
-1. Open the **Employee_Onboarding** workflow.
+1. 打开 **Employeee_Ontool** workflow。
 
-2. In the **Toolbox** tab, find the **User Task** activity, and drag and drop it to the workflow editor.
+2. 在 **工具箱** 标签页中，找到 **用户任务** 活动，并拖放到工作流编辑器。
 
-3. Open the user task properties.
+3. 打开用户任务属性。
 
-4. Set the **Caption** property to **Manager: Specify Employee Details** to easily see who this task should be assigned to:
+4. 将 **标题** 属性设置为 **经理：指定员工详细信息** 以方便地查看该任务应分配给谁：
 
-    ![Caption](attachments/workflow-how-to-configure/user-task-caption.png)
+    ![标题](attachments/workflow-how-to-configure/user-task-caption.png)
 
-5. To create a page where the manager will specify necessary details, click the **Page** property.
+5. 要创建管理员指定必要详细信息的页面, 请点击 **页面** 属性。
 
-6. In the **Select Page** dialog box, click the plus icon.
+6. 在 **选择页面** 对话框中，点击加号图标。
 
-7. In the **Create new page** dialog box, you can see the templates for workflow pages. Do the following:
+7. 在 **创建新页面** 对话框中，您可以看到工作流页面的模板。 执行以下操作：
 
-    1. Set the **Title** to **SpecifyDetails**.
+    1. 将 **标题** 设置为 **详细说明**.
 
-    2. Check that **Layout** is set to **Atlas_Default**.
+    2. 检查 **布局** 已设置为 **Atlas_默认**。
 
-    3. Select the **UserTask Extended** template.
+    3. 选择 **用户任务扩展** 模板。
 
-    4. Click **Create**.
+    4. 点击 **创建**。
 
-        ![Create New Page](attachments/workflow-how-to-configure/create-new-page.png)
+        ![创建新页面](attachments/workflow-how-to-configure/create-new-page.png)
 
-8. Now you need to make sure that only the relevant information is displayed on the **SpecifyDetails** page. By default, all attributes are added to the data view with the employee details and can be edited. You need to leave only the attributes related to the task. You also need to make sure that the manager can change only a specific field in the form. For example, the name of the employee has been entered by the HR department, so the manager does not need to change it and should have this field as read-only.
+8. 现在您需要确保只在 **SpecifyDetail** 页面上显示相关信息。 默认情况下，所有属性都被添加到数据视图中与员工详细信息一起进行编辑。 您只需要保留与任务相关的属性。 您还需要确保管理员只能更改表单中的特定字段。 例如，该雇员的姓名已被人力资源部门输入， 所以管理员不需要更改它，应该将此字段作为只读字段。
 
-    Do the following:
+    执行以下操作：
 
-    1. Select the text box labelled **Full name** and go to its properties.
+    1. 选择标签为 **的文本框，全名** 并转到其属性。
 
-    2. Set the **Editability** property to *Read-Only*.
+    2. 将 **编辑性** 属性设置为 *只读*。
 
-    3. Delete the **First day** date picker as it is not relevant for this task.
+    3. 删除 **第一天** 日期选择器，因为它与这个任务无关。
 
-    4. Leave **WFH**, **Phone model**, and **Laptop model** fields:
+    4. 离开 **WFH**, **Phone 模型**, 和 **Laptop 模型** 字段：
 
-        ![Specify Details Form](attachments/workflow-how-to-configure/specify-details-form.png)
+        ![指定详细信息表单](attachments/workflow-how-to-configure/specify-details-form.png)
 
-9. Only the Manager role can access the **SpecifyDevice** page. Navigate to the page properties > **Allowed Roles** and deselect all roles except **Manager**.
+9. 只有管理员角色可以访问 **特殊设备** 页面。 导航到页面属性 > **允许角色** 并取消除 **管理器** 之外的所有角色。
 
-10. Navigate back to the workflow and open the user task properties to finish the user task configuration.
+10. 返回工作流并打开用户任务属性来完成用户任务配置。
 
-11. As only the manager should specify details for the new employee, you need to make sure that the user task is assigned to users with the Manager role only. Do the following:
+11. 因为只有经理才应具体说明新雇员的详细情况， 您需要确保用户任务只分配给具有管理员角色的用户。 执行以下操作：
 
-    1. Make sure the **Assign Task Using** property is set to **Filter**.
+    1. 请确认 **分配任务使用** 属性已设置为 **过滤器**。
 
-    2. Click the **Filter** property.
+    2. 点击 **滤镜** 属性。
 
-    3. In the **Assign task to** dialog box, the **Where** condition is set to **User Role** by default. Set the other part of the condition to **Manager** and click **Add**:
+    3. 在 **分配任务到** 对话框中， **** 条件设置为 **用户角色** 默认情况。 将条件的其他部分设置为 **管理器** 并单击 **添加**：
 
-        ![Assign Task to Manager](attachments/workflow-how-to-configure/assign-task-to-manager.png)
+        ![分配任务给管理器](attachments/workflow-how-to-configure/assign-task-to-manager.png)
 
-12. In the **Allowed Roles** property deselect all roles except **Manager** to restrict access to this user task to the relevant role only.
+12. 在 **允许的角色** 属性中，除 **Manager** 外，取消所有角色的选择，以限制对此用户任务的访问仅限于相关角色。
 
-Great job! You have created the user task for the Manager role:
+干得好！ 您已经为管理器角色创建了用户任务：
 
-![Configured User Task](attachments/workflow-how-to-configure/user-task-configured.png)
+![配置用户任务](attachments/workflow-how-to-configure/user-task-configured.png)
 
-## 8 Following Different Paths for the Hire's Location
+## 8 跟随Here位置的不同路径
 
-Depending on whether the new hire is working from the office or home, there are two different processes to onboard this hire: prepare a desk in the office or send the laptop and phone to the home address. This step of the onboarding process should be done by the Facilities department.
+取决于新雇员是在办公室还是在家工作。 在这次租用上有两个不同的过程：准备办公室的一个服务台或将膝上型计算机和电话发送到家用地址。 上岗过程的这一步骤应由设施部门执行。
 
-Do the following:
+执行以下操作：
 
-1. Open the workflow editor > **Toolbox** and drag and drop the **Decision** activity after the **Manager: Specify Location** user task.
+1. 打开 Workflow editor > **Toolbox** 然后拖放 **Decision** activity after **Manager: 指定位置** 用户任务。
 
-    ![Adding a Decision](attachments/workflow-how-to-configure/decision.png)
+    ![添加决定](attachments/workflow-how-to-configure/decision.png)
 
-2. Decision means that the workflow path can split and follow one of the outcomes depending on the condition of the decision. For more information, see the [Decision](/studio/workflows-general-activities#decision) section in *General Activities*. Open the decision properties and do the following:
+2. 决定意味着工作流程路径可以根据决定的条件分割并遵循其中的一个结果。 欲了解更多信息，请参阅 *一般活动* 中的 [Decision](/studio/workflows-general-activities#decision) 部分。 打开决策属性并执行以下操作：
 
-    1. Set the **Caption** to **WFH?**.
+    1. 将 **标题** 设置为 **WH?**.
 
-    2. Click the **Condition** property.
+    2. 点击 **条件** 属性。
 
-    3. In the **Configure condition** dialog box, type in the expression that will split one flow into two depending on the **WFH** attribute: `$workflowData/WFH`.
+    3. 在 **配置条件** 对话框中， 在表达式中键入将根据 **WFH** 属性将一个流程分割成两个： `$workflowData/ WFH`
 
         {{% image_container width="500" %}}![Decision Properties](attachments/workflow-how-to-configure/decision-properties.png){{% /image_container %}}
 
-    4. Click **Save**.
+    4. 点击 **保存**。
 
-3. Since the WFH attribute is a Boolean, it has a true (when the new hire works from home) and a false (when they work from the office) outcome. These outcomes are added to the workflow automatically:
+3. 因为WFH 属性是布尔值， 它是真实的(当新的雇用人员从家里工作时)和假的(当他们从办公室工作时)结果。 这些结果自动添加到工作流中：
 
-    ![Decision Outcomes](attachments/workflow-how-to-configure/decision-outcomes.png)
+    ![决策结果](attachments/workflow-how-to-configure/decision-outcomes.png)
 
-4. Now you need to configure what happens in both scenarios: when the new hire works from home (true) and when the new hire works from the office (false). Open the **Toolbox**, drag and drop a **User Task** activity to the **false** path, and do the following:
+4. 现在您需要配置两种场景中发生的情况：新的雇用在家里工作（true）和新的雇用在办公室工作（Alse）。 打开 **Toolbox**, 拖放 **用户任务** 活动到 **false** 路径, 并执行以下操作：
 
-    1. Set its caption to **Facilities: Prepare Desk**.
+    1. 将其标题设置为 **设施：准备桌面**。
 
-    2. As only the Facilities department should prepare a desk for the new employee, you need to make sure that the user task is assigned to users with the Facilities role only. Refer to steps 11a-11c of the [Specifying Details of the New Hire](#specify-details) section to assign the user task to the Facilities role.
+    2. 由于只有设施部门应为新雇员准备一个桌子， 您需要确保用户任务只分配给具有设施角色的用户。 参考新Hire</a> 部分的
+指定详细信息的步骤11a-11c，以便将用户任务分配给设施角色。</p></li> 
+       
+           3 在 **中允许的角色** 属性取消了除 **设施以外的所有角色** 
 
-    3. In the **Allowed Roles** property deselect all roles except **Facilities**.
+    4 为 **页面** 创建一个新页面名为 **准备桌面** 的属性，指的是 [指定新节的步骤7a-7d](#specify-details)
 
-    4. Create a new page called **PrepareDesk** for the **Page** property referring to steps 7a-7d of the the [Specifying Details of the New Hire](#specify-details) section.
+    5 您需要确保只在 **准备桌面** 页面上显示相关信息。 默认情况下，所有属性都添加到员工详细表单中。 您需要确保设施部门能够查看字段，但不会更改。 执行以下操作： 
 
-    5. You need to make sure that only the relevant information is displayed on the **PrepareDesk** page. By default, all attributes are added to the employee detail form. You need to make sure that the Facilities department will be able to view the fields but not change them. Do the following:
+    6 选择雇员详细信息的数据视图并转到其属性。
 
-    6. Select the data view with the employee details and go to its properties.
+    7 切换 **只读** 属性，以使所有字段都只读。
+      
+      ![只读数据视图](attachments/workflow-how-to-configure/data-view-read-only.png)
 
-    7. Toggle the **Read-Only** property to make all fields in the form read-only.
+    8 只有设施角色才能访问 **准备桌面** 页面。 导航到页面属性 > **允许角色** 并取消除 **设施** 之外的所有角色。</ol></li> 
 
-       ![Read-Only Data View](attachments/workflow-how-to-configure/data-view-read-only.png)
+8 现在，当雇员在家里工作时，您需要为设施创建一个用户任务。 打开工作流编辑器。
 
-    8. Only the Facilities role can access the **PrepareDesk** page. Navigate to the page properties > **Allowed Roles** and deselect all roles except **Facilities**.
+6 打开 **Toolbox**, 拖放 **用户任务** 活动到 **true** 路径, 并执行以下操作：
+  
+      1. 将其标题设置为 **个设施：船舶设备**。
 
-8. Now you need to create a user task for Facilities when the employee is working from home. Open the workflow editor.
+    2. 由于只有设施部门应为新雇员准备一个桌子， 您需要确保用户任务只分配给具有设施角色的用户。 请参阅新Hire</a> 部分的 指定细节步骤11a-11c。</p></li> 
+       
+           3 在 **中允许的角色** 属性取消了除 **设施以外的所有角色** 
 
-6. Open the **Toolbox**, drag and drop a **User Task** activity to the **true** path, and do the following:
+    4 为 **页面** 创建一个新页面 **发货设备** 创建一个新页面 </strong> 属性, 指的是步骤7a-7d [指定新Hire 章节的详细信息](#specify-details)
 
-    1. Set its caption to **Facilities: Ship Devices**.
+    5  在新创建的 **发货设备** 页面上，默认情况下所有属性都添加到员工详细表单中。 您需要确保设施部门能够查看字段但不能更改它们：选择雇员详细信息的数据视图并前往其属性。
 
-    2. As only the Facilities department should prepare a desk for the new employee, you need to make sure that the user task is assigned to users with the Facilities role only. Refer to steps 11a-11c of the [Specifying Details of the New Hire](#specify-details) section to do so.
+    6 切换 **只读** 属性，使所有字段都只读：
+      
+      ![只读数据视图](attachments/workflow-how-to-configure/data-view-read-only.png)
 
-    3. In the **Allowed Roles** property deselect all roles except **Facilities**.
+    7 只有设施角色才能访问 **发货设备** 页面。 导航到页面属性 > **允许角色** 并取消除 **设施** 之外的所有角色。</ol></li> </ol> 
 
-    4. Create a new page called **ShipDevices** for the **Page** property referring to steps 7a-7d of the the [Specifying Details of the New Hire](#specify-details) section.
-
-    5.  On the newly created **ShipDevices** page all attributes are added to the employee detail form by default. You need to make sure that the Facilities department will be able to view the fields but not change them: select the data view with the employee details and go to its properties.
-
-    6. Toggle the **Read-Only** property to make all fields in the form read-only:
-
-        ![Read-Only Data View](attachments/workflow-how-to-configure/data-view-read-only.png)
-
-    7. Only the Facilities role can access the **ShipDevices** page. Navigate to the page properties > **Allowed Roles** and deselect all roles except **Facilities**.
-
-
-Great job! You have created the decision and user tasks on whether the new hire is working from the office or from home. Your workflow is configured!
+干得好！ 您已经创建了关于新聘用者是从办公室还是从家里工作的决定和用户任务。 您的 Workflow 已配置！ 
 
 {{% image_container width="250" %}}
-![Configured Workflow](attachments/workflow-how-to-configure/worfklow-configured.png)
+
+![配置的工作流](attachments/workflow-how-to-configure/worfklow-configured.png) 
+
 {{% /image_container %}}
+
+
 
 ## 10 Configuring Navigation
 
-You need to configure navigation otherwise the user roles will not be able to reach any pages and interact with their tasks. Follow the steps below:
+您需要配置导航，否则用户角色将无法到达任何页面并与他们的任务交互。 遵循下面的步骤：
 
-1. Open the [Navigation Document](/studio/navigation), where some menu items are already preconfigured for you.
+1. 打开 [导航文档](/studio/navigation), 其中一些菜单项已经为您预先配置。
 
-2. The HR roles needs to be able to access the **EmployeesToOnboard** page. Add a new menu item and do the following (for more information on how to add a new menu item, see [Navigation Document](/studio/navigation)):
+2. 人力资源角色需要能够访问 **EmployeesToOnboard** 页面。 添加一个新的菜单项并执行如下操作(关于如何添加一个新菜单项的更多信息) 查看 [导航文档](/studio/navigation)：
+   
+       1. 将 **单击动作** 设置为 **页面**。
 
-    1. Set its **On-Click Action** to **Page**.
+    2. 点击 **页面** 属性。
 
-    2. Click the **Page** property.
+    3. 在 **选择页面** 对话框框中，选择 EmployeesToOnboard 页面。
 
-    3. In the **Select Page** dialog box, select EmployeesToOnboard page.
+    4. 在菜单项属性中，将标题设置为 **HR：员工在板上**。
 
-    4. In the menu item properties, set Caption to **HR: Employees to onboard**.
+    5. 将 **图标** 设置为 **用户**。
+       
+       ![HRs导航项](attachments/workflow-how-to-configure/navigation-hr.png)
 
-    5. Set **Icon** to **User**.
+3. 管理员需要添加菜单项才能打开他们的任务收件箱。 添加一个新的菜单项并执行如下操作(关于如何添加一个新菜单项的更多信息) 查看 [导航文档](/studio/navigation):
+   
+       1. 将 **单击动作** 设置为 **页面**。
 
-        ![Navigation Item for HRs](attachments/workflow-how-to-configure/navigation-hr.png)
+    2. 点击 **页面** 属性。
 
-3. You need to add menu items for manager to be able to open their task inbox. Add a new menu item and do the following (for more information on how to add a new menu item, see [Navigation Document](/studio/navigation):
+    3. 在 **选择页面** 对话框中 从当前模块切换到工作流共享，使用右上角的下拉菜单：
+       
+       {{% image_container width="400" %}}![Select Page](attachments/workflow-how-to-configure/select-page-for-navigation.png){{% /image_container %}}
 
-    1. Set its **On-Click Action** to **Page**.
+    4. 在列表中找到 **任务收件箱** 页面并点击 **选择**。
 
-    2. Click the **Page** property.
+    5. 在菜单项属性中，将 **标题** 设置为 **经理：任务收件箱**。
 
-    3. In the **Select Page** dialog box, switch from the current module to the Workflow Commons one using the drop-down menu in the top-right corner:
+    6. 将 **图标** 设置为 **信封**。
 
-        {{% image_container width="400" %}}![Select Page](attachments/workflow-how-to-configure/select-page-for-navigation.png){{% /image_container %}}
+4. 您还需要为设施部门添加菜单项才能打开他们的任务收件箱。 创建一个新的 **设施：任务收件箱** 菜单项提及上面的步骤2a-2e。
 
-    4. Find the **TaskInbox** page in the list and click **Select**.
+您已为您的应用配置导航，现在您可以预览和测试 
 
-    5. In the menu item properties, set **Caption** to **Managers: Task Inbox**.
+![已配置导航](attachments/workflow-how-to-configure/configured-navigation.png)
 
-    6. Set **Icon** to **Envelope**.
 
-4. You also need to add menu items for the Facilities department to be able to open their task inbox. Create a new **Facilities: Task Inbox** menu item referring to steps 2a-2e above.
 
-You have configured the navigation for your app and now you can preview and test it
+## 11 测试 Workflow {#test-workflow}
 
-![Configured Navigation](attachments/workflow-how-to-configure/configured-navigation.png)
+现在您可以从不同用户的角度测试您的工作流。 
 
-## 11 Testing the Workflow {#test-workflow}
+例如，拥有分配给他们的任务的用户 (管理员) 设施作用将看到他们的任务收件箱和仪表板页面，以便能够管理和监测分配给他们的任务：
 
-Now you can test your workflow from the perspective of different users.
+![任务收件箱](attachments/workflow-how-to-configure/task-inbox.png)
 
-For example, users who have tasks assigned to them (Manager, Facilities roles) will see their task inbox and dashboards pages where they can manage and monitor tasks assigned to them:
+工作流管理员角色可以访问工作流管理中心，并且可以监控所有工作流量。 可以查看工作流的进度，更改工作流设置。
 
-![Task Inbox](attachments/workflow-how-to-configure/task-inbox.png)
+管理员角色能够管理用户。
 
-The Workflow Admin role has access to the Workflow Admin Center and can monitor all workflows, can view the progress of workflows, and change the workflow settings.
+要测试您的工作流，您需要在不同的用户角色之间切换。 遵循下面的步骤：
 
-The Admin role is able to manage users.
+1. 点击 **预览** 按钮。 (关于如何预览您的应用的更多信息，见 [预览 & 发布您的应用](/studio/publishing-app))
 
-To test your workflow, you need to switch between different user roles. Follow the steps below:
+2. 点击右边的用户图标并选择一个用户角色：
+   
+   {{% image_container width="300" %}}![Demo User Role](attachments/workflow-how-to-configure/user-roles.png){{% /image_container %}}
 
-1. Click  the **Preview** button. (For more information on how to preview your app, see [Previewing & Publishing Your App](/studio/publishing-app).)
+3. 您可以在不同的演示用户角色间切换来测试使用情况。 可以这样做：
+   
+       1. 选择 HR 用户角色，打开 **EmployeesToOnboard** 页面并添加一个新的在线请求。
+    2. 切换到管理员角色，在收件箱中看到一个新的任务，打开任务，添加数据并完成任务。
+    3. 切换到设施用户角色并完成进程。
+4. 打开 Workflow 管理中心。
 
-2. Click the user icon on the right and select a user role:
+5. 打开工作流程仪表。
 
-    {{% image_container width="300" %}}![Demo User Role](attachments/workflow-how-to-configure/user-roles.png){{% /image_container %}}
+干得好！ 您已经在本地预览了您的应用，并且从不同用户的角度测试了您的工作流。 您现在可以为您的应用添加更多功能，或与其他用户分享您的应用，以便在实际生活中尝试它。 
 
-3. You can switch between different demo user roles to test the use case. Do can do the following:
-    1. Select the HR user role, open the **EmployeesToOnboard** page and add a new onboarding request.
-    2. Switch to the Manager role, see a new task in the inbox, open the task, add data to it, and complete the task.
-    3. Switch to the Facilities user role and complete the process.
 
-4. Open the Workflow Admin Center.
 
-5. Open the Workflow Dashboard.
+## 12 阅读更多
 
-Great job! You have previewed your app locally and tested your workflow from the perspective of different users. You can now work on adding more functionality to your app or share your app with other users to try it out in real life.
-
-## 12 Read More
-
-* [Workflows](/studio/workflows)
-* [How to Configure a Navigation Bar](navigation-how-to-configure)
-* [How to Set Fields as Read-Only or Required](pages-how-to-set-validation-and-editability)
+* [工作流](/studio/workflows)
+* [如何配置导航栏](navigation-how-to-configure)
+* [如何将字段设置为只读字段或必填字段](pages-how-to-set-validation-and-editability)
