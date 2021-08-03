@@ -8,6 +8,10 @@ tags:
 menu_order: 30
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/context-source.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 **Context** 源是数据视图的数据源。 使用此数据源的数据视图从上下文中获得对象，这可以是两件事之一：
