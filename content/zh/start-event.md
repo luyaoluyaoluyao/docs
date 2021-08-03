@@ -1,21 +1,21 @@
 ---
-title: "Start Event"
-parent: "events"
+title: "开始事件"
+parent: "事件"
 menu_order: 1
 tags:
   - "studio pro"
-  - "start event"
-  - "event"
+  - "开始事件"
+  - "事件"
 ---
 
-## 1 Introduction
-A start event defines the starting point of a microflow or a nanoflow and is represented by a green circle. A flow can contain only one start event.
+## 1 导言
+起始事件定义了微流或纳米流的起点，代表绿色圆圈。 流程只能包含一个开始事件。
 
-Link the start event to an activity with which you would like to start the microflow using a [sequence flow](sequence-flow).
+将起始活动链接到您想要使用 [序列流程](sequence-flow) 开始微流程的活动。
 
 ![](attachments/events/start-event.png)
 
-## 2 Read More
+## 2 次阅读更多
 
-* [End Event](end-event)
-* [Sequence Flow](sequence-flow)
+* [结束事件](end-event)
+* [序列流](sequence-flow)
