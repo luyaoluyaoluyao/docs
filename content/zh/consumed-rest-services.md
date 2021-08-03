@@ -2,9 +2,6 @@
 title: "已消耗的REST 服务"
 parent: "集成"
 description: "在Mendix中显示消费的 REST 服务和JSON 概述。"
-menu_order: 15
-tags:
-  - "studio pro"
 ---
 
 ## 1 个REST
@@ -36,3 +33,9 @@ JavaScript 对象符号(JSON) 是数据的轻量表示方式。
 ```
 
 除此之外，对象 `个人` 被描述为属性 `名称`的对应值 `年龄`, 和提及对象 `地址`.
+
+## 3 个示例
+
+**如何使用Mendix 本地使用 REST**
+
+{{% youtube waOlvSqdaP4 %}}
