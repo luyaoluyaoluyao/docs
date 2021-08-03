@@ -1,5 +1,5 @@
 ---
-title: "Generate a Published REST Resource"
+title: "Generating a Published REST Resource"
 parent: "published-rest-services"
 menu_order: 20
 description: "Generate a published REST resource from an entity"
@@ -11,10 +11,6 @@ tags:
   - "expose"
   - "studio pro"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/generate-rest-resource.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
