@@ -1,35 +1,35 @@
 ---
-title: "Static Label (Document Template)"
-parent: "document-templates"
+title: "スタティックラベル（ドキュメントテンプレート）"
+parent: "ドキュメントテンプレート"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/Static+label+(document+template).html
-  - /refguide/static-label-(document-template).html
+  - /ja/refguide/Static+label+(document+template).html
+  - /ja/refguide/static-label-(document-template).html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-A static label shows a line of static text. You can use it to place custom text inside a data view, template grid or table.
+静的ラベルには、静的テキストの行が表示されます。 これを使用して、データビュー、テンプレートグリッド、またはテーブル内にカスタムテキストを配置できます。
 
-For example, a label with text 'Customer name' will be look like this:
+例えば、テキスト「顧客名」のラベルは以下のようになります。
 
 ![](attachments/document-templates/918130.png)
 
-If you want to insert the current page number or the total page count in your document, you can use a token inside a static label (and only in a static label).
+ドキュメントに現在のページ番号または合計ページ数を挿入する場合。 静的ラベル内(および静的ラベル内のみ)でトークンを使用できます。
 
-For example, static label content `Page [%pageNumber%] of [%totalPageCount%]` will print **Page 2 of 4**.
+例えば、静的なラベルコンテンツ `ページ [%pageNumber%] の [%totalPageCount%]` は、 **ページ 2 の 4** を出力します。
 
-## 2 Common Properties
+## 2つの一般的なプロパティ
 
 {{% snippet file="refguide/name-property.md" %}}
 
-## 3 Appearance Properties
+## 3つの外観プロパティ
 
-### 3.1 Caption
+### 3.1 図表番号
 
-This is the value that will be displayed in the document.
+これはドキュメントに表示される値です。
 
-### 3.2 Style
+### 3.2 スタイル
 
-For details, see [Style](style).
+詳細は [スタイル](style) を参照してください。
