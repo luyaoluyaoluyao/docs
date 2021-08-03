@@ -1,31 +1,53 @@
 ---
 title: "表达式"
-parent: "应用逻辑："
-menu_order: 100
-description: "描述可以用于多种目的的 Mendix 表达式(例如) 根据逻辑更改对象的成员)。"
+menu_order: 55
+description: "描述Mendix Studio中可用的微流表达式。"
 tags:
-  - "studio pro"
+  - "工作室"
+  - "微流"
   - "表达式"
-  - "微流程表达式"
+  - "表达式"
+  - "设置值"
+  - "变量"
 aliases:
-  - /refguide8/microflow-expressions.html
+  - /studio/microflows-expressions.html
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/expressions.pdf)。
-{{% /报警 %}}
 
 ## 1 导言
 
 表达式会根据函数或函数组合改变一个值。
 
-在微流中命名的项目 (例如对象、列表) 可以在表达式中插入项目名称并添加一个美元标志(例如)  `$customer` 可以引用名为 `客户` 的对象。
+您可以对工作流、页面和微流使用表达式。 表达式通常用于设置某个活动或属性的条件 例如，微流程或工作流程中的决定条件。
 
-使用斜线访问对象的属性和关联性 (例如) 客户对象的 **名称** 属性被称为 `$customer/名称`和 **CRM。 ustomer_order** 客户对象的关联被称为 `$customer/CRM.Customer_Order`
+您可以在工作流中使用以下元素的表达式：
 
-从 Studio Pro 开始 [8.10。](/releasenotes/studio-pro/8.10#8100), 关联对象的属性可以使用多斜线访问 (例如，) **单个关联的** 属性 **CRM rder** 被称为 `$customer/CRM.Customer_order/CRM.order/number`。
+* [决 定](workflows-general-activities)
+* **到期日期** 属性为 [工作流程](workflow-properties) 和 [用户任务](workflows-user-task)
 
-您可以在表达式中合并函数。 在这种情况下，您可以使用括号来确定计算的优先级和关联性。 For example, the **SellingPrice** is being calculated based on the default **Price** and **Discount** attributes:
+表达式可以在以下页面属性中使用：
+
+* 部件的条件可编辑
+* 部件的条件可见性
+* **一个 [文本部件的内容</strong> 属性](page-editor-widgets-text)</li> </ul>
+
+在微流中可以使用下列表达式：
+
+*  更改对象
+*  更改变量
+*  创建对象
+*  创建变量
+*  [决 定](microflows-decision)
+*  结束事件
+
+更多关于微流活动的设置和改变价值的信息 查看 [设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)
+
+## 2 正在写入表达式
+
+在微流和工作流中命名的项目 (例如对象、列表和工作流) 可以在表达式中插入项目名称并添加一个美元标志(例如)  `$Customer` 可以引用名为 `客户` 的对象。
+
+使用斜线访问对象的属性和关联性 (例如) 客户对象的 **名称** 属性被称为 `$Customer/名称`。
+
+您可以使用括号来确定计算的优先级和关联性。 For example, the **SellingPrice** is being calculated based on the default **Price** and **Discount** attributes:
 
 ```
 $CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
@@ -33,152 +55,139 @@ $CurrentPrice/Price - (($CurrentPrice/Price **div** 100) * $OrderLine/Discount)
 
 此处合并了算术功能（减去、分割和乘数）。
 
-### 1.1 示例
+您不能在表达式中输入纯文本，文本需要用单引号 (`'`)来写。 例如，如果你想要返回字符串 `Mendix`, 你需要把它写成 `'Mendix'`。
 
-For example, you have an object called **package** with two attributes: `weight` (decimal) and `shippingCosts` (decimal). 如果包件重量小于一公斤，则没有运费。 否则，运费为5.00欧元。 更改 `配送成本` 属性的表达式是：
+您可以使用建议列表来帮助您写一个表达式。 使用 <kbd>Ctrl</kbd> + <kbd>空格</kbd> 快捷键来显示此列表。 建议可分为以下几类：
 
-```
-如果 $package/权重 < 1.00 到 0.00 否则5.00`
-```
+* **变量及其属性** -- 在当前微流程、页面或工作流中可用的变量或属性
+* **枚举值** - 可用于表达式的 [枚举类型属性](domain-models-enumeration) 的值
+* **函数** - 您可以在表达式中使用的操作(详细信息，请参阅 [表达式类型](#expression-types) 下文部分)
+* **关键字** -- 您可以在表达式中使用的关键词或单词 (例如，) `空` - 可用来检查变量是否为空的值
+* **布尔值** -- 真或假关键字
+* **运算符** - 执行逻辑或数学操作的代码元素； 您可以使用布尔值或关系表达式(详细信息，参见 [表达式类型](#expression-types) 下面部分)
 
-### 1.2 正则表达式
+如果表达式中存在错误，则错误发生地： 高亮显示红色，当你悬停在它时会显示错误消息。  在某些情况下，有快速解决问题的办法。
 
-[正则表达式](regular-expressions) 资源文档不能用于表达式。 However, the format of regular expressions, sub-expressions, and quantifiers used in regular expression strings is the same as the ones described in the [Expression](regular-expressions#expression) section of *Regular Expressions*.
+![](attachments/expressions/expression-error.png)
 
-## 2 单词表达式
 
-* [Unary 减去( - )](unary-expressions)
+### 2.3 表达式实例
 
-## 3 算术表达式
+说明如何使用表达方式的例子如下。
 
-* [乘法( * )](arithmetic-expressions)
-* [Division ( div or : )](arithmetic-expressions)
-* [Modulo ( mod )](arithmetic-expressions)
-* [添加 ( + )](arithmetic-expressions)
-* [减法 ( - )](arithmetic-expressions)
+#### 2.3.1 例1
 
-## 4 关系表达式
+您在微流中有一个 [Decision](microflows-decision) ，您想要写一个表达式来检查客户等级是否为黄金和订单价格是否超过 100 (您可以在 **Decision** 之后配置折扣，如果此表达式为真的话：
 
-* [小于 ( <)](relational-expressions)
-* [大于 ( >)](relational-expressions)
-* [小于或等于 ( <= )](relational-expressions)
-* [大于或等于 ( >= )](relational-expressions)
-* [等于 ( = )](relational-expressions)
-* [不等于 ( != )](relational-expressions)
+![](attachments/expressions/example-decision.png)
 
-## 5 次特殊检查
+表达式将显示如下方式：
 
-* [正在检查一个空对象](special-checks)
-* [检查空对象成员](special-checks)
-* [`是新`](special-checks) - 检查对象是否是新对象
+![](attachments/expressions/expression-decision.png)
 
-## 6 个布尔表达式
+#### 2.3.2 例2
 
-* [和](boolean-expressions)
-* [或](boolean-expressions)
-* [不是](boolean-expressions)
+您将 [决定](microflows-decision) 添加到微流程中，以检查对象是否存在(在下面的示例是 *客户*) 您还要检查客户的名字是否与某个特定的名字相符(在下面的例子中，客户的名字是 *Mendix*)。 表达式将显示如下方式：
 
-## 7 如果表达式
+![](attachments/expressions/customer-empty-and-name-example.png)
 
-* [if](if-expressions) — — 执行一个条件操作
+#### 2.3.3 例3
 
-## 8 数学函数调用
+您在 Workflow 中有一个 [用户任务](workflows-user-task) ，并想添加 **到期日** 作为提醒，用户任务应在明天后一天完成。 您可以为它写下以下表达式：
 
-* [`最大`](mathematical-function-calls) - 数字列表的最大值
-* [`分钟`](mathematical-function-calls) - 数字列表的最小值
-* [`环`](mathematical-function-calls) - 一个浮点数的四舍五入，可选为指定精度
-* [`随机`](mathematical-function-calls) - 随机生成数字
-* [`floor`](mathematical-function-calls) - 下一个浮点数的四舍五入
-* [`ceil`](mathematical-function-calls) - 浮点数向上四舍五入
-* [`pow`](mathematical-function-calls) - 指数化
-* [`abs`](mathematical-function-calls) - 绝对值
+![用户任务表达式](attachments/expressions/user-task-due-date.png)
 
-## 9 字符串函数调用
+## 3 个表达式类型 {#expression-types}
 
-* [`toUpperCase`](string-function-calls) — — 将字符串转换为大写。
-* [`toLowerCase`](string-function-calls) — — 将字符串转换为小写
-* [`长度`](string-function-calls) - 字符串长度
-* [`子字符串`](string-function-calls) — — 获取字符串的一部分。
-* [`查找`](string-function-calls) - 获得一个子字符串位置
-* [`查找最后`](string-function-calls) — 获取最后一个子字符串位置
-* [`包含`](string-function-calls) — — 包含子字符串
-* [`起点`](string-function-calls)  - 决定字符串是否以指定的子字符串开始
-* [`endsWithout`](string-function-calls) - 决定一个字符串是否以指定的子字符串结束
-* [`修剪`](string-function-calls) - 删除前导和尾随的空格
-* [`isMatch`](string-function-calls) - 匹配正则表达式
-* [`替换所有`](string-function-calls) - 替换子字符串的事件
-* [`替换第一个`](string-function-calls) - 替换第一个子字符串的出现时间
-* [`字符串汇合( + )`](string-function-calls) - 连接字符串字符串
-* [`urlEncode`](string-function-calls) — — 转换一个字符串用于一个 URL
-* [`urlDecode`](string-function-calls) — — 转换一个字符串从 URL
+在工作室中使用最多的表达式列表如下所示。 关于可用表达式的完整列表, 见 [表达式](/refguide/expressions) 在 *Studio Pro 指南* 中。
 
-## 10 日期创建
+### 3.1 异常表达式
 
-* [`日期时间`](date-creation) - 使用服务器的日历创建日期值
-* [`dateTimeUTC`](date-creation) — 使用 UTC 日历创建日期值
+* [Unary 减去( - )](/refguide/unary-expressions)
 
-## 11 日期间函数调用间隔
+### 3.2 算术表达式
 
-* [`毫秒之间`](between-date-function-calls) - 两个日期之间的毫秒
-* [`秒之间`](between-date-function-calls) - 两个日期之间的秒数
-* [`分钟间隔`](between-date-function-calls) - 两个日期之间的分钟
-* [`小时之间`](between-date-function-calls) - 两个日期之间的小时
-* [`天之间`](between-date-function-calls) - 两个日期之间的天数
-* [`周之间`](between-date-function-calls) - 两个日期之间的周
-* [`日历月间`](between-date-function-calls) - 两个日期之间的月
-* [`日历年之间`](between-date-function-calls) - 两个日期之间的年份
+* [乘法( * )](/refguide/arithmetic-expressions)
+* [Division ( div or : )](/refguide/arithmetic-expressions)
+* [Modulo ( mod )](/refguide/arithmetic-expressions)
+* [添加 ( + )](/refguide/arithmetic-expressions)
+* [减法 ( - )](/refguide/arithmetic-expressions)
 
-## 12 添加日期函数调用
+### 3.3 关系表达式
 
-* [`addMilliseconds`](add-date-function-calls) — 添加毫秒到某个日期
-* [`addonds`](add-date-function-calls) — — 添加秒到某一日期
-* [`添加分钟`](add-date-function-calls) — 添加分钟到一个日期
-* [`添加小时`](add-date-function-calls) — 添加小时到某个日期
-* [`添加天`](add-date-function-calls) - 给日期添加天数
-* [`添加 DaysUTC`](add-date-function-calls) - 使用 UTC 日历添加日期
-* [`添加周`](add-date-function-calls) - 将周添加到某个日期
-* [`添加 WeeksUTC`](add-date-function-calls) - 使用 UTC 日历将周添加到日期
-* [`添加月`](add-date-function-calls) — 添加月到某个日期
-* [`addMonthsUTC`](add-date-function-calls) - 使用 UTC 日历给日期添加月数
-* [`添加年份`](add-date-function-calls) — 添加年份到日期
-* [`添加 YearsUTC`](add-date-function-calls) - 使用 UTC 日历添加日期
+* [小于 ( <)](/refguide/relational-expressions)
+* [大于 ( >)](/refguide/relational-expressions)
+* [小于或等于 ( <= )](/refguide/relational-expressions)
+* [大于或等于 ( >= )](/refguide/relational-expressions)
+* [等于 ( = )](/refguide/relational-expressions)
+* [不等于 ( != )](/refguide/relational-expressions)
 
-## 13 修剪到日期
+### 3.5 布尔表达式
 
-* [`trimToSeconds`](trim-to-date) - 间隔秒数
-* [`修剪分钟`](trim-to-date) - 修剪到分钟
-* [`修剪小时`](trim-to-date) — — 修剪到小时
-* [`trimToHoursUTC`](trim-to-date) - 使用 UTC 日历的间隔时间
-* [`三天`](trim-to-date) — — 每隔几天
-* [`trimToDaysUTC`](trim-to-date) — — 每隔几天使用 UTC 日历
-* [`三个月`](trim-to-date) — — 每隔几个月
-* [`trimToMonthsUTC`](trim-to-date) — — 每隔几个月使用 UTC 日历
-* [`三个年份`](trim-to-date) — — 每隔几年
-* [`修剪YearsUTC`](trim-to-date) - 使用UTC 日历的年数
+* [和](/refguide/boolean-expressions)
+* [或](/refguide/boolean-expressions)
+* [不是](/refguide/boolean-expressions)
 
-## 14 到字符串
+### 3.6 数学函数调用
 
-详情见 [至字符串](to-string)。
+* [`最大`](/refguide/mathematical-function-calls) - 数字列表的最大值
+* [`分钟`](/refguide/mathematical-function-calls) - 数字列表的最小值
+* [``](/refguide/mathematical-function-calls) — — 一个数字回合到一定的精度
+* [`随机`](/refguide/mathematical-function-calls) - 随机生成数字
+* [`floor`](/refguide/mathematical-function-calls) - 下一个浮点数的四舍五入
+* [`ceil`](/refguide/mathematical-function-calls) - 浮点数向上四舍五入
+* [`pow`](/refguide/mathematical-function-calls) - 指数化
+* [`abs`](/refguide/mathematical-function-calls) - 绝对值
 
-## 15 分析整数
+### 3.7 字符串函数调用
 
-详情请参阅 [分析整数](parse-integer)
+* [`toUpperCase`](/refguide/string-function-calls) — — 将字符串转换为大写。
+* [`toLowerCase`](/refguide/string-function-calls) — — 将字符串转换为小写
+* [`长度`](/refguide/string-function-calls) - 字符串长度
+* [`子字符串`](/refguide/string-function-calls) — — 获取字符串的一部分。
+* [`查找`](/refguide/string-function-calls) - 获得一个子字符串位置
+* [`查找最后`](/refguide/string-function-calls) — 获取最后一个子字符串位置
+* [`包含`](/refguide/string-function-calls) — — 包含子字符串
+* [`起点`](/refguide/string-function-calls)  - 决定字符串是否以指定的子字符串开始
+* [`endsWithout`](/refguide/string-function-calls) - 决定一个字符串是否以指定的子字符串结束
+* [`修剪`](/refguide/string-function-calls) - 删除前导和尾随的空格
+* [`替换所有`](/refguide/string-function-calls) - 替换子字符串的事件
+* [`替换第一个`](/refguide/string-function-calls) - 替换第一个子字符串的出现时间
+* [`字符串汇合( + )`](/refguide/string-function-calls) - 连接字符串字符串
 
-## 16 解析 & 格式小数位函数调用
+### 3.8 创建日期
 
-* [`解析小数点`](parse-and-format-decimal-function-calls) - 将字符串转换为小数
-* [`格式小数`](parse-and-format-decimal-function-calls) — 将小数转换为字符串
+* [`日期时间`](/refguide/date-creation) - 使用服务器的日历创建日期值
 
-## 17 解析 & 格式日期函数调用
+### 3.9 日期间函数调用间隔
 
-* [`解析日期时间[UTC]`](parse-and-format-date-function-calls) - 将字符串转换为日期值
-* [`格式日期时间[UTC]`](parse-and-format-date-function-calls) - 将日期值转换为字符串
-* [`格式化时间[UTC]`](parse-and-format-date-function-calls) - 将日期值的时间部分转换为字符串
-* [`格式日期[UTC]`](parse-and-format-date-function-calls) - 将日期值的日期部分转换为字符串。
-* [`dateToEpachh`](parse-and-format-date-function-calls) - 将一个日期转换成一个很长的日期
-* [`epochToDateTime`](parse-and-format-date-function-calls) - 将很长的时间转换到某个日期
+* [`毫秒之间`](/refguide/between-date-function-calls) - 两个日期之间的毫秒
+* [`秒之间`](/refguide/between-date-function-calls) - 两个日期之间的秒数
+* [`分钟间隔`](/refguide/between-date-function-calls) - 两个日期之间的分钟
+* [`小时之间`](/refguide/between-date-function-calls) - 两个日期之间的小时
+* [`天之间`](/refguide/between-date-function-calls) - 两个日期之间的天数
+* [`周之间`](/refguide/between-date-function-calls) - 两个日期之间的周
+* [`日历月间`](/refguide/between-date-function-calls) - 两个日期之间的月
+* [`日历年之间`](/refguide/between-date-function-calls) - 两个日期之间的年份
 
-## 18 表达式枚举数
+### 3.10 添加日期功能调用
 
-* [`getCaption`](enumerations-in-expressions) — 获取当前语言的枚举值的标题
-* [`getKey`](enumerations-in-expressions) — 获取枚举值的技术名称
+* [`addMilliseconds`](/refguide/add-date-function-calls) — 添加毫秒到某个日期
+* [`addonds`](/refguide/add-date-function-calls) — — 添加秒到某一日期
+* [`添加分钟`](/refguide/add-date-function-calls) — 添加分钟到一个日期
+* [`添加小时`](/refguide/add-date-function-calls) — 添加小时到某个日期
+* [`添加天`](/refguide/add-date-function-calls) - 给日期添加天数
+* [`添加周`](/refguide/add-date-function-calls) - 将周添加到某个日期
+* [`添加月`](/refguide/add-date-function-calls) — 添加月到某个日期
+* [`添加年份`](/refguide/add-date-function-calls) — 添加年份到日期
+
+### 3.11 解析 & 格式十进制函数调用
+
+* [`格式小数`](/refguide/parse-and-format-decimal-function-calls) — 将小数转换为字符串
+
+## 4 阅读更多
+
+* [微型流动](微流)
+* [工作流](workflows)
+* [设置 & 更改微流中不同活动的值](microflows-setting-and-changing-value)
+* [表达式](/refguide/expressions)
