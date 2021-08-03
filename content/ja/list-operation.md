@@ -1,64 +1,110 @@
 ---
-title: "List Operation"
+title: "リスト操作"
 parent: "list-activities"
+menu_order: 4
+tags:
+  - "studio pro"
 ---
 
-{{% alert type="info" %}}
-This activity can only be used in microflows, not in nanoflows.
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The List Operation activity can perform various actions on a list. See below for details on these actions.
+**リスト操作** アクティビティは、リスト上でさまざまなアクションを実行できます。 アクションの結果は、 [リストの変更](change-list) アクティビティとは対照的に、新しいリストとして返されます。
 
-{{% alert type="info" %}}
+実行できるアクションは以下のとおりです。
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all activities share (for example, caption). This page only describes the properties specific to the action.
+* ユニオン(Union)
+* 交差する
+* 減算
+* 以下を含む
+* 等しい
+* 並べ替え
+* フィルター
+* 式でフィルター
+* 検索
+* 式で検索
+* 頭
+* テイル
 
-{{% /alert %}}
+これらのアクションの詳細は以下を参照してください。
 
-## 2 Operation Types
+## 2つのプロパティ
 
-A list operation action can execute any of the following types of operations.
+リスト操作プロパティの例を以下の画像に示します。
 
-### 2.1 Binary
+![リスト操作のプロパティ](attachments/list-activities/list-operation-properties.png)
 
-These binary operations have as an input a list and either another list or an object. The resulting type depends on the type of the operation. All lists and objects must relate to the same entity.
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-| Operation | Description                                                                             | Result Type |
-| --------- | --------------------------------------------------------------------------------------- | ----------- |
-| Union     | The result is a combination of the elements of both parameters avoiding duplicates.     | List        |
-| Intersect | The result is a list containing elements that appear in both parameters.                | List        |
-| Subtract  | The result is the first parameter with the element(s) of the second parameter removed.  | List        |
-| Contains  | Checks whether all elements of the second parameter are present in the first parameter. | Boolean     |
-| Equals    | Checks whether the lists contain the same elements.                                     | Boolean     |
+リスト操作プロパティペインは以下のセクションで構成されています:
 
-### 2.2 Sort
+* [アクション](#action)
+* [一般的な](#common)
 
-| Operation | Description                                                                                                                                                                                                                             | Result Type |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Sort      | Allows you to sort a list based on a number of a attributes. The attributes are ordered to determine their priority while sorting. The input list remains in its original order while the sorted list is stored in the output variable. | List        |
+## 3つのアクションセクション{#action}
 
-### 2.3 Member Inspections
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-These operations take a single list and a member (attribute or association) as input. The resulting type depends on the type of the operation.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-| Operation | Description                                                                                                           | Result Type |
-| --------- | --------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Find      | Find the first object of which the member has the given value. Return an empty object if no matching object is found. | Object      |
-| Filter    | Find all objects of which the member has the given value. Return an empty list if no matching object is found.        | List        |
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 2.4 Unary
+### 3.1 操作
 
-These unary operations have a list as input and either an object or another list as a resulting type, depending on the operation.
+リスト操作アクションは、以下のいずれかの操作を実行できます。 操作は、以下のオペランドのタイプによって分類されます。
 
-| Operation | Description                                                                                                                                                           | Result Type |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| Head      | The result is the first element of the list, or empty if the parameter contains zero elements or was initialized as empty.                                            | Object      |
-| Tail      | The result is a list containing all elements of the parameter except the first, or an empty list if the parameter contains zero elements or was initialized as empty. | List        |
+* バイナリ – 第二のリストまたはオブジェクトで動作する操作
+* メンバー検査 - リスト内のオブジェクトの指定された要素(属性と関連付け)で動作する操作
+* Unary – 他のオペランドと一覧で動作する操作
 
-## 3 Output Properties
+#### 3.1.1 バイナリ
 
-### 3.1 Name
+これらのバイナリ操作は、入力としてリストと他のリストまたはオブジェクトを持っています。 これらは、操作に応じて別のリストまたはBooleanを返します。 すべてのリストとオブジェクトは、同じエンティティに関連付ける必要があります。
 
-Defines the name of the resulting List, Object or Boolean variable. The variable can be used by all activities that follow this activity.
+| 操作          | 説明                                           | 結果タイプ   |
+| ----------- | -------------------------------------------- | ------- |
+| ユニオン(Union) | 結果は、重複を避ける両方のパラメータの要素の組み合わせになります。            | リスト     |
+| 交差する        | 結果は、両方のパラメータに表示される要素を含むリストです。                | リスト     |
+| 減算          | 結果は、2 番目のパラメーターの要素が削除された最初のパラメーターです。         | リスト     |
+| 以下を含む       | 2 番目のパラメーターのすべての要素が最初のパラメーターに存在するかどうかを確認します。 | Boolean |
+| 等しい         | リストに同じ要素が含まれているかどうかをチェックします。                 | Boolean |
+
+#### 3.1.2 メンバー検査
+
+これらの操作は、リストと1つ以上のメンバー (属性または関連付け) を入力とします。 これらは、操作に応じて、オブジェクトまたは別のリストを返します。
+
+| 操作    | 説明                                                                                                          | 結果タイプ  |
+| ----- | ----------------------------------------------------------------------------------------------------------- | ------ |
+| 並べ替え  | 属性の数に基づいてリストをソートできます。 ソート中の優先度を決定するために属性が順序付けられます。 関連付けをリストを並べ替えることはできません。 一般化されたエンティティからの属性のソートは許可されていません。 | リスト    |
+| 検索    | メンバーが指定した値を持つ最初のオブジェクトを検索します。                                                                               | オブジェクト |
+| フィルター | メンバーが指定した値を持つすべてのオブジェクトを検索します。                                                                              | リスト    |
+
+#### 3.1.3 単位
+
+これらの単一演算は、単一オペランドとしてリストを持ち、操作に応じてオブジェクトまたは別のリストを返します。
+
+| 操作  | 説明                                                                                    | 結果タイプ  |
+| --- | ------------------------------------------------------------------------------------- | ------ |
+| 頭   | 結果はリストの最初の要素であるか、パラメータに 0 要素が含まれている場合や、空として初期化された場合は空です。                              | オブジェクト |
+| テイル | 結果は、最初の要素以外のパラメータのすべての要素を含むリストです。 または、パラメータに 0 要素が含まれている場合や、空として初期化された場合に空のリストを表示します。 | リスト    |
+
+#### 3.1.4 式
+
+これらの操作はリストを取得し、式に基づいてフィルタリングします。 式内では、 `$currentObject` を使用してフィルタリングを行うことができます。
+
+| 操作      | 説明                           | 結果タイプ  |
+| ------- | ---------------------------- | ------ |
+| 式で検索    | 与えられた式に一致する最初のオブジェクトを検索します。  | オブジェクト |
+| 式でフィルター | 与えられた式に一致するすべてのオブジェクトを検索します。 | リスト    |
+
+
+### 3.2 リスト名、オブジェクト名、または変数名
+
+結果として生成されるリスト、オブジェクト、またはブール型変数の名前です。 結果は、このアクティビティに続くすべてのアクティビティで使用できます。
+
+## 4つの共通セクション{#common}
+
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
