@@ -1,38 +1,41 @@
 ---
-title: "Dynamic Image (Document Template)"
-parent: "document-templates"
+title: "动态图像 (文档模板)"
+parent: "文档模板"
+tags:
+  - "studio pro"
 aliases:
-  - /refguide7/Dynamic+Image+(document+template).html
-  - /refguide7/dynamic-image-(document-template).html
+  - /refguide/Dynamic+Image+(document+template).html
+  - /refguide/dynamic-image-(document-template).html
 ---
 
+## 1 导言
 
-A dynamic image can be used to show a System.Image. If the image is not available (for example: the image was never saved) it will show the preset default image. It can be put inside a data view or templategrid.
+动态图像可以用于显示 System.Image。 如果图像不可用(例如：图像从未保存)，它将显示预设的默认图像。 它可以放置在数据视图或模板类别内。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918132.png) A dynamic image inside a table cell, showing the preset default image.
+![](attachments/document-templates/918132.png) 一个表格单元内的动态图像，显示预设的默认图像。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-## Appearance Properties
+## 2 外观属性
 
-### Default image
+### 2.1 默认图像
 
-The default image is the image that will appear in the document when the dynamic image could not be found (when the entity that specializes the System.Image entity does not contain an actual image.)
+默认图像是文档中无法找到动态图像时出现的图像(当系统专业化实体时)。 mage 实体不包含实际图像。)
 
-### Use thumbnail
+### 2.2 使用缩略图
 
-Here you can select whether to use the thumbnail in the document or the full image.
+您可以在这里选择是使用文档中的缩略图还是使用完整图像。
 
-### Width
+### 2.3 Width
 
-The width defines the width of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+宽度定义文档中图像的宽度。 这是以像素为单位设置的，使用文档模板中的 PPI ，这将被重新计算为实际打印大小。 可以设置宽度或高度；为了防止图像的扭曲，无法同时设置两者。
 
-### Height
+### 2.4 高度
 
-The height defines the height of the image in the document. This is set in pixels and using the PPI in the document template this will be recalculated to actual printing size. Either width or height can be set; to prevent distortion of the image it is not possible to set both.
+高度定义文档中图像的高度 这是以像素为单位设置的，使用文档模板中的 PPI ，这将被重新计算为实际打印大小。 可以设置宽度或高度；为了防止图像的扭曲，无法同时设置两者。
 
-## Common Properties
+## 3 个公共属性
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+{{% snippet file="refguide/name-property.md" %}}
