@@ -1,20 +1,20 @@
 ---
 title: "OQL COALESCE"
-parent: "oql-functions"
+parent: "oql-函数"
 tags:
   - "studio pro"
 ---
 
-## 1 Description
+## 1 个描述
 
-The `COALESCE` function returns the first of its arguments that is not NULL.
+`COALESCE` 函数返回其第一个非NULL的参数。
 
-## 2 Syntax
+## 2 种语法
 
-The syntax is as follows:
+语法如下：
 
 ```sql
-COALESCE ( expression [ ,...n ] )
+COALECEE (表达式 [ ,...] )
 ```
 
-`expression` specifies the expression to check, if the result is NULL.
+`表达式` 指定了要检查的表达式，如果结果为 NULL。
