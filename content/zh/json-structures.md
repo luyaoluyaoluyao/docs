@@ -1,7 +1,13 @@
 ---
 title: "JSON结构"
 parent: "集成"
+tags:
+  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/json-structures.pdf)。
+{{% /报警 %}}
 
 ## 1个一般事务人员
 
@@ -20,8 +26,6 @@ JSON结构文档存储一个 JSON 片段 并将其转换为可以用于 [导入�
 ![](attachments/18450089/19398781.png)
 
 您不能按下"确定"，否则JSON无效。
-
-JSON代码片段 `:`, `^`, 或 `|` 属性名称目前不支持。
 
 {{% /报警 %}}
 
@@ -72,7 +76,7 @@ JSON代码片段 `:`, `^`, 或 `|` 属性名称目前不支持。
 *   “字符串”。 转换为类型字符串的属性。
 *   123\. 转换为整数类型的属性。
 *   true或false。 转换为布尔型的属性。
-*   “1985-04-12T23:20:50.52Z”。 转换为 DateTime 类型的属性。
+*   “1985-04-12T23:20:50.52Z”。 转换为类型 **日期和时间** 的属性。
 *   12.50\. 转换为小数型的属性。
 
 ### 2.2 JSON数组
