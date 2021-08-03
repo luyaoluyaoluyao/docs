@@ -6,8 +6,13 @@ description: "The configurable options for a published REST resource"
 tags:
   - "published REST"
   - "resource"
-  - "studio pro"
 ---
+
+{{% alert type="info" %}}
+
+The **published REST service** feature was introduced in version 7.10.0.
+
+{{% /alert %}}
 
 ## 1 Introduction
 
