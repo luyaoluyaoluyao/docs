@@ -1,43 +1,39 @@
 ---
-title: "UI Resources Package"
-parent: "modules"
+title: "UIリソースパッケージ"
+parent: "モジュール"
 tags:
   - "studio pro"
-  - "ui resources"
+  - "uiリソース"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/ui-resources-package.pdf).
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
+UI リソースパッケージは、App Explorer の緑色のアイコンによってマークされた特定の [モジュール](modules) です。 アプリのルックアンドフィールを決めます それは二つの異なる方法でこれを行います。 最初に、パッケージは、よくデザインされた作成に必要なすべてのページドキュメントをアプリに提供します。 [ページテンプレート](page-templates) や [構成ブロック](building-block) などの一貫したページ。 第二に、パッケージにはテーマ情報が含まれており、ユーザーは添付のページ文書を補完するテーマを簡単に切り替えることができます。
 
-The UI resources package is a specific [module](modules) marked by a green icon in the Project Explorer, that determines the projects look and feel. It does this in two distinct ways. First, the package supplies the project with all the page documents required to create well-designed, consistent pages, such as [page templates](page-templates) and [building blocks](building-block). Second, the package contains theme information, which allows users to easily switch out themes that complement the accompanying page documents.
+UIリソースパッケージとして設定されるモジュールは、 **アプリ設定** の **テーマ** タブの [UIリソースパッケージ](project-settings)設定によって管理されます。 この設定は、新しい UI リソースパッケージがインポートされると自動的に更新されます。
 
-Which module is set as the UI resources package is governed by the **UI resources package** setting in the **Theme** tab of the [project settings](project-settings). This setting will automatically be updated if a new UI resources package is imported.
+モジュールの内容がページテンプレートやビルディングブロックに制限されている場合、簡単に共有されたデザインユーティリティのソースとしてのUIリソースパッケージのコアコンセプトが最もよく機能します。 ページ、マイクロフロー、図形を追加することができ、便利です。 しかし、ユーザーは、特定のアプリケーションに最適ではない静的リソースを使用することを強制します。 したがって、彼らは必然的に彼らの要件にそれらのリソースを調整する必要性を感じるとき。 パッケージは元のデザイナーによって簡単に更新できなくなりました
 
-The core concept of a UI resources package as an easily shared source of design utilities works best if the contents of the module is restricted to page templates and building blocks. Adding pages, microflows, and entities is possible and can be useful, but it also forces users to use static resources that may not be ideally suited to their specific application. Consequently, when they inevitably feel the need to tweak those resources to their requirements, the package can no longer be easily updated and maintained by the original designer.
+## 2テーマフォルダ
 
-## 2 Theme Folder
+UI リソースパッケージがアプリにインポートされると、アプリの **テーマ** フォルダが独自のテーマファイルで自動的に上書きされます。 **theme_old** フォルダが作成され、前のテーマをバックアップします。 つまり、パッケージ内のテンプレートに追加されたクラスやスタイルは、新しいアプリケーションにテンプレートをインポートする際にスタイルの破損を心配することなく、テーマによって完全に大文字にできるということです。 テンプレートまたはBuilding Blockが同じ UI リソースパッケージに残っている限り、デザインされた方法を正確に見ることができます。
 
-When a UI resources package is imported into the project, it will automatically overwrite the project's **theme** folder with its own theme files. A **theme_old** folder will be created to back up the previous theme. This means that any classes and styles added to templates in the package can be capitalized on fully by the theme without having to worry about the styling breaking when you import the template into a new project. As long as the template or building block remains in the same UI resources package, it will look exactly the way it was designed.
+Note that the replacement of the theme folder only occurs when importing a new UI resources package from an external source, such as an *.mpk* or from the Marketplace. UI リソースパッケージとして別の既存のモジュールを選択すると、テーマフォルダには影響しません。
 
-Note that the replacement of the theme folder only occurs when importing a new UI resources package from an external source, such as an *.mpk* or the Marketplace. Selecting a different existing module as the UI resources package will not affect the theme folder.
+## 3ページテンプレートとBuilding Blocks（ブロック）
 
-## 3 Page Templates and Building Blocks
+ページテンプレートとビルディングブロックは、任意のモジュールに追加できますが、UI リソースパッケージに格納することで、いくつかの利点があります。
 
-Although page templates and building blocks can be added to any module, storing them in the UI resources package confers several benefits.
+パッケージ内では、最上位フォルダはページテンプレートとビルディングブロックの両方を表示するためのカテゴリとして扱われます。 Add a page template to the **Dashboard** folder of the UI resources package, and a **Dashboard** category will automatically appear in the **Create Page** wizard containing the template.
 
-Within the package, top-level folders are treated as categories for the purposes of displaying both page templates and building blocks. Add a page template to the **Dashboard** folder of the UI resources package, and a **Dashboard** category will automatically appear in the **Create Page** wizard containing the template.
+ソートを容易にするために、UIリソースパッケージフォルダ名に番号を付けることができます。 番号とピリオドで始まるすべてのフォルダ名は、(アルファベット順ではなく)数字のページ作成ウィザードに表示されます。 接頭辞は省略されます。 例えば、名前が *10のフォルダ。 管理* と *9. バンキング* は *バンキング、管理*として表示されます。
 
-To facilitate sorting, UI resources package folder names can be prefixed with a number. Any folder names starting with a number followed by a period and a space will appear in the Create Page wizard in numeric (rather than alphabetic) order. The prefix will be omitted. For example, folders with the names *10. Administration* and *9. Banking* will appear as *Banking, Administration*.
+Studio Pro **Toolbox** の **Building Blocks** タブに関しては、同じ原則がBuilding Blocks に適用されます。 UI リソースパッケージ以外のモジュールで見つかったすべてのBuilding Blocksまたはページテンプレートは、ジェネリックな **Local** カテゴリに表示されます。 常に上に並べられています
 
-The same principles apply to building blocks with regards to the **Building blocks** tab of Studio Pro **Toolbox**. Any building blocks or page templates found in modules other than the UI resources package will appear in the generic **Local** category, which is always sorted on top.
+さらに、ページテンプレートとBuilding BlockをUIリソースパッケージに追加することで、アプリのテーマと同期し続けることができます。 別のアプリにインポートしてもです
 
-Additionally, adding page templates and building blocks to the UI resources package ensures that they remain in sync with the project's theme, even when importing them into a different project.
+## 4 インポートとエクスポート
 
-## 4 Importing and Exporting
+UI リソースパッケージは通常のモジュールと同じ方法でエクスポートできます: **App Explorer** でパッケージを右クリックし、 **UI リソースパッケージをエクスポート** を選択します。 モジュールの残りのドキュメントとともに、appディレクトリの **テーマ** フォルダがパッケージとともに自動的にエクスポートされます。 このフォルダは、将来的にパッケージがインポートされたアプリに挿入される準備が整います。 この関数は、 **UI リソース パッケージ** としてマークされた緑色のモジュールでのみ使用できます。 別のモジュールを UI リソースパッケージとしてエクスポートする **UI リソース パッケージ** の設定は、エクスポートする前にアプリの設定でそのモジュールに手動で設定する必要があります。
 
-UI resources packages can be exported in the same manner as a normal module: right-click the package in the **Project Explorer** and select **Export UI resources package**. Along with the rest of the module's documents, the **theme** folder in the project directory will automatically be exported along with the package. This folder will be ready to be inserted into any projects the package is imported into in the future. This function is only available for the green module marked as the **UI resources package**. To export a different module as a UI resources package, the **UI resources package** setting must be manually set to that module in the project settings before export.
-
-When a UI resources packages is imported as a module, it will automatically update the project with a new theme folder and designate itself the project's new UI resources package.
+UI リソースパッケージがモジュールとしてインポートされた場合 自動的にアプリを新しいテーマフォルダに更新し、アプリの新しいUIリソースパッケージを指定します。
