@@ -1,80 +1,80 @@
 ---
-title: "Operation Parameters for Published REST"
-parent: "published-rest-service"
+title: "发布REST 的操作参数"
+parent: "已发布的rest-service"
 menu_order: 20
-description: "Configure a published REST Operation by adding parameters to an operation"
+description: "通过将参数添加到操作配置已发布的REST 操作"
 tags:
-  - "published REST"
-  - "operation"
-  - "parameter"
-  - "resource"
-  - "mapping"
-  - "not found"
-  - "commit"
+  - "已发布 REST"
+  - "操作"
+  - "参数"
+  - "资源"
+  - "映射"
+  - "找不到"
+  - "提交"
 ---
 
-## 1 Introduction
+## 1 导言
 
-When a client calls a published REST operation, it calls a URL with an optional query string and possibly a body. These parameters can be passed to the microflow and import mapping as query parameters, path parameters, body parameters, header parameters, and form parameters.
+当客户端调用已发布的 REST 操作时，它调用一个带有可选查询字符串的URL，可能是正体。 这些参数可以传递给微流和导入映射作为查询参数、路径参数、身体参数、头部参数和表格参数。
 
-When you add or edit a parameter in a published REST operation, you can specify the settings described below. These settings are in the **Add parameter** section of the **Add operation for resource** dialog box.
+当您在已发布的REST 操作中添加或编辑参数时，您可以指定下面描述的设置。 这些设置位于 **添加资源操作** 对话框的 **添加参数** 部分。
 
-## 2 General
+## 2 概况
 
-### 2.1 Parameter Type
+### 2.1 参数类型
 
-Specify where the parameter comes from. Possible values are the following:
+指定参数来自何处。 可能的值如下：
 
-* **Query** – When the request contains a query string such as `?name=John&age=42`, you can pass these to the microflow by adding query parameters. For more information, see [Published REST Query Parameters](published-rest-query-parameters).
-* **Path** – The operation path can contain parameters as well. If you add a path parameter, make sure you add it to the operation path as well. For more information, see [Published REST Path Parameters](published-rest-path-parameters).
-* **Body** – The microflow can have 0 or 1 body parameters. A body parameter is taken from the body of the request. If the body is a file document or an image, its contents will be filled with the body of the request. If the body parameter is another type of object or a list, an import mapping is needed to convert the body content of the request into an object or a list. `GET`, `HEAD`, and `OPTIONS` operations should not have body parameters.
-* **Header** – The value of a header parameter is taken from the (first) request header with that name.
-* **Form** – The value of a form parameter is taken from the body part with that name (these are available for `multipart/form-data` requests).
+* **查询** - 请求中包含诸如 `等查询字符串时？ ame=John&年龄=42`, 你可以通过添加查询参数传递到微流程。 欲了解更多信息，见 [已发布REST 查询参数](published-rest-query-parameters)。
+* **路径** - 操作路径也可以包含参数。 如果您添加了路径参数，请确保您也将其添加到操作路径中。 欲了解更多信息，见 [已发布REST 路径参数](published-rest-path-parameters)。
+* **身体** -- 微流可以有0或1个身体参数。 正文参数来自请求的正文。 如果正文是文件或图像，其内容将填充请求的正文。 如果正文参数是另一种类型的对象或列表， 需要导入映射来将请求的实体内容转换为对象或列表。 `获取`, `HEAD`, 和 `选项` 操作不应有身体参数。
+* **标头** — 页眉参数的值从 (第一个)请求标题带有该名称的值。
+* **表单** - 一个表单参数的值来自同名的正文部分 (这些都可用于 `multipart/form-data` 请求)。
 
-### 2.2 Name
+### 2.2 姓名
 
-The name of the parameter. For a header parameter, this should be the name of the request header.
+参数的名称。 对于标题参数，这应该是请求标题的名称。
 
-### 2.3 Type
+### 2.3 类型
 
-Specify the type of the parameter. Object or list parameters can only come from the body of the request.
+指定参数类型。 对象或列表参数只能来自请求的正文。
 
-### 2.4 Microflow Parameter
+### 2.4 微流程参数
 
-Specify the microflow parameter that will be filled with the value from this operation parameter. You should always select one, except for when you defined a path parameter to be passed to the import mapping.
+指定将用此操作参数的值填充的微流参数。 您应该始终选择一个，除非您定义了要传递给导入映射的路径参数。
 
-## 3 Mapping
+## 3 个映射
 
-The mapping group is only shown for body parameters.
+映射组只显示物体参数。
 
-### 3.1 Import Mapping
+### 3.1 进口映射
 
-Specify the import mapping that converts the body of the request (JSON or XML) into an Object or a List.
+指定将请求的正文(JSON或 XML) 转换为对象或列表的导入映射。
 
-You can use an import mapping that takes a primitive parameter (string, integer, etcetera) if the operation has no more than one path parameter with that type. The value of that path parameter will be passed to the microflow. If there is no path parameter, and empty value will be passed to the import mapping.
+您可以使用导入映射，它需要一个原始参数 (字符串，整数)， etcetera) 如果该操作具有不超过一个路径参数的类型。 该路径参数的值将传递到微流程。 如果没有路径参数，则空值将传递给导入映射。
 
-### 3.2 If No Object Was Found
+### 3.2 如果没有发现对象
 
-This sets the behavior of the operation when a find operation does not find an existing object.
+这将设定当查找操作找不到现有对象时操作的行为。
 
-If the top-level of an [import mapping](import-mappings) has **Decide this at the place where the mapping gets used** unchecked, then the behavior is set in the import mapping.
+如果 [导入映射的顶级](import-mappings) 有 **决定它在映射被使用的地方** 未选中， 然后在导入映射中设置行为。
 
-If the import mapping has **Decide this at the place where the mapping gets used** checked, then you can define the **If no object was found** action in the REST operation itself. This means you can use the same import mapping in multiple operations, but have a different behavior for each of them. The options are:
+如果导入映射有 **在映射被选中的位置决定** 然后您可以定义 **如果找不到对象，** 在REST 操作本身中的动作。 这意味着您可以在多个操作中使用相同的导入映射，但每个操作都有不同的行为。 这些备选办法是：
 
-* Create – create an object of the correct entity to map to — typically used for **POST** operations
-* Ignore – don't map this element and continue parsing
-* Error – stop parsing the XML and throw an error — typically used for **PUT** and **PATCH** operations
+* 创建 — 创建一个正确实体的对象以映射到 — — 通常用于 **POST** 操作
+* 忽略 - 不映射此元素并继续解析
+* 错误 — 停止解析 XML 并出现一个错误 — — 通常用于 **PUT** 和 **PACTCH** 操作
 
-### 3.3 Commit
+### 3.3 提交
 
-You can indicate whether the import mapping should commit the objects that it creates or changes. You can choose between the following:
+您可以指示导入映射是否应提交它创建或更改的对象。 您可以在以下两者中选择：
 
-* **Yes** – commits the changes and triggers events such as validation rules
-* **Yes without events** – commits the changes without triggering events such as validation rules
-* **No** – does not commit the changes, so you can commit them in your microflow. This is useful if you want to add some additional checks in your microflow, and skip the commit if one of those checks fail
+* **是** - 提交更改并触发诸如验证规则等事件
+* **是的，没有事件** -- 提交更改时不触发事件，如验证规则
+* **无** - 没有提交更改，所以您可以在微流程中提交更改。 如果您想要在您的微流中添加一些额外的检查，此操作是有用的，如果其中一个检查失败，则跳过提交
 
-## 4 Public Documentation
+## 4 公开文档
 
-Provide a **Description** of the parameter. You can use [GitHub-flavored Markdown](gfm-syntax) for rich text.
+提供参数的 **描述** 您可以使用 [GitHub-flavered Markdown](gfm-syntax) 作为丰富文本。
 
-This is used in the service's [OpenAPI (Swagger) documentation page](published-rest-services#interactive-documentation).
+这用于服务的 [OpenAPI (Swagger) 文档页](published-rest-services#interactive-documentation)。
