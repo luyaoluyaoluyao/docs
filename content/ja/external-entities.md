@@ -1,159 +1,159 @@
 ---
-title: "External Entities"
-parent: "domain-model"
+title: "外部エンティティ"
+parent: "ドメインモデル"
 menu_order: 15
 tags:
-  - "domain model"
-  - "entity"
-  - "entities"
-  - "attribute"
-  - "external entities"
-  - "even handler"
-  - "access rule"
+  - "ドメインモデル"
+  - "エンティティ"
+  - "エンティティ"
+  - "属性"
+  - "外部エンティティ"
+  - "ハンドラーさえも"
+  - "アクセスルール"
   - "studio pro"
-  - "consumed OData Service"
+  - "消費されたOData Service"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-External entities can be added to the Domain Model through the [Data Hub pane](data-hub-pane). They are displayed as *purple* entity containers in the Domain Model. External entities represent the link to the datasets that are made available through the shared data sources registered in [Mendix Data Hub](/data-hub/). Data sources are collections of entity sets (that are referred to as datasets) are published in OData services.
+外部エンティティは [データ ハブ ペイン](data-hub-pane) を介してドメイン モデルに追加することができます。 Domain Model では *パープル* エンティティコンテナとして表示されます。 外部エンティティは、 [Mendix Data Hub](/data-hub/) に登録されている共有データソースを通じて利用できるデータセットへのリンクを表します。 データソースは、OData サービスに公開されるエンティティセット(データセットと呼ばれる)のコレクションです。
 
-Datasets are maintained and updated in the source application. You can integrate or *consume* these datasets through external entities in your app development, and any changes to the data in the originating app is automatically updated in the consuming apps.
+データセットは、ソースアプリケーションでメンテナンスおよび更新されます。 アプリ開発の外部エンティティを通じて、これらのデータセットを *または* 使用できます そして、元のアプリのデータに対する変更は、使用するアプリで自動的に更新されます。
 
-External entities can be used with local entities, however, as the datasets are maintained in the source applications, not all properties can be changed in the consuming app.
+ただし、外部エンティティはローカルエンティティと一緒に使用できます。 ソースアプリケーションでデータセットが維持されているため、使用するアプリケーションですべてのプロパティを変更することはできません。
 
-To follow how to add external entites from the **Data Hub** pane see [Adding External Entities](#adding-external-entities).
+**Data Hub** ペインから外部エンティティを追加する方法に従うには、 [外部エンティティの追加](#adding-external-entities) を参照してください。
 
 {{% alert type="info" %}}
-A license is required to use Mendix Data Hub and connect to external data sources through consumed OData services in your apps.
+Mendix Data Hubを使用し、アプリ内で消費されたODataサービスを介して外部データソースに接続するには、ライセンスが必要です。
 {{% /alert %}}
 
-## 2 Adding an External Entity to an App {#adding-external-entities}
+## 2 アプリに外部エンティティを追加する {#adding-external-entities}
 
-To add an external entity to your app model, follow these steps:
+アプリモデルに外部エンティティを追加するには、以下の手順に従ってください:
 
-1. In the the Domain Model of you app model search in the **Data Hub** pane for the entity or data source that you want to use in your app.
+1. アプリで使用するエンティティまたはデータソースの **データハブ** ペインでアプリモデルを検索します。
 
-    {{% alert type="info" %}}In the [Data Hub Catalog](/data-hub/data-hub-catalog/search), an OData service may be registered mulitple times with different version numbers or deployed to different environments, all exposing the entity (dataset)) that you may want to use. Search the Data Hub Catalog first and find the one most relevant to the requirements for your app.{{% /alert %}}
+    {{% alert type="info" %}} [Data Hub Catalog](/data-hub/data-hub-catalog/search)にある OData サービスは、バージョン番号が異なる場合や、異なる環境にデプロイされる場合があります。 使用したいエンティティ(データセット)がすべて公開されます。 データハブカタログを最初に検索し、アプリの要件に最も関連するものを見つけます。{{% /alert %}}
 
-3. Drag and drop the entity in the Domain Model.
+3. ドメインモデル内の図形をドラッグ&ドロップします。
 
-4. The entity and its attributes are then added to your app and two documents are added in the **App Explorer**:
+4. エンティティとその属性がアプリに追加され、 **App Explorer** に2つのドキュメントが追加されます:
 
-    * the **Consumed OData Service** document that contains details of the OData service and the metadata; the logo displayed identifies the originating app of the service
-    * the **OData Location** that specifies the location constants for the service
+    * OData サービスとメタデータの詳細を含む **消費された OData サービス** ドキュメント 表示されたロゴは、サービスの起点となるアプリを識別します
+    * サービスの場所定数を指定する **OData Location**
 
-    ![ Virtual Entity and OData Service files](attachments/external-entities/consumed-service-docs.png)
+    ![ 仮想エンティティおよびOData サービスファイル](attachments/external-entities/consumed-service-docs.png)
 
 {{% alert type="info" %}}
-When you drag an entity that is associated with an entity from the same service already in your Domain Model, the association will be displayed and established between the entities. For more information on associations between external entities, see [Associations](#properties).
+ドメインモデルに既に同じサービスからエンティティに関連付けられているエンティティをドラッグすると、 エンティティの間に協会が表示され設立されます 外部エンティティ間の関連付けの詳細については、 [Associations](#properties) を参照してください。
 {{% /alert %}}
 
-For further information, see [Consumed OData Service](consumed-odata-service).
+詳細については、 [消費されたOData Service](consumed-odata-service) を参照してください。
 
-In the **App** section of the **Data Hub** pane the consumed entities that are in the current app are listed:
+**Data Hub** ペインの **App** セクションには、現在のアプリで使用されているエンティティが表示されます。
 
-![ Virtual Entity and OData Service files](attachments/external-entities/data-hub-app.png)
+![ 仮想エンティティおよびOData サービスファイル](attachments/external-entities/data-hub-app.png)
 
 {{% alert type="info" %}}
-If there is a newer version of a consumed service becomes available in the Data Hub Catlog, this will be indicated in the **Data Hub** pane by an update arrow against the service name. For more information, see the [Updating or Switching a Consumed OData Service](consumed-odata-service#updating) section in *Consumed OData Service*.
+新しいバージョンの利用サービスがある場合は、Data Hub Catlog で利用できます。 これは、 **Data Hub** ペインにサービス名に対する更新矢印によって表示されます。 詳細については、 [OData Service](consumed-odata-service#updating) の *使用済みの OData Service* セクションを参照してください。
 {{% /alert %}}
 
-You can make local changes to the properties of external entities that only affect how the data is used and presented in the consuming app. All other properties are defined in the source application and cannot be changed. When multiple external entities from the same OData service are used in a module or app, associations between the entities (made in the source app) will automatically be made in the local module.
+データの使用方法にのみ影響を与える外部エンティティのプロパティをローカルで変更することができます。 他のすべてのプロパティはソースアプリケーションで定義されており、変更することはできません。 同一の OData サービスからの複数の外部エンティティがモジュールまたはアプリで使用される場合 (ソース・アプリで作成された)エンティティ間の関連付けは、ローカル・モジュールで自動的に行われます。
 
 {{% alert type="info" %}}
-If you delete an external entity from the Domain Model, the service documents remain in the App Explorer list and the service continues to be listed in the Data Hub App pane. You can delete the two service documents if you are no longer going to be using any entities from the Consumed service.
+ドメインモデルから外部エンティティを削除する場合 サービス ドキュメントは App Explorer リストに残り、サービスは Data Hub アプリペインに引き続き表示されます。 消費されたサービスからエンティティを使用しない場合は、2つのサービスドキュメントを削除できます。
 {{% /alert %}}
 
 For more information on using published OData services and entities through the Data Hub Catalog, see [How to Consume Registered Assets](/data-hub/data-hub-catalog/consume) in the *Data Hub Guide*.
 
-## 2 Properties of External Entities {#properties}
+## 2 外部エンティティのプロパティ {#properties}
 
-Compared to local entities, external entities have a limited number of properties that can be changed. The rest of the properties are defined in the originating app and are, therefore, read-only.
+ローカルエンティティと比較して、外部エンティティには変更可能なプロパティが限られています。 残りのプロパティは元のアプリケーションで定義されているため、読み取り専用です。
 
 {{% alert type="info" %}}
-Changes that are made to the properties of external entities are made only in the consuming app. The originating app will not be affected by the changes.
+外部エンティティのプロパティに加えられた変更は、使用するアプリでのみ行われます。 元のアプリは変更の影響を受けません。
 {{% /alert %}}
 
-### 2.1 General
+### 2.1 全般
 
-This tab displays the general properties of the external entity. The values that are defined in the originating app are displayed but but cannot be edited. The values that can be edited will only apply to the local app:
+このタブには外部エンティティの一般的なプロパティが表示されます。 元のアプリで定義されている値は表示されますが、編集できません。 編集可能な値は、ローカルアプリにのみ適用されます。
 
-![External Entity Properties](attachments/external-entities/external-entity-properties.png)
+![外部エンティティのプロパティ](attachments/external-entities/external-entity-properties.png)
 
-* **Name** – the name of the entity in the local app
-* **Original name** – this is read-only and shows the name of the entity as defined in the consumed OData service
-* **Summary** – this is a read-only field and displays the description for the entity in the originating app
+* **Name** – ローカルアプリ内のエンティティの名前
+* **元の名前** - これは読み取り専用で、消費されたODataサービスで定義されているエンティティの名前を表示します
+* **サマリー** - これは読み取り専用フィールドで、元のアプリ内のエンティティの説明を表示します
 
-### 2.2 Attributes {#attributes}
+### 2.2 属性 {#attributes}
 
-The [attributes](attributes) that have been exposed in the OData service for the external entity are listed here. All changes that are made to the attributes and the attribute list are applied to the local instance of the entity. As they are consumed, these changes will not affect the metadata of the consumed service that the entity is exposed in or the attributes of the entity in the originating app.
+外部エンティティの OData サービスに公開されている [属性](attributes) がここにリストされています。 属性と属性リストに加えられたすべての変更は、エンティティのローカルインスタンスに適用されます。 彼らが消費されるように。 これらの変更は、エンティティが公開されている使用中のサービスのメタデータや、元のアプリ内のエンティティの属性には影響しません。
 
-{{% alert type="info" %}}In the [Data Hub Pane](data-hub-pane#association-attributes) the associations and attributes that are not supported in your Mendix model are shown as non-selectable (gray) and will not be included when you drag them into the domain model or be included in the entity properties. For more information see [Data Hub Pane](data-hub-pane#association-attributes).{{% /alert %}}
+{{% alert type="info" %}} [データハブペイン](data-hub-pane#association-attributes) では、Mendixモデルでサポートされていない関連性と属性は、選択できない(グレー)として表示され、ドメインモデルにドラッグしたり、エンティティプロパティに含められるときには含まれません。 詳細については、 [Data Hub Pane](data-hub-pane#association-attributes).{{% /alert %}} を参照してください。
 
-The following operations can be done on the displayed attribute list:
+表示された属性リストでは、次の操作が行えます。
 
-* **Add** – add attributes that were exposed in the OData service for the entity and were previously removed for this local instance
-* **Edit** – edit the selected attribute from the [Edit Attribute](#edit-attribute) form
-* **Remove** – remove an attribute from list
+* **追加** - エンティティの OData サービスで公開され、このローカルインスタンスに対して以前に削除された属性を追加
+* **編集** – [属性の編集](#edit-attribute) フォームから選択した属性を編集します。
+* **Remove** - リストから属性を削除
 
-#### 2.2.1 Edit Attribute {#edit-attribute}
+#### 2.2.1 属性の編集 {#edit-attribute}
 
-The **Edit Attribute** box can be used for specifying a local name for the attribute and adding a local description.
+**属性の編集** ボックスは、属性のローカル名を指定し、ローカル説明を追加するために使用できます。
 
-![Edit attributes](attachments/external-entities/edit-attributes.png)
+![属性を編集](attachments/external-entities/edit-attributes.png)
 
-* **General Tab**
-    * **Name** – a local name for the attribute can be specified.
-    * **Original Name** – this is a read-only value that displays the original name of the attribute as given in the originating app
+* **一般タブ**
+    * **Name** – 属性のローカル名を指定できる。
+    * **元の名前** - 元のアプリで与えられた属性の元の名前を表示する読み取り専用の値です。
     * **Summary** – a read-only summary displaying the description for the attribute in the originating app; to enter a local description, add this in the [Documentation tab](#documentation)
-    * **Type** – read-only vlues for the **Type** and **Length** and **Max. Length** of the attribute as defined in the originating app
-* **Documentation** – a description for the attribute that is displayed for users of the current app
+    * **** と **** と **長さ** と **最大値を入力します。 元のアプリで定義されている属性の長さ**
+* **ドキュメント** - 現在のアプリのユーザーに表示される属性の説明
 
-### 2.3 Associations {#associations}
+### 2.3 関連 {#associations}
 
-This tab displays the associations that the external entity has with other entities that are exposed in the same service and also any associations that have been made with local entities. For further details on association properties in Studio Pro see [Association Tab Properties](association-member-properties).
+このタブには、外部エンティティが同じサービスで公開されている他のエンティティと、ローカルエンティティで作成されたすべての関連が表示されます。 Studio Pro での関連プロパティの詳細については、 [](association-member-properties) タブを参照してください。
 
-![Edit attributes](attachments/external-entities/external-entity-associations.png)
+![属性を編集](attachments/external-entities/external-entity-associations.png)
 
-The following apply for all associations with the external entity:
+以下は外部エンティティとのすべての関連付けに適用されます:
 
 **Name** – name of the association as displayed in the current app **Type** – read-only for associations between two external entities **Owner** – read-only for associations between two external entities **Parent** – read-only for associations between two external entities **Child** – read-only for associations between two external entities
 
-You can **Add** and **Edit** associations to the external entity with a local entity. However, the association cannot be made *from* an external entity to a local entity: the local entity must be the owner of the association.
+ローカルエンティティを持つ外部エンティティに **** と **** の関連付けを編集できます。 ただし、 *から* を外部エンティティにローカルエンティティにすることはできません。ローカルエンティティはアソシエーションの所有者でなければなりません。
 
-If you use an external entity in your app and this entity is associated with other external entities from the same OData service in your app, the association will automatically be added in the domain model and be listed here.
+アプリで外部エンティティを使用していて、このエンティティがアプリで同じODataサービスから他の外部エンティティに関連付けられている場合。 関連付けは自動的にドメインモデルに追加され、ここにリストされます。
 
 {{% alert type="info" %}}
-It is possible to **Remove** an association between two external entities in the domain model that has been automatically added. If at a later stage you want to restore the association, you can do this in the domain model by right-clicking one of the external entities and clicking **Add** > **Association**.
+自動的に追加されたドメインモデル内の2つの外部エンティティ間の関連を **削除** することが可能です。 後の段階で、関連付けを復元したい場合は、 ドメインモデルで外部エンティティのいずれかを右クリックし、 **追加** > **関連** をクリックすることでこれを行うことができます。
 {{% /alert %}}
 
 {{% alert type="info" %}}
-If you want to connect two external entities that are not connected in the originating app, this is not possible as the relationship to the data cannot be influenced locally. However, consider adding a local entity and connect this local entity with both external entities. The local entity must be the owner of both associations, in this case.
+元のアプリに接続されていない2つの外部エンティティを接続する場合 データとの関係が局所的に影響を受けることができないため、これは不可能です。 ただし、ローカルエンティティを追加し、このローカルエンティティを両方の外部エンティティと接続することを検討してください。 この場合、ローカルエンティティは両方のアソシエーションの所有者でなければなりません。
 {{% /alert %}}
 
-### 2.3.1 Association Properties
+### 2.3.1 関連プロパティ
 
-When you **Edit** an association that is included for two entities exposed in the same OData service, the following properties are displayed and the only local change that can be made is the local Name:
+**編集** 同一の OData サービスに公開されている 2 つのエンティティに対して含まれている関連を。 以下のプロパティが表示され、ローカル変更のみがローカル名になります:
 
-![Edit external associations](attachments/external-entities/association-properties.png)
+![外部の関連付けを編集](attachments/external-entities/association-properties.png)
 
-* **Name** – local name of the association
-* **Original Name** – read-only name of the association given to it in the originating app
-* **Summary** – read-only description of the association from the originating app
-* **Multiplicity** – read-only multiplicity values from the originating app
-* **Documentation** – go to this tab to add a local description for the external entity association
+* **Name** – 関連付けのローカル名
+* **元の名前** - 元のアプリで与えられた関連付けの読み取り専用名
+* **概要** – 元のアプリからの関連付けの読み取り専用説明
+* **Multiplicity** - 元のアプリからの読み取り専用多重度
+* **ドキュメント** – 外部エンティティアソシエーションのローカル説明を追加するには、このタブに移動します。
 
-### 2.3.2 Connecting Two External Entities
+### 2.3.2 二つの外部エンティティの接続
 
-If you want to connect two external entities that are not connected in the originating app, this is not possible as the relationship to the data cannot be influenced locally. However, you can add a local entity and connect this local entity with both external entities. The local entity must be the owner of both associations, in this case.
+元のアプリに接続されていない2つの外部エンティティを接続する場合 データとの関係が局所的に影響を受けることができないため、これは不可能です。 ただし、ローカルエンティティを追加して、このローカルエンティティを両方の外部エンティティと接続できます。 この場合、ローカルエンティティは両方のアソシエーションの所有者でなければなりません。
 
-### 2.4 Documentation {#documentation}
+### 2.4 ドキュメント {#documentation}
 
-You can add any local information about the external entity in this tab.
+このタブでは、外部エンティティに関するローカル情報を追加できます。
 
-## 3 External Entity Limitations
+## 3 外部エンティティの制限
 
-External entities are the endpoints that are defined in the published OData service from the originating app. The consumed OData service document displays the values from the service metadata when the external entity is used through the **Data Hub** pane. The limitation on external entities is that they are consume-only entities. The datasets associated with the entities are maintained in the originating apps.
+外部エンティティとは、公開された OData サービスで元のアプリケーションから定義されるエンドポイントです。 消費された OData サービス ドキュメントは、 **データ ハブ** ペインを介して外部エンティティが使用された場合にサービスメタデータの値を表示します。 外部エンティティの制限は、彼らが消費のみのエンティティであるということです。 エンティティに関連付けられたデータセットは、元のアプリで維持されます。
 
 For more details on consuming services and exposed entities, including operations that can be performed on external entities, see [How to Consume Registered Assets](/data-hub/data-hub-catalog/consume) in the *Data Hub Guide*.
