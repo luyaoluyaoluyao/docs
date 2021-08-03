@@ -1,114 +1,114 @@
 ---
-title: "Drop-Down"
-parent: "input-widgets"
+title: "下拉列表"
+parent: "输入小部件"
 menu_order: 30
 tags:
-  - "Drop-down"
+  - "下拉列表"
   - "input"
-  - "page"
-  - "widget"
-  - "enumeration"
+  - "页面"
+  - "小部件"
+  - "枚举数"
   - "studio pro"
 aliases:
   - /refguide/drop-down-widget.html
 ---
 
-## 1 Introduction
+## 1 导言
 
-A **drop-down** is used to display and, optionally, allow the end-user to edit the value of an attribute of [data type](data-types) *enumeration*.
+**下拉** 用于显示并且可选的。 允许最终用户编辑 [数据类型](data-types) *枚举* 的属性值。
 
-A drop-down must be placed in a [data widget](data-widgets) and displays an attribute of the object(s) retrieved by that widget. The name of the attribute to be displayed is shown inside the drop-down, between square brackets, and colored blue.
+下拉菜单必须放置在 [数据部件](data-widgets) 中，并显示从该部件检索到的对象的属性。 要显示的属性名称显示在下拉框中，方括号和彩色蓝色。
 
 {{% alert type="info" %}}
-A drop-down should not be confused with a [reference selector](reference-selector), which is used to select an [association](associations) to another object.
-{{% /alert %}}
+下拉菜单不应与 [引用选择器](reference-selector)混淆，它用于选择 [关联](associations) 到另一个对象。
+{{% /报警 %}}
 
-For example, the following drop-down allows the end-user to see, and set, the **Region** to which a customer is allocated. The possible values for **Region** are held in an enumeration.
+例如，下面的下拉允许最终用户查看和设置客户分配到的 **区域**。 **区域** 可能的值被保存在枚举中。
 
 ![](attachments/drop-down/drop-down.png)
 
-## 2 Properties
+## 2 属性
 
-An example of drop-down properties is represented in the image below:
+下拉属属性的示例在下面的图像中显示：
 
 {{% image_container width="300" %}}![](attachments/drop-down/drop-down-properties.png)
 {{% /image_container %}}
 
-Drop-down properties consist of the following sections:
+下拉属属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Design Properties](#design-properties)
-* [Editability](#editability)
-* [Events](#events)
-* [General](#general)
-* [Label](#label)
-* [Validation](#validation)
-* [Visibility](#visibility)
+* [常用的](#common)
+* [数据源](#data-source)
+* [设计属性](#design-properties)
+* [编辑性](#editability)
+* [事件](#events)
+* [A. 概况](#general)
+* [标签](#label)
+* [验证](#validation)
+* [可见性](#visibility)
 
-### 2.1 Common Section{#common}
+### 2.1 共同部分{#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section{#data-source}
+### 2.2 数据源部分{#data-source}
 
 {{% snippet file="refguide/data-source-section-link.md" %}}
 
-### 2.3 Design Properties Section{#design-properties}
+### 2.3 设计属性部分{#design-properties}
 
 {{% snippet file="refguide/design-section-link.md" %}}
 
-### 2.4 Editability Section{#editability}
+### 2.4 可编辑性部分{#editability}
 
 {{% snippet file="refguide/editability-section-link.md" %}}
 
-### 2.5 Events Section{#events}
+### 2.5 事件部分{#events}
 
-#### 2.5.1 On Change{#on-change}
+#### 2.5.1 更改时{#on-change}
 
-The on-change property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget, after the value has been changed.
-
-{{% snippet file="refguide/events-section-link.md" %}}
-
-#### 2.5.2 On Enter
-
-The on-enter property specifies an action that will be executed when the widget is entered, either by using the <kbd>Tab</kbd> key or by clicking it with the mouse.
+更改属性指定了离开部件时要执行的动作， 通过使用 <kbd>Tab</kbd> 键，或点击另一个部件，在值被更改后再点击。
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-#### 2.5.3 On Leave
+#### 2.5.2 输入时
 
-The on-leave property specifies an action that will be executed when leaving the widget, either by using the <kbd>Tab</kbd> key or by clicking another widget.
+输入小部件时指定了一个执行的动作。 要么使用 <kbd>Tab</kbd> 键，要么用鼠标点击它。
+
+{{% snippet file="refguide/events-section-link.md" %}}
+
+#### 2.5.3 请假
+
+请假属性指定了离开部件时要执行的动作， 要么使用 <kbd>Tab</kbd> 键，要么点击另一个部件。
 
 This differs from the [On change](#on-change) property in that the event will always be triggered, even if the value has not been changed.
 
 {{% snippet file="refguide/events-section-link.md" %}}
 
-### 2.6 General Section{#general}
+### 2.6 一般部分{#general}
 
-#### 2.6.1 Empty Option Caption
+#### 2.6.1 空选项标题
 
-Empty option caption is the text that is shown for the empty option in the drop-down shown to the end-user. This is a translatable text. For more details, see [Language Menu](translatable-texts).
+空选项标题是显示给最终用户下拉菜单中的空选项的文本。 这是一个可翻译的文本。 欲了解更多详情，请参阅 [语言菜单](translatable-texts)。
 
-Adding a caption for the empty option improves the user experience of your application. It also helps end-users using a screen-reader to operate the application easily.
+为空选项添加一个标题可以提高应用程序的用户体验。 它还帮助最终用户使用屏幕阅读器轻松地操作应用程序。
 
-For example, the drop-down that allows the end-user to select the region allocated to a customer, where the possible values for **Region** are held in an enumeration, could have the caption `Select a region`.
+例如，允许最终用户选择分配给客户的区域的下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式下拉式最终用户选择分配给客户的区域。 在 **区域** 的可能值被包含在枚举中， 可以有标题 `选择一个区域`。
 
 ![](attachments/drop-down/select-a-region.png)
 
-### 2.7 Label Section{#label}
+### 2.7 标签部分{#label}
 
 {{% snippet file="refguide/label-section-link.md" %}}
 
-### 2.8 Validation Section{#validation}
+### 2.8 验证部分{#validation}
 
 {{% snippet file="refguide/widget-validation-link.md" %}}
 
-### 2.9 Visibility Section{#visibility}
+### 2.9 可见性部分{#visibility}
 
 {{% snippet file="refguide/visibility-section-link.md" %}}
 
-## 3 Read More
+## 3 阅读更多
 
-*   [Data View](data-view)
-*   [Attributes](attributes)
+*   [数据视图](data-view)
+*   [属性](attributes)
