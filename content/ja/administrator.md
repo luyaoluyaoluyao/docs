@@ -5,17 +5,13 @@ menu_order: 20
 tags:
   - "studio pro"
   - "administrator"
-  - "project security"
+  - "app security"
   - "security"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/administrator.pdf).
-{{% /alert %}}
-
 ## 1 Introduction
 
-In the **Administrator** tab of the **Project Security**, you can change the default credentials and a user role for the Administrator user:
+In the **Administrator** tab of **App Security**, you can change the default credentials and a user role for the Administrator user:
 
 ![](attachments/administrator/project-security-administrator.png)
 
@@ -44,12 +40,35 @@ The password is used to sign into the application as the Administrator. Click **
 Default: *1*
 
 {{% alert type="info" %}}
-This password is only used when Mendix is running locally. You can change the password for your other [environments](/developerportal/deploy/environments-details) in the Developer Portal.
+Since the value of the password is general knowledge, it is safer to change this to a custom password.
+
+This password is only used when Mendix is running locally. Changing the password in your model will not update the password in your Cloud environments. You can change the password for your other licensed [environments](/developerportal/deploy/environments-details) in the Developer Portal.
 {{% /alert %}}
 
-{{% alert type="info" %}}
-Since this is general knowledge, it is safer to change this to a custom password.
-{{% /alert %}}
+#### 2.2.1 Free Apps
+
+The MxAdmin user is not created automatically when you deploy your app as a Free App. For licensed environments the MxAdmin user is created when you change the password for the first time, for example through the [Environment Details](/developerportal/deploy/environments-details) for the Mendix Cloud.
+
+When your Free App *has never been deployed and the database still needs to be created*, any data snapshot you have added to your app will be restored to the database of your Free App. You can use this process to add the MxAdmin user to your Free App by doing the following:
+
+1. In Studio Pro, go to **App > Security**.
+2. With **Security level** set to **Production**, open the **Administrator** tab.
+3. Change the default password of the administrator user.
+4. Run you project locally. This will create a local database that includes the MxAdmin user.
+5. Once your app is running locally, stop it again.
+6. Open **Version Control > Add Snapshot of Data**.
+7. Click **Yes** to confirm committing the new data snapshot.
+
+Your app now contains a data snapshot. If you deploy this project for a Free App for the first time, the snapshot will be restored to the database of the Free App. If there is already a database for your Free App, the snapshot will not be restored.
+
+Alternatively you can log in as an administrator to a Free App deployed to the cloud, by doing the following:
+
+1. In Studio Pro, go to **App > Security**.
+2. With **Security level** set to **Production**, open the **Demo users** tab.
+3. Set **Enable demo users** to **Yes**.
+4. Add a demo_administrator having **User role** *Administrator*.
+5. Deploy your Free App to the cloud environment by clicking **Publish**.
+6. Log in using the demo-administrator and you can then create some user accounts.
 
 ### 2.3 User Role {#user-role}
 
@@ -71,7 +90,7 @@ When your app is not deployed locally, for example to the Mendix Cloud, changes 
 
 ## 3 Read More
 
-* [Project Security](project-security)
+* [App Security](project-security)
 * [User Roles](user-roles)
 * [Demo Users](demo-users)
 * [Anonymous Users](anonymous-users)
