@@ -18,7 +18,7 @@ The **Mendix Studio version** is a build number of the Studio user interface.
 
 The **Mendix version** is the version of the app you are editing. **Mendix version** correlates to **Mendix Studio Pro version**, but is broader, as the Mendix version is the version of the whole platform including Mendix Studio Pro and Mendix Runtime.
 
-The **Mendix Studio version** and the **Mendix version** can be viewed by clicking the info icon > **About** in the top-right corner of Studio.
+The **Mendix Studio version** and the **Mendix version** can be viewed by clicking the info icon **About** in the top-right corner of Studio.
 
 {{% image_container width="500" %}}![](attachments/general-versions/about-dialog.png)
 {{% /image_container %}}
@@ -31,7 +31,7 @@ Studio introduces a new range when there are breaking changes in a model that pr
 
 ## 3 Upgrading to the Next Version
 
-The *Studio version* is updated continuously (even daily), which will provide you with the latest user interface features for editing your app. No action is required from you, these updates are done automatically. However, when there is a new *Mendix version*, an orange top bar is displayed, informing you that you can upgrade your app to the next version.
+The *Studio version* is updated continuously (even daily), which will provide you with the latest user interface features for editing your app. No action is required from you, these updates are done automatically. However, when there is a new *Mendix version*, an orange top-bar is displayed, informing you that you can upgrade your app to the next version.
 
 ![](attachments/general-versions/top-bar-upgrade.png)
 
@@ -53,15 +53,14 @@ Studio has a minimum supported Mendix Studio version. This means that if the Men
 
 The table below gives examples of how Mendix versions relate to Studio ranges, and what version your app will be upgraded to in case you choose to upgrade:
 
-| Mendix version example | Studio range | Mendix version it will be upgraded to when Upgrade is clicked:                                                                            |
-| ---------------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 7.11.0                 | 7.11–7.14    | 7.23.14                                                                                                                                   |
-| 7.15.1                 | 7.15–7.22    | 7.23.14                                                                                                                                   |
-| 7.22.2                 | 7.15–7.22    | 7.23.14                                                                                                                                   |
-| 7.23.0                 | 7.23         | 7.23.14                                                                                                                                   |
-| 7.23.7                 | 7.23         | No automatic upgrade, only manual upgrade to Mendix 8. For details, see the [Upgrading to Mendix Version 8](#upgrade-to-8) section below. |
-| 8.0.0                  | 8.0–8.6      | 8.6.4                                                                                                                                     |
-| 8.7.0                  | 8.7 & Above  | Latest available version of Mendix 8.                                                                                                     |
+| Mendix version | Studio range | Mendix version it will be upgraded to when Upgrade is clicked:                                                                            |
+| -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 7.11.0         | 7.11–7.14    | 7.23.7                                                                                                                                    |
+| 7.15.1         | 7.15–7.22    | 7.23.7                                                                                                                                    |
+| 7.22.2         | 7.15–7.22    | 7.23.7                                                                                                                                    |
+| 7.23.0         | 7.23         | 7.23.7                                                                                                                                    |
+| 7.23.7         | 7.23         | No automatic upgrade, only manual upgrade to Mendix 8. For details, see the [Upgrading to Mendix Version 8](#upgrade-to-8) section below. |
+| 8.0.0          | 8.0 & Above  | Latest available version of Mendix 8.                                                                                                     |
 
 {{% alert type="warning" %}}
 
