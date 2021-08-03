@@ -1,47 +1,94 @@
 ---
 title: "Container"
 parent: "container-widgets"
+menu_order: 20
+tags:
+  - "studio pro"
+  - "container"
+  - "container widgets"
+  - "widget"
 ---
 
-A container widget can be used to style or simultaneously hide a group of widgets. In the browser, it is rendered as a simple `div` element by default. It is also possible to render a container as one of HTML5 sementic elements (for example, `section`, `main`, `article`, `nav`).
-
 {{% alert type="info" %}}
-
-![](attachments/16713858/16843976.png) An empty container.
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/container.pdf).
 {{% /alert %}}
 
-## Common properties
+## 1 Introduction
 
-{{% snippet file="refguide7/Name+Property.md" %}}
+A container is a layout element that can be used to simultaneously style, hide, drag, or delete a group of widgets placed in it:
 
-{{% snippet file="refguide7/Class+Property.md" %}}
+![Container Example](attachments/container-widgets/container.png)
 
-{{% snippet file="refguide7/Style+Property.md" %}}
+In a browser, it is rendered as a simple `div` element by default. It is also possible to render a container as one of HTML5 semantic elements (for example, `section`, `main`, `article`, `nav`).
 
-## General properties
+## 2 Properties
 
-### Render mode
+An example of container properties is represented in the image below:
 
-The render mode determines which HTML5 tag will be used to show the container in the web browser.
+{{% image_container width="300" %}}![Container Properties](attachments/container-widgets/container-properties.png)
+{{% /image_container %}}
 
-| Value   | HTML Tag  |
-| ------- | --------- |
-| Div     | `div`     |
-| Section | `section` |
-| Article | `article` |
-| Header  | `header`  |
-| Footer  | `footer`  |
-| Main    | `main`    |
-| Nav     | `nav`     |
-| Aside   | `aside`   |
-| Hgroup  | `hgroup`  |
-| Address | `address` |
+Container properties consist of the following sections:
 
-_Default value:_ Div
+* [Accessibility](#accessibility)
+* [Common](#common)
+* [Design Properties](#design-properties)
+* [General](#general)
+* [Events](#events)
+* [Visibility](#visibility)
 
-## Visibility properties
+### 2.1 Accessibility {#accessibility}
 
-{{% snippet file="refguide7/Visibility+Property.md" %}}
+#### 2.1.1 Hide for Screen Readers
 
-{{% snippet file="refguide7/Visibility+Property+With+Module+Roles+Simple.md" %}}
+This property specifies whether to hide the container from screen readers or not.
+
+{{% alert type="info" %}} The container should not have any focusable elements inside such as input widgets, links, or buttons. These elements will cause the container to be announced by screen readers.
+{{% /alert %}}
+
+### 2.2 Common Section {#common}
+
+{{% snippet file="refguide8/common-section-link.md" %}}
+
+### 2.3 Design Properties Section{#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.4 General Section {#general}
+
+#### 2.4.1 Render Mode
+
+The **Render mode** determines which HTML5 tag will be used to show the container in the web browser.
+
+| Value           | HTML Tag  |
+| --------------- | --------- |
+| Div *(default)* | `div`     |
+| Section         | `section` |
+| Article         | `article` |
+| Header          | `header`  |
+| Footer          | `footer`  |
+| Main            | `main`    |
+| Nav             | `nav`     |
+| Aside           | `aside`   |
+| Hgroup          | `hgroup`  |
+| Address         | `address` |
+
+{{% alert type="info" %}}Render mode is not supported on native mobile pages.{{% /alert %}}
+
+### 2.5 Events Section {#events}
+
+#### 2.5.1 On-Click {#on-click}
+
+The **On-click** property specifies the action that will be executed when the user clicks the container (either with their mouse pointer or by pressing the <kbd>Enter</kbd> or <kbd>Space</kbd> keys when the container is in focus).
+
+{{% snippet file="refguide8/events-section-link.md" %}}
+
+### 2.6 Visibility Section {#visibility}
+
+{{% snippet file="refguide8/visibility-section-link.md" %}}
+
+## 4 Read More
+
+* [Page](page)
+* [Container Widgets](container-widgets)
+* [Properties Common in the Page Editor](common-widget-properties)
