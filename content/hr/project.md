@@ -1,31 +1,27 @@
 ---
-title: "Project"
+title: "App"
 parent: "project-explorer"
 menu_order: 10
 tags:
   - "studio pro"
-  - "project"
+  - "app"
 ---
-
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/project.pdf).
-{{% /alert %}}
 
 ## 1 Introduction
 
-A Mendix project consists of project-level documents and a number of modules. Each module can contain many documents. At the project level there are some settings and documents that apply to your project as a whole. For example, navigation is a project-level document; the menu bar is project-wide and can refer to functionality in all modules. Most documents, however, live at the level of a [module](modules).
+A Mendix app consists of app-level documents and a number of modules. Each module can contain many documents. At the app level, there are some settings and documents that apply to your app as a whole. For example, navigation is an app-level document; the menu bar is app-wide and can refer to functionality in all modules. Most documents, however, live at the level of a [module](modules).
 
 ## 2 Settings
 
-Project settings include the languages for the end-user, project directory and database and server settings.
+App settings include the languages for the end-user, app directory and database and server settings.
 
-See [Project Settings](project-settings).
+See [App Settings](project-settings).
 
 ## 3 Security
 
-At the project level you can change the security level, manage user roles and manage administrator and anonymous user access.
+At the app level you can change the security level, manage user roles and manage administrator and anonymous user access.
 
-See [Project Security](project-security).
+See [App Security](project-security).
 
 ## 4 Navigation
 
