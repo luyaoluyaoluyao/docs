@@ -5,16 +5,16 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-coalesce.pdf).
-{{% /alert %}}
+## 1 Description
 
-The COALESCE function returns the first of its arguments that is not null.
+The `COALESCE` function returns the first of its arguments that is not NULL.
+
+## 2 Syntax
 
 The syntax is as follows:
 
-```
+```sql
 COALESCE ( expression [ ,...n ] )
 ```
 
-**expression** Specifies the expression to check if the result is NULL.
+`expression` specifies the expression to check, if the result is NULL.
