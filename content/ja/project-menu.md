@@ -1,98 +1,98 @@
 ---
-title: "Project Menu"
+title: "プロジェクトメニュー"
 parent: "menus"
-description: "Describes the Project Menu in Studio Pro."
+description: "Studio Pro のプロジェクトメニューについて説明します。"
 menu_order: 30
 tags:
   - "Studio Pro"
-  - "project menu"
-  - "top bar"
+  - "プロジェクトメニュー"
+  - "トップ バー"
 ---
 
 {{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/project-menu.pdf).
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/project-menu.pdf) をクリックしてください。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-In the **Project** menu, you can view and/or manipulate settings that are connected to your project and deployment. For example, you can create a deployment package.
+**プロジェクト** メニューで、プロジェクトとデプロイメントに接続されている設定を表示または操作できます。 たとえば、デプロイメントパッケージを作成できます。
 
-{{% image_container width="300" %}}![Project Menu](attachments/project-menu/project-menu.png)
+{{% image_container width="300" %}}![プロジェクトメニュー](attachments/project-menu/project-menu.png)
 {{% /image_container %}}
 
-## 2 Tools
+## 2つのツール
 
 Under **Project** > **Tools**, you can find settings on updating widgets, button icons, and layouts, checking widgets, and converting your classes to **Design** properties.
 
-![Tools](attachments/project-menu/tools.png)
+![ツール](attachments/project-menu/tools.png)
 
-### 2.1 Batch Update Button Icons
+### 2.1 バッチ更新ボタンアイコン
 
-The **Batch Update Button Icons** option allows you to update many button icons in a single batch process.
+**Batch Update Button Icons** オプションを使用すると、1つのバッチ処理で多くのボタンアイコンを更新できます。
 
-### 2.2 Batch Update Layouts
+### 2.2 バッチ更新レイアウト
 
-The **Batch Update Layouts** option allows you to update the layouts of many pages in a single batch process.
+**一括更新レイアウト** オプションを使用すると、一括処理で多数のページのレイアウトを更新できます。
 
-### 2.3 Update Widgets {#update-widgets}
+### 2.3 ウィジェットの更新 {#update-widgets}
 
-The **Update Widgets** option presents the current versions of the widgets you are using in your app, what the latest versions of the widgets are, and an update option.
+**Update Widgets** オプションは、アプリで使用しているウィジェットの現在のバージョンを表示します 最新バージョンのウィジェットとアップデートオプションがあります
 
-### 2.4 Check Widgets
+### 2.4 ウィジェットの確認
 
-The **Check Widgets** option checks that the widgets you have implemented in the app have been built correctly.
+**Check Widgets** オプションは、アプリに実装したウィジェットが正しくビルドされていることを確認します。
 
-### 2.5 Convert Classes to Design Properties
+### 2.5 クラスをデザインプロパティに変換する
 
-The **Convert classes to design properties** option allows you to convert classes in widgets into design properties to assist in changing the widget styling. See [How To Implement Native Mobile Styling](/howto8/mobile/native-styling) for more information.
+**クラスをデザインプロパティに変換する** オプションを使用すると、ウィジェット内のクラスをデザインプロパティに変換して、ウィジェットのスタイルの変更を支援できます。 詳細については、 [Native Mobile Styling](/howto8/mobile/native-styling) の実装方法を参照してください。
 
-## 3 Synchronize Project Directory
+## 3 プロジェクトディレクトリの同期
 
-The **Synchronize Project Directory** option creates folders inside the project directory (resources, widgets, theme, etc.), if necessary. It also reads the widget packages that are currently inside the widgets folders. For example, if you add widgets to the widgets folder, you needs to synchronize the project directory for them to appear in the **Toolbox**.
+**[プロジェクト ディレクトリの同期** ] オプションは、必要に応じて、プロジェクト ディレクトリ (リソース、ウィジェット、テーマなど) 内にフォルダーを作成します。 また、現在ウィジェットフォルダ内にあるウィジェットパッケージも読み込みます。 たとえば、ウィジェットフォルダにウィジェットを追加する場合。 **Toolbox** に表示されるように、プロジェクトディレクトリを同期する必要があります。
 
-Shortcut key: <kbd>F4</kbd>
+ショートカットキー: <kbd>F4</kbd>
 
-## 4 Show Project Directory in Explorer
+## 4 プロジェクトディレクトリをエクスプローラーに表示
 
-The **Show Project Directory in Explorer** option shows the directory that contains the project file (*.mpr*) and other assets such as resources and Java actions in Windows Explorer. By default, the directory is located in the **MyDocuments** section.
+The **Show Project Directory in Explorer** option shows the directory that contains the project file (*.mpr*) and other assets such as resources and Java actions in Windows Explorer. デフォルトでは、ディレクトリは **MyDocuments** セクションにあります。
 
-The following directories in the project directory are useful for customizing the app style and adding custom widgets and Java actions:
+以下のディレクトリは、アプリのスタイルをカスタマイズしたり、カスタム ウィジェットや Java アクションを追加したりするのに役立ちます。
 
-* **theme** – stores the *.css* files that can be used to style the application
-* **javasource** – stores the JavaScript actions
-* **widgets** – stores the widgets
+* **テーマ** - アプリケーションのスタイル設定に使用できる *.css* ファイルを保存します
+* **javasource** - JavaScript の動作を保存します。
+* **ウィジェット** – ウィジェットを保存
 
-## 5 Deploy for Eclipse
+## Eclipse 用にデプロイする
 
-The **Deploy for Eclipse** option deploys the project to the deployment directory. The Java stubs are generated so that you can start editing them in Eclipse. This action does not compile the Java actions. Use this if you are writing Java actions and you want to compile and debug them through Eclipse.
+**Eclipse 用のデプロイ** オプションは、プロジェクトをデプロイディレクトリにデプロイします。 Java スタブが生成され、Eclipse 内で編集を開始できます。 このアクションは Java アクションをコンパイルしません。 Java アクションを記述していて、Eclipse を使用してコンパイルおよびデバッグしたい場合に使用します。
 
-Shortcut key: <kbd>F6</kbd>
+ショートカットキー: <kbd>F6</kbd>
 
-## 6 Create Deployment Package
+## 6 展開パッケージを作成
 
-The **Create Deployment Package** option creates a Mendix Deployment Archive package (*.mda*) that contains all necessary files to run the project. This can be used if you want to deploy your project on a Windows server or on a custom Mendix Cloud.
+The **Create Deployment Package** option creates a Mendix Deployment Archive package (*.mda*) that contains all necessary files to run the project. これは、プロジェクトを Windows サーバーまたはカスタム Mendix Cloud にデプロイする場合に使用できます。
 
-Shortcut key:  <kbd>F7</kbd>
+ショートカットキー:  <kbd>F7</kbd>
 
-For more information on settings displayed on the Create Deployment Package dialog box, see [Create Deployment Package](create-deployment-package-dialog).
+「デプロイメントパッケージの作成」ダイアログ・ボックスに表示される設定の詳細については、「 [デプロイメント・パッケージの作成](create-deployment-package-dialog)」を参照してください。
 
-## 7 Clean Deployment Directory
+## 7つのデプロイディレクトリをきれいにする
 
-The **Clean Deployment Directory** option cleans the deployment directory.
+**デプロイメント ディレクトリ** オプションは、デプロイメントディレクトリをクリアします。
 
-## 8 Deploy to Licensed Cloud Node {#deploy}
+## 8 ライセンスクラウドノードにデプロイする {#deploy}
 
-The **Deploy to Licensed Cloud Node** option deploys the latest committed revision of a Team Server project to the associated Mendix Cloud node.
+**ライセンスクラウド ノード** にデプロイするオプションは、Team Serverプロジェクトの最新のコミット済みリビジョンを関連付けられたMendix Cloudノードにデプロイします。
 
-Shortcut key:  <kbd>Ctrl</kbd> + <kbd>F5</kbd>
+ショートカットキー:  <kbd>Ctrl</kbd> + <kbd>F5</kbd>
 
 {{% alert type="warning" %}}
-The [Mendix Studios Target](/developerportal/deploy/studio-deployment-settings#target) needs to be set and the deploying user needs to have transport rights to the set target.
+[Mendix Studios Target](/developerportal/deploy/studio-deployment-settings#target) を設定する必要があり、デプロイユーザーは設定されたターゲットに対するトランスポート権限を持つ必要があります。
 {{% /alert %}}
 
-For more information on using this option, see [Deploy to the Cloud](deploy-to-the-cloud-dialog).
+このオプションを使用する方法の詳細については、 [クラウドにデプロイ](deploy-to-the-cloud-dialog) を参照してください。
 
-## 9 Read More
+## 9 続きを読む
 
 * [Studio Pro Overview](studio-pro-overview)
-* [Deployment](/developerportal/deploy)
+* [配置](/developerportal/deploy)
