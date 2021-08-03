@@ -9,23 +9,27 @@ tags:
   - "画像コレクション"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/image-collection.pdf) をクリックしてください。
+{{% /alert %}}
+
 ## 1つの紹介
 
 アプリケーション内で独自の静的画像を使用する場合 例えばブランディングやボタンに独特の感触を与える場合は、アプリに保存する必要があります。 これを行うには、画像を保存できる **画像コレクション** を作成します。
 
 アプリで画像を使用する方法については、 [イメージ](images) を参照してください。
 
-複数のアプリで同じ一連のカスタム画像を使用する場合は、完全な画像コレクションをエクスポートしてインポートすることができます。 [インポート & オブジェクトのエクスポート](/howto/integration/importing-and-exporting-objects) を使用して、その画像で。
+複数のアプリで同じ一連のカスタム画像を使用する場合は、完全な画像コレクションをエクスポートしてインポートすることができます。 [インポート & オブジェクトのエクスポート](/howto8/integration/importing-and-exporting-objects) を使用して、その画像で。
 
 {{% alert type="warning" %}}
-アプリ内の静的画像が大きすぎるとパフォーマンスの問題が発生する可能性があります。 大量の大きな画像が必要な場合 データベースに保存することができます (詳細については、 [画像 & ファイルの操作方法](/howto/data-models/working-with-images-and-files) を参照してください)。
+アプリ内の静的画像が大きすぎるとパフォーマンスの問題が発生する可能性があります。 大量の大きな画像が必要な場合 データベースに保存することができます (詳細については、 [画像 & ファイルの操作方法](/howto8/data-models/working-with-images-and-files) を参照してください)。
 {{% /alert %}}
 
 ## 2 画像コレクションを追加する
 
 画像コレクションを追加するには、以下を行います。
 
-1. **App Explorer** でモジュールを右クリックします。
+1. **Project Explorer** でモジュールを右クリックします。
 2. **Add other > Image collection**:
 
     ![画像コレクションを追加](attachments/image-collection/add-collection.png)
