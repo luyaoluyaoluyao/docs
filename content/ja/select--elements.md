@@ -1,56 +1,56 @@
 ---
-title: "Select Elements"
+title: "要素を選択"
 parent: "mapping-documents"
 tags:
   - "studio pro"
 aliases:
-  - /refguide/Select++Elements.html
+  - /ja/refguide/Select++Elements.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-For both [import](import-mappings) and [export mappings](export-mappings) you need to specify the elements structure you want to map. You do this in the **Select schema elements** window. An example of this screen is shown below.
+[import](import-mappings) と [エクスポートマッピング](export-mappings) の両方では、マップする要素構造を指定する必要があります。 これは **スキーマ要素の選択** ウィンドウで行います。 この画面の例を以下に示します。
 
 ![](attachments/16713729/19399143.png)
 
-Perform the following steps in the **Select schema elements** window:
+**スキーマ要素の選択** ウィンドウで、次の手順を実行します。
 
 1.  Depending on whether you want to make a mapping for an [XML schema](xml-schemas), a [Consumed web service](consumed-web-services) or a [JSON structure](json-structures) documents you need to select an **XML schema**, **Web service operation** or **JSON structure** as the source.
-2.  If source is XML schema then select the root element of the mapping. This is done by selecting the **Start at** element for the XML schema or the **request part** for the web service operation. **Start at** lists the root elements in an XML schema. You can select one root element to base your mapping on. If source is Web service operation, **Request part** lists the header and body element of the request part of an operation. If an operation has multiple parameters, these are listed in the Request part as well. **Request part** is only applicable to export mappings.
-3.  Finally, select specific elements in the tree explorer below. Typically you do not need to map an entire source, since they can be quite large.
+2.  ソースが XML スキーマの場合、マッピングのルート要素を選択します。 これは、XML スキーマの **開始** 要素、または Web サービス操作の **リクエスト パーツ** を選択することにより行います。 **** から開始すると、XML スキーマ内のルート要素がリストされます。 マッピングをベースにするルート要素を1つ選択できます。 source が Web サービス操作の場合、 **Request part** は操作のリクエスト部分の header 要素と body 要素をリストします。 操作に複数のパラメータがある場合は、これらのパラメータもリクエスト部分に表示されます。 **部品のリクエスト** は、マッピングのエクスポートにのみ適用できます。
+3.  最後に、以下のツリーエクスプローラで特定の要素を選択します。 通常、ソース全体をマップする必要はありません。
 
 {{% alert type="info" %}}
-If the contents of the used schema source change, the mapping document does not match with the schema anymore and a consistency error is shown. This consistency error is easily fixed by right-clicking the consistency error itself and selecting 'Resolve by updating from schema'. Schema contents can change by importing a changed XML schema, WSDL or by changing a JSON structure.
+使用されているスキーマソースの内容が変更されると、マッピングドキュメントはスキーマと一致せず、一貫性エラーが表示されます。 この整合性エラーは、整合性エラー自体を右クリックし、「スキーマから更新して解決」を選択することで簡単に修正できます。 変更された XML スキーマ、WSDL をインポートするか、 JSON 構造を変更することによりスキーマコンテンツを変更することができます。
 {{% /alert %}}
 
-## 2 Rules and Restrictions
+## 2つのルールと制限
 
-Keep in mind the following rules and restrictions for element selection:
+要素の選択に関する以下のルールと制限を覚えておいてください：
 
-*   Unsupported elements cannot be checked.
-*   A value cannot be checked without a parent element.
-*   The top level element cannot be unchecked (export mapping only).
-*   An attribute cannot be checked without checking its parent element (export mapping only).
-*   An element with minimum occurrence 1 cannot be unchecked (export mapping only).
-*   If a choice or inheritance element is checked, at least one of its children needs to be checked.
+*   サポートされていない要素はチェックできません。
+*   親要素なしで値をチェックすることはできません。
+*   トップレベル要素はチェックを外すことはできません (マッピングのみエクスポート)。
+*   親要素をチェックせずに属性をチェックすることはできません (エクスポートマッピングのみ)。
+*   発生の最小値 1 はチェックを外すことはできません (マッピングのみエクスポート)。
+*   選択要素または継承要素がチェックされている場合、少なくとも 1 つの子要素がチェックされる必要があります。
 
-For ease of use, some elements will automatically be checked or unchecked:
+使いやすいように、いくつかの要素は自動的にチェックまたはチェックされます。
 
-*   If you check elements with mandatory children the required children will be automatically checked.
-*   Similarly, when unchecking an element in the export mapping the children of the element will be unchecked.
+*   必須の子要素を持つ要素をチェックすると、必要な子要素が自動的にチェックされます。
+*   同様に、エクスポートマッピング内の要素のチェックを外すと、要素の子要素はチェックされません。
 
-When working on an import mapping you are allowed to skip elements in the hierarchy but still select the children. You can do this when you're not interested in the information stored in the intermediary elements.
+インポートマッピングの作業では、階層内の要素をスキップすることができますが、子要素を選択することができます。 仲介要素に保存されている情報に興味がない場合にこれを行うことができます。
 
 {{% alert type="info" %}}
-You may encounter element selection checkboxes that are greyed out. If you hover the mouse over the checkbox, you see which rule or restriction prevents you from changing the checkbox value. For example, you may need to select a parent node first before you can select a child node.
+要素選択チェックボックスが灰色になっている場合があります。 チェックボックスの上にマウスをポイントすると、どのルールまたは制限がチェックボックスの値を変更できないことがわかります。 たとえば、子ノードを選択する前に、最初に親ノードを選択する必要があります。
 {{% /alert %}}
 
-## 3 Convenience Functions
+## 3つの便利な関数
 
-| Function     | Description                                                                                                                                                                                                                                   |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Filter       | Expand and filter the tree nodes based on whether the name contains the filter text. Because the filtering behavior relies on the 'Expand All' behavior, in very big schemas all elements matching the filter are not guaranteed to be found. |
-| Expand all   | Expands the entire tree, unless a node is a duplicate of one of its ancestors, or the number of expanded nodes is too large. The maximum of nodes per expand operation is currently 1,000.                                                    |
-| Collapse all | Collapses the entire tree, so that only the root node remains visible                                                                                                                                                                         |
-| Check all    | Checks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.                                                                                                                        |
-| Uncheck all  | Unchecks the box next to every expanded node and visible leaf node. Collapsed nodes and their children are not affected.                                                                                                                      |
+| 関数          | 説明                                                                                                                           |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| フィルター       | 名前にフィルターテキストが含まれているかどうかに基づいて、ツリーノードを展開してフィルターします。 フィルタリングの動作は「すべて展開」動作に依存しているため、非常に大きなスキーマでは、フィルタに一致するすべての要素が見つかることは保証されません。 |
+| すべて展開       | ノードが祖先の一つと重複している場合、または展開されたノードの数が大きすぎる場合を除き、ツリー全体を展開します。 拡張操作あたりのノードの最大値は現在1,000です。                                          |
+| すべて閉じる      | ツリー全体を折りたたみ、ルートノードだけが表示されたままになります。                                                                                           |
+| すべてチェック     | 展開されたすべてのノードとリーフノードの横のボックスをチェックします。 折りたたまれたノードとその子ノードは影響を受けません。                                                              |
+| すべてのチェックを外す | 展開されたすべてのノードと表示されるリーフノードの横のボックスのチェックを外します。 折りたたまれたノードとその子ノードは影響を受けません。                                                       |
