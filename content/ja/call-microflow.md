@@ -1,51 +1,51 @@
 ---
-title: "Call Microflow"
-parent: "workflows"
+title: "マイクロフローに発信"
+parent: "ワークフロー"
 menu_order: 50
 tags:
-  - "workflow"
-  - "workflows"
-  - "call microflow"
+  - "ワークフロー"
+  - "ワークフロー"
+  - "マイクロフローを呼び出します。"
   - "Studio Pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Call microflow** is used to call a selected [microflow](microflow).
+**選択した** マイクロフロー [マイクロフロー](microflow) を呼び出すために、コールマイクロフロー </a> が使用されます。
 
-![Call Microflow Example](attachments/call-microflow/call-microflow-example.jpg)
+![マイクロフローの例を呼び出す](attachments/call-microflow/call-microflow-example.jpg)
 
-## 2 Properties
+## 2つのプロパティ
 
-Call microflow properties consist of the following sections:
+コールマイクロフローのプロパティは以下のセクションで構成されています:
 
-* [Common](#common)
-* [General](#general)
-* [Outcomes](#outcomes)
-* [Parameters](#parameters)
+* [一般的な](#common)
+* [全般](#general)
+* [成果](#outcomes)
+* [パラメータ](#parameters)
 
-### 2.1 Common Section {#common}
+### 2.1 共通セクション {#common}
 
-**Name** is the internal name of the element. When referring to the element in the app you will use this name. It must be unique within the workflow, but you can have two elements with the same name in different workflows.
+**名前** は要素の内部名です。 アプリ内の要素を参照する場合は、この名前を使用します。 ワークフロー内で一意である必要がありますが、異なるワークフロー内で同じ名前を持つ2つの要素を持つことができます。
 
-### 2.2 General Section {#general}
+### 2.2 一般セクション {#general}
 
-#### 2.2.1 Caption
+#### 2.2.1 図表番号
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand without needing to add annotations.
+**図表番号** では、この要素で何が起こるかを説明します。 ワークフロー要素に表示され、アノテーションを追加することなく、ワークフローを読みやすくし、理解しやすくします。
 
-#### 2.2.2 Microflow
+#### 2.2.2 マイクロフロー
 
-The microflow that is called by this element.
+この要素によって呼び出されるマイクロフロー。
 
-### 2.3 Outcomes Section {#outcomes}
+### 2.3 アウトカムセクション {#outcomes}
 
-**Outcomes** depends on the return type and values of the microflow. For example, when there is not return type, you have a single outcome; for the Boolean, you have **true** and **false** outcomes; and for the enumeration – an outcome per each enumeration value and an empty one when the value is unassigned.
+**結果** は、マイクロフローの戻り値と値に依存します。 例えば、戻り値の型がない場合、結果は 1 つあります。 ブール値では、 **true** と **false** の結果が得られます。 そして、列挙については、各列挙値ごとの結果と値が割り当てられていない場合の空の値です。
 
-### 2.4 Parameters Section {#parameters}
+### 2.4 パラメーターセクション {#parameters}
 
-Parameters of the selected microflow. Depending on the selected microflow, you will see a list of its parameters. Parameters pass data to the element. To view **Parameters**, click the ellipsis icon next to the property name.
+選択したマイクロフローのパラメータ。 選択したマイクロフローに応じて、パラメータのリストが表示されます。 パラメータは要素にデータを渡します。 **パラメータ**を表示するには、プロパティ名の横にある省略記号アイコンをクリックします。
 
-## 3 Read More
+## 3 続きを読む
 
-* [Workflow Properties](workflow-properties)
+* [ワークフローのプロパティ](workflow-properties)
