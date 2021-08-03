@@ -8,10 +8,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/associations.pdf).
-{{% /alert %}}
-
 ## 1 Introduction {#intro}
 
 An association describes a relation between entities. In the domain model, an association is represented by a line or arrow between two entities.
@@ -71,6 +67,16 @@ You can edit the associations as members of the entity. In this case you will de
 ![](attachments/associations/edit-entity-association.png)
 
 For more information see [Association Tab Properties](association-member-properties).
+
+### 3.3 Move the Association Arrow
+
+You can move the association arrow between two entities without deleting it. Click within the black dot on either side of the association arrow and drag it to the new desired location.
+
+{{% alert type="warning" %}}
+Your mouse pointer should not activate a white dot. This indicates the creation of a new association.
+{{% /alert %}}
+
+![](attachments/associations/association-move-arrow.png)
 
 ## 4 Association Examples {#examples}
 
@@ -154,7 +160,7 @@ In XML, instances of these entities and their associations look as follows (note
 
 ```
 
-### 4.4 Many-to-Many Association with Dual Ownership
+### 4.4 Many-to-Many Association with Dual Ownership {#many-to-many-both}
 
 A many-to-many association where both entities are owners is created by setting the owner property to `Both` and the type property to `Reference set`.
 
