@@ -1,8 +1,8 @@
 ---
-title: "Document Generation Activities"
-parent: "activities"
+title: "ドキュメント生成アクティビティ"
+parent: "アクティビティ"
 ---
 
-## Generate Document
+## ドキュメントの生成
 
-See [Generate Document](generate-document).
+[ドキュメント生成](generate-document) を参照してください。
