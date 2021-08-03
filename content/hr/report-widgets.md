@@ -10,10 +10,6 @@ tags:
   - "data set"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/report-widgets.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}Report widgets are not supported on native mobile pages.{{% /alert %}}
 
 ## 1 Introduction
@@ -41,7 +37,7 @@ The **Report widgets** category contains the following widgets:
 
 ## 2 Performing Basic Functions
 
-{{% snippet file="refguide8/performing-basic-functions-widgets.md" %}}
+{{% snippet file="refguide/performing-basic-functions-widgets.md" %}}
 
 ## 3 Read More
 
