@@ -1,13 +1,11 @@
 ---
-title: "XPath 年从日期开始"
+title: "XPath 年从日期时间开始"
 parent: "xpate-constraint-function"
-tags:
-  - "studio pro"
 ---
 
 ## 1 概览
 
-`从dateTime()` 函数从 `日期和时间取出年份` 属性，以便它可以用于比较一个值。
+`从-dateTime()` 函数从 `日期时间` 的属性中提取年数，以便它可以用于比较一个值。
 
 ## 2 个示例
 
