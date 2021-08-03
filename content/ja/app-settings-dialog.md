@@ -1,31 +1,31 @@
 ---
-title: "App Settings Dialog"
-parent: "dialogs"
+title: "アプリの設定ダイアログ"
+parent: "ダイアログ"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-When creating a new app, you can do the following with this dialog box:
+新しいアプリを作成する場合、このダイアログボックスを使用して以下を行うことができます:
 
-* Enter an **App name**.
-* Select whether to **Enable online services** provided by the Mendix Platform.
-* Select the **Default language**.
-* Enter the location of the **Project directory** where the project files for your app are stored.
+* **アプリ名** を入力してください。
+* Mendixプラットフォームが提供する **オンラインサービスを有効にする** にするかどうかを選択します。
+* **デフォルト言語** を選択します。
+* アプリのプロジェクト ファイルが保存されている **プロジェクト ディレクトリ** の場所を入力します。
 
-These settings are optional. You can click **Create app** to create your app with the default settings. ![](attachments/app-settings-dialog/app-settings-dialg-box.png)
+これらの設定は任意です。 **Create app** をクリックすると、デフォルト設定でアプリを作成できます。 ![](attachments/app-settings-dialog/app-settings-dialg-box.png)
 
-## 2 App Name
+## 2つのアプリ名
 
-In the **App name** field, enter the name of your new app. This name is used as the name of the project directory and file on disk. If you enable the online services for this app, the name is also used for the Team Server repository and a corresponding app in **My Apps**.
+**App name** フィールドに、新しいアプリケーションの名前を入力します。 この名前は、プロジェクトディレクトリとディスク上のファイルの名前として使用されます。 このアプリのオンラインサービスを有効にする場合 この名前は、Team Serverリポジトリと **My Apps**の対応するアプリにも使用されます。
 
-## 3 Enable Online Services
+## 3 オンラインサービスを有効にする
 
-The Mendix Platform offers online services such as [version control](version-control), cloud deployment, and collaboration. If you select **Yes** for **Enable online services**, this will create a project in the Developer Portal and a corresponding version control repository. If you choose **No**, you will create an app that is only stored on your local disk. At a later point you can still decide to upload this local app to a version control server and enjoy the benefits of version control.
+Mendix Platformは、 [バージョンコントロール](version-control)、クラウドデプロイメント、コラボレーションなどのオンラインサービスを提供します。 **オンラインサービスを有効にする** に **はい**を選択した場合 これにより、開発者ポータルにプロジェクトと対応するバージョン管理リポジトリが作成されます。 **No**を選択すると、ローカルディスクにのみ保存されているアプリが作成されます。 後でも、このローカルアプリをバージョン管理サーバーにアップロードし、バージョン管理のメリットを享受することができます。
 
-## 4 Default Language
+## 4 既定の言語
 
-In the **Default language** drop-down list, select the language of the user interface of your app. Choose the language that you will initially use in your forms and other user interface elements. You can always add additional languages to your app later.
+**既定の言語** ドロップダウン リストで、アプリケーションのユーザー インターフェイスの言語を選択します。 フォームやその他のユーザーインターフェイス要素で最初に使用する言語を選択します。 後でいつでもアプリに追加の言語を追加できます。
 
-## 5 Project Directory
+## 5 プロジェクトディレクトリ
 
-In the **Project directory** field, specify the project directory where the files of your app are stored. If you enable the online services for the new app, you will see that the suffix **-main** will be appended to the directory name automatically. This is to indicate that the directory contains the main branch line of your project. While working on your app, you can create new branches and download these to other directories.
+**プロジェクト ディレクトリ** フィールドで、アプリケーションのファイルが格納されるプロジェクト ディレクトリを指定します。 新しいアプリのオンラインサービスを有効にする場合 サフィックス **-main** がディレクトリ名に自動的に追加されます。 これは、ディレクトリにプロジェクトのメインブランチラインが含まれていることを示します。 アプリで作業中に新しいブランチを作成し、他のディレクトリにダウンロードすることができます。
