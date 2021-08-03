@@ -1,17 +1,15 @@
 ---
-title: "XPath の日付開始日"
+title: "XPath 日 from-dateTime"
 parent: "xpath-constraint-functions"
-tags:
-  - "studio pro"
 ---
 
 ## 1つの概要
 
-`year-of-dateTime()` 関数は、 **Date and time** 属性から年の日を抽出し、値と比較するために使用することができます。 値は 1 (1 月 1日) から 366 (うるう年のため) の範囲です。
+`year-of-dateTime()` 関数は、DateTime 属性から日数(その年)を抽出し、値と比較するために使用することができます。 値は 1 から 366 の範囲です(うるう年のため)。
 
 ## 2つの例
 
-このクエリは、 `DateAttribute` の年の日付が 30 であるすべてのログを返します(例: "2011-01-30" と "2012-01-30" )。
+このクエリは、 `DateAttribute` の日数(その年)が30(たとえば、"2011-01-30")であるすべてのログを返します。
 
 ```java
 //Logging.Log[year-of-dateTime(DateAttribute) = 30]
