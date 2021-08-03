@@ -18,7 +18,7 @@ tags:
 
 ![](attachments/microflows-loop/loop.png)
 
-循环可以包含微流中使用的所有类型元素，但启动和结束事件除外。 此外，只有循环可以包含 [中断事件](/refguide/break-event) 和 [继续事件](/refguide/continue-event)。 休息活动只用于循环中停止在对象列表上的迭代，然后在微流中继续其它流程。 继续事件仅用于停止当前的迭代和开始下一个对象的迭代。
+循环可以包含微流中使用的所有类型元素，但启动和结束事件除外。 此外，只有循环可以包含 [中断事件](/refguide8/break-event) 和 [继续事件](/refguide8/continue-event)。 休息活动只用于循环中停止在对象列表上的迭代，然后在微流中继续其它流程。 继续事件仅用于停止当前的迭代和开始下一个对象的迭代。
 
 ## 2 循环属性
 
@@ -41,7 +41,7 @@ tags:
 
 1. [在您的域模型中创建一个实体](domain-models#adding-new-entities) 并命名它 *订单*。
 2. [为这个实体创建布尔类型的属性](domain-models#adding-new-attributes) ，以表明订单状态并命名此属性 *已处理*。
-3. [创建微流](microflows#create)。
+3. [创建微流](microflows#creating-new-microflow)。
 
 要开始使用情况，请做以下操作：
 
