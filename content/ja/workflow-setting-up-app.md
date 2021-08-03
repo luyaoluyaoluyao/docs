@@ -1,89 +1,89 @@
 ---
-title: "Adding a Workflow to an Existing App: Setting Up the Basics"
-parent: "workflows"
-description: "Describes how to use Workflow Commons in an existing app in Mendix Studio Pro."
+title: "既存のアプリにワークフローを追加する: 基本の設定"
+parent: "ワークフロー"
+description: "Mendix Studio Proの既存アプリでワークフローコモンズを使用する方法について説明します。"
 menu_order: 55
 tags:
   - "studio pro"
-  - "workflow"
-  - "task"
-  - "onboarding"
+  - "ワークフロー"
+  - "タスク"
+  - "オンボーディング"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Workflow Commons** is a workflow-specific module that contains a lot of preconfigured documents, such as pages, snippets, page teamples, microflows. You can download the [Workflow Commons module](https://marketplace.mendix.com/link/component/117066) from the Mendix Marketplace and integrate it in your app, however, this requires some preparation first.
+**Workflow Commons** はワークフロー固有のモジュールで、ページ、スニペット、ページテアンプ、マイクロフローなど、多くの事前設定済みドキュメントを含みます。 Mendix Marketplace から [Workflow Commons モジュール](https://marketplace.mendix.com/link/component/117066) をダウンロードし、アプリに統合することができますが、これにはまず準備が必要です。
 
-Before adding the Workflow Commons module to your app, make sure you have completed the following:
+Workflow Commonsモジュールをアプリに追加する前に、以下の内容が完了していることを確認してください。
 
-* Upgrade your application to Mendix 9
-* Install Atlas 3 from the Mendix Marketplace, as Workflow Commons depends on it
-* As a result of installing Atlas 3, your app should contain the following modules that Workflow Commons depends on: Atlas Core, Atlas Web Content, and DataGrid
+* アプリケーションを Mendix 9 にアップグレード
+* Mendix マーケットプレイスから Atlas 3 をインストールします。ワークフローコモンズによって異なります。
+* Atlas 3のインストールの結果 Workflow Commonsが依存する以下のモジュールを含める必要があります: Atlas Core, Atlas Web Content, DataGrid
 
-## 2 Preparing Your App
+## 2 アプリの準備
 
-By default, Workflow Commons will integrate with [Mendix SSO](https://marketplace.mendix.com/link/component/117212) that allows you to invite and manage users and roles in the [Manage App Users page](/developerportal/collaborate/general-settings) in the Developer Portal. You can download Mendix SSO from the Mendix Marketplace. If you do not have Mendix SSO installed, you will see some consistency errors after installing Workflow Commons. After adding the Mendix SSO module, the consistency errors caused by the installation of Workflow Commons will be gone. If you want to implement a different user authentication and user management method, you can replace the references made to Mendix SSO in Workflow Commons with the user entity of your preference.
+デフォルトでは、 ワークフロー コモンズは [Mendix SSO](https://marketplace.mendix.com/link/component/117212) と統合し、開発者ポータルの [アプリユーザー管理ページ](/developerportal/collaborate/general-settings) でユーザーとロールを招待および管理できます。 Mendix SSO は Mendix Marketplace からダウンロードできます。 Mendix SSOがインストールされていない場合は、Workflow Commonsをインストールした後、一貫性のエラーが表示されます。 Mendix SSOモジュールを追加すると、Workflow Commonsのインストールによって生じる一貫性のエラーはなくなります。 別のユーザー認証とユーザー管理方法を実装する場合 ワークフローコモンズでMendix SSOへの参照を、好みのユーザーエンティティと置き換えることができます。
 
-## 3 Workflow Commons Components
+## 3ワークフローコモンズコンポーネント
 
-The purpose of Workflow Commons is to provide you with useful pages, page templates, snippets, and microflows that can save you development time. All documents in the **Private** folder are meant for internal purposes within the module itself, but you can find a couple of useful documents that you can make use of in the **UseMe** folder.
+Workflow Commonsの目的は、開発時間を節約できる便利なページ、ページテンプレート、スニペット、およびマイクロフローを提供することです。 All documents in the **Private** folder are meant for internal purposes within the module itself, but you can find a couple of useful documents that you can make use of in the **UseMe** folder.
 
-### 3.1 Pages
+### 3.1 ページ
 
-There are three pages provided with the Workflow Commons module to get you and your users started with workflows. The functionality contained in these pages works out-of-the-box. Simply add these pages to the [navigation](navigation) of your app to start using them. You can find the following pages in Workflow Commons:
+Workflow Commonsモジュールには、あなたとあなたのユーザーがワークフローで開始できるようにするための3つのページがあります。 これらのページに含まれる機能はすぐに使用できます。 アプリの [ナビゲーション](navigation) にこれらのページを追加するだけで、使い始めることができます。 ワークフローコモンズでは、以下のページをご覧いただけます。
 
-*   **DefaultWorkflowAdmin** – The default workflow admin page that a workflow administrator can use to view and manage a workflow instance. This page can be used in the _Show workflow admin page_ microflow activity and button action.
-*   **TaskDashboard** – Gives end-users an overview of their performance in your app's workflows. It contains such information as how many tasks your users have completed, how long they take on average to complete a task, and what percentage of their tasks they complete within the deadline.
-*   **TaskInbox** – Contains a handy list of all tasks that a user can interact with. _My open tasks_ shows the tasks assigned to current users, _All open tasks_ is a list of tasks they could pick up, _Unassigned tasks_ shows all unassigned tasks, and _Completed tasks_ gives an overview of all tasks that were finished.
-*   **WorkflowAdminCenter** – A navigational page for workflow administrators. From here, a workflow administrator can go the the _Workflow dashboard_, which gives them general statistics of workflows, much like the _MyTaskDashboard_ does for users. Workflow administrators also gain access to the _Workflow Admin Center_, where they can see all the instances of specific workflows and make changes to their data or even abort them.
+*   **DefaultWorkflowAdmin** – ワークフロー管理者がワークフローインスタンスの表示と管理に使用できるデフォルトのワークフロー管理者ページ。 このページは、 _Show workflow admin page_ microflow activity and button actionsで使用できます。
+*   **TaskDashboard** – エンドユーザーにアプリのワークフローのパフォーマンスの概要を提供します。 これには、ユーザーが完了したタスクの数などの情報が含まれています タスクを完了するまでの平均時間と期限内に完了したタスクの割合です
+*   **TaskInbox** – ユーザーが操作できるすべてのタスクの便利なリストが含まれています。 _My open tasks_ shows the tasks assigned to current users, _All open tasks_ is a list of tasks they could pick up, _Unassigned tasks_ shows all unassigned tasks, and _Completed tasks_ gives an overview of all tasks that were finished.
+*   **WorkflowAdminCenter** – ワークフロー管理者向けのナビゲーションページ。 From here, a workflow administrator can go the the _Workflow dashboard_, which gives them general statistics of workflows, much like the _MyTaskDashboard_ does for users. ワークフロー管理者は _ワークフロー管理者センター_にもアクセスできます 特定のワークフローのすべてのインスタンスを見ることができ、データを変更したり、中止したりすることもできます。
 
-### 3.2 Page Templates
+### 3.2 ページ テンプレート
 
-Workflow Commons contains page templates to easily get you started with building workflow-related pages. These templates are automatically suggested to you when you make a new page from either the user task or workflow properties. You can find the following page templates in Workflow Commons:
+ワークフロー コモンズには、ワークフロー関連のページの構築を簡単に開始できるようにページテンプレートが含まれています。 これらのテンプレートは、ユーザー タスクまたはワークフロー プロパティから新しいページを作成すると自動的に提案されます。 ワークフローコモンズには、次のページテンプレートがあります。
 
-*   **UserTask_Basic** – A basic template that shows a header with the task name and description, a sidebar with details about the assignee and status of the task, and a main view where input widgets and buttons to complete the task are generated.
-*   **UserTask_Extended** – Does exactly the same as the basic user task template, but extends it by adding attachments and comments sections, as well as an activity timeline to see what has previously happened in this workflow.
-*   **Workflow_Overview** – Can be used to easily generate an overview page for a specific workflow. It contains a header with the name of the workflow, as well as an action menu for administrators. There are three tabs, _General information_, _Task details_, and _Notes and attachments_. In the _General information_ tab, you will see the current state of the workflow, when it has started and ended, as well as the due date and potential reasons for failure. The activity timeline is displayed, and there is a section with generated input widgets that allows administrators to make changes to the data in the workflow. For more information about the individual tasks: who worked on them and who would have been able to pick them up, go to the _Task details_ tab. Finally, the _Notes and attachments_ tab provides an overview of all the notes and attachments that were added for this workflow.
+*   **UserTask_Basic** – タスク名と説明を含むヘッダーを表示する基本的なテンプレート 担当者の状況やタスクの詳細が書かれたサイドバー そして、タスクを完了するための入力ウィジェットとボタンが生成されるメインビューです。
+*   **UserTask_Extended** – 基本ユーザータスクテンプレートと全く同じことを行います。 添付ファイルやコメントセクションを追加するだけでなく、アクティビティのタイムラインを追加して、このワークフローで何が起こったかを確認することができます。
+*   **Workflow_Overview** – 特定のワークフローの概要ページを簡単に生成できます。 ワークフローの名前と管理者のアクションメニューを含むヘッダーが含まれています。 _一般情報_, _タスクの詳細_, および _メモと添付ファイル_ の 3 つのタブがあります。 _一般情報_ タブには、ワークフローの現在の状態が表示されます。 それが始まって終わった時期と失敗の可能性がある理由と同様に アクティビティのタイムラインが表示されます 入力ウィジェットが生成されたセクションで管理者がワークフロー内のデータを変更できます 個々のタスクの詳細については、誰がそれらに取り組んだか、誰がそれらを拾うことができたでしょう。 _タスクの詳細_ タブに移動します。 最後に、 __ タブには、このワークフローに追加されたすべてのノートと添付ファイルの概要が表示されます。
 
-### 3.3 Snippets
+### 3.3 スニペット
 
-If you would like to customize page templates, you can do that with the help of the snippets provided by Workflow Commons. You can find them in the **Snippets** folder of the Workflow Commons module.
+ページテンプレートをカスタマイズしたい場合は、Workflow Commonsが提供するスニペットを使用して行うことができます。 ワークフローコモンズモジュールの **スニペット** フォルダにあります。
 
-### 3.4 Microflows
+### 3.4 Microflow
 
-Preconfigured microflows help you assigning user tasks, and one allows you to abort workflows. You can find the following microflows in Workflow Commons:
+構成済みのマイクロフローは、ユーザータスクを割り当てるのに役立ちます。また、ワークフローを中断することもできます。 以下のマイクロフローは、Workflow Commonsで確認できます。
 
-*   **ACT_UserTask_AssignToMe** – Assigns a user task, which is passed as a parameter, and assigns it to the current user.
-*   **ACT_UserTask_AssignToUser** – Assigns a user task to a specified user, both passed as parameters.
-*   **ACT_UserTask_Unassign** – Removes the assignee from a user task, which is passed as a parameter.
-*   **ACT_Workflow_Abort** – Aborts a workflow instance and all of its currently running user tasks. The workflow instance is passed in as a parameter.
+*   **ACT_UserTask_AssignToMe** – パラメータとして渡されるユーザータスクを割り当て、現在のユーザーに割り当てます。
+*   **ACT_UserTask_AssignToUser** – 指定されたユーザーにユーザータスクを割り当てます。
+*   **ACT_UserTask_Unassign** – パラメータとして渡されるユーザータスクから担当者を削除します。
+*   **ACT_Workflow_Abort** – 現在実行中のユーザータスクとワークフローインスタンスを中断します。 ワークフローインスタンスはパラメータとして渡されます。
 
-## 4 Setting Up User Assignment and Security
+## 4 ユーザー割り当てとセキュリティの設定
 
-The Workflow Commons module has two module roles for you to make use of. Users with the **User** module role will gain access to the **MyTaskDashboard** and **MyTaskInbox** pages, as well as the ability to create and change their own attachments and notes on workflows. Giving someone **Administrator** privileges allows them to explore the **WorkflowAdminCenter**, manage attachments and notes from anyone, and abort workflows.
+Workflow Commonsモジュールには、使用するための2つのモジュールロールがあります。 **ユーザー** モジュールロールを持つユーザーは、 **MyTaskDashboard** と **MyTaskInbox** ページにアクセスできます。 ワークフロー上の添付ファイルやメモを作成および変更することができます。 誰かに **管理者** 権限を与えることで、 **WorkflowAdminCenter**を探索し、誰からの添付ファイルやメモを管理し、ワークフローを中止することができます。
 
-Depending on the required user roles for your application, you may have the need to distinguish workflow administrators from regular administrators. If that is the case, follow the steps below:
+アプリケーションに必要なユーザーロールに応じて、ワークフロー管理者と通常の管理者を区別する必要があります。 その場合は、以下の手順に従ってください。
 
-1.   Make a new user role for workflow administrators.
-2.   Link the user role to the **Administrator** module role in Workflow Commons.
-3.   Link the user role to both the **User** and **WorkflowAdministrator** module roles in the System module.
+1.   ワークフロー管理者のための新しいユーザーロールを作成します。
+2.   Workflow Commonsの **管理者** モジュールロールにユーザーロールをリンクします。
+3.   ユーザーロールを **ユーザー** と **WorkflowAdministrator** モジュールロールの両方にリンクします。
 
-Finally, go to the Workflows tab in your [project settings](project-settings#workflows) and select the same user entity as the one you are using in Workflow Commons. If you using Mendix SSO, set it to **MendixSSO.MendixSSOUser**. You can then use the properties of this entity to filter the users that can pick up a task in the task's user assignment property. For more information on user task properties, see [User Task](user-task).
+最後に [プロジェクト設定](project-settings#workflows) の format@@2 タブに移動し、Workflow Commons で使用しているユーザーと同じユーザーエンティティを選択します。 Mendix SSO を使用している場合は、 **MendixSSO.MendixSSOUser** に設定してください。 次に、このエンティティのプロパティを使用して、タスクをformat@@0プロパティでタスクを選択できるユーザーをフィルタリングできます。 ユーザー タスク プロパティの詳細については、 [ユーザー タスク](user-task) を参照してください。
 
-## 5 Customizing Workflow Commons
+## 5 ワークフローコモンズのカスタマイズ
 
-While Workflow Commons does provide useful documents out-of-the-box, you might have the need to change the content and, for example, make pages company-specific. When doing so, we recommend that you make a copy of the document that you will be changing to a local module called **WorkflowCommonsCustomizations**, so that you do not accidentally overwrite your changes in the future when upgrading to a newer version. Feel free to also browse around in the **Private** folder of the module to discover the snippets and sub-microflows. For more information on how to configure a workflow and set up pages and other elements for it, see [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure).
+Workflow Commonsはすぐに役に立つドキュメントを提供しますが、コンテンツを変更したり、ページを会社固有にするなどする必要がある場合があります。 その場合。 **WorkflowCommonsCustomizations**という名前のローカルモジュールに変更するドキュメントのコピーを作成することをお勧めします。 新しいバージョンにアップグレードする際に、将来の変更を誤って上書きしないようにします。 モジュールの **Private** フォルダを参照して、スニペットとサブマイクロフローを見つけることもできます。 ワークフローを構成し、ページやその他の要素を設定する方法の詳細については、 を参照してください [従業員のオンボーディングプロセスの Studio Pro でワークフローを構成する方法](/howto/logic-business-rules/workflow-how-to-configure)。
 
-## 6 Workflow Best Practices
+## ワークフローのベストプラクティス6選
 
-We recommend the following best practices when working with workflows:
+ワークフローを扱う際には、以下のベストプラクティスをお勧めします。
 
-*   When creating your workflow entity, use associations to connect to relevant information and only create attributes that are related to the current workflow instance. An example could be an **Expense** entity containing a description and amount, associated with an **ExpenseApproval** entity which has attributes for the approval state and a reason for rejection.
-*   When creating a user task, add a short description of the target users to the caption of the task. An example could be **HR: Schedule onboarding training** in an employee onboarding workflow.
-*   When creating a microflow for a system task, prefix it with **WF\_**, so everyone knows it is being used in a workflow.
+*   ワークフローエンティティを作成する際、関連付けを使用して関連情報に接続し、現在のワークフローインスタンスに関連する属性のみを作成します。 An example could be an **Expense** entity containing a description and amount, associated with an **ExpenseApproval** entity which has attributes for the approval state and a reason for rejection.
+*   ユーザータスクを作成する際に、対象となるユーザーの簡単な説明をタスクのキャプションに追加します。 例えば、 **HR: 従業員のオンボーディングワークフローでオンボーディングトレーニング** をスケジュールすることができます。
+*   システムタスクのマイクロフローを作成するときは、 **WF\_**でプレフィックスを付けることで、ワークフローで使用されていることを誰もが知ることができます。
 
-## 7 Read More
+## 7 続きを読む
 
-*   [Workflows](workflows)
-*   [How to Configure a Workflow in Studio Pro for the Employee Onboarding Process](/howto/logic-business-rules/workflow-how-to-configure)
+*   [ワークフロー](workflows)
+*   [Studio Proで従業員のオンボーディングプロセスのワークフローを構成する方法](/howto/logic-business-rules/workflow-how-to-configure)
 
