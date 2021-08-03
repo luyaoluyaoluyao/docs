@@ -1,35 +1,38 @@
 ---
 title: "Static Label (Document Template)"
 parent: "document-templates"
-tags:
-  - "studio pro"
 aliases:
-  - /refguide/Static+label+(document+template).html
-  - /refguide/static-label-(document-template).html
+  - /refguide7/Static+label+(document+template).html
+  - /refguide7/static-label-(document-template).html
 ---
 
-## 1 Introduction
 
 A static label shows a line of static text. You can use it to place custom text inside a data view, template grid or table.
 
-For example, a label with text 'Customer name' will be look like this:
+{{% alert type="info" %}}
 
-![](attachments/document-templates/918130.png)
+![](attachments/819203/918130.png)] A label with text 'Customer name'.
 
-If you want to insert the current page number or the total page count in your document, you can use a token inside a static label (and only in a static label).
+{{% /alert %}}
 
-For example, static label content `Page [%pageNumber%] of [%totalPageCount%]` will print **Page 2 of 4**.
+If you want to insert the current page number or the total page count in your document, you can use a token inside a static label (and only in a static label). Before version 2.5.4, spaces were automatically inserted on either side of the token. This is no longer the case.
 
-## 2 Common Properties
+{{% alert type="info" %}}
 
-{{% snippet file="refguide/name-property.md" %}}
+Static label content: Page [%pageNumber%] of [%totalPageCount%] Will print: Page 2 of 4
 
-## 3 Appearance Properties
+{{% /alert %}}
 
-### 3.1 Caption
+## Common Properties
+
+{{% snippet file="refguide7/Name+Property.md" %}}
+
+## Appearance Properties
+
+### Caption
 
 This is the value that will be displayed in the document.
 
-### 3.2 Style
+### Style
 
-For details, see [Style](style).
+See [Style](style)
