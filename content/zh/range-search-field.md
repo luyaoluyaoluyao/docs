@@ -1,49 +1,49 @@
 ---
-title: "Range Search Field"
-parent: "search-bar"
+title: "范围搜索字段"
+parent: "搜索栏"
 ---
 
 
-Given an entity that contains a range, this search field is used to find all entities whose range overlaps with the specified value.
+给一个包含范围的实体，这个搜索字段用于查找范围与指定值相重叠的所有实体。
 
-Example: given an entity 'Festival' that has a 'Start' and an 'End' date, which Festivals take place at day X?
+例子：给了一个实体“节日”，它有一个“开始”和一个“结束”日期，在X天是什么样的节日？
 
-Datatypes supported by this search field are: Integer, Currency, Decimal, DateTime, Float, AutoNumber, Long.
+此搜索字段支持的数据类型为：Integer, Currency, Decimal, DateTime, Float, AutoNumber, Long。
 
-You can specify whether the range boundaries are inclusive or exclusive using the Lower- and Upper bound operator.
+您可以使用低和高绑定运营商指定范围边界是包含的还是排他的。
 
-## Common Properties
+## 公共属性
 
-{{% snippet file="refguide7/Search+Field+Caption+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Caption+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Type+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Type+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Default+Value+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Default+Value+Property.md" %}}
 
-{{% snippet file="refguide7/Search+Field+Custom+Date+Format+Property.md" %}}
+{{% snippet file="refguid7/Search+Field+Custom+Date+Format+Property.md" %}}
 
-{{% snippet file="refguide7/Custom+Date+Format+Tokens.md" %}}
+{{% snippet file="refguid7/Custom+Date+Format+Tokens.md" %}}
 
 {{% snippet file="refguide7/Search+Field+Placeholder+Property.md" %}}
 
-## General Properties
+## 常规属性
 
-### Lower Bound
+### 下边框
 
-This attribute (path) determines the lower bound of the range.
+此属性 (路径) 决定范围的下限。
 
-### Lower Bound Operator
+### 下限操作符
 
-The lower bound operator determines whether the comparison with the lower bound is inclusive (>=) or not (>). It can be either 'Greater' or 'Greater or equal'.
+下限操作员决定与下限的比较是否包含(>=) (>)。 它可以是“更大的”，也可以是“更大的或者平等的”。
 
-_Default value_: Greater.
+_默认值_: 绿.
 
-### Upper Bound
+### 上边框
 
-This attribute (path) determines the upper bound of the range.
+此属性 (路径) 决定范围的上限。
 
-### Upper Bound Operator
+### 上边界运算符
 
-The upper bound operator determines whether the comparison with the upper bound is inclusive (<=) or not (<). It can be either 'Smaller' or 'Smaller or equal'.
+上限的操作者决定与上限的比较是否兼容(<=) (<)。 它可以是“小人”，也可以是“小人和平等人”。
 
-_Default value_: Smaller
+_默认值_: 较小的
