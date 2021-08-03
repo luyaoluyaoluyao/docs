@@ -1,131 +1,131 @@
 ---
-title: "Preferences"
+title: "設定"
 parent: "edit-menu"
 menu_order: 50
 tags:
   - "studio pro"
-  - "preferences"
-  - "settings"
-  - "edit menu"
+  - "設定"
+  - "設定"
+  - "メニューを編集"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The **Preferences** option in the menu opens a dialog box where you can set user-specific preferences which apply to the whole of Studio Pro:
+メニューの **環境設定** オプションを使用すると、Studio Pro 全体に適用されるユーザー固有の環境設定を設定できるダイアログボックスが開きます。
 
-![Preferences](attachments/preferences-dialog/preferences.jpg)
+![設定](attachments/preferences-dialog/preferences.jpg)
 
-## 2 General Tab
+## 2つの一般タブ
 
-### 2.1 Interface
+### 2.1 インターフェース
 
-#### 2.1.1 Keep Active Document Selected in App Explorer
+#### 2.1.1 アプリエクスプローラーでアクティブなドキュメントを選択してください
 
-When enabled, **App Explorer** automatically highlights the document that is currently active. When this property is disabled, the selection in **App Explorer** remains unchanged when the active document changes.
+有効にすると、 **App Explorer** は現在アクティブなドキュメントを自動的に強調表示します。 このプロパティが無効になっている場合、 **App Explorer** 内の選択は、アクティブなドキュメントが変更されても変更されません。
 
-### 2.2 Mendix Assist
+### 2.2 Mendix Assists
 
 #### 2.2.1 Logic Bot
 
-The **Logic Bot** tab contains the following settings:
+**Logic Bot** タブには以下の設定が含まれています:
 
-* **Enable MxAssist Logic Bot** – when enabled, [MxAssist Logic Bot](mx-assist-logic-bot) is activated and can give you suggestions for microflow activities. You can also switch MxAssist Logic Bot on and off in the top right corner of the microflow editor.
-* **Show Suggestions for System Variables** – when enabled, MxAssist Logic Bot will include system objects in its suggestions (for example, it can suggest that you change system objects like currentUser or currentSession).
+* **MxAssist Logic Bot** を有効にする - 有効にすると、 [MxAssist Logic Bot](mx-assist-logic-bot) が有効になり、マイクロフローアクティビティについて提案することができます。 また、マイクロフローエディターの右上隅にある MxAssist Logic Bot のオンとオフを切り替えることもできます。
+* **システム変数への提案を表示** - 有効にすると、MxAssistロジックボットはシステムオブジェクトをその提案に含めます（例えば、 これは、currentUserやcurrentSessionなどのシステムオブジェクトを変更することを示唆することができます。
 
-#### 2.2.2 Performance Bot
+#### 2.2.2 パフォーマンスボット
 
-The **Performance Bot** tab contains the **Show recommendation in editors** setting. When enabled, [MxAssist Performance Bot](mx-assist-performance-bot) highlights elements that contain performance issues in visual editors.
+**パフォーマンス ボット** タブには、 **編集者の** のおすすめを表示する</strong> 設定があります。 有効にすると、 [MxAssist Performance Bot](mx-assist-performance-bot) はビジュアルエディターのパフォーマンスの問題を含む要素を強調表示します。
 
-### 2.3 Error List
+### 2.3 エラー リスト
 
-#### 2.3.1 Auto-Check Delay
+#### 2.3.1 自動チェックの遅延
 
-The **Auto-check delay** is the number of milliseconds that Studio Pro waits after a change, before starting the consistency checks. Increase this setting for large apps if Studio Pro responses slowly after changes.
+**自動チェック遅延** は、一貫性チェックを開始する前に、Studio Pro が変更後に待機するミリ秒数です。 Studio Proの応答が変更後にゆっくりとなった場合、大きなアプリのこの設定を大きくしてください。
 
-#### 2.3.2 Highlight Shown Errors and Warnings in the Editor
+#### 2.3.2 エディタに表示されるエラーと警告
 
-When **Highlight shown errors and warnings in the editor** is checked, the errors and warnings which are currently shown in the Error List (as determined by the **Errors** and **Warnings** toggle buttons and the suppression rules) will be highlighted on the affected elements in the editor.
+**強調表示すると、エディタ** でエラーと警告が表示されます (** エラー ** および **警告** ボタンと **警告** ボタンと抑制ルールによって決定される) エラーと警告は、エディタの影響を受ける要素でハイライトされます。
 
-### 2.4 Deployment
+### 2.4 配置
 
-#### 2.4.1 JDK directory
+#### 2.4.1 JDK ディレクトリ
 
-This is the directory in which the Java Development Kit (JDK) is located on the computer on which you deploy the application. Usually, the correct directory is located automatically.
+これは、アプリケーションをデプロイするコンピュータ上に、Java Development Kit (JDK) が置かれているディレクトリです。 通常、正しいディレクトリは自動的に配置されます。
 
-The JDK is necessary to run Mendix applications, because the Mendix Runtime is written in Java.
+Mendix RuntimeはJavaで書かれているため、JDKはMendixアプリケーションを実行するために必要です。
 
-#### 2.4.2 Enable Run Optimizations
+#### 2.4.2 実行最適化を有効にする
 
-Enable this setting to increase the speed at which a running application is updated after changes have been made in Studio Pro. When only pages, layouts or snippets have been changed, an entire restart of the application is skipped to decrease deployment time. Also, no Java compilation is performed when no relevant files have changed.
+この設定を有効にすると、Studio Pro での変更後に実行中のアプリケーションが更新される速度を上げることができます。 ページ、レイアウト、スニペットのみが変更された場合、アプリケーションの再起動はスキップされ、デプロイ時間が短縮されます。 また、関連するファイルが変更されていない場合は、Javaコンパイルは実行されません。
 
-## 3 Model Tab
+## 3つのモデルタブ
 
-### 3.1 When Prompted by a Widget to Automatically Fill Its Contents, Select 'Yes' by Default
+### 3.1 ウィジェットによってコンテンツを自動的に入力するように求められた場合は、デフォルトで「はい」を選択します
 
-This setting defines the default response to the question whether to automatically fill the contents of a data widget. This question is asked, for example, when dragging an Entity onto a Data View widget. When enabled, the pre-selected answer is **yes**; otherwise, it is **no**.
+この設定は、データウィジェットの内容を自動的に入力するかどうかを質問へのデフォルトの応答を定義します。 たとえば、エンティティをデータ ビュー ウィジェットにドラッグする場合など、この質問が表示されます。 有効にすると、あらかじめ選択された回答は **yes**です。それ以外の場合は、 **no** です。
 
-## 4 Version Control Tab
+## 4 バージョン管理タブ
 
-### 4.1 File Comparison
+### 4.1 ファイル比較
 
-#### 4.1.1 Executable
+#### 4.1.1 実行可能
 
-This is the path and name of the program that is used to view the details of file changes in the [commit dialog box](commit-dialog).
+これは、 [コミット ダイアログボックス](commit-dialog) 内のファイル変更の詳細を表示するために使用されるプログラムのパスと名前です。
 
-#### 4.1.2 Argument Pattern
+#### 4.1.2 引数パターン
 
-This is the pattern from which the arguments are derived that are passed to the file comparison program. The following two placeholders can be used in this pattern:
+これは、ファイル比較プログラムに渡される引数が派生するパターンです。 このパターンでは、次の2つのプレースホルダを使用できます。
 
-* `{0}` – this is replaced with the name of the original file before the arguments are passed to the file comparison program
-* `{1}` – this is replaced with the name of the changed file before the arguments are passed to the file comparison program
+* `{0}` - 引数がファイル比較プログラムに渡される前に、これは元のファイルの名前に置き換えられます
+* `{1}` - 引数がファイル比較プログラムに渡される前に変更されたファイルの名前に置き換えられます
 
-### 4.2 Enable Private Version Control with Subversion{#enable}
+### 4.2 Subversion{#enable} でプライベートバージョン管理を有効にする
 
-Select this option when you want to work on an app that is not stored in [Mendix Team Server](/developerportal/collaborate/team-server), but in another Subversion server to which you have access. This will allow you to specify the location of the app on the Subversion server when opening, downloading, or uploading the app.
+[Mendix Team Server](/developerportal/collaborate/team-server)に保存されていないアプリで作業する場合は、このオプションを選択します。 しかし、あなたがアクセスできる別の Subversion サーバーで。 これにより、アプリを開いたり、ダウンロードしたり、アップロードしたりする際に、Subversion サーバー上でアプリの場所を指定することができます。
 
-### 4.3 Enable Private Version Control with Git
+### 4.3 Git によるプライベートバージョン管理を有効にする
 
-Select this option when you want to work on an app that is not stored in [Mendix Team Server](/developerportal/collaborate/team-server), but in a private Git server to which you have access. This will allow you to specify the location of the app on the Git server when opening, downloading, or uploading the app. In this section, you also need to specify name and email values that will be used to identify your commits with Git.
+[Mendix Team Server](/developerportal/collaborate/team-server)に保存されていないアプリで作業する場合は、このオプションを選択します。 あなたがアクセスできるプライベートなGitサーバーで。 これにより、アプリを開いたり、ダウンロードしたり、アップロードしたりするときに、Git サーバー上のアプリの場所を指定できます。 このセクションでは、Gitでコミットを識別するために使用される名前と電子メールの値を指定する必要があります。
 
-## 5 Advanced Tab
+## 5つの詳細タブ
 
-### 5.1 Proxy Server
+### 5.1 プロキシサーバー
 
-Sometimes the computer running Studio Pro cannot access the internet directly, but has to connect to a proxy server that requires authentication. If this is the case, then these settings can be used to specify the user name and password to connect to the proxy server.
+Studio Pro を実行しているコンピュータがインターネットに直接アクセスできない場合がありますが、認証が必要なプロキシサーバーに接続する必要があります。 この場合、これらの設定を使用して、プロキシサーバーに接続するユーザー名とパスワードを指定できます。
 
-## 6 New Features Tab {#new-features}
+## 6つの新機能タブ {#new-features}
 
-The **New features** tab allows you to turn new features on and off. These are features which are being worked on but are either not yet developed sufficiently to remove the previous version, or which are currently optional.
+**New features** タブでは、新機能のオンとオフを切り替えることができます。 これらは、作業中の機能ですが、以前のバージョンを削除するのに十分に開発されていない、または現在はオプションです。
 
 {{% alert type="info" %}}
-You need to restart Studio Pro for changes to these settings to take effect.
+これらの設定を有効にするには、Studio Pro を再起動する必要があります。
 {{% /alert %}}
 
-### 6.1 New Version of the Connector {#new-connector}
+### 6.1 コネクタの新しいバージョン {#new-connector}
 
-With this option, you can enable the new version of the [Connector](view-menu#connector). Should you find any issues in the new version, you can switch back to the old version by clearing this check box.
+このオプションを使用すると、 [コネクタ](view-menu#connector) の新しいバージョンを有効にできます。 新しいバージョンで問題が見つかった場合は、このチェックボックスをオフにして、古いバージョンに戻すことができます。
 
-Default: *disabled*
+デフォルト: *無効*
 
-### 6.2 New Version of the App Explorer {#new-project-explorer}
+### 6.2 アプリエクスプローラーの新バージョン {#new-project-explorer}
 
-With this option, you can enable the new version of the [App Explorer](project-explorer). Should you find any issues in the new version, you can switch back to the old version by clearing this check box.
+このオプションを使用すると、 [App Explorer](project-explorer) の新しいバージョンを有効にできます。 新しいバージョンで問題が見つかった場合は、このチェックボックスをオフにして、古いバージョンに戻すことができます。
 
-Default: *enabled*
+デフォルト: *有効*
 
-### 6.3 New Version of the Toolbox {#new-toolbox}
+### 6.3 ツールボックスの最新バージョン {#new-toolbox}
 
-With this option, you can enable the new version of the [Toolbox](/refguide/view-menu#toolbox). Should you find any issues in the new version, you can switch back to the old version by clearing this check box.
+このオプションを使用すると、 [Toolbox](/refguide/view-menu#toolbox) の新しいバージョンを有効にできます。 新しいバージョンで問題が見つかった場合は、このチェックボックスをオフにして、古いバージョンに戻すことができます。
 
-Default: *enabled*
+デフォルト: *有効*
 
-### 6.4 New Merge Algorithm with Fine-Grained Conflict Resolution
+### 6.4 微細な競合解決を伴う新しいマージアルゴリズム
 
-With this option, you can enable the new merge algorithm that is used when you update your app or merge changes in it. For more information on the algorithm, see [New Merge Algorithm with Fine-Grained Conflict Resolution](new-merge-algorithm).
+このオプションを使用すると、アプリの更新またはマージの変更時に使用される新しいマージアルゴリズムを有効にできます。 アルゴリズムの詳細については、 [詳細な競合解決](new-merge-algorithm) を伴う新しいマージアルゴリズム format@@2 を参照してください。
 
-Default: *disabled*
+デフォルト: *無効*
 
-## 7 Read More
+## 7 続きを読む
 
-* [Upload to Version Control Server](upload-to-version-control-dialog)
-* [How to Work with an On-Premises Version Control Server](/howto/collaboration-requirements-management/on-premises-svn-howto)
+* [バージョン管理サーバーにアップロード](upload-to-version-control-dialog)
+* [オンプレミスバージョン管理サーバーの操作方法](/howto/collaboration-requirements-management/on-premises-svn-howto)
