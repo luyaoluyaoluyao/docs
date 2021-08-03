@@ -1,8 +1,6 @@
 ---
 title: "行動順にソート"
 parent: "データストレージ"
-tags:
-  - "studio pro"
 menu_order: 20
 ---
 
@@ -18,7 +16,7 @@ menu_order: 20
 
 以下は、 `Order` と `Product` エンティティを使用する例です。 データ グリッドの **** 列には、関連する商品の名前が順序ごとに表示されます。
 
-![](attachments/runtime/sorting-reference-sets.png)
+![](attachments/datastorage/sorting-reference-sets.png)
 
 **** 列を並べ替えると、下線付きの値が使用され、表示されるテキストは使用されません。 これらの値は、各注文の `MIN(productName)` の結果です。
 
@@ -34,9 +32,9 @@ If you specify the `ORDER BY` clause, a `NULL` value always comes first before a
 
 #### 3.1.2 MARIADB, MYSQL, SAP HANA & SQLSERVER
 
-If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. `ASC` オーダーを使用すると、 `NULL` の値は、任意のnon-`NULL` の値の前になります。 `DESC` 注文を使用すると、 `NULL` が最後になります。
+If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. `ASC` オーダーを使用すると、 `NULL` の値は、最初に`NULL` 以外の値の前になります。 `DESC` 注文を使用すると、 `NULL` が最後になります。
 
-#### 3.1.3 DB2, ORACLE, & POSTGRESQL
+#### 3.1.3 DB2, ORACLE & POSTGRESQL
 
 If you specify the `ORDER BY` clause, `NULL` values by default are ordered as more than values that are not `NULL`. `ASC` オーダーを使用すると、 `NULL` の値はNULL`NULL` 以外の値の後になります。 `DESC` 注文を使用すると、 `NULL` が最初に表示されます。
 
@@ -44,9 +42,9 @@ If you specify the `ORDER BY` clause, `NULL` values by default are ordered as mo
 
 この表は、異なるデータベースタイプによって提供される `NULLs` のデフォルトソート順序を示しています。
 
-| NULL順序の動作/データベースタイプ | DB2 | HSQLDB | MARIADB/ MYSQL | 配置 | POSTGRESQL | SAP HANA | SQL サーバー |
-| -------------------:|:---:|:------:|:--------------:|:--:|:----------:|:--------:|:--------:|
-|     **ASCNULLS最初の** |     |   ✔    |       ✔        |    |            |    ✔     |    ✔     |
-|  **ASC NULLS LAST** |  ✔  |        |                | ✔  |     ✔      |          |          |
-|    **最初のDESC NULS** |  ✔  |   ✔    |                | ✔  |     ✔      |          |          |
-| **DESC NULLS LAST** |     |        |       ✔        |    |            |    ✔     |    ✔     |
+| NULL順序の挙動/データベースタイプ | MARIADB/MYSQL | SQLSERVER | HSQLDB | DB2 | 配置 | POSTGRESQL |
+| ------------------- | ------------- | --------- | ------ | --- | -- | ---------- |
+| **ASCNULLS最初の**     | ✔             | ✔         | ✔      |     |    |            |
+| **ASC NULLS LAST**  |               |           |        | ✔   | ✔  | ✔          |
+| **最初のDESC NULS**    |               |           | ✔      | ✔   | ✔  | ✔          |
+| **DESC NULLS LAST** | ✔             | ✔         |        |     |    |            |
