@@ -6,10 +6,6 @@ tags:
   - "studio pro"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/change-object.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
 This activity can be used in both **Microflows** and **Nanoflows**.
 {{% /alert %}}
@@ -97,10 +93,10 @@ If **Commit type** is set to *Yes*, the object is refreshed across the client as
 
 ### 3.4 Change Members
 
-You can specify a list of changes that to apply to the object. Values for members are specified with [expressions](expressions) and must be of the same type as the member.
+You can specify a list of changes to apply to the object. Values for members are specified with [expressions](expressions) and must be of the same type as the member.
 
 For a reference set association, it is also possible to add and remove an association (instead of only setting the member). For **add**, an object or a list of objects can be added to the currently associated objects. For **remove**, an object or a list of objects can be removed from the currently associated objects.
 
 ## 4 Common Section{#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
