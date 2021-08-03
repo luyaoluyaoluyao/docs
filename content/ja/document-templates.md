@@ -1,180 +1,184 @@
 ---
-title: "Document Templates"
-category: "Desktop Modeler"
+title: "ドキュメントテンプレート"
+parent: "リソース"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "ドキュメントテンプレート"
 aliases:
-  - /refguide7/Document+Templates.html
+  - /ja/refguide/Document+Templates.html
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-Document Templates are used to model a template required as input for a document export action which can generate all kinds of documents based on application data. They are composed much in the same way as [Pages](pages).
+ドキュメントテンプレートは、アプリケーションデータに基づいてあらゆる種類のドキュメントを生成できるドキュメントエクスポートアクションの入力として必要なテンプレートをモデル化するために使用されます。 これらは [Pages](pages) と同じように構成されています。
 
 {{% alert type="warning" %}}
-This page describes what document templates are for and what kind of widgets can be placed on them. If you want to see the properties of the document template you can check the documentation for a [document template](document-template) itself.
+このページでは、どのドキュメントテンプレートに対してどのようなウィジェットを配置できるかについて説明します。 ドキュメントテンプレートのプロパティを確認したい場合は、 [ドキュメントテンプレート](document-template) 自体のドキュメントを確認できます。
 {{% /alert %}}
 
-Document templates may contain components, also known as _widgets_. Below is an overview of all widget categories:
+ドキュメントテンプレートには、 _ウィジェット_ とも呼ばれるコンポーネントも含まれています。 以下は、すべてのウィジェットのカテゴリ概要です。 以下のカテゴリが使用されます：
 
-* [Core widgets](#core) are central to building document templates in Mendix. These are the widgets that can show a list of entities or a single entity
-* [Layout widgets](#layout) are used to structure the layout of your document templates
-* [Dynamic data widgets](#dynamic) make it possible to show values of attributes and associations
-* [Static data widgets](#static) allow you to work with static data such as a predefined image
+* [コアウィジェット](#core) は Mendix でドキュメントテンプレートを構築する上で中心となります。 これらは、エンティティまたは単一のエンティティのリストを表示できるウィジェットです
+* [レイアウトウィジェット](#layout) は、ドキュメントテンプレートのレイアウトを構成するために使用されます。
+* [動的データウィジェット](#dynamic) により、属性と関連性の値を表示することが可能になります
+* [静的データウィジェット](#static) では、定義済みの画像などの静的データを操作できます。
 
-Additionally, in most widgets as well as on the document template itself, a style can be defined. For more information, see [Style](style).
+さらに、ほとんどのウィジェットでは、ドキュメントテンプレート自体でスタイルを定義することができます。 詳細については、 [スタイル](style) を参照してください。
 
-If you would like to display text in a language with uncommon characters such as Arabic or Thai, make sure you select a font in the style editor that supports these characters. "Tahoma" is such a font.
+アラビア語やタイ語などの一般的でない文字を含む言語でテキストを表示したい場合。 これらの文字をサポートするスタイルエディタでフォントを選択してください。 「タホマ」はそのようなフォントです。
 
-## 2 Core Widgets {#core}
+## 2コアウィジェット {#core}
 
-The core widgets are central to building document templates in Mendix. They can show the contents of a single entity or of a list of entities. Every document template designed to show data from the domain model requires one of these components.
+コアウィジェットは、Mendix でドキュメントテンプレートを構築する中心となります。 単一のエンティティまたはエンティティのリストの内容を表示できます。 ドメインモデルからのデータを表示するように設計されたすべてのドキュメントテンプレートには、これらのコンポーネントのいずれかが必要です。
 
-### 2.1 Data Grid
+### 2.1 データグリッド
 
-The data grid shows a list of objects in a grid. For example, a data grid can show all the orders a customer has placed.
+データ グリッドには、グリッド内のオブジェクトのリストが表示されます。 たとえば、データ グリッドには、顧客が発注したすべての注文が表示されます。
 
-For more information, see [Data Grid (Document Template)](data-grid-document-template).
+詳細については、 [Data Grid (Document Template)](data-grid-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918138.png)
+![](attachments/document-templates/918138.png)
 
-A data grid showing a list of orders with a description and the referenced customer name.
-
-{{% /alert %}}
-
-### 2.2 Data View
-
-The data view is used for showing the contents of exactly one object. If, for example, you want to show details of a single customer you would use a data view to do this. The data view typically contains a table with static labels and dynamic data widgets like a dynamic label. In more complex templates, a data view can contain data grids and other data views for related objects.
-
-For more information, see [Data View (Document Template)](data-view-document-template).
-
-{{% alert type="info" %}}
-
-![](attachments/819203/918139.png)
-
-A data view showing order line information.
+説明と参照先の顧客名を含む注文のリストを表示するデータ グリッド。
 
 {{% /alert %}}
 
-### 2.3 Template Grid
+### 2.2 データビュー
 
-The template grid shows a list of objects in a tile view. For example, a template grid can show a list of products. The template grid has a lot in common with the data grid. The main difference is that the objects are shown in templates (somewhat like a small data view) instead of rows.
+データビューは、1つのオブジェクトの内容を表示するために使用されます。 たとえば、単一の顧客の詳細を表示する場合は、データビューを使用します。 データ ビューには、通常、スタティック ラベルとダイナミック ラベルのようなダイナミック データ ウィジェットを含むテーブルが含まれます。 より複雑なテンプレートでは、データビューにデータグリッドや関連するオブジェクトの他のデータビューを含めることができます。
 
-For more information, see [Template Grid (Document Template)](template-grid-document-template).
+詳細については、 [Data View (Document Template)](data-view-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918137.png)
+![](attachments/document-templates/918139.png)
 
-A template grid showing products with name and description.
+注文行情報を示すデータビュー。
 
 {{% /alert %}}
 
-## 3 Layout Widgets {#layout}
+### 2.3 テンプレートグリッド
 
-Layout widgets give structure to a form. They do not show data but provide a layout in which you can place other widgets that do.
+テンプレート グリッドには、タイル ビュー内のオブジェクトのリストが表示されます。 例えば、テンプレートグリッドに製品のリストを表示できます。 テンプレート グリッドにはデータ グリッドと多くの共通点があります。 主な違いは、オブジェクトが行の代わりにテンプレート (小さなデータビューのような) に表示されることです。
 
-### 3.1 Table
-
-Tables can be used to change the layout of the form. They contain a number of rows and columns and the intersection of the two is called a cell. Each cell can contain widgets. Cells can be merged horizontally and vertically before they are filled to allow for asymmetric layouts. Tables can be used both inside and outside data view or templategrid widgets.
-
-For more information, see [Table (Document Template)](table-document-template).
+詳細については、 [テンプレートグリッド (ドキュメントテンプレート)](template-grid-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918134.png)
+![](attachments/document-templates/918137.png)
 
-A table with four rows and three columns. Last row containing a data view with another table.
+名前と説明を持つ商品を示すテンプレートグリッド。
 
 {{% /alert %}}
 
-### 3.2 Page Break
+## 3つのレイアウトウィジェット {#layout}
 
-When inserting a page break, the current page will be cut off after the break and widgets below the break will be displayed in a new page.
+レイアウト ウィジェットはページに構造を与えます。 これらはデータを表示せず、他のウィジェットを配置できるレイアウトを提供します。
 
-For more information, see [Page Break (Document Template)](page-break-document-template).
+### 3.1 テーブル
+
+表はページのレイアウトを変更するために使用できます。 これらは、行と列の数を含み、2つの交差はセルと呼ばれます。 各セルにウィジェットを含めることができます。 セルは塗りつぶされる前に水平方向と垂直方向にマージして、非対称レイアウトを可能にすることができます。 テーブルは、データビュー内外の両方またはテンプレートグリッドウィジェットの両方で使用できます。
+
+詳細については、 [テーブル (ドキュメントテンプレート)](table-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918135.png)
+![](attachments/document-templates/918134.png)
 
-A page break
+4行3列のテーブル。 別のテーブルを持つデータビューを含む最後の行。
 
 {{% /alert %}}
 
-### 3.3 Line Break
+### 3.2 改ページ
 
-When inserting a line break, a new line will be inserted at that position.
+改ページを挿入するとき ブレーク後、現在のページは切り離され、ブレーク下のウィジェットは新しいページに表示されます。
 
-For more information, see [Line Break (Document Template)](line-break-document-template).
-
-## 4 Dynamic Data Widgets {#dynamic}
-
-Dynamic data widgets are used for showing (dynamic) data. They must be placed inside a data view or template grid because they show attributes or associations of an entity.
-
-### 4.1 Dynamic Label
-
-A dynamic label would be used for the same attributetypes as a text box in form builder. It can be used to display a text value.
-
-For more information, see [Dynamic Label (Document Template)](dynamic-label-document-template).
+詳細については、 [改ページ(ドキュメントテンプレート)](page-break-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918131.png)
+![](attachments/document-templates/918135.png)
 
-A dynamic label linking to a customer name.
+改ページ
 
 {{% /alert %}}
 
-### 4.2 Dynamic Image
+### 3.3 改行コード
 
-A dynamic image can be used to show a System.Image. If the image is not available (for example: the image was never saved) it will show the preset default image. It can be deployed inside a data view or templategrid.
+改行を挿入すると、その位置に新しい行が挿入されます。
 
-For more information, see [Dynamic Image (Document Template)](dynamic-image-document-template).
+詳細については、 [改行(ドキュメントテンプレート)](line-break-document-template) を参照してください。
+
+## 4つの動的データウィジェット {#dynamic}
+
+動的データウィジェットは、(動的)データを表示するために使用されます。 エンティティの属性または関連性を表示するため、データビューまたはテンプレート グリッド内に配置する必要があります。
+
+### 4.1 動的ラベル
+
+動的ラベルは、ページエディタのテキストボックスと同じ属性タイプに使用されます。 テキスト値を表示するために使用できます。
+
+詳細については、 [Dynamic Label (Document Template)](dynamic-label-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918132.png)
+![](attachments/document-templates/918131.png)
 
-A dynamic image inside a table cell, showing the preset default image.
+顧客名にリンクする動的ラベル。
 
 {{% /alert %}}
 
-## 5 Static Data Widgets {#static}
+### 4.2 動的画像
 
-These widgets contain static (fixed) data to help create the look of the generated document.
+動的画像は、System.Imageを表示するために使用することができます。 画像が使用できない場合 (例: 画像が保存されていない場合)、プリセットされたデフォルトの画像が表示されます。 データビューまたはテンプレートグリッド内にデプロイできます。
 
-### 5.1 Static Label
-
-A static label shows a line of static text. You can use it to place custom text inside a dataview or template grid or table.
-
-For more information, see [Static Label (Document Template)](static-label-document-template).
+詳細については、 [Dynamic Image (Document Template)](dynamic-image-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918130.png)
+![](attachments/document-templates/918132.png)
 
-A label with text 'Customer name'.
+テーブルセル内の動的な画像。プリセットのデフォルト画像を表示します。
 
 {{% /alert %}}
 
-### 5.2 Title
+## 5 静的データウィジェット {#static}
 
-A title works much like a static label but can be placed outside a data view, template grid or table.
+これらのウィジェットには、生成されたドキュメントの外観を作成するのに役立つ静的(固定)データが含まれています。
 
-For more information, see [Title (Document Template)](title-document-template).
+### 5.1 スタティックラベル
 
-### 5.3 Static Image
+静的ラベルには、静的テキストの行が表示されます。 カスタムテキストをデータビューまたはテンプレートグリッドまたはテーブル内に配置するために使用できます。
 
-A static image shows a predefined image. It can be put either in- or outside a data view or templategrid.
-
-For more information, see [Static Image (Document Template)](static-image-document-template).
+詳細については、 [Static Label (Document Template)](static-label-document-template) を参照してください。
 
 {{% alert type="info" %}}
 
-![](attachments/819203/918133.png)
+![](attachments/document-templates/918130.png)
 
-A static image inside a table cell.
+テキスト「顧客名」のラベル。
+
+{{% /alert %}}
+
+### 5.2 タイトル
+
+タイトルは静的なラベルのように機能しますが、データビュー、テンプレートグリッド、テーブルの外側に配置することができます。
+
+詳細については、 [タイトル (ドキュメントテンプレート)](title-document-template) を参照してください。
+
+### 5.3 静的画像
+
+静的イメージは定義済みのイメージを示します。 データビューまたはテンプレートグリッドの外側に置くことができます。
+
+詳細については、 [Static Image (Document Template)](static-image-document-template) を参照してください。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918133.png)
+
+テーブルセル内の静止画像。
 
 {{% /alert %}}
 
