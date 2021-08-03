@@ -8,10 +8,6 @@ tags:
   - "authentication"
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/password-text-box.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}The **Password text box** widget is not supported on native mobile pages.{{% /alert %}}
 
 ## 1 Introduction
@@ -38,11 +34,11 @@ Password text box properties consist of the following sections:
 
 ### 2.1 Common Section {#common}
 
-{{% snippet file="refguide8/common-section-link.md" %}}
+{{% snippet file="refguide/common-section-link.md" %}}
 
 ### 2.2 Design Properties Section {#design-properties}
 
-{{% snippet file="refguide8/design-section-link.md" %}}
+{{% snippet file="refguide/design-section-link.md" %}}
 
 ### 2.3 General Section {#general}
 
@@ -52,7 +48,7 @@ A **Placeholder** shows a text when an end-user has not entered any text yet. It
 
 ### 2.4 Label Section {#label}
 
-{{% snippet file="refguide8/label-section-link.md" %}}
+{{% snippet file="refguide/label-section-link.md" %}}
 
 ## 3 Read More
 
