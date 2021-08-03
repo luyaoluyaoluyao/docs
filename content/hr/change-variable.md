@@ -1,26 +1,52 @@
 ---
 title: "Change Variable"
 parent: "variable-activities"
+tags:
+  - "studio pro"
+  - "change variable"
+  - "variable"
+  - "variable activities"
 ---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/change-variable.pdf).
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+This activity can be used in both **Microflows** and **Nanoflows**.
+{{% /alert %}}
 
 ## 1 Introduction
 
-This action can be used to change the value of an existing variable.
+Change variable allows you to change the value of an existing variable. For example, if you have a *$Discount* variable that gives customers a 50% discount on certain items, you can change this variable and assign a new value to it. You can use this value to give new customers a bigger discount:
 
-{{% alert type="info" %}}
+![Change Variable](attachments/variable-activities/change-variable.png)
 
-See [Microflow Element Common Properties](microflow-element-common-properties) for properties that all microflow activities share (for example, caption). This page only describes the properties specific to the action.
+## 2 Properties
 
-{{% /alert %}}
+There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
 
-## 2 Input Properties
+![Change Variable Properties](attachments/variable-activities/change-variable-properties.png)
 
-### 2.1 Variable name
+The **Change variable** properties pane consists of the following sections:
 
-The variable of which you want to change the value.
+* [Action](#action)
+* [Common](#common)
 
-## 3 Action Properties
+## 3 Action Section {#action}
 
-### 3.1 Value
+### 3.1 Variable
 
-The new value for the variable. The value is entered using an [expression](expressions). The type of the expression should be the same as the type of the selected variable.
+The variable which you want to change the value of.
+
+### 3.2 Value
+
+The new value for the variable. The value is entered using an [expression](expressions). The type of the expression must be the same as the type of the selected variable.
+
+## 4 Common Section {#common}
+
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+
+## 5 Read More
+
+* [Activities](activities)
