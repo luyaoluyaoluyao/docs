@@ -1,37 +1,37 @@
 ---
-title: "Solving Issues with Navigation Profile Conversion to 7.4"
-parent: "project"
-description: "Describes requirements and possible fixes for navigation profile conversion from Mendix versions 7.2 and 7.3 to Mendix 7.4."
+title: "Navigation Profile 转换为7.4的问题"
+parent: "项目"
+description: "描述导航配置文件转换的要求和可能的修正，从Mendix 版本7.2和7.3改为Mendix 7.4。"
 ---
 
-## 1 Changes in 7.4 for Profiles
+## 1 配置文件的 7.4 变化
 
-In Mendix versions 7.2 and 7.3, there was no exact separation between hybrid tablet and hybrid phone profiles. The only separation was the logical meaning of a profile name like "MyTabletProfile" and "MyPhoneProfile." In Mendix version 7.4, the separation of hybrid profiles by device type was introduced. This makes profiles easier to understand and work with.
+在Mendix 版本7.2和7.3中，混合式平板电脑和混合式手机配置文件之间没有确切的区分。 唯一的分离是配置文件名称的逻辑含义，如“MyTabletProfile”和“MyPhoneProfile”。 在Mendix 7.4版本中，采用了混合配置文件按设备类型分离。 这使概况更易于理解和工作。
 
-Also, to prevent confusion while working with profiles, having more than one profile of a specific type is not permitted. This restriction allows us to omit the profile name.
+此外，为了防止在处理个人资料时出现混乱，不允许拥有一个以上特定类型的资料。 此限制允许我们省略配置文件名称。
 
-## 2 Conversion Process
+## 2 个转换进程
 
-For projects based on Mendix 7.1 and below, conversion to Mendix 7.4 is seamless.
+对于基于Mendix 7.1及以下的项目，转换成Mendix 7.4是无缝的。
 
-In Mendix versions 7.2 and 7.3, miltiple profiles with different names and same types were possible. So, before converting from these versions, be sure to check the list of navigation profiles in your project and make sure they fulfill certain requirements.
+在Mendix 版本7.2和7.3中，可以使用不同名称和相同类型的毫米剖面图。 因此，在从这些版本转换之前，请务必检查您项目中的导航配置文件列表，并确保它们符合某些要求。
 
-## 3 Hybrid App Profiles Requirements
+## 3个混合应用配置要求
 
-In order to convert your project from Mendix versions 7.2 and 7.3 to 7.4, make sure these requirements are fulfilled:
+为了将您的项目从 Mendix 7.2和7.3 个版本转换成7.4，请确保满足这些要求：
 
-* The  list of profiles must contain the following:
-    * A maximum of one profile of the **browser tablet** type
-    * A maximum of one profile of the **browser phone** type
-    * A maximum of two profiles of the **hybrid mobile app online** type
-    * A maximum of two profiles of the **hybrid mobile app offline** type
+* 配置文件清单必须包含以下内容：
+    * **浏览器平板电脑最多有一个配置文件** 类型
+    * **浏览器电话** 最大一个配置文件类型
+    * **在线混合移动应用程序最多有两个配置** 类型
+    * **混合移动应用程序离线最多两个配置文件** 类型
 
-* If you have two profiles of the **hybrid mobile app online** type, then make sure that one of them has the word "tablet" in its name and the second one has the word "phone" in its name
-    * They will then be converted to the correct types in 7.4
-    * Please note that it is not possible to have two hybrid online profiles for tablet or phone
+* 如果您有 **在线混合移动应用程序的** 类型的两个配置文件， 然后确保其中一个词名为"平板"，第二个词名为"phone"。
+    * 然后它们将被转换成正确类型的 7.4
+    * 请注意，无法为平板电脑或手机提供两个混合在线配置文件
 
-* If you have two profiles of the **hybrid mobile app offline** type, then make sure that one of them has the word "tablet" in its name and the second one has the word "phone" in its name
-    * They will then be converted to the correct types in 7.4
-    * Please note that it is not possible to have two hybrid offline profiles for tablet or phone
+* 如果您有两个离线的 **混合移动应用程序类型** 类型， 然后确保其中一个词名为"平板"，第二个词名为"phone"。
+    * 然后它们将被转换成正确类型的 7.4
+    * 请注意，无法为平板电脑或手机设置两个混合离线配置文件
 
-After opening your project in Mendix 7.4, make sure that your hybrid profiles are converted correctly.
+在 Mendix 7.4中打开您的项目后，请确保您的混合配置文件被正确转换。
