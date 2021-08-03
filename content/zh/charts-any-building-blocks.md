@@ -11,52 +11,47 @@ tags:
   - "Studio Pro"
 ---
 
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/charts-any-building-blocks.pdf)。
+{{% /报警 %}}
+
 ## 1 导言
 
 任何图表都是在这里Mendix Marketplace中可用的部件： [任何图表](/appstore/modules/any-chart) 模块。 任何图表模块都能让您构建所有可以通过Ploty生成的图表类型。 s 到商城小部件描述中提到的版本。 更多关于 Plotly.js 的信息可在这里查阅：https://plot.ly/javascript/reference/。
 
 任何图表构建块都是预先配置的页面构建块，具有已定义图表的基本属性。 他们可以像任何其他部件或构建块一样放置在Mendix 页面上。 它们包含创建图表所需的 **数据** 和 **布局** 对象的样本。 这些对象在运行时用于演示目的，当没有选择源属性或在工作室预览中渲染样本数据时。
 
-## 2 属性
+## 属性
 
 任何图表构建块都包含小部件的基本配置。 需要做出一些修改，以便自定义图表外观。 下面的属性至少应该在你的应用中放置任何图表构建块时进行配置。
 
 双击小部件打开任何图表小部件的属性。
 
-### 2.1 数据
-
+### 数据
 要绘制的数据在一个通常称为数据的数组中作了描述，其元素是各种类型的痕量对象（例如） 在 [完整引用](https://plot.ly/javascript/reference) 中记载的散布、条形等文件。
 
-#### 2.1.1 静态的
-
+#### 静态的
 基于 https://plot.ly/javascript/reference/的数据 JSON 阵列。
 
-#### 2.1.2 源属性
-
+#### 源属性
 属性数据将合并并覆盖 **静态** 数据。
 
-#### 2.1.3 示例数据
-
+#### 示例数据
 预览数据。 它将被合并到工作室中的 **静态数据** 中，或者在运行时没有 **源属性** 被选中。
 
-#### 2.1.4 模式
-
+#### 模式
 开发模式在运行用于切换高级配置选项在线编辑器的应用程序时向图表添加按钮。
 
-### 2.2 布局选项
-
+### 布局选项
 绘图的布局——与数据无关的可视属性，例如标题或批注——在一个通常称为布局的对象中描述， 在 [完整引用](https://plot.ly/javascript/reference/#layout) 中记载。
 
-#### 2.2.1 静态的
-
+#### 静态的
 基于 https://plot.ly/javascript/reference/ 的 JSON 对象。
 
-#### 2.2.2 源属性
-
+#### 源属性
 属性布局将合并并覆盖静态布局选项。
 
-#### 2.2.3 样本布局
-
+#### 示例布局
 预览布局选项。 当没有选择“源属性”时，它将与工作室中的“静态”合并。
 
 {{% alert type="info" %}}
