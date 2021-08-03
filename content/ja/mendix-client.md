@@ -20,9 +20,9 @@ The Mendix Client runs on the end-user's device and handles the interface betwee
 
 This description of the Mendix Client is based on using the Runtime Server of an app running in the cloud. You can also run Mendix locally for testing, but this is conceptually the same.
 
-## 2 Description
+## 2 Description {#description}
 
-The Mendix Client is used for all applications built with Mendix: web, mobile, and hybrid.
+The Mendix Client is a part of every application built with Mendix: web, mobile, and hybrid.
 
 For **web applications**, Mendix Client acts as a single page application. This means that all paging is handled by the Mendix Client, rather than being separate pages served using different URLs. Mendix Client is bootstrapped by loading a `mxui.js` script from an HTML page provided by the *theme*.
 
@@ -31,10 +31,10 @@ For **mobile applications** Mendix Client acts as a React Native application. Th
 The three supported types of wrappers for mobile applications are as follows:
 
 * [Make It Native app](getting-the-make-it-native-app)
-* [Custom Developer apps](/howto8/mobile/how-to-devapps)
-* [Native apps](/howto8/mobile/deploying-native-app)
+* [Custom Developer apps](/howto/mobile/how-to-devapps)
+* [Native apps](/howto/mobile/deploying-native-app)
 
-The first two of these load a bundle dynamically, while the last one includes a pre-packaged bundle that can be [updated](/howto8/mobile/how-to-ota) later.
+The first two of these load a bundle dynamically, while the last one includes a pre-packaged bundle that can be [updated](/howto/mobile/how-to-ota) later.
 
 A **Hybrid application**, for most purposes, can be treated as an app running in a browser. In this case, however, the browser is embedded in a mobile application and has access to some features of a mobile device through [Cordova](https://cordova.apache.org/) plugins. We recommend that you use a native mobile app rather than a hybrid app if you want to make Mendix apps which run on mobile devices.
 
@@ -128,7 +128,7 @@ Because all information is sent to the Mendix Client to build pages, everything 
 
 For a description of the Runtime Server, see [Runtime Server](runtime-server).
 
-## 3 Widgets{#widgets}
+## 3 Widget s{#widgets}
 
 Mendix pages are constructed from individual widgets. A widget can be of one of the following types:
 
@@ -142,7 +142,7 @@ These are described in the sections below.
 
 Mendix has a number of core widgets which support the standard functions of Mendix pages. Core widgets are part of the core client. Most of these widgets have native and web implementations, though some are limited only to one platform.
 
-In native mobile applications an implementation based on React Native framework is used. In web applications, implementation is based on either React or Dojo. Widgets that use Dojo have some limitations, for example they cannot be used inside a [pluggable widget](/apidocs-mxsdk/apidocs/property-types-pluggable-widgets-8#widgets). These Dojo implementations are gradually being replaced.
+In native mobile applications an implementation based on React Native framework is used. In web applications, implementation is based on either React or Dojo. Widgets that use Dojo have some limitations, for example they cannot be used inside a [pluggable widget](/apidocs-mxsdk/apidocs/pluggable-widgets-property-types#widgets). These Dojo implementations are gradually being replaced.
 
 ### 3.1 Pluggable Widgets
 
@@ -153,8 +153,6 @@ For more information, see [Pluggable Widgets API](/apidocs-mxsdk/apidocs/pluggab
 ### 3.2 Custom Widgets
 
 You can also write **Custom widgets**. These are based on Dojo framework and run only in web applications. They have access to a different, more low-level, API than pluggable widgets. Custom widgets should only be used if you cannot create the functionality in a Pluggable widget.
-
-For more information on Custom widgets, see [How To Build Custom Widgets](/howto8/extensibility/widget-development).
 
 ## 4 Mendix Client Startup
 
@@ -210,6 +208,20 @@ When the app is deployed, the static resources are placed in a structure referre
 * app styling/Atlas – the app-specific css styling and static visual elements which define how a page is displayed
 * widgets – both native and web core widgets which are used by this app
 * page definitions – xml page definitions which tell the Mendix Client what the pages for this app look like
+
+#### 4.1.3 Cookies
+
+When the Mendix client is running, it creates a number of technical cookies to record information about the session. These expire at the end of the session, and can include:
+
+* Device Type
+* JSESSIONID
+* Profile
+* SessionTimeZoneOffset
+* \_\_VCAP\_ID\_\_
+* XASID
+* XASSESSIONID
+* originURI
+* xasid
 
 ### 4.2 Launching Native Mendix Client
 
