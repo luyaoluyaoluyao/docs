@@ -1,74 +1,69 @@
 ---
-title: "Synchronize to Device"
+title: "デバイスと同期"
 parent: "client-activities"
 tags:
   - "studio pro"
-  - "synchronize to device"
-  - "client activities"
+  - "デバイスに同期"
+  - "クライアントアクティビティ"
 menu_order: 60
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/synchronize-to-device.pdf).
-{{% /alert %}}
-
 {{% alert type="warning" %}}
-This activity can only be used in **Microflows**.
+このアクティビティは、オフライン最初のアプリ (ネイティブまたはオフライン PWA アプリ) で実行される **Microflow** でのみ使用できます。
 {{% /alert %}}
 
-## 1 Introduction
+## 1つの紹介
 
-The **Synchronize to device** activity can be used to selectively synchronize one or more objects or lists to a device and store them in the offline database. It is meant to be used in offline apps and does nothing when used in online ones.
+**デバイスに同期** アクティビティは、1つまたは複数のオブジェクトまたはリストをデバイスに選択的に同期し、それらをオフラインデータベースに格納するために使用できます。 オフラインアプリで使用され、オンラインアプリで使用されている場合は何もしません。
 
 {{% image_container width="200" %}}
-![Synchronize to device](attachments/client-activities/synchronize-to-device-action.png)
+![デバイスに同期](attachments/client-activities/synchronize-to-device-action.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Synchronize to device Properties](attachments/client-activities/synchronize-to-device-action-properties.png)
+![デバイスのプロパティに同期](attachments/client-activities/synchronize-to-device-action-properties.png)
 
-The **Synchronize to device** activity properties consists of the following sections:
+**** のアクティビティプロパティは以下のセクションで構成されています。
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (…) next to the action.
+アクションの横にある省略記号 (…) をクリックすることで、このアクションを構成するダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Object or List
+### 3.1 オブジェクトまたはリスト
 
-A variable that refers to an object or a list to be synchronized.
+同期するオブジェクトまたはリストを参照する変数。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Limitations
+## 5つの制限事項
 
-When adding **Synchronize to device** to a microflow consider the following:
+**をデバイス** に同期させる場合は、以下を考慮してください。
 
-* Only persistable objects or lists of persistable objects that you use in your offline-first app can be synchronized.
-* If the current user cannot access some of the objects due to access rules, they will not be synchronized to a device. If the offline database already contains the same object, it will be removed.
-* If the object to synchronize to a device is deleted in the same microflow, **Synchronize to device** activity will remove it from the offline database, if found.
-* Autocommited and new objects get skipped.
-* Synchronizing files is not allowed.
-* It will only synchronize objects in a microflow that are called from a nanoflow, not from an event microflow.
+* オフライン最初のアプリで使用する永続的なオブジェクトまたは永続的なオブジェクトのリストのみ同期できます。
+* 現在のユーザがアクセスルールにより一部のオブジェクトにアクセスできない場合、 それらはデバイスと同期されません。 オフラインデータベースに既に同じオブジェクトが含まれている場合は、削除されます。
+* デバイスに同期するオブジェクトが同じマイクロフローで削除された場合 **デバイスに同期** アクティビティが見つかった場合、オフラインデータベースからそれを削除します。
+* 自動コミットおよび新規オブジェクトはスキップされます。
+* これは、イベント・マイクロフローからではなく、ナノフローから呼び出されるマイクロフロー内のオブジェクトのみを同期します。
 
-## 6 Remarks
+## 6つの備考
 
-When adding **Synchronize to device** to a microflow consider the following:
+**をデバイス** に同期させる場合は、以下を考慮してください。
 
-* This action should be used in combination with the [Nothing (preserve data)](offline-first#customizable-synchronization) option to make sure your data is not cleared during a synchronize action.
-* **Synchronize to device** action works in an append mode, it does not replace all data in the database. Any existing data is kept and only objects that are sent to the client are affected.
-* synchronizing the same object or list multiple times will synchronize it only once. The latest commited state will be synchronized.
-* When synchronizing an already existing dirty object, dirty values are overridden and dirty status is cleaned. But uncommitted changes are still available in the app until you rollback the object.
-* **Synchronize to device** always overrides the existing data when the same object has been found in the database. That means if **Synchronize to device** is used for offline objects that were changed and commited in offline, all those changes will be lost and attributes of the affected objects will be reset to their runtime values.
-* Uncommitted changes in a microflow for synchronized objects are sent to the client, but the objects rollback to their offline versions.
+* このアクションは、 [何も（データを保存しない）](offline-first#customizable-synchronization) オプションと組み合わせて使用し、同期アクション中にデータがクリアされていないことを確認する必要があります。
+* **デバイスと同期する** アクションは追加モードで動作し、データベース内のすべてのデータを置き換えるわけではありません。 既存のデータは保持され、クライアントに送信されるオブジェクトのみが影響を受けます。
+* 同じオブジェクトまたはリストを複数回同期すると、一度だけ同期します。 最新のコミット状態が同期されます。
+* 既存の汚れオブジェクトを同期すると、汚れ値が上書きされ、汚れ状態が消去されます。 ただし、オブジェクトをロールバックするまで、反映されていない変更はアプリ内でも利用できます。
+* **デバイスと同期する** は、データベース内で同じオブジェクトが見つかったときに、常に既存のデータを上書きします。 That means if **Synchronize to device** is used for offline objects that were changed and commited in offline, all those changes will be lost and attributes of the affected objects will be reset to their runtime values.
+* 同期されたオブジェクトの microflow におけるコミットされていない変更はクライアントに送信されますが、オブジェクトはオフラインバージョンにロールバックされます。
