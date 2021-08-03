@@ -8,12 +8,11 @@ tags:
   - "查询"
   - "参数"
   - "日期和时间格式"
+  - "studio pro"
 ---
 
 {{% alert type="info" %}}
-
-**已发布的REST service** 功能已引入7.10.0版本。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-query-parameters.pdf)。
 {{% /报警 %}}
 
 [已发布的REST 操作](published-rest-operation) 的规格包括实现操作的微流程。 这个微流可能需要来自请求的查询字符串的参数。
