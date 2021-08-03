@@ -1,98 +1,98 @@
 ---
-title: "Stories Pane"
-parent: view-menu
+title: "故事面板"
+parent: 视图菜单
 menu_order: 60
-description: "Describes the Stories pane in Mendix Studio Pro."
+description: "描述Mendix Studio Pro中的故事窗格。"
 tags:
   - "Studio Pro"
-  - "stories"
-  - "stories pane"
+  - "故事"
+  - "故事窗格"
 ---
 
-## 1 Introduction
+## 1 导言
 
-For version control enabled apps (apps with Team Server or other SVN servers), the **Stories** pane displays the stories and tasks of the current [Sprint](/developerportal/collaborate/planning-development). Stories, tasks, and sprints are created and managed in the Developer Portal. For more information on stories, see [Stories](/developerportal/collaborate/stories). For more information on tasks, see the [Adding Tasks to a Story](/developerportal/collaborate/stories#adding) section in *Stories*.
+对于已启用的版本控制应用(带有团队服务器或其他SVN服务器的应用) **故事** 窗格显示当前 [Sprint](/developerportal/collaborate/planning-development) 的故事和任务。 故事、 任务和冲压是在开发者门户中创建和管理的。 关于故事的更多信息，请参阅 [故事](/developerportal/collaborate/stories)。 欲了解更多关于任务的信息，请在 *故事* 中的 [添加任务到故事](/developerportal/collaborate/stories#adding) 部分。
 
-In the **Stories** pane, you can view the stories and tasks of the current sprint, show or hide done stories, open their details, change the status of the stories and tasks, and open documents connected to stories.
+在 **故事** 窗格中，您可以查看当前的故事和任务，显示或隐藏已完成的故事， 打开他们的详细信息，改变故事和任务的状态，并打开与故事相关的文档。
 
-The **Stories** pane consists of the top bar with various buttons and a table:
+**故事** 窗格由顶部栏和多个按钮和表格组成：
 
-![Stories Pane Example](attachments/stories-pane/stories-pane.png)
+![故事面板示例](attachments/stories-pane/stories-pane.png)
 
-The table contains following columns:
+表格包含以下列：
 
-* **Story** – shows a list of stories
-  * *Tasks* are displayed as a sub-list of the corresponding story
-* **Status** – shows the status of a story or a task
+* **故事** - 显示故事列表
+  * *任务* 显示为相应故事的子列表
+* **状态** - 显示一个故事或一个任务的状态
 
-## 2 Interacting with the Stories Pane
+## 2 与故事面板互动
 
-You can perform the following actions in the **Stories** pane:
+您可以在 **故事** 面板中执行以下动作：
 
-* [Refresh the Stories pane](#refresh)
-* [View stories details](#view-details)
-* [Show or hide completed stories](#show-completed-stories)
-* [Open documents connected to stories](#opening-documents)
-* [Change the status of a story or a task](#changing-status)
+* [刷新故事窗格](#refresh)
+* [查看故事详情](#view-details)
+* [是否显示已完成的故事](#show-completed-stories)
+* [打开链接到故事的文档](#opening-documents)
+* [更改故事或任务的状态](#changing-status)
 
-### 2.1 Refreshing the Stories Pane {#refresh}
+### 2.1 刷新故事面板 {#refresh}
 
-The **Refresh** button allows you to get the latest changes on stories and tasks done by you and your team members in the the Developer Portal or Studio Pro.
+**刷新** 按钮允许您获取您和您的团队成员在开发者门户网站或 Studio Pro中完成的故事和任务的最新更改。
 
-If two team members change the same story, the changes done last will take effect. For example, you set the story status to *Running*, but your colleague sets it to *Done* two minutes later. The story's status will be set to *Done* when you click **Refresh**, as your colleague was the last one to implement changes.
+如果两个团队成员改变相同的故事，最后完成的更改将生效。 例如，你将故事状态设置为 *运行*, 但你的同事将其设置为 *两分钟后完成* 当您点击 **刷新**时，故事状态将被设置为 *完成* 因为你的同事是最后一个执行变革的人。
 
-### 2.2 Viewing Details {#view-details}
+### 2.2 查看详情 {#view-details}
 
-To view details of a *story*, do one of the following:
+要查看 *故事*，请做以下事情之一：
 
-* Double-click it in the table
-* Select the story in the table and click the **Details** button in the top bar
+* 在表格中双击它
+* 选择表中的故事并点击顶部栏中的 **详细信息** 按钮
 
-A *plus icon* next to a story means it has tasks assigned to it. To view details of a *task*, click the plus icon and do one of the following:
+一个故事旁边的 *加图标* 意味着它有分配给它的任务。 要查看 *任务*的详细信息，请单击加号图标并执行以下一种：
 
-* Double-click the task in the table
-* Select the task in the table and click the **Details** button in the top bar
+* 双击表中的任务
+* 选择表中的任务并点击顶部栏中的 **详细信息** 按钮
 
-When you view the details of a story or task, the **Story Details** pop-up window is opened with the following information:
+当您查看一个故事或任务的详细信息时， **故事详细信息** 弹出窗口将打开，包含以下信息：
 
-* **Title** – the title of the story/task
+* **标题** - 故事/任务的标题
 
-* **Status** – the current status of the story/task
+* **状态** - 存储/任务的当前状态
 
-* **Story points** – the story points assigned to the story/task
+* **故事点** - 分配给故事/任务的故事点数
 
-* **Description** – the description of the story/task
+* **描述** - 故事/任务的描述
 
-    ![Story Details](attachments/stories-pane/story-details.png)
+    ![故事详情](attachments/stories-pane/story-details.png)
 
-### 2.3 Showing Completed Stories {#show-completed-stories}
+### 2.3 显示已完成的故事 {#show-completed-stories}
 
-When enabled, the **Show complete stories** button allows you to show the stories that are set to *Done*. For more information on statuses of stories, see the [Changing the Status of a Story or a Task](#changing-status) section below.
+启用后， **显示完整的故事** 按钮允许您显示设置为 ** 的故事。 关于故事状态的更多信息，请参阅下面 [更改故事状态或任务](#changing-status) 部分。
 
-### 2.4 Opening Documents Connected to Stories {#opening-documents}
+### 2.4 打开链接到故事的文档 {#opening-documents}
 
-If the story is created from a feedback item, you can open a document which the feedback item refers to. That means if a feedback was submitted for a widget on a page, the **Open document** button or icon will open this page.
+如果故事是从反馈条目中创建的，您可以打开反馈条目的文档。 这意味着，如果一个页面上的小部件提交了反馈， **打开文档** 按钮或图标将打开此页面。
 
-To open the document, either click the **Open document** button in the top bar or the corresponding icon in the table:
+要打开文档，要么单击顶部栏中的 **打开文档** 按钮，要么单击表格中的相应图标：
 
-![Open document icon](attachments/stories-pane/open-document-icon.png)
+![打开文档图标](attachments/stories-pane/open-document-icon.png)
 
-For more information on how to create a story on the basis of a feedback item and add it to your backlog, see the [Adding a Feedback Item to Your Backlog](/developerportal/collaborate/feedback#adding) section in *Feedback Management*.
+更多关于如何根据反馈项目创建故事并将其添加到您的积压中的信息， 查看 [添加反馈条目到您的待办事宜](/developerportal/collaborate/feedback#adding) 部分 *反馈管理*。
 
-### 2.5 Changing the Status of a Story or a Task {#changing-status}
+### 2.5 更改故事或任务的状态 {#changing-status}
 
-You can change the status of a story or a task.
+您可以更改故事或任务的状态。
 
-To change the status of a *story*, click its status in the **Status** column. The status will change in the following succession:  *To do* > *Running* > *Done* > *To do*.
+要更改一个 *故事*的状态，请单击其在 **状态** 列中的状态。 状态将在以下继承中改变：  *要做* > *运行* > *完成* > *要做*
 
-To change the status of a task, tick or clear the check box in the **Status** column:
+要更改任务状态，请勾选或清除 **状态** 列中的复选框：
 
-* Clear the check box to set the done task in *To do*
+* 清除复选框以设置已完成的任务在 *进行*
 
-* Tick the check box to set the task to *Done*
+* 勾选复选框将任务设置为 *完成*
 
-## 3 Read More
+## 3 阅读更多
 
-* [Stories](/developerportal/collaborate/stories)
-* [Feedback Management](/developerportal/collaborate/feedback)
-* [View Menu](view-menu)
+* [故事](/developerportal/collaborate/stories)
+* [反馈管理](/developerportal/collaborate/feedback)
+* [查看菜单](视图菜单)
