@@ -1,125 +1,125 @@
 ---
-title: "Grid Columns"
-parent: "data-grid"
+title: "网格列"
+parent: "数据网格"
 tags:
   - "studio pro"
-  - "column"
-  - "grid column"
-  - "data grid"
+  - "列"
+  - "网格列"
+  - "数据网格"
 ---
 
-## 1 Introduction
+## 1 导言
 
-Grid columns allow you to set properties for a [data grid](data-grid) or [reference set selector](reference-set-selector) column.
+网格列允许您设置 [数据网格](data-grid) 或 [参考设置选择器](reference-set-selector) 列的属性。
 
-## 2 Properties
+## 2 属性
 
- An example of grid column properties is represented in the image below:
+ 下面的图像是网格列属性的示例：
 
 {{% image_container width="250" %}}![](attachments/data-widgets/column-properties.png)
 {{% /image_container %}}
 
-Grid column properties consist of the following sections:
+网格列属性由以下部分组成：
 
-* [Common](#common)
-* [Data source](#data-source)
-* [Formatting](#formatting)
-* [General](#general)
+* [常用的](#common)
+* [数据源](#data-source)
+* [格式化](#formatting)
+* [A. 概况](#general)
 
-### 2.1 Common Section {#common}
+### 2.1 共同部分 {#common}
 
 {{% snippet file="refguide/common-section-link.md" %}}
 
-### 2.2 Data Source Section {#data-source}
+### 2.2 数据源部分 {#data-source}
 
-#### 2.2.1 Attribute (Path)
+#### 2.2.1 属性(路径)
 
-The attribute (path) property specifies the attribute's value that is displayed in this column. It can be an attribute of the grid entity, or it can be an attribute of an associated entity, in which case we speak of an attribute path. The path can follow multiple associations of type reference, and at the end (optionally) one of type reference set. If you show a reference set in a column the values will be separated by a comma.
+属性(路径)属性指定了此列中显示的属性值。 它可以是网格实体的属性，也可以是关联实体的属性。 在这种情况下，我们谈论属性路径。 路径可以跟随多个类型引用关联，在末尾(可选) 一个类型参考集。 如果您在一列中显示一个引用集，值将用逗号分隔。
 
-### 2.3 Formatting Section {#formatting}
+### 2.3 格式科 {#formatting}
 
-#### 2.3.1 Enumeration Format
+#### 2.3.1 枚举格式
 
-Only for Attributes of the Enumeration Type. A column connected to an attribute of type enumeration can show its contexts as text (default) or as image.
+仅限枚举类型的属性。 与类型枚举属性相关联的列可以将其上下文显示为文本(默认)或图像。
 
-| Value | Description                               |
-| ----- | ----------------------------------------- |
-| Text  | Show the caption text of the enumeration. |
-| Image | Show the image of the enumeration value.  |
+| 值  | 描述         |
+| -- | ---------- |
+| 文本 | 显示枚举的标题文本。 |
+| 图片 | 显示枚举值的图像。  |
 
-#### 2.3.2 Decimal Precision
+#### 2.3.2 十进制精度
 
-Only for Decimal Attributes.  The precision of a value is defined the number of digits that is used to express that value. This property indicates the number of decimal places (the number of digits following the decimal point).
+仅限小数点属性。  值的精确度是用来表示该值的数字数。 此属性表示小数点后的位数(小数点后的数字数)。
 
-Default: *2*
+默认： *2*
 
-#### 2.3.3 Group Digits
+#### 2.3.3 组数字
 
-Only for Numeric Attributes. For ease of reading, numbers with many digits before the decimal separator may be divided into groups using a delimiter. This property defines whether the end-user will see these groups, or not.
+仅限数字属性。 为了便于阅读，小数点分隔符之前有许多数字的数字可能会被分成使用分隔符的组。 这种财产确定最终用户是否会看到这些团体。
 
-Default: *False*
+默认： *False*
 
-#### 2.3.4 Date Format
+#### 2.3.4 日期格式
 
-Only for Attributes of the Type Date and Time. The date format determines whether the date part, the time part or both are shown. How the date and time parts are formatted depends on the localization of the user using the application.
+仅限类型日期和时间的属性。 日期格式决定是否显示日期部分、时间部分或两者。 日期和时间部件的格式取决于用户使用应用程序的本地化。
 
-These are the possible values:
+这些是可能的价值：
 
-* **Date** *(default)*
-* **Time**
-* **Date and time**
-* **Custom** (see below for more details)
+* **日期** *(默认)*
+* **时间**
+* **日期和时间**
+* **自定义** (详情见下面)
 
-If you choose **Custom** as the date format (see above), this property determines how the attribute value is formatted. The custom date format is a string that allows for any combination of symbols found in the table below. Any punctuation will be rendered literally.
+如果您选择 **自定义** 作为日期格式(见上文)，此属性将决定如何格式化属性。 自定义日期格式是一个字符串，允许下面表格中的任何符号组合。 任何标点都将以字面形式呈现。
 
-{{% snippet file="refguide/custom-date-format-tokens.md" %}}
+{{% snippet file="refguide/custom-date-form-tokens.md" %}}
 
-### 2.4 General Section {#general}
+### 2.4 一般部分 {#general}
 
-#### 2.4.1 Caption
+#### 2.4.1 标题
 
-The caption of a column is the text that appears as a header above the rows. This is a translatable text. See [Language Menu](translatable-texts).
+列的标题是显示在行上方的页眉的文本。 这是一个可翻译的文本。 查看 [语言菜单](translatable-texts)。
 
-#### 2.4.2 Editable
+#### 2.4.2 可编辑
 
-The editable property indicates whether the values of the column will be editable inline, as in, without opening a page with a data view. In-line editing allows the data grid to behave like you would expect from a spreadsheet application.
+可编辑属性表示该列的值是否可以在线编辑，如果不打开一个有数据视图的页面。 在线编辑允许数据网格像您期望的电子表格应用程序一样行事。
 
-#### 2.4.3 Aggregate Function
+#### 2.4.3 聚合函数
 
-The values in a column can be aggregated in several ways. The aggregate function determines the way in which the values are aggregated. The aggregate will be shown at the bottom of the column that precedes by the aggregate caption (see below).
+一栏中的数值可通过几种方式加以汇总。 总函数决定数值的合计方式。 合计数将列在先于合计标题的栏下方（见下文）。
 
-| Value   | Description                                |
-| ------- | ------------------------------------------ |
-| None    | Do not aggregate the values in the column. |
-| Average | Show the average of the values.            |
-| Minimum | Show the smallest value.                   |
-| Maximum | Show the largest value.                    |
-| Sum     | Show the sum of the values.                |
-| Count   | Show the count of the values.              |
+| 值   | 描述          |
+| --- | ----------- |
+| 无   | 不要在列中汇总这些值。 |
+| 平均值 | 显示值的平均值。    |
+| 最小值 | 显示最小值。      |
+| 最大值 | 显示最大值。      |
+| Sum | 显示这些值的总和。   |
+| 计数  | 显示数值的数量。    |
 
 {{% alert type="warning" %}}
 
-Note that all objects will be taken into account, and not just the ones on the current page.
+请注意，所有对象都将被考虑，而不仅仅是当前页面上的对象。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-#### 2.4.4 Aggregate Caption
+#### 2.4.4 合计标题
 
-The aggregate caption is the text that appears in front of the computed value. This is a translatable text. See [Language Menu](translatable-texts).
+总标题是计算值前面出现的文本。 这是一个可翻译的文本。 查看 [语言菜单](translatable-texts)。
 
 {{% alert type="info" %}}
 
-'Total' could be an aggregate caption for a column that shows the sum of the values.
+“总计”可以是显示值总和的列的总标题。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-#### 2.4.5 Show Tooltip
+#### 2.4.5 显示工具提示
 
-This property determines whether the tooltip page is shown as the mouse is hovered over this column. The tooltip page can be configured on the [Data grid](data-grid).
+此属性决定是否显示工具提示页面作为鼠标悬停在此列上。 工具提示页面可以在 [数据网格](data-grid) 上配置。
 
-Default: *False*
+默认： *False*
 
-## 3 Read More
+## 3 阅读更多
 
-* [Data Grid](data-grid)
-* [Template Grid](template-grid)
+* [数据网格](数据网格)
+* [模板网格](template-grid)
