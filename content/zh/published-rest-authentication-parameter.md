@@ -14,9 +14,7 @@ tags:
 ---
 
 {{% alert type="info" %}}
-
-该功能是在7.17.0版本中引入的。 在此之前，所有认证微流程参数都是查询参数。
-
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/published-rest-authentication-parameter.pdf)。
 {{% /报警 %}}
 
 ## 1 导言
