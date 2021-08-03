@@ -1,39 +1,39 @@
 ---
-title: "Widget Overview"
-category: "Settings"
-description: "Describes the Widget Overview tab in Mendix Studio."
+title: "ウィジェットの概要"
+category: "設定"
+description: "Mendix Studioのウィジェットの概要タブについて説明します。"
 menu_order: 20
 tags:
-  - "studio"
-  - "settings"
-  - "widgets"
+  - "スタジオ"
+  - "設定"
+  - "ウィジェット"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-**Widget Overview** contains information on Mendix Marketplace widgets and local widgets in your app. For more details on widgets, see [Widgets](page-editor-widgets).
+**ウィジェット 概要** には、アプリケーションの Mendix Marketplace ウィジェットとローカル ウィジェットに関する情報が含まれています。 ウィジェットの詳細については、 [ウィジェット](page-editor-widgets) を参照してください。
 
-## 2 Widget Overview in App Settings
+## 2 アプリ設定のウィジェットの概要
 
-**App Settings** contains **Widget Overview** – an overview of all Marketplace widgets and local widgets in your app.
+**アプリ設定** には、 **ウィジェットの概要** が含まれています - アプリ内のすべての Marketplace ウィジェットとローカル ウィジェットの概要。
 
 ![](attachments/settings-widget-overview/widget-overview.png)
 
-The following types of widgets are included into the widget overview of the App Settings:
+アプリ設定のウィジェットの概要には、次のタイプのウィジェットが含まれています。
 
 * Marketplace widgets that are Studio approved, which are either, widgets that have been added by default when you created your app, or widgets you can download from the [Marketplace](/appstore/) to your app directly from Studio (for more information on widgets, see [Widgets](page-editor-widgets))
-* Local widgets – widgets created by users in Studio Pro (you can create local widgets yourself via Studio Pro, for more information, see [Custom Widget Development](/howto8/extensibility/widget-development))
+* ローカルウィジェット – Studio Proでユーザーが作成したウィジェット (Studio Proでローカルウィジェットを自分で作成できます。 詳細については、 [カスタムウィジェット開発](/howto7/widget-development/) を参照してください。
 
-In the App Settings the following columns are displayed:
+App Settings では、次の列が表示されます。
 
-| Column            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name              | Contains the following information on the widget: <ul><li>Widget icon</li><li> Name – the name of a single widget or the group of widgets</li><li>Version – the version of the widget installed in your app <li>Contributor's name – the name of the contributor who uploaded widgets in the Marketplace</li><li>Number of widgets in a package (when applicable) with a drop-down listing the widget names</li>                                                                                                                                                                                         |
-| Support Level     | Indicates the level of Support for Marketplace content. It is determined by the content support category and the Service Level Agreement (SLA) the user possesses.<br />The following support categories can be displayed in this column: <ul><li>**Platform Support** – Mendix supports all the content in this category when you are equipped with an Service Level Agreement (**platform**, **gold**, or **platinum**) with Mendix. Content in this category is proactively incorporated into test cycles as part of our platform release management. </li><li>**Community Support** – content is provided as-is by members of our Community and support depends on the availability and effort of the owner. </li></ul> For more information, see [Marketplace Content Support](/appstore/general/app-store-content-support).                                                                             |
-| Status            | Indicates if the update is available. Click **Update Available** to update the particular widget. When the widget is updated, the new version of this widget is displayed in the **App Settings**. Also, the widget is updated on all pages where it is used. **Note** You may have a situation that the new version properties differ from the old one, and you can get consistency errors when publishing. For details on errors, see [Checks](checks). |
-| **Delete** button | Deletes the widget from your app and from all pages where it was used.                                                                                                                                                                                                                                                                                                                                                                                    |
+| 列             | 説明                                                                                                                                                                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名前            | ウィジェットには以下の情報が含まれています。 <ul><li>ウィジェットのアイコン</li><li> 名前 – 単一のウィジェットまたはウィジェットのグループの名前</li><li>バージョン – アプリにインストールされているウィジェットのバージョン <li>コントリビューターの名前 – マーケットプレイスにウィジェットをアップロードしたコントリビューターの名前</li><li>パッケージ内のウィジェットの数 (該当する場合) ウィジェット名を一覧表示するドロップダウン リスト</li>                                        |
+| サポートレベル       | マーケットプレイスコンテンツのサポートレベルを示します。 コンテンツサポートカテゴリおよびユーザーが保有するサービスレベル契約(SLA)によって決定されます。<br />次のサポートカテゴリをこの列に表示できます。 <ul><li>**プラットフォームサポート** – Mendixは、サービスレベル契約 (**platform**) を装備している場合、このカテゴリのすべてのコンテンツをサポートします。 **gold**、または**platinum**) とMendix。 このカテゴリのコンテンツは、プラットフォームのリリース管理の一環として積極的にテストサイクルに組み込まれています。 </li><li>**コミュニティサポート** – コンテンツは、当社のコミュニティのメンバーによって提供され、サポートは所有者の可用性と努力に依存します。 </li></ul> 詳細については、 [マーケットプレイスコンテンツサポート](/appstore/general/app-store-content-support) を参照してください。                         |
+| ステータス         | 更新が利用可能かどうかを示します。 **Update Available** をクリックして特定のウィジェットを更新します。 ウィジェットが更新されると、このウィジェットの新しいバージョンが **アプリ設定** に表示されます。 また、ウィジェットは使用されているすべてのページで更新されます。 **注意** 新しいバージョンのプロパティが古いものと異なる場合があります。 出版時に一貫性のエラーが出ることがあります エラーの詳細については、 [チェック](checks) を参照してください。 |
+| **** を削除するボタン | アプリからウィジェットを削除し、使用されたすべてのページからウィジェットを削除します。                                                                                                                                                                                                             |
 
-## 3 Read More
+## 3 続きを読む
 
-* [General Info](general)
-* [Marketplace Content Support](/appstore/general/app-store-content-support)
+* [一般情報](general)
+* [マーケットプレイスのコンテンツサポート](/appstore/general/app-store-content-support)
