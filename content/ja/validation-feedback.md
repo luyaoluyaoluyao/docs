@@ -1,80 +1,76 @@
 ---
-title: "Validation Feedback"
+title: "検証のフィードバック"
 parent: "client-activities"
 menu_order: 70
 tags:
   - "studio pro"
-  - "validation feedback"
-  - "client activities"
+  - "検証フィードバック"
+  - "クライアントアクティビティ"
 aliases:
-  - /refguide8/Validation+Feedback.html
+  - /ja/refguide/Validation+Feedback.html
 ---
 
-{{% alert type="info" %}}
-<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> For the Simplified Chinese translation, click [中文译文](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-feedback.pdf).
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
 {{% /alert %}}
 
 {{% alert type="warning" %}}
-This activity can be used in both **Microflows** and **Nanoflows**.
+このアクションは無視され、オフライン、ネイティブ、またはハイブリッド・アプリケーションからマイクロフローが呼び出されたときには機能しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
 {{% /alert %}}
 
-{{% alert type="warning" %}}
-This action is ignored and does not work when a microflow is called from an offline, native, or hybrid app. For more information, see the [Microflows](offline-first#microflows) section of the *Offline-First Reference Guide*.
-{{% /alert %}}
+## 1つの紹介
 
-## 1 Introduction
-
-The **Validation feedback** activity does a validation check, and if this check fails, it shows a red message to the end-user below the widget that displays the attribute or association which failed the validation. For example, if the customer did not verify their email, a message will be displayed that the customer should verify it before they can log in:
+**検証フィードバック** アクティビティは検証チェックを行い、このチェックが失敗した場合は、 これは、検証に失敗した属性または関連付けを表示する、ウィジェットの下のエンドユーザーへの赤色のメッセージを表示します。 たとえば、顧客が電子メールを確認しなかった場合。 顧客がログインする前に確認するメッセージが表示されます：
 
 {{% image_container width="200" %}}
-![Validation Feedback](attachments/client-activities/validation-feedback.png)
+![検証のフィードバック](attachments/client-activities/validation-feedback.png)
 {{% /image_container %}}
 
-## 2 Properties
+## 2つのプロパティ
 
-There are two sets of properties for this activity, those in the dialog box on the left, and those in the properties pane on the right:
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
 
-![Validation Feedback Properties](attachments/client-activities/validation-feedback-properties.png)
+![フィードバックのプロパティの検証](attachments/client-activities/validation-feedback-properties.png)
 
-The **Validation feedback** properties pane consists of the following sections:
+**検証フィードバック** プロパティペインは、以下のセクションで構成されています:
 
-* [Action](#action)
-* [Common](#common)
+* [アクション](#action)
+* [一般的な](#common)
 
-## 3 Action Section {#action}
+## 3 アクションセクション {#action}
 
-The **Action** section of the properties pane shows the action associated with this activity.
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
 
-You can open a dialog box to configure this action by clicking the ellipsis (**…**) next to the action.
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
 
-You can also open the dialog box by double-clicking the activity in the microflow or right-clicking the activity and selecting **Properties**.
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
 
-### 3.1 Variable
+### 3.1 変数
 
-**Variable** specifies which object will be validated.
+**変数** は、どのオブジェクトを検証するかを指定します。
 
-### 3.2 Member
+### 3.2 メンバー
 
-**Member** defines for which attribute or association the message will be shown. In you have a [reference selector](reference-selector) or [reference set selector](reference-set-selector), you should select the association that is edited with these widgets.
+**メンバー** は、メッセージが表示される属性または関連性を定義します。 [リファレンスセレクター](reference-selector) または [リファレンスセットセレクター](reference-set-selector)があります。 ウィジェットで編集された関連付けを選択する必要があります。
 
-### 3.3 Template
+### 3.3 テンプレート
 
-**Template** is the message that will be shown to the end-user. The template can contain parameters that are written as a number between braces, for example, {1}. The first parameter has number 1, the second 2, etc.
+**テンプレート** はエンドユーザーに表示されるメッセージです。 テンプレートには、たとえば、 {1} のようなブレース間の数値として記述されるパラメータを含めることができます。 最初のパラメータは数字1、2番目のパラメータなどを持ちます。
 
 {{% alert type="warning" %}}
 
-Nanoflows do not support text templates in validation feedback. Only a static message text can be provided.
+Nanoflows は検証フィードバックのテキストテンプレートをサポートしていません。 静的メッセージテキストのみを指定できます。
 
 {{% /alert %}}
 
-### 3.4 Parameters
+### 3.4 パラメータ
 
-Parameters are attributes the value of which will be displayed. Parameters need to be entered using [expressions](expressions) resulting in a string.
+パラメータは、その値が表示される属性です。 パラメータは [式](expressions) を使用して文字列を入力する必要があります。
 
-## 4 Common Section {#common}
+## 4つの共通セクション {#common}
 
-{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+{{% snippet file="refguide/microflow-common-section-link.md" %}}
 
-## 5 Read More
+## 5 続きを読む
 
-* [Activities](activities)
+* [アクティビティ](アクティビティ)
