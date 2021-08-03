@@ -1,52 +1,52 @@
 ---
-title: "Order By Behavior"
-parent: "data-storage"
+title: "按行为排序"
+parent: "数据存储"
 tags:
   - "studio pro"
 menu_order: 20
 ---
 
-## 1 Introduction
+## 1 导言
 
-An `ORDER BY` clause allows you to specify the order in which rows appear in the result set. For instance, sorting on a column in a data grid sorts the data of the column in either ascending (smallest value first) or descending (largest value first) order. The default order is ascending.
+`BY` 条款允许您指定结果集中行出现的顺序。 例如， 按数据网格中的一列排序，按升序(最小优先值)或降序(最大优先值)排序。 默认顺序升高。
 
-However, in certain cases, the behavior is slightly different, either due to the use case or the database engine itself.
+然而，在某些情况下，行为略有不同，要么是因为案例的使用，要么是因为数据库引擎本身。
 
-## 2 Reference Sets Order Behavior
+## 2 个参考集订单行为
 
-When a column is used to display an attribute from an entity associated by a many-to-many association, the sorting will rely on the SQL `MIN()` function to determine the `MIN(attribute)` values and use those instead of the displayed text.
+当一列用于显示一个多对多个关联关联的实体的属性时， 排序将依靠SQL `MIN()` 函数来确定 `MIN(属性)` 值并使用这些值而不是显示的文本。
 
-Below is an example that uses the `Order` and `Product` entities, which have a many-to-many association. The **Product Names** column in the data grid displays for each order the names of the products that are associated to it:
+下面是一个使用 `订单` 和 `产品` 的示例，这些实体有多对多的关联。 数据网格中的 **产品名称** 列显示每个订单的产品名称:
 
 ![](attachments/runtime/sorting-reference-sets.png)
 
-Sorting the **Product Names** column will use the underlined values and not the displayed text. These values are the result of `MIN(productName)` for each order.
+排序 **产品名称** 列将使用下划线，而不是显示的文本。 这些值是每个订单 `MIN(产品名称)` 的结果。
 
-## 3 NULL Values Order Behavior {#null-ordering-behavior}
+## 3 NULL值订单行为 {#null-ordering-behavior}
 
-In SQL, `NULL` is a special marker used to indicate that a data value does not exist in the database. If a sort is applied on a column that contains `NULL` values, the decision whether the `NULLs` should come first or last varies per database type.
+在 SQL 中， `NULL` 是一个特殊标记，用来表示数据库中不存在数据值。 如果一个排序应用于包含 `NULL` 值的列， 决定 `NULL` 是否应该首先或最后一次根据数据库类型而有所不同。
 
-### 3.1 NULL Order Behavior by Database Engine
+### 3.1 按数据库引擎排序的行为
 
 #### 3.1.1 HSQLDB
 
-If you specify the `ORDER BY` clause, a `NULL` value always comes first before any non-`NULL` value, irrespective of the sort order.
+如果您指定了 `ORDER BY` 条款， a `NULL` 值总是优先于任何非-`NULL` 值，而不论排序顺序。
 
 #### 3.1.2 MARIADB, MYSQL, SAP HANA & SQLSERVER
 
-If you specify the `ORDER BY` clause, `NULL` values by default are ordered as less than values that are not `NULL`. Using the `ASC` order, a `NULL` value comes before any non-`NULL` value. Using the `DESC` order, the `NULL` comes last.
+如果您指定了 `ORDER BY` 条款， `NULL` 默认值的排序小于非 `NULL` 使用 `ASC` 订单， `NULL` 值在任何不存在之前——`NULL` 值。 使用 `DESC` 订单， `NULL` 是最后的。
 
 #### 3.1.3 DB2, ORACLE, & POSTGRESQL
 
-If you specify the `ORDER BY` clause, `NULL` values by default are ordered as more than values that are not `NULL`. Using the `ASC` order, a `NULL` value comes after any non-`NULL` value. Using the `DESC` order, the `NULL` comes first.
+如果您指定了 `ORDER BY` 条款， `NULL` 默认情况下的数值超过了非 `NULL` 使用 `ASC` 订单， `NULL` 值在任意不存在之后`NULL` 值。 使用 `DESC` 订单， `NULL` 是优先的。
 
-### 3.2 Overview of Default NULLs Sort Order
+### 3.2 默认NULLs 排序顺序
 
-This table presents the `NULLs` default sort ordering provided by different database types:
+此表显示 `NULL` 默认排序顺序由不同的数据库类型提供：
 
-| NULL Ordering Behavior/Database Types | DB2 | HSQLDB | MARIADB/ MYSQL | ORACLE | POSTGRESQL | SAP HANA | SQL SERVER |
-| -------------------------------------:|:---:|:------:|:--------------:|:------:|:----------:|:--------:|:----------:|
-|                   **ASC NULLS FIRST** |     |   ✔    |       ✔        |        |            |    ✔     |     ✔      |
-|                    **ASC NULLS LAST** |  ✔  |        |                |   ✔    |     ✔      |          |            |
-|                  **DESC NULLS FIRST** |  ✔  |   ✔    |                |   ✔    |     ✔      |          |            |
-|                   **DESC NULLS LAST** |     |        |       ✔        |        |            |    ✔     |     ✔      |
+|         空排序行为/数据库类型 | DB2 | HSQDB | MARIADB/ MYSQL | 排行 | POSTGRESQL | SAP HANA | SQL 服务 |
+| -------------------:|:---:|:-----:|:--------------:|:--:|:----------:|:--------:|:------:|
+|    **ASC NULLS FI** |     |   ✔   |       ✔        |    |            |    ✔     |   ✔    |
+|  **ASC NULLS LAST** |  ✔  |       |                | ✔  |     ✔      |          |        |
+|           **显示第一页** |  ✔  |   ✔   |                | ✔  |     ✔      |          |        |
+| **DESC NULLS LAST** |     |       |       ✔        |    |            |    ✔     |   ✔    |
