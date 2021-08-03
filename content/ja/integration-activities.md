@@ -1,20 +1,32 @@
 ---
-title: "Integration Activities"
-parent: "activities"
+title: "連携アクティビティ"
+parent: "アクティビティ"
+menu_order: 60
+tags:
+  - "studio pro"
 ---
 
-## Call REST Service
+{{% alert type="warning" %}}
+これらのアクティビティは、 **Microflow** でのみ使用できます。
+{{% /alert %}}
 
-See [Call Rest Action](call-rest-action).
+## 1つの紹介
 
-## Call Web Service
+外部サービスを使用する場合、サービスを呼び出してマッピング操作を実行するためのいくつかのマイクロフローアクティビティがあります。
 
-See [Call Web Service Action](call-web-service-action).
+このドキュメントで説明されているアクティビティは、 **ツールボックス** の **統合活動**セクションにあります:
 
-## Import with Mapping
+{{% image_container width="40%" %}}
+![統合アクティビティツールボックス](attachments/integration-activities/integration-activities-toolbox.png)
+{{% /image_container %}}
 
-See [Import Mapping Action](import-mapping-action).
+以下は、マイクロフローで使用できる統合アクティビティです。
 
-## Export with Mapping
+* [Call REST Service](call-rest-action) – RESTエンドポイントを呼び出す
+* [Web サービスを呼び出す](call-web-service-action) – インポートされた Web サービスの操作を呼び出します。
+* [マッピングのインポート](import-mapping-action) - XML または JSON ドキュメントからオブジェクトにデータをインポート
+* [エクスポートマッピング](export-mapping-action) - オブジェクトからXML または JSON ドキュメント、または文字列変数にデータをエクスポートします。
 
-See [Export Mapping Action](export-mapping-action).
+## 2 続きを読む
+
+* [アクティビティ](アクティビティ)
