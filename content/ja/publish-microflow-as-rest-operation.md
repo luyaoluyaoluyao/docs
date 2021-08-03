@@ -1,33 +1,33 @@
 ---
-title: "Publishing a Microflow as a REST Operation"
+title: "REST オペレーションとしてマイクロフローを公開"
 parent: "published-rest-services"
 menu_order: 30
-description: "How to publish a Microflow as a REST Operation"
+description: "REST 操作としてマイクロフローを公開する方法"
 tags:
-  - "Microflow"
+  - "マイクロフロー"
   - "REST"
-  - "operation"
-  - "resource"
+  - "操作"
+  - "リソース"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-To publish a microflow as a REST service operation, right-click in the microflow editor and select **Publish as REST service operation**.
+RESTサービス操作としてマイクロフローを発行するには、マイクロフローエディタを右クリックし、 **Publish as REST service operation** を選択します。
 
-Notice that if the microflow takes more than one parameter of an object or list type, it cannot be published as a REST operation. If you try to publish it, there will be a consistency error.
+microflow がオブジェクトまたはリスト型の 1 つ以上のパラメータを取る場合、REST 操作として公開することはできません。 公開しようとすると、一貫性エラーが発生します。
 
-## 2 Choosing a Resource
+## 2 リソースの選択
 
-After you click **Publish as REST service operation**, you need to select a resource under which to publish the microflow. There are several options:
+**Publish as REST service operation**をクリックした後、マイクロフローを公開するリソースを選択する必要があります。 いくつかのオプションがあります:
 
-* If you already have a service and a resource under which to publish the microflow, select it and click **Select**
-* If you already have a service but you want to create a resource, select the service and click **New**
-* If you want to create a new service, select a module or folder and click **New**
+* すでにマイクロフローを公開するサービスとリソースがある場合は、それを選択して **Select**
+* すでにサービスを持っていてリソースを作成したい場合は、サービスを選択して **New** をクリックしてください。
+* 新しいサービスを作成する場合は、モジュールまたはフォルダを選択し、 **New** をクリックします。
 
-The suggested name of the resource is the entity of a parameter of the microflow or the entity result of the microflow.
+リソースの提案された名前は、マイクロフローのパラメータの実体またはマイクロフローの実体結果です。
 
-## 3 Editing the Operation
+## 3 操作の編集
 
-After you have selected or created a service and a resource, you can edit the operation.
+サービスとリソースを選択または作成したら、操作を編集できます。
 
-The suggested value for **Method** is **POST** when the microflow takes an object or list parameter. Otherwise, it is **GET**.
+**メソッド** の推奨値は、microflow が object パラメータまたは list パラメータを取るときに **POST** です。 そうでなければ、それは **GET** です。
