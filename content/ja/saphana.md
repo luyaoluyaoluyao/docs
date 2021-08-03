@@ -1,43 +1,43 @@
 ---
 title: "SAP HANA"
-parent: "data-storage"
+parent: "データストレージ"
 menu_order: 70
 tags:
   - "studio pro"
 ---
 
-## 1 Introduction
+## 1つの紹介
 
-The behavior of Mendix using a SAP HANA  database has some minor differences when compared with using a PostgreSQL database. These differences are documented below.
+SAP HANA データベースを使用した Mendix の動作には、PostgreSQL データベースと比較して若干の違いがあります。 これらの違いは以下に記載されています。
 
-## 2 Ordering on Associated Attributes
+## 2関連属性の順序
 
-Retrieving an entity that is sorted on an attribute of one of its associated entities is not supported in SAP HANA.
+いずれかの関連エンティティの属性でソートされたエンティティの取得は SAP HANA ではサポートされていません。
 
-For example, you have two associated entities — **Person** and **Address** — and they have the **name** and **street** attributes, respectively. You cannot retrieve `Person` objects sorted on `Person_Address/Address/street`.
+例えば、 あなたには、 **Person** と **Address** という 2 つの関連するエンティティがあり、それらは **name** と **street** 属性を持っています。 を選択します。 `Person_Address/Address/street` でソートされた `Person` オブジェクトを取得できません。
 
-## 3 Behavior of Unlimited & Very Long Strings
+## 制限なし & 非常に長い文字列の3つの動作
 
-### 3.1 Comparison Functions
+### 3.1 比較関数
 
-SAP HANA does not support unlimited strings or strings with a specified length greater than 5000 characters when using the equal (`=`) or not equal (`!=`) operators in XPath constraints. However, it does support functions including `contains()`, `starts-with()`, and `ends-with()`.
+SAP HANA does not support unlimited strings or strings with a specified length greater than 5000 characters when using the equal (`=`) or not equal (`!=`) operators in XPath constraints. しかし、 `contains()`、 `starts-with()`、 および `ends-with()` を含む関数をサポートしています。
 
-See also [Case-Sensitive Database Behavior](case-sensitive-database-behavior).
+[大文字と小文字を区別するデータベースの動作](case-sensitive-database-behavior) も参照してください。
 
 {{% alert type="warning" %}}
-In versions of Mendix below 8.11.0, string comparisons in SAP HANA were case sensitive.
+Mendix が 8.11.0 以下のバージョンでは、SAP HANA における文字列比較は大文字小文字を区別しました。
 {{% /alert %}}
 
-### 3.2 Sorting, Grouping & Aggregating
+### 3.2 並べ替え, グループ化 & 集計化
 
-It is not possible to sort, group, or use aggregate functions such as `count()` on unlimited strings or strings with a specified length greater than 5000 characters. This is because such long or unlimited strings are implemented with the data type CLOB. Consider decreasing the length of the string attribute or removing it from data grids.
+ソート、グループ化はできません または、5000文字を超える長さの文字列や文字列に対して `count()` などの集計関数を使用します。 これは、このような長い文字列または無制限の文字列が CLOB データ型で実装されているためです。 文字列属性の長さを減らすか、データグリッドから削除することを検討してください。
 
-### 3.3 Selecting DISTINCT Attribute
+### 3.3 DISTINCT属性の選択
 
-Selecting DISTINCT attributes of the string type with a size greater than 5000 characters is not supported by Mendix due to a known SAP HANA limitation of selecting DISTINCT columns with a CLOB data type.
+5000文字を超える文字列タイプのDISTINCT属性を選択することは、CLOBデータ型でDISTINCTカラムを選択するという既知のSAP HANAの制限により、Mendixではサポートされていません。
 
-## 4 Known Issues
+## 既知の問題 4
 
-### 4.1 Unicode Support
+### 4.1 Unicode サポート
 
-Currently, only [Basic Multilingual Plane](https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane) Unicode characters are supported.
+現在、 [基本多言語面](https://en.wikipedia.org/wiki/Plane_(Unicode)#Basic_Multilingual_Plane) Unicode 文字のみサポートされています。
