@@ -1,120 +1,120 @@
 ---
-title: "General Activities"
-category: "Workflows"
+title: "一般活动"
+category: "工作流"
 menu_order: 30
 tags:
-  - "workflow"
-  - "workflows"
-  - "decision"
-  - "parallel split"
-  - "end activity"
+  - "工作流"
+  - "工作流"
+  - "决 定"
+  - "平行拆分"
+  - "结束活动"
 ---
 
-## 1 Introduction
+## 1 导言
 
-**General** activities allow you to manage paths in your workflow. A **Decision** allows you to add a condition and the workflow will follow one of the paths depending on this condition. With the help of the **Jump** activity you can jump to another activity in the workflow. **Parallel Split** adds several parallel paths (processes) to the workflow, and the **End** event ends a path.
+**常规** 活动允许您管理工作流程中的路径。 **决定** 允许您添加一个条件，并且工作流将根据这个条件遵循其中一个路径。 在 **跳跃** 活动的帮助下，您可以跳转到工作流中的另一个活动。 **并联分割** 将几个并行路径(进程)添加到工作流中， **结束** 事件结束了一个路径。
 
-![General Activities](attachments/workflows/general.jpg)
+![一般活动](attachments/workflows/general.jpg)
 
-## 2 Decision {#decision}
+## 2 决 定 {#decision}
 
-A decision is an element that makes a choice based on a condition and follows one and only one of the outgoing paths. For example, you can use it to follow different processes when a new hire works remotely or when they work from the office:
+一项决定是一个根据一项条件作出选择的要素，它遵循的是一条唯一的一条出路。 例如，当新的雇用单位远距离工作或从办公室工作时，您可以使用它来跟踪不同的过程：
 
-![Decision Example](attachments/workflows-general-activities/decision-example.jpg)
+![决策示例](attachments/workflows-general-activities/decision-example.jpg)
 
-### 2.1 Decision Properties
+### 2.1 决定财产
 
-An example of decision properties is represented in the image below:
+决策属性的示例在下面的图像中显示：
 
-![Decision Properties](attachments/workflows-general-activities/decision-properties.jpg)
+![决策属性](attachments/workflows-general-activities/decision-properties.jpg)
 
-Decision properties consist of the following sections:
+决策属性由以下部分组成：
 
-* [General](#general)
-* [Outcome](#outcome)
+* [A. 概况](#general)
+* [成果](#outcome)
 
-#### 2.1.1 General Section {#general}
+#### 2.1.1 一般部分 {#general}
 
-The **General** section provides the caption for the element and its condition.
+**常规** 部分提供了元素及其条件的标题。
 
-The **General** section properties are described in the table below:
+**常规** 章节属性在下表中描述：
 
-| Property  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Caption   | Describes what happens in this element. It is displayed in the workflow editor to make the workflow easier to read and understand.                                                                                                                                                                                                                                                                                                                                                                                 |
-| Condition | **Condition** is configured based on an [expression](/refguide/expressions). The expression should result in a Boolean or an enumeration.<br />For the expression resulting in a Boolean, two paths are possible: **true** and **false**. For example, you can use the expression resulting in a Boolean to follow different processes whether a new employee is working from home or from the office (and either send their devices to the home address or set up a workstation in the office).<br /> |
+| 财产 | 描述                                                                                                                                                                                                       |
+| -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 标题 | 描述这个元素会发生什么。 它显示在工作流编辑器中，使工作流更容易读取和理解。                                                                                                                                                                   |
+| 条件 | **条件** 是根据 [表达式](/refguide/expressions) 配置的。 表达式应产生布尔值或枚举。<br />对于导致布尔值的表达式，可能有两条路径： **true** 和 **false**。 例如， 您可以使用生成布尔值的表达式来跟踪不同的流程，无论新雇员是在家还是从办公室工作（或者将他们的设备发送到家用地址，或者在办公室设置一个工作站）。<br /> |
 
-#### 2.1.2 Outcomes Section {#outcome}
+#### 2.1.2 成果科 {#outcome}
 
-**Outcomes** depends on the condition of the decision. For example, for the Boolean, you have **true** and **false** outcomes, and for the enumeration: an outcome per each enumeration value and an empty one when the value is unassigned.
+**结果** 取决于决定的条件。 例如，对于布尔值，您有 **真实** 和 **false** 结果。 枚举：每个枚举值的结果和未分配值的空值。
 
-To change the order of outcomes, click the **Outcome** property and drag it.
+要更改结果顺序，请点击 **结果** 属性并拖动它。
 
-## 3 Jump Activity {#jump}
+## 3 个跳转活动 {#jump}
 
-The **Jump** activity allows you to jump to other activities in the workflow. This is useful when, for example, you are approving a request and need more details that are provided in one of the previous user tasks:
+**跳过** 活动允许您跳转到工作流程中的其他活动。 例如，当您批准请求并需要上一个用户任务中提供的更多细节时，这很有用：
 
-![Jump Activity Example](attachments/workflows-general-activities/jump-example.jpg)
+![跳转活动示例](attachments/workflows-general-activities/jump-example.jpg)
 
 {{% alert type="warning" %}}
-You cannot use the **Jump** activity in a Parallel split or in a path where it would end the workflow without any other path continuing it.
-{{% /alert %}}
+您不能在并联分割或路径中使用 **跳转** 活动，在路径中它将结束工作流，而没有任何其他路径继续它。
+{{% /报警 %}}
 
-### 3.1 Jump Activity Properties
+### 3.1 跳跃活动财产
 
-An example of Jump activity properties is represented in the image below:
+下面的图像显示了跳转活动属性的示例：
 
 ![](attachments/workflows-general-activities/jump-properties.jpg)
 
-The Jump activity properties consist of the **General** section and are described in the table below:
+跳转活动属性由 **常规** 部分组成，详见下表：
 
-| Property | Description                                                                                                                        |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Name     | The internal name of the element. When referring to the element in the  you will use this name. It must be unique.                 |
-| Caption  | Describes what happens in this element. It is displayed in the workflow editor to make the workflow easier to read and understand. |
-| Target   | **Target** is the activity the **Jump** goes to. You can select the activity you would like to go to from the drop-down menu.      |
+| 财产     | 描述                                           |
+| ------ | -------------------------------------------- |
+| 名称     | 元素的内部名称。 当提到元素时，您将使用这个名称。 它必须是独特的。           |
+| 标题     | 描述这个元素会发生什么。 它显示在工作流编辑器中，使工作流更容易读取和理解。       |
+| Target | **目标** 是 **跳跃** 转而来的活动。 您可以从下拉菜单中选择您想要进行的活动。 |
 
-## 4 Parallel Split {#parallel-split}
+## 4 并联拆分 {#parallel-split}
 
-The parallel split is used to have parallel processes in your workflow. For example, when onboarding a new employee, you can have several processes running in parallel: the HR department preparing necessary documents, the IT department preparing a workstation, and the Administration department scheduling a training for the employee:
+平行分割用于在您的工作流中有并行过程。 例如，当新员工上岗时，您可以同时运行几个流程：人力资源部门准备必要的文档。 为雇员安排培训的信息技术部门和行政部门：
 
-![Parallel Split Example](attachments/workflows-general-activities/parallel-split-example.jpg)
+![并联拆分示例](attachments/workflows-general-activities/parallel-split-example.jpg)
 
 {{% alert type="info" %}}
 
-The workflow will only continue to the next activity when all paths of the parallel split have been completed.
+只有在并行分割的所有路径完成后，工作流才会继续到下一个活动。
 
-{{% /alert %}}
+{{% /报警 %}}
 
-### 4.1 Parallel Split Properties
+### 4.1 并联分割财产
 
-An example of parallel split properties is represented in the image below:
+并行分割属性的示例在下面的图像中显示：
 
-![Parallel Split Properties](attachments/workflows-general-activities/parallel-split-properties.jpg)
+![并联分割属性](attachments/workflows-general-activities/parallel-split-properties.jpg)
 
-Parallel split properties consist of the following sections:
+并联分割属性由以下部分组成：
 
-* [General](#general)
-* [Paths](#paths)
+* [A. 概况](#general)
+* [路径](#paths)
 
-#### 4.1.1 General Section {#general}
+#### 4.1.1 一般部分 {#general}
 
-The **Caption** describes what happens in this element. It is displayed in the workflow element to make the workflow easier to read and understand.
+**标题** 描述了这个元素中发生的情况。 它显示在工作流元素中，使工作流更容易读取和理解。
 
-#### 4.1.2 Paths Section {#paths}
+#### 4.1.2 路径部分 {#paths}
 
-The **Paths** property allows you to add as many paths as there are parallel processes.
+**路径** 属性允许您添加尽可能多的路径，因为存在着并行过程。
 
-To change the order of paths, click the **Paths** property and drag it.
+要更改路径的顺序，请点击 **路径** 属性并拖动它。
 
-## 5 End Event {#end}
+## 5 结束事件 {#end}
 
-The **End** event ends the path of the workflow.
+**结束** 事件结束了工作流的路径。
 
 {{% alert type="warning" %}}
-You cannot use the **End** event in a Parallel split or in a path where it would end the workflow without any other path continuing it.
-{{% /alert %}}
+您不能在并联分割或路径中使用 **结束** 事件，在路径中它将结束工作流，而没有任何其他路径继续它。
+{{% /报警 %}}
 
-## 6 Read More
+## 6 阅读更多
 
-* [User Task](workflows-user-task)
+* [用户任务](workflows-user-task)
