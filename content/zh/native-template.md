@@ -1,68 +1,68 @@
 ---
-title: "Native Template"
-parent: "native-mobile"
+title: "本地模板"
+parent: "本地移动版"
 menu_order: 12
 tags:
-  - "mobile"
-  - "template"
-  - "native"
+  - "移动网络"
+  - "模版"
+  - "原生的"
   - "iOS"
   - "Android"
-  - "reference guide"
+  - "参考指南"
 ---
 
-## 1 Introduction
+## 1 导言
 
-A template is required when you build a Mendix native app: specifically the Native Template. In short, the Native Template describes the native dependencies your app needs, and it includes two native apps (one for iOS and one for Android) that can be independently built to create the finished apps. The Native Template works in conjunction with the Native Mobile Builder which configures it. For more information on the Native Mobile Builders' capabilities, see the [Native Mobile Builder Release Notes](/releasenotes/mobile/mendix-native-mobile-builder).
+构建Mendix 本地应用程序时需要模板。 简而言之，本机模板描述了您所需的本地依赖性。 并且它包括两个本地应用程序(一个用于iOS，一个用于Android)，可以独立构建来创建完成的应用程序。 本地模板与配置它的本地移动构建器一起工作。 欲了解更多关于本地移动生成器能力的信息，请参阅 [原生移动生成器版本号](/releasenotes/mobile/mendix-native-mobile-builder)。
 
-The template also includes tooling to help put everything together. Specifically, the Native Template uses the React Native and Mendix auto-linking capabilities to link the native dependencies to platform-specific apps, and uses the Native Mobile toolkit which configures the platform-specific app with version numbers, app names, splash screens, and more.
+该模板还包括配刀，帮助集合一切。 具体而言，本机模板使用React本地和 Mendix 自动链接功能，将本机依赖关系与平台特定应用连接， 并使用本机移动工具包，用版本号配置平台特定应用，应用名称，初始屏幕等等。
 
-In addition, the Native Template helps create custom developer apps. These are apps that act like the Make It Native app but are tailored your app's specific needs. If you would like to build an app that uses bespoke functionality like custom native widgets see [How to Create a Custom Developer App](/howto/mobile/how-to-devapps).
+此外，本机模板帮助创建自定义开发者应用程序。 这些应用程序类似于“Make it Native app”，但是专门设计的应用程序的特定需要。 如果你想要构建一个使用自定义本地小部件等定制功能的应用程序，看到 [如何创建一个自定义开发者应用程序](/howto/mobile/how-to-devapps)。
 
-## 2 Location
+## 2 个位置
 
-The Native Template is hosted on [GitHub](https://github.com/mendix/native-template) and is publicly available.
+本机模板托管在 [GitHub](https://github.com/mendix/native-template) 上，是公开的。
 
 ## 3 Versioning
 
-Please note this key information regarding versioning:
+请注意这个关于版本的关键信息：
 
-* A Native Template is versioned using [semantic versioning](https://semver.org/)
-* A Native Template version is closely related to the Mendix Studio Pro version of the app that is being built
-* Not using a matching version will lead to unexpected behavior
+* 本机模板使用 [语义版本](https://semver.org/)
+* 本机模板版本与正在构建的应用程序的 Mendix Studio Pro 版本密切相关。
+* 不使用匹配的版本将导致意外的行为
 
-To determine which version of the Native Template you should use, do the following:
+要确定您应该使用哪个版本的本地模板，请执行以下操作：
 
-1. Note which version of Studio Pro you are using, for example *9.0.0*.
-1. Navigate to the [Native Template mendix_version.json file](https://github.com/mendix/native-template/blob/master/mendix_version.json).
+1. 注意您正在使用的Studio Pro 哪个版本，例如 *9.0.0*。
+1. 导航到 [原生模板 mendix_version.json 文件](https://github.com/mendix/native-template/blob/master/mendix_version.json)。
 
-The keys represent the Mendix Studio Pro version. The `min` and `max` values are the minimum and maximum Native Template versions supported:
+密钥表示Mendix Studio Pro 版本。 `分钟` and `max` 值是支持的最小和最大原生模板版本：
 
 {{% image_container width="200" %}}![Mendix Versions](attachments/native-template/mendix-version.png){{% /image_container %}}
 
-So like in the example shown above, in the case of Mendix Studio Pro 8.9.x you could choose any Native Template version from 4.0.0 to the latest. Ideally, you should choose the most recent supported version.
+与上面的例子一样，Mendix Studio Pro 8.9也是如此。 您可以选择 4.0.0 至最晚版本的本地模版版本。 理想的情况是，您应该选择最新支持的版本。
 
-## 4 Auto-Linking Dependencies
+## 4 自动链接依赖关系
 
-React Native modules are npm packages that include dependencies which must be linked with your platform-specific apps so that the React Native modules can be compiled with the apps.
+React 原生模块是 npm 包，包含依赖关系，这些依赖关系必须与您的平台特定应用链接，以便能够将React 原生模块与应用编译。
 
-The Native Template fully supports the [React Native's CLI auto-linking capabilities](https://github.com/react-native-community/cli/blob/master/docs/autolinking). Libraries that are auto-linkable by default will be correctly linked to the platform-specific apps.
+本机模板完全支持 [React Native的 CLI 自动链接能力](https://github.com/react-native-community/cli/blob/master/docs/autolinking)。 默认情况下自动链接的库将被正确链接到特定平台的应用程序。
 
-For libraries that are not fully auto-linkable (those are usually libraries that require special initialization) we extended the default auto-linking capabilities. This process is limited to publicly known capabilities. We will expand the documentation when the API becomes public.
+对于不能完全自动连接的库 (通常是需要特殊初始化的库)，我们扩展了默认的自动连接功能。 这一进程仅限于已知的公开能力。 当API公开时，我们将扩展文档。
 
-## 5 Native Mobile Toolkit
+## 5 本机移动工具箱
 
-The Native Mobile Toolkit is a Mendix-developed npm module that is used to facilitate the configuration requirements of platform-specific apps. It lets you define app features like versioning, package ID, splash screens, and more in a platform-agnostic way.
+本机移动工具包是一个Mendix开发的 npm 模块，用于便利特定平台应用的配置要求。 它可以让您定义应用功能，如版本、包 ID、初始屏幕以及更多的平台诊断方式。
 
-The configuration is written in JSON. The configuration file is versioned using an incremental number. The version is incremented when breaking changes are introduced.
+配置已写入JSON。 配置文件是使用递增数版本化的。 当引入破解更改时，版本会递增。
 
-The Native Mobile Toolkit includes conversion logic that allows conversion from an older config version to a newer one. This conversion happens in memory so that it does not conflict with custom implementations. The converted config is outputted in the terminal's console for further debugging.
+本机移动工具包包含转换逻辑，允许从旧的配置版本转换为更新版本。 这种转换 发生在内存中，这样它不会与自定义实现相冲突。 转换后的配置将在终端的控制台 中输出以进行进一步调试.
 
-### 5.1 Mobile Toolkit Configuration Structure
+### 5.1 移动工具包配置结构
 
-App-specific information is defined in a top level **config** file. The best way to derive possible config options is to configure an app initially with the Mendix Native Mobile Builder and note the configuration keys.
+指定应用的信息在顶级 **配置** 文件中定义。 获取可能的配置选项的最佳方式是首先使用 Mendix Native Mobile Builder 配置一个应用程序并注明配置密钥。
 
-**<details><summary>To see the supported properties as of config version 2, click here.</summary>** These are the supported properties as of config version 2:
+**<details><summary>要看到配置版本2所支持的属性，请单击此处。</summary>** 这些是配置版本 2 支持的属性
 
 ```
 interface NativeTemplateConfig {
@@ -118,7 +118,7 @@ export interface Orientation {
 ```
 </details>
 
-**<details><summary>To see an example of a configured app, click here.</summary>** This is an example of a configured app:
+**<details><summary>要看到一个已配置的应用的示例，请点击这里</summary>** 这是一个已配置应用的示例：
 
 ```
 {
@@ -192,23 +192,23 @@ export interface Orientation {
 </details>
 
 
-### 5.2 Assets
+### 5.2 资产
 
-The Mobile Toolkit supports configuring splash screens and the icons for your app. Assets are expected to be saved relative to the root of the Native Template in a folder named **assets**.
+移动工具包支持为您的应用配置初始屏幕和图标。 资源预计相对于命名为 **assets** 的文件夹中本地模板的根目录而被保存。
 
 ```
-- assets
-    - icons
-    - splashScreens
+- 素材
+    - 图标
+    - splashScreen
 ```
 
-#### 5.2.1 iOS Icons
+#### 5.2.1 iOS 图标
 
-The icons' configuration needs to be defined in a versioned *JSON* formatted **config** file under **assets/icons/ios.json**.
+图标的配置需要在一个版本的 *JSON* 格式的 **配置** 文件在 **assets/icons/ios.json** 下定义。
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+文件名下定义的实际资产文件预计在 **配置** 文件旁边可用。
 
-The version is required and used for backwards compatibility purposes. Below you see the config using **version 1**:
+版本是必需的，用于背向兼容目的。 下面看到配置使用 **版本 1**：
 
 ```
 interface IOSIconsConfig {
@@ -223,9 +223,9 @@ interface IOSIconsConfig {
 }
 ```
 
-**<details><summary>To see an example of all the keys required to successfully configure an app, click here.</summary>**
+**<details><summary>要看到成功配置应用程序所需的所有密钥的示例，请点击这里</summary>**
 
-This is an example of all the keys required to successfully configure an app:
+这是成功配置应用程序所需的所有密钥的示例：
 
 ```
 {
@@ -362,28 +362,28 @@ This is an example of all the keys required to successfully configure an app:
 ```
 </details>
 
-#### 5.2.2 Android Icons
+#### 5.2.2 Android 图标
 
 The icons' configuration needs to be defined in a versioned JSON-formatted **config** file under *assets/icons/android.json*.
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+文件名下定义的实际资产文件预计在 **配置** 文件旁边可用。
 
-The version is required and used for backwards compatibility purposes. For now the config is on version 1:
+版本是必需的，用于背向兼容目的。 现在，配置处于版本 1：
 
 ```
-interface AndroidIconsConfig {
-    "images": Array<{
+接口AndroidIconsconfig 然后
+    "images": Array<}
             "directory": "mipmap-mdpi" | "mipmap-hdpi" | "mipmap-xhdpi" | "mipmap-xxhdpi"
-            "filename": "ic_launcher.png" | "ic_launcher_round.png"
+            "filename": "ic_launcher. ng" | "ic_launcher_round. ng"
             "title": string
         }>,
     "version": 1
 }
 ```
 
-**<details><summary>To see an example of all the keys required to successfully configure an app, click here.</summary>**
+**<details><summary>要看到成功配置应用程序所需的所有密钥的示例，请点击这里</summary>**
 
-This is an example of all the keys required to successfully configure an app:
+这是成功配置应用程序所需的所有密钥的示例：
 
 ```
 {
@@ -444,28 +444,28 @@ This is an example of all the keys required to successfully configure an app:
 ```
 </details>
 
-#### 5.2.3 iOS Splash Screens
+#### 5.2.3 iOS 喷溅屏幕
 
 The splash screen configuration needs to be defined in a versioned JSON-formatted **config** file under *assets/splashScreens/ios.json*.
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+文件名下定义的实际资产文件预计在 **配置** 文件旁边可用。
 
-The version is required and used for backwards compatibility purposes. For now the config is on version 1:
+版本是必需的，用于背向兼容目的。 现在，配置处于版本 1：
 
 ```
-interface AndroidSplashScreensConfig {
-      "images": Array<{
+接口AndroidSplashScreensConfig 然后
+      "images": Array<}
               "size": "640x960" | "375x667" | "414x736",
-              "idiom": "universal",
+              “idiom”：“普遍”，
               "scale": "1x" | "2x" | "3x",
-              "type": "splashScreen",
-              "filename": string
-          }>,
+              "类型": "splashScreen",
+              "filename": 字符串
+          }>, ,
       "version": 1
 }
 ```
 
-Here is an example of the file with all required splash screens defined:
+下面是定义所有必需的初始屏幕的文件示例：
 
 ```
 {
@@ -496,26 +496,26 @@ Here is an example of the file with all required splash screens defined:
 }
 ```
 
-#### 5.2.4 Android Splash Screens
+#### 5.2.4 安卓喷溅屏幕
 
 The splash screen configuration needs to be defined in a versioned JSON-formatted **config** file *assets/splashScreens/android.json*.
 
-The actual asset files defined under filename are expected to be available next to the **config** file.
+文件名下定义的实际资产文件预计在 **配置** 文件旁边可用。
 
-The version is required and used for backwards compatibility purposes. For now the config is on version 1:
+版本是必需的，用于背向兼容目的。 现在，配置处于版本 1：
 
 ```
-interface AndroidSplashScreensConfig{
-  "images": Array<{
-          "filename": "splash.png";
-          "directory": "drawable-hdpi" | "drawable-xhdpi" | "drawable-xxhdpi",
-          "title": string;
+接口AndroidSplashScreensConfig@un.org
+  "images": Array<}
+          "filename": "splash. ng";
+          "directory": "draable-hdpi" | "draable-xhdpi" | "draable-xxhdpi",
+          "title": 字符串;
       }>,
   "version": 1
 }
 ```
 
-Here is an example of the file with all required splash screens defined:
+下面是定义所有必需的初始屏幕的文件示例：
 
 ```
 {
@@ -540,112 +540,112 @@ Here is an example of the file with all required splash screens defined:
 }
 ```
 
-### 5.3 Configuring Firebase
+### 5.3 配置 Firebase
 
-Using Firebase requires special considerations. When enabling the Firebase capabilities via the Native Mobile Toolkit **config** file, the toolkit will look in the **assets/firebase** folder for the appropriate configuration files.
+使用防火墙需要特别的考虑。 当通过 Native Mobile Toolkit **配置** 文件启用 Firebase功能时， 工具包将在 **assets/firebase** 文件夹中查看适当的配置文件。
 
-The files are looked up by name. The expected names per platform are the following:
+文件用名称查找。 每个平台的预期名称如下：
 
-| Platform | Expected Name            |
-| -------- | ------------------------ |
-| Android  | google-services.json     |
-| iOS      | GoogleService-Info.plist |
+| 平台      | 预期名称                     |
+| ------- | ------------------------ |
+| Android | Google services.json     |
+| iOS     | GoogleService-Info.plist |
 
-The Native Mobile Toolkit does not verify the validity of the provided configuration files. It only moves them to the correct location when configuring the app.
+本地移动工具包无法验证所提供的配置文件的有效性。 它只能在配置应用程序时将它们移动到正确的 位置。
 
-### 5.4 Running the Native Mobile Toolkit
+### 5.4 运行原生移动工具箱
 
-The Native Mobile Toolkit is a Node module included with Native Template. As such, it must be installed first by running `install` in the Native Template root directory. When building locally, you must run `npm install` when a new version of the Native Mobile Toolkit is released to ensure you are always running on the latest version.
+本机移动工具包是一个包含本机模版的节点模块。 因此，它必须先在本地模板根目录中运行 `安装`。 当构建本地时， 当发布新版本的本地移动工具包时，您必须运行 `npm 安装` ，以确保您始终在最新版本上运行。
 
 {{% alert type="info" %}}
-The npm script expects that the Native Mobile Toolkit configuration files are at the root of the app, and named **config.json**. This is always the case when using the Mendix Native Mobile Builder to configure a local or a remote app.
-{{% /alert %}}
+npm 脚本预计本机移动工具包配置文件是应用程序的根目录，并名为 **config.json**。 当使用 Mendix Native Mobile Builder 配置本地或远程应用程序时，情况总是如此。
+{{% /报警 %}}
 
-To run the toolkit using the run script defined in **package.json**, run `npm run configure`.
+要使用 **package.json**定义的运行脚本运行工具包，运行 `npm 运行配置`。
 
-#### 5.4.1 Specifying Custom Configuration Paths
+#### 5.4.1 指定自定义配置路径
 
-Having the configuration file relative to the root directory is not required for the toolkit, but is done for convenience. To specify a different configuration file path the toolkit can be executed using the following command:
+工具包不需要拥有相对于根目录的配置文件，而是为了方便。 要指定不同的配置文件路径，可以使用以下命令执行工具包：
 
 ```
-native-mobile-toolkit configure --config-path='./<name of the configuration>.json' --verbose
+本地移动工具包配置 --config-path='./<name of the configuration>.json'
 ```
 
-## 6 Bundle Information
+## 6 套装信息
 
-Mendix Native apps are based on React Native. When building your Mendix app using the Mendix Native Mobile Builder, your app is first compiled to Javascript code and static assets. Using React Native's Metro Bundler, the client code and assets are then compiled to platform specific React Native Bundles. These are finally moved to the correct location in Native Template before compiling the final apps.
+Mendix 原生应用程序基于React Native。 当使用 Mendix Native Mobile Builder 构建您的 Mendix 应用程序时，您的应用程序首先被编译为 Javascript 代码和静态资产。 使用React Native的大都库，客户端代码和资产随后被编译成特定的React本地Bundles平台。 在编译最终应用之前，这些应用最终会被移至本地模板中的正确位置。
 
-This whole process is unified using a tool called MXBuild that is included with every installation of Mendix Studio Pro. For more information, see the [MxBuild Reference Guide](mxbuild).
+这个整个过程是用一个叫做MXBuild的工具进行统一的，这个工具包含在每次安装Mendix Studio Pro的过程中。 欲了解更多信息，请参阅 [MxBuilding 参考指南](mxbuild)。
 
-### 6.1 Using MxBuild to Build your Native App
+### 6.1 使用 MxBuild来构建您的原生应用
 
-If for some reason you cannot use Mendix Native Mobile Builder to configure and build your app, for example when operating in a CI environment which lacks a display, you will have to explicitly have set up the correct Mendix Studio Pro version for the app you are building and then manually run MXBuild.
+如果出于某些原因，您不能使用Mendix Native Mobile Builder 来配置和构建您的应用， 例如，在没有显示的 CI环境中运作时， 您必须为您正在构建的应用程序设置正确的 Mendix Studio Pro 版本，然后手动运行 MXBuild。
 
-To do so:
+要这样做：
 
-1. Locate the required Studio Pro installation.
-1. Find the path to the executable **mxbuild.exe** and note it down.
-1.  Open a command line and run this command:
+1. 定位所需的 Studio Pro 安装。
+1. 找到可执行文件 **mxbuild.exe** 的路径并注明它。
+1.  打开命令行并运行此命令：
 
     ```
-    <path-to-mxbuild.exe> --java-home=DIRECTORY -java-exe-path=FILENAME --target=deploy --native-packager <path-to-the-app-mpr>
+    <path-to-mxbuild.exe> --java-home=DIRECTORY -java-exe-path=FILENAME --target=部署 --native-packer <path-to-the-app-mpr>
     ```
 
-This command does the following:
+此命令执行以下操作：
 
-* Exports the web and native apps into the deployment folder as usual.
-* Runs the React Native metro bundler (note flag `--native-packager`) to create the RN bundles and assets for each platform in `/deployment/native/bundle`.
+* 像往常一样导出网络和本地应用到部署文件夹。
+* 运行 React Native metro bundler (note 标志 `--native-packer`) 来创建每个平台的 RN bundles and assets in `/deplement/native/Bundle`.
 
-The bundle folder structure will look something like this:
+捆包文件夹结构将看起来像这样：
 
 ```
 - android
-    - res
-        - drawable-mdpi
-        - drawable-hdpi
-        - drawable-xhdpi
-        - drawable-xxhdpi
-        - drawable-xxxhdpi
+    - ress
+        - draable-mdpi
+        - draable-hdpi
+        - draable-xhdpi
+        - draable-xxhdpi
+        - draable-xxxhdpi
         - raw
     - assets
-        - index.android.bundle
+        - index. ndroid。 撤消
 - iOS 
     - assets
-        - List of all images namespaced
-        - index.ios.bundle
+        - 列出所有图像命名空间
+        - 索引。 bundle
 ```
 
-### 6.2 Copying the Bundle to the Right Location
+### 6.2 将捆绑包复制到右侧位置
 
-The created bundles need to be copied to the right place in the Native Template to be built:
+创建的捆绑包需要复制到本地模板中的正确位置才能构建：
 
-* For Android, the content of the `bundle/android` reflects the exact folders the assets and bundles need to be copied to
+* 对于Android， `bundle/android` 的内容反映了资产和bundles 需要复制的确切文件夹到
 * For iOS, the content of the `bundle/iOS` folder needs to be simply copied to the `<native-template>/ios/Bundle` directory
 
-## 7 Deriving the App' Native Dependencies
+## 7 派生应用程序的本地依赖关系
 
-Mendix Studio Pro 9 introduced Native Dependency resolution for pluggable widgets and Javascript actions. For more information, see [Declaring Native Dependencies ](/apidocs-mxsdk/apidocs/pluggable-widgets-native-dependencies). Prior to Studio Pro 9 Mendix Studio Pro was shipping with a set of core dependencies which are now are removed.
+Mendix Studio Pro 9引入了本地依赖解决方案，用于插件和Javascript操作。 欲了解更多信息，请参阅 [声明原生依赖 ](/apidocs-mxsdk/apidocs/pluggable-widgets-native-dependencies)。 Studio Pro 9 Mendix Studio Pro 之前正在配送一组核心依赖关系，这些关系已被移除。
 
-As you develop, you may add more Mendix Studio Pro 9 compatible modules, widgets, and actions to your app. This means and more dependencies will be added that will also need be declared in your app's Native Template prior to building the native apps.
+在开发过程中，您可以添加更多的 Mendix Studio Pro 9兼容模块、小部件和操作到您的应用中。 This means and more dependencies will be added that will also need be declared in your app's Native Template prior to building the native apps.
 
-As this dependency management is required for your app's initial setup, we suggest you use the Mendix Native Mobile Builder to configure your app. The Mendix Native Mobile builder is capable of deriving required dependencies and linking them with your app's Native Template.
+由于您的应用初始设置需要此依赖管理，我们建议您使用Mendix Native Mobile Builder来配置您的应用。 Mendix Native Mobile 生成器能够生成所需的依赖关系，并将它们与您的应用的本地模板连接。
 
-## 8 Continuous Integration Testing Guidelines
+## 8 持续整合测试准则
 
-In some advanced cases you might consider setting up continuous integration (CI) testing. This could be useful if you have multiple environments and prefer testing any nightly changes in acceptance before pushing to production.
+在一些高级情况下，您可能会考虑设置连续集成(CI)测试。 如果您有多个环境，并且希望在推送到生产前测试 任何夜间的验收变化，这可能是有用的。
 
-We suggest you initially develop your app using the Mendix Native Mobile Builder until the native dependencies are stable. Having a CI in the early stages will lead to frustration, and flux dependencies will lead to unexpected crashes.
+我们建议您首先使用Mendix 本地移动构建器开发您的应用，直到本地依赖关系稳定。 在早期阶段就拥有一股公司将导致挫折感，流动依赖将导致意外崩溃。
 
-A CI environment needs to be able to do the following to successfully configure a Native Template for builds:
+CI 环境需要能够做以下操作才能成功配置构建的本地模板：
 
-* Check out the latest Mendix app from SVN
-* Check out your app's Native Template (the one used when configuring the app)
-* Run `mxbuild`
-* Set up the configuration and move assets as needed (this can be done with simple shell scripts or any other solution, and is the implementor's choice)
-* Run `npm i` and `npm run configure` to configure the app using Mendix Mobile Toolkit before the build.
+* 从 SVN 查看最新的 Mendix 应用程序
+* 查看您的应用本地模板 (配置应用时使用的模板)
+* 运行 `mxbuild`
+* 设置配置并根据需要移动素材(可以通过简单的 shell 脚本或任何其他解决方案完成) 并且是实施者的选择)
+* 运行 `npm i` and `npm 运行配置` 以在构建前使用 Mendix Mobile Toolkit 配置应用程序。
 
-How to build the apps is a choice for the implementor. Mendix Native App Builder use App Center for convenience. There are multiple other solutions, on premise or as a service, that can be used for this purpose. We do not endorse one over the other.
+如何构建应用是实现者的一个选择。 Mendix Native App Builder 使用应用中心方便。 还有多个其他的 解决方案可以用于此目的。 我们不赞同其中的任何一个。
 
-## 9 Read More
+## 9 阅读更多
 
-* [Offline First Reference Guide](offline-first)
+* [离线第一参考指南](离线前)
