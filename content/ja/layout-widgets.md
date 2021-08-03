@@ -1,9 +1,9 @@
 ---
-title: "Layout Widgets"
-parent: "pages"
+title: "レイアウトウィジェット"
+parent: "ページ"
 ---
 
 
-*   [Placeholder](placeholder)
-*   [Header](header)
-*   [Sidebar toggle button](sidebar-toggle-button)
+*   [プレースホルダー](placeholder)
+*   [ヘッダー](ヘッダー)
+*   [サイドバー切り替えボタン](sidebar-toggle-button)
