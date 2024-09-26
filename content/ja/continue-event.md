@@ -1,0 +1,35 @@
+---
+title: "イベントを続ける"
+parent: "イベント"
+menu_order: 4
+tags:
+  - "studio pro"
+  - "イベントを続ける"
+  - "イベント"
+  - "ループ"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/continue-event.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
+
+{{% alert type="warning" %}}
+
+Continue イベントは、 [ループ](loop) 内でのみ使用できます。
+
+{{% /alert %}}
+
+continue イベントは、現在の反復を停止し、ループ内で次のオブジェクトの反復を開始するために使用されます。
+
+通常、次のオブジェクトの反復は自動的に開始されます。 ですから、継続イベントは [の決定](decision) (パスのいずれかに宛先がまだない場合) の後にのみ必要です。 どちらの決断にも目的地が必要だからです しかし、明確さのために、あなたは常に1を含めることを選択することができます。
+
+例えば、 *OrderLine* エンティティのオブジェクトのリストがあり、支払い済み注文行のみの購入日を設定します。 これは、意思決定、継続イベント、および変更アクティビティのループを使用して行うことができます。 決定は、注文行が支払われるかどうかを決定します。 注文行が支払われている場合、購入日は変更アクティビティによって設定され、ループされたアクティビティは次の注文行から始まります。 注文行が支払われていない場合、format@@0イベントのため、ループは次の注文行から始まります。
+
+![](attachments/events/continue-event.png)
+
+## 2 続きを読む
+
+* [ループ](ループ)
+* [休憩イベント](break-event)

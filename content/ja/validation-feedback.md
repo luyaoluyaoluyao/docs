@@ -1,0 +1,80 @@
+---
+title: "検証のフィードバック"
+parent: "client-activities"
+menu_order: 70
+tags:
+  - "studio pro"
+  - "検証フィードバック"
+  - "クライアントアクティビティ"
+aliases:
+  - /refguide8/Validation+Feedback.html
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/validation-feedback.pdf) をクリックしてください。
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+このアクティビティは、 **Microflow** と **Nanoflows** の両方で使用できます。
+{{% /alert %}}
+
+{{% alert type="warning" %}}
+このアクションは無視され、オフライン、ネイティブ、またはハイブリッド・アプリケーションからマイクロフローが呼び出されたときには機能しません。 詳細については、 [オフライン-First Reference Guide](offline-first#microflows) の *Microflow* セクションを参照してください。
+{{% /alert %}}
+
+## 1つの紹介
+
+**検証フィードバック** アクティビティは検証チェックを行い、このチェックが失敗した場合は、 これは、検証に失敗した属性または関連付けを表示する、ウィジェットの下のエンドユーザーへの赤色のメッセージを表示します。 たとえば、顧客が電子メールを確認しなかった場合。 顧客がログインする前に確認するメッセージが表示されます：
+
+{{% image_container width="200" %}}
+![検証のフィードバック](attachments/client-activities/validation-feedback.png)
+{{% /image_container %}}
+
+## 2つのプロパティ
+
+このアクティビティには2つのプロパティがあります。 左側のダイアログボックスと右側のプロパティ ペインに表示されています
+
+![フィードバックのプロパティの検証](attachments/client-activities/validation-feedback-properties.png)
+
+**検証フィードバック** プロパティペインは、以下のセクションで構成されています:
+
+* [アクション](#action)
+* [一般的な](#common)
+
+## 3 アクションセクション {#action}
+
+プロパティ ペインの **アクション** セクションには、このアクティビティに関連付けられたアクションが表示されます。
+
+アクションの横にある省略記号 (**…**) をクリックすることで、このアクションを構成するためのダイアログボックスを開くことができます。
+
+また、マイクロフロー内のアクティビティをダブルクリックするか、アクティビティを右クリックして **プロパティ** を選択することで、ダイアログボックスを開くこともできます。
+
+### 3.1 変数
+
+**変数** は、どのオブジェクトを検証するかを指定します。
+
+### 3.2 メンバー
+
+**メンバー** は、メッセージが表示される属性または関連性を定義します。 [リファレンスセレクター](reference-selector) または [リファレンスセットセレクター](reference-set-selector)があります。 ウィジェットで編集された関連付けを選択する必要があります。
+
+### 3.3 テンプレート
+
+**テンプレート** はエンドユーザーに表示されるメッセージです。 テンプレートには、たとえば、 {1} のようなブレース間の数値として記述されるパラメータを含めることができます。 最初のパラメータは数字1、2番目のパラメータなどを持ちます。
+
+{{% alert type="warning" %}}
+
+Nanoflows は検証フィードバックのテキストテンプレートをサポートしていません。 静的メッセージテキストのみを指定できます。
+
+{{% /alert %}}
+
+### 3.4 パラメータ
+
+パラメータは、その値が表示される属性です。 パラメータは [式](expressions) を使用して文字列を入力する必要があります。
+
+## 4つの共通セクション {#common}
+
+{{% snippet file="refguide8/microflow-common-section-link.md" %}}
+
+## 5 続きを読む
+
+* [アクティビティ](アクティビティ)

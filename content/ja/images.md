@@ -1,0 +1,48 @@
+---
+title: "画像"
+category: "アプリモデリング"
+menu_order: 70
+tags:
+  - "画像"
+  - "画像コレクション"
+  - "png"
+  - "Studio Pro"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/images.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
+
+画像はアプリケーションを明るくするのに使用できます。 [ナビゲーション項目](navigation-tree) と様々な種類の [ボタン](button-widgets) には、キャプションの左側に小さな画像 (アイコン) があります。 画像は、 [ページ](pages) および [ドキュメント テンプレート](document-templates) 内のイメージ ビューアー ウィジェットでも使用できます。 また、 [列挙値](enumerations#enum-value-properties) はデータグリッド列に表示できる画像を持つことができます。
+
+**システム** モジュールには、標準コンポーネントで使用される画像が含まれています。 データビューをページに配置する場合。 **Save** and **Cancel** ボタンには **System** モジュールの画像が表示されます。 好きな場合はいつでも異なる画像を使用できます。 データグリッドのコントロールバーボタン上の画像についても同じことができます。
+
+{{% alert type="info" %}}
+この種類の画像は、常に同じであるため、 **static** イメージと呼ばれます。 たとえば、保存ボタンに置いたアイコンは、保存しているオブジェクトと同じに見えます。
+
+異なるオブジェクトに異なる画像を表示したい場合(例えば、 これらの画像はデータベースに保存する必要があります 詳細については [イメージ & ファイル](/howto8/data-models/working-with-images-and-files) を参照してください。
+{{% /alert %}}
+
+## 2対応フォーマット
+
+The following image formats are supported: *png*, *jpeg*, *gif*, *bmp*, and *svg*. *png* フォーマットは、情報を失うことなく圧縮されており、透明性が非常によくサポートされているため推奨されます。
+
+## 3つのカスタム画像
+
+独自の画像を使用するには、まず [画像コレクション](image-collection)に追加する必要があります。 画像コレクションを作成し、画像を追加する方法については、 [Image Collection](image-collection) を参照してください。
+
+例えば、Atlas UIモジュールのように、インポートされたモジュール内の既存の画像コレクションにカスタム画像を追加しないでください。 これを行う場合 新しいバージョンのモジュールを後日インポートすると上書きされる可能性があります。
+
+画像コレクションに画像を追加したら、アプリのどのモジュールでも使用できます。
+
+{{% alert type="info" %}}
+CSS またはカスタム ウィジェットから画像コレクション内の画像を参照する必要がある場合。 画像の名前は `/img/{module_name}${image_collection_name}${image_name}` になります。
+{{% /alert %}}
+
+## 4つの一般的なプロパティ
+
+### 4.1 名前
+
+これは画像の名前です。

@@ -1,0 +1,30 @@
+---
+title: "监听小部件源"
+parent: "数据来源"
+tags:
+  - "studio pro"
+  - "监听小部件"
+  - "数据源"
+menu_order: 70
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/listen-to-grid-source.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+监听-小部件数据源是一个数据视图特定源，允许数据视图在数据网格中选择的对象上显示详细信息， 模板网格，或在同一页面上的列表视图。 这在显示大量数据时尤其有用，因为这些数据限制了每个对象的可用信息， 因为它允许用户在无需打开新页面的情况下查看个别对象的详细信息。
+
+{{% image_container width="400" %}}![监听小部件示例](attachments/data-widgets/listen-to-widget-example.jpg)
+{{% /image_container %}}
+
+上面的图像中的数据视图到数据网格。 在此示例中，数据视图将显示所选产品的名称。
+
+列表视图，模板网格和数据网格是列表小部件，可以收听。 如果列表小部件中没有选择对象，数据视图将保持空且无响应性。
+
+## 2 属性
+
+### 2.1 列表部件
+
+指定控制数据视图中显示的对象的列表小部件。

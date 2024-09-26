@@ -1,0 +1,35 @@
+---
+title: "OQL DATEPART"
+parent: "oql-functions"
+tags:
+  - "studio pro"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/oql-datepart.pdf) をクリックしてください。
+{{% /alert %}}
+
+DATEPART関数は、指定された要素を日付/時刻の値から取得します。 この要素は整数型です。
+
+構文は以下の通りです:
+
+```
+DATEPART(datepart , date_expression )
+```
+
+| datepart    | 定義                | 2005年7月1日(金)16:34:20 の使用例 |
+| ----------- | ----------------- | ------------------------- |
+| `YEAR`      |                   | 2005                      |
+| `QUARTER`   | 1、2、3、4           | 3                         |
+| `月`         | 1 ~ 12            | 7                         |
+| `DAYOFYEAR` | 1～366             |                           |
+| `日`         | 1～31              | 5                         |
+| `WEEK`      | 1～53（データベースの実装次第） |                           |
+| `WEEKDay`   | 1～7（1=日曜、7=土曜）    | 6                         |
+| `HOUR`      | 0から23             | 16                        |
+| `分`         | 0 から 59           | 34                        |
+| `秒`         | 0 から 59           | 20                        |
+
+**datepart** 取得する日付/時刻の値の部分を指定します。 これは次のいずれかになります。
+
+**date_expression** 要素を取得する日付を指定します。 これは、日付/時刻の値を解決する式でフォーマットされる必要があります。

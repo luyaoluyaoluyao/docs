@@ -1,0 +1,71 @@
+---
+title: "Menus"
+category: "アプリモデリング"
+description: "スタジオProメニューについて説明します。"
+menu_order: 12
+tags:
+  - "Studio Pro"
+  - "メニュー"
+  - "トップ バー"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/menus.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
+
+Studio Pro のトップバーには、次のメニューがあります。
+
+![メニューバー](attachments/menus/menu-bar.png)
+
+* [ファイル](#file) - ドキュメントやプロジェクトを管理することができます
+* [編集](#edit) - Studio Pro 内で検索やコピーなどの編集機能を実行できます。
+* [表示](#view) - Studio Pro 内の Studio Pro とドッキング可能なペインの表示方法を選択できます。
+* [プロジェクト](#project) – プロジェクト全体の設定を含みます
+* [](#run) を実行する - アプリをデプロイおよび監視するためのアクションが含まれています
+* [バージョンコントロール](#version-control) - バージョン管理用の設定を含んでいます
+* [言語](#language) - 言語と翻訳の設定
+* [ヘルプ](#help)  – [Mendix Forum](https://forum.mendixcloud.com/index4.html)を表示することができます。 ログ ファイル ディレクトリを開くか、Studio Pro の現在の情報を表示します
+
+## 2ファイルメニュー {#file}
+
+**ファイル** メニューから、ドキュメントやプロジェクトを管理できます。 **File** メニューの詳細については、 [File Menu](file-menu) を参照してください。
+
+## 3つの編集メニュー {#edit}
+
+**編集** メニューでは、カット/コピー/ペーストなどの編集機能を実行できます。 このメニューから [設定](preferences-dialog) を設定することもできます。 **Edit** メニューの詳細については、 [Edit Menu](edit-menu) を参照してください。
+
+## 4表示メニュー {#view}
+
+**View** メニューでは、ドッキング可能なペインを表示したり、フルスクリーンモードを有効にしたり、プロジェクトレイアウトをリセットしたりできます。 **View** メニューとそのアイテムの詳細については、 [View Menu](view-menu) を参照してください。
+
+## 5プロジェクトメニュー {#project}
+
+**プロジェクト** メニューで、プロジェクトとデプロイメントに接続されている設定を表示または操作できます。 **プロジェクト** メニューの詳細については、 [プロジェクトメニュー](project-menu) を参照してください。
+
+## 6 実行メニュー {#run}
+
+The **Run** menu contains actions for deploying and monitoring your app, such as **Run**, **Run locally**, or **Debugger**. **Run** メニューの詳細については、 [Run Menu](run-menu) を参照してください。
+
+## 7バージョンコントロールメニュー {#version-control}
+
+**バージョンコントロール** メニューでは、バージョンコントロールの設定を表示または操作できます。 **バージョン管理** メニューの詳細については、 [バージョン管理メニュー](version-control-menu) を参照してください。
+
+## 8言語メニュー {#language}
+
+**言語** メニューで、エンドユーザーが好みの言語でアプリを見ることができるように、代替言語をアプリに追加できます。 同一のテキストに一括変更を加えることもできます。 **言語** メニューの詳細については、 [言語メニュー](translatable-texts) を参照してください。
+
+## 9 ヘルプメニュー {#help}
+
+| メニュー項目                    | 説明                                                                             | ショートカットキー     |
+| ------------------------- | ------------------------------------------------------------------------------ | ------------- |
+| **ヘルプ**                   | 現在選択されている要素に関するドキュメントページを開きます。 図形が選択されている場合、例えば図形のドキュメントが表示されます。               | <kbd>F1</kbd> |
+| **ヘルプの内容**                | ドキュメントの開始ページをデフォルトの Web ブラウザで開きます。                                             |               |
+| **質問する**                  | [Mendix Forum](https://forum.mendixcloud.com/index4.html) をデフォルトのウェブブラウザで開きます。 |               |
+| **ログファイルディレクトリを開く**       | アプリのログファイルをローカルで開きます。                                                          |               |
+| **Mendix Studio Proについて** | Mendix Studio Proの現在のバージョンに関する情報を表示します。                                        |               |
+
+## 10 続きを読む
+
+* [Studio Pro Overview](studio-pro-overview)

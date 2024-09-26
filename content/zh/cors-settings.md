@@ -1,0 +1,35 @@
+---
+title: "发布的REST 服务的 CORS 设置"
+parent: "已发布的rest-service"
+menu_order: 60
+description: "控制已发布的REST 服务访问的其他选项"
+tags:
+  - "CORS"
+  - "安全"
+  - "来源"
+  - "域"
+  - "访问"
+  - "studio pro"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/cors-settings.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+跨源资源共享(CORS) 使用额外的 HTTP 头来告诉浏览器允许从不同来源(域)的服务器访问选定的资源。
+
+当您在 [已发布的REST 服务](published-rest-service)中启用CORS 时，默认允许所有服务器上的所有网站访问您的服务。 **CORS 设置** 对话框允许您在更详细的级别上配置此类型的访问权限。
+
+## 2 允许的来源
+
+您可以在此指定哪些网站允许访问您的服务。 您可以选择 **所有**，或指定一个包含逗号分隔的主机名列表的常数。
+
+## 3 个最大年龄
+
+在这里您可以在检查是否有新的 CORS 设置之前选择允许浏览器记住这些设置的时间。 较长的时间对性能是好的，因为浏览器执行的请求较少。 然而，如果您更改 CORS 设置，这些更改将不会在所有浏览器中生效，直到这段时间过去。
+
+## 4 允许凭据
+
+选中此框以表明允许浏览器发送cookies、授权信头和/或客户端证书到此服务。

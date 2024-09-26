@@ -1,0 +1,48 @@
+---
+title: "图像"
+category: "应用程序模型"
+menu_order: 70
+tags:
+  - "图像"
+  - "图片收藏"
+  - "png"
+  - "Studio Pro"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/images.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+图像可以用来调亮您的应用程序。 [导航项目](navigation-tree) 和各种类型的 [按钮](button-widgets) 有小图像 (图标) 来留下它们的字幕。 图像也可以在 [页面](pages) 和 [文档模板](document-templates) 中的图像查看器小部件中使用。 另外， [枚举值](enumerations#enum-value-properties) 可以包含图像，然后可以显示在数据网格列中。
+
+**系统** 模块包含一些用于标准组件的图像。 如果您在一个页面上放置数据视图， **保存** 和 **取消** 按钮将会有来自 **系统** 模块的图像。 如果您喜欢，您总是可以使用不同的图像。 数据网格控制栏按钮上的图像也是如此。
+
+{{% alert type="info" %}}
+这种图像被称为 **静态** 图像，因为它总是一样的。 例如，您放在保存按钮上的图标将总是看起来与您保存的对象相同。
+
+如果你想要为不同对象显示不同的图像 (例如) 产品图片) 这些图像应作为图像存储在数据库中。 查看 [如何使用图像 & 文件](/howto8/data-models/working-with-images-and-files) 获取更多信息。
+{{% /报警 %}}
+
+## 2 支持的格式
+
+支持以下图像格式： *png*, *jpeg*, *gif*, *bmp*, and *svg*. 推荐使用 *png* 格式，因为它被压缩而不会丢失任何信息，并且很好地支持透明度。
+
+## 3 个自定义图像
+
+要使用您自己的图像，必须首先将它们添加到 [图像收藏](image-collection) 中。 关于如何创建图像集合并将图像添加到它的信息，请参阅 [图像集](image-collection)。
+
+您不应该在导入的模块中添加自定义图像到现有的图像收藏，例如在Atlas界面模块中。 如果你这样做， 如果您稍后导入一个新版本的模块，它们可能会被覆盖。
+
+一旦您将图像添加到图像集合中，您可以在应用的任何模块中使用这些图像。
+
+{{% alert type="info" %}}
+如果您需要从 CSS 或自定义部件引用图像收藏中的图像， 图像的名称将是 `/img/{module_name}${image_collection_name}${image_name}`
+{{% /报警 %}}
+
+## 4 个公共属性
+
+### 4.1 名称
+
+这是图像的名称。

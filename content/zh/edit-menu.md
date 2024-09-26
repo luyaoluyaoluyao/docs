@@ -1,0 +1,50 @@
+---
+title: "编辑菜单"
+parent: "menus"
+description: "描述工作室专业版中的编辑菜单。"
+menu_order: 10
+tags:
+  - "Studio Pro"
+  - "查看菜单"
+  - "顶栏"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/edit-menu.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+通过 **编辑** 菜单，您可以在使用特定文档的地方执行各种操作，例如剪切/复制/粘贴或搜索。 您也可以打开包含用户特定设置的 [首选项](preferences-dialog) 对话框。
+
+{{% image_container width="300" %}}![编辑菜单](attachments/edit-menu/edit-menu.png)
+{{% /image_container %}}
+
+## 2 个菜单项概述
+
+**编辑** 菜单项在下表中描述：
+
+| 菜单项(快捷键)                                                     | 描述                                                                                                   |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **撤消** (<kbd>Ctrl</kbd> + <kbd>Z</kbd>)                      | 撤销文档选项卡中的最后一个动作。 撤销和重做操作是无限制的。                                                                       |
+| **重做** (<kbd>Ctrl</kbd> + <kbd>Y</kbd>)                      | 重做文档选项卡中撤消的最后一个操作。                                                                                   |
+| **剪切** (<kbd>Ctrl</kbd> + <kbd>X</kbd>)                      | 将选中的元素复制到剪贴板并删除。                                                                                     |
+| **复制** (<kbd>Ctrl</kbd> + <kbd>C</kbd>)                      | 将选中的元素复制到剪贴板。                                                                                        |
+| **粘贴** (<kbd>Ctrl</kbd> + <kbd>V</kbd>)                      | 在当前编辑器中粘贴剪贴板的内容。                                                                                     |
+| **删除** (<kbd>删除</kbd>)                                       | 删除选中的元素。                                                                                             |
+| **找到** (<kbd>Ctrl</kbd> + <kbd>F</kbd>)                      | 搜索文本模型。 搜索下列文本：出现在最终用户界面的所有文本（例如标签或按钮的字幕）；文件名称和文件； 实体、协会、属性名称和文件；查阅规则文件；页面小部件名称；微流物体的说明和文件；以及微流中的物项。 |
+| **找到高级** (<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>F</kbd>) | 打开允许高级搜索操作的对话框。 实例是搜索任何文件类型和搜索未使用的文件。                                                                |
+| **查找用法** (<kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd>)   | 打开 **查找结果** 窗格并显示选中对象的用法。                                                                            |
+| **下次查找结果** (<kbd>F3</kbd>)                                   | 突出显示下一个在 **查找结果** 窗格中的结果，并在编辑器中打开它。                                                                  |
+| **上一个查找结果** (<kbd>Shift</kbd> + <kbd>F3</kbd>)               | 突出显示先前在 **查找结果** 窗格中找到结果，并在编辑器中打开它。                                                                  |
+| **转到** (<kbd>Ctrl</kbd> + <kbd>G</kbd>)                      | 通过输入几个字母并按 <kbd>输入</kbd> 来快速导航到项目中的任何文档或域模型元素。                                                       |
+| **下一个错误** (<kbd>F8</kbd>)                                    | 突出显示 **错误列表** 窗格中的下一个错误，并在编辑器中打开它。                                                                   |
+| **上一个错误** (<kbd>Shift</kbd> + <kbd>F8</kbd>)                 | 高亮前一个错误导致 **错误列表** 窗格并在编辑器中打开它。                                                                      |
+| **首选项**                                                      | 打开 **首选项** 对话框，您可以在哪里设置您的常规、模型和高级编辑首选项。 关于 **首选项** 对话框的更多信息，见 [首选项](preferences-dialog)。             |
+
+## 3 阅读更多
+
+* [更改面板](changes-pane)
+* [Errors Pane](errors-pane)
+* [项目浏览器](project-explorer)
+* [Studio Pro Overview](studio-pro-overview)

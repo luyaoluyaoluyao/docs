@@ -1,0 +1,46 @@
+---
+title: "XMLの継承 & 選択"
+parent: "mapping-documents"
+tags:
+  - "studio pro"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/xml-inheritance-and-choice.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1 エンティティによるオブジェクトの取得
+
+マッピングドキュメント内の XSD 要素には、選択と継承の 2 つの特別なケースがあります。
+
+*   継承要素は、特定の型またはそのサブタイプのいずれかの要素で埋める必要があります。
+*   choose 要素は、複数の選択肢のうちの 1 つだけで入力する必要があります。
+
+Mendixでは、継承と選択の両方がエンティティの専門化によってマップされます。
+
+*   基本継承または選択要素は一般化エンティティにマップされます。 エクスポートマッピングの場合、ベース マッピングには、(パラメーターから) Mendix オブジェクトを取得する方法に関する設定が含まれています。 関連付け、microflow、またはキーで) [マッピングのエクスポート](export-mappings) で説明されています。
+*   継承または選択の子要素はエンティティの特殊化によってマップされます。 エクスポートマッピングのために、オブジェクトを取得する方法を指定することはできません。なぜなら、それは既にベースマッピング要素で 1 つのレベルアップを定義しているからです。 しかし、インポートマッピングの場合は、 [マッピングのインポート](import-mappings) で説明されているように、Mendix オブジェクトを取得する方法を指定する必要があります。
+
+## 2 XML 継承値
+
+以下の画像では、継承付きエクスポートマッピングの例が示されています。 format@@0 では、構造は同じで、矢印の方向だけが逆になります。 1 つの _人_ オブジェクトは、 _人に対する1対多の関連付けを持っています。_ 人は、顧客または従業員のいずれかになります。
+
+![](attachments/16713728/16843946.png)
+
+インポートマッピングのために、入力 XML を特定の XSD タイプにマッピングすることは、属性 _xsi:type_ により定義されます。 ただし、この属性は任意です。 _xsi:type_ 属性が **存在せず** 要素の基底型が **でない** 抽象化されている場合。 その型が使用されます (例ではPersonです)。 ベース型がインポートマッピングドキュメント内で定義されているマッピングを持たない場合、スキップされます。 基本型が抽象的な場合、エラーがスローされます。
+
+エクスポートマッピング用 継承要素が **オプション** で、関連またはマイクロフローを介して要素に対して空のオブジェクトが取得された場合 要素は作成されません If the inheritance element is **nillable**, and an empty object is obtained for the element, the element will be created with the _xsi:type_ set to the first inheritance option in the mapping.
+
+### 2.1 エクスポートマッピングにおけるWebサービスのリクエスト部品の選択
+
+[要素の選択](select--elements) では、マッピングで XML スキーマまたは WSDL 要素を選択する方法について説明されています。 Web サービス操作のリクエストボディを作成するためにエクスポートマッピングを使用する場合。 リクエストパラメータが複数ある場合は、リクエスト部品を選択できます。 継承要素もリクエスト部分としてサポートされています。
+
+ルート要素が継承要素である場合、ボディ全体をマップすることしかできません。 この場合、個々のリクエストパラメータのマッピングはできません。
+
+## 3つのXML選択
+
+下の画像は、selection要素を持つエクスポートマッピングを示しています。 スキーマは、従業員IDまたはメンバーIDの2つの選択肢を指定します。 このイメージでは、基本エンティティ _Person_ が choose 要素にマップされ、選択オプションの一般化として機能します。
+
+![](attachments/16713728/16843945.png)
+
+オブジェクトをエクスポートする場合、 **optionality** は XML 内で明示的に発生しないので、他の要素と異なって処理されます。 select 要素に対して空のオブジェクトをエクスポートすることが有効な 2 つのケースがあります。 choose 要素自体が **optional** であり、choose オプションの少なくとも 1 つが **optional** である場合。 この場合、要素は作成されません。そうでなければエラーがスローされます。 When one or more options of a choice element are **nillable** and at the choice element we export an empty object, Mendix throws an 'unsupported' error because it is impossible to determine which XML element should be sent with the _xsi:nil_ attribute.

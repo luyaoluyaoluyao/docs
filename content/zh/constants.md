@@ -1,0 +1,71 @@
+---
+title: "常数"
+parent: "资源"
+menu_order: 60
+tags:
+  - "studio pro"
+  - "常量"
+  - "常量"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/constants.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+常数用于定义配置值。 每个环境都可能有所不同。
+
+当在已许可的 Mendix 云环境中运行应用程序时，SAP BTP。 或者私密云，您可以使用 **环境明细 [模型选项](/developerportal/deploy/environments-details#model-options) 标签来单独配置每个环境的常数值** 页面来设置您的常数。
+
+对于其他云端环境 - 例如， [IBM Cloud](/developerportal/deploy/ibm-cloud) or [MindSphere](/partners/siemens/mindsphere) — 常量可以用 **环境变量** in 例如，Cloud Foundry。 常量暴露在名字 **模块** + **。** + **常量** (例如， `mymodule.myston`)。
+
+当在本地或免费应用环境中运行应用程序时，将使用Studio Pro 定义的值。
+
+{{% alert type="info" %}}
+常量值也可以在 [配置](configuration) 中覆盖。 这允许您使用一个或多个常量的不同值在本地运行， 无需每次更改常数的默认值。
+{{% /报警 %}}
+
+常量可用于以下内容：
+
+* [表达式](expressions) - 使用常量的全名前缀： `@`
+* [已消耗的网络服务](consumed-web-services) — — 在这种情况下，常量是一个指定网页服务所在位置的URL； 这可以根据应用程序运行的环境而有所变化， 这样您就可以使用不同的网络服务进行开发和生产
+
+## 2 公共属性
+
+### 2.1 名称
+
+常量的名称。 此名称用于引用。
+
+### 2.2 文件
+
+此字段仅用于文档目的：最终用户永远不会看到它，它不会影响您的应用程序的行为
+
+## 3 类型属性
+
+### 3.1 Type
+
+常量的 [数据类型](data-types)。 这决定了一个常量能够保持的那种值。 支持的数据类型是字符串，布尔，日期和时间，小数和整数/长。
+
+## 4 值属性
+
+### 4.1 默认值
+
+此属性是常量的默认值。 此值用于在本地或免费应用环境中运行。 当本地运行时，值可以在当前选择的 [配置](configuration) 中被覆盖。
+
+### 4.2 与客户接触
+
+此属性定义了常量是否可以从客户端表达式中访问( [nanoflow](nanoflows) and [pages](pages) 中的表达式)。
+
+| 选项        | 描述                                      |
+| --------- | --------------------------------------- |
+| 否         | 常数将发送到客户端，并且可以从客户端表达式中访问                |
+| 没有 *(默认)* | 常数不会发送到客户端，且只能从 [微流程](microflows) 表达式访问 |
+
+{{% alert type="warning" %}}
+当一个常量暴露于客户端时，Mendix Runtime 会将其值发送给客户端，以便除了微流表达式之外， 它也可以通过 nanoflow 和页面表达式访问。 这意味着当一个常量暴露于客户端时，您不应使用敏感数据或密码等秘密。
+
+对于网络或混合在线应用，当用户刷新浏览器或重新启动应用程序时，对常数值的更改会反映出来。 对于离线第一个应用，应用存储常量的值供离线使用。 应用在以下案例中更新常量值：
+* 当用户登录或注销应用时。
+* 当您在离线第一个应用程序中使用的包含域模型更改的应用程序新版本。
+{{% /报警 %}}

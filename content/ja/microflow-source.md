@@ -1,0 +1,70 @@
+---
+title: "マイクロフローソース"
+parent: "データソース"
+tags:
+  - "studio pro"
+  - "マイクロフローソース"
+  - "データソース"
+menu_order: 40
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/microflow-source.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
+
+In most cases, you use the **Database**, **XPath**, or **Association** data sources to fill a [data widget](data-widgets). たとえば、データ グリッドのプロパティがデータ グリッドで選択された図形のオブジェクトを必要とする場合。 データグリッドはそのオブジェクトをデータベースクエリから取得します。 別の例として、ネストされたテンプレート グリッドは、関連付け上でオブジェクトを取得できます。 ただし、対象となるオブジェクトは特定の基準に準拠する必要がある場合があります。 [XPath](xpath-constraints) では扱えない、または異なるオブジェクトが異なる状況下で表示されます。 このような状況では、 **Microflow** データソースが必要になる可能性があります。
+
+マイクロフローデータソースを持つデータ ウィジェットがブラウザーに表示または更新されたとき。 指定されたマイクロフローを実行し戻り値を表示します オブジェクトがマイクロフローで取得される方法は、完全にあなた次第です。 どの物体が戻ってくるかを無限にコントロールできるのです
+
+マイクロフローデータソースはすべてのコンテキストを無視します。 これは、マイクロフローで説明されているアクションを実行します。 たとえば、マイクロフローデータソースを持つネストされたデータウィジェットは、自動的にデータウィジェットを作成したり、エンサイジングウィジェットへの関連付けを呼び出したりすることはありません。
+
+{{% alert type="info" %}}
+データソースとして **マイクロフロー** を選択した場合、これは「間接使用」とみなされます。 This means that you cannot also select an **Entity (path)** as you can with the **Database**, **XPath**, or **Association** data source types.
+{{% /alert %}}
+
+## 2 マイクロフローデータソースの例
+
+このシナリオでは、注文タイプに基づいて潜在的な注文のリストを表示する必要があるデータ グリッドがあります。
+
+{{% image_container width="400" %}}![データグリッドのマイクロフローデータ](attachments/data-widgets/data-grid-microflow-source.jpg)
+{{% /image_container %}}
+
+If the **OrderType** of the **Order** entity is set to **Cars**, then the data grid should display all the **Products** for which the Boolean **Motorized** is set to true. **OrderType** が **Bicycles**の場合、 **Motorized** がfalse に設定されているオブジェクトのみを表示する必要があります。 最後に、 **OrderType** が空の場合、データグリッドは空のままにする必要があります。
+
+![エンティティの例](attachments/data-widgets/entities-example.jpg)
+
+属性型が一致しないため、XPathでは制約を受けられないため、マイクロフローのデータソースが必要です。
+
+このシナリオのマイクロフローは次のようになります:
+
+![マイクロフローの例](attachments/data-widgets/microflow-nanoflow-example.jpg)
+
+このマイクロフローは以下のようになります:
+
+1. パラメータとして、囲まれたデータビューの **Order** を渡します。
+2. その後、 **OrderType** 属性に分割され、各列挙値に対して異なる製品セットを取得します。
+3. これは製品のリストを返し、各エンドイベントはリストを返すように構成されています。 **空の** パスにも値が必要であり、ここで **空の** も値であることに注意してください。
+
+## 3つのプロパティ
+
+### 3.1 マイクロフロー{#microflow}
+
+これは、データ ウィジェットを生成するために使用するマイクロフローを指定します。 このマイクロフローは、データ ウィジェットがブラウザーにロードされたり更新されたりするたびに実行されます。 使用するデータ ウィジェットに応じて、microflow はオブジェクトまたはオブジェクトのリストの戻り値を持つ必要があります。
+
+### 3.2 マイクロフローの設定
+
+**マイクロフロー設定** では、どのパラメータをマイクロフローに渡すかを指定するためのダイアログボックスを開きます。
+
+#### 3.2.1 マイクロフロー
+
+これは、上記で指定した [Microflow](#microflow) を複製します。
+
+#### 3.2.2 マイクロフロー引数
+
+**マイクロフロー引数** は、選択したマイクロフローと利用可能な引数のパラメータに基づいて自動的に設定されます。 一般的な引数は、囲むデータウィジェットから取得されます。 マイクロフローを呼び出すウィジェットを囲むデータ ウィジェットが別の(ネストされた)データ ウィジェットの中にある場合。 そして、データ ウィジェットやネストされているその他のオブジェクトも渡すことができます。
+
+## 4 続きを読む
+
+* [データウィジェット](data-widgets)

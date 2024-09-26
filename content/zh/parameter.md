@@ -1,0 +1,33 @@
+---
+title: "参数"
+parent: "应用逻辑："
+menu_order: 70
+tags:
+  - "studio pro"
+  - "参数"
+  - "微流"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/parameter.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+参数是一种特殊类型的变量，用于微流程。 当微流触发时，参数将以当前值填充。
+
+如果您想要在微流程中使用 *客户* 实体的对象，请使用参数。 在下面的图片中，对象名称是 *封装客户* 并以黑体显示。 数据类型是对象，因此实体名称以蓝色显示在对象名称之下。
+
+![](attachments/parameter/parameter.png)
+
+## 2 个输出属性
+
+### 2.1 名称
+
+**名称** 是指参数的值。
+
+### 2.2 数据类型
+
+参数的数据类型定义了它期望值的类型。 查看 [数据类型](data-types) 以了解可能的数据类型。
+
+默认： *对象*

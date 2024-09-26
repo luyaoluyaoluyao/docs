@@ -1,0 +1,23 @@
+---
+title: "合并"
+parent: "经济及社会理事会"
+menu_order: 1
+tags:
+  - "studio pro"
+  - "合并"
+  - "经济及社会理事会"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/merge.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+合并可以用来将流量合并成一个流量。 如果您先前拆分微流流流(例如) 对于这些分开的流量，需要执行一项和相同的行动， 您可以合并两个(或更多)路径。
+
+例如，你有一种情况，微流按照某些条件分成两种流量。 在一个流中，订单状态设置为完成，另一个状态设置为不完整。 在此之后您想要检索所有相关的订单行，以便将价格合计到两个流量的总和。 您可以使用合并来合并两个流量，这样您只能使用一个活动来检索订单行。
+
+![](attachments/decisions/merge.png)
+
+

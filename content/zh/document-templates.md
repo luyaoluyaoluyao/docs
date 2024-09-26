@@ -1,0 +1,188 @@
+---
+title: "文档模板"
+parent: "资源"
+menu_order: 90
+tags:
+  - "studio pro"
+  - "文档模板"
+aliases:
+  - /refguide8/Document+Templates.html
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/document-templates.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+文档模板被用来为文档导出操作所需的模板创建一个模板，这个模板可以根据应用程序数据生成各种文档。 他们的组成方式与 [页面](pages) 相同。
+
+{{% alert type="warning" %}}
+此页面描述了什么样的文档模板以及什么样的部件可以放置在它们上。 如果你想要看到文档模板的属性，你可以检查文档 [文档模板](document-template) 本身。
+{{% /报警 %}}
+
+文档模板也包含组件，如 _个小部件_。 下面是所有部件的分类概述。 使用了以下类别：
+
+* [核心小部件](#core) 对于构建Mendix 中的文档模板至关重要。 这些是可以显示实体或单个实体列表的小部件
+* [布局小部件](#layout) 用于构建您的文档模板的布局
+* [动态数据小部件](#dynamic) 可以显示属性和关联的值
+* [静态数据部件](#static) 允许您使用静态数据，例如预定义的图像
+
+此外，在大多数小部件以及文件模板本身中，可以确定一种风格。 欲了解更多信息，见 [样式](style)。
+
+如果您想要用阿拉伯语或泰语等不常见字符的语言显示文本， 请确保您在样式编辑器中选择支持这些字符的字体。 "Tahoma"是这样的字体。
+
+## 2 核心部件 {#core}
+
+核心小部件是构建Mendix文件模板的核心。 它们可以显示单一实体或实体清单的内容。 每个用于显示域模型数据的文档模板都需要这些组件之一。
+
+### 2.1 数据网格
+
+数据网格显示一个网格中的对象列表。 例如，数据网格可以显示客户发出的所有订单。
+
+欲了解更多信息，见 [数据网格(文档模板)](data-grid-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918138.png)
+
+显示带有描述和被引用的客户名称的订单列表的数据表。
+
+{{% /报警 %}}
+
+### 2.2 数据视图
+
+数据视图用于显示一个对象的内容。 例如，如果您想要显示单个客户的详细信息，您将使用数据视图来做到这一点。 数据视图通常包含一个包含静态标签和动态数据部件的表格，像动态标签。 在更复杂的模板中，数据视图可以包含相关对象的数据网格和其他数据视图。
+
+欲了解更多信息，见 [数据视图 (文档模板)](data-view-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918139.png)
+
+显示订单行信息的数据视图。
+
+{{% /报警 %}}
+
+### 2.3 模板网格
+
+模板网格在磁贴视图中显示对象列表。 例如，模板网格可以显示产品列表。 模板网格与数据网格有很多共同之处。 主要区别是对象显示在模板中(有点像一个小的数据视图)而不是行。
+
+欲了解更多信息，请参阅 [模板网格(文档模板)](template-grid-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918137.png)
+
+显示商品名称和描述的模板网格。
+
+{{% /报警 %}}
+
+## 3 个布局部件 {#layout}
+
+布局小部件给予页面结构。 他们不会显示数据，而是提供一个布局，您可以放置其他可以放置的小部件。
+
+### 3.1 表
+
+表格可以用来更改页面的布局。 它们有若干行和栏目，两者的交点被称为一个间。 每个单元格可以包含部件。 单元格在填充之前可以横向和纵向合并，以允许非对称布局。 表格可以在数据视图内外或模板类部件中使用。
+
+欲了解更多信息，请访问 [表 (文档模板)](table-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918134.png)
+
+一个包括四行和三栏的表。 最后一行包含一个数据视图与另一个表。
+
+{{% /报警 %}}
+
+### 3.2 分页
+
+当插入一个页面断开时， 休息结束后当前页面将被切断，休息下面的部件将显示在一个新的页面中。
+
+欲了解更多信息，请访问 [页面断开 (文档模板)](page-break-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918135.png)
+
+页面断开
+
+{{% /报警 %}}
+
+### 3.3 换行
+
+在插入一条线段时，将在该位置插入一条新的线。
+
+欲了解更多信息，请参阅 [Break (Document Template)](line-break-document-template)。
+
+## 4 个动态数据部件 {#dynamic}
+
+动态数据部件用于显示 (dynamic) 数据。 它们必须放置在数据视图或模板网格内，因为它们显示某个实体的属性或关联。
+
+### 4.1 动态标签
+
+一个动态标签用于与页面编辑器中的文本框相同的属性类型。 它可以用来显示文本值。
+
+欲了解更多信息，请参阅 [动态标签 (文档模板)](dynamic-label-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918131.png)
+
+链接到客户名称的动态标签。
+
+{{% /报警 %}}
+
+### 4.2 动态图像
+
+动态图像可以用于显示 System.Image。 如果图像不可用(例如：图像从未保存)，它将显示预设的默认图像。 它可以部署在数据视图或模板类别内。
+
+欲了解更多信息，见 [动态图像 (文档模板)](dynamic-image-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918132.png)
+
+一个表格单元内的动态图像，显示预设的默认图像。
+
+{{% /报警 %}}
+
+## 5 个静态数据部件 {#static}
+
+这些小部件包含静态(固定)数据，以帮助创建生成文档的外观。
+
+### 5.1 静态标签
+
+静态标签显示一行静态文本。 您可以使用它将自定义文本放置在数据视图或模板网格或表中。
+
+欲了解更多信息，请参阅 [静态标签 (文档模板)](static-label-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918130.png)
+
+带文本“客户名称”的标签。
+
+{{% /报警 %}}
+
+### 5.2 标题
+
+标题很像静态标签，但可以放置在数据视图、模板网格或表格之外。
+
+欲了解更多信息，请参阅 [标题 (文档模板)](title-document-template)。
+
+### 5.3 静态图像
+
+静态图像显示预定义图像。 它可以放入或放在数据视图或模板类别之外。
+
+欲了解更多信息，见 [静态图像 (文档模板)](static-image-document-template)。
+
+{{% alert type="info" %}}
+
+![](attachments/document-templates/918133.png)
+
+表单元格内的静态图像。
+
+{{% /报警 %}}
+

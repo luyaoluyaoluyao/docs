@@ -1,0 +1,80 @@
+---
+title: "决 定"
+parent: "经济及社会理事会"
+menu_order: 3
+tags:
+  - "studio pro"
+  - "决 定"
+  - "专用拆分"
+aliases:
+  - /refguide8/exclusive-split.html
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/decision.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+一项决定是一项根据一项条件作出选择的要素，它遵循的是一项只是一项外向顺序流量。 例如，您需要使用决定为不同级别的客户显示不同的订单表单， 或阻止被屏蔽的客户订单。
+
+## 2 属性
+
+决策属性的示例在下面的图像中显示：
+
+{{% image_container width="50%" %}}
+![](attachments/decisions/decision-properties.png)
+{{% /image_container %}}
+
+决策属性窗格由以下部分组成：
+
+* [常用的](#common)
+
+### 2.1 普通的 {#common}
+
+#### 2.1.1 标题
+
+欲了解更多信息，请参阅 *常见属性* 中的 [标题](microflow-element-common-properties#caption) 部分。
+
+#### 2.1.2 决定类型
+
+**决策类型** 定义了是否使用表达式或规则来定义决定的条件。 以下表格介绍了可能的决定类型：
+
+| 选项                 | 描述                                                                            |
+| ------------------ | ----------------------------------------------------------------------------- |
+| [表达式](#expression) | 表达式可以用来创建或更改基于逻辑的对象或变量。                                                       |
+| [规 则](#rule)       | 规则是一种特殊类型的微流， 其结果可以用于决策，而不是调用子微流和使用该子微流的返回变量。 这样做的想法是，复杂的决定可以合并到规则中，并在各地重新使用。 |
+
+##### 2.1.2.1 表达式 {#expression}
+
+如果 **类型** 属性已设置为 **表达式**, 这里输入的表达式用于定义决定的条件。 关于表达式的更多信息，见 [微流程表达式](expressions)。
+
+表达式应产生布尔值或枚举。
+
+对于导致布尔值的表达式，可能会有两流： **true** and **false**。 例如，如果您想要检查客户的电子邮件是否已经验证，您可以使用生成布尔值的表达式。
+
+枚举类型的条件数取决于相应的枚举值。 还有计数可用的 *空* 条件：如果计数参数或对象的属性未分配， 带标题 **(空)** 的序列流被遵循。
+
+如果您想要打开每个客户等级不同的订单表，您可以使用决定。 微流程参数是 *客户*。 根据客户的等级，遵循不同的序列流和打开不同的订单表。 如果最终用户需要选择客户等级，但不这样做， 标签为 **(空)** 的流程被关注，并且向最终用户显示了一个错误消息。
+
+{{% image_container width="400" %}}
+![](attachments/decisions/decision-example.png)
+{{% /image_container %}}
+
+由于你想要对枚举的每个值采取不同的方向，你只需要使用包含枚举的属性。 所以上面示例中的表达式是`$Customer/ 等级`.
+
+##### 2.2.2.2 规则 {#rule}
+
+如果 **类型** 属性已设置为 **规则**, a [规则](rules) 可选用来界定决定的条件。 您可以将规则的结果用于决策，而不是调用子微流和使用该子微流的返回变量。
+
+**规则** 决策类型的属性是以下类型：
+
+* **规则** - 允许您选择一条规则。
+
+* **参数** - 规则的每个参数需要使用 [表达式](expressions) 指定参数。 例如，确定客户是否应享有某种地位的规则将以客户对象作为参数。
+
+    {{% image_container width="350" %}} ![](attachments/decisions/rule-properties.png)  {{% /image_container %}}
+
+#### 2.1.3 错误处理类型
+
+For more information, see the [Error Handling Type](microflow-element-common-properties#error-handling) section in *Common Properties*.

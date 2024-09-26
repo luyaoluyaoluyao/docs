@@ -1,0 +1,94 @@
+---
+title: "レポート日付パラメータ"
+parent: "レポートウィジェット"
+menu_order: 30
+tags:
+  - "studio pro"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/report-date-parameter.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
+
+**レポート日付パラメータ** により、エンドユーザーは、 [レポート グリッド](data-sets) のデータを提供する [データ セット](report-grid) の日付と時刻のパラメータを指定できます。 このパラメータは、同じレポートが異なるデータセットを表示できるように、さまざまな方法で結果をフィルタリングするために使用されます。
+
+たとえば、レポートに選択した期間にわたって顧客の注文データが表示されることがあります。 として、レポート日付パラメータを使用して、選択する期間を指定できます。
+
+{{% alert type="info" %}}
+レポート日付パラメータウィジェットにさらに項目を追加して、エンドユーザーが日付範囲を選択しやすくすることができます。 詳細については、以下の [日付パラメータフィールド](#additional-fields)を参照してください。
+{{% /alert %}}
+
+レポート日付パラメータは構造モードで表示され、データセットパラメータ名は角括弧と青色の間で表示されます。 青色で示されている **** と **から** までの日付は、これらが日付フィールドであることを示す例です。
+
+![ストラクチャーモードでレポート日付パラメータ](attachments/report-widgets/report-date-parameter.png)
+
+{{% alert type="info" %}}
+レポート日付パラメータウィジェットがページ上にある場合。 また、 [レポート ボタン](report-button) ウィジェットを追加して、パラメータを指定した後で、エンドユーザーがレポートを再生成できるようにする必要があります。
+{{% /alert %}}
+
+## 2 日付パラメータのプロパティ
+
+レポート日付パラメータのプロパティの例を以下の画像に示します。
+
+{{% image_container width="300" %}}![ストラクチャーモードでレポート日付パラメータ](attachments/report-widgets/report-date-parameter-properties.png)
+{{% /image_container %}}
+
+レポート日付パラメータのプロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+* [デザインプロパティ](#design-properties)
+* [全般](#general)
+
+### 2.1 共通セクション{#common}
+
+{{% snippet file="refguide8/comon-section-link.md" %}}
+
+### 2.2 デザインプロパティセクション{#design-properties}
+
+{{% snippet file="refguide8/design-section-link.md" %}}
+
+### 2.3 一般セクション{#general}
+
+#### 2.3.1 パラメータ
+
+**パラメータ** は、このウィジェットで制限される日付と時刻型のデータセットパラメータに設定されます。 対応するデータセットは、ページのレポート ウィジェットのいずれかで使用する必要があります。
+
+#### 行あたり2.3.2 フィールド
+
+**行ごとのフィールド** は、行内のお互いの横に配置できる [日付範囲 フィールド](date-range-field) の数を指定します。 データ範囲フィールドには、常に2つの行があります。 詳細については、以下の [日付パラメータフィールド](#additional-fields)を参照してください。
+
+#### 2.3.3 図表番号から
+
+**From** specifies the text that is displayed against the **from** date selector, where the end-user can choose the start of the period for which data should be shown in the report.
+
+#### 2.3.4 図表番号
+
+**To** は、 **to** 日付セレクターに対して表示されるテキストを指定します。 ここで、エンドユーザーは、レポートにデータを表示する期間の終わりを選択できます。
+
+#### 2.3.5 From/To の表示
+
+**** から **から** の結果をレポート ページに表示する場合は、 **から** へ **から** フィールドの結果を表示する場合は、</strong> に </strong> を</strong> に設定します。
+
+**から** への **と** への **の** フィールドの結果が表示されない場合はformat@@6いいえ</strong>に設定します。 この場合、レポート日付パラメータに追加された [日付範囲フィールド](date-range-field) を使用してフィルタを設定する必要があります。
+
+#### 2.3.6 分 年
+
+**最小. year** は、エンドユーザーが **Year** [date range field](date-range-field) で選択できる最も早い年です。
+
+{{% alert type="warning" %}}
+**分以内の値。 年** は、レポート日付パラメータウィジェットの **から** または **から** までのフィールドで、エンドユーザーが以前の日付を選択することを妨げません。 これは、 *年* 日付範囲フィールドにのみ適用されます。
+{{% /alert %}}
+
+#### 最大2.3.7 年
+
+**最大. year** は、エンドユーザーが **Year** [date range field](date-range-field) で選択できる最新の年です。
+
+{{% alert type="warning" %}}
+最大 **の値。 年** は、レポート日付パラメータウィジェットの **から** または **から** までのフィールドで、エンドユーザーが日付を選択することを妨げません。 これは、 *年* 日付範囲フィールドにのみ適用されます。
+{{% /alert %}}
+
+## 3 Additional Report Date Parameter Fields{#additional-fields}
+
+**From** と **To** の両方の日付を入力する必要なく、エンドユーザーが簡単に日付範囲を選択できるように追加の項目を追加できます。 詳細については、 [日付範囲フィールド](date-range-field) を参照してください。

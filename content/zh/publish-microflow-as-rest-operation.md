@@ -1,0 +1,37 @@
+---
+title: "将微流程发布为REST 操作"
+parent: "已发布的rest-service"
+menu_order: 30
+description: "如何发布微流程作为REST 操作"
+tags:
+  - "微流"
+  - "重力"
+  - "操作"
+  - "资源"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/publish-microflow-as-rest-operation.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+要发布微流作为REST 服务操作，右键点击微流编辑器并选择 **发布为REST 服务操作**。
+
+请注意，如果微流程需要一个以上的对象或列表类型参数，它不能作为REST 操作发布。 如果您试图发布它，将会出现一致性错误。
+
+## 2 选择资源
+
+点击 **后，发布为 REST 服务操作**，您需要选择一个资源来发布microflow。 有几个选项：
+
+* 如果您已经拥有发布microflow的服务和资源，请选择它并点击 **选择**
+* 如果您已经有一个服务但您想要创建一个资源，请选择服务并点击 **新**
+* 如果您想要创建一个新的服务，请选择一个模块或文件夹，然后点击 **新**
+
+建议的资源名称是微流参数的实体或微流结果的实体。
+
+## 3 编辑操作
+
+在您选择或创建服务和资源后，您可以编辑操作。
+
+**方法** 的建议值是 **POST** 当微流程接收对象或列表参数时。 否则，它是 **得到**。

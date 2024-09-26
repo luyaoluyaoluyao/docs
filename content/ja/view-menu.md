@@ -1,0 +1,158 @@
+---
+title: "表示メニュー"
+parent: "menus"
+description: "Studio Pro の表示メニューについて説明します。"
+menu_order: 20
+tags:
+  - "Studio Pro"
+  - "メニューを表示"
+  - "トップ バー"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/view-menu.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1つの紹介
+
+Studio Pro は、 **変更** や **エラー** ペインなど、ドッキング可能なウィンドウ ペインの数をサポートしています。 いくつかのウィンドウを閉じて、必要なものを表示することができます。 しかし、いつでも **ビュー** メニューから開くことができます。
+
+Via this menu you can also enable or disable the [full screen mode](#full-screen) or [reset the layout](#reset-layout) of your project to the default.
+
+{{% image_container width="300" %}}![表示メニュー](attachments/view-menu/view-menu.png)
+{{% /image_container %}}
+
+## 2 ペインのレイアウト {#layout-of-panes}
+
+ペインの既定のレイアウトを変更し、お好みのレイアウトに配置できます。
+
+{{% alert type="info" %}}
+
+このセクションでは、作業領域内のドキュメントの動作ではなく、ペインの動作について説明します。 作業領域で開いているドキュメントの動作の詳細については、 [Studio Pro Overview](studio-pro-overview#documents) の *ドキュメント タブ* セクションを参照してください。
+
+{{% /alert %}}
+
+ペインをドラッグすると、このペインの位置を示す矢印が表示されます。 ペインを現在のペイン内(グループ化された矢印)に配置するか、フルウィンドウの高さまたは幅(ボーダー上の個々の矢印)にすることができます。 それぞれの位置は以下のように記されている。
+
+![](attachments/view-menu/interaction-with-panes.png)
+
+1. 現在の *ペイン* 内では、次のいずれかの方法でペインを配置できます:
+
+   1. 画面の高さ - 左
+
+   2. ペインの高さ – 右
+
+   3. ペインの高さ – トップ
+
+   4. ペインの高さ – 下
+
+   5. 新しいタブとして新しいペイン
+
+      {{% alert type="info" %}}ペインを作業領域内に新しいペインとして配置しようとすると、ダイアログボックスとして開きます。
+
+      {{% /alert %}}
+
+2. 現在の *ウィンドウ* 内では、次のいずれかの方法でペインを配置できます。
+
+   1. フルウィンドウの高さ - 左
+
+   2. フルウィンドウの高さ - 右
+
+   3. フルウィンドウの高さ - トップ
+
+   4. フルウィンドウの高さ - 下
+
+以下のビデオは、ペインの配置方法の例を示しています。
+
+<video width="640" height="360" controls src="attachments/view-menu/positioning-panes.mp4">ビデオ</video> 複数のペインをタブにまとめてグループ化している場合は、上部のバーをドラッグすることで、すべてのタブの位置を一度に変更できます。 個々のタブの位置を変更するには、タブ自体をドラッグします。
+
+## 3つのメニュー項目
+
+**ビュー** メニューのメニュー項目は以下のセクションで説明されています。
+
+### 3.1 変更
+
+For version control enabled projects (projects with [Team Server](/developerportal/collaborate/team-server) or other SVN servers), the [Changes pane](changes-pane) shows the local changes to the app since the last commit. 変更をコミットしたり、最新のリビジョンに更新したり、ここから履歴を見ることができます。
+
+このペインには2つのレベルがありますので、変更されたドキュメントにズームインすると、 文書内のすべての変更を確認できますレベル間を行き来することなく ペインのズームインレベルは2つのグリッドに分割され、左側の要素と右側のプロパティがあります。 左側の要素を選択すると、右側に変更されたプロパティが表示されます:
+
+![](attachments/view-menu/changes.gif)
+
+### 3.2 コネクタ {#connector}
+
+**コネクタ** ペインには、現在選択されている要素に接続できる要素が表示されます。 例えば、ボタンが選択されている場合、 **コネクタ** には、ボタンにドラッグして接続することのできるマイクロフローが表示されます。
+
+### 3.3 データハブ {#data-hub}
+
+[Data Hub ペイン](data-hub-pane) を使用すると、 [Data Hub カタログ](/data-hub/data-hub-catalog) を参照し、組織で使用可能な登録されたデータ ソースを統合できます。 このペインから [外部エンティティ](external-entities) をアプリに追加し、プロジェクトで既に使用されているエンティティとサービスを表示できます。
+
+### 3.3 コンソール {#console}
+
+**コンソール** ペインには、アプリケーションの実行中に [Mendix Runtime](runtime) の出力が表示されます。
+
+### 3.4 ドキュメント
+
+**ドキュメント** ペインには、現在選択されている要素のドキュメントが表示されます (該当する場合)。
+
+### 3.5 エラー リスト
+
+[エラー ペイン](errors-pane) は、アプリケーションに存在する [エラー](consistency-errors)、警告、および非推奨を表示します。
+
+### 3.6 検索結果 {#find}
+
+このペインには、最新の検索アクションの結果が表示されます。 テキスト、要素の使用 (属性など) 、および使用されていないアイテムを検索できます。
+
+**検索結果** ペインは 2 つあります。 最初のペインの結果をロックすると、最初のペインのロックを解除するまで、2番目のペインはその後の検索操作に使用されます。
+
+### 3.7 プロジェクト エクスプローラー
+
+[プロジェクト エクスプローラー](project-explorer) ペインには、モジュール内のすべてのドキュメントを含む、アプリケーションの完全な構造が表示されます。 デフォルトでは、アクティブなドキュメントは常に選択されているため、編集するドキュメントがツリー内にある場所をすばやく確認できます。 この動作は、 **編集** > [環境設定](preferences-dialog) で変更できます。
+
+### 3.8 プロパティ
+
+**プロパティ** ペインには、現在選択されている要素のプロパティが表示されます。 ここでは、Studio Pro で多くの編集が行われます。
+
+### 3.9ストーリー
+
+[Team Server](/developerportal/collaborate/team-server) アプリの場合、 **ストーリー** ペインには、 [現在の](/developerportal/collaborate/stories) スプリント [の](/developerportal/collaborate/planning-development) のストーリーが表示されます。 **ストーリー** ペインの詳細と操作方法については、 [ストーリー ペイン](stories-pane) を参照してください。
+
+### 3.10 ツールバー {#toolbox}
+
+**Toolbox** ペインには、現在のエディタで使用できるツールが表示されます。 たとえば、ページ内にすべての種類のウィジェットを挿入することができます (例えば、 [データ ウィジェット](data-widgets)) を **ツールボックス** からページにドラッグします。
+
+### 3.11 Windowsのデバッグ
+
+デバッグの詳細については、 [Microflow](/howto8/monitoring-troubleshooting/debug-microflows) を参照してください。
+
+#### 3.11.1 ブレークポイント
+
+**ブレークポイント** ペインには、アプリケーション内のすべてのブレークポイントが表示されます。 ここからブレークポイントを有効または無効にできます。
+
+#### 3.11.2 デバッガー {#debugger}
+
+**デバッガー** ツールを使用してアプリケーションのデバッグを行うことができます。
+
+#### 3.11.3 変数
+
+**変数** ペインで、アプリケーションのデバッグ時に変数、リスト、オブジェクトの現在の値を表示できます。
+
+### 3.12 全画面 {#full-screen}
+
+**Full Screen** モードはタイトルバーを非表示にし、ウインドウを画面全体に埋めます。 This version of **Full Screen** was introduced in Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830); in previous versions, the **Full Screen** mode closed all dockable window panes. ショートカットキー: <kbd>F11</kbd>
+
+### 3.13 自由モード {#distraction-free}
+
+**Distraction Free Mode** は、上記の **Full Screen** モードと同じ操作を行いますが、すべてのドッキング可能なウィンドウペインも閉じます。 これは Studio Pro [8.3.0](/releasenotes/studio-pro/8.3#830) で導入されました。
+
+ショートカットキー: <kbd>Shift</kbd> + <kbd>F11</kbd>
+
+### 3.14 レイアウトのリセット {#reset-layout}
+
+ドッキング可能なウィンドウペインのレイアウトを工場出荷時のデフォルトにリセットします。
+
+## 4 続きを読む
+
+* [ペインの変更](changes-pane)
+* [Errors Pane](errors-pane)
+* [プロジェクトエクスプローラー](project-explorer)
+* [Studio Pro Overview](studio-pro-overview)

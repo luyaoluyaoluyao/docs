@@ -1,0 +1,50 @@
+---
+title: "资源"
+category: "应用程序模型"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "资源"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/resources.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+资源正在帮助无法单独运作但可用于其他文件的模块中的文件。 例如，微流程或页面可以自行运行，但Java 动作只能在微流程中运行。
+
+资源可以在您的项目的不同模块中重新使用。
+
+## 2 個添加資源
+
+要添加资源文档，请执行以下操作：
+
+1.  在 [工程资源管理器](project-explorer)， 右键单击要添加资源到的模块或文件夹并选择 **添加其他**
+
+    ![](attachments/resources/project-explorer-resources.png)
+
+2. 在 **Resources** 类别中，选择您想要添加到项目的文档。
+
+## 3 资源概览
+
+**Resources** 类别包含各种文档类型，可以用于不同的Studio Pro编辑器：
+
+| 元素                                  | 被使用            | 描述                                                                    |
+| ----------------------------------- | -------------- | --------------------------------------------------------------------- |
+| [Java 操作](java-actions)             | 微型流动           | Java 操作可以扩展您的应用程序的功能。 它们可以从微型流动中得到召唤。                                 |
+| [JavaScript 操作](javascript-actions) | 纳诺夫low         | JavaScript 操作可以扩展应用程序的功能。 它们可以从纳夫洛夫调用。                                |
+| [规 则](rules)                        | 微型流动           | 规则包含应用逻辑，应导致枚举或布尔值。 在微型流动决策中使用这些技术。                                   |
+| [枚举数](enumerations)                 | 域模型            | 计算值用于定义枚举类型的属性。                                                       |
+| [Dataset](data-sets)                | 页 次            | 数据集定义在报告小部件中显示的数据。                                                    |
+| [常数](常量)                            | 微流表达式和已消耗的网络服务 | 常数用于定义配置值。                                                            |
+| [正则表达式](regular-expressions)        | 域模型            | 正则表达式用于验证规则，以定义字符串匹配的条件来传递验证。 它们不能用于其他需要正则表达式的地方(例如， *isMatch()* 函数)。 |
+| [预定活动](scheduled-events)            | 微型流动           | 预定的事件让运行时间在特定时间执行微流。                                                  |
+| [文档模板](文档模板)                        | 微型流动           | 文档模板用于在客户端格式化文档并下载或打印它。                                               |
+
+## 4 阅读更多
+
+* [微型流动](微流)
+* [域模型](域名模型)
+* [页 次](页面)

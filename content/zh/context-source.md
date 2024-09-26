@@ -1,0 +1,36 @@
+---
+title: "上下文来源"
+parent: "数据来源"
+tags:
+  - "studio pro"
+  - "上下文："
+  - "数据源"
+menu_order: 30
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/context-source.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+**Context** 源是数据视图的数据源。 使用此数据源的数据视图从上下文中获得对象，这可以是两件事之一：
+
+* 周围的数据容器，如数据视图或列表视图 - 在此情况下 **实体 (路径)** 属性应该关注一个关联
+* 页面参数 -- 页面参数将包含打开页面时传递到页面的对象 (要么是通过参数的另一个页面或者是通过对象的微流程)
+
+## 2 属性
+
+### 2.1 实体(道路)
+
+**实体 (路径)** 属性指定了将显示在数据视图中的实体。 如果您有顶层数据视图， **实体 (路径)** 是一个实体，页面将指望该实体的对象或对象在打开时传递给它。
+
+如果您有嵌套数据视图，您可以选择一个与周围数据容器实体有关联的实体， 而且周围数据容器的实体应当是这种联系的母公司。 欲了解更多关联信息，请参阅 [关联](associations)。
+
+{{% image_container width="400" %}}![上下文来源](attachments/data-widgets/context-source-example.png)
+{{% /image_container %}}
+
+## 3 阅读更多
+
+* [数据部件](data-widgets)
+* [社会联系](关联)

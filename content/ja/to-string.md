@@ -1,0 +1,70 @@
+---
+title: "To String"
+parent: "表現"
+menu_order: 130
+tags:
+  - "studio pro"
+  - "文字列に"
+  - "表現"
+  - "表現"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/to-string.pdf) をクリックしてください。
+{{% /alert %}}
+
+## 1個のイントリード
+
+様々なデータ型の値を文字列に変換するための基本関数です。
+
+## 2 toString
+
+指定した値を文字列表現に変換します。
+
+出力フォーマットを完全に制御する必要がある場合は、データ型固有のフォーマット関数を使用することを検討してください。 例えば、10 進数の場合、 [formatDecimal](parse-and-format-decimal-function-calls) を使用します。
+
+### 2.1 入力パラメータ
+
+入力パラメータは以下の表に記載されています:
+
+| 値          | タイプ                                                                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 文字列に変換する値。 | Integer/Long, Decimal and time, Boolean and Enumeration.<br />列挙の場合、式はキャプションではなく列挙値のキーを返します。 詳細は、式 [の列挙数](enumerations-in-expressions) を参照してください。 |
+
+### 2.2 例
+
+次の入力を使用する場合:
+
+```java
+toString(1.4)
+```
+
+出力は:
+
+```java
+'1.4'
+```
+
+日付と時刻の種類で入力した場合:
+
+```java
+toString(dateTime(2007))
+```
+
+出力は:
+
+```java
+'Mon Jan 01 00:00:00 CET 2007'
+```
+
+ブール値で入力した場合:
+
+```java
+toString(true)
+```
+
+出力は:
+
+```java
+'true'
+```

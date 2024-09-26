@@ -1,0 +1,41 @@
+---
+title: "密码策略"
+parent: "项目安全"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "密码策略"
+  - "项目安全"
+  - "安全"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/password-policy.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+您可以为密码指定一些要求。 这些要求将在创建新用户或更改现有用户密码时适用。
+
+## 2 个密码策略属性
+
+要设置密码策略属性，请打开 **项目安全** > **密码策略** 选项卡：
+
+![](attachments/password-policy/password-policy-tab.png)
+
+密码策略属性在下表中描述：
+
+| 财产      | 描述                                                                   |
+| ------- | -------------------------------------------------------------------- |
+| 最小长度    | 指定密码的最小长度。                                                           |
+| 需要数字    | 指定密码中是否至少需要一个数字。                                                     |
+| 需要混合大小写 | 指定密码是否必须包含至少一个小写字符和一个大写字符。                                           |
+| 需要符号    | 指定密码是否必须包含至少一个特殊符号。 以下字符被视为符号： <br /> <code>~！ @ # $ % ^ & * ( ) - _ = + [ { ] } \ </code> |
+
+## 3 阅读更多
+
+* [项目安全](项目安全)
+* [用户角色](user-roles)
+* [管理员](管理员)
+* [演示用户](demo-users)
+* [匿名用户](anonymous-users)

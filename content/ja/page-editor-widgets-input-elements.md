@@ -1,0 +1,182 @@
+---
+title: "入力要素"
+parent: "page-editor-widgets"
+description: "Mendix Studio で入力ウィジェットを説明します。"
+menu_order: 20
+tags:
+  - "スタジオ"
+  - "ページエディタ"
+  - "入力要素"
+  - "ウィジェットを入力"
+  - "ウィジェット"
+---
+
+## 1つの紹介
+
+**入力要素** は [ウィジェット](page-editor-widgets) であり、一般的にエンドユーザーがデータを入力または編集できるようにするために使用される Mendix Studio です。 例えば、下のテキストボックスでは、ユーザーが自分のフルネームを入力できます。
+
+{{% image_container width="350" %}}![](attachments/page-editor-widgets-input-elements/text-box-example.png)
+{{% /image_container %}}
+
+**入力要素** は、データコンテナ (データビュー、リストビュー、またはデータグリッド) 内でのみ機能できます。 既存のデータコンテナにウィジェットを配置することができます。 または **プロパティ** の **新しいデータ ビュー** をクリックしてデータビューを作成し、その中に入力要素を自動的に配置します。
+
+![](attachments/page-editor-widgets-input-elements/wrap-in-data-view.png)
+
+## 2 入力要素の概要
+
+Studio で使用できる入力要素の説明は以下の表を参照してください。
+
+| 入力要素          | 説明                                                                                                                                                                                                                                                                                                                      |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| テキストボックス      | テキストボックスは、エンドユーザーがテキストを入力、編集、表示できるようにするために使用されます。 たとえば、エンドユーザーは自分の名前を入力することができます。                                                                                                                                                                                                                                       |
+| テキストエリア       | テキストエリアは、製品の説明など、複数の行を取ることができる長いテキストを入力、編集、表示するために使用されます。                                                                                                                                                                                                                                                               |
+| 日付の選択         | 日付ピッカーは、たとえば配信の日を選択するときなど、カレンダーで日付を選択できるようにするために使用されます。                                                                                                                                                                                                                                                                 |
+| ドロップダウン       | ドロップダウン ウィジェットを使用して、エンドユーザーがプリセットのオプションリストからオプションを選択できるようにします。 たとえば、ユーザーは製品の色を選択できます。<br />このウィジェットを使用して関連付けを表示および選択することもできます。 ドメインモデルに多対一の関連付けが必要です (詳細は、 [Associations](domain-models-association-properties) を参照してください)。 例えば、顧客が複数の住所を持っている場合、ユーザーはそれらから配送先住所を選択することができます。 この例では、1つの顧客(1対1の関連付け)に関連付けることができます。 |
+| チェックボックス      | このチェック ボックス ウィジェットは、ユーザーが true または false として値をマークできるようにします。 たとえば、ユーザーはニュースレターにサインアップするためにボックスにチェックを入れることができます。                                                                                                                                                                                                          |
+| Radio Buttons | ラジオボタンは、ユーザーがプリセットのものの中からオプションを選択できるようにするために使用されます。 たとえば、ユーザーは注文を受け取るために複数の可能な場所から選択することができます。                                                                                                                                                                                                                          |
+
+{{% alert type="info" %}}
+
+標準入力ウィジェットとは別に、 [Mendix Marketplace](https://marketplace.mendix.com/) からアプリにウィジェットをダウンロードすることもできます。 詳細については、 [ウィジェット](page-editor-widgets#widgets-by-origin) の *原点別ウィジェット* セクションを参照してください。
+
+{{% /alert %}}
+
+## 3つのプロパティ
+
+すべての入力要素プロパティは以下のセクションで構成されています:
+
+* [タイプ](#type)
+* [データソース](#input-elements-data-source)
+* [全般](#input-elements-general)
+* [入力の検証](#validation)
+* [条件付き可視性](#visibility)
+* [デザイン](#input-elements-design)
+
+日付ピッカーには特定の [書式](#format) セクションがあります。
+
+### 3.1 タイプオプション {#type}
+
+{{% alert type="info" %}}
+This option is only available for **Text Box**, **Text Area**, **Radio Buttons**, **Check Box**, and **Drop-Down** widgets.
+{{% /alert %}}
+
+The **Type** option allows you to quickly change the type of one input element to a similar one: you can change a **Text Box** to a **Text Area** and vice versa, and change **Radio Buttons** to a **Check Box** or a **Drop-Down** and vice versa:
+
+![タイプオプション](attachments/page-editor-widgets-input-elements/input-widget-type.jpg)
+
+### 3.2 データソースセクション {#input-elements-data-source}
+
+**入力要素** は、データを表示し、エンドユーザーがそれを編集できるようにするために、属性にリンクする必要があります。 異なる入力要素は、異なる [属性の種類](domain-models-attributes) を必要とします。 以下の表に、入力要素と属性タイプの対応を示します。
+
+| 入力要素          | 許可された属性タイプ                                                             |
+| ------------- | ---------------------------------------------------------------------- |
+| テキストボックス      | 文字列, 秋, 小数, ハッシュ文字列, 整数, Long                                          |
+| テキストエリア       | 文字列                                                                    |
+| 日付の選択         | 日付と時刻                                                                  |
+| ドロップダウン       | 列挙、関連                                                                  |
+| 参照セレクター       | Autonumber, Date and Time, Decimal, Enumeration, Integer, Long, String |
+| チェックボックス      | Boolean                                                                |
+| Radio Buttons | Boolean, Enumeration                                                   |
+
+### 3.3 一般セクション {#input-elements-general}
+
+**General** セクションには、すべての入力要素に共通のプロパティがありますが、特定のプロパティも含めることができます。
+
+#### 3.3.1 ラベルを表示 {#show-label}
+
+エンドユーザーにウィジェットのラベル (名前) を表示する場合は、このプロパティを有効にします。 *このプロパティはデフォルトで有効になっています。*
+
+#### 3.3.2 ラベル
+
+このプロパティは、 **Show Label** が有効な場合にのみ表示されます。 エンドユーザーに表示される名前を指定します。 属性を選択すると、属性の名前がブレース内のラベルに表示されます。 これは、静的なテキストの代わりに、属性の値がエンドユーザーに表示されることを意味します。
+
+#### 3.3.3 編集性 {#editability}
+
+編集可能性は、エンドユーザーがウィジェットによって表示される値を変更できるかどうかを示します。 可能な値は次のとおりです。
+
+* **編集可能** - ウィジェットで表示される値は編集可能です。
+
+* **読み取り専用** – 値は読み取り専用モードです。
+
+* **Conditional** – the widget is editable only if specified conditions are met based on an attribute value (for more information, see  [Attribute-Based](#attribute-based) and [Attribute Values](#attribute-values) sections below) or based on an expression. Studio Pro でのみ、式に基づいて条件を作成できます(詳細については)。 [ページエディターで共通のプロパティ](/refguide8/common-widget-properties#editability) の *編集可能セクション* を参照 )
+
+    {{%alert type="info" %}}If an attribute set for the widget's data source is of the AutoNumber type, the widget is set into read-only mode by default and the **Editability** setting itself is disabled, because attributes of this type are generated automatically.
+
+    {{%/alert %}}
+
+
+#### 3.3.4 属性ベース {#attribute-based}
+
+**Attribute-Based** プロパティは [Conditional Editability](#editability) が選択されている場合にのみ表示されます。
+
+**Attribute-Based** の条件付き編集では、選択した属性の特定の値に一致するウィジェットを表示することができます。
+
+{{%alert type="info" %}}
+
+属性は、ブール型または列挙型でなければなりません。
+
+{{%/alert %}}
+
+{{%alert type="info" %}}
+
+データコンテナ内にウィジェットが配置されている場合(データビューまたはリストビュー)にのみ、属性ベースの条件付き編集機能を設定できます。 ウィジェットをページに配置する方法についての詳細は、 [ページ](page-editor#adding-elements) の *ページ* のセクションで要素を追加するを参照してください。
+
+{{%/alert %}}
+
+#### 3.3.5 属性値 {#attribute-values}
+
+このプロパティは、 [Attribute-Based](#attribute-based) プロパティの属性が選択されている場合にのみ表示されます。 **属性値** プロパティでは、特定の属性値を選択できます。
+
+例えば、 **都市** フィールドを編集できるようにしたいのは、ユーザーが **国** フィールドを入力したときだけです 限られた数の国に製品を届けることができるからです So, you need to select *Country* in the **Attribute-Based** property and *Netherlands*, *Belgium*, *Germany*, *France* in the **Attribute Value** property:
+
+![](attachments/page-editor-widgets-input-elements/attribute-based-editability.png)
+
+#### 3.3.6 特定のプロパティ
+
+以下の表に、入力要素の特定のプロパティを記述します。
+
+| 入力要素          | 属性     | 説明                                                                                                                                                                             |
+| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| テキストエリア       | 自動的に拡大 | 有効にすると、テキストが記入されている場合、テキスト領域は量に応じて自動的に拡大します。 <br />*このプロパティはデフォルトで無効になっています。*                                                                                            |
+| テキストエリア       | 行数     | このプロパティは、 **Grow Automatic** オプションが無効な場合にのみ表示されます。  行数は、テキスト領域に同時に表示される行数を決定します。 テキストエリア内のテキストに複数の行が含まれている場合は、スクロールバーを使用してすべてを表示する必要があります。 <br /> **行数** オプションのデフォルト値: 5 |
+| Radio Buttons | 方向     | このプロパティは、ラジオボタンをアプリケーションに縦または横に表示するかどうかを定義します。 <br /> **方向**の既定値 : 水平。                                                                                                   |
+
+### 3.4 書式セクション {#format}
+
+**書式** セクションは、 **日付選択** ウィジェットのみに固有です。
+
+ **書式** セクションプロパティは以下の表に記載されています。
+
+| 属性   | 説明                                                                                                         |
+| ---- | ---------------------------------------------------------------------------------------------------------- |
+| タイプ  | ユーザーに日付や時刻を表示する方法を指定します。 このプロパティの可能な値は以下のとおりです: <ul><li>**日付** – ユーザーは日付のみを表示または編集できます</li>**時間** – ユーザーは時間のみを表示または編集できます<li></li><li>**日付と時刻** – ユーザーは日付と時刻を表示または編集できます</li><li>**カスタム** – カスタム日付と時刻のフォーマットはStudio Proでのみ設定できます</li></ul><br />**Type**: Date のデフォルト値 |
+| 書式の例 | 選択した書式タイプの例を表示します。                                                                                         |
+
+### 3.5 入力検証セクション {#validation}
+
+**Input Validation**では、ウィジェットの値を検証するかどうかを指定できます。 入力ウィジェットにバリデーションタイプを設定し、検証に失敗した場合にエンドユーザーメッセージを指定できます。 例えば、 **フルネーム** フィールドを新規顧客に必須としてマークし、「続行するには名前を指定してください」というメッセージを追加することができます。
+
+{{% image_container width="350" %}}
+![](attachments/page-editor-widgets-input-elements/Validation-type-required.png)
+{{% /image_container %}}
+
+
+**入力検証** セクションのプロパティは以下の表に記載されています:
+
+| 属性                             | 説明                                                                                             |
+| ------------------------------ | ---------------------------------------------------------------------------------------------- |
+| バリデーションタイプ                     | このプロパティは、ウィジェットに入力された値を検証するかどうかを示します。 利用可能なオプションは次のとおりです:<br /><ul><li>**なし** - 値は必要ありません、ウィジェットは空のままにすることができます</li><li>**必須** – ウィジェットは空にすることはできません。エンドユーザーは値を入力する必要があります。</li><li>**カスタム** – Studio Proでのみ設定できます。 ただし、Studio Pro でカスタムバリデーションが設定されている場合は、カスタムバリデーションの [message](#validation-message) を指定または変更できます。</li></ul> |
+| <a name="validation-message"></a>メッセージ | **Validation Type** が **Required** または **Custom** で、検証に失敗したときにエンドユーザーに表示されるメッセージ。              |
+
+### 3.6 条件付き表示セクション {#visibility}
+
+{{% snippet file="studio/visibility-section-link.md" %}}
+
+### 3.7 デザインセクション {#input-elements-design}
+
+**デザイン** セクションとそのプロパティについては、 [デザイン セクション](page-editor-widgets-design-section) を参照してください。
+
+## 4 続きを読む
+
+* [ページ](page-editor)
+* [ウィジェット](page-editor-widgets)

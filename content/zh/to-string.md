@@ -1,0 +1,70 @@
+---
+title: "到字符串"
+parent: "表达式"
+menu_order: 130
+tags:
+  - "studio pro"
+  - "到字符串"
+  - "表达式"
+  - "表达式"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/to-string.pdf)。
+{{% /报警 %}}
+
+## 1个引入器
+
+将各种数据类型的值转换为字符串的基本函数。
+
+## 2 toString
+
+将指定的值转换为字符串表示.
+
+如果您需要完全控制输出格式，请考虑使用数据类型的特定格式函数。 例如，对于小数点，使用 [格式小数组](parse-and-format-decimal-function-calls)。
+
+### 2.1 输入参数
+
+下面的表格描述了输入参数：
+
+| 值          | 类型                                                                                                            |
+| ---------- | ------------------------------------------------------------------------------------------------------------- |
+| 应转换为字符串的值。 | 整数/Long、十进制、日期和时间、布尔和枚举。<br />在枚举的情况下，表达式返回枚举值的键值，而不是标题。 更多信息，见表达式中的 [枚举](enumerations-in-expressions)。 |
+
+### 2.2 例子
+
+如果您使用以下输入：
+
+```java
+toString(1.4)
+```
+
+输出为：
+
+```java
+'1.4'
+```
+
+如果您输入了日期和时间类型的输入：
+
+```java
+toString(dateTime(2007))
+```
+
+输出为：
+
+```java
+'Mon Jan 01 00:00:00 CET 2007'
+```
+
+如果您输入了一个布尔输入：
+
+```java
+toString(true)
+```
+
+输出为：
+
+```java
+“true”
+```

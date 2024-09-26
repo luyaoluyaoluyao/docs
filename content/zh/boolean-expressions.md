@@ -1,0 +1,105 @@
+---
+title: "布尔表达式"
+parent: "表达式"
+menu_order: 50
+tags:
+  - "studio pro"
+  - "表达式"
+  - "表达式"
+  - "Boolean"
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/boolean-expressions.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+布尔表达式可以用来执行返回真或假的逻辑操作。
+
+## 2 和
+
+如果两个表达式都是真实的， `和` 操作员将检查两个布尔表达式，并且只返回 `true`。
+
+### 2.1 实例
+
+下面的例子说明表达式返回的价值：
+
+* 如果您使用以下输入：
+
+    ```java
+    (6 > 4) and (3 < 5)
+    ```
+
+    输出为 `true` ，因为两个表达式都是 `true`。
+
+* 如果您使用以下输入：
+
+    ```java
+    ('hello' = 'hallo') (3 < 5)
+    ```
+
+    输出为 `false`，因为只有第二个表达式是 `true`。
+
+## 3 或
+
+`或` 操作员合并了两个布尔值表达式，并返回 `true` 如果至少一个表达式是真。
+
+### 3.1 实例
+
+下面的例子说明表达式返回的价值：
+
+* 您有一个名为 *产品* 的实体具有整数类型的 *价格* 属性。 *价格* 属性等于 3，您还有另一个属性名为 *推荐价格* 等于2。
+
+    如果您使用以下输入：
+
+    ```java
+    ($product/价格 < $product/推荐价格: 2) 或 ($product/价格     > 0)
+    ```
+
+    表达式将返回 `true` ，因为至少一个表达式是真的(第二个表达式)。 请注意，如果两个语句都是真实的，则表达式仍然返回 `true`。
+
+* 如果您使用以下输入：
+
+    ```java
+    ('hello' = 'nothello') 或('byebye' = 'stilllnotbyebye')
+    ```
+
+    表达式将返回 `false`，因为这两个表达式都是假的。
+
+## 4 不是
+
+`不是` 操作员否定指定的布尔表达式。
+
+### 4.1 Input
+
+布尔型表达式。
+
+### 4.2 产出
+
+返回指定表达式的否定。 如果表达式评估为 `true`, 它返回 `fals`; 反之亦然。
+
+### 4.3 实例
+
+下面的例子说明表达式返回的价值：
+
+* 如果您使用以下输入：
+
+    ```java
+    not('hello' = 'hallo')
+
+    ```
+
+    表达式将返回 `true`。
+
+
+* 如果您使用以下输入：
+
+    ```java
+    not(true)
+    ```
+
+    表达式将返回 `false`。
+
+
+

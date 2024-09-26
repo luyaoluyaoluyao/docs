@@ -1,0 +1,44 @@
+---
+title: "关联源"
+parent: "数据来源"
+tags:
+  - "studio pro"
+  - "关联"
+  - "数据源"
+menu_order: 60
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 对于简体中文翻译，请点击 [中文为 xix x](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/association-source.pdf)。
+{{% /报警 %}}
+
+## 1 导言
+
+**关联** 源是一个数据源，可供嵌套 [数据网格](data-grid) [模板格子](template-grid)和 [列表视图](list-view).
+
+{{% alert type="warning" %}}
+
+**关联** 源检索对象从内存而不是从数据库中获取。
+
+{{% /报警 %}}
+
+**关联** 数据源给小部件添加了一个关联到另一个对象的对象。 要提供上下文，数据部件需要嵌套在另一个数据部件中。
+
+可以作为其他数据部件的容器运行的数据小部件是 [模板网格](template-grid)， [列表视图](list-view)和 [数据视图](data-view)。
+
+{{% alert type="warning" %}}
+
+在带有关联数据源的数据部件中无法排列列列和搜索。 这是因为这些功能需要一个数据库调用才能运行，而一个关联数据源并不一定会启动。
+
+{{% /报警 %}}
+
+## 2 属性
+
+### 2.1 实体(道路)
+
+**实体 (路径)** 属性指定了部件使用的关联性。 只有连接到周围数据容器对象的对象才会出现在部件中。
+
+## 3 阅读更多
+
+* [社会联系](关联)
+* [数据部件](data-widgets)

@@ -1,0 +1,56 @@
+---
+title: "オブジェクト型の決定"
+parent: "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
+menu_order: 2
+tags:
+  - "studio pro"
+  - "オブジェクト型の決定"
+  - "意思決定|意思決定|意思決定|意思決定|意思決定|意思決定|意思決定||意思決定|意思決定|"
+aliases:
+  - /refguide8/inherited from split.html
+---
+
+{{% alert type="info" %}}
+<img src="attachments/chinese-translation/china.png" style="display: inline-block; margin: 0" /> 簡体字中国語の翻訳については、 [<unk> <unk> <unk>](https://cdn.mendix.tencent-cloud.com/documentation/refguide8/object-type-decision.pdf) をクリックしてください。
+{{% /alert %}}
+
+{{% alert type="info" %}}
+この活性は、ナノフローではなく、マイクロフローでのみ使用できます。
+{{% /alert %}}
+
+## 1つの紹介
+
+オブジェクト型の決定は、一般化されたエンティティのオブジェクトの型に基づいて選択を行う要素です。 オブジェクト タイプ決定の出力は、一般化されたエンティティから継承される特殊なエンティティです。 専門化と一般化の詳細については、 [エンティティ](entities) を参照してください。
+
+マイクロフローの残りの部分で特殊なタイプを使用する場合は、 [キャスト](cast-object) アクティビティを使用できます。
+
+## 2つのプロパティ
+
+オブジェクト タイプの決定プロパティは以下のセクションで構成されています:
+
+* [一般的な](#common)
+
+* [Input](#input)
+
+    {{% image_container width="250" %}}
+![](attachments/decisions/object-type-decision-properties.png)
+{{% /image_container %}}
+
+### 2.1 共通セクション {#common}
+
+#### 2.1.1 図表番号
+
+詳細については、 [Common Properties](microflow-element-common-properties#caption) の *図表番号* セクションを参照してください。
+
+### 2.2 入力セクション {#input}
+
+#### 2.2.1 オブジェクト
+
+入力オブジェクトには、一般化されたエンティティのオブジェクトが含まれます。
+
+たとえば、エンティティ **学生** とエンティティ **教授** がその一般化としてエンティティ **メンバー** を持っています。 他の **メンバー** とは別の **教授**のページを開きます。 選択された **メンバー** オブジェクトはパラメータ **SelectedMember** で使用でき、オブジェクト タイプの決定への入力として使用されます。 **学生** への流出はありませんのでご注意ください。 発信フローがない場合、発信フローを持つ最も近い一般化が検索されます。 この場合、この一般化は **メンバー** です。 **SelectedMember** がオブジェクトを含まない場合、キャプション **(空)** の出力フローが続く。
+
+![](attachments/decisions/object-type-decision.png)
+
+
+
